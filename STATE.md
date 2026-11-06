@@ -20,7 +20,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## The research plan (his ask of 19:50: parallel where it can be, sequential where it must, no loss of accuracy)
 
 - **Wave 1, running now in parallel** (Sonnet subagents in the orchestrator's thread, xhigh): `research/decisiveness-models.md`, `research/historical-close-races.md`, `research/frameworks-benefit-cost.md`, `research/electoral-systems.md`. Subagents, not threads, because bounded reading reports straight back and costs less.
-- **Wave 2, needs wave 1:** fresh-reader check, at source, of every formula and figure the model rests on; then the orchestrator writes the full model (with a simple mode for the site); Fable tries to break it; then it goes to the maker.
+- **Wave 2, ready, waiting on network access:** threads from `briefs/R1` to `R4` (Sonnet 5.5, xhigh), four at once, each re-reading one first-pass report at source. Meanwhile the orchestrator drafts the model's structure from the extracts, every figure marked unverified. Then: fresh-reader check, at source, of every formula and figure the model rests on; then the orchestrator writes the full model (with a simple mode for the site); Fable tries to break it; then it goes to the maker.
 - **Wave 3, after the maker has seen the model** (he put the standard of review before the historical data, 19:32): worker threads through the coordinator, from briefs in `briefs/`, to compute p for real past elections, split by election set. At most three at once.
 
 ## Threads
@@ -31,6 +31,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-06 20:50: wave-2 briefs R1-R4 written (Sonnet, xhigh; re-read each first-pass report at source); the record merged to `main` in #1 so workers can read it. Waiting on the maker's network access to start them. The seven-day usage limit shows a warning (session metadata, 20:45).
 
 - 2026-11-06 20:40: research D (electoral systems) back, WebFetch extracts throughout (curl refused); wave 1 complete, all four reports one grade below a raw read; wave 2 must re-read at source.
 
