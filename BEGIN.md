@@ -10,7 +10,7 @@
 
 ## The orchestrator, on starting
 
-1. Check the deploy: the Vercel project `vote` (team zachs-projects-74dd78e7) has a READY production deployment of `main`'s head. If not, fix it or tell the maker in one line.
+1. Check the deploy: a Vercel project (team zachs-projects-74dd78e7) has a READY production deployment of `main`'s head. If not, fix it or tell the maker in one line.
 2. Greet the maker in your thread in under 80 words: the site's address, that the law is not yet written, and that you are ready to brainstorm the formula first.
 3. Then brainstorm, draft `LAW.md`, have it cold-read, put it to him to ratify, then plan and build, as `OPERATIONS.md` and the general law say.
 
