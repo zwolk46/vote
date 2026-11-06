@@ -32,6 +32,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-06 20:40: research D (electoral systems) back, WebFetch extracts throughout (curl refused); wave 1 complete, all four reports one grade below a raw read; wave 2 must re-read at source.
+
 - 2026-11-06 20:30: research B (historical close races) back, read through WebFetch extracts (curl refused); to be re-read at source in wave 2. Headline: no statewide or federal general election found decided by one vote; at that closeness recounts, courts and tie rules decide; counting noise far exceeds one vote.
 
 - 2026-11-06 20:20: research C (frameworks, benefit, cost) back, read only through WebFetch extracts (curl refused); every fact to be re-read at source in wave 2. Its key point: the altruistic reading of B is the one choice the maker's conclusion turns on; and his "marginal difference" fits B or pB.
