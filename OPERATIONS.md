@@ -33,6 +33,8 @@
 
 ## 4. Models, effort and usage
 
+**Superseded in part by the maker's ruling of 2026-11-06 19:39 UTC (`RULINGS.md`):** every thread at xhigh effort; Opus 5.5 the default for threads and subagents; Sonnet 5.5 only for research with a clear directive; Fable 5.1 where the orchestrator judges it worth it. The table below stands only where it does not conflict.
+
 | Who | Model and effort | Reason |
 |---|---|---|
 | Coordinator | low | it only routes |
