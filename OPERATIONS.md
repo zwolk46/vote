@@ -4,7 +4,7 @@
 
 ## 1. Who is who
 
-**The orchestrator controls the project** (the maker, 2026-11-06 19:59 UTC, `RULINGS.md`). The project instructions that put this into effect are drafted in `PROJECT-INSTRUCTIONS.md`; where they and this file differ, they govern once the maker has approved them.
+**The orchestrator controls the project** (the maker, 2026-11-06 19:59 UTC, `RULINGS.md`). The project instructions that put this into effect are in `PROJECT-INSTRUCTIONS.md`, in force since 2026-11-06 20:04 UTC; where they and this file differ, they govern.
 
 - **The maker** is Zach. He alone makes and ratifies the law and rules on how it is applied. He is not asked why he ruled as he did (general law 1e).
 - **The coordinator** (the project chat) is a relay. It routes; it does not interpret, decide or answer substance. *Reason:* it sees recent messages and memory, not the record, so its reading would stand in for the maker's or the orchestrator's.

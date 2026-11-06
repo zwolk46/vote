@@ -20,3 +20,9 @@
 > Let's be unambiguously clear. I think you already have should have a good idea, but the orchestrator, not the coordinator, controls this project. And so I want you to consider the structure of Claude projects so that I can tell, or so that you can tell the coordinator to change the project instructions. Just either you should like come up with whatever should be in the project instructions so that you manage and the coordinator does what the coordinator functionally needs to do. And we should have good discipline about what models and what effort levels to use. I want this to be really rigorous, so I'm willing to use usage, but still like Sonnet, Opus, and Fable should be assigned where they're most reasonable. Ask me any questions about structure or procedure if you're not fully clear.
 
 *Reading.* The orchestrator directs the project; the coordinator does only what it must (relay, start and stop threads on the orchestrator's word). The orchestrator drafts the project instructions (`PROJECT-INSTRUCTIONS.md`); they take effect when he approves them and the coordinator applies them. Rigour comes before usage, with each model assigned where it is most reasonable.
+
+## 2026-11-06 20:03 UTC: project instructions approved
+
+> Make these the project instructions
+
+(In the project chat, with `PROJECT-INSTRUCTIONS.md` attached.) *Reading.* The text of `PROJECT-INSTRUCTIONS.md` as drafted at 20:05 is the project's instructions, applied verbatim by the coordinator at 20:04 (the attached file was checked identical to the repository copy). It includes his standing approval of the model and effort the orchestrator names in each brief.
