@@ -32,6 +32,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-06 20:20: research C (frameworks, benefit, cost) back, read only through WebFetch extracts (curl refused); every fact to be re-read at source in wave 2. Its key point: the altruistic reading of B is the one choice the maker's conclusion turns on; and his "marginal difference" fits B or pB.
+
 - 2026-11-06 20:05: project instructions approved and applied; checked identical to the draft.
 
 - 2026-11-06 20:05: he ruled the orchestrator controls the project; drafted project instructions with a model and effort table; put to him.
