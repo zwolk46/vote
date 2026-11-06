@@ -1,0 +1,77 @@
+/* The page's styles, from the midterms site's tokens (zwolk46/midterms src/styles.css, 11-06 2026; DESIGN-SPEC R2,
+   R4, R5). Separation by space and hairlines, never shadows or boxed cards (the maker's named faults). Motion: none
+   until a surface needs one; then that surface gets its own rule (MOTION-SPEC 4.3: no global transition).
+   The party colours are kept only as the data's colours if the formula needs parties; they mean nothing else here,
+   and the site stays non-partisan (the maker, 11-05 20:58). */
+
+@font-face {
+  font-family: 'Plex';
+  src: url('/fonts/plex-sans-var-latin.woff2') format('woff2-variations');
+  font-weight: 400 600; font-stretch: 85% 100%; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2122, U+2190-2193, U+2212;
+}
+@font-face {
+  font-family: 'Plex';
+  src: url('/fonts/plex-sans-var-latin-ext.woff2') format('woff2-variations');
+  font-weight: 400 600; font-stretch: 85% 100%; font-style: normal; font-display: swap;
+  unicode-range: U+0100-024F, U+1E00-1EFF;
+}
+
+:root {
+  --bg: #fbfaf8; --fg: #16181b; --muted: #5b6068; --faint: #6a6f76; --line: #e3e1dc; --line-strong: #c9c6bf;
+  --panel: #f2f1ed; --hover: #ebe9e4;
+  --dem: #2d62b8; --rep: #c2433a; --oth: #6f6a82;
+  --dem-t: #e2eaf7; --band: #faf2d8; --rep-t: #f7e1de; --oth-t: #eae8ef;
+  --pend: #d6d3cc; --none: #eeede9; --split: #9b8fb0; --track: #eae8e3;
+  --warn: #8a5a00; --warn-t: #fbf1dc;
+  --yes: #13756d; --no: #a35714;   /* a measure's two answers (the maker, 18:23 UTC 11-04): a teal and a copper, which no party uses, apart for colour vision as blue from yellow; each 4.5:1 or more on --bg as text */
+  --gutter: 16px; --maxw: 1240px;
+  --fs: 15px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121314; --fg: #ecebe7; --muted: #a2a6ad; --faint: #7a7f86; --line: #2a2c30; --line-strong: #3d4046;
+    --panel: #1a1b1e; --hover: #222428;
+    --dem: #5d90e6; --rep: #e46c60; --oth: #a39cbc;
+    --dem-t: #1b2840; --band: #2c2716; --rep-t: #3a201d; --oth-t: #27252f;
+    --pend: #3a3c40; --none: #222326; --split: #6f6787; --track: #26282c;
+    --warn: #e2b259; --warn-t: #2d2412;
+    --yes: #4cc0b1; --no: #e39a55;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121314; --fg: #ecebe7; --muted: #a2a6ad; --faint: #7a7f86; --line: #2a2c30; --line-strong: #3d4046;
+  --panel: #1a1b1e; --hover: #222428;
+  --dem: #5d90e6; --rep: #e46c60; --oth: #a39cbc;
+  --dem-t: #1b2840; --band: #2c2716; --rep-t: #3a201d; --oth-t: #27252f;
+  --pend: #3a3c40; --none: #222326; --split: #6f6787; --track: #26282c;
+  --warn: #e2b259; --warn-t: #2d2412;
+  --yes: #4cc0b1; --no: #e39a55;
+  color-scheme: dark;
+}
+@media (min-width: 900px) { :root { --fs: 16px; --gutter: 28px; } }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: 'Plex', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: var(--fs); line-height: 1.4;
+  font-stretch: 100%; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+@media (hover: hover) { a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; } }
+:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+/* five sizes, two weights (DESIGN-SPEC R2); each about 1.25 times the next, so each reads as a rank */
+:root { --t-fig: 32px; --t-head: 24px; --t-sub: 19px; --t-body: 15px; --t-src: 12px; }
+@media (max-width: 899px) { :root { --t-fig: 26px; --t-head: 22px; } }
+h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -0.005em; }
+h1 { font-size: var(--t-head); line-height: 1.15; }
+h2 { font-size: var(--t-sub); }
+.fig { font-size: var(--t-fig); font-weight: 600; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.src { font-size: var(--t-src); color: var(--faint); }
+.muted { color: var(--muted); }
+/* the space scale (R5): 4, 8, 16, 24, 40, 64 */
+.page { max-width: var(--maxw); margin: 0 auto; padding: 40px var(--gutter) 64px; }
+.page > * + * { margin-top: 16px; }
