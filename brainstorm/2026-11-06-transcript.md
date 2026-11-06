@@ -32,3 +32,9 @@ The question that matters most for your claim: does B count only what the outcom
 > So I think it would be best if you could work with the coordinator of this project to delegate some research tasks to other agents, unless you're already doing that. Because some of this stuff can probably be done at the same time while some of it requires the responses from previous agents. So figure out how the tasks should be split up to make it work as efficient as possible. Without sacrificing any accuracy.
 
 **Orchestrator, 19:52.** (Reply on the split of the research: wave 1, four parallel research agents inside the orchestrator's thread; wave 2 after it, a fresh-reader check of every figure and the full model; wave 3, after he has seen the model, worker threads through the coordinator to compute p for real past elections; Fable tries to break the model before it goes to him.)
+
+**Zach, 19:59.**
+
+> Let's be unambiguously clear. I think you already have should have a good idea, but the orchestrator, not the coordinator, controls this project. And so I want you to consider the structure of Claude projects so that I can tell, or so that you can tell the coordinator to change the project instructions. Just either you should like come up with whatever should be in the project instructions so that you manage and the coordinator does what the coordinator functionally needs to do. And we should have good discipline about what models and what effort levels to use. I want this to be really rigorous, so I'm willing to use usage, but still like Sonnet, Opus, and Fable should be assigned where they're most reasonable. Ask me any questions about structure or procedure if you're not fully clear.
+
+**Orchestrator, ~20:05.** (Network-access ask; then the draft project instructions, `PROJECT-INSTRUCTIONS.md`, put to him for approval.)

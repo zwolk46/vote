@@ -9,3 +9,22 @@
 - Tags used: **[stated via WebFetch]** (a source says it; where), **[measured]** (I computed it; how shown), **[inferred]** (my reading).
 - Dates: today is 2026-11-06 per the environment; some 2025-26 items below come from Wikipedia's list and are not independently verified.
 
+## 2b. Closest US presidential state margins, 2000-2024 (official sources)
+
+**Source and method.** The FEC publishes "Federal Elections <year>: Election Results for the U.S. President, the U.S. Senate and the U.S. House of Representatives", which states "Data is based on official figures obtained from State election officials" (2020 edition, Oct 2022; 2016 ed. Dec 2017; 2012 ed. Jul 2013, "includes results amended through July 2013"; 2008 ed. Jul 2009; 2004 ed. May 2005) **[stated via WebFetch]**. URLs read (all `https://www.fec.gov/resources/cms-content/documents/federalelectionsYYYY.pdf` for YYYY = 2004, 2008, 2012, 2016, 2020, and `https://www.fec.gov/documents/1732/FederalElections2000_PresidentialGeneralElectionResultsbyState.pdf` for 2000). I took each year's 51-row table from WebFetch, typed it into a CSV (`/tmp/claude-0/research-b/data/fec<year>.csv`, scratch, not in the repo), and **checked the transcription by summing the columns: the sums equal the printed national totals** for 2004 (62,040,610 / 59,028,444), 2008 (69,498,516 / 59,948,323), 2012 (65,915,795 / 60,933,504), 2016 (62,984,828 / 65,853,514) and 2020 (81,283,501 / 74,223,975). The 2000 file prints no national row, so that year has no such check; its Florida line was printed in full: Bush 2,912,790, Gore 2,912,253, state total 5,963,110. Margins are [measured] as |top - second| of the two leading candidates; the percentages are of the two leading candidates' combined votes (third-party votes are not in my tables), so they differ slightly from a share of all votes.
+
+| Year | Closest states by raw votes (margin) | Closest by % of two-candidate vote |
+|---|---|---|
+| 2000 | NM 366 (Gore), FL 537 (Bush), IA 4,144, WI 5,708 | FL 0.009%, NM 0.064%, WI 0.230%, IA 0.326% |
+| 2004 | NM 5,988, NH 9,274, IA 10,059, WI 11,384 | WI 0.384%, IA 0.673%, NM 0.801% |
+| 2008 | MO 3,903 (McCain), MT 11,096, NC 14,177 | MO 0.135%, NC 0.332%, IN 1.044% |
+| 2012 | NH 39,643, AK 42,036 (small states) | FL 74,309 = 0.885%, NC 92,004 = 2.068%, OH 166,272 = 3.029% |
+| 2016 | NH 2,736 (Clinton), MI 10,704 (Trump), ME 22,142, WI 22,748 | MI 0.235%, NH 0.394%, PA 44,292 = 0.751%, WI 0.816% |
+| 2020 | AZ 10,457 (Biden), GA 11,779 (Biden), WI 20,682 | GA 0.239%, AZ 0.314%, WI 0.638%, PA 80,555 = 1.178% |
+
+Selected raw lines (as printed in the FEC tables): 2000 NM Bush 286,417 / Gore 286,783; 2016 MI Trump 2,279,543 / Clinton 2,268,839; 2016 NH Trump 345,790 / Clinton 348,526; 2020 AZ Biden 1,672,143 / Trump 1,661,686; 2020 GA Biden 2,473,633 / Trump 2,461,854; 2020 WI Biden 1,630,866 / Trump 1,610,184.
+
+**2024.** I could not find an FEC "Federal Elections 2024" edition (the URL pattern returned an error). The House Clerk's *Statistics of the Presidential and Congressional Election of November 5, 2024* (published March 10, 2025, "FROM OFFICIAL SOURCES"; https://clerk.house.gov/member_info/electionInfo/2024/statistics2024.pdf) was read, but WebFetch returned only states AL through MO before the text ended. From it (presidential electors by party label, as printed): MI Republican 2,816,636 / Democratic 2,736,533 (margin 80,103 [measured]); GA 2,663,117 / 2,548,017 (115,100); AZ 1,770,242 / 1,582,860 (187,382); MN 1,519,032 / 1,656,979 (137,947). Wisconsin and Pennsylvania from Ballotpedia's state pages (which say only "The results have been certified"; no named source): WI Trump 1,697,626 / Harris 1,668,229 (29,397); PA Trump 3,543,308 / Harris 3,423,042 (120,266). So the closest 2024 state I could verify is **WI, margin 29,397**; NV, NH, NC, VA, NM and states MT-WY were not read from an official table and are an open item.
+
+**Reading for the site.** [inferred] In 5 of the 6 elections 2000-2020 (all but 2012, where the closest state by votes was NH 39,643 and by share FL 74,309), at least one state had a presidential margin under ~15,000 votes [measured from the FEC tables above]; the closest were 366 (NM 2000) and 537 (FL 2000). Even these are 10^2-10^4 votes, not 1.
+

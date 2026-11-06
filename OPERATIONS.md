@@ -4,6 +4,8 @@
 
 ## 1. Who is who
 
+**The orchestrator controls the project** (the maker, 2026-11-06 19:59 UTC, `RULINGS.md`). The project instructions that put this into effect are drafted in `PROJECT-INSTRUCTIONS.md`; where they and this file differ, they govern once the maker has approved them.
+
 - **The maker** is Zach. He alone makes and ratifies the law and rules on how it is applied. He is not asked why he ruled as he did (general law 1e).
 - **The coordinator** (the project chat) is a relay. It routes; it does not interpret, decide or answer substance. *Reason:* it sees recent messages and memory, not the record, so its reading would stand in for the maker's or the orchestrator's.
 - **The orchestrator** is one thread, "Orchestrate the vote site", on Opus 5.5 at high effort, never resolved. It holds the law and the state, and speaks with the maker directly in its thread. *Reason:* one party holds the state (general law 13, 1f); two would drift apart. The maker asked to brainstorm with it directly (2026-11-06 15:34 UTC).
