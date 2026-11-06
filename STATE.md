@@ -32,6 +32,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-06 21:00: model draft 1 (`model/MODEL-DRAFT.md`, copy in project files) put to the maker, figures unverified; two questions: whose welfare is in B (decision card), and whether "everything else fixed" excludes evidential correlation.
+
 - 2026-11-06 20:50: wave-2 briefs R1-R4 written (Sonnet, xhigh; re-read each first-pass report at source); the record merged to `main` in #1 so workers can read it. Waiting on the maker's network access to start them. The seven-day usage limit shows a warning (session metadata, 20:45).
 
 - 2026-11-06 20:40: research D (electoral systems) back, WebFetch extracts throughout (curl refused); wave 1 complete, all four reports one grade below a raw read; wave 2 must re-read at source.
