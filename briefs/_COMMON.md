@@ -13,7 +13,7 @@
 9. **Write where your brief says; push every turn.** Touch only your own files. *Reason:* a sandbox can be lost between turns.
 10. **Report to the orchestrator** by message, in at most fifteen lines: what you found or built, the path or PR, what you could not do and why, your questions. Batch: one report per result, not per step. *Reason:* the orchestrator holds the state, and a thread can send only about 120 messages a day to other threads.
 11. **Escalate to the orchestrator, never to the maker.** Keep working on what the question does not block.
-12. **Subagents** on Sonnet 5.5 or Haiku 5.5, never Fable; give each rules 6 and 7 with their reasons. *Reason:* a subagent knows only its prompt.
+12. **Subagents** on the model the table in `PROJECT-INSTRUCTIONS.md` gives for their work (Sonnet 5.5 for research with a clear directive), at xhigh effort; give each rules 6, 7 and 13 with their reasons. *Reason:* a subagent knows only its prompt; the table is the maker's (2026-11-06 19:59 and 20:03 UTC).
 13. **No bursts against a source:** at most one request every few seconds to one host, and stop at the first refusal (403, 429, a challenge). *Reason:* a source that blocks us is lost (midterms, 11-02: Clarity blocked a sandbox after about 40 requests in a minute).
 14. **Stop when your brief is done**, report, and start nothing new without the orchestrator's word. *Reason:* the maker's usage limit (11-06); an idle worker looking for work spends it.
 15. **Never put the maker's email** in a request, a User-Agent or code.
