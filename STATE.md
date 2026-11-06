@@ -9,6 +9,12 @@
 - Orchestrator: thread "Orchestrate the vote site" (cmsg_01FHkmcV6WaeZh9r5PfgnMbuGmNcLgzp1vbf5yXQkbDeFE), branch `claude/project-thread-0szt08`; this file is kept current on that branch.
 - Law: not yet drafted. Brainstorm under way; its verbatim record is `brainstorm/2026-11-06-transcript.md`. Settled so far (his words, 19:32): importance is the chance one vote decides the outcome, all else held fixed; the site exists to show the individual vote's expected benefit against its cost. The site itself is "way later". 19:39: he asked the orchestrator to flesh out the full model itself (the site is a visual demonstration, so not too complex, perhaps two modes), to foreclose nothing, and to ask only material questions; B, in his words, is the marginal difference between the outcome voted for and the expected outcome. Under way: breadth-first research (frameworks, decisiveness models and estimates, historical close races) in `research/`. Open: whether B counts benefit to others (he called the question premature until the framework is set); how a margin of one is treated (recounts, courts); which elections.
 
+## The research plan (his ask of 19:50: parallel where it can be, sequential where it must, no loss of accuracy)
+
+- **Wave 1, running now in parallel** (Sonnet subagents in the orchestrator's thread, xhigh): `research/decisiveness-models.md`, `research/historical-close-races.md`, `research/frameworks-benefit-cost.md`, `research/electoral-systems.md`. Subagents, not threads, because bounded reading reports straight back and costs less.
+- **Wave 2, needs wave 1:** fresh-reader check, at source, of every formula and figure the model rests on; then the orchestrator writes the full model (with a simple mode for the site); Fable tries to break it; then it goes to the maker.
+- **Wave 3, after the maker has seen the model** (he put the standard of review before the historical data, 19:32): worker threads through the coordinator, from briefs in `briefs/`, to compute p for real past elections, split by election set. At most three at once.
+
 ## Threads
 
 | Thread | Id | Brief | Status |
@@ -17,6 +23,8 @@
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-06 19:52: he asked for parallel delegation; plan in waves recorded; a fourth subagent (electoral systems) started; told the coordinator no threads are needed yet.
 
 - 2026-11-06 19:41: brainstorm turn 2; ruling on models and effort recorded; research started (three Sonnet subagents).
 

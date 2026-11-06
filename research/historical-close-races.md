@@ -1,0 +1,11 @@
+# Historical close races, ties, and what decides a race when the count is that close
+
+*Research report (subagent "research-b", Sonnet 5.5), written 2026-11-06 UTC for the vote-importance site. IN PROGRESS: this file is saved as the work goes; sections marked TODO are not yet filled.*
+
+## 0. How this was read, and how far to trust it (read this first)
+
+- **Every host I tried with `curl -sSL` was refused by the sandbox's egress proxy** (HTTP 403 at the CONNECT step, "the destination host is not allowed for this session"; the proxy's own status endpoint lists the refused hosts). Refused by curl: `link.springer.com`, `www.nber.org`, `ideas.repec.org`, `econpapers.repec.org`, `www.ncsl.org`, `ballotpedia.org`, `en.wikipedia.org`, `www.fec.gov`, `dataverse.harvard.edu`, `electionlab.mit.edu`, `fairvote.org`, `api.crossref.org`, `api.openalex.org`, `www.govinfo.gov`, `archive.org`, `web.archive.org`, `www.sos.state.mn.us`, `arxiv.org`, `doi.org`, `papers.ssrn.com`, `www.jstor.org`, `core.ac.uk`, `www.stat.columbia.edu`. Only `raw.githubusercontent.com` and `github.com` (API path restricted) answered. I did not try to get round the refusal (no other proxy, no mirror of a blocked host through a reachable one).
+- **Under the brief's rule ("WebFetch only if curl is refused, and say so") I read pages with WebFetch.** WebFetch returns a small model's answer to my prompt, not the page. I therefore asked it each time for short verbatim quotes with section/page, and mark facts **[stated via WebFetch]**. Quotes shown in this report are what WebFetch returned as quotations; I could not check them against the raw page. WebFetch also refuses to reproduce more than a short quote, so no abstract below is complete. *Consequence for the orchestrator:* every figure here is one grade below a curl-read primary source. Before a figure goes on the site, it should be re-read raw (the maker could allow the hosts named above for curl) or cross-checked in a second source; where I found a second source I say so.
+- Tags used: **[stated via WebFetch]** (a source says it; where), **[measured]** (I computed it; how shown), **[inferred]** (my reading).
+- Dates: today is 2026-11-06 per the environment; some 2025-26 items below come from Wikipedia's list and are not independently verified.
+
