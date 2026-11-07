@@ -1,0 +1,3336 @@
+{
+"about": "Every record that changed when the orchestrator's rulings of 2026-11-07 16:19 were applied: 1. 'A statewide contest for a commission seat that elects one seat, by the source's own vote-for or seat count, is a \"statewide officer\". Where it elects more than one, it keeps the board type. Where the source does not show the count, hold it as a board and do not infer the count.' 2. 'A supreme court or appellate seat elected statewide in a one-seat contest is typed \"statewide judge\". Retentions stay retentions, and the other judges keep their type.' 3. 'MT's Clerk of the Supreme Court is a statewide officer.' 4. 'NM's PEC members are elected by district, so find the district or hold them.' 5. 'IL 2018's two stray lines: identify them from the State Board's results and fix or hold them, with the reason.' Reasons: 'a race's class is set by what the contest elects'; 'a statewide judicial race is not like a county bench, and the class decides the pool'. Against a85f2d6, whose data files are main's after #87 (afbb7bd). pipeline/local_medsl.py office_type_in, mark_whole_state and known_contests; pipeline/local_ncsbe.py type_of; pipeline/intake/nm_sos.py. Codes: 'T' typed anew, its type before beside it; 'L' p no longer computed (the two held Illinois lines, and 19 judges whose like-race class fell below 100 earlier like races when the statewide seats left it, or whose new class has 8); 'R' p not computed before or after, the count or class its reason names changed; 'I' the record's id changed (New Mexico's five PEC contests now carry their districts); 'Q' a note's words changed. No p value moved and none became computed. Records whose p block changed only in its commit stamp (402) are not listed. data/local/REPORT.md section 25. Written by worker D3 at 2026-11-07 16:43 UTC.",
+"against": "a85f2d6",
+"summary": {
+"local I: id changed": 5,
+"local L: p no longer computed": 21,
+"local Q: a note's words changed": 5,
+"local R: not computed before or after, the reason changed": 45,
+"local T: typed statewide judge": 135,
+"local T: typed statewide officer": 16,
+"primary R: not computed before or after, the reason changed": 50,
+"primary T: typed statewide judge": 7
+},
+"p_lost": {
+"held stray line": 2,
+"statewide judge": 7,
+"judge": 12
+},
+"typed_by_office": {
+"statewide judge: ASSOCIATE JUSTICE - SUPREME COURT": 5,
+"statewide judge: ASSOCIATE JUSTICE - SUPREME COURT 3": 1,
+"statewide judge: ASSOCIATE JUSTICE - SUPREME COURT 6": 1,
+"statewide judge: ASSOCIATE JUSTICE OF THE SUPREME COURT": 4,
+"statewide judge: CHIEF JUSTICE - SUPREME COURT": 2,
+"statewide judge: CHIEF JUSTICE OF THE SUPREME COURT": 2,
+"statewide judge: CHIEF JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/01/2023": 1,
+"statewide judge: COURT OF APPEALS JUDGE (MARTIN SEAT)": 1,
+"statewide judge: COURT OF APPEALS JUDGE - STEELMAN SEAT": 1,
+"statewide judge: COURT OF APPEALS JUDGE, DEPARTMENT 1": 1,
+"statewide judge: COURT OF APPEALS JUDGE, DEPARTMENT 2": 1,
+"statewide judge: COURT OF APPEALS JUDGE, DEPARTMENT 3": 1,
+"statewide judge: COURT OF CIVIL APPEALS JUDGE": 6,
+"statewide judge: COURT OF CRIMINAL APPEALS": 2,
+"statewide judge: COURT OF CRIMINAL APPEALS JUDGE": 6,
+"statewide judge: COURT OF CRIMINAL APPEALS PRESIDING JUDGE": 1,
+"statewide judge: CRIMINAL COURT OF APPEALS": 2,
+"statewide judge: CRIMINAL COURT OF APPEALS - PRESIDING JUDGE": 1,
+"statewide judge: JUDGE - COURT OF APPEALS": 6,
+"statewide judge: JUDGE OF COURT OF APPEALS": 5,
+"statewide judge: JUDGE OF THE COURT OF APPEALS POSITION 1": 1,
+"statewide judge: JUDGE OF THE COURT OF APPEALS POSITION 2": 1,
+"statewide judge: JUSTICE OF SUPREME COURT": 1,
+"statewide judge: JUSTICE OF THE SUPREME COURT": 6,
+"statewide judge: JUSTICE OF THE SUPREME COURT POSITION 2": 1,
+"statewide judge: JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/01/2023": 1,
+"statewide judge: JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/01/2025": 1,
+"statewide judge: JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/02/2023": 1,
+"statewide judge: JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/02/2025": 1,
+"statewide judge: JUSTICE OF THE SUPREME COURT UNEXPIRED TERM ENDING 12/31/2026": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE (DAVIS)": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE (DIETZ)": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE (GEER)": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE (HUNTER)": 2,
+"statewide judge: NC COURT OF APPEALS JUDGE (MARTIN)": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE (STEPHENS)": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE (STROUD)": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE (ZACHARY)": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 01": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 03": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 04": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 05": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 06": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 07": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 08": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 09": 2,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 1": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 10": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 11": 2,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 12": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 13": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 14": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 15": 2,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 2": 1,
+"statewide judge: NC COURT OF APPEALS JUDGE SEAT 3": 1,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE": 2,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE (BEASLEY)": 1,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE (HUDSON)": 1,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE (MARTIN)": 1,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE SEAT 02": 1,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE SEAT 03": 1,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE SEAT 04": 1,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE SEAT 05": 2,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE SEAT 06": 2,
+"statewide judge: NC SUPREME COURT ASSOCIATE JUSTICE SEAT 1": 1,
+"statewide judge: NC SUPREME COURT CHIEF JUSTICE (PARKER)": 1,
+"statewide judge: NC SUPREME COURT CHIEF JUSTICE SEAT 01": 1,
+"statewide judge: STATE SUPREME COURT ASSOCIATE JUSTICE": 2,
+"statewide judge: STATE SUPREME COURT CHIEF JUSTICE": 1,
+"statewide judge: STATE SUPREME COURT JUSTICE": 1,
+"statewide judge: SUPREME COURT": 6,
+"statewide judge: SUPREME COURT - JUSTICE POSITION #02": 1,
+"statewide judge: SUPREME COURT - JUSTICE POSITION #08": 1,
+"statewide judge: SUPREME COURT - JUSTICE POSITION #09": 1,
+"statewide judge: SUPREME COURT ASSOCIATE JUSTICE": 4,
+"statewide judge: SUPREME COURT ASSOCIATE JUSTICE (HUDSON)": 1,
+"statewide judge: SUPREME COURT CHIEF JUSTICE": 1,
+"statewide judge: SUPREME COURT JUSTICE": 8,
+"statewide judge: SUPREME COURT JUSTICE #1": 1,
+"statewide judge: SUPREME COURT JUSTICE #2": 1,
+"statewide judge: SUPREME COURT JUSTICE, SEAT A": 1,
+"statewide judge: SUPREME COURT JUSTICE, SEAT E": 1,
+"statewide judge: SUPREME COURT OF APPEALS JUSTICE": 2,
+"statewide officer: CLERK OF THE SUPREME COURT": 2,
+"statewide officer: CORPORATION COMMISSIONER": 2,
+"statewide officer: PRESIDENT, PUBLIC SERVICE COMMISSION": 1,
+"statewide officer: PUBLIC SERVICE COMMISSION": 4,
+"statewide officer: PUBLIC SERVICE COMMISSIONER": 2,
+"statewide officer: PUBLIC UTILITIES COMMISSIONER": 3,
+"statewide officer: RAILROAD COMMISSIONER": 2
+},
+"columns": [
+"id",
+"file",
+"title or office",
+"type before",
+"type after",
+"p before",
+"p after",
+"ratio",
+"codes"
+],
+"records": [
+[
+"2008-local-NC-ncsbe-2008-11-04-COURT_OF_APPEALS_JUDGE__Martin_Seat",
+"data/local/2008/NC.json",
+"Court Of Appeals Judge (Martin Seat)",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-COURT_OF_APPEALS_JUDGE___Steelman_Seat",
+"data/local/2010/NC.json",
+"Court Of Appeals Judge - Steelman Seat",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-05-06-SUPREME_COURT_ASSOCIATE_JUSTICE__HUDSON",
+"data/local/2014/NC.json",
+"Supreme Court Associate Justice (Hudson)",
+"judge",
+"statewide judge",
+"no earlier year to fit on (2014 is the first year counted)",
+"no earlier year to fit on (2014 is the first year counted)",
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-11-04-NC_SUPREME_COURT_CHIEF_JUSTICE__PARKER",
+"data/local/2014/NC.json",
+"Nc Supreme Court Chief Justice (Parker)",
+"judge",
+"statewide judge",
+"no earlier year to fit on (2014 is the first year counted)",
+"no earlier year to fit on (2014 is the first year counted)",
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-11-04-NC_SUPREME_COURT_ASSOCIATE_JUSTICE__MARTIN",
+"data/local/2014/NC.json",
+"Nc Supreme Court Associate Justice (Martin)",
+"judge",
+"statewide judge",
+"no earlier year to fit on (2014 is the first year counted)",
+"no earlier year to fit on (2014 is the first year counted)",
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-11-04-NC_SUPREME_COURT_ASSOCIATE_JUSTICE__BEASLEY",
+"data/local/2014/NC.json",
+"Nc Supreme Court Associate Justice (Beasley)",
+"judge",
+"statewide judge",
+"no earlier year to fit on (2014 is the first year counted)",
+"no earlier year to fit on (2014 is the first year counted)",
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-11-04-NC_SUPREME_COURT_ASSOCIATE_JUSTICE__HUDSON",
+"data/local/2014/NC.json",
+"Nc Supreme Court Associate Justice (Hudson)",
+"judge",
+"statewide judge",
+"no earlier year to fit on (2014 is the first year counted)",
+"no earlier year to fit on (2014 is the first year counted)",
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-11-04-NC_COURT_OF_APPEALS_JUDGE__HUNTER",
+"data/local/2014/NC.json",
+"Nc Court Of Appeals Judge (Hunter)",
+"judge",
+"statewide judge",
+"no earlier year to fit on (2014 is the first year counted)",
+"no earlier year to fit on (2014 is the first year counted)",
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-11-04-NC_COURT_OF_APPEALS_JUDGE__DAVIS",
+"data/local/2014/NC.json",
+"Nc Court Of Appeals Judge (Davis)",
+"judge",
+"statewide judge",
+"no earlier year to fit on (2014 is the first year counted)",
+"no earlier year to fit on (2014 is the first year counted)",
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-11-04-NC_COURT_OF_APPEALS_JUDGE__STROUD",
+"data/local/2014/NC.json",
+"Nc Court Of Appeals Judge (Stroud)",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2014-local-NC-ncsbe-2014-11-04-NC_COURT_OF_APPEALS_JUDGE__MARTIN",
+"data/local/2014/NC.json",
+"Nc Court Of Appeals Judge (Martin)",
+"judge",
+"statewide judge",
+"no earlier year to fit on (2014 is the first year counted)",
+"no earlier year to fit on (2014 is the first year counted)",
+null,
+[
+"T"
+]
+],
+[
+"2016-local-NC-ncsbe-2016-06-07-NC_SUPREME_COURT_ASSOCIATE_JUSTICE",
+"data/local/2016/NC.json",
+"Nc Supreme Court Associate Justice",
+"judge",
+"statewide judge",
+"a first round or a second primary: model section 7 records runoff systems' rounds with their results and does not compute p for them",
+"a first round or a second primary: model section 7 records runoff systems' rounds with their results and does not compute p for them",
+null,
+[
+"T"
+]
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-NC_SUPREME_COURT_ASSOCIATE_JUSTICE",
+"data/local/2016/NC.json",
+"Nc Supreme Court Associate Justice",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-NC_COURT_OF_APPEALS_JUDGE__GEER",
+"data/local/2016/NC.json",
+"Nc Court Of Appeals Judge (Geer)",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, two or more of one major party, 3 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-NC_COURT_OF_APPEALS_JUDGE__STEPHENS",
+"data/local/2016/NC.json",
+"Nc Court Of Appeals Judge (Stephens)",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, a Democrat against a Republican'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, a Democrat against a Republican'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-NC_COURT_OF_APPEALS_JUDGE__DIETZ",
+"data/local/2016/NC.json",
+"Nc Court Of Appeals Judge (Dietz)",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, a Democrat against a Republican'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, a Democrat against a Republican'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-NC_COURT_OF_APPEALS_JUDGE__ZACHARY",
+"data/local/2016/NC.json",
+"Nc Court Of Appeals Judge (Zachary)",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, a Democrat against a Republican'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, a Democrat against a Republican'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-NC_COURT_OF_APPEALS_JUDGE__HUNTER",
+"data/local/2016/NC.json",
+"Nc Court Of Appeals Judge (Hunter)",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, a Democrat against a Republican'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, a Democrat against a Republican'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-NC_SUPERIOR_COURT_JUDGE_DISTRICT_5B",
+"data/local/2016/NC.json",
+"Nc Superior Court Judge District 5B",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (7) for the class 'state judge, nonpartisan, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (6) for the class 'state judge, nonpartisan, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2018-local-AL-CHIEF_JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2018/AL.json",
+"Chief Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-COURT_OF_CIVIL_APPEALS_JUDGE-PLACE_1",
+"data/local/2018/AL.json",
+"Court Of Civil Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-COURT_OF_CIVIL_APPEALS_JUDGE-PLACE_2",
+"data/local/2018/AL.json",
+"Court Of Civil Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-COURT_OF_CIVIL_APPEALS_JUDGE-PLACE_3",
+"data/local/2018/AL.json",
+"Court Of Civil Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-COURT_OF_CRIMINAL_APPEALS_JUDGE-PLACE_1",
+"data/local/2018/AL.json",
+"Court Of Criminal Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-COURT_OF_CRIMINAL_APPEALS_JUDGE-PLACE_2",
+"data/local/2018/AL.json",
+"Court Of Criminal Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-COURT_OF_CRIMINAL_APPEALS_JUDGE-PLACE_3",
+"data/local/2018/AL.json",
+"Court Of Criminal Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-PUBLIC_SERVICE_COMMISSION-PLACE_1",
+"data/local/2018/AL.json",
+"Public Service Commission",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-PUBLIC_SERVICE_COMMISSION-PLACE_2",
+"data/local/2018/AL.json",
+"Public Service Commission",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-SUPREME_COURT_ASSOCIATE_JUSTICE-PLACE_1",
+"data/local/2018/AL.json",
+"Supreme Court Associate Justice",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-SUPREME_COURT_ASSOCIATE_JUSTICE-PLACE_2",
+"data/local/2018/AL.json",
+"Supreme Court Associate Justice",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-SUPREME_COURT_ASSOCIATE_JUSTICE-PLACE_3",
+"data/local/2018/AL.json",
+"Supreme Court Associate Justice",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AL-SUPREME_COURT_ASSOCIATE_JUSTICE-PLACE_4",
+"data/local/2018/AL.json",
+"Supreme Court Associate Justice",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-AR-STATE_SUPREME_COURT_ASSOCIATE_JUSTICE-003",
+"data/local/2018/AR.json",
+"State Supreme Court Associate Justice",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-GA-PUBLIC_SERVICE_COMMISSION-METRO_ATLANTA",
+"data/local/2018/GA.json",
+"Public Service Commission",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-GA-PUBLIC_SERVICE_COMMISSION-WESTERN",
+"data/local/2018/GA.json",
+"Public Service Commission",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-IL-COMPTROLLER~2",
+"data/local/2018/IL.json",
+"Comptroller",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.0,
+"held: one name with a handful of votes in one Cook County precinct of MEDSL's file ('COUNTY FLOATING'), filed apart from the statewide contest of the same office; the State Board of Elections' results could not be read to say what these lines are (its page answered the form for the 2018 general with an error page, 2026-11-07), so p is not computed",
+null,
+[
+"L"
+]
+],
+[
+"2018-local-IL-TREASURER~2",
+"data/local/2018/IL.json",
+"Treasurer",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.0,
+"held: one name with a handful of votes in one Cook County precinct of MEDSL's file ('COUNTY FLOATING'), filed apart from the statewide contest of the same office; the State Board of Elections' results could not be read to say what these lines are (its page answered the form for the 2018 general with an error page, 2026-11-07), so p is not computed",
+null,
+[
+"L"
+]
+],
+[
+"2018-local-MI-JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2018/MI.json",
+"Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 4+ candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 4+ candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-MN-ASSOCIATE_JUSTICE___SUPREME_COURT-STATEWIDE__COURT_1",
+"data/local/2018/MN.json",
+"Associate Justice - Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-MN-ASSOCIATE_JUSTICE___SUPREME_COURT-STATEWIDE__COURT_2",
+"data/local/2018/MN.json",
+"Associate Justice - Supreme Court",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-MN-ASSOCIATE_JUSTICE___SUPREME_COURT-STATEWIDE__COURT_5",
+"data/local/2018/MN.json",
+"Associate Justice - Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-MN-CHIEF_JUSTICE___SUPREME_COURT",
+"data/local/2018/MN.json",
+"Chief Justice - Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-MN-JUDGE___COURT_OF_APPEALS-001__COURT_6",
+"data/local/2018/MN.json",
+"Judge - Court Of Appeals",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-MN-JUDGE___COURT_OF_APPEALS-005__COURT_7",
+"data/local/2018/MN.json",
+"Judge - Court Of Appeals",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-MN-JUDGE___COURT_OF_APPEALS-008__COURT_14",
+"data/local/2018/MN.json",
+"Judge - Court Of Appeals",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-MN-JUDGE___COURT_OF_APPEALS-STATEWIDE__COURT_12",
+"data/local/2018/MN.json",
+"Judge - Court Of Appeals",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-MN-JUDGE___COURT_OF_APPEALS-STATEWIDE__COURT_2",
+"data/local/2018/MN.json",
+"Judge - Court Of Appeals",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-MN-JUDGE___COURT_OF_APPEALS-STATEWIDE__COURT_4",
+"data/local/2018/MN.json",
+"Judge - Court Of Appeals",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-MT-CLERK_OF_THE_SUPREME_COURT",
+"data/local/2018/MT.json",
+"Clerk Of The Supreme Court",
+"clerk, treasurer or other county officer",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_3",
+"data/local/2018/NC.json",
+"Nc Court Of Appeals Judge Seat 3",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NC-NC_SUPREME_COURT_ASSOCIATE_JUSTICE_SEAT_1",
+"data/local/2018/NC.json",
+"Nc Supreme Court Associate Justice Seat 1",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, two or more of one major party, 3 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_1",
+"data/local/2018/NC.json",
+"Nc Court Of Appeals Judge Seat 1",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_2",
+"data/local/2018/NC.json",
+"Nc Court Of Appeals Judge Seat 2",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, two or more of one major party, 3 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-ND-PUBLIC_SERVICE_COMMISSIONER",
+"data/local/2018/ND.json",
+"Public Service Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-ND-SUPREME_COURT_JUSTICE",
+"data/local/2018/ND.json",
+"Supreme Court Justice",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, one major party against others, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, one major party against others, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-NM-JUDGE_OF_COURT_OF_APPEALS-STATEWIDE__001",
+"data/local/2018/NM.json",
+"Judge Of Court Of Appeals",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NM-JUDGE_OF_COURT_OF_APPEALS-STATEWIDE__002",
+"data/local/2018/NM.json",
+"Judge Of Court Of Appeals",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NM-JUDGE_OF_COURT_OF_APPEALS-STATEWIDE__003",
+"data/local/2018/NM.json",
+"Judge Of Court Of Appeals",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NM-JUDGE_OF_COURT_OF_APPEALS-STATEWIDE__004",
+"data/local/2018/NM.json",
+"Judge Of Court Of Appeals",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NM-JUDGE_OF_COURT_OF_APPEALS-STATEWIDE__005",
+"data/local/2018/NM.json",
+"Judge Of Court Of Appeals",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NM-JUSTICE_OF_SUPREME_COURT",
+"data/local/2018/NM.json",
+"Justice Of Supreme Court",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NV-SUPREME_COURT-C",
+"data/local/2018/NV.json",
+"Supreme Court",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-NV-SUPREME_COURT-F",
+"data/local/2018/NV.json",
+"Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-NV-SUPREME_COURT-G",
+"data/local/2018/NV.json",
+"Supreme Court",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-OH-JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2018/OH.json",
+"Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 4+ candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 4+ candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-OK-CORPORATION_COMMISSIONER",
+"data/local/2018/OK.json",
+"Corporation Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-SD-PUBLIC_UTILITIES_COMMISSIONER",
+"data/local/2018/SD.json",
+"Public Utilities Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-TX-CRIMINAL_COURT_OF_APPEALS-007",
+"data/local/2018/TX.json",
+"Criminal Court Of Appeals",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-TX-CRIMINAL_COURT_OF_APPEALS-008",
+"data/local/2018/TX.json",
+"Criminal Court Of Appeals",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, one major party against others, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, one major party against others, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-TX-CRIMINAL_COURT_OF_APPEALS___PRESIDING_JUDGE",
+"data/local/2018/TX.json",
+"Criminal Court Of Appeals - Presiding Judge",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-TX-RAILROAD_COMMISSIONER",
+"data/local/2018/TX.json",
+"Railroad Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-TX-SUPREME_COURT-002",
+"data/local/2018/TX.json",
+"Supreme Court",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-TX-SUPREME_COURT-004",
+"data/local/2018/TX.json",
+"Supreme Court",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-TX-SUPREME_COURT-006",
+"data/local/2018/TX.json",
+"Supreme Court",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-WA-SUPREME_COURT_JUSTICE-STATEWIDE__POSITION_2",
+"data/local/2018/WA.json",
+"Supreme Court Justice",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-WA-SUPREME_COURT_JUSTICE-STATEWIDE__POSITION_8",
+"data/local/2018/WA.json",
+"Supreme Court Justice",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2018-local-WA-SUPREME_COURT_JUSTICE-STATEWIDE__POSITION_9",
+"data/local/2018/WA.json",
+"Supreme Court Justice",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-WV-SUPREME_COURT_OF_APPEALS_JUSTICE-001",
+"data/local/2018/WV.json",
+"Supreme Court Of Appeals Justice",
+"judge",
+"statewide judge",
+"a special election: the model's own forecasts are fitted to regular elections",
+"a special election: the model's own forecasts are fitted to regular elections",
+null,
+[
+"T"
+]
+],
+[
+"2018-local-WV-SUPREME_COURT_OF_APPEALS_JUSTICE-002",
+"data/local/2018/WV.json",
+"Supreme Court Of Appeals Justice",
+"judge",
+"statewide judge",
+"a special election: the model's own forecasts are fitted to regular elections",
+"a special election: the model's own forecasts are fitted to regular elections",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_05",
+"data/local/2020/NC.json",
+"Nc Court Of Appeals Judge Seat 05",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_07",
+"data/local/2020/NC.json",
+"Nc Court Of Appeals Judge Seat 07",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_06",
+"data/local/2020/NC.json",
+"Nc Court Of Appeals Judge Seat 06",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_SUPREME_COURT_CHIEF_JUSTICE_SEAT_01",
+"data/local/2020/NC.json",
+"Nc Supreme Court Chief Justice Seat 01",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_04",
+"data/local/2020/NC.json",
+"Nc Court Of Appeals Judge Seat 04",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_SUPREME_COURT_ASSOCIATE_JUSTICE_SEAT_02",
+"data/local/2020/NC.json",
+"Nc Supreme Court Associate Justice Seat 02",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_13",
+"data/local/2020/NC.json",
+"Nc Court Of Appeals Judge Seat 13",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_SUPREME_COURT_ASSOCIATE_JUSTICE_SEAT_04",
+"data/local/2020/NC.json",
+"Nc Supreme Court Associate Justice Seat 04",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 37013's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2020-local-NC-NC_SUPERIOR_COURT_JUDGE_DISTRICT_13B_SEAT_01",
+"data/local/2020/NC.json",
+"Nc Superior Court Judge District 13B Seat 01",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (6) for the class 'state judge, one major party against others, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (4) for the class 'state judge, one major party against others, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-AR-STATE_SUPREME_COURT_ASSOCIATE_JUSTICE-POSITION_2",
+"data/local/2022/AR.json",
+"State Supreme Court Associate Justice",
+"judge",
+"statewide judge",
+"the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 11% of its 142 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on",
+"the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 11% of its 142 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-KY-JUDGE_OF_THE_COURT_OF_APPEALS-2ND_APPELLATE_DISTRICT_1ST_DIVISION",
+"data/local/2022/KY.json",
+"Judge Of The Court Of Appeals",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (87) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-KY-JUDGE_OF_THE_COURT_OF_APPEALS-6TH_APPELLATE_DISTRICT_2ND_DIVISION",
+"data/local/2022/KY.json",
+"Judge Of The Court Of Appeals",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (87) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-KY-JUDGE_OF_THE_COURT_OF_APPEALS-4TH_APPELLATE_DISTRICT_1ST_DIVISION",
+"data/local/2022/KY.json",
+"Judge Of The Court Of Appeals",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (87) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-KY-JUDGE_OF_THE_COURT_OF_APPEALS-4TH_APPELLATE_DISTRICT_2ND_DIVISION",
+"data/local/2022/KY.json",
+"Judge Of The Court Of Appeals",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (87) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-MN-ASSOCIATE_JUSTICE___SUPREME_COURT_3",
+"data/local/2022/MN.json",
+"Associate Justice - Supreme Court 3",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2022-local-MN-ASSOCIATE_JUSTICE___SUPREME_COURT_6",
+"data/local/2022/MN.json",
+"Associate Justice - Supreme Court 6",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2022-local-MT-SUPREME_COURT_JUSTICE__1",
+"data/local/2022/MT.json",
+"Supreme Court Justice #1",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (6) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2022-local-MT-SUPREME_COURT_JUSTICE__2",
+"data/local/2022/MT.json",
+"Supreme Court Justice #2",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (6) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2022-local-NC-NC_SUPREME_COURT_ASSOCIATE_JUSTICE_SEAT_03",
+"data/local/2022/NC.json",
+"Nc Supreme Court Associate Justice Seat 03",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NC-NC_SUPREME_COURT_ASSOCIATE_JUSTICE_SEAT_05",
+"data/local/2022/NC.json",
+"Nc Supreme Court Associate Justice Seat 05",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_09",
+"data/local/2022/NC.json",
+"Nc Court Of Appeals Judge Seat 09",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_10",
+"data/local/2022/NC.json",
+"Nc Court Of Appeals Judge Seat 10",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_08",
+"data/local/2022/NC.json",
+"Nc Court Of Appeals Judge Seat 08",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_11",
+"data/local/2022/NC.json",
+"Nc Court Of Appeals Judge Seat 11",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-ND-JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2022/ND.json",
+"Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2022-local-ND-JUSTICE_OF_THE_SUPREME_COURT-SOUTHWEST_JUDICIAL_DISTRICT",
+"data/local/2022/ND.json",
+"Justice Of The Supreme Court",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (87) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-ND-JUSTICE_OF_THE_SUPREME_COURT-SOUTHEAST_JUDICIAL_DISTRICT",
+"data/local/2022/ND.json",
+"Justice Of The Supreme Court",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (7) for the class 'state judge, nonpartisan, 4+ candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (5) for the class 'state judge, nonpartisan, 4+ candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-ND-JUSTICE_OF_THE_SUPREME_COURT-NORTH_CENTRAL_JUDICIAL_DISTRICT",
+"data/local/2022/ND.json",
+"Justice Of The Supreme Court",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (87) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-ND-JUSTICE_OF_THE_SUPREME_COURT-SOUTH_CENTRAL_JUDICIAL_DISTRICT",
+"data/local/2022/ND.json",
+"Justice Of The Supreme Court",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (7) for the class 'state judge, nonpartisan, 4+ candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (5) for the class 'state judge, nonpartisan, 4+ candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-ND-JUSTICE_OF_THE_SUPREME_COURT-EAST_CENTRAL_JUDICIAL_DISTRICT",
+"data/local/2022/ND.json",
+"Justice Of The Supreme Court",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (7) for the class 'state judge, nonpartisan, 4+ candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (5) for the class 'state judge, nonpartisan, 4+ candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-ND-JUSTICE_OF_THE_SUPREME_COURT-NORTHEAST_CENTRAL_JUDICIAL_DISTRICT",
+"data/local/2022/ND.json",
+"Justice Of The Supreme Court",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (93) for the class 'state judge, nonpartisan, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (87) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-NM-PUBLIC_EDUCATION_COMMISSIONER-3",
+"data/local/2022/NM.json",
+"Public Education Commissioner",
+"school board",
+"school board",
+0.0,
+0.0,
+null,
+[
+"I",
+"Q"
+]
+],
+[
+"2022-local-NM-PUBLIC_EDUCATION_COMMISSIONER-5",
+"data/local/2022/NM.json",
+"Public Education Commissioner",
+"school board",
+"school board",
+0.0,
+0.0,
+null,
+[
+"I",
+"Q"
+]
+],
+[
+"2022-local-NM-PUBLIC_EDUCATION_COMMISSIONER-6",
+"data/local/2022/NM.json",
+"Public Education Commissioner",
+"school board",
+"school board",
+0.0,
+0.0,
+null,
+[
+"I",
+"Q"
+]
+],
+[
+"2022-local-NM-PUBLIC_EDUCATION_COMMISSIONER-7",
+"data/local/2022/NM.json",
+"Public Education Commissioner",
+"school board",
+"school board",
+0.0,
+0.0,
+null,
+[
+"I",
+"Q"
+]
+],
+[
+"2022-local-NM-PUBLIC_EDUCATION_COMMISSIONER-2",
+"data/local/2022/NM.json",
+"Public Education Commissioner",
+"school board",
+"school board",
+0.0,
+0.0,
+null,
+[
+"I",
+"Q"
+]
+],
+[
+"2022-local-NM-DISTRICT_COURT_JUDGE~3",
+"data/local/2022/NM.json",
+"District Court Judge",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (7) for the class 'state judge, one major party against others, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (5) for the class 'state judge, one major party against others, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-NM-DISTRICT_COURT_JUDGE~4",
+"data/local/2022/NM.json",
+"District Court Judge",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (6) for the class 'state judge, two or more of one major party, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-NM-MAGISTRATE_JUDGE~19",
+"data/local/2022/NM.json",
+"Magistrate Judge",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (6) for the class 'state judge, two or more of one major party, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-NM-MAGISTRATE_JUDGE~25",
+"data/local/2022/NM.json",
+"Magistrate Judge",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (6) for the class 'state judge, two or more of one major party, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-NM-MAGISTRATE_JUDGE~26",
+"data/local/2022/NM.json",
+"Magistrate Judge",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (6) for the class 'state judge, two or more of one major party, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-NM-MAGISTRATE_JUDGE~36",
+"data/local/2022/NM.json",
+"Magistrate Judge",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (7) for the class 'state judge, one major party against others, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (5) for the class 'state judge, one major party against others, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-NM-JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2022/NM.json",
+"Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NM-JUSTICE_OF_THE_SUPREME_COURT_POSITION_2",
+"data/local/2022/NM.json",
+"Justice Of The Supreme Court Position 2",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NM-JUDGE_OF_THE_COURT_OF_APPEALS_POSITION_1",
+"data/local/2022/NM.json",
+"Judge Of The Court Of Appeals Position 1",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NM-JUDGE_OF_THE_COURT_OF_APPEALS_POSITION_2",
+"data/local/2022/NM.json",
+"Judge Of The Court Of Appeals Position 2",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NV-SUPREME_COURT_JUSTICE__SEAT_A",
+"data/local/2022/NV.json",
+"Supreme Court Justice, Seat A",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NV-COURT_OF_APPEALS_JUDGE__DEPARTMENT_3",
+"data/local/2022/NV.json",
+"Court Of Appeals Judge, Department 3",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NV-COURT_OF_APPEALS_JUDGE__DEPARTMENT_1",
+"data/local/2022/NV.json",
+"Court Of Appeals Judge, Department 1",
+"judge",
+"statewide judge",
+"the source redacts some precincts' counts for this contest",
+"the source redacts some precincts' counts for this contest",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NV-COURT_OF_APPEALS_JUDGE__DEPARTMENT_2",
+"data/local/2022/NV.json",
+"Court Of Appeals Judge, Department 2",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2022-local-NV-SUPREME_COURT_JUSTICE__SEAT_E",
+"data/local/2022/NV.json",
+"Supreme Court Justice, Seat E",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2022-local-OH-CHIEF_JUSTICE_OF_THE_SUPREME_COURT_TERM_COMMENCING_01_01_202",
+"data/local/2022/OH.json",
+"Chief Justice Of The Supreme Court Term Commencing 01/01/2023",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-OH-JUSTICE_OF_THE_SUPREME_COURT_TERM_COMMENCING_01_01_2023",
+"data/local/2022/OH.json",
+"Justice Of The Supreme Court Term Commencing 01/01/2023",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-OH-JUSTICE_OF_THE_SUPREME_COURT_TERM_COMMENCING_01_02_2023",
+"data/local/2022/OH.json",
+"Justice Of The Supreme Court Term Commencing 01/02/2023",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-OK-CORPORATION_COMMISSIONER",
+"data/local/2022/OK.json",
+"Corporation Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2022-local-SD-PUBLIC_UTILITIES_COMMISSIONER",
+"data/local/2022/SD.json",
+"Public Utilities Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-CHIEF_JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2024/AL.json",
+"Chief Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 01003's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 01003's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-ASSOCIATE_JUSTICE_OF_THE_SUPREME_COURT-001",
+"data/local/2024/AL.json",
+"Associate Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-ASSOCIATE_JUSTICE_OF_THE_SUPREME_COURT-002",
+"data/local/2024/AL.json",
+"Associate Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-ASSOCIATE_JUSTICE_OF_THE_SUPREME_COURT-003",
+"data/local/2024/AL.json",
+"Associate Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-ASSOCIATE_JUSTICE_OF_THE_SUPREME_COURT-004",
+"data/local/2024/AL.json",
+"Associate Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-COURT_OF_CIVIL_APPEALS_JUDGE-001",
+"data/local/2024/AL.json",
+"Court Of Civil Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-COURT_OF_CIVIL_APPEALS_JUDGE-002",
+"data/local/2024/AL.json",
+"Court Of Civil Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-COURT_OF_CIVIL_APPEALS_JUDGE-003",
+"data/local/2024/AL.json",
+"Court Of Civil Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-COURT_OF_CRIMINAL_APPEALS_JUDGE-001",
+"data/local/2024/AL.json",
+"Court Of Criminal Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-COURT_OF_CRIMINAL_APPEALS_JUDGE-002",
+"data/local/2024/AL.json",
+"Court Of Criminal Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-COURT_OF_CRIMINAL_APPEALS_JUDGE-003",
+"data/local/2024/AL.json",
+"Court Of Criminal Appeals Judge",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AL-PRESIDENT__PUBLIC_SERVICE_COMMISSION",
+"data/local/2024/AL.json",
+"President, Public Service Commission",
+"council, commission or board",
+"statewide officer",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-AR-STATE_SUPREME_COURT_CHIEF_JUSTICE-POSITION_1",
+"data/local/2024/AR.json",
+"State Supreme Court Chief Justice",
+"judge",
+"statewide judge",
+2.59813e-06,
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"L"
+]
+],
+[
+"2024-local-AR-DISTRICT_JUDGE-DISTRICT_9_DIVISION_2",
+"data/local/2024/AR.json",
+"District Judge",
+"judge",
+"judge",
+4.78257e-05,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-AR-COURT_OF_APPEALS_ASSOCIATE_JUDGE-006",
+"data/local/2024/AR.json",
+"Court Of Appeals Associate Judge",
+"judge",
+"judge",
+1.44387e-05,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-AR-CIRCUIT_JUDGEDIVISION_17_SUB2-006",
+"data/local/2024/AR.json",
+"Circuit Judgedivision 17 Sub2",
+"judge",
+"judge",
+2.44804e-05,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-AR-DISTRICT_JUDGE-038",
+"data/local/2024/AR.json",
+"District Judge",
+"judge",
+"judge",
+0.000314155,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-FL-CIRCUIT_JUDGE-9TH_JUDICIAL_CIRCUIT__GROUP_15",
+"data/local/2024/FL.json",
+"Circuit Judge",
+"judge",
+"judge",
+4.07492e-06,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-FL-CIRCUIT_JUDGE-6TH_JUDICIAL_CIRCUIT__GROUP_14",
+"data/local/2024/FL.json",
+"Circuit Judge",
+"judge",
+"judge",
+4.00409e-06,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-IN-JUDGE_OF_THE_VANDERBURGH_CIRCUIT_COURT",
+"data/local/2024/IN.json",
+"Judge Of The Vanderburgh Circuit Court",
+"judge",
+"judge",
+4.60035e-05,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-KS-DISTRICT_MAGISTRATE_JUDGE-15__DIV_1",
+"data/local/2024/KS.json",
+"District Magistrate Judge",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (9) for the class 'state judge, one major party against others, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (7) for the class 'state judge, one major party against others, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-local-MI-JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2024/MI.json",
+"Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+6.41534e-07,
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"L"
+]
+],
+[
+"2024-local-MI-JUSTICE_OF_THE_SUPREME_COURT~2",
+"data/local/2024/MI.json",
+"Justice Of The Supreme Court",
+"judge",
+"statewide judge",
+"a special election: the model's own forecasts are fitted to regular elections",
+"a special election: the model's own forecasts are fitted to regular elections",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-MN-CHIEF_JUSTICE___SUPREME_COURT",
+"data/local/2024/MN.json",
+"Chief Justice - Supreme Court",
+"judge",
+"statewide judge",
+1.12253e-06,
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"L"
+]
+],
+[
+"2024-local-MN-ASSOCIATE_JUSTICE___SUPREME_COURT-005",
+"data/local/2024/MN.json",
+"Associate Justice - Supreme Court",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-MN-ASSOCIATE_JUSTICE___SUPREME_COURT-006",
+"data/local/2024/MN.json",
+"Associate Justice - Supreme Court",
+"judge",
+"statewide judge",
+1.15903e-06,
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"L"
+]
+],
+[
+"2024-local-MS-SUPREME_COURT-002__SOUTHERN___POSITION_2",
+"data/local/2024/MS.json",
+"Supreme Court",
+"judge",
+"judge",
+7.80011e-06,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-MS-SUPREME_COURT-001__CENTRAL___POSITION_3",
+"data/local/2024/MS.json",
+"Supreme Court",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (10) for the class 'state judge, nonpartisan, 4+ candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state judge, nonpartisan, 4+ candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-local-MT-CLERK_OF_THE_SUPREME_COURT",
+"data/local/2024/MT.json",
+"Clerk Of The Supreme Court",
+"clerk, treasurer or other county officer",
+"statewide officer",
+2.96719e-06,
+2.96719e-06,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-MT-SUPREME_COURT_CHIEF_JUSTICE",
+"data/local/2024/MT.json",
+"Supreme Court Chief Justice",
+"judge",
+"statewide judge",
+4.89288e-06,
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"L"
+]
+],
+[
+"2024-local-MT-SUPREME_COURT_JUSTICE-003",
+"data/local/2024/MT.json",
+"Supreme Court Justice",
+"judge",
+"statewide judge",
+4.86957e-06,
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"L"
+]
+],
+[
+"2024-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_14",
+"data/local/2024/NC.json",
+"Nc Court Of Appeals Judge Seat 14",
+"judge",
+"statewide judge",
+3.13782e-07,
+3.13782e-07,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-NC-NC_SUPREME_COURT_ASSOCIATE_JUSTICE_SEAT_06",
+"data/local/2024/NC.json",
+"Nc Supreme Court Associate Justice Seat 06",
+"judge",
+"statewide judge",
+3.11937e-07,
+3.11937e-07,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_15",
+"data/local/2024/NC.json",
+"Nc Court Of Appeals Judge Seat 15",
+"judge",
+"statewide judge",
+3.14264e-07,
+3.14264e-07,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-NC-NC_COURT_OF_APPEALS_JUDGE_SEAT_12",
+"data/local/2024/NC.json",
+"Nc Court Of Appeals Judge Seat 12",
+"judge",
+"statewide judge",
+3.13054e-07,
+3.13054e-07,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-NC-NC_DISTRICT_COURT_JUDGE_DISTRICT_42_SEAT_03",
+"data/local/2024/NC.json",
+"Nc District Court Judge District 42 Seat 03",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (9) for the class 'state judge, one major party against others, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (7) for the class 'state judge, one major party against others, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-local-ND-PUBLIC_SERVICE_COMMISSIONER",
+"data/local/2024/ND.json",
+"Public Service Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 38001's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 38001's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-NV-SUPREME_COURT_JUSTICE-SEAT_F",
+"data/local/2024/NV.json",
+"Supreme Court Justice",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-NV-SUPREME_COURT_JUSTICE-SEAT_G",
+"data/local/2024/NV.json",
+"Supreme Court Justice",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-NV-SUPREME_COURT_JUSTICE-SEAT_C",
+"data/local/2024/NV.json",
+"Supreme Court Justice",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-OH-JUSTICE_OF_THE_SUPREME_COURT_TERM_COMMENCING_01_01_2025",
+"data/local/2024/OH.json",
+"Justice Of The Supreme Court Term Commencing 01/01/2025",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 39035's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 39035's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-OH-JUSTICE_OF_THE_SUPREME_COURT_TERM_COMMENCING_01_02_2025",
+"data/local/2024/OH.json",
+"Justice Of The Supreme Court Term Commencing 01/02/2025",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 39035's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 39035's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-OH-JUSTICE_OF_THE_SUPREME_COURT_UNEXPIRED_TERM_ENDING_12_31_202",
+"data/local/2024/OH.json",
+"Justice Of The Supreme Court Unexpired Term Ending 12/31/2026",
+"judge",
+"statewide judge",
+"a special election: the model's own forecasts are fitted to regular elections",
+"a special election: the model's own forecasts are fitted to regular elections",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-OH-COURT_OF_APPEALS-5",
+"data/local/2024/OH.json",
+"Court Of Appeals",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (12) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (10) for the class 'state judge, two or more of one major party, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-local-OH-COURT_OF_APPEALS-11",
+"data/local/2024/OH.json",
+"Court Of Appeals",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (12) for the class 'state judge, two or more of one major party, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (10) for the class 'state judge, two or more of one major party, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-1ST_DISTRICT_POSITION_11",
+"data/local/2024/OR.json",
+"Judge Of The Circuit Court",
+"judge",
+"judge",
+3.14933e-05,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-3RD_DISTRICT",
+"data/local/2024/OR.json",
+"Judge Of The Circuit Court",
+"judge",
+"judge",
+2.42958e-05,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-6TH_DISTRICT_POSITION_5",
+"data/local/2024/OR.json",
+"Judge Of The Circuit Court",
+"judge",
+"judge",
+0.000674188,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-38TH_DISTRICT",
+"data/local/2024/OR.json",
+"Judge Of The Circuit Court",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (10) for the class 'state judge, nonpartisan, 4+ candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state judge, nonpartisan, 4+ candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-20TH_DISTRICT_POSITION_6",
+"data/local/2024/OR.json",
+"Judge Of The Circuit Court",
+"judge",
+"judge",
+1.27813e-05,
+"fewer than 100 like races in earlier years in the sources taken in (94) for the class 'state judge, nonpartisan, 2 candidates'",
+null,
+[
+"L"
+]
+],
+[
+"2024-local-SD-PUBLIC_UTILITIES_COMMISSIONER",
+"data/local/2024/SD.json",
+"Public Utilities Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 46003's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 46003's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-TX-COURT_OF_CRIMINAL_APPEALS-007",
+"data/local/2024/TX.json",
+"Court Of Criminal Appeals",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 48001's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 48001's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-TX-COURT_OF_CRIMINAL_APPEALS-008",
+"data/local/2024/TX.json",
+"Court Of Criminal Appeals",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 48001's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 48001's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-TX-COURT_OF_CRIMINAL_APPEALS_PRESIDING_JUDGE",
+"data/local/2024/TX.json",
+"Court Of Criminal Appeals Presiding Judge",
+"judge",
+"statewide judge",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 48001's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 48001's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-TX-RAILROAD_COMMISSIONER",
+"data/local/2024/TX.json",
+"Railroad Commissioner",
+"council, commission or board",
+"statewide officer",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 48001's US House race was not contested by both parties throughout",
+"a race between a Democrat and a Republican, whose forecast reads the place's lean: county 48001's US House race was not contested by both parties throughout",
+null,
+[
+"T"
+]
+],
+[
+"2024-local-TX-STATE_SUPREME_COURT_JUSTICE",
+"data/local/2024/TX.json",
+"State Supreme Court Justice",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state judge, two or more of one major party, 4+ candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, two or more of one major party, 4+ candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2024-local-WA-SUPREME_COURT___JUSTICE_POSITION__02",
+"data/local/2024/WA.json",
+"Supreme Court - Justice Position #02",
+"judge",
+"statewide judge",
+8.2634e-07,
+"fewer than 100 like races in earlier years in the sources taken in (8) for the class 'state statewide judge, nonpartisan, 2 candidates'",
+null,
+[
+"T",
+"L"
+]
+],
+[
+"2024-local-WA-SUPREME_COURT___JUSTICE_POSITION__08",
+"data/local/2024/WA.json",
+"Supreme Court - Justice Position #08",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2024-local-WA-SUPREME_COURT___JUSTICE_POSITION__09",
+"data/local/2024/WA.json",
+"Supreme Court - Justice Position #09",
+"judge",
+"statewide judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-NC_SUPREME_COURT_ASSOCIATE_JUSTICE_SEAT_05-rep",
+"data/primary/2022/NC.json",
+"Nc Supreme Court Associate Justice Seat 05",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (3) for the class 'primary, state judge, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'primary, state statewide judge, 3 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-NC_COURT_OF_APPEALS_JUDGE_SEAT_09-rep",
+"data/primary/2022/NC.json",
+"Nc Court Of Appeals Judge Seat 09",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (30) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'primary, state statewide judge, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-NC_COURT_OF_APPEALS_JUDGE_SEAT_11-rep",
+"data/primary/2022/NC.json",
+"Nc Court Of Appeals Judge Seat 11",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (30) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'primary, state statewide judge, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_10D_SEAT_05-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 10D Seat 05",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_COURT_OF_APPEALS_JUDGE_SEAT_15-rep",
+"data/primary/2024/NC.json",
+"Nc Court Of Appeals Judge Seat 15",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (2) for the class 'primary, state statewide judge, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_SUPREME_COURT_ASSOCIATE_JUSTICE_SEAT_06-dem",
+"data/primary/2024/NC.json",
+"Nc Supreme Court Associate Justice Seat 06",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (2) for the class 'primary, state statewide judge, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_24_SEAT_10-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 24 Seat 10",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_10C_SEAT_03-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 10C Seat 03",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_24_SEAT_05-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 24 Seat 05",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_24_SEAT_12-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 24 Seat 12",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (10) for the class 'primary, state judge, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (9) for the class 'primary, state judge, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_10E_SEAT_03-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 10E Seat 03",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_34_SEAT_05-rep",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 34 Seat 05",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_40_SEAT_07-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 40 Seat 07",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_07_SEAT_04-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 07 Seat 04",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_32_SEAT_03-rep",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 32 Seat 03",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_24_SEAT_13-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 24 Seat 13",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_24_SEAT_14-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 24 Seat 14",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (10) for the class 'primary, state judge, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (9) for the class 'primary, state judge, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_09_SEAT_06-rep",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 09 Seat 06",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_10A_SEAT_03-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 10A Seat 03",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_12_SEAT_11-rep",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 12 Seat 11",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_31_SEAT_10-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 31 Seat 10",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (10) for the class 'primary, state judge, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (9) for the class 'primary, state judge, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_30_SEAT_05-rep",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 30 Seat 05",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_07_SEAT_03-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 07 Seat 03",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_43_SEAT_07-rep",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 43 Seat 07",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_08_SEAT_07-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 08 Seat 07",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_38_SEAT_07-rep",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 38 Seat 07",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_SUPERIOR_COURT_JUDGE_DISTRICT_24B_SEAT_01-rep",
+"data/primary/2024/NC.json",
+"Nc Superior Court Judge District 24B Seat 01",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NC_DISTRICT_COURT_JUDGE_DISTRICT_40_SEAT_06-dem",
+"data/primary/2024/NC.json",
+"Nc District Court Judge District 40 Seat 06",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (55) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (53) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_COURT_OF_APPEALS_JUDGE_SEAT_03-dem",
+"data/primary/2026/NC.json",
+"Nc Court Of Appeals Judge Seat 03",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (4) for the class 'primary, state statewide judge, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_COURT_OF_APPEALS_JUDGE_SEAT_01-rep",
+"data/primary/2026/NC.json",
+"Nc Court Of Appeals Judge Seat 01",
+"judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (4) for the class 'primary, state statewide judge, 2 candidates'",
+null,
+[
+"T",
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_40_SEAT_03-dem",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 40 Seat 03",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_36_SEAT_05-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 36 Seat 05",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_SUPERIOR_COURT_JUDGE_DISTRICT_36_SEAT_01-rep",
+"data/primary/2026/NC.json",
+"Nc Superior Court Judge District 36 Seat 01",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_02_SEAT_02-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 02 Seat 02",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_35_SEAT_01-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 35 Seat 01",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_31_SEAT_04-dem",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 31 Seat 04",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_29_SEAT_01-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 29 Seat 01",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_29_SEAT_02-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 29 Seat 02",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (13) for the class 'primary, state judge, 3 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (12) for the class 'primary, state judge, 3 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_26_SEAT_18-dem",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 26 Seat 18",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_41_SEAT_01-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 41 Seat 01",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_SUPERIOR_COURT_JUDGE_DISTRICT_26C_SEAT_01-dem",
+"data/primary/2026/NC.json",
+"Nc Superior Court Judge District 26C Seat 01",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_10A_SEAT_01-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 10A Seat 01",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_34_SEAT_02-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 34 Seat 02",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_32_SEAT_06__UNEXPIRED-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 32 Seat 06 (Unexpired)",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_14_SEAT_05-dem",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 14 Seat 05",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_14_SEAT_03-dem",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 14 Seat 03",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_33_SEAT_04-rep",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 33 Seat 04",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_16_SEAT_02-dem",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 16 Seat 02",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_SUPERIOR_COURT_JUDGE_DISTRICT_16B_SEAT_02-dem",
+"data/primary/2026/NC.json",
+"Nc Superior Court Judge District 16B Seat 02",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NC_DISTRICT_COURT_JUDGE_DISTRICT_16_SEAT_05-dem",
+"data/primary/2026/NC.json",
+"Nc District Court Judge District 16 Seat 05",
+"judge",
+"judge",
+"fewer than 100 like races in earlier years in the sources taken in (77) for the class 'primary, state judge, 2 candidates'",
+"fewer than 100 like races in earlier years in the sources taken in (73) for the class 'primary, state judge, 2 candidates'",
+null,
+[
+"R"
+]
+]
+]
+}
