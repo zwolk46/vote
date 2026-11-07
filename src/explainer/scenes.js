@@ -5,7 +5,7 @@
 // reader has it (read from the page, so they grow with the reader's text), and wrapped to the room they have.
 //
 // S = { W, H, fs, ff, col, dpr }: the box, the small type's size and family, the page's colours (lib/media.js).
-import { C0, TOWN, PA, CLOSE08, HOUSE, PEOPLE, WORTH, CURVE } from './beats.js';
+import { C0, TOWN, PA, TOP08, HOUSE, PEOPLE, WORTH, CURVE } from './beats.js';
 import { money } from '../lib/format.js';
 
 const TAU = Math.PI * 2;
@@ -355,7 +355,7 @@ const turn = (cost, worth) => Math.max(-0.24, Math.min(0.24, 0.32 * (Math.log10(
 function trips(ctx, S, st) {
   const { W, H, col, fs } = S;
   const k = st.k, m = clamp01(k);                    // 0: the grid; 1: the trips on the seesaw
-  const T1 = C0 * TOWN.N, T2 = C0 * CLOSE08, ME = 9 * 26 + 13;
+  const T1 = C0 * TOWN.N, T2 = C0 * TOP08, ME = 9 * 26 + 13;
   if (k < 4.5) {
     const tA = k <= 4 ? 1 : clamp01(1 - (k - 4) * 2), ev = clamp01(k - 3);   // ev: everyone's stakes on the right
     const balA = tA * clamp01(k * 1.5 - 0.5);
@@ -430,7 +430,7 @@ function trips(ctx, S, st) {
     ctx.fillStyle = col.lineStrong; ctx.fillRect(0, y, W, 1);
     const ticks = [[0, '$1'], [3, '$1,000'], [6, '$1 million'], [9, '$1 billion']];
     for (const [p] of ticks) ctx.fillRect(X(p), y - 3, 1, 7);
-    const c = Math.log10(C0), t1 = c + Math.log10(TOWN.N), t2 = c + Math.log10(CLOSE08);
+    const c = Math.log10(C0), t1 = c + Math.log10(TOWN.N), t2 = c + Math.log10(TOP08);
     const arrow = (x1, x2, yy, label) => {
       ctx.strokeStyle = col.accent; ctx.fillStyle = col.accent; ctx.lineWidth = 2.5;
       ctx.beginPath(); ctx.moveTo(x1, yy); ctx.lineTo(x2 - 8, yy); ctx.stroke();
@@ -452,11 +452,11 @@ function trips(ctx, S, st) {
 
 // ---- 8. one trip, the whole ballot: one trip on one end; on the other, what each race repays of it, the race's worth
 // to you ÷ its N. The races arrive one at a time (n); the beam tips when together they outweigh the trip.
-// An example: the presidency worth $50 million to you (closest states, 2008, 1 in 10 million): $5.00 a trip; a House
+// An example: the presidency worth $50 million to you (2008, where the chance was highest, 1 in 10 million): $5.00 a trip; a House
 // race worth $400,000 (the average race, 1 in 180,000): $2.22; the town race worth $1,000 (1 in 468): $2.14.
 // Alone none pays; together, $9.36 against $8.87.
 export const EXAMPLE = [
-  { name: 'President', B: 50e6, N: CLOSE08 },
+  { name: 'President', B: 50e6, N: TOP08 },
   { name: 'U.S. House', B: 400e3, N: HOUSE },
   { name: 'Town race', B: 1000, N: TOWN.N },
 ];
@@ -508,6 +508,6 @@ export const ALT = {
   curve: 'A forecast curve of the chance of each count of your side’s votes. At 50–50 a bar: its outline the chance of a tie or one short, its filled half the chance your ballot changes who wins.',
   field: 'A square field of dots, one for each run of the election; one, ringed, is a run your ballot decides.',
   stages: 'The presidency in two steps: a field for the chance your ballot changes Pennsylvania’s winner, then a hundred dots, nineteen lit, for the times its electoral votes then decide the College, then the larger field of both.',
-  trips: `A trip of $8.87 in each of the town race’s 468 runs; the trips on a seesaw against what the result is worth to you; the presidency’s 10 million trips; against them, ${Math.round(PEOPLE / 1e6)} million people at ${money(C0 * CLOSE08 / PEOPLE)} each; and your cost carried to both figures on a scale of dollars.`,
+  trips: `A trip of $8.87 in each of the town race’s 468 runs; the trips on a seesaw against what the result is worth to you; the presidency’s 10 million trips; against them, ${Math.round(PEOPLE / 1e6)} million people at ${money(C0 * TOP08 / PEOPLE)} each; and your cost carried to both figures on a scale of dollars.`,
   ballot: 'A seesaw: one trip of $8.87 on one end; on the other, what each race repays of the trip, its worth to you divided by its N, added one race at a time. Together they outweigh the trip.',
 };
