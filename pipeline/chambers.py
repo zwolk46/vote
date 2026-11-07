@@ -44,7 +44,9 @@ CALIBRATION (07:04, round 4): the model's own p is then multiplied by F / Z, F t
 years' out-of-sample near-ties (49-51%), where adopted for the level (near_tie_test). SHRINKAGE AND TAILS (07:19,
 round 5): where the test adopts it for the level (variant_test), the mean is shrunk toward 1/2 by lambda, fitted on
 the level's earlier years (shrink_factor; the House), with k refitted on the shrunk means, or t4 tails stand first
-in place of normal (governors); the near-tie factor is refitted under the variant. So the forecast for race i is
+in place of normal (governors); the near-tie factor is refitted under the variant. A variant is adopted only if its
+gain also holds with any one scored year left out (the robustness test, 08:36, from M2's second pass); since then
+none is, at any level (REPORT 0.1). So the forecast for race i is
 normal (t4 where adopted) with mean 1/2 + lambda (c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G (lag_i - 1/2))),
 lambda 1 where not shrunk, and variance k^2 (sd_nat^2 + s_e^2); the other tails, matched on the same sd, are
 computed alongside (model section 9.5). The common part sd_nat^2 is what ties races together for
@@ -70,6 +72,7 @@ REPO = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(HERE, "intake"))
 sys.path.insert(0, HERE)
 import congress_common as cc  # noqa: E402
+from downballot_pres_by_cd import LEAN_INPUT  # noqa: E402  (the House year -> (lines sheet, presidential year))
 
 YEARS = list(range(2006, 2025, 2))
 CAP = 0.25          # beyond a 25-point expected lead the error's spread is taken as constant
@@ -339,7 +342,8 @@ def fit_rows():
     every level; the Senate also 1982-2004 from MEDSL (medsl_senate_rows). A governor's row carries the state's
     last governor race (last_governor_race)."""
     cha = _load("cha/normalized/contests.json")["contests"]
-    db = _load("downballot/normalized/pres_by_cd.json")["lean_inputs"]
+    dbx = _load("downballot/normalized/pres_by_cd.json")
+    db = dbx["lean_inputs"]
     ps = presidential_shares()
     pres = presidents()
     gov = last_governor_index()
@@ -365,7 +369,19 @@ def fit_rows():
             skip("a third candidate in the top two")
             continue
         py = last_pres_year(t)
-        if L == "house":
+        if L == "house" and c["special"] and (t - 2) in LEAN_INPUT:
+            # a House special fills the old Congress's term and is held on the old Congress's lines, so its
+            # lean is the presidential vote on the lines of the House election two years before, as the files
+            # take it (build_congress.forecast_inputs). M2's second pass (2026-11-07): the rows took the sheet
+            # of the special's own year (PA-18 2018: +0.13 against the files' -0.11; 17 rows); the fit must be
+            # fitted on the inputs it is applied to
+            old = dbx["districts"].get(LEAN_INPUT[t - 2][0], {})
+            x = old.get(district_key(c["state"], c["district"], old), {}).get(str(py))
+            if x is None:
+                skip("a House special: no presidential vote on the old Congress's lines, on which it was held")
+                continue
+            lean = round(x["two_party_D"], 6) - ps[py]["US"]
+        elif L == "house":
             li = db.get(str(t), {})
             k = district_key(c["state"], c["district"], li)
             if k not in li or li[k]["pres_year"] != str(py):
@@ -1547,44 +1563,70 @@ def _variant_score(rows, level, variant, years):
 _VT = {}
 
 
+def _variant_verdict(r, b0):
+    """Round 5's three conditions for variant scores r against the record's b0 on the same years: (1) a higher mean
+    log score; (2) the count within 49-51% nearer the count seen; (3) in each safe-seat band, no near-even count
+    further from the count seen, where the record's counts allow a test (seen or expected VARIANT_MIN_COUNT up)."""
+    k49 = f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%"
+    raises = r["mean_log_score"] > b0["mean_log_score"]
+    nearer = abs(r["within"][k49]["expected"] - r["within"][k49]["seen"]) < \
+        abs(b0["within"][k49]["expected"] - b0["within"][k49]["seen"])
+    tested, failed = [], []
+    for bkey in list(r["by_band"])[VARIANT_SAFE[0]:]:
+        for wkey, x0 in b0["by_band"][bkey]["within"].items():
+            if x0["seen"] < VARIANT_MIN_COUNT and x0["expected"] < VARIANT_MIN_COUNT:
+                continue
+            x = r["by_band"][bkey]["within"][wkey]
+            tested.append(f"{bkey}, {wkey}")
+            if abs(x["expected"] - x["seen"]) > abs(x0["expected"] - x0["seen"]):
+                failed.append(f"{bkey}, {wkey}")
+    return {"raises_log_score": raises, "count_nearer": nearer, "safe_bands_tested": tested,
+            "safe_bands_further": failed, "safe_seats_supported": not failed,
+            "improves": bool(raises and nearer and not failed),
+            "mean_log_score_gain": r["mean_log_score"] - b0["mean_log_score"],
+            "count_49_51": {"expected": r["within"][k49]["expected"], "record_expected": b0["within"][k49]["expected"],
+                            "seen": r["within"][k49]["seen"]}}
+
+
 def variant_test(rows):
     """The orchestrator's test (07:19, round 5): each variant's forecasts of record against none's (the record of
     round 4), on 2010-2024, by level. A variant is adopted for a level only if it (1) raises the mean log score,
     (2) brings the count within 49-51% nearer the count seen, and (3) in each safe-seat band (|mean - 1/2| from 0.10
     to 0.20, and from 0.20 up) moves no near-even count (49-51%, 48-52%, 45-55%) further from the count seen, where
     the record's counts allow a test: the count seen or none's expected there VARIANT_MIN_COUNT or more. Reason: a
-    variant that raises the safe seats' p must have support at their distance (07:04, 07:19). Of the variants that
-    pass, the better log score."""
+    variant that raises the safe seats' p must have support at their distance (07:04, 07:19). And (4), the
+    robustness test (08:36, from M2's second pass): (1)-(3) hold again with any one scored year left out of the
+    scoring. Reason: a change adopted on a knife edge, on one year or one cell, is as likely noise as signal, and
+    the model's default is no change. Of the variants that pass, the better log score."""
     if "test" in _VT:
         return _VT["test"]
     out = {"years": VARIANT_YEARS, "bands": list(VARIANT_BANDS), "safe_bands": [VARIANT_BANDS[b] for b in VARIANT_SAFE],
            "min_count": VARIANT_MIN_COUNT, "variants": VARIANTS, "by_level": {}, "adopted": {},
            "shrink_by_year": {}, "k_by_year": {}}
-    k49 = f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%"
     for L in LEVELS:
         res = {v: _variant_score(rows, L, v, VARIANT_YEARS) for v in VARIANTS}
         b0 = res["none"]
+        scored = [T for T in VARIANT_YEARS if any(_near_scored(rows, "none").get((L, T), []))]
         best = None
         for v in ("shrink", "t4", "both"):
             r = res[v]
             if not r["races"]:
                 continue
-            r["raises_log_score"] = r["mean_log_score"] > b0["mean_log_score"]
-            r["count_nearer"] = abs(r["within"][k49]["expected"] - r["within"][k49]["seen"]) < \
-                abs(b0["within"][k49]["expected"] - b0["within"][k49]["seen"])
-            tested, failed = [], []
-            for bkey in list(r["by_band"])[VARIANT_SAFE[0]:]:
-                for wkey, x0 in b0["by_band"][bkey]["within"].items():
-                    if x0["seen"] < VARIANT_MIN_COUNT and x0["expected"] < VARIANT_MIN_COUNT:
-                        continue
-                    x = r["by_band"][bkey]["within"][wkey]
-                    tested.append(f"{bkey}, {wkey}")
-                    if abs(x["expected"] - x["seen"]) > abs(x0["expected"] - x0["seen"]):
-                        failed.append(f"{bkey}, {wkey}")
-            r["safe_bands_tested"], r["safe_bands_further"] = tested, failed
-            r["safe_seats_supported"] = not failed
-            r["improves"] = bool(r["raises_log_score"] and r["count_nearer"] and r["safe_seats_supported"])
-            if r["improves"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
+            r.update(_variant_verdict(r, b0))
+            # the robustness test (the orchestrator, 08:36): the gain must hold, with no tested cell made worse,
+            # when any one scored year is left out of the scoring
+            loo = {}
+            for Y in scored:
+                yrs = [T for T in VARIANT_YEARS if T != Y]
+                vd = _variant_verdict(_variant_score(rows, L, v, yrs), _variant_score(rows, L, "none", yrs))
+                loo[str(Y)] = {"improves": vd["improves"], "mean_log_score_gain": vd["mean_log_score_gain"],
+                               "count_49_51": vd["count_49_51"],
+                               "fails": ([] if vd["raises_log_score"] else ["the log score"]) +
+                                        ([] if vd["count_nearer"] else ["the 49-51% count"]) + vd["safe_bands_further"]}
+            r["leave_one_year_out"] = loo
+            r["robust"] = all(x["improves"] for x in loo.values())
+            r["adopted_if"] = "improves on every scored year, and on every set with one scored year left out"
+            if r["improves"] and r["robust"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
                 best = v
         res["adopted"] = best or "none"
         out["by_level"][L] = res
@@ -1959,8 +2001,8 @@ def vice_president_chance(year):
     """P(the Vice President elected in year t is a Democrat): the presidential chance, from D1's record
     (data/president/<year>.json): 538's national chance where 538's forecast stands first there (the same model,
     its "US" row, the last forecast before Election Day), else the model's own chance that the Democrat wins the
-    College (pipeline/own_forecast.py college_prob on the approved forecast, a 269 tie counted half, states
-    whole). Reason: the Senate's control in a presidential year turns on who becomes Vice President (the
+    College (pipeline/own_forecast.py college_prob on the record's unit forecasts, Maine's and Nebraska's districts
+    apart as the College is chosen, a 269 tie counted half). Reason: the Senate's control in a presidential year turns on who becomes Vice President (the
     orchestrator, 2026-11-07 05:58, item 1). Assumed independent of the Senate's common swing, as before."""
     import own_forecast
     pres = cc.read_json(os.path.join(REPO, "data", "president", f"{year}.json"))
@@ -1976,16 +2018,31 @@ def vice_president_chance(year):
                 "note": f"538's chance that the Democratic ticket wins, its {model} forecast of {f['forecast_date']} "
                         f"(the presidency's p in data/president/{year}.json stands under 538 ({model})); any other "
                         f"ticket counts as not Democratic; assumed independent of the Senate's common swing"}
+    # the units as the College chooses them: Maine and Nebraska by state (2 electoral votes each) and by district
+    # (1 each), as D1's record holds them (M2's second pass, 2026-11-07: 0.5295 in 2024, not the 0.5286 of the
+    # states taken whole). Each unit's mean is the model's own in the record; the errors are the approved version's
     a = own_forecast.approved(year)
-    nara = cc.read_json(os.path.join(REPO, "data", "president", "inputs", "nara_electoral_votes.json"))["years"]
-    ev = {s: x["ev"] for s, x in nara[str(year)]["states"].items()}
-    fc = {s: (mu, None) for s, mu in a["means"].items()}
-    pD = own_forecast.college_prob(fc, ev, a["s_nat"], a["s_state"], a["tails"])
+    fc, ev, sds = {}, {}, set()
+    for c in pres["contests"]:
+        own = [f for f in c["forecasts"] if f["by"] == "the model's own"]
+        if not own:
+            continue
+        u = c["place"]["state"] + (f"-{c['place']['district']}" if c["place"].get("district") else "")
+        fc[u] = (own[0]["share"]["mean"], None)
+        ev[u] = own[0]["unit_ev"]
+        sds.add((own[0]["share"]["national_sd"], own[0]["share"]["state_sd"]))
+    if sum(ev.values()) != 538 or len(sds) != 1:
+        raise SystemExit(f"{year}: the record's units give {sum(ev.values())} electoral votes, {len(sds)} sets of sds")
+    s_nat, s_state = sds.pop()
+    pD = own_forecast.college_prob(fc, ev, s_nat, s_state, a["tails"])
     return {"P_democrat": pD, "by": "the model's own (pipeline/own_forecast.py, approved version)",
             "as_of": a["poll_date"], "source": "data/president",
             "note": f"the model's own chance that the Democrat wins the College, from its forecast on 538's national "
                     f"average of {a['poll_date']} (the presidency's p in data/president/{year}.json stands under the "
-                    f"model's own): states whole, a 269 tie counted half; assumed independent of the Senate's common swing"}
+                    f"model's own): the record's {len(fc)} units"
+                    f"{', Maine and Nebraska by district as well as statewide' if len(fc) > 51 else ', every state whole (the record forecasts no district this year)'}"
+                    f", a 269 tie counted half; "
+                    f"assumed independent of the Senate's common swing"}
 
 
 PRES = None

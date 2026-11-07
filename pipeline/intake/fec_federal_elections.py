@@ -174,7 +174,9 @@ def parse_year(year):
                 "party": texts[m["party"]].strip() if "party" in m else "",
                 "incumbent": "(I)" in (texts[m["inc"]] if "inc" in m else ""),
                 "general": cc.to_int(gen_raw),
-                "general_text": None if cc.to_int(gen_raw) is not None else (str(gen_raw).strip() or None),
+                # "n/a" in the November column marks a primary line (New York 2008, Texas 2006), not a November entry
+                "general_text": None if cc.to_int(gen_raw) is not None or str(gen_raw).strip().lower() == "n/a"
+                else (str(gen_raw).strip() or None),
                 "runoff": cc.to_int(cells[m["runoff"]]) if "runoff" in m else None,
                 "combined": cc.to_int(cells[m["combined"]]) if "combined" in m else None,
                 "winner": (texts[m["winner"]].upper().startswith("W") if "winner" in m else None),
@@ -183,14 +185,31 @@ def parse_year(year):
     for key in order:
         c = contests[key]
         cands = {}
+        id_names, shared = {}, {}
         for r in c["rows"]:
             k = r["fec_id"] if r["fec_id"] and r["fec_id"].lower() not in ("n/a", "") else "name:" + r["name"]
             if r["name"].lower().startswith(("scattered", "write-in", "write in", "writein", "all others")):
                 k = "scattered:" + r["name"].lower()
+            elif not k.startswith("name:"):
+                # The FEC's file sometimes gives two candidates of one contest the same id: 2008 NC-04, Price (D)
+                # and Lawson (R) both under H6NC04037, which joined them into one "D/R" line with p = 0 (M2's
+                # second pass, 2026-11-07). One id's lines are one candidate's only under one surname; a second
+                # surname under the id is a second candidate, its own line, and noted.
+                sn = surname(r["name"])
+                first = id_names.setdefault(k, (sn, r["name"]))
+                if sn != first[0]:
+                    shared[k + "|" + sn] = (r["fec_id"], first[1])
+                    k = k + "|" + sn
             a = cands.setdefault(k, {"name": r["name"], "fec_id": r["fec_id"], "parties": [], "incumbent": False,
                                      "votes": None, "runoff_votes": None, "combined_printed": None,
                                      "winner_marked": None, "text": None, "scattered": k.startswith("scattered:")})
-            if r["party"] and r["party"] not in a["parties"]:
+            # a party counts only from a line that carries the general election (votes, a word such as
+            # "Unopposed", or a runoff): the file also prints each candidate's primary lines, and a primary
+            # loser who ran in November on another party's line kept the first party too (2012 NY-05, Jennings:
+            # lost the Democratic primary, the Republican nominee; 2016 PA-09, Halvorson: lost the Republican
+            # primary, the Democratic nominee by write-in), read as "D/R" (M2's second pass, 2026-11-07)
+            general_line = r["general"] is not None or r["general_text"] or r["runoff"] is not None
+            if r["party"] and general_line and r["party"] not in a["parties"]:
                 a["parties"].append(r["party"])
             a["incumbent"] = a["incumbent"] or r["incumbent"]
             if r["general"] is not None:
@@ -229,6 +248,10 @@ def parse_year(year):
             else:
                 by_name[nm] = k
         cl = [a for a in cands.values() if a["votes"] is not None or a["text"]]
+        for k, (fid, other) in shared.items():
+            if k in cands and (cands[k]["votes"] is not None or cands[k]["text"]):
+                c["notes"].add(f"{cands[k]['name']}: the FEC's file lists this candidate under {other}'s id {fid}; "
+                               f"read as a separate candidate (two surnames under one id)")
         if not cl:
             # a district cell with no candidate under it (2018: a "CA" row read as an at-large district;
             # 2006: Ohio's 3rd and 18th marked with an asterisk and no special-election lines): no contest
