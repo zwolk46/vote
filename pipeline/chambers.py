@@ -132,9 +132,34 @@ def _top_two_DR(cands):
     return D[0], R[0]
 
 
+# Algara and Amlani's Missouri rows fall short of Cha's totals by 7% for the Democrat and 2% for the Republican
+# in each of 2008, 2012 and 2016 (pipeline/intake/algara_amlani.py's check), as they would if Kansas City, which
+# reports apart from Jackson County, were missing from the county rows (inferred: the rows hold 115 jurisdictions,
+# the 114 counties and St. Louis City). A count known to be incomplete is not used: no p, no fit row, no lag.
+AA_INCOMPLETE = {"MO": "Algara and Amlani's Missouri rows fall short of Cha, Kuriwaki and Snyder's totals by 7% "
+                       "for the Democrat and 2% for the Republican in each of 2008, 2012 and 2016, as they would "
+                       "if Kansas City, which reports apart from Jackson County, were missing from the county rows "
+                       "(inferred); the count is taken as incomplete"}
+
+
+def aa_governors():
+    """Algara and Amlani's governor elections, summed from county returns (pipeline/intake/algara_amlani.py)."""
+    return _load("algara_amlani/normalized/governors.json")["elections"]
+
+
+def aa_led_by_DR(r):
+    """(D votes, R votes) when the Democrat and the Republican both had votes and the others' total is below the
+    smaller of the two, so that no other candidate can have been among the top two; else None. The source
+    gives the other candidates only as a total."""
+    if not r["D"] or not r["R"] or r["others"] is None or r["others"] >= min(r["D"], r["R"]):
+        return None
+    return r["D"], r["R"]
+
+
 def last_governor_index():
-    """{state: [(year, Democrat's two-party share, special)]}, every governor election in Cha, Kuriwaki and
-    Snyder (2006 on, odd years and specials included, the November round) that a Democrat and a Republican led."""
+    """{state: [(year, Democrat's two-party share, special, source)]}: every governor election that a Democrat
+    and a Republican led, odd years and specials included, the November round. From 2006, Cha, Kuriwaki and
+    Snyder (the record); before 2006, Algara and Amlani's county returns (aa_led_by_DR), Missouri apart."""
     out = {}
     for c in _load("cha/normalized/contests.json")["contests"]:
         if c["office"] != "governor" or c["runoff"]:
@@ -142,13 +167,19 @@ def last_governor_index():
         dr = _top_two_DR([a for a in c["candidates"]])
         if dr:
             out.setdefault(c["state"], []).append((c["year"], dr[0]["votes"] / (dr[0]["votes"] + dr[1]["votes"]),
-                                                   bool(c["special"])))
+                                                   bool(c["special"]), "cha"))
+    for r in aa_governors():
+        if r["year"] >= 2006 or r["state"] in AA_INCOMPLETE:
+            continue
+        dr = aa_led_by_DR(r)
+        if dr:
+            out.setdefault(r["state"], []).append((r["year"], dr[0] / (dr[0] + dr[1]), False, "algara_amlani"))
     return out
 
 
 def last_governor_race(index, state, year):
     """The state's last governor race before year t that a Democrat and a Republican led (M2's A4, accepted by
-    the orchestrator 2026-11-07 05:58, item 5): (year, the Democrat's two-party share, special), or None."""
+    the orchestrator 2026-11-07 05:58, item 5): (year, the Democrat's two-party share, special, source), or None."""
     past = [x for x in index.get(state, []) if x[0] < year]
     return max(past, key=lambda x: x[0]) if past else None
 
@@ -157,11 +188,18 @@ def last_governor_race(index, state, year):
 # from 1982, the first year whose seats' previous regular election (six years before) is in MEDSL, so that
 # incumbency can be inferred (below). Reason: the forecast is fitted on earlier cycles only (the orchestrator,
 # 2026-11-07 05:58, item 2: "extend the fitting data back where your sources reach (MEDSL from 1976, Cha)").
-FIT_FROM = {"house": 2006, "senate": 1982, "governor": 2010}
-# Governors from 2010: the first even year in which a state's last governor race (four years back for most
-# states) is in Cha, which begins in 2006; of 2008's eleven races only New Hampshire's and Vermont's (two-year
-# terms) have one. The House from 2006: The Downballot's district presidential vote begins on the 2006 lines,
-# and which states kept the same lines in 2002-2004 is not stated in any source read here.
+# Governors from 1978 (the orchestrator, 06:36, item 1): Algara and Amlani's county returns reach back before Cha,
+# and 1978 is the first even year whose last presidential vote (1976) and sitting president are in the sources
+# the inputs come from (MEDSL's U.S. President and the National Archives' pages, both from 1976). The House from
+# 2006: The Downballot's district presidential vote begins on the 2006 lines, and which states kept the same
+# lines in 2002-2004 is not stated in any source read here.
+FIT_FROM = {"house": 2006, "senate": 1982, "governor": 1978}
+GOV_FROM = 1978            # the first year of the governor contest files (data/governor/<year>.json)
+
+
+def file_years(level):
+    """The even years whose data/<level>/<year>.json this system builds."""
+    return list(range(GOV_FROM if level == "governor" else 2006, 2025, 2))
 
 
 def medsl_senate_rows(ps, pres):
@@ -253,6 +291,38 @@ def incumbency_check(rows):
     return {"races": n, "agree": agree, "share": agree / n if n else None, "differ": wrong}
 
 
+def aa_governor_rows(ps, pres, gov):
+    """Governor races of 1978-2004 from Algara and Amlani (Cha begins in 2006), for the fit. Incumbency is the
+    authors' seat status (an incumbent's re-election bid); a row needs the Democrat and the Republican to have
+    led (aa_led_by_DR) and the state's presidential vote; it carries the state's last governor race."""
+    rows, skipped = [], {}
+
+    def skip(why):
+        skipped[why] = skipped.get(why, 0) + 1
+    for r in aa_governors():
+        t = r["year"]
+        if not (FIT_FROM["governor"] <= t < 2006) or t % 2 or r["state"] not in cc.STATES_50:
+            continue
+        if r["state"] in AA_INCOMPLETE:
+            skip("Algara and Amlani, before 2006: Missouri, a count taken as incomplete")
+            continue
+        dr = aa_led_by_DR(r)
+        if not dr:
+            skip("Algara and Amlani, before 2006: not a Democrat and a Republican leading")
+            continue
+        py = last_pres_year(t)
+        if r["state"] not in ps.get(py, {}):
+            skip("no state presidential vote")
+            continue
+        lg = last_governor_race(gov, r["state"], t)
+        n2 = dr[0] + dr[1]
+        rows.append({"year": t, "level": "governor", "state": r["state"], "district": None, "special": False,
+                     "y": dr[0] / n2, "n2": n2, "lean": ps[py][r["state"]] - ps[py]["US"], "inc": r["incumbency"],
+                     "inc_source": "algara_amlani", "M": 0 if t % 4 == 0 else 1, "P": sitting_party(t, pres),
+                     "source": "algara_amlani", "lag": lg[1] if lg else None, "lag_year": lg[0] if lg else None})
+    return rows, skipped
+
+
 def fit_rows():
     """One row per race both major parties contested in November: 2006-2024 from Cha, Kuriwaki and Snyder,
     every level; the Senate also 1982-2004 from MEDSL (medsl_senate_rows). A governor's row carries the state's
@@ -307,9 +377,10 @@ def fit_rows():
             row["lag_year"] = lg[0] if lg else None
         rows.append(row)
     more, sk = medsl_senate_rows(ps, pres)
-    for k, v in sk.items():
+    gmore, gsk = aa_governor_rows(ps, pres, gov)
+    for k, v in list(sk.items()) + list(gsk.items()):
         skipped[k] = skipped.get(k, 0) + v
-    return rows + more, skipped
+    return rows + more + gmore, skipped
 
 
 def fit_years(level, T):
@@ -323,9 +394,12 @@ def ols(X, y):
     return beta, y - X @ beta
 
 
-def fit(rows, level, years):
+def fit(rows, level, years, national_from=None):
     """Stage one by OLS with a dummy per year; stage two, the year effects on the presidency terms. Governors
-    carry one more term, the state's last governor race: b_lag * (lag - 1/2) (method D2-v2)."""
+    carry one more term, the state's last governor race: b_lag * (lag - 1/2) (method D2-v2). With national_from
+    (another level's fit on its own earlier cycles), stage two is not fitted here: the national swing's terms,
+    their spread and (Z'Z)^-1 are that fit's (the House of 2008-2012 on the Senate's, the orchestrator 06:36,
+    item 2), and stage one needs one cycle only."""
     lag = level == "governor"
     R = [r for r in rows if r["level"] == level and r["year"] in years and (not lag or r.get("lag") is not None)]
     ys = sorted({r["year"] for r in R})
@@ -342,6 +416,12 @@ def fit(rows, level, years):
     # fitted by OLS of |residual| * sqrt(pi/2) on x (for a normal error, E|e| = s_e * sqrt(2/pi))
     x = np.minimum(np.abs(X @ beta), CAP)
     g, _ = ols(np.column_stack([np.ones_like(x), x]), np.abs(res) * math.sqrt(math.pi / 2))
+    base = {"level": level, "years": ys, "n": len(R), "a": {t: float(a[t]) for t in ys}, "b_lean": float(bL),
+            "b_inc": float(bI), "b_lag": bG, "lag": lag, "s_e": s_e, "g": [float(v) for v in g]}
+    if national_from is not None:
+        return dict(base, c=list(national_from["c"]), s_a=national_from["s_a"],
+                    ZtZ_inv=national_from["ZtZ_inv"], national_from={"level": national_from["level"],
+                                                                     "years": national_from["years"]})
     # stage two: a_t = c0 + c_mid M P + c_on (1-M) P + d
     Z = np.array([[1.0, (t % 4 != 0) * sitting_party(t, PRES), (t % 4 == 0) * sitting_party(t, PRES)]
                   for t in ys])
@@ -354,9 +434,7 @@ def fit(rows, level, years):
         raise ValueError("every one of these cycles had a president of the same party, so the national swing's "
                          "midterm and presidential-year terms cannot both be fitted")
     s_a = float(np.sqrt((d ** 2).sum() / dof))
-    return {"level": level, "years": ys, "n": len(R), "a": {t: float(a[t]) for t in ys}, "b_lean": float(bL),
-            "b_inc": float(bI), "b_lag": bG, "lag": lag, "s_e": s_e, "g": [float(v) for v in g], "c": [float(v) for v in c], "s_a": s_a,
-            "ZtZ_inv": np.linalg.inv(Z.T @ Z).tolist()}
+    return dict(base, c=[float(v) for v in c], s_a=s_a, ZtZ_inv=np.linalg.inv(Z.T @ Z).tolist())
 
 
 def national(m, t):
@@ -368,14 +446,19 @@ def national(m, t):
     z = np.array([1.0, (t % 4 != 0) * P, (t % 4 == 0) * P])
     a_hat = float(z @ np.array(m["c"]))
     sd = m["s_a"] * math.sqrt(1.0 + float(z @ np.array(m["ZtZ_inv"]) @ z))
-    return a_hat, sd
+    return a_hat, sd * m.get("k", 1.0)
+
+
+def own_s_e(m):
+    """The race's own sd as the forecast uses it: the fit's s_e times the calibration factor k (calibration)."""
+    return m["s_e"] * m.get("k", 1.0)
 
 
 def predict(m, r):
     a_hat, sd_a = national(m, r["year"])
     mean = 0.5 + a_hat + m["b_lean"] * r["lean"] + m["b_inc"] * r["inc"] + (m["b_lag"] * (r["lag"] - 0.5)
                                                                            if m["lag"] else 0.0)
-    s_e = m["g"][0] + m["g"][1] * min(abs(mean - 0.5), CAP) if HETERO else m["s_e"]
+    s_e = (m["g"][0] + m["g"][1] * min(abs(mean - 0.5), CAP)) * m.get("k", 1.0) if HETERO else own_s_e(m)
     sd = math.sqrt(sd_a ** 2 + s_e ** 2)
     return mean, sd, a_hat
 
@@ -486,8 +569,13 @@ def _score(m, test, T):
     stats["within_49_51_observed"] = sum(1 for r in test if abs(r["y"] - 0.5) < 0.01)
     a_hat, sd_a = national(m, T)
     fitted = FULL[m["level"]]["a"].get(T)
+    # the year effect fitted in sample rests on the year's own races, so it carries their noise too, about
+    # s_e^2 / races (an eleven-race governor year: as large as the national sd itself)
+    noise = FULL[m["level"]]["s_e"] ** 2 / len(test)
     stats["national"] = {"forecast": a_hat, "sd": sd_a, "fitted_in_sample": fitted,
-                         "z": (fitted - a_hat) / sd_a if fitted is not None else None}
+                         "z": (fitted - a_hat) / sd_a if fitted is not None else None,
+                         "z_with_year_noise": (fitted - a_hat) / math.sqrt(sd_a ** 2 + noise) if fitted is not None
+                         else None}
     return stats
 
 
@@ -495,25 +583,36 @@ def _test_rows(rows, L, T):
     return [r for r in rows if r["level"] == L and r["year"] == T and (L != "governor" or r.get("lag") is not None)]
 
 
-def backtest(rows, window=None):
-    """Every year forecast from a fit on earlier cycles only: all of the level's cycles before it (window None,
-    the method of record), or only the `window` cycles just before it. A fit needs four cycles at least: the
-    national swing's three terms and one degree of freedom for its spread."""
+def backtest(rows, window=None, calibrated=False):
+    """Every year forecast from a fit on earlier cycles only: all of the level's cycles before it (window None:
+    raw_model, the House of 2008-2012 on the Senate's national terms), or only the `window` cycles just before
+    it. With calibrated, the forecasts of record: raw_model's sd times the calibration factor of the year's
+    earlier scored years (calibration). A fit of its own national terms needs four cycles at least: the three
+    terms and one degree of freedom for their spread."""
     out = {}
     for L in LEVELS:
         per_year, folds = {}, {}
         for T in range(FIT_FROM[L], 2025, 2):
             test = _test_rows(rows, L, T)
-            train = fit_years(L, T)
+            if not test:
+                continue
             if window:
+                train = fit_years(L, T)
                 train = train[-window:] if len(train) >= window else []
-            if not test or len(train) < 4:
-                continue
-            try:
-                m = fit(rows, L, train)
-            except ValueError:
-                continue
+                if len(train) < K_MIN:
+                    continue
+                try:
+                    m = fit(rows, L, train)
+                except ValueError:
+                    continue
+            else:
+                m, train = (year_model if calibrated else raw_model)(rows, L, T)
+                if m is None:
+                    continue
             folds[T] = {k: m[k] for k in ("b_lean", "b_inc", "b_lag", "s_e", "s_a", "c")}
+            folds[T]["k"] = m.get("k", 1.0)
+            if m.get("national_from"):
+                folds[T]["national_from"] = m["national_from"]
             per_year[T] = _score(m, test, T)
             per_year[T]["cycles"] = len(train)
         out[L] = {"per_year": per_year, "folds": folds}
@@ -548,14 +647,39 @@ def pooled(bt, L, years=None):
     if not n:
         return None
     nz = [s["national"]["z"] for s in ss if s["national"]["z"] is not None]
+    nzn = [s["national"]["z_with_year_noise"] for s in ss if s["national"].get("z_with_year_noise") is not None]
     return {"years": sorted(T for T in bt[L]["per_year"] if not years or T in years), "races": n,
-            "z_sd": float(z.std()), "z_mean": float(z.mean()),
+            "z_sd": float(z.std()), "z_mean": float(z.mean()), "z_rms": float(np.sqrt(np.mean(z ** 2))),
+            "national_z_rms_with_year_noise": float(np.sqrt(np.mean(np.square(nzn)))) if nzn else None,
             "coverage": {q: sum(s["normal"]["coverage"][q] * s["races"] for s in ss) / n for q in ("0.5", "0.8", "0.95")},
             "coverage_t4": {q: sum(s["t4"]["coverage"][q] * s["races"] for s in ss) / n for q in ("0.5", "0.8", "0.95")},
             "mean_log_score": sum(s["normal"]["mean_log_score"] * s["races"] for s in ss) / n,
             "national_z_rms": float(np.sqrt(np.mean(np.square(nz)))) if nz else None,
             "within_49_51": {"expected": sum(s["normal"]["within_49_51_expected"] for s in ss),
                              "observed": sum(s["within_49_51_observed"] for s in ss)}}
+
+
+def house_on_senate_terms(rows):
+    """The orchestrator's test (06:36, item 2): House 2014-2024 forecast with the national swing's terms from the
+    Senate's fit on the Senate's earlier cycles, against the House's own; and with the House's own terms fitted on
+    only its last 1, 2 or 3 cycles, as the House of 2008, 2010 and 2012 would be."""
+    out = {}
+    for scheme in ("own", "senate_terms", "senate_terms_1_cycle", "senate_terms_2_cycles", "senate_terms_3_cycles"):
+        per = {}
+        for T in range(2014, 2025, 2):
+            test = _test_rows(rows, "house", T)
+            hy = fit_years("house", T)
+            if scheme.endswith("cycle") or scheme.endswith("cycles"):
+                hy = hy[-int(scheme.split("_")[2]):]
+            if scheme == "own":
+                m = fit(rows, "house", hy)
+            else:
+                ms, _ = raw_model(rows, "senate", T)
+                m = fit(rows, "house", hy, national_from=ms)
+            per[T] = _score(m, test, T)
+            per[T]["cycles"] = len(hy)
+        out[scheme] = {"house": {"per_year": per}}
+    return out
 
 
 def backtest_seats(rows):
@@ -566,14 +690,13 @@ def backtest_seats(rows):
         res = {}
         for T in YEARS:
             test = [r for r in rows if r["level"] == L and r["year"] == T]
-            train = fit_years(L, T)
-            if not test or len(train) < K_MIN:
+            m, _ = year_model(rows, L, T)
+            if not test or m is None:
                 continue
-            m = fit(rows, L, train)
             means = [predict(m, r)[0] for r in test]
             _, sd_a = national(m, T)
             grid = swing_grid(sd_a)
-            dist = (seat_dp(means, [m["s_e"]] * len(means), [1.0] * len(means), grid)
+            dist = (seat_dp(means, [own_s_e(m)] * len(means), [1.0] * len(means), grid)
                     * normal_weights(grid, 0.0, sd_a)[:, None]).sum(axis=0)
             won = sum(1 for r in test if r["y"] > 0.5)
             cum = np.cumsum(dist)
@@ -590,7 +713,9 @@ def _fmt(x):
         return "none"
     return (f"{x['races']:5d} races, z sd {x['z_sd']:.3f} (mean {x['z_mean']:+.3f}), cover 50/80/95 "
             f"{x['coverage']['0.5']:.2f}/{x['coverage']['0.8']:.2f}/{x['coverage']['0.95']:.3f}, log score "
-            f"{x['mean_log_score']:.3f}, national z rms {x['national_z_rms']:.2f}" if x["national_z_rms"] is not None
+            f"{x['mean_log_score']:.3f}, national z rms {x['national_z_rms']:.2f}"
+            + (f" ({x['national_z_rms_with_year_noise']:.2f} with the year effect's noise)"
+               if x.get("national_z_rms_with_year_noise") is not None else "") if x["national_z_rms"] is not None
             else f"{x['races']:5d} races, z sd {x['z_sd']:.3f}")
 
 
@@ -598,7 +723,9 @@ def _fmt(x):
 RUN_UTC = cc.now_utc()
 # the method's version: D2-v1 approved 2026-11-07 03:46 UTC; v2 (05:58, items 2 and 5) fits on earlier cycles
 # only, and gives governors the state's last governor race (data/congress/REPORT.md section 2)
-METHOD = {"house": "D2-v2", "senate": "D2-v2", "governor": "D2-v2 (with the last governor race)"}
+METHOD = {"house": "D2-v3", "senate": "D2-v3", "governor": "D2-v3 (with the last governor race)"}
+# v3 (the orchestrator, 06:36): governors fitted from 1978 on Algara and Amlani's returns; the House of 2008-2012
+# on the Senate's national terms; each level's sd calibrated on its earlier years (calibration)
 K_MIN = 4                   # the fewest earlier cycles a fit needs (the back-test, REPORT.md section 2.3)
 CAUCUS_D_LAST = {("ME", "KING"), ("VT", "SANDERS"), ("CT", "LIEBERMAN")}
 
@@ -611,8 +738,11 @@ def git_head():
 
 def model_source(year, level, m):
     yrs = m["years"]
+    nf = m.get("national_from")
     return cc.source_block(f"the model's own forecast, method {METHOD[level]}, fitted to the {level} races of "
-                           f"{yrs[0]}-{yrs[-1]} ({len(yrs)} cycles, all before {year})",
+                           f"{yrs[0]}-{yrs[-1]} ({len(yrs)} cycle{'s' if len(yrs) > 1 else ''}, all before {year})"
+                           + (f", with national terms from the Senate's earlier cycles ({nf['years'][0]}-"
+                              f"{nf['years'][-1]})" if nf else ""),
                            "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
                            RUN_UTC, None, mark="inferred",
                            note="the file's top-level \"model\" holds the fitted terms; no polls are used")
@@ -994,15 +1124,67 @@ def is_pending(c):
     return (p.get("not_computed") or "").startswith("pending") or p.get("computed_by") == "pipeline/chambers.py"
 
 
-def year_model(rows, level, year):
-    """The model's own fit for year t, on its earlier cycles only, or (None, cycles) when there are too few."""
+def raw_model(rows, level, year):
+    """The model's own fit for year t, on its earlier cycles only, before calibration; (None, cycles) when there
+    are too few. The House with fewer than K_MIN earlier cycles of its own (2008-2012) but at least one takes the
+    national swing's terms from the Senate's fit on the Senate's earlier cycles (the orchestrator, 06:36, item 2:
+    the back-test on 2014-2024 keeps z sd and coverage within a few points of the House's own; REPORT 2.3)."""
     fy = [t for t in fit_years(level, year) if any(r["level"] == level and r["year"] == t for r in rows)]
-    if len(fy) < K_MIN:
-        return None, fy
     try:
-        return fit(rows, level, fy), fy
+        if len(fy) >= K_MIN:
+            return fit(rows, level, fy), fy
+        if level == "house" and fy:
+            ms, _ = raw_model(rows, "senate", year)
+            if ms is not None:
+                return fit(rows, level, fy, national_from=ms), fy
     except ValueError:
+        pass
+    return None, fy
+
+
+# CALIBRATION (the orchestrator, 06:36, item 3): each level's forecast sd is multiplied by k, the root mean square
+# of the standardized errors z = (y - mean) / sd of the level's earlier years, each year forecast from its own
+# earlier cycles (raw_model), once at least CAL_MIN such years are scored. Reason: a forecast wider than the record
+# supports understates p (law 1a); the back-test (REPORT 2.4) shows k improves the log score at every level, and
+# a separate factor for the national term does not. A year with fewer scored years before it keeps k = 1.
+CAL_MIN = 3
+_CAL = {}
+
+
+def _scored(rows, level):
+    """{year: [z of each race]} for every year the level's raw_model forecasts, cached."""
+    if level not in _CAL:
+        out = {}
+        for T in range(FIT_FROM[level], 2025, 2):
+            test = _test_rows(rows, level, T)
+            m, _ = raw_model(rows, level, T)
+            if m is None or not test:
+                continue
+            out[T] = [(r["y"] - mu) / sd for r in test for mu, sd, _ in [predict(m, r)]]
+        _CAL[level] = out
+    return _CAL[level]
+
+
+def calibration(rows, level, year):
+    sc = _scored(rows, level)
+    yrs = [t for t in sorted(sc) if t < year]
+    if len(yrs) < CAL_MIN:
+        return {"k": 1.0, "years": yrs, "races": sum(len(sc[t]) for t in yrs),
+                "note": f"not calibrated: {len(yrs)} earlier year(s) scored out of sample, {CAL_MIN} needed"}
+    zs = [z for t in yrs for z in sc[t]]
+    return {"k": math.sqrt(sum(z * z for z in zs) / len(zs)), "years": yrs, "races": len(zs),
+            "note": "k = the root mean square of z = (y - mean) / sd over these earlier years' races, each year "
+                    "forecast from its own earlier cycles"}
+
+
+def year_model(rows, level, year):
+    """The model's own forecast for year t, of record: raw_model, its sd calibrated (calibration)."""
+    m, fy = raw_model(rows, level, year)
+    if m is None:
         return None, fy
+    cal = calibration(rows, level, year)
+    m = dict(m, k=cal["k"], calibration=cal)
+    return m, fy
 
 
 def too_few(level, year, fy):
@@ -1012,8 +1194,8 @@ def too_few(level, year, fy):
                 f"swing's midterm and presidential-year terms cannot both be fitted")
     first = {"house": "the House's from 2006 (The Downballot's district presidential vote begins on the 2006 lines)",
              "senate": "the Senate's from 1982 (MEDSL)",
-             "governor": "the governors' from 2010 (the first year every state's last governor race is in Cha, "
-                         "Kuriwaki and Snyder, which begins in 2006)"}[level]
+             "governor": "the governors' from 1978 (Algara and Amlani's county returns before 2006, with the "
+                         "presidential vote from MEDSL and the president from the National Archives, both from 1976)"}[level]
     return (f"the model's own forecast is fitted on earlier cycles only and needs {K_MIN} of them; its sources hold "
             f"{len(fy)} before {year} ({first})")
 
@@ -1025,11 +1207,13 @@ def compute(year):
     rows, _ = fit_rows()
     for level in LEVELS:
         path = os.path.join(REPO, "data", level, f"{year}.json")
+        if year not in file_years(level):
+            continue
         d = cc.read_json(path)
         m, fy = year_model(rows, level, year)
         if m:
             a_hat, sd_a = national(m, year)
-            sd = math.sqrt(sd_a ** 2 + m["s_e"] ** 2)
+            sd = math.sqrt(sd_a ** 2 + own_s_e(m) ** 2)
         for c in d["contests"]:
             fi = c.get("forecast_inputs")
             if not is_pending(c):
@@ -1129,14 +1313,21 @@ def compute(year):
                                   "cycles only, from what was known before the election (the orchestrator, "
                                   "2026-11-07 05:58); no polls are used, so it carries less than forecasters then knew",
                           "fit_years": m["years"], "cycles": len(m["years"]), "races": m["n"],
-                          "b_lean": m["b_lean"], "b_inc": m["b_inc"], "b_lag": m["b_lag"], "s_e": m["s_e"],
+                          "b_lean": m["b_lean"], "b_inc": m["b_inc"], "b_lag": m["b_lag"], "s_e_fitted": m["s_e"],
+                          "k": m["k"], "calibration": m["calibration"], "s_e": own_s_e(m),
                           "s_a": m["s_a"], "c": m["c"], "ZtZ_inv": m["ZtZ_inv"],
                           "national_forecast": a_hat, "national_sd": sd_a, "sd": sd,
-                          "rho": sd_a ** 2 / (sd_a ** 2 + m["s_e"] ** 2), "commit": commit,
+                          "rho": sd_a ** 2 / (sd_a ** 2 + own_s_e(m) ** 2), "commit": commit,
                           "mean_is": "1/2 + national_forecast + b_lean * lean + b_inc * incumbency"
                                      + (" + b_lag * (last governor race's Democratic share - 1/2)" if m["lag"] else ""),
-                          "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = s_a sqrt(1 + z (Z'Z)^-1 z'), "
-                                   "z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic president, -1 Republican"}
+                          "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = k s_a sqrt(1 + z (Z'Z)^-1 z'), "
+                                   "s_e = k s_e_fitted, z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic "
+                                   "president, -1 Republican; k the calibration factor"}
+            if m.get("national_from"):
+                d["model"]["national_from"] = dict(m["national_from"], note=(
+                    "national terms from the Senate's earlier cycles: c, s_a and (Z'Z)^-1 are the Senate's fit on "
+                    "its own cycles before this year, since the House has fewer than four earlier cycles of its own "
+                    "(the orchestrator, 2026-11-07 06:36, item 2)"))
         else:
             d["model"] = {"method": METHOD[level], "not_fitted": too_few(level, year, fy), "fit_years": fy,
                           "commit": commit}
@@ -1193,7 +1384,7 @@ def not_in_control(c, level, year):
 
 
 def control(d, level, year, m, sd_a, commit):
-    s_e = m["s_e"]
+    s_e = own_s_e(m)
     entries = []
     for i, c in enumerate(d["contests"]):
         why = not_in_control(c, level, year)
@@ -1349,7 +1540,7 @@ def setup():
     return rows, skipped
 
 
-def history(years=YEARS):
+def history():
     """MATH 8.2 (iv), the check the model can pass: over a population of contests, the expected number
     decided by k votes or fewer, under the forecast each p used, against the number seen. For contest i
     with two-party total N and forecast share ~ normal(mean, sd), P(|margin| <= k) = P(|share - 1/2| <=
@@ -1360,7 +1551,7 @@ def history(years=YEARS):
         exp = {k: 0.0 for k in ks}
         seen = {k: 0 for k in ks}
         n_c = 0
-        for y in years:
+        for y in file_years(level):
             d = cc.read_json(os.path.join(REPO, "data", level, f"{y}.json"))
             if not d:
                 continue
@@ -1383,7 +1574,7 @@ def history(years=YEARS):
                             out["cases"].setdefault(level, []).append([c["id"], margin]) if k == 1000 else None
         out["by_level"][level] = {"contests": n_c, "expected": exp, "seen": seen}
     for level, v in out["by_level"].items():
-        print(f"{level}: {v['contests']} contests with p, 2006-2024")
+        print(f"{level}: {v['contests']} contests with p, {file_years(level)[0]}-2024")
         for k in ks:
             print(f"   within {k:>5} votes: expected {v['expected'][k]:8.3f}, seen {v['seen'][k]}")
     cc.write_json(os.path.join(REPO, "data", "congress", "history.json"), out)
@@ -1409,8 +1600,9 @@ def main(argv):
             print(f"\n{L.upper()} fit on every cycle {f['years'][0]}-{f['years'][-1]} (shown, not used): {f['n']} races; "
                   f"b_lean {f['b_lean']:.3f}, b_inc {f['b_inc']:.4f}" + (f", b_lag {f['b_lag']:.3f}" if f["lag"] else "")
                   + f", s_e {f['s_e']:.4f}, s_a {f['s_a']:.4f}; c {', '.join(f'{v:+.4f}' for v in f['c'])}")
-        res = {"earlier": backtest(rows)}
-        print("\n======== back-test of record: each year from a fit on all of its earlier cycles")
+        res = {"earlier": backtest(rows), "earlier_calibrated": backtest(rows, calibrated=True)}
+        print("\n======== back-test: each year from a fit on all of its earlier cycles (the House of 2008-2012 on the "
+              "Senate's national terms), before calibration")
         for L in LEVELS:
             bt = res["earlier"][L]["per_year"]
             for T, x in bt.items():
@@ -1421,13 +1613,27 @@ def main(argv):
             print(f"  {L} by the number of earlier cycles:")
             for k, x in by_cycles(res["earlier"], L).items():
                 print(f"     {k:2d} cycles ({', '.join(map(str, x['years']))}): {_fmt(x)}")
-            print(f"  {L} 2006-2024, the years of the files: {_fmt(pooled(res['earlier'], L, YEARS))}")
+            print(f"  {L} 2006-2024: {_fmt(pooled(res['earlier'], L, YEARS))}")
+        print("\n======== calibration: each year's sd times k from its earlier scored years (CAL_MIN years at least);"
+              " the forecasts of record")
+        for L in LEVELS:
+            cal_years = [T for T, x in res["earlier_calibrated"][L]["folds"].items() if x["k"] != 1.0]
+            print(f"  {L} k by year: " + ", ".join(f"{T} {res['earlier_calibrated'][L]['folds'][T]['k']:.3f}"
+                                                   for T in cal_years))
+            print(f"  {L}, the calibrated years ({cal_years[0]}-{cal_years[-1]}), before: "
+                  f"{_fmt(pooled(res['earlier'], L, cal_years))}")
+            print(f"  {L}, the calibrated years, after:  {_fmt(pooled(res['earlier_calibrated'], L, cal_years))}")
+            print(f"  {L} 2006-2024, of record: {_fmt(pooled(res['earlier_calibrated'], L, YEARS))}")
+        hs = house_on_senate_terms(rows)
+        print("\n======== the House of 2014-2024 on the Senate's national terms (item 2)")
+        for k, bt in hs.items():
+            print(f"  {k:24s} {_fmt(pooled(bt, 'house'))}")
         print("\n======== the fewest cycles a fit needs: each year from a fit on only the k cycles before it")
         windows = (4, 5, 6, 8, 10)
         for k in windows:
             res[f"window_{k}"] = backtest(rows, window=k)
         common = {"senate": list(range(2002, 2025, 2)), "house": list(range(2016, 2025, 2)),
-                  "governor": list(range(2020, 2025, 2))}
+                  "governor": list(range(1998, 2025, 2))}
         for L in LEVELS:
             print(f"  {L}, the same years for every k ({common[L][0]}-{common[L][-1]}):")
             for k in windows:
@@ -1441,13 +1647,17 @@ def main(argv):
                 print(f"  {L} {T}: {x['races']} races, expected {x['expected']:.1f}, 80% {x['interval_80']}, "
                       f"won {x['won']}, PIT {x['pit']:.2f}")
         out = {"written_by": "pipeline/chambers.py backtest", "fit_from": FIT_FROM, "k_min": K_MIN,
-               "full_fit_shown_not_used": FULL, "incumbency_check": chk, "seats": seats, "skipped": skipped,
-               "rows": len(rows), "schemes": {}}
+               "cal_min": CAL_MIN, "full_fit_shown_not_used": FULL, "incumbency_check": chk, "seats": seats,
+               "skipped": skipped, "rows": len(rows), "schemes": {},
+               "house_on_senate_terms": {k: {"per_year": {T: {kk: v for kk, v in x.items() if kk != "z"}
+                                                          for T, x in bt["house"]["per_year"].items()},
+                                             "pooled_2014_2024": pooled(bt, "house")} for k, bt in hs.items()}}
         for name, bt in res.items():
             out["schemes"][name] = {L: {"per_year": {T: {k: v for k, v in x.items() if k != "z"}
                                                      for T, x in bt[L]["per_year"].items()},
                                         "folds": bt[L]["folds"], "by_cycles": by_cycles(bt, L),
-                                        "pooled_2006_2024": pooled(bt, L, YEARS)} for L in LEVELS}
+                                        "pooled_2006_2024": pooled(bt, L, YEARS),
+                                        "pooled_all": pooled(bt, L)} for L in LEVELS}
         os.makedirs(os.path.join(REPO, "data", "congress"), exist_ok=True)
         cc.write_json(os.path.join(REPO, "data", "congress", "backtest.json"), out)
 
