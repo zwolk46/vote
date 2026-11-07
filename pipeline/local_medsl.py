@@ -57,9 +57,21 @@ GITHUB_YEARS = {2018: "MEDSL/2018-elections-official", 2020: "MEDSL/2020-electio
 _WA_LEG = re.compile(r"^LEGISLATIVE DISTRICT (\d+) - STATE (SENATOR|REPRESENTATIVE)(?: POS\.? ?(\d+))?")
 
 
+# A state's legislature filed under its own name, not MEDSL's STATE HOUSE or STATE SENATE (the audit of 11:56, data/local/
+# REPORT.md section 15): Rhode Island's 2022 file ("REPRESENTATIVE IN GENERAL ASSEMBLY", R.I. Const. art. VI),
+# Virginia's House of Delegates (2018) and one Arizona district's representatives (2022)
+LEG_NAMES = {"REPRESENTATIVE IN GENERAL ASSEMBLY": "STATE HOUSE", "SENATOR IN GENERAL ASSEMBLY": "STATE SENATE",
+             "HOUSE OF DELEGATES": "STATE HOUSE", "STATE REPRESENTATIVE": "STATE HOUSE", "STATE SENATOR": "STATE SENATE"}
+
+
 def relabel(m):
     """Washington files its legislature as local offices named by district ('LEGISLATIVE DISTRICT 9 - STATE
-    REPRESENTATIVE POS. 1'): read as the state house or senate, the district and the position."""
+    REPRESENTATIVE POS. 1'): read as the state house or senate, the district and the position. A legislature filed
+    under another name of its own (LEG_NAMES) is read as the state house or senate too."""
+    if m.get("office") in LEG_NAMES and not m.get("question"):
+        m["office_as_filed"] = m["office"]
+        m["office"] = LEG_NAMES[m["office"]]
+        return m
     x = _WA_LEG.match(m["office"])
     if x:
         m["office_as_filed"] = m["office"]
@@ -776,7 +788,7 @@ def _backtest_one(M, k, rows, bad, pres):
         e100 += nd.cdf(0.5 + h) - nd.cdf(0.5 - h)
         s100 += abs(r_["d"]["votes"] - r_["r"]["votes"]) <= 100
         bias += m - y
-        t = office_type(r_["m"]["office"])
+        t = office_type(r_["m"]["office"], r_["m"].get("state"))
         by_type[t][0] += 1
         by_type[t][1] += abs(y - m) <= z["50"] * sd
     n = max(len(used), 1)
@@ -1127,27 +1139,64 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
 
 # ------------------------------------------------------------------ local races: classes of like races
 
+# The office types the like-race classes use. A keyword reads words, not offices (the orchestrator, 2026-11-07 11:56:
+# "one misread word moved 254 contests"), so the audit of 11:56 (data/local/REPORT.md section 15, every type's
+# commonest names) fixed each misreading found: the first match wins, so the readings that a later, broader word
+# would take wrongly come first, and a place's own name is taken off before the words are read (PLACE_NAME).
 OFFICE_TYPES = [
     # Louisiana's parties' own committees (pipeline/local_la.py): a seat one party's voters fill at the presidential
     # preference primary is unlike a council chosen at a general (the orchestrator, 2026-11-07 11:30)
     ("party committee", r"^(DSCC|RSCC|DPEC|RPEC) MEMBER\b"),
-    ("school board", r"SCHOOL|BOARD OF EDUCATION|COLLEGE|EDUCATION|TRUSTEE|UNIVERSITY|REGENT"),
-    ("judge", r"JUDGE|JUSTICE|COURT|MAGISTRATE|PROBATE"),
+    # governing bodies whose names carry another type's word: Louisiana's police juries (a parish's governing body;
+    # the orchestrator, 11:56), New Hampshire's Executive Council, Arkansas's city directors
+    ("council, commission or board", r"\bPOLICE JUR|\bEXECUTIVE COUNCIL\b|\bCITY DIRECTORS?\b"),
+    # a court's clerk or register is an officer, not a judge; Georgia's tax commissioner and Alabama's revenue
+    # commissioner are officers, not a commission
+    ("clerk, treasurer or other county officer", r"\bCLERK\b|\bREGISTER OF (PROBATE|WILLS|DEEDS)\b|"
+                                                r"\bTAX COMMISSION(ER)?\b|\bREVENUE COMMISSIONER\b"),
+    # Kentucky's county judge/executive heads the county and its fiscal court (Ky. Const. section 144)
+    ("mayor or executive", r"\bJUDGE[ /-]*EXECUTIVE\b|\bPARISH PRESIDENT\b|\bVILLAGE PRESIDENT\b|"
+                           r"\bBOROUGH PRESIDENT\b"),
+    ("school board", r"SCHOOL|BOARD OF EDUCATION|COLLEGE|EDUCATION|UNIVERSITY|REGENT|\bBESE\b"),
+    ("judge", r"JUDGE|JUSTICE|COURT|MAGISTRATE|PROBATE|\bSURROGATE\b|\bCT\b"),
     ("prosecutor", r"ATTORNEY|PROSECUTOR|SOLICITOR"),
-    ("sheriff or constable", r"SHERIFF|CONSTABLE|MARSHAL|POLICE"),
-    ("mayor or executive", r"MAYOR|EXECUTIVE|JUDGE EXECUTIVE|FIRST SELECTMAN"),
-    ("special district", r"DISTRICT DIRECTOR|WATER|FIRE|HOSPITAL|HEALTH|PARK|SANITARY|UTILITY|IRRIGATION|TRANSIT|"
-                         r"AIRPORT|PORT|LIBRARY|CEMETERY|SOIL|CONSERVATION|DRAINAGE|LEVEE|MOSQUITO|TRANSPORTATION"),
+    ("sheriff or constable", r"SHERIFF|CONSTABLE|\bMARSHALS?\b|\bPOLICE\b|\bJAILER\b"),
+    ("mayor or executive", r"MAYOR|EXECUTIVE|FIRST SELECTMAN"),
+    ("special district", r"DISTRICT DIRECTOR|WATER|FIRE|HOSPITAL|HEALTH|\bPARKS?\b|SANITARY|UTILITY|IRRIGATION|"
+                         r"TRANSIT|AIRPORT|\bPORT\b|LIBRARY|CEMETERY|SOIL|CONSERVATION|CONSERVANCY|DRAINAGE|LEVEE|"
+                         r"MOSQUITO|TRANSPORTATION|DEVELOPMENT DISTRICT|IMPROVEMENT DISTRICT|POWER DISTRICT|\bPUD\b"),
     ("clerk, treasurer or other county officer", r"CLERK|TREASURER|ASSESSOR|RECORDER|REGISTRAR|REGISTER|COLLECTOR|"
                                                 r"AUDITOR|CORONER|SURVEYOR|APPRAISER|SUPERVISOR OF ELECTIONS|"
-                                                r"COMPTROLLER|CONTROLLER|ENGINEER|SUPERINTENDENT"),
-    ("council, commission or board", r"COUNCIL|ALDERM|COMMISSION|SUPERVISOR|SELECT|LEVY COURT|BOARD|TRUSTEE|"
+                                                r"COMPTROLLER|CONTROLLER|ENGINEER|SUPERINTENDENT|"
+                                                r"PROPERTY VALUATION|\bPVA\b|PUBLIC ADMINISTRATOR"),
+    ("council, commission or board", r"COUNCIL|ALDERM|COMMISSION|COMMISION|SUPERVISOR|SELECT|LEVY COURT|BOARD|TRUSTEE|"
                                      r"FREEHOLDER|LEGISLAT|REPRESENTATIVE|DELEGATE|ASSEMBLY|WARD|MEMBER"),
 ]
+# A place's own name, taken off before the office's words are read: Louisiana's "MAYOR, TOWN OF MELVILLE" (the
+# place after a comma), the State Board's "TOWN OF ELK PARK COUNCIL MEMBER" (the place before the office's first
+# word) and "PARK COUNTY COMMISSIONER" (a county's name). Why: "Southport", "Newport", "Elk Park", "Marshall" and
+# "Port Allen" read as a port, a park or a marshal [measured: data/local/REPORT.md section 15].
+_OFFICE_WORD = (r"MAYOR|COUNCIL|ALDERM|COMMISSIONERS?|BOARD|TRUSTEES?|MEMBER|CLERK|TREASURER|MARSHAL|CHIEF|POLICE|"
+                r"SELECT|JUDGE|ATTORNEY|TAX|WARD|DISTRICT|AT[- ]LARGE|SEAT|FIRE|WATER|SANITARY|SEWER|HOSPITAL|LIBRARY|"
+                r"RECORDER|ASSESSOR|COLLECTOR|CONSTABLE|SHERIFF|AUDITOR|CONTROLLER|COMPTROLLER")
+PLACE_NAME = [re.compile(r",\s*(CITY|TOWN|VILLAGE|PARISH|BOROUGH) OF [^,]*"),
+              re.compile(r"^(CITY|TOWN|VILLAGE|BOROUGH) OF .+? (?=(" + _OFFICE_WORD + r")\b)"),
+              re.compile(r"^([A-Z.']+ ){1,3}COUNTY (?=\S)")]
+# Kentucky's justices of the peace, called magistrates on its ballots, sit on the county's fiscal court, its
+# governing body: "Counties shall have a Fiscal Court, which may consist of the Judge of the County Court and the
+# Justices of the Peace" (Ky. Const. section 144, read 2026-11-07 at 12:06 UTC from the Legislative Research
+# Commission, https://apps.legislature.ky.gov/law/constitution/constitution/viewconstitution?rsn=164) [stated; the
+# ballot's "Magistrate" for the justice of the peace: inferred]
+STATE_OFFICE_TYPES = {"KY": [("council, commission or board", r"^MAGISTRATE\b|JUSTICE OF (THE )?PEACE")]}
 
 
-def office_type(office):
-    o = office.upper()
+def office_type(office, state=None):
+    o = " ".join(office.upper().split())
+    for name, pat in STATE_OFFICE_TYPES.get(state, []):
+        if re.search(pat, o):
+            return name
+    for rx in PLACE_NAME:
+        o = rx.sub(" ", o).strip() if rx.pattern.startswith(",") else rx.sub("", o)
     for name, pat in OFFICE_TYPES:
         if re.search(pat, o):
             return name
@@ -1174,7 +1223,7 @@ def local_structure(m):
         return ("not computed", "the source redacts some precincts' counts for this contest")
     nd = sum(1 for x in b if major(x) == "D")
     nr = sum(1 for x in b if major(x) == "R")
-    ot = office_type(m["office"])
+    ot = office_type(m["office"], m.get("state"))
     scope = "state" if m["dataverse"] == "STATE" else "local"
     if k > 1:
         slate = ("both major parties on the ballot" if nd and nr else "one major party or none")
@@ -1481,7 +1530,7 @@ def build(out_dir, with_p=True):
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
-                   "office": c["office"].title(), "office_type": office_type(c["office"]), "office_scope": scope,
+                   "office": c["office"].title(), "office_type": office_type(c["office"], c["state"]), "office_scope": scope,
                    "election": c.get("election_words") or ((("general" if c["stage"] == "GEN" else
                                                                c["stage"].lower())
                                                               + (", special" if c["special"] else ""))
