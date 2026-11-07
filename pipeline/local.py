@@ -478,6 +478,7 @@ def _t4_logpdf(x, m, sd):
     return math.log(0.375 / s) - 2.5 * math.log1p(z * z / 4.0)
 
 
+RECOUNT = 0.005   # the recount zone of the back-test: a margin within 0.5% of the two leading candidates' votes
 Z = {"50": 0.6744897501960817, "80": 1.2815515655446004, "95": 1.959963984540054}
 
 
@@ -498,6 +499,9 @@ def _tally(e, y, N, m, sd):
     # a margin of 0 or 1 among N two-party votes, parity unknown before the election: 1.5 f(1/2) / N (MATH 8.2)
     e["expected_margin_0_or_1"] += 1.5 * f / N
     e["seen_margin_0_or_1"] += margin <= 1
+    # the recount zone (brief step 4): a margin within 0.5% of the two candidates' votes, a common automatic-recount line
+    e["expected_recount_zone"] += _ncdf(0.5 + RECOUNT / 2, m, sd) - _ncdf(0.5 - RECOUNT / 2, m, sd)
+    e["seen_recount_zone"] += margin <= RECOUNT * N
     e["log_score_normal"] += -0.5 * z * z - math.log(sd * math.sqrt(2 * math.pi))
     e["log_score_t4"] += _t4_logpdf(y, m, sd)
 
@@ -521,6 +525,8 @@ def _class_tally(e, f, r_):
     n = r_["n"]
     margin = round((2 * r_["s"] - 1) * n)
     e["races"] += 1
+    e["expected_recount_zone"] += min(1.0, f * RECOUNT)
+    e["seen_recount_zone"] += margin <= RECOUNT * n
     e["expected_49_51"] += min(1.0, f * 0.02)
     e["seen_49_51"] += r_["s"] <= 0.51
     e["expected_within_10_votes"] += min(1.0, f * 10.5 / n)
@@ -567,6 +573,7 @@ def backtest(contests=None, write=True):
     crow = class_rows(contests)
     cyears = sorted({r_["year"] for r_ in crow})
     cls_all = collections.defaultdict(collections.Counter)
+    cls_size = collections.defaultdict(collections.Counter)
     cls_unfit = collections.Counter()
     for t in cyears:
         tr = [r_ for r_ in crow if r_["year"] < t]
@@ -581,6 +588,7 @@ def backtest(contests=None, write=True):
                 cls_unfit[r_["key"]] += 1
                 continue
             _class_tally(cls_all[r_["key"]], f, r_)
+            _class_tally(cls_size[size_bin(r_["n"])], f, r_)
     cls_sum = collections.Counter()
     for v in cls_all.values():
         cls_sum.update(v)
@@ -603,6 +611,9 @@ def backtest(contests=None, write=True):
         "class": {"all": {kk: (round(vv, 2) if isinstance(vv, float) else vv) for kk, vv in cls_sum.items()},
                   "by_class": {k: {kk: (round(vv, 2) if isinstance(vv, float) else vv) for kk, vv in v.items()}
                                for k, v in sorted(cls_all.items())},
+                  "by_size_votes_of_the_two": {f"{BINS[i]}-{BINS[i + 1]}": {kk: (round(vv, 2) if isinstance(vv, float)
+                                                                                 else vv) for kk, vv in v.items()}
+                                               for i, v in sorted(cls_size.items())},
                   "races_without_enough_earlier_like_races": dict(sorted(cls_unfit.items()))},
     }
     if write:
