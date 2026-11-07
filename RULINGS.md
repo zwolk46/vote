@@ -50,3 +50,36 @@ Decision card "Judge the trip against one race, or the whole ballot?"; options: 
 > Each race, and the ballot summed
 
 *Reading.* Each race shows its own p and B\*. Whether a trip to vote pays is judged over the whole ballot it casts: it pays when the races' shares B ÷ B\* add up to more than 100%, that is, when p₁B₁ + p₂B₂ + … > C (model draft 3, §2).
+
+## 2026-11-07 02:38 UTC: the model, and the procedure from here
+
+In the orchestrator's thread, after model draft 3:
+
+> I trust your judgment to approve the model. Let's then broadly discuss what the procedure is going to be from here, because I want to leave it mostly autonomously to you, while understanding all of the kinds of design things that need to be done relative to how the midterm site was made, and to use it basically as an example, as far as is relevant. But I just want to make sure that broadly we're aligned.
+
+*Reading.* The orchestrator approves the model in his place: `model/MODEL-DRAFT-3.md` becomes the model of record, `model/MODEL.md`. What follows is left mostly to the orchestrator, using the way the midterms site was made as the example where it is relevant, and he wants to be broadly aligned on the procedure first.
+
+## 2026-11-07 02:54 UTC: design follows the midterms guidance; the hold lifted; work autonomously
+
+In the project chat, after the midterms orchestrator merged #11 (`inherited/design/`):
+
+> All right, I've asked the midterms orchestrator to update the repo a little bit regarding design. I want you to employ all of the anything that you see there that's changed about design. We're going to follow the new design guidance. Some of it's new, some of it's not new. And then work autonomously.
+
+*Reading.* The hold of 02:45 is lifted. Design work here follows `inherited/design/` (its README's rule and process, `TASTE.md` as his defaults, with his 02:45 correction that components are his picks or designed within the principles, not found-only); this project's law and rulings govern where they differ. "Work autonomously" answers the orchestrator's 02:40 offer ("Tell me if you'd rather I skip it and just go"): the plan is recorded in the repository and he is told, not asked, before the data work. Ratifying the law stays his (general law 2).
+
+## 2026-11-07 02:55 UTC: assume the law ratified
+
+In the project chat:
+
+> Well, I guess maybe I should take a look at the law, but assume it ratified and start building until you hear otherwise, if you hear otherwise at all.
+
+*Reading.* The law is in force as if ratified, and building starts. The text put in force is law draft 2: draft 1 with the two cold readings, B2's 61 breaks and the 02:54 design guidance folded in, since draft 1's faults would mislead every worker that reads it. It goes into `LAW.md` at his word, with a status line saying it is in force by assumption and not yet ratified by him; he will look it over, and anything he says otherwise is a ruling on it.
+
+## 2026-11-07 02:58 UTC: a tracker to watch the work
+
+In the project chat:
+
+> And also, just like the midterm site, I want to be able to watch what's going on as it happens in at least some detail. So basically, I want an equivalent of just the simple artifact that's like a task tracker. I just want to see maybe what pages are being worked on, what features are being worked on, anything like that. And it'll be the place where I can open previews, where links will be put, and there should be probably a dedicated thread analogous to the thread run in the midterms project. Just run the same thing. I basically want to be able to just watch that until I have a comment that I need to make.
+
+*Reading.* An artifact task list like the midterms one ("Midterms Work"), showing what pages and features are being worked on, with links to previews, kept current by a dedicated thread. It is his ask, so it runs beside the three-worker limit, not within it.
+
