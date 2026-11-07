@@ -1,0 +1,1189 @@
+{
+ "about": "New Jersey's official 2024 general-election lists (pipeline/intake/nj_sos.py) against D1's and D2's certified counts, and MEDSL's 2024 New Jersey file against the lists by county. Built by pipeline/local_nj.py check.",
+ "state_page": "https://www.nj.gov/state/elections/election-information-2024.shtml",
+ "state_files": {
+  "president": {
+   "url": "https://www.nj.gov/state/elections/assets/pdf/election-results/2024/2024-official-general-results-president.pdf",
+   "read_utc": "2026-11-07T10:35Z",
+   "sha256": "c216c561d1f8da3fdbdbbf67a1e22198b757188fac64f6328f54ce03fcae0e0b",
+   "link_text": "Official General Election Results: U.S. President",
+   "contests": 1,
+   "candidates": 9,
+   "all_add_up": true
+  },
+  "us-senate": {
+   "url": "https://www.nj.gov/state/elections/assets/pdf/election-results/2024/2024-official-general-results-us-senate.pdf",
+   "read_utc": "2026-11-07T10:39Z",
+   "sha256": "c747e835b52131f29b9f31369fa330199496befe80567f745875b4966403f62e",
+   "link_text": "Official General Election Results: U.S. Senate",
+   "contests": 1,
+   "candidates": 6,
+   "all_add_up": true
+  },
+  "us-house": {
+   "url": "https://www.nj.gov/state/elections/assets/pdf/election-results/2024/2024-official-general-results-us-house.pdf",
+   "read_utc": "2026-11-07T10:35Z",
+   "sha256": "b2d06d33e804d9632f5207b9b4565e191af7e58118b78d5a330d26c9ba24a295",
+   "link_text": "Official General Election Results: U.S. House of Representatives",
+   "contests": 12,
+   "candidates": 54,
+   "all_add_up": true
+  }
+ },
+ "what_the_state_page_holds": "official general results for president, US Senate and US House by county; NJ-10's special election; the primaries' federal offices and delegates. No legislative contest and no county, municipal or school board contest.",
+ "gate": {
+  "worst_miss": 0.0,
+  "fails": false,
+  "counts": "president D 2,220,713 against 2,220,713; president R 1,968,215 against 1,968,215; senate D 2,161,491 against 2,161,491; senate R 1,773,589 against 1,773,589; house D 2,115,843 against 2,115,843 (12 districts); house R 1,828,853 against 1,828,853 (12 districts)"
+ },
+ "medsl_by_county": {
+  "line": 0.005,
+  "counties_adding_up_in_every_federal_office": [
+   "BURLINGTON",
+   "CAMDEN",
+   "CAPE MAY",
+   "CUMBERLAND",
+   "ESSEX",
+   "HUDSON",
+   "HUNTERDON",
+   "MIDDLESEX",
+   "MONMOUTH",
+   "MORRIS",
+   "OCEAN",
+   "PASSAIC",
+   "SALEM",
+   "SOMERSET",
+   "SUSSEX",
+   "WARREN"
+  ],
+  "counties_adding_up_in_some_federal_offices_only": [
+   "GLOUCESTER"
+  ],
+  "counties": {
+   "ATLANTIC": {
+    "worst_off": {
+     "president": 0.0071,
+     "senate": 0.0063,
+     "house": 0.0079
+    },
+    "adds_up": {
+     "president": false,
+     "senate": false,
+     "house": false
+    },
+    "lines": {
+     "house 2 D": {
+      "medsl": 56007,
+      "state": 56453,
+      "off": -0.0079
+     },
+     "house 2 R": {
+      "medsl": 66236,
+      "state": 66446,
+      "off": -0.0032
+     },
+     "president D": {
+      "medsl": 61438,
+      "state": 61879,
+      "off": -0.0071
+     },
+     "president R": {
+      "medsl": 65611,
+      "state": 65817,
+      "off": -0.0031
+     },
+     "senate D": {
+      "medsl": 58573,
+      "state": 58942,
+      "off": -0.0063
+     },
+     "senate R": {
+      "medsl": 60688,
+      "state": 60859,
+      "off": -0.0028
+     }
+    }
+   },
+   "BERGEN": {
+    "worst_off": {
+     "president": 1.9999,
+     "senate": 1.9999,
+     "house": 2.0
+    },
+    "adds_up": {
+     "president": false,
+     "senate": false,
+     "house": false
+    },
+    "lines": {
+     "house 5 D": {
+      "medsl": 530438,
+      "state": 176817,
+      "off": 1.9999
+     },
+     "house 5 R": {
+      "medsl": 359872,
+      "state": 119958,
+      "off": 2.0
+     },
+     "house 9 D": {
+      "medsl": 172509,
+      "state": 57505,
+      "off": 1.9999
+     },
+     "house 9 R": {
+      "medsl": 187300,
+      "state": 62437,
+      "off": 1.9998
+     },
+     "president D": {
+      "medsl": 697956,
+      "state": 232660,
+      "off": 1.9999
+     },
+     "president R": {
+      "medsl": 651275,
+      "state": 217096,
+      "off": 1.9999
+     },
+     "senate D": {
+      "medsl": 674306,
+      "state": 224775,
+      "off": 1.9999
+     },
+     "senate R": {
+      "medsl": 577344,
+      "state": 192452,
+      "off": 1.9999
+     }
+    }
+   },
+   "BURLINGTON": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 1 D": {
+      "medsl": 6468,
+      "state": 6468,
+      "off": 0.0
+     },
+     "house 1 R": {
+      "medsl": 4168,
+      "state": 4168,
+      "off": 0.0
+     },
+     "house 3 D": {
+      "medsl": 120027,
+      "state": 120027,
+      "off": 0.0
+     },
+     "house 3 R": {
+      "medsl": 83808,
+      "state": 83808,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 132275,
+      "state": 132275,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 94116,
+      "state": 94116,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 134884,
+      "state": 134884,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 83225,
+      "state": 83225,
+      "off": 0.0
+     }
+    }
+   },
+   "CAMDEN": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 1 D": {
+      "medsl": 145494,
+      "state": 145494,
+      "off": 0.0
+     },
+     "house 1 R": {
+      "medsl": 85323,
+      "state": 85323,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 155522,
+      "state": 155522,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 87767,
+      "state": 87767,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 156445,
+      "state": 156445,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 79545,
+      "state": 79545,
+      "off": 0.0
+     }
+    }
+   },
+   "CAPE MAY": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 2 D": {
+      "medsl": 19155,
+      "state": 19155,
+      "off": 0.0
+     },
+     "house 2 R": {
+      "medsl": 33347,
+      "state": 33347,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 21648,
+      "state": 21648,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 32151,
+      "state": 32151,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 20096,
+      "state": 20096,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 30905,
+      "state": 30905,
+      "off": 0.0
+     }
+    }
+   },
+   "CUMBERLAND": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 2 D": {
+      "medsl": 24066,
+      "state": 24066,
+      "off": 0.0
+     },
+     "house 2 R": {
+      "medsl": 28336,
+      "state": 28336,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 26577,
+      "state": 26577,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 28675,
+      "state": 28675,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 25186,
+      "state": 25186,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 25441,
+      "state": 25441,
+      "off": 0.0
+     }
+    }
+   },
+   "ESSEX": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 10 D": {
+      "medsl": 105687,
+      "state": 105687,
+      "off": 0.0
+     },
+     "house 10 R": {
+      "medsl": 20359,
+      "state": 20359,
+      "off": 0.0
+     },
+     "house 11 D": {
+      "medsl": 99674,
+      "state": 99674,
+      "off": 0.0
+     },
+     "house 11 R": {
+      "medsl": 46944,
+      "state": 46944,
+      "off": 0.0
+     },
+     "house 8 D": {
+      "medsl": 12852,
+      "state": 12852,
+      "off": 0.0
+     },
+     "house 8 R": {
+      "medsl": 6751,
+      "state": 6751,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 224596,
+      "state": 224596,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 83908,
+      "state": 83908,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 216580,
+      "state": 216580,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 75420,
+      "state": 75420,
+      "off": 0.0
+     }
+    }
+   },
+   "GLOUCESTER": {
+    "worst_off": {
+     "president": 1.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": false,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 1 D": {
+      "medsl": 56846,
+      "state": 56846,
+      "off": 0.0
+     },
+     "house 1 R": {
+      "medsl": 54899,
+      "state": 54899,
+      "off": 0.0
+     },
+     "house 2 D": {
+      "medsl": 20002,
+      "state": 20002,
+      "off": 0.0
+     },
+     "house 2 R": {
+      "medsl": 25519,
+      "state": 25519,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 157416,
+      "state": 78708,
+      "off": 1.0
+     },
+     "president R": {
+      "medsl": 166652,
+      "state": 83326,
+      "off": 1.0
+     },
+     "senate D": {
+      "medsl": 80034,
+      "state": 80034,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 77303,
+      "state": 77303,
+      "off": 0.0
+     }
+    }
+   },
+   "HUDSON": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 10 D": {
+      "medsl": 26950,
+      "state": 26950,
+      "off": 0.0
+     },
+     "house 10 R": {
+      "medsl": 7469,
+      "state": 7469,
+      "off": 0.0
+     },
+     "house 8 D": {
+      "medsl": 88618,
+      "state": 88618,
+      "off": 0.0
+     },
+     "house 8 R": {
+      "medsl": 51375,
+      "state": 51375,
+      "off": 0.0
+     },
+     "house 9 D": {
+      "medsl": 9287,
+      "state": 9287,
+      "off": 0.0
+     },
+     "house 9 R": {
+      "medsl": 7958,
+      "state": 7958,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 144765,
+      "state": 144765,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 79913,
+      "state": 79913,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 135615,
+      "state": 135615,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 64050,
+      "state": 64050,
+      "off": 0.0
+     }
+    }
+   },
+   "HUNTERDON": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 7 D": {
+      "medsl": 34744,
+      "state": 34744,
+      "off": 0.0
+     },
+     "house 7 R": {
+      "medsl": 42257,
+      "state": 42257,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 36995,
+      "state": 36995,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 42391,
+      "state": 42391,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 34983,
+      "state": 34983,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 40273,
+      "state": 40273,
+      "off": 0.0
+     }
+    }
+   },
+   "MERCER": {
+    "worst_off": {
+     "president": 0.2789,
+     "senate": 0.2898,
+     "house": 0.3154
+    },
+    "adds_up": {
+     "president": false,
+     "senate": false,
+     "house": false
+    },
+    "lines": {
+     "house 12 D": {
+      "medsl": 41422,
+      "state": 55545,
+      "off": -0.2543
+     },
+     "house 12 R": {
+      "medsl": 11738,
+      "state": 17147,
+      "off": -0.3154
+     },
+     "house 3 D": {
+      "medsl": 35836,
+      "state": 46562,
+      "off": -0.2304
+     },
+     "house 3 R": {
+      "medsl": 23925,
+      "state": 32715,
+      "off": -0.2687
+     },
+     "president D": {
+      "medsl": 81287,
+      "state": 107558,
+      "off": -0.2442
+     },
+     "president R": {
+      "medsl": 37697,
+      "state": 52274,
+      "off": -0.2789
+     },
+     "senate D": {
+      "medsl": 80007,
+      "state": 105685,
+      "off": -0.243
+     },
+     "senate R": {
+      "medsl": 33332,
+      "state": 46932,
+      "off": -0.2898
+     }
+    }
+   },
+   "MIDDLESEX": {
+    "worst_off": {
+     "president": 0.0003,
+     "senate": 0.0003,
+     "house": 0.0006
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 12 D": {
+      "medsl": 79902,
+      "state": 79902,
+      "off": 0.0
+     },
+     "house 12 R": {
+      "medsl": 67858,
+      "state": 67858,
+      "off": 0.0
+     },
+     "house 6 D": {
+      "medsl": 111637,
+      "state": 111690,
+      "off": -0.0005
+     },
+     "house 6 R": {
+      "medsl": 71133,
+      "state": 71173,
+      "off": -0.0006
+     },
+     "president D": {
+      "medsl": 191747,
+      "state": 191802,
+      "off": -0.0003
+     },
+     "president R": {
+      "medsl": 162415,
+      "state": 162459,
+      "off": -0.0003
+     },
+     "senate D": {
+      "medsl": 188429,
+      "state": 188482,
+      "off": -0.0003
+     },
+     "senate R": {
+      "medsl": 140638,
+      "state": 140676,
+      "off": -0.0003
+     }
+    }
+   },
+   "MONMOUTH": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 3 D": {
+      "medsl": 35445,
+      "state": 35445,
+      "off": 0.0
+     },
+     "house 3 R": {
+      "medsl": 52931,
+      "state": 52931,
+      "off": 0.0
+     },
+     "house 4 D": {
+      "medsl": 52612,
+      "state": 52612,
+      "off": 0.0
+     },
+     "house 4 R": {
+      "medsl": 87680,
+      "state": 87680,
+      "off": 0.0
+     },
+     "house 6 D": {
+      "medsl": 58585,
+      "state": 58585,
+      "off": 0.0
+     },
+     "house 6 R": {
+      "medsl": 51346,
+      "state": 51346,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 156382,
+      "state": 156382,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 197409,
+      "state": 197409,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 151920,
+      "state": 151920,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 185197,
+      "state": 185197,
+      "off": 0.0
+     }
+    }
+   },
+   "MORRIS": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0001
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 11 D": {
+      "medsl": 105440,
+      "state": 105447,
+      "off": -0.0001
+     },
+     "house 11 R": {
+      "medsl": 96898,
+      "state": 96899,
+      "off": -0.0
+     },
+     "house 7 D": {
+      "medsl": 28768,
+      "state": 28768,
+      "off": 0.0
+     },
+     "house 7 R": {
+      "medsl": 35812,
+      "state": 35812,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 135667,
+      "state": 135672,
+      "off": -0.0
+     },
+     "president R": {
+      "medsl": 143437,
+      "state": 143439,
+      "off": -0.0
+     },
+     "senate D": {
+      "medsl": 127721,
+      "state": 127727,
+      "off": -0.0
+     },
+     "senate R": {
+      "medsl": 135635,
+      "state": 135636,
+      "off": -0.0
+     }
+    }
+   },
+   "OCEAN": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 2 D": {
+      "medsl": 21708,
+      "state": 21708,
+      "off": 0.0
+     },
+     "house 2 R": {
+      "medsl": 43696,
+      "state": 43696,
+      "off": 0.0
+     },
+     "house 4 D": {
+      "medsl": 72191,
+      "state": 72191,
+      "off": 0.0
+     },
+     "house 4 R": {
+      "medsl": 177972,
+      "state": 177972,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 105789,
+      "state": 105789,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 227232,
+      "state": 227232,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 109610,
+      "state": 109610,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 197040,
+      "state": 197040,
+      "off": 0.0
+     }
+    }
+   },
+   "PASSAIC": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 11 D": {
+      "medsl": 17462,
+      "state": 17462,
+      "off": 0.0
+     },
+     "house 11 R": {
+      "medsl": 20713,
+      "state": 20713,
+      "off": 0.0
+     },
+     "house 5 D": {
+      "medsl": 13322,
+      "state": 13322,
+      "off": 0.0
+     },
+     "house 5 R": {
+      "medsl": 17540,
+      "state": 17540,
+      "off": 0.0
+     },
+     "house 9 D": {
+      "medsl": 63722,
+      "state": 63722,
+      "off": 0.0
+     },
+     "house 9 R": {
+      "medsl": 47544,
+      "state": 47544,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 95156,
+      "state": 95156,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 100954,
+      "state": 100954,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 91719,
+      "state": 91719,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 86654,
+      "state": 86654,
+      "off": 0.0
+     }
+    }
+   },
+   "SALEM": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0001
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 2 D": {
+      "medsl": 11734,
+      "state": 11733,
+      "off": 0.0001
+     },
+     "house 2 R": {
+      "medsl": 18602,
+      "state": 18602,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 12275,
+      "state": 12275,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 18229,
+      "state": 18229,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 12561,
+      "state": 12561,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 17338,
+      "state": 17338,
+      "off": 0.0
+     }
+    }
+   },
+   "SOMERSET": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 12 D": {
+      "medsl": 50435,
+      "state": 50435,
+      "off": 0.0
+     },
+     "house 12 R": {
+      "medsl": 30221,
+      "state": 30221,
+      "off": 0.0
+     },
+     "house 7 D": {
+      "medsl": 42416,
+      "state": 42416,
+      "off": 0.0
+     },
+     "house 7 R": {
+      "medsl": 44577,
+      "state": 44577,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 98790,
+      "state": 98790,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 74101,
+      "state": 74101,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 95344,
+      "state": 95344,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 71652,
+      "state": 71652,
+      "off": 0.0
+     }
+    }
+   },
+   "SUSSEX": {
+    "worst_off": {
+     "president": 0.0001,
+     "senate": 0.0001,
+     "house": 0.0004
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 5 D": {
+      "medsl": 18220,
+      "state": 18220,
+      "off": 0.0
+     },
+     "house 5 R": {
+      "medsl": 27789,
+      "state": 27789,
+      "off": 0.0
+     },
+     "house 7 D": {
+      "medsl": 12827,
+      "state": 12828,
+      "off": -0.0001
+     },
+     "house 7 R": {
+      "medsl": 20483,
+      "state": 20491,
+      "off": -0.0004
+     },
+     "president D": {
+      "medsl": 31018,
+      "state": 31019,
+      "off": -0.0
+     },
+     "president R": {
+      "medsl": 52116,
+      "state": 52123,
+      "off": -0.0001
+     },
+     "senate D": {
+      "medsl": 29957,
+      "state": 29959,
+      "off": -0.0001
+     },
+     "senate R": {
+      "medsl": 49727,
+      "state": 49734,
+      "off": -0.0001
+     }
+    }
+   },
+   "UNION": {
+    "worst_off": {
+     "president": 0.0309,
+     "senate": 0.0297,
+     "house": 0.0605
+    },
+    "adds_up": {
+     "president": false,
+     "senate": false,
+     "house": false
+    },
+    "lines": {
+     "house 10 D": {
+      "medsl": 48123,
+      "state": 49383,
+      "off": -0.0255
+     },
+     "house 10 R": {
+      "medsl": 25992,
+      "state": 26577,
+      "off": -0.022
+     },
+     "house 12 D": {
+      "medsl": 10692,
+      "state": 10989,
+      "off": -0.027
+     },
+     "house 12 R": {
+      "medsl": 1942,
+      "state": 1996,
+      "off": -0.0271
+     },
+     "house 7 D": {
+      "medsl": 57269,
+      "state": 59008,
+      "off": -0.0295
+     },
+     "house 7 R": {
+      "medsl": 44040,
+      "state": 44904,
+      "off": -0.0192
+     },
+     "house 8 D": {
+      "medsl": 14248,
+      "state": 14964,
+      "off": -0.0478
+     },
+     "house 8 R": {
+      "medsl": 9419,
+      "state": 10026,
+      "off": -0.0605
+     },
+     "president D": {
+      "medsl": 142777,
+      "state": 147327,
+      "off": -0.0309
+     },
+     "president R": {
+      "medsl": 86489,
+      "state": 89063,
+      "off": -0.0289
+     },
+     "senate D": {
+      "medsl": 134087,
+      "state": 138186,
+      "off": -0.0297
+     },
+     "senate R": {
+      "medsl": 77177,
+      "state": 79183,
+      "off": -0.0253
+     }
+    }
+   },
+   "WARREN": {
+    "worst_off": {
+     "president": 0.0,
+     "senate": 0.0,
+     "house": 0.0
+    },
+    "adds_up": {
+     "president": true,
+     "senate": true,
+     "house": true
+    },
+    "lines": {
+     "house 7 D": {
+      "medsl": 22261,
+      "state": 22261,
+      "off": 0.0
+     },
+     "house 7 R": {
+      "medsl": 35290,
+      "state": 35290,
+      "off": 0.0
+     },
+     "president D": {
+      "medsl": 23318,
+      "state": 23318,
+      "off": 0.0
+     },
+     "president R": {
+      "medsl": 35772,
+      "state": 35772,
+      "off": 0.0
+     },
+     "senate D": {
+      "medsl": 22758,
+      "state": 22758,
+      "off": 0.0
+     },
+     "senate R": {
+      "medsl": 34074,
+      "state": 34074,
+      "off": 0.0
+     }
+    }
+   }
+  }
+ }
+}
