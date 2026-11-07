@@ -34,3 +34,11 @@ Decision card "Count whose welfare in B, the value of the outcome?"; options: on
 > Lead with break-even, show both
 
 *Reading.* The site leads with the break-even stakes B* = C ÷ p, which hold whoever's welfare B counts, and shows beside it what B* means for the voter alone and per person affected. Neither reading of B is chosen for the reader.
+
+## 2026-11-07 01:59 UTC: which elections the site covers
+
+Decision card "Choose which elections the site covers"; options: US presidential, by state; US races at every level; every level, plus other countries. He chose:
+
+> US races at every level
+
+*Reading.* The site covers US elections from the presidency down through Senate, House, state legislature and local races, so a reader sees p grow as races shrink. Other countries' systems are not in scope.

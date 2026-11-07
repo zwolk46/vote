@@ -38,6 +38,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 01:59: the maker chose "US races at every level" (RULINGS). Draft 2's §7 (other systems) and §10 to follow in draft 3; the data plan (wave 3) covers president, Senate, House, state legislature and local races.
+
 - 2026-11-07 01:57: B1 up (Fable 5.1, xhigh). Scope card posted to the maker. Log times now taken from the clock (`date -u`); earlier estimates ran up to 12 minutes ahead.
 
 - 2026-11-07 01:57: #8 merged (draft 2, B1 on `main`); asked the coordinator to start B1 (Fable 5.1, xhigh). Decision card to the maker: which elections the site covers.
