@@ -1,0 +1,96 @@
+{
+ "about": "local races given p by like past races (routes (b) and (c), method D3-v1.1): the chance each class gives of finishing within its window around one half, added up over the year's contests, beside how many did. Classes come from earlier years only. Built by pipeline/local_medsl.py build.",
+ "years": {
+  "2020": {
+   "contests": 1817,
+   "expected_in_window": 317.8,
+   "seen_in_window": 248,
+   "by_office_type": {
+    "class, local council, commission or board": {
+     "contests": 987,
+     "expected": 217.2,
+     "seen": 178
+    },
+    "class, local school board": {
+     "contests": 358,
+     "expected": 59.2,
+     "seen": 44
+    },
+    "class, local other local office": {
+     "contests": 160,
+     "expected": 11.1,
+     "seen": 7
+    },
+    "class, local judge": {
+     "contests": 134,
+     "expected": 8.0,
+     "seen": 5
+    },
+    "class, local special district": {
+     "contests": 130,
+     "expected": 18.4,
+     "seen": 7
+    },
+    "class, local mayor or executive": {
+     "contests": 48,
+     "expected": 3.8,
+     "seen": 7
+    }
+   },
+   "seen_over_expected": 0.78
+  },
+  "2024": {
+   "contests": 2066,
+   "expected_in_window": 270.6,
+   "seen_in_window": 202,
+   "by_office_type": {
+    "class, local council, commission or board": {
+     "contests": 961,
+     "expected": 141.3,
+     "seen": 107
+    },
+    "class, local school board": {
+     "contests": 511,
+     "expected": 77.5,
+     "seen": 50
+    },
+    "class, local special district": {
+     "contests": 194,
+     "expected": 24.3,
+     "seen": 13
+    },
+    "class, local other local office": {
+     "contests": 136,
+     "expected": 7.7,
+     "seen": 10
+    },
+    "class, local mayor or executive": {
+     "contests": 102,
+     "expected": 6.1,
+     "seen": 4
+    },
+    "class, local judge": {
+     "contests": 96,
+     "expected": 5.0,
+     "seen": 8
+    },
+    "class, local clerk, treasurer or other county officer": {
+     "contests": 31,
+     "expected": 3.0,
+     "seen": 0
+    },
+    "class, state judge": {
+     "contests": 18,
+     "expected": 1.9,
+     "seen": 3
+    },
+    "class, local sheriff or constable": {
+     "contests": 17,
+     "expected": 3.8,
+     "seen": 7
+    }
+   },
+   "seen_over_expected": 0.746
+  }
+ }
+}

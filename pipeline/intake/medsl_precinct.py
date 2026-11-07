@@ -45,6 +45,17 @@ API = "https://dataverse.harvard.edu/api"
 DATASETS = {
     2024: {"doi": "doi:10.7910/DVN/NYTPDU", "title": "Precinct-Level Returns 2024 by Individual State"},
     2022: {"doi": "doi:10.7910/DVN/UYQIEP", "title": "Precinct-Level Returns 2022 by Individual State"},
+    # MEDSL's own GitHub repositories, read by git (the orchestrator, 06:16: no guestbook there). Both now say they
+    # are deprecated in favour of the Dataverse sets; 2018's files are still at its head, 2020's were deleted on
+    # 2023-10-24 and are read at the commit before (its local returns only).
+    2018: {"github": "MEDSL/2018-elections-official", "commit": "42055b11dcd5477bc125cdec5a18fbcc60fb6bed",
+           "collection": "2018_precincts",
+           "paths": r"^individual_states/2018-[a-z]{2}-precinct-general\.zip$",
+           "title": "2018 precinct-level election returns (GitHub, MEDSL/2018-elections-official)"},
+    2020: {"github": "MEDSL/2020-elections-official", "commit": "a450bb45da90cda13a8e8ce2556c3a1d90dce324",
+           "collection": "2020_precincts",
+           "paths": r"^all_states/2020-all-states-local-precinct-general\.zip$",
+           "title": "2020 local precinct-level election returns (GitHub, MEDSL/2020-elections-official)"},
 }
 OUT = os.path.join(F.CACHE, "medsl", "normalized")
 csv.field_size_limit(1 << 24)
@@ -118,6 +129,129 @@ def split_answer(cand):
 
 # ------------------------------------------------------------------ the dataset's record and files
 
+def _git(*args, cwd=None):
+    import subprocess
+    return subprocess.run(["git", *args], cwd=cwd, check=True, capture_output=True, text=False).stdout
+
+
+def github_files(year):
+    """The files of a GitHub-held year: a blob-less clone of the repository in the cache, the commit fetched, each
+    file written to the cache by `git show` at that commit, with a meta file as pipeline/fetch.py writes one."""
+    import datetime
+    import hashlib
+    d = DATASETS[year]
+    repo_dir = os.path.join(F.CACHE, "medsl", "git", d["github"].split("/")[1])
+    if not os.path.isdir(os.path.join(repo_dir, ".git")):
+        os.makedirs(os.path.dirname(repo_dir), exist_ok=True)
+        _git("clone", "-q", "--filter=blob:none", "--no-checkout", f"https://github.com/{d['github']}", repo_dir)
+    try:
+        _git("cat-file", "-e", d["commit"], cwd=repo_dir)
+    except Exception:
+        _git("fetch", "-q", "--filter=blob:none", "origin", d["commit"], cwd=repo_dir)
+    names = [x for x in _git("ls-tree", "-r", "--name-only", d["commit"], cwd=repo_dir).decode().split("\n")
+             if re.match(d["paths"], x)]
+    out = []
+    for path in sorted(names):
+        base = path.rsplit("/", 1)[-1]
+        raw = f"medsl/raw/{year}-github-{base}"
+        dest = os.path.join(F.CACHE, raw)
+        if not os.path.exists(dest + ".meta.json"):
+            os.makedirs(os.path.dirname(dest), exist_ok=True)
+            with open(dest, "wb") as f:
+                f.write(_git("show", f"{d['commit']}:{path}", cwd=repo_dir))
+            h = hashlib.sha256()
+            with open(dest, "rb") as f:
+                for chunk in iter(lambda: f.read(1 << 20), b""):
+                    h.update(chunk)
+            with open(dest + ".meta.json", "w") as f:
+                json.dump({"url": f"https://github.com/{d['github']}/blob/{d['commit']}/{path}", "served_from": "git",
+                           "read_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+                           "bytes": os.path.getsize(dest), "sha256": h.hexdigest()}, f, indent=1)
+        out.append({"id": "github", "name": base, "raw": raw})
+    return out
+
+
+def _digests(path):
+    """(bytes, md5) of a file, and of each member if it is a zip: the Dataverse records an MD5 for each file."""
+    import hashlib
+    import zipfile
+
+    def md5(fh):
+        h = hashlib.md5()
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+        return h.hexdigest()
+    with open(path, "rb") as f:
+        out = {"bytes": os.path.getsize(path), "md5": md5(f), "members": {}}
+    if path.endswith(".zip"):
+        with zipfile.ZipFile(path) as z:
+            for i in z.infolist():
+                if not i.is_dir() and not i.filename.startswith("__MACOSX"):
+                    with z.open(i) as fh:
+                        out["members"][i.filename.rsplit("/", 1)[-1]] = {"bytes": i.file_size, "md5": md5(fh)}
+    return out
+
+
+def compare_dataverse(year):
+    """The GitHub-held files of a year against MEDSL's Dataverse sets of the same year (the orchestrator, 06:16:
+    "compare their files to the Dataverse sets"). Reads the collection's list of datasets and each dataset's
+    record (names, sizes and MD5 digests are public; the files themselves sit behind a guestbook and are not read),
+    and matches each GitHub file, or each file inside a GitHub zip, by MD5, else by name. Written to checks."""
+    d = DATASETS[year]
+    lst = F.fetch(f"{API}/dataverses/{d['collection']}/contents", f"medsl/collection-{d['collection']}.json")
+    with open(lst) as f:
+        items = json.load(f)["data"]
+    dv_files = []
+    sets = []
+    for it in items:
+        if it.get("type") != "dataset":
+            continue
+        doi = f"{it['protocol']}:{it['authority']}/{it['identifier']}"
+        url = f"{API}/datasets/:persistentId/?persistentId={urllib.parse.quote(doi, safe=':/')}"
+        path = F.fetch(url, f"medsl/record-{it['identifier'].replace('/', '-')}.json")
+        with open(path) as f:
+            v = json.load(f)["data"]["latestVersion"]
+        title = next((x["value"] for x in v["metadataBlocks"]["citation"]["fields"] if x["typeName"] == "title"), "")
+        sets.append({"doi": doi, "title": title, "files": len(v["files"]),
+                     "licence": (v.get("license") or {}).get("name") if isinstance(v.get("license"), dict)
+                     else v.get("license")})
+        for x in v["files"]:
+            df = x["dataFile"]
+            dv_files.append({"doi": doi, "name": df.get("originalFileName") or df["filename"],
+                             "bytes": df.get("originalFileSize") or df.get("filesize"), "md5": df.get("md5") or
+                             (df.get("checksum") or {}).get("value")})
+    by_md5 = {f["md5"]: f for f in dv_files if f["md5"]}
+    by_name = collections.defaultdict(list)
+    for f in dv_files:
+        by_name[f["name"].rsplit(".", 1)[0].lower()].append(f)
+    rows = []
+    for fi in github_files(year):
+        dg = _digests(os.path.join(F.CACHE, fi["raw"]))
+        parts = [(fi["name"], dg["bytes"], dg["md5"])] + [(n, m["bytes"], m["md5"]) for n, m in dg["members"].items()]
+        for name, nbytes, md5 in parts:
+            hit = by_md5.get(md5)
+            if hit:
+                rows.append({"github": name, "bytes": nbytes, "same_md5_as": f"{hit['doi']} {hit['name']}"})
+                continue
+            near = by_name.get(name.rsplit(".", 1)[0].lower(), [])
+            rows.append({"github": name, "bytes": nbytes, "same_md5_as": None,
+                         "same_name_in": [{"doi": h["doi"], "name": h["name"], "bytes": h["bytes"]} for h in near]})
+    out = {"collection": f"https://dataverse.harvard.edu/dataverse/{d['collection']}", "datasets": sets,
+           "github_files": rows,
+           "identical": sum(1 for r in rows if r["same_md5_as"]),
+           "same_name_differs": sum(1 for r in rows if not r["same_md5_as"] and r["same_name_in"]),
+           "no_counterpart": sum(1 for r in rows if not r["same_md5_as"] and not r["same_name_in"])}
+    checks_path = os.path.join(OUT, f"checks-{year}.json")
+    checks = {}
+    if os.path.exists(checks_path):
+        with open(checks_path) as f:
+            checks = json.load(f)
+    checks["dataverse_comparison"] = out
+    with open(checks_path, "w") as f:
+        json.dump(checks, f, indent=1)
+    return out
+
+
 def record(year):
     doi = DATASETS[year]["doi"]
     url = f"{API}/datasets/:persistentId/?persistentId={urllib.parse.quote(doi, safe=':/')}"
@@ -174,6 +308,14 @@ def _rows(path):
         yield from csv.DictReader(f)
 
 
+def fips5(x):
+    """A county's FIPS code as five digits: MEDSL's 2022 Alabama file writes 1001 for 01001, and others 1001.0."""
+    x = (x or "").strip()
+    if re.fullmatch(r"\d{1,5}(\.0+)?", x):
+        return f"{int(float(x)):05d}"
+    return x
+
+
 def read_file(path):
     """Rows of one MEDSL file into {contest key: {precinct key: {candidate key: {mode: votes or None}}}}."""
     agg = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
@@ -195,7 +337,7 @@ def read_file(path):
         except ValueError:
             votes = None          # "*": redacted (MEDSL's README)
         mode = (row.get("mode") or "TOTAL").upper()
-        pk = (row.get("county_fips", ""), row.get("jurisdiction_fips", ""), row.get("precinct", ""))
+        pk = (fips5(row.get("county_fips", "")), row.get("jurisdiction_fips", ""), row.get("precinct", ""))
         psim, pdet = row.get("party_simplified", ""), row.get("party_detailed", "")
         if psim == "OTHER" and pdet.upper() in DEMOCRATIC_AFFILIATES:
             psim = "DEMOCRAT"   # the 2022 files file Minnesota's DFL and North Dakota's Democratic-NPL as other
@@ -517,6 +659,38 @@ def join_unnumbered(contests):
     return keep, joined
 
 
+def house_by_county(house):
+    """{state: {county FIPS: [Democratic votes, Republican votes, 1 if every precinct's House race had both]}}: the
+    US House vote by county, the lean a local race's forecast reads (the orchestrator, 06:16). A candidate's votes
+    on every line count for the party whose line the candidate holds (fusion: New York, Connecticut). A precinct is
+    contested when a Democrat and a Republican are both printed on its ballot (not write-ins), whatever their
+    votes there; a county with any precinct that is not is marked 0."""
+    out = {}
+    for st, precincts in house.items():
+        by = collections.defaultdict(lambda: [0, 0, 1])
+        for pk, cands in precincts.items():
+            party = {}
+            for ck in cands:
+                if ck[2] in ("DEMOCRAT", "REPUBLICAN") and (ck[3] or "").upper() not in ("TRUE", "1", "YES"):
+                    party.setdefault(ck[0], set()).add(ck[2])
+            party = {c: next(iter(ps)) for c, ps in party.items() if len(ps) == 1}
+            dv = rv = 0
+            for ck, modes in cands.items():
+                v = resolve(modes) or 0
+                if party.get(ck[0]) == "DEMOCRAT":
+                    dv += v
+                elif party.get(ck[0]) == "REPUBLICAN":
+                    rv += v
+            row = by[pk[0]]
+            row[0] += dv
+            row[1] += rv
+            listed = set(party.values())
+            if listed != {"DEMOCRAT", "REPUBLICAN"} and any((resolve(m) or 0) > 0 for m in cands.values()):
+                row[2] = 0
+        out[st] = {c: v for c, v in sorted(by.items()) if c}
+    return out
+
+
 def president_totals(pres):
     out = {}
     for st, precincts in pres.items():
@@ -610,8 +784,13 @@ def check_house(year, house):
 # ------------------------------------------------------------------ main
 
 def run(year, only=None):
-    rec, rec_meta = record(year)
-    files = data_files(year, rec)
+    gh = "github" in DATASETS[year]
+    if gh:
+        rec, rec_meta = {}, None
+        files = github_files(year)
+    else:
+        rec, rec_meta = record(year)
+        files = data_files(year, rec)
     os.makedirs(os.path.join(OUT, str(year)), exist_ok=True)
     checks_path = os.path.join(OUT, f"checks-{year}.json")
     checks = {}
@@ -624,10 +803,24 @@ def run(year, only=None):
         st = file_state(year, fi["name"])
         if only and (st or "") not in only:
             continue
-        raw = f"medsl/raw/{year}-{fi['id']}-{fi['name']}"
-        url = f"{API}/access/datafile/{fi['id']}" + ("?format=original" if fi["ingested"] else "")
-        path = F.fetch(url, raw, storage_sites=("amazonaws.com",))
-        expected = ddi_rows(fi["id"], year) if fi["ingested"] else None
+        if gh:
+            raw, expected = fi["raw"], None
+            path = os.path.join(F.CACHE, raw)
+        else:
+            raw = f"medsl/raw/{year}-{fi['id']}-{fi['name']}"
+            url = f"{API}/access/datafile/{fi['id']}" + ("?format=original" if fi["ingested"] else "")
+            path = F.fetch(url, raw, storage_sites=("amazonaws.com",))
+            expected = ddi_rows(fi["id"], year) if fi["ingested"] else None
+        first = next(iter(_rows(path)), {})
+        if "party_simplified" not in first or "county_fips" not in first:
+            # MEDSL's older layout (party, county by name, no magnitude): 2018's Wisconsin file. Its offices are
+            # the state's own (governor, statewide officers, legislature), which Klarner records; no local race.
+            checks["files"][fi["name"]] = {"read": False, "why": "the file is in MEDSL's older layout (no "
+                                           "party_simplified, county_fips or magnitude columns); it holds state "
+                                           "offices only, which Klarner records for the legislature",
+                                           "columns": sorted(first)}
+            print(f"{fi['name']}: not read (older layout)", flush=True)
+            continue
         agg, pres, house, n, states = read_file(path)
         moved = merge_statewide(agg)
         contests = []
@@ -639,7 +832,8 @@ def run(year, only=None):
             by_state[c["state"]].append(c)
         m = F.meta(raw)
         for s, cs in by_state.items():
-            with open(os.path.join(OUT, str(year), f"{s}-{fi['id']}.jsonl"), "w") as f:
+            fid = fi["id"] if not gh else re.sub(r"[^a-z0-9]+", "-", fi["name"].lower().rsplit(".", 1)[0])
+            with open(os.path.join(OUT, str(year), f"{s}-{fid}.jsonl"), "w") as f:
                 for c in cs:
                     c["file"] = {"id": fi["id"], "name": fi["name"], "url": m["url"], "read_utc": m["read_utc"],
                                  "sha256": m["sha256"]}
@@ -651,13 +845,23 @@ def run(year, only=None):
                                        "legislative_pieces_without_district_joined": joined}
         checks["president"].update(check_president(year, president_totals(pres)))
         checks.setdefault("house_by_party", {}).update(check_house(year, house))
+        checks.setdefault("house_by_county", {}).update(house_by_county(house))
         checks.setdefault("write_in_lines_alone", {}).update(dict(DROPPED))
         print(f"{fi['name']}: {n:,} rows (Dataverse records {expected}), {len(contests):,} contests", flush=True)
         with open(checks_path, "w") as f:
             json.dump(checks, f, indent=1)
-    checks["record"] = {"doi": DATASETS[year]["doi"], "version": f"{rec.get('versionNumber')}.{rec.get('versionMinorNumber')}",
-                        "licence": (rec.get("license") or {}).get("name") if isinstance(rec.get("license"), dict) else rec.get("license"),
-                        "read_utc": rec_meta["read_utc"], "url": rec_meta["url"]}
+    if gh:
+        d = DATASETS[year]
+        checks["record"] = {"github": d["github"], "commit": d["commit"], "title": d["title"],
+                            "licence": "no licence file in the repository",
+                            "read_utc": F.meta(files[0]["raw"])["read_utc"] if files else None,
+                            "url": f"https://github.com/{d['github']}/tree/{d['commit']}"}
+    else:
+        checks["record"] = {"doi": DATASETS[year]["doi"],
+                            "version": f"{rec.get('versionNumber')}.{rec.get('versionMinorNumber')}",
+                            "licence": (rec.get("license") or {}).get("name") if isinstance(rec.get("license"), dict)
+                            else rec.get("license"),
+                            "read_utc": rec_meta["read_utc"], "url": rec_meta["url"]}
     with open(checks_path, "w") as f:
         json.dump(checks, f, indent=1)
     return checks
@@ -667,7 +871,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("year", type=int, choices=sorted(DATASETS))
     ap.add_argument("--states", default="")
+    ap.add_argument("--compare-dataverse", action="store_true",
+                    help="a GitHub-held year: compare its files with MEDSL's Dataverse sets, by MD5")
     a = ap.parse_args()
+    if a.compare_dataverse:
+        r = compare_dataverse(a.year)
+        print(json.dumps({k: v for k, v in r.items() if k != "github_files"}, indent=1))
+        return
     only = {s.strip().upper() for s in a.states.split(",") if s.strip()} or None
     run(a.year, only)
 
