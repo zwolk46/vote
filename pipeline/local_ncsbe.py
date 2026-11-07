@@ -47,6 +47,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import fetch as F  # noqa: E402
+from intake import clerk_house as CLERK  # noqa: E402
 import local as L  # noqa: E402
 import local_medsl as LM  # noqa: E402
 
@@ -413,7 +414,9 @@ FED_FILES = {"president": re.compile(r"^(US PRESIDENT|PRESIDENT)"), "senate": re
 def gate(dates):
     """{date: (share, words)} for each November date of an even year: how far the file's Democratic and Republican
     votes for the presidency and the Senate (the House, district by district, in a year with neither) fall from the
-    certified ones in D1's and D2's files (data/<president|senate|house>/<year>.json). A date whose counts miss by more than MEDSL's line
+    certified ones in D1's and D2's files (data/<president|senate|house>/<year>.json); in a year those files do not
+    reach, from the Clerk of the House's statistics, the Senate and every House district (pipeline/intake/clerk_house.py,
+    read for 2002 at the orchestrator's order of 08:32). A date whose counts miss by more than MEDSL's line
     (local_medsl.QUALITY_LINE) is a file posted before the final count [inferred]; its contests carry a note."""
     out = {}
     for d, cs in sorted(dates.items()):
@@ -424,10 +427,19 @@ def gate(dates):
         for level, pat in FED_FILES.items():
             path = os.path.join(L.REPO, "data", level, f"{d[:4]}.json")
             mine = [c for c in cs if pat.match(c["contest"])]
-            if not mine or not os.path.exists(path) or (level == "house" and statewide):
+            clerk = None
+            if not os.path.exists(path) and level in ("senate", "house") and os.path.exists(CLERK.path(d[:4])):
+                with open(CLERK.path(d[:4])) as f:   # a year D2's files do not reach: the Clerk of the House's
+                    clerk = json.load(f)              # statistics (pipeline/intake/clerk_house.py; the orchestrator, 08:32)
+            if not mine or not (os.path.exists(path) or clerk) or (level == "house" and statewide and not clerk):
                 continue   # the statewide contests where there are any: one count each, the cleanest comparison
-            with open(path) as f:
-                cert = [x for x in json.load(f)["contests"] if x["place"]["state"] == "NC"]
+            if clerk:
+                cert = [x for x in clerk["contests"] if x["office"] == level and x["place"]["state"] == "NC"]
+            else:
+                with open(path) as f:
+                    cert = [x for x in json.load(f)["contests"] if x["place"]["state"] == "NC"]
+            if not cert:
+                continue
             pairs = [(mine, cert)]
             if level == "house":   # district by district: a district one file lacks is not a shortfall of the other
                 dn = lambda s_: int(re.search(r"(\d+)", s_).group(1)) if re.search(r"(\d+)", s_ or "") else None
@@ -444,7 +456,7 @@ def gate(dates):
                 b = sum(x["votes"] for _, c_ in pairs for c in c_ for x in c["result"]["candidates"]
                         if _major(x.get("party")) == side)
                 if b:
-                    what.append(f"{level} {side} {a:,} against {b:,}"
+                    what.append(f"{level}{' (the Clerk of the House)' if clerk else ''} {side} {a:,} against {b:,}"
                                 + (f" ({len(pairs)} districts in both)" if level == "house" else ""))
                     worst = max([worst] + [abs(sum(x["votes"] for c in m_ for x in c["choices"]
                                                    if _major(x["party"]) == side)

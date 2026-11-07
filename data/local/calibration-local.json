@@ -197,7 +197,7 @@
     "year": 2024,
     "contests": 968,
     "seen_near_half": 54,
-    "expected_before": 59.7,
+    "expected_before": 59.8,
     "expected_after": 54.0,
     "deviance_by_office_type_before": 11.71,
     "deviance_after": 11.14,
@@ -208,7 +208,7 @@
       "seen": 29
      },
      "partisan, local clerk, treasurer or other county officer": {
-      "expected_before": 8.8,
+      "expected_before": 8.9,
       "expected_after": 8.0,
       "seen": 7
      },
@@ -224,7 +224,7 @@
      },
      "partisan, local judge": {
       "expected_before": 4.3,
-      "expected_after": 3.8,
+      "expected_after": 3.9,
       "seen": 3
      },
      "partisan, local prosecutor": {
