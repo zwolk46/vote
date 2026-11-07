@@ -99,6 +99,10 @@ def _score(recs, years):
 
 
 def test(recs):
+    if not recs:
+        return {"test": {"contests": 0}, "adopted": False,
+                "why": "no boundary contest of this pool has a forecast: every class has fewer than 100 earlier like "
+                       "races, so the variant, which falls back to the class, could change nothing"}
     years = sorted({r["year"] for r in recs})
     all_ = _score(recs, set(years))
     loo = {}
@@ -168,6 +172,9 @@ def main():
         recs = fn()
         out["pools"][name] = test(recs)
         t = out["pools"][name]
+        if not t["test"]["contests"]:
+            print(name, t["why"])
+            continue
         print(name, json.dumps({k: t["test"][k] for k in ("contests", "contests_with_their_own_bin", "seen_49_51",
                                                           "expected_49_51_record", "expected_49_51_variant",
                                                           "deviance_record", "deviance_variant", "improves",
