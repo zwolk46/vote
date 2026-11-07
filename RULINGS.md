@@ -94,3 +94,27 @@ In the project chat:
 1. **Breadth of data is a goal of its own** (law 5, Broad, made stronger): gather every contest the sources allow, at every level and as far back as standardized sources go, not a sample of years. The volume itself is part of what the site shows, so that a reader says "wow" (law 6, Beautiful, read with the midterms principle he names).
 2. **Intake by script, from standardized datasets.** Find the bulk, standardized sources first (spreadsheets, CSV releases, data repositories), and write one script per source that downloads and converts it into `data/`, so that a year, a state or a whole source costs a run, not an agent reading pages. *Reason:* his words, "an intake flow that doesn't use as many tokens".
 3. **No live data.** The site is built from static, published datasets; nothing is fed live. This does not settle the open point on an election before it is held, which is about forecasts, not live results.
+
+## 2026-11-07 04:06 UTC: the explanation of the model, for a non-technical person, through visuals
+
+In the project chat:
+
+> One thing crucial to get right is the expanded explanation of how the formula or model works, but not necessarily technically. I want to be able to show it to a non technical person and because of the beautifully crafted and well thought through visuals they are able to understand. Probably a scroll animation? but you decide
+
+*Reading.* The site has an expanded explanation of how p and B\* are worked out, and it is one of the surfaces that matter most (law 3, Plain, made stronger; law 6). Its test is a non-technical person who, from the visuals, understands it; the words are few and plain, and the technical form sits behind it, not in it. Its form is the orchestrator's to decide: a scroll-driven story, one idea per step, with one visual that changes as the reader scrolls, built as two or three whole versions for him to pick (law 9b), and tried on a cold non-technical reader before it goes to him.
+
+## 2026-11-07 04:09 UTC: option C on the phone; the midterms race-page dot charts as the model
+
+In the orchestrator's thread, after seeing X1's preview:
+
+> Keep in mind on option c as it exists currently on mobile it looks awful. Really scrutinized it to make sure it looks nice. An example of a component I love that serves its own specific purposes are the graphs with the dots that move together for each individual race from the midterms page
+
+*Reading.* Option C as built does not pass on a phone. Every option is scrutinized at phone widths by eye, as well as by the automated checks, before it goes to him (the design guidance, process step 4, read with his midterms rule "These are all things you should catch yourself"). The midterms race pages' graphs, in which the dots for each race move together, are a component he loves for its own purpose and the model for this site's dot charts, in the first screen and the explainer.
+
+## 2026-11-07 04:09 UTC: a total layperson checks it
+
+In the orchestrator's thread, a minute later:
+
+> And it should also be checked by an agent specifically instructed to lack some technical understanding and as a total layperson, who doesn't even understand the fundamental correct nature of a cost-benefit analysis
+
+*Reading.* The explainer, and with it the first-screen options, is read cold by a second agent as well: one told it has no technical understanding and does not know how a cost-benefit weighing works, so the page must teach the weighing itself. Briefs X2 and X1 carry it.
