@@ -22,7 +22,7 @@
 
 ## The maker's taste, from his rulings (dates UTC)
 
-- **Real components, not invented ones.** 11-03 20:40: switches and tabs "pulled from REAL components with REAL motion". 11-03 21:20: "avoid all that AI stuff … everything should have real inspiration". 11-05 20:58 to 21:03: never invent components or design ideas in-house; a separate agent, given the design principles, pulls real components from 21st.dev and details.so and flows from Mobbin. So: a design worker searches Details (`search_inspirations`), 21st.dev (`search`, `get_component`; never `generate` without his word) and Mobbin (`search_screens`, `search_flows`) before anything is drawn, and cites the real example each component comes from.
+- **Components: his picks, or designed within the principles.** On midterms he required found components only (11-03 20:40, 21:20; 11-05 20:58 to 21:03). On 11-07 02:45 he corrected that as too strict: found parts rarely fit together, so build from a component he names, and otherwise let the design worker design within the principles, using Details, 21st.dev and Mobbin as references (`design/README.md`, step 1).
 - **What he named as faults:** soft drop shadows between cards ("peak AI default design", 10-23); hover glows, moving arrows, pulsing dots, scrolling text, numbers on things not in sequence, filler text (DESIGN-SPEC preamble); text that "looks the same" at one level (11-03 13:08); bars that are "just rectangles" (13:21).
 - **What he loves:** details.so's navigation menus: precise, fluid, natural, integrated with the page (10-24).
 - **Non-partisan:** "red and white AND blue … it's just a data displayer, it's not right or left" (11-05 20:58). A vote site about the weight of a vote should not lean either way in colour.
