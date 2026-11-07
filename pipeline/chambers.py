@@ -37,10 +37,13 @@ from "Candidates in American General Elections" (pipeline/intake/candidates_amer
 Run:  python3 pipeline/chambers.py backtest      prints the fit and the back-test, writes
                                                 data/congress/backtest.json
 """
+import difflib
 import json
 import math
 import os
+import re
 import sys
+import unicodedata
 
 import numpy as np
 
@@ -624,6 +627,142 @@ def division_check(d, level, year, held):
     return out
 
 
+# FiveThirtyEight's published forecasts (pipeline/intake/fivethirtyeight_checking_our_work.py) come first
+# where the race has one (the orchestrator, 2026-11-07 03:46: "a reachable published forecast comes first,
+# with ours as the check"; 04:12, and 04:20 for the rule below). Its mean is the Democrat's projected share of
+# the two leading parties' projected vote; its sd is the one a normal needs to give its chance,
+# sd = (mean - 1/2) / Phi^-1(chance), marked inferred. It is kept where the sd's estimated relative error is
+# under 20%, no chance is exactly 0 or 1, and other candidates hold under 1% of the chance; otherwise ours comes
+# first and 538's forecast stays beside it as the check, with the reason.
+FTE_MAX_REL_ERROR = 0.20  # the implied sd is kept where its estimated relative error is under 20%
+FTE_OTHERS = 0.01         # and where other candidates hold under 1% of the chance (the orchestrator, 04:20)
+FTE = None
+
+
+def Phi_inv(q):
+    lo, hi = -12.0, 12.0
+    for _ in range(200):
+        mid = (lo + hi) / 2
+        if Phi(mid) < q:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
+def _last(name):
+    """A candidate's last name, for matching across sources: "Cardin, Ben" and "Benjamin L. Cardin" give
+    "cardin"; accents dropped, and text decoded twice by mistake (538's "LujÃ¡n") put right."""
+    if "Ã" in name:
+        try:
+            name = name.encode("latin-1").decode("utf-8")
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+    name = "".join(ch for ch in unicodedata.normalize("NFKD", name) if not unicodedata.combining(ch))
+    if "," in name:
+        name = name.split(",")[0]
+    toks = [t for t in re.split(r"[\s.]+", name.lower()) if t and t not in ("jr", "sr", "ii", "iii", "iv")]
+    toks = [t.strip('"()') for t in toks if not (t.startswith('"') or t.startswith("("))] or toks
+    return toks[-1] if toks else ""
+
+
+def fte_versions(c, level, year):
+    """538's versions for contest c, in the repository's order, or (None, why)."""
+    global FTE
+    if FTE is None:
+        FTE = _load("fivethirtyeight/normalized/checking_our_work_congress.json") or {"races": {}}
+    st, dist = c["place"]["state"], c["place"]["district"]
+    if level == "house":
+        dist = "01" if dist == "AL" else dist
+    k = f"{level}|{year}|{st}|{dist or '-'}|{1 if c['special'] else 0}"
+    r = FTE["races"].get(k)
+    if r is None and level != "house":
+        alt = [v for kk, v in FTE["races"].items() if kk.startswith(f"{level}|{year}|{st}|")]
+        r = alt[0] if len(alt) == 1 else None
+    if r is None:
+        return None
+    order = FTE["versions_order"][level][str(year)]
+    return [(v, r["versions"][v]) for v in order if v in r["versions"]]
+
+
+def fte_forecast(c, level, year, version, f):
+    """One 538 version as a forecast entry, with the implied sd, or the reason it cannot be used."""
+    by = {a["party"]: a for a in f["candidates"]}
+    D, R = by.get("D"), by.get("R")
+    if D is None and by.get("I") and (c["place"]["state"], _last(by["I"]["name"] or "").upper()) in CAUCUS_D_LAST:
+        D = by["I"]     # Sanders, King: the independent who caucuses with the Democrats takes the Democrat's place
+    entry = {"by": "538", "published": True, "version": version, "method": None,
+             "share": None, "chance": {a["party"]: a["chance"] for a in f["candidates"]},
+             "p_published": None, "convention": None, "as_of": f["as_of"], "source": level + "_538",
+             "unusable": None, "unusable_kind": None}
+    if f["dated_election_day"]:
+        entry["note"] = "the file's only forecast for the race is dated Election Day"
+    tp = c.get("two_party") or {}
+    names = [_last(x) for x in tp.get("candidates", [])]
+    for a in (D, R):
+        if a and a.get("name"):
+            ln = _last(a["name"])
+            if names and not any(difflib.SequenceMatcher(None, ln, n).ratio() >= 0.8 or ln in n or n in ln
+                                 for n in names):
+                entry["unusable"] = f"538's {a['party']} candidate ({a['name']}) is not one of the two leading candidates here"
+                entry["unusable_kind"] = "candidate not matched"
+                return entry
+    if not D or not R:
+        entry["unusable"], entry["unusable_kind"] = "538's forecast has no Democrat or no Republican", "no D or R"
+        return entry
+    if D["share"] is None or R["share"] is None:
+        entry["unusable"], entry["unusable_kind"] = ("538's file gives its chance but not its projected share",
+                                                     "chance only, no share")
+        return entry
+    mean = D["share"] / (D["share"] + R["share"])
+    others = 1 - D["chance"] - R["chance"]
+    q = D["chance"] / (D["chance"] + R["chance"]) if (D["chance"] + R["chance"]) > 0 else None
+    entry["share"] = {"mean": round(mean, 6), "sd": None, "tails": "normal", "of": "Democrat, two-party",
+                      "sd_from": "implied by 538's chance under a normal: sd = (mean - 1/2) / Phi^-1(chance); inferred"}
+    if D["chance"] in (0.0, 1.0) or R["chance"] in (0.0, 1.0):
+        entry["unusable"], entry["unusable_kind"] = "538's chance is exactly 0 or 1, which no sd gives", "chance 0 or 1"
+        return entry
+    if others >= FTE_OTHERS:
+        entry["unusable"] = (f"538's chance gives {others:.1%} to someone else (a third candidate or a runoff), "
+                             "so the two-way sd cannot be read from it")
+        entry["unusable_kind"] = "others hold 1% or more of the chance"
+        return entry
+    if (mean - 0.5) * (q - 0.5) <= 0:
+        entry["unusable"], entry["unusable_kind"] = ("538's mean and chance fall on different sides of even, which no "
+                                                     "normal gives", "mean and chance on different sides")
+        return entry
+    z = Phi_inv(q)
+    sd = (mean - 0.5) / z
+    # the implied sd's relative error (the orchestrator, 04:20): from the chance's sampling error, sqrt(q(1-q)/N)
+    # with N the simulation runs its steps imply, carried through Phi^-1 at both ends rather than linearized
+    # (an end at 0 or 1 is an infinite error); and from the rounding of the printed shares
+    N = FTE["simulations"][level][str(year)].get(version)
+    if N:
+        dq = math.sqrt(q * (1 - q) / N)
+        ends = [q - dq, q + dq]
+        rel_q = (math.inf if min(ends) <= 0 or max(ends) >= 1 else
+                 max(abs(Phi_inv(e) - z) for e in ends) / abs(z))
+        entry["simulations"] = N
+        entry["simulations_mark"] = "inferred: the step its chances move in"
+    else:
+        rel_q = 0.0
+        entry["simulations"] = None
+        entry["simulations_mark"] = "no fixed step in the chances: taken as exact"
+    dec = FTE["share_decimals"][level][str(year)].get(version, 5)
+    d_share = 0.5 * 10 ** -(dec + 2)        # half the last printed digit, in share
+    rel_m = d_share / abs(mean - 0.5)
+    rel = math.sqrt(rel_q ** 2 + rel_m ** 2)
+    entry["sd_relative_error"] = None if math.isinf(rel) else round(rel, 4)
+    entry["share"]["sd"] = round(sd, 6)
+    if rel >= FTE_MAX_REL_ERROR:
+        entry["unusable"] = (f"the implied sd's estimated error is {'beyond measure' if math.isinf(rel) else f'{rel:.0%}'} "
+                             f"(538's chance rests on too few of its {N:,} simulation runs, or its mean is too near even), "
+                             f"at or above the 20% allowed" if N else
+                             f"the implied sd's estimated error is {rel:.0%}, at or above the 20% allowed")
+        entry["unusable_kind"] = "implied sd's error 20% or more"
+    return entry
+
+
 def compute(year):
     """Fill forecasts, p and control for data/<level>/<year>.json, in place."""
     from core import p_contest
@@ -640,21 +779,60 @@ def compute(year):
             fi = c.get("forecast_inputs")
             pending = c["p"]["value"] is None and (c["p"]["not_computed"] or "").startswith("pending")
             if not pending:
+                if c["p"]["value"] is None and not c["forecasts"]:
+                    # p is not computed here (a runoff, ranked choice, a missing input), but 538's forecast
+                    # is kept in the record all the same
+                    c["forecasts"] = [fte_forecast(c, level, year, v, f) for v, f in (fte_versions(c, level, year) or [])]
                 continue
             mean, _ = model_mean(m, year, fi["lean"], fi["incumbency"])
             src = model_source(year, level, m)
-            c["forecasts"] = [{"by": "the model's own", "published": False, "method": METHOD,
-                               "share": {"mean": round(mean, 6), "sd": round(sd, 6), "tails": t, "of": "Democrat, two-party"},
-                               "p_published": None, "convention": None, "as_of": c["date"], "source": src}
-                              for t in ("normal", "t4")]
+            own = [{"by": "the model's own", "published": False, "method": METHOD,
+                    "share": {"mean": round(mean, 6), "sd": round(sd, 6), "tails": t, "of": "Democrat, two-party"},
+                    "p_published": None, "convention": None, "as_of": c["date"], "source": src}
+                   for t in ("normal", "t4")]
             n = c["two_party"]["n_other_voters"]
             rn = p_contest(n, mean, sd, tails="normal")
             rt = p_contest(n, mean, sd, tails="t4")
-            c["p"] = {"value": rn["p"], "event": rn["event"], "under": f"the model's own ({METHOD}), normal",
+            own_p = [{"under": f"the model's own ({METHOD}), normal", "value": rn["p"], "event": rn["event"],
+                      "method": rn["method"], "f_half": rn["f_half"]},
+                     {"under": f"the model's own ({METHOD}), t4 with the same sd", "value": rt["p"],
+                      "event": rt["event"], "method": rt["method"], "f_half": rt["f_half"]}]
+            fte = [fte_forecast(c, level, year, v, f) for v, f in (fte_versions(c, level, year) or [])]
+            for e in fte:
+                e["source"] = level + "_538"
+                FTE_USED.setdefault((year, level), {"races": 0, "first": 0, "fallback": {}})
+            if fte:
+                tally = FTE_USED[(year, level)]
+                tally["races"] += 1
+            first = fte[0] if fte and fte[0]["unusable"] is None else None
+            fte_p = []
+            for e in fte:
+                if e["unusable"] is None:
+                    r5 = p_contest(n, e["share"]["mean"], e["share"]["sd"], tails="normal")
+                    fte_p.append({"under": f"538 ({e['version']}), normal with the implied sd", "value": r5["p"],
+                                  "event": r5["event"], "method": r5["method"], "f_half": r5["f_half"],
+                                  "sd": e["share"]["sd"]})
+            if fte:
+                if first:
+                    tally["first"] += 1
+                else:
+                    kd = fte[0].get("unusable_kind") or fte[0]["unusable"]
+                    tally["fallback"][kd] = tally["fallback"].get(kd, 0) + 1
+            if first:
+                c["forecasts"] = fte + own
+                head, rest = fte_p[0], fte_p[1:] + own_p
+                head["under"] = (f"538 ({first['version']}), normal with the sd implied by its chance (inferred); "
+                                 f"538 published first, the model's own beside it as the check")
+            else:
+                c["forecasts"] = own + fte
+                head, rest = own_p[0], own_p[1:] + fte_p
+                if fte:
+                    head["under"] += f"; 538's forecast stands beside it as the check ({fte[0]['unusable']})"
+            c["p"] = {"value": head["value"], "event": head["event"], "under": head["under"],
                       "computed_by": "pipeline/chambers.py", "commit": commit, "not_computed": None, "reason": None,
-                      "method": rn["method"], "f_half": rn["f_half"], "n": n,
-                      "alongside": [{"under": f"the model's own ({METHOD}), t4 with the same sd", "value": rt["p"],
-                                     "event": rt["event"], "method": rt["method"], "f_half": rt["f_half"]}]}
+                      "method": head["method"], "f_half": head["f_half"], "n": n, "alongside": rest}
+        if any(f.get("by") == "538" for c in d["contests"] for f in c.get("forecasts") or []):
+            d["sources"][f"{level}_538"] = FTE["source"][level]
         if level in ("house", "senate"):
             control(d, level, year, m, sd_a, commit)
         d["model"] = {"method": METHOD, "what": "the model's own forecast (data/congress/REPORT.md section 2): leaving "
@@ -663,6 +841,16 @@ def compute(year):
                       "than forecasters then knew", "fit_years": [t for t in YEARS if t != year], "b_lean": m["b_lean"],
                       "b_inc": m["b_inc"], "s_e": m["s_e"], "national_forecast": a_hat, "national_sd": sd_a,
                       "rho": sd_a ** 2 / (sd_a ** 2 + m["s_e"] ** 2), "c": m["c"], "commit": commit}
+        t = FTE_USED.get((year, level))
+        if t:
+            d["fte_538"] = {"races_with_a_538_forecast": t["races"], "538_first": t["first"],
+                            "fell_back_to_the_model's_own": t["fallback"],
+                            "version_first": FTE["versions_order"][level][str(year)][0],
+                            "version_note": "538 showed one version by default; no source read here names it, "
+                                            "so the version listed first in its repository's rows comes first and "
+                                            "the others stand beside it (the orchestrator, 04:12)"}
+            print(f"   538: {t['races']} races, first in {t['first']}, fell back in "
+                  f"{sum(t['fallback'].values())}: {t['fallback']}")
         cc.write_contest_file(path, d)
         ps = [c["p"]["value"] for c in d["contests"] if c["p"]["value"]]
         print(f"{year} {level}: p computed for {len(ps)} contests; largest {max(ps):.3g} "
@@ -676,6 +864,11 @@ def control(d, level, year, m, sd_a, commit):
         if level == "house" and c["special"]:
             c["stage_two"] = {"of": None, "inputs": {}, "source": None,
                               "note": "a special election fills the old Congress's term; not part of control"}
+            continue
+        if level == "senate" and c["special"] and (year, c["place"]["state"]) in OFF_DATE_SPECIALS:
+            c["stage_two"] = {"of": None, "inputs": {}, "source": None,
+                              "note": "held before November; its winner holds the seat in November and is "
+                                      "counted among the seats not up. " + OFF_DATE_SPECIALS[(year, c["place"]["state"])]}
             continue
         if level == "senate" and c["special"]:
             nu = [x for x in _load("cha/normalized/contests.json")["contests"] if x["year"] == year and
@@ -691,7 +884,7 @@ def control(d, level, year, m, sd_a, commit):
                 continue
         kind, val, note = seat_entry(c, m, year)
         if kind == "model":
-            val = c["forecasts"][0]["share"]["mean"]
+            val = next(f for f in c["forecasts"] if f["by"] == "the model's own")["share"]["mean"]
         entries.append((i, kind, val, note))
     held = {}
     if level == "house":
@@ -741,11 +934,12 @@ def control(d, level, year, m, sd_a, commit):
                 st2["inputs"]["P_decides_given_tie_if_VP_R"] = split["R"][i][0]
             pv = c["p"]
             pv["control"] = {"value": pv["value"] * w_tie, "event": pv["event"] * w_tie,
-                             "under": pv["under"] + "; stage two normal", "computed_by": "pipeline/chambers.py",
+                             "under": pv["under"] + "; stage two: the model's own, normal",
+                             "computed_by": "pipeline/chambers.py",
                              "commit": commit}
             for a in pv.get("alongside", []):
                 a["control"] = {"value": a["value"] * w_tie, "event": a["event"] * w_tie,
-                                "note": "stage two under the normal forecast"}
+                                "note": "stage two: the model's own, normal"}
         c["stage_two"] = st2
     k = np.arange(len(seats))
     d["chamber"] = {"of": "House control" if level == "house" else "Senate control", "rule": rule,
@@ -778,6 +972,7 @@ def control(d, level, year, m, sd_a, commit):
 
 PRES = None
 FULL = None
+FTE_USED = {}
 NAT_RMSE = {}
 NAT_MISSES = {}
 
@@ -794,7 +989,52 @@ def setup():
     return rows, skipped
 
 
+def history(years=YEARS):
+    """MATH 8.2 (iv), the check the model can pass: over a population of contests, the expected number
+    decided by k votes or fewer, under the forecast each p used, against the number seen. For contest i
+    with two-party total N and forecast share ~ normal(mean, sd), P(|margin| <= k) = P(|share - 1/2| <=
+    k / 2N). k = 1 is the event (2p); larger k test the same forecasts where there are cases to count."""
+    ks = (1, 10, 100, 1000, 5000)
+    out = {"written_by": "pipeline/chambers.py history", "k_votes": list(ks), "by_level": {}, "cases": {}}
+    for level in LEVELS:
+        exp = {k: 0.0 for k in ks}
+        seen = {k: 0 for k in ks}
+        n_c = 0
+        for y in years:
+            d = cc.read_json(os.path.join(REPO, "data", level, f"{y}.json"))
+            if not d:
+                continue
+            for c in d["contests"]:
+                p = c.get("p") or {}
+                if not p.get("value"):
+                    continue
+                f = next((f for f in c["forecasts"] if f.get("share") and f["share"].get("sd") and
+                          (p["under"].startswith("538") and f["by"] == "538" and f.get("unusable") is None or
+                           not p["under"].startswith("538") and f["by"] == "the model's own")), None)
+                tp = c["two_party"]
+                N = sum(tp["votes"])
+                margin = abs(tp["votes"][0] - tp["votes"][1])
+                n_c += 1
+                for k in ks:
+                    h = k / (2 * N)
+                    mu, sd = f["share"]["mean"], f["share"]["sd"]
+                    exp[k] += Phi((0.5 + h - mu) / sd) - Phi((0.5 - h - mu) / sd)
+                    if margin <= k:
+                        seen[k] += 1
+                        if k <= 1000:
+                            out["cases"].setdefault(level, []).append([c["id"], margin]) if k == 1000 else None
+        out["by_level"][level] = {"contests": n_c, "expected": exp, "seen": seen}
+    for level, v in out["by_level"].items():
+        print(f"{level}: {v['contests']} contests with p, 2006-2024")
+        for k in ks:
+            print(f"   within {k:>5} votes: expected {v['expected'][k]:8.3f}, seen {v['seen'][k]}")
+    cc.write_json(os.path.join(REPO, "data", "congress", "history.json"), out)
+
+
 def main(argv):
+    if argv[:1] == ["history"]:
+        history()
+        return
     rows, skipped = setup()
     if argv[:1] == ["compute"]:
         for y in [int(a) for a in argv[1:]]:
