@@ -1,5 +1,5 @@
 {
- "about": "Each held statewide question's own ballot text, read in step (a) (the orchestrator's order of 2026-11-07 07:25: 'each statewide measure's own ballot text, for the 85 held back by an exception and the 16 untyped'; by the time it was read, 98 held by an exception and 16 untyped). For each: where its type is read (source, type_quote, type_mark) and what the text shows on the special rule's condition (fact: applies true, false, or null where the text read does not show it; quote, why, mark, source). 114 questions in 12 states, read by four readers on 2026-11-07, their pages fetched between 13:45 and 14:01 UTC, and Rhode Island's two other bond projects of the same acts (typed by their titles, held as compound), read by D3 from the pages saved: 116 in all. Every quote was checked against the file saved when it was read (cache_file, under the cache, not committed), bad: 0. type_as_read and applies_as_read keep a reader's own words where D3 normalised them (type_note, fact.note say why). unread lists every page refused or not reached, none tried another way. Used by pipeline/measures.py (rule_for); data/local/REPORT.md section 19. Written by worker D3 at 2026-11-07 14:29 UTC.",
+ "about": "Each held statewide question's own ballot text, read in step (a) (the orchestrator's order of 2026-11-07 07:25: 'each statewide measure's own ballot text, for the 85 held back by an exception and the 16 untyped'; by the time it was read, 98 held by an exception and 16 untyped). For each: where its type is read (source, type_quote, type_mark) and what the text shows on the special rule's condition (fact: applies true, false, or null where the text read does not show it; quote, why, mark, source). 114 questions in 12 states, read by four readers on 2026-11-07, their pages fetched between 13:45 and 14:01 UTC, and Rhode Island's two other bond projects of the same acts (typed by their titles, held as compound), read by D3 from the pages saved: 116 in all. Every quote was checked against the file saved when it was read (cache_file, under the cache, not committed), bad: 0. type_as_read and applies_as_read keep a reader's own words where D3 normalised them (type_note, fact.note say why). proposer (Oregon, Ohio), who put the question on the ballot, read by D3 from the saved pages where the governing rule turns on it. unread lists every page refused or not reached, none tried another way. Used by pipeline/measures.py (rule_for); data/local/REPORT.md section 19. Written by worker D3 at 2026-11-07 14:42 UTC.",
  "questions": {
   "2016-measure-FL-AMENDMENT_NO__2__USE_OF_MARIJUANA_FOR_DEBILITATING_MEDICAL_C": {
    "state": "FL",
@@ -456,7 +456,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "legislature",
+    "quote": "Senate Joint Resolution 4 – Referred at the 78th Legislative Assembly's 2015 Regular Session to the Voters of the State of",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2016 General Election Voters' Pamphlet, Coos, Curry, Douglas edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/44730",
+     "read_utc": "2026-11-07T13:51Z",
+     "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 94"
+   }
   },
   "2016-measure-OR-095__AMENDS_CONSTITUTION__ALLOWS_INVESTMENTS_IN_EQUITIES_BY_": {
    "state": "OR",
@@ -491,7 +503,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "legislature",
+    "quote": "House Joint Resolution 203 – Referred at the 78th Legislative Assembly's 2016 Regular Session to the Voters of the State of",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2016 General Election Voters' Pamphlet, Coos, Curry, Douglas edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/44730",
+     "read_utc": "2026-11-07T13:51Z",
+     "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 95"
+   }
   },
   "2016-measure-OR-096__AMENDS_CONSTITUTION__DEDICATES_1_5__OF_STATE_LOTTERY_NE": {
    "state": "OR",
@@ -526,7 +550,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "legislature",
+    "quote": "House Joint Resolution 202 – Referred at the 78th Legislative Assembly's 2016 Regular Session to the Voters of the State of",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2016 General Election Voters' Pamphlet, Coos, Curry, Douglas edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/44730",
+     "read_utc": "2026-11-07T13:51Z",
+     "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 96"
+   }
   },
   "2016-measure-OR-097__INCREASES_CORPORATE_MINIMUM_TAX_WHEN_SALES_EXCEED__25_M": {
    "state": "OR",
@@ -561,7 +597,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "initiative",
+    "quote": "Proposed by initiative petition to be voted on at the General Election, November 8, 2016.",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2016 General Election Voters' Pamphlet, Coos, Curry, Douglas edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/44730",
+     "read_utc": "2026-11-07T13:51Z",
+     "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 97"
+   }
   },
   "2016-measure-OR-098__REQUIRES_STATE_FUNDING_FOR_DROPOUT_PREVENTION__CAREER_A": {
    "state": "OR",
@@ -596,7 +644,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "initiative",
+    "quote": "Proposed by initiative petition to be voted on at the General Election, November 8, 2016.",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2016 General Election Voters' Pamphlet, Coos, Curry, Douglas edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/44730",
+     "read_utc": "2026-11-07T13:51Z",
+     "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 98"
+   }
   },
   "2016-measure-OR-099__CREATES__OUTDOOR_SCHOOL_EDUCATION_FUND___CONTINUOUSLY_F": {
    "state": "OR",
@@ -631,7 +691,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "initiative",
+    "quote": "Proposed by initiative petition to be voted on at the General Election, November 8, 2016.",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2016 General Election Voters' Pamphlet, Coos, Curry, Douglas edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/44730",
+     "read_utc": "2026-11-07T13:51Z",
+     "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 99"
+   }
   },
   "2016-measure-OR-100__PROHIBITS_PURCHASE_OR_SALE_OF_PARTS_OR_PRODUCTS_FROM_CE": {
    "state": "OR",
@@ -666,7 +738,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "initiative",
+    "quote": "Proposed by initiative petition to be voted on at the General Election, November 8, 2016.",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2016 General Election Voters' Pamphlet, Coos, Curry, Douglas edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/44730",
+     "read_utc": "2026-11-07T13:51Z",
+     "cache_file": "ballot/G4/pages/or_vp_2016_coos.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 100"
+   }
   },
   "2018-measure-CO-AMENDMENT_73__CONSTITUTIONAL": {
    "state": "CO",
@@ -1713,7 +1797,18 @@
      "cache_file": "ballot/G4/pages/oh_sc_sentencing_issue1_2018.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "initiative",
+    "quote": "the language of the 2018 ballot initiative, State Issue 1",
+    "mark": "stated",
+    "source": {
+     "name": "Ohio Criminal Sentencing Commission (Supreme Court of Ohio): memorandum 'State Issue 1 - The Neighborhood Safety, Drug Treatment, and Rehabilitation Amendment', September 27, 2018. Used because ohiosos.gov (the Ballot Board's publisher) refused us (403 'access ... has been blocked'); this is a secondary state summary, not a Ballot Board record.",
+     "url": "https://www.supremecourt.ohio.gov/Boards/Sentencing/resources/general/StateIssue1.pdf",
+     "read_utc": "2026-11-07T14:00Z",
+     "cache_file": "ballot/G4/pages/oh_sc_sentencing_issue1_2018.txt"
+    }
+   }
   },
   "2018-measure-RI-1__RHODE_ISLAND_SCHOOL_BUILDINGS____250_000_000": {
    "state": "RI",
@@ -4227,7 +4322,18 @@
      "cache_file": "ballot/G4/pages/oh_sc_2024_4547.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "initiative",
+    "quote": "constitutional amendment proposed by initiative petition.",
+    "mark": "stated",
+    "source": {
+     "name": "Supreme Court of Ohio: State ex rel. Citizens Not Politicians v. Ohio Ballot Bd., 2024-Ohio-4547 (decided September 16, 2024), which sets out the Ohio Ballot Board's ballot language for Issue 1. Used because ohiosos.gov (the Ballot Board's publisher) refused us (403 'access ... has been blocked').",
+     "url": "https://www.supremecourt.ohio.gov/rod/docs/pdf/0/2024/2024-ohio-4547.pdf",
+     "read_utc": "2026-11-07T13:59Z",
+     "cache_file": "ballot/G4/pages/oh_sc_2024_4547.txt"
+    }
+   }
   },
   "2024-measure-OR-STATE_MEASURE_115_AUTHORIZES_IMPEACHMENT_BY_OREGON_LEGISLATU": {
    "state": "OR",
@@ -4264,7 +4370,19 @@
     "applies_as_read": true,
     "note": "D3's reading, which the reader left to D3: Or. Const. art. II, s.23(1) reaches 'any proposed requirement for more than a majority of votes cast by the electorate'; the two-thirds this measure sets are of all Representatives and all Senators, not of the electorate, so s.23(1) does not apply and the general rule does [inferred]"
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "legislature",
+    "quote": "House Joint Resolution 16 - Referred at the 82nd Legislative Assembly's 2023 Regular Session to the Voters of the State of",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2024 General Election Voters' Pamphlet, Yamhill County edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/864407",
+     "read_utc": "2026-11-07T13:48Z",
+     "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 115"
+   }
   },
   "2024-measure-OR-STATE_MEASURE_116_ESTABLISHES_COMPENSATION_COMMISSION": {
    "state": "OR",
@@ -4299,7 +4417,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "legislature",
+    "quote": "Senate Joint Resolution 34 - Referred at the 82nd Legislative Assembly's 2023 Regular Session to the Voters of the State of",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2024 General Election Voters' Pamphlet, Yamhill County edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/864407",
+     "read_utc": "2026-11-07T13:48Z",
+     "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 116"
+   }
   },
   "2024-measure-OR-STATE_MEASURE_117_RANK_CHOICE_VOTING": {
    "state": "OR",
@@ -4334,7 +4464,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "legislature",
+    "quote": "House Bill 2004 - Referred at the 82nd Legislative Assembly's 2023 Regular Session to the Voters of the State of Oregon for",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2024 General Election Voters' Pamphlet, Yamhill County edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/864407",
+     "read_utc": "2026-11-07T13:48Z",
+     "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 117"
+   }
   },
   "2024-measure-OR-STATE_MEASURE_118_INCREASE_CORPORATE_TAXES": {
    "state": "OR",
@@ -4369,7 +4511,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "initiative",
+    "quote": "Proposed by initiative petition to be voted on at the General Election, November 5, 2024.",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2024 General Election Voters' Pamphlet, Yamhill County edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/864407",
+     "read_utc": "2026-11-07T13:48Z",
+     "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 118"
+   }
   },
   "2024-measure-OR-STATE_MEASURE_119_CANNABIS_RETAILERS_AND_LABOR_ORGANIZATIONS": {
    "state": "OR",
@@ -4404,7 +4558,19 @@
      "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
     }
    },
-   "read_by": "a reader working for worker D3, group G4"
+   "read_by": "a reader working for worker D3, group G4",
+   "proposer": {
+    "who": "initiative",
+    "quote": "Proposed by initiative petition to be voted on at the General Election, November 5, 2024.",
+    "mark": "stated",
+    "source": {
+     "name": "Oregon Secretary of State, Elections Division: Official 2024 General Election Voters' Pamphlet, Yamhill County edition (140 pp.; prints every statewide measure), as archived by the State Library of Oregon Digital Collections (the SOS page sos.oregon.gov/elections/Pages/historical-data.aspx points to this archive)",
+     "url": "https://digitalcollections.library.oregon.gov/assets/downloadwiz/864407",
+     "read_utc": "2026-11-07T13:48Z",
+     "cache_file": "ballot/G4/pages/or_vp_2024_yamhill.txt"
+    },
+    "note": "the line under the pamphlet's heading for Measure 119"
+   }
   },
   "2024-measure-RI-STATE_QUESTION_2__HIGHER_EDUCATION_FACILITIES____160_500_000": {
    "state": "RI",
