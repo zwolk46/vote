@@ -36,6 +36,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 00:22: R1 interim: curl now reaches the academic hosts on the new environment; Gelman's four papers read whole; Gelman-Katz-Bafumi tie constant is sqrt(2/pi), not 2/sqrt(pi). fivethirtyeight.com redirects everything to abcnews.com (538 shut down); web.archive.org resets after the TLS hello (egress policy), so 538's Voter Power Index definition stays unread. Not yet put to the maker: ask for web.archive.org only if the full reports show archived forecasts are needed for the ex ante measure.
+
 - 2026-11-07 00:10: the maker set the project's default environment to env_01AQ9y8ebdzAowmcGvGwaJv2 (coordinator, 00:08); this thread still on the built-in one (curl refused, measured 00:09). Asked the coordinator to start R1-R4 (Sonnet 5.5, xhigh) on it. Card on B's welfare still open.
 
 - 2026-11-06 20:26: model draft 1 (`model/MODEL-DRAFT.md`, copy in project files) put to the maker, figures unverified; two questions: whose welfare is in B (decision card), and whether "everything else fixed" excludes evidential correlation.
