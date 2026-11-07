@@ -35,12 +35,14 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Verify voting frameworks and costs | cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz | `briefs/R3-research-frameworks-at-source.md` (Sonnet 5.5, xhigh) | done; #5 merged 01:08; set aside |
 | Try to break the vote model | cmsg_01FHkmcV6WaeZh9r5PfgnMbuH8ty6rzznPCoUJXYqbKL9P | `briefs/B1-break-the-model.md` (Fable 5.1, xhigh) | done; #9 merged 02:24 (45 breaks; run_all.sh output identical); set aside |
 | Check the math of a deciding vote | cmsg_01FHkmcV6WaeZh9r5PfgnMbuST7d1oALJPJTFqCrnN4ZYd | `briefs/M1-math-check.md` (Fable 5.1, xhigh) | done; #7 merged 01:54 (the orchestrator re-ran run_all.sh: output identical); resolved |
-| Try to break the site's law | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCtPmSab848QZ6xppDXay7H | `briefs/B2-break-the-law.md` (Fable 5.1, xhigh) | started 2026-11-07 02:34 |
+| Try to break the site's law | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCtPmSab848QZ6xppDXay7H | `briefs/B2-break-the-law.md` (Fable 5.1, xhigh) | done 02:54; PR #12 (61 breaks) open, not merged during the hold |
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 02:55: B2 done, PR #12 open (`law/BREAKS-draft-1.md`, 61 breaks, 20 that change what gets made). Not gated or acted on during the hold, as told to the maker. Its headline breaks for law draft 2: the end per race against a per-ballot cost and a verdict without B (#1, #2); the tie reading, where the orchestrator's 19:34 definition (the event) met his "I agree" (#16, worth a card); 2a fixes ex ante as law (#4); true source shuts out MEDSL and Klarner (#11); principle 9 not his (#8); 7c's "only three things" (#15); measures, the presidency's outcome, B in the ballot test (#12-14); 9a drops his qualifier (#9); 7a and 7b fix too early (#6, #7); missing audience, phone and desktop, p's drivers (#3, #18, #19); quotes and the source of "true things" (#57, #59).
 
 - 2026-11-07 02:46: **On hold.** The maker: "We’re waiting for some guidance on the midterms orchestrator. Hold off until then." Nothing new is started or folded in until his word. B2 (already running, read-only) finishes its report and stops under `_COMMON` 14; its PR is not merged until the hold lifts. Open card: design effort (max for design work only, recommended / xhigh).
 
