@@ -27,8 +27,9 @@ What the files cannot show, and how it is handled (each said in the contest's ow
     went to a runoff); one whose name was on an earlier ballot is a second round. All of these are [inferred].
   - Winners: the files do not mark them; the leading names for the seats are taken as won [inferred], and none at a
     tie for the last seat, as for MEDSL.
-p: 0 for one name on the ballot for each seat. Otherwise not computed in this step, with the reason: the like-race
-route (D3-v1.1) is to be fitted to North Carolina's own earlier elections and back-tested before it is used here.
+p: 0 for one name on the ballot for each seat. Otherwise, from 2014, the like-race route (D3-v1.1) fitted on North
+Carolina's own contests of earlier years (nc_key; approved by the orchestrator at 08:08 with its back-test,
+data/local/backtest-ncsbe.json), uncalibrated; every contest out of its reach says why.
 
 Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_ncsbe.py check|build
 """
@@ -236,8 +237,118 @@ def p_of(c, seats):
     if kind in ("after an earlier round", "second round"):
         return {"not_computed": "a contest after an earlier round this year (perhaps a runoff): model section 7 does "
                                 "not compute p for runoffs, and the source does not say which this is"}
-    return {"not_computed": f"not computed in this step: the like-race route ({L.METHOD}) is to be fitted to North "
-                            f"Carolina's own earlier elections and back-tested before it is used here"}
+    if c["_party"] and c["_round"][1]:
+        return {"not_computed": "a second primary followed, so this primary was a first round: model section 7 records "
+                                "runoff systems' rounds with their results and does not compute p for them"}
+    return None   # the like-race route (nc_key, class_p)
+
+
+# ------------------------------------------------------------------ the model's own forecast: like races, NC's own
+FIRST_FIT_YEAR = 2014   # seats are in the files from 2014 only, so like races are counted from then
+
+
+def nc_key(c):
+    """(route, class, seats) of a contest the like-race route can take (p_of gave it no other answer): the classes of
+    REPORT section 7 (scope, office type, the kind of field, candidates; seats at once at the boundary), with two more
+    fixed before any score (the orchestrator, 08:08): 'a Democrat against a Republican', since these dates have no
+    county lean, and primaries by office type and candidates, p between the top two (model section 7)."""
+    seats = seats_of(c)
+    b = _ballot(c)
+    base = c["_base"]
+    ot = "state legislature" if c.get("_leg") else LM.office_type(base)
+    scope = "state legislature" if c.get("_leg") else "state" if STATE_OFFICE.search(base) else "local"
+    lead = (scope if scope == "state legislature" else f"{scope} {ot}")
+    n = len(b)
+    if c["_level"] == "primary":
+        return "class", f"primary, {lead}, {n if n < 4 else '4+'} candidates" + (f", {seats} seats" if seats > 1
+                                                                                 else ""), seats
+    nd = sum(1 for x in b if _major(x["party"]) == "D")
+    nr = sum(1 for x in b if _major(x["party"]) == "R")
+    if seats > 1:
+        slate = "both major parties on the ballot" if nd and nr else "one major party or none"
+        return "boundary", f"{lead}, {seats if seats < 4 else '4+'} seats at once, {slate}", seats
+    if nd == 1 and nr == 1 and n == 2:
+        return "class", f"{lead}, a Democrat against a Republican", 1
+    kind = ("nonpartisan" if all(not x["party"] for x in b) else "one major party against others" if nd + nr == 1
+            else "two or more of one major party" if nd + nr >= 2 else "no Democrat or Republican")
+    return "class", f"{lead}, {kind}, {n if n < 4 else '4+'} candidates", 1
+
+
+def _shape(c):
+    return {"candidates": [{"name": x["name"], "votes": x["votes"]} for x in c["choices"]]}
+
+
+def like_rows(dates):
+    """Every contest the route can take, with its class and its result: the share of the leading two (at the
+    boundary, the last winner and the first loser) that the first of them won."""
+    out = []
+    for d, cs in dates.items():
+        if int(d[:4]) < FIRST_FIT_YEAR:
+            continue
+        for c in cs:
+            if c["_level"] not in ("local", "primary") or p_of(c, seats_of(c)) is not None:
+                continue
+            route, key, k = nc_key(c)
+            top = sorted(c["choices"], key=lambda x: -x["votes"])
+            if any(LM._is_generic(x["name"]) for x in top[k - 1:k + 1]):
+                continue
+            b = sorted(_ballot(c), key=lambda x: -x["votes"])
+            x1, x2 = b[k - 1]["votes"], b[k]["votes"]
+            if x1 + x2 > 0:
+                out.append({"year": int(d[:4]), "date": d, "key": key, "route": route, "level": c["_level"],
+                            "s": max(x1, x2) / (x1 + x2), "n": x1 + x2, "c": c})
+    return out
+
+
+def backtest(rows):
+    """Each year forecast from earlier years only: finishes in the class window, expected against seen."""
+    years = sorted({r["year"] for r in rows})
+    by = {}
+    for y in years:
+        train = [r for r in rows if r["year"] < y]
+        dens = {}
+        t = collections.defaultdict(lambda: [0, 0.0, 0])
+        for r in rows:
+            if r["year"] != y:
+                continue
+            if r["key"] not in dens:
+                dens[r["key"]] = L.class_density(train, r["key"])
+            f, N, h, kin = dens[r["key"]]
+            if f is None:
+                continue
+            for g in (r["level"], r["route"], "all"):
+                t[g][0] += 1
+                t[g][1] += kin / N
+                t[g][2] += r["s"] <= 0.5 + h
+        by[str(y)] = {g: {"forecast": v[0], "expected_in_window": round(v[1], 1), "seen_in_window": v[2]}
+                      for g, v in sorted(t.items())}
+    pooled = collections.defaultdict(lambda: [0, 0.0, 0])
+    for y, v in by.items():
+        for g, x in v.items():
+            pooled[g][0] += x["forecast"]
+            pooled[g][1] += x["expected_in_window"]
+            pooled[g][2] += x["seen_in_window"]
+    # the 06:38 rule: a factor fitted on earlier years only, adopted if it brings the later years nearer
+    cal = {}
+    for g in ("local", "primary"):
+        e_raw = e_cal = s_ = 0.0
+        for y in by:
+            pe = sum(by[x].get(g, {}).get("expected_in_window", 0) for x in by if x < y)
+            ps = sum(by[x].get(g, {}).get("seen_in_window", 0) for x in by if x < y)
+            if pe >= LM.CAL_MIN_EXPECTED and g in by[y]:
+                e_raw += by[y][g]["expected_in_window"]
+                e_cal += by[y][g]["expected_in_window"] * ps / pe
+                s_ += by[y][g]["seen_in_window"]
+        cal[g] = {"years_testable": "each year with 30 or more expected in earlier years", "seen": s_,
+                  "expected_uncalibrated": round(e_raw, 1), "expected_calibrated": round(e_cal, 1),
+                  "adopted": abs(e_cal - s_) < abs(e_raw - s_)}
+    return {"about": "the like-race route (D3-v1.1) on North Carolina's State Board contests: each year forecast "
+                     f"from North Carolina's earlier years only (from {FIRST_FIT_YEAR}, when the files begin to give "
+                     "seats); for each contest, the chance its class gave of finishing in the class's window around "
+                     "1/2, against whether it did. Built by pipeline/local_ncsbe.py build.",
+            "by_year": by, "pooled": {g: {"forecast": v[0], "expected_in_window": round(v[1], 1),
+                                          "seen_in_window": v[2]} for g, v in sorted(pooled.items())},
+            "calibration": cal}
 
 
 def _slug(x):
@@ -286,7 +397,7 @@ def record(c, d, fips, commit):
     rec["notes"] = notes or None
     rec["forecasts"] = []
     rec["p"] = p_of(c, seats)
-    return L._compact(rec)
+    return rec
 
 
 # ------------------------------------------------------------------ the gate, and MEDSL's shape
@@ -529,6 +640,10 @@ def build(out_dir, dates):
     fips, fmeta = county_fips()
     mdates = medsl_dates(dates)
     gated = gate(dates)
+    rows = like_rows(dates)
+    dens = {}
+    with open(os.path.join(out_dir, "local", "backtest-ncsbe.json"), "w") as f:
+        json.dump(backtest(rows), f, indent=1)
     files = collections.defaultdict(list)
     used = collections.defaultdict(list)
     counts = collections.Counter()
@@ -554,6 +669,9 @@ def build(out_dir, dates):
                 counts["written by pipeline/local_medsl.py: MEDSL's general date, the State Board's counts"] += 1
                 continue
             rec = record(c, d, fips, commit)
+            if rec["p"] is None:
+                rec["p"] = route_p(rec, c, d, rows, dens, commit, counts)
+            rec = L._compact(rec)
             if gated.get(d, (0,))[0] > LM.QUALITY_LINE:
                 rec["notes"] = (rec.get("notes") or []) + [
                     f"this date's file falls short of the certified federal counts by up to {100 * gated[d][0]:.1f}% "
@@ -568,7 +686,8 @@ def build(out_dir, dates):
             if d not in used[(level, year)]:
                 used[(level, year)].append(d)
             p = rec["p"]
-            counts[f"{level}: " + ("p = 0" if "value" in p else "not computed, " + p["not_computed"][:60])] += 1
+            counts[f"{level}: " + ("p = 0" if p.get("value") == 0 else "p computed" if "value" in p else
+                                   "not computed, " + p["not_computed"][:60])] += 1
     total = 0
     for (level, year), recs in sorted(files.items()):
         meta = [(d, checks_of(d)["source"]) for d in used[(level, year)]]
@@ -599,6 +718,25 @@ def build(out_dir, dates):
         total += os.path.getsize(path)
     print(json.dumps(dict(sorted(counts.items())), indent=1))
     print(f"{sum(len(v) for v in files.values())} contests in {len(files)} files, {total / 2**20:.2f} MiB")
+
+
+def route_p(rec, c, d, rows, dens, commit, counts):
+    year = int(d[:4])
+    if year < FIRST_FIT_YEAR:
+        return {"not_computed": f"before {FIRST_FIT_YEAR}: the files give no seats, so no like races are counted"}
+    route, key, k = nc_key(c)
+    train = [r for r in rows if r["year"] < year]
+    if not train:
+        return {"not_computed": f"no earlier year to fit on ({FIRST_FIT_YEAR} is the first year counted)"}
+    p = LM.class_p(rec, _shape(c), route, key, train, dens, (year, key), commit, True, collections.Counter(),
+                   rec["level"], k)
+    if rec["forecasts"]:
+        rec["forecasts"][-1]["fitted_on"] = f"North Carolina's State Board contests of {FIRST_FIT_YEAR}-{year - 1}"
+        rec["forecasts"][-1]["note"] = ("; ".join(x for x in (rec["forecasts"][-1].get("note"),
+                                                              "no calibration: the factor fitted on earlier years "
+                                                              "made the later years' back-test worse "
+                                                              "(data/local/backtest-ncsbe.json)") if x))
+    return p
 
 
 def owns(r, mdates):
