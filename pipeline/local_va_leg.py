@@ -327,8 +327,8 @@ def class_rows(year, LM):
     return rows
 
 
-INC_OF = {2023: "matched by name to the winners of Klarner's last Virginia {chamber} ({y}); no special election since "
-                "is read (the Department refused us)",
+INC_OF = {2023: "matched by name to the winners of Klarner's last {chamber} ({y}); no special election since is read "
+                "(the Department refused us)",
           2025: "matched by name to the winners of the {chamber} of 2023 read here; no special election since is read "
                 "(the Department refused us)"}
 
@@ -336,7 +336,7 @@ INC_OF = {2023: "matched by name to the winners of Klarner's last Virginia {cham
 def _fitted_on(M, year):
     return (f"fitted on Klarner's races of {min(M['years_fitted'])}-2022" if year == 2023 else
             f"fitted on the races of {min(M['years_fitted'])}-{max(M['years_fitted'])} in the sources taken in "
-            "(Klarner's of 1967-2022, New Jersey's and Virginia's of 2023, MEDSL's of 2024)")
+            "(Klarner's, New Jersey's and Virginia's of 2023, and MEDSL's 2024 legislatures)")
 
 
 def records(year, prow, pres, ktrain, kdens, cid, commit, with_p, counts, LM):
