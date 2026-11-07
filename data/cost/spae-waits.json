@@ -1126,7 +1126,57 @@
    },
    "states_missing": [
     "DC"
-   ]
+   ],
+   "pooled": {
+    "all in-person voters with a wait answer": {
+     "n": 9254,
+     "wait_shares": {
+      "not at all": 0.4273,
+      "less than 10 minutes": 0.2737,
+      "10-30 minutes": 0.1636,
+      "31 minutes to 1 hour": 0.0854,
+      "more than 1 hour": 0.05
+     },
+     "share_over_30_minutes": 0.1354,
+     "mean_minutes_midpoint": 15.13,
+     "mean_minutes_midpoint_top_90": 12.98,
+     "mean_minutes_lower_bound": 7.28
+    },
+    "in person on Election Day": {
+     "n": 7211,
+     "wait_shares": {
+      "not at all": 0.4551,
+      "less than 10 minutes": 0.2726,
+      "10-30 minutes": 0.1532,
+      "31 minutes to 1 hour": 0.0785,
+      "more than 1 hour": 0.0407
+     },
+     "share_over_30_minutes": 0.1192,
+     "mean_minutes_midpoint": 13.36,
+     "mean_minutes_midpoint_top_90": 11.62,
+     "mean_minutes_lower_bound": 6.41
+    },
+    "in person before Election Day": {
+     "n": 2043,
+     "wait_shares": {
+      "not at all": 0.3264,
+      "less than 10 minutes": 0.2777,
+      "10-30 minutes": 0.2015,
+      "31 minutes to 1 hour": 0.1105,
+      "more than 1 hour": 0.0839
+     },
+     "share_over_30_minutes": 0.1944,
+     "mean_minutes_midpoint": 21.54,
+     "mean_minutes_midpoint_top_90": 17.94,
+     "mean_minutes_lower_bound": 10.47
+    }
+   },
+   "middle_state": {
+    "states_with_60_or_more_answers": 48,
+    "median_of_state_means": 12.38,
+    "median_of_state_means_top_90": 11.18,
+    "median_of_state_means_all_states": 12.61
+   }
   },
   "2012": {
    "source": {
@@ -2272,7 +2322,57 @@
      }
     }
    },
-   "states_missing": []
+   "states_missing": [],
+   "pooled": {
+    "all in-person voters with a wait answer": {
+     "n": 7610,
+     "wait_shares": {
+      "not at all": 0.3953,
+      "less than 10 minutes": 0.3141,
+      "10-30 minutes": 0.1851,
+      "31 minutes to 1 hour": 0.08,
+      "more than 1 hour": 0.0256
+     },
+     "share_over_30_minutes": 0.1055,
+     "mean_minutes_midpoint": 12.3,
+     "mean_minutes_midpoint_top_90": 11.17,
+     "mean_minutes_lower_bound": 5.86
+    },
+    "in person on Election Day": {
+     "n": 5958,
+     "wait_shares": {
+      "not at all": 0.3964,
+      "less than 10 minutes": 0.3218,
+      "10-30 minutes": 0.1835,
+      "31 minutes to 1 hour": 0.0752,
+      "more than 1 hour": 0.0232
+     },
+     "share_over_30_minutes": 0.0983,
+     "mean_minutes_midpoint": 11.77,
+     "mean_minutes_midpoint_top_90": 10.75,
+     "mean_minutes_lower_bound": 5.56
+    },
+    "in person before Election Day": {
+     "n": 1651,
+     "wait_shares": {
+      "not at all": 0.3911,
+      "less than 10 minutes": 0.2847,
+      "10-30 minutes": 0.1912,
+      "31 minutes to 1 hour": 0.0983,
+      "more than 1 hour": 0.0347
+     },
+     "share_over_30_minutes": 0.1331,
+     "mean_minutes_midpoint": 14.33,
+     "mean_minutes_midpoint_top_90": 12.8,
+     "mean_minutes_lower_bound": 7.04
+    }
+   },
+   "middle_state": {
+    "states_with_60_or_more_answers": 49,
+    "median_of_state_means": 9.9,
+    "median_of_state_means_top_90": 9.16,
+    "median_of_state_means_all_states": 9.84
+   }
   },
   "2014": {
    "source": {
@@ -3418,7 +3518,57 @@
      }
     }
    },
-   "states_missing": []
+   "states_missing": [],
+   "pooled": {
+    "all in-person voters with a wait answer": {
+     "n": 6816,
+     "wait_shares": {
+      "not at all": 0.5649,
+      "less than 10 minutes": 0.32,
+      "10-30 minutes": 0.095,
+      "31 minutes to 1 hour": 0.0177,
+      "more than 1 hour": 0.0025
+     },
+     "share_over_30_minutes": 0.0202,
+     "mean_minutes_midpoint": 4.52,
+     "mean_minutes_midpoint_top_90": 4.52,
+     "mean_minutes_lower_bound": 1.65
+    },
+    "in person on Election Day": {
+     "n": 5449,
+     "wait_shares": {
+      "not at all": 0.5571,
+      "less than 10 minutes": 0.3316,
+      "10-30 minutes": 0.0915,
+      "31 minutes to 1 hour": 0.0172,
+      "more than 1 hour": 0.0026
+     },
+     "share_over_30_minutes": 0.0198,
+     "mean_minutes_midpoint": 4.5,
+     "mean_minutes_midpoint_top_90": 4.5,
+     "mean_minutes_lower_bound": 1.61
+    },
+    "in person before Election Day": {
+     "n": 1367,
+     "wait_shares": {
+      "not at all": 0.5977,
+      "less than 10 minutes": 0.271,
+      "10-30 minutes": 0.1095,
+      "31 minutes to 1 hour": 0.0197,
+      "more than 1 hour": 0.0021
+     },
+     "share_over_30_minutes": 0.0218,
+     "mean_minutes_midpoint": 4.62,
+     "mean_minutes_midpoint_top_90": 4.62,
+     "mean_minutes_lower_bound": 1.83
+    }
+   },
+   "middle_state": {
+    "states_with_60_or_more_answers": 47,
+    "median_of_state_means": 3.81,
+    "median_of_state_means_top_90": 3.81,
+    "median_of_state_means_all_states": 3.88
+   }
   },
   "2016": {
    "source": {
@@ -4564,7 +4714,57 @@
      }
     }
    },
-   "states_missing": []
+   "states_missing": [],
+   "pooled": {
+    "all in-person voters with a wait answer": {
+     "n": 7359,
+     "wait_shares": {
+      "not at all": 0.4051,
+      "less than 10 minutes": 0.3422,
+      "10-30 minutes": 0.1701,
+      "31 minutes to 1 hour": 0.0625,
+      "more than 1 hour": 0.0201
+     },
+     "share_over_30_minutes": 0.0826,
+     "mean_minutes_midpoint": 10.24,
+     "mean_minutes_midpoint_top_90": 9.73,
+     "mean_minutes_lower_bound": 4.84
+    },
+    "in person on Election Day": {
+     "n": 5297,
+     "wait_shares": {
+      "not at all": 0.4108,
+      "less than 10 minutes": 0.353,
+      "10-30 minutes": 0.1615,
+      "31 minutes to 1 hour": 0.0575,
+      "more than 1 hour": 0.0173
+     },
+     "share_over_30_minutes": 0.0747,
+     "mean_minutes_midpoint": 9.57,
+     "mean_minutes_midpoint_top_90": 9.13,
+     "mean_minutes_lower_bound": 4.43
+    },
+    "in person before Election Day": {
+     "n": 2061,
+     "wait_shares": {
+      "not at all": 0.3899,
+      "less than 10 minutes": 0.3135,
+      "10-30 minutes": 0.193,
+      "31 minutes to 1 hour": 0.076,
+      "more than 1 hour": 0.0276
+     },
+     "share_over_30_minutes": 0.1035,
+     "mean_minutes_midpoint": 12.03,
+     "mean_minutes_midpoint_top_90": 11.33,
+     "mean_minutes_lower_bound": 5.94
+    }
+   },
+   "middle_state": {
+    "states_with_60_or_more_answers": 48,
+    "median_of_state_means": 8.55,
+    "median_of_state_means_top_90": 8.29,
+    "median_of_state_means_all_states": 8.69
+   }
   },
   "2020": {
    "source": {
@@ -5710,7 +5910,57 @@
      }
     }
    },
-   "states_missing": []
+   "states_missing": [],
+   "pooled": {
+    "all in-person voters with a wait answer": {
+     "n": 8744,
+     "wait_shares": {
+      "not at all": 0.3075,
+      "less than 10 minutes": 0.2906,
+      "10-30 minutes": 0.2287,
+      "31 minutes to 1 hour": 0.1205,
+      "more than 1 hour": 0.0526
+     },
+     "share_over_30_minutes": 0.1732,
+     "mean_minutes_midpoint": 18.15,
+     "mean_minutes_midpoint_top_90": 16.19,
+     "mean_minutes_lower_bound": 9.18
+    },
+    "in person on Election Day": {
+     "n": 4728,
+     "wait_shares": {
+      "not at all": 0.3343,
+      "less than 10 minutes": 0.3058,
+      "10-30 minutes": 0.2132,
+      "31 minutes to 1 hour": 0.1093,
+      "more than 1 hour": 0.0374
+     },
+     "share_over_30_minutes": 0.1467,
+     "mean_minutes_midpoint": 15.47,
+     "mean_minutes_midpoint_top_90": 14.08,
+     "mean_minutes_lower_bound": 7.76
+    },
+    "in person before Election Day": {
+     "n": 4014,
+     "wait_shares": {
+      "not at all": 0.2738,
+      "less than 10 minutes": 0.272,
+      "10-30 minutes": 0.2479,
+      "31 minutes to 1 hour": 0.1347,
+      "more than 1 hour": 0.0716
+     },
+     "share_over_30_minutes": 0.2063,
+     "mean_minutes_midpoint": 21.5,
+     "mean_minutes_midpoint_top_90": 18.83,
+     "mean_minutes_lower_bound": 10.95
+    }
+   },
+   "middle_state": {
+    "states_with_60_or_more_answers": 41,
+    "median_of_state_means": 15.68,
+    "median_of_state_means_top_90": 14.4,
+    "median_of_state_means_all_states": 15.29
+   }
   },
   "2022": {
    "source": {
@@ -6856,7 +7106,57 @@
      }
     }
    },
-   "states_missing": []
+   "states_missing": [],
+   "pooled": {
+    "all in-person voters with a wait answer": {
+     "n": 5449,
+     "wait_shares": {
+      "not at all": 0.5063,
+      "less than 10 minutes": 0.3211,
+      "10-30 minutes": 0.127,
+      "31 minutes to 1 hour": 0.0393,
+      "more than 1 hour": 0.0063
+     },
+     "share_over_30_minutes": 0.0456,
+     "mean_minutes_midpoint": 6.48,
+     "mean_minutes_midpoint_top_90": 6.48,
+     "mean_minutes_lower_bound": 2.86
+    },
+    "in person on Election Day": {
+     "n": 3787,
+     "wait_shares": {
+      "not at all": 0.4815,
+      "less than 10 minutes": 0.3361,
+      "10-30 minutes": 0.1316,
+      "31 minutes to 1 hour": 0.0432,
+      "more than 1 hour": 0.0077
+     },
+     "share_over_30_minutes": 0.0509,
+     "mean_minutes_midpoint": 6.95,
+     "mean_minutes_midpoint_top_90": 6.95,
+     "mean_minutes_lower_bound": 3.12
+    },
+    "in person before Election Day": {
+     "n": 1660,
+     "wait_shares": {
+      "not at all": 0.5675,
+      "less than 10 minutes": 0.2846,
+      "10-30 minutes": 0.1153,
+      "31 minutes to 1 hour": 0.0298,
+      "more than 1 hour": 0.0028
+     },
+     "share_over_30_minutes": 0.0326,
+     "mean_minutes_midpoint": 5.32,
+     "mean_minutes_midpoint_top_90": 5.32,
+     "mean_minutes_lower_bound": 2.24
+    }
+   },
+   "middle_state": {
+    "states_with_60_or_more_answers": 43,
+    "median_of_state_means": 5.82,
+    "median_of_state_means_top_90": 5.82,
+    "median_of_state_means_all_states": 6.26
+   }
   }
  },
  "gated": {
@@ -6874,5 +7174,191 @@
    "what": "the 2014 ten-state oversample (doi:10.7910/DVN/28981)",
    "reason": "separately weighted; not combined with the 50-state sample"
   }
- ]
+ ],
+ "checks": {
+  "line_codes": {
+   "2008": {
+    "variable": "q12",
+    "labels_in_ddi": {
+     "1": "not at all",
+     "2": "less than 10 minutes",
+     "3": "10-30 minutes",
+     "4": "31minutes - 1 hour",
+     "5": "more than 1 hour"
+    },
+    "ddi_counts_equal_data_counts": true,
+    "ddi_read_utc": "2026-11-07T07:21Z"
+   },
+   "2012": {
+    "variable": "q10",
+    "labels_in_ddi": {
+     "1": "Not at all",
+     "2": "Less than 10 minutes",
+     "3": "10-30 minutes",
+     "4": "31 minutes - 1 hour",
+     "5": "More than 1 hour"
+    },
+    "ddi_counts_equal_data_counts": true,
+    "ddi_read_utc": "2026-11-07T07:21Z"
+   },
+   "2014": {
+    "variable": "Q13",
+    "labels_in_ddi": {
+     "1": "Not at all",
+     "2": "Less than 10 minutes",
+     "3": "10-30 minutes",
+     "4": "31 minutes - 1 hour",
+     "5": "More than 1 hour"
+    },
+    "ddi_counts_equal_data_counts": true,
+    "ddi_read_utc": "2026-11-07T07:21Z"
+   },
+   "2016": {
+    "variable": "Q13",
+    "labels_in_ddi": {
+     "1": "Not at all",
+     "2": "Less than 10 minutes",
+     "3": "10-30 minutes",
+     "4": "31 minutes - 1 hour",
+     "5": "More than 1 hour"
+    },
+    "ddi_counts_equal_data_counts": true,
+    "ddi_read_utc": "2026-11-07T07:21Z"
+   },
+   "2020": {
+    "variable": "Q14",
+    "labels_in_ddi": {
+     "1": "Not at all",
+     "2": "Less than 10 minutes",
+     "3": "10-30 minutes",
+     "4": "31 minutes - 1 hour",
+     "5": "More than 1 hour"
+    },
+    "ddi_counts_equal_data_counts": true,
+    "ddi_read_utc": "2026-11-07T07:21Z"
+   },
+   "2022": {
+    "variable": "Q12",
+    "labels_in_ddi": {
+     "1": "Not at all",
+     "2": "Less than 10 minutes",
+     "3": "10 - 30 minutes",
+     "4": "31 minutes - 1 hour",
+     "5": "More than 1 hour"
+    },
+    "ddi_counts_equal_data_counts": true,
+    "ddi_read_utc": "2026-11-07T07:21Z"
+   }
+  },
+  "questionnaire_2020": {
+   "source": {
+    "name": "SPAE 2020 questionnaire (Appendix 5)",
+    "url": "https://doi.org/10.7910/DVN/FSGX7Z",
+    "read_utc": "2026-11-07T08:01Z",
+    "licence": "CC0 1.0",
+    "mark": "measured",
+    "via": null,
+    "note": "file 4488069, 48634 bytes, sha256 0af9de1ad60887fd059be53ca379282f49e2c20e5ab7506fe20fae68f627012e"
+   },
+   "q14_text": [
+    "Q14",
+    "SINGLE CHOICE, SOFT REQUIRED",
+    "Line length",
+    "If Q1 == 6 & Q4 in [1, 2]",
+    "Approximately, how long did you have to wait in line to vote?",
+    "Not at all",
+    "Less than 10 minutes",
+    "10-30 minutes",
+    "31minutes \u2013 1 hour",
+    "More than 1 hour (}(OPEN TEXTBOX [Q14_t]): please specify how long ____________________)",
+    "I don\u2019t know"
+   ]
+  },
+  "published": [
+   {
+    "year": 2020,
+    "source": {
+     "name": "How We Voted in 2020 (MIT Election Data and Science Lab, March 2021)",
+     "url": "https://electionlab.mit.edu/sites/default/files/2021-03/HowWeVotedIn2020-March2021.pdf",
+     "read_utc": "2026-11-07T07:49Z",
+     "licence": "MIT Election Lab prints no licence on the PDF",
+     "mark": "stated",
+     "via": null,
+     "note": "5354242 bytes, sha256 f87ceb2994aa7e8da92c60652678da55785b1e8bc331bbbea3180b69bdac6b8b; printed pages 19; each phrase below was found in the PDF's text by this script"
+    },
+    "phrases_found": [
+     "Wait times to vote in 2020 were much greater in 2020 than in 2016",
+     "it was anticipated that wait times would be longer during in-person voting",
+     "22 percent of early voters reported waiting longer than 30 minutes for early voting compared to 14 percent for Election Day voters",
+     "the percentage of people waiting more than 30 minutes to vote was on par with that statistic for the election of 2008"
+    ],
+    "comparison": {
+     "share_over_30": {
+      "in person on Election Day": {
+       "published": 0.14,
+       "pooled_from_microdata": 0.1467,
+       "difference": 0.67
+      },
+      "in person before Election Day": {
+       "published": 0.22,
+       "pooled_from_microdata": 0.2063,
+       "difference": -1.37
+      }
+     }
+    },
+    "units": {
+     "share_over_30": "published share and pooled share, as fractions; difference in percentage points",
+     "average_minutes": "minutes; the pooled figure is the midpoint mean [inferred]; the difference is in minutes"
+    }
+   },
+   {
+    "year": 2022,
+    "source": {
+     "name": "How We Voted in 2022 (MIT Election Data and Science Lab, May 2023)",
+     "url": "https://electionlab.mit.edu/sites/default/files/2023-05/HowWeVotedIn2022.pdf",
+     "read_utc": "2026-11-07T07:49Z",
+     "licence": "MIT Election Lab prints no licence on the PDF",
+     "mark": "stated",
+     "via": null,
+     "note": "21982915 bytes, sha256 e31a511d70640f7cff1b0239dda8df3bb647379fc2410ceb8c3c432bdfe2bddd; printed pages 3 and 20; each phrase below was found in the PDF's text by this script"
+    },
+    "phrases_found": [
+     "6 percent waiting over 30 minutes compared to",
+     "4 percent reported waiting over 30 minutes compared to",
+     "The average Election Day voter waited six minutes before voting; the average early voter waited four minutes"
+    ],
+    "comparison": {
+     "share_over_30": {
+      "in person on Election Day": {
+       "published": 0.06,
+       "pooled_from_microdata": 0.0509,
+       "difference": -0.91
+      },
+      "in person before Election Day": {
+       "published": 0.04,
+       "pooled_from_microdata": 0.0326,
+       "difference": -0.74
+      }
+     },
+     "average_minutes": {
+      "in person on Election Day": {
+       "published": 6.0,
+       "pooled_from_microdata": 6.95,
+       "difference": 0.95
+      },
+      "in person before Election Day": {
+       "published": 4.0,
+       "pooled_from_microdata": 5.32,
+       "difference": 1.32
+      }
+     }
+    },
+    "units": {
+     "share_over_30": "published share and pooled share, as fractions; difference in percentage points",
+     "average_minutes": "minutes; the pooled figure is the midpoint mean [inferred]; the difference is in minutes"
+    }
+   }
+  ],
+  "line_codes_same_in_all_years": true
+ }
 }
