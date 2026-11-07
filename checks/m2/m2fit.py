@@ -50,7 +50,8 @@ K_MIN, CAL_MIN = 4, 3
 # forecast_inputs.president_party records it; checked against those fields in c9)
 SITTING = {1978: "D", 1980: "D", 1982: "R", 1984: "R", 1986: "R", 1988: "R", 1990: "R", 1992: "R", 1994: "D", 1996: "D",
            1998: "D", 2000: "D", 2002: "R", 2004: "R", 2006: "R", 2008: "R", 2010: "D", 2012: "D", 2014: "D", 2016: "D",
-           2018: "R", 2020: "R", 2022: "D", 2024: "D"}
+           2018: "R", 2020: "R", 2022: "D", 2024: "D",
+           2026: "R"}   # the odd year 2025 (#76) reads the president of the even year after: R since January 2025
 NEAR_W, NEAR_MIN_EXPECTED, NEAR_BANDS, NEAR_WINDOWS = 0.01, 30, (0.0, 0.05, 0.10), (0.01, 0.02, 0.05)
 VARIANTS = {"none": (False, "normal"), "shrink": (True, "normal"), "t4": (False, "t4"), "both": (True, "t4")}
 # a third element names how k is fitted (c11, item 3): "all" = D2's, the RMS of z over every earlier scored year;
@@ -445,12 +446,42 @@ def set_special_lines(rows, mode):
     return n
 
 
+FIXED_CODES = os.path.join(L.DATA, "congress", "governor-incumbency.json")   # #78: 17 codes fixed against the record
+
+
+def record_fixes(before=False):
+    """{contest id: incumbency after (or before)} for the governor codes #78 fixed (D2's table,
+    p_moved.incumbency_moved); {} where the table is absent (main before #78)."""
+    if not os.path.exists(FIXED_CODES):
+        return {}
+    d = L.load_json(FIXED_CODES)
+    return {x["contest"]: x["before" if before else "after"] for x in (d.get("p_moved") or {}).get("incumbency_moved") or []}
+
+
+def apply_record_fixes(rows):
+    """The fixed codes set on the governor fit rows (c28 checks each fix against its source; the fit takes the
+    record's input as fixed). Every row in the table gets inc_source_code, the code before the fix (Cha's rows
+    carry Cha's code; Algara and Amlani's rows carry the file's, already fixed), so that a 'before' refit can
+    revert all of them. Returns the ids whose inc changed here."""
+    fx, fb = record_fixes(), record_fixes(before=True)
+    done = []
+    for r in rows:
+        if r["level"] == "governor" and r.get("id") in fx:
+            r["inc_source_code"] = fb[r["id"]]
+            if r["inc"] != fx[r["id"]]:
+                done.append(r["id"])
+            r["inc"] = fx[r["id"]]
+    return done
+
+
 def all_rows(refresh=False):
-    """Every fit row, with the counts skipped and the checks of the inputs against the files; cached."""
+    """Every fit row, with the counts skipped and the checks of the inputs against the files; cached. The
+    governor codes #78 fixed are applied on top (apply_record_fixes), cached or fresh."""
     if not refresh and os.path.exists(ROWS_CACHE):
         out = L.load_json(ROWS_CACHE)
         if all("lean_own" in r or r["level"] != "house" for r in out["rows"]):
             set_special_lines(out["rows"], SPECIAL_LINES)
+            out["fixed_codes_applied"] = apply_record_fixes(out["rows"])
             return out
     ps = pres_shares()
     finputs = file_inputs()
@@ -467,6 +498,7 @@ def all_rows(refresh=False):
     with open(ROWS_CACHE, "w") as f:
         json.dump(out, f)
     set_special_lines(out["rows"], SPECIAL_LINES)
+    out["fixed_codes_applied"] = apply_record_fixes(out["rows"])
     return out
 
 

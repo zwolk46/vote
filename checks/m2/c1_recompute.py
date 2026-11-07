@@ -134,7 +134,7 @@ def check_president():
 
 # ------------------------------------------------------------------------------------------ congress
 UNDER_538 = re.compile(r"^538 \((?P<v>[\w-]+)\)")
-UNDER_OWN = re.compile(r"^the model's own \(D2-v1\), (?P<t>normal|t4)")
+UNDER_OWN = re.compile(r"^the model's own \(.*\), (?P<t>normal|t4)")   # the method's name moved from D2-v1 to D2-v3 (with the last governor race): read only
 
 
 def forecast_for(c, under):
@@ -192,11 +192,15 @@ def check_congress(level):
                     unmatched.append(tag)
                     continue
                 mean, sd = f["share"]["mean"], f["share"]["sd"]
+                # since D2's #53 the House's own forecast carries a near-tie calibration: the record's f_half is f(1/2) x its
+                # multiplier and value = f(1/2)/(2n) x the multiplier (read only; c8 checks the multiplier itself)
+                mult = (f.get("calibration") or {}).get("multiplier", 1.0) if f["by"] == "the model's own" else 1.0
                 fh = L.f_half(mean, sd, tails)
                 tol = max(abs(L.f_half(mean + a, sd + b, tails) / fh - 1.0)
                           for a in (-ROUND, ROUND) for b in (-ROUND, ROUND)) + TOL_DENSITY
-                t_fh.add(tag, fh, blk["f_half"], tol)
-                t_p.add(tag, L.p_density(n, fh), blk["value"], tol)
+                t_fh.add(tag, fh * mult, blk["f_half"], tol)
+                t_p.add(tag, L.p_density(n, fh) * mult, blk["value"], tol)
+                fh = fh * mult
                 share_of_bound.append((rel(fh, blk["f_half"]) / tol, tag))
                 t_event.add(tag, 2 * blk["value"], blk["event"], 0.0)
                 rule = "exact" if (n < 1000 or n * sd * sd < 6.25) else "density"
@@ -213,7 +217,9 @@ def check_congress(level):
                     t_sd.add(tag, isd, sd, tol)
                 ctl = blk.get("control")
                 if ctl:
-                    w = c["stage_two"]["inputs"].get("P_decides_given_tie")
+                    # since D2's #29 each 'alongside' block's control carries its own P(decides | tie) (538's seat entered with its
+                    # own implied sd as the marginal, reading (c)); the block of record's is in stage_two.inputs (read only)
+                    w = ctl.get("P_decides_given_tie", c["stage_two"]["inputs"].get("P_decides_given_tie"))
                     t_ctl.add(tag, blk["value"] * w, ctl["value"], 1e-12)
                     t_ctl.add(tag + " event", 2 * ctl["value"], ctl["event"], 0.0)
                 if blk is p:
