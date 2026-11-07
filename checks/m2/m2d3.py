@@ -67,6 +67,7 @@ def slim(level, head, c):
             "votes_source": res.get("votes_source"), "status": status, "reason": reason, "route": f.get("route"),
             "cls": cls, "cls_recorded": f.get("class") is not None, "N": f.get("like_races", f.get("like_measures")),
             "kin": f.get("in_window"), "win": f.get("window"), "q": f.get("q"), "cal": f.get("calibration"),
+            "cal_out": p.get("calibration_not_of_record"), "exact_mass": p.get("exact_mass"),
             "note": f.get("note"), "fitted_on": f.get("fitted_on"), "share": f.get("share"),
             "inputs": c.get("forecast_inputs"), "pair": c.get(kind) if kind else None, "pair_kind": kind, "p": p,
             "cands": [(a.get("party"), a.get("votes"), a.get("name"), bool(a.get("incumbent")), a.get("won"))
