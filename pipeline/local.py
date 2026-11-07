@@ -142,8 +142,9 @@ def certified_votes(contests):
     """North Carolina's legislative generals: the State Board's counts in place of Klarner's where they differ, in the
     years whose State Board file passes its gate against the certified federal counts (pipeline/local_ncsbe.py gate:
     2004-2024; 2000 and 2010 fall short and 2002 has no certified federal file in data/ to check it, so those keep
-    Klarner's). Candidates are matched by party for the Democrat and the Republican and by name otherwise; a contest
-    whose named candidates do not all match keeps Klarner's. Each changed contest carries `votes_source` and a note."""
+    Klarner's). Candidates are matched by party for the Democrat and the Republican, by name otherwise, and, where each
+    side has one candidate of neither major party whose names are spelled apart, those two; a contest whose named
+    candidates do not all match keeps Klarner's (a write-in Klarner names and the State Board groups, for one). Each changed contest carries `votes_source` and a note."""
     import local_medsl as LM
     import local_ncsbe as NS
     if not glob.glob(os.path.join(NS.NORM, "*.jsonl")):
@@ -170,6 +171,8 @@ def certified_votes(contests):
             continue
         nc, meta = hit[0]
         named = [x for x in nc["choices"] if not LM._is_generic(x["name"])]
+        minor_k = [a for a in c["cands"] if not a["scattering"] and a["party"] not in ("d", "r")]
+        minor_n = [x for x in named if NS._major(x["party"]) not in ("D", "R")]
         new = {}
         for a in c["cands"]:
             if a["scattering"]:
@@ -178,20 +181,24 @@ def certified_votes(contests):
                 m = [x for x in named if NS._major(x["party"]) == a["party"].upper()]
             else:
                 m = [x for x in named if LM.name_key(x["name"]) == LM.name_key(a["name"])]
+                if not m and len(minor_k) == 1 and len(minor_n) == 1:
+                    m = minor_n   # one candidate of neither major party on each side ("howell, thomas (tom), jr"
+                                  # in Klarner's, "Thomas (Tom) Howell, Jr." in the State Board's)
             if len(m) != 1:
                 new = None
                 break
-            new[id(a)] = m[0]["votes"]
+            new[id(a)] = m[0]
         if new is None or len(new) != len(named):
             CERTIFIED_COUNT[(c["year"], "kept Klarner's: the candidates do not all match")] += 1
             continue
-        diff = [(a["name"], a["votes"], new[id(a)]) for a in c["cands"] if id(a) in new and a["votes"] != new[id(a)]]
+        diff = [(a["name"], new[id(a)]["name"], a["votes"], new[id(a)]["votes"]) for a in c["cands"]
+                if id(a) in new and a["votes"] != new[id(a)]["votes"]]
         if not diff:
             CERTIFIED_COUNT[(c["year"], "equal")] += 1
             continue
         for a in c["cands"]:
             if id(a) in new:
-                a["votes"] = new[id(a)]
+                a["votes"] = new[id(a)]["votes"]
         kv = c.get("klarner") or {}
         for side, key in (("d", "dvote"), ("r", "rvote")):
             got = [a["votes"] for a in c["cands"] if a["party"] == side and not a["scattering"]]
@@ -199,10 +206,10 @@ def certified_votes(contests):
                 kv[key] = sum(got)
         c["votes_source"] = {"source": "ncsbe", "file": meta["url"].rsplit("/", 1)[1], "url": meta["url"],
                              "read_utc": meta["read_utc"], "sha256": meta["sha256"],
-                             "klarner": {n: v for n, v, _ in diff}}
+                             "klarner": {n: v for n, _, v, _ in diff}}
         c["certified_note"] = CERTIFIED_NOTE.format(
             file=meta["url"].rsplit("/", 1)[1],
-            diff="; ".join(f"{n.title()}: {v:,} in Klarner's, {w:,} certified" for n, v, w in diff))
+            diff="; ".join(f"{b}: {v:,} in Klarner's, {w:,} certified" for _, b, v, w in diff))
         CERTIFIED_COUNT[(c["year"], "replaced by the certified counts")] += 1
     return contests
 
