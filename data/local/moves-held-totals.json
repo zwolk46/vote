@@ -1,0 +1,3859 @@
+{
+"about": "Every record that changed in the held-totals step (data/local/REPORT.md section 31; the orchestrator's orders of 2026-11-07 17:44, 18:49, 20:28, 20:30, 20:55, 21:03 and 21:21), against bcd1ce9 (main 9118755 merged), the code of this step aside. Each group, with its reason:",
+"groups": {
+"OR 2024 Supreme Court": "Position 7 takes the Secretary of State's abstract total (gate passed; mark: the records system's title '... Official Results'), so p is computed (0: one name, write-ins against) and it is typed a statewide judge; Position 1 stays held, its reason now naming the abstract's failed gate (Misc.: county lines 26,078, Total line 26,077)",
+"AZ 2022 Attorney General": "marked 'count before the recount, certified count unread' (result.count_stage, a note); the Clerk's copy refused and a third party's copy ruled out (21:03)",
+"AZ 2024 Corporation Commissioner": "one contest of 3 seats (M2's sixth pass (a)); still not computed, now for too few like races of its class",
+"the over-ballot test (17:44)": "MI 2018 and OH 2018 Supreme Court, HI 2022 trustee and MI 2022 Attorney General stay held, their reasons restated against the day's top contest; TX 2024 Supreme Court is held (32,783,005 votes, 2.87 times the president's: three seats filed as one; it had no p); IL 2018 Secretary of State and DE 2022 Attorney General are listed between 1.0 and 1.1 times, with a note",
+"listed rows (20:28)": "27 records gain 'a possible total row in the source, not dropped' (a row moving its record by more than 0.5%); data/local/check-listed-rows.json lists every row",
+"M2 (b) recall answers": "Idaho 2024's Latah County and Marsh Valley School District recalls: each 'AGAINST RECALLING' line, filed as a candidate's, joins its question; the two local records are gone and the two questions carry both answers (still no p: local threshold unread)",
+"M2 (c) North Carolina 2008 and 2010 Court of Appeals": "typed judge, not statewide judge: no seat count of one in the title or the State Board's file (18:13); p stays 0",
+"M2 (d) the 'Town of' guard": "five 2024 questions of NY and RI no longer counted whole by the town (the title names another body after the town's name); now counted by county, still no p",
+"VA 2023 and 2025 legislatures": "the gate's RULED text (18:49) on every record, and 'not explained' on the shortfall notes",
+"c38 (21:21)": "VT 2018 Chittenden Senate takes MEDSL's counts (Klarner's 2.78 to 3.83 times them): p moves x3.49; ID 2022 Senate 1 adds Steven R Johnson, a write-in of 9,025 votes by the state's canvass: p 0 is no longer computed (the write-in rule)"
+},
+"against": "bcd1ce9",
+"summary": {
+"local G: record gone": 2,
+"local N: new p": 1,
+"local Q: a note's words changed": 32,
+"local R: not computed before or after, the reason changed": 7,
+"local T: typed judge": 2,
+"local T: typed statewide judge": 1,
+"measure Q: a note's words changed": 7,
+"measure R: not computed before or after, the reason changed": 7,
+"measure W-: no longer counted whole": 5,
+"state-lower O: other fields: gate": 198,
+"state-lower Q: a note's words changed": 2,
+"state-upper L: p no longer computed": 1,
+"state-upper O: other fields: gate": 38,
+"state-upper P: p moved": 1,
+"state-upper Q: a note's words changed": 4
+},
+"columns": [
+"id",
+"file",
+"title or office",
+"type before",
+"type after",
+"p before",
+"p after",
+"ratio",
+"codes"
+],
+"codes": {
+"A": "a new record",
+"G": "a record no longer written (joined into another, or replaced)",
+"I": "id changed",
+"T": "typed anew",
+"P": "p moved",
+"B": "p unchanged, its block changed",
+"N": "new p",
+"L": "p no longer computed",
+"R": "not computed before or after, the reason changed",
+"Q": "a note changed",
+"O": "other fields"
+},
+"records": [
+[
+"2008-local-NC-ncsbe-2008-11-04-COURT_OF_APPEALS_JUDGE__Martin_Seat",
+"data/local/2008/NC.json",
+"Court Of Appeals Judge (Martin Seat)",
+"statewide judge",
+"judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-COURT_OF_APPEALS_JUDGE___Steelman_Seat",
+"data/local/2010/NC.json",
+"Court Of Appeals Judge - Steelman Seat",
+"statewide judge",
+"judge",
+0.0,
+0.0,
+null,
+[
+"T"
+]
+],
+[
+"2018-local-IL-SECRETARY_OF_STATE",
+"data/local/2018/IL.json",
+"Secretary Of State",
+"statewide officer",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+null,
+[
+"Q"
+]
+],
+[
+"2018-local-KY-MAGISTRATE-004_county_21087",
+"data/local/2018/KY.json",
+"Magistrate",
+"council, commission or board",
+"council, commission or board",
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2018-local-MI-JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2018/MI.json",
+"Justice Of The Supreme Court",
+"statewide judge",
+"statewide judge",
+"seat count unread: MEDSL's file gives this contest one seat; the Michigan Supreme Court's own page on Chief Justice Megan K. Cavanagh, second in this count (https://www.courts.michigan.gov/courts/supreme-court/justices/justice-megan-k.-cavanagh, rendered 2026-11-07 16:56 UTC), says 'Before joining the Michigan Supreme Court in January of 2019' and 'Prior to her election to the Court', so the contest elected more than its leader [inferred], but no page read states how many seats it filled (the Secretary of State's results refused; the Michigan Manual answered 403), so p is not computed, no winner is marked, and the contest is kept out of every pool; and the contest's 6,262,391 votes in MEDSL's file are 1.47 times the 4,250,585 for Governor on the same ballot, more than one vote a ballot, which a contest of one seat cannot have [measured]",
+"seat count unread: MEDSL's file gives this contest one seat; the Michigan Supreme Court's own page on Chief Justice Megan K. Cavanagh, second in this count (https://www.courts.michigan.gov/courts/supreme-court/justices/justice-megan-k.-cavanagh, rendered 2026-11-07 16:56 UTC), says 'Before joining the Michigan Supreme Court in January of 2019' and 'Prior to her election to the Court', so the contest elected more than its leader [inferred], but no page read states how many seats it filled (the Secretary of State's results refused; the Michigan Manual answered 403), so p is not computed, no winner is marked, and the contest is kept out of every pool; and the contest's 6,262,391 votes in MEDSL's file are 1.47 times the 4,250,585 of Governor (STATEWIDE), the day's highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the file gives no ballots cast for it) [measured]",
+null,
+[
+"R"
+]
+],
+[
+"2018-local-OH-JUSTICE_OF_THE_SUPREME_COURT",
+"data/local/2018/OH.json",
+"Justice Of The Supreme Court",
+"statewide judge",
+"statewide judge",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 7,086,019 votes in MEDSL's file are 1.60 times the 4,435,462 for Governor on the same ballot, more than one vote a ballot, which a contest of one seat cannot have [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 7,086,019 votes in MEDSL's file are 1.60 times the 4,435,462 of Governor (STATEWIDE), the day's highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the file gives no ballots cast for it) [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool",
+null,
+[
+"R"
+]
+],
+[
+"2020-local-NE-BOARD_OF_GOVERNORS___WESTERN_COMMUNITY_COLLEGE-003_county_31013",
+"data/local/2020/NE.json",
+"Board Of Governors - Western Community College",
+"school board",
+"school board",
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2020-local-NE-PUBLIC_POWER_DISTRICT_BOARD_OF_DIRECTORS___CUMING_COUNTY-001_county_31039",
+"data/local/2020/NE.json",
+"Public Power District Board Of Directors - Cuming County",
+"special district",
+"special district",
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2022-local-AZ-ATTORNEY_GENERAL",
+"data/local/2022/AZ.json",
+"Attorney General",
+"statewide officer",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"Q"
+]
+],
+[
+"2022-local-DE-ATTORNEY_GENERAL",
+"data/local/2022/DE.json",
+"Attorney General",
+"statewide officer",
+"statewide officer",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2020), which the sources taken in do not hold",
+null,
+[
+"Q"
+]
+],
+[
+"2022-local-HI-AT_LARGE_TRUSTEE",
+"data/local/2022/HI.json",
+"At-Large Trustee",
+"statewide officer",
+"statewide officer",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 747,716 votes in MEDSL's file are 1.81 times the 413,262 for Governor on the same ballot, more than one vote a ballot, which a contest of one seat cannot have [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 747,716 votes in MEDSL's file are 1.81 times the 413,262 of Governor, the day's highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the file gives no ballots cast for it) [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool",
+null,
+[
+"R"
+]
+],
+[
+"2022-local-MI-ATTORNEY_GENERAL",
+"data/local/2022/MI.json",
+"Attorney General",
+"statewide officer",
+"statewide officer",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 6,146,375 votes in MEDSL's file are 1.39 times the 4,424,918 for Governor on the same ballot, more than one vote a ballot, which a contest of one seat cannot have [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 6,146,375 votes in MEDSL's file are 1.39 times the 4,424,918 of Governor, the day's highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the file gives no ballots cast for it) [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool",
+null,
+[
+"R"
+]
+],
+[
+"2024-local-AZ-CORPORATION_COMMISSIONER",
+"data/local/2024/AZ.json",
+"Corporation Commissioner",
+"council, commission or board",
+"council, commission or board",
+"seat count unread: the contest's pieces in MEDSL's file give it different numbers of seats (1 and 3), and the state's own results were not read, so p is not computed and no winner is marked",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state council, commission or board, 3 seats at once, both major parties on the ballot'",
+null,
+[
+"R",
+"Q"
+]
+],
+[
+"2024-local-AZ-YAVAPAI_BOARD_OF_SUPERVISORS-1_county_04025",
+"data/local/2024/AZ.json",
+"Yavapai Board Of Supervisors",
+"council, commission or board",
+"council, commission or board",
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-AZ-COTTONWOOD_COUNCIL_MEMBER_4YR-county_04025",
+"data/local/2024/AZ.json",
+"Cottonwood Council Member 4Yr",
+"council, commission or board",
+"council, commission or board",
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-ID-LATAH_COUNTY_COUNCILMEMBER_RECALL-county_16057",
+"data/local/2024/ID.json",
+"Latah County Councilmember Recall",
+"council, commission or board",
+null,
+"a special election: the model's own forecasts are fitted to regular elections",
+null,
+null,
+[
+"G"
+]
+],
+[
+"2024-local-ID-MARSH_VALLEY_SCHOOL_DISTRICT_NO__21_BOARD_TRUSTEE_RECALL-ZONE_1_county_16005",
+"data/local/2024/ID.json",
+"Marsh Valley School District No. 21 Board Trustee Recall",
+"school board",
+null,
+"a special election: the model's own forecasts are fitted to regular elections",
+null,
+null,
+[
+"G"
+]
+],
+[
+"2024-local-IL-BUREAU_HENRY_STARK___SUPERINTENDENT_OF_SCHOOLS-000_county_17011",
+"data/local/2024/IL.json",
+"Bureau/Henry/Stark - Superintendent Of Schools",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-MS-WALTHALL_ELECTION_COMMISSIONER-003_county_28147",
+"data/local/2024/MS.json",
+"Walthall Election Commissioner",
+"council, commission or board",
+"council, commission or board",
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-ALLENDALE_REGIONAL_BOE_UNEX_TWO_YR-county_34003",
+"data/local/2024/NJ.json",
+"Allendale Regional Boe Unex Two Yr",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-DEMAREST_LOCAL_BOE_UNEX_ONE_YR-county_34003",
+"data/local/2024/NJ.json",
+"Demarest Local Boe Unex One Yr",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-EAST_RUTHERFORD_COUNCIL_UNEX_TWO_YR-county_34003",
+"data/local/2024/NJ.json",
+"East Rutherford Council Unex Two Yr",
+"council, commission or board",
+"council, commission or board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-EMERSON_LOCAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"Emerson Local Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-FAIRVIEW_COUNCIL_UNEX_ONE_YR-county_34003",
+"data/local/2024/NJ.json",
+"Fairview Council Unex One Yr",
+"council, commission or board",
+"council, commission or board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-HAWORTH_LOCAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"Haworth Local Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-HILLSDALE_REGIONAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"Hillsdale Regional Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-LEONIA_COUNCIL_UNEX_ONE_YR-county_34003",
+"data/local/2024/NJ.json",
+"Leonia Council Unex One Yr",
+"council, commission or board",
+"council, commission or board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-LITTLE_FERRY_COUNCIL_UNEX_ONE_YR-county_34003",
+"data/local/2024/NJ.json",
+"Little Ferry Council Unex One Yr",
+"council, commission or board",
+"council, commission or board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-MONTVALE_REGIONAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"Montvale Regional Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-MOONACHIE_LOCAL_BOE_UNEX_ONE_YR-county_34003",
+"data/local/2024/NJ.json",
+"Moonachie Local Boe Unex One Yr",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-NORTH_ARLINGTON_LOCAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"North Arlington Local Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-OAKLAND_LOCAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"Oakland Local Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-OLD_TAPPAN_LOCAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"Old Tappan Local Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-ORADELL_REGIONAL_BOE_UNEX_TWO_YR-county_34003",
+"data/local/2024/NJ.json",
+"Oradell Regional Boe Unex Two Yr",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-PARAMUS_LOCAL_BOE_UNEX_TWO_YR-county_34003",
+"data/local/2024/NJ.json",
+"Paramus Local Boe Unex Two Yr",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-RIDGEWOOD_LOCAL_BOE_UNEX_ONE_YR-county_34003",
+"data/local/2024/NJ.json",
+"Ridgewood Local Boe Unex One Yr",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-UPPER_SADDLE_RIVER_REGIONAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"Upper Saddle River Regional Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-WALDWICK_LOCAL_BOE-county_34003",
+"data/local/2024/NJ.json",
+"Waldwick Local Boe",
+"school board",
+"school board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-NJ-WYCKOFF_TOWNSHIP_COMMITTEE_UNEX_TWO_YR-county_34003",
+"data/local/2024/NJ.json",
+"Wyckoff Township Committee Unex Two Yr",
+"council, commission or board",
+"council, commission or board",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+"the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Senate and House, by county; off by up to 200.0%; pipeline/local_nj.py), so its counts for this contest may be incomplete or double-counted; p not computed",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-OR-JUDGE_OF_THE_SUPREME_COURT-POSITION_1",
+"data/local/2024/OR.json",
+"Judge Of The Supreme Court",
+"judge",
+"judge",
+"incomplete: MEDSL's lines for this contest miss 8 of the 36 counties the state's contests have votes in that day (41017, 41031, 41053, 41055, 41059, 41061, 41063, 41069), no other piece of it is in the file, and the state's own total was not read, so p is not computed and no winner is drawn from a partial count",
+"incomplete: MEDSL's lines for this contest miss 8 of the 36 counties the state's contests have votes in that day (41017, 41031, 41053, 41055, 41059, 41061, 41063, 41069), no other piece of it is in the file, and the Secretary of State's abstract of votes was read (pipeline/intake/or_sos.py) and fails its own gate: Misc.: its county lines add up to 26,078, its Total line 26,077, so its total is not taken either, so p is not computed and no winner is drawn from a partial count",
+null,
+[
+"R"
+]
+],
+[
+"2024-local-OR-JUDGE_OF_THE_SUPREME_COURT-POSITION_7",
+"data/local/2024/OR.json",
+"Judge Of The Supreme Court",
+"judge",
+"statewide judge",
+"incomplete: MEDSL's lines for this contest miss 9 of the 36 counties the state's contests have votes in that day (41017, 41031, 41045, 41053, 41055, 41059, 41061, 41063, 41069), no other piece of it is in the file, and the state's own total was not read, so p is not computed and no winner is drawn from a partial count",
+0.0,
+null,
+[
+"T",
+"N",
+"Q"
+]
+],
+[
+"2024-local-TX-STATE_SUPREME_COURT_JUSTICE",
+"data/local/2024/TX.json",
+"State Supreme Court Justice",
+"statewide judge",
+"statewide judge",
+"fewer than 100 like races in earlier years in the sources taken in (0) for the class 'state statewide judge, two or more of one major party, 4+ candidates'",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 32,783,005 votes in MEDSL's file are 2.87 times the 11,404,528 of Us President (MEDSL's president lines), the day's highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the file gives no ballots cast for it) [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool",
+null,
+[
+"R"
+]
+],
+[
+"2024-measure-ID-MARSH_VALLEY_SCHOOL_DISTRICT_NO__21_BOARD_TRUSTEE_RECALL-KATHY_EGAN-16005",
+"data/measure/2024/ID.json",
+"Marsh Valley School District No. 21 Board Trustee Recall",
+null,
+null,
+"the source gives one answer only for this question (its other answer is filed apart under other words and could not be matched)",
+"a local measure: its threshold is the one state law sets for its kind of measure, which the source's wording does not show, and the place that holds it is not shown either (it is counted by county); not inferred (the orchestrator, 2026-11-07 06:16)",
+null,
+[
+"R",
+"Q"
+]
+],
+[
+"2024-measure-ID-LATAH_COUNTY_COUNCILMEMBER_RECALL-JUDI_FULLER-16057",
+"data/measure/2024/ID.json",
+"Latah County Councilmember Recall",
+null,
+null,
+"the source gives one answer only for this question (its other answer is filed apart under other words and could not be matched)",
+"a local measure: its threshold is the one state law sets for its kind of measure, which the source's wording does not show, and the place that holds it is not shown either (it is counted by county); not inferred (the orchestrator, 2026-11-07 06:16)",
+null,
+[
+"R",
+"Q"
+]
+],
+[
+"2024-measure-NY-TOWN_OF_POUGHKEEPSIE_LIBRARY_PROPOSITION-36027",
+"data/measure/2024/NY.json",
+"Town Of Poughkeepsie Library Proposition",
+null,
+null,
+"the thresholds of this state's local questions are not read",
+"a local measure: its threshold is the one state law sets for its kind of measure, which the source's wording does not show, and the place that holds it is not shown either (it is counted by county); not inferred (the orchestrator, 2026-11-07 06:16)",
+null,
+[
+"W-",
+"R",
+"Q"
+]
+],
+[
+"2024-measure-RI-TOWN_OF_BARRINGTON_LOCAL_QUESTION_8__FIRE_DEPARTMENT-44001",
+"data/measure/2024/RI.json",
+"Town Of Barrington Local Question 8. Fire Department",
+null,
+null,
+"the thresholds of this state's local questions are not read",
+"a local measure: its threshold is the one state law sets for its kind of measure, which the source's wording does not show, and the place that holds it is not shown either (it is counted by county); not inferred (the orchestrator, 2026-11-07 06:16)",
+null,
+[
+"W-",
+"R",
+"Q"
+]
+],
+[
+"2024-measure-RI-TOWN_OF_CUMBERLAND_LOCAL_QUESTION_18__AUTHORITY_FOR_ADDITION-44007",
+"data/measure/2024/RI.json",
+"Town Of Cumberland Local Question 18. Authority For Additional Sworn Police Officers",
+null,
+null,
+"the thresholds of this state's local questions are not read",
+"a local measure: its threshold is the one state law sets for its kind of measure, which the source's wording does not show, and the place that holds it is not shown either (it is counted by county); not inferred (the orchestrator, 2026-11-07 06:16)",
+null,
+[
+"W-",
+"R",
+"Q"
+]
+],
+[
+"2024-measure-RI-TOWN_OF_JOHNSTON_LOCAL_QUESTION_6__STORMWATER_AND_SEWER_FACI-44007",
+"data/measure/2024/RI.json",
+"Town Of Johnston Local Question 6. Stormwater And Sewer Facilities Upgrades $40,000,000",
+null,
+null,
+"the thresholds of this state's local questions are not read",
+"a local measure: its threshold is the one state law sets for its kind of measure, which the source's wording does not show, and the place that holds it is not shown either (it is counted by county); not inferred (the orchestrator, 2026-11-07 06:16)",
+null,
+[
+"W-",
+"R",
+"Q"
+]
+],
+[
+"2024-measure-RI-TOWN_OF_NORTH_KINGSTOWN_LOCAL_QUESTION_6__NEW_SAFETY_COMPLEX-44009",
+"data/measure/2024/RI.json",
+"Town Of North Kingstown Local Question 6. New Safety Complex, Police, Fire Stations $60,000,000",
+null,
+null,
+"the thresholds of this state's local questions are not read",
+"a local measure: its threshold is the one state law sets for its kind of measure, which the source's wording does not show, and the place that holds it is not shown either (it is counted by county); not inferred (the orchestrator, 2026-11-07 06:16)",
+null,
+[
+"W-",
+"R",
+"Q"
+]
+],
+[
+"2023-state-lower-VA-1",
+"data/state-lower/2023/VA.json",
+"district 1",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-2",
+"data/state-lower/2023/VA.json",
+"district 2",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-3",
+"data/state-lower/2023/VA.json",
+"district 3",
+null,
+null,
+8.0718e-06,
+8.0718e-06,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-4",
+"data/state-lower/2023/VA.json",
+"district 4",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-5",
+"data/state-lower/2023/VA.json",
+"district 5",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-6",
+"data/state-lower/2023/VA.json",
+"district 6",
+null,
+null,
+3.36476e-05,
+3.36476e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-7",
+"data/state-lower/2023/VA.json",
+"district 7",
+null,
+null,
+5.58078e-05,
+5.58078e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-8",
+"data/state-lower/2023/VA.json",
+"district 8",
+null,
+null,
+4.99242e-05,
+4.99242e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-9",
+"data/state-lower/2023/VA.json",
+"district 9",
+null,
+null,
+4.70402e-05,
+4.70402e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-10",
+"data/state-lower/2023/VA.json",
+"district 10",
+null,
+null,
+4.18147e-05,
+4.18147e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-11",
+"data/state-lower/2023/VA.json",
+"district 11",
+null,
+null,
+4.8767e-05,
+4.8767e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-12",
+"data/state-lower/2023/VA.json",
+"district 12",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-13",
+"data/state-lower/2023/VA.json",
+"district 13",
+null,
+null,
+8.05879e-06,
+8.05879e-06,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-14",
+"data/state-lower/2023/VA.json",
+"district 14",
+null,
+null,
+5.48051e-05,
+5.48051e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-15",
+"data/state-lower/2023/VA.json",
+"district 15",
+null,
+null,
+5.51475e-05,
+5.51475e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-16",
+"data/state-lower/2023/VA.json",
+"district 16",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 10% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 10% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-17",
+"data/state-lower/2023/VA.json",
+"district 17",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-18",
+"data/state-lower/2023/VA.json",
+"district 18",
+null,
+null,
+4.50027e-05,
+4.50027e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-19",
+"data/state-lower/2023/VA.json",
+"district 19",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-20",
+"data/state-lower/2023/VA.json",
+"district 20",
+null,
+null,
+6.36321e-05,
+6.36321e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-21",
+"data/state-lower/2023/VA.json",
+"district 21",
+null,
+null,
+6.43636e-05,
+6.43636e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-22",
+"data/state-lower/2023/VA.json",
+"district 22",
+null,
+null,
+5.6274e-05,
+5.6274e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-23",
+"data/state-lower/2023/VA.json",
+"district 23",
+null,
+null,
+7.3352e-05,
+7.3352e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-24",
+"data/state-lower/2023/VA.json",
+"district 24",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 10% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 10% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-25",
+"data/state-lower/2023/VA.json",
+"district 25",
+null,
+null,
+5.04011e-05,
+5.04011e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-26",
+"data/state-lower/2023/VA.json",
+"district 26",
+null,
+null,
+8.05324e-05,
+8.05324e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-27",
+"data/state-lower/2023/VA.json",
+"district 27",
+null,
+null,
+7.53807e-05,
+7.53807e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-28",
+"data/state-lower/2023/VA.json",
+"district 28",
+null,
+null,
+3.81415e-05,
+3.81415e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-29",
+"data/state-lower/2023/VA.json",
+"district 29",
+null,
+null,
+5.43275e-05,
+5.43275e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-30",
+"data/state-lower/2023/VA.json",
+"district 30",
+null,
+null,
+4.42462e-05,
+4.42462e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-31",
+"data/state-lower/2023/VA.json",
+"district 31",
+null,
+null,
+6.53039e-05,
+6.53039e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-32",
+"data/state-lower/2023/VA.json",
+"district 32",
+null,
+null,
+4.41695e-05,
+4.41695e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-33",
+"data/state-lower/2023/VA.json",
+"district 33",
+null,
+null,
+3.48545e-05,
+3.48545e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-34",
+"data/state-lower/2023/VA.json",
+"district 34",
+null,
+null,
+5.29946e-05,
+5.29946e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-35",
+"data/state-lower/2023/VA.json",
+"district 35",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-36",
+"data/state-lower/2023/VA.json",
+"district 36",
+null,
+null,
+7.34974e-05,
+7.34974e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-37",
+"data/state-lower/2023/VA.json",
+"district 37",
+null,
+null,
+3.57942e-05,
+3.57942e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-38",
+"data/state-lower/2023/VA.json",
+"district 38",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-39",
+"data/state-lower/2023/VA.json",
+"district 39",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-40",
+"data/state-lower/2023/VA.json",
+"district 40",
+null,
+null,
+3.63469e-05,
+3.63469e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-41",
+"data/state-lower/2023/VA.json",
+"district 41",
+null,
+null,
+6.95439e-05,
+6.95439e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-42",
+"data/state-lower/2023/VA.json",
+"district 42",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-43",
+"data/state-lower/2023/VA.json",
+"district 43",
+null,
+null,
+7.65052e-06,
+7.65052e-06,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-44",
+"data/state-lower/2023/VA.json",
+"district 44",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-45",
+"data/state-lower/2023/VA.json",
+"district 45",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-46",
+"data/state-lower/2023/VA.json",
+"district 46",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-47",
+"data/state-lower/2023/VA.json",
+"district 47",
+null,
+null,
+4.30581e-05,
+4.30581e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-48",
+"data/state-lower/2023/VA.json",
+"district 48",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-49",
+"data/state-lower/2023/VA.json",
+"district 49",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-50",
+"data/state-lower/2023/VA.json",
+"district 50",
+null,
+null,
+4.09135e-05,
+4.09135e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-51",
+"data/state-lower/2023/VA.json",
+"district 51",
+null,
+null,
+7.0669e-05,
+7.0669e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-52",
+"data/state-lower/2023/VA.json",
+"district 52",
+null,
+null,
+8.9176e-05,
+8.9176e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-53",
+"data/state-lower/2023/VA.json",
+"district 53",
+null,
+null,
+5.8782e-05,
+5.8782e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-54",
+"data/state-lower/2023/VA.json",
+"district 54",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-55",
+"data/state-lower/2023/VA.json",
+"district 55",
+null,
+null,
+4.77776e-05,
+4.77776e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-56",
+"data/state-lower/2023/VA.json",
+"district 56",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 12% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 12% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-57",
+"data/state-lower/2023/VA.json",
+"district 57",
+null,
+null,
+4.8336e-05,
+4.8336e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-58",
+"data/state-lower/2023/VA.json",
+"district 58",
+null,
+null,
+5.12017e-05,
+5.12017e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-59",
+"data/state-lower/2023/VA.json",
+"district 59",
+null,
+null,
+5.42285e-05,
+5.42285e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-60",
+"data/state-lower/2023/VA.json",
+"district 60",
+null,
+null,
+2.67286e-05,
+2.67286e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-61",
+"data/state-lower/2023/VA.json",
+"district 61",
+null,
+null,
+3.05953e-05,
+3.05953e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2023-state-lower-VA-62",
+"data/state-lower/2023/VA.json",
+"district 62",
+null,
+null,
+3.63263e-05,
+3.63263e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2023-state-lower-VA-63",
+"data/state-lower/2023/VA.json",
+"district 63",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 20% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 20% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-64",
+"data/state-lower/2023/VA.json",
+"district 64",
+null,
+null,
+6.15534e-05,
+6.15534e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-65",
+"data/state-lower/2023/VA.json",
+"district 65",
+null,
+null,
+5.95243e-05,
+5.95243e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-66",
+"data/state-lower/2023/VA.json",
+"district 66",
+null,
+null,
+3.95943e-05,
+3.95943e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-67",
+"data/state-lower/2023/VA.json",
+"district 67",
+null,
+null,
+5.93303e-05,
+5.93303e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-68",
+"data/state-lower/2023/VA.json",
+"district 68",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-69",
+"data/state-lower/2023/VA.json",
+"district 69",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-70",
+"data/state-lower/2023/VA.json",
+"district 70",
+null,
+null,
+4.64697e-05,
+4.64697e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-71",
+"data/state-lower/2023/VA.json",
+"district 71",
+null,
+null,
+4.83957e-05,
+4.83957e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-72",
+"data/state-lower/2023/VA.json",
+"district 72",
+null,
+null,
+2.90273e-05,
+2.90273e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-73",
+"data/state-lower/2023/VA.json",
+"district 73",
+null,
+null,
+4.83767e-05,
+4.83767e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-74",
+"data/state-lower/2023/VA.json",
+"district 74",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 15% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 15% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-75",
+"data/state-lower/2023/VA.json",
+"district 75",
+null,
+null,
+4.62433e-05,
+4.62433e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-76",
+"data/state-lower/2023/VA.json",
+"district 76",
+null,
+null,
+7.61204e-05,
+7.61204e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-77",
+"data/state-lower/2023/VA.json",
+"district 77",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-78",
+"data/state-lower/2023/VA.json",
+"district 78",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-79",
+"data/state-lower/2023/VA.json",
+"district 79",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-80",
+"data/state-lower/2023/VA.json",
+"district 80",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-81",
+"data/state-lower/2023/VA.json",
+"district 81",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-82",
+"data/state-lower/2023/VA.json",
+"district 82",
+null,
+null,
+3.38747e-05,
+3.38747e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-83",
+"data/state-lower/2023/VA.json",
+"district 83",
+null,
+null,
+5.36081e-05,
+5.36081e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-84",
+"data/state-lower/2023/VA.json",
+"district 84",
+null,
+null,
+3.64678e-05,
+3.64678e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-85",
+"data/state-lower/2023/VA.json",
+"district 85",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 12% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 12% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-86",
+"data/state-lower/2023/VA.json",
+"district 86",
+null,
+null,
+3.79339e-05,
+3.79339e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-87",
+"data/state-lower/2023/VA.json",
+"district 87",
+null,
+null,
+5.72322e-05,
+5.72322e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-88",
+"data/state-lower/2023/VA.json",
+"district 88",
+null,
+null,
+5.9399e-05,
+5.9399e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-89",
+"data/state-lower/2023/VA.json",
+"district 89",
+null,
+null,
+5.97401e-05,
+5.97401e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-90",
+"data/state-lower/2023/VA.json",
+"district 90",
+null,
+null,
+3.55765e-05,
+3.55765e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-91",
+"data/state-lower/2023/VA.json",
+"district 91",
+null,
+null,
+9.17393e-05,
+9.17393e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-92",
+"data/state-lower/2023/VA.json",
+"district 92",
+null,
+null,
+0.000114415,
+0.000114415,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-93",
+"data/state-lower/2023/VA.json",
+"district 93",
+null,
+null,
+0.000105671,
+0.000105671,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-94",
+"data/state-lower/2023/VA.json",
+"district 94",
+null,
+null,
+0.000117941,
+0.000117941,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-95",
+"data/state-lower/2023/VA.json",
+"district 95",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 13% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 13% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-96",
+"data/state-lower/2023/VA.json",
+"district 96",
+null,
+null,
+5.33433e-05,
+5.33433e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-97",
+"data/state-lower/2023/VA.json",
+"district 97",
+null,
+null,
+3.97394e-05,
+3.97394e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-98",
+"data/state-lower/2023/VA.json",
+"district 98",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 12% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 12% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-99",
+"data/state-lower/2023/VA.json",
+"district 99",
+null,
+null,
+3.65908e-05,
+3.65908e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-lower-VA-100",
+"data/state-lower/2023/VA.json",
+"district 100",
+null,
+null,
+3.67482e-05,
+3.67482e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-1",
+"data/state-lower/2025/VA.json",
+"district 1",
+null,
+null,
+1.13814e-05,
+1.13814e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-2",
+"data/state-lower/2025/VA.json",
+"district 2",
+null,
+null,
+1.42833e-05,
+1.42833e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-3",
+"data/state-lower/2025/VA.json",
+"district 3",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-4",
+"data/state-lower/2025/VA.json",
+"district 4",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-5",
+"data/state-lower/2025/VA.json",
+"district 5",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-6",
+"data/state-lower/2025/VA.json",
+"district 6",
+null,
+null,
+2.65602e-05,
+2.65602e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-7",
+"data/state-lower/2025/VA.json",
+"district 7",
+null,
+null,
+6.53403e-07,
+6.53403e-07,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-8",
+"data/state-lower/2025/VA.json",
+"district 8",
+null,
+null,
+4.31382e-06,
+4.31382e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-9",
+"data/state-lower/2025/VA.json",
+"district 9",
+null,
+null,
+1.78392e-05,
+1.78392e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-10",
+"data/state-lower/2025/VA.json",
+"district 10",
+null,
+null,
+2.19573e-05,
+2.19573e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-11",
+"data/state-lower/2025/VA.json",
+"district 11",
+null,
+null,
+1.88257e-06,
+1.88257e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-12",
+"data/state-lower/2025/VA.json",
+"district 12",
+null,
+null,
+1.40964e-05,
+1.40964e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-13",
+"data/state-lower/2025/VA.json",
+"district 13",
+null,
+null,
+1.53471e-05,
+1.53471e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-14",
+"data/state-lower/2025/VA.json",
+"district 14",
+null,
+null,
+4.40562e-06,
+4.40562e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-15",
+"data/state-lower/2025/VA.json",
+"district 15",
+null,
+null,
+1.24694e-05,
+1.24694e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-16",
+"data/state-lower/2025/VA.json",
+"district 16",
+null,
+null,
+1.55561e-05,
+1.55561e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-17",
+"data/state-lower/2025/VA.json",
+"district 17",
+null,
+null,
+1.42222e-05,
+1.42222e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-18",
+"data/state-lower/2025/VA.json",
+"district 18",
+null,
+null,
+6.55771e-06,
+6.55771e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-19",
+"data/state-lower/2025/VA.json",
+"district 19",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-20",
+"data/state-lower/2025/VA.json",
+"district 20",
+null,
+null,
+6.56098e-05,
+6.56098e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-21",
+"data/state-lower/2025/VA.json",
+"district 21",
+null,
+null,
+6.54426e-05,
+6.54426e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-22",
+"data/state-lower/2025/VA.json",
+"district 22",
+null,
+null,
+6.24721e-05,
+6.24721e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-23",
+"data/state-lower/2025/VA.json",
+"district 23",
+null,
+null,
+7.14756e-06,
+7.14756e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-24",
+"data/state-lower/2025/VA.json",
+"district 24",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-25",
+"data/state-lower/2025/VA.json",
+"district 25",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 10% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 10% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-26",
+"data/state-lower/2025/VA.json",
+"district 26",
+null,
+null,
+4.36671e-05,
+4.36671e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-27",
+"data/state-lower/2025/VA.json",
+"district 27",
+null,
+null,
+4.05354e-05,
+4.05354e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-28",
+"data/state-lower/2025/VA.json",
+"district 28",
+null,
+null,
+1.57797e-05,
+1.57797e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-29",
+"data/state-lower/2025/VA.json",
+"district 29",
+null,
+null,
+3.23075e-05,
+3.23075e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-30",
+"data/state-lower/2025/VA.json",
+"district 30",
+null,
+null,
+4.93358e-05,
+4.93358e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-31",
+"data/state-lower/2025/VA.json",
+"district 31",
+null,
+null,
+1.58384e-05,
+1.58384e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-32",
+"data/state-lower/2025/VA.json",
+"district 32",
+null,
+null,
+2.72549e-05,
+2.72549e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-33",
+"data/state-lower/2025/VA.json",
+"district 33",
+null,
+null,
+1.51846e-06,
+1.51846e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-34",
+"data/state-lower/2025/VA.json",
+"district 34",
+null,
+null,
+5.32248e-05,
+5.32248e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-35",
+"data/state-lower/2025/VA.json",
+"district 35",
+null,
+null,
+1.92344e-05,
+1.92344e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-36",
+"data/state-lower/2025/VA.json",
+"district 36",
+null,
+null,
+2.74952e-05,
+2.74952e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-37",
+"data/state-lower/2025/VA.json",
+"district 37",
+null,
+null,
+4.27844e-06,
+4.27844e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-38",
+"data/state-lower/2025/VA.json",
+"district 38",
+null,
+null,
+6.90606e-06,
+6.90606e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-39",
+"data/state-lower/2025/VA.json",
+"district 39",
+null,
+null,
+2.0159e-05,
+2.0159e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-40",
+"data/state-lower/2025/VA.json",
+"district 40",
+null,
+null,
+2.87139e-05,
+2.87139e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-41",
+"data/state-lower/2025/VA.json",
+"district 41",
+null,
+null,
+7.71829e-05,
+7.71829e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-42",
+"data/state-lower/2025/VA.json",
+"district 42",
+null,
+null,
+2.21051e-05,
+2.21051e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-43",
+"data/state-lower/2025/VA.json",
+"district 43",
+null,
+null,
+2.79631e-05,
+2.79631e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-44",
+"data/state-lower/2025/VA.json",
+"district 44",
+null,
+null,
+2.29481e-05,
+2.29481e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-45",
+"data/state-lower/2025/VA.json",
+"district 45",
+null,
+null,
+2.83644e-05,
+2.83644e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-46",
+"data/state-lower/2025/VA.json",
+"district 46",
+null,
+null,
+4.22847e-05,
+4.22847e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-47",
+"data/state-lower/2025/VA.json",
+"district 47",
+null,
+null,
+5.10691e-07,
+5.10691e-07,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-48",
+"data/state-lower/2025/VA.json",
+"district 48",
+null,
+null,
+4.15553e-05,
+4.15553e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-49",
+"data/state-lower/2025/VA.json",
+"district 49",
+null,
+null,
+4.41533e-05,
+4.41533e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-50",
+"data/state-lower/2025/VA.json",
+"district 50",
+null,
+null,
+2.56961e-05,
+2.56961e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-51",
+"data/state-lower/2025/VA.json",
+"district 51",
+null,
+null,
+3.95593e-07,
+3.95593e-07,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-52",
+"data/state-lower/2025/VA.json",
+"district 52",
+null,
+null,
+6.39138e-05,
+6.39138e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-53",
+"data/state-lower/2025/VA.json",
+"district 53",
+null,
+null,
+2.63467e-06,
+2.63467e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-54",
+"data/state-lower/2025/VA.json",
+"district 54",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-55",
+"data/state-lower/2025/VA.json",
+"district 55",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-56",
+"data/state-lower/2025/VA.json",
+"district 56",
+null,
+null,
+1.74493e-05,
+1.74493e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-57",
+"data/state-lower/2025/VA.json",
+"district 57",
+null,
+null,
+5.71344e-05,
+5.71344e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-58",
+"data/state-lower/2025/VA.json",
+"district 58",
+null,
+null,
+4.08108e-05,
+4.08108e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-59",
+"data/state-lower/2025/VA.json",
+"district 59",
+null,
+null,
+4.66762e-05,
+4.66762e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-60",
+"data/state-lower/2025/VA.json",
+"district 60",
+null,
+null,
+5.07963e-06,
+5.07963e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-61",
+"data/state-lower/2025/VA.json",
+"district 61",
+null,
+null,
+9.75518e-06,
+9.75518e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-62",
+"data/state-lower/2025/VA.json",
+"district 62",
+null,
+null,
+4.00587e-05,
+4.00587e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-63",
+"data/state-lower/2025/VA.json",
+"district 63",
+null,
+null,
+1.89128e-05,
+1.89128e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-64",
+"data/state-lower/2025/VA.json",
+"district 64",
+null,
+null,
+5.33971e-05,
+5.33971e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-65",
+"data/state-lower/2025/VA.json",
+"district 65",
+null,
+null,
+2.63457e-05,
+2.63457e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-66",
+"data/state-lower/2025/VA.json",
+"district 66",
+null,
+null,
+6.81289e-05,
+6.81289e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-67",
+"data/state-lower/2025/VA.json",
+"district 67",
+null,
+null,
+8.41906e-06,
+8.41906e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-68",
+"data/state-lower/2025/VA.json",
+"district 68",
+null,
+null,
+1.7435e-05,
+1.7435e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-69",
+"data/state-lower/2025/VA.json",
+"district 69",
+null,
+null,
+1.92349e-05,
+1.92349e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-70",
+"data/state-lower/2025/VA.json",
+"district 70",
+null,
+null,
+3.26894e-05,
+3.26894e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-71",
+"data/state-lower/2025/VA.json",
+"district 71",
+null,
+null,
+5.55252e-05,
+5.55252e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-72",
+"data/state-lower/2025/VA.json",
+"district 72",
+null,
+null,
+2.53817e-05,
+2.53817e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-73",
+"data/state-lower/2025/VA.json",
+"district 73",
+null,
+null,
+3.86968e-05,
+3.86968e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-74",
+"data/state-lower/2025/VA.json",
+"district 74",
+null,
+null,
+1.82606e-05,
+1.82606e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-75",
+"data/state-lower/2025/VA.json",
+"district 75",
+null,
+null,
+7.42089e-05,
+7.42089e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-76",
+"data/state-lower/2025/VA.json",
+"district 76",
+null,
+null,
+9.98271e-06,
+9.98271e-06,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-77",
+"data/state-lower/2025/VA.json",
+"district 77",
+null,
+null,
+1.56371e-05,
+1.56371e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-78",
+"data/state-lower/2025/VA.json",
+"district 78",
+null,
+null,
+1.0613e-05,
+1.0613e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-79",
+"data/state-lower/2025/VA.json",
+"district 79",
+null,
+null,
+1.56443e-05,
+1.56443e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-80",
+"data/state-lower/2025/VA.json",
+"district 80",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-81",
+"data/state-lower/2025/VA.json",
+"district 81",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-82",
+"data/state-lower/2025/VA.json",
+"district 82",
+null,
+null,
+7.5126e-05,
+7.5126e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-83",
+"data/state-lower/2025/VA.json",
+"district 83",
+null,
+null,
+3.41233e-05,
+3.41233e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-84",
+"data/state-lower/2025/VA.json",
+"district 84",
+null,
+null,
+4.80023e-05,
+4.80023e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-85",
+"data/state-lower/2025/VA.json",
+"district 85",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-86",
+"data/state-lower/2025/VA.json",
+"district 86",
+null,
+null,
+5.093e-05,
+5.093e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-87",
+"data/state-lower/2025/VA.json",
+"district 87",
+null,
+null,
+4.21245e-07,
+4.21245e-07,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-88",
+"data/state-lower/2025/VA.json",
+"district 88",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-89",
+"data/state-lower/2025/VA.json",
+"district 89",
+null,
+null,
+7.38341e-05,
+7.38341e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-90",
+"data/state-lower/2025/VA.json",
+"district 90",
+null,
+null,
+3.19604e-05,
+3.19604e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-91",
+"data/state-lower/2025/VA.json",
+"district 91",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-92",
+"data/state-lower/2025/VA.json",
+"district 92",
+null,
+null,
+4.64918e-07,
+4.64918e-07,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-93",
+"data/state-lower/2025/VA.json",
+"district 93",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-94",
+"data/state-lower/2025/VA.json",
+"district 94",
+null,
+null,
+7.35125e-05,
+7.35125e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-95",
+"data/state-lower/2025/VA.json",
+"district 95",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-96",
+"data/state-lower/2025/VA.json",
+"district 96",
+null,
+null,
+4.15722e-05,
+4.15722e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-97",
+"data/state-lower/2025/VA.json",
+"district 97",
+null,
+null,
+6.41286e-05,
+6.41286e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-98",
+"data/state-lower/2025/VA.json",
+"district 98",
+null,
+null,
+2.03197e-05,
+2.03197e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-99",
+"data/state-lower/2025/VA.json",
+"district 99",
+null,
+null,
+4.11277e-05,
+4.11277e-05,
+null,
+[
+"O"
+]
+],
+[
+"2025-state-lower-VA-100",
+"data/state-lower/2025/VA.json",
+"district 100",
+null,
+null,
+3.14212e-05,
+3.14212e-05,
+null,
+[
+"O"
+]
+],
+[
+"2018-state-upper-VT-Chittenden",
+"data/state-upper/2018/VT.json",
+"district Chittenden",
+null,
+null,
+2.33414e-05,
+8.14492e-05,
+3.4895,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-upper-ID-1",
+"data/state-upper/2022/ID.json",
+"district 1",
+null,
+null,
+0.0,
+"one name on the ballot for each seat, but a write-in candidate received 69% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"L",
+"Q"
+]
+],
+[
+"2023-state-upper-VA-1",
+"data/state-upper/2023/VA.json",
+"district 1",
+null,
+null,
+2.84915e-05,
+2.84915e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-2",
+"data/state-upper/2023/VA.json",
+"district 2",
+null,
+null,
+1.37731e-05,
+1.37731e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-3",
+"data/state-upper/2023/VA.json",
+"district 3",
+null,
+null,
+2.66989e-05,
+2.66989e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-4",
+"data/state-upper/2023/VA.json",
+"district 4",
+null,
+null,
+1.28429e-05,
+1.28429e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-5",
+"data/state-upper/2023/VA.json",
+"district 5",
+null,
+null,
+3.06652e-05,
+3.06652e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-6",
+"data/state-upper/2023/VA.json",
+"district 6",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-7",
+"data/state-upper/2023/VA.json",
+"district 7",
+null,
+null,
+2.94095e-05,
+2.94095e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-8",
+"data/state-upper/2023/VA.json",
+"district 8",
+null,
+null,
+1.30022e-05,
+1.30022e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-9",
+"data/state-upper/2023/VA.json",
+"district 9",
+null,
+null,
+"held by the gate: its locality lines count 76 votes for Trudy Berry (in Lunenburg County), whom its statewide count does not hold",
+"held by the gate: its locality lines count 76 votes for Trudy Berry (in Lunenburg County), whom its statewide count does not hold",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-10",
+"data/state-upper/2023/VA.json",
+"district 10",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-11",
+"data/state-upper/2023/VA.json",
+"district 11",
+null,
+null,
+1.73486e-05,
+1.73486e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-12",
+"data/state-upper/2023/VA.json",
+"district 12",
+null,
+null,
+2.06053e-05,
+2.06053e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-13",
+"data/state-upper/2023/VA.json",
+"district 13",
+null,
+null,
+2.82932e-05,
+2.82932e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-14",
+"data/state-upper/2023/VA.json",
+"district 14",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-15",
+"data/state-upper/2023/VA.json",
+"district 15",
+null,
+null,
+3.14276e-05,
+3.14276e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-16",
+"data/state-upper/2023/VA.json",
+"district 16",
+null,
+null,
+9.45688e-06,
+9.45688e-06,
+null,
+[
+"Q"
+]
+],
+[
+"2023-state-upper-VA-17",
+"data/state-upper/2023/VA.json",
+"district 17",
+null,
+null,
+2.20864e-05,
+2.20864e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-18",
+"data/state-upper/2023/VA.json",
+"district 18",
+null,
+null,
+2.6505e-05,
+2.6505e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-19",
+"data/state-upper/2023/VA.json",
+"district 19",
+null,
+null,
+2.77366e-05,
+2.77366e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-20",
+"data/state-upper/2023/VA.json",
+"district 20",
+null,
+null,
+2.61279e-05,
+2.61279e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-21",
+"data/state-upper/2023/VA.json",
+"district 21",
+null,
+null,
+4.72558e-06,
+4.72558e-06,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-22",
+"data/state-upper/2023/VA.json",
+"district 22",
+null,
+null,
+3.08079e-05,
+3.08079e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-23",
+"data/state-upper/2023/VA.json",
+"district 23",
+null,
+null,
+"one name on the ballot for each seat, but write-ins received 11% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 11% of the last winner's votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-24",
+"data/state-upper/2023/VA.json",
+"district 24",
+null,
+null,
+1.91336e-05,
+1.91336e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-25",
+"data/state-upper/2023/VA.json",
+"district 25",
+null,
+null,
+1.12219e-05,
+1.12219e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-26",
+"data/state-upper/2023/VA.json",
+"district 26",
+null,
+null,
+8.43529e-06,
+8.43529e-06,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-27",
+"data/state-upper/2023/VA.json",
+"district 27",
+null,
+null,
+2.4959e-05,
+2.4959e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-28",
+"data/state-upper/2023/VA.json",
+"district 28",
+null,
+null,
+1.11875e-05,
+1.11875e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2023-state-upper-VA-29",
+"data/state-upper/2023/VA.json",
+"district 29",
+null,
+null,
+2.44774e-05,
+2.44774e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-30",
+"data/state-upper/2023/VA.json",
+"district 30",
+null,
+null,
+2.85148e-05,
+2.85148e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-31",
+"data/state-upper/2023/VA.json",
+"district 31",
+null,
+null,
+1.89094e-05,
+1.89094e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-32",
+"data/state-upper/2023/VA.json",
+"district 32",
+null,
+null,
+2.78547e-05,
+2.78547e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-33",
+"data/state-upper/2023/VA.json",
+"district 33",
+null,
+null,
+3.01637e-05,
+3.01637e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-34",
+"data/state-upper/2023/VA.json",
+"district 34",
+null,
+null,
+2.35724e-05,
+2.35724e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-35",
+"data/state-upper/2023/VA.json",
+"district 35",
+null,
+null,
+2.21167e-05,
+2.21167e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-36",
+"data/state-upper/2023/VA.json",
+"district 36",
+null,
+null,
+2.77951e-05,
+2.77951e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-37",
+"data/state-upper/2023/VA.json",
+"district 37",
+null,
+null,
+2.82098e-05,
+2.82098e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-38",
+"data/state-upper/2023/VA.json",
+"district 38",
+null,
+null,
+1.85306e-05,
+1.85306e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-39",
+"data/state-upper/2023/VA.json",
+"district 39",
+null,
+null,
+2.48263e-05,
+2.48263e-05,
+null,
+[
+"O"
+]
+],
+[
+"2023-state-upper-VA-40",
+"data/state-upper/2023/VA.json",
+"district 40",
+null,
+null,
+2.1711e-05,
+2.1711e-05,
+null,
+[
+"O"
+]
+]
+]
+}
