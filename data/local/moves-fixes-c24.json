@@ -1,11 +1,12 @@
 {
-"about": "every contest whose office type, p or presence changed in the three fixes from M2's check of #73 (check c24; the orchestrator, 2026-11-07 13:54: 'Put it back in data/state-lower/2018/VA.json, as a special, with its old fields. No contest should drop out of the record.' and 'A superintendent is one executive seat, not a board. Type them as officers and list the moves.'). A school superintendent's office (SUPERINTENDENT, SUPT or SUPER. OF PUBLIC INSTRUCTION, with SCHOOL, EDUCATION or INSTRUCTION in the office's words) is typed 'clerk, treasurer or other county officer', not 'school board' (pipeline/local_medsl.py, OFFICE_TYPES); a water superintendent stays a special district. 'T': the type corrected, p unchanged; 'T+P': the type corrected and p moved; 'P': p moved, the type unchanged, the like races of its class or of the fit's pool changed; 'R': p not computed before or after, the count of like races its reason gives changed; 'added': back in the record. Columns: id, office, type before, type after, p before, p after, code. No p became computed or uncomputed. data/local/REPORT.md section 15. Written by worker D3 at 2026-11-07 14:15 UTC.",
+"about": "every contest whose office type, p or presence changed in the three fixes from M2's check of #73 (check c24; the orchestrator, 2026-11-07 13:54: 'Put it back in data/state-lower/2018/VA.json, as a special, with its old fields. No contest should drop out of the record.' and 'A superintendent is one executive seat, not a board. Type them as officers and list the moves.'). A school superintendent's office (SUPERINTENDENT, SUPT or SUPER. OF PUBLIC INSTRUCTION, with SCHOOL, EDUCATION or INSTRUCTION in the office's words) is typed 'clerk, treasurer or other county officer', not 'school board' (pipeline/local_medsl.py, OFFICE_TYPES); a water superintendent stays a special district. 'T': the type corrected, p unchanged; 'T+P': the type corrected and p moved; 'P': p moved, the type unchanged, the like races of its class or of the fit's pool changed; 'C': p unchanged and the type unchanged, only the p block's not-of-record factor moved (calibration_not_of_record, 0.7951 to 0.791), recoded from 'P' at 2026-11-07 15:56 UTC after M2's check c29 \u00a729.1 found that 854 of the 1,720 rows first coded 'P' have p before equal to p after; 'R': p not computed before or after, the count of like races its reason gives changed; 'added': back in the record. Columns: id, office, type before, type after, p before, p after, code. No p became computed or uncomputed. data/local/REPORT.md section 15. Written by worker D3 at 2026-11-07 14:15 UTC.",
 "before_commit": "1a6d752",
 "after_code_commits": [
 "9bce8d2"
 ],
 "counts": {
-"local P: p moved, the type unchanged, the like races of its class or of the fit's pool changed": 1720,
+"local P: p moved, the type unchanged, the like races of its class or of the fit's pool changed": 866,
+"local C: p unchanged, the type unchanged, only the p block's not-of-record factor moved (calibration_not_of_record, 0.7951 to 0.791)": 854,
 "local R: p not computed before or after, the count of like races its reason gives changed": 165,
 "local T+P: a superintendent typed as an officer, p moved": 1,
 "local T: a superintendent typed as an officer, p unchanged": 175,
@@ -3835,7 +3836,7 @@ null,
 "school board",
 0.00147491,
 0.00147491,
-"P"
+"C"
 ],
 [
 "2022-local-NC-ALEXANDER_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-county_37003",
@@ -3844,7 +3845,7 @@ null,
 "school board",
 0.0015307,
 0.0015307,
-"P"
+"C"
 ],
 [
 "2022-local-NC-BEAUFORT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_08-county_37013",
@@ -3898,7 +3899,7 @@ null,
 "school board",
 0.000182292,
 0.000182292,
-"P"
+"C"
 ],
 [
 "2022-local-NC-CHARLOTTE_MECKLENBURG_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_02-county_37119",
@@ -3907,7 +3908,7 @@ null,
 "school board",
 0.00014933,
 0.00014933,
-"P"
+"C"
 ],
 [
 "2022-local-NC-CHARLOTTE_MECKLENBURG_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_03-county_37119",
@@ -3925,7 +3926,7 @@ null,
 "school board",
 0.000136025,
 0.000136025,
-"P"
+"C"
 ],
 [
 "2022-local-NC-CHARLOTTE_MECKLENBURG_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_05-county_37119",
@@ -3943,7 +3944,7 @@ null,
 "school board",
 0.000117993,
 0.000117993,
-"P"
+"C"
 ],
 [
 "2022-local-NC-CHATHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-county_37037",
@@ -3952,7 +3953,7 @@ null,
 "school board",
 0.000145469,
 0.000145469,
-"P"
+"C"
 ],
 [
 "2022-local-NC-CHATHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-county_37037",
@@ -3979,7 +3980,7 @@ null,
 "mayor or executive",
 4.18073e-05,
 4.18073e-05,
-"P"
+"C"
 ],
 [
 "2022-local-NC-CITY_OF_MOUNT_AIRY_MAYOR-county_37171",
@@ -3988,7 +3989,7 @@ null,
 "mayor or executive",
 0.000472534,
 0.000472534,
-"P"
+"C"
 ],
 [
 "2022-local-NC-COLUMBUS_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_02-county_37047",
@@ -4006,7 +4007,7 @@ null,
 "school board",
 0.000425044,
 0.000425044,
-"P"
+"C"
 ],
 [
 "2022-local-NC-CURRITUCK_COUNTY_BOARD_OF_EDUCATION_AT_LARGE-county_37053",
@@ -4015,7 +4016,7 @@ null,
 "school board",
 0.000945698,
 0.000945698,
-"P"
+"C"
 ],
 [
 "2022-local-NC-CURRITUCK_COUNTY_BOARD_OF_EDUCATION_CRAWFORD_TWP-county_37053",
@@ -4114,7 +4115,7 @@ null,
 "school board",
 0.000151052,
 0.000151052,
-"P"
+"C"
 ],
 [
 "2022-local-NC-GATES_COUNTY_CLERK_OF_SUPERIOR_COURT-county_37073",
@@ -4159,7 +4160,7 @@ null,
 "school board",
 0.000772841,
 0.000772841,
-"P"
+"C"
 ],
 [
 "2022-local-NC-MACON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-county_37113",
@@ -4195,7 +4196,7 @@ null,
 "school board",
 0.00489488,
 0.00489488,
-"P"
+"C"
 ],
 [
 "2022-local-NC-MARTIN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06-county_37117",
@@ -4204,7 +4205,7 @@ null,
 "school board",
 0.00353924,
 0.00353924,
-"P"
+"C"
 ],
 [
 "2022-local-NC-MCDOWELL_COUNTY_BOARD_OF_EDUCATION_GLENWOOD_DISTRICT-county_37111",
@@ -4213,7 +4214,7 @@ null,
 "school board",
 0.000455914,
 0.000455914,
-"P"
+"C"
 ],
 [
 "2022-local-NC-MCDOWELL_COUNTY_BOARD_OF_EDUCATION_MARION_DISTRICT-county_37111",
@@ -4294,7 +4295,7 @@ null,
 "school board",
 0.00149384,
 0.00149384,
-"P"
+"C"
 ],
 [
 "2022-local-NC-NASH_COUNTY_PUBLIC_SCHOOLS_BOARD_OF_EDUCATION_DIST_06-county_37127",
@@ -4312,7 +4313,7 @@ null,
 "school board",
 0.00224861,
 0.00224861,
-"P"
+"C"
 ],
 [
 "2022-local-NC-PITT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-county_37147",
@@ -4321,7 +4322,7 @@ null,
 "school board",
 0.00146317,
 0.00146317,
-"P"
+"C"
 ],
 [
 "2022-local-NC-PITT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-county_37147",
@@ -4339,7 +4340,7 @@ null,
 "school board",
 0.00083823,
 0.00083823,
-"P"
+"C"
 ],
 [
 "2022-local-NC-PITT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07-county_37147",
@@ -4366,7 +4367,7 @@ null,
 "school board",
 0.00117685,
 0.00117685,
-"P"
+"C"
 ],
 [
 "2022-local-NC-POLK_COUNTY_BOARD_OF_EDUCATION_SALUDA_TWP__UNEXPIRED-county_37149",
@@ -4375,7 +4376,7 @@ null,
 "school board",
 0.000907567,
 0.000907567,
-"P"
+"C"
 ],
 [
 "2022-local-NC-POLK_COUNTY_BOARD_OF_EDUCATION_TRYON_TWP-county_37149",
@@ -4411,7 +4412,7 @@ null,
 "school board",
 0.000143516,
 0.000143516,
-"P"
+"C"
 ],
 [
 "2022-local-NC-ROWAN_SALISBURY_SCHOOLS_BD_OF_EDUCATION_SEAT_02__SOUTH-county_37159",
@@ -4429,7 +4430,7 @@ null,
 "school board",
 0.00014297,
 0.00014297,
-"P"
+"C"
 ],
 [
 "2022-local-NC-ROWAN_SALISBURY_SCHOOLS_BD_OF_EDUCATION_SEAT_06__SPECIAL-county_37159",
@@ -4447,7 +4448,7 @@ null,
 "school board",
 0.000167446,
 0.000167446,
-"P"
+"C"
 ],
 [
 "2022-local-NC-RUTHERFORD_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-county_37161",
@@ -4474,7 +4475,7 @@ null,
 "mayor or executive",
 0.000399694,
 0.000399694,
-"P"
+"C"
 ],
 [
 "2022-local-NC-TOWN_OF_DOVER_MAYOR-county_37049",
@@ -4483,7 +4484,7 @@ null,
 "mayor or executive",
 0.00919727,
 0.00919727,
-"P"
+"C"
 ],
 [
 "2022-local-NC-TOWN_OF_EAST_BEND_MAYOR-county_37197",
@@ -4492,7 +4493,7 @@ null,
 "mayor or executive",
 0.00786311,
 0.00786311,
-"P"
+"C"
 ],
 [
 "2022-local-NC-TOWN_OF_NEW_LONDON_MAYOR-county_37167",
@@ -4501,7 +4502,7 @@ null,
 "mayor or executive",
 0.0054069,
 0.0054069,
-"P"
+"C"
 ],
 [
 "2022-local-NC-VANCE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-county_37181",
@@ -4528,7 +4529,7 @@ null,
 "school board",
 0.000121313,
 0.000121313,
-"P"
+"C"
 ],
 [
 "2022-local-NC-WAKE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-county_37183",
@@ -4537,7 +4538,7 @@ null,
 "school board",
 0.00010039,
 0.00010039,
-"P"
+"C"
 ],
 [
 "2022-local-NC-WAKE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-county_37183",
@@ -4546,7 +4547,7 @@ null,
 "school board",
 0.000217935,
 0.000217935,
-"P"
+"C"
 ],
 [
 "2022-local-NC-WAKE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-county_37183",
@@ -4555,7 +4556,7 @@ null,
 "school board",
 0.000179597,
 0.000179597,
-"P"
+"C"
 ],
 [
 "2022-local-NC-WAKE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06-county_37183",
@@ -4564,7 +4565,7 @@ null,
 "school board",
 0.000214989,
 0.000214989,
-"P"
+"C"
 ],
 [
 "2022-local-NC-WAKE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07-county_37183",
@@ -4573,7 +4574,7 @@ null,
 "school board",
 0.000140618,
 0.000140618,
-"P"
+"C"
 ],
 [
 "2022-local-NC-WAKE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_08-county_37183",
@@ -4591,7 +4592,7 @@ null,
 "school board",
 0.000102031,
 0.000102031,
-"P"
+"C"
 ],
 [
 "2022-local-NC-WAYNE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-county_37191",
@@ -4627,7 +4628,7 @@ null,
 "school board",
 0.00126277,
 0.00126277,
-"P"
+"C"
 ],
 [
 "2022-local-NC-WHITEVILLE_CITY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_01-county_37047",
@@ -4969,7 +4970,7 @@ null,
 "judge",
 2.44804e-05,
 2.44804e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AR-CITY_OF_BENTONVILLE_MAYOR-county_05007",
@@ -4978,7 +4979,7 @@ null,
 "mayor or executive",
 7.65196e-05,
 7.65196e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AR-CITY_OF_CLARKEDALE_CITY_CLERK-county_05035",
@@ -5014,7 +5015,7 @@ null,
 "mayor or executive",
 0.0220037,
 0.0220037,
-"P"
+"C"
 ],
 [
 "2024-local-AR-CITY_OF_HASKELL_RECORDER_TREASURER-county_05125",
@@ -5086,7 +5087,7 @@ null,
 "mayor or executive",
 6.59606e-05,
 6.59606e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AR-CITY_OF_STAMPS_RECORDER_TREASURER-county_05073",
@@ -5113,7 +5114,7 @@ null,
 "judge",
 1.44387e-05,
 1.44387e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AR-DISTRICT_JUDGE-038",
@@ -5122,7 +5123,7 @@ null,
 "judge",
 0.000314155,
 0.000314155,
-"P"
+"C"
 ],
 [
 "2024-local-AR-DISTRICT_JUDGE-DISTRICT_9_DIVISION_2",
@@ -5131,7 +5132,7 @@ null,
 "judge",
 4.78257e-05,
 4.78257e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AR-JUSTICE_OF_THE_PEACE-001_county_05143",
@@ -5140,7 +5141,7 @@ null,
 "judge",
 0.000131544,
 0.000131544,
-"P"
+"C"
 ],
 [
 "2024-local-AR-JUSTICE_OF_THE_PEACE-002_county_05143",
@@ -5149,7 +5150,7 @@ null,
 "judge",
 0.00021016,
 0.00021016,
-"P"
+"C"
 ],
 [
 "2024-local-AR-JUSTICE_OF_THE_PEACE-004_county_05143",
@@ -5158,7 +5159,7 @@ null,
 "judge",
 0.000502263,
 0.000502263,
-"P"
+"C"
 ],
 [
 "2024-local-AR-JUSTICE_OF_THE_PEACE-006_county_05143",
@@ -5167,7 +5168,7 @@ null,
 "judge",
 0.000260076,
 0.000260076,
-"P"
+"C"
 ],
 [
 "2024-local-AR-JUSTICE_OF_THE_PEACE-007_county_05143",
@@ -5176,7 +5177,7 @@ null,
 "judge",
 0.000143421,
 0.000143421,
-"P"
+"C"
 ],
 [
 "2024-local-AR-JUSTICE_OF_THE_PEACE-010_county_05143",
@@ -5185,7 +5186,7 @@ null,
 "judge",
 0.000143184,
 0.000143184,
-"P"
+"C"
 ],
 [
 "2024-local-AR-JUSTICE_OF_THE_PEACE-014_county_05143",
@@ -5194,7 +5195,7 @@ null,
 "judge",
 0.000137798,
 0.000137798,
-"P"
+"C"
 ],
 [
 "2024-local-AR-JUSTICE_OF_THE_PEACE-015_county_05143",
@@ -5203,7 +5204,7 @@ null,
 "judge",
 0.000137193,
 0.000137193,
-"P"
+"C"
 ],
 [
 "2024-local-AR-NWACC_BOARD_OF_TRUSTEES-006_county_05007",
@@ -5239,7 +5240,7 @@ null,
 "judge",
 2.59813e-06,
 2.59813e-06,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-APACHE_SCHOOL_SUPERINTENDENT-county_04001",
@@ -5257,7 +5258,7 @@ null,
 "school board",
 0.00739011,
 0.00739011,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_AGUA_FRIA_UHSD__216-county_04013",
@@ -5266,7 +5267,7 @@ null,
 "school board",
 7.47872e-05,
 7.47872e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_AVONDALE_ESD__44-county_04013",
@@ -5275,7 +5276,7 @@ null,
 "school board",
 0.00030835,
 0.00030835,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_AZ_WEST__COLLEGE-004_county_04027",
@@ -5293,7 +5294,7 @@ null,
 "school board",
 0.000721876,
 0.000721876,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_BUCKEYE_UHSD__201-county_04013",
@@ -5302,7 +5303,7 @@ null,
 "school board",
 0.000132486,
 0.000132486,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_CARTWRIGHT_ESD__83-county_04013",
@@ -5311,7 +5312,7 @@ null,
 "school board",
 0.000313767,
 0.000313767,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_CAVE_CREEK_USD__93-county_04013",
@@ -5320,7 +5321,7 @@ null,
 "school board",
 0.000190492,
 0.000190492,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_CHANDLER_USD__80-county_04013",
@@ -5329,7 +5330,7 @@ null,
 "school board",
 4.98547e-05,
 4.98547e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_CREIGHTON_ESD__14-county_04013",
@@ -5338,7 +5339,7 @@ null,
 "school board",
 0.000323805,
 0.000323805,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_DEER_VALLEY_USD__97-county_04013",
@@ -5347,7 +5348,7 @@ null,
 "school board",
 6.53434e-05,
 6.53434e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_DYSART_USD__89-county_04013",
@@ -5356,7 +5357,7 @@ null,
 "school board",
 6.39803e-05,
 6.39803e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_FOUNTAIN_HILLS_USD__98-county_04013",
@@ -5365,7 +5366,7 @@ null,
 "school board",
 0.000280052,
 0.000280052,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_FOWLER_ESD__45-county_04013",
@@ -5383,7 +5384,7 @@ null,
 "school board",
 0.00693794,
 0.00693794,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_GILBERT_USD__41-county_04013",
@@ -5392,7 +5393,7 @@ null,
 "school board",
 7.02691e-05,
 7.02691e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_GLENDALE_ESD__40-county_04013",
@@ -5401,7 +5402,7 @@ null,
 "school board",
 0.000230862,
 0.000230862,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_GLENDALE_UHSD__205-county_04013",
@@ -5410,7 +5411,7 @@ null,
 "school board",
 6.29135e-05,
 6.29135e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_HIDDEN_VALLEY_FIRE_DISTRICT-county_04019",
@@ -5419,7 +5420,7 @@ null,
 "special district",
 0.00242747,
 0.00242747,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_HIGLEY_USD__60-county_04013",
@@ -5428,7 +5429,7 @@ null,
 "school board",
 0.000180429,
 0.000180429,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_ISAAC_ESD__5-county_04013",
@@ -5437,7 +5438,7 @@ null,
 "school board",
 0.000778889,
 0.000778889,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_KYRENE_ESD__28-county_04013",
@@ -5446,7 +5447,7 @@ null,
 "school board",
 6.70077e-05,
 6.70077e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_LAVEEN_ESD__59-county_04013",
@@ -5455,7 +5456,7 @@ null,
 "school board",
 0.000273229,
 0.000273229,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_LIBERTY_ESD__25-county_04013",
@@ -5464,7 +5465,7 @@ null,
 "school board",
 0.000291626,
 0.000291626,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_MESA_USD__4-county_04013",
@@ -5473,7 +5474,7 @@ null,
 "school board",
 3.34924e-05,
 3.34924e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_MESCAL_J6_FIRE_DISTRICT-county_04019",
@@ -5482,7 +5483,7 @@ null,
 "special district",
 0.00683484,
 0.00683484,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_PARADISE_VALLEY_USD__69-county_04013",
@@ -5491,7 +5492,7 @@ null,
 "school board",
 5.53818e-05,
 5.53818e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_PEORIA_USD__11-county_04013",
@@ -5500,7 +5501,7 @@ null,
 "school board",
 5.80131e-05,
 5.80131e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_PHOENIX_UHSD__210-county_04013",
@@ -5509,7 +5510,7 @@ null,
 "school board",
 4.0871e-05,
 4.0871e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_QUEEN_CREEK_ESD__95-county_04013",
@@ -5518,7 +5519,7 @@ null,
 "school board",
 0.000143968,
 0.000143968,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_ROOSEVELT_ESD__66-county_04013",
@@ -5527,7 +5528,7 @@ null,
 "school board",
 0.000191771,
 0.000191771,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_SCOTTSDALE_USD__48-county_04013",
@@ -5536,7 +5537,7 @@ null,
 "school board",
 5.29011e-05,
 5.29011e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_TEMPE_ESD__3-county_04013",
@@ -5545,7 +5546,7 @@ null,
 "school board",
 0.000115101,
 0.000115101,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_TOLLESON_ESD__17-county_04013",
@@ -5554,7 +5555,7 @@ null,
 "school board",
 0.00180017,
 0.00180017,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_TOLLESON_UHSD__214-county_04013",
@@ -5563,7 +5564,7 @@ null,
 "school board",
 0.000103223,
 0.000103223,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_MEMBER_WASHINGTON_ESD__6-county_04013",
@@ -5572,7 +5573,7 @@ null,
 "school board",
 7.4963e-05,
 7.4963e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-BOARD_OF_GOVERNORS___PIMA_COMMUNITY_COLLEGE-3_county_04019",
@@ -5635,7 +5636,7 @@ null,
 "sheriff or constable",
 1.45878e-05,
 1.45878e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-CONSTABLE-008_county_04019",
@@ -5644,7 +5645,7 @@ null,
 "sheriff or constable",
 1.65797e-05,
 1.65797e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-EASTERN_AZ_COLLEGE_BOARD_MEMBER_DIST_4-4_county_04009",
@@ -5653,7 +5654,7 @@ null,
 "school board",
 0.00178678,
 0.00178678,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-EASTERN_AZ_COLLEGE_BOARD_MEMBER_DIST_5-5_county_04009",
@@ -5662,7 +5663,7 @@ null,
 "school board",
 0.00214124,
 0.00214124,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-FLAGSTAFF_USD__1_GOVERNING_BOARD_MEMBER-county_04005",
@@ -5671,7 +5672,7 @@ null,
 "school board",
 0.000174013,
 0.000174013,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-FREDONIA_MOCCASIN_USD__6_GOVERNING_BOARD_MEMBER-county_04005",
@@ -5698,7 +5699,7 @@ null,
 "school board",
 0.00182291,
 0.00182291,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GOVERNING_BOARD___CATALINA_FOOTHILLS_UNIFIED_SCHOOL_DISTRICT-county_04019",
@@ -5707,7 +5708,7 @@ null,
 "school board",
 0.000272867,
 0.000272867,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GOVERNING_BOARD___FLOWING_WELLS_UNIFIED_SCHOOL_DISTRICT_NO__-county_04019",
@@ -5716,7 +5717,7 @@ null,
 "school board",
 0.000541051,
 0.000541051,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GOVERNING_BOARD___MARANA_UNIFIED_SCHOOL_DISTRICT_NO__6-county_04019",
@@ -5725,7 +5726,7 @@ null,
 "school board",
 0.000116725,
 0.000116725,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GOVERNING_BOARD___SAHUARITA_UNIFIED_SCHOOL_DISTRICT_NO__30-county_04019",
@@ -5734,7 +5735,7 @@ null,
 "school board",
 0.000429706,
 0.000429706,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GOVERNING_BOARD___TANQUE_VERDE_UNIFIED_SCHOOL_DISTRICT_NO__1-county_04019",
@@ -5743,7 +5744,7 @@ null,
 "school board",
 0.000684613,
 0.000684613,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GOVERNING_BOARD___TUCSON_UNIFIED_SCHOOL_DISTRICT__TUSD__NO__-county_04019",
@@ -5752,7 +5753,7 @@ null,
 "school board",
 2.93957e-05,
 2.93957e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GOVERNING_BOARD___VAIL_UNIFIED_SCHOOL_DISTRICT_NO__20-county_04019",
@@ -5761,7 +5762,7 @@ null,
 "school board",
 0.000148066,
 0.000148066,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GRAHAM_SCHOOL_SUPERINTENDENT-county_04009",
@@ -5779,7 +5780,7 @@ null,
 "school board",
 0.00515283,
 0.00515283,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-GREENLEE_COUNTY_SCHOOL_SUPERINTENDENT-county_04011",
@@ -5824,7 +5825,7 @@ null,
 "mayor or executive",
 0.0001029,
 0.0001029,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-MAYOR_CITY_OF_MESA-county_04013",
@@ -5833,7 +5834,7 @@ null,
 "mayor or executive",
 8.26841e-06,
 8.26841e-06,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-MAYOR_CITY_OF_PARADISE_VALLEY-county_04013",
@@ -5842,7 +5843,7 @@ null,
 "mayor or executive",
 0.000207341,
 0.000207341,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-MAYOR_CITY_OF_PHOENIX-county_04013",
@@ -5851,7 +5852,7 @@ null,
 "mayor or executive",
 2.85855e-06,
 2.85855e-06,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-MAYOR_CITY_OF_SCOTTSDALE-county_04013",
@@ -5860,7 +5861,7 @@ null,
 "mayor or executive",
 1.2152e-05,
 1.2152e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-MAYOR_CITY_OF_WICKENBURG-county_04013",
@@ -5869,7 +5870,7 @@ null,
 "mayor or executive",
 0.00045401,
 0.00045401,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-MOHAVE_COUNTY_SCHOOL_SUPERINTENDENT-county_04015",
@@ -5896,7 +5897,7 @@ null,
 "school board",
 0.00108363,
 0.00108363,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-PIMA_COUNTY_RECORDER-county_04019",
@@ -5941,7 +5942,7 @@ null,
 "sheriff or constable",
 5.50392e-06,
 5.50392e-06,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-SANTA_CRUZ_COUNTY_SCHOOL_SUPERINTENDENT-001_county_04023",
@@ -5977,7 +5978,7 @@ null,
 "special district",
 0.0133275,
 0.0133275,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-SAN_SIMON_WATER_DISTRICT_BOARD_MEMBER-county_04003",
@@ -5986,7 +5987,7 @@ null,
 "special district",
 0.0230946,
 0.0230946,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-SUPERIOR_UNIFIED_SCHOOL_DISTRICT_BOARD_MEMBER_SUPERIOR_U-county_04021",
@@ -5995,7 +5996,7 @@ null,
 "school board",
 0.00354996,
 0.00354996,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-THATCHER_USD_4_BOARD_MEMBER_2YR-county_04009",
@@ -6013,7 +6014,7 @@ null,
 "mayor or executive",
 0.00375533,
 0.00375533,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-WICKENBURG_MAYOR_4YR-county_04025",
@@ -6022,7 +6023,7 @@ null,
 "mayor or executive",
 0.000572164,
 0.000572164,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-WILLIAMS_USD__2_GOVERNING_BOARD_MEMBER-county_04005",
@@ -6031,7 +6032,7 @@ null,
 "school board",
 0.00164883,
 0.00164883,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-YAVAPAI_COLLEGE_BOARD_MEMBER_6YR-1_county_04025",
@@ -6058,7 +6059,7 @@ null,
 "judge",
 1.05992e-05,
 1.05992e-05,
-"P"
+"C"
 ],
 [
 "2024-local-AZ-YUMA_COUNTY_SCHOOL_SUPERINTENDENT-county_04027",
@@ -6157,7 +6158,7 @@ null,
 "mayor or executive",
 7.77454e-05,
 7.77454e-05,
-"P"
+"C"
 ],
 [
 "2024-local-CA-TOWN_TREASURER-county_06061",
@@ -6175,7 +6176,7 @@ null,
 "special district",
 4.65265e-05,
 4.65265e-05,
-"P"
+"C"
 ],
 [
 "2024-local-CO-REGIONAL_TRANSPORTATION_DISTRICT_DIRECTOR-D_county_08005",
@@ -6184,7 +6185,7 @@ null,
 "special district",
 2.98339e-05,
 2.98339e-05,
-"P"
+"C"
 ],
 [
 "2024-local-CO-REGIONAL_TRANSPORTATION_DISTRICT_DIRECTOR-E_county_08005",
@@ -6193,7 +6194,7 @@ null,
 "special district",
 3.56066e-05,
 3.56066e-05,
-"P"
+"C"
 ],
 [
 "2024-local-CO-REGIONAL_TRANSPORTATION_DISTRICT_DIRECTOR-F_county_08005",
@@ -6202,7 +6203,7 @@ null,
 "special district",
 2.96176e-05,
 2.96176e-05,
-"P"
+"C"
 ],
 [
 "2024-local-CO-REGIONAL_TRANSPORTATION_DISTRICT_DIRECTOR-M_county_08059",
@@ -6211,7 +6212,7 @@ null,
 "special district",
 2.84011e-05,
 2.84011e-05,
-"P"
+"C"
 ],
 [
 "2024-local-DC-MEMBER_OF_THE_STATE_BOARD_OF_EDUCATION-county_11001~2",
@@ -6229,7 +6230,7 @@ null,
 "school board",
 0.000143455,
 0.000143455,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ANASTASIA_MOSQUITO_CONTROL_DISTRICT-SEAT_1_county_12109",
@@ -6238,7 +6239,7 @@ null,
 "special district",
 1.38134e-05,
 1.38134e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ANASTASIA_MOSQUITO_CONTROL_DISTRICT-SEAT_3_county_12109",
@@ -6247,7 +6248,7 @@ null,
 "special district",
 1.41724e-05,
 1.41724e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ANASTASIA_MOSQUITO_CONTROL_DISTRICT-SEAT_5_county_12109",
@@ -6256,7 +6257,7 @@ null,
 "special district",
 2.47537e-05,
 2.47537e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ANTHEM_PARK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12097",
@@ -6265,7 +6266,7 @@ null,
 "special district",
 0.00242033,
 0.00242033,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ANTHEM_PARK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12097",
@@ -6274,7 +6275,7 @@ null,
 "special district",
 0.00240314,
 0.00240314,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ARLINGTON_RIDGE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12069",
@@ -6283,7 +6284,7 @@ null,
 "special district",
 0.00141877,
 0.00141877,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ARLINGTON_RIDGE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12069",
@@ -6292,7 +6293,7 @@ null,
 "special district",
 0.00266338,
 0.00266338,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BARTRAM_SPRINGS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12031",
@@ -6301,7 +6302,7 @@ null,
 "special district",
 0.000857733,
 0.000857733,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BEACH_MOSQUITO_CONTROL_DISTRICT-SEAT_2_county_12005",
@@ -6310,7 +6311,7 @@ null,
 "special district",
 8.80881e-05,
 8.80881e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BEAUMONT_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12119",
@@ -6319,7 +6320,7 @@ null,
 "special district",
 0.0048028,
 0.0048028,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BEAUMONT_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12119",
@@ -6328,7 +6329,7 @@ null,
 "special district",
 0.0048487,
 0.0048487,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BEXLEY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12101",
@@ -6337,7 +6338,7 @@ null,
 "special district",
 0.00108686,
 0.00108686,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BEXLEY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12101",
@@ -6346,7 +6347,7 @@ null,
 "special district",
 0.00105742,
 0.00105742,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BLACKBURN_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12115",
@@ -6355,7 +6356,7 @@ null,
 "special district",
 0.00112855,
 0.00112855,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BOBCAT_TRAIL_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12115",
@@ -6364,7 +6365,7 @@ null,
 "special district",
 0.003466,
 0.003466,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BONITA_SPRINGS_FIRE_CONTROL_AND_RESCUE_DISTRICT-SEAT_2_county_12071",
@@ -6373,7 +6374,7 @@ null,
 "special district",
 0.00018143,
 0.00018143,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BREVARD_COUNTY_COURT_JUDGE-GROUP_6_county_12009",
@@ -6382,7 +6383,7 @@ null,
 "judge",
 3.92626e-06,
 3.92626e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BREVARD_SCHOOL_BOARD-4_county_12009",
@@ -6400,7 +6401,7 @@ null,
 "special district",
 0.00237229,
 0.00237229,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BROOKS_OF_BONITA_SPRINGS_II_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12071",
@@ -6409,7 +6410,7 @@ null,
 "special district",
 0.00200816,
 0.00200816,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BROWARD_COUNTY_COURT_JUDGE-GROUP_10_county_12011",
@@ -6418,7 +6419,7 @@ null,
 "judge",
 1.66206e-06,
 1.66206e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BROWARD_SOIL_AND_WATER_CONSERVATION_DISTRICT-GROUP_4_county_12011",
@@ -6427,7 +6428,7 @@ null,
 "special district",
 1.70005e-05,
 1.70005e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-BULLFROG_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12057",
@@ -6436,7 +6437,7 @@ null,
 "special district",
 0.00536115,
 0.00536115,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CENTRAL_BROWARD_WATER_CONTROL_DISTRICT-ZONE_5_county_12011",
@@ -6445,7 +6446,7 @@ null,
 "special district",
 0.000198577,
 0.000198577,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CHARLOTTE_COUNTY_COURT_JUDGE-GROUP_1_county_12015",
@@ -6454,7 +6455,7 @@ null,
 "judge",
 1.12957e-05,
 1.12957e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CHEVAL_WEST_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12057",
@@ -6463,7 +6464,7 @@ null,
 "special district",
 0.00177936,
 0.00177936,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CIRCUIT_JUDGE-6TH_JUDICIAL_CIRCUIT__GROUP_14",
@@ -6472,7 +6473,7 @@ null,
 "judge",
 4.00409e-06,
 4.00409e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CIRCUIT_JUDGE-9TH_JUDICIAL_CIRCUIT__GROUP_15",
@@ -6481,7 +6482,7 @@ null,
 "judge",
 4.07492e-06,
 4.07492e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CITRUS_COUNTY_MOSQUITO_CONTROL_DISTRICT-SEAT_2_county_12017",
@@ -6490,7 +6491,7 @@ null,
 "special district",
 2.41579e-05,
 2.41579e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CITRUS_SCHOOL_BOARD-2_county_12017",
@@ -6526,7 +6527,7 @@ null,
 "special district",
 1.23523e-05,
 1.23523e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CONCORD_STATION_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12101",
@@ -6535,7 +6536,7 @@ null,
 "special district",
 0.000944744,
 0.000944744,
-"P"
+"C"
 ],
 [
 "2024-local-FL-COPPERSTONE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12081",
@@ -6544,7 +6545,7 @@ null,
 "special district",
 0.00266505,
 0.00266505,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CORAL_BAY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12011",
@@ -6553,7 +6554,7 @@ null,
 "special district",
 0.001551,
 0.001551,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CORAL_SPRINGS_IMPROVEMENT_DISTRICT-SEAT_1_county_12011",
@@ -6562,7 +6563,7 @@ null,
 "special district",
 0.000125534,
 0.000125534,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CORAL_SPRINGS_IMPROVEMENT_DISTRICT-SEAT_2_county_12011",
@@ -6571,7 +6572,7 @@ null,
 "special district",
 0.000125448,
 0.000125448,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CORAL_SPRINGS_IMPROVEMENT_DISTRICT-SEAT_3_county_12011",
@@ -6580,7 +6581,7 @@ null,
 "special district",
 0.000124946,
 0.000124946,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CORY_LAKES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12057",
@@ -6589,7 +6590,7 @@ null,
 "special district",
 0.00140405,
 0.00140405,
-"P"
+"C"
 ],
 [
 "2024-local-FL-COVINGTON_PARK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12057",
@@ -6598,7 +6599,7 @@ null,
 "special district",
 0.00146801,
 0.00146801,
-"P"
+"C"
 ],
 [
 "2024-local-FL-COVINGTON_PARK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12057",
@@ -6607,7 +6608,7 @@ null,
 "special district",
 0.0014533,
 0.0014533,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CROSS_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12081",
@@ -6616,7 +6617,7 @@ null,
 "special district",
 0.00341928,
 0.00341928,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CUTLER_CAY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12086",
@@ -6625,7 +6626,7 @@ null,
 "special district",
 0.00272956,
 0.00272956,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CUTLER_CAY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12086",
@@ -6634,7 +6635,7 @@ null,
 "special district",
 0.00286034,
 0.00286034,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CYPRESS_SHADOWS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12071",
@@ -6643,7 +6644,7 @@ null,
 "special district",
 0.00345996,
 0.00345996,
-"P"
+"C"
 ],
 [
 "2024-local-FL-CYPRESS_SHADOWS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12071",
@@ -6652,7 +6653,7 @@ null,
 "special district",
 0.00344248,
 0.00344248,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DEER_RUN_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12035",
@@ -6661,7 +6662,7 @@ null,
 "special district",
 0.00287655,
 0.00287655,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DESTIN_FIRE_CONTROL_DISTRICT-GROUP_2_county_12091",
@@ -6670,7 +6671,7 @@ null,
 "special district",
 0.000227505,
 0.000227505,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DESTIN_FIRE_CONTROL_DISTRICT-GROUP_4_county_12091",
@@ -6679,7 +6680,7 @@ null,
 "special district",
 0.000231026,
 0.000231026,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DOWNTOWN_DORAL_SOUTH_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12086",
@@ -6688,7 +6689,7 @@ null,
 "special district",
 0.00400222,
 0.00400222,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DOWNTOWN_DORAL_SOUTH_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12086",
@@ -6697,7 +6698,7 @@ null,
 "special district",
 0.00226884,
 0.00226884,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DUPREE_LAKES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12101",
@@ -6706,7 +6707,7 @@ null,
 "special district",
 0.00351249,
 0.00351249,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DUPREE_LAKES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12101",
@@ -6715,7 +6716,7 @@ null,
 "special district",
 0.00201414,
 0.00201414,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DURBIN_CROSSING_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12109",
@@ -6724,7 +6725,7 @@ null,
 "special district",
 0.00129944,
 0.00129944,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DUVAL_COUNTY_COURT_JUDGE-GROUP_9_county_12031",
@@ -6733,7 +6734,7 @@ null,
 "judge",
 2.87591e-06,
 2.87591e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-DUVAL_SCHOOL_BOARD-5_county_12031",
@@ -6751,7 +6752,7 @@ null,
 "special district",
 5.4005e-06,
 5.4005e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-EAST_FLAGLER_MOSQUITO_CONTROL_DISTRICT-SEAT_1_county_12035",
@@ -6760,7 +6761,7 @@ null,
 "special district",
 3.53574e-05,
 3.53574e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-EAST_FLAGLER_MOSQUITO_CONTROL_DISTRICT-SEAT_3_county_12035",
@@ -6769,7 +6770,7 @@ null,
 "special district",
 3.52151e-05,
 3.52151e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-EAST_MANATEE_FIRE_RESCUE_DISTRICT-SEAT_2_county_12081",
@@ -6778,7 +6779,7 @@ null,
 "special district",
 3.65029e-05,
 3.65029e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ENGLEWOOD_WATER_DISTRICT-SEAT_4_county_12015",
@@ -6787,7 +6788,7 @@ null,
 "special district",
 0.00014924,
 0.00014924,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ESCAMBIA_SCHOOL_BOARD-4_county_12033",
@@ -6805,7 +6806,7 @@ null,
 "special district",
 0.000598189,
 0.000598189,
-"P"
+"C"
 ],
 [
 "2024-local-FL-FLEMING_ISLAND_PLANTATION_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12019",
@@ -6814,7 +6815,7 @@ null,
 "special district",
 0.000606589,
 0.000606589,
-"P"
+"C"
 ],
 [
 "2024-local-FL-FORT_MYERS_SHORES_FIRE_PROTECTION_AND_RESCUE_SERVICE_DISTRIC-SEAT_1_county_12071",
@@ -6823,7 +6824,7 @@ null,
 "special district",
 0.000286395,
 0.000286395,
-"P"
+"C"
 ],
 [
 "2024-local-FL-GADSDEN_SCHOOL_BOARD-5_county_12039",
@@ -6841,7 +6842,7 @@ null,
 "special district",
 0.00211081,
 0.00211081,
-"P"
+"C"
 ],
 [
 "2024-local-FL-GILCHRIST_SCHOOL_BOARD-4_county_12041",
@@ -6868,7 +6869,7 @@ null,
 "special district",
 0.000989403,
 0.000989403,
-"P"
+"C"
 ],
 [
 "2024-local-FL-GREATER_NAPLES_FIRE_RESCUE_DISTRICT-SEAT_2_county_12021",
@@ -6877,7 +6878,7 @@ null,
 "special district",
 0.000105124,
 0.000105124,
-"P"
+"C"
 ],
 [
 "2024-local-FL-GREATER_NAPLES_FIRE_RESCUE_DISTRICT-SEAT_5_county_12021",
@@ -6886,7 +6887,7 @@ null,
 "special district",
 5.71339e-05,
 5.71339e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HARBOR_BAY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12057",
@@ -6895,7 +6896,7 @@ null,
 "special district",
 0.00162625,
 0.00162625,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HARBOUR_ISLES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12057",
@@ -6904,7 +6905,7 @@ null,
 "special district",
 0.00278958,
 0.00278958,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HARMONY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12097",
@@ -6913,7 +6914,7 @@ null,
 "special district",
 0.0011143,
 0.0011143,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HARMONY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12097",
@@ -6922,7 +6923,7 @@ null,
 "special district",
 0.00228624,
 0.00228624,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HARRISON_RANCH_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12081",
@@ -6931,7 +6932,7 @@ null,
 "special district",
 0.00128497,
 0.00128497,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HERITAGE_ISLE_AT_VIERA_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12009",
@@ -6940,7 +6941,7 @@ null,
 "special district",
 0.0010369,
 0.0010369,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HERITAGE_LANDING_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12109",
@@ -6949,7 +6950,7 @@ null,
 "special district",
 0.00123721,
 0.00123721,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HERITAGE_LANDING_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12109",
@@ -6958,7 +6959,7 @@ null,
 "special district",
 0.00122305,
 0.00122305,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HERITAGE_OAK_PARK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12015",
@@ -6967,7 +6968,7 @@ null,
 "special district",
 0.00368618,
 0.00368618,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HERITAGE_OAK_PARK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12015",
@@ -6976,7 +6977,7 @@ null,
 "special district",
 0.00334589,
 0.00334589,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HERITAGE_PINES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12101",
@@ -6985,7 +6986,7 @@ null,
 "special district",
 0.00138868,
 0.00138868,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HERITAGE_PINES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12101",
@@ -6994,7 +6995,7 @@ null,
 "special district",
 0.00139249,
 0.00139249,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HERNANDO_SCHOOL_BOARD-4_county_12053",
@@ -7012,7 +7013,7 @@ null,
 "special district",
 0.00344349,
 0.00344349,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HIDDEN_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12057",
@@ -7021,7 +7022,7 @@ null,
 "special district",
 0.00193358,
 0.00193358,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HIGHLANDS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12057",
@@ -7030,7 +7031,7 @@ null,
 "special district",
 0.000990368,
 0.000990368,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HIGHLAND_MEADOWS_II_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12105",
@@ -7039,7 +7040,7 @@ null,
 "special district",
 0.00151061,
 0.00151061,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HIGHLAND_MEADOWS_II_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12105",
@@ -7048,7 +7049,7 @@ null,
 "special district",
 0.00151399,
 0.00151399,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HIGHLAND_MEADOWS_II_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12105",
@@ -7057,7 +7058,7 @@ null,
 "special district",
 0.00156173,
 0.00156173,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HILLCREST_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12011",
@@ -7066,7 +7067,7 @@ null,
 "special district",
 0.00321855,
 0.00321855,
-"P"
+"C"
 ],
 [
 "2024-local-FL-HILLSBOROUGH_SCHOOL_BOARD-7_county_12057",
@@ -7084,7 +7085,7 @@ null,
 "special district",
 3.71882e-06,
 3.71882e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-INDIAN_RIVER_COUNTY_HOSPITAL_DISTRICT-SEAT_1_county_12061",
@@ -7093,7 +7094,7 @@ null,
 "special district",
 5.88724e-05,
 5.88724e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-INDIAN_RIVER_COUNTY_HOSPITAL_DISTRICT-SEAT_5_county_12061",
@@ -7102,7 +7103,7 @@ null,
 "special district",
 2.94479e-05,
 2.94479e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-INDIAN_RIVER_COUNTY_HOSPITAL_DISTRICT-SEAT_7_county_12061",
@@ -7111,7 +7112,7 @@ null,
 "special district",
 5.13832e-05,
 5.13832e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-INDIAN_RIVER_MOSQUITO_CONTROL_DISTRICT-SEAT_1_county_12061",
@@ -7120,7 +7121,7 @@ null,
 "special district",
 2.76541e-05,
 2.76541e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-INDIAN_RIVER_MOSQUITO_CONTROL_DISTRICT-SEAT_3_county_12061",
@@ -7129,7 +7130,7 @@ null,
 "special district",
 3.02324e-05,
 3.02324e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-INDIAN_TRAIL_IMPROVEMENT_DISTRICT-SEAT_2_county_12099",
@@ -7138,7 +7139,7 @@ null,
 "special district",
 8.51581e-05,
 8.51581e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-INDIAN_TRAIL_IMPROVEMENT_DISTRICT-SEAT_4_county_12099",
@@ -7147,7 +7148,7 @@ null,
 "special district",
 8.48237e-05,
 8.48237e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-IONA_MCGREGOR_FIRE_PROTECTION_AND_RESCUE_SERVICE_DISTRICT-SEAT_2_county_12071",
@@ -7156,7 +7157,7 @@ null,
 "special district",
 8.68893e-05,
 8.68893e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-IONA_MCGREGOR_FIRE_PROTECTION_AND_RESCUE_SERVICE_DISTRICT-SEAT_4_county_12071",
@@ -7165,7 +7166,7 @@ null,
 "special district",
 8.73904e-05,
 8.73904e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ISLANDS_AT_DORAL_III_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12086",
@@ -7174,7 +7175,7 @@ null,
 "special district",
 0.00134454,
 0.00134454,
-"P"
+"C"
 ],
 [
 "2024-local-FL-JULINGTON_CREEK_PLANTATION_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12109",
@@ -7183,7 +7184,7 @@ null,
 "special district",
 0.000283476,
 0.000283476,
-"P"
+"C"
 ],
 [
 "2024-local-FL-KEY_LARGO_FIRE_RESCUE_AND_EMERGENCY_MEDICAL_SERVICES_DISTRIC-SEAT_3_county_12087",
@@ -7192,7 +7193,7 @@ null,
 "special district",
 0.000362869,
 0.000362869,
-"P"
+"C"
 ],
 [
 "2024-local-FL-KEY_LARGO_FIRE_RESCUE_AND_EMERGENCY_MEDICAL_SERVICES_DISTRIC-SEAT_5_county_12087",
@@ -7201,7 +7202,7 @@ null,
 "special district",
 0.00036132,
 0.00036132,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAGUNA_LAKES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12071",
@@ -7210,7 +7211,7 @@ null,
 "special district",
 0.00330783,
 0.00330783,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAKESHORE_RANCH_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12101",
@@ -7219,7 +7220,7 @@ null,
 "special district",
 0.00199045,
 0.00199045,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAKESIDE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12101",
@@ -7228,7 +7229,7 @@ null,
 "special district",
 0.0021929,
 0.0021929,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAKEWOOD_RANCH_COMMUNITY_DEVELOPMENT_DISTRICT_2-SEAT_2_county_12081",
@@ -7237,7 +7238,7 @@ null,
 "special district",
 0.0011628,
 0.0011628,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAKEWOOD_RANCH_COMMUNITY_DEVELOPMENT_DISTRICT_5-SEAT_2_county_12081",
@@ -7246,7 +7247,7 @@ null,
 "special district",
 0.00173972,
 0.00173972,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAKEWOOD_RANCH_COMMUNITY_DEVELOPMENT_DISTRICT_5-SEAT_4_county_12081",
@@ -7255,7 +7256,7 @@ null,
 "special district",
 0.00171764,
 0.00171764,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAKE_ASHTON_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12105",
@@ -7264,7 +7265,7 @@ null,
 "special district",
 0.00175628,
 0.00175628,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAKE_ASHTON_II_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12105",
@@ -7273,7 +7274,7 @@ null,
 "special district",
 0.0021352,
 0.0021352,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LAKE_SAINT_CHARLES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12057",
@@ -7282,7 +7283,7 @@ null,
 "special district",
 0.00179828,
 0.00179828,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LANDMARK_AT_DORAL_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12086",
@@ -7291,7 +7292,7 @@ null,
 "special district",
 0.00240603,
 0.00240603,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LEE_SCHOOL_BOARD-7_county_12071",
@@ -7309,7 +7310,7 @@ null,
 "special district",
 6.7997e-05,
 6.7997e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LEHIGH_ACRES_FIRE_CONTROL_AND_RESCUE_DISTRICT-SEAT_4_county_12071",
@@ -7318,7 +7319,7 @@ null,
 "special district",
 0.000111392,
 0.000111392,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LEON_COUNTY_COURT_JUDGE-GROUP_4_county_12073",
@@ -7327,7 +7328,7 @@ null,
 "judge",
 8.57676e-06,
 8.57676e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LEXINGTON_OAKS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12101",
@@ -7336,7 +7337,7 @@ null,
 "special district",
 0.000976084,
 0.000976084,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LIBERTY_FIRE_DISTRICT-SEAT_1_county_12131",
@@ -7345,7 +7346,7 @@ null,
 "special district",
 0.000849124,
 0.000849124,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LIBERTY_FIRE_DISTRICT-SEAT_2_county_12131",
@@ -7354,7 +7355,7 @@ null,
 "special district",
 0.000873604,
 0.000873604,
-"P"
+"C"
 ],
 [
 "2024-local-FL-LIBERTY_FIRE_DISTRICT-SEAT_3_county_12131",
@@ -7363,7 +7364,7 @@ null,
 "special district",
 0.000845235,
 0.000845235,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MAGNOLIA_WEST_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12019",
@@ -7372,7 +7373,7 @@ null,
 "special district",
 0.00292202,
 0.00292202,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MAGNOLIA_WEST_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12019",
@@ -7381,7 +7382,7 @@ null,
 "special district",
 0.00288473,
 0.00288473,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MAJORCA_ISLES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12086",
@@ -7390,7 +7391,7 @@ null,
 "special district",
 0.00547876,
 0.00547876,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MAJORCA_ISLES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12086",
@@ -7399,7 +7400,7 @@ null,
 "special district",
 0.00296046,
 0.00296046,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MANATEE_SCHOOL_BOARD-1_county_12081",
@@ -7426,7 +7427,7 @@ null,
 "special district",
 0.00443566,
 0.00443566,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MARSHALL_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12109",
@@ -7435,7 +7436,7 @@ null,
 "special district",
 0.00111921,
 0.00111921,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MARSHALL_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12109",
@@ -7444,7 +7445,7 @@ null,
 "special district",
 0.00114316,
 0.00114316,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MEADOW_POINTE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12101",
@@ -7453,7 +7454,7 @@ null,
 "special district",
 0.00107763,
 0.00107763,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MEADOW_POINTE_IV_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12101",
@@ -7462,7 +7463,7 @@ null,
 "special district",
 0.00167651,
 0.00167651,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MEADOW_POINTE_IV_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12101",
@@ -7471,7 +7472,7 @@ null,
 "special district",
 0.00166142,
 0.00166142,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MEADOW_POINTE_IV_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12101",
@@ -7480,7 +7481,7 @@ null,
 "special district",
 0.00168346,
 0.00168346,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MEADOW_VIEW_AT_TWIN_CREEKS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12109",
@@ -7489,7 +7490,7 @@ null,
 "special district",
 0.00154392,
 0.00154392,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MIAMI_DADE_COUNTY_COURT_JUDGE-GROUP_29_county_12086",
@@ -7498,7 +7499,7 @@ null,
 "judge",
 1.22405e-06,
 1.22405e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MIAMI_DADE_SCHOOL_BOARD-3_county_12086",
@@ -7525,7 +7526,7 @@ null,
 "special district",
 0.00378235,
 0.00378235,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MONTERRA_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12011",
@@ -7534,7 +7535,7 @@ null,
 "special district",
 0.00121137,
 0.00121137,
-"P"
+"C"
 ],
 [
 "2024-local-FL-MOORE_HAVEN_MOSQUITO_CONTROL_DISTRICT-SEAT_1_county_12043",
@@ -7543,7 +7544,7 @@ null,
 "special district",
 0.00315845,
 0.00315845,
-"P"
+"C"
 ],
 [
 "2024-local-FL-NORTHERN_PALM_BEACH_COUNTY_IMPROVEMENT_DISTRICT-SEAT_4_county_12099",
@@ -7552,7 +7553,7 @@ null,
 "special district",
 2.5229e-05,
 2.5229e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-NORTHWOOD_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12101",
@@ -7561,7 +7562,7 @@ null,
 "special district",
 0.00231542,
 0.00231542,
-"P"
+"C"
 ],
 [
 "2024-local-FL-NORTH_BOULEVARD_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12105",
@@ -7570,7 +7571,7 @@ null,
 "special district",
 0.00570865,
 0.00570865,
-"P"
+"C"
 ],
 [
 "2024-local-FL-NORTH_BOULEVARD_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12105",
@@ -7579,7 +7580,7 @@ null,
 "special district",
 0.00575666,
 0.00575666,
-"P"
+"C"
 ],
 [
 "2024-local-FL-NORTH_FORT_MYERS_FIRE_CONTROL_AND_RESCUE_SERVICE_DISTRICT-SEAT_4_county_12071",
@@ -7588,7 +7589,7 @@ null,
 "special district",
 0.000107047,
 0.000107047,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ORANGE_SCHOOL_BOARD-4_county_12095",
@@ -7606,7 +7607,7 @@ null,
 "special district",
 4.33771e-05,
 4.33771e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ORANGE_SOIL_AND_WATER_CONSERVATION_DISTRICT-GROUP_4_county_12095",
@@ -7615,7 +7616,7 @@ null,
 "special district",
 3.70268e-05,
 3.70268e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-OSCEOLA_SCHOOL_BOARD-5_county_12097",
@@ -7633,7 +7634,7 @@ null,
 "special district",
 0.00138301,
 0.00138301,
-"P"
+"C"
 ],
 [
 "2024-local-FL-OVEROAKS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12097",
@@ -7642,7 +7643,7 @@ null,
 "special district",
 0.00295895,
 0.00295895,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PACE_FIRE_RESCUE_DISTRICT-SEAT_1_county_12113",
@@ -7651,7 +7652,7 @@ null,
 "special district",
 0.000102954,
 0.000102954,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PACE_FIRE_RESCUE_DISTRICT-SEAT_3_county_12113",
@@ -7660,7 +7661,7 @@ null,
 "special district",
 0.000103048,
 0.000103048,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PALMS_OF_TERRA_CEIA_BAY_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12081",
@@ -7669,7 +7670,7 @@ null,
 "special district",
 0.00449461,
 0.00449461,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PALM_BEACH_COUNTY_COURT_JUDGE-GROUP_2_county_12099",
@@ -7678,7 +7679,7 @@ null,
 "judge",
 1.8571e-06,
 1.8571e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PALM_BEACH_SCHOOL_BOARD-1_county_12099",
@@ -7705,7 +7706,7 @@ null,
 "special district",
 0.000132993,
 0.000132993,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PARKLAND_PRESERVE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12109",
@@ -7714,7 +7715,7 @@ null,
 "special district",
 0.00407063,
 0.00407063,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PARKLAND_PRESERVE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12109",
@@ -7723,7 +7724,7 @@ null,
 "special district",
 0.00404649,
 0.00404649,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PARK_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12057",
@@ -7732,7 +7733,7 @@ null,
 "special district",
 0.00430395,
 0.00430395,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PARK_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12057",
@@ -7741,7 +7742,7 @@ null,
 "special district",
 0.00423214,
 0.00423214,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PARK_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12057",
@@ -7750,7 +7751,7 @@ null,
 "special district",
 0.00439721,
 0.00439721,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PARRISH_FIRE_CONTROL_DISTRICT-SEAT_4_county_12081",
@@ -7759,7 +7760,7 @@ null,
 "special district",
 0.000144379,
 0.000144379,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PASCO_COUNTY_MOSQUITO_CONTROL_DISTRICT-SEAT_3_county_12101",
@@ -7768,7 +7769,7 @@ null,
 "special district",
 7.89856e-06,
 7.89856e-06,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PASEO_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12071",
@@ -7777,7 +7778,7 @@ null,
 "special district",
 0.00288473,
 0.00288473,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PINELLAS_SCHOOL_BOARD-5_county_12103",
@@ -7795,7 +7796,7 @@ null,
 "special district",
 0.00200816,
 0.00200816,
-"P"
+"C"
 ],
 [
 "2024-local-FL-PUTNAM_COUNTY_COURT_JUDGE-GROUP_1_county_12107",
@@ -7804,7 +7805,7 @@ null,
 "judge",
 3.49614e-05,
 3.49614e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-RIDGEWOOD_TRAILS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12019",
@@ -7813,7 +7814,7 @@ null,
 "special district",
 0.00217878,
 0.00217878,
-"P"
+"C"
 ],
 [
 "2024-local-FL-RIVERCREST_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12057",
@@ -7822,7 +7823,7 @@ null,
 "special district",
 0.00173823,
 0.00173823,
-"P"
+"C"
 ],
 [
 "2024-local-FL-RIVERWOOD_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12015",
@@ -7831,7 +7832,7 @@ null,
 "special district",
 0.001656,
 0.001656,
-"P"
+"C"
 ],
 [
 "2024-local-FL-RIVERWOOD_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12015",
@@ -7840,7 +7841,7 @@ null,
 "special district",
 0.00166962,
 0.00166962,
-"P"
+"C"
 ],
 [
 "2024-local-FL-RIVERWOOD_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12015",
@@ -7849,7 +7850,7 @@ null,
 "special district",
 0.00166414,
 0.00166414,
-"P"
+"C"
 ],
 [
 "2024-local-FL-RIVER_HALL_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12071",
@@ -7858,7 +7859,7 @@ null,
 "special district",
 0.000941677,
 0.000941677,
-"P"
+"C"
 ],
 [
 "2024-local-FL-RIVER_HALL_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12071",
@@ -7867,7 +7868,7 @@ null,
 "special district",
 0.000936464,
 0.000936464,
-"P"
+"C"
 ],
 [
 "2024-local-FL-SANTA_ROSA_ISLAND_AUTHORITY-county_12033",
@@ -7876,7 +7877,7 @@ null,
 "special district",
 0.00100359,
 0.00100359,
-"P"
+"C"
 ],
 [
 "2024-local-FL-SANTA_ROSA_SCHOOL_BOARD-2_county_12113",
@@ -7903,7 +7904,7 @@ null,
 "special district",
 0.00111614,
 0.00111614,
-"P"
+"C"
 ],
 [
 "2024-local-FL-SOUTH_BROWARD_DRAINAGE_DISTRICT-ZONE_3_county_12011",
@@ -7912,7 +7913,7 @@ null,
 "special district",
 0.00011695,
 0.00011695,
-"P"
+"C"
 ],
 [
 "2024-local-FL-SPRING_LAKE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12057",
@@ -7921,7 +7922,7 @@ null,
 "special district",
 0.00163995,
 0.00163995,
-"P"
+"C"
 ],
 [
 "2024-local-FL-SPRING_RIDGE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12053",
@@ -7930,7 +7931,7 @@ null,
 "special district",
 0.00407063,
 0.00407063,
-"P"
+"C"
 ],
 [
 "2024-local-FL-STERLING_HILL_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12053",
@@ -7939,7 +7940,7 @@ null,
 "special district",
 0.000999141,
 0.000999141,
-"P"
+"C"
 ],
 [
 "2024-local-FL-STONEYBROOK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12071",
@@ -7948,7 +7949,7 @@ null,
 "special district",
 0.00191353,
 0.00191353,
-"P"
+"C"
 ],
 [
 "2024-local-FL-STONEYBROOK_NORTH_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12071",
@@ -7957,7 +7958,7 @@ null,
 "special district",
 0.00713332,
 0.00713332,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ST_AUGUSTINE_PORT-WATERWAY_AND_BEACH_COMMISSION__GROUP_2_county_12109",
@@ -7966,7 +7967,7 @@ null,
 "special district",
 6.23638e-05,
 6.23638e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ST_AUGUSTINE_PORT-WATERWAY_AND_BEACH_COMMISSION__GROUP_4_county_12109",
@@ -7975,7 +7976,7 @@ null,
 "special district",
 6.05757e-05,
 6.05757e-05,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ST_JOHNS_SCHOOL_BOARD-5_county_12109",
@@ -7993,7 +7994,7 @@ null,
 "special district",
 0.00029574,
 0.00029574,
-"P"
+"C"
 ],
 [
 "2024-local-FL-SUPERINTENDENT_OF_SCHOOLS-county_12007",
@@ -8128,7 +8129,7 @@ null,
 "special district",
 0.00585637,
 0.00585637,
-"P"
+"C"
 ],
 [
 "2024-local-FL-SWEETWATER_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12109",
@@ -8137,7 +8138,7 @@ null,
 "special district",
 0.00201847,
 0.00201847,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TAMPA_PALMS_OPEN_SPACE___TRANSPORTATION_COMMUNITY_DEVELOPMEN-SEAT_4_county_12057",
@@ -8146,7 +8147,7 @@ null,
 "special district",
 0.000535123,
 0.000535123,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TAMPA_PALMS_OPEN_SPACE___TRANSPORTATION_COMMUNITY_DEVELOPMEN-SEAT_5_county_12057",
@@ -8155,7 +8156,7 @@ null,
 "special district",
 0.000542269,
 0.000542269,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TAX_COLLECTOR-county_12037",
@@ -8182,7 +8183,7 @@ null,
 "special district",
 0.00398087,
 0.00398087,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TOWN_CENTER_AT_PALM_COAST_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12035",
@@ -8191,7 +8192,7 @@ null,
 "special district",
 0.00653565,
 0.00653565,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TRADITION_COMMUNITY_DEVELOPMENT_DISTRICT_NO_6-SEAT_2_county_12111",
@@ -8200,7 +8201,7 @@ null,
 "special district",
 0.00144502,
 0.00144502,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TRAILS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_1_county_12031",
@@ -8209,7 +8210,7 @@ null,
 "special district",
 0.00275543,
 0.00275543,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TRAILS_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12031",
@@ -8218,7 +8219,7 @@ null,
 "special district",
 0.00284025,
 0.00284025,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TROUT_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12109",
@@ -8227,7 +8228,7 @@ null,
 "special district",
 0.00147236,
 0.00147236,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TROUT_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12109",
@@ -8236,7 +8237,7 @@ null,
 "special district",
 0.00150576,
 0.00150576,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TROUT_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12109",
@@ -8245,7 +8246,7 @@ null,
 "special district",
 0.000805657,
 0.000805657,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TURNBULL_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12109",
@@ -8254,7 +8255,7 @@ null,
 "special district",
 0.00150167,
 0.00150167,
-"P"
+"C"
 ],
 [
 "2024-local-FL-TURNBULL_CREEK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12109",
@@ -8263,7 +8264,7 @@ null,
 "special district",
 0.00161131,
 0.00161131,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VENETIAN_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12115",
@@ -8272,7 +8273,7 @@ null,
 "special district",
 0.00132437,
 0.00132437,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VENETIAN_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_5_county_12115",
@@ -8281,7 +8282,7 @@ null,
 "special district",
 0.00139536,
 0.00139536,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VENTANA_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12057",
@@ -8290,7 +8291,7 @@ null,
 "special district",
 0.00473944,
 0.00473944,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VERONA_WALK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12021",
@@ -8299,7 +8300,7 @@ null,
 "special district",
 0.0011022,
 0.0011022,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VERONA_WALK_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12021",
@@ -8308,7 +8309,7 @@ null,
 "special district",
 0.00116883,
 0.00116883,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VIERA_STEWARDSHIP_DISTRICT-SEAT_4_county_12009",
@@ -8317,7 +8318,7 @@ null,
 "special district",
 0.000349562,
 0.000349562,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VILLAGE_COMMUNITY_DEVELOPMENT_DISTRICT_NO_1-SEAT_3_county_12119",
@@ -8326,7 +8327,7 @@ null,
 "special district",
 0.000725091,
 0.000725091,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VILLAGE_COMMUNITY_DEVELOPMENT_DISTRICT_NO_13-SEAT_3_county_12119",
@@ -8335,7 +8336,7 @@ null,
 "special district",
 0.000273693,
 0.000273693,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VILLAGE_COMMUNITY_DEVELOPMENT_DISTRICT_NO_7-SEAT_4_county_12119",
@@ -8344,7 +8345,7 @@ null,
 "special district",
 0.000431969,
 0.000431969,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VILLAGE_COMMUNITY_DEVELOPMENT_DISTRICT_NO_8-SEAT_1_county_12119",
@@ -8353,7 +8354,7 @@ null,
 "special district",
 0.000401474,
 0.000401474,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VILLASOL_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12097",
@@ -8362,7 +8363,7 @@ null,
 "special district",
 0.00375436,
 0.00375436,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VILLASOL_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12097",
@@ -8371,7 +8372,7 @@ null,
 "special district",
 0.00378235,
 0.00378235,
-"P"
+"C"
 ],
 [
 "2024-local-FL-VOLUSIA_SCHOOL_BOARD-2_county_12127",
@@ -8398,7 +8399,7 @@ null,
 "special district",
 0.00243777,
 0.00243777,
-"P"
+"C"
 ],
 [
 "2024-local-FL-WATERLEFE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12081",
@@ -8407,7 +8408,7 @@ null,
 "special district",
 0.00296912,
 0.00296912,
-"P"
+"C"
 ],
 [
 "2024-local-FL-WESBRIDGE_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12101",
@@ -8416,7 +8417,7 @@ null,
 "special district",
 0.00526425,
 0.00526425,
-"P"
+"C"
 ],
 [
 "2024-local-FL-WINDWARD_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_2_county_12097",
@@ -8425,7 +8426,7 @@ null,
 "special district",
 0.00336809,
 0.00336809,
-"P"
+"C"
 ],
 [
 "2024-local-FL-WINDWARD_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12097",
@@ -8434,7 +8435,7 @@ null,
 "special district",
 0.00340197,
 0.00340197,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ZEPHYR_LAKES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_3_county_12101",
@@ -8443,7 +8444,7 @@ null,
 "special district",
 0.00507972,
 0.00507972,
-"P"
+"C"
 ],
 [
 "2024-local-FL-ZEPHYR_LAKES_COMMUNITY_DEVELOPMENT_DISTRICT-SEAT_4_county_12101",
@@ -8452,7 +8453,7 @@ null,
 "special district",
 0.00502936,
 0.00502936,
-"P"
+"C"
 ],
 [
 "2024-local-GA-BOARD_OF_EDUCATION-005_county_13107",
@@ -8479,7 +8480,7 @@ null,
 "mayor or executive",
 0.0001733,
 0.0001733,
-"P"
+"C"
 ],
 [
 "2024-local-GA-MERIWETHER_COUNTY_CORONER-county_13199",
@@ -8524,7 +8525,7 @@ null,
 "school board",
 0.000539381,
 0.000539381,
-"P"
+"C"
 ],
 [
 "2024-local-GA-SCHOOL_BOARD-008_county_13245",
@@ -8551,7 +8552,7 @@ null,
 "special district",
 6.4523e-06,
 6.4523e-06,
-"P"
+"C"
 ],
 [
 "2024-local-GA-SOIL_AND_WATER_DISTRICT_SUPERVISOR-county_13139",
@@ -8560,7 +8561,7 @@ null,
 "special district",
 1.36552e-05,
 1.36552e-05,
-"P"
+"C"
 ],
 [
 "2024-local-GA-SOIL_AND_WATER_DISTRICT_SUPERVISOR-county_13189",
@@ -8569,7 +8570,7 @@ null,
 "special district",
 0.000140288,
 0.000140288,
-"P"
+"C"
 ],
 [
 "2024-local-GA-SUPERIOR_COURT_CLERK-county_13259",
@@ -8605,7 +8606,7 @@ null,
 "mayor or executive",
 1.99659e-05,
 1.99659e-05,
-"P"
+"C"
 ],
 [
 "2024-local-IA-AUDUBON_COUNTY_AUDITOR-county_19009",
@@ -8623,7 +8624,7 @@ null,
 "sheriff or constable",
 4.98062e-05,
 4.98062e-05,
-"P"
+"C"
 ],
 [
 "2024-local-IA-DECATUR_COUNTY_AUDITOR-county_19053",
@@ -8641,7 +8642,7 @@ null,
 "sheriff or constable",
 6.43024e-05,
 6.43024e-05,
-"P"
+"C"
 ],
 [
 "2024-local-IA-GREENFIELD_PLAZA_HILLS_OF_COVENTRY_SANITARY_DISTRICT_TRUSTEE-county_19181",
@@ -8650,7 +8651,7 @@ null,
 "special district",
 0.00200618,
 0.00200618,
-"P"
+"C"
 ],
 [
 "2024-local-IA-GREENFIELD_PLAZA_WATER_DISTRICT_TRUSTEE-county_19181",
@@ -8659,7 +8660,7 @@ null,
 "special district",
 0.240347,
 0.240347,
-"P"
+"C"
 ],
 [
 "2024-local-IA-IDA_COUNTY_AUDITOR-county_19093",
@@ -8704,7 +8705,7 @@ null,
 "special district",
 0.0045651,
 0.0045651,
-"P"
+"C"
 ],
 [
 "2024-local-IA-POTTAWATTAMIE_COUNTY_AUDITOR-county_19155",
@@ -8758,7 +8759,7 @@ null,
 "judge",
 3.5826e-06,
 3.5826e-06,
-"P"
+"C"
 ],
 [
 "2024-local-IL-COOK_CIRCUIT_COURT_JUDGE-12TH_CIRCUIT___2ND_SUBCIRCUIT___ALLEN_VACANCY_county_17197",
@@ -8767,7 +8768,7 @@ null,
 "judge",
 1.86449e-05,
 1.86449e-05,
-"P"
+"C"
 ],
 [
 "2024-local-IN-ANDERSON_SCHOOL_BOARD__CENTRAL_DISTRICT_1-county_18095",
@@ -8776,7 +8777,7 @@ null,
 "school board",
 0.00025352,
 0.00025352,
-"P"
+"C"
 ],
 [
 "2024-local-IN-ANDERSON_SCHOOL_BOARD__EAST_DISTRICT_2-county_18095",
@@ -8911,7 +8912,7 @@ null,
 "school board",
 0.0019022,
 0.0019022,
-"P"
+"C"
 ],
 [
 "2024-local-IN-CLINTON_CENTRAL_SCHOOL_BOARD__DISTRICT_11-county_18023",
@@ -8938,7 +8939,7 @@ null,
 "school board",
 0.00188235,
 0.00188235,
-"P"
+"C"
 ],
 [
 "2024-local-IN-COVINGTON_SCHOOL_BOARD__MOUND__FOUNTAIN___WARREN____COVINGTO-county_18045",
@@ -8965,7 +8966,7 @@ null,
 "school board",
 0.00139126,
 0.00139126,
-"P"
+"C"
 ],
 [
 "2024-local-IN-CROWN_POINT_COMMUNITY_SCHOOL_BOARD__DISTRICT_3-county_18089",
@@ -9100,7 +9101,7 @@ null,
 "school board",
 0.000488628,
 0.000488628,
-"P"
+"C"
 ],
 [
 "2024-local-IN-EAST_PORTER_COUNTY_SCHOOL_BOARD__AT_LARGE___E_PORTER-county_18127",
@@ -9136,7 +9137,7 @@ null,
 "school board",
 0.000425097,
 0.000425097,
-"P"
+"C"
 ],
 [
 "2024-local-IN-ELKHART_GOSHEN_SCHOOL_BOARD__DISTRICT_2___GCS_2-county_18039",
@@ -9154,7 +9155,7 @@ null,
 "school board",
 0.00189307,
 0.00189307,
-"P"
+"C"
 ],
 [
 "2024-local-IN-ELKHART_MIDDLEBURY_SCHOOL_BOARD__DISTRICT_B___MIDDLEBURY_COM-county_18039",
@@ -9190,7 +9191,7 @@ null,
 "school board",
 0.00655374,
 0.00655374,
-"P"
+"C"
 ],
 [
 "2024-local-IN-FORT_WAYNE_COMMUNITY_SCHOOL_BOARD__DISTRICT_5-county_18003",
@@ -9217,7 +9218,7 @@ null,
 "school board",
 0.00438633,
 0.00438633,
-"P"
+"C"
 ],
 [
 "2024-local-IN-FRANKTON_LAPEL_SCHOOL_BOARD__DISTRICT_3___FRANKTON___LAPEL_C-county_18095",
@@ -9262,7 +9263,7 @@ null,
 "school board",
 0.000185541,
 0.000185541,
-"P"
+"C"
 ],
 [
 "2024-local-IN-GREATER_CLARK_SCHOOL_BOARD__DISTRICT_5___GREATER_CLARK_COUNT-county_18019",
@@ -9370,7 +9371,7 @@ null,
 "school board",
 0.000746484,
 0.000746484,
-"P"
+"C"
 ],
 [
 "2024-local-IN-HANOVER_SCHOOL_BOARD_MEMBER__DISTRICT_1-county_18089",
@@ -9379,7 +9380,7 @@ null,
 "school board",
 0.000799558,
 0.000799558,
-"P"
+"C"
 ],
 [
 "2024-local-IN-HANOVER_SCHOOL_BOARD_MEMBER__DISTRICT_2-county_18089",
@@ -9406,7 +9407,7 @@ null,
 "school board",
 0.000425397,
 0.000425397,
-"P"
+"C"
 ],
 [
 "2024-local-IN-HENDRICKS_DANVILLE_SCHOOL_BOARD__AT_LARGE___DANVILLE_COMM_SC-county_18063",
@@ -9469,7 +9470,7 @@ null,
 "school board",
 0.000441617,
 0.000441617,
-"P"
+"C"
 ],
 [
 "2024-local-IN-HUNTINGTON_COUNTY_COMMUNITY_SCHOOL_BOARD__DISTRICT_1-county_18069",
@@ -9478,7 +9479,7 @@ null,
 "school board",
 0.0020072,
 0.0020072,
-"P"
+"C"
 ],
 [
 "2024-local-IN-HUNTINGTON_COUNTY_COMMUNITY_SCHOOL_BOARD__DISTRICT_4-county_18069",
@@ -9496,7 +9497,7 @@ null,
 "school board",
 0.00288698,
 0.00288698,
-"P"
+"C"
 ],
 [
 "2024-local-IN-HUNTINGTON_COUNTY_COMMUNITY_SCHOOL_BOARD__DISTRICT_7-county_18069",
@@ -9523,7 +9524,7 @@ null,
 "school board",
 0.0041488,
 0.0041488,
-"P"
+"C"
 ],
 [
 "2024-local-IN-JEFFERSON_SOUTHWESTERN_SCHOOL_BOARD__REPUBLICAN_TOWNSHIP-county_18077",
@@ -9532,7 +9533,7 @@ null,
 "school board",
 0.00201844,
 0.00201844,
-"P"
+"C"
 ],
 [
 "2024-local-IN-JOHNSON_FRANKLIN_COMMUNITY_SCHOOL_BOARD__FRANKLIN_TOWNSHIP__-county_18081",
@@ -9559,7 +9560,7 @@ null,
 "judge",
 4.60035e-05,
 4.60035e-05,
-"P"
+"C"
 ],
 [
 "2024-local-IN-KNOX_COMMUNITY_SCHOOL_BOARD__CALIFORNIA_WASHINGTON_TWP-county_18149",
@@ -9577,7 +9578,7 @@ null,
 "school board",
 0.00128196,
 0.00128196,
-"P"
+"C"
 ],
 [
 "2024-local-IN-KOKOMO_CENTER_SCHOOL_BOARD_DISTRICT_3-county_18067",
@@ -9658,7 +9659,7 @@ null,
 "school board",
 0.0012859,
 0.0012859,
-"P"
+"C"
 ],
 [
 "2024-local-IN-LEWIS_CASS_SCHOOL_BOARD__DISTRICT_5___LEWIS_CASS_SCHOOLS-county_18017",
@@ -9676,7 +9677,7 @@ null,
 "school board",
 0.000844813,
 0.000844813,
-"P"
+"C"
 ],
 [
 "2024-local-IN-MANCHESTER_SB_PLEASANT_TWP___MCS-county_18169",
@@ -9703,7 +9704,7 @@ null,
 "school board",
 6.83864e-05,
 6.83864e-05,
-"P"
+"C"
 ],
 [
 "2024-local-IN-MARION_INDIANAPOLIS_PUBLIC_SCHOOL_BOARD__DISTRICT_1___IPS_1-county_18097",
@@ -9757,7 +9758,7 @@ null,
 "school board",
 0.000778469,
 0.000778469,
-"P"
+"C"
 ],
 [
 "2024-local-IN-MONROE_GREGG_SCHOOL_BOARD__DISTRICT_1__MONROE-county_18109",
@@ -9820,7 +9821,7 @@ null,
 "school board",
 0.00063868,
 0.00063868,
-"P"
+"C"
 ],
 [
 "2024-local-IN-NEW_PRAIRIE_UNITED_SCHOOL_CORPORATION__AT_LARGE__DISTRICT_1_-county_18091",
@@ -9919,7 +9920,7 @@ null,
 "school board",
 0.00181093,
 0.00181093,
-"P"
+"C"
 ],
 [
 "2024-local-IN-NORTH_HARRISON_SCHOOL_BOARD__MORGAN_TOWNSHIP-county_18061",
@@ -9928,7 +9929,7 @@ null,
 "school board",
 0.000940197,
 0.000940197,
-"P"
+"C"
 ],
 [
 "2024-local-IN-NORTH_NEWTON_SCHOOL_BOARD__AT_LARGE-county_18111",
@@ -10063,7 +10064,7 @@ null,
 "school board",
 0.000753893,
 0.000753893,
-"P"
+"C"
 ],
 [
 "2024-local-IN-PORTAGE_TOWNSHIP_SCHOOL_BOARD__AT_LARGE___PORTAGE_TWS_SC-county_18127",
@@ -10144,7 +10145,7 @@ null,
 "school board",
 0.000983778,
 0.000983778,
-"P"
+"C"
 ],
 [
 "2024-local-IN-SCHOOL_BOARD___WESTVIEW-county_18087",
@@ -10171,7 +10172,7 @@ null,
 "school board",
 0.000888125,
 0.000888125,
-"P"
+"C"
 ],
 [
 "2024-local-IN-SHELBYVILLE_CENTRAL_SCHOOL_BOARD__DISTRICT_3___SHELBYVILLE_C-county_18145",
@@ -10207,7 +10208,7 @@ null,
 "school board",
 0.0014346,
 0.0014346,
-"P"
+"C"
 ],
 [
 "2024-local-IN-SOUTHEAST_FOUNTAIN_SCHOOL_BOARD__JACKSON___SOUTHEAST_FOUNTAI-county_18045",
@@ -10333,7 +10334,7 @@ null,
 "school board",
 0.00100665,
 0.00100665,
-"P"
+"C"
 ],
 [
 "2024-local-IN-SULLIVAN_NORTHEAST_SCHOOL_BOARD__DISTRICT_4___NORTHEAST_SCHO-county_18153",
@@ -10342,7 +10343,7 @@ null,
 "school board",
 0.00172553,
 0.00172553,
-"P"
+"C"
 ],
 [
 "2024-local-IN-SULLIVAN_NORTHEAST_SCHOOL_BOARD__DISTRICT_5___NORTHEAST_SCHO-county_18153",
@@ -10360,7 +10361,7 @@ null,
 "school board",
 0.0019362,
 0.0019362,
-"P"
+"C"
 ],
 [
 "2024-local-IN-SWITZERLAND_COUNTY_SCHOOL_BOARD___SWITZERLAND_CO__SCHOOL_COR-county_18155",
@@ -10369,7 +10370,7 @@ null,
 "school board",
 0.00129288,
 0.00129288,
-"P"
+"C"
 ],
 [
 "2024-local-IN-TIPPECANOE_COUNTY_CORONER-county_18157",
@@ -10468,7 +10469,7 @@ null,
 "school board",
 0.00018012,
 0.00018012,
-"P"
+"C"
 ],
 [
 "2024-local-IN-VIGO_SCHOOL_BOARD__DISTRICT_3-county_18167",
@@ -10495,7 +10496,7 @@ null,
 "school board",
 0.000586509,
 0.000586509,
-"P"
+"C"
 ],
 [
 "2024-local-IN-WESTERN_BOONE_COMMUNITY_SCHOOL_BOARD__AT_LARGE-county_18011",
@@ -10549,7 +10550,7 @@ null,
 "school board",
 0.000612912,
 0.000612912,
-"P"
+"C"
 ],
 [
 "2024-local-KY-ASHLAND_MAYOR-county_21019",
@@ -10558,7 +10559,7 @@ null,
 "mayor or executive",
 0.000201795,
 0.000201795,
-"P"
+"C"
 ],
 [
 "2024-local-KY-CIRCUIT_COURT_CLERK-county_21199",
@@ -10576,7 +10577,7 @@ null,
 "mayor or executive",
 0.000145035,
 0.000145035,
-"P"
+"C"
 ],
 [
 "2024-local-KY-JACKSON_SOIL_AND_WATER_CONSERVATION-DISTRICT_SUPERVISORS_county_21109",
@@ -10585,7 +10586,7 @@ null,
 "special district",
 0.000503696,
 0.000503696,
-"P"
+"C"
 ],
 [
 "2024-local-KY-JUSTICE_OF_THE_SUPREME_COURT-5TH_SUPREME_COURT_DISTRICT_county_21017",
@@ -10594,7 +10595,7 @@ null,
 "judge",
 4.70717e-06,
 4.70717e-06,
-"P"
+"C"
 ],
 [
 "2024-local-KY-LEWISPORT_MAYOR-county_21091",
@@ -10603,7 +10604,7 @@ null,
 "mayor or executive",
 0.00211696,
 0.00211696,
-"P"
+"C"
 ],
 [
 "2024-local-KY-LIVINGSTON_MAYOR-county_21203",
@@ -10612,7 +10613,7 @@ null,
 "mayor or executive",
 0.0181852,
 0.0181852,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-1ST_EDUCATIONAL_DISTRICT_county_21015",
@@ -10630,7 +10631,7 @@ null,
 "school board",
 0.00289859,
 0.00289859,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-1ST_EDUCATIONAL_DISTRICT_county_21047",
@@ -10666,7 +10667,7 @@ null,
 "school board",
 0.00521837,
 0.00521837,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-1ST_EDUCATIONAL_DISTRICT_county_21085",
@@ -10675,7 +10676,7 @@ null,
 "school board",
 0.00246298,
 0.00246298,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-1ST_EDUCATIONAL_DISTRICT_county_21109",
@@ -10720,7 +10721,7 @@ null,
 "school board",
 0.00421127,
 0.00421127,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-1ST_EDUCATIONAL_DISTRICT_county_21185",
@@ -10792,7 +10793,7 @@ null,
 "school board",
 0.000539381,
 0.000539381,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-2ND_EDUCATIONAL_DISTRICT_county_21029",
@@ -10828,7 +10829,7 @@ null,
 "school board",
 0.00408981,
 0.00408981,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-2ND_EDUCATIONAL_DISTRICT_county_21091",
@@ -10909,7 +10910,7 @@ null,
 "school board",
 0.00185333,
 0.00185333,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-2ND_EDUCATIONAL_DISTRICT_county_21179",
@@ -10954,7 +10955,7 @@ null,
 "school board",
 0.001312,
 0.001312,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-2ND_EDUCATIONAL_DISTRICT_county_21221",
@@ -10963,7 +10964,7 @@ null,
 "school board",
 0.00424435,
 0.00424435,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-2ND_EDUCATIONAL_DISTRICT_county_21227",
@@ -10972,7 +10973,7 @@ null,
 "school board",
 0.000722444,
 0.000722444,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-2ND_EDUCATIONAL_DISTRICT_county_21231",
@@ -10981,7 +10982,7 @@ null,
 "school board",
 0.00343763,
 0.00343763,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-2ND_EDUCATIONAL_DISTRICT_county_21233",
@@ -11026,7 +11027,7 @@ null,
 "school board",
 0.000285331,
 0.000285331,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-3RD_EDUCATIONAL_DISTRICT_county_21079",
@@ -11071,7 +11072,7 @@ null,
 "school board",
 0.00177944,
 0.00177944,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-3RD_EDUCATIONAL_DISTRICT_county_21119",
@@ -11134,7 +11135,7 @@ null,
 "school board",
 0.00373145,
 0.00373145,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-3RD_EDUCATIONAL_DISTRICT_county_21209",
@@ -11152,7 +11153,7 @@ null,
 "school board",
 0.00123491,
 0.00123491,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-3RD_EDUCATIONAL_DISTRICT_county_21215",
@@ -11170,7 +11171,7 @@ null,
 "school board",
 0.00531431,
 0.00531431,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-3RD_EDUCATIONAL_DISTRICT_county_21225",
@@ -11197,7 +11198,7 @@ null,
 "school board",
 0.00468623,
 0.00468623,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-4TH_EDUCATIONAL_DISTRICT_county_21017",
@@ -11242,7 +11243,7 @@ null,
 "school board",
 0.00188563,
 0.00188563,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-4TH_EDUCATIONAL_DISTRICT_county_21085",
@@ -11251,7 +11252,7 @@ null,
 "school board",
 0.00252625,
 0.00252625,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-4TH_EDUCATIONAL_DISTRICT_county_21093",
@@ -11314,7 +11315,7 @@ null,
 "school board",
 0.00684973,
 0.00684973,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-4TH_EDUCATIONAL_DISTRICT_county_21169",
@@ -11332,7 +11333,7 @@ null,
 "school board",
 0.00264355,
 0.00264355,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-4TH_EDUCATIONAL_DISTRICT_county_21175",
@@ -11341,7 +11342,7 @@ null,
 "school board",
 0.00528227,
 0.00528227,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-5TH_EDUCATIONAL_DISTRICT_county_21011",
@@ -11368,7 +11369,7 @@ null,
 "school board",
 0.0011561,
 0.0011561,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-5TH_EDUCATIONAL_DISTRICT_county_21067",
@@ -11395,7 +11396,7 @@ null,
 "school board",
 0.00363117,
 0.00363117,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-5TH_EDUCATIONAL_DISTRICT_county_21091",
@@ -11413,7 +11414,7 @@ null,
 "school board",
 0.00545582,
 0.00545582,
-"P"
+"C"
 ],
 [
 "2024-local-KY-MEMBER_BOARD_OF_EDUCATION-5TH_EDUCATIONAL_DISTRICT_county_21125",
@@ -11521,7 +11522,7 @@ null,
 "mayor or executive",
 7.32888e-05,
 7.32888e-05,
-"P"
+"C"
 ],
 [
 "2024-local-KY-OWEN_SOIL_AND_WATER_CONSERVATION-DISTRICT_SUPERVISORS_county_21187",
@@ -11530,7 +11531,7 @@ null,
 "special district",
 0.000661373,
 0.000661373,
-"P"
+"C"
 ],
 [
 "2024-local-KY-PADUCAH_MAYOR-county_21145",
@@ -11539,7 +11540,7 @@ null,
 "mayor or executive",
 0.000161453,
 0.000161453,
-"P"
+"C"
 ],
 [
 "2024-local-MA-BARNSTABLE_CLERK_OF_COURTS-county_25001",
@@ -12178,7 +12179,7 @@ null,
 "mayor or executive",
 0.000135262,
 0.000135262,
-"P"
+"C"
 ],
 [
 "2024-local-ME-HANCOCK_REGISTER_OF_PROBATE-county_23009",
@@ -12205,7 +12206,7 @@ null,
 "judge",
 9.10876e-05,
 9.10876e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-BENZIE_JUDGE_OF_PROBATE_COURT-county_26019",
@@ -12214,7 +12215,7 @@ null,
 "judge",
 0.00011845,
 0.00011845,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JACKSON_JUDGE_OF_PROBATE_COURT-county_26075",
@@ -12223,7 +12224,7 @@ null,
 "judge",
 1.94703e-05,
 1.94703e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_INCUMBENT-50_county_26033",
@@ -12232,7 +12233,7 @@ null,
 "judge",
 7.33573e-05,
 7.33573e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NEW_JUDGESHIP-48_county_26005",
@@ -12241,7 +12242,7 @@ null,
 "judge",
 2.04459e-05,
 2.04459e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NEW_JUDGESHIP-9_county_26077",
@@ -12250,7 +12251,7 @@ null,
 "judge",
 1.04926e-05,
 1.04926e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NON_INCUMBENT-16_county_26099",
@@ -12259,7 +12260,7 @@ null,
 "judge",
 3.15603e-06,
 3.15603e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NON_INCUMBENT-17_county_26081",
@@ -12268,7 +12269,7 @@ null,
 "judge",
 4.22424e-06,
 4.22424e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NON_INCUMBENT-22_county_26161",
@@ -12277,7 +12278,7 @@ null,
 "judge",
 7.57591e-06,
 7.57591e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NON_INCUMBENT-3_county_26163",
@@ -12286,7 +12287,7 @@ null,
 "judge",
 2.00681e-06,
 2.00681e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NON_INCUMBENT-55_county_26035",
@@ -12295,7 +12296,7 @@ null,
 "judge",
 4.8406e-05,
 4.8406e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NON_INCUMBENT-6_county_26125",
@@ -12304,7 +12305,7 @@ null,
 "judge",
 2.16809e-06,
 2.16809e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_CIRCUIT_COURT_NON_INCUMBENT-7_county_26049",
@@ -12313,7 +12314,7 @@ null,
 "judge",
 7.49417e-06,
 7.49417e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_COURT_OF_APPEALS_NON_INCUMBENT-2_county_26049",
@@ -12322,7 +12323,7 @@ null,
 "judge",
 1.09481e-06,
 1.09481e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_INCUMBENT-23_county_26163",
@@ -12331,7 +12332,7 @@ null,
 "judge",
 5.13314e-05,
 5.13314e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_INCUMBENT-46_county_26125",
@@ -12340,7 +12341,7 @@ null,
 "judge",
 2.49854e-05,
 2.49854e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_NEW_JUDGESHIP-63_county_26081",
@@ -12349,7 +12350,7 @@ null,
 "judge",
 8.7793e-06,
 8.7793e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_NON_INCUMBENT-15_county_26161",
@@ -12358,7 +12359,7 @@ null,
 "judge",
 2.42025e-05,
 2.42025e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_NON_INCUMBENT-16_county_26163",
@@ -12367,7 +12368,7 @@ null,
 "judge",
 2.52598e-05,
 2.52598e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_NON_INCUMBENT-34_county_26163",
@@ -12376,7 +12377,7 @@ null,
 "judge",
 3.46778e-05,
 3.46778e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_NON_INCUMBENT-35_county_26125",
@@ -12385,7 +12386,7 @@ null,
 "judge",
 1.59533e-05,
 1.59533e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_NON_INCUMBENT-41_A_county_26099",
@@ -12394,7 +12395,7 @@ null,
 "judge",
 9.34523e-06,
 9.34523e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_NON_INCUMBENT-5_county_26021",
@@ -12403,7 +12404,7 @@ null,
 "judge",
 2.08415e-05,
 2.08415e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUDGE_OF_DISTRICT_COURT_NON_INCUMBENT-67_county_26049",
@@ -12412,7 +12413,7 @@ null,
 "judge",
 2.04765e-05,
 2.04765e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-JUSTICE_OF_THE_SUPREME_COURT",
@@ -12421,7 +12422,7 @@ null,
 "judge",
 6.41534e-07,
 6.41534e-07,
-"P"
+"C"
 ],
 [
 "2024-local-MI-LAKE_JUDGE_OF_PROBATE_COURT-county_26085",
@@ -12430,7 +12431,7 @@ null,
 "judge",
 0.000222643,
 0.000222643,
-"P"
+"C"
 ],
 [
 "2024-local-MI-MUSKEGON_JUDGE_OF_PROBATE_COURT-county_26121",
@@ -12439,7 +12440,7 @@ null,
 "judge",
 1.61853e-05,
 1.61853e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-OAKLAND_JUDGE_OF_PROBATE_COURT-county_26125",
@@ -12448,7 +12449,7 @@ null,
 "judge",
 2.21221e-06,
 2.21221e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-OCEANA_JUDGE_OF_PROBATE_COURT-county_26127",
@@ -12457,7 +12458,7 @@ null,
 "judge",
 9.08815e-05,
 9.08815e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-OTSEGO_JUDGE_OF_PROBATE_COURT-county_26137",
@@ -12466,7 +12467,7 @@ null,
 "judge",
 8.92301e-05,
 8.92301e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-OTTAWA_JUDGE_OF_PROBATE_COURT-county_26139",
@@ -12475,7 +12476,7 @@ null,
 "judge",
 9.40329e-06,
 9.40329e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MI-PRESQUE_ISLE_JUDGE_OF_PROBATE_COURT-county_26141",
@@ -12484,7 +12485,7 @@ null,
 "judge",
 0.000152774,
 0.000152774,
-"P"
+"C"
 ],
 [
 "2024-local-MI-SHIAWASSEE_JUDGE_OF_PROBATE_COURT-county_26155",
@@ -12493,7 +12494,7 @@ null,
 "judge",
 3.66846e-05,
 3.66846e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MI-ST_JOSEPH_JUDGE_OF_PROBATE_COURT-county_26149",
@@ -12502,7 +12503,7 @@ null,
 "judge",
 4.96279e-05,
 4.96279e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-ASSOCIATE_JUSTICE___SUPREME_COURT-006",
@@ -12511,7 +12512,7 @@ null,
 "judge",
 1.15903e-06,
 1.15903e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MN-CHIEF_JUSTICE___SUPREME_COURT",
@@ -12520,7 +12521,7 @@ null,
 "judge",
 1.12253e-06,
 1.12253e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MN-COURT_OF_APPEALS_JUDGE-012_county_27001",
@@ -12529,7 +12530,7 @@ null,
 "judge",
 4.98858e-07,
 4.98858e-07,
-"P"
+"C"
 ],
 [
 "2024-local-MN-DISTRICT_COURT_24_JUDGE-004_county_27053",
@@ -12538,7 +12539,7 @@ null,
 "judge",
 2.59242e-06,
 2.59242e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MN-DISTRICT_COURT_29_JUDGE-002_county_27123",
@@ -12547,7 +12548,7 @@ null,
 "judge",
 6.11029e-06,
 6.11029e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MN-DISTRICT_COURT_3_JUDGE-002_county_27123",
@@ -12556,7 +12557,7 @@ null,
 "judge",
 6.09551e-06,
 6.09551e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MN-DISTRICT_COURT_3_JUDGE-010_county_27003",
@@ -12565,7 +12566,7 @@ null,
 "judge",
 2.82013e-06,
 2.82013e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MN-DISTRICT_COURT_5_JUDGE-007_county_27005",
@@ -12574,7 +12575,7 @@ null,
 "judge",
 5.62959e-06,
 5.62959e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MN-DISTRICT_COURT_6_JUDGE-006_county_27017",
@@ -12583,7 +12584,7 @@ null,
 "judge",
 9.70383e-06,
 9.70383e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-001_county_27003",
@@ -12592,7 +12593,7 @@ null,
 "special district",
 7.13923e-05,
 7.13923e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-001_county_27013",
@@ -12601,7 +12602,7 @@ null,
 "special district",
 7.90413e-05,
 7.90413e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-001_county_27017",
@@ -12610,7 +12611,7 @@ null,
 "special district",
 0.000132463,
 0.000132463,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-001_county_27037",
@@ -12619,7 +12620,7 @@ null,
 "special district",
 5.62351e-05,
 5.62351e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-001_county_27095",
@@ -12628,7 +12629,7 @@ null,
 "special district",
 0.000187034,
 0.000187034,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-001_county_27141",
@@ -12637,7 +12638,7 @@ null,
 "special district",
 5.28864e-05,
 5.28864e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-001_county_27163",
@@ -12646,7 +12647,7 @@ null,
 "special district",
 8.94031e-05,
 8.94031e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-002_county_27027",
@@ -12655,7 +12656,7 @@ null,
 "special district",
 8.37184e-05,
 8.37184e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-002_county_27037",
@@ -12664,7 +12665,7 @@ null,
 "special district",
 5.8836e-05,
 5.8836e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-002_county_27117",
@@ -12673,7 +12674,7 @@ null,
 "special district",
 0.000502538,
 0.000502538,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-002_county_27131",
@@ -12682,7 +12683,7 @@ null,
 "special district",
 8.439e-05,
 8.439e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-003_county_27037",
@@ -12691,7 +12692,7 @@ null,
 "special district",
 5.62881e-05,
 5.62881e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-003_county_27059",
@@ -12700,7 +12701,7 @@ null,
 "special district",
 0.000125054,
 0.000125054,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-003_county_27165",
@@ -12709,7 +12710,7 @@ null,
 "special district",
 0.000464908,
 0.000464908,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-003_county_27169",
@@ -12718,7 +12719,7 @@ null,
 "special district",
 0.000188172,
 0.000188172,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-004_county_27019",
@@ -12727,7 +12728,7 @@ null,
 "special district",
 0.0001815,
 0.0001815,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-004_county_27131",
@@ -12736,7 +12737,7 @@ null,
 "special district",
 8.51403e-05,
 8.51403e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-005_county_27017",
@@ -12745,7 +12746,7 @@ null,
 "special district",
 0.00013717,
 0.00013717,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-005_county_27027",
@@ -12754,7 +12755,7 @@ null,
 "special district",
 8.23132e-05,
 8.23132e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MN-SOIL_AND_WATER_SUPERVISOR-005_county_27047",
@@ -12763,7 +12764,7 @@ null,
 "special district",
 0.000154639,
 0.000154639,
-"P"
+"C"
 ],
 [
 "2024-local-MS-ALCORN_SCHOOL_BOARD-004_county_28003",
@@ -12817,7 +12818,7 @@ null,
 "school board",
 0.00377708,
 0.00377708,
-"P"
+"C"
 ],
 [
 "2024-local-MS-CHICKASAW_COUNTY_SCHOOL_BOARD_MEMBER-005_county_28017",
@@ -12826,7 +12827,7 @@ null,
 "school board",
 0.00479015,
 0.00479015,
-"P"
+"C"
 ],
 [
 "2024-local-MS-CHOCTAW_SCHOOL_BOARD-003_county_28019",
@@ -12889,7 +12890,7 @@ null,
 "school board",
 0.00246579,
 0.00246579,
-"P"
+"C"
 ],
 [
 "2024-local-MS-GEORGE_COUNTY_SCHOOL_BOARD-005_county_28039",
@@ -12916,7 +12917,7 @@ null,
 "school board",
 0.00481651,
 0.00481651,
-"P"
+"C"
 ],
 [
 "2024-local-MS-HINDS_COUNTY_SCHOOL_BOARD-003_county_28049",
@@ -12952,7 +12953,7 @@ null,
 "school board",
 0.00786389,
 0.00786389,
-"P"
+"C"
 ],
 [
 "2024-local-MS-JONES_SCHOOL_BOARD-001_county_28067",
@@ -12979,7 +12980,7 @@ null,
 "school board",
 0.00329878,
 0.00329878,
-"P"
+"C"
 ],
 [
 "2024-local-MS-MADISON_SCHOOL_BOARD-004_county_28089",
@@ -13024,7 +13025,7 @@ null,
 "school board",
 0.00320112,
 0.00320112,
-"P"
+"C"
 ],
 [
 "2024-local-MS-MONROE_SCHOOL_BOARD-ABERDEEN_ADDED_TERRITORY_002_county_28095",
@@ -13033,7 +13034,7 @@ null,
 "school board",
 0.00531496,
 0.00531496,
-"P"
+"C"
 ],
 [
 "2024-local-MS-MONTGOMERY_SCHOOL_BOARD-004_county_28097",
@@ -13051,7 +13052,7 @@ null,
 "school board",
 0.00628181,
 0.00628181,
-"P"
+"C"
 ],
 [
 "2024-local-MS-NEWTON_SCHOOL_BOARD-NEWTON_CITY_003_county_28101",
@@ -13168,7 +13169,7 @@ null,
 "school board",
 0.00894325,
 0.00894325,
-"P"
+"C"
 ],
 [
 "2024-local-MS-SIMPSON_SCHOOL_BOARD-003_county_28127",
@@ -13177,7 +13178,7 @@ null,
 "school board",
 0.00346035,
 0.00346035,
-"P"
+"C"
 ],
 [
 "2024-local-MS-SMITH_COUNTY_SCHOOL_BOARD-003_county_28129",
@@ -13195,7 +13196,7 @@ null,
 "school board",
 0.00631862,
 0.00631862,
-"P"
+"C"
 ],
 [
 "2024-local-MS-SUPREME_COURT-002__SOUTHERN___POSITION_2",
@@ -13204,7 +13205,7 @@ null,
 "judge",
 7.80011e-06,
 7.80011e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MS-TALLAHATCHIE_SCHOOL_BOARD-009_county_28135",
@@ -13213,7 +13214,7 @@ null,
 "school board",
 0.00941372,
 0.00941372,
-"P"
+"C"
 ],
 [
 "2024-local-MS-TIPPAH_SCHOOL_BOARD-NORTH_TIPPAH_005_county_28139",
@@ -13258,7 +13259,7 @@ null,
 "school board",
 0.00376393,
 0.00376393,
-"P"
+"C"
 ],
 [
 "2024-local-MS-WAYNE_SCHOOL_BOARD-003_county_28153",
@@ -13267,7 +13268,7 @@ null,
 "school board",
 0.00266806,
 0.00266806,
-"P"
+"C"
 ],
 [
 "2024-local-MS-WAYNE_SCHOOL_BOARD-004_county_28153",
@@ -13276,7 +13277,7 @@ null,
 "school board",
 0.00278657,
 0.00278657,
-"P"
+"C"
 ],
 [
 "2024-local-MS-WEBSTER_COUNTY_SCHOOL_BOARD-003_county_28155",
@@ -13285,7 +13286,7 @@ null,
 "school board",
 0.00583114,
 0.00583114,
-"P"
+"C"
 ],
 [
 "2024-local-MS-WEBSTER_COUNTY_SCHOOL_BOARD-004_county_28155",
@@ -13321,7 +13322,7 @@ null,
 "mayor or executive",
 0.000345134,
 0.000345134,
-"P"
+"C"
 ],
 [
 "2024-local-MT-CHIEF_EXECUTIVE-county_30093",
@@ -13330,7 +13331,7 @@ null,
 "mayor or executive",
 9.19296e-05,
 9.19296e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MT-CHIEF_OF_LAW_ENFORCEMENT-county_30023",
@@ -13339,7 +13340,7 @@ null,
 "sheriff or constable",
 0.000242109,
 0.000242109,
-"P"
+"C"
 ],
 [
 "2024-local-MT-CLERK_OF_DISTRICT_COURT_SUPT_OF_SCHOOLS-county_30045",
@@ -13393,7 +13394,7 @@ null,
 "special district",
 0.00097692,
 0.00097692,
-"P"
+"C"
 ],
 [
 "2024-local-MT-COUNTY_SUPERINTENDENT_OF_SCHOOLS-county_30005",
@@ -13438,7 +13439,7 @@ null,
 "judge",
 2.15171e-05,
 2.15171e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MT-DISTRICT_COURT_JUDGE-DISTRICT_15__DEPT_1_county_30019",
@@ -13447,7 +13448,7 @@ null,
 "judge",
 0.00018109,
 0.00018109,
-"P"
+"C"
 ],
 [
 "2024-local-MT-DISTRICT_COURT_JUDGE-DISTRICT_2__DEPT_1_county_30093",
@@ -13456,7 +13457,7 @@ null,
 "judge",
 6.54275e-05,
 6.54275e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MT-SHERIFF-county_30003",
@@ -13465,7 +13466,7 @@ null,
 "sheriff or constable",
 0.000289277,
 0.000289277,
-"P"
+"C"
 ],
 [
 "2024-local-MT-SHERIFF-county_30093",
@@ -13474,7 +13475,7 @@ null,
 "sheriff or constable",
 6.33016e-05,
 6.33016e-05,
-"P"
+"C"
 ],
 [
 "2024-local-MT-SUPERINTENDENT_OF_SCHOOLS-county_30093",
@@ -13501,7 +13502,7 @@ null,
 "judge",
 4.89288e-06,
 4.89288e-06,
-"P"
+"C"
 ],
 [
 "2024-local-MT-SUPREME_COURT_JUSTICE-003",
@@ -13510,7 +13511,7 @@ null,
 "judge",
 4.86957e-06,
 4.86957e-06,
-"P"
+"C"
 ],
 [
 "2024-local-NC-ALAMANCE_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37001",
@@ -13519,7 +13520,7 @@ null,
 "special district",
 2.9465e-05,
 2.9465e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-ALEXANDER_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-county_37003",
@@ -13528,7 +13529,7 @@ null,
 "school board",
 0.000841354,
 0.000841354,
-"P"
+"C"
 ],
 [
 "2024-local-NC-ALEXANDER_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-county_37003",
@@ -13582,7 +13583,7 @@ null,
 "special district",
 0.000430278,
 0.000430278,
-"P"
+"C"
 ],
 [
 "2024-local-NC-BEAUFORT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-county_37013",
@@ -13618,7 +13619,7 @@ null,
 "school board",
 5.03871e-05,
 5.03871e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-BUNCOMBE_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_01-county_37021",
@@ -13636,7 +13637,7 @@ null,
 "school board",
 0.000340619,
 0.000340619,
-"P"
+"C"
 ],
 [
 "2024-local-NC-BUNCOMBE_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_04-county_37021",
@@ -13654,7 +13655,7 @@ null,
 "special district",
 1.81208e-05,
 1.81208e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-BURKE_COUNTY_BOARD_OF_EDUCATION_CENTRAL_DISTRICT-county_37023",
@@ -13672,7 +13673,7 @@ null,
 "special district",
 5.83239e-05,
 5.83239e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-CALDWELL_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37027",
@@ -13681,7 +13682,7 @@ null,
 "special district",
 6.33979e-05,
 6.33979e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-CARTERET_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37031",
@@ -13690,7 +13691,7 @@ null,
 "special district",
 6.28134e-05,
 6.28134e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-CHATHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-county_37037",
@@ -13726,7 +13727,7 @@ null,
 "school board",
 0.000350434,
 0.000350434,
-"P"
+"C"
 ],
 [
 "2024-local-NC-COLUMBUS_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37047",
@@ -13735,7 +13736,7 @@ null,
 "special district",
 0.000102855,
 0.000102855,
-"P"
+"C"
 ],
 [
 "2024-local-NC-CUMBERLAND_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-county_37051",
@@ -13744,7 +13745,7 @@ null,
 "school board",
 0.000351116,
 0.000351116,
-"P"
+"C"
 ],
 [
 "2024-local-NC-CUMBERLAND_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-county_37051",
@@ -13762,7 +13763,7 @@ null,
 "school board",
 0.000303088,
 0.000303088,
-"P"
+"C"
 ],
 [
 "2024-local-NC-CUMBERLAND_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-county_37051",
@@ -13771,7 +13772,7 @@ null,
 "school board",
 0.000261703,
 0.000261703,
-"P"
+"C"
 ],
 [
 "2024-local-NC-CUMBERLAND_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-county_37051",
@@ -13798,7 +13799,7 @@ null,
 "special district",
 3.77887e-05,
 3.77887e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-CURRITUCK_COUNTY_BOARD_OF_EDUCATION_AT_LARGE__UNEXPIRED-county_37053",
@@ -13825,7 +13826,7 @@ null,
 "school board",
 0.000373919,
 0.000373919,
-"P"
+"C"
 ],
 [
 "2024-local-NC-DAVIDSON_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37057",
@@ -13834,7 +13835,7 @@ null,
 "special district",
 2.58789e-05,
 2.58789e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-FORSYTH_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37067",
@@ -13843,7 +13844,7 @@ null,
 "special district",
 1.3777e-05,
 1.3777e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-FRANKLIN_COUNTY_BOARD_OF_EDUCATION_AT_LARGE_SEAT_06-county_37069",
@@ -13870,7 +13871,7 @@ null,
 "special district",
 6.40742e-05,
 6.40742e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-GASTON_COUNTY_BOARD_OF_EDUCATION_AT_LARGE-county_37071",
@@ -13879,7 +13880,7 @@ null,
 "school board",
 5.19044e-05,
 5.19044e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-GASTON_COUNTY_BOARD_OF_EDUCATION_GASTONIA_TWP-county_37071",
@@ -13888,7 +13889,7 @@ null,
 "school board",
 0.000111776,
 0.000111776,
-"P"
+"C"
 ],
 [
 "2024-local-NC-GREENE_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37079",
@@ -13897,7 +13898,7 @@ null,
 "special district",
 0.00032427,
 0.00032427,
-"P"
+"C"
 ],
 [
 "2024-local-NC-HALIFAX_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37083",
@@ -13906,7 +13907,7 @@ null,
 "special district",
 0.000115316,
 0.000115316,
-"P"
+"C"
 ],
 [
 "2024-local-NC-JOHNSTON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-county_37101",
@@ -13951,7 +13952,7 @@ null,
 "special district",
 4.61201e-05,
 4.61201e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-MACON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-county_37113",
@@ -13960,7 +13961,7 @@ null,
 "school board",
 0.000313853,
 0.000313853,
-"P"
+"C"
 ],
 [
 "2024-local-NC-MARTIN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02__UNEXPIRED-county_37117",
@@ -13978,7 +13979,7 @@ null,
 "school board",
 0.00360093,
 0.00360093,
-"P"
+"C"
 ],
 [
 "2024-local-NC-MCDOWELL_COUNTY_BOARD_OF_EDUCATION_OLD_FORT_DISTRICT-county_37111",
@@ -13996,7 +13997,7 @@ null,
 "special district",
 8.52733e-06,
 8.52733e-06,
-"P"
+"C"
 ],
 [
 "2024-local-NC-MOORE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_I-county_37125",
@@ -14059,7 +14060,7 @@ null,
 "school board",
 0.00077053,
 0.00077053,
-"P"
+"C"
 ],
 [
 "2024-local-NC-NASH_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06-county_37127",
@@ -14086,7 +14087,7 @@ null,
 "special district",
 5.33421e-05,
 5.33421e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-NEW_HANOVER_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37129",
@@ -14095,7 +14096,7 @@ null,
 "special district",
 2.25581e-05,
 2.25581e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-ONSLOW_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37133",
@@ -14104,7 +14105,7 @@ null,
 "special district",
 3.62649e-05,
 3.62649e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-PASQUOTANK_COUNTY_BOARD_OF_EDUCATION_AT_LARGE_MEMBER-county_37139",
@@ -14113,7 +14114,7 @@ null,
 "school board",
 0.000366295,
 0.000366295,
-"P"
+"C"
 ],
 [
 "2024-local-NC-PASQUOTANK_COUNTY_BOARD_OF_EDUCATION_OUTSIDE_MEMBER-county_37139",
@@ -14131,7 +14132,7 @@ null,
 "special district",
 0.000129242,
 0.000129242,
-"P"
+"C"
 ],
 [
 "2024-local-NC-PENDER_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37141",
@@ -14140,7 +14141,7 @@ null,
 "special district",
 0.000170993,
 0.000170993,
-"P"
+"C"
 ],
 [
 "2024-local-NC-PITT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01__UNEXPIRED-county_37147",
@@ -14212,7 +14213,7 @@ null,
 "special district",
 5.37474e-05,
 5.37474e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-ROWAN_SALISBURY_SCHOOLS_BD_OF_EDUCATION_SEAT_05__SALISBURY-county_37159",
@@ -14221,7 +14222,7 @@ null,
 "school board",
 9.45412e-05,
 9.45412e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-ROWAN_SALISBURY_SCHOOLS_BD_OF_EDUCATION_SEAT_07__SOUTHEAST-county_37159",
@@ -14239,7 +14240,7 @@ null,
 "special district",
 7.13647e-05,
 7.13647e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-SURRY_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37171",
@@ -14248,7 +14249,7 @@ null,
 "special district",
 6.83036e-05,
 6.83036e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-TOWN_OF_DOVER_MAYOR-county_37049",
@@ -14257,7 +14258,7 @@ null,
 "mayor or executive",
 0.00708229,
 0.00708229,
-"P"
+"C"
 ],
 [
 "2024-local-NC-TOWN_OF_ELKIN_MAYOR-county_37171",
@@ -14266,7 +14267,7 @@ null,
 "mayor or executive",
 0.00077345,
 0.00077345,
-"P"
+"C"
 ],
 [
 "2024-local-NC-TOWN_OF_LOVE_VALLEY_MAYOR-county_37097",
@@ -14275,7 +14276,7 @@ null,
 "mayor or executive",
 0.0152287,
 0.0152287,
-"P"
+"C"
 ],
 [
 "2024-local-NC-TOWN_OF_OAKBORO_MAYOR-county_37167",
@@ -14284,7 +14285,7 @@ null,
 "mayor or executive",
 0.00119412,
 0.00119412,
-"P"
+"C"
 ],
 [
 "2024-local-NC-TOWN_OF_RONDA_MAYOR-county_37193",
@@ -14293,7 +14294,7 @@ null,
 "mayor or executive",
 0.0082151,
 0.0082151,
-"P"
+"C"
 ],
 [
 "2024-local-NC-TOWN_OF_STAR_MAYOR-county_37123",
@@ -14302,7 +14303,7 @@ null,
 "mayor or executive",
 0.00622248,
 0.00622248,
-"P"
+"C"
 ],
 [
 "2024-local-NC-UNION_SOIL_AND_WATER_CONSERVATION_DISTRICT_SUPERVISOR-county_37179",
@@ -14311,7 +14312,7 @@ null,
 "special district",
 2.20682e-05,
 2.20682e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NC-WAKE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-county_37183",
@@ -14329,7 +14330,7 @@ null,
 "school board",
 0.00014036,
 0.00014036,
-"P"
+"C"
 ],
 [
 "2024-local-NC-WAKE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-county_37183",
@@ -14365,7 +14366,7 @@ null,
 "special district",
 7.11199e-06,
 7.11199e-06,
-"P"
+"C"
 ],
 [
 "2024-local-NC-WAYNE_COUNTY_BOARD_OF_EDUCATION_AT_LARGE-county_37191",
@@ -14437,7 +14438,7 @@ null,
 "special district",
 0.00126181,
 0.00126181,
-"P"
+"C"
 ],
 [
 "2024-local-NE-CENTRAL_COMMUNITY_COLLEGE_FOR_BOARD_OF_GOVERNORS-AT_LARGE_county_31001",
@@ -14464,7 +14465,7 @@ null,
 "special district",
 0.000652605,
 0.000652605,
-"P"
+"C"
 ],
 [
 "2024-local-NE-CENTRAL_NEBRASKA_PUBLIC_POWER_AND_IRRIGATION_DISTRICT-county_31137",
@@ -14473,7 +14474,7 @@ null,
 "special district",
 0.000462789,
 0.000462789,
-"P"
+"C"
 ],
 [
 "2024-local-NE-CHIMNEY_ROCK_PUBLIC_POWER_DISTRICT-county_31007",
@@ -14482,7 +14483,7 @@ null,
 "special district",
 0.000807901,
 0.000807901,
-"P"
+"C"
 ],
 [
 "2024-local-NE-CUMING_COUNTY_PUBLIC_POWER_DISTRICT-county_31021",
@@ -14491,7 +14492,7 @@ null,
 "special district",
 0.00097281,
 0.00097281,
-"P"
+"C"
 ],
 [
 "2024-local-NE-CUSTER_PUBLIC_POWER_DISTRICT-county_31009",
@@ -14500,7 +14501,7 @@ null,
 "special district",
 0.000335746,
 0.000335746,
-"P"
+"C"
 ],
 [
 "2024-local-NE-ELKHORN_RURAL_PUBLIC_POWER_DISTRICT-county_31003",
@@ -14509,7 +14510,7 @@ null,
 "special district",
 0.000886475,
 0.000886475,
-"P"
+"C"
 ],
 [
 "2024-local-NE-IMPERIAL_PUBLIC_POWER_DISTRICT-county_31029",
@@ -14518,7 +14519,7 @@ null,
 "special district",
 0.00168346,
 0.00168346,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LEARNING_COMMUNITY_OF_DOUGLAS-county_31055",
@@ -14536,7 +14537,7 @@ null,
 "school board",
 0.000114716,
 0.000114716,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LEARNING_COMMUNITY_OF_DOUGLAS-county_31153",
@@ -14545,7 +14546,7 @@ null,
 "school board",
 0.000108457,
 0.000108457,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LOUP_BASIN_RECLAMATION_DISTRICT-county_31093",
@@ -14554,7 +14555,7 @@ null,
 "special district",
 0.00121282,
 0.00121282,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LOWER_ELKHORN_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECT-county_31021",
@@ -14563,7 +14564,7 @@ null,
 "special district",
 0.000205035,
 0.000205035,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LOWER_ELKHORN_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECT-county_31119",
@@ -14572,7 +14573,7 @@ null,
 "special district",
 0.000426255,
 0.000426255,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LOWER_LOUP_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECTORS-county_31019",
@@ -14581,7 +14582,7 @@ null,
 "special district",
 0.000493055,
 0.000493055,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LOWER_LOUP_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECTORS-county_31093",
@@ -14590,7 +14591,7 @@ null,
 "special district",
 0.000703728,
 0.000703728,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LOWER_PLATTE_SOUTH_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_D-county_31023",
@@ -14599,7 +14600,7 @@ null,
 "special district",
 0.000205392,
 0.000205392,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LOWER_PLATTE_SOUTH_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_D-county_31025",
@@ -14608,7 +14609,7 @@ null,
 "special district",
 0.000175506,
 0.000175506,
-"P"
+"C"
 ],
 [
 "2024-local-NE-LOWER_PLATTE_SOUTH_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_D-county_31109",
@@ -14617,7 +14618,7 @@ null,
 "special district",
 0.000149118,
 0.000149118,
-"P"
+"C"
 ],
 [
 "2024-local-NE-MEMBER_OF_THE_STATE_BOARD_OF_EDUCATION-county_31021",
@@ -14662,7 +14663,7 @@ null,
 "school board",
 8.67227e-05,
 8.67227e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NE-METROPOLITAN_UTILITIES_DISTRICT_OF_OMAHA-county_31055",
@@ -14671,7 +14672,7 @@ null,
 "special district",
 5.00456e-05,
 5.00456e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NE-MIDDLE_LOUP_PUBLIC_POWER_AND_IRRIGATION_DISTRICT-county_31163",
@@ -14680,7 +14681,7 @@ null,
 "special district",
 0.00365959,
 0.00365959,
-"P"
+"C"
 ],
 [
 "2024-local-NE-MIDDLE_NIOBRARA_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRE-county_31017",
@@ -14689,7 +14690,7 @@ null,
 "special district",
 0.000429969,
 0.000429969,
-"P"
+"C"
 ],
 [
 "2024-local-NE-NEBRASKA_PUBLIC_POWER_DISTRICT-county_31047",
@@ -14698,7 +14699,7 @@ null,
 "special district",
 0.00010953,
 0.00010953,
-"P"
+"C"
 ],
 [
 "2024-local-NE-NEMAHA_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECTORS-county_31025~2",
@@ -14707,7 +14708,7 @@ null,
 "special district",
 0.000834242,
 0.000834242,
-"P"
+"C"
 ],
 [
 "2024-local-NE-NEMAHA_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECTORS-county_31127",
@@ -14716,7 +14717,7 @@ null,
 "special district",
 0.000603524,
 0.000603524,
-"P"
+"C"
 ],
 [
 "2024-local-NE-NORRIS_PUBLIC_POWER_DISTRICT-county_31023",
@@ -14725,7 +14726,7 @@ null,
 "special district",
 0.000247099,
 0.000247099,
-"P"
+"C"
 ],
 [
 "2024-local-NE-NORTHEAST_COMMUNITY_COLLEGE_FOR_BOARD_OF_GOVERNORS-county_31003",
@@ -14761,7 +14762,7 @@ null,
 "special district",
 0.0055671,
 0.0055671,
-"P"
+"C"
 ],
 [
 "2024-local-NE-NORTH_CENTRAL_PUBLIC_POWER_DISTRICT-county_31003",
@@ -14770,7 +14771,7 @@ null,
 "special district",
 0.0031296,
 0.0031296,
-"P"
+"C"
 ],
 [
 "2024-local-NE-OMAHA_PUBLIC_POWER_DISTRICT-county_31055~2",
@@ -14779,7 +14780,7 @@ null,
 "special district",
 4.63677e-05,
 4.63677e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NE-PAPIO_MISSOURI_RIVER_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF-county_31055",
@@ -14788,7 +14789,7 @@ null,
 "special district",
 7.05685e-05,
 7.05685e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NE-PAPIO_MISSOURI_RIVER_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF-county_31055~2",
@@ -14797,7 +14798,7 @@ null,
 "special district",
 7.55669e-05,
 7.55669e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NE-PERENNIAL_PUBLIC_POWER_DISTRICT-county_31035",
@@ -14806,7 +14807,7 @@ null,
 "special district",
 0.000332556,
 0.000332556,
-"P"
+"C"
 ],
 [
 "2024-local-NE-ROOSEVELT_PUBLIC_POWER_DISTRICT-county_31157",
@@ -14815,7 +14816,7 @@ null,
 "special district",
 0.00531946,
 0.00531946,
-"P"
+"C"
 ],
 [
 "2024-local-NE-SOUTHEAST_COMMUNITY_COLLEGE_FOR_BOARD_OF_GOVERNORS-county_31025",
@@ -14824,7 +14825,7 @@ null,
 "school board",
 8.23258e-05,
 8.23258e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NE-SOUTHWEST_PUBLIC_POWER_DISTRICT-county_31029",
@@ -14833,7 +14834,7 @@ null,
 "special district",
 0.00156655,
 0.00156655,
-"P"
+"C"
 ],
 [
 "2024-local-NE-STANTON_COUNTY_PUBLIC_POWER_DISTRICT-county_31037",
@@ -14842,7 +14843,7 @@ null,
 "special district",
 0.00133546,
 0.00133546,
-"P"
+"C"
 ],
 [
 "2024-local-NE-TRI_BASIN_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECTORS-county_31099",
@@ -14851,7 +14852,7 @@ null,
 "special district",
 0.000793688,
 0.000793688,
-"P"
+"C"
 ],
 [
 "2024-local-NE-TWIN_PLATTE_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECTOR-county_31005",
@@ -14860,7 +14861,7 @@ null,
 "special district",
 0.000287043,
 0.000287043,
-"P"
+"C"
 ],
 [
 "2024-local-NE-TWIN_VALLEYS_PUBLIC_POWER_DISTRICT-county_31063",
@@ -14869,7 +14870,7 @@ null,
 "special district",
 0.00149147,
 0.00149147,
-"P"
+"C"
 ],
 [
 "2024-local-NE-UPPER_ELKHORN_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECT-county_31003~2",
@@ -14878,7 +14879,7 @@ null,
 "special district",
 0.001104,
 0.001104,
-"P"
+"C"
 ],
 [
 "2024-local-NE-UPPER_LOUP_NATURAL_RESOURCES_DISTRICT_FOR_BOARD_OF_DIRECTORS-county_31009",
@@ -14887,7 +14888,7 @@ null,
 "special district",
 0.00242326,
 0.00242326,
-"P"
+"C"
 ],
 [
 "2024-local-NJ-BOARD_OF_EDUCATION_SOMERSET_HILLS_BERNARDSVILLE-county_34035",
@@ -14959,7 +14960,7 @@ null,
 "school board",
 0.00259597,
 0.00259597,
-"P"
+"C"
 ],
 [
 "2024-local-NJ-HENRY_HUDSON_REG_SCH_DIST_BOE__ATLANTIC_HIGHLANDS___2-county_34025",
@@ -14968,7 +14969,7 @@ null,
 "school board",
 0.00273375,
 0.00273375,
-"P"
+"C"
 ],
 [
 "2024-local-NJ-HENRY_HUDSON_REG_SCH_DIST_BOE__HIGHLANDS___FULL_TERM-county_34025",
@@ -14986,7 +14987,7 @@ null,
 "mayor or executive",
 0.00071156,
 0.00071156,
-"P"
+"C"
 ],
 [
 "2024-local-NJ-MAYOR_HOWELL_TWP-county_34025",
@@ -14995,7 +14996,7 @@ null,
 "mayor or executive",
 5.48921e-05,
 5.48921e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NJ-MAYOR_NORTH_PLAINFIELD-county_34035",
@@ -15004,7 +15005,7 @@ null,
 "mayor or executive",
 0.000226779,
 0.000226779,
-"P"
+"C"
 ],
 [
 "2024-local-NJ-MEMBERSHIP_TO_BOARD_OF_EDUCATION___WALLKILL_VALLEY_RGNL___HA-county_34037",
@@ -15103,7 +15104,7 @@ null,
 "mayor or executive",
 7.27762e-05,
 7.27762e-05,
-"P"
+"C"
 ],
 [
 "2024-local-NJ-SPOTSWOOD_MAYOR-county_34023",
@@ -15112,7 +15113,7 @@ null,
 "mayor or executive",
 0.000391192,
 0.000391192,
-"P"
+"C"
 ],
 [
 "2024-local-NJ-SURROGATE-county_34027",
@@ -15121,7 +15122,7 @@ null,
 "judge",
 4.30121e-06,
 4.30121e-06,
-"P"
+"C"
 ],
 [
 "2024-local-NY-BATH_TOWN_CLERK-county_36101",
@@ -15139,7 +15140,7 @@ null,
 "school board",
 0.000100165,
 0.000100165,
-"P"
+"C"
 ],
 [
 "2024-local-NY-CANISTEO_TOWN_CLERK-county_36101",
@@ -15238,7 +15239,7 @@ null,
 "judge",
 0.000488942,
 0.000488942,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_01_01_202-county_39055",
@@ -15247,7 +15248,7 @@ null,
 "judge",
 2.35951e-05,
 2.35951e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_01_01_202-county_39061",
@@ -15256,7 +15257,7 @@ null,
 "judge",
 3.40065e-06,
 3.40065e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_01_01_202-county_39063",
@@ -15265,7 +15266,7 @@ null,
 "judge",
 3.53071e-05,
 3.53071e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_01_01_202-county_39089",
@@ -15274,7 +15275,7 @@ null,
 "judge",
 1.37935e-05,
 1.37935e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_01_01_202-county_39101",
@@ -15283,7 +15284,7 @@ null,
 "judge",
 4.5196e-05,
 4.5196e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_01_02_202-county_39153",
@@ -15292,7 +15293,7 @@ null,
 "judge",
 5.50355e-06,
 5.50355e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_01_06_202-county_39085",
@@ -15301,7 +15302,7 @@ null,
 "judge",
 1.24948e-05,
 1.24948e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_01_06_202-county_39095",
@@ -15310,7 +15311,7 @@ null,
 "judge",
 8.01659e-06,
 8.01659e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OH-JUDGE_OF_THE_COURT_OF_COMMON_PLEAS_TERM_COMMENCING_05_17_202-county_39153",
@@ -15319,7 +15320,7 @@ null,
 "judge",
 5.73522e-06,
 5.73522e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OK-BOARD_MEMBER_MEMBER_OF_THE_BOARD_OF_DIRECTORS_CEDAR_COUNTRY_-county_40027",
@@ -15328,7 +15329,7 @@ null,
 "special district",
 0.00192441,
 0.00192441,
-"P"
+"C"
 ],
 [
 "2024-local-OK-BOARD_MEMBER_MEMBER_OF_THE_BOARD_OF_DIRECTORS_FOYIL_FIRE-county_40131",
@@ -15337,7 +15338,7 @@ null,
 "special district",
 0.000976084,
 0.000976084,
-"P"
+"C"
 ],
 [
 "2024-local-OK-BOARD_MEMBER_MEMBER_OF_THE_BOARD_OF_DIRECTORS_VERDIGRIS_FIRE-county_40131",
@@ -15346,7 +15347,7 @@ null,
 "special district",
 0.000514379,
 0.000514379,
-"P"
+"C"
 ],
 [
 "2024-local-OK-BOARD_MEMBER_MEMBER_OF_THE_BOARD_OF_DIRECTORS_WHITEHORN_COVE-county_40145",
@@ -15355,7 +15356,7 @@ null,
 "special district",
 0.00228416,
 0.00228416,
-"P"
+"C"
 ],
 [
 "2024-local-OK-COUNTY_COURT_CLERK-county_40027",
@@ -15373,7 +15374,7 @@ null,
 "mayor or executive",
 0.000657209,
 0.000657209,
-"P"
+"C"
 ],
 [
 "2024-local-OK-MAYOR_CITY_OF_TULSA-county_40113",
@@ -15382,7 +15383,7 @@ null,
 "mayor or executive",
 1.15805e-05,
 1.15805e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-ANTELOPE_MAYOR-county_41065",
@@ -15391,7 +15392,7 @@ null,
 "mayor or executive",
 0.0553176,
 0.0553176,
-"P"
+"C"
 ],
 [
 "2024-local-OR-ASHLAND_PARK_COMMISSIONER-POSITION_1_county_41029",
@@ -15400,7 +15401,7 @@ null,
 "special district",
 0.000197227,
 0.000197227,
-"P"
+"C"
 ],
 [
 "2024-local-OR-ASHLAND_PARK_COMMISSIONER-POSITION_2_county_41029",
@@ -15409,7 +15410,7 @@ null,
 "special district",
 0.000410755,
 0.000410755,
-"P"
+"C"
 ],
 [
 "2024-local-OR-BANDON_MAYOR-county_41011",
@@ -15418,7 +15419,7 @@ null,
 "mayor or executive",
 0.000828179,
 0.000828179,
-"P"
+"C"
 ],
 [
 "2024-local-OR-BANKS_MAYOR-county_41067",
@@ -15427,7 +15428,7 @@ null,
 "mayor or executive",
 0.00190879,
 0.00190879,
-"P"
+"C"
 ],
 [
 "2024-local-OR-CANBY_MAYOR-county_41005",
@@ -15436,7 +15437,7 @@ null,
 "mayor or executive",
 0.000178428,
 0.000178428,
-"P"
+"C"
 ],
 [
 "2024-local-OR-CASCADE_LOCKS_MAYOR-county_41027",
@@ -15445,7 +15446,7 @@ null,
 "mayor or executive",
 0.00234807,
 0.00234807,
-"P"
+"C"
 ],
 [
 "2024-local-OR-CENTRAL_POINT_MAYOR-county_41029",
@@ -15454,7 +15455,7 @@ null,
 "mayor or executive",
 0.000193999,
 0.000193999,
-"P"
+"C"
 ],
 [
 "2024-local-OR-CLACK_SOIL_AND_WATER_DIRECTOR-ZONE_3_county_41005",
@@ -15463,7 +15464,7 @@ null,
 "special district",
 1.50516e-05,
 1.50516e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-CLATSKANIE_PUD_DIRECTOR-001_county_41007",
@@ -15472,7 +15473,7 @@ null,
 "special district",
 0.0026685,
 0.0026685,
-"P"
+"C"
 ],
 [
 "2024-local-OR-CLATSKANIE_PUD_DIRECTOR-002_county_41009",
@@ -15481,7 +15482,7 @@ null,
 "special district",
 0.00277433,
 0.00277433,
-"P"
+"C"
 ],
 [
 "2024-local-OR-DOUGLAS_COUNTY_CLERK-county_41019",
@@ -15499,7 +15500,7 @@ null,
 "special district",
 9.65519e-06,
 9.65519e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OR-GEARHART_MAYOR-county_41007",
@@ -15508,7 +15509,7 @@ null,
 "mayor or executive",
 0.00132206,
 0.00132206,
-"P"
+"C"
 ],
 [
 "2024-local-OR-GRANT_COUNTY_JUDGE-county_41023",
@@ -15517,7 +15518,7 @@ null,
 "judge",
 0.000268393,
 0.000268393,
-"P"
+"C"
 ],
 [
 "2024-local-OR-GRANT_COUNTY_SHERIFF-county_41023",
@@ -15526,7 +15527,7 @@ null,
 "sheriff or constable",
 0.000257975,
 0.000257975,
-"P"
+"C"
 ],
 [
 "2024-local-OR-GRANT_COUNTY_TREASURER-county_41023",
@@ -15544,7 +15545,7 @@ null,
 "mayor or executive",
 0.00773556,
 0.00773556,
-"P"
+"C"
 ],
 [
 "2024-local-OR-HARNEY_COUNTY_SHERIFF-county_41025",
@@ -15553,7 +15554,7 @@ null,
 "sheriff or constable",
 0.000303983,
 0.000303983,
-"P"
+"C"
 ],
 [
 "2024-local-OR-HILLSBORO_MAYOR-county_41067",
@@ -15562,7 +15563,7 @@ null,
 "mayor or executive",
 4.17194e-05,
 4.17194e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-JORDAN_VALLEY_MAYOR-county_41045",
@@ -15571,7 +15572,7 @@ null,
 "mayor or executive",
 0.0168477,
 0.0168477,
-"P"
+"C"
 ],
 [
 "2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-1ST_DISTRICT_POSITION_11",
@@ -15580,7 +15581,7 @@ null,
 "judge",
 3.14933e-05,
 3.14933e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-20TH_DISTRICT_POSITION_6",
@@ -15589,7 +15590,7 @@ null,
 "judge",
 1.27813e-05,
 1.27813e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-3RD_DISTRICT",
@@ -15598,7 +15599,7 @@ null,
 "judge",
 2.42958e-05,
 2.42958e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-JUDGE_OF_THE_CIRCUIT_COURT-6TH_DISTRICT_POSITION_5",
@@ -15607,7 +15608,7 @@ null,
 "judge",
 0.000674188,
 0.000674188,
-"P"
+"C"
 ],
 [
 "2024-local-OR-LAKEVIEW_MAYOR-county_41037",
@@ -15616,7 +15617,7 @@ null,
 "mayor or executive",
 0.00166169,
 0.00166169,
-"P"
+"C"
 ],
 [
 "2024-local-OR-LINN_SOIL_AND_WATER_CONSERVATION_DISTRICT-AT_LARGE_POSITION_2_county_41043",
@@ -15625,7 +15626,7 @@ null,
 "special district",
 6.27203e-05,
 6.27203e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-MARION_COUNTY_SHERIFF-county_41047",
@@ -15634,7 +15635,7 @@ null,
 "sheriff or constable",
 9.17737e-06,
 9.17737e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OR-MAYOR_COVE-county_41061",
@@ -15643,7 +15644,7 @@ null,
 "mayor or executive",
 0.00395132,
 0.00395132,
-"P"
+"C"
 ],
 [
 "2024-local-OR-MAYOR_ELGIN-county_41061",
@@ -15652,7 +15653,7 @@ null,
 "mayor or executive",
 0.00181935,
 0.00181935,
-"P"
+"C"
 ],
 [
 "2024-local-OR-MAYOR_ISLAND_CITY-county_41061",
@@ -15661,7 +15662,7 @@ null,
 "mayor or executive",
 0.00258033,
 0.00258033,
-"P"
+"C"
 ],
 [
 "2024-local-OR-MCMINNVILLE_MAYOR-county_41071",
@@ -15670,7 +15671,7 @@ null,
 "mayor or executive",
 0.000101058,
 0.000101058,
-"P"
+"C"
 ],
 [
 "2024-local-OR-NORTH_BEND_MAYOR-county_41011",
@@ -15679,7 +15680,7 @@ null,
 "mayor or executive",
 0.000339829,
 0.000339829,
-"P"
+"C"
 ],
 [
 "2024-local-OR-NORTH_PLAINS_MAYOR-county_41067",
@@ -15688,7 +15689,7 @@ null,
 "mayor or executive",
 0.000816706,
 0.000816706,
-"P"
+"C"
 ],
 [
 "2024-local-OR-PHILOMATH_MAYOR-county_41003",
@@ -15697,7 +15698,7 @@ null,
 "mayor or executive",
 0.000613868,
 0.000613868,
-"P"
+"C"
 ],
 [
 "2024-local-OR-PHOENIX_MAYOR-county_41029",
@@ -15706,7 +15707,7 @@ null,
 "mayor or executive",
 0.000807181,
 0.000807181,
-"P"
+"C"
 ],
 [
 "2024-local-OR-POWERS_MAYOR-county_41011",
@@ -15715,7 +15716,7 @@ null,
 "mayor or executive",
 0.00520468,
 0.00520468,
-"P"
+"C"
 ],
 [
 "2024-local-OR-SANDY_MAYOR-county_41005",
@@ -15724,7 +15725,7 @@ null,
 "mayor or executive",
 0.000283585,
 0.000283585,
-"P"
+"C"
 ],
 [
 "2024-local-OR-TILLAMOOK_PUD_DIRECTOR-SUBDIVISION_1_ZONE_1_county_41057",
@@ -15733,7 +15734,7 @@ null,
 "special district",
 0.000841033,
 0.000841033,
-"P"
+"C"
 ],
 [
 "2024-local-OR-TILLAMOOK_PUD_DIRECTOR-SUBDIVISION_3_ZONE_3_county_41057",
@@ -15742,7 +15743,7 @@ null,
 "special district",
 0.00168211,
 0.00168211,
-"P"
+"C"
 ],
 [
 "2024-local-OR-TOWN_OF_BUTTE_FALLS_MAYOR-county_41029",
@@ -15751,7 +15752,7 @@ null,
 "mayor or executive",
 0.00701976,
 0.00701976,
-"P"
+"C"
 ],
 [
 "2024-local-OR-TUALATIN_SOIL_AND_WATER_CONSERVATION_DISTRICT_DIR-ZONE_1_county_41067",
@@ -15760,7 +15761,7 @@ null,
 "special district",
 1.02347e-05,
 1.02347e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-UNION_COUNTY_SHERIFF-county_41061",
@@ -15769,7 +15770,7 @@ null,
 "sheriff or constable",
 7.93369e-05,
 7.93369e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-UNION_MAYOR-county_41061",
@@ -15778,7 +15779,7 @@ null,
 "mayor or executive",
 0.00145766,
 0.00145766,
-"P"
+"C"
 ],
 [
 "2024-local-OR-URBAN_FLOOD_SAFETY_AND_WATER_QUALITY_DISTRICT-POSITION_2_county_41051",
@@ -15787,7 +15788,7 @@ null,
 "special district",
 8.8237e-06,
 8.8237e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OR-URBAN_FLOOD_SAFETY_AND_WATER_QUALITY_DISTRICT-POSITION_3_county_41051",
@@ -15796,7 +15797,7 @@ null,
 "special district",
 8.54812e-06,
 8.54812e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OR-URBAN_FLOOD_SAFETY_AND_WATER_QUALITY_DISTRICT-POSITION_4_county_41051",
@@ -15805,7 +15806,7 @@ null,
 "special district",
 1.64311e-05,
 1.64311e-05,
-"P"
+"C"
 ],
 [
 "2024-local-OR-URBAN_FLOOD_SAFETY_AND_WATER_QUALITY_DISTRICT-POSITION_5_county_41051",
@@ -15814,7 +15815,7 @@ null,
 "special district",
 9.1341e-06,
 9.1341e-06,
-"P"
+"C"
 ],
 [
 "2024-local-OR-VERNONIA_MAYOR-county_41009",
@@ -15823,7 +15824,7 @@ null,
 "mayor or executive",
 0.00128161,
 0.00128161,
-"P"
+"C"
 ],
 [
 "2024-local-OR-WHEELER_MAYOR-county_41057",
@@ -15832,7 +15833,7 @@ null,
 "mayor or executive",
 0.00610383,
 0.00610383,
-"P"
+"C"
 ],
 [
 "2024-local-OR-WINSTON_MAYOR-county_41019",
@@ -15841,7 +15842,7 @@ null,
 "mayor or executive",
 0.000669933,
 0.000669933,
-"P"
+"C"
 ],
 [
 "2024-local-RI-FIRE_COMMITTEE_TOWN_OF_CUMBERLAND-AT_LARGE_county_44007",
@@ -15850,7 +15851,7 @@ null,
 "special district",
 9.76882e-05,
 9.76882e-05,
-"P"
+"C"
 ],
 [
 "2024-local-RI-MAYOR_CITY_OF_WOONSOCKET-county_44007",
@@ -15859,7 +15860,7 @@ null,
 "mayor or executive",
 0.0001354,
 0.0001354,
-"P"
+"C"
 ],
 [
 "2024-local-RI-REGIONAL_SCHOOL_COMMITTEE_TOWN_OF_BRISTOL-county_44001",
@@ -15868,7 +15869,7 @@ null,
 "school board",
 0.000348684,
 0.000348684,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_BOARD_PROVIDENCE-001_county_44007",
@@ -15877,7 +15878,7 @@ null,
 "school board",
 0.000464401,
 0.000464401,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_BOARD_PROVIDENCE-002_county_44007",
@@ -15886,7 +15887,7 @@ null,
 "school board",
 0.00101643,
 0.00101643,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_BOARD_PROVIDENCE-003_county_44007",
@@ -15895,7 +15896,7 @@ null,
 "school board",
 0.000822182,
 0.000822182,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_BOARD_PROVIDENCE-004_county_44007",
@@ -15904,7 +15905,7 @@ null,
 "school board",
 0.00116752,
 0.00116752,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_BOARD_PROVIDENCE-005_county_44007",
@@ -15931,7 +15932,7 @@ null,
 "school board",
 0.000798288,
 0.000798288,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE_CITY_OF_WARWICK-AT_LARGE_county_44003",
@@ -15940,7 +15941,7 @@ null,
 "school board",
 0.000172468,
 0.000172468,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE_CITY_OF_WOONSOCKET-county_44007",
@@ -15949,7 +15950,7 @@ null,
 "school board",
 0.000476638,
 0.000476638,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE_CRANSTON-002_county_44007",
@@ -16030,7 +16031,7 @@ null,
 "school board",
 0.000830583,
 0.000830583,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE_TOWN_OF_COVENTRY-AT_LARGE_county_44003",
@@ -16048,7 +16049,7 @@ null,
 "school board",
 0.000267706,
 0.000267706,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE_TOWN_OF_GLOCESTER-county_44007",
@@ -16057,7 +16058,7 @@ null,
 "school board",
 0.000579444,
 0.000579444,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE_TOWN_OF_MIDDLETOWN-county_44005",
@@ -16075,7 +16076,7 @@ null,
 "school board",
 0.000762924,
 0.000762924,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE_TOWN_OF_NEW_SHOREHAM-county_44009",
@@ -16084,7 +16085,7 @@ null,
 "school board",
 0.0031202,
 0.0031202,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE_TOWN_OF_TIVERTON-county_44005",
@@ -16093,7 +16094,7 @@ null,
 "school board",
 0.000884173,
 0.000884173,
-"P"
+"C"
 ],
 [
 "2024-local-RI-SCHOOL_COMMITTEE__TOWN_OF_LINCOLN-AT_LARGE_county_44007",
@@ -16111,7 +16112,7 @@ null,
 "mayor or executive",
 0.000252982,
 0.000252982,
-"P"
+"C"
 ],
 [
 "2024-local-SC-ABBEVILLE_SCHOOL_BOARD-004_county_45001",
@@ -16210,7 +16211,7 @@ null,
 "school board",
 0.000343652,
 0.000343652,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BAMBERG_SCHOOL_BOARD-001_county_45009",
@@ -16237,7 +16238,7 @@ null,
 "school board",
 0.0186105,
 0.0186105,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BAMBERG_SCHOOL_BOARD-007_county_45009",
@@ -16255,7 +16256,7 @@ null,
 "school board",
 0.00197667,
 0.00197667,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BARNWELL_SCHOOL_TRUSTEE-001_county_45011",
@@ -16264,7 +16265,7 @@ null,
 "school board",
 0.00376842,
 0.00376842,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BARNWELL_SCHOOL_TRUSTEE-002_county_45011",
@@ -16273,7 +16274,7 @@ null,
 "school board",
 0.00370253,
 0.00370253,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BARNWELL_SCHOOL_TRUSTEE-003_county_45011",
@@ -16282,7 +16283,7 @@ null,
 "school board",
 0.00357992,
 0.00357992,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BARNWELL_SCHOOL_TRUSTEE-004_county_45011",
@@ -16291,7 +16292,7 @@ null,
 "school board",
 0.00306502,
 0.00306502,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BARNWELL_SCHOOL_TRUSTEE-005_county_45011",
@@ -16300,7 +16301,7 @@ null,
 "school board",
 0.00532482,
 0.00532482,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BEAUFORT_SCHOOL_BOARD-001_county_45013",
@@ -16318,7 +16319,7 @@ null,
 "special district",
 0.0019564,
 0.0019564,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BERKELEY_SCHOOL_BOARD-001_county_45015",
@@ -16372,7 +16373,7 @@ null,
 "special district",
 0.00232179,
 0.00232179,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BRUSHY_CREEK_WATERSHED_CONSERVATION_DISTRICT-county_45007",
@@ -16381,7 +16382,7 @@ null,
 "special district",
 0.000263396,
 0.000263396,
-"P"
+"C"
 ],
 [
 "2024-local-SC-BUCK_CREEK_WATERSHED_CONSERVATION_DISTRICT-county_45051",
@@ -16390,7 +16391,7 @@ null,
 "special district",
 0.00216208,
 0.00216208,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CANE_CREEK_WATERSHED_CONSERVATION_DISTRICT-county_45057",
@@ -16399,7 +16400,7 @@ null,
 "special district",
 0.000393289,
 0.000393289,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CHARLESTON_CONSTITUENT_SCHOOL_BOARD_COOPER_RIVER-AREA_3_DISTRICT_4_county_45019",
@@ -16444,7 +16445,7 @@ null,
 "school board",
 0.000155467,
 0.000155467,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CHARLESTON_CONSTITUENT_SCHOOL_BOARD_ST_JAMES_SANTEE-001_county_45019",
@@ -16453,7 +16454,7 @@ null,
 "school board",
 0.00161058,
 0.00161058,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CHARLESTON_CONSTITUENT_SCHOOL_BOARD_ST_JOHNS-009_county_45019",
@@ -16462,7 +16463,7 @@ null,
 "school board",
 0.000469501,
 0.000469501,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CHARLESTON_CONSTITUENT_SCHOOL_BOARD_ST_PAULS-023_county_45019",
@@ -16471,7 +16472,7 @@ null,
 "school board",
 0.000952647,
 0.000952647,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CHESTERFIELD_SCHOOL_BOARD-005_county_45025",
@@ -16498,7 +16499,7 @@ null,
 "school board",
 0.00274067,
 0.00274067,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CHESTER_SCHOOL_BOARD-001_county_45023",
@@ -16525,7 +16526,7 @@ null,
 "school board",
 0.0040569,
 0.0040569,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CLARENDON_SCHOOL_BOARD-003_county_45027",
@@ -16534,7 +16535,7 @@ null,
 "school board",
 0.00516186,
 0.00516186,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CLARENDON_SCHOOL_BOARD-004_county_45027",
@@ -16543,7 +16544,7 @@ null,
 "school board",
 0.00540748,
 0.00540748,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CLARENDON_SCHOOL_BOARD-005_county_45027",
@@ -16552,7 +16553,7 @@ null,
 "school board",
 0.0037379,
 0.0037379,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CLARENDON_SCHOOL_BOARD-006_county_45027",
@@ -16561,7 +16562,7 @@ null,
 "school board",
 0.00666911,
 0.00666911,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CLARENDON_SCHOOL_BOARD-007_county_45027",
@@ -16570,7 +16571,7 @@ null,
 "school board",
 0.0064317,
 0.0064317,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CLARENDON_SCHOOL_BOARD-008_county_45027",
@@ -16579,7 +16580,7 @@ null,
 "school board",
 0.00370888,
 0.00370888,
-"P"
+"C"
 ],
 [
 "2024-local-SC-CLARENDON_SCHOOL_BOARD-009_county_45027",
@@ -16633,7 +16634,7 @@ null,
 "special district",
 0.000669976,
 0.000669976,
-"P"
+"C"
 ],
 [
 "2024-local-SC-DARLINGTON_SCHOOL_BOARD-002_county_45031",
@@ -16669,7 +16670,7 @@ null,
 "school board",
 0.000595708,
 0.000595708,
-"P"
+"C"
 ],
 [
 "2024-local-SC-DORCHESTER_SCHOOL_BOARD-DISTRICT_2_SEAT_5_county_45035",
@@ -16696,7 +16697,7 @@ null,
 "school board",
 0.00496639,
 0.00496639,
-"P"
+"C"
 ],
 [
 "2024-local-SC-DORCHESTER_SCHOOL_BOARD-DISTRICT_4_SEAT_2_county_45035",
@@ -16723,7 +16724,7 @@ null,
 "special district",
 0.000999141,
 0.000999141,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_CHEROKEE_SPRINGS-county_45083",
@@ -16732,7 +16733,7 @@ null,
 "special district",
 0.000586271,
 0.000586271,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_DUNKLIN_FIRE_DISTRICT-county_45045",
@@ -16741,7 +16742,7 @@ null,
 "special district",
 0.00179193,
 0.00179193,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_HOLLY_SPRINGS_FIRE_DISTRICT-county_45083",
@@ -16750,7 +16751,7 @@ null,
 "special district",
 0.000452374,
 0.000452374,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_JONESVILLE-county_45087",
@@ -16759,7 +16760,7 @@ null,
 "special district",
 0.00161004,
 0.00161004,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_KEOWEE_FIRE_PROTECTION-county_45073",
@@ -16768,7 +16769,7 @@ null,
 "special district",
 0.000741781,
 0.000741781,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_MAYO_FIRE_DISTRICT-county_45083",
@@ -16777,7 +16778,7 @@ null,
 "special district",
 0.00103584,
 0.00103584,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_MONARCH_FD-county_45087",
@@ -16786,7 +16787,7 @@ null,
 "special district",
 0.00271428,
 0.00271428,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_SANTUC_FD-county_45087",
@@ -16795,7 +16796,7 @@ null,
 "special district",
 0.00457212,
 0.00457212,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FIRE_DISTRICT_COMMISSIONER_SOUTH_LYNCHES-county_45041",
@@ -16804,7 +16805,7 @@ null,
 "special district",
 0.000725454,
 0.000725454,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FLORENCE_SCHOOL_BOARD-DISTRICT_1_SEAT_2_county_45041",
@@ -16813,7 +16814,7 @@ null,
 "school board",
 0.00210278,
 0.00210278,
-"P"
+"C"
 ],
 [
 "2024-local-SC-FLORENCE_SCHOOL_BOARD-DISTRICT_1_SEAT_3_county_45041",
@@ -16849,7 +16850,7 @@ null,
 "special district",
 0.0120275,
 0.0120275,
-"P"
+"C"
 ],
 [
 "2024-local-SC-GEORGETOWN_SCHOOL_BOARD-003_county_45043",
@@ -16885,7 +16886,7 @@ null,
 "school board",
 0.000514146,
 0.000514146,
-"P"
+"C"
 ],
 [
 "2024-local-SC-GREENVILLE_SCHOOL_BOARD-021_county_45045",
@@ -16903,7 +16904,7 @@ null,
 "school board",
 0.000434002,
 0.000434002,
-"P"
+"C"
 ],
 [
 "2024-local-SC-GREENWOOD_SCHOOL_BOARD-003_county_45047",
@@ -16939,7 +16940,7 @@ null,
 "school board",
 0.00429497,
 0.00429497,
-"P"
+"C"
 ],
 [
 "2024-local-SC-HOLLOW_CREEK_WATERSHED_CONSERVATION_DISTRICT-county_45063",
@@ -16948,7 +16949,7 @@ null,
 "special district",
 0.00418728,
 0.00418728,
-"P"
+"C"
 ],
 [
 "2024-local-SC-JASPER_SCHOOL_BOARD-001_county_45053",
@@ -17002,7 +17003,7 @@ null,
 "school board",
 0.00130018,
 0.00130018,
-"P"
+"C"
 ],
 [
 "2024-local-SC-LAURENS_GREENVILLE_COUNTY_SCHOOL_BOARD-027_county_45059",
@@ -17029,7 +17030,7 @@ null,
 "school board",
 0.00110174,
 0.00110174,
-"P"
+"C"
 ],
 [
 "2024-local-SC-LEXINGTON_SCHOOL_TRUSTEE-001_county_45063",
@@ -17038,7 +17039,7 @@ null,
 "school board",
 0.000141924,
 0.000141924,
-"P"
+"C"
 ],
 [
 "2024-local-SC-LEXINGTON_SCHOOL_TRUSTEE-002_county_45063",
@@ -17047,7 +17048,7 @@ null,
 "school board",
 0.00035099,
 0.00035099,
-"P"
+"C"
 ],
 [
 "2024-local-SC-LEXINGTON_SCHOOL_TRUSTEE-004_county_45063",
@@ -17056,7 +17057,7 @@ null,
 "school board",
 0.00129057,
 0.00129057,
-"P"
+"C"
 ],
 [
 "2024-local-SC-LEXINGTON_SCHOOL_TRUSTEE-005_county_45063",
@@ -17065,7 +17066,7 @@ null,
 "school board",
 0.000170209,
 0.000170209,
-"P"
+"C"
 ],
 [
 "2024-local-SC-LITTLE_LYNCHES_CREEK_WATERSHED_CONSERVATION_DISTRICT-county_45055",
@@ -17074,7 +17075,7 @@ null,
 "special district",
 0.000784185,
 0.000784185,
-"P"
+"C"
 ],
 [
 "2024-local-SC-LYNCHES_LAKE___CAMP_BRANCH_WATERSHED_CONSERVATION_DISTRICT-county_45041",
@@ -17083,7 +17084,7 @@ null,
 "special district",
 0.010549,
 0.010549,
-"P"
+"C"
 ],
 [
 "2024-local-SC-MARLBORO_SCHOOL_BOARD-004_county_45069",
@@ -17110,7 +17111,7 @@ null,
 "mayor or executive",
 0.000281877,
 0.000281877,
-"P"
+"C"
 ],
 [
 "2024-local-SC-MAYOR___MULLINS-county_45067",
@@ -17119,7 +17120,7 @@ null,
 "mayor or executive",
 0.00101905,
 0.00101905,
-"P"
+"C"
 ],
 [
 "2024-local-SC-MCCORMICK_SCHOOL_BOARD-AT_LARGE_county_45065",
@@ -17128,7 +17129,7 @@ null,
 "school board",
 0.00113871,
 0.00113871,
-"P"
+"C"
 ],
 [
 "2024-local-SC-NEWBERRY_SCHOOL_BOARD-001_county_45071",
@@ -17191,7 +17192,7 @@ null,
 "special district",
 0.00131664,
 0.00131664,
-"P"
+"C"
 ],
 [
 "2024-local-SC-ORANGEBURG_SCHOOL_BOARD-002_county_45075",
@@ -17209,7 +17210,7 @@ null,
 "school board",
 0.00172208,
 0.00172208,
-"P"
+"C"
 ],
 [
 "2024-local-SC-PUBLIC_SERVICE_DISTRICT_HILTON_HEAD-002_county_45013",
@@ -17218,7 +17219,7 @@ null,
 "special district",
 0.00100259,
 0.00100259,
-"P"
+"C"
 ],
 [
 "2024-local-SC-RABON_CREEK_WATERSHED_CONSERVATION_DISTRICT-county_45045",
@@ -17227,7 +17228,7 @@ null,
 "special district",
 0.00040376,
 0.00040376,
-"P"
+"C"
 ],
 [
 "2024-local-SC-RICHLAND_SCHOOL_BOARD-DISTRICT_1_AT_LARGE_county_45079",
@@ -17236,7 +17237,7 @@ null,
 "school board",
 0.000125982,
 0.000125982,
-"P"
+"C"
 ],
 [
 "2024-local-SC-RICHLAND_SCHOOL_BOARD-DISTRICT_1_SEAT_2_county_45079",
@@ -17245,7 +17246,7 @@ null,
 "school board",
 0.000604298,
 0.000604298,
-"P"
+"C"
 ],
 [
 "2024-local-SC-RICHLAND_SCHOOL_BOARD-DISTRICT_1_SEAT_4_county_45079",
@@ -17263,7 +17264,7 @@ null,
 "school board",
 0.000121215,
 0.000121215,
-"P"
+"C"
 ],
 [
 "2024-local-SC-RICHLAND_SCHOOL_BOARD-DISTRICT_5_AT_LARGE_county_45079",
@@ -17281,7 +17282,7 @@ null,
 "special district",
 0.000936496,
 0.000936496,
-"P"
+"C"
 ],
 [
 "2024-local-SC-SALEM_COMMUNITY_WATERSHED_CONSERVATION_DISTRICT-county_45041",
@@ -17290,7 +17291,7 @@ null,
 "special district",
 0.00225684,
 0.00225684,
-"P"
+"C"
 ],
 [
 "2024-local-SC-SALUDA_LEXINGTON_COUNTY_SCHOOL_TRUSTEE-003_county_45081",
@@ -17299,7 +17300,7 @@ null,
 "school board",
 0.00540043,
 0.00540043,
-"P"
+"C"
 ],
 [
 "2024-local-SC-SCHOOL_BOARD_OF_TRUSTEES-002_county_45019",
@@ -17326,7 +17327,7 @@ null,
 "school board",
 0.000383933,
 0.000383933,
-"P"
+"C"
 ],
 [
 "2024-local-SC-SCHOOL_BOARD_OF_TRUSTEES-008_county_45019",
@@ -17335,7 +17336,7 @@ null,
 "school board",
 0.000275298,
 0.000275298,
-"P"
+"C"
 ],
 [
 "2024-local-SC-SIMPSON_CREEK_WATERSHED_CONSERVATION_DISTRICT-county_45051",
@@ -17344,7 +17345,7 @@ null,
 "special district",
 0.00124424,
 0.00124424,
-"P"
+"C"
 ],
 [
 "2024-local-SC-SOUTH_TYGER_RIVER_WATERSHED_CONSERVATION_DISTRICT-county_45045",
@@ -17353,7 +17354,7 @@ null,
 "special district",
 0.000345693,
 0.000345693,
-"P"
+"C"
 ],
 [
 "2024-local-SC-SPARTANBURG_SOIL_AND_WATER_DISTRICT_COMMISSION-county_45083",
@@ -17362,7 +17363,7 @@ null,
 "special district",
 2.17051e-05,
 2.17051e-05,
-"P"
+"C"
 ],
 [
 "2024-local-SC-SUMTER_SCHOOL_BOARD-001_county_45085",
@@ -17398,7 +17399,7 @@ null,
 "special district",
 0.00051295,
 0.00051295,
-"P"
+"C"
 ],
 [
 "2024-local-SC-THREE_AND_TWENTY_WATERSHED_CONSERVATION_DISTRICT-county_45007",
@@ -17407,7 +17408,7 @@ null,
 "special district",
 0.000362028,
 0.000362028,
-"P"
+"C"
 ],
 [
 "2024-local-SC-TINKER_S_CREEK_WATERSHED_CONSERVATION_DISTRICT-county_45023",
@@ -17416,7 +17417,7 @@ null,
 "special district",
 0.000698642,
 0.000698642,
-"P"
+"C"
 ],
 [
 "2024-local-SC-TODD_SWAMP_WATERSHED_CONSERVATION_DISTRICT-county_45051",
@@ -17425,7 +17426,7 @@ null,
 "special district",
 0.00797501,
 0.00797501,
-"P"
+"C"
 ],
 [
 "2024-local-SC-WILLIAMSBURG_SCHOOL_BOARD-007_county_45089",
@@ -17452,7 +17453,7 @@ null,
 "special district",
 0.00347787,
 0.00347787,
-"P"
+"C"
 ],
 [
 "2024-local-SC-YORK_CLOVER_SCHOOL_DISTRICT_TRUSTEE-AT_LARGE_county_45091",
@@ -17479,7 +17480,7 @@ null,
 "school board",
 0.000184651,
 0.000184651,
-"P"
+"C"
 ],
 [
 "2024-local-SC-YORK_ROCK_HILL_SCHOOL_DISTRICT_TRUSTEE-AT_LARGE_county_45091",
@@ -17515,7 +17516,7 @@ null,
 "school board",
 0.000747386,
 0.000747386,
-"P"
+"C"
 ],
 [
 "2024-local-SC-YORK_SCHOOL_DISTRICT_TRUSTEE-SEAT_3_county_45091",
@@ -17551,7 +17552,7 @@ null,
 "mayor or executive",
 0.00661124,
 0.00661124,
-"P"
+"C"
 ],
 [
 "2024-local-VA-BOONES_MILL_MAYOR-county_51067",
@@ -17560,7 +17561,7 @@ null,
 "mayor or executive",
 0.0115611,
 0.0115611,
-"P"
+"C"
 ],
 [
 "2024-local-VA-BOWLING_GREEN_MAYOR-county_51033",
@@ -17569,7 +17570,7 @@ null,
 "mayor or executive",
 0.00266228,
 0.00266228,
-"P"
+"C"
 ],
 [
 "2024-local-VA-BROOKNEAL_MAYOR-county_51031",
@@ -17578,7 +17579,7 @@ null,
 "mayor or executive",
 0.00386476,
 0.00386476,
-"P"
+"C"
 ],
 [
 "2024-local-VA-BUCHANAN_MAYOR-county_51023",
@@ -17587,7 +17588,7 @@ null,
 "mayor or executive",
 0.00260136,
 0.00260136,
-"P"
+"C"
 ],
 [
 "2024-local-VA-CEDAR_BLUFF_MAYOR-county_51185",
@@ -17596,7 +17597,7 @@ null,
 "mayor or executive",
 0.00321656,
 0.00321656,
-"P"
+"C"
 ],
 [
 "2024-local-VA-CHATHAM_MAYOR-county_51143",
@@ -17605,7 +17606,7 @@ null,
 "mayor or executive",
 0.00251902,
 0.00251902,
-"P"
+"C"
 ],
 [
 "2024-local-VA-CHERITON_MAYOR-county_51131",
@@ -17614,7 +17615,7 @@ null,
 "mayor or executive",
 0.00637203,
 0.00637203,
-"P"
+"C"
 ],
 [
 "2024-local-VA-CHESAPEAKE_CITY_MAYOR-county_51550",
@@ -17623,7 +17624,7 @@ null,
 "mayor or executive",
 1.30089e-05,
 1.30089e-05,
-"P"
+"C"
 ],
 [
 "2024-local-VA-CHINCOTEAGUE_MAYOR-county_51001",
@@ -17632,7 +17633,7 @@ null,
 "mayor or executive",
 0.000765269,
 0.000765269,
-"P"
+"C"
 ],
 [
 "2024-local-VA-DAMASCUS_MAYOR-county_51191",
@@ -17641,7 +17642,7 @@ null,
 "mayor or executive",
 0.00438707,
 0.00438707,
-"P"
+"C"
 ],
 [
 "2024-local-VA-DAYTON_MAYOR-county_51165",
@@ -17650,7 +17651,7 @@ null,
 "mayor or executive",
 0.00180489,
 0.00180489,
-"P"
+"C"
 ],
 [
 "2024-local-VA-ELKTON_MAYOR-county_51165",
@@ -17659,7 +17660,7 @@ null,
 "mayor or executive",
 0.000872197,
 0.000872197,
-"P"
+"C"
 ],
 [
 "2024-local-VA-FAIRFAX_CITY_MAYOR-county_51600",
@@ -17668,7 +17669,7 @@ null,
 "mayor or executive",
 0.000127026,
 0.000127026,
-"P"
+"C"
 ],
 [
 "2024-local-VA-FRONT_ROYAL_MAYOR-county_51187",
@@ -17677,7 +17678,7 @@ null,
 "mayor or executive",
 0.000236271,
 0.000236271,
-"P"
+"C"
 ],
 [
 "2024-local-VA-GRETNA_MAYOR-county_51143",
@@ -17686,7 +17687,7 @@ null,
 "mayor or executive",
 0.00278333,
 0.00278333,
-"P"
+"C"
 ],
 [
 "2024-local-VA-GROTTOES_MAYOR-county_51165",
@@ -17695,7 +17696,7 @@ null,
 "mayor or executive",
 0.000901337,
 0.000901337,
-"P"
+"C"
 ],
 [
 "2024-local-VA-GRUNDY_MAYOR-county_51027",
@@ -17704,7 +17705,7 @@ null,
 "mayor or executive",
 0.00442338,
 0.00442338,
-"P"
+"C"
 ],
 [
 "2024-local-VA-HAMPTON_CITY_MAYOR-county_51650",
@@ -17713,7 +17714,7 @@ null,
 "mayor or executive",
 2.78548e-05,
 2.78548e-05,
-"P"
+"C"
 ],
 [
 "2024-local-VA-HAYSI_MAYOR-county_51051",
@@ -17722,7 +17723,7 @@ null,
 "mayor or executive",
 0.0158373,
 0.0158373,
-"P"
+"C"
 ],
 [
 "2024-local-VA-HERNDON_MAYOR-county_51059",
@@ -17731,7 +17732,7 @@ null,
 "mayor or executive",
 0.000178549,
 0.000178549,
-"P"
+"C"
 ],
 [
 "2024-local-VA-IRON_GATE_MAYOR-county_51005",
@@ -17740,7 +17741,7 @@ null,
 "mayor or executive",
 0.0107082,
 0.0107082,
-"P"
+"C"
 ],
 [
 "2024-local-VA-IRVINGTON_MAYOR-county_51103",
@@ -17749,7 +17750,7 @@ null,
 "mayor or executive",
 0.00431567,
 0.00431567,
-"P"
+"C"
 ],
 [
 "2024-local-VA-JARRATT_MAYOR-county_51081",
@@ -17758,7 +17759,7 @@ null,
 "mayor or executive",
 0.00476799,
 0.00476799,
-"P"
+"C"
 ],
 [
 "2024-local-VA-LURAY_MAYOR-county_51139",
@@ -17767,7 +17768,7 @@ null,
 "mayor or executive",
 0.000647584,
 0.000647584,
-"P"
+"C"
 ],
 [
 "2024-local-VA-MADISON_MAYOR-county_51113",
@@ -17776,7 +17777,7 @@ null,
 "mayor or executive",
 0.0142606,
 0.0142606,
-"P"
+"C"
 ],
 [
 "2024-local-VA-MANASSAS_CITY_MAYOR-county_51683",
@@ -17785,7 +17786,7 @@ null,
 "mayor or executive",
 0.000103556,
 0.000103556,
-"P"
+"C"
 ],
 [
 "2024-local-VA-MCKENNEY_MAYOR-county_51053",
@@ -17794,7 +17795,7 @@ null,
 "mayor or executive",
 0.00751621,
 0.00751621,
-"P"
+"C"
 ],
 [
 "2024-local-VA-NEWSOMS_MAYOR-county_51175",
@@ -17803,7 +17804,7 @@ null,
 "mayor or executive",
 0.00937803,
 0.00937803,
-"P"
+"C"
 ],
 [
 "2024-local-VA-POQUOSON_CITY_MAYOR-county_51735",
@@ -17812,7 +17813,7 @@ null,
 "mayor or executive",
 0.000216066,
 0.000216066,
-"P"
+"C"
 ],
 [
 "2024-local-VA-POUND_MAYOR-county_51195",
@@ -17821,7 +17822,7 @@ null,
 "mayor or executive",
 0.00397104,
 0.00397104,
-"P"
+"C"
 ],
 [
 "2024-local-VA-PURCELLVILLE_MAYOR-county_51107",
@@ -17830,7 +17831,7 @@ null,
 "mayor or executive",
 0.000324055,
 0.000324055,
-"P"
+"C"
 ],
 [
 "2024-local-VA-REMINGTON_MAYOR-county_51061",
@@ -17839,7 +17840,7 @@ null,
 "mayor or executive",
 0.00570949,
 0.00570949,
-"P"
+"C"
 ],
 [
 "2024-local-VA-RICHLANDS_MAYOR-county_51185",
@@ -17848,7 +17849,7 @@ null,
 "mayor or executive",
 0.000700907,
 0.000700907,
-"P"
+"C"
 ],
 [
 "2024-local-VA-SALEM_CITY_SHERIFF-SALEM_CITY_county_51775",
@@ -17857,7 +17858,7 @@ null,
 "sheriff or constable",
 8.91733e-05,
 8.91733e-05,
-"P"
+"C"
 ],
 [
 "2024-local-VA-SCHOOL_BOARD_MEMBER-001_county_51810",
@@ -17884,7 +17885,7 @@ null,
 "school board",
 0.00046306,
 0.00046306,
-"P"
+"C"
 ],
 [
 "2024-local-VA-SCHOOL_BOARD_MEMBER-004_county_51760",
@@ -17893,7 +17894,7 @@ null,
 "school board",
 0.000394102,
 0.000394102,
-"P"
+"C"
 ],
 [
 "2024-local-VA-SCHOOL_BOARD_MEMBER-004_county_51810",
@@ -17902,7 +17903,7 @@ null,
 "school board",
 0.000316654,
 0.000316654,
-"P"
+"C"
 ],
 [
 "2024-local-VA-SCHOOL_BOARD_MEMBER-005_county_51760",
@@ -17965,7 +17966,7 @@ null,
 "school board",
 0.0054982,
 0.0054982,
-"P"
+"C"
 ],
 [
 "2024-local-VA-SCHOOL_BOARD_MEMBER-NANSEMOND_BOROUGH_county_51800",
@@ -17983,7 +17984,7 @@ null,
 "school board",
 0.000225125,
 0.000225125,
-"P"
+"C"
 ],
 [
 "2024-local-VA-SCHOOL_BOARD_MEMBER-PARK_DISTRICT_county_51173",
@@ -18073,7 +18074,7 @@ null,
 "school board",
 0.000787488,
 0.000787488,
-"P"
+"C"
 ],
 [
 "2024-local-VA-SCOTTSVILLE_MAYOR-county_51003",
@@ -18082,7 +18083,7 @@ null,
 "mayor or executive",
 0.00617418,
 0.00617418,
-"P"
+"C"
 ],
 [
 "2024-local-VA-STONY_CREEK_MAYOR-county_51183",
@@ -18091,7 +18092,7 @@ null,
 "mayor or executive",
 0.0134243,
 0.0134243,
-"P"
+"C"
 ],
 [
 "2024-local-VA-STRASBURG_MAYOR-county_51171",
@@ -18100,7 +18101,7 @@ null,
 "mayor or executive",
 0.000466108,
 0.000466108,
-"P"
+"C"
 ],
 [
 "2024-local-VA-TANGIER_MAYOR-county_51001",
@@ -18109,7 +18110,7 @@ null,
 "mayor or executive",
 0.00672302,
 0.00672302,
-"P"
+"C"
 ],
 [
 "2024-local-VA-TAZEWELL_MAYOR-county_51185",
@@ -18118,7 +18119,7 @@ null,
 "mayor or executive",
 0.000813783,
 0.000813783,
-"P"
+"C"
 ],
 [
 "2024-local-VA-VIRGINIA_BEACH_CITY_SHERIFF-VIRGINIA_BEACH_CITY_county_51810",
@@ -18127,7 +18128,7 @@ null,
 "sheriff or constable",
 5.52871e-06,
 5.52871e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-BENTON_COUNTY_PUD_COMMISSIONER_POS__3-county_53005",
@@ -18136,7 +18137,7 @@ null,
 "special district",
 4.2691e-05,
 4.2691e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-BENTON__FRANKLIN_SUPERIOR_COURT___JUDGE_POSITION_5-county_53005",
@@ -18145,7 +18146,7 @@ null,
 "judge",
 9.9156e-06,
 9.9156e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-CHELAN_COUNTY_DISTRICT_COURT_JUDGE_POSITION_2-county_53007",
@@ -18154,7 +18155,7 @@ null,
 "judge",
 3.29399e-05,
 3.29399e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-CLARK_PUBLIC_UTILITY_DISTRICT_COMMISSIONER-1_county_53011",
@@ -18163,7 +18164,7 @@ null,
 "special district",
 9.22961e-06,
 9.22961e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-DOUGLAS_COUNTY_PUBLIC_UTILITY_DISTRICT_COMMISSIONER_NO__1-county_53017",
@@ -18172,7 +18173,7 @@ null,
 "special district",
 0.000114059,
 0.000114059,
-"P"
+"C"
 ],
 [
 "2024-local-WA-FERRY_DISTRICT_COURT_JUDGE-county_53019",
@@ -18181,7 +18182,7 @@ null,
 "judge",
 0.000322688,
 0.000322688,
-"P"
+"C"
 ],
 [
 "2024-local-WA-FERRY__PEND_OREILLE__STEVENS_SUPERIOR_COURT___JUDGE_POSITION-county_53019",
@@ -18190,7 +18191,7 @@ null,
 "judge",
 3.28571e-05,
 3.28571e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-GRANT_COUNTY_PUD_ALL_COMMISSIONER_DIST__A_AL-county_53025",
@@ -18199,7 +18200,7 @@ null,
 "special district",
 6.56977e-05,
 6.56977e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-GRAYS_HARBOR_SUPERIOR_COURT___JUDGE_POSITION_3-county_53027",
@@ -18208,7 +18209,7 @@ null,
 "judge",
 3.64658e-05,
 3.64658e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-KING_COUNTY_SUPERIOR_COURT___JUDGE_POSITION_41-county_53033",
@@ -18217,7 +18218,7 @@ null,
 "judge",
 1.26255e-06,
 1.26255e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-KITTITAS_SUPERIOR_COURT___JUDGE_POSITION_1-county_53037",
@@ -18226,7 +18227,7 @@ null,
 "judge",
 5.13454e-05,
 5.13454e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-KITTITAS_SUPERIOR_COURT___JUDGE_POSITION_2-county_53037",
@@ -18235,7 +18236,7 @@ null,
 "judge",
 5.02982e-05,
 5.02982e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-LINCOLN_SUPERIOR_COURT___SUPERIOR_COURT_JUDGE-county_53043",
@@ -18244,7 +18245,7 @@ null,
 "judge",
 0.000176735,
 0.000176735,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PIERCE_ASSESSOR___TREASURER-county_53053",
@@ -18262,7 +18263,7 @@ null,
 "sheriff or constable",
 2.84228e-06,
 2.84228e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PIERCE_SUPERIOR_COURT___JUDGE_POSITION_01-county_53053",
@@ -18271,7 +18272,7 @@ null,
 "judge",
 3.12285e-06,
 3.12285e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PIERCE_SUPERIOR_COURT___JUDGE_POSITION_04-county_53053",
@@ -18280,7 +18281,7 @@ null,
 "judge",
 3.10175e-06,
 3.10175e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PIERCE_SUPERIOR_COURT___JUDGE_POSITION_09-county_53053",
@@ -18289,7 +18290,7 @@ null,
 "judge",
 3.12753e-06,
 3.12753e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PIERCE_SUPERIOR_COURT___JUDGE_POSITION_10-county_53053",
@@ -18298,7 +18299,7 @@ null,
 "judge",
 3.12899e-06,
 3.12899e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PIERCE_SUPERIOR_COURT___JUDGE_POSITION_15-county_53053",
@@ -18307,7 +18308,7 @@ null,
 "judge",
 3.11822e-06,
 3.11822e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_COMMISSIONER-1_county_53073",
@@ -18316,7 +18317,7 @@ null,
 "special district",
 1.85805e-05,
 1.85805e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_COMMISSIONER-2_county_53029",
@@ -18325,7 +18326,7 @@ null,
 "special district",
 5.98196e-06,
 5.98196e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_COMMISSIONER-2_county_53073",
@@ -18334,7 +18335,7 @@ null,
 "special district",
 1.81404e-05,
 1.81404e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_COMMISSIONER-3_county_53035",
@@ -18343,7 +18344,7 @@ null,
 "special district",
 1.62409e-05,
 1.62409e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_DISTRICT_COMMISSIONER-3_county_53021",
@@ -18352,7 +18353,7 @@ null,
 "special district",
 7.41808e-05,
 7.41808e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_DISTRICT_COMMISSIONER__1-county_53059",
@@ -18361,7 +18362,7 @@ null,
 "special district",
 0.000334143,
 0.000334143,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_DISTRICT_PUBLIC_UTILITY_COMMISSIONER_2-county_53003",
@@ -18370,7 +18371,7 @@ null,
 "special district",
 0.000244993,
 0.000244993,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_DISTRICT__ALL__PUBLIC_UTILITY_COMMISSIONER__1-county_53051",
@@ -18379,7 +18380,7 @@ null,
 "special district",
 0.000273472,
 0.000273472,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUBLIC_UTILITY_DIST_1_COMMISSIONER-3_county_53009",
@@ -18388,7 +18389,7 @@ null,
 "special district",
 6.76819e-05,
 6.76819e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUD_ALL_PUBLIC_UTILITY_DIST_COMMISSIONER_DIST_2-county_53007",
@@ -18397,7 +18398,7 @@ null,
 "special district",
 6.16874e-05,
 6.16874e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUD_DISTRICT_2_PUBLIC_UTILITY_COMMISSIONER__02-county_53049",
@@ -18406,7 +18407,7 @@ null,
 "special district",
 0.000177968,
 0.000177968,
-"P"
+"C"
 ],
 [
 "2024-local-WA-PUD_DISTRICT_AT_LARGE_COMMISSIONER-2_county_53041",
@@ -18415,7 +18416,7 @@ null,
 "special district",
 6.53214e-05,
 6.53214e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-SNOHOMISH_SUPERIOR_COURT___JUDGE_POSITION_12-county_53061",
@@ -18424,7 +18425,7 @@ null,
 "judge",
 3.32895e-06,
 3.32895e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-SPOKANE_SUPERIOR_COURT___JUDGE_POSITION_11-county_53063",
@@ -18433,7 +18434,7 @@ null,
 "judge",
 4.79012e-06,
 4.79012e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-SPOKANE_SUPERIOR_COURT___JUDGE_POSITION_8-county_53063",
@@ -18442,7 +18443,7 @@ null,
 "judge",
 4.69646e-06,
 4.69646e-06,
-"P"
+"C"
 ],
 [
 "2024-local-WA-SUPREME_COURT___JUSTICE_POSITION__02",
@@ -18451,7 +18452,7 @@ null,
 "judge",
 8.2634e-07,
 8.2634e-07,
-"P"
+"C"
 ],
 [
 "2024-local-WA-THURSTON_PUBLIC_UTILITY_DISTRICT_COMMISSIONER-1_county_53067",
@@ -18460,7 +18461,7 @@ null,
 "special district",
 1.57637e-05,
 1.57637e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WA-WHITMAN_SUPERIOR_COURT___JUDGE_POSITION_1-county_53075",
@@ -18469,7 +18470,7 @@ null,
 "judge",
 6.20965e-05,
 6.20965e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WV-ASSESSOR-county_54023",
@@ -18487,7 +18488,7 @@ null,
 "judge",
 4.24493e-05,
 4.24493e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WV-CONSERVATION_DISTRICT_SUPERVISOR-county_54003",
@@ -18496,7 +18497,7 @@ null,
 "special district",
 9.00721e-05,
 9.00721e-05,
-"P"
+"C"
 ],
 [
 "2024-local-WV-MAYOR_CITY_OF_WILLIAMSON-county_54059",
@@ -18505,7 +18506,7 @@ null,
 "mayor or executive",
 0.00192497,
 0.00192497,
-"P"
+"C"
 ],
 [
 "2024-local-WV-MAYOR_MILTON_CITY-county_54011",
@@ -18514,7 +18515,7 @@ null,
 "mayor or executive",
 0.0015045,
 0.0015045,
-"P"
+"C"
 ],
 [
 "2024-local-WV-MAYOR_NORTH_HILLS-county_54107",
@@ -18523,7 +18524,7 @@ null,
 "mayor or executive",
 0.00367739,
 0.00367739,
-"P"
+"C"
 ],
 [
 "2024-local-WV-NONPARTISAN_BOARD_OF_EDUCATION-county_54059",
@@ -18541,7 +18542,7 @@ null,
 "school board",
 0.00215552,
 0.00215552,
-"P"
+"C"
 ],
 [
 "2024-local-WV-NONPARTISAN_BOARD_OF_EDUCATION-county_54107",
@@ -18550,7 +18551,7 @@ null,
 "school board",
 0.000282792,
 0.000282792,
-"P"
+"C"
 ],
 [
 "2024-local-WV-RECORDER_MILTON_CITY-county_54011",
@@ -18577,7 +18578,7 @@ null,
 "school board",
 0.00214975,
 0.00214975,
-"P"
+"C"
 ]
 ]
 }
