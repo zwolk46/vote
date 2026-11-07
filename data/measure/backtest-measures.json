@@ -1,5 +1,5 @@
 {
- "about": "statewide measures and retentions, like past measures out of sample (each year's class from earlier years only): expected and seen counts finishing near 1/2 (every statewide question) and near the threshold (those given a forecast). at_threshold_local is the same for local questions given p by step (b) on these dates (each state's own class); North Carolina's questions on its other dates are in data/local/backtest-ncsbe.json. near_votes: the same within 1,000 to 50,000 votes of the threshold. lean_notes_local: for each local class, the two tests of the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give, and lean_notes_statewide the same for the statewide classes near 1/2 (data/local/REPORT.md section 18). Built by pipeline/local_medsl.py build.",
+ "about": "statewide measures and retentions, like past measures out of sample (each year's class from earlier years only): expected and seen counts finishing near 1/2 (every statewide question) and near the threshold (those given a forecast). at_threshold_local is the same for local questions given p by step (b) on these dates (each state's own class); North Carolina's questions on its other dates are in data/local/backtest-ncsbe.json. near_votes: the same within 1,000 to 50,000 votes of the threshold. lean_notes_local: for each local class, the two tests of the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give, and lean_notes_statewide the same for the statewide classes near 1/2, the note of each statewide p taken at 1/2; lean_notes_statewide_own_threshold, the same for the statewide questions given a forecast at a threshold other than 1/2, each tested near its own t, the note of each p taken there (the orchestrator, 14:36; data/local/REPORT.md sections 18 and 20). Built by pipeline/local_medsl.py build.",
  "near_half": {
   "2018 statewide measure (trained on 83)": {
    "measures": 87,
@@ -799,6 +799,24 @@
     "counts": false,
     "leans": "more",
     "line": "within 1% of \u00bd"
+   },
+   "vote_test": {
+    "counts": false,
+    "why": "under 5 expected at every line up to 50,000 votes"
+   },
+   "note": null,
+   "why_none": "neither test counts"
+  }
+ },
+ "lean_notes_statewide_own_threshold": {
+  "statewide measure": {
+   "questions": 18,
+   "share_test": {
+    "expected": 0.9,
+    "seen": 0,
+    "counts": false,
+    "leans": "fewer",
+    "line": "within 1% of its own threshold"
    },
    "vote_test": {
     "counts": false,
