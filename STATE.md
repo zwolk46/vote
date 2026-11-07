@@ -51,6 +51,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 06:42: X2 reported (explainer A Scroll, B Steps; 24 steps over the nine ideas; 2 sentences on the page, 21 in folds; all readers answered all questions, the fresh pair only partly on why more voters or less sureness lowers p, why everyone's stakes count, and the dollar scale's spacing). The orchestrator built 65c2022 and looked through both at 375 px: clear. Held for one fix: B's Next sits at or below the fold on real phones (736 px at 390x664); X1 to fix the step nav to the bottom with safe-area padding and add a reachability test. /how approved (vercel.json rewrite allowed in the post-pick PR). Then both go to the maker.
+
 - 2026-11-07 06:16: #28 merged (D3, MEDSL 2022+2024; 2024 legislatures out of sample 60/86/96 in 50/80/95; IN, LA, NJ and CA 2022 held back). Decided: measures' statewide thresholds from law with URLs; local thresholds read from the governing state law or p not computed (never inferred ½); like-past-measures route approved, refit with 2016; local D-vs-R transferred terms approved if the 2024 back-test's 50% interval holds 40-60%. Guestbook for MEDSL 2018/2020 held: D3 first checks MEDSL's GitHub repositories (2018-, 2020-elections-official), which need none.
 
 - 2026-11-07 05:58: #27 merged (M2 follow-ups in the D1 and D2 briefs; headings rulings; MATH notes). D2 woken with its eight items. Workers: X1 (X2), D3, D2, + T1.
