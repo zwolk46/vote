@@ -34,3 +34,19 @@ Decision card "Count whose welfare in B, the value of the outcome?"; options: on
 > Lead with break-even, show both
 
 *Reading.* The site leads with the break-even stakes B* = C ÷ p, which hold whoever's welfare B counts, and shows beside it what B* means for the voter alone and per person affected. Neither reading of B is chosen for the reader.
+
+## 2026-11-07 01:59 UTC: which elections the site covers
+
+Decision card "Choose which elections the site covers"; options: US presidential, by state; US races at every level; every level, plus other countries. He chose:
+
+> US races at every level
+
+*Reading.* The site covers US elections from the presidency down through Senate, House, state legislature and local races, so a reader sees p grow as races shrink. Other countries' systems are not in scope.
+
+## 2026-11-07 02:32 UTC: one race or the whole ballot
+
+Decision card "Judge the trip against one race, or the whole ballot?"; options: each race, and the ballot summed; one race at a time; the whole ballot only. He chose:
+
+> Each race, and the ballot summed
+
+*Reading.* Each race shows its own p and B\*. Whether a trip to vote pays is judged over the whole ballot it casts: it pays when the races' shares B ÷ B\* add up to more than 100%, that is, when p₁B₁ + p₂B₂ + … > C (model draft 3, §2).
