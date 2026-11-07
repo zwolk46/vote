@@ -73,35 +73,36 @@
    "computed": true
   },
   "2024": {
-   "races": 1469,
-   "with_lean": 968,
-   "held_back_state": 11,
+   "races": 1503,
+   "with_lean": 977,
+   "held_back_state": 18,
    "lean_missing": {
     "the previous general's returns for this state are held back (see the state's check)": 249,
-    "a county's US House race was not contested by both parties throughout": 241
+    "a county's US House race was not contested by both parties throughout": 248,
+    "no US House vote for a county in the previous general's returns": 11
    },
    "in_intervals_50_80_95": {
     "50": 0.518,
-    "80": 0.811,
-    "95": 0.964
+    "80": 0.81,
+    "95": 0.963
    },
    "within_49_51": {
-    "expected": 59.8,
+    "expected": 60.3,
     "seen": 54
    },
    "within_100_votes": {
-    "expected": 50.7,
-    "seen": 42
+    "expected": 51.7,
+    "seen": 43
    },
-   "mean_forecast_minus_outcome": 0.03,
+   "mean_forecast_minus_outcome": 0.0296,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
      146,
      0.664
     ],
     "council, commission or board": [
-     458,
-     0.441
+     465,
+     0.443
     ],
     "judge": [
      89,
@@ -112,8 +113,8 @@
      0.769
     ],
     "other local office": [
-     23,
-     0.609
+     24,
+     0.583
     ],
     "prosecutor": [
      53,
@@ -124,8 +125,8 @@
      0.424
     ],
     "sheriff or constable": [
-     95,
-     0.463
+     96,
+     0.469
     ],
     "special district": [
      6,

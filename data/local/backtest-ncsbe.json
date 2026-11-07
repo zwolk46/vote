@@ -22,68 +22,24 @@
   },
   "2017": {
    "all": {
-    "forecast": 208,
-    "expected_in_window": 29.4,
-    "seen_in_window": 28
+    "forecast": 215,
+    "expected_in_window": 29.9,
+    "seen_in_window": 29
    },
    "boundary": {
-    "forecast": 205,
-    "expected_in_window": 29.1,
-    "seen_in_window": 28
+    "forecast": 210,
+    "expected_in_window": 29.4,
+    "seen_in_window": 29
    },
    "class": {
-    "forecast": 3,
-    "expected_in_window": 0.2,
+    "forecast": 5,
+    "expected_in_window": 0.4,
     "seen_in_window": 0
    },
    "local": {
-    "forecast": 208,
-    "expected_in_window": 29.4,
-    "seen_in_window": 28
-   }
-  },
-  "2018": {
-   "all": {
-    "forecast": 87,
-    "expected_in_window": 7.4,
-    "seen_in_window": 15
-   },
-   "boundary": {
-    "forecast": 9,
-    "expected_in_window": 1.0,
-    "seen_in_window": 1
-   },
-   "class": {
-    "forecast": 78,
-    "expected_in_window": 6.4,
-    "seen_in_window": 14
-   },
-   "local": {
-    "forecast": 87,
-    "expected_in_window": 7.4,
-    "seen_in_window": 15
-   }
-  },
-  "2019": {
-   "all": {
-    "forecast": 226,
-    "expected_in_window": 32.9,
-    "seen_in_window": 41
-   },
-   "boundary": {
-    "forecast": 217,
-    "expected_in_window": 32.2,
-    "seen_in_window": 40
-   },
-   "class": {
-    "forecast": 9,
-    "expected_in_window": 0.7,
-    "seen_in_window": 1
-   },
-   "local": {
-    "forecast": 224,
-    "expected_in_window": 32.7,
-    "seen_in_window": 41
+    "forecast": 213,
+    "expected_in_window": 29.7,
+    "seen_in_window": 29
    },
    "primary": {
     "forecast": 2,
@@ -91,102 +47,156 @@
     "seen_in_window": 0
    }
   },
-  "2020": {
+  "2018": {
    "all": {
-    "forecast": 201,
-    "expected_in_window": 19.5,
-    "seen_in_window": 16
+    "forecast": 159,
+    "expected_in_window": 13.5,
+    "seen_in_window": 28
    },
    "boundary": {
-    "forecast": 13,
-    "expected_in_window": 2.0,
+    "forecast": 9,
+    "expected_in_window": 1.0,
+    "seen_in_window": 1
+   },
+   "class": {
+    "forecast": 150,
+    "expected_in_window": 12.5,
+    "seen_in_window": 27
+   },
+   "local": {
+    "forecast": 93,
+    "expected_in_window": 8.0,
+    "seen_in_window": 17
+   },
+   "primary": {
+    "forecast": 66,
+    "expected_in_window": 5.5,
+    "seen_in_window": 11
+   }
+  },
+  "2019": {
+   "all": {
+    "forecast": 330,
+    "expected_in_window": 44.3,
+    "seen_in_window": 53
+   },
+   "boundary": {
+    "forecast": 219,
+    "expected_in_window": 32.4,
+    "seen_in_window": 41
+   },
+   "class": {
+    "forecast": 111,
+    "expected_in_window": 11.9,
+    "seen_in_window": 12
+   },
+   "local": {
+    "forecast": 328,
+    "expected_in_window": 44.2,
+    "seen_in_window": 53
+   },
+   "primary": {
+    "forecast": 2,
+    "expected_in_window": 0.1,
+    "seen_in_window": 0
+   }
+  },
+  "2020": {
+   "all": {
+    "forecast": 247,
+    "expected_in_window": 20.3,
+    "seen_in_window": 18
+   },
+   "boundary": {
+    "forecast": 14,
+    "expected_in_window": 2.3,
     "seen_in_window": 3
    },
    "class": {
-    "forecast": 188,
-    "expected_in_window": 17.5,
-    "seen_in_window": 13
+    "forecast": 233,
+    "expected_in_window": 18.0,
+    "seen_in_window": 15
    },
    "local": {
-    "forecast": 85,
-    "expected_in_window": 7.2,
-    "seen_in_window": 6
+    "forecast": 131,
+    "expected_in_window": 11.6,
+    "seen_in_window": 11
    },
    "primary": {
     "forecast": 116,
-    "expected_in_window": 12.3,
-    "seen_in_window": 10
+    "expected_in_window": 8.6,
+    "seen_in_window": 7
    }
   },
   "2021": {
    "all": {
-    "forecast": 357,
-    "expected_in_window": 49.4,
+    "forecast": 367,
+    "expected_in_window": 50.0,
     "seen_in_window": 41
    },
    "boundary": {
-    "forecast": 233,
-    "expected_in_window": 39.8,
+    "forecast": 236,
+    "expected_in_window": 40.2,
     "seen_in_window": 36
    },
    "class": {
-    "forecast": 124,
-    "expected_in_window": 9.6,
+    "forecast": 131,
+    "expected_in_window": 9.8,
     "seen_in_window": 5
    },
    "local": {
-    "forecast": 357,
-    "expected_in_window": 49.4,
+    "forecast": 367,
+    "expected_in_window": 50.0,
     "seen_in_window": 41
    }
   },
   "2022": {
    "all": {
-    "forecast": 308,
-    "expected_in_window": 24.4,
+    "forecast": 316,
+    "expected_in_window": 25.7,
     "seen_in_window": 24
    },
    "boundary": {
-    "forecast": 22,
-    "expected_in_window": 3.1,
+    "forecast": 23,
+    "expected_in_window": 3.3,
     "seen_in_window": 2
    },
    "class": {
-    "forecast": 286,
-    "expected_in_window": 21.3,
+    "forecast": 293,
+    "expected_in_window": 22.4,
     "seen_in_window": 22
    },
    "local": {
-    "forecast": 196,
-    "expected_in_window": 16.8,
+    "forecast": 204,
+    "expected_in_window": 17.7,
     "seen_in_window": 13
    },
    "primary": {
     "forecast": 112,
-    "expected_in_window": 7.6,
+    "expected_in_window": 8.0,
     "seen_in_window": 11
    }
   },
   "2023": {
    "all": {
-    "forecast": 400,
-    "expected_in_window": 51.2,
-    "seen_in_window": 54
+    "forecast": 418,
+    "expected_in_window": 52.2,
+    "seen_in_window": 57
    },
    "boundary": {
-    "forecast": 241,
-    "expected_in_window": 40.0,
+    "forecast": 246,
+    "expected_in_window": 40.5,
     "seen_in_window": 44
    },
    "class": {
-    "forecast": 159,
-    "expected_in_window": 11.3,
-    "seen_in_window": 10
+    "forecast": 172,
+    "expected_in_window": 11.7,
+    "seen_in_window": 13
    },
    "local": {
-    "forecast": 398,
-    "expected_in_window": 51.1,
-    "seen_in_window": 54
+    "forecast": 416,
+    "expected_in_window": 52.0,
+    "seen_in_window": 57
    },
    "primary": {
     "forecast": 2,
@@ -196,51 +206,51 @@
   },
   "2024": {
    "all": {
-    "forecast": 261,
-    "expected_in_window": 21.1,
-    "seen_in_window": 20
+    "forecast": 297,
+    "expected_in_window": 27.3,
+    "seen_in_window": 28
    },
    "boundary": {
-    "forecast": 38,
-    "expected_in_window": 6.0,
+    "forecast": 39,
+    "expected_in_window": 6.2,
     "seen_in_window": 3
    },
    "class": {
-    "forecast": 223,
-    "expected_in_window": 15.1,
-    "seen_in_window": 17
+    "forecast": 258,
+    "expected_in_window": 21.1,
+    "seen_in_window": 25
    },
    "local": {
-    "forecast": 162,
-    "expected_in_window": 15.3,
-    "seen_in_window": 13
+    "forecast": 173,
+    "expected_in_window": 16.2,
+    "seen_in_window": 14
    },
    "primary": {
-    "forecast": 99,
-    "expected_in_window": 5.8,
-    "seen_in_window": 7
+    "forecast": 124,
+    "expected_in_window": 11.0,
+    "seen_in_window": 14
    }
   },
   "2025": {
    "all": {
-    "forecast": 451,
-    "expected_in_window": 58.8,
-    "seen_in_window": 68
+    "forecast": 474,
+    "expected_in_window": 56.4,
+    "seen_in_window": 66
    },
    "boundary": {
-    "forecast": 250,
-    "expected_in_window": 39.7,
+    "forecast": 253,
+    "expected_in_window": 40.1,
     "seen_in_window": 48
    },
    "class": {
-    "forecast": 201,
-    "expected_in_window": 19.1,
-    "seen_in_window": 20
+    "forecast": 221,
+    "expected_in_window": 16.4,
+    "seen_in_window": 18
    },
    "local": {
-    "forecast": 446,
-    "expected_in_window": 58.5,
-    "seen_in_window": 67
+    "forecast": 469,
+    "expected_in_window": 56.1,
+    "seen_in_window": 65
    },
    "primary": {
     "forecast": 5,
@@ -250,73 +260,449 @@
   },
   "2026": {
    "all": {
-    "forecast": 172,
-    "expected_in_window": 14.5,
-    "seen_in_window": 11
+    "forecast": 210,
+    "expected_in_window": 19.3,
+    "seen_in_window": 14
    },
    "boundary": {
-    "forecast": 2,
-    "expected_in_window": 0.3,
-    "seen_in_window": 0
+    "forecast": 4,
+    "expected_in_window": 0.8,
+    "seen_in_window": 1
    },
    "class": {
-    "forecast": 170,
-    "expected_in_window": 14.1,
-    "seen_in_window": 11
+    "forecast": 206,
+    "expected_in_window": 18.5,
+    "seen_in_window": 13
    },
    "local": {
-    "forecast": 24,
-    "expected_in_window": 2.0,
-    "seen_in_window": 2
+    "forecast": 26,
+    "expected_in_window": 2.6,
+    "seen_in_window": 3
    },
    "primary": {
-    "forecast": 148,
-    "expected_in_window": 12.4,
-    "seen_in_window": 9
+    "forecast": 184,
+    "expected_in_window": 16.8,
+    "seen_in_window": 11
    }
   }
  },
  "pooled": {
   "all": {
-   "forecast": 2675,
-   "expected_in_window": 309.1,
-   "seen_in_window": 319
+   "forecast": 3037,
+   "expected_in_window": 339.4,
+   "seen_in_window": 359
   },
   "boundary": {
-   "forecast": 1234,
-   "expected_in_window": 193.7,
-   "seen_in_window": 206
+   "forecast": 1257,
+   "expected_in_window": 196.7,
+   "seen_in_window": 209
   },
   "class": {
-   "forecast": 1441,
-   "expected_in_window": 115.3,
-   "seen_in_window": 113
+   "forecast": 1780,
+   "expected_in_window": 142.7,
+   "seen_in_window": 150
   },
   "local": {
-   "forecast": 2191,
-   "expected_in_window": 270.3,
-   "seen_in_window": 281
+   "forecast": 2424,
+   "expected_in_window": 288.6,
+   "seen_in_window": 304
   },
   "primary": {
-   "forecast": 484,
-   "expected_in_window": 38.7,
-   "seen_in_window": 38
+   "forecast": 613,
+   "expected_in_window": 50.6,
+   "seen_in_window": 55
   }
  },
  "calibration": {
   "local": {
-   "years_testable": "each year with 30 or more expected in earlier years",
-   "seen": 237.0,
-   "expected_uncalibrated": 233.0,
-   "expected_calibrated": 251.6,
-   "adopted": false
+   "factors": {
+    "2018": 0.994,
+    "2019": 1.232,
+    "2020": 1.214,
+    "2021": 1.181,
+    "2022": 1.056,
+    "2023": 1.02,
+    "2024": 1.038,
+    "2025": 1.026,
+    "2026": 1.052
+   },
+   "scored_years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+   ],
+   "test": {
+    "years": [
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024,
+     2025,
+     2026
+    ],
+    "contests": 2207,
+    "seen_near_half": 274,
+    "expected_before": 258.5,
+    "expected_after": 284.5,
+    "deviance_by_office_type_before": 5.08,
+    "deviance_after": 5.57,
+    "improves": false,
+    "tested_cells_made_worse": [
+     "class, local mayor or executive",
+     "class, local school board"
+    ],
+    "passes": false,
+    "by_office_type": {
+     "boundary, local council, commission or board": {
+      "expected_before": 165.3,
+      "expected_after": 182.8,
+      "seen": 176,
+      "tested": true
+     },
+     "class, local council, commission or board": {
+      "expected_before": 46.2,
+      "expected_after": 49.1,
+      "seen": 56,
+      "tested": true
+     },
+     "class, local mayor or executive": {
+      "expected_before": 29.0,
+      "expected_after": 32.9,
+      "seen": 26,
+      "tested": true
+     },
+     "class, local school board": {
+      "expected_before": 16.6,
+      "expected_after": 18.1,
+      "seen": 13,
+      "tested": true
+     },
+     "boundary, local special district": {
+      "expected_before": 0.9,
+      "expected_after": 1.0,
+      "seen": 2,
+      "tested": false
+     },
+     "boundary, local school board": {
+      "expected_before": 0.5,
+      "expected_after": 0.5,
+      "seen": 1,
+      "tested": false
+     }
+    }
+   },
+   "leave_one_year_out": {
+    "2018": {
+     "years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "contests": 2114,
+     "seen_near_half": 257,
+     "expected_before": 250.5,
+     "expected_after": 276.5,
+     "deviance_by_office_type_before": 3.66,
+     "deviance_after": 5.46,
+     "improves": false,
+     "tested_cells_made_worse": [
+      "class, local mayor or executive",
+      "class, local school board"
+     ],
+     "passes": false
+    },
+    "2019": {
+     "years": [
+      2018,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "contests": 1879,
+     "seen_near_half": 221,
+     "expected_before": 214.3,
+     "expected_after": 230.0,
+     "deviance_by_office_type_before": 4.36,
+     "deviance_after": 4.99,
+     "improves": false,
+     "tested_cells_made_worse": [
+      "boundary, local council, commission or board",
+      "class, local mayor or executive",
+      "class, local school board"
+     ],
+     "passes": false
+    },
+    "2020": {
+     "years": [
+      2018,
+      2019,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "contests": 2076,
+     "seen_near_half": 263,
+     "expected_before": 246.8,
+     "expected_after": 270.3,
+     "deviance_by_office_type_before": 7.13,
+     "deviance_after": 7.48,
+     "improves": false,
+     "tested_cells_made_worse": [
+      "class, local mayor or executive",
+      "class, local school board"
+     ],
+     "passes": false
+    },
+    "2021": {
+     "years": [
+      2018,
+      2019,
+      2020,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "contests": 1840,
+     "seen_near_half": 233,
+     "expected_before": 208.5,
+     "expected_after": 225.4,
+     "deviance_by_office_type_before": 6.03,
+     "deviance_after": 4.26,
+     "improves": true,
+     "tested_cells_made_worse": [
+      "class, local mayor or executive",
+      "class, local school board"
+     ],
+     "passes": false
+    },
+    "2022": {
+     "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2023,
+      2024,
+      2025,
+      2026
+     ],
+     "contests": 2003,
+     "seen_near_half": 261,
+     "expected_before": 240.7,
+     "expected_after": 265.7,
+     "deviance_by_office_type_before": 4.83,
+     "deviance_after": 4.35,
+     "improves": true,
+     "tested_cells_made_worse": [
+      "class, local mayor or executive"
+     ],
+     "passes": false
+    },
+    "2023": {
+     "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2024,
+      2025,
+      2026
+     ],
+     "contests": 1791,
+     "seen_near_half": 217,
+     "expected_before": 206.4,
+     "expected_after": 231.4,
+     "deviance_by_office_type_before": 3.29,
+     "deviance_after": 4.4,
+     "improves": false,
+     "tested_cells_made_worse": [
+      "boundary, local council, commission or board",
+      "class, local mayor or executive",
+      "class, local school board"
+     ],
+     "passes": false
+    },
+    "2024": {
+     "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2025,
+      2026
+     ],
+     "contests": 2034,
+     "seen_near_half": 260,
+     "expected_before": 242.3,
+     "expected_after": 267.6,
+     "deviance_by_office_type_before": 6.44,
+     "deviance_after": 6.47,
+     "improves": false,
+     "tested_cells_made_worse": [
+      "class, local mayor or executive",
+      "class, local school board"
+     ],
+     "passes": false
+    },
+    "2025": {
+     "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2026
+     ],
+     "contests": 1738,
+     "seen_near_half": 209,
+     "expected_before": 202.4,
+     "expected_after": 226.9,
+     "deviance_by_office_type_before": 4.48,
+     "deviance_after": 6.87,
+     "improves": false,
+     "tested_cells_made_worse": [
+      "boundary, local council, commission or board",
+      "class, local mayor or executive",
+      "class, local school board"
+     ],
+     "passes": false
+    },
+    "2026": {
+     "years": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+     ],
+     "contests": 2181,
+     "seen_near_half": 271,
+     "expected_before": 255.9,
+     "expected_after": 281.7,
+     "deviance_by_office_type_before": 5.07,
+     "deviance_after": 5.63,
+     "improves": false,
+     "tested_cells_made_worse": [
+      "class, local mayor or executive",
+      "class, local school board"
+     ],
+     "passes": false
+    }
+   },
+   "adopted": false,
+   "robustness_rule": "adopted only if it improves the out-of-sample test (the count in the class windows nearer, and the deviance by office type lower) over every scored year with no tested cell made worse (a tested cell: 5 or more seen or expected), and again with any one scored year left out (brief D3, amended 2026-11-07 08:36)"
   },
   "primary": {
-   "years_testable": "each year with 30 or more expected in earlier years",
-   "seen": 0.0,
-   "expected_uncalibrated": 0.0,
-   "expected_calibrated": 0.0,
-   "adopted": false
+   "factors": {
+    "2025": 1.277,
+    "2026": 1.294
+   },
+   "scored_years": [
+    2025,
+    2026
+   ],
+   "test": {
+    "years": [
+     2025,
+     2026
+    ],
+    "contests": 189,
+    "seen_near_half": 12,
+    "expected_before": 17.1,
+    "expected_after": 22.1,
+    "deviance_by_office_type_before": 2.85,
+    "deviance_after": 6.72,
+    "improves": false,
+    "tested_cells_made_worse": [
+     "primary, class, local council, commission or board"
+    ],
+    "passes": false,
+    "by_office_type": {
+     "primary, class, local council, commission or board": {
+      "expected_before": 10.4,
+      "expected_after": 13.4,
+      "seen": 9,
+      "tested": true
+     },
+     "primary, class, local school board": {
+      "expected_before": 4.1,
+      "expected_after": 5.3,
+      "seen": 2,
+      "tested": false
+     },
+     "primary, class, state legislature": {
+      "expected_before": 2.6,
+      "expected_after": 3.4,
+      "seen": 1,
+      "tested": false
+     }
+    }
+   },
+   "leave_one_year_out": {
+    "2025": {
+     "years": [
+      2026
+     ],
+     "contests": 184,
+     "seen_near_half": 11,
+     "expected_before": 16.8,
+     "expected_after": 21.7,
+     "deviance_by_office_type_before": 3.11,
+     "deviance_after": 7.31,
+     "improves": false,
+     "tested_cells_made_worse": [
+      "primary, class, local council, commission or board"
+     ],
+     "passes": false
+    },
+    "2026": {
+     "years": [
+      2025
+     ],
+     "contests": 5,
+     "seen_near_half": 1,
+     "expected_before": 0.3,
+     "expected_after": 0.4,
+     "deviance_by_office_type_before": 0.89,
+     "deviance_after": 0.58,
+     "improves": true,
+     "tested_cells_made_worse": [],
+     "passes": true
+    }
+   },
+   "adopted": false,
+   "robustness_rule": "adopted only if it improves the out-of-sample test (the count in the class windows nearer, and the deviance by office type lower) over every scored year with no tested cell made worse (a tested cell: 5 or more seen or expected), and again with any one scored year left out (brief D3, amended 2026-11-07 08:36)"
   }
  }
 }

@@ -25,6 +25,10 @@ What the files cannot show, and how it is handled (each said in the contest's ow
     contest whose names all carry one party code is that party's primary, and one carrying several is split by party.
     A nonpartisan contest whose name is on a later ballot that year is a first round (a primary or an election that
     went to a runoff); one whose name was on an earlier ballot is a second round. All of these are [inferred].
+    A November contest whose name was on an earlier ballot that year is that contest's deciding round, after a
+    nonpartisan primary or a first round, in odd and even years alike: the November count is the one that elects, so
+    p is computed by the route's classes, and the contest is marked so (the orchestrator, 2026-11-07 09:53 UTC; added
+    09:55 UTC). The earlier round stays not computed (model section 7), and so does a second round on another date.
   - Winners: the files do not mark them; the leading names for the seats are taken as won [inferred], and none at a
     tie for the last seat, as for MEDSL.
 p: 0 for one name on the ballot for each seat. Otherwise, from 2014, the like-race route (D3-v1.1) fitted on North
@@ -175,9 +179,24 @@ def classify(dates):
     return dates
 
 
+DECIDING = "deciding round after an earlier round"
+
+
+def deciding_words(earlier):
+    """A November contest whose name was on an earlier ballot that year: its deciding round (the orchestrator,
+    2026-11-07 09:53 UTC: "the November count is the one that elects")."""
+    on = ", ".join(_iso(x) for x in sorted(set(earlier)))
+    return (f"{DECIDING} on {on} (a nonpartisan primary or a first round that went to a runoff; the source does not "
+            f"say which) [inferred]")
+
+
 def election_words(c, d):
     kind, other = c["_round"]
-    on = ", ".join(_iso(x) for x in other)
+    on = ", ".join(_iso(x) for x in sorted(set(other)))   # a date once, though two contests of the name are on it
+    if c["_level"] == "measure":   # a question has no rounds: one of the same title on another date is another question
+        w = (("general" if int(d[:4]) % 2 == 0 else "general (odd year: municipal)") if is_general_date(d) else
+             f"election on {_iso(d)}, not a November general (the source does not say its kind)")
+        return w + (f"; a question of the same title was on the ballot on {on} too" if other else "")
     if c["_party"]:
         w = PRIMARY_WORD.get(c["_party"], f"{c['_party']} primary (the party's code in the source)")
         if kind == "second primary":
@@ -186,8 +205,7 @@ def election_words(c, d):
     if kind == "general":
         return "general" if d[:4] and int(d[:4]) % 2 == 0 else "general (odd year: municipal)"
     if kind == "after an earlier round":
-        return (f"general, after an earlier round on {on} (a runoff or the election after a nonpartisan primary; the "
-                f"source does not say which) [inferred]")
+        return deciding_words(other)
     if kind == "first round":
         return (f"first round: the same contest is on the ballot again on {on} (a nonpartisan primary or a first "
                 f"round that went to a runoff; the source does not say which) [inferred]")
@@ -235,9 +253,9 @@ def p_of(c, seats):
         return {"value": 0.0, "event": 0.0, "reason": "one name on the ballot for each seat (unopposed): p is 0"}
     if not seats:
         return {"not_computed": "the number of seats is not in the source (its files give it from 2014 only)"}
-    if kind in ("after an earlier round", "second round"):
-        return {"not_computed": "a contest after an earlier round this year (perhaps a runoff): model section 7 does "
-                                "not compute p for runoffs, and the source does not say which this is"}
+    if kind == "second round":   # a deciding round in November is computed (DECIDING); on another date it is not
+        return {"not_computed": "a second round on a date other than November's (perhaps a runoff): model section 7 "
+                                "does not compute p for runoffs, and the source does not say which this is"}
     if c["_party"] and c["_round"][1]:
         return {"not_computed": "a second primary followed, so this primary was a first round: model section 7 records "
                                 "runoff systems' rounds with their results and does not compute p for them"}
@@ -329,31 +347,97 @@ def backtest(rows):
             pooled[g][0] += x["forecast"]
             pooled[g][1] += x["expected_in_window"]
             pooled[g][2] += x["seen_in_window"]
-    # the 06:38 rule: a factor fitted on earlier years only, adopted if it brings the later years nearer
-    cal = {}
-    for g in ("local", "primary"):
-        e_raw = e_cal = s_ = 0.0
-        for y in by:
-            pe = sum(by[x].get(g, {}).get("expected_in_window", 0) for x in by if x < y)
-            ps = sum(by[x].get(g, {}).get("seen_in_window", 0) for x in by if x < y)
-            if pe >= LM.CAL_MIN_EXPECTED and g in by[y]:
-                e_raw += by[y][g]["expected_in_window"]
-                e_cal += by[y][g]["expected_in_window"] * ps / pe
-                s_ += by[y][g]["seen_in_window"]
-        cal[g] = {"years_testable": "each year with 30 or more expected in earlier years", "seen": s_,
-                  "expected_uncalibrated": round(e_raw, 1), "expected_calibrated": round(e_cal, 1),
-                  "adopted": abs(e_cal - s_) < abs(e_raw - s_)}
+    return_cal = calibration(rows)
     return {"about": "the like-race route (D3-v1.1) on North Carolina's State Board contests: each year forecast "
                      f"from North Carolina's earlier years only (from {FIRST_FIT_YEAR}, when the files begin to give "
                      "seats); for each contest, the chance its class gave of finishing in the class's window around "
                      "1/2, against whether it did. Built by pipeline/local_ncsbe.py build.",
             "by_year": by, "pooled": {g: {"forecast": v[0], "expected_in_window": round(v[1], 1),
                                           "seen_in_window": v[2]} for g, v in sorted(pooled.items())},
-            "calibration": cal}
+            "calibration": return_cal}
+
+
+def _cell(r):
+    """The robustness test's cell for a like-race row: its route and office type, as pipeline/local_medsl.py's
+    calibrate_local has them (primaries apart)."""
+    c = r["c"]
+    scope = "state legislature" if c.get("_leg") else "state" if STATE_OFFICE.search(c["_base"]) else "local"
+    ot = "" if c.get("_leg") else " " + LM.office_type(c["_base"])
+    return f"{'primary, ' if r['level'] == 'primary' else ''}{r['route']}, {scope}{ot}"
+
+
+def calibration(rows):
+    """The 06:38 rule's factor (seen over expected in the class windows, pooled over earlier years; a year is scored
+    where the earlier years expected 30 or more), under the robustness test of the brief's amendment of 2026-11-07
+    08:36 (pipeline/local_medsl.py, _cal_score): adopted only if it improves the out-of-sample test over the scored
+    years with no tested cell made worse, and again with any one scored year left out. Rewritten 2026-11-07 10:04 UTC:
+    before, a factor was adopted when it only brought the pooled count nearer, and each forecast's note said, as a fixed
+    text, that it did not (true until the deciding rounds of 09:53 entered the pool). Not applied to p either way
+    here: where it would pass, the orchestrator is told first [inferred: a change to the forecast is the
+    orchestrator's to see before it stands]."""
+    recs = collections.defaultdict(list)
+    for y in sorted({r["year"] for r in rows}):
+        train = [r for r in rows if r["year"] < y]
+        dens = {}
+        for r in rows:
+            if r["year"] != y:
+                continue
+            if r["key"] not in dens:
+                dens[r["key"]] = L.class_density(train, r["key"])
+            f, N, h, kin = dens[r["key"]]
+            if f is None:
+                continue
+            recs[(r["level"], y)].append((None, _cell(r), kin / N, r["s"] <= 0.5 + h))
+    out = {}
+    for g in ("local", "primary"):
+        years = sorted(y for gg, y in recs if gg == g)
+        factors, scored = {}, []
+        for t in years:
+            pe = sum(e for y in years if y < t for _, _, e, _ in recs[(g, y)])
+            ps = sum(sn for y in years if y < t for _, _, _, sn in recs[(g, y)])
+            if pe >= LM.CAL_MIN_EXPECTED:
+                factors[t] = {"own": {}, "pooled": ps / pe}
+                scored.append(t)
+        if not scored:
+            out[g] = {"scored_years": [], "adopted": False, "why": "no year has 30 or more expected in earlier years"}
+            continue
+        test = LM._cal_score(recs, g, scored, factors)
+        loo = {str(t): (LM._cal_score(recs, g, [y for y in scored if y != t], factors) if len(scored) > 1 else
+                        {"passes": False, "why": "no scored year is left: the only scored year is " + str(t)})
+               for t in scored}
+        for v in loo.values():
+            v.pop("by_office_type", None)
+        out[g] = {"factors": {str(t): round(f["pooled"], 3) for t, f in factors.items()},
+                  "scored_years": scored, "test": test, "leave_one_year_out": loo,
+                  "adopted": test["passes"] and all(v["passes"] for v in loo.values()),
+                  "robustness_rule": "adopted only if it improves the out-of-sample test (the count in the class "
+                                     "windows nearer, and the deviance by office type lower) over every scored year "
+                                     f"with no tested cell made worse (a tested cell: {LM.CAL_CELL_MIN} or more seen "
+                                     "or expected), and again with any one scored year left out (brief D3, amended "
+                                     "2026-11-07 08:36)"}
+    return out
+
+
+def cal_note(cal):
+    """Each forecast's note on the calibration, from the record (calibration's result), not a fixed text."""
+    c = cal.get("local", {})
+    if c.get("adopted"):
+        return ("no calibration applied: the factor fitted on earlier years passes the robustness test and waits for "
+                "the orchestrator (data/local/backtest-ncsbe.json, calibration)")
+    t = c.get("test") or {}
+    why = ("it makes tested cells worse: " + ", ".join(t["tested_cells_made_worse"]) if t.get("tested_cells_made_worse")
+           else "it does not improve the test" if t and not t.get("improves") else
+           "it fails with a scored year left out")
+    return f"no calibration: the factor fitted on earlier years fails the robustness test, since {why} " \
+           f"(data/local/backtest-ncsbe.json, calibration)"
 
 
 def _slug(x):
     return L._slug(x)[:70]
+
+
+OWN_COUNTY_NOTE = ("one county's own contest: the State Board's file gives each county's this same name, which carries "
+                   "no place, so it is read as one contest per county (pipeline/intake/ncsbe.py, generic)")
 
 
 def record(c, d, fips, commit):
@@ -389,7 +473,7 @@ def record(c, d, fips, commit):
             rec["office_scope"] = scope
         rec["seats"] = seats if (seats or 1) > 1 else None
         rec["result"] = {"candidates": cands_out(c, seats), "total_votes": total, "source": SOURCE_KEY}
-    notes = []
+    notes = [OWN_COUNTY_NOTE] if c.get("own_county") else []
     if not seats and level != "measure":
         notes.append("seats not in the source before 2014: winners not marked")
     if c.get("party_of_names") is not None and not PARTY_SUFFIX.search(c["contest"]):
@@ -499,6 +583,9 @@ def medsl_shape(year):
                     "dataverse": "STATE" if (statewide or STATE_OFFICE.search(base)) else "LOCAL",
                     "office": base, "district": "STATEWIDE" if statewide else "", "subject": None,
                     "magnitude": c.get("vote_for"), "question": c["_level"] == "measure",
+                    "own_county": c.get("own_county") or None,
+                    "earlier_round": (c["_round"][1] if c["_round"][0] == "after an earlier round" and
+                                      c["_level"] == "local" else None),
                     "precincts": c["n_precincts"], "counties": sorted({fips[x] for x in c["counties"] if x in fips}),
                     "candidates": [{"name": x["name"], "votes": x["votes"], "as_named": True,
                                     "party": {"D": "DEMOCRAT", "R": "REPUBLICAN"}.get(_major(x["party"]),
@@ -693,7 +780,9 @@ def build(out_dir, dates):
     rows = like_rows(dates)
     dens = {}
     with open(os.path.join(out_dir, "local", "backtest-ncsbe.json"), "w") as f:
-        json.dump(backtest(rows), f, indent=1)
+        bt = backtest(rows)
+        json.dump(bt, f, indent=1)
+    note = cal_note(bt["calibration"])
     files = collections.defaultdict(list)
     used = collections.defaultdict(list)
     counts = collections.Counter()
@@ -720,7 +809,7 @@ def build(out_dir, dates):
                 continue
             rec = record(c, d, fips, commit)
             if rec["p"] is None:
-                rec["p"] = route_p(rec, c, d, rows, dens, commit, counts)
+                rec["p"] = route_p(rec, c, d, rows, dens, commit, counts, note)
             rec = L._compact(rec)
             if gated.get(d, (0,))[0] > LM.QUALITY_LINE:
                 rec["notes"] = (rec.get("notes") or []) + [
@@ -772,7 +861,7 @@ def build(out_dir, dates):
     print(f"{sum(len(v) for v in files.values())} contests in {len(files)} files, {total / 2**20:.2f} MiB")
 
 
-def route_p(rec, c, d, rows, dens, commit, counts):
+def route_p(rec, c, d, rows, dens, commit, counts, cal_note_text):
     year = int(d[:4])
     if year < FIRST_FIT_YEAR:
         return {"not_computed": f"before {FIRST_FIT_YEAR}: the files give no seats, so no like races are counted"}
@@ -784,10 +873,7 @@ def route_p(rec, c, d, rows, dens, commit, counts):
                    rec["level"], k)
     if rec["forecasts"]:
         rec["forecasts"][-1]["fitted_on"] = f"North Carolina's State Board contests of {FIRST_FIT_YEAR}-{year - 1}"
-        rec["forecasts"][-1]["note"] = ("; ".join(x for x in (rec["forecasts"][-1].get("note"),
-                                                              "no calibration: the factor fitted on earlier years "
-                                                              "made the later years' back-test worse "
-                                                              "(data/local/backtest-ncsbe.json)") if x))
+        rec["forecasts"][-1]["note"] = "; ".join(x for x in (rec["forecasts"][-1].get("note"), cal_note_text) if x)
     return p
 
 

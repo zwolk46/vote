@@ -2077,10 +2077,25 @@
   "2016": {
    "date": "2016-11-08",
    "tally": {
-    "question: equal": 66,
-    "question: not found in the State Board's file": 11
+    "question: not found in the State Board's file": 3,
+    "question: equal": 74
    },
    "examples": [
+    {
+     "office": "ONE-QUARTER PERCENT LOCAL SALES AND USE TAX",
+     "district": "",
+     "medsl": [
+      [
+       "YES",
+       29292
+      ],
+      [
+       "NO",
+       45845
+      ]
+     ],
+     "ncsbe": null
+    },
     {
      "office": "HOUSING BONDS",
      "district": "",
@@ -2107,141 +2122,6 @@
       [
        "NO",
        115651
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE ABC STORE ELECTION",
-     "district": "2",
-     "medsl": [
-      [
-       "YES",
-       10738
-      ],
-      [
-       "NO",
-       7374
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE MALT BEVERAGE ELECTION",
-     "district": "2",
-     "medsl": [
-      [
-       "YES",
-       10345
-      ],
-      [
-       "NO",
-       7729
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE MIXED BEVERAGE ELECTION",
-     "district": "2",
-     "medsl": [
-      [
-       "YES",
-       10442
-      ],
-      [
-       "NO",
-       7698
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE UNFORTIFIED WINE ELECTION",
-     "district": "2",
-     "medsl": [
-      [
-       "YES",
-       10434
-      ],
-      [
-       "NO",
-       7642
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE MIXED BEVERAGE ELECTION",
-     "district": "8",
-     "medsl": [
-      [
-       "YES",
-       5694
-      ],
-      [
-       "NO",
-       2793
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE ABC STORE ELECTION",
-     "district": "29",
-     "medsl": [
-      [
-       "YES",
-       48256
-      ],
-      [
-       "NO",
-       24831
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE MALT BEVERAGE ELECTION",
-     "district": "29",
-     "medsl": [
-      [
-       "YES",
-       46907
-      ],
-      [
-       "NO",
-       25863
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE MIXED BEVERAGE ELECTION",
-     "district": "29",
-     "medsl": [
-      [
-       "YES",
-       49785
-      ],
-      [
-       "NO",
-       23343
-      ]
-     ],
-     "ncsbe": null
-    },
-    {
-     "office": "COUNTYWIDE UNFORTIFIED WINE ELECTION",
-     "district": "29",
-     "medsl": [
-      [
-       "YES",
-       47388
-      ],
-      [
-       "NO",
-       25299
       ]
      ],
      "ncsbe": null
