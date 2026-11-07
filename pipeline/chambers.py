@@ -1196,6 +1196,10 @@ def too_few(level, year, fy):
              "senate": "the Senate's from 1982 (MEDSL)",
              "governor": "the governors' from 1978 (Algara and Amlani's county returns before 2006, with the "
                          "presidential vote from MEDSL and the president from the National Archives, both from 1976)"}[level]
+    if level == "house":
+        return (f"the model's own forecast is fitted on earlier cycles only: {K_MIN} of the House's own, or at least "
+                f"one with the national swing's terms from the Senate's earlier cycles; its sources hold {len(fy)} "
+                f"before {year} ({first})")
     return (f"the model's own forecast is fitted on earlier cycles only and needs {K_MIN} of them; its sources hold "
             f"{len(fy)} before {year} ({first})")
 
