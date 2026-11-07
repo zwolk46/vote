@@ -1472,6 +1472,8 @@ def build(out_dir, with_p=True):
                    "forecasts": []}
             if c.get("county_gate"):
                 rec["gate"] = c["county_gate"]["record"]
+            if c.get("party_office"):   # Louisiana's party committees (local_la.py)
+                rec["party_office"] = c["party_office"]
             p = {}
             if held(c, bad[year]) and route != "zero":
                 p["not_computed"] = held(c, bad[year])
