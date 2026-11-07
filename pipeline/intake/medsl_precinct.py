@@ -230,6 +230,7 @@ class _UF:
             self.p[rb] = ra
 
 
+LEGISLATIVE = {"STATE HOUSE", "STATE SENATE"}
 DROPPED = collections.Counter()   # lines that form no contest: write-in totals alone, with no candidate named
 
 
@@ -336,7 +337,10 @@ def _contests(k, precincts, yn, is_question):
             cands = list(merged.values())
         cands.sort(key=lambda c: -c["votes"])
         counties = sorted({pk[0] for pk in pks})
-        out.append({"state": st, "date": date, "stage": stage, "special": special == "TRUE", "dataverse": dv,
+        extra = {}
+        if office in LEGISLATIVE:   # kept so that a district's lines can be compared across years (pipeline/local.py)
+            extra["precinct_ids"] = sorted({"|".join(pk[:3]) for pk in pks})
+        out.append({**extra, "state": st, "date": date, "stage": stage, "special": special == "TRUE", "dataverse": dv,
                     "office": office, "district": district, "subject": subject or None,
                     "magnitude": int(magnitude) if magnitude.isdigit() else None,
                     "question": is_question, "precincts": len(pks), "counties": counties,
