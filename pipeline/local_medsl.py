@@ -38,6 +38,16 @@ SAME_LINES = 0.8          # share of a district's 2024 precincts also in its 202
 LEG = {"STATE HOUSE": 0, "STATE SENATE": 1}
 YEARS = (2018, 2020, 2022, 2024)
 MEASURE_YEARS = (2016,) + YEARS   # 2016: MEDSL's older sets, read for their questions only
+# Years MEDSL holds none of, written from a state's own certified file alone (Louisiana's 2023, pipeline/local_la.py;
+# the orchestrator, 2026-11-07 10:35 and 11:16). They are forecast from the like races and measures of the earlier
+# years above, but are not added to any later year's like races, nor to the back-tests or the calibration's
+# robustness test, pending the orchestrator's word. Why: adding a year changes the 2024 forecasts and the test's
+# verdicts, a change the robustness rule (brief D3, amended 08:36) has not been asked to weigh.
+ODD_YEARS = (2023,)
+ODD_PARTISAN = ("a race between a Democrat and a Republican: the transferred route (a) gives p only in a year whose own "
+                "back-test on that year's local races holds its 50% interval within 40-60% (the orchestrator, "
+                "2026-11-07 06:16); this year's local races in the sources taken in are Louisiana's alone, too few "
+                "for that back-test [inferred], so p is not computed")
 KLARNER_CHECKED = (2018, 2022)   # years whose MEDSL legislative returns are checked against Klarner's, the record
 GITHUB_YEARS = {2018: "MEDSL/2018-elections-official", 2020: "MEDSL/2020-elections-official"}
 
@@ -74,7 +84,18 @@ def load(year):
                     EMPTY[year] += 1
                     continue
                 out.append(c)
-    return certified_la(certified_in(certified_nc(fix_questions(out, year), year), year), year)
+    import local_nj as NJ
+    return NJ.county_gate(certified_la(certified_in(certified_nc(fix_questions(out, year), year), year), year), year)
+
+
+def held(c, bad_y):
+    """Why a contest's counts are held back (no p, and out of the back-tests), or None. A state in `bad_y` (quality) is
+    held whole, except where a finer gate has read the contest itself: New Jersey's of 2024, county by county
+    (pipeline/local_nj.py county_gate, the orchestrator's ruling of 2026-11-07 10:45)."""
+    g = c.get("county_gate") or c.get("source_gate")   # Louisiana's 2023: the gate within the certifying source
+    if g is not None:
+        return g["held"]
+    return bad_y.get(c["state"])
 
 
 def certified_nc(contests, year):
@@ -731,10 +752,10 @@ def backtest_local_partisan(write=True, years=None, prow=None, pres=None):
 
 def _backtest_one(M, k, rows, bad, pres):
     from statistics import NormalDist
-    used = [r_ for r_ in rows if r_["lean_missing"] is None and r_["m"]["state"] not in bad]
+    used = [r_ for r_ in rows if r_["lean_missing"] is None and not held(r_["m"], bad)]
     z = {"50": 0.6744897501960817, "80": 1.2815515655446004, "95": 1.959963984540054}
     out = {"races": len(rows), "with_lean": len(used),
-           "held_back_state": sum(1 for r_ in rows if r_["lean_missing"] is None and r_["m"]["state"] in bad),
+           "held_back_state": sum(1 for r_ in rows if r_["lean_missing"] is None and held(r_["m"], bad)),
            "lean_missing": dict(collections.Counter(_lean_reason(r_["lean_missing"]) for r_ in rows
                                                     if r_["lean_missing"]).most_common())}
     if M is None:
@@ -1107,6 +1128,9 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
 # ------------------------------------------------------------------ local races: classes of like races
 
 OFFICE_TYPES = [
+    # Louisiana's parties' own committees (pipeline/local_la.py): a seat one party's voters fill at the presidential
+    # preference primary is unlike a council chosen at a general (the orchestrator, 2026-11-07 11:30)
+    ("party committee", r"^(DSCC|RSCC|DPEC|RPEC) MEMBER\b"),
     ("school board", r"SCHOOL|BOARD OF EDUCATION|COLLEGE|EDUCATION|TRUSTEE|UNIVERSITY|REGENT"),
     ("judge", r"JUDGE|JUSTICE|COURT|MAGISTRATE|PROBATE"),
     ("prosecutor", r"ATTORNEY|PROSECUTOR|SOLICITOR"),
@@ -1274,6 +1298,9 @@ def build(out_dir, with_p=True):
     pres, nara_rows = L.president_party()
     m = {y: load(y) for y in MEASURE_YEARS}
     chk = {y: checks(y) for y in MEASURE_YEARS}
+    import local_la as LA
+    for y in ODD_YEARS:   # a state's own certified file alone (ODD_YEARS)
+        m[y], chk[y] = LA.medsl_shape(y) or [], {}
     files = collections.defaultdict(list)
     counts = collections.Counter()
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
@@ -1289,6 +1316,7 @@ def build(out_dir, with_p=True):
                            "https://doi.org/10.7910/DVN/FJOGJB", info["files"]["candidate"]["read_utc"], info["licence"],
                            mark="stated")
     bad = {y: quality(y) for y in MEASURE_YEARS}
+    bad.update({y: {} for y in ODD_YEARS})
     for y, sts in CERTIFIED_STATES.items():   # a state whose own certified file replaced MEDSL's (certified_in)
         for st in sts:
             bad[y].pop(st, None)
@@ -1350,8 +1378,8 @@ def build(out_dir, with_p=True):
             route, key = leg_structure(c)
             label = f"{level} {year}"
             swi = strong_write_in(c["candidates"], k) if route == "zero" else None
-            if c["state"] in bad[year]:
-                p["not_computed"] = bad[year][c["state"]]
+            if held(c, bad[year]):
+                p["not_computed"] = held(c, bad[year])
                 counts[f"{label}: not computed, the state's counts do not add up"] += 1
             elif c["state"] in RANKED and route != "zero":
                 p["not_computed"] = RANKED[c["state"]]
@@ -1424,8 +1452,13 @@ def build(out_dir, with_p=True):
             rec["p"] = p
             files[(level, year, c["state"])].append(L._compact(rec))
 
+    # -- state legislatures of ODD_YEARS: Louisiana's 2023 (pipeline/local_la.py), Klarner's runoff route
+    for y in ODD_YEARS:
+        for k_, recs in LA.legislature_records(y, ktrain, kdens, cid, commit, with_p, counts).items():
+            files[k_] += [L._compact(r_) for r_ in recs]
+
     # -- local races: routes (b) and (c), from like races of earlier years
-    lrows = {y: local_rows([c for c in m[y] if c["state"] not in bad[y]]) for y in YEARS}
+    lrows = {y: local_rows([c for c in m[y] if not held(c, bad[y])]) for y in YEARS}
     dens = {}
     bt = backtest_local_partisan(write=True, prow=prow, pres=pres)
     lp = {}
@@ -1433,7 +1466,7 @@ def build(out_dir, with_p=True):
         rows_y = lean_rows(y, m[y])
         lp[y] = None if rows_y is None else {id(r_["m"]): r_ for r_ in rows_y}
     fits = {y: L.fit_before(prow, pres, y) if lp[y] is not None else (None, 0) for y in YEARS}
-    for year in YEARS:
+    for year in sorted(YEARS + ODD_YEARS):
         train = [r_ for y in YEARS if y < year for r_ in lrows[y]]
         for c in m[year]:
             if not is_local_level(c):
@@ -1459,9 +1492,15 @@ def build(out_dir, with_p=True):
                               "total_votes": sum(x["votes"] for x in c["candidates"]),
                               "source": c.get("source", "medsl")},
                    "forecasts": []}
+            if c.get("county_gate") or c.get("source_gate"):
+                rec["gate"] = (c.get("county_gate") or c.get("source_gate"))["record"]
+            if c.get("party_office"):   # Louisiana's party committees (local_la.py)
+                rec["party_office"] = c["party_office"]
+            if c.get("notes"):   # Louisiana's tied generals held again (local_la.py tie_note)
+                rec["notes"] = list(c["notes"])
             p = {}
-            if c["state"] in bad[year] and route != "zero":
-                p["not_computed"] = bad[year][c["state"]]
+            if held(c, bad[year]) and route != "zero":
+                p["not_computed"] = held(c, bad[year])
                 counts[f"local {year}: not computed, the state's counts do not add up"] += 1
             elif scope == "state" and c["state"] in RANKED and route != "zero":
                 p["not_computed"] = RANKED[c["state"]]
@@ -1477,6 +1516,9 @@ def build(out_dir, with_p=True):
             elif route == "zero":
                 p = {"value": 0.0, "event": 0.0, "reason": key}
                 counts[f"local {year}: p = 0"] += 1
+            elif route == "partisan" and year in ODD_YEARS:
+                p["not_computed"] = ODD_PARTISAN
+                counts[f"local {year}: not computed, D against R, no back-test of the year"] += 1
             elif route == "partisan":
                 p = local_partisan_p(rec, c, lp[year], bool(bt.get(year, {}).get("computed")),
                                      fits[year],
@@ -1494,7 +1536,7 @@ def build(out_dir, with_p=True):
     import measures as MS
     book = MS.load_thresholds()
     mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
-    mrows = {y: MS.rows([c for c in m[y] if c["state"] not in bad[y]], y, mref) for y in MEASURE_YEARS}
+    mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS}
     mdens, mtest, mhalf = {}, [], []
     for year in MEASURE_YEARS:
         train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
@@ -1515,7 +1557,7 @@ def build(out_dir, with_p=True):
             mnote[key] = (f"this route's back-test shows more near-even finishes than it forecast ({got} against "
                           f"{exp:.1f} within {L.WINDOWS[-1] * 100:.0f} points, {min(r_['year'] for r_ in rs)} to "
                           f"{max(r_['year'] for r_ in rs)}), so p may be low")
-    for year in MEASURE_YEARS:
+    for year in sorted(MEASURE_YEARS + ODD_YEARS):
         train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
         for c in m[year]:
             if not c["question"]:
@@ -1538,6 +1580,8 @@ def build(out_dir, with_p=True):
                               "source": c.get("source", "medsl"),
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
                    "forecasts": []}
+            if c.get("county_gate") or c.get("source_gate"):
+                rec["gate"] = (c.get("county_gate") or c.get("source_gate"))["record"]
             notes = []
             # MEDSL's wording of a local question does not show its place; the State Board's file names it (or the
             # question is one county's own: pipeline/intake/ncsbe.py, generic), and Indiana's gives each question
@@ -1565,8 +1609,8 @@ def build(out_dir, with_p=True):
             elif yes + no <= 0:
                 p = {"not_computed": "no yes or no votes"}
                 counts[f"{label}: not computed, no votes"] += 1
-            elif c["state"] in bad[year]:
-                p = {"not_computed": bad[year][c["state"]]}
+            elif held(c, bad[year]):
+                p = {"not_computed": held(c, bad[year])}
                 counts[f"{label}: not computed, the state's counts do not add up"] += 1
             elif any(x.get("votes_missing_in_some_precincts") for x in c["candidates"]):
                 p = {"not_computed": "the source redacts some precincts' counts for this question"}
@@ -1608,10 +1652,11 @@ def build(out_dir, with_p=True):
                                                  "q": round(f * 2 * h, 5), "source": "model"})
                         s_ = yes / (yes + no)
                         tr = [r_["s"] for r_ in train if r_["key"] == key]
-                        mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
-                                      "in_own": abs(s_ - t) <= h,
-                                      "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
-                                                         abs(s_ - t) <= hh] for hh in L.WINDOWS}})
+                        if year not in ODD_YEARS:   # not in the back-test (ODD_YEARS)
+                            mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
+                                          "in_own": abs(s_ - t) <= h,
+                                          "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
+                                                             abs(s_ - t) <= hh] for hh in L.WINDOWS}})
                         if not with_p:
                             p = {}
                         elif f <= 0:
@@ -1627,13 +1672,14 @@ def build(out_dir, with_p=True):
             counts[f"{label}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
+    scored = {k_: v for k_, v in files.items() if k_[1] not in ODD_YEARS}   # the back-tests' and test's years
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:
             json.dump(backtest_measures(mtest, mhalf), f, indent=1)
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-classes.json"), "w") as f:
-            json.dump(backtest_local_classes(files), f, indent=1)
-    cal = calibrate_local(files)
+            json.dump(backtest_local_classes(scored), f, indent=1)
+    cal = calibrate_local(scored)
     for g, r in cal.items():
         if r["adopted"]:
             for (level, year, st), cs in files.items():
@@ -1664,10 +1710,12 @@ def build(out_dir, with_p=True):
         head = {"level": level, "year": year, "state": st,
                 "about": f"{level} contests of {year} in {L.STATE_NAMES.get(st, st)}, in the layout of plan/PLAN.md "
                          f"section 3 with the fields data/README.md adds (D3). Built by pipeline/local_medsl.py from "
-                         f"pipeline/intake/medsl_precinct.py's cache.",
+                         + ("pipeline/intake/la_sos.py's cache (the state's own official results; MEDSL holds no "
+                            f"{year})" if year in ODD_YEARS else "pipeline/intake/medsl_precinct.py's cache") + ".",
                 "p_computed_by": "pipeline/local_medsl.py", "p_commit": commit,
-                "sources": {"medsl": _src_medsl(year, chk[year], [n for n, f in chk[year].get("files", {}).items()
-                                                                  if st in f.get("states", {})]),
+                "sources": {"medsl": None if year in ODD_YEARS else
+                            _src_medsl(year, chk[year], [n for n, f in chk[year].get("files", {}).items()
+                                                         if st in f.get("states", {})]),
                             "model": src_model, "nara": src_nara, "klarner": src_klarner}}
         path = os.path.join(out_dir, level, str(year), f"{st}.json")
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -1684,7 +1732,7 @@ def build(out_dir, with_p=True):
                 head["sources"]["fips"] = NS.fips_source()
         if "la_sos" in used:   # Louisiana's own official results (certified_la), and its parishes' FIPS codes
             import local_la as LA
-            head["sources"]["la_sos"] = LA.source_block()
+            head["sources"]["la_sos"] = LA.source_block(year)
             head["sources"]["fips"] = LA.fips_source()
         if "in_enr" in used:   # Indiana's own certified file (certified_in)
             import local_in as LI

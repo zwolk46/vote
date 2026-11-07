@@ -1185,5 +1185,249 @@
     }
    }
   }
+ },
+ "county_gate": {
+  "ruling": "the orchestrator's of 2026-11-07 10:45",
+  "line": 0.005,
+  "released_counties": [
+   "BURLINGTON",
+   "CAMDEN",
+   "CAPE MAY",
+   "CUMBERLAND",
+   "ESSEX",
+   "HUDSON",
+   "HUNTERDON",
+   "MIDDLESEX",
+   "MONMOUTH",
+   "MORRIS",
+   "OCEAN",
+   "PASSAIC",
+   "SALEM",
+   "SOMERSET",
+   "SUSSEX",
+   "WARREN"
+  ],
+  "held_counties": [
+   "ATLANTIC",
+   "BERGEN",
+   "GLOUCESTER",
+   "MERCER",
+   "UNION"
+  ],
+  "contests": {
+   "held by county: offices": 315,
+   "held by county: questions": 9,
+   "held by the row checks: offices": 1,
+   "released: offices": 985,
+   "released: questions": 40
+  },
+  "held_by_the_row_checks": [
+   {
+    "office": "BOARD OF EDUCATION DELANCO TOWNSHIP",
+    "district": "",
+    "counties": [
+     "34005"
+    ],
+    "row_checks": [
+     "1 of its 7 precincts count more votes than the ballots cast there times 1, the number of candidates named, since its vote-for-N is not given (e.g. 'Delanco Township Election District 1')"
+    ]
+   }
+  ],
+  "clerk_check": {
+   "CAMDEN": {
+    "office": "CAMDEN MEMBERS OF THE BOARD OF COUNTY COMMISSIONERS",
+    "file": "https://camdencounty.com/wp-content/elections/general2024/2024_General_Election_Canvasser.pdf",
+    "read_utc": "2026-11-07T10:54Z",
+    "sha256": "3b158ad7c38474a45ceace22cee06eddcf107030c0a8d3763c936be2be3452e9",
+    "label": "OFFICIAL RESULTS",
+    "form": "summary",
+    "municipal_sections": null,
+    "misses": {
+     "BARRY": [
+      84583,
+      84583
+     ],
+     "DYER": [
+      141952,
+      141952
+     ],
+     "KANE": [
+      149107,
+      149107
+     ],
+     "NASH": [
+      147499,
+      147499
+     ],
+     "REBEL": [
+      78860,
+      78860
+     ],
+     "SMITH": [
+      80214,
+      80214
+     ],
+     "WRITE-IN": [
+      454,
+      454
+     ]
+    },
+    "worst_miss": 0.0,
+    "holds": false
+   },
+   "HUNTERDON": {
+    "office": "HUNTERDON BOARD OF COUNTY COMMISSIONERS",
+    "file": "https://www.co.hunterdon.nj.us/DocumentCenter/View/15968/G2024-Official-Elections-Results-PDF",
+    "read_utc": "2026-11-07T10:56Z",
+    "sha256": "01208dc3a3cd5e7e0ddff094610d938b5c94dd5cdef95e798119156f645a3546",
+    "label": "OFFICIAL RESULTS",
+    "form": "table",
+    "municipal_sections": null,
+    "misses": {
+     "CONNOR": [
+      31595,
+      31595
+     ],
+     "KUHL": [
+      43410,
+      43410
+     ],
+     "PARKANYI": [
+      31244,
+      31244
+     ],
+     "SOLOWAY": [
+      41906,
+      41906
+     ],
+     "WRITE-IN": [
+      89,
+      89
+     ]
+    },
+    "worst_miss": 0.0,
+    "holds": false
+   },
+   "MORRIS": {
+    "office": "MORRIS BOARD OF COUNTY COMMISSIONERS",
+    "file": "https://www.morriscountyclerk.org/files/sharedassets/clerk/v/6/elections/past-results/2024-general-summary-report-official.pdf",
+    "read_utc": "2026-11-07T10:51Z",
+    "sha256": "5ef296c8378373b27fb51a68fb60f7686a76c16aac8f89ada411ae4a5b4d66eb",
+    "label": "OFFICIAL RESULTS",
+    "form": "summary",
+    "municipal_sections": null,
+    "misses": {
+     "KRICKUS": [
+      139276,
+      139277
+     ],
+     "RAVITZ": [
+      115915,
+      115921
+     ],
+     "SACKETT": [
+      117259,
+      117265
+     ],
+     "SHAW": [
+      139649,
+      139652
+     ],
+     "SMITH": [
+      141358,
+      141360
+     ],
+     "STRICKLAND": [
+      116797,
+      116803
+     ],
+     "WRITE-IN": [
+      581,
+      581
+     ]
+    },
+    "worst_miss": 5.2e-05,
+    "holds": false
+   },
+   "OCEAN": {
+    "office": "MEMBER OF THE BOARD OF COMMISSIONERS",
+    "file": "http://www.co.ocean.nj.us//WebContentFiles//bfb4b48c-439f-43b6-8cb1-32fce6d673b8.pdf",
+    "read_utc": "2026-11-07T10:55Z",
+    "sha256": "3c2b5bcdf46657ba378902979711ea361462dcb2f9f47c161ba3977097782b1b",
+    "label": "Ocean County Board of Canvassers Report",
+    "form": "canvass",
+    "municipal_sections": 33,
+    "misses": {
+     "ARACE": [
+      211801,
+      211801
+     ],
+     "BACCHIONE": [
+      214130,
+      214130
+     ],
+     "DISCENZA": [
+      95594,
+      95594
+     ],
+     "SUGDEN": [
+      94722,
+      94722
+     ],
+     "WRITE-IN": [
+      686,
+      686
+     ]
+    },
+    "worst_miss": 0.0,
+    "holds": false
+   },
+   "SUSSEX": {
+    "office": "SUSSEX COUNTY COMMISSIONER",
+    "file": "https://www.sussexcountyclerk.org/DocumentCenter/View/3051/Official-Election-Results-Countywide-Summary-PDF",
+    "read_utc": "2026-11-07T10:58Z",
+    "sha256": "c83cdb38411bf31feb1a10319941cfdc84653de5d220f1393f0c20dd12c81220",
+    "label": "OFFICIAL RESULTS",
+    "form": "summary",
+    "municipal_sections": null,
+    "misses": {
+     "BOEHM": [
+      28989,
+      28989
+     ],
+     "CARNEY": [
+      50568,
+      50576
+     ],
+     "HENDERSON": [
+      38609,
+      38615
+     ],
+     "WRITE-IN": [
+      1407,
+      1407
+     ]
+    },
+    "worst_miss": 0.000158,
+    "holds": false
+   }
+  },
+  "clerks_not_read": {
+   "BURLINGTON": "the county's pages answered, but those read did not lead to its 2024 official results",
+   "CAPE MAY": "the county's pages answered, but those read did not lead to its 2024 official results",
+   "CUMBERLAND": "the clerk's 2024 summary report answered, but the file heads itself 'Unoffical' (sic), so it is not the official results",
+   "ESSEX": "the clerk's results page answered; its results host (Clarity) refused with HTTP 403",
+   "HUDSON": "the clerk's site answered HTTP 202 with an empty body",
+   "MIDDLESEX": "refused: HTTP 403 ('Access Denied')",
+   "MONMOUTH": "the clerk's site answered HTTP 202 with an empty body",
+   "PASSAIC": "refused: HTTP 403",
+   "SALEM": "a bot challenge page ('One moment, please...')",
+   "SOMERSET": "refused: HTTP 403 ('Access Denied')",
+   "WARREN": "refused: HTTP 403"
+  },
+  "refused_within_the_five_read": {
+   "HUNTERDON": "its results by municipality: connection reset (its results by district answered, and are read)",
+   "SUSSEX": "sussexcountynj.gov: the proxy's HTTP 502 (the clerk's own site, sussexcountyclerk.org, answered, and is read)"
+  }
  }
 }
