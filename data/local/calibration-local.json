@@ -395,8 +395,8 @@
     "seen_near_half": 54,
     "expected_before": 60.5,
     "expected_after": 54.7,
-    "deviance_by_office_type_before": 17.55,
-    "deviance_after": 16.83,
+    "deviance_by_office_type_before": 17.58,
+    "deviance_after": 16.86,
     "improves": true,
     "tested_cells_made_worse": [
      "partisan, local council, commission or board"
@@ -433,16 +433,16 @@
       "seen": 4,
       "tested": false
      },
+     "partisan, state statewide officer": {
+      "expected_before": 1.7,
+      "expected_after": 1.5,
+      "seen": 2,
+      "tested": false
+     },
      "partisan, local judge": {
       "expected_before": 1.6,
       "expected_after": 1.5,
       "seen": 1,
-      "tested": false
-     },
-     "partisan, state statewide officer": {
-      "expected_before": 1.6,
-      "expected_after": 1.5,
-      "seen": 2,
       "tested": false
      },
      "partisan, state judge": {
@@ -453,7 +453,7 @@
      },
      "partisan, state school board": {
       "expected_before": 0.7,
-      "expected_after": 0.7,
+      "expected_after": 0.6,
       "seen": 1,
       "tested": false
      },

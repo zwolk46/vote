@@ -1,5 +1,5 @@
 {
- "about": "Each state's thresholds for statewide ballot measures and judicial retentions, read from its constitution or statute by worker D3's readers on 2026-11-07 (briefs/D3-data-local.md step 4; the orchestrator, 2026-11-07 06:16: 'Read statewide thresholds from each constitution or statute, with URLs'). Every quote was checked against the page saved when it was read, except where read_via says otherwise. t is the yes share of those voting on the question that the measure needs; compound, where set, is a rule that turns on more than that share, and p is not computed for it. only_if marks an exception that turns on what the measure does. The texts are those in force when read: applying them to 2016-2024 reads each section as in force then [inferred], except where from_year says otherwise. Used by pipeline/measures.py. Rules with read_in were read in step (a), with the ballot texts (data/measure/ballot-texts.json): Georgia's referendums on tax-exemption Acts and Rhode Island's bond acts of 2018, 2022 and 2024 (the orchestrator, 2026-11-07 14:21); to_year, where set, closes a rule's years. proposer, where set, names who puts the questions a rule governs on the ballot (legislature, initiative, referendum by petition, revision), read by D3 from the rule's own words and its applies_to, so that a question is cited to the rule that governs its kind where several rules set the same share (the orchestrator, 2026-11-07 14:36).",
+ "about": "Each state's thresholds for statewide ballot measures and judicial retentions, read from its constitution or statute by worker D3's readers on 2026-11-07 (briefs/D3-data-local.md step 4; the orchestrator, 2026-11-07 06:16: 'Read statewide thresholds from each constitution or statute, with URLs'). Every quote was checked against the page saved when it was read, except where read_via says otherwise. t is the yes share of those voting on the question that the measure needs; compound, where set, is a rule that turns on more than that share, and p is not computed for it. only_if marks an exception that turns on what the measure does. The texts are those in force when read: applying them to 2016-2024 reads each section as in force then [inferred], except where from_year says otherwise. Used by pipeline/measures.py. Rules with read_in were read in step (a), with the ballot texts (data/measure/ballot-texts.json): Georgia's referendums on tax-exemption Acts and Rhode Island's bond acts of 2018, 2022 and 2024 (the orchestrator, 2026-11-07 14:21); to_year, where set, closes a rule's years. proposer, where set, names who puts the questions a rule governs on the ballot (legislature, initiative, referendum by petition, revision), read by D3 from the rule's own words and its applies_to (and where a rule's words say only 'referred', from the words that name who refers, quoted in proposer_quote with their page: M2's fourth pass, reading (b)), so that a question is cited to the rule that governs its kind where several rules set the same share (the orchestrator, 2026-11-07 14:36).",
  "states": {
   "AK": {
    "complete": true
@@ -908,7 +908,17 @@
    "proposer": [
     "referendum",
     "legislature"
-   ]
+   ],
+   "proposer_quote": {
+    "words": [
+     "A referendum may be ordered (except as to laws necessary for the immediate preservation of the public peace, health or safety, and laws making appropriations for the current expenses of the state government, for the maintenance of state institutions and for the support of public schools) either by petitions signed by five percent of the legal voters in each of two-thirds of the congressional districts in the state, or by the general assembly, as other bills are enacted."
+    ],
+    "citation": "Mo. Const. art. III, §52(a)",
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=III%20%2052(a)&bid=-1",
+    "read_utc": "2026-11-07T17:06:59Z",
+    "mark": "stated",
+    "note": "§52(b)'s own words say only 'referred to the people'; §52(a), the section before it, names who orders the referendum: a petition of the voters or the general assembly. Both are carried."
+   }
   },
   {
    "state": "MO",
@@ -1393,7 +1403,19 @@
     "initiative",
     "referendum",
     "legislature"
-   ]
+   ],
+   "proposer_quote": {
+    "words": [
+     "Any measure referred to the people by the initiative or referendum",
+     "The first power reserved by the people is the initiative, and eight per centum of the legal voters shall have the right to propose any legislative measure, and fifteen per centum of the legal voters shall have the right to propose amendments to the Constitution by petition",
+     "The second power is the referendum, and it may be ordered (except as to laws necessary for the immediate preservation of the public peace, health, or safety), either by petition signed by five per centum of the legal voters or by the Legislature as other bills are enacted."
+    ],
+    "citation": "Okla. Const. art. V, sec. 3 and sec. 2",
+    "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
+    "read_utc": "2026-11-07T17:07:04Z",
+    "mark": "stated",
+    "note": "§3 names the initiative and the referendum; §2, on the same page, names who proposes by initiative (the legal voters, by petition) and who orders the referendum: a petition of the voters or the Legislature. All three are carried."
+   }
   },
   {
    "state": "OK",
@@ -1408,7 +1430,18 @@
    "read_utc": "2026-11-07T06:57Z",
    "proposer": [
     "initiative"
-   ]
+   ],
+   "proposer_quote": {
+    "words": [
+     "Any measure referred to the people by the initiative or referendum",
+     "The first power reserved by the people is the initiative, and eight per centum of the legal voters shall have the right to propose any legislative measure, and fifteen per centum of the legal voters shall have the right to propose amendments to the Constitution by petition"
+    ],
+    "citation": "Okla. Const. art. V, sec. 3 and sec. 2",
+    "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
+    "read_utc": "2026-11-07T17:07:04Z",
+    "mark": "stated",
+    "note": "an amendment reaches the ballot under §3 only by the initiative, which §2 gives to the legal voters by petition; the Legislature's amendments are art. XXIV's"
+   }
   },
   {
    "state": "OK",
@@ -1423,7 +1456,17 @@
    "read_utc": "2026-11-07T06:57Z",
    "proposer": [
     "legislature"
-   ]
+   ],
+   "proposer_quote": {
+    "words": [
+     "Any revenue bill originating in the House of Representatives shall not become effective until it has been referred to the people of the state at the next general election held throughout the state"
+    ],
+    "citation": "Okla. Const. art. V, sec. 33(C)",
+    "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
+    "read_utc": "2026-11-07T17:07:04Z",
+    "mark": "stated",
+    "note": "the words name the measure: a revenue bill originating in the House of Representatives, the Legislature's own bill, which the section itself sends to the people; a petition's referendum against an act is §2 and §3's, not this section's"
+   }
   },
   {
    "state": "OK",
