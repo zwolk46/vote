@@ -431,6 +431,23 @@ The p of these contests are computed from the certified counts. Elsewhere, the f
 - **Every moved p** is in `data/local/moves-ncsbe-deciding-round.json`, 1,734 in all, with its id, before, after and why (`D`, `N`, `P`).
 - **Words only.** 373 local `election` texts, 244 primaries' (each date now named once) and 310 `not_computed` texts (counts of like races) change without a p.
 
+**Rounds keyed by place** (*added 2026-11-07 at 12:02 UTC*, at the orchestrator's order of 11:44, from M2's check c19 in #69: "Key the rounds on the contest's place as well (county, or the district's own id where it spans counties), rebuild, and list every contest whose mark or p changes. Also check whether any other route keys contests by name alone. Reason: a round is the same contest only in the same place, and the 09:53 ruling's reason holds only there.") [measured].
+- **The fault.** `classify` keyed the rounds on (year, contest name, party), with no place. Many of the State Board's names carry no place ("BOARD OF EDUCATION DISTRICT 3"), so one county's contest was read as a round of another county's contest of the same name.
+- **The fix.** A contest of the same name on another date is a round of this one only where their counties overlap. The files give no district id (the district is empty in all 24,103 contests), so the counties are the place. The rule is overlap, not equality. Of the 363 names on more than one date in a year, 327 have one set of counties, 33 have sets that do not meet (the collisions), and 3 have sets that overlap but differ. Those 3 are Hickory's aldermen in 2019, whose October primary shows Catawba County only and whose November general shows Burke and Catawba. They are one contest each [inferred: the city lies in both counties].
+- **What changes.** Every change is listed in `data/local/moves-ncsbe-rounds-by-place.json`, with its id, its words and p before and after, and why.
+  - **374 marks corrected.** 102 November contests (96 of 2010, 6 of 2016) were marked deciding rounds and are now generals; their p does not move. 38 contests were marked first rounds and are now elections of their own date: 19 of 2010-05-04 and 19 of 2016-03-15 (M2's 19), all school boards. 217 primaries no longer say a second primary followed (126 Republican and 91 Democratic). 17 questions no longer say a question of the same title was on another ballot.
+  - **17 p newly computed.** They are among the 38 former first rounds, and all are p = 0: one name on the ballot for each seat, which the false mark had held. The other 21 stay not computed for their own reasons, such as no seats before 2014.
+  - **36 p computed for the first time**, because their class now reaches 100 like races in earlier years: 32 primaries of 2026 and 4 local contests.
+  - **461 p move** (394 primaries and 67 local), because the contests the false marks kept out of the like-race pool are in it now. The median move is ×1.012, from ×0.938 to ×1.028. 459 move by more than 1% and 38 by more than 5%.
+  - 809 `not_computed` reasons change only in their count of like races.
+- **What does not change.** No p outside North Carolina moves. The State Board's calibration test keeps its verdicts: the local route fails with the same two cells made worse, and the primary route fails with the same cell (`backtest-ncsbe.json`). M2 reported that all 87 computed deciding rounds have a true earlier round in the same county; none of them changes.
+- **Other routes, checked for keys by name alone.** None found:
+  - Louisiana's rounds (`local_la.rounds`) key on the parish's sheet, or on a multi-parish title, and those titles are unique on each date of 2023 and 2024.
+  - Klarner's runoffs (`local.first_round_index`) key on the seat: state, chamber, district and post.
+  - MEDSL's intake joins a candidate contest's precincts through their candidates' names, and splits a local question by county.
+  - MEDSL's split questions (`fix_questions`) are joined only over the same counties.
+  - New Jersey's gate keys on the county.
+
 **Size** [measured]. The repository packs to 28.48 MiB with this change, against 26.60 MiB at main's 001d3f7 (scratch clones, `git gc --aggressive`). The new files are 15.9 MB unpacked.
 
 **Still open.**
