@@ -315,6 +315,8 @@ Not read, because the sites refused and the readers stopped there (never routed 
   - 54 legislative primaries of 2014, which Klarner's file holds;
   - Congress, the presidency, the governor and the straight-party lines.
 
+**Size** [measured]. The repository packs to 28.48 MiB with this change, against 26.60 MiB at main's 001d3f7 (scratch clones, `git gc --aggressive`). The new files are 15.9 MB unpacked.
+
 **Still open.**
 - p for the State Board's other dates: like races fitted on North Carolina's earlier dates, with a back-test, before p.
 - Klarner's 2016 North Carolina counts, against the certified ones.
