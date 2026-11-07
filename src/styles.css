@@ -155,7 +155,7 @@ p { margin: 0; }
 .clist .n { font-weight: 600; flex: 1 1 0; }
 .clist .w { order: 3; flex: 1 0 100%; font-size: var(--t-src); color: var(--muted); }
 .clist .f { font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; margin-left: auto; }
-/* a figure with no place in this reading (no population in the data yet): faded as its dots are, and not chosen */
+/* a figure with no place in this reading (no population in the data): faded as its dots are, not chosen, no words */
 .clist li.off button { opacity: 0.38; cursor: default; }
 .clist .f .lg-lean { display: inline-block; vertical-align: middle; margin-left: 6px; }
 @media (hover: hover) { .clist button:not(:disabled):hover { background: var(--hover); } }

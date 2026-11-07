@@ -50,7 +50,7 @@ export function Ruler({ C, minutes, wage, setCost, reading, setReading }) {
             <li key={x.id} class={off(x) ? 'off' : null}><button type="button" aria-pressed={x.id === a.id ? 'true' : 'false'} disabled={off(x)} onClick={() => setSel(x.id)}>
               <span class="n">{x.short}</span>
               <span class="f">{off(x) ? '' : money(bstar(x, C, reading))}{x.lean && !off(x) ? <span class={`lg lg-lean${x.lean === 'low' ? ' low' : ''}`} role="img" aria-label={leanKey(x.lean)} /> : null}</span>
-              <span class="w">{whenOf(x)}{per ? `; ${sharedBy(x)}` : ''}</span>
+              <span class="w">{whenOf(x)}{per && x.pop ? `; ${sharedBy(x)}` : ''}</span>
             </button></li>
           ))}
         </ul>
