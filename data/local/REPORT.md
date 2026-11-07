@@ -746,7 +746,7 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
   - sheriff to council: 279;
   - "other" to school board: 266.
 - **p.** 5,976 p move (5,628 local, 346 primary, 2 state senate), as the classes' like races change. The median move is by a factor of 1.12, and 90% are within 1.26. The largest is 2.46, and 8 move by more than 2.
-- **Computed or not.** 136 are now computed (98 local, 38 primary). 103 are no longer computed, because their class now has fewer than 100 like races in earlier years; 69 of these are North Carolina's 2023 school boards, whose class lost the sanitary district trustees.
+- **Computed or not.** 136 are now computed (98 local, 38 primary). 103 are no longer computed, because their class now has fewer than 100 like races in earlier years. 72 of these are school boards: 66 of 2020 (South Carolina 24, Kentucky 19, North Carolina 16, Virginia 4, and one each in DC, Nebraska and West Virginia) and 6 of North Carolina's later years (3 of 2024, 2 of 2026, 1 of 2023). Their classes now hold 90 to 99 like races: "local school board, nonpartisan, 3 candidates" (70) and one of three seats at once (2) [measured]. *Corrected 2026-11-07 at the orchestrator's word of 13:54, from M2's count (check c24): this line said 69 of North Carolina's 2023 school boards, whose class lost the sanitary district trustees, which the moves file does not bear out.*
 - **Removed and added.** 131 records leave `data/local/`. 9 are added to `data/measure/`.
 - **The state senate.** Rhode Island's 2 computed state senate p of 2024 move, now that its 2022 legislature is read as the legislature.
 
