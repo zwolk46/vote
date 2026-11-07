@@ -37,3 +37,24 @@ Labels kept, as labels: the contest's name and "From a study of the 2008 electio
 
 - **A:** 4 (the preview note, the heading's question, the two on what is set aside), plus the citations line. Behind folds: the sources of the cost and the chance.
 - **B:** 3 (the preview note and the two on what is set aside), plus the citations line. Behind folds: the same.
+
+## The explainer, "How the figure is worked out", versions A and B
+
+The page was written to the amended brief from its first build. Each of its 24 steps carries a heading, the step's one figure, and a line naming what is shown; a key under the picture names its marks. Nothing on it explains in sentences what a picture shows, so no sentence was cut. The changes to its words after each reading are recorded in `design/EXPLAINER-READINGS.md`.
+
+### What stays
+
+| Line | Kind | What a reader fails without it | Why no visual carries it |
+|---|---|---|---|
+| "Only the chance of changing who wins is weighed here. Every other reason to vote, like duty or having your say, is set aside." (A: after the last step; B: on the last step) | two sentences | Takes the figure for the whole case for voting (law 1b: what is set aside is said, once; brief X2, idea 9, "in one line"). | What is left out of a picture cannot be drawn. |
+| Each step's "Source", closed until tapped: nine notes, 21 sentences in all (the town race 1; the tie rule 2; the model's curve 3; the closest states of 2008 1; Pennsylvania 2024 1; the cost 2; what it is worth to you 2; counting everyone 2; the ballot's example 7) | sentences behind a fold | Cannot check a figure (law 4). Without the tie rule's note, cannot check that a tie counts as half and the event is a tie or one short (law 2b). Round 1's readers 2 and 3 took the cost's makings, the 19 in 100 and the House's 1 in 180,000 from these notes. | A source is a name and a date. The notes are read only by a reader who asks. |
+| The 24 headings ("Your ballot, counted and not", "Where one ballot changes who wins", "How likely a tie is", "More voters", "Less sure", "The presidency, step one: your state", "In 468 runs, 468 trips", "Counting what it is worth to everyone", "One trip votes in every race"…) | headings | Does not know which of the nine ideas the picture is at, or which race it is. Every reader of both rounds quoted them back to name the steps. | They name the step, as the maker's ruling of 04:37 and 04:38 allows. |
+
+Labels kept, as labels: each step's figure ("Same winner", "Half + half", "1 in 468", "468 × $8.87 = $4,150", "Does not pay", "It pays: $9.36"…) and its sub ("a town race of 2,000 voters (stylised)", "a coin toss against a loss", "a trip: 14 minutes at the polls, at $38 an hour", "worth $1,000 to you (an example)"…); the keys of marks; the labels drawn in the pictures (counts, "Counted" and "Not counted", "your side's lead, not counting you", "how likely", "your side's share of the vote, as forecast", the seesaws' dollars, "level: they weigh the same", the blocks' dollars).
+
+### Sentences on the page
+
+- **A:** 2 (on what is set aside), after the last step. Behind folds: 21, in nine notes.
+- **B:** 2 (on what is set aside), on the last step. Behind folds: the same 21.
+
+The two versions have the same words; they differ in pace and motion only.
