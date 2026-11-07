@@ -832,7 +832,7 @@ The like-race classes (`calibration-local.json`), before and after:
 
 - **Stated** means the law's words name the kind of question. **Inferred** means the reader joined a general rule to the question, and the rule's `match_note` says how.
 - **Every threshold read is ½ of those voting on the question** [measured over the rules]. No supermajority was found for any local question in these two states.
-- **Indiana is not read.** Indiana's code site (iga.in.gov) returns the same script shell for every address (4 addresses, 12:46 to 12:47 UTC). Cornell LII holds no Indiana code; it links to iga.in.gov. Justia answered 403 with a challenge page (13:32 UTC). That part stopped there, and Indiana's 33 questions carry this reason.
+- **Indiana is not read.** Indiana's code site (iga.in.gov) returns the same script shell for every address (4 addresses, 12:46 to 12:47 UTC). Cornell LII holds no Indiana code; it links to iga.in.gov. Justia answered 403 with a challenge page (13:32 UTC). That part stopped there, and Indiana's 33 questions carry this reason. Read or not, they would take no p yet: Indiana's own file is of 2024 only, so its class has no earlier year.
 
 **How a rule is matched** (`pipeline/measures.py`, `local_rule_for`).
 - A question takes the first rule, in the file's order, whose pattern its title matches (with `match_also` and `dates` where they are set). So one place's own act comes before the general law.
