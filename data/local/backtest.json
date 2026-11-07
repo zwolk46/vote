@@ -1,6 +1,6 @@
 {
  "method": "D3-v1.1",
- "written_utc": "2026-11-07T05:10Z",
+ "written_utc": "2026-11-07T05:38Z",
  "about": "Back-test of the model's own forecast for state legislative races, each year forecast from a fit on earlier years only. Route a: single-seat general elections with one Democrat and one Republican on the ballot; the headline tallies are for years whose fit had at least 3 earlier years of the same kind (presidential, midterm, odd), the fewest the back-test by earlier years supports ('partisan.by_earlier_years_of_kind'). Routes b and c and runoffs: like past races, from earlier years only. 'in_50' is the share of races inside their 50% interval; 'expected' counts sum the forecast's probabilities, 'seen' counts what happened. A margin of 0 or 1 is the check of brief step 5.",
  "partisan": {
   "min_earlier_years_of_kind": 3,
@@ -17,6 +17,8 @@
    "seen_within_10_votes": 157,
    "expected_margin_0_or_1": 22.38,
    "seen_margin_0_or_1": 22,
+   "expected_recount_zone": 790.27,
+   "seen_recount_zone": 836,
    "log_score_normal": 1.0103,
    "log_score_t4": 1.0088
   },
@@ -34,6 +36,8 @@
     "seen_within_10_votes": 13,
     "expected_margin_0_or_1": 2.88,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 79.8,
+    "seen_recount_zone": 83,
     "log_score_normal": 0.874,
     "log_score_t4": 0.8481
    },
@@ -50,6 +54,8 @@
     "seen_within_10_votes": 16,
     "expected_margin_0_or_1": 2.32,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 68.69,
+    "seen_recount_zone": 80,
     "log_score_normal": 0.8999,
     "log_score_t4": 0.8645
    },
@@ -66,6 +72,8 @@
     "seen_within_10_votes": 18,
     "expected_margin_0_or_1": 2.34,
     "seen_margin_0_or_1": 4,
+    "expected_recount_zone": 73.49,
+    "seen_recount_zone": 85,
     "log_score_normal": 0.888,
     "log_score_t4": 0.8697
    },
@@ -82,6 +90,8 @@
     "seen_within_10_votes": 14,
     "expected_margin_0_or_1": 2.06,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 65.7,
+    "seen_recount_zone": 70,
     "log_score_normal": 0.9962,
     "log_score_t4": 0.9727
    },
@@ -98,6 +108,8 @@
     "seen_within_10_votes": 22,
     "expected_margin_0_or_1": 1.95,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 59.73,
+    "seen_recount_zone": 67,
     "log_score_normal": 1.012,
     "log_score_t4": 1.0095
    },
@@ -114,6 +126,8 @@
     "seen_within_10_votes": 57,
     "expected_margin_0_or_1": 8.85,
     "seen_margin_0_or_1": 8,
+    "expected_recount_zone": 291.6,
+    "seen_recount_zone": 297,
     "log_score_normal": 0.9905,
     "log_score_t4": 0.9809
    },
@@ -130,6 +144,8 @@
     "seen_within_10_votes": 46,
     "expected_margin_0_or_1": 7.18,
     "seen_margin_0_or_1": 10,
+    "expected_recount_zone": 299.74,
+    "seen_recount_zone": 317,
     "log_score_normal": 1.0608,
     "log_score_t4": 1.0764
    }
@@ -148,6 +164,8 @@
     "seen_within_10_votes": 4,
     "expected_margin_0_or_1": 1.16,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 40.84,
+    "seen_recount_zone": 42,
     "log_score_normal": 0.8302,
     "log_score_t4": 0.8149,
     "earlier_years_of_kind": 1
@@ -165,6 +183,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.03,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.43,
+    "seen_recount_zone": 1,
     "log_score_normal": 0.7301,
     "log_score_t4": 0.6697,
     "earlier_years_of_kind": 2
@@ -182,6 +202,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 1.72,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 38.96,
+    "seen_recount_zone": 41,
     "log_score_normal": 0.9171,
     "log_score_t4": 0.8808,
     "earlier_years_of_kind": 1
@@ -199,6 +221,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.04,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.13,
+    "seen_recount_zone": 0,
     "log_score_normal": 0.856,
     "log_score_t4": 0.8112,
     "earlier_years_of_kind": 3
@@ -216,6 +240,8 @@
     "seen_within_10_votes": 7,
     "expected_margin_0_or_1": 1.09,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 36.15,
+    "seen_recount_zone": 45,
     "log_score_normal": 1.0444,
     "log_score_t4": 1.0276,
     "earlier_years_of_kind": 2
@@ -233,6 +259,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.02,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 0.96,
+    "seen_recount_zone": 2,
     "log_score_normal": 1.0203,
     "log_score_t4": 1.0062,
     "earlier_years_of_kind": 4
@@ -250,6 +278,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 1.2,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 31.11,
+    "seen_recount_zone": 34,
     "log_score_normal": 0.7584,
     "log_score_t4": 0.705,
     "earlier_years_of_kind": 2
@@ -267,6 +297,8 @@
     "seen_within_10_votes": 2,
     "expected_margin_0_or_1": 0.06,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.46,
+    "seen_recount_zone": 2,
     "log_score_normal": 0.811,
     "log_score_t4": 0.7476,
     "earlier_years_of_kind": 5
@@ -284,6 +316,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 0.91,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 31.6,
+    "seen_recount_zone": 39,
     "log_score_normal": 1.0045,
     "log_score_t4": 0.9895,
     "earlier_years_of_kind": 3
@@ -301,6 +335,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.02,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.08,
+    "seen_recount_zone": 0,
     "log_score_normal": 0.7919,
     "log_score_t4": 0.7046,
     "earlier_years_of_kind": 6
@@ -318,6 +354,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 1.39,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 40.76,
+    "seen_recount_zone": 46,
     "log_score_normal": 0.7857,
     "log_score_t4": 0.7654,
     "earlier_years_of_kind": 3
@@ -335,6 +373,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.12,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 2.55,
+    "seen_recount_zone": 1,
     "log_score_normal": 0.674,
     "log_score_t4": 0.65,
     "earlier_years_of_kind": 7
@@ -352,6 +392,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 0.89,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 33.62,
+    "seen_recount_zone": 38,
     "log_score_normal": 0.9559,
     "log_score_t4": 0.9217,
     "earlier_years_of_kind": 4
@@ -369,6 +411,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 0.33,
+    "seen_recount_zone": 0,
     "log_score_normal": 1.1154,
     "log_score_t4": 1.1154,
     "earlier_years_of_kind": 8
@@ -386,6 +430,8 @@
     "seen_within_10_votes": 5,
     "expected_margin_0_or_1": 1.15,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 31.12,
+    "seen_recount_zone": 30,
     "log_score_normal": 1.0344,
     "log_score_t4": 1.021,
     "earlier_years_of_kind": 4
@@ -403,6 +449,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.02,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.09,
+    "seen_recount_zone": 2,
     "log_score_normal": 0.7225,
     "log_score_t4": 0.6196,
     "earlier_years_of_kind": 9
@@ -420,6 +468,8 @@
     "seen_within_10_votes": 7,
     "expected_margin_0_or_1": 0.88,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 28.66,
+    "seen_recount_zone": 23,
     "log_score_normal": 1.066,
     "log_score_t4": 1.0668,
     "earlier_years_of_kind": 5
@@ -437,6 +487,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 0.44,
+    "seen_recount_zone": 1,
     "log_score_normal": 0.8154,
     "log_score_t4": 0.769,
     "earlier_years_of_kind": 10
@@ -454,6 +506,8 @@
     "seen_within_10_votes": 13,
     "expected_margin_0_or_1": 1.02,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 29.62,
+    "seen_recount_zone": 42,
     "log_score_normal": 0.9701,
     "log_score_t4": 0.9671,
     "earlier_years_of_kind": 5
@@ -471,6 +525,8 @@
     "seen_within_10_votes": 2,
     "expected_margin_0_or_1": 0.05,
     "seen_margin_0_or_1": 1,
+    "expected_recount_zone": 2.0,
+    "seen_recount_zone": 3,
     "log_score_normal": 0.6275,
     "log_score_t4": 0.5501,
     "earlier_years_of_kind": 11
@@ -488,6 +544,8 @@
     "seen_within_10_votes": 11,
     "expected_margin_0_or_1": 1.25,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 46.17,
+    "seen_recount_zone": 51,
     "log_score_normal": 0.8056,
     "log_score_t4": 0.7974,
     "earlier_years_of_kind": 6
@@ -505,6 +563,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.02,
+    "seen_recount_zone": 0,
     "log_score_normal": 1.1234,
     "log_score_t4": 1.1251,
     "earlier_years_of_kind": 12
@@ -522,6 +582,8 @@
     "seen_within_10_votes": 8,
     "expected_margin_0_or_1": 1.35,
     "seen_margin_0_or_1": 1,
+    "expected_recount_zone": 37.88,
+    "seen_recount_zone": 45,
     "log_score_normal": 0.9723,
     "log_score_t4": 0.937,
     "earlier_years_of_kind": 6
@@ -539,6 +601,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.04,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.61,
+    "seen_recount_zone": 1,
     "log_score_normal": 0.9405,
     "log_score_t4": 0.9576,
     "earlier_years_of_kind": 13
@@ -556,6 +620,8 @@
     "seen_within_10_votes": 4,
     "expected_margin_0_or_1": 1.09,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 35.57,
+    "seen_recount_zone": 32,
     "log_score_normal": 1.0681,
     "log_score_t4": 1.0586,
     "earlier_years_of_kind": 7
@@ -573,6 +639,8 @@
     "seen_within_10_votes": 1,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 0.8,
+    "seen_recount_zone": 1,
     "log_score_normal": 1.2479,
     "log_score_t4": 1.2507,
     "earlier_years_of_kind": 14
@@ -590,6 +658,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 1.23,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 32.14,
+    "seen_recount_zone": 33,
     "log_score_normal": 1.0509,
     "log_score_t4": 1.0404,
     "earlier_years_of_kind": 7
@@ -607,6 +677,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.03,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.17,
+    "seen_recount_zone": 2,
     "log_score_normal": 0.9264,
     "log_score_t4": 0.904,
     "earlier_years_of_kind": 15
@@ -624,6 +696,8 @@
     "seen_within_10_votes": 5,
     "expected_margin_0_or_1": 0.87,
     "seen_margin_0_or_1": 1,
+    "expected_recount_zone": 30.06,
+    "seen_recount_zone": 29,
     "log_score_normal": 1.1309,
     "log_score_t4": 1.1378,
     "earlier_years_of_kind": 8
@@ -641,6 +715,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.08,
+    "seen_recount_zone": 0,
     "log_score_normal": 0.7868,
     "log_score_t4": 0.7297,
     "earlier_years_of_kind": 16
@@ -658,6 +734,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 1.13,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 38.83,
+    "seen_recount_zone": 37,
     "log_score_normal": 0.698,
     "log_score_t4": 0.6495,
     "earlier_years_of_kind": 8
@@ -675,6 +753,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.04,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.79,
+    "seen_recount_zone": 2,
     "log_score_normal": 0.9136,
     "log_score_t4": 0.8996,
     "earlier_years_of_kind": 17
@@ -692,6 +772,8 @@
     "seen_within_10_votes": 2,
     "expected_margin_0_or_1": 0.76,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 31.48,
+    "seen_recount_zone": 26,
     "log_score_normal": 1.0654,
     "log_score_t4": 1.0668,
     "earlier_years_of_kind": 9
@@ -709,6 +791,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 0.39,
+    "seen_recount_zone": 0,
     "log_score_normal": 0.96,
     "log_score_t4": 0.9269,
     "earlier_years_of_kind": 18
@@ -726,6 +810,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 0.99,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 34.43,
+    "seen_recount_zone": 41,
     "log_score_normal": 1.2089,
     "log_score_t4": 1.246,
     "earlier_years_of_kind": 9
@@ -743,6 +829,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.04,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.57,
+    "seen_recount_zone": 2,
     "log_score_normal": 0.995,
     "log_score_t4": 0.9996,
     "earlier_years_of_kind": 19
@@ -760,6 +848,8 @@
     "seen_within_10_votes": 4,
     "expected_margin_0_or_1": 0.69,
     "seen_margin_0_or_1": 1,
+    "expected_recount_zone": 31.2,
+    "seen_recount_zone": 33,
     "log_score_normal": 1.2143,
     "log_score_t4": 1.2454,
     "earlier_years_of_kind": 10
@@ -777,6 +867,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 0.57,
+    "seen_recount_zone": 1,
     "log_score_normal": 1.0961,
     "log_score_t4": 1.0913,
     "earlier_years_of_kind": 20
@@ -794,6 +886,8 @@
     "seen_within_10_votes": 8,
     "expected_margin_0_or_1": 0.98,
     "seen_margin_0_or_1": 3,
+    "expected_recount_zone": 34.35,
+    "seen_recount_zone": 43,
     "log_score_normal": 1.0154,
     "log_score_t4": 0.9664,
     "earlier_years_of_kind": 10
@@ -811,6 +905,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.04,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.8,
+    "seen_recount_zone": 1,
     "log_score_normal": 0.7587,
     "log_score_t4": 0.7589,
     "earlier_years_of_kind": 21
@@ -828,6 +924,8 @@
     "seen_within_10_votes": 4,
     "expected_margin_0_or_1": 0.88,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 38.67,
+    "seen_recount_zone": 41,
     "log_score_normal": 0.819,
     "log_score_t4": 0.8097,
     "earlier_years_of_kind": 11
@@ -845,6 +943,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 0.63,
+    "seen_recount_zone": 1,
     "log_score_normal": 1.2617,
     "log_score_t4": 1.3144,
     "earlier_years_of_kind": 22
@@ -862,6 +962,8 @@
     "seen_within_10_votes": 1,
     "expected_margin_0_or_1": 1.02,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 31.37,
+    "seen_recount_zone": 29,
     "log_score_normal": 1.1125,
     "log_score_t4": 1.147,
     "earlier_years_of_kind": 11
@@ -879,6 +981,8 @@
     "seen_within_10_votes": 1,
     "expected_margin_0_or_1": 0.04,
     "seen_margin_0_or_1": 1,
+    "expected_recount_zone": 1.37,
+    "seen_recount_zone": 2,
     "log_score_normal": 0.9205,
     "log_score_t4": 0.9296,
     "earlier_years_of_kind": 23
@@ -896,6 +1000,8 @@
     "seen_within_10_votes": 3,
     "expected_margin_0_or_1": 0.7,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 30.77,
+    "seen_recount_zone": 20,
     "log_score_normal": 1.1773,
     "log_score_t4": 1.2051,
     "earlier_years_of_kind": 12
@@ -913,6 +1019,8 @@
     "seen_within_10_votes": 1,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 0.78,
+    "seen_recount_zone": 4,
     "log_score_normal": 0.7786,
     "log_score_t4": 0.6116,
     "earlier_years_of_kind": 24
@@ -930,6 +1038,8 @@
     "seen_within_10_votes": 10,
     "expected_margin_0_or_1": 0.89,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 38.07,
+    "seen_recount_zone": 54,
     "log_score_normal": 1.1853,
     "log_score_t4": 1.2159,
     "earlier_years_of_kind": 12
@@ -947,6 +1057,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.02,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.43,
+    "seen_recount_zone": 2,
     "log_score_normal": 1.0384,
     "log_score_t4": 1.0731,
     "earlier_years_of_kind": 25
@@ -964,6 +1076,8 @@
     "seen_within_10_votes": 2,
     "expected_margin_0_or_1": 0.66,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 36.03,
+    "seen_recount_zone": 29,
     "log_score_normal": 1.2863,
     "log_score_t4": 1.3605,
     "earlier_years_of_kind": 13
@@ -981,6 +1095,8 @@
     "seen_within_10_votes": 0,
     "expected_margin_0_or_1": 0.01,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 1.36,
+    "seen_recount_zone": 2,
     "log_score_normal": 1.3802,
     "log_score_t4": 1.4632,
     "earlier_years_of_kind": 26
@@ -998,6 +1114,8 @@
     "seen_within_10_votes": 9,
     "expected_margin_0_or_1": 0.95,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 39.47,
+    "seen_recount_zone": 43,
     "log_score_normal": 0.7463,
     "log_score_t4": 0.7491,
     "earlier_years_of_kind": 13
@@ -1035,6 +1153,8 @@
     "seen_within_10_votes": 26,
     "expected_margin_0_or_1": 4.75,
     "seen_margin_0_or_1": 8,
+    "expected_recount_zone": 29.54,
+    "seen_recount_zone": 26,
     "log_score_normal": 0.8938,
     "log_score_t4": 0.8861
    },
@@ -1051,6 +1171,8 @@
     "seen_within_10_votes": 78,
     "expected_margin_0_or_1": 10.25,
     "seen_margin_0_or_1": 7,
+    "expected_recount_zone": 196.3,
+    "seen_recount_zone": 219,
     "log_score_normal": 0.9719,
     "log_score_t4": 0.9599
    },
@@ -1067,6 +1189,8 @@
     "seen_within_10_votes": 45,
     "expected_margin_0_or_1": 5.92,
     "seen_margin_0_or_1": 7,
+    "expected_recount_zone": 326.48,
+    "seen_recount_zone": 361,
     "log_score_normal": 1.0038,
     "log_score_t4": 1.0036
    },
@@ -1083,6 +1207,8 @@
     "seen_within_10_votes": 8,
     "expected_margin_0_or_1": 1.46,
     "seen_margin_0_or_1": 0,
+    "expected_recount_zone": 237.96,
+    "seen_recount_zone": 230,
     "log_score_normal": 1.0633,
     "log_score_t4": 1.0691
    }
@@ -1101,6 +1227,8 @@
     "seen_within_10_votes": 90,
     "expected_margin_0_or_1": 13.01,
     "seen_margin_0_or_1": 12,
+    "expected_recount_zone": 444.19,
+    "seen_recount_zone": 472,
     "log_score_normal": 1.1956,
     "log_score_t4": 1.21
    },
@@ -1117,6 +1245,8 @@
     "seen_within_10_votes": 20,
     "expected_margin_0_or_1": 3.1,
     "seen_margin_0_or_1": 2,
+    "expected_recount_zone": 102.76,
+    "seen_recount_zone": 103,
     "log_score_normal": 0.8392,
     "log_score_t4": 0.8168
    },
@@ -1133,6 +1263,8 @@
     "seen_within_10_votes": 47,
     "expected_margin_0_or_1": 6.27,
     "seen_margin_0_or_1": 8,
+    "expected_recount_zone": 243.31,
+    "seen_recount_zone": 261,
     "log_score_normal": 0.7458,
     "log_score_t4": 0.7257
    }
@@ -1187,6 +1319,8 @@
  "class": {
   "all": {
    "races": 21030,
+   "expected_recount_zone": 463.34,
+   "seen_recount_zone": 466,
    "expected_49_51": 1853.37,
    "seen_49_51": 1807,
    "expected_within_10_votes": 191.67,
@@ -1197,6 +1331,8 @@
   "by_class": {
    "general, 2 seats at once, both major parties running a full slate": {
     "races": 4510,
+    "expected_recount_zone": 169.86,
+    "seen_recount_zone": 158,
     "expected_49_51": 679.46,
     "seen_49_51": 640,
     "expected_within_10_votes": 58.35,
@@ -1206,6 +1342,8 @@
    },
    "general, 2 seats at once, both major parties running, one short of a full slate": {
     "races": 1427,
+    "expected_recount_zone": 19.76,
+    "seen_recount_zone": 16,
     "expected_49_51": 79.06,
     "seen_49_51": 104,
     "expected_within_10_votes": 8.26,
@@ -1215,6 +1353,8 @@
    },
    "general, 2 seats at once, one major party or none against the others": {
     "races": 156,
+    "expected_recount_zone": 1.27,
+    "seen_recount_zone": 1,
     "expected_49_51": 5.1,
     "seen_49_51": 1,
     "expected_within_10_votes": 0.67,
@@ -1224,6 +1364,8 @@
    },
    "general, 3 seats at once, both major parties running a full slate": {
     "races": 853,
+    "expected_recount_zone": 49.01,
+    "seen_recount_zone": 58,
     "expected_49_51": 196.05,
     "seen_49_51": 211,
     "expected_within_10_votes": 19.74,
@@ -1233,6 +1375,8 @@
    },
    "general, 3 seats at once, both major parties running, one short of a full slate": {
     "races": 892,
+    "expected_recount_zone": 20.47,
+    "seen_recount_zone": 24,
     "expected_49_51": 81.89,
     "seen_49_51": 94,
     "expected_within_10_votes": 7.3,
@@ -1242,6 +1386,8 @@
    },
    "general, 4+ seats at once, both major parties running a full slate": {
     "races": 635,
+    "expected_recount_zone": 71.31,
+    "seen_recount_zone": 85,
     "expected_49_51": 285.25,
     "seen_49_51": 277,
     "expected_within_10_votes": 20.64,
@@ -1251,6 +1397,8 @@
    },
    "general, 4+ seats at once, both major parties running, one short of a full slate": {
     "races": 404,
+    "expected_recount_zone": 15.17,
+    "seen_recount_zone": 21,
     "expected_49_51": 60.66,
     "seen_49_51": 68,
     "expected_within_10_votes": 5.99,
@@ -1260,6 +1408,8 @@
    },
    "general, nonpartisan": {
     "races": 878,
+    "expected_recount_zone": 23.79,
+    "seen_recount_zone": 20,
     "expected_49_51": 95.16,
     "seen_49_51": 79,
     "expected_within_10_votes": 4.29,
@@ -1269,6 +1419,8 @@
    },
    "general, one major party against minor parties or independents": {
     "races": 6076,
+    "expected_recount_zone": 14.49,
+    "seen_recount_zone": 11,
     "expected_49_51": 57.98,
     "seen_49_51": 41,
     "expected_within_10_votes": 3.65,
@@ -1278,6 +1430,8 @@
    },
    "general, two candidates of one major party": {
     "races": 171,
+    "expected_recount_zone": 2.77,
+    "seen_recount_zone": 2,
     "expected_49_51": 11.07,
     "seen_49_51": 5,
     "expected_within_10_votes": 0.23,
@@ -1287,6 +1441,8 @@
    },
    "primary, 2 candidates, an incumbent running": {
     "races": 1701,
+    "expected_recount_zone": 16.44,
+    "seen_recount_zone": 16,
     "expected_49_51": 65.76,
     "seen_49_51": 46,
     "expected_within_10_votes": 23.6,
@@ -1296,6 +1452,8 @@
    },
    "primary, 2 candidates, open seat": {
     "races": 1191,
+    "expected_recount_zone": 12.02,
+    "seen_recount_zone": 16,
     "expected_49_51": 48.09,
     "seen_49_51": 51,
     "expected_within_10_votes": 16.06,
@@ -1305,6 +1463,8 @@
    },
    "primary, 3 candidates, an incumbent running": {
     "races": 327,
+    "expected_recount_zone": 3.79,
+    "seen_recount_zone": 4,
     "expected_49_51": 15.15,
     "seen_49_51": 16,
     "expected_within_10_votes": 3.77,
@@ -1314,6 +1474,8 @@
    },
    "primary, 3 candidates, open seat": {
     "races": 393,
+    "expected_recount_zone": 6.84,
+    "seen_recount_zone": 7,
     "expected_49_51": 27.36,
     "seen_49_51": 27,
     "expected_within_10_votes": 6.17,
@@ -1323,6 +1485,8 @@
    },
    "primary, 4+ candidates, an incumbent running": {
     "races": 78,
+    "expected_recount_zone": 1.23,
+    "seen_recount_zone": 1,
     "expected_49_51": 4.91,
     "seen_49_51": 6,
     "expected_within_10_votes": 0.71,
@@ -1332,6 +1496,8 @@
    },
    "primary, 4+ candidates, open seat": {
     "races": 194,
+    "expected_recount_zone": 3.71,
+    "seen_recount_zone": 2,
     "expected_49_51": 14.83,
     "seen_49_51": 16,
     "expected_within_10_votes": 2.21,
@@ -1341,6 +1507,8 @@
    },
    "runoff after a party primary, first-round leader of the two ahead by 10 points or more": {
     "races": 502,
+    "expected_recount_zone": 9.56,
+    "seen_recount_zone": 7,
     "expected_49_51": 38.23,
     "seen_49_51": 45,
     "expected_within_10_votes": 3.58,
@@ -1350,6 +1518,8 @@
    },
    "runoff after a party primary, first-round leader of the two within 10 points": {
     "races": 475,
+    "expected_recount_zone": 16.44,
+    "seen_recount_zone": 12,
     "expected_49_51": 65.77,
     "seen_49_51": 56,
     "expected_within_10_votes": 5.35,
@@ -1359,6 +1529,8 @@
    },
    "runoff after an open or general first round, first-round leader of the two ahead by 10 points or more": {
     "races": 96,
+    "expected_recount_zone": 2.56,
+    "seen_recount_zone": 0,
     "expected_49_51": 10.26,
     "seen_49_51": 9,
     "expected_within_10_votes": 0.51,
@@ -1368,12 +1540,60 @@
    },
    "runoff after an open or general first round, first-round leader of the two within 10 points": {
     "races": 71,
+    "expected_recount_zone": 2.83,
+    "seen_recount_zone": 5,
     "expected_49_51": 11.32,
     "seen_49_51": 15,
     "expected_within_10_votes": 0.56,
     "seen_within_10_votes": 3,
     "expected_margin_0_or_1": 0.08,
     "seen_margin_0_or_1": 0
+   }
+  },
+  "by_size_votes_of_the_two": {
+   "0-3000": {
+    "races": 3209,
+    "expected_recount_zone": 67.78,
+    "seen_recount_zone": 63,
+    "expected_49_51": 271.12,
+    "seen_49_51": 296,
+    "expected_within_10_votes": 98.6,
+    "seen_within_10_votes": 84,
+    "expected_margin_0_or_1": 14.59,
+    "seen_margin_0_or_1": 11
+   },
+   "3000-10000": {
+    "races": 7757,
+    "expected_recount_zone": 184.21,
+    "seen_recount_zone": 195,
+    "expected_49_51": 736.85,
+    "seen_49_51": 780,
+    "expected_within_10_votes": 73.36,
+    "seen_within_10_votes": 86,
+    "expected_margin_0_or_1": 10.48,
+    "seen_margin_0_or_1": 11
+   },
+   "10000-30000": {
+    "races": 6062,
+    "expected_recount_zone": 117.42,
+    "seen_recount_zone": 113,
+    "expected_49_51": 469.69,
+    "seen_49_51": 428,
+    "expected_within_10_votes": 15.56,
+    "seen_within_10_votes": 19,
+    "expected_margin_0_or_1": 2.22,
+    "seen_margin_0_or_1": 3
+   },
+   "30000-inf": {
+    "races": 4002,
+    "expected_recount_zone": 93.93,
+    "seen_recount_zone": 95,
+    "expected_49_51": 375.71,
+    "seen_49_51": 303,
+    "expected_within_10_votes": 4.16,
+    "seen_within_10_votes": 4,
+    "expected_margin_0_or_1": 0.59,
+    "seen_margin_0_or_1": 1
    }
   },
   "races_without_enough_earlier_like_races": {
