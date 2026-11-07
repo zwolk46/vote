@@ -875,7 +875,9 @@ def backtest_measures(mtest, mhalf):
                      "earlier years only): expected and seen counts finishing near 1/2 (every statewide question) "
                      "and near the threshold (those given a forecast). at_threshold_local is the same for local "
                      "questions given p by step (b) on these dates (each state's own class); North Carolina's "
-                     "questions on its other dates are in data/local/backtest-ncsbe.json. Built by "
+                     "questions on its other dates are in data/local/backtest-ncsbe.json. near_votes: the same within "
+                     "1,000 to 50,000 votes of the threshold. lean_notes_local: for each local class, the two tests of "
+                     "the orchestrator's ruling of 11:01 and the note they give (data/local/REPORT.md section 18). Built by "
                      "pipeline/local_medsl.py build.",
             "near_half": half,
             "at_threshold": at_threshold([r_ for r_ in mtest if not r_["key"].startswith("local ")]),
@@ -896,11 +898,69 @@ def at_threshold(rows, by_key=False):
                 z = y["near_threshold"].setdefault(hh, [0.0, 0])
                 z[0] += q
                 z[1] += seen
+            for k, (q, seen) in (r_.get("votes") or {}).items():
+                z = y.setdefault("near_votes", {}).setdefault(k, [0.0, 0])
+                z[0] += q
+                z[1] += seen
     for y in at_t.values():
         y["own_window"] = {"expected": round(y["own_window"][0], 1), "seen": y["own_window"][1]}
         y["near_threshold"] = {f"within {float(hh):.0%}": {"expected": round(v[0], 1), "seen": v[1]}
                                for hh, v in sorted(y["near_threshold"].items(), key=lambda kv: float(kv[0]))}
+        if "near_votes" in y:
+            y["near_votes"] = {f"within {int(k):,} votes": {"expected": round(v[0], 1), "seen": v[1]}
+                               for k, v in sorted(y["near_votes"].items(), key=lambda kv: int(kv[0]))}
     return dict(sorted(at_t.items()))
+
+
+# The lean note's two tests (the orchestrator's ruling of 11:01, fixed before the numbers were seen; relayed for the
+# local questions' routes at 13:39; data/congress/REPORT.md section 3 has the wording). (s): seen against expected
+# within 1 point of the threshold. (v): within k votes of it, k the smallest of these lines at which 5 or more are
+# expected. A test counts only with 5 or more seen or expected; the note stands only where both count and lean the
+# same way. Reason (11:16): "a note that one reading of the record contradicts tells the reader a direction the
+# record doesn't give".
+VOTE_LINES = (1000, 5000, 10000, 20000, 50000)
+LOCAL_NOTE_POOL = {"NC": "North Carolina's local questions on the even years' November general dates",
+                   "LA": "Louisiana's local questions"}   # each build's own back-test: the State Board's other dates
+                                                          # are pipeline/local_ncsbe.py's
+NOTE_LINE, NOTE_MIN = 0.01, 5
+
+
+def vote_lines(tr, s_, t, total):
+    """For one question of the back-test: the class's chance (the share of its earlier questions) of finishing within
+    k votes of the threshold, and whether this one did, at each line. Within k votes is |yes - t (yes + no)| <= k/2,
+    the margin |yes - no| <= k at t = 1/2: as a share, |s - t| <= k / (2 (yes + no))."""
+    return {str(k): [sum(1 for x in tr if abs(x - t) <= k / (2 * total)) / len(tr), abs(s_ - t) * total <= k / 2]
+            for k in VOTE_LINES}
+
+
+def lean_note(rows, what):
+    """The two tests over a back-test's rows (each with 'near' and 'votes'), and the note they give, if any."""
+    def test(e, n):
+        return {"expected": round(e, 1), "seen": n, "counts": max(e, n) >= NOTE_MIN,
+                "leans": "more" if n > e else "fewer" if n < e else "neither"}
+    s = test(sum(r_["near"][str(NOTE_LINE)][0] for r_ in rows), sum(r_["near"][str(NOTE_LINE)][1] for r_ in rows))
+    v, k = None, None
+    for k_ in VOTE_LINES:
+        e = sum(r_["votes"][str(k_)][0] for r_ in rows)
+        if e >= NOTE_MIN:
+            v, k = test(e, sum(r_["votes"][str(k_)][1] for r_ in rows)), k_
+            break
+    out = {"questions": len(rows), "share_test": dict(s, line=f"within {NOTE_LINE:.0%} of the threshold"),
+           "vote_test": dict(v, line=f"within {k:,} votes") if v else
+           {"counts": False, "why": f"under {NOTE_MIN} expected at every line up to {VOTE_LINES[-1]:,} votes"}}
+    if not rows:
+        return dict(out, note=None)
+    ys = f"{min(r_['year'] for r_ in rows)} to {max(r_['year'] for r_ in rows)}"
+    if s["counts"] and v and v["counts"] and s["leans"] == v["leans"] != "neither":
+        out["note"] = (f"this route's back-test of {what} shows {s['leans']} near-even finishes than it forecast "
+                       f"({s['seen']} against {s['expected']:.1f} within 1 point of the threshold, and {v['seen']} "
+                       f"against {v['expected']:.1f} within {k:,} votes, {ys}), so p may be "
+                       f"{'low' if s['leans'] == 'more' else 'high'}")
+    else:
+        out["note"] = None
+        out["why_none"] = ("a test does not count" if not (s["counts"] and v and v["counts"])
+                           else "the two tests lean opposite ways" if s["leans"] != v["leans"] else "neither leans")
+    return out
 
 
 def backtest_local_classes(files):
@@ -1806,7 +1866,8 @@ def build(out_dir, with_p=True):
                         mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
                                       "in_own": abs(s_ - t) <= h,
                                       "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
-                                                         abs(s_ - t) <= hh] for hh in L.WINDOWS}})
+                                                         abs(s_ - t) <= hh] for hh in L.WINDOWS},
+                                      "votes": vote_lines(tr, s_, t, yes + no)})
                         if not with_p:
                             p = {}
                         elif f <= 0:
@@ -1822,11 +1883,21 @@ def build(out_dir, with_p=True):
             counts[f"{label}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
+    # the lean note for each local question's class, on this build's own back-test (the orchestrator, 13:39)
+    lnotes = {key: lean_note([r_ for r_ in mtest if r_["key"] == key], LOCAL_NOTE_POOL.get(key[-2:], f"{key[-2:]}'s local questions"))
+              for key in sorted({r_["key"] for r_ in mtest if r_["key"].startswith("local ")})}
+    for (level, year, st), cs in files.items():
+        if level == "measure":
+            for rec in cs:
+                fc = [x for x in rec.get("forecasts") or [] if x.get("route") == "like past measures"]
+                if fc and fc[-1]["class"] in lnotes and lnotes[fc[-1]["class"]]["note"] and "value" in rec["p"]:
+                    rec["p"]["note"] = lnotes[fc[-1]["class"]]["note"]
+                    counts[f"measure {year}: {fc[-1]['class']}: lean note"] += 1
     scored = files   # every year written, ODD_YEARS too (the orchestrator, 11:56)
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:
-            json.dump(backtest_measures(mtest, mhalf), f, indent=1)
+            json.dump(dict(backtest_measures(mtest, mhalf), lean_notes_local=lnotes), f, indent=1)
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-classes.json"), "w") as f:
             json.dump(backtest_local_classes(scored), f, indent=1)
     cal = calibrate_local(scored)
