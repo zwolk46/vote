@@ -11,8 +11,11 @@ with MEDSL's routes; the presidency and Congress stay D1's and D2's. Louisiana e
 Louisiana's rounds (each said in the contest's own words). Its local offices are filled at a primary, open to every
 candidate, and, where no one is elected there, a general election between the leaders a few weeks later: in 2024 the
 primaries of 2024-03-23 and 2024-11-05 and the generals of 2024-04-27 and 2024-12-07 [inferred: the four dates of the
-source's 2024 list, and the contests it repeats from the first of each pair to the second; La. R.S. 18:402, the
-schedule, is not read here].
+source's 2024 list, and the contests it repeats from the first of each pair to the second]. La. R.S. 18:402, which
+sets the dates, was read on 2026-11-07 at 10:46 UTC (https://legis.la.gov/Legis/Law.aspx?d=81545), as amended through
+Acts 2025, No. 386: its text pairs each season's primary with a general on a later Saturday, but its dates are not
+2024's, since it was amended after 2024 (Acts 2024, No. 640; Acts 2025, No. 386). So the 2024 pairing rests on the
+source's repeated contests, and the statute is cited for the pairing's form only (the orchestrator, 2026-11-07 11:16).
   - A contest on a primary date is the first round of a two-round system: recorded with its result, p not computed
     (model section 7), as for Klarner's Louisiana legislature. Its candidates on the general's ballot are marked
     "to runoff"; where no general followed, the leading candidates for the seats are taken as elected [inferred].
@@ -22,9 +25,16 @@ schedule, is not read here].
     reason holds for Louisiana's generals; the orchestrator is told].
   - A contest on a general date with no such primary in the source is recorded, p not computed, with that reason.
   - A question has no rounds. Questions are kept as the source gives them, each date its own.
-Left out: the presidency, its party primaries and Congress (D1's and D2's levels), and the parties' own committees
-(the Democratic and Republican state central and parish executive committees, elected at the party's primary of
-2024-03-23): offices of the parties, not of the state [inferred: my reading of plan section 3's levels].
+  - The parties' own committees (the Democratic and Republican state central and parish executive committees, DSCC,
+    RSCC, DPEC and RPEC) are elected "every four years at the same time as the presidential preference primary
+    election", and "the candidate who receives the greater number of votes cast shall be elected", seat by seat, ties
+    by lot (La. R.S. 18:443(B) and 18:444(B), read 2026-11-07 at 11:16 UTC, Law.aspx?d=81577 and d=81580) [stated].
+    So each is decided at 2024-03-23 in one round. They are kept (the orchestrator's ruling of 2026-11-07 10:35: "put
+    the party committees in ... Mark them as party offices whose voters are the party's own, compute them where a
+    route fits"), with `party_office` on the record and the routes of their seats and ballot like any local office.
+    Their voters are the party's own [inferred: La. R.S. 18:1280.21(B), Law.aspx?d=81288, gives each elector at that
+    primary only his own party's candidates; the ruling].
+Left out: the presidency, its party primaries and Congress (D1's and D2's levels).
 
   gate()         the file's Democratic and Republican votes for president (D1's data/president/2024.json) and each
                  House district (D2's data/house/2024.json) against the certified ones on 2024-11-05: (worst relative
@@ -58,6 +68,12 @@ PARTY = {"DEM": "DEMOCRAT", "REP": "REPUBLICAN", "LBT": "LIBERTARIAN", "GRN": "G
          "NOPTY": "NO PARTY", "OTHER": "OTHER", "": "NONPARTISAN"}
 FEDERAL = re.compile(r"^(Presidential Electors|Presidential Nominee|U\. S\. (Representative|Senator))")
 PARTY_COMMITTEE = re.compile(r"^(DSCC|RSCC|DPEC|RPEC) Member")
+COMMITTEES = {"DSCC": ("D", "the Democratic Party's state central committee", "18:443"),
+              "RSCC": ("R", "the Republican Party's state central committee", "18:443"),
+              "DPEC": ("D", "the Democratic Party's parish executive committee", "18:444"),
+              "RPEC": ("R", "the Republican Party's parish executive committee", "18:444")}
+LAW_URL = {"18:443": "https://legis.la.gov/Legis/Law.aspx?d=81577", "18:444": "https://legis.la.gov/Legis/Law.aspx?d=81580",
+           "18:1280.21": "https://legis.la.gov/Legis/Law.aspx?d=81288", "18:402": "https://legis.la.gov/Legis/Law.aspx?d=81545"}
 STATE_OFFICE = re.compile(r"^(District Judge|Judge, Court of Appeal|Justice, Supreme Court|PSC|District Attorney|"
                           r"BESE|Judge)")
 N_PARISHES = 64
@@ -156,6 +172,9 @@ def rounds(cs):
         if c["kind"] != "office":
             out[id(c)] = None
             continue
+        if PARTY_COMMITTEE.match(c["office"]):   # one round, the most votes elected (La. R.S. 18:443, 18:444)
+            out[id(c)] = ("party committee", None, None)
+            continue
         k = ("multi" if c["multi_parish"] else c["sheet"], _base(c["title"]))
         if c["date"] in PRIMARIES:
             g = next((d for d, p in PAIRS.items() if p == c["date"] and d in on[k]), None)
@@ -191,6 +210,9 @@ def election_words(r, date):
         return (f"first round: Louisiana's primary, its general election followed on {r[1]}" if r[1] else
                 "first round: Louisiana's primary, decided in it (no general election of this contest followed)") + \
             " [inferred]"
+    if r[0] == "party committee":
+        return ("the party's own election of its committee's members, held with the presidential preference primary "
+                "and decided in it: the most votes are elected (La. R.S. 18:443, 18:444) [stated]")
     if r[0] == "deciding":
         return f"deciding round after an earlier round on {r[1]} (Louisiana's general election after its primary) " \
                f"[inferred]"
@@ -198,8 +220,8 @@ def election_words(r, date):
 
 
 def medsl_shape(year=YEAR):
-    """Louisiana's 2024 contests, not federal and not the parties' committees, in local_medsl's load() shape; None if
-    the file is missing, a date is not official, or the file fails the gate."""
+    """Louisiana's 2024 contests, not federal, in local_medsl's load() shape; None if the file is missing, a date is
+    not official, or the file fails the gate."""
     if year != YEAR or not os.path.exists(os.path.join(SOS.NORM, f"{YEAR}.jsonl")):
         return None
     cs = load()
@@ -210,7 +232,7 @@ def medsl_shape(year=YEAR):
     rd = rounds(cs)
     out = []
     for c in cs:
-        if FEDERAL.match(c["office"]) or PARTY_COMMITTEE.match(c["office"]):
+        if FEDERAL.match(c["office"]):
             continue
         fm = meta["files"][c["date"]]
         parishes = sorted({fips[_key(p)] for p in c["parishes"] if _key(p) in fips})
@@ -240,10 +262,16 @@ def medsl_shape(year=YEAR):
         elif r and r[0] == "general, no primary":
             held = ("on Louisiana's general election date, with no primary of this contest in the source, so which "
                     "round it is cannot be read: p not computed")
-        out.append(dict(base, dataverse="STATE" if (statewide or STATE_OFFICE.match(c["office"])) else "LOCAL",
-                        office=title, district="STATEWIDE" if statewide else "", magnitude=c["seats"],
-                        question=False, candidates=cands, held_round=held,
-                        earlier_round=[r[1]] if r and r[0] == "deciding" else None))
+        rec = dict(base, dataverse="STATE" if (statewide or STATE_OFFICE.match(c["office"])) else "LOCAL",
+                   office=title, district="STATEWIDE" if statewide else "", magnitude=c["seats"],
+                   question=False, candidates=cands, held_round=held,
+                   earlier_round=[r[1]] if r and r[0] == "deciding" else None)
+        if r and r[0] == "party committee":
+            side, body, sec = COMMITTEES[c["office"].split()[0]]
+            rec["party_office"] = {"party": side, "body": body, "law": f"La. R.S. {sec}", "law_url": LAW_URL[sec],
+                                   "voters": "the party's own [inferred: La. R.S. 18:1280.21(B); the orchestrator's "
+                                             "ruling of 2026-11-07 10:35]"}
+        out.append(rec)
     return out
 
 
@@ -271,8 +299,6 @@ def check():
     for c in cs:
         if FEDERAL.match(c["office"]):
             t["left out: the presidency, its primaries and Congress"] += 1
-        elif PARTY_COMMITTEE.match(c["office"]):
-            t["left out: the parties' committees"] += 1
         else:
             r = rd[id(c)]
             t[f"{c['date']}: " + ("question" if r is None else r[0])] += 1

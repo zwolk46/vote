@@ -1023,7 +1023,90 @@
   "within_votes": 5000,
   "expected": 4.521584957111264,
   "seen": 0,
-  "note": "this route's back-test shows fewer near-even finishes than it forecast (0 against 4.5 within 5,000 votes, 2006 to 2024), so p may be high",
-  "written_on": 420
+  "note": null,
+  "written_on": 0
+ },
+ "lean_note": {
+  "house": {
+   "years": [
+    2010,
+    2024
+   ],
+   "s": {
+    "within": "1 point",
+    "seen": 105,
+    "expected": 87.5
+   },
+   "v": {
+    "within_votes": 1000,
+    "seen": 24,
+    "expected": 16.9
+   },
+   "leans": {
+    "s": "more",
+    "v": "more"
+   },
+   "counts": {
+    "s": true,
+    "v": true
+   },
+   "stands": true,
+   "source": "M2, checks/m2/c16_notes.py (M2's third pass), as the orchestrator relayed its counts on 2026-11-07 11:16 UTC",
+   "rule": "the note stands only where (s) and (v) both count (5 or more seen or expected) and lean the same way (the orchestrator, 2026-11-07 11:01 UTC)"
+  },
+  "senate": {
+   "years": [
+    2010,
+    2024
+   ],
+   "s": {
+    "within": "1 point",
+    "seen": 17,
+    "expected": 11.1
+   },
+   "v": {
+    "within_votes": 10000,
+    "seen": 4,
+    "expected": 5.1
+   },
+   "leans": {
+    "s": "more",
+    "v": "fewer"
+   },
+   "counts": {
+    "s": true,
+    "v": true
+   },
+   "stands": false,
+   "source": "M2, checks/m2/c16_notes.py (M2's third pass), as the orchestrator relayed its counts on 2026-11-07 11:16 UTC",
+   "rule": "the note stands only where (s) and (v) both count (5 or more seen or expected) and lean the same way (the orchestrator, 2026-11-07 11:01 UTC)"
+  },
+  "governor": {
+   "years": [
+    2006,
+    2024
+   ],
+   "s": {
+    "within": "1 point",
+    "seen": 17,
+    "expected": 15.8
+   },
+   "v": {
+    "within_votes": 10000,
+    "seen": 6,
+    "expected": 9.7
+   },
+   "leans": {
+    "s": "more",
+    "v": "fewer"
+   },
+   "counts": {
+    "s": true,
+    "v": true
+   },
+   "stands": false,
+   "source": "M2, checks/m2/c16_notes.py (M2's third pass), as the orchestrator relayed its counts on 2026-11-07 11:16 UTC",
+   "rule": "the note stands only where (s) and (v) both count (5 or more seen or expected) and lean the same way (the orchestrator, 2026-11-07 11:01 UTC)"
+  }
  }
 }
