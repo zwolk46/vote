@@ -1,5 +1,7 @@
 # The vote-importance site: start here
 
+**Starting in a new project or a new account?** Read `RESTART.md` first: it says what the maker, the coordinator and the new orchestrator each do, and where everything from the old project now lives. Every word the maker has written is in `handoff/MAKER-WORDS.md`. *Reason:* his ask of 2026-11-07 22:09 UTC, that the project continue elsewhere "by just pointing at the repo".
+
 This repository holds the site and the record of the system of agents that builds it. Zach is the maker. The law of the site is `LAW.md` (once he ratifies it), read with the general law `the-law-for-agents.md`; nothing anywhere else adds to it.
 
 **Read, whole and in this order, before anything else:** `LAW.md`, `the-law-for-agents.md`, `RULINGS.md`, `STATE.md`, `OPERATIONS.md`; then your brief in `briefs/` if you are a worker. *Reason:* the law is written for a stranger and its words alone carry the meaning; a summary is someone else's reading.
