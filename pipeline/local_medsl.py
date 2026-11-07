@@ -1870,16 +1870,21 @@ def build(out_dir, with_p=True):
                     key = f"local {kind}, {c['state']}"
                     train_q = local_train(c["state"], kind, year)
                 else:
-                    rule, how, why = MS.rule_for(c, kind, book, year)
+                    rule, how, why = MS.rule_for(c, kind, book, year, rec["id"])
                     key = f"{scope} {kind}"
                     train_q = train
+                    bt_ = (book.get("ballot_texts") or {}).get(rec["id"])
+                    if bt_:   # step (a): the words read, beside the rule they decided
+                        rec["ballot_text"] = {k: bt_.get(k) for k in ("source", "source_title", "type", "type_as_read",
+                                                                      "type_quote", "type_mark", "fact")
+                                              if bt_.get(k) is not None}
                 if rule is None:
                     p = {"not_computed": why}
                     counts[f"{label}: not computed, threshold: {why.split(':')[0][:70]}"] += 1
                 else:
                     t = rule["t"]
                     rec["threshold"] = {k: rule.get(k) for k in ("t", "rule", "citation", "url", "quote", "read_utc",
-                                                                  "read_via", "mark") if rule.get(k) is not None}
+                                                                  "read_via", "read_in", "mark") if rule.get(k) is not None}
                     rec["threshold"]["matched"] = how
                     if (year, key, t) not in mdens:
                         mdens[(year, key, t)] = MS.density_at(train_q, key, t)

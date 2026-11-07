@@ -1,5 +1,5 @@
 {
- "about": "Each state's thresholds for statewide ballot measures and judicial retentions, read from its constitution or statute by worker D3's readers on 2026-11-07 (briefs/D3-data-local.md step 4; the orchestrator, 2026-11-07 06:16: 'Read statewide thresholds from each constitution or statute, with URLs'). Every quote was checked against the page saved when it was read, except where read_via says otherwise. t is the yes share of those voting on the question that the measure needs; compound, where set, is a rule that turns on more than that share, and p is not computed for it. only_if marks an exception that turns on what the measure does. The texts are those in force when read: applying them to 2016-2024 reads each section as in force then [inferred], except where from_year says otherwise. Used by pipeline/measures.py.",
+ "about": "Each state's thresholds for statewide ballot measures and judicial retentions, read from its constitution or statute by worker D3's readers on 2026-11-07 (briefs/D3-data-local.md step 4; the orchestrator, 2026-11-07 06:16: 'Read statewide thresholds from each constitution or statute, with URLs'). Every quote was checked against the page saved when it was read, except where read_via says otherwise. t is the yes share of those voting on the question that the measure needs; compound, where set, is a rule that turns on more than that share, and p is not computed for it. only_if marks an exception that turns on what the measure does. The texts are those in force when read: applying them to 2016-2024 reads each section as in force then [inferred], except where from_year says otherwise. Used by pipeline/measures.py. Rules with read_in were read in step (a), with the ballot texts (data/measure/ballot-texts.json): Georgia's referendums on tax-exemption Acts and Rhode Island's bond acts of 2018, 2022 and 2024 (the orchestrator, 2026-11-07 14:21); to_year, where set, closes a rule's years.",
  "states": {
   "AK": {
    "complete": true
@@ -25,7 +25,7 @@
   },
   "GA": {
    "complete": false,
-   "note": "the 2016 edition on legis.ga.gov (sos.ga.gov refused, HTTP 403); statewide referendums and bonds not read"
+   "note": "the 2016 edition on legis.ga.gov (sos.ga.gov refused, HTTP 403); statewide referendums read only for Acts exempting property from ad valorem taxation (art. VII, sec. II, para. II(a)(1), step (a)); bonds not read"
   },
   "HI": {
    "complete": false,
@@ -473,6 +473,20 @@
    "url": "https://www.legis.ga.gov/api/document/docs/default-source/joint-features-document-library/2ga-const-(v2)-2016-pdf.pdf?sfvrsn=f5de823e_0",
    "quote": "A proposal by the convention to amend this Constitution or for a new Constitution shall be advertised, submitted to, and ratified by the people in the same manner provided for advertisement, submission, and ratification of proposals to amend the Constitution by the General Assembly.",
    "read_utc": "2026-11-07T07:01Z"
+  },
+  {
+   "state": "GA",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "a general Act of the General Assembly exempting property from ad valorem taxation, put to the voters of the whole state",
+   "rule": "a majority of the qualified electors of the state voting in a referendum thereon",
+   "citation": "Ga. Const. art. VII, §II, ¶II(a)(1)",
+   "url": "https://www.legis.ga.gov/api/document/docs/default-source/joint-features-document-library/2ga-const-(v2)-2016-pdf.pdf?sfvrsn=f5de823e_0",
+   "quote": "(a)(1) Except as otherwise provided in this Constitution, no property shall be exempted from ad valorem taxation unless the exemption is approved by two-thirds of the members elected to each branch of the General Assembly in a roll-call vote and by a majority of the qualified electors of the state voting in a referendum thereon.",
+   "read_utc": "2026-11-07T13:58Z",
+   "only_if": "a general Act exempting property from ad valorem taxation, put to the state's voters",
+   "read_in": "step (a), with the ballot texts (data/measure/ballot-texts.json); each such Act's own section 3 says the same in votes cast: 'If more than one-half of the votes cast on ... such question are for approval of the Act' (HB 820 of 2018, HB 808 of 2024, as saved; the gap is the bill's line number or page break)"
   },
   {
    "state": "HI",
@@ -1490,6 +1504,55 @@
    "quote": "shall take effect until it has been approved by the majority of those electors voting in a statewide referendum and by the majority of those electors voting in said referendum in the municipality in which the proposed gambling would be allowed",
    "read_utc": "2026-11-07T06:57Z",
    "only_if": "a referendum on expanding gambling"
+  },
+  {
+   "state": "RI",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "the bond projects of the proposition the 2018 act puts to the people (its Article 5, Relating to Capital Development Program)",
+   "rule": "a majority of the people voting on the proposition, project by project",
+   "citation": "R.I. P.L. 2018, ch. 47, art. 5, §3",
+   "url": "https://webserver.rilegislature.gov/PublicLaws/law18/law18047-05.htm",
+   "quote": "If a majority of the people voting on the proposition in section 1 hereof shall vote to approve any project stated therein, the project shall be deemed to be approved by the people.",
+   "read_utc": "2026-11-07T13:56Z",
+   "only_if": "a project of the proposition put to the people by R.I. P.L. 2018, ch. 47",
+   "from_year": 2018,
+   "to_year": 2018,
+   "read_in": "step (a), with the ballot texts (data/measure/ballot-texts.json): the act that puts a question on the ballot is the law that governs it (the orchestrator, 2026-11-07 14:21)",
+   "read_via": "the page marks the act's changes to the bill: struck words are dropped and underlined words kept, as enacted"
+  },
+  {
+   "state": "RI",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "the bond projects of the proposition the 2022 act puts to the people (its Article 5, Relating to Capital Development Program)",
+   "rule": "a majority of the people voting on the proposition, project by project",
+   "citation": "R.I. P.L. 2022, ch. 231, art. 5, §3",
+   "url": "https://webserver.rilegislature.gov/PublicLaws/law22/law22231-05.htm",
+   "quote": "If a majority of the People voting on the proposition in Section 1 hereof shall vote to approve any project stated therein, said project shall be deemed to be approved by the People.",
+   "read_utc": "2026-11-07T13:57Z",
+   "only_if": "a project of the proposition put to the people by R.I. P.L. 2022, ch. 231",
+   "from_year": 2022,
+   "to_year": 2022,
+   "read_in": "step (a), with the ballot texts (data/measure/ballot-texts.json): the act that puts a question on the ballot is the law that governs it (the orchestrator, 2026-11-07 14:21)"
+  },
+  {
+   "state": "RI",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "the bond projects of the proposition the 2024 act puts to the people (its Article 5, Relating to Capital Development Program)",
+   "rule": "a majority of the people voting on the proposition, project by project",
+   "citation": "R.I. P.L. 2024, ch. 117, art. 5, §3",
+   "url": "https://webserver.rilegislature.gov/PublicLaws/law24/law24117-05.htm",
+   "quote": "If a majority of the People voting on the proposition in Section 1 hereof shall vote to approve any project stated therein, said project shall be deemed to be approved by the People.",
+   "read_utc": "2026-11-07T13:57Z",
+   "only_if": "a project of the proposition put to the people by R.I. P.L. 2024, ch. 117",
+   "from_year": 2024,
+   "to_year": 2024,
+   "read_in": "step (a), with the ballot texts (data/measure/ballot-texts.json): the act that puts a question on the ballot is the law that governs it (the orchestrator, 2026-11-07 14:21)"
   },
   {
    "state": "SC",
