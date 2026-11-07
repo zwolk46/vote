@@ -230,6 +230,13 @@
 - `forecasts[]` (the State Board's other dates, route `class` or `boundary`): as for MEDSL's like races, fitted on North Carolina's State Board contests of earlier years only (`fitted_on`), uncalibrated (`note`). Two classes are added: `<scope> <office type>, a Democrat against a Republican`, and primaries, `primary, <scope> <office type>, <n> candidates`, with p between the top two. The back-test is in `data/local/backtest-ncsbe.json`.
 - `notes` names a date whose file falls short of the certified federal counts by more than 0.5%, which marks a file posted before the final count [inferred]. The 2000 and 2010 general elections are such dates (`data/local/check-ncsbe.json`, `gate`). Their counts are the State Board's posted ones.
 
+**From Indiana's own certified results, 2024** (`pipeline/intake/in_enr.py`, `pipeline/local_in.py`; `data/<level>/2024/IN.json`):
+- `result.source` is `in_enr`: the state's results site's archive (enr.indianavoters.in.gov/archive/2024General/), whose settings mark the results certified. It passes the gate against D1's and D2's certified federal counts, so it takes the place of MEDSL's Indiana file, which is held back (`data/local/check-in.json`; REPORT §10). The presidency, Congress and the governor stay D1's and D2's.
+- `party`: the site's codes, read as `DEMOCRAT`, `REPUBLICAN`, `LIBERTARIAN`, `INDEPENDENT` and `NONPARTISAN` (its `N`, "Non Partisan"). Any other code is kept as the site writes it.
+- `place.counties`: the counties the site lists for the race. A title that does not name its place takes its district's name from the site's jurisdiction ("SCHOOL BOARD MEMBER, DISTRICT - MILAN").
+- The site lists no write-in lines. So `p = 0` for an unopposed race is not checked against a strong write-in, as it is for MEDSL's.
+- `question.subject` is the question's ballot text, as the site gives it.
+
 ## Fields added by D4 (the cost of voting and how ballots are cast: `data/cost/`; each state's tie and recount law, `data/law/`, below)
 
 **Marks.** Every number is [measured] (read here from the source's own file), [stated] (as a compilation or an agency guide says), [inferred] (my arithmetic or reading, said in the field's note) or [vendor claim]. **A `source` block** is as D2's: `name`, `url`, `read_utc`, `licence`, `mark`, `via`, `note` (bytes and sha256). Intake scripts, one per source, are in `pipeline/intake/`; `data/cost/REPORT.md` says what each gives and does not.

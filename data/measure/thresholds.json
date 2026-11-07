@@ -125,7 +125,7 @@
   },
   "IN": {
    "complete": false,
-   "note": "retention only, through WebFetch: iga.in.gov gave curl a JavaScript page and archive.iga.in.gov refused (HTTP 403)"
+   "note": "retention and constitutional amendments (art. 16, the only statewide measures Indiana's constitution provides for [inferred: no initiative or referendum article was read]), through WebFetch: iga.in.gov gave curl a JavaScript page and archive.iga.in.gov refused (HTTP 403)"
   },
   "KS": {
    "complete": false,
@@ -1722,6 +1722,19 @@
    "quote": "subject to approval or rejection by the electorate",
    "read_utc": "2026-11-07T07:03Z",
    "read_via": "WebFetch (curl got a JavaScript page; the quote is WebFetch's fragment, not checked against a saved page)"
+  },
+  {
+   "state": "IN",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the General Assembly (the only kind article 16 provides)",
+   "rule": "majority of the electors voting on the amendment. Read through WebFetch, not curl: the iga.in.gov PDF returns a JavaScript shell to curl, headless Chromium was given HTML for the page's own scripts, and Justia's copy answered 403 (a bot check); the quote is WebFetch's verbatim text of section 1(c), not checked against a saved page",
+   "citation": "Ind. Const. art. 16, §1(c)",
+   "url": "https://iga.in.gov/publications/indiana_constitution/Constitution%20(as%20amended%202024).pdf",
+   "quote": "If a majority of the electors voting on the amendment ratify the amendment, the amendment becomes a part of this Constitution.",
+   "read_utc": "2026-11-07T09:00Z",
+   "read_via": "WebFetch (curl got a JavaScript page; the quote is WebFetch's text, not checked against a saved page)"
   },
   {
    "state": "KS",

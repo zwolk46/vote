@@ -73,12 +73,12 @@
    "computed": true
   },
   "2024": {
-   "races": 1416,
+   "races": 1469,
    "with_lean": 968,
    "held_back_state": 11,
    "lean_missing": {
-    "a county's US House race was not contested by both parties throughout": 241,
-    "the previous general's returns for this state are held back (see the state's check)": 196
+    "the previous general's returns for this state are held back (see the state's check)": 249,
+    "a county's US House race was not contested by both parties throughout": 241
    },
    "in_intervals_50_80_95": {
     "50": 0.518,
