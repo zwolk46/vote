@@ -1522,6 +1522,39 @@ def _near_verdict(r, b0):
 # older knife-edge changes standing on less evidence than new ones need; so the old change must meet what a new
 # one needs. A scheme that passes round 4's test on every year but fails this is taken out, and reported beside
 # the forecast (near_tie_taken_out; each p's "near_tie_not_of_record").
+# THE SCHEME OF RECORD AND A SWITCH (the orchestrator, 2026-11-07 13:43 UTC): "A switch from level to band changes the
+# forecast, so it goes through the robustness test of 08:36, which supersedes picking the better log score. Band
+# replaces level only if its gain holds with each scored year left out and no tested cell gets worse. Otherwise
+# level, the scheme of record, stays, and band's figures are reported beside it." Reason, in its words: "a margin of
+# 0.00002 is a knife edge, and moving 2,142 House p on it would be fitting noise." So where a level has a scheme of
+# record that still passes, another scheme that passes too replaces it only if it passes _variant_verdict against
+# the scheme of record (a higher log score, the 49-51% count nearer the count seen, no safe-band cell further), on
+# every year the factor reaches and again with each of them left out (_switch_test).
+NEAR_TIE_OF_RECORD = {"house": "level"}
+
+
+def _switch_test(rows, level, alt, rec, years, variant):
+    """Scheme alt against the scheme of record rec, by round 5's conditions (_variant_verdict, rec as the record), on
+    `years` and with each one left out: {"from", "to", "passes", the verdict on all years, "leave_one_year_out"}."""
+    def verdict(ys):
+        return _variant_verdict(_variant_score(rows, level, variant, ys, scheme=alt),
+                                _variant_score(rows, level, variant, ys, scheme=rec))
+
+    def fails(v):
+        return (([] if v["raises_log_score"] else ["the log score"]) +
+                ([] if v["count_nearer"] else ["the 49-51% count"]) + list(v["safe_bands_further"]))
+    v = verdict(years)
+    loo = {}
+    for Y in years:
+        x = verdict([T for T in years if T != Y])
+        loo[str(Y)] = {"improves": x["improves"], "mean_log_score_gain": x["mean_log_score_gain"], "fails": fails(x)}
+    return {"from": rec, "to": alt, "passes": bool(v["improves"] and all(x["improves"] for x in loo.values())),
+            "mean_log_score_gain": v["mean_log_score_gain"], "count_49_51": v["count_49_51"],
+            "safe_bands_tested": v["safe_bands_tested"], "fails": fails(v), "leave_one_year_out": loo,
+            "rule": "the orchestrator, 2026-11-07 13:43 UTC: a scheme replaces the scheme of record only if it passes "
+                    "the robustness test of 08:36 against it"}
+
+
 def near_tie_test(rows, variant):
     """The orchestrator's test (07:04): both schemes against none, on the years either reaches, by level, for the
     variant's forecasts (round 5: the factor refitted under each), with the robustness test (08:54); and the rule,
@@ -1574,6 +1607,13 @@ def near_tie_test(rows, variant):
                     best4 = sch
                 if r["improves"] and r["robust"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
                     best = sch
+        rec = NEAR_TIE_OF_RECORD.get(L)
+        if best and rec and best != rec and res.get(rec, {}).get("improves") and res[rec].get("robust"):
+            # another scheme scores higher, and the scheme of record still passes: the switch must pass against it
+            sw = _switch_test(rows, L, best, rec, reach, variant)
+            res["switch"] = sw
+            if not sw["passes"]:
+                best = rec
         res["adopted"], res["adopted_round_4"] = best, best4
         out["by_level"][L] = res
         out["adopted"][L] = best
@@ -1613,10 +1653,17 @@ def near_tie_taken_out(rows, level, year, mean, sd, tails):
     if not f["of"]:
         return None
     F = f["factor"]
-    return {"factor": F, "multiplier": F / (1 + (F - 1) * near_q(mean, sd, tails)), "scheme": sch,
-            "note": "round 4's near-tie factor, taken out of p: it does not pass the robustness test (the "
-                    "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.3). "
-                    "value is what p would be with it, p times multiplier"}
+    sw = nt["by_level"][level].get("switch")
+    if sw and sw["to"] == sch and not sw["passes"]:
+        note = (f"the {sch} scheme's near-tie factor, beside p and not in it: it scores higher than the scheme of "
+                f"record ({sw['from']}) but does not pass the robustness test against it (the orchestrator, "
+                "2026-11-07 13:43; the file's model.near_tie.beside says where it fails; REPORT 10.4). value is what "
+                "p would be with it, p times multiplier")
+    else:
+        note = ("round 4's near-tie factor, taken out of p: it does not pass the robustness test (the "
+                "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.3). "
+                "value is what p would be with it, p times multiplier")
+    return {"factor": F, "multiplier": F / (1 + (F - 1) * near_q(mean, sd, tails)), "scheme": sch, "note": note}
 
 
 def _variant_score(rows, level, variant, years, scheme="of record", band_rows=None):
@@ -2414,6 +2461,27 @@ def compute(year):
                            f"{NEAR_MIN_EXPECTED} near-ties"} if nt_f else
                   {"scheme": nt_rule, "note": "not adopted for this level: on the years it reaches it does not both "
                                               "raise the log score and bring the near-even count nearer (REPORT 2.6)"})
+            sw_ = ntt["by_level"][level].get("switch")
+            if nt_out and sw_ and sw_["to"] == nt_out and not sw_["passes"]:
+                # a scheme that scores higher than the scheme of record but fails the switch test (13:43): beside it
+                if nt_out == "band":
+                    fb = [dict(near_tie_factor(rows, level, year, 0.5 + b + 1e-9, "band", V), band_from=b)
+                          for b in NEAR_BANDS]
+                    fig = {"by_band": fb}
+                else:
+                    f_ = near_tie_factor(rows, level, year, 0.5, nt_out, V)
+                    fig = {"factor": f_["factor"] if f_["of"] else None, "of": f_["of"], "fitted_on": f_["fitted_on"],
+                           "expected": f_["expected"], "seen": f_["seen"]}
+                d["model"]["near_tie"]["beside"] = {
+                    "scheme": nt_out, **fig,
+                    "switch_test": {k_: sw_[k_] for k_ in ("passes", "mean_log_score_gain", "count_49_51", "fails",
+                                                           "safe_bands_tested")},
+                    "fails_without": {Y: x["fails"] for Y, x in sw_["leave_one_year_out"].items() if not x["improves"]},
+                    "note": f"the {nt_out} scheme scores a higher log score than the scheme of record ({nt_rule}), but "
+                            "a switch must pass the robustness test against it, and it does not (the orchestrator, "
+                            "2026-11-07 13:43; REPORT 10.4). Each model's own p shows beside it, under "
+                            "near_tie_not_of_record, what p would be with this scheme"}
+                nt_out = None
             if nt_out:
                 # round 4's rule, taken out by the robustness test (the orchestrator, 08:54), reported beside it
                 r_ = ntt["by_level"][level][nt_out]

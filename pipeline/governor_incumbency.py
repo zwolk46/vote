@@ -18,18 +18,28 @@ The check (survey):
     contest of a state, Algara and Amlani's last race before 1977).
   - Two kinds of disagreement are listed:
       A. the nominee won the last race and is not coded 1;
-      B. the nominee is coded 1 (or Cha's 2 or 3) and did not win the last race.
+      B. the nominee is coded 1 (or Cha's 2 or 3) and did not win the last race;
+      C. the nominee is coded 1 and won the last race, which was a special election (Cha's guide codes that 2).
   - A nominee of B may be a governor who took office mid-term, which the last race cannot show. For those the state's
     own roster of governors is read where it answers. Where it does not, the code is kept and marked inferred (the
     orchestrator).
 
-What counts as an incumbent is the record's, unchanged (REPORT 2.2 and 0.2):
+What counts as an incumbent is the record's, unchanged (REPORT 2.2 and 0.2), and made to hold in every year (the
+orchestrator, 2026-11-07 13:43 UTC: "Keep the definition of record and make every era match it. Don't add a new
+variant."; reason: "an input has to mean one thing in every year it is fitted on. This rule is fixed now, before any
+score, and it is the one the record already uses."):
   - Cha's code 1 only, and Algara and Amlani's "Incumbent" seat status.
   - Cha's 2 (an incumbent elected in a special election) and 3 (a senator appointed by the governor, in the guide;
     Cha uses it for governors who succeeded too) read as not incumbents. Counting them was tested and not adopted
     (REPORT 0.2).
-  - So a nominee coded 2 or 3 who sat is coded right by Cha's own guide, and the code is kept. Only codes that are
-    wrong by their own meaning are fixed here.
+  - So "a successor who was not elected to the seat is not the incumbent, and this holds in every year" (13:43):
+      - Algara and Amlani code such successors "Incumbent". Where the state's roster confirms the succession, the
+        seat status is recoded to the successor party's "Open Seat" (0). Where no roster answers, the code is kept
+        and marked inferred.
+      - Cha codes Brewer (AZ 2010) 1 and its other successors 3: she is recoded 3, which reads as 0.
+      - Cha codes Tomblin (WV 2012, who won the 2011 special) 1 and Brown (OR 2018) and Herbert (UT 2012), in the
+        same place, 2: he is recoded 2, which reads as 0 (kind C; D2's reading of the 13:43 rule, not named in it).
+  - A nominee Cha codes 2 or 3 is coded right by Cha's own guide, and the code is kept.
 
 The fixes are applied where the source is read: fix_cha (chambers.fit_rows, chambers.odd_governor_rows,
 build_congress.cha_index) and fix_aa (chambers.aa_governors, build_congress.AA_SOURCE). Each governor contest the
@@ -58,7 +68,7 @@ sys.path.insert(0, HERE)
 import congress_common as cc  # noqa: E402
 
 TABLE = os.path.join(REPO, "data", "congress", "governor-incumbency.json")
-ASKED = "the orchestrator, 2026-11-07 13:06 UTC"
+ASKED = "the orchestrator, 2026-11-07 13:06 UTC; its rule for successors, 13:43 UTC"
 
 # The states' own rosters of governors that answered (read 2026-11-07 13:11-13:16 UTC), each with the words the
 # check rests on. gate() finds every quote in the cached file before the table is written.
@@ -108,15 +118,19 @@ ROSTERS_NOT_READ = {
 }
 
 LAST = "the seat's last race in the record"
+SUC = ("a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record "
+       "reads Cha's 3 so, REPORT 0.2): ")
 DEF = ("the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not "
        "adopted), so the code is kept")
 
 # (year, state, special, side) -> the nominee as the source names them, the code the source carries, the verdict,
 # why, the roster and its quotes (or None), and the fix (or None). The verdicts:
-#   fixed      the code is wrong by its own meaning, and the record or the state's roster proves it;
-#   confirmed  the state's roster shows the nominee coded the incumbent sat on election day;
+#   fixed      the code is wrong by its own meaning or by the definition of record in every year (13:43), and the
+#              record or the state's roster proves it;
 #   kept       Cha's code 2 or 3, right by Cha's own guide (DEF);
 #   inferred   the roster did not answer or was not found; the code is kept, unproven.
+# (Until 13:43 a successor the roster confirmed was "confirmed" and kept; the orchestrator's rule of 13:43 recodes
+# them.)
 CHECKS = {
     # A. won the last race, not coded 1
     (2021, "NJ", False, "D"): ("MURPHY, PHILIP", 0, "fixed",
@@ -152,47 +166,71 @@ CHECKS = {
                                "the Independent-Republicans", "MN",
                                ["Rudy Perpich 1/3/1983 36th", "Al Quie 1/4/1979 35th", "Rudy Perpich 12/29/1976 34th"],
                                {"aa": ("Democratic Incumbent", "Republican Open Seat")}),
-    # confirmed by the state's roster (a governor who took office mid-term)
-    (1994, "AL", False, "D"): ("Folsom, James E. Jr.", "Democratic Incumbent", "confirmed",
-                               "succeeded Hunt (" + LAST + ", 1990) on April 22, 1993", "AL",
+    # successors, fixed: the state's roster shows the nominee took office mid-term without winning the seat's last
+    # race. By the orchestrator's rule of 13:43 ("a successor who was not elected to the seat is not the incumbent,
+    # and this holds in every year"), as the record reads Cha's code 3, they are not incumbents: an open seat, held
+    # by the successor's party.
+    (1994, "AL", False, "D"): ("Folsom, James E. Jr.", "Democratic Incumbent", "fixed",
+                               SUC + "he succeeded Hunt (" + LAST + ", 1990) on April 22, 1993", "AL",
                                ["James E. Folsom Jr. Cullman April 22, 1993 - 1995 Democrat Lieutenant Governor "
-                                "Folsom became governor when Governor Hunt was convicted for ethics violations."], None),
-    (1994, "AR", False, "D"): ("Tucker, Jim Guy", "Democratic Incumbent", "confirmed",
-                               "served from 1991 (Clinton won " + LAST + ", 1990); the roster gives years only",
-                               "AR", ["James Guy Tucker Jr. Born: June 13, 1943, at Oklahoma City, Oklahoma Died: n/a "
-                                      "Buried: n/a Served: 1991-1996"], None),
-    (1998, "AR", False, "R"): ("Huckabee, Mike", "Republican Incumbent", "confirmed",
-                               "served from 1996 (Tucker won " + LAST + ", 1994)", "AR",
-                               ["Mike Huckabee Born: August 24, 1955, at Hope, Arkansas Died: n/a Buried: n/a Served: "
-                                "1996-2007"], None),
-    (1978, "AZ", False, "D"): ("Babbitt, Bruce", "Democratic Incumbent", "confirmed",
-                               "the roster has Bolin 1977 to 1978 and Babbitt from 1978 (Castro won " + LAST +
-                               ", 1974); it gives years only, so that Babbitt sat before the election in November "
-                               "is inferred", "AZ", ["Harvey Wesley Bolin 1977 to 1978", "Bruce Babbitt 1978 to 1987"],
-                               None),
-    (1998, "AZ", False, "R"): ("Hull, Jane Dee", "Republican Incumbent", "confirmed",
-                               "served from 1997 (Symington won " + LAST + ", 1994)", "AZ",
-                               ["Jane Dee Hull 1997 to 2003"], None),
-    (2010, "AZ", False, "R"): ("BREWER, JANICE (JAN)", 1, "confirmed",
-                               "served from 2009 (Napolitano won " + LAST + ", 2006)", "AZ",
-                               ["Janice K. Brewer 2009 to 2015"], None),
-    (1982, "CT", False, "D"): ("O'Neill, William A.", "Democratic Incumbent", "confirmed",
-                               "served from 1980 (Grasso won " + LAST + ", 1978); the roster gives years only", "CT",
-                               ["William A. O’Neill 1980-91"], None),
-    (1978, "MN", False, "D"): ("Perpich, Rudy", "Democratic Incumbent", "confirmed",
-                               "assumed office 12/29/1976 (Anderson won " + LAST + ", 1974)", "MN",
-                               ["Rudy Perpich 12/29/1976 34th"], None),
-    (1990, "NV", False, "D"): ("Miller, Robert J.", "Democratic Incumbent", "confirmed",
-                               "in office from Jan 3, 1989 (Bryan won " + LAST + ", 1986)", "NV",
-                               ["Bob Miller Jan 3, 1989 - Jan 4, 1999"], None),
-    (2002, "TX", False, "R"): ("Perry, Rick", "Republican Incumbent", "confirmed",
-                               "sworn in December 21, 2000, after Bush (" + LAST + ", 1998) resigned", "TX",
-                               ["Rick Perry R December 21, 2000–January 20, 2015; 76th–84th Legislatures "
-                                "Sworn in after Bush resignation."], None),
-    (1992, "VT", False, "D"): ("Dean, Howard B.", "Democratic Incumbent", "confirmed",
-                               "governor from 1991 by reason of the death of Snelling (" + LAST + ", 1990)", "VT",
+                                "Folsom became governor when Governor Hunt was convicted for ethics violations."],
+                               {"aa": ("Democratic Incumbent", "Democratic Open Seat")}),
+    (1994, "AR", False, "D"): ("Tucker, Jim Guy", "Democratic Incumbent", "fixed",
+                               SUC + "he served the balance of Clinton's term (" + LAST + ", 1990)", "AR",
+                               ["He served the balance of the Clinton term and then was elected to a four-year term in "
+                                "November 1994.", "Served: 1979-1981; 1983-1992"],
+                               {"aa": ("Democratic Incumbent", "Democratic Open Seat")}),
+    (1998, "AR", False, "R"): ("Huckabee, Mike", "Republican Incumbent", "fixed",
+                               SUC + "he became governor in July 1996 when Tucker (" + LAST + ", 1994) resigned",
+                               "AR", ["He became Governor of Arkansas in July 1996 when his predecessor resigned."],
+                               {"aa": ("Republican Incumbent", "Republican Open Seat")}),
+    (1978, "AZ", False, "D"): ("Babbitt, Bruce", "Democratic Incumbent", "fixed",
+                               SUC + "the roster has Castro (" + LAST + ", 1974) to 1977, Bolin 1977 to 1978 and "
+                               "Babbitt from 1978; it gives years only, but either way Babbitt did not win the seat "
+                               "before 1978", "AZ",
+                               ["Raul H. Castro 1975 to 1977", "Harvey Wesley Bolin 1977 to 1978",
+                                "Bruce Babbitt 1978 to 1987"],
+                               {"aa": ("Democratic Incumbent", "Democratic Open Seat")}),
+    (1998, "AZ", False, "R"): ("Hull, Jane Dee", "Republican Incumbent", "fixed",
+                               SUC + "the roster has Symington (" + LAST + ", 1994) to 1997 and Hull from 1997", "AZ",
+                               ["J. Fife Symington 1991 to 1997", "Jane Dee Hull 1997 to 2003"],
+                               {"aa": ("Republican Incumbent", "Republican Open Seat")}),
+    (2010, "AZ", False, "R"): ("BREWER, JANICE (JAN)", 1, "fixed",
+                               SUC + "Cha codes her 1, but the roster has Napolitano (" + LAST + ", 2006) to 2009 and "
+                               "Brewer from 2009; Cha codes the other successors 3", "AZ",
+                               ["Janet Napolitano 2003 to 2009", "Janice K. Brewer 2009 to 2015"], {"cha": (1, 3)}),
+    (1982, "CT", False, "D"): ("O'Neill, William A.", "Democratic Incumbent", "fixed",
+                               SUC + "the roster has Grasso (" + LAST + ", 1978) to 1980 and O'Neill from 1980", "CT",
+                               ["Ella T. Grasso 1975-80", "William A. O\u2019Neill 1980-91"],
+                               {"aa": ("Democratic Incumbent", "Democratic Open Seat")}),
+    (1978, "MN", False, "D"): ("Perpich, Rudy", "Democratic Incumbent", "fixed",
+                               SUC + "he assumed office 12/29/1976, after Anderson (" + LAST + ", 1974)", "MN",
+                               ["Wendell Anderson 1/4/1971 33rd", "Rudy Perpich 12/29/1976 34th"],
+                               {"aa": ("Democratic Incumbent", "Democratic Open Seat")}),
+    (1990, "NV", False, "D"): ("Miller, Robert J.", "Democratic Incumbent", "fixed",
+                               SUC + "the roster has Bryan (" + LAST + ", 1986) to Jan 3, 1989 and Miller from then",
+                               "NV", ["Richard Hudson Bryan Jan 3, 1983 - Jan 3, 1989",
+                                      "Bob Miller Jan 3, 1989 - Jan 4, 1999"],
+                               {"aa": ("Democratic Incumbent", "Democratic Open Seat")}),
+    (2002, "TX", False, "R"): ("Perry, Rick", "Republican Incumbent", "fixed",
+                               SUC + "he was sworn in December 21, 2000, after Bush (" + LAST + ", 1998) resigned",
+                               "TX", ["Rick Perry R December 21, 2000\u2013January 20, 2015; 76th\u201384th "
+                                      "Legislatures Sworn in after Bush resignation."],
+                               {"aa": ("Republican Incumbent", "Republican Open Seat")}),
+    (1992, "VT", False, "D"): ("Dean, Howard B.", "Democratic Incumbent", "fixed",
+                               SUC + "he became governor in 1991 by reason of the death of Snelling (" + LAST +
+                               ", 1990)", "VT",
                                ["^^^Howard Dean, Burlington ....................... 1991-2003",
-                                "Lieutenant Governor, Governor by reason of the death of Gov. Snelling"], None),
+                                "Lieutenant Governor, Governor by reason of the death of Gov. Snelling"],
+                               {"aa": ("Democratic Incumbent", "Democratic Open Seat")}),
+    # C. won the last race, which was a special election, and coded 1: Cha's guide codes that 2, as it codes Brown
+    # (OR 2018) and Herbert (UT 2012), and the record reads 2 as not an incumbent (the orchestrator, 13:43: "an input
+    # has to mean one thing in every year it is fitted on")
+    (2012, "WV", False, "D"): ("TOMBLIN, EARL RAY", 1, "fixed",
+                               "Cha codes him 1, but he won " + LAST + " as a special election (2011, "
+                               "data/governor/2011.json): Cha's guide codes that 2, as it does Brown (OR 2018) and "
+                               "Herbert (UT 2012), and the record reads 2 as not an incumbent", None, None,
+                               {"cha": (1, 2)}),
     # kept: Cha's 2 or 3 (DEF); the roster, where it answered, shows the nominee sat
     (2018, "AL", False, "R"): ("IVEY, KAY E.", 3, "kept",
                                "Cha codes her 3; the roster: she became governor in 2017 when Bentley (" + LAST +
@@ -366,7 +404,7 @@ def _aa_winner(r):
 
 
 def survey():
-    """The disagreements (A and B above), as [(year, state, special, side, nominee, code in the source, kind, last
+    """The disagreements (A, B and C above), as [(year, state, special, side, nominee, code in the source, kind, last
     race's year, its winner, the code's source)], from the files and the sources as they come (before fix_cha and
     fix_aa), and the cases it cannot settle (no last winner, or a surname-only match)."""
     cha = cc.read_json(os.path.join(cc.CACHE, "cha", "normalized", "contests.json"))["contests"]
@@ -423,6 +461,8 @@ def survey():
                     out.append(k3 + (s, n, code, "A", ly, lw, src))
                 elif not won and (is_inc or code in (2, 3)):
                     out.append(k3 + (s, n, code, "B", ly, lw, src))
+                elif won and is_inc and i and cs[i - 1]["special"]:
+                    out.append(k3 + (s, n, code, "C", ly, lw, src))
     return sorted(out), odd
 
 
@@ -540,7 +580,12 @@ def check():
         "asked": ASKED,
         "what": ("every governor nominee's incumbency code set against the seat's last race in the record "
                  "(data/governor/*.json, Louisiana apart); kind A: won the last race and not coded 1; kind B: coded 1 "
-                 "(or Cha's 2 or 3) and did not win it"),
+                 "(or Cha's 2 or 3) and did not win it; kind C: coded 1 and won it, a special election (Cha's guide "
+                 "codes that 2)"),
+        "rule": ("the definition of record in every year (the orchestrator, 2026-11-07 13:43 UTC): \"a successor who "
+                 "was not elected to the seat is not the incumbent, and this holds in every year\"; Cha's 2 and 3 "
+                 "read as not incumbents (REPORT 0.2); \"Don't add a new variant.\" Reason: \"an input has to mean "
+                 "one thing in every year it is fitted on.\""),
         "codes": ("Cha, Kuriwaki and Snyder's inc, found by the nominee's exact name within Cha's contest (not "
                   "build_congress's join); Algara and Amlani's seat status before 2006 and where Cha lacks the "
                   "contest. The record counts Cha's 1 only (REPORT 2.2, 0.2)"),
