@@ -1174,4 +1174,4 @@ By year, the whole questions are 259 (2016), 109 (2018), 52 (2020), 6 (2022) and
 
 **Not done, for a ruling if wanted:**
 - Questions of a town or township (a county subdivision; New York's and New England's towns, New Jersey's townships) could be counted whole the same way by the Bureau's county subdivision file, since a county subdivision never crosses a county line. They are held now because the order names the place-to-county file.
-- Questions that name a county (288 "County" titles among those held for a district or county word) are a county's own question when the county is the record's.
+- Questions that name a county or parish (317 of the 938 held for a district or county word) may be the county's own question when the county is the record's. They could be counted whole on that reading [inferred].
