@@ -279,17 +279,25 @@ def _one(rs, how, who=None):
     for r in rs:
         if r["citation"] not in seen:
             seen.add(r["citation"]); cands.append(r)
-    whom = who[0] if who else None
+    # one law read two ways is one rule: a citation whose parts all lie in another's ('Wyo. Const. art. 20, §1' in
+    # 'Wyo. Stat. 22-2-117(d); Wyo. Const. art. 20, §1') is that one, not a second rule that could govern
+    parts = [set(x["citation"].split("; ")) for x in cands]
+    cands = [x for i, x in enumerate(cands)
+             if not any(j != i and parts[i] < parts[j] for j in range(len(cands)))]
+    whom, narrowed = (who[0] if who else None), False
     if whom and len(cands) > 1:
         fit = [r for r in cands if whom in (r.get("proposer") or [])]
         if fit:
+            narrowed = len(cands)
             cands = fit + [r for r in cands if not r.get("proposer")]
+            narrowed = len(cands) < narrowed
     r = cands[0]
     cite = r["citation"] if len(cands) == 1 else ", or ".join(x["citation"] for x in cands)
     if r.get("compound") or r.get("t") is None:
-        return None, None, (f"{cite}: {r.get('compound') or r.get('rule')}: the threshold turns on more than "
+        return None, None, (f"{cite}" + (" (the source does not show which of these governs it)" if len(cands) > 1
+                                         else "") + f": {r.get('compound') or r.get('rule')}: the threshold turns on more than "
                             f"the yes share of those voting on the question, and the model forecasts that share only")
-    if len(seen) > 1 and len(cands) == 1:
+    if narrowed and len(cands) == 1:
         how += f"; proposed by the {whom} {who[1]}, so {r['citation']} governs ({r['applies_to']})"
     elif len(cands) > 1:
         how += ("; the source does not show which of these governs it (" + "; ".join(
