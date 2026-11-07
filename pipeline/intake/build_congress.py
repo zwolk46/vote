@@ -40,6 +40,7 @@ import congress_common as cc  # noqa: E402
 from downballot_pres_by_cd import LEAN_INPUT  # noqa: E402
 import chambers  # noqa: E402  (pipeline/chambers.py: the governors' last race, read the same way as the fit's)
 import governor_incumbency as GI  # noqa: E402  (pipeline/governor_incumbency.py: the governors' codes it fixes)
+import governor_hi2018 as GH  # noqa: E402  (pipeline/governor_hi2018.py: Hawaii 2018's certified count)
 
 COMMIT = chambers.git_head()   # the commit of the code that writes a p = 0 block (M2 1.5)
 GOV_INDEX = None
@@ -200,6 +201,7 @@ def cha_index():
     if d is None:
         raise SystemExit("run pipeline/intake/candidates_american_general_elections.py first")
     GI.fix_cha(d["contests"])     # the governors' codes the record or a state's roster proves wrong
+    GH.fix_cha(d["contests"])     # Hawaii 2018's governor at the certified count (pipeline/governor_hi2018.py; 19:49)
     idx = {}
     for c in d["contests"]:
         k = (c["year"], c["office"], c["state"], c["district"], c["special"])
