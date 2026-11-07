@@ -49,6 +49,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 03:19: #14 merged (D1: `pipeline/core.py`, `p_contest`, 9 tests reproducing OUTPUT.txt S1.2, S1.3, S1.5, S6.5; run here, all pass; build clean). D1 found its brief's "exact below 1,000" short of the model: model §3 also sends n·sd² < 6.25 to the exact sum (the 2,000-voter test figure is exact); its "auto" takes both, which stands. #15 merged (the 03:13 ruling, plan §3a, D3, brief amendments). D1 and D2 told.
+
 - 2026-11-07 03:15: the maker (03:13, project chat): gather "absolutely as much data as we can find", through a token-light intake from standardized data; no live data (RULINGS). Applied: `plan/PLAN.md` §2 (every contest the sources allow, back as far as they go) and new §3a (one intake script per standardized source, `pipeline/intake/`; inventories in `data/sources/`); briefs D1, D2, X1 amended and told by message with his words attached; brief D3 (local, state legislatures, primaries, measures, by script) written, to start when X1 waits on his pick or D1 or D2 ends.
 
 - 2026-11-07 03:09: #13 merged (law in force, model of record, plan, briefs T1, D1, D2, X1, tracker source); main merged back. T1, D1, D2, X1 started by the coordinator on the networked environment (ids in the table). The maker told the plan, with two asks: allow web.archive.org; MEDSL's guestbook with his name and email. Tracker rows updated to match.
