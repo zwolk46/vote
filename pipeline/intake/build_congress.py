@@ -26,8 +26,13 @@ import sys
 import unicodedata
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(1, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import congress_common as cc  # noqa: E402
 from downballot_pres_by_cd import LEAN_INPUT  # noqa: E402
+import chambers  # noqa: E402  (pipeline/chambers.py: the governors' last race, read the same way as the fit's)
+
+COMMIT = chambers.git_head()   # the commit of the code that writes a p = 0 block (M2 1.5)
+GOV_INDEX = None
 
 ELECTION_DAY = {2006: "2006-11-07", 2008: "2008-11-04", 2010: "2010-11-02", 2012: "2012-11-06",
                 2014: "2014-11-04", 2016: "2016-11-08", 2018: "2018-11-06", 2020: "2020-11-03",
@@ -338,6 +343,19 @@ def forecast_inputs(year, office, state, district, inc, inc_via, P, special=Fals
         out["state_share_D"] = round(s, 6) if s is not None else None
         out["lean"] = round(s - nat[py], 6) if s is not None else None
         out["lean_source"] = "medsl_president"
+    if office == "governor":
+        # the state's last governor race that a Democrat and a Republican led (method D2-v2, the orchestrator,
+        # 2026-11-07 05:58, item 5); from Cha, Kuriwaki and Snyder, which begins in 2006
+        global GOV_INDEX
+        if GOV_INDEX is None:
+            GOV_INDEX = chambers.last_governor_index()
+        lg = chambers.last_governor_race(GOV_INDEX, state, year)
+        if lg:
+            out["last_governor_race"] = {"year": lg[0], "share_D": lg[1], "special": lg[2], "source": "cha"}
+        else:
+            out["last_governor_race"] = None
+            out["last_governor_race_missing"] = (f"no earlier governor race in {state} that a Democrat and a Republican "
+                                                 f"led is in Cha, Kuriwaki and Snyder, which begins in 2006")
     return out
 
 
@@ -399,7 +417,7 @@ def contest(year, office, c, cha_c, cha_src, P):
     rec["ballot"] = ballot(cands, c["state"])
     if kind and kind[0] == "uncontested":
         rec["p"] = {"value": 0.0, "event": 0.0, "under": None, "computed_by": "pipeline/intake/build_congress.py",
-                    "commit": None, "not_computed": None, "reason": kind[1]}
+                    "commit": COMMIT, "not_computed": None, "reason": kind[1]}
         return rec
     fi = forecast_inputs(year, office, c["state"], district, inc, inc_via, P, special)
     rec["forecast_inputs"] = fi
@@ -412,8 +430,7 @@ def contest(year, office, c, cha_c, cha_src, P):
                     "not_computed": fi.get("lean_missing") or "no presidential vote for the state", "reason": None}
         return rec
     rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
-                "not_computed": "pending: the model's own forecast method awaits the orchestrator's approval "
-                                "(briefs/D2-data-congress.md step 2)", "reason": None}
+                "not_computed": "pending: p is computed by pipeline/chambers.py compute", "reason": None}
     return rec
 
 
@@ -504,6 +521,7 @@ def build(year):
                 if office == "senate" and any(k[0] == "senate" and k[1] == st for k in seen):
                     continue   # Arizona 2020: the same contest, a special in one source and not in the other
                 by_level[office].append(cha_only(year, office, st, d, special, cs, cha_src, P))
+    SOURCE_POOL.update(SOURCES)
     for level in ("senate", "house", "governor"):
         SOURCES.clear()
         SOURCES["cha"] = cha_source(cha_src, level)
