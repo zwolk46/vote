@@ -94,7 +94,8 @@ def num(s):
 def load(key):
     sid, gid, label, cols = SHEETS[key]
     url = EXPORT.format(id=sid, gid=f"&gid={gid}" if gid else "")
-    rec = cc.fetch(url, f"downballot/sheet_{key}.csv", min_bytes=5000)
+    # Google serves a sheet's CSV export from googleusercontent.com, its own storage host (checked 2026-11-07)
+    rec = cc.fetch(url, f"downballot/sheet_{key}.csv", min_bytes=5000, storage_sites=("googleusercontent.com",))
     path = os.path.join(cc.CACHE, rec["path"])
     with open(path, encoding="utf-8") as f:
         head = f.read(200)

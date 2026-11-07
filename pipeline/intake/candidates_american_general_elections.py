@@ -51,6 +51,10 @@ ORIGIN = {"H": "https://history.house.gov/Institution/Election-Statistics/Electi
 OFFICE = {"H": "house", "S": "senate", "G": "governor", "P": "president"}
 
 
+# Harvard Dataverse serves its files from Amazon S3: a redirect there is the publisher's own storage
+STORAGE = ("amazonaws.com",)
+
+
 def fetch():
     rec = cc.fetch(f"{API}/datasets/:persistentId/?persistentId={DOI}", "cha/record.json")
     with open(os.path.join(cc.CACHE, rec["path"])) as f:
@@ -59,9 +63,10 @@ def fetch():
     files = {x["dataFile"]["filename"]: x["dataFile"] for x in v["files"]}
     data = next(df for fn, df in files.items() if fn.startswith(STEM))
     frec = cc.fetch(f"{API}/access/datafile/{data['id']}?format=original", f"cha/{data['filename']}.original",
-                    min_bytes=100000)
+                    min_bytes=100000, storage_sites=STORAGE)
     guide = files.get("guide_candidates.pdf")
-    grec = cc.fetch(f"{API}/access/datafile/{guide['id']}", "cha/guide_candidates.pdf") if guide else None
+    grec = cc.fetch(f"{API}/access/datafile/{guide['id']}", "cha/guide_candidates.pdf",
+                    storage_sites=STORAGE) if guide else None
     return {"record": rec, "file": frec, "guide": grec, "licence": lic, "doi": DOI,
             "version": f"v{v['versionNumber']}.{v['versionMinorNumber']}, released {v.get('releaseTime')}"}
 
