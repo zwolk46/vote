@@ -14,7 +14,7 @@ import { money, oneIn, pct, count, tick, tickShort } from '../lib/format.js';
 import { useMedia, DESKTOP, useColours } from '../lib/media.js';
 import { play, reducedMotion, springValue, TOKENS } from '../lib/motion.js';
 import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar, whenOf, sharedBy, SOURCES } from '../components/Lead.jsx';
-import { useGroups, stacks, pitchFor, orderOf, STAGGER, LO, HI, AVG_A, RECORD_KEY, pastEnd, pastWords } from '../components/Field.jsx';
+import { useGroups, stacks, pitchFor, thinStep, liveOf, orderOf, STAGGER, LO, HI, AVG_A, RECORD_KEY, pastEnd, pastWords } from '../components/Field.jsx';
 import { Seg } from '../components/Seg.jsx';
 import { Boundary } from '../components/Boundary.jsx';
 import { Legend } from '../components/Legend.jsx';
@@ -122,8 +122,10 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
     if (!w) return null;
     return lines.map(l => {
       const R = rows.find(x => x.id === l.level);
-      const you = stacks(R.you, w, r), person = stacks(R.person, w, r);
-      return { you: you.at, person: person.at, pitch: pitchFor(Math.max(you.rows, person.rows), r, H - 2), order: orderOf(R.you) };
+      const you = stacks(R.you, w, r, R.avg), person = stacks(R.person, w, r, R.avg);
+      const pitch = pitchFor(Math.max(you.rows, person.rows), r, H - 2);
+      const step = thinStep(pitch, r);
+      return { you: you.at, person: person.at, pitch, step, live: liveOf(you.at, person.at, step), order: orderOf(R.you) };
     });
   }, [rows, w, r, H]);
   const cur = useRef({ m: null, mm: reading === 'person' ? 1 : 0 });
@@ -138,7 +140,7 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
     const x0 = (at(lc) / 100) * w;
     // how far the dots are toward the reading "to each person", on average: a dot with no population fades by it
     let mix = 0, n = 0;
-    for (const M of cur.current.m) for (let k = 0; k < M.length; k++) { mix += M[k]; n++; }
+    lay.forEach((L, i) => { const M = cur.current.m[i]; for (const k of L.live) { mix += M[k]; n++; } });
     const mm0 = n ? mix / n : 0;
     cur.current.mm = mm0;
     lines.forEach((l, i) => {
@@ -153,7 +155,7 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
         const al = (avg ? AVG_A : 1) * (has ? 1 : 1 - mm0);
         if (al < 0.02) continue;
         ctx.globalAlpha = al; ctx.beginPath();
-        for (let k = 0; k < L.you.length; k++) {
+        for (const k of L.live) {   // a dense pile thinned to the same shape (Field.jsx thinStep, liveOf)
           if (R.avg[k] !== avg || (L.person[k] !== null) !== has) continue;
           const a = L.you[k], b = L.person[k] || a, m = has ? M[k] : 0;
           const x = x0 + a.dx + (b.dx - a.dx) * m, y = H - r - 1 - (a.k + (b.k - a.k) * m) * L.pitch;
@@ -179,11 +181,11 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
     cancelAnimationFrame(owner.current.raf); owner.current.raf = 0;
     const to = reading === 'person' ? 1 : 0, from = cur.current.m.map(M => Float32Array.from(M));
     const set = (i, k, v) => { cur.current.m[i][k] = from[i][k] + (to - from[i][k]) * v; };
-    if (reducedMotion()) { lay.forEach((L, i) => { for (let k = 0; k < L.you.length; k++) set(i, k, 1); }); draw(); return; }
+    if (reducedMotion()) { lay.forEach((L, i) => { for (const k of L.live) set(i, k, 1); }); draw(); return; }
     const total = TOKENS.chart.duration, st = STAGGER.chart, slide = total - st, t0 = performance.now();
     const step = t => {
       const e = t - t0; let live = false;
-      lay.forEach((L, i) => { for (let k = 0; k < L.you.length; k++) { const q = (e - L.order[k] * st) / slide; if (q < 1) live = true; set(i, k, springValue(Math.max(0, Math.min(1, q)))); } });
+      lay.forEach((L, i) => { for (const k of L.live) { const q = (e - L.order[k] * st) / slide; if (q < 1) live = true; set(i, k, springValue(Math.max(0, Math.min(1, q)))); } });
       draw();
       owner.current.raf = live ? requestAnimationFrame(step) : 0;
     };
