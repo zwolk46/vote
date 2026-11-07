@@ -758,7 +758,7 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
 
 **Fixed after M2's check of #73 (check c24)** [measured]. *Added 2026-11-07 at 14:16 UTC, at the orchestrator's order of 13:54: "1. VA 2018 HoD-8, a special, left the local file in #73 and is now in no file, because there is no VA 2018 state file. Put it back in data/state-lower/2018/VA.json, as a special, with its old fields. No contest should drop out of the record. 2. 167 school superintendents are typed 'school board'. A superintendent is one executive seat, not a board. Type them as officers and list the moves. 3. REPORT §15 says 69 of the 103 newly uncomputed are NC's 2023 school boards ... Correct the text. Reason: the record keeps every contest it has read, and a type has to describe the office."* Every move is listed in `data/local/moves-fixes-c24.json`, against `1a6d752`.
 - **Virginia's 2018 House of Delegates, 8th district.** It is back in the record, in `data/state-lower/2018/VA.json`, as a special ("general, special"), with its old fields: the candidates and votes, the total, the four counties (51045, 51121, 51161, 51775), and the office as filed ("House Of Delegates"). Klarner's record holds Virginia's lower house in other years but none in 2018, so the contest fills a vacancy [inferred; MEDSL does not mark it special]. Its p is not computed, as for every special: the model's forecasts are fitted to regular elections. In `pipeline/local_medsl.py`, a legislature contest filed as a local office is now kept, as a special, wherever Klarner holds no regular race of that state, year and chamber.
-- **School superintendents.** 176 contests, not M2's 167, were typed "school board" and are now "clerk, treasurer or other county officer": an office whose words name a superintendent (SUPERINTENDENT, SUPT or SUPER. OF PUBLIC INSTRUCTION) with SCHOOL, EDUCATION or INSTRUCTION. They are Alabama 61, Montana 47, Florida 30, Arizona 17, Illinois 16, Georgia 2, South Carolina 2 and North Carolina 1; 64 of 2018, 47 of 2020, 2 of 2022, 62 of 2024 and 1 of 2000. Four of them are statewide offices filed in the local files (Georgia's State School Superintendent of 2018 and 2022, South Carolina's State Superintendent of Education of 2018 and 2022), which the twenty-names list leaves out, so that list moves 172. A water superintendent stays a special district. No p becomes computed or uncomputed: the 134 computed keep their p but one, Montana's 2024 Superintendent of Schools in county 30093, which leaves the school boards' own fit and falls by a factor of 2.0 (0.000181 to 0.0000907). 1,720 other p move, as the like races of their class or of the fit's pool change: by a median factor of 1.003, 90% within 1.007, the largest 1.017. 165 uncomputed contests keep their reason with a changed count of like races.
+- **School superintendents.** 176 contests, not M2's 167, were typed "school board" and are now "clerk, treasurer or other county officer": an office whose words name a superintendent (SUPERINTENDENT, SUPT or SUPER. OF PUBLIC INSTRUCTION) with SCHOOL, EDUCATION or INSTRUCTION. They are Alabama 61, Montana 47, Florida 30, Arizona 17, Illinois 16, Georgia 2, South Carolina 2 and North Carolina 1; 64 of 2018, 47 of 2020, 2 of 2022, 62 of 2024 and 1 of 2000. Four of them are statewide offices filed in the local files (Georgia's State School Superintendent of 2018 and 2022, South Carolina's State Superintendent of Education of 2018 and 2022), which the twenty-names list leaves out, so that list moves 172. A water superintendent stays a special district. No p becomes computed or uncomputed: the 134 computed keep their p but one, Montana's 2024 Superintendent of Schools in county 30093, which leaves the school boards' own fit and falls by a factor of 2.0 (0.000181 to 0.0000907). 866 other p move, as the like races of their class or of the fit's pool change: from ×0.9830 to ×1.0067, by a median factor of 1.003, 90% within 1.007 (867 p moved with Montana's). *Corrected 2026-11-07 after M2's check c29 §29.1:* this line first said 1,720 p moved; 854 of those 1,720 keep their p, and only their p block's not-of-record factor moved (calibration_not_of_record, 0.7951 to 0.791). The moves file now codes them 'C' [measured: p before equal to p after in `data/local/moves-fixes-c24.json`]. 165 uncomputed contests keep their reason with a changed count of like races.
 - **The count above** is corrected in place.
 - **Verdicts.** None changes. In `calibration-local.json` and the two local back-tests only numbers move: the like-race route's test deviance after calibration goes from 17.35 to 17.42, and 2024's seen over expected from 0.707 to 0.706. Nothing else in `data/` moves but stamps.
 
@@ -917,6 +917,7 @@ No calibration is applied, as for every route since 09:49 (§7).
 - **(s)** Seen against expected within 1 point of the threshold. The statewide classes use 1 point of ½, the point every statewide p of record is taken at.
 - **(v)** Seen against expected within k votes of the threshold. k is the smallest of 10, 100, 1,000, 5,000, 10,000, 20,000 and 50,000 votes at which 5 or more are expected.
   - "Within k votes" is |yes − t(yes + no)| ≤ k/2. At t = ½ that is a margin of k votes or fewer.
+  - Whether a question finished within k votes is counted in whole votes, k included: with t = a/b, |2b·yes − 2a(yes + no)| ≤ b·k, in integers (since §23; the share form in floating point dropped two questions at a margin of exactly 10).
   - Each question's expected chance is its class's share of earlier questions within that many votes, taken as a share: |s − t| ≤ k / (2(yes + no)).
 - **When a test counts.** A test counts only with 5 or more seen or expected. (v) does not count where its line holds more than half the pool. "Holds" is read here as the questions that finished within the line.
 - **When the note stands.**
@@ -939,7 +940,7 @@ No calibration is applied, as for every route since 09:49 (§7).
 | Statewide retentions, 2018-2024 | 79 | 2 / 0.0 (does not count) | under 5 expected at every line | none; no retention has p |
 | Louisiana's local questions, 2024 | 304 | 8 / 7.1, more | 10 votes: 9 / 17.6, fewer | **none**: opposite ways |
 | North Carolina, general dates, 2016-2024 | 190 | 5 / 6.5, fewer | 100 votes: 19 / 17.4, more | **none**: opposite ways |
-| North Carolina, other dates, 2012-2026 | 306 | 15 / 10.9, more | 10 votes: 23 / 21.9, more | **stands**, both tests: p may be low |
+| North Carolina, other dates, 2012-2026 | 306 | 15 / 10.9, more | 10 votes: 25 / 21.9, more (23 before §23) | **stands**, both tests: p may be low |
 
 **The first run, under the rule of 11:01 as written.** In the first run the ladder started at 1,000 votes. That line held most of each local pool: 244 of Louisiana's 304, 67 of North Carolina's 190 general-date questions and 202 of its 306 other-date questions. So each pool's (v) was close to a count of all its questions. Every local note stood, and North Carolina's two pools leaned opposite ways. That was put to the orchestrator, and the ruling of 13:52 answered it.
 
@@ -1175,3 +1176,88 @@ By year, the whole questions are 259 (2016), 109 (2018), 52 (2020), 6 (2022) and
 **Not done, for a ruling if wanted:**
 - Questions of a town or township (a county subdivision; New York's and New England's towns, New Jersey's townships) could be counted whole the same way by the Bureau's county subdivision file, since a county subdivision never crosses a county line. They are held now because the order names the place-to-county file.
 - Questions that name a county or parish (317 of the 938 held for a district or county word) may be the county's own question when the county is the record's. They could be counted whole on that reading [inferred].
+
+## 23. Towns, townships and counties' own questions; three readings from M2's check
+
+*Added 2026-11-07 at 16:05 UTC, at the orchestrator's words of 15:43 and 15:50.* Every record that changed is in `data/measure/moves-towns-counties.json`, against main after #85 and M2's #69.
+
+### 23.1 The two extensions (the orchestrator, 15:43)
+
+The orders, verbatim:
+1. "Towns and townships, from the cousub file. Count only a subdivision that is an active government (FUNCSTAT A), and hold any name that is both a place and a subdivision in that county unless the title says which ("Town of", "Village of", "Township"). Mark it stated where the title names the kind, inferred otherwise." Reason: "the Census defines county subdivisions to nest within counties, so the file itself states that the named unit lies wholly in the county."
+2. "A county's or parish's own question. Count it whole only if all three hold: the title names the record's own county or parish; the title has no words of another body (district, school, hospital, fire, library, authority, board other than the county's own, and so on); the record covers that county's whole file. Mark it stated where the title names the county government ("County of X", "X County Commission", "Police Jury"), inferred otherwise." Reason: "every voter on a county's own question is in that county."
+
+**A town or township** (`pipeline/places.py`, `_sub`). The file is the Census Bureau's `national_cousub2020.txt`, read 2026-11-07 at 15:34 UTC (§22).
+- **[stated]:** the title says "Town of X", "Township of X", "Charter Township of X" or "Plantation of X", or begins "X Township", "X Twp" or "X Town".
+- **[inferred]:** the title begins with the subdivision's name. This is tried only where no place matches.
+- The subdivision must be an active government (FUNCSTAT A), lie in the record's county, and be the county's only subdivision of that name.
+
+**A county's own question** (`_county`, and `local_medsl.one_place` for the third test).
+- The title names the record's county as "X County", "X Parish", "County of X" or "Parish of X".
+- **The third test, the whole file.** The record's precincts must equal all the county's precincts in MEDSL's file on that date. `pipeline/intake/medsl_county_precincts.py` counts them from the cached raw files, as a contest's are counted: from 2018, a precinct with a vote in any contest; in 2016, any general-election row. It writes `county-precincts-<year>.json` to the cache, and the record carries both counts (`place_whole.precincts`, `county_precincts`) [measured].
+- The 20 held by this test are a county question on part of the county's ballots. Examples: Fulton County's 2016 T-SPLOST (190 of 346 precincts; Atlanta voted its own), Kittitas County's 2024 road levy (26 of 48), Latah County's 2024 recall (1 of 34), Iowa's Jefferson County Measure A (8 of 12), and Snohomish County's seven 2016 charter amendments (773 of 779).
+- A county's count includes a precinct with votes for any office. A precinct that votes for federal offices only would hold back a question that was on every other ballot. This can only hold questions back [inferred].
+
+**Guards**, each found by reading every new match of the trial by hand:
+- **A leading name may go on into a longer name.** It is held where its next word, with it, begins another place's or subdivision's name in the state. "Haddon Height Proposal" is not Haddon township, since Haddon Heights is a borough. This guard is applied to places too; none of §22's 722 is lost.
+- **A special body after a leading name is held**, as for places.
+- **A part of the county is held:** a direction before the county's name ("South Fulton County", "Southern Sandoval County").
+- **A place or town of the county also named is held** (whole word, 4 letters or more). Examples: "Jefferson County (Homewood)", "Summers County City Of Hinton Levy", "A Local Proposition For Bangor, Franklin County".
+- **Something in parentheses right after the county is held** ("Delaware County (Cleora)", "Grady County (EMS)").
+- **Another body's word is held**, once the county's own boards are taken off. The words are fire, hospital, library, authority, port, transit, water, sewer, sanitary, sanitation, irrigation, cemetery, drainage, levee, conservancy, conservation, airport, mosquito, city, town, township, village, borough, municipal, ward, precinct, zone, area, board, health, education and unincorporated.
+  - This list also holds some questions that are the county's own. Santa Fe County's bonds for "water and wastewater projects" and "community health facilities" and McKinley County's liquor tax, partly "for ... education", are held. A question is counted whole only where its words leave no doubt [inferred].
+
+**Counts** (all years; the build's `one-county` lines):
+
+| | questions |
+|---|---|
+| whole, the place [stated] / [inferred] (§22) | 442 / 280 |
+| whole, the county subdivision [stated] / [inferred] | 136 / 29 |
+| whole, the county [stated] / [inferred] | 8 / 126 |
+| held: the title names no incorporated place or county subdivision | 1,177 |
+| held: a retention | 880 |
+| held: the title names a district or a school | 620 |
+| held: "Township" naming no subdivision with a government of its own | 54 |
+| held: a county or parish, but not the record's | 50 |
+| held: the place lies in 2 or 3 counties | 50 |
+| held: another body's word in a county's question | 45 |
+| held: a county of the same name is the record's (a leading place's name) | 21 |
+| held: the county's own question covers fewer than all its precincts | 20 |
+| held: a special body after the name | 11 |
+| held: a place or town of the county also named | 8 |
+| held: the name is both a place's and a town's or township's in the county | 5 |
+| held: something in parentheses after the county | 4 |
+| held: a part of the county | 2 |
+| held: a hyphen join, a name that goes on, or another county | 4 |
+| total | 3,972 |
+
+Whole questions now total 1,021: 722 places, 165 towns and townships, and 134 counties' own questions. By year: 303 (2016), 123 (2018), 70 (2020), 6 (2022) and 519 (2024).
+
+**What moves:**
+- **299 questions are newly counted whole.** Each gets `place_whole` with its unit and a note. 290 now say why their p is not computed in their state's own terms: "the thresholds of this state's local questions are not read". 9 keep their reason. None gets a p.
+- **No Louisiana or North Carolina question is newly whole.** North Carolina's come from the State Board's file, and Louisiana's MEDSL years held none that passed. So no pool of like local measures changes, and Louisiana's 304 local p of 2024 stay as they are.
+- **§22's 722 are unchanged** except for `place_whole.unit` ("place").
+
+### 23.2 Three readings from M2's check (relayed at 15:50)
+
+1. **#80's count** (M2 c29 §29.1). "Of the 1,720 rows marked "P", 854 have p_before equal to p_after (only calibration_not_of_record moved, 0.7951 to 0.791). So 867 p moved." Reason: "a figure in the record has to say what it counts."
+   - §15's line is corrected: 866 p moved, plus Montana's ×0.500.
+   - `data/local/moves-fixes-c24.json` now codes the 854 rows "C" (p unchanged, the not-of-record factor moved), and its counts and `about` say so [measured: p before equal to p after in those rows].
+2. **The state superintendents** (c29 §29.2). "26 of them are statewide superintendents typed as local officers... Type them as the statewide office they are." Reason: "the class decides which pool and which back-test a race falls in."
+   - A superintendent's office (§15's words) in a state office's contest is now typed `statewide officer` (`office_type_in`). That means MEDSL's STATE files, or the State Board's state offices. A county's or a district's superintendent has the same words, so the words alone are not read.
+   - 26 records move: 18 local and 8 North Carolina primaries. No p moves, and none becomes computed or uncomputed. Three have a p that its route does not take from the type: South Carolina's and Wyoming's of 2018 (unopposed, p 0) and North Carolina's of 2024 (a Democrat against a Republican, 3.12 × 10⁻⁷).
+   - The 10 whose reason names their class now name "state statewide officer, …" (or "primary, state statewide officer, …"), with 0 or 1 like races. The other 13 keep their reason (a Democrat against a Republican with no county lean for the year, seats not in the source, a first round, a gated state).
+   - 6 other North Carolina primaries keep "too few like races", with a changed count.
+   - `backtest-local-partisan.json` (2024) gains a "statewide officer" row with 1 contest, and the officers' row goes from 212 to 211. In `calibration-local.json`, the partisan state officers' cell splits (deviance 11.5 to 11.75).
+3. **The vote test in whole votes** (c27 §27.5). "'Within k votes' includes k. Compute it in whole votes (margin ≤ k), not in the float share form." Reason: "a test stated in votes has to be computed in votes."
+   - `vote_lines` now counts |2b·yes − 2a(yes + no)| ≤ b·k in integers, with t = a/b (0.6667 read as 2/3).
+   - North Carolina's other-dates pool goes from 23 to 25 within 10 votes (2016 2 to 3, 2021 2 to 3), against 21.9 expected. Its note still stands on both tests, and its 306 p's notes now read "25 against 21.9".
+   - No other pool's count moved: statewide 10 against 6.2 at 20,000; Louisiana 9 against 17.6 at 10; North Carolina's general dates 19 against 17.4 at 100 [measured: `backtest-measures.json` unchanged].
+
+**Open, for a ruling if wanted.** The same reason reaches the other statewide executive offices. Each is still typed by its words:
+- state treasurers, auditors and controllers: county officer (81 records of the state files with no district or county);
+- secretaries of state and lieutenant governors: "other local office" (72);
+- attorneys general: prosecutor;
+- commissioners of agriculture, insurance and labor: council, commission or board.
+
+Typing them all `statewide officer` would put them in one pool. It would move more classes than item 2, so I have not done it.
