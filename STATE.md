@@ -51,7 +51,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
-- 2026-11-07 06:20: #28 merged (D3, MEDSL 2022+2024; 2024 legislatures out of sample 60/86/96 in 50/80/95; IN, LA, NJ and CA 2022 held back). Decided: measures' statewide thresholds from law with URLs; local thresholds read from the governing state law or p not computed (never inferred ½); like-past-measures route approved, refit with 2016; local D-vs-R transferred terms approved if the 2024 back-test's 50% interval holds 40-60%. Guestbook for MEDSL 2018/2020 held: D3 first checks MEDSL's GitHub repositories (2018-, 2020-elections-official), which need none.
+- 2026-11-07 06:16: #28 merged (D3, MEDSL 2022+2024; 2024 legislatures out of sample 60/86/96 in 50/80/95; IN, LA, NJ and CA 2022 held back). Decided: measures' statewide thresholds from law with URLs; local thresholds read from the governing state law or p not computed (never inferred ½); like-past-measures route approved, refit with 2016; local D-vs-R transferred terms approved if the 2024 back-test's 50% interval holds 40-60%. Guestbook for MEDSL 2018/2020 held: D3 first checks MEDSL's GitHub repositories (2018-, 2020-elections-official), which need none.
 
 - 2026-11-07 05:58: #27 merged (M2 follow-ups in the D1 and D2 briefs; headings rulings; MATH notes). D2 woken with its eight items. Workers: X1 (X2), D3, D2, + T1.
 
