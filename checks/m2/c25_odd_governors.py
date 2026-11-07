@@ -24,9 +24,9 @@ import m2lib as L  # noqa: E402
 import m2fit as F  # noqa: E402
 
 C74, C74_PARENT = "5a22ade", "7fd4565"   # #74 and the main it followed
-ODD_YEARS = list(range(1977, 2024, 2))
+ODD_YEARS = list(range(1977, 2026, 2))   # 2025 since #76
 ODD_STATES = ("KY", "LA", "MS", "NJ", "VA")
-LEAN_KS = (1000, 5000, 10000, 20000, 50000)
+LEAN_KS = (10, 100, 1000, 5000, 10000, 20000, 50000)   # from 10 votes since the amendment of 13:52 (#79)
 LEAN_MIN = 5
 WINDOWS = (0.01, 0.02, 0.05)
 BANDS = (0.0, 0.05, 0.10, 0.20)
@@ -268,6 +268,7 @@ def section_3(files, rows):
     worst = collections.defaultdict(float)
     n = 0
     lag_diff, inc_diff, lean_diff, pres_diff, n_diff = [], [], [], [], []
+    inc_fixed = []   # #78's fixed codes (checked against their sources in c28)
     notes = collections.Counter()
     for y, d in sorted(files.items()):
         m = d.get("model") or {}
@@ -290,7 +291,10 @@ def section_3(files, rows):
                     if dr:
                         inc = (1 if dr[0]["inc"] == 1 else 0) - (1 if dr[1]["inc"] == 1 else 0)
                         if inc != fi.get("incumbency"):
-                            inc_diff.append((c["id"], fi.get("incumbency"), inc))
+                            if F.record_fixes().get(c["id"]) == fi.get("incumbency"):
+                                inc_fixed.append((c["id"], inc, fi.get("incumbency")))   # #78's fix, checked in c28
+                            else:
+                                inc_diff.append((c["id"], fi.get("incumbency"), inc))
                 lg = fi.get("last_governor_race")
                 mine_lg = last_race(idx, st, y)
                 if mine_lg and (lg is None or lg["year"] != mine_lg[0] or abs(lg["share_D"] - mine_lg[1]) > 1e-9):
@@ -318,7 +322,7 @@ def section_3(files, rows):
           "worst relative differences " + ", ".join(f"{k} {v:.1e}" for k, v in worst.items()))
     print(f"  n = the two nominees' votes less one: {'every p' if not n_diff else 'NOT ' + str(n_diff[:5])}")
     print(f"  the inputs rebuilt: lean from the last presidential vote (year t - (t mod 4 or 4)) differs in {len(lean_diff)} {lean_diff[:3]}; "
-          f"president's party vs the even year after differs in {len(pres_diff)} {pres_diff[:3]}; incumbency vs Cha's code 1 differs in {len(inc_diff)} {inc_diff[:4]}")
+          f"president's party vs the even year after differs in {len(pres_diff)} {pres_diff[:3]}; incumbency vs Cha's code 1 differs in {len(inc_diff)} {inc_diff[:4]}; #78's fixes (Cha's code, the file's) {inc_fixed}")
     print(f"  the last governor race (my index: every governor file, even and odd, and Cha 2006 on): differs in {len(lag_diff)} contest(s):")
     for x in lag_diff:
         print(f"    {x[0]}: the file's last race {x[1]} (share {x[2]}); mine {x[3]} (share {x[4]}, from the {x[5]})")
@@ -508,7 +512,7 @@ def section_4(files, rows_even, idx):
     stands = counts and way(s_s, e_s) == way(s_v, e_v) != "as many"
     ln = rec["lean_note"]
     print(f"  the lean note's two tests on the plain route's back-test: (s) within 1 point: seen {s_s} against {e_s:.2f} expected ({way(s_s, e_s)}; record {ln['s']['seen']} against {ln['s']['expected']:.2f}); "
-          f"(v) k = {k:,} votes, the smallest at which 5 or more are expected (the ladder: " + ", ".join(f"{kk // 1000}k {b0['lean_v'][kk][0]:.2f}/{b0['lean_v'][kk][1]}" for kk in LEAN_KS)
+          f"(v) k = {k:,} votes, the smallest at which 5 or more are expected (the ladder: " + ", ".join(f"{kk:,} {b0['lean_v'][kk][0]:.2f}/{b0['lean_v'][kk][1]}" for kk in LEAN_KS)
           + f"): seen {s_v} against {e_v:.2f} ({way(s_v, e_v)}; record {ln['v']['seen']} against {ln['v']['expected']:.2f} within {ln['v']['within_votes']:,})")
     print(f"  both count (5 or more seen or expected) {counts}, lean the same way {way(s_s, e_s) == way(s_v, e_v)}: the note stands {stands} (record {ln['stands']}), and reads 'p may be {'low' if way(s_s, e_s) == 'more' else 'high'}'")
     # the chance of the count seen

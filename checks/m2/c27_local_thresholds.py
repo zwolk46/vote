@@ -357,7 +357,8 @@ def section_3(book, moves):
                             near={hh: (sum(1 for x in train if abs(x - t) <= hh) / len(train),
                                        abs(r["yes"] / (r["yes"] + r["no"]) - t) <= hh) for hh in WINDOWS},
                             general=r["date"] in MEDSL_GENERAL, equal=same_rule and same_fit and same_p and same_mv,
-                            tr=train, n=r["yes"] + r["no"], margin=abs(r["yes"] - r["no"])))
+                            tr=train, n=r["yes"] + r["no"], margin=abs(r["yes"] - r["no"]),
+                            note=(rec_p.get("note") or "")))
         print(f"    {st}: {dict(tal)}")
         for d in diffs[:12]:
             print(f"      {d[0][:70]} | {d[1]} | {d[2]}")
@@ -462,14 +463,15 @@ def section_4(rows):
 
 # ---------------------------------------------------------------------------------------------- 27.5
 def section_5(rows):
-    print("### 27.5 the 11:01 rule's two tests on the local classes (none of the 800 p carries a near-1/2 note; "
-          "an open reading, not a finding)")
-    print("  (s) the class's share within 5 points of 1/2, summed, against the questions that finished there; (v) the "
-          "same within k votes (k/(2n) of 1/2, n = yes + no), k the smallest of 1,000/5,000/10,000/20,000/50,000 with "
-          "5 or more expected; a test counts with 5 or more seen or expected; the note stands where both count and "
-          "lean the same way (c16's reading of D2's record of the rule). The vote ladder was made for statewide "
-          "measures: most local questions have under 1,000 votes, so its smallest step already holds most of them "
-          "and (v) says little here; (s) is the test to read.")
+    print("### 27.5 the lean note's two tests on the local pools, under the rule of 11:01 as amended at 13:52 (#79)")
+    print("  (s) the class's share within 1 point of the threshold, summed, against the questions that finished there; "
+          "(v) the same within k votes (k/(2n) of the threshold, n = yes + no), k the smallest of 10/100/1,000/5,000/"
+          "10,000/20,000/50,000 with 5 or more expected, not counting where its line holds more than half the pool; "
+          "a test counts with 5 or more seen or expected; the note stands where both count and lean the same way, or "
+          "on the one that counts (c16's two_tests). Each pool is one build's own back-test (the ruling's item 2).")
+    bt = L.load_json(os.path.join(L.DATA, "measure", "backtest-measures.json")).get("lean_notes_local") or {}
+    bn = (L.load_json(os.path.join(L.DATA, "local", "backtest-ncsbe.json")).get("questions_at_threshold") or {}).get("lean_note")
+    recs = {"LA 2024": bt.get("local measure, LA"), "NC general dates": bt.get("local measure, NC"), "NC other dates": bn}
 
     def emp(r, x):
         return sum(1 for v in r["tr"] if abs(v - 0.5) <= x) / len(r["tr"])
@@ -480,14 +482,31 @@ def section_5(rows):
               ("all 800", rows))
     for name, rs in groups:
         print(f"  {name} ({len(rs)} questions):")
-        ps_s = [emp(r, 0.05) for r in rs]
-        seen_s = [int(abs(r["s"] - 0.5) <= 0.05) for r in rs]
+        ps_s = [emp(r, 0.01) for r in rs]
+        seen_s = [int(abs(r["s"] - 0.5) <= 0.01 + 1e-12) for r in rs]
         years = collections.defaultdict(lambda: [0.0, 0])
         for r, p_, s_ in zip(rs, ps_s, seen_s):
             years[r["year"]][0] += p_
             years[r["year"]][1] += s_
         ladder = {k: ([emp(r, k / (2.0 * r["n"])) for r in rs], [int(r["margin"] <= k) for r in rs]) for k in C16.KS}
-        C16.two_tests(name, ps_s, seen_s, 0.05, ladder, {y: tuple(v) for y, v in years.items()})
+        C16.two_tests(name, ps_s, seen_s, 0.01, ladder, {y: tuple(v) for y, v in years.items()})
+        # D3 reads 'within k votes' as |s - t| <= k / (2(yes + no)) in floating point; a margin of exactly k can fall
+        # outside it by rounding
+        for k in (10, 100):
+            fl = sum(1 for r in rs if abs(r["s"] - 0.5) <= k / (2.0 * r["n"]))
+            ex = sum(1 for r in rs if r["margin"] == k)
+            print(f"    within {k} votes: margin <= {k} in {sum(1 for r in rs if r['margin'] <= k)}; D3's share form in floats {fl}; margin exactly {k} in {ex}")
+        rec = recs.get(name)
+        if rec:
+            st_, vt = rec.get("share_test") or {}, rec.get("vote_test") or {}
+            print(f"    the record: (s) {st_.get('seen')} against {st_.get('expected')} ({st_.get('line')}, counts {st_.get('counts')}), "
+                  f"(v) {vt.get('seen')} against {vt.get('expected')} ({vt.get('line') or vt.get('why')}, counts {vt.get('counts')}); "
+                  f"note {'stands on ' + str(rec.get('stands_on')) if rec.get('note') else 'none: ' + str(rec.get('why_none'))}")
+        # the counts of the p themselves: how many of this pool's p carry the note
+        noted = collections.Counter()
+        for r in rs:
+            noted["note" if r.get("note") else "no note"] += 1
+        print(f"    p blocks of this pool by note: {dict(noted)}")
 
 
 def main():

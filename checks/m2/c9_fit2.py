@@ -61,6 +61,9 @@ def main():
               f"({', '.join(f'{r['id']} {r['lean']:.6f} vs {r['file_lean']:.6f}' for r in dl[:3])}); incumbency differs in {len(di)} "
               f"({', '.join(f'{r['id']} Cha {r['inc']:+d} vs file {r['file_inc']:+d}' for r in di)}); last race differs in {len(dg)}")
 
+    fixed = F.all_rows().get("fixed_codes_applied") or []
+    print(f"  the governor codes #78 fixed, applied on the fit rows over the sources' codes (checked against their sources in c28): {len(fixed)} {fixed}")
+
     print("\n9.2 EACH YEAR'S FIT AGAINST THE FILE'S MODEL BLOCK (relative differences; the House of 2008-2012 on the Senate's terms)")
     print(f"  {'level year':16s} {'cycles':>6s} {'races':>11s} {'b_lean':>9s} {'b_inc':>9s} {'b_lag':>9s} {'s_e_fit':>9s} {'s_a':>9s} {'c (max)':>9s} {'ZtZ (max)':>9s} {'nat fc':>9s} {'nat sd':>9s} {'k':>9s} {'lambda':>9s}")
     worst = {}

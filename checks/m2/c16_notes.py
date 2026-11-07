@@ -34,8 +34,9 @@ import m2d3 as D  # noqa: E402
 import c15_d3_refit as C15  # noqa: E402
 import m2fit as F  # noqa: E402
 
-KS = (1000, 5000, 10000, 20000, 50000)
+KS = (10, 100, 1000, 5000, 10000, 20000, 50000)   # from 10 votes since the orchestrator's amendment of 13:52 (#79)
 MIN_COUNT = 5
+MEASURE_LINE = 0.01   # the statewide measures' share line since 13:52 (1 point of 1/2)
 LEVELS = (("house", 2010, 2024, 0.01), ("senate", 2010, 2024, 0.01), ("governor", 2006, 2024, 0.01))
 MEASURE_YEARS = (2018, 2024)
 
@@ -138,7 +139,10 @@ def two_tests(label, ps_s, seen_s, line, ladder, years_s, note=None):
     print(f"        the note's k = {chosen:,} (the smallest with {MIN_COUNT} or more expected): seen {n_k} against {e_k:.2f}: "
           f"{lean(n_k, e_k)} than forecast; chance of a count that far off: {ex_k:.3f} exact, {po_k:.3f} Poisson")
     counts_s = max(e_s, n_s) >= MIN_COUNT
-    counts_v = max(e_k, n_k) >= MIN_COUNT
+    holds_half = n_k > len(ps_s) / 2.0   # the amendment of 13:52: (v) does not count where its line holds more than half the pool
+    counts_v = max(e_k, n_k) >= MIN_COUNT and not holds_half
+    if holds_half:
+        print(f"        the line holds {n_k} of {len(ps_s)}, more than half: (v) does not count (the amendment of 13:52)")
     ls, lv = lean(n_s, e_s), lean(n_k, e_k)
     if counts_s and counts_v:
         if ls == lv:
@@ -218,15 +222,20 @@ def measures():
           f"(backtest-measures.json near_half 'all years statewide measure': {rec_n}); by year "
           + ", ".join(f"{y} {c}" for y, c in sorted(collections.Counter(r['year'] for r in rows).items())))
     emp = lambda r, x: float(np.mean(np.abs(r["tr"] - 0.5) <= x + 1e-12))  # noqa: E731
-    ps_s = [emp(r, 0.05) for r in rows]
-    seen_s = [int(abs(r["s"] - 0.5) <= 0.05 + 1e-12) for r in rows]
+    # the share line: 1 point of 1/2 since the amendment of 13:52 (#79; before it, 5 points, the note of 07:25)
+    ps_s = [emp(r, MEASURE_LINE) for r in rows]
+    seen_s = [int(abs(r["s"] - 0.5) <= MEASURE_LINE + 1e-12) for r in rows]
     years = collections.defaultdict(lambda: [0.0, 0])
     for r, p, s in zip(rows, ps_s, seen_s):
         years[r["year"]][0] += p
         years[r["year"]][1] += s
     ladder = {k: ([emp(r, k / (2.0 * r["n"])) for r in rows], [int(abs(2 * r["s"] - 1) * r["n"] <= k + 0.5) for r in rows]) for k in KS}
-    note_fig = next((m.group(0) for r in D.rows("measure") for m in [re.search(r"\d+ against [\d.]+", ((r.get("p") or {}).get("note") or ""))] if m), "none")
-    out = two_tests("measures", ps_s, seen_s, 0.05, ladder, {y: tuple(v) for y, v in years.items()}, note_fig)
+    note_fig = next((m.group(0) for r in D.rows("measure") if r.get("cls") == "statewide measure" for m in [re.search(r"\d+ against [\d.]+[^,)]*", ((r.get("p") or {}).get("note") or ""))] if m), "none")
+    out = two_tests("measures", ps_s, seen_s, MEASURE_LINE, ladder, {y: tuple(v) for y, v in years.items()}, note_fig)
+    rec = (L.load_json(os.path.join(L.DATA, "measure", "backtest-measures.json")).get("lean_notes_statewide") or {}).get("statewide measure")
+    if rec:
+        print(f"    the record (lean_notes_statewide): (s) {rec['share_test'].get('seen')} against {rec['share_test'].get('expected')} {rec['share_test'].get('line')}, "
+              f"(v) {rec['vote_test'].get('seen')} against {rec['vote_test'].get('expected')} {rec['vote_test'].get('line')}; stands on {rec.get('stands_on')}; note {'present' if rec.get('note') else 'none'}")
     # the same (v) in the p's own form: the class density at 1/2 by the D3-v1.1 window rule (100 or more like measures),
     # f x k / n inside the window, the empirical share beyond it
     parts = []

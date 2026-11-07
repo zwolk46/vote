@@ -360,6 +360,9 @@ def measures():
     tal, bad = collections.Counter(), []
     for r in ms:
         t, key = r["year"], r["cls"]
+        if key.startswith("local "):   # #77's local classes (local measure, NC / LA): their pools and p are c27's
+            tal["local class (c27's)"] += 1
+            continue
         sh = [s for y, s in by_key[key] if y < t]
         f, N, h, k = D.density_at(sh, r["t"])
         if f is None:
@@ -397,7 +400,11 @@ def measures():
     at = {}
     for r in ms:
         y, key, t = r["year"], r["cls"], r["t"]
+        if key.startswith("local "):   # c27's
+            continue
         tr = [x for yy, x in by_key[key] if yy < y]
+        if not tr:
+            continue
         v0, v1 = r["pair"]["votes"]
         s = v0 / (v0 + v1)
         h = D.window_h(r["win"])
