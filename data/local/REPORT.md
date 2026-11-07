@@ -1115,3 +1115,63 @@ It touches the 17 joined statewide questions (§20) whose state page prints the 
 - No p moves. Washington's initiatives get no p: their threshold turns on turnout as well as the yes share. Alabama's figures are unchanged.
 - The four Washington questions also enter the like-measures pool of 2025 and 2026 (North Carolina's). Their yes shares move by less than 0.0002, no question crosses a window's edge, and no p of those years changes.
 - Every other file is unchanged, the stamps apart.
+
+## 22. One-county titles: counted whole where the place lies wholly in the county (item 5)
+
+The order, verbatim: "count one whole only where the place it names lies entirely within that county, by the Census Bureau's place-to-county relationship file. Hold the rest." Its reason: "a question can sit in one county's file only because another county's file is missing it." A place that lies wholly in one county has no voters in another, so its question's count in that county is the whole count.
+
+**Which questions.** 3,972 local questions of 2016-2024 are counted by MEDSL in one county's file only: the same state, title, subject and date in no other county. They are in `local_medsl.one_place`, run on every year's contests after the states' own files have replaced MEDSL's.
+
+**The file.** The Census Bureau's `national_place_by_county2020.txt` (codes2020) lists each place once for each county it lies in. It was read 2026-11-07T15:32Z (sha256 9996494d…6ec6), through `pipeline/fetch.py`, into the cache.
+- Only active incorporated places are read (TYPE "INCORPORATED PLACE", FUNCSTAT "A"). A census designated place has no government to put a question, and a consolidated city's balance is not a place of its own.
+- The county is that of 2020. For other years it is [inferred]: an annexation across a county line would not show.
+
+**How a title names a place** (`pipeline/places.py`):
+- **[stated]:** the title says "City of X", "Town of X", "Village of X" or "Borough of X", and X is the state's one place of that kind.
+- **[inferred]:** the title says one of those, but the Census calls the place another kind ("City of Highfill" is Highfill town). This fallback is not used for "Town of" in the states whose towns are county subdivisions (CT, MA, ME, NH, NY, RI, VT, WI, MN): there the Town of Poughkeepsie is not the City of Poughkeepsie.
+- **[inferred]:** the title begins with an incorporated place's name ("Mesa-Question 2", "Florence Cannabis Question", "20-253 Eugene Marijuana Tax"), after an Oregon measure number is taken off.
+
+**Guards**, each found by reading every match of the trial by hand:
+- **A district, county, parish or township in the title is held.** This covers school words and Arizona's "ESD", "UHSD" and "Union #", a board of education ("BOE"), "Unified" and "College". Examples: "Stevensville Elementary School District", "Avondale Esd #44 Question", "Woodcliff Lake Boe Public Question".
+- **A special body after a leading name is held** (fire, library, park, cemetery and the like). Examples: "Sequim Library Capital Facility Area", "Spangle Cemetery".
+- **A name joined by a hyphen to another name is held** ("Caldwell-West Caldwell"). A question's word after the hyphen ("Mesa-Question 2") or a spaced dash ("Camilla- Sunday Sales") is not a join.
+- **A leading name whose next words make a longer name, or whose kind word is not the place's, is held.** Examples: "Ogden Valley City" is not Ogden city, and "Kenai Peninsula Borough" is not Kenai city.
+- **A leading name that is also a county's name, with that county as the record's, is held.** Examples: "Greenville Capital Projects Sales Tax", "Butler Cannabis Question". The county's own question is the likelier reading.
+- **A leading name that is also a town's or township's in the same county is held.** This uses the Bureau's county subdivision file `national_cousub2020.txt`, read only for this, active governments only. Examples: "Chester Proposition Two" (Chester town and Chester village), "Abercrombie Home Rule Charter". It does not apply where the title states the kind ("Bordentown City", "Corning City").
+- **A name that is more than one place in the state is held.**
+- **A place in more than one county, or in another county than the record's, is held.** Examples: Portland, Lake Oswego, Bothell, Atlanta, Wheeling.
+- **A retention is held:** a judge is retained by a court's district, not a place.
+
+**Counts** (all years):
+
+| | questions |
+|---|---|
+| counted whole, the place [stated] | 442 |
+| counted whole, the place [inferred] | 280 |
+| held: the title names no incorporated place | 1,345 |
+| held: the title names a district, county, parish or township | 938 |
+| held: a retention | 880 |
+| held: the place lies in 2 or 3 counties | 50 |
+| held: a county of the same name is the record's | 20 |
+| held: a special body after the name | 9 |
+| held: the name is also a town's or township's in the county | 5 |
+| held: hyphen join, name goes on, or another county | 3 |
+| total | 3,972 |
+
+By year, the whole questions are 259 (2016), 109 (2018), 52 (2020), 6 (2022) and 296 (2024).
+
+**What moves** (`data/measure/moves-one-county.json`, every record against the commit before):
+- **The 722 whole questions.** Each gets `place_whole` and a note, and is no longer "counted by county".
+  - 705 of them now say why their p is not computed in their state's own terms: "the thresholds of this state's local questions are not read". Only Louisiana's and North Carolina's local laws are read (step (b)).
+  - Louisiana's 8, all of 2020, take step (b): 5 have too few like measures for a p, and 3 are of a kind whose law was not read.
+  - 9 keep their reason (redacted precincts, one answer only, a county that does not add up).
+  - No whole question gets a p.
+- **Louisiana's like-local-measures pool.** Louisiana's 8 of 2020 now enter it.
+  - All 304 of Louisiana's local p of 2024 move by ×1.0435. Their pool goes from 299 to 307 questions, and from 14 to 15 within the window of ±2 points of ½.
+  - The 287 of 2023 still have no p: the pool before them grows from 0 to 8, short of 100.
+- **The back-test** at each question's own threshold (`data/measure/backtest-measures.json`) moves with them. For Louisiana's local measures, all years, the own window goes from 14.2 to 14.9 expected against 14 seen, and within 1 point from 7.1 to 7.9 against 8 seen. The lean notes are unchanged.
+- No candidate race and no statewide question moves.
+
+**Not done, for a ruling if wanted:**
+- Questions of a town or township (a county subdivision; New York's and New England's towns, New Jersey's townships) could be counted whole the same way by the Bureau's county subdivision file, since a county subdivision never crosses a county line. They are held now because the order names the place-to-county file.
+- Questions that name a county or parish (317 of the 938 held for a district or county word) may be the county's own question when the county is the record's. They could be counted whole on that reading [inferred].

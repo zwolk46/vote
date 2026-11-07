@@ -637,16 +637,16 @@
   "2024": {
    "measures": 338,
    "own_window": {
-    "expected": 15.3,
+    "expected": 15.9,
     "seen": 14
    },
    "near_threshold": {
     "within 1%": {
-     "expected": 8.2,
+     "expected": 9.0,
      "seen": 8
     },
     "within 2%": {
-     "expected": 16.8,
+     "expected": 17.4,
      "seen": 16
     },
     "within 5%": {
@@ -656,7 +656,7 @@
    },
    "near_votes": {
     "within 10 votes": {
-     "expected": 17.8,
+     "expected": 17.9,
      "seen": 9
     },
     "within 100 votes": {
@@ -688,16 +688,16 @@
   "all years": {
    "measures": 494,
    "own_window": {
-    "expected": 20.7,
+    "expected": 21.4,
     "seen": 19
    },
    "near_threshold": {
     "within 1%": {
-     "expected": 13.6,
+     "expected": 14.4,
      "seen": 13
     },
     "within 2%": {
-     "expected": 29.8,
+     "expected": 30.4,
      "seen": 25
     },
     "within 5%": {
@@ -707,15 +707,15 @@
    },
    "near_votes": {
     "within 10 votes": {
-     "expected": 19.9,
+     "expected": 20.0,
      "seen": 11
     },
     "within 100 votes": {
-     "expected": 127.7,
+     "expected": 127.6,
      "seen": 116
     },
     "within 1,000 votes": {
-     "expected": 308.2,
+     "expected": 308.1,
      "seen": 311
     },
     "within 5,000 votes": {
@@ -727,7 +727,7 @@
      "seen": 434
     },
     "within 20,000 votes": {
-     "expected": 460.1,
+     "expected": 460.0,
      "seen": 454
     },
     "within 50,000 votes": {
@@ -739,34 +739,34 @@
   "all years local measure, LA": {
    "measures": 304,
    "own_window": {
-    "expected": 14.2,
+    "expected": 14.9,
     "seen": 14
    },
    "near_threshold": {
     "within 1%": {
-     "expected": 7.1,
+     "expected": 7.9,
      "seen": 8
     },
     "within 2%": {
-     "expected": 14.2,
+     "expected": 14.9,
      "seen": 14
     },
     "within 5%": {
-     "expected": 39.7,
+     "expected": 39.6,
      "seen": 41
     }
    },
    "near_votes": {
     "within 10 votes": {
-     "expected": 17.6,
+     "expected": 17.7,
      "seen": 9
     },
     "within 100 votes": {
-     "expected": 110.4,
+     "expected": 110.3,
      "seen": 97
     },
     "within 1,000 votes": {
-     "expected": 240.7,
+     "expected": 240.6,
      "seen": 244
     },
     "within 5,000 votes": {
@@ -898,14 +898,14 @@
   "local measure, LA": {
    "questions": 304,
    "share_test": {
-    "expected": 7.1,
+    "expected": 7.9,
     "seen": 8,
     "counts": true,
     "leans": "more",
     "line": "within 1% of the threshold"
    },
    "vote_test": {
-    "expected": 17.6,
+    "expected": 17.7,
     "seen": 9,
     "counts": true,
     "leans": "fewer",
