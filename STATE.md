@@ -43,7 +43,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Keep the vote tracker current | cmsg_01FHkmcV6WaeZh9r5PfgnMbuByWBE5rw5LTK6xKGeqevgf | `briefs/T1-tracker.md` (Sonnet 5.5, xhigh) | started 03:08 |
 | Gather presidential data by state | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCWdWPRkhAafpzm5UUF9z22 | `briefs/D1-data-president.md` (Opus 5.5, xhigh) | done; #14, #23, #33 merged; stopped |
 | Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | working; #18 to #53 merged; brief amended 05:58 and 08:36; next: half-life k, then inc 2/3 |
-| Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | started 03:08; #16 (spec) merged; options on its preview branch; X2 next in this thread |
+| Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | working from 09:26: real data into both first-screen options and the explainer previews while the picks are pending (no merge; picker kept) |
 | Gather local, legislative, primary and measure data | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVThyXDPxVFHnA4YqgssTSs | `briefs/D3-data-local.md` (Opus 5.5, xhigh) | working; #25 to #49 merged; brief amended 08:36 |
 | Check every computed vote chance | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCEUo7XmYgNjtfLdxDRBTML | `briefs/M2-check-computed-p.md` (Fable 5.1, xhigh) | second pass started 07:42 (brief amended): Congress and governors after #38, D2's back-tests, k, D3's levels |
 | Gather voting costs and tie laws | cmsg_01FHkmcV6WaeZh9r5PfgnMbuGA4pBoUJj1By51aSAkx3E9 | `briefs/D4-data-cost-and-ties.md` (Sonnet 5.5, xhigh) | done; #40, #41, #43, #50 merged; stopped 09:08 |
@@ -51,6 +51,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 09:26: X1 woken (D4's slot): real data into both options' previews while the maker's picks are pending (lead = closest 2024 state; lowest-B* cases at $8.87 from M2-checked levels only: presidency, Congress, governors, state legislatures; midterms-style dots; populations; back-test lean notes shown visually). Picker kept, nothing merged. Reason: needed whichever he picks, and reversible.
 
 - 2026-11-07 09:26: #55 merged (D2: half-life k and Cha inc 2/3 variants all fail the rule and the robustness test; nothing of record changes). Forecast search for Congress stopped (six variants failed alike; more would fit noise). D2 last: near-even shortfall notes on House and Senate p (House 105 seen vs 87.5 expected within 1 pt, Senate 17 vs 11.1, 2010-24), FEC 2004 for House 2006 if token-light; then stop.
 
