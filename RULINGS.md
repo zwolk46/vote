@@ -26,3 +26,11 @@
 > Make these the project instructions
 
 (In the project chat, with `PROJECT-INSTRUCTIONS.md` attached.) *Reading.* The text of `PROJECT-INSTRUCTIONS.md` as drafted at 20:05 is the project's instructions, applied verbatim by the coordinator at 20:04 (the attached file was checked identical to the repository copy). It includes his standing approval of the model and effort the orchestrator names in each brief.
+
+## 2026-11-07 00:24 UTC: whose welfare is in B
+
+Decision card "Count whose welfare in B, the value of the outcome?"; options: only the voter's own; everyone the outcome affects; lead with break-even, show both. He chose:
+
+> Lead with break-even, show both
+
+*Reading.* The site leads with the break-even stakes B* = C ÷ p, which hold whoever's welfare B counts, and shows beside it what B* means for the voter alone and per person affected. Neither reading of B is chosen for the reader.
