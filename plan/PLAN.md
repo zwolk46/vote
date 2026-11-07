@@ -82,7 +82,7 @@ At most three workers at once, plus the tracker (OPERATIONS §4; the tracker run
 | `X2-explainer.md` | how p and B\* are worked out, for a non-technical person, through visuals: a scroll-driven story, two or three versions | Opus 5.5, xhigh, in X1's thread | when X1 has sent its first-screen options (the maker, 04:06) |
 | `D3-data-local.md` | state legislatures, local races, primaries, ballot measures, by script from standardized sources | Opus 5.5, xhigh | when one of D1, D2 ends |
 | D4 | cost inputs, mail share, tie and recount laws | Sonnet 5.5, xhigh (clear directive, at source) | after D3 starts |
-| M2 | Fable checks every computed p and the model's own forecasts against the model | Fable 5.1, xhigh | when D1's p are in |
+| `M2-check-computed-p.md` | Fable checks every computed p and the model's own forecasts against the model | Fable 5.1, xhigh | when D1's p are in (asked 04:37) |
 | Build workers | the pages, after the maker's pick | Opus 5.5, xhigh | phase 3 |
 
 *Reason:* data first because everything shown rests on it (law 7a); the presidency and Congress in parallel because they share nothing but the layout and the core; design alongside because it needs no new data; local races next because law 1a needs them most, but they wait for a free slot because usage is a real limit (OPERATIONS §4). A worker waiting on the maker's pick spends nothing, so it does not hold a slot. The explainer goes to X1's thread rather than a new one because it draws on the same ruler, dots and motion X1 has just designed, and because the maker calls it crucial (04:06): it takes X1's slot while X1 waits on his pick, so D3 waits for D1 or D2.

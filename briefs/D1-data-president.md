@@ -44,3 +44,11 @@ The maker's ruling of 03:13 (`RULINGS.md`; `plan/PLAN.md` §3a) amends this brie
 - **Intake by script.** For each standardized source, write `pipeline/intake/<source>.py` once: download to a cache outside the repository, check row counts and totals, convert into the layout of plan §3 with the source block filled. *Reason:* "an intake flow that doesn't use as many tokens"; a year or a state then costs a run, not a reading.
 - **An inventory.** List every standardized dataset you find, for your level and any other, in `data/sources/<your level>.md`: publisher, coverage, format, licence, and whether this environment reaches it. *Reason:* the next worker starts from what is known.
 - **No live data.** Everything is a published dataset taken in by script.
+
+
+## Amended 2026-11-07 05:58 UTC: follow-ups from M2 (`checks/M2-REPORT.md`, #26)
+
+M2 reproduced every presidential p and W independently. Two changes, in one pull request, each with its reason in `data/president/REPORT.md`:
+1. **538 kept on p's error, not the sd's.** Keep 538's implied sd only where p's relative error, |z² − 1| × the sd's, is under 20%; otherwise the model's own stands first (M2 3.9: 10 presidential entries). *Reason:* the reader sees p, and the sd's error reaches p multiplied by |z² − 1|.
+2. **Mark the Economist's W as thin** where its window holds fewer than 30 weighted draws (OH 13, IA 12, CO 28), not only under 10. *Reason:* M2 2.4: there W moves by factors of 3 to 10 with the window's width.
+Then report and stop.
