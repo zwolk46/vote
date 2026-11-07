@@ -69,19 +69,36 @@
     }
    }
   },
-  "2024 statewide measure (trained on 215)": {
+  "2023 statewide measure (trained on 215)": {
+   "measures": 8,
+   "near": {
+    "within 1%": {
+     "expected": 0.2,
+     "seen": 0
+    },
+    "within 2%": {
+     "expected": 0.4,
+     "seen": 0
+    },
+    "within 5%": {
+     "expected": 1.3,
+     "seen": 2
+    }
+   }
+  },
+  "2024 statewide measure (trained on 223)": {
    "measures": 119,
    "near": {
     "within 1%": {
-     "expected": 3.3,
+     "expected": 3.2,
      "seen": 7
     },
     "within 2%": {
-     "expected": 6.6,
+     "expected": 6.4,
      "seen": 12
     },
     "within 5%": {
-     "expected": 18.8,
+     "expected": 19.2,
      "seen": 29
     }
    }
@@ -104,19 +121,19 @@
    }
   },
   "all years statewide measure": {
-   "measures": 251,
+   "measures": 259,
    "near": {
     "within 1%": {
-     "expected": 6.7,
+     "expected": 6.8,
      "seen": 11
     },
     "within 2%": {
-     "expected": 14.5,
+     "expected": 14.7,
      "seen": 19
     },
     "within 5%": {
-     "expected": 36.4,
-     "seen": 52
+     "expected": 38.1,
+     "seen": 54
     }
    }
   },
@@ -163,7 +180,7 @@
   "2024": {
    "measures": 43,
    "own_window": {
-    "expected": 2.4,
+    "expected": 2.3,
     "seen": 6
    },
    "near_threshold": {
@@ -172,11 +189,11 @@
      "seen": 3
     },
     "within 2%": {
-     "expected": 2.4,
+     "expected": 2.3,
      "seen": 6
     },
     "within 5%": {
-     "expected": 6.8,
+     "expected": 6.9,
      "seen": 15
     }
    }
@@ -184,7 +201,7 @@
   "all years": {
    "measures": 65,
    "own_window": {
-    "expected": 3.7,
+    "expected": 3.6,
     "seen": 8
    },
    "near_threshold": {
@@ -193,11 +210,11 @@
      "seen": 4
     },
     "within 2%": {
-     "expected": 3.7,
+     "expected": 3.6,
      "seen": 8
     },
     "within 5%": {
-     "expected": 9.8,
+     "expected": 9.9,
      "seen": 24
     }
    }

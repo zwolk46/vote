@@ -36,7 +36,7 @@
       ]
      }
     },
-    "2024": {
+    "2023": {
      "fitted_on": [
       2020,
       2022
@@ -68,19 +68,54 @@
        17
       ]
      }
+    },
+    "2024": {
+     "fitted_on": [
+      2020,
+      2022,
+      2023
+     ],
+     "pooled": 0.77,
+     "own": {
+      "class, local council, commission or board": 0.822,
+      "class, local school board": 0.665
+     },
+     "fit_counts_expected_seen": {
+      "class, local council, commission or board": [
+       226.4,
+       186
+      ],
+      "class, local judge": [
+       16.4,
+       9
+      ],
+      "class, local mayor or executive": [
+       3.4,
+       4
+      ],
+      "class, local school board": [
+       57.1,
+       38
+      ],
+      "class, local special district": [
+       26.5,
+       17
+      ]
+     }
     }
    },
    "test": {
     "years": [
      2022,
+     2023,
      2024
     ],
-    "contests": 2441,
-    "seen_near_half": 208,
-    "expected_before": 299.3,
-    "expected_after": 224.0,
-    "deviance_by_office_type_before": 44.87,
-    "deviance_after": 16.05,
+    "contests": 2521,
+    "seen_near_half": 214,
+    "expected_before": 309.7,
+    "expected_after": 234.8,
+    "deviance_by_office_type_before": 46.96,
+    "deviance_after": 17.35,
     "improves": true,
     "tested_cells_made_worse": [
      "class, local judge"
@@ -88,9 +123,9 @@
     "passes": false,
     "by_office_type": {
      "class, local council, commission or board": {
-      "expected_before": 129.4,
-      "expected_after": 104.5,
-      "seen": 86,
+      "expected_before": 139.8,
+      "expected_after": 114.8,
+      "seen": 92,
       "tested": true
      },
      "class, local school board": {
@@ -101,25 +136,25 @@
      },
      "class, local special district": {
       "expected_before": 32.1,
-      "expected_after": 24.4,
+      "expected_after": 24.7,
       "seen": 25,
       "tested": true
      },
      "class, local mayor or executive": {
       "expected_before": 7.3,
-      "expected_after": 5.5,
+      "expected_after": 5.6,
       "seen": 5,
       "tested": true
      },
      "class, local judge": {
       "expected_before": 4.2,
-      "expected_after": 3.2,
+      "expected_after": 3.3,
       "seen": 8,
       "tested": true
      },
      "class, local clerk, treasurer or other county officer": {
       "expected_before": 4.2,
-      "expected_after": 3.2,
+      "expected_after": 3.3,
       "seen": 0,
       "tested": false
      },
@@ -140,14 +175,15 @@
    "leave_one_year_out": {
     "2022": {
      "years": [
+      2023,
       2024
      ],
-     "contests": 2331,
-     "seen_near_half": 205,
-     "expected_before": 283.6,
-     "expected_after": 211.4,
-     "deviance_by_office_type_before": 37.48,
-     "deviance_after": 16.05,
+     "contests": 2411,
+     "seen_near_half": 211,
+     "expected_before": 294.0,
+     "expected_after": 222.2,
+     "deviance_by_office_type_before": 39.54,
+     "deviance_after": 17.27,
      "improves": true,
      "tested_cells_made_worse": [
       "class, local judge"
@@ -155,9 +191,9 @@
      "passes": false,
      "by_office_type": {
       "class, local council, commission or board": {
-       "expected_before": 125.9,
-       "expected_after": 101.7,
-       "seen": 85,
+       "expected_before": 136.3,
+       "expected_after": 111.9,
+       "seen": 91,
        "tested": true
       },
       "class, local school board": {
@@ -168,25 +204,92 @@
       },
       "class, local special district": {
        "expected_before": 32.1,
-       "expected_after": 24.4,
+       "expected_after": 24.7,
        "seen": 25,
        "tested": true
       },
       "class, local mayor or executive": {
        "expected_before": 6.9,
-       "expected_after": 5.2,
+       "expected_after": 5.3,
        "seen": 5,
        "tested": true
       },
       "class, local judge": {
        "expected_before": 4.2,
-       "expected_after": 3.2,
+       "expected_after": 3.3,
        "seen": 8,
        "tested": true
       },
       "class, local clerk, treasurer or other county officer": {
        "expected_before": 4.2,
-       "expected_after": 3.2,
+       "expected_after": 3.3,
+       "seen": 0,
+       "tested": false
+      },
+      "class, state judge": {
+       "expected_before": 2.0,
+       "expected_after": 1.6,
+       "seen": 3,
+       "tested": false
+      },
+      "class, local sheriff or constable": {
+       "expected_before": 1.3,
+       "expected_after": 1.0,
+       "seen": 1,
+       "tested": false
+      }
+     }
+    },
+    "2023": {
+     "years": [
+      2022,
+      2024
+     ],
+     "contests": 2503,
+     "seen_near_half": 210,
+     "expected_before": 308.6,
+     "expected_after": 233.9,
+     "deviance_by_office_type_before": 49.7,
+     "deviance_after": 18.9,
+     "improves": true,
+     "tested_cells_made_worse": [
+      "class, local judge"
+     ],
+     "passes": false,
+     "by_office_type": {
+      "class, local council, commission or board": {
+       "expected_before": 138.7,
+       "expected_after": 113.9,
+       "seen": 88,
+       "tested": true
+      },
+      "class, local school board": {
+       "expected_before": 118.7,
+       "expected_after": 80.5,
+       "seen": 80,
+       "tested": true
+      },
+      "class, local special district": {
+       "expected_before": 32.1,
+       "expected_after": 24.7,
+       "seen": 25,
+       "tested": true
+      },
+      "class, local mayor or executive": {
+       "expected_before": 7.3,
+       "expected_after": 5.6,
+       "seen": 5,
+       "tested": true
+      },
+      "class, local judge": {
+       "expected_before": 4.2,
+       "expected_after": 3.3,
+       "seen": 8,
+       "tested": true
+      },
+      "class, local clerk, treasurer or other county officer": {
+       "expected_before": 4.2,
+       "expected_after": 3.3,
        "seen": 0,
        "tested": false
       },
@@ -206,17 +309,20 @@
     },
     "2024": {
      "years": [
-      2022
+      2022,
+      2023
      ],
-     "contests": 110,
-     "seen_near_half": 3,
-     "expected_before": 15.7,
-     "expected_after": 12.6,
-     "deviance_by_office_type_before": 15.83,
-     "deviance_after": 10.85,
+     "contests": 128,
+     "seen_near_half": 7,
+     "expected_before": 16.8,
+     "expected_after": 13.4,
+     "deviance_by_office_type_before": 13.37,
+     "deviance_after": 9.64,
      "improves": true,
-     "tested_cells_made_worse": [],
-     "passes": true,
+     "tested_cells_made_worse": [
+      "class, local council, commission or board"
+     ],
+     "passes": false,
      "by_office_type": {
       "class, local school board": {
        "expected_before": 11.8,
@@ -225,10 +331,10 @@
        "tested": true
       },
       "class, local council, commission or board": {
-       "expected_before": 3.5,
-       "expected_after": 2.9,
-       "seen": 1,
-       "tested": false
+       "expected_before": 4.6,
+       "expected_after": 3.7,
+       "seen": 5,
+       "tested": true
       },
       "class, local mayor or executive": {
        "expected_before": 0.4,
