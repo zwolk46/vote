@@ -75,3 +75,5 @@
 **Zach, 04:09 UTC (this thread):** "And it should also be checked by an agent specifically instructed to lack some technical understanding and as a total layperson, who doesn't even understand the fundamental correct nature of a cost-benefit analysis"
 
 **Orchestrator, 04:10.** "Adding that reader to the explainer's test, and to the first-screen options too."
+
+**Orchestrator, 04:11.** "Done. Both the explainer and the first-screen options now get two cold readers before you see them: one with no statistics, and one told to be a total layperson who doesn't know what a cost-benefit analysis is. The page has to teach that weighing itself. The designer has your notes on option C and the midterms dot charts too."
