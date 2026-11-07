@@ -97,7 +97,65 @@ def load(year):
                     continue
                 out.append(c)
     import local_nj as NJ
-    return NJ.county_gate(certified_la(certified_in(certified_nc(fix_questions(out, year), year), year), year), year)
+    return NJ.county_gate(certified_la(certified_in(certified_nc(join_statewide(fix_questions(out, year), year), year),
+                                                year), year), year)
+
+
+STATEWIDE_LISTED = os.path.join(L.REPO, "data", "measure", "statewide-filed-local.json")
+JOINED = collections.defaultdict(collections.Counter)   # year -> what join_statewide did, for the report
+
+
+def _listed():
+    if not os.path.exists(STATEWIDE_LISTED):
+        return []
+    with open(STATEWIDE_LISTED) as f:
+        return json.load(f)["questions"]
+
+
+def join_statewide(contests, year):
+    """A statewide question MEDSL files with local offices (its local dataverse), once per county (Alabama's 2020
+    amendments, 67 lines) or once for the whole state (Arkansas's 2016 issues), is a statewide question where the
+    state's own list of that year's statewide measures names it (data/measure/statewide-filed-local.json; the
+    orchestrator, 2026-11-07 13:54: 'from the state's own list of that year's statewide measures where it answers,
+    so they are marked stated'). Each one's lines are joined into one question filed with the state's offices: its
+    counties' votes added up answer by answer, its counties and precincts together. Whether it then covers the
+    state is still read from its counties and precincts (measures.scope_of): a question the source holds for part of
+    the state stays partial, and gets no p."""
+    listed = [q for q in _listed() if q["year"] == year]
+    if not listed:
+        return contests
+    out, groups = [], collections.defaultdict(list)
+    for c in contests:
+        hit = next((i for i, q in enumerate(listed)
+                    if c["question"] and c["dataverse"] != "STATE" and c["state"] == q["state"]
+                    and c["office"] in q["offices_as_filed"] and c["date"] == q["date"]), None)
+        if hit is None:
+            out.append(c)
+        else:
+            groups[hit].append(c)
+    for i, q in enumerate(listed):
+        g = groups.get(i)
+        if not g:
+            raise SystemExit(f"join_statewide: {q['state']} {year} {q['title']!r} is listed but MEDSL holds no line of "
+                             f"it under {q['offices_as_filed']}")
+        votes, cands = collections.Counter(), {}
+        for c in g:
+            for x in c["candidates"]:
+                votes[x["name"]] += x["votes"]
+                k = cands.setdefault(x["name"], {k_: v for k_, v in x.items() if k_ != "votes"})
+                if x.get("votes_missing_in_some_precincts"):
+                    k["votes_missing_in_some_precincts"] = True
+        j = dict(g[0], dataverse="STATE", office=q["offices_as_filed"][0],
+                 counties=sorted({k for c in g for k in c["counties"]}),
+                 precincts=sum(c.get("precincts") or 0 for c in g),
+                 candidates=[dict(cands[n], votes=v) for n, v in votes.items()],
+                 filed_local={"records": len(g), "offices_as_filed": sorted({c["office"] for c in g}), "listed": q})
+        j.pop("one_answer_only", None)
+        if any(c.get("one_answer_only") for c in g):   # a piece the source gives one answer of: the whole is held
+            j["one_answer_only"] = True
+        out.append(j)
+        JOINED[year][f"{q['state']}: statewide questions filed with local offices, joined ({len(g)} lines)"] += 1
+    return out
 
 
 def held(c, bad_y):
@@ -1840,6 +1898,23 @@ def build(out_dir, with_p=True):
             if c.get("joined_from"):
                 notes.append("the source files its yes and its no under different wordings (" +
                              " | ".join(x.title() for x in c["joined_from"]) + "); joined")
+            if c.get("filed_local"):   # a statewide question MEDSL files with local offices (join_statewide)
+                fl, q = c["filed_local"], c["filed_local"]["listed"]
+                notes.append("filed in MEDSL's local file with local offices ("
+                             + (f"{fl['records']} lines, one per county" if fl["records"] > 1 else "one line")
+                             + (", under " + " and ".join(repr(x.title()) for x in fl["offices_as_filed"])
+                                if len(fl["offices_as_filed"]) > 1 else "")
+                             + "); the state's own list of that year's statewide measures names it, so its lines "
+                               "are joined into one statewide question (data/measure/statewide-filed-local.json)")
+                rec["listed_statewide"] = {"list": q["list"], "quote": q["quote"], "mark": q["mark"],
+                                           "lines_joined": fl["records"]}
+                if q.get("state_total"):   # the state's own statewide figures, where a page read prints them
+                    st_ = q["state_total"]
+                    ours = {x["name"].upper(): x["votes"] for x in c["candidates"]}
+                    rec["listed_statewide"]["state_total"] = {
+                        "votes": st_["votes"], "quote": st_["quote"], "cache_file": st_["quote_file"],
+                        "agrees": all(ours.get(k) == v for k, v in st_["votes"].items()),
+                        "medsl_less_state": {k: ours.get(k, 0) - v for k, v in st_["votes"].items()}}
             if notes:
                 rec["notes"] = notes
             label = f"measure {year}"
@@ -2041,6 +2116,7 @@ def build(out_dir, with_p=True):
     print(f"wrote {sum(len(v) for v in files.values()):,} contests in {len(files):,} files, {total / 1e6:.1f} MB: "
           + ", ".join(f"{k} {v / 1e6:.1f} MB" for k, v in sorted(by_level.items())))
     counts.update({f"left out, no vote anywhere, {y}": EMPTY[y] for y in YEARS})
+    counts.update({f"joined {y}, {k}": v for y in sorted(JOINED) for k, v in JOINED[y].items()})
     print(json.dumps(dict(sorted(counts.items())), indent=1))
     return files, counts
 

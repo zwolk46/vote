@@ -153,6 +153,11 @@ def rule_for(c, kind, book, year, rid=None):
     step (a) (`rid`, its record's id, in data/measure/ballot-texts.json), gives its type and whether a special rule's
     condition holds."""
     text = (book.get("ballot_texts") or {}).get(rid) if rid else None
+    if text is None and c.get("filed_local"):   # the state's list of its statewide measures (local_medsl.join_statewide)
+        q = c["filed_local"]["listed"]
+        text = {"type": q.get("type"), "type_mark": q.get("type_mark"), "proposer": q.get("proposer"),
+                "fact": q.get("fact"), "said_by": "the state's list of its statewide measures",
+                "file": "data/measure/statewide-filed-local.json"}
     who = proposer_of(c, text)
     who = who if who[0] else None
     st = c["state"]
@@ -172,7 +177,8 @@ def rule_for(c, kind, book, year, rid=None):
     tty = (text or {}).get("type")
     if tty and tty != ty:   # the ballot text's own words give the type where the title does not, or says otherwise
         said = "states" if text.get("type_mark") == "stated" else f"shows [{text.get('type_mark')}]"
-        how_t = (f"by the type the ballot text {said} ({tty}; data/measure/ballot-texts.json)" +
+        how_t = (f"by the type {text.get('said_by', 'the ballot text')} {said} ({tty}; "
+                 f"{text.get('file', 'data/measure/ballot-texts.json')})" +
                  (f", not the title's ({ty})" if ty is not None else ""))
         ty = tty
     else:
@@ -202,10 +208,11 @@ def rule_for(c, kind, book, year, rid=None):
     if special and fact.get("applies") is not None:   # the ballot text settles whether the special rule's case holds
         pick = special if fact["applies"] else general
         if pick and len({form(r) for r in pick}) == 1 and len({r["only_if"] for r in special}) == 1:
-            return _one(pick, f"{how}; the ballot text shows it is {'' if fact['applies'] else 'not '}"
-                              f"{special[0]['only_if']} [{fact['mark']}] (data/measure/ballot-texts.json)", who)
+            return _one(pick, f"{how}; {text.get('said_by', 'the ballot text')} shows it is "
+                              f"{'' if fact['applies'] else 'not '}{special[0]['only_if']} [{fact['mark']}] "
+                              f"({text.get('file', 'data/measure/ballot-texts.json')})", who)
     unshown = ("; its ballot text, read in step (a), does not show it either (data/measure/ballot-texts.json)"
-               if text else "")
+               if text and not text.get("said_by") else "")
     if not general:
         return None, None, (f"the general threshold is not read; {special[0]['citation']} covers only "
                             f"{special[0]['only_if']}" + (unshown if special and fact.get("applies") is None else ""))
@@ -265,7 +272,8 @@ def proposer_of(c, text=None):
     None) where neither shows it."""
     pr = (text or {}).get("proposer")
     if pr:
-        return pr["who"], f"[{pr['mark']}: the ballot text read, data/measure/ballot-texts.json]"
+        return pr["who"], (f"[{pr['mark']}: {text.get('said_by', 'the ballot text read')}, "
+                           f"{text.get('file', 'data/measure/ballot-texts.json')}]")
     t = " ".join((c["office"] + " " + (c.get("subject") or "")).upper().split())
     hits = {who for who, pat in _PROPOSER_WORDS if re.search(pat, t)}
     return (hits.pop(), "[stated: the title's words]") if len(hits) == 1 else (None, None)

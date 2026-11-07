@@ -1,0 +1,1642 @@
+{
+ "about": "Statewide questions that MEDSL's precinct files put with local offices (its local dataverse), once per county or once for the whole state, each found on the state's own list of that year's statewide measures (the orchestrator, 2026-11-07 13:54: 'from the state's own list of that year's statewide measures where it answers, so they are marked stated'). pipeline/local_medsl.py joins each one's lines into one statewide question (join_statewide). 'offices_as_filed' are MEDSL's offices joined; 'list' is the state's page read, its 'cache_file' under the cache (not committed); 'quote' is the list's own words for the question, 'mark' how the match to our title was read; 'statewide' the words that make the list a statewide one; 'type' and 'proposer' in this repository's words (pipeline/measures.py), read from the list ('type_as_listed', 'type_quote'); 'state_total', where a state page read prints the question's statewide yes and no, those figures and their words, set against MEDSL's sum in each record (listed_statewide.state_total). Read by D3's readers; every quote checked word for word against its saved file (whitespace and quote marks normalized).",
+ "questions": [
+  {
+   "state": "AR",
+   "year": 2016,
+   "title": "Issue No. 1: Proposing An Amendment To The Arkansas Constitution Concerning The Terms, Election, And Eligibility Of Elected Officials",
+   "offices_as_filed": [
+    "ISSUE NO. 1: PROPOSING AN AMENDMENT TO THE ARKANSAS CONSTITUTION CONCERNING THE TERMS, ELECTION, AND ELIGIBILITY OF ELECTED OFFICIALS"
+   ],
+   "list": {
+    "name": "Arkansas Secretary of State (Elections Division): 'Initiatives and Amendments' table, 1938-2018 (columns YEAR / PROPOSAL / ISSUE / SOURCE / VOTE OUTCOME / STATEWIDE RESULTS; the PDF has no title line, this name is taken from its file name)",
+    "url": "https://www.sos.arkansas.gov/uploads/elections/Initiatives_and_Amendments_1938-2018_1.pdf",
+    "read_utc": "2026-11-07T14:39:13Z",
+    "cache_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.pdf"
+   },
+   "date": "2016-11-08",
+   "quote": "Proposed Constitutional Amendment No. 1 An Amendment to the Arkansas Constitution Concerning the Terms, Election, and Eligibility of Elected Officials Legislature",
+   "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+   "mark": "stated",
+   "match_note": "The list calls it 'Proposed Constitutional Amendment No. 1' where our source says 'Issue No. 1'; same number, same subject words (ours adds a leading 'Proposing'). 2016 stated beside it: '2016 Proposed Constitutional Amendment No. 1'.",
+   "statewide": {
+    "quote": "STATEWIDE RESULTS",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "note": "The table's own last column is headed 'STATEWIDE RESULTS' and gives one YES/NO total per measure."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendment No. 1",
+   "type_quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Elected Officials Legislature",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "Elected Officials Legislature",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "why": "the list's Source column for it reads 'Legislature': referred by the General Assembly, not an amendment the people initiated"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 747856,
+     "NO": 317093
+    },
+    "quote": "747,856 (70.22%) 317,093 (29.78%)",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AR",
+   "year": 2016,
+   "title": "Issue No. 2: A Constitutional Amendment To Allow The Governor To Retain His Or Her Powers And Duties When Absent From The State",
+   "offices_as_filed": [
+    "ISSUE NO. 2: A CONSTITUTIONAL AMENDMENT TO ALLOW THE GOVERNOR TO RETAIN HIS OR HER POWERS AND DUTIES WHEN ABSENT FROM THE STATE"
+   ],
+   "list": {
+    "name": "Arkansas Secretary of State (Elections Division): 'Initiatives and Amendments' table, 1938-2018 (columns YEAR / PROPOSAL / ISSUE / SOURCE / VOTE OUTCOME / STATEWIDE RESULTS; the PDF has no title line, this name is taken from its file name)",
+    "url": "https://www.sos.arkansas.gov/uploads/elections/Initiatives_and_Amendments_1938-2018_1.pdf",
+    "read_utc": "2026-11-07T14:39:13Z",
+    "cache_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.pdf"
+   },
+   "date": "2016-11-08",
+   "quote": "Proposed Constitutional Amendment No. 2 An Amendment to the Arkansas Constitution to Allow the Governor to Retain His or Her Powers and Duties When Absent from the State Legislature",
+   "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+   "mark": "stated",
+   "match_note": "'Issue No.' vs 'Proposed Constitutional Amendment No.'; ours opens 'A Constitutional Amendment To Allow', the list 'An Amendment to the Arkansas Constitution to Allow'; the rest of the title is the same. Year membership: the table prints the year once, at the first row of each year's group (2016 beside Amendment No. 1; 2018 beside Issue No. 2, quote '2018 Issue No. 2'), so Nos. 2, 3 and 6 are in the 2016 group by position; the SOS's own constitution file confirms each as 'adopted at the 2016 general election' with the same vote totals as the table.",
+   "statewide": {
+    "quote": "STATEWIDE RESULTS",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "note": "The table's own last column is headed 'STATEWIDE RESULTS' and gives one YES/NO total per measure."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendment No. 2",
+   "type_quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "When Absent from the State Legislature",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "When Absent from the State Legislature",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "why": "the list's Source column for it reads 'Legislature': referred by the General Assembly, not an amendment the people initiated"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 777973,
+     "NO": 296291
+    },
+    "quote": "777,973 (72.42%) 296,291 (27.58%)",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AR",
+   "year": 2016,
+   "title": "Issue No. 3: An Amendment To The Arkansas Constitution Concerning Job Creation, Job Expansion, And Economic Development",
+   "offices_as_filed": [
+    "ISSUE NO. 3: AN AMENDMENT TO THE ARKANSAS CONSTITUTION CONCERNING JOB CREATION, JOB EXPANSION, AND ECONOMIC DEVELOPMENT"
+   ],
+   "list": {
+    "name": "Arkansas Secretary of State (Elections Division): 'Initiatives and Amendments' table, 1938-2018 (columns YEAR / PROPOSAL / ISSUE / SOURCE / VOTE OUTCOME / STATEWIDE RESULTS; the PDF has no title line, this name is taken from its file name)",
+    "url": "https://www.sos.arkansas.gov/uploads/elections/Initiatives_and_Amendments_1938-2018_1.pdf",
+    "read_utc": "2026-11-07T14:39:13Z",
+    "cache_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.pdf"
+   },
+   "date": "2016-11-08",
+   "quote": "Proposed Constitutional Amendment No. 3 An Amendment to the Arkansas Constitution to Encourage Job Creation, Job Expansion, and Economic Development Legislature",
+   "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+   "mark": "inferred",
+   "match_note": "Identity is inferred, not stated: same number and same subject (Job Creation, Job Expansion, and Economic Development) but the wording differs: ours 'Concerning Job Creation...', the list 'to Encourage Job Creation...'. Year membership: the table prints the year once, at the first row of each year's group (2016 beside Amendment No. 1; 2018 beside Issue No. 2, quote '2018 Issue No. 2'), so Nos. 2, 3 and 6 are in the 2016 group by position; the SOS's own constitution file confirms each as 'adopted at the 2016 general election' with the same vote totals as the table.",
+   "statewide": {
+    "quote": "STATEWIDE RESULTS",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "note": "The table's own last column is headed 'STATEWIDE RESULTS' and gives one YES/NO total per measure."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendment No. 3",
+   "type_quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Economic Development Legislature",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "Economic Development Legislature",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "why": "the list's Source column for it reads 'Legislature': referred by the General Assembly, not an amendment the people initiated"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 689980,
+     "NO": 366020
+    },
+    "quote": "689,980 (65.34%) 366,020 (34.66%)",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AR",
+   "year": 2016,
+   "title": "Issue No. 6: Arkansas Medical Marijuana Amendment Of 2016",
+   "offices_as_filed": [
+    "ISSUE NO. 6: ARKANSAS MEDICAL MARIJUANA AMENDMENT OF 2016"
+   ],
+   "list": {
+    "name": "Arkansas Secretary of State (Elections Division): 'Initiatives and Amendments' table, 1938-2018 (columns YEAR / PROPOSAL / ISSUE / SOURCE / VOTE OUTCOME / STATEWIDE RESULTS; the PDF has no title line, this name is taken from its file name)",
+    "url": "https://www.sos.arkansas.gov/uploads/elections/Initiatives_and_Amendments_1938-2018_1.pdf",
+    "read_utc": "2026-11-07T14:39:13Z",
+    "cache_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.pdf"
+   },
+   "date": "2016-11-08",
+   "quote": "Proposed Constitutional Amendment No. 6 Arkansas Medical Marijuana Amendment of 2016 Petition",
+   "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+   "mark": "stated",
+   "match_note": "'Issue No. 6' vs 'Proposed Constitutional Amendment No. 6'; same number, same title. Year membership: the table prints the year once, at the first row of each year's group (2016 beside Amendment No. 1; 2018 beside Issue No. 2, quote '2018 Issue No. 2'), so Nos. 2, 3 and 6 are in the 2016 group by position; the SOS's own constitution file confirms each as 'adopted at the 2016 general election' with the same vote totals as the table.",
+   "statewide": {
+    "quote": "STATEWIDE RESULTS",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "note": "The table's own last column is headed 'STATEWIDE RESULTS' and gives one YES/NO total per measure."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendment No. 6",
+   "type_quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "initiative",
+    "as_listed": "initiative petition (list column SOURCE says 'Petition')",
+    "quote": "Arkansas Medical Marijuana Amendment of 2016 Petition",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": true,
+    "quote": "Arkansas Medical Marijuana Amendment of 2016 Petition",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "mark": "stated",
+    "why": "the list's Source column for it reads 'Petition': an amendment the people initiated"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 585030,
+     "NO": 516525
+    },
+    "quote": "585,030 (53.11%) 516,525 (46.89%)",
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "FL",
+   "year": 2016,
+   "title": "Amendment No. 1: Rights Of Electricity Consumers Regarding Solar Energy Choice",
+   "offices_as_filed": [
+    "AMENDMENT NO. 1: RIGHTS OF ELECTRICITY CONSUMERS REGARDING SOLAR ENERGY CHOICE"
+   ],
+   "list": {
+    "name": "Florida Department of State, Division of Elections: 'Proposed Constitutional Amendments to be voted on November 8, 2016' (booklet)",
+    "url": "https://files.floridados.gov/media/696216/constitutional-amendments-2016-general-english-booklet.pdf",
+    "read_utc": "2026-11-07T14:39:14Z",
+    "cache_file": "swlists/S1/pages/FL_constitutional-amendments-2016-general-english-booklet.pdf"
+   },
+   "date": "2016-11-08",
+   "quote": "NO. 1 CONSTITUTIONAL AMENDMENT ARTICLE X, SECTION 29 (INITIATIVE) Ballot Title: Rights of Electricity Consumers Regarding Solar Energy Choice",
+   "quote_file": "swlists/S1/pages/FL_constitutional-amendments-2016-general-english-booklet.txt",
+   "mark": "stated",
+   "match_note": "Number and ballot title match ours exactly (apart from case).",
+   "statewide": {
+    "quote": "Proposed Constitutional Amendments to be voted on November 8, 2016",
+    "quote_file": "swlists/S1/pages/FL_constitutional-amendments-2016-general-english-booklet.txt",
+    "mark": "inferred",
+    "note": "Published by the state's Division of Elections as the amendments 'to be voted on' that day; the word 'statewide' is not printed anywhere in the booklet, so statewide is inferred from the publisher and from the items being amendments to Florida's constitution."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "NO. 1 CONSTITUTIONAL AMENDMENT",
+   "type_quote_file": "swlists/S1/pages/FL_constitutional-amendments-2016-general-english-booklet.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "initiative",
+    "as_listed": "initiative (citizen-proposed; the booklet prints '(INITIATIVE)')",
+    "quote": "ARTICLE X, SECTION 29 (INITIATIVE)",
+    "quote_file": "swlists/S1/pages/FL_constitutional-amendments-2016-general-english-booklet.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "The amendment is not expected to result in an increase or decrease in any revenues or costs to state and local government.",
+    "quote_file": "swlists/S1/pages/FL_constitutional-amendments-2016-general-english-booklet.txt",
+    "mark": "inferred",
+    "why": "the booklet prints the amendment's full text (Art. X, s. 29), read in full: it sets a right to own or lease solar equipment and no word in it imposes or sets a tax or fee; its Financial Impact Statement is quoted. Reading: not an amendment that imposes a new State tax or fee"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "LA",
+   "year": 2018,
+   "title": "Ca No. 1 (Act 719 - Sb 31) - Prohibit Felon From Public Office",
+   "offices_as_filed": [
+    "CA NO. 1 (ACT 719 - SB 31) - PROHIBIT FELON FROM PUBLIC OFFICE"
+   ],
+   "list": {
+    "name": "Louisiana Secretary of State: '2018 Proposed Constitutional Amendments, November 6, 2018 Election' (PDF, linked on the SOS 'Types of Elections' page as 'Nov. 6, 2018 Constitutional Amendments')",
+    "url": "https://www.sos.la.gov/media/mwefjd3m/proposed-constitutional-amendments-2018.pdf",
+    "read_utc": "2026-11-07T14:42:07Z",
+    "cache_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.pdf"
+   },
+   "date": "2018-11-06",
+   "quote": "Proposed Amendment No. 1 Act 719 of the 2018 Regular Session of the Louisiana Legislature proposing to add Article I, Section 10.1 to the Louisiana Constitution.",
+   "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "mark": "stated",
+   "match_note": "Number 1 and Act 719 match ours; the list prints the Act number and the question, not our 'Sb' bill number or our short subject (our short subject agrees with the printed question).",
+   "statewide": {
+    "quote": "Constitutional amendments are placed on statewide election dates as determined by the legislature.",
+    "quote_file": "swlists/S1/pages/LA_types-of-elections.txt",
+    "mark": "stated",
+    "note": "A general statement on the SOS 'Types of Elections' page about constitutional amendments; the 2018 list itself does not use the word 'statewide'. The list says: 'The six (6) constitutional amendments that will be on the ballot for the November 6, 2018 election are listed below.'"
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "2018 PROPOSED CONSTITUTIONAL AMENDMENTS",
+   "type_quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Act 719 of the 2018 Regular Session of the Louisiana Legislature proposing to add Article I, Section 10.1 to the Louisiana Constitution",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "Do you support an amendment to prohibit a convicted felon from seeking or holding public office or appointment within five years of completion of his sentence unless he is pardoned?",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "inferred",
+    "why": "the ballot question the state's list prints names no parish or municipality, and its subject reaches the whole state; the Act's own text was not read. Reading: not an amendment directly affecting not more than five parishes or five municipalities"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "LA",
+   "year": 2018,
+   "title": "Ca No. 2 (Act 722 - Sb 243) - Unanimous Jury For Noncapital Felonies",
+   "offices_as_filed": [
+    "CA NO. 2 (ACT 722 - SB 243) - UNANIMOUS JURY FOR NONCAPITAL FELONIES"
+   ],
+   "list": {
+    "name": "Louisiana Secretary of State: '2018 Proposed Constitutional Amendments, November 6, 2018 Election' (PDF, linked on the SOS 'Types of Elections' page as 'Nov. 6, 2018 Constitutional Amendments')",
+    "url": "https://www.sos.la.gov/media/mwefjd3m/proposed-constitutional-amendments-2018.pdf",
+    "read_utc": "2026-11-07T14:42:07Z",
+    "cache_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.pdf"
+   },
+   "date": "2018-11-06",
+   "quote": "Proposed Amendment No. 2 Act 722 of the 2018 Regular Session of the Louisiana Legislature proposing to amend Article I, Section 17(A) of the Louisiana Constitution.",
+   "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "mark": "stated",
+   "match_note": "Number 2 and Act 722 match ours; the list prints the Act number and the question, not our 'Sb' bill number or our short subject (our short subject agrees with the printed question).",
+   "statewide": {
+    "quote": "Constitutional amendments are placed on statewide election dates as determined by the legislature.",
+    "quote_file": "swlists/S1/pages/LA_types-of-elections.txt",
+    "mark": "stated",
+    "note": "A general statement on the SOS 'Types of Elections' page about constitutional amendments; the 2018 list itself does not use the word 'statewide'. The list says: 'The six (6) constitutional amendments that will be on the ballot for the November 6, 2018 election are listed below.'"
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "2018 PROPOSED CONSTITUTIONAL AMENDMENTS",
+   "type_quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Act 722 of the 2018 Regular Session of the Louisiana Legislature proposing to amend Article I, Section 17(A) of the Louisiana Constitution",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "Do you support an amendment to require a unanimous jury verdict in all noncapital felony cases for offenses that are committed on or after January 1, 2019?",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "inferred",
+    "why": "the ballot question the state's list prints names no parish or municipality, and its subject reaches the whole state; the Act's own text was not read. Reading: not an amendment directly affecting not more than five parishes or five municipalities"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "LA",
+   "year": 2018,
+   "title": "Ca No. 3 (Act 717 - Sb 263) - Permit Donations From Political Subdivisions",
+   "offices_as_filed": [
+    "CA NO. 3 (ACT 717 - SB 263) - PERMIT DONATIONS FROM POLITICAL SUBDIVISIONS"
+   ],
+   "list": {
+    "name": "Louisiana Secretary of State: '2018 Proposed Constitutional Amendments, November 6, 2018 Election' (PDF, linked on the SOS 'Types of Elections' page as 'Nov. 6, 2018 Constitutional Amendments')",
+    "url": "https://www.sos.la.gov/media/mwefjd3m/proposed-constitutional-amendments-2018.pdf",
+    "read_utc": "2026-11-07T14:42:07Z",
+    "cache_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.pdf"
+   },
+   "date": "2018-11-06",
+   "quote": "Proposed Amendment No. 3 Act 717 of the 2018 Regular Session of the Louisiana Legislature proposing to amend Article VII, Section 14(B) of the Louisiana Constitution.",
+   "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "mark": "stated",
+   "match_note": "Number 3 and Act 717 match ours; the list prints the Act number and the question, not our 'Sb' bill number or our short subject (our short subject agrees with the printed question).",
+   "statewide": {
+    "quote": "Constitutional amendments are placed on statewide election dates as determined by the legislature.",
+    "quote_file": "swlists/S1/pages/LA_types-of-elections.txt",
+    "mark": "stated",
+    "note": "A general statement on the SOS 'Types of Elections' page about constitutional amendments; the 2018 list itself does not use the word 'statewide'. The list says: 'The six (6) constitutional amendments that will be on the ballot for the November 6, 2018 election are listed below.'"
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "2018 PROPOSED CONSTITUTIONAL AMENDMENTS",
+   "type_quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Act 717 of the 2018 Regular Session of the Louisiana Legislature proposing to amend Article VII, Section 14(B) of the Louisiana Constitution",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "Do you support an amendment to permit, pursuant to written agreement, the donation of the use of public equipment and personnel by a political subdivision upon request to another political subdivision for an activity or function which the requesting political subdivision is authorized to exercise?",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "inferred",
+    "why": "the ballot question the state's list prints names no parish or municipality, and its subject reaches the whole state; the Act's own text was not read. Reading: not an amendment directly affecting not more than five parishes or five municipalities"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "LA",
+   "year": 2018,
+   "title": "Ca No. 4 (Act 720 - Sb 59) - Transportation Trust Fund",
+   "offices_as_filed": [
+    "CA NO. 4 (ACT 720 - SB 59) - TRANSPORTATION TRUST FUND"
+   ],
+   "list": {
+    "name": "Louisiana Secretary of State: '2018 Proposed Constitutional Amendments, November 6, 2018 Election' (PDF, linked on the SOS 'Types of Elections' page as 'Nov. 6, 2018 Constitutional Amendments')",
+    "url": "https://www.sos.la.gov/media/mwefjd3m/proposed-constitutional-amendments-2018.pdf",
+    "read_utc": "2026-11-07T14:42:07Z",
+    "cache_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.pdf"
+   },
+   "date": "2018-11-06",
+   "quote": "Proposed Amendment No. 4 Act 720 of the 2018 Regular Session of the Louisiana Legislature proposing to amend Article VII, Section 27(B)(1) of the Louisiana Constitution.",
+   "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "mark": "stated",
+   "match_note": "Number 4 and Act 720 match ours; the list prints the Act number and the question, not our 'Sb' bill number or our short subject (our short subject agrees with the printed question).",
+   "statewide": {
+    "quote": "Constitutional amendments are placed on statewide election dates as determined by the legislature.",
+    "quote_file": "swlists/S1/pages/LA_types-of-elections.txt",
+    "mark": "stated",
+    "note": "A general statement on the SOS 'Types of Elections' page about constitutional amendments; the 2018 list itself does not use the word 'statewide'. The list says: 'The six (6) constitutional amendments that will be on the ballot for the November 6, 2018 election are listed below.'"
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "2018 PROPOSED CONSTITUTIONAL AMENDMENTS",
+   "type_quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Act 720 of the 2018 Regular Session of the Louisiana Legislature proposing to amend Article VII, Section 27(B)(1) of the Louisiana Constitution",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "Do you support an amendment to remove authority to appropriate or dedicate monies in the Transportation Trust Fund to state police for traffic control purposes?",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "inferred",
+    "why": "the ballot question the state's list prints names no parish or municipality, and its subject reaches the whole state; the Act's own text was not read. Reading: not an amendment directly affecting not more than five parishes or five municipalities"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "LA",
+   "year": 2018,
+   "title": "Ca No. 5 (Act 721 - Sb 163) - Extend Eligibility For Tax Exemptions",
+   "offices_as_filed": [
+    "CA NO. 5 (ACT 721 - SB 163) - EXTEND ELIGIBILITY FOR TAX EXEMPTIONS"
+   ],
+   "list": {
+    "name": "Louisiana Secretary of State: '2018 Proposed Constitutional Amendments, November 6, 2018 Election' (PDF, linked on the SOS 'Types of Elections' page as 'Nov. 6, 2018 Constitutional Amendments')",
+    "url": "https://www.sos.la.gov/media/mwefjd3m/proposed-constitutional-amendments-2018.pdf",
+    "read_utc": "2026-11-07T14:42:07Z",
+    "cache_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.pdf"
+   },
+   "date": "2018-11-06",
+   "quote": "Proposed Amendment No. 5 Act 721 of the 2018 Regular Session of the Louisiana Legislature proposing to add Article VII, Sections 18(G)(6), 21(K)(4) and (M)(4) of the Louisiana Constitution.",
+   "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "mark": "stated",
+   "match_note": "Number 5 and Act 721 match ours; the list prints the Act number and the question, not our 'Sb' bill number or our short subject (our short subject agrees with the printed question).",
+   "statewide": {
+    "quote": "Constitutional amendments are placed on statewide election dates as determined by the legislature.",
+    "quote_file": "swlists/S1/pages/LA_types-of-elections.txt",
+    "mark": "stated",
+    "note": "A general statement on the SOS 'Types of Elections' page about constitutional amendments; the 2018 list itself does not use the word 'statewide'. The list says: 'The six (6) constitutional amendments that will be on the ballot for the November 6, 2018 election are listed below.'"
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "2018 PROPOSED CONSTITUTIONAL AMENDMENTS",
+   "type_quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Act 721 of the 2018 Regular Session of the Louisiana Legislature proposing to add Article VII, Sections 18(G)(6), 21(K)(4) and (M)(4) of the Louisiana Constitution",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "Do you support an amendment to extend eligibility for the following special property tax treatments to property in trust: the special assessment level for property tax valuation, the property tax exemption for property of a disabled veteran, and the property tax exemption for the surviving spouse of a person who died while performing their duties as a first responder, active duty member of the military, or law enforcement or fire protection officer?",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "inferred",
+    "why": "the ballot question the state's list prints names no parish or municipality, and its subject reaches the whole state; the Act's own text was not read. Reading: not an amendment directly affecting not more than five parishes or five municipalities"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "LA",
+   "year": 2018,
+   "title": "Ca No. 6 (Act 718 - Sb 164) - Reappraisal Of Residential Property",
+   "offices_as_filed": [
+    "CA NO. 6 (ACT 718 - SB 164) - REAPPRAISAL OF RESIDENTIAL PROPERTY"
+   ],
+   "list": {
+    "name": "Louisiana Secretary of State: '2018 Proposed Constitutional Amendments, November 6, 2018 Election' (PDF, linked on the SOS 'Types of Elections' page as 'Nov. 6, 2018 Constitutional Amendments')",
+    "url": "https://www.sos.la.gov/media/mwefjd3m/proposed-constitutional-amendments-2018.pdf",
+    "read_utc": "2026-11-07T14:42:07Z",
+    "cache_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.pdf"
+   },
+   "date": "2018-11-06",
+   "quote": "Proposed Amendment No. 6 Act 718 of the 2018 Regular Session of the Louisiana Legislature proposing to amend Article VII, Section 18(A) and (F) of the Louisiana Constitution.",
+   "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "mark": "stated",
+   "match_note": "Number 6 and Act 718 match ours; the list prints the Act number and the question, not our 'Sb' bill number or our short subject (our short subject agrees with the printed question).",
+   "statewide": {
+    "quote": "Constitutional amendments are placed on statewide election dates as determined by the legislature.",
+    "quote_file": "swlists/S1/pages/LA_types-of-elections.txt",
+    "mark": "stated",
+    "note": "A general statement on the SOS 'Types of Elections' page about constitutional amendments; the 2018 list itself does not use the word 'statewide'. The list says: 'The six (6) constitutional amendments that will be on the ballot for the November 6, 2018 election are listed below.'"
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "2018 PROPOSED CONSTITUTIONAL AMENDMENTS",
+   "type_quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Act 718 of the 2018 Regular Session of the Louisiana Legislature proposing to amend Article VII, Section 18(A) and (F) of the Louisiana Constitution",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": false,
+    "quote": "Do you support an amendment that will require that any reappraisal of the value of residential property by more than 50%, resulting in a corresponding increase in property taxes, be phased-in over the course of four years during which time no additional reappraisal can occur and that the decrease in the total ad valorem tax collected as a result of the phase-in of assessed valuation be absorbed by the taxing authority and not allocated to the other taxpayers?",
+    "quote_file": "swlists/S1/pages/LA_proposed-constitutional-amendments-2018.txt",
+    "mark": "inferred",
+    "why": "the ballot question the state's list prints names no parish or municipality, and its subject reaches the whole state; the Act's own text was not read. Reading: not an amendment directly affecting not more than five parishes or five municipalities"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AL",
+   "year": 2020,
+   "title": "Proposed Statewide Amendment Number One",
+   "offices_as_filed": [
+    "PROPOSED STATEWIDE AMENDMENT NUMBER ONE"
+   ],
+   "list": {
+    "name": "Alabama Secretary of State: 'Final Canvass of Results' for the November 3, 2020 General Election (certified by the State Canvassing Board, November 23, 2020), section 'Proposed Constitutional Amendments'",
+    "url": "https://www.sos.alabama.gov/sites/default/files/election-2020/Final%20Canvass%20of%20Results-Merged.pdf",
+    "read_utc": "2026-11-07T14:40:52Z",
+    "cache_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.pdf"
+   },
+   "date": "2020-11-03",
+   "quote": "Proposed Statewide Amendment Number One (1)",
+   "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "mark": "stated",
+   "match_note": "Our title equals the list's, which adds the number in brackets. 'Legislature' is inferred: the page states only 'Proposed by Act ...' and does not name the body that passed the Act.",
+   "statewide": {
+    "quote": "Proposed Statewide Amendment Number One (1)",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "mark": "stated",
+    "note": "The state's canvass names them 'Proposed Statewide Amendment'; the sample ballot heading reads 'PROPOSED AMENDMENTS TO APPEAR ON THE BALLOT STATEWIDE'. The canvass's separate county-level amendments ('Baldwin County Local Amendment 1', etc.) are a different group and not in ours."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendments",
+   "type_quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (by act; the page says 'Proposed by Act 2019-330')",
+    "quote": "(Proposed by Act 2019-330)",
+    "quote_file": "swlists/S1/pages/AL_Montgomery-Sample_2020.raw.txt",
+    "mark": "inferred",
+    "note": null
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1535862,
+     "NO": 458487
+    },
+    "quote": "Total 1,535,862 458,487 881,145 919,380",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AL",
+   "year": 2020,
+   "title": "Proposed Statewide Amendment Number Two",
+   "offices_as_filed": [
+    "PROPOSED STATEWIDE AMENDMENT NUMBER TWO"
+   ],
+   "list": {
+    "name": "Alabama Secretary of State: 'Final Canvass of Results' for the November 3, 2020 General Election (certified by the State Canvassing Board, November 23, 2020), section 'Proposed Constitutional Amendments'",
+    "url": "https://www.sos.alabama.gov/sites/default/files/election-2020/Final%20Canvass%20of%20Results-Merged.pdf",
+    "read_utc": "2026-11-07T14:40:52Z",
+    "cache_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.pdf"
+   },
+   "date": "2020-11-03",
+   "quote": "Proposed Statewide Amendment Number Two (2)",
+   "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "mark": "stated",
+   "match_note": "Our title equals the list's, which adds the number in brackets. 'Legislature' is inferred: the page states only 'Proposed by Act ...' and does not name the body that passed the Act.",
+   "statewide": {
+    "quote": "Proposed Statewide Amendment Number One (1)",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "mark": "stated",
+    "note": "The state's canvass names them 'Proposed Statewide Amendment'; the sample ballot heading reads 'PROPOSED AMENDMENTS TO APPEAR ON THE BALLOT STATEWIDE'. The canvass's separate county-level amendments ('Baldwin County Local Amendment 1', etc.) are a different group and not in ours."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendments",
+   "type_quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (by act; the page says 'Proposed by Act 2019-187')",
+    "quote": "(Proposed by Act 2019-187)",
+    "quote_file": "swlists/S1/pages/AL_Montgomery-Sample_2020.raw.txt",
+    "mark": "inferred",
+    "note": null
+   },
+   "state_total": {
+    "votes": {
+     "YES": 881145,
+     "NO": 919380
+    },
+    "quote": "Total 1,535,862 458,487 881,145 919,380",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AL",
+   "year": 2020,
+   "title": "Proposed Statewide Amendment Number Three",
+   "offices_as_filed": [
+    "PROPOSED STATEWIDE AMENDMENT NUMBER THREE"
+   ],
+   "list": {
+    "name": "Alabama Secretary of State: 'Final Canvass of Results' for the November 3, 2020 General Election (certified by the State Canvassing Board, November 23, 2020), section 'Proposed Constitutional Amendments'",
+    "url": "https://www.sos.alabama.gov/sites/default/files/election-2020/Final%20Canvass%20of%20Results-Merged.pdf",
+    "read_utc": "2026-11-07T14:40:52Z",
+    "cache_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.pdf"
+   },
+   "date": "2020-11-03",
+   "quote": "Proposed Statewide Amendment Number Three (3)",
+   "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "mark": "stated",
+   "match_note": "Our title equals the list's, which adds the number in brackets. 'Legislature' is inferred: the page states only 'Proposed by Act ...' and does not name the body that passed the Act.",
+   "statewide": {
+    "quote": "Proposed Statewide Amendment Number One (1)",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "mark": "stated",
+    "note": "The state's canvass names them 'Proposed Statewide Amendment'; the sample ballot heading reads 'PROPOSED AMENDMENTS TO APPEAR ON THE BALLOT STATEWIDE'. The canvass's separate county-level amendments ('Baldwin County Local Amendment 1', etc.) are a different group and not in ours."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendments",
+   "type_quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (by act; the page says 'Proposed by Act 2019-346')",
+    "quote": "(Proposed by Act 2019-346)",
+    "quote_file": "swlists/S1/pages/AL_Montgomery-Sample_2020.raw.txt",
+    "mark": "inferred",
+    "note": null
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1193532,
+     "NO": 647305
+    },
+    "quote": "Total 1,193,532 647,305 1,222,682 607,090",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AL",
+   "year": 2020,
+   "title": "Proposed Statewide Amendment Number Four",
+   "offices_as_filed": [
+    "PROPOSED STATEWIDE AMENDMENT NUMBER FOUR"
+   ],
+   "list": {
+    "name": "Alabama Secretary of State: 'Final Canvass of Results' for the November 3, 2020 General Election (certified by the State Canvassing Board, November 23, 2020), section 'Proposed Constitutional Amendments'",
+    "url": "https://www.sos.alabama.gov/sites/default/files/election-2020/Final%20Canvass%20of%20Results-Merged.pdf",
+    "read_utc": "2026-11-07T14:40:52Z",
+    "cache_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.pdf"
+   },
+   "date": "2020-11-03",
+   "quote": "Proposed Statewide Amendment Number Four (4)",
+   "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "mark": "stated",
+   "match_note": "Our title equals the list's, which adds the number in brackets. 'Legislature' is inferred: the page states only 'Proposed by Act ...' and does not name the body that passed the Act.",
+   "statewide": {
+    "quote": "Proposed Statewide Amendment Number One (1)",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "mark": "stated",
+    "note": "The state's canvass names them 'Proposed Statewide Amendment'; the sample ballot heading reads 'PROPOSED AMENDMENTS TO APPEAR ON THE BALLOT STATEWIDE'. The canvass's separate county-level amendments ('Baldwin County Local Amendment 1', etc.) are a different group and not in ours."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendments",
+   "type_quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (by act; the page says 'Proposed by Act 2019-271')",
+    "quote": "(Proposed by Act 2019-271)",
+    "quote_file": "swlists/S1/pages/AL_Montgomery-Sample_2020.raw.txt",
+    "mark": "inferred",
+    "note": null
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1222682,
+     "NO": 607090
+    },
+    "quote": "Total 1,193,532 647,305 1,222,682 607,090",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AL",
+   "year": 2020,
+   "title": "Proposed Statewide Amendment Number Five",
+   "offices_as_filed": [
+    "PROPOSED STATEWIDE AMENDMENT NUMBER FIVE"
+   ],
+   "list": {
+    "name": "Alabama Secretary of State: 'Final Canvass of Results' for the November 3, 2020 General Election (certified by the State Canvassing Board, November 23, 2020), section 'Proposed Constitutional Amendments'",
+    "url": "https://www.sos.alabama.gov/sites/default/files/election-2020/Final%20Canvass%20of%20Results-Merged.pdf",
+    "read_utc": "2026-11-07T14:40:52Z",
+    "cache_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.pdf"
+   },
+   "date": "2020-11-03",
+   "quote": "Proposed Statewide Amendment Number Five (5)",
+   "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "mark": "stated",
+   "match_note": "Our title equals the list's, which adds the number in brackets. 'Legislature' is inferred: the page states only 'Proposed by Act ...' and does not name the body that passed the Act.",
+   "statewide": {
+    "quote": "Proposed Statewide Amendment Number One (1)",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "mark": "stated",
+    "note": "The state's canvass names them 'Proposed Statewide Amendment'; the sample ballot heading reads 'PROPOSED AMENDMENTS TO APPEAR ON THE BALLOT STATEWIDE'. The canvass's separate county-level amendments ('Baldwin County Local Amendment 1', etc.) are a different group and not in ours."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendments",
+   "type_quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (by act; the page says 'Proposed by Act 2019-194')",
+    "quote": "(Proposed by Act 2019-194)",
+    "quote_file": "swlists/S1/pages/AL_Montgomery-Sample_2020.raw.txt",
+    "mark": "inferred",
+    "note": null
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1213544,
+     "NO": 481088
+    },
+    "quote": "Total 1,213,544 481,088 1,216,008 482,189",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "AL",
+   "year": 2020,
+   "title": "Proposed Statewide Amendment Number Six",
+   "offices_as_filed": [
+    "PROPOSED STATEWIDE AMENDMENT NUMBER SIX"
+   ],
+   "list": {
+    "name": "Alabama Secretary of State: 'Final Canvass of Results' for the November 3, 2020 General Election (certified by the State Canvassing Board, November 23, 2020), section 'Proposed Constitutional Amendments'",
+    "url": "https://www.sos.alabama.gov/sites/default/files/election-2020/Final%20Canvass%20of%20Results-Merged.pdf",
+    "read_utc": "2026-11-07T14:40:52Z",
+    "cache_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.pdf"
+   },
+   "date": "2020-11-03",
+   "quote": "Proposed Statewide Amendment Number Six (6)",
+   "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "mark": "stated",
+   "match_note": "Our title equals the list's, which adds the number in brackets. 'Legislature' is inferred: the page states only 'Proposed by Act ...' and does not name the body that passed the Act.",
+   "statewide": {
+    "quote": "Proposed Statewide Amendment Number One (1)",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "mark": "stated",
+    "note": "The state's canvass names them 'Proposed Statewide Amendment'; the sample ballot heading reads 'PROPOSED AMENDMENTS TO APPEAR ON THE BALLOT STATEWIDE'. The canvass's separate county-level amendments ('Baldwin County Local Amendment 1', etc.) are a different group and not in ours."
+   },
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "Proposed Constitutional Amendments",
+   "type_quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (by act; the page says 'Proposed by Act 2019-193')",
+    "quote": "(Proposed by Act 2019-193)",
+    "quote_file": "swlists/S1/pages/AL_Montgomery-Sample_2020.raw.txt",
+    "mark": "inferred",
+    "note": null
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1216008,
+     "NO": 482189
+    },
+    "quote": "Total 1,213,544 481,088 1,216,008 482,189",
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "MT",
+   "year": 2020,
+   "title": "Legislative Referendum No 130",
+   "offices_as_filed": [
+    "LEGISLATIVE REFERENDUM NO 130"
+   ],
+   "list": {
+    "name": "Montana Secretary of State: 'Proposed 2020 Ballot Issues' page (archived; section 'Issues Qualified for the 2020 General Election Ballot')",
+    "url": "https://sosmt.gov/elections/ballot_issues/2020-2/",
+    "read_utc": "2026-11-07T14:39:14Z",
+    "cache_file": "swlists/S1/pages/MT_ballot_issues_2020.html"
+   },
+   "date": "2020-11-03",
+   "quote": "LR-130 (HB 357) Subject: Revise concealed carry laws. Type: Legislative Referendum Status: Legislature referred HB 357 to the 2020 General Election Ballot.",
+   "quote_file": "swlists/S1/pages/MT_ballot_issues_2020.txt",
+   "mark": "stated",
+   "match_note": "Our 'Legislative Referendum No 130' is the state's 'LR-130 (HB 357)'. The ballot-language PDF titles it 'LEGISLATIVE REFERENDUM NO. 130' and says 'AN ACT REFERRED BY THE LEGISLATURE' (statute type) and 'The 2019 Legislature submitted this proposal for a vote.'",
+   "statewide": {
+    "quote": "2020 STATEWIDE GENERAL ELECTION CANVASS",
+    "quote_file": "swlists/S1/pages/MT_State_Canvass_Report.txt",
+    "mark": "stated",
+    "note": "The state's canvass headed '2020 STATEWIDE GENERAL ELECTION CANVASS' has a results page 'LEGISLATIVE REFERENDUM NO. 130' with a state total row; the ballot-issues page itself lists it under 'Issues Qualified for the 2020 General Election Ballot' and does not use the word 'statewide' for it."
+   },
+   "type": "statute",
+   "type_as_listed": "legislative referendum (a statute, HB 357, referred to voters by the legislature)",
+   "type_quote": "Type: Legislative Referendum",
+   "type_quote_file": "swlists/S1/pages/MT_ballot_issues_2020.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature",
+    "quote": "Status: Legislature referred HB 357 to the 2020 General Election Ballot.",
+    "quote_file": "swlists/S1/pages/MT_ballot_issues_2020.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "state_total": {
+    "votes": {
+     "YES": 298388,
+     "NO": 287129
+    },
+    "quote": "Total 298388 287129",
+    "quote_file": "swlists/S1/pages/MT_State_Canvass_Report.txt"
+   },
+   "read_by": "reader S1 for D3, 2026-11-07"
+  },
+  {
+   "state": "RI",
+   "year": 2016,
+   "title": "1. State Constitutional Approval",
+   "offices_as_filed": [
+    "1. STATE CONSTITUTIONAL APPROVAL"
+   ],
+   "list": {
+    "name": "Rhode Island General Assembly, Public Laws 2016: P.L. 2016 ch. 142 (H 7454 Sub A as amended), Article 5 'Relating to Capital Development Program' (the five bond propositions)",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm",
+    "read_utc": "2026-11-07T14:39:44Z",
+    "cache_file": "swlists/S2/pages/ri/law16142-05.htm"
+   },
+   "date": "2016-11-08",
+   "quote": "The following question shall be submitted by the secretary of state to the qualified electors of the state at the statewide general election to be held in November of 2016, and the secretary of state shall certify the election results",
+   "quote_file": "swlists/S2/pages/ri/law16005.flow.txt",
+   "mark": "stated",
+   "mark_note": "a statewide question was put to the electors of the state in November 2016",
+   "match_note": "Our title has no description. It is matched to the Tiverton question by position: the act says that question 'shall appear on the ballots ... as the first referendum question' (list item 1), and the brief says question 1 concerned approval of a gambling facility. The words 'State Constitutional Approval' do not occur on the page.",
+   "match_mark": "inferred",
+   "type": "statute",
+   "type_as_listed": "referendum on an act (approval of an act expanding gambling; Article VI Section 22 of the Constitution requires a statewide referendum for such an act)",
+   "type_quote": "Pursuant to Article VI, Section 22 of the Rhode Island Constitution and notwithstanding the provisions of §41-9-4",
+   "type_quote_file": "swlists/S2/pages/ri/law16005.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly act)",
+    "quote": "It is enacted by the General Assembly as follows",
+    "quote_file": "swlists/S2/pages/ri/law16005.flow.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": true,
+    "quote": "Pursuant to Article VI, Section 22 of the Rhode Island Constitution and notwithstanding the provisions of §41-9-4",
+    "quote_file": "swlists/S2/pages/ri/law16005.flow.txt",
+    "mark": "stated",
+    "why": "the act that puts the question (R.I. P.L. 2016, ch. 5) authorizes state-operated gaming at a facility in Tiverton and puts it to the state's electors under art. VI, §22: a referendum on expanding gambling"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "RI",
+   "year": 2016,
+   "title": "2. Amendment To The Constitution Of The State",
+   "offices_as_filed": [
+    "2. AMENDMENT TO THE CONSTITUTION OF THE STATE"
+   ],
+   "list": {
+    "name": "Rhode Island General Assembly, Public Laws 2016: P.L. 2016 ch. 142 (H 7454 Sub A as amended), Article 5 'Relating to Capital Development Program' (the five bond propositions)",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm",
+    "read_utc": "2026-11-07T14:39:44Z",
+    "cache_file": "swlists/S2/pages/ri/law16142-05.htm"
+   },
+   "date": "2016-11-08",
+   "quote": "RESOLVED, That this proposition of amendment shall be submitted to the electors for their approval or rejection at the next statewide general election.",
+   "quote_file": "swlists/S2/pages/ri/res16329.flow.txt",
+   "mark": "stated",
+   "mark_note": "for the resolution (Resolution 2016 ch. 329 sends a constitutional amendment to the next statewide general election, Nov 2016); inferred that it is our Question 2",
+   "match_note": "Our title is generic and does not occur on the page. It is matched to Resolution 2016 ch. 329 (Ethics Commission amendment) because that is the one resolution found that sends a constitutional amendment to the November 2016 ballot. I did not read a list of all 2016 resolutions, so that no other amendment went to the 2016 ballot is not shown here. The act text does not give a question number.",
+   "match_mark": "inferred",
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment (proposition of amendment to the Constitution)",
+   "type_quote": "the following amendment to the constitution of the state be proposed to qualified electors of the state in accordance with the provisions of Article XIV of the Constitution",
+   "type_quote_file": "swlists/S2/pages/ri/res16329.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly joint resolution)",
+    "quote": "RESOLVED, That a majority of all members elected to each house of the general assembly voting therefor",
+    "quote_file": "swlists/S2/pages/ri/res16329.flow.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "RI",
+   "year": 2016,
+   "title": "3. Veterans Home Bonds - $27,000,000",
+   "offices_as_filed": [
+    "3. VETERANS HOME BONDS - $27,000,000"
+   ],
+   "list": {
+    "name": "Rhode Island General Assembly, Public Laws 2016: P.L. 2016 ch. 142 (H 7454 Sub A as amended), Article 5 'Relating to Capital Development Program' (the five bond propositions)",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm",
+    "read_utc": "2026-11-07T14:39:44Z",
+    "cache_file": "swlists/S2/pages/ri/law16142-05.htm"
+   },
+   "date": "2016-11-08",
+   "quote": "(1) Veterans Home $27,000,000",
+   "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "mark": "stated",
+   "match_note": "Matched by name and amount to the act's project (1) Veterans Home $27,000,000. The act numbers its propositions (1) to (5); the act does not give ballot question numbers, so 'ballot question 3' is not shown by the act.",
+   "match_mark": "inferred",
+   "type": "bond",
+   "type_as_listed": "bond (general obligation bonds, refunding bonds and temporary notes), put to the people by act of the General Assembly",
+   "type_quote": "authorizing the issuance of bonds, refunding bonds, and temporary notes of the state",
+   "type_quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly)",
+    "quote": "Shall the action of the general assembly, by an act passed at the January 2016 session",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": true,
+    "quote": "(1) Veterans Home $27,000,000",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "why": "a project of the proposition R.I. P.L. 2016, ch. 142, art. 5, §1 puts to the people at the November 2016 general election, matched by its name and amount"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "RI",
+   "year": 2016,
+   "title": "4. Leveraging Higher Education To Create Jobs",
+   "offices_as_filed": [
+    "4. LEVERAGING HIGHER EDUCATION TO CREATE JOBS"
+   ],
+   "list": {
+    "name": "Rhode Island General Assembly, Public Laws 2016: P.L. 2016 ch. 142 (H 7454 Sub A as amended), Article 5 'Relating to Capital Development Program' (the five bond propositions)",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm",
+    "read_utc": "2026-11-07T14:39:44Z",
+    "cache_file": "swlists/S2/pages/ri/law16142-05.htm"
+   },
+   "date": "2016-11-08",
+   "quote": "(2) Leveraging Higher Education to Create 21st Century Jobs $45,500,000",
+   "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "mark": "stated",
+   "match_note": "Matched by name to the act's project (2) Leveraging Higher Education to Create 21st Century Jobs ($45,500,000). Our title leaves out '21st Century' and the amount. Ballot number 4 is not given by the act.",
+   "match_mark": "inferred",
+   "type": "bond",
+   "type_as_listed": "bond (general obligation bonds, refunding bonds and temporary notes), put to the people by act of the General Assembly",
+   "type_quote": "authorizing the issuance of bonds, refunding bonds, and temporary notes of the state",
+   "type_quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly)",
+    "quote": "Shall the action of the general assembly, by an act passed at the January 2016 session",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": true,
+    "quote": "(2) Leveraging Higher Education to Create 21st Century Jobs $45,500,000",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "why": "a project of the proposition R.I. P.L. 2016, ch. 142, art. 5, §1 puts to the people at the November 2016 general election, matched by its name and amount"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "RI",
+   "year": 2016,
+   "title": "5. Port Infrastructure Bonds - $70,000,000",
+   "offices_as_filed": [
+    "5. PORT INFRASTRUCTURE BONDS - $70,000,000"
+   ],
+   "list": {
+    "name": "Rhode Island General Assembly, Public Laws 2016: P.L. 2016 ch. 142 (H 7454 Sub A as amended), Article 5 'Relating to Capital Development Program' (the five bond propositions)",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm",
+    "read_utc": "2026-11-07T14:39:44Z",
+    "cache_file": "swlists/S2/pages/ri/law16142-05.htm"
+   },
+   "date": "2016-11-08",
+   "quote": "(3) Port Infrastructure $70,000,000",
+   "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "mark": "stated",
+   "match_note": "Matched by name and amount to the act's project (3) Port Infrastructure $70,000,000. In this act the earlier text '(3) Port of Davisville Infrastructure at Quonset $50,000,000' is struck through (replaced by the $70,000,000 version, which holds the Davisville and Providence port parts). Ballot number 5 is not given by the act.",
+   "match_mark": "inferred",
+   "type": "bond",
+   "type_as_listed": "bond (general obligation bonds, refunding bonds and temporary notes), put to the people by act of the General Assembly",
+   "type_quote": "authorizing the issuance of bonds, refunding bonds, and temporary notes of the state",
+   "type_quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly)",
+    "quote": "Shall the action of the general assembly, by an act passed at the January 2016 session",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": true,
+    "quote": "(3) Port Infrastructure $70,000,000",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "why": "a project of the proposition R.I. P.L. 2016, ch. 142, art. 5, §1 puts to the people at the November 2016 general election, matched by its name and amount"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "RI",
+   "year": 2016,
+   "title": "6. Green Economy Bonds - $35,000,000",
+   "offices_as_filed": [
+    "6. GREEN ECONOMY BONDS - $35,000,000"
+   ],
+   "list": {
+    "name": "Rhode Island General Assembly, Public Laws 2016: P.L. 2016 ch. 142 (H 7454 Sub A as amended), Article 5 'Relating to Capital Development Program' (the five bond propositions)",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm",
+    "read_utc": "2026-11-07T14:39:44Z",
+    "cache_file": "swlists/S2/pages/ri/law16142-05.htm"
+   },
+   "date": "2016-11-08",
+   "quote": "(4) Green Economy $35,000,000",
+   "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "mark": "stated",
+   "match_note": "Matched by name and amount to the act's project (4) Green Economy $35,000,000. Ballot number 6 is not given by the act.",
+   "match_mark": "inferred",
+   "type": "bond",
+   "type_as_listed": "bond (general obligation bonds, refunding bonds and temporary notes), put to the people by act of the General Assembly",
+   "type_quote": "authorizing the issuance of bonds, refunding bonds, and temporary notes of the state",
+   "type_quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly)",
+    "quote": "Shall the action of the general assembly, by an act passed at the January 2016 session",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": true,
+    "quote": "(4) Green Economy $35,000,000",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "why": "a project of the proposition R.I. P.L. 2016, ch. 142, art. 5, §1 puts to the people at the November 2016 general election, matched by its name and amount"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "RI",
+   "year": 2016,
+   "title": "7. Housing Opportunity Bonds - $50,000,000",
+   "offices_as_filed": [
+    "7. HOUSING OPPORTUNITY BONDS - $50,000,000"
+   ],
+   "list": {
+    "name": "Rhode Island General Assembly, Public Laws 2016: P.L. 2016 ch. 142 (H 7454 Sub A as amended), Article 5 'Relating to Capital Development Program' (the five bond propositions)",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm",
+    "read_utc": "2026-11-07T14:39:44Z",
+    "cache_file": "swlists/S2/pages/ri/law16142-05.htm"
+   },
+   "date": "2016-11-08",
+   "quote": "(5) Housing Opportunity $50,000,000",
+   "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "mark": "stated",
+   "match_note": "Matched by name and amount to the act's project (5) Housing Opportunity $50,000,000. Ballot number 7 is not given by the act.",
+   "match_mark": "inferred",
+   "type": "bond",
+   "type_as_listed": "bond (general obligation bonds, refunding bonds and temporary notes), put to the people by act of the General Assembly",
+   "type_quote": "authorizing the issuance of bonds, refunding bonds, and temporary notes of the state",
+   "type_quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly)",
+    "quote": "Shall the action of the general assembly, by an act passed at the January 2016 session",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "note": null
+   },
+   "fact": {
+    "applies": true,
+    "quote": "(5) Housing Opportunity $50,000,000",
+    "quote_file": "swlists/S2/pages/ri/law16142-05.flow.txt",
+    "mark": "stated",
+    "why": "a project of the proposition R.I. P.L. 2016, ch. 142, art. 5, §1 puts to the people at the November 2016 general election, matched by its name and amount"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "AZ",
+   "year": 2018,
+   "title": "State Proposition 127",
+   "offices_as_filed": [
+    "STATE PROPOSITION 127"
+   ],
+   "list": {
+    "name": "Arizona Legislative Council (state legislative agency), Memo of December 4, 2018: ballot measure results by type, with the 2018 rows (Props 125, 126, 127, 305, 306)",
+    "url": "https://azleg.gov/alisPDFs/council/2018_election_results_memo.pdf",
+    "read_utc": "2026-11-07T14:43:45Z",
+    "cache_file": "swlists/S2/pages/az/az-lc-2018-election-results-memo.pdf"
+   },
+   "date": "2018-11-06",
+   "quote": "Clean energy for a healthy Arizona amendment (Prop. 127)",
+   "quote_file": "swlists/S2/pages/az/az-lc-2018-election-results-memo.txt",
+   "mark": "stated",
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "CONSTITUTIONAL AMENDMENTS Initiated by Petition Year Subject Adopted Defeated Aye Nay 2018 Protect Arizona taxpayers act (Prop. 126) X 1,436,106 804,794 Clean energy for a healthy Arizona amendment (Prop. 127)",
+   "type_quote_file": "swlists/S2/pages/az/az-lc-2018-election-results-memo.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "initiative",
+    "as_listed": "initiative petition (citizens)",
+    "quote": "CONSTITUTIONAL AMENDMENTS Initiated by Petition Year Subject Adopted Defeated Aye Nay 2018 Protect Arizona taxpayers act (Prop. 126) X 1,436,106 804,794 Clean energy for a healthy Arizona amendment (Prop. 127)",
+    "quote_file": "swlists/S2/pages/az/az-lc-2018-election-results-memo.txt",
+    "mark": "stated",
+    "note": "sub-heading 'Initiated by Petition'"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 723138,
+     "NO": 1580101
+    },
+    "quote": "amendment (Prop. 127) X 723,138 1,580,101",
+    "quote_file": "swlists/S2/pages/az/az-lc-2018-election-results-memo.txt"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "WA",
+   "year": 2018,
+   "title": "Advisory Vote No. 19 Engrossed Second Substitute Senate Bill 6269",
+   "offices_as_filed": [
+    "ADVISORY VOTE NO. 19 ENGROSSED SECOND SUBSTITUTE SENATE BILL 6269",
+    "KING COUNTY ADVISORY VOTE NO. 19"
+   ],
+   "list": {
+    "name": "Washington Secretary of State, November 6, 2018 General Election Results, Measures tab (results.vote.wa.gov)",
+    "url": "https://results.vote.wa.gov/results/20181106/Measures.html",
+    "read_utc": "2026-11-07T14:45:26Z",
+    "cache_file": "swlists/S2/pages/wa/wa-results-20181106-Measures.html"
+   },
+   "date": "2018-11-06",
+   "quote": "Advisory Votes Advisory Vote No. 19 Engrossed Second Substitute Senate Bill 6269",
+   "quote_file": "swlists/S2/pages/wa/wa-results-20181106-Measures.flow.txt",
+   "mark": "stated",
+   "mark_note": "listed on the Secretary of State's statewide Measures tab; county pages such as King are separate",
+   "type": "advisory",
+   "type_as_listed": "advisory vote",
+   "type_quote": "Advisory Votes Advisory Vote No. 19 Engrossed Second Substitute Senate Bill 6269",
+   "type_quote_file": "swlists/S2/pages/wa/wa-results-20181106-Measures.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (the measure is a bill the Legislature passed; the page names only the bill)",
+    "quote": "Advisory Vote No. 19 Engrossed Second Substitute Senate Bill 6269",
+    "quote_file": "swlists/S2/pages/wa/wa-results-20181106-Measures.flow.txt",
+    "mark": "inferred",
+    "note": "the page gives the bill's name and does not say who referred it"
+   },
+   "state_total": {
+    "votes": {
+     "REPEALED": 1567629,
+     "MAINTAINED": 1360769
+    },
+    "quote": "Repealed 1,567,62953.53% Maintained 1,360,76946.47%",
+    "quote_file": "swlists/S2/pages/wa/wa-results-20181106-AV19.txt"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "WA",
+   "year": 2024,
+   "title": "Initiative Measure No. 2066",
+   "offices_as_filed": [
+    "INITIATIVE MEASURE NO. 2066"
+   ],
+   "list": {
+    "name": "Washington Secretary of State, November 5, 2024 General Election Results, Measures tab (results.vote.wa.gov)",
+    "url": "https://results.vote.wa.gov/results/20241105/Measures.html",
+    "read_utc": "2026-11-07T14:47:27Z",
+    "cache_file": "swlists/S2/pages/wa/wa-results-20241105-Measures.html"
+   },
+   "date": "2024-11-05",
+   "quote": "State Measures Initiative Measure No. 2066",
+   "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures.flow.txt",
+   "mark": "stated",
+   "mark_note": "listed under 'State Measures' on the Secretary of State's statewide Measures tab; also named in the Secretary of State's certification release",
+   "type": "statute",
+   "type_as_listed": "initiative (Initiative to the People)",
+   "type_quote": "General Election ballots will also include four ballot measures for voters to weigh in on — Initiative to the People 2066 and Initiatives to the Legislature 2109, 2117, and 2124.",
+   "type_quote_file": "swlists/S2/pages/wa/wa-sos-news-2024-certifies-measures.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "initiative",
+    "as_listed": "initiative petition (citizens)",
+    "quote": "General Election ballots will also include four ballot measures for voters to weigh in on — Initiative to the People 2066 and Initiatives to the Legislature 2109, 2117, and 2124.",
+    "quote_file": "swlists/S2/pages/wa/wa-sos-news-2024-certifies-measures.flow.txt",
+    "mark": "inferred",
+    "note": "the release and the results page say 'Initiative' and do not name sponsors or say 'petition'"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1941474,
+     "NO": 1813169
+    },
+    "quote": "Initiative Measure No. 2066 County Results & Map MeasureVoteVote % Yes 1,941,47451.71% No 1,813,16948.29%",
+    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "WA",
+   "year": 2024,
+   "title": "Initiative Measure No. 2109",
+   "offices_as_filed": [
+    "INITIATIVE MEASURE NO. 2109"
+   ],
+   "list": {
+    "name": "Washington Secretary of State, November 5, 2024 General Election Results, Measures tab (results.vote.wa.gov)",
+    "url": "https://results.vote.wa.gov/results/20241105/Measures.html",
+    "read_utc": "2026-11-07T14:47:27Z",
+    "cache_file": "swlists/S2/pages/wa/wa-results-20241105-Measures.html"
+   },
+   "date": "2024-11-05",
+   "quote": "Initiative Measure No. 2109",
+   "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures.flow.txt",
+   "mark": "stated",
+   "mark_note": "listed under 'State Measures' on the Secretary of State's statewide Measures tab; also named in the Secretary of State's certification release",
+   "type": "statute",
+   "type_as_listed": "initiative (Initiative to the Legislature)",
+   "type_quote": "General Election ballots will also include four ballot measures for voters to weigh in on — Initiative to the People 2066 and Initiatives to the Legislature 2109, 2117, and 2124.",
+   "type_quote_file": "swlists/S2/pages/wa/wa-sos-news-2024-certifies-measures.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "initiative",
+    "as_listed": "initiative petition (citizens)",
+    "quote": "General Election ballots will also include four ballot measures for voters to weigh in on — Initiative to the People 2066 and Initiatives to the Legislature 2109, 2117, and 2124.",
+    "quote_file": "swlists/S2/pages/wa/wa-sos-news-2024-certifies-measures.flow.txt",
+    "mark": "inferred",
+    "note": "the release and the results page say 'Initiative' and do not name sponsors or say 'petition'"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1364510,
+     "NO": 2437419
+    },
+    "quote": "Initiative Measure No. 2109 County Results & Map MeasureVoteVote % Yes 1,364,51035.89% No 2,437,41964.11%",
+    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "WA",
+   "year": 2024,
+   "title": "Initiative Measure No. 2117",
+   "offices_as_filed": [
+    "INITIATIVE MEASURE NO. 2117"
+   ],
+   "list": {
+    "name": "Washington Secretary of State, November 5, 2024 General Election Results, Measures tab (results.vote.wa.gov)",
+    "url": "https://results.vote.wa.gov/results/20241105/Measures.html",
+    "read_utc": "2026-11-07T14:47:27Z",
+    "cache_file": "swlists/S2/pages/wa/wa-results-20241105-Measures.html"
+   },
+   "date": "2024-11-05",
+   "quote": "Initiative Measure No. 2117",
+   "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures.flow.txt",
+   "mark": "stated",
+   "mark_note": "listed under 'State Measures' on the Secretary of State's statewide Measures tab; also named in the Secretary of State's certification release",
+   "type": "statute",
+   "type_as_listed": "initiative (Initiative to the Legislature)",
+   "type_quote": "General Election ballots will also include four ballot measures for voters to weigh in on — Initiative to the People 2066 and Initiatives to the Legislature 2109, 2117, and 2124.",
+   "type_quote_file": "swlists/S2/pages/wa/wa-sos-news-2024-certifies-measures.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "initiative",
+    "as_listed": "initiative petition (citizens)",
+    "quote": "General Election ballots will also include four ballot measures for voters to weigh in on — Initiative to the People 2066 and Initiatives to the Legislature 2109, 2117, and 2124.",
+    "quote_file": "swlists/S2/pages/wa/wa-sos-news-2024-certifies-measures.flow.txt",
+    "mark": "inferred",
+    "note": "the release and the results page say 'Initiative' and do not name sponsors or say 'petition'"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1437103,
+     "NO": 2340077
+    },
+    "quote": "Initiative Measure No. 2117 County Results & Map MeasureVoteVote % Yes 1,437,10338.05% No 2,340,07761.95%",
+    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "WA",
+   "year": 2024,
+   "title": "Initiative Measure No. 2124",
+   "offices_as_filed": [
+    "INITIATIVE MEASURE NO. 2124"
+   ],
+   "list": {
+    "name": "Washington Secretary of State, November 5, 2024 General Election Results, Measures tab (results.vote.wa.gov)",
+    "url": "https://results.vote.wa.gov/results/20241105/Measures.html",
+    "read_utc": "2026-11-07T14:47:27Z",
+    "cache_file": "swlists/S2/pages/wa/wa-results-20241105-Measures.html"
+   },
+   "date": "2024-11-05",
+   "quote": "Initiative Measure No. 2124",
+   "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures.flow.txt",
+   "mark": "stated",
+   "mark_note": "listed under 'State Measures' on the Secretary of State's statewide Measures tab; also named in the Secretary of State's certification release",
+   "type": "statute",
+   "type_as_listed": "initiative (Initiative to the Legislature)",
+   "type_quote": "General Election ballots will also include four ballot measures for voters to weigh in on — Initiative to the People 2066 and Initiatives to the Legislature 2109, 2117, and 2124.",
+   "type_quote_file": "swlists/S2/pages/wa/wa-sos-news-2024-certifies-measures.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "initiative",
+    "as_listed": "initiative petition (citizens)",
+    "quote": "General Election ballots will also include four ballot measures for voters to weigh in on — Initiative to the People 2066 and Initiatives to the Legislature 2109, 2117, and 2124.",
+    "quote_file": "swlists/S2/pages/wa/wa-sos-news-2024-certifies-measures.flow.txt",
+    "mark": "inferred",
+    "note": "the release and the results page say 'Initiative' and do not name sponsors or say 'petition'"
+   },
+   "state_total": {
+    "votes": {
+     "YES": 1668435,
+     "NO": 2077216
+    },
+    "quote": "Initiative Measure No. 2124 County Results & Map MeasureVoteVote % Yes 1,668,43544.54% No 2,077,21655.46%",
+    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "IL",
+   "year": 2024,
+   "title": "Advisory Question 1",
+   "offices_as_filed": [
+    "ADVISORY QUESTION 1"
+   ],
+   "list": {
+    "name": "Illinois State Board of Elections, 'Statewide Advisory Questions for the General Election to be held on November 5, 2024' (voters guide host of the State Board)",
+    "url": "https://votersguide.elections.il.gov/questionsDocs/Election66/2024gestatewideadvisorydraft_638652868326621637.pdf",
+    "read_utc": "2026-11-07T14:49:12Z",
+    "cache_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.pdf"
+   },
+   "date": "2024-11-05",
+   "quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy to be submitted to the voters at the General Election to be held on November 5, 2024.",
+   "quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+   "mark": "inferred",
+   "mark_note": "the State Board's document states there were three statewide advisory questions on the 2024-11-05 ballot; our titles are numbered 1 to 3 and the document does not number its questions, so which question is our N is not shown",
+   "type": "advisory",
+   "type_as_listed": "advisory question (statewide advisory question of public policy)",
+   "type_quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy to be submitted to the voters at the General Election to be held on November 5, 2024.",
+   "type_quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly, by Public Act 103-586)",
+    "quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy",
+    "quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+    "mark": "inferred",
+    "note": "the document says a Public Act listed the questions; that a Public Act is the General Assembly's act is the reading, not a sentence on the page"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "IL",
+   "year": 2024,
+   "title": "Advisory Question 2",
+   "offices_as_filed": [
+    "ADVISORY QUESTION 2"
+   ],
+   "list": {
+    "name": "Illinois State Board of Elections, 'Statewide Advisory Questions for the General Election to be held on November 5, 2024' (voters guide host of the State Board)",
+    "url": "https://votersguide.elections.il.gov/questionsDocs/Election66/2024gestatewideadvisorydraft_638652868326621637.pdf",
+    "read_utc": "2026-11-07T14:49:12Z",
+    "cache_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.pdf"
+   },
+   "date": "2024-11-05",
+   "quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy to be submitted to the voters at the General Election to be held on November 5, 2024.",
+   "quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+   "mark": "inferred",
+   "mark_note": "the State Board's document states there were three statewide advisory questions on the 2024-11-05 ballot; our titles are numbered 1 to 3 and the document does not number its questions, so which question is our N is not shown",
+   "type": "advisory",
+   "type_as_listed": "advisory question (statewide advisory question of public policy)",
+   "type_quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy to be submitted to the voters at the General Election to be held on November 5, 2024.",
+   "type_quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly, by Public Act 103-586)",
+    "quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy",
+    "quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+    "mark": "inferred",
+    "note": "the document says a Public Act listed the questions; that a Public Act is the General Assembly's act is the reading, not a sentence on the page"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "IL",
+   "year": 2024,
+   "title": "Advisory Question 3",
+   "offices_as_filed": [
+    "ADVISORY QUESTION 3"
+   ],
+   "list": {
+    "name": "Illinois State Board of Elections, 'Statewide Advisory Questions for the General Election to be held on November 5, 2024' (voters guide host of the State Board)",
+    "url": "https://votersguide.elections.il.gov/questionsDocs/Election66/2024gestatewideadvisorydraft_638652868326621637.pdf",
+    "read_utc": "2026-11-07T14:49:12Z",
+    "cache_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.pdf"
+   },
+   "date": "2024-11-05",
+   "quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy to be submitted to the voters at the General Election to be held on November 5, 2024.",
+   "quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+   "mark": "inferred",
+   "mark_note": "the State Board's document states there were three statewide advisory questions on the 2024-11-05 ballot; our titles are numbered 1 to 3 and the document does not number its questions, so which question is our N is not shown",
+   "type": "advisory",
+   "type_as_listed": "advisory question (statewide advisory question of public policy)",
+   "type_quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy to be submitted to the voters at the General Election to be held on November 5, 2024.",
+   "type_quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (General Assembly, by Public Act 103-586)",
+    "quote": "Public Act 103-586, effective date May 3, 2024, has listed three statewide advisory questions of public policy",
+    "quote_file": "swlists/S2/pages/il/il-isbe-2024-ge-statewide-advisory.txt",
+    "mark": "inferred",
+    "note": "the document says a Public Act listed the questions; that a Public Act is the General Assembly's act is the reading, not a sentence on the page"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  },
+  {
+   "state": "MN",
+   "year": 2024,
+   "title": "Constitutional Amendment 1",
+   "offices_as_filed": [
+    "CONSTITUTIONAL AMENDMENT 1"
+   ],
+   "list": {
+    "name": "Minnesota Secretary of State, Election Results site: Ballot Questions, 2024 General Election (header 'Unofficial Results Tuesday, November 5, 2024')",
+    "url": "https://electionresults.sos.mn.gov/Select/BallotQuestions/Index?ersElectionId=170",
+    "read_utc": "2026-11-07T14:53:21Z",
+    "cache_file": "swlists/S2/pages/mn/mn-ers-2024ge-ballot-questions.html"
+   },
+   "date": "2024-11-05",
+   "quote": "The following list includes the constitutional amendment and all county, municipal, and school district questions. STATE OF MINNESOTA CONSTITUTIONAL AMENDMENT 1",
+   "quote_file": "swlists/S2/pages/mn/mn-ers-2024ge-ballot-questions.flow.txt",
+   "mark": "stated",
+   "mark_note": "the page headed 'STATE OF MINNESOTA' lists it as the one constitutional amendment, apart from county, municipal and school district questions",
+   "type": "amendment",
+   "type_as_listed": "constitutional amendment",
+   "type_quote": "CONSTITUTIONAL AMENDMENT 1 Environment and Natural Resources Trust Fund Renewal",
+   "type_quote_file": "swlists/S2/pages/mn/mn-ers-2024ge-ballot-questions.flow.txt",
+   "type_mark": "stated",
+   "proposer": {
+    "who": "legislature",
+    "as_listed": "legislature (Laws of Minnesota 2023, chapter 67)",
+    "quote": "BE IT ENACTED BY THE LEGISLATURE OF THE STATE OF MINNESOTA",
+    "quote_file": "swlists/S2/pages/mn/mn-revisor-laws2023-ch67.flow.txt",
+    "mark": "stated",
+    "note": "by the Revisor's act text, not by the Secretary of State's list (that list does not say who proposed it"
+   },
+   "read_by": "reader S2 for D3, 2026-11-07"
+  }
+ ],
+ "unread": [
+  {
+   "url": "https://www.sos.la.gov/ElectionsAndVoting/PublishedDocuments/ProposedConstitutionalAmendments2018.pdf",
+   "what_happened": "HTTP 404 Not Found at an older sos.la.gov address (https://www.sos.la.gov/ElectionsAndVoting/PublishedDocuments/ProposedConstitutionalAmendments2018.pdf), which a search result had given. This was not a refusal of us (no 403, 429 or challenge); the site has since moved its files. No file saved. The current address was found on the state's own 'Types of Elections' page and read instead.",
+   "read_utc": "2026-11-07T14:40:27Z",
+   "group": "S1"
+  },
+  {
+   "url": "https://www.sos.la.gov/ElectionsAndVoting/PublishedDocuments/ProposedConstitutionalAmendments2018Summaries.pdf",
+   "what_happened": "HTTP 404 Not Found at a second older address (https://www.sos.la.gov/ElectionsAndVoting/PublishedDocuments/ProposedConstitutionalAmendments2018Summaries.pdf), also from a search result. Not a refusal. No file saved; I stopped guessing addresses and used the links on the state's current page.",
+   "read_utc": "2026-11-07T14:41:47Z",
+   "group": "S1"
+  },
+  {
+   "url": "https://vote.sos.ri.gov, https://sos.ri.gov, https://elections.ri.gov",
+   "what_happened": "Not requested, by instruction (they served a Cloudflare challenge to the project earlier today). The State's own list of the 2016 ballot questions was therefore not read; the Rhode Island entry rests on the General Assembly's acts.",
+   "read_utc": null,
+   "group": "S2"
+  },
+  {
+   "url": "https://webserver.rilegislature.gov/PublicLaws/law16/",
+   "what_happened": "HTTP 404 on a directory address I guessed; no 2016 public laws index was found by that address (the act pages were found by search).",
+   "read_utc": "2026-11-07T14:39:22Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://www.rilegislature.gov/commissions/CCC/commdocs/2016%20Referenda%20Book.pdf",
+   "what_happened": "HTTP 404 on an address built by analogy with the 2014 Voter Information Handbook; search found no 2016 edition on this host. Not corrected further.",
+   "read_utc": "2026-11-07T14:42:48Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://apps.azsos.gov (all addresses)",
+   "what_happened": "Not requested, by instruction (Cloudflare).",
+   "read_utc": null,
+   "group": "S2"
+  },
+  {
+   "url": "https://azsos.gov/2018-election-information",
+   "what_happened": "HTTP 403, Cloudflare 'Just a moment...' challenge, on the one try allowed. Challenge page saved at pages/az/az-azsos-2018-election-information.html (not a source); azsos.gov not tried again.",
+   "read_utc": "2026-11-07T14:44:43Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://www.sos.wa.gov/_assets/elections/research/2018/-ed12-all%209.5%20low%20res.pdf and ...-ed09-all%209.3%20low%20res.pdf (2018 voters' pamphlet editions)",
+   "what_happened": "HTTP 404 both (addresses from search results; the sos.wa.gov _assets paths are gone). The 404 pages were deleted. Not tried further.",
+   "read_utc": "2026-11-07T14:45:57Z and 2026-11-07T14:46:52Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://www.sos.wa.gov/elections/initiatives/statistics.aspx",
+   "what_happened": "HTTP 404 (old address linked from the 2018 results page; the site was reorganised). Deleted.",
+   "read_utc": "2026-11-07T14:46:11Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://sos.wa.gov/sites/default/files/2022-05/2018%20report%20of%20elections%20(EAVS%20Edition).pdf",
+   "what_happened": "HTTP 404 (address from search results). Deleted.",
+   "read_utc": "2026-11-07T14:48:50Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://results.vote.wa.gov/results/20241105/SignedCertification.pdf",
+   "what_happened": "HTTP 404 (linked from the 2024 results index but not served). Deleted.",
+   "read_utc": "2026-11-07T14:47:49Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://www.sos.wa.gov/elections/voters/2024-general-election-voters-guide/2024-initiative-information",
+   "what_happened": "HTTP 200 but redirected to https://www.sos.wa.gov/elections/voters/proposed-ballot-measure-information, which lists 2026 initiatives only. Saved (wa-sos-2024-initiative-information.html); not used, no quote.",
+   "read_utc": "2026-11-07T14:48:21Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://www.ilsos.gov/content/dam/publications/illinois-bluebook/2025-26/illinois-general-election-results-2024.pdf",
+   "what_happened": "curl error 92 (HTTP/2 stream not closed cleanly, INTERNAL_ERROR) twice; nothing saved. No relay failure was logged by the proxy for this host. Stopped after the second.",
+   "read_utc": "2026-11-07T14:49:26Z and 2026-11-07T14:49:56Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://www.ilga.gov/legislation/publicacts/fulltext.asp?Name=103-0586",
+   "what_happened": "curl error 60 (TLS: unable to get local issuer certificate; the site sends only its own certificate, not the intermediate). Nothing saved.",
+   "read_utc": "2026-11-07T14:51:23Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://ilga.gov/legislation/publicacts/103/PDF/103-0586.pdf",
+   "what_happened": "curl error 60 (TLS chain incomplete at the site) at 14:51:49Z. Fetched again at 14:52:26Z with the AIA intermediate added to the CA bundle (verification on): HTTP 404 (page deleted). Not used.",
+   "read_utc": "2026-11-07T14:51:49Z and 2026-11-07T14:52:26Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://ilga.gov/legislation/publicacts/fulltext.asp?Name=103-0586",
+   "what_happened": "Fetched once with the AIA intermediate added (TLS chain incomplete at the site): HTTP 404 (page deleted). Not used.",
+   "read_utc": "2026-11-07T14:52:40Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://www.ilga.gov/Documents/legislation/publicacts/103/PDF/103-0586.pdf",
+   "what_happened": "TLS chain incomplete at the site; fetched once with the AIA intermediate added to the CA bundle (verification on): HTTP 200, saved at pages/il/il-ilga-PA103-0586.pdf and .txt. NOT USED: no quote or fact from it is in this file (I had read its text before the coordinator's instruction arrived; nothing in the Illinois entries rests on it). The bundle (S2/tls/) is no longer used and no further request goes to ilga.gov. Also: to build that bundle I made one openssl connection to ilga.gov:443 (to read its certificate) and one request to http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR40.crt (the intermediate certificate).",
+   "read_utc": "2026-11-07T14:52:55Z",
+   "group": "S2"
+  },
+  {
+   "url": "https://officialdocuments.sos.mn.gov/Document/Details/152508",
+   "what_happened": "HTTP 200 but the detail page held no document (menu text only); the State Canvassing Board report itself was not read. Saved, no quote taken.",
+   "read_utc": "2026-11-07T14:53:56Z",
+   "group": "S2"
+  }
+ ]
+}
