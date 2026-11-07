@@ -27,6 +27,10 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 | Thread | Id | Brief | Status |
 |---|---|---|---|
+| Verify vote decisiveness models | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi | `briefs/R1-research-decisiveness-models-at-source.md` (Sonnet 5.5, xhigh) | started 2026-11-07 00:09 |
+| Verify historical close races | cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS | `briefs/R2-research-close-races-at-source.md` (Sonnet 5.5, xhigh) | started 00:09 |
+| Verify voting frameworks and costs | cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz | `briefs/R3-research-frameworks-at-source.md` (Sonnet 5.5, xhigh) | started 00:09 |
+| Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | started 00:09 |
 
 ## Accounts and keys opened (no secrets here)
 
