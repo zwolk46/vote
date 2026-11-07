@@ -1,50 +1,379 @@
 {
  "state": "NJ",
  "name": "New Jersey",
- "status": "unread",
+ "status": "partly-read",
  "code": {
   "name": "New Jersey Statutes (N.J.S.A. Title 19, Elections)",
-  "edition": "not read; the viewer's only page of text, its title page, reads 'NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1)'",
+  "edition": "the viewer's title page: NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1)",
   "site": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
-  "reached": false
+  "reached": true
  },
- "sections": {},
+ "sections": {
+  "s19-3-4": {
+   "citation": "N.J.S.A. 19:3-4",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:3-4[.\\s]"
+    ],
+    "open": "^19:3-4[.\\s]"
+   }
+  },
+  "s19-3-6": {
+   "citation": "N.J.S.A. 19:3-6",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:3-6[.\\s]"
+    ],
+    "open": "^19:3-6[.\\s]"
+   }
+  },
+  "s19-13-14": {
+   "citation": "N.J.S.A. 19:13-14",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:13-14[.\\s]"
+    ],
+    "open": "^19:13-14[.\\s]"
+   }
+  },
+  "s19-23-57": {
+   "citation": "N.J.S.A. 19:23-57",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:23-57[.\\s]"
+    ],
+    "open": "^19:23-57[.\\s]"
+   }
+  },
+  "s19-28-1": {
+   "citation": "N.J.S.A. 19:28-1",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:28-1[.\\s]"
+    ],
+    "open": "^19:28-1[.\\s]"
+   }
+  },
+  "s19-28-2": {
+   "citation": "N.J.S.A. 19:28-2",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:28-2[.\\s]"
+    ],
+    "open": "^19:28-2[.\\s]"
+   }
+  },
+  "s19-28-3": {
+   "citation": "N.J.S.A. 19:28-3",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:28-3[.\\s]"
+    ],
+    "open": "^19:28-3[.\\s]"
+   }
+  },
+  "s19-28-4": {
+   "citation": "N.J.S.A. 19:28-4",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:28-4[.\\s]"
+    ],
+    "open": "^19:28-4[.\\s]"
+   }
+  },
+  "s19-28-8": {
+   "citation": "N.J.S.A. 19:28-8",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:28-8[.\\s]"
+    ],
+    "open": "^19:28-8[.\\s]"
+   }
+  },
+  "s19-29-1": {
+   "citation": "N.J.S.A. 19:29-1",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:29-1[.\\s]"
+    ],
+    "open": "^19:29-1[.\\s]"
+   }
+  },
+  "s19-29-8": {
+   "citation": "N.J.S.A. 19:29-8",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:29-8[.\\s]"
+    ],
+    "open": "^19:29-8[.\\s]"
+   }
+  },
+  "s19-29-9": {
+   "citation": "N.J.S.A. 19:29-9",
+   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+   "read_at": "state",
+   "render": true,
+   "tree": {
+    "steps": [
+     "expand:GENERAL AND PERMANENT STATUTES",
+     "expand:TITLE 19\\s+ELECTIONS",
+     "more:TITLE 19\\s+ELECTIONS=>^19:29-9[.\\s]"
+    ],
+    "open": "^19:29-9[.\\s]"
+   }
+  }
+ },
  "ties": [
   {
-   "kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"],
-   "applies_to": "all kinds of office and measures",
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "applies_to": "a tie vote as a result of the canvass or of a recount, for an office filled at an election (the text says 'any public office')",
+   "resolution": "court",
+   "steps": "a recount that ends in a tie voids the certificate the board of canvassers first issued; either tied party may contest the election in the Superior Court, where the incumbent is taken to be the person with an equal number of votes; the judge pronounces whether the incumbent or any contestant was duly elected, and if no person is found duly elected the election is set aside. What follows an election set aside (a new election, an appointment) is not in the sections read; and if no one contests, nothing is stated",
+   "who": "a judge of the Superior Court, on the contest of either tied party (and, for the recount, the judge who conducted it)",
+   "sources": [
+    {
+     "section": "s19-3-4",
+     "quote": "for whom the greatest number of votes shall have been given therein for such office or offices, shall be deemed and taken to be elected to such office or offices."
+    },
+    {
+     "section": "s19-28-4",
+     "quote": "In case of a tie vote as a result of a recount the judge conducting the recount shall issue an order revoking the certificate originally issued by the board of canvassers."
+    },
+    {
+     "section": "s19-29-1",
+     "quote": "The nomination or election of any person to any public office or party position, or the approval or disapproval of any public proposition, may be contested by the voters of this State or of any of its political subdivisions"
+    },
+    {
+     "section": "s19-29-1",
+     "quote": "but in the case of a tie vote as a result of the canvass or recount, either party may contest the election, in which case the term \"incumbent\" means the person having an equal number of votes with the contestant."
+    },
+    {
+     "section": "s19-29-8",
+     "quote": "The judge shall pronounce judgment whether the incumbent or any contestant was duly elected, and the person so declared elected will be entitled to his certificate"
+    },
+    {
+     "section": "s19-29-9",
+     "quote": "If the judge finds that no person was duly elected, the judgment shall be that the election be set aside."
+    }
+   ],
+   "mark": "inferred",
+   "note": "The statute's words are quoted; putting them together as 'a tie goes to the court' is my reading [inferred]. Chapter 28 (recounts) says 'any election' and chapter 29 (contests) 'any public office', and neither excludes offices of the United States; what Congress or the Constitution may do about its own members was not read. Presidential electors and the Governor (the New Jersey Constitution) are not covered here, see the unread rules. A recount tie is the only tie the sections read name besides the contest clause."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a nomination at a primary election",
+   "resolution": "none-found",
+   "steps": "the sections read make the person with the highest number of votes the party's candidate, and name no method for a tie. A nomination may be contested in court on the same grounds as an election (N.J.S.A. 19:29-1 reads 'nomination or election of any person to any public office or party position'), but whether a primary tie reaches that contest was not read",
+   "who": null,
+   "sources": [
+    {
+     "section": "s19-13-14",
+     "quote": "in such election the person having in the aggregate the highest number of votes shall be the candidate of his respective party for the office to be filled."
+    },
+    {
+     "section": "s19-23-57",
+     "quote": "shall forthwith canvass such statements of the county clerks and determine by the highest number of votes what persons have been so nominated"
+    }
+   ],
+   "mark": "inferred",
+   "note": "None found in the sections read: 19:13-14, 19:23-54, 19:23-55, 19:23-57 (the primary canvass) and 19:29-1. The other sections of chapters 13 and 23 were not opened, so this is not a statement that New Jersey law has no rule."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a public question at an election",
+   "resolution": "none-found",
+   "steps": "a public question is approved when the percentage of the legal voters that the authorizing statute requires votes in favor; no provision for a tie was found. On a recount of a public question the judge orders that the result be corrected",
+   "who": null,
+   "sources": [
+    {
+     "section": "s19-3-6",
+     "quote": "shall be deemed to be approved when that percentage of the legal voters of the State or any subdivision thereof as required by the statute authorizing the proposal of such  public question shall vote in favor of its adoption."
+    },
+    {
+     "section": "s19-28-8",
+     "quote": "In case of public questions such judge shall make an order that the result of such election be corrected."
+    }
+   ],
+   "mark": "inferred",
+   "note": "None found in 19:3-6, 19:28-8 and 19:29-1 (the sections opened). A question that falls short of its required percentage is not approved [inferred]; the authorizing statutes themselves were not read."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "presidential and vice presidential electors",
    "resolution": "unread",
-   "steps": "not read",
+   "steps": "not read: the sections on the electors (N.J.S.A. 19:13-15 and 19:22-8 are named in the contents list) were not opened",
    "who": null,
    "sources": [],
    "mark": null,
-   "note": "No text of any section of Title 19 was read. The Legislature's statute viewer, rendered in the headless Chromium as the orchestrator's ruling of 2026-11-07 08:00 UTC allows, shows a contents tree that holds only the title of the whole compilation, and its children are opened by script on a click (see 'unread'). Nothing is recorded from any other publisher. The citations N.J.S.A. 19:28-1 to 19:28-4 and 19:28-8 are leads (a web search for recounts and ties returned their titles, and the reader's brief names 19:28-1 and its neighbours); they are not readings."
+   "note": "A tie among electors is probably moot because electors run as slates; that is a guess, not a reading."
   }
  ],
- "recounts": [],
- "unread": [
+ "recounts": [
   {
-   "what": "all of New Jersey's tie and recount law (N.J.S.A. Title 19; chapter 28 is where a search on recounts and ties pointed)",
-   "reason": "The Legislature's statute viewer (Folio NXT) serves a script shell to curl (the helper reported 'only 132 characters of text (a script shell or an empty page)', 2026-11-07T07:23Z). Rendered in the session's headless Chromium (`state_law.py fetch NJ home https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu --render`, read 2026-11-07T08:09Z, status 200) it returns a frameset of three frames: the page; a contents frame (https://lis.njleg.state.nj.us/nxt/gateway.dll?f=templates$fn=contents-frame-js.htm$vid=Publish%3A10.1048%2FEnu$3.0&cp=&sel=0&tf=main&tt=document-frameset.htm&t=contents-frame-js.htm&och=onClick); and a document frame (https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=document-frameset.htm&q=&uq=&x=&up=1). The contents tree holds ONE node, 'New Jersey Statutes (Unannotated)' > 'NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1)', marked as having children (hc=\"y\") but with an empty child list; the node's plus sign is a click handler that loads the titles, so opening it is an interaction, which the rule of the brief forbids (the tool opens one address and clicks nothing). The document frame holds only that title (the compilation's title page: no table of contents, no links). The page presents no link to any title, chapter or section: the one link it gives is to the compilation's own node, https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes%2F1, which the reader rendered at 2026-11-07T08:12Z (status 200, 171 characters: the same title and nothing else). The remaining controls (search forms, bookmarks, the tree) are interactions or forms. The address of a Title 19 node is therefore not presented by anything the page shows; it could only be guessed or taken from the viewer's scripts, and the brief forbids calling an address found only in a script's code. Stopped after these two renderings (08:09Z, the frames, run first by the orchestrator and cached; 08:12Z, the node link, run by this reader).",
-   "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
-   "tried_utc": "2026-11-07T08:12Z"
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "type": "court",
+   "election": "any election, for a candidate",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "a candidate has reason to believe that an error has been made in counting the votes of the election; no margin is required; the application is made within 3 days after the certification of the results to a judge of the Superior Court assigned to the county where the district or districts are located, who may order a recount in any district or districts under terms he deems proper, made publicly by the county board",
+    "in_words": "a candidate who has reason to believe that an error was made in counting the votes may, within 3 days after certification, apply to a Superior Court judge for a recount in any district"
+   },
+   "who_may_request": [
+    "any candidate at the election, by application to a judge of the Superior Court assigned to the county, within 3 days after the certification of the results"
+   ],
+   "cost_bearer": "the applicant deposits security fixed by the judge, not more than $25 for any one district; the State, county or municipality pays the costs if an error changes the election or alters the difference between candidates in a district by more than ten votes or 10% of the district's total vote, whichever is greater; otherwise the costs are paid from the deposit",
+   "sources": [
+    {
+     "section": "s19-28-1",
+     "quote": "When any candidate at any election shall have reason to believe that an error has been made in counting the votes of that election, the candidate may, within a period of 3 days after the certification of the results of the election, apply to a judge of the Superior Court assigned to the county wherein such district or districts are located, for a recount of the votes cast at the election in any district or districts."
+    },
+    {
+     "section": "s19-28-3",
+     "quote": "Such judge shall be authorized to order upon such terms as he deems proper a  recount of the votes as he may determine, to be publicly made under his direction by the county board."
+    },
+    {
+     "section": "s19-28-2",
+     "quote": "such sum of money proportioned to the number of votes to be counted but not exceeding twenty-five dollars ($25.00) for any one district recount of which is asked"
+    },
+    {
+     "section": "s19-28-2",
+     "quote": "If it appears that an error or errors have occurred as a result of which the election is changed or the difference in the vote between any candidate and any other candidate for the same office or between the negative and affirmative of any such public question is altered in any district by more than ten votes or ten per centum (10%) of the total vote  cast in the district, whichever is the greater, the costs and expenses of the recount of such district shall be paid by the State, county or municipality"
+    }
+   ],
+   "mark": "measured",
+   "note": "Chapter 28 says 'any candidate at any election'; whether a primary is an 'election' for it was not read (the Title's definitions, 19:1-1, were not opened), so primary is not listed. If the recount shows an error sufficient to change the result the judge revokes the certificate and a new one issues to the person with a plurality (19:28-4). No automatic or margin-triggered recount appears in any section title of Title 19's contents list; the sections not opened were not read."
   },
   {
-   "what": "an agency's statement of the tie and recount rules, from the Division of Elections (State of New Jersey), as the brief's 'stated' grade would take it",
-   "reason": "One request: https://www.nj.gov/state/elections/ (curl through the helper, 2026-11-07T08:12Z) returned a 346-byte page with no text: an empty body, a meta refresh to 'vote.shtml', and a script from the path '/_Incapsula_Resource' (Imperva Incapsula, a bot-protection service). That is read as a challenge page (briefs/_COMMON.md 13: a challenge page is a refusal), so the reader stopped: it did not follow the refresh to vote.shtml, did not render the page in the browser, and tried no other nj.gov address.",
+   "kinds": [
+    "measure"
+   ],
+   "type": "court",
+   "election": "a public question",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "ten voters have reason to believe that an error has been made in counting the votes on a public question; no margin is required; application within 3 days after certification to a judge of the Superior Court assigned to the county",
+    "in_words": "ten voters who believe an error was made counting the votes on a public question may, within 3 days after certification, apply to a Superior Court judge for a recount"
+   },
+   "who_may_request": [
+    "ten voters at the election, by application to a judge of the Superior Court assigned to the county, within 3 days after the certification of the results"
+   ],
+   "cost_bearer": "the applicants deposit security fixed by the judge, not more than $25 for any one district; the public body pays if the difference between the affirmative and the negative is altered in a district by more than ten votes or 10% of the district's total vote, whichever is greater; otherwise the deposit pays",
+   "sources": [
+    {
+     "section": "s19-28-1",
+     "quote": "When ten voters at any election shall have reason to believe that an error has been so made in counting the votes upon any public question at any election, such voters may, within a period of 3 days after the certification of the results of the election, apply to a judge of the Superior Court"
+    },
+    {
+     "section": "s19-28-2",
+     "quote": "If no error shall appear sufficient to produce  such change, the costs and expenses of the recount shall be paid out of the deposit made as security by the party or parties making the application."
+    }
+   ],
+   "mark": "measured",
+   "note": "On a public question the judge orders that the result be corrected (19:28-8)."
+  }
+ ],
+ "unread": [
+  {
+   "what": "the rest of Title 19: 18 of the 1,028 section titles in its contents list were opened (3-4, 3-6, 13-14, 23-57, 28-1 to 28-4, 28-8, 29-1, 29-8 and 29-9 are cited by the rules; 19-8, 20-2, 22-1, 23-54, 23-55 and 29-10 carry no tie or recount rule)",
+   "reason": "no section title names a tie, a lot or an automatic recount, but a rule can sit in a section whose title does not say so; the definitions (19:1-1), the electors (19:13-15, 19:22-8), vacancies and special elections (19:3-26 to 19:3-29) and the contest procedure (19:29-2 to 19:29-14) were not opened"
+  },
+  {
+   "what": "the New Jersey Constitution (a tie for Governor and Lieutenant Governor; each house judging its members) and the statutes outside Title 19 that govern municipal and school elections (Titles 40, 40A, 18A)",
+   "reason": "outside the title the brief points to; not requested"
+  },
+  {
+   "what": "an agency's statement of the tie and recount rules, from the Division of Elections (State of New Jersey)",
+   "reason": "One request: https://www.nj.gov/state/elections/ (curl through the helper, 2026-11-07T08:12Z) returned a 346-byte page with no text: an empty body, a meta refresh to 'vote.shtml', and a script from the path '/_Incapsula_Resource' (Imperva Incapsula, a bot-protection service). That is read as a challenge page (briefs/_COMMON.md 13), so the reader stopped and tried no other nj.gov address.",
    "url": "https://www.nj.gov/state/elections/",
    "tried_utc": "2026-11-07T08:12Z"
   },
   {
-   "what": "the same law, from a compilation allowed by the amendment of 2026-11-07 07:21 UTC",
-   "reason": "Justia answered HTTP 403 to its first request in this task (https://law.justia.com/codes/new-hampshire/title-lxiii/, for New Hampshire at 2026-11-07T07:22Z, by an earlier reader); stopped at that refusal, and no request to Justia for New Jersey was made. The brief of this reading forbids Justia. Cornell LII: a search of law.cornell.edu (earlier reader) returned New Jersey regulations (N.J. Admin. Code) but no page of the New Jersey Statutes, so none was tried. The Legislature's own address https://www.njleg.state.nj.us/statutes answered HTTP 404 (earlier reader, 2026-11-07T07:23Z) and, as the brief says, was not tried again; its 'Downloads' page (https://www.njleg.state.nj.us/downloads) links to https://www.njleg.state.nj.us/legislative-downloads?downloadType=Statutes, whose list of files is drawn by script and is not in the page's HTML (earlier reader, 2026-11-07T07:23Z).",
-   "url": "https://law.justia.com/codes/new-hampshire/title-lxiii/ (the refused request; no New Jersey URL was requested)",
-   "tried_utc": "2026-11-07T07:22Z"
+   "what": "the same law, from a compilation (Justia, Cornell LII)",
+   "reason": "Justia answered HTTP 403 to its first request in this project (New Hampshire, 2026-11-07T07:22Z, an earlier reader); no request to Justia for New Jersey was made. Cornell LII: a search found New Jersey regulations but no page of the New Jersey Statutes."
   }
  ],
  "notes": [
-  "New Jersey is unread. The statute viewer has not refused us (status 200 each time) but gives no way to Title 19 without opening its contents tree by a click, or calling an address that the page does not present; the nj.gov Division of Elections answered with a bot-protection challenge. Both are recorded, neither worked round.",
-  "If the orchestrator rules that the viewer's contents tree may be opened (a click in the headless browser), the sections to read are N.J.S.A. Title 19, Elections: chapter 28 (where a search on recounts and ties pointed; 19:28-1 to 19:28-4 and 19:28-8 are the leads), the chapters on the canvass of votes and the declaration of the result for general elections, and the chapters on primaries for ties in a primary (their numbers not read). These are leads for where to look, not readings.",
-  "The cached renderings are in $VOTE_CACHE/law/NJ/ as home.raw (the frames, 08:09Z), status-link.raw (08:12Z) and doe-home.raw (the nj.gov challenge page, 08:12Z)."
+  "New Jersey is partly read. The Legislature's statute viewer (Folio NXT) serves a script shell to curl; it has not refused us (status 200 every time). It was read as a reader reads it, in the session's headless Chromium (render_tree.cjs): the contents tree was opened with the viewer's own plus signs and its 'more' nodes (25 titles at a time), 18 section titles were opened by a click on their titles, one action every 5 seconds, nothing typed, no search box, no address taken from a script. The orchestrator ruled at 2026-11-07 08:41 UTC that this is allowed. The reading ran 2026-11-07 08:44 to 09:01 UTC.",
+  "What the sections read say: the plurality takes the office (19:3-4) or the party's nomination (19:13-14, 19:23-57); a candidate (or ten voters, on a public question) may apply to a Superior Court judge within 3 days after certification for a recount, at no stated margin, with a deposit of up to $25 a district (19:28-1, 19:28-2); a tie after a recount voids the first certificate (19:28-4), and either tied party may contest the election in court (19:29-1), the judge pronouncing who was duly elected or setting the election aside (19:29-8, 19:29-9). No lot, no runoff, no automatic recount was found.",
+  "To read these again with a clean cache: python3 -I pipeline/intake/state_law.py tree NJ URL 'expand:GENERAL AND PERMANENT STATUTES' 'expand:TITLE 19\\s+ELECTIONS' 'more:TITLE 19\\s+ELECTIONS=>^19:29-9[.\\s]' --save s19-3-4='^19:3-4[.\\s]' ... (one browser session reads them all in about 15 minutes); `check` on an empty cache replays the tree for each section separately and is slower."
  ]
 }

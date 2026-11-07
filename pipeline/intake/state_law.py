@@ -11,6 +11,12 @@ into `data/law/ties.json` and `data/law/recounts.json`, refusing any reading who
                                                              text came back (a reader's tool); --render reads the
                                                              page in headless Chromium (a script shell that has
                                                              not refused us; mark the section "render": true)
+  python3 pipeline/intake/state_law.py tree  ST URL STEP... --save NAME=REGEX ...
+                                                             read a public statute viewer (Folio NXT) by opening its
+                                                             contents tree (render_tree.cjs: expand/more/open steps, 5 s
+                                                             apart, nothing typed) and keep the document pane of each
+                                                             NAME's node in the cache (a section marked "render": true
+                                                             with "tree": {"steps": [...], "open": REGEX})
   python3 pipeline/intake/state_law.py check  [ST ...]       fetch every section of the readings and verify
                                                              every quotation; print what fails; write nothing
   python3 pipeline/intake/state_law.py build  [--allow-failures]
@@ -222,23 +228,47 @@ def render_to_cache(url, rel):
         json.dump(rec, f, indent=1)
 
 
-def fetch_section(st, name, url, refresh=False, render=False):
+def render_tree_to_cache(url, steps, opens):
+    """Open the contents tree of a public statute viewer in the installed headless Chromium (pipeline/intake/render_tree.cjs;
+    the orchestrator's ruling of 2026-11-07 08:41 UTC for New Jersey) with `steps` (expand:/more: steps), then click each
+    node of `opens`, a list of (rel, regex), and keep the HTML of the document pane for each as the raw file `rel`, with
+    a meta record that says `rendered` and `tree`. One action every 5 seconds; nothing is typed. Raises fetch.Refused on a
+    status of 400 or more, a redirect to another site, a node the tree does not show, or a failed run."""
+    parts = {rel: os.path.join(CACHE, rel) + ".part" for rel, _ in opens}
+    log = os.path.join(CACHE, opens[0][0]) + ".tree-log.txt"
+    cmd = ["node", os.path.join(HERE, "render_tree.cjs"), url, log] + list(steps) + [f"open:{rx}=>{parts[rel]}" for rel, rx in opens]
+    out = subprocess.run(cmd, capture_output=True, text=True, timeout=3600)
+    if out.returncode != 0 or not all(os.path.exists(p) for p in parts.values()):
+        raise _fetch.Refused(f"tree read stopped for {url}: {(out.stdout + out.stderr).strip()[:300]} (log {log})")
+    for rel, _ in opens:
+        full = os.path.join(CACHE, rel)
+        os.replace(parts[rel], full)
+        rec = {"url": url, "served_from": urllib.parse.urlparse(url).netloc, "read_utc": now_utc(), "bytes": os.path.getsize(full),
+               "sha256": hashlib.sha256(open(full, "rb").read()).hexdigest(), "rendered": True, "tree": True}
+        with open(full + ".meta.json", "w") as f:
+            json.dump(rec, f, indent=1)
+
+
+def fetch_section(st, name, url, refresh=False, render=False, tree=None):
     """Fetch one section's page into the cache; return (meta, text). Raises fetch.Refused on a refusal and
     ValueError if the page holds almost no text (a script shell or an error page served with status 200).
-    render=True renders the address in headless Chromium instead (see render_to_cache)."""
+    render=True renders the address in headless Chromium instead (see render_to_cache). tree={"steps": [...], "open": REGEX}
+    reads the node through the viewer's contents tree (see render_tree_to_cache)."""
     rel = raw_name(st, name)
     os.makedirs(os.path.dirname(os.path.join(CACHE, rel)), exist_ok=True)
     full = os.path.join(CACHE, rel)
     if refresh or not (os.path.exists(full) and os.path.exists(full + ".meta.json")):
         _throttle(urllib.parse.urlparse(url).netloc)
-        if render:
+        if tree:
+            render_tree_to_cache(url, tree["steps"], [(rel, tree["open"])])
+        elif render:
             render_to_cache(url, rel)
-        bundle = None if render else _with_chain(url)
+        bundle = None if (render or tree) else _with_chain(url)
         old = os.environ.get("CURL_CA_BUNDLE")
         if bundle:
             os.environ["CURL_CA_BUNDLE"] = bundle
         try:
-            if not render:
+            if not (render or tree):
                 _fetch.fetch(url, rel, refresh=refresh)
         finally:
             if bundle:
@@ -254,7 +284,8 @@ def fetch_section(st, name, url, refresh=False, render=False):
             f.write(txt)
     with open(tp, encoding="utf-8") as f:
         txt = f.read()
-    if len(norm(txt)) < 300:
+    # a statute can be short (N.J.S.A. 19:28-8 is 250 characters); a section opened by clicking a tree node is a document pane, not a shell
+    if len(norm(txt)) < (100 if tree else 300):
         raise ValueError(f"{url}: only {len(norm(txt))} characters of text (a script shell or an empty page)")
     return meta, txt
 
@@ -308,7 +339,7 @@ def check_reading(st, r, refresh=False):
     texts = {}
     for key, sec in (r.get("sections") or {}).items():
         try:
-            metas[key], texts[key] = fetch_section(st, key, sec["url"], refresh=refresh, render=bool(sec.get("render")))
+            metas[key], texts[key] = fetch_section(st, key, sec["url"], refresh=refresh, render=bool(sec.get("render")), tree=sec.get("tree"))
         except (_fetch.Refused, ValueError, RuntimeError) as e:
             problems.append(f"{st}: section {key} not readable: {e}")
     for kind in ("ties", "recounts"):
@@ -368,6 +399,8 @@ def source_block(st, r, key, meta):
              "note": sec.get("note"), "sha256": meta["sha256"]}
     if meta.get("rendered"):
         block["note"] = ((sec.get("note") or "") + " Rendered in the session's headless Chromium (the page is a script shell): the text is what the page shows after its scripts ran.").strip()
+        if meta.get("tree"):
+            block["note"] += " The node was opened by a click in the viewer's contents tree (render_tree.cjs), as a reader opens it; the url is the viewer's start page."
     if not at_state:
         block["origin"] = {"citation": sec.get("origin_citation"), "url": sec.get("origin_url")}
         block["code_year"] = sec.get("code_year")
@@ -536,6 +569,24 @@ def main(argv):
         print(f"read {meta['bytes']} bytes at {meta['read_utc']} sha256 {meta['sha256'][:16]}; "
               f"{len(norm(txt))} characters of text -> {text_path(st, name)}")
         print(norm(txt)[:400])
+        return 0
+    if len(argv) >= 5 and argv[1] == "tree" and "--save" in argv:
+        k = argv.index("--save")
+        st, url, steps, saves = argv[2], argv[3], argv[4:k], argv[k + 1:]
+        opens = []
+        for sv in saves:
+            nm, _, rx = sv.partition("=")
+            opens.append((raw_name(st, nm), rx))
+            os.makedirs(os.path.dirname(os.path.join(CACHE, raw_name(st, nm))), exist_ok=True)
+        try:
+            _throttle(urllib.parse.urlparse(url).netloc)
+            render_tree_to_cache(url, steps, opens)
+        except (_fetch.Refused, subprocess.TimeoutExpired) as e:
+            print("NOT READ:", e)
+            return 1
+        for nm, _ in [(sv.partition("=")[0], 0) for sv in saves]:
+            meta, txt = fetch_section(st, nm, url, tree=True)
+            print(f"{nm}: {meta['bytes']} bytes, {len(norm(txt))} characters of text -> {text_path(st, nm)}")
         return 0
     if len(argv) == 3 and argv[1] == "chain":
         try:
