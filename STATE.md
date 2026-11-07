@@ -42,7 +42,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
 | Keep the vote tracker current | cmsg_01FHkmcV6WaeZh9r5PfgnMbuByWBE5rw5LTK6xKGeqevgf | `briefs/T1-tracker.md` (Sonnet 5.5, xhigh) | started 03:08 |
 | Gather presidential data by state | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCWdWPRkhAafpzm5UUF9z22 | `briefs/D1-data-president.md` (Opus 5.5, xhigh) | done; #14, #23 merged; stopped |
-| Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | done; #18, #22 merged; woken 05:59 for the M2 follow-ups (brief amended 05:58) |
+| Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | done; #18, #22 merged; woken 05:58 for the M2 follow-ups (brief amended 05:58) |
 | Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | started 03:08; #16 (spec) merged; options on its preview branch; X2 next in this thread |
 | Gather local, legislative, primary and measure data | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVThyXDPxVFHnA4YqgssTSs | `briefs/D3-data-local.md` (Opus 5.5, xhigh) | started ~04:30 |
 | Check every computed vote chance | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCEUo7XmYgNjtfLdxDRBTML | `briefs/M2-check-computed-p.md` (Fable 5.1, xhigh) | done; #26 merged 05:56; stopped; second pass (D3's levels) on the orchestrator's word |
@@ -51,9 +51,9 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
-- 2026-11-07 06:01: #27 merged (M2 follow-ups in the D1 and D2 briefs; headings rulings; MATH notes). D2 woken with its eight items. Workers: X1 (X2), D3, D2, + T1.
+- 2026-11-07 05:58: #27 merged (M2 follow-ups in the D1 and D2 briefs; headings rulings; MATH notes). D2 woken with its eight items. Workers: X1 (X2), D3, D2, + T1.
 
-- 2026-11-07 05:59: #26 merged (M2). Gate: clean, checks/ only; scipy installed; c1, c3 and c7 rerun and every line found verbatim in OUTPUT.txt. Decided on M2's readings: earlier-cycles-only fits for every level (MODEL §3 'like past races'); 538's sd kept only where p's error |z²−1|×sd error < 20% (174 entries move: Congress 164, presidency 10); control under 538 by reading (c), the presidency's rule; governors cleared to show and gain the last governor race (A4); files record f(½) and full-precision mean and sd; Senate 2014 chances exact; Economist W thin under 30 weighted draws. Notes added to MATH §1.3 (error grows with z away from ½) and §8.2 (cdf form for large k). D2 woken; D1 queued.
+- 2026-11-07 05:57: #26 merged (M2). Gate: clean, checks/ only; scipy installed; c1, c3 and c7 rerun and every line found verbatim in OUTPUT.txt. Decided on M2's readings: earlier-cycles-only fits for every level (MODEL §3 'like past races'); 538's sd kept only where p's error |z²−1|×sd error < 20% (174 entries move: Congress 164, presidency 10); control under 538 by reading (c), the presidency's rule; governors cleared to show and gain the last governor race (A4); files record f(½) and full-precision mean and sd; Senate 2014 chances exact; Economist W thin under 30 weighted draws. Notes added to MATH §1.3 (error grows with z away from ½) and §8.2 (cdf form for large k). D2 woken; D1 queued.
 
 - 2026-11-07 05:24: #25 merged (4ca6b90 re-gated: no partisan p off the top two, no numeric party codes; WI-25 2010 not computed with reason; 93,285 p, 66,534 p=0). D3 restarts its branch from main for MEDSL.
 
