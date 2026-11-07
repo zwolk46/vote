@@ -225,13 +225,11 @@ def local_pools():
     Board contest of May 2018 sits in a file local_medsl.py wrote: the route is read from the source and the date."""
     medsl, nc = [], []
     miss = collections.Counter()
-    # the State Board's route leaves out of its pool a November contest that follows a first round the same year (the
-    # year's 'first round: the same contest is on the ballot again on <date>' row; D3's REPORT section 7 since #59)
+    # since #60 (the orchestrator's ruling of 09:53) a November contest that follows an earlier round the same year is
+    # that contest's deciding round: it takes the route's classes and enters the pool of like races; the earlier round
+    # (its election 'first round: the same contest is on the ballot again on <date>') is not computed and, its reason
+    # not being a pool reason, is not a pool row. Before #60 the State Board's route left the November contest out too.
     after_first = set()
-    for r in D.rows("local"):
-        el = r["election"] or ""
-        if r["state"] == "NC" and el.startswith("first round: the same contest is on the ballot again on "):
-            after_first.add((r["year"], el.split(" on the ballot again on ")[1][:10], r["office"], tuple(r["counties"] or [])))
     for r in D.rows("local"):
         if r["status"] == "value" and r["route"] is None:
             continue
@@ -261,9 +259,6 @@ def local_pools():
                 else:
                     miss[("write-in pair contest, my structure", st[0])] += 1
         if r["state"] == "NC" and r["year"] >= NC_FIRST:
-            if (r["year"], r["date"], r["office"], tuple(r["counties"] or [])) in after_first:
-                miss["North Carolina: a November contest after a first round this year (the State Board's route leaves it out of its pool)"] += 1
-                continue
             top = sorted([a for a in r["cands"] if a[1] is not None], key=lambda a: -a[1])
             if any(_generic(a[2]) for a in top[k - 1:k + 1]):
                 continue
