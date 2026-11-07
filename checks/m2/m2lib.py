@@ -136,7 +136,7 @@ def W_quadrature(i, mu, s_unit, ev, s_d, total, majority, tails, nodes=241, pi_h
     return fh, float((by * post).sum()), float((by * pri).sum())
 
 
-def W_montecarlo(mu, s_unit, ev, s_d, total, majority, tails, draws, seed=12345, pi_house=0.5):
+def W_montecarlo(mu, s_unit, ev, s_d, total, majority, tails, draws, seed=12345, pi_house=0.5, weights=None, chunk=200000):
     """W_i for every unit at once by importance sampling: draw (delta, eps) from the prior, then weight
     each draw, for unit i, by the likelihood of v_i = 1/2 given delta (the eps of the other units are
     independent of it). Returns (W, se, ess) arrays over units. A method unlike the pipeline's grid."""
@@ -146,7 +146,6 @@ def W_montecarlo(mu, s_unit, ev, s_d, total, majority, tails, draws, seed=12345,
     W = np.zeros(U)
     se = np.zeros(U)
     ess = np.zeros(U)
-    chunk = 200000
     acc_num = np.zeros(U)
     acc_den = np.zeros(U)
     acc_num2 = np.zeros(U)
@@ -169,8 +168,8 @@ def W_montecarlo(mu, s_unit, ev, s_d, total, majority, tails, draws, seed=12345,
             else:
                 like = stats.t.pdf(0.5 - mu[i] - delta, 4, 0.0, s_unit[i] / SQRT2)
             E_rest = E_all - won[:, i] * ev[i]
-            w = window_weights(int(ev[i]), total, majority, pi_house)
-            val = w[E_rest]
+            w = window_weights(int(ev[i]), total, majority, pi_house) if weights is None else np.asarray(weights, float)
+            val = w[np.clip(E_rest, 0, len(w) - 1)] * (E_rest < len(w))
             acc_num[i] += (like * val).sum()
             acc_den[i] += like.sum()
             acc_num2[i] += ((like * val) ** 2).sum()
@@ -281,3 +280,61 @@ def fmt(x, d=4):
 
 def one_in(p):
     return f"1 in {1 / p:,.0f}" if p and p > 0 else "never"
+
+
+def all_others_pmf_fft(qmat, ev, length=None):
+    """For every unit i at once: P(the OTHER units give A exactly E electoral votes), from the units' win
+    chances qmat (nodes, U) at each quadrature node, by characteristic functions: the generating function
+    of E without unit i is the product over j != i of (1 - q_j + q_j z^{e_j}), formed on the unit circle as
+    prefix and suffix products and inverted by the FFT. Returns (U, nodes, length). A method unlike the
+    pipeline's dynamic programme (and unlike numpy.convolve)."""
+    qmat = np.atleast_2d(np.asarray(qmat, float))
+    ev = np.asarray(ev, int)
+    G, U = qmat.shape
+    total = int(ev.sum())
+    if length is None:
+        length = 1
+        while length < total + 1:
+            length *= 2
+    freqs = np.fft.rfftfreq(length) * 2 * np.pi                  # theta_k = 2 pi k / length
+    z = np.exp(-1j * np.outer(ev, freqs))                       # (U, F): z^{e_j}, the sign of numpy.fft.rfft
+    factors = (1.0 - qmat)[:, :, None] + qmat[:, :, None] * z[None, :, :]   # (G, U, F)
+    ones = np.ones((G, 1, factors.shape[2]), dtype=complex)
+    prefix = np.concatenate([ones, np.cumprod(factors, axis=1)[:, :-1, :]], axis=1)
+    suffix = np.concatenate([np.cumprod(factors[:, ::-1, :], axis=1)[:, ::-1, :][:, 1:, :], ones], axis=1)
+    cf = prefix * suffix                                          # (G, U, F) without unit j
+    pmf = np.fft.irfft(cf, n=length, axis=2)                      # (G, U, length)
+    pmf = np.clip(pmf, 0.0, None)
+    return np.transpose(pmf, (1, 0, 2))
+
+
+def W_fourier(mu, s_unit, ev, s_d, total, majority, tails, nodes=1201, pi_house=0.5, span=12.0, weights=None):
+    """W_i for every unit under the swing model, by quadrature over the national swing on a fine grid
+    (+-span s_d, `nodes` points, Simpson weights) and the Fourier count of the other units' electoral
+    votes. Returns dict of arrays f_half, W, W_unconditional (each length U)."""
+    mu, s_unit, ev = np.asarray(mu, float), np.asarray(s_unit, float), np.asarray(ev, int)
+    U = len(mu)
+    grid = np.linspace(-span * s_d, span * s_d, nodes)
+    h = grid[1] - grid[0]
+    simp = np.ones(nodes)
+    simp[1:-1:2], simp[2:-1:2] = 4.0, 2.0
+    simp *= h / 3.0
+    prior = stats.norm.pdf(grid, 0.0, s_d)
+    x = 0.5 - mu[None, :] - grid[:, None]                         # (G, U): eps_j needed for a tie in j
+    if tails == "normal":
+        like = stats.norm.pdf(x, 0.0, s_unit[None, :])
+        qmat = stats.norm.sf(x / s_unit[None, :])
+    else:
+        like = stats.t.pdf(x, 4, 0.0, s_unit[None, :] / SQRT2)
+        qmat = stats.t.sf(x / (s_unit[None, :] / SQRT2), 4)
+    pmf = all_others_pmf_fft(qmat, ev)                             # (U, G, length)
+    out = {"f_half": np.zeros(U), "W": np.zeros(U), "W_unconditional": np.zeros(U)}
+    for i in range(U):
+        w = window_weights(int(ev[i]), total, majority, pi_house) if weights is None else np.asarray(weights, float)
+        by = pmf[i][:, :len(w)] @ w                                # (G,)
+        post = prior * like[:, i]
+        fh = float((simp * post).sum())
+        out["f_half"][i] = fh
+        out["W"][i] = float((simp * post * by).sum() / fh)
+        out["W_unconditional"][i] = float((simp * prior * by).sum())
+    return out
