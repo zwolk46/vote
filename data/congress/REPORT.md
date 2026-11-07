@@ -15,10 +15,12 @@ Each is read by one script in `pipeline/intake/`, which downloads to a cache out
 | `downballot_pres_by_cd.py` | The Downballot, presidential vote by congressional district (public Google Sheets, CSV export) and its statement of methodology | 2000-2024 presidential vote on the lines of each House election 2006-2024 | none printed | 2026-11-07 |
 | `fec_ballot_candidates.py` | FEC, 2024 general election ballot candidates | who sat in Congress in 2024 | none printed; federal record | 2026-11-07 |
 | `nara_electoral_college.py` | National Archives, Electoral College results pages | president and VP elected, 1976-2024 | federal record | 2026-11-07 |
+| `census_acs_population.py` | Census Bureau, ACS 1-year, table B01003 (www2.census.gov table files; the Census API now wants a key) | population of each state and district, 2022 and 2024 | federal record | 2026-11-07 |
+| `build_congress.py` | the caches above | builds `data/senate|house|governor/<year>.json` | | |
 
 Not reachable or not taken: 538's forecast files (they redirect to ABC News and archive.org is refused, so no published Senate, House or governor forecast has been read); MEDSL's House file (behind a Dataverse guestbook asking a name and email, the maker's call, law 10). The full inventory is `data/sources/congress.md`.
 
-## 2. The model's own forecast (proposed; not yet used for any p)
+## 2. The model's own forecast (method D2-v1, approved by the orchestrator 2026-11-07 03:46 UTC)
 
 **Why one is needed.** No forecaster's published forecast for these races is reachable here (§1), so the model builds its own "from what was known before the election" by regression on like past races (model §3, "Which forecast"), as Gelman, King and Boscardin did.
 
@@ -55,7 +57,12 @@ The count of races finishing within a point of even is the check that matters mo
 
 **Seats.** The forecast distribution of the Democrats' seats among contested races, by exact dynamic programming over seats with the common swing, against the seats won: the House result falls outside the 80% interval in 2 of 10 cycles (2008, more Democratic; 2020, less), the Senate's in 2 of 10 (2008, 2012), as an 80% interval should about twice in ten.
 
-**Tested and not adopted.** An error spread that grows as a race is expected to be closer (the residuals are wider there: 0.066 for House races forecast within 3 points, against 0.045 for those 15-25 points out). It improved central coverage but lowered the expected count within 49-51% to 118 against 128 seen, and scored worse for the Senate and governors, so the simpler constant spread is proposed. A forecast from the earlier cycles only (an expanding window, possible from 2014) gives intervals too wide in its early years, because three or four cycles cannot pin down the national terms; leaving one cycle out is proposed instead. Its coefficients for year t come partly from later cycles that no voter then had; its inputs are all from before the election.
+**Tested and not adopted.** An error spread that grows as a race is expected to be closer (the residuals are wider there: 0.066 for House races forecast within 3 points, against 0.045 for those 15-25 points out). It improved central coverage but lowered the expected count within 49-51% to 118 against 128 seen, and scored worse for the Senate and governors, so the simpler constant spread is proposed. A forecast from the earlier cycles only (an expanding window, possible from 2014) gives intervals too wide in its early years, because three or four cycles cannot pin down the national terms.
+
+**Marked, at the orchestrator's word of 03:46.**
+- *Leaving one cycle out is an orchestrator choice the maker may correct.* The inputs of a year's forecast are all from before the election; its coefficients come partly from later cycles that no voter then had. Every forecast block says "the model's own" and names the method's version (`D2-v1`).
+- *No polls are used*, so the forecast carries less than forecasters then knew. A lead for a later version: fivethirtyeight/data's `pollster-ratings` folder holds a raw polls file.
+- *A reachable published forecast comes first* (model §3), with ours beside it as the check. Checked once, 2026-11-07 03:48 UTC: fivethirtyeight/data's `house-forecast-2018`, `senate-forecast-2018` and `governors-forecast-2018` folders hold only READMEs. Their data files are at projects.fivethirtyeight.com, which now redirects to abcnews.com (HTTP 200, an ABC page), and `election-forecasts-2018` does not exist (404). fivethirtyeight/data's `forecast-review` file (raw.githubusercontent.com, CC BY 4.0) gives 538's final 2018 win probabilities by race but no vote-share distribution, so it cannot give p. It will be the check beside our 2018 forecasts.
 
 ## 3. Structures, and where p is not computed
 
@@ -66,4 +73,32 @@ The count of races finishing within a point of even is the check that matters mo
 
 ## 4. Control of the chamber (exact form, MATH §4.2)
 
+**How each seat enters control** (`stage_two.inputs.entered_as`):
+- *model*: the seat's own forecast, sharing the common swing.
+- *inferred*: a structure whose p is not computed, entered as the model's two-way forecast of the Democrat (or the independent who caucuses with them) against the Republican. Marked. This covers Georgia with three or more candidates, Louisiana's open primary (party lean and incumbency), ranked-choice races in Maine and Alaska, and King and Sanders. It also covers the seats with no earlier presidential vote on their lines (AL, LA and NC in 2024), which use the same day's presidential vote on those lines minus that day's national share, stated as same-day.
+- *fixed*: settled by who was on the ballot, which was known before the election. A seat with only Democrats (or a caucusing independent) is fixed D. A seat with no Democrat and no caucusing independent is fixed not-D: same-party top-two races, a Republican against minor parties, Osborn (Nebraska 2024) and McMullin (Utah 2022), who said they would join neither caucus. Only the Democrats' count matters for control. No seat is ever fixed at its result.
+
+**Seats not up** (Senate): each held by the winner of its latest election before the year (Cha, Kuriwaki and Snyder, runoffs included), counted by caucus. 2022: 36 D, 29 R. 2024: 28 D, 38 R. Both match the Senate's party divisions before the election less the seats up (117th: 50-50; 118th: 51 D-caucus, 49 R).
+
+**The Vice President.** In 2022 the VP was Harris (D), so the Democrats needed 50. In 2024 the VP was elected the same day: P(D VP) = 0.5, marked provisional, until D1's published presidential win probability is in. Then it is used assumed independent of the Senate swing, marked inferred. How far it moves control: for Montana, the seat with the largest control p, P(decides | tie) is 0.084 at 0.5, 0.114 with a Democratic VP and 0.054 with a Republican one.
+
 p(control) = p(seat) × P(the other seats leave control to this one | this seat tied), with the common swing conditioned on the tie: d | tie ~ N((½ − μ)·s_a²/sd², s_a²·s_e²/sd²). The distribution of the other seats is computed exactly by dynamic programming over seats on a grid of the swing. What decides control: the House at 218 of 435; the Senate at 51 seats, or 50 with the Vice President's vote, counting the seats not up that year and the independents who caucus with a party. The stage-two step uses the normal forecast for both tails.
+
+## 5. Results so far (2024 and 2022)
+
+| Year, level | Contests | p computed | p = 0 (one candidate) | not computed | largest p | largest p for control |
+|---|---|---|---|---|---|---|
+| 2024 Senate | 35 | 32 | 0 | 3 | Montana, 1 in 193,000 | Montana, 1 in 2.3 million |
+| 2024 House | 435 | 373 | 13 | 49 | CA-22, 1 in 46,000 | CA-22, 1 in 1.2 million |
+| 2024 governor | 11 | 10 | 0 | 1 | Delaware, 1 in 220,000 | none |
+| 2022 Senate | 36 | 32 | 0 | 4 | New Hampshire, 1 in 275,000 | New Hampshire, 1 in 1.9 million |
+| 2022 House | 436 | 390 | 13 | 33 | CA-13, 1 in 36,000 | CA-22, 1 in 1.5 million |
+| 2022 governor | 36 | 33 | 0 | 3 | Rhode Island, 1 in 152,000 | none |
+
+p is under the normal forecast; the t4 figure sits beside it in `p.alongside`.
+
+**Historical check** (MATH §8.2 iv). The sum of the event probabilities over a set of contests is the expected number of contests decided by a tie or one vote. For the 2024 House it is 0.0012 and for the 2022 House 0.0021, with no such contest seen in either. The Senate and governors' sums are smaller still. That is inside the Poisson interval of a count of zero, and it says little alone. The sharper check is the back-test's count of finishes within 49-51% (§2), which matches.
+
+**Two sources, differences listed** (plan §3a). Every House and Senate contest is checked against Cha, Kuriwaki and Snyder, and the differences are kept in `checks`. Most are small candidates (under ten votes) or blank and write-in lines, which the check source leaves out by design. A few are real: 2022 IL-03, where the FEC has Delia Ramirez at 177,759 and the check source has 121,764; 2024 Missouri Senate, where W. C. Young has 35,671 in the Clerk's volume and 21,111 in the check source; and Indiana 2022, where the counts differ by a few hundred votes. The source of record (the FEC through 2022, the Clerk for 2024) wins. Governors have one standardized source here, so they are not checked.
+
+**2026.** Not built: no standardized source holds its count yet (held 2026-11-03). Once one does, the files carry it marked as an unofficial count with its date, until it is certified.

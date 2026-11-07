@@ -39,6 +39,8 @@ R_LABELS = {"R", "REP", "REPUBLICAN"}
 RCV = {("ME", "senate"): 2018, ("ME", "house"): 2018, ("AK", "senate"): 2022, ("AK", "house"): 2022,
        ("AK", "governor"): 2022}
 NOT_COMPUTED = "not computed"
+SOURCE_POOL = {}
+SOURCES = {}      # the file's top-level "sources": blocks that fields of this script's own name by key
 
 
 def major(parties):
@@ -242,8 +244,7 @@ def ballot(cands, state):
             "R": sum(1 for a in real if major(a["parties"]) == "R"),
             "caucus_D": [a["name"] for a in real if major(a["parties"]) is None
                          and (state, last_name(a["name"])) in CAUCUS_D],
-            "others": sum(1 for a in real if major(a["parties"]) is None),
-            "names": {a["name"]: major(a["parties"]) for a in real}}
+            "others": sum(1 for a in real if major(a["parties"]) is None)}
 
 
 # ----------------------------------------------------------------------------- inputs
@@ -272,11 +273,12 @@ def forecast_inputs(year, office, state, district, inc, inc_via, P):
     share, nat, medsl_src, db, nara = P
     py = year - 4 if year % 4 == 0 else year - 2
     sitting = nara[max(y for y in nara if y < year)]
-    out = {"pres_year": py, "national_share_D": round(nat[py], 6), "national_source": medsl_src,
-           "incumbency": inc, "incumbency_source": ("Cha, Kuriwaki and Snyder (hand-coded)" if "cha" in inc_via
-                                                     else "FEC results workbook (I) mark" if inc_via else None),
+    SOURCES["medsl_president"] = medsl_src
+    SOURCES[f"nara_{sitting['year']}"] = sitting["source"]
+    out = {"pres_year": py, "national_share_D": round(nat[py], 6), "national_source": "medsl_president",
+           "incumbency": inc, "incumbency_source": ("cha" if "cha" in inc_via else "record" if inc_via else None),
            "midterm": year % 4 != 0, "president_party": sitting["party"],
-           "president_source": sitting["source"]}
+           "president_source": f"nara_{sitting['year']}"}
     if office == "house":
         li = db["lean_inputs"].get(str(year), {})
         k = f"{state}-{district}"
@@ -291,11 +293,12 @@ def forecast_inputs(year, office, state, district, inc, inc_via, P):
             x = db["districts"].get(lines, {}).get(k, {}).get(str(year)) if lines else None
             if x and year in nat:
                 sh = db["sheets"][lines]
+                SOURCES[f"downballot_{lines}"] = {k2: sh[k2] for k2 in ("name", "url", "read_utc", "licence",
+                                                                         "mark", "via", "note")}
                 out["lean_same_day"] = {"value": round(x["two_party_D"] - nat[year], 6), "pres_year": year,
                                         "district_share_D": round(x["two_party_D"], 6),
                                         "national_share_D": round(nat[year], 6),
-                                        "source": {k2: sh[k2] for k2 in ("name", "url", "read_utc", "licence",
-                                                                        "mark", "via", "note")},
+                                        "source": f"downballot_{lines}",
                                         "mark": "inferred",
                                         "use": "control of the chamber only; never the seat's own p"}
             return out
@@ -303,12 +306,14 @@ def forecast_inputs(year, office, state, district, inc, inc_via, P):
         sh = db["sheets"][x["sheet"]]
         out["district_share_D"] = round(x["two_party_D"], 6)
         out["lean"] = round(x["two_party_D"] - nat[py], 6)
-        out["lean_source"] = {k2: sh[k2] for k2 in ("name", "url", "read_utc", "licence", "mark", "via", "note")}
+        SOURCES[f"downballot_{x['sheet']}"] = {k2: sh[k2] for k2 in ("name", "url", "read_utc", "licence", "mark",
+                                                                      "via", "note")}
+        out["lean_source"] = f"downballot_{x['sheet']}"
     else:
         s = share.get((py, state))
         out["state_share_D"] = round(s, 6) if s is not None else None
         out["lean"] = round(s - nat[py], 6) if s is not None else None
-        out["lean_source"] = medsl_src
+        out["lean_source"] = "medsl_president"
     return out
 
 
@@ -350,11 +355,20 @@ def contest(year, office, c, cha_c, cha_src, P):
     }
     if office == "governor":
         rec["stage_two"] = None
+    pop = POP.get(year)
+    if pop:
+        key = f"{c['state']}-{district}" if office == "house" else None
+        x = pop["districts"].get(key) if key else pop["states"].get(c["state"])
+        if x:
+            SOURCES["census_acs"] = pop["source"]
+            rec["population"] = {"value": x["value"], "of": "district" if key else "state",
+                                 "moe": x.get("moe"), "source": pop["source"]}
     if c.get("printed_total") is not None and c["printed_total"] != c["computed_total"]:
         rec["notes"].append(f"candidates and lines sum to {c['computed_total']:,}; the source prints "
                             f"{c['printed_total']:,}")
     if cha_c and office != "governor":
-        rec["checks"].append({"against": cha_src, "differences": compare(cands, cha_c)})
+        SOURCES["cha"] = cha_src
+        rec["checks"].append({"against": "cha", "differences": compare(cands, cha_c)})
     if c.get("runoff"):
         rec["notes"].append("runoff: " + ", ".join(f"{a['name']} {a['votes']:,}" for a in c["runoff"]["candidates"])
                             + (f" (total {c['runoff']['total']:,})" if c["runoff"]["total"] else ""))
@@ -399,7 +413,13 @@ def governors(year, cha_src, idx, P):
     return out
 
 
+POP = {}
+
+
 def build(year):
+    pop = cc.read_json(os.path.join(cc.CACHE, "census", "normalized", f"population_{year}.json"))
+    if pop:
+        POP[year] = pop
     cha_src, idx = cha_index()
     P = pres_inputs()
     rec = record_contests(year)
@@ -409,26 +429,37 @@ def build(year):
         cha_cs = match_cha(idx, year, c["office"], c["state"], c.get("district"), c["special"])
         r = contest(year, c["office"], c, cha_cs[0] if cha_cs else None, cha_source(cha_src, c["office"]), P)
         if not cha_cs:
-            r["checks"].append({"against": cha_source(cha_src, c["office"]),
-                                "differences": ["contest not found in the check source"]})
+            SOURCES["cha"] = cha_source(cha_src, c["office"])
+            r["checks"].append({"against": "cha", "differences": ["contest not found in the check source"]})
         by_level[c["office"]].append(r)
         seen.add((c["office"], c["state"], c.get("district") if c["office"] == "house" else None, c["special"]))
     by_level["governor"] = governors(year, cha_src, idx, P)
+    SOURCE_POOL.update(SOURCES)
     for (y, office, st, dist, special), cs in idx.items():
         if y == year and office in ("house", "senate") and st in cc.STATES_50:
             d = None if office == "senate" else ("AL" if (office, st, "AL", special) in seen and dist == "01" else dist)
             if (office, st, d, special) not in seen:
                 by_level[office + "_missing"] = by_level.get(office + "_missing", []) + [f"{st}-{dist}{' special' if special else ''}"]
     for level in ("senate", "house", "governor"):
+        SOURCES.clear()
+        SOURCES["cha"] = cha_source(cha_src, level)
+        for r in by_level[level]:
+            fi = r.get("forecast_inputs") or {}
+            for k in ("national_source", "president_source", "lean_source"):
+                if fi.get(k) and fi[k] not in SOURCES:
+                    SOURCES[fi[k]] = SOURCE_POOL[fi[k]]
+            if (fi.get("lean_same_day") or {}).get("source"):
+                SOURCES[fi["lean_same_day"]["source"]] = SOURCE_POOL[fi["lean_same_day"]["source"]]
         contests = sorted(by_level[level], key=lambda r: r["id"])
         out = {"level": level, "year": year,
                "about": f"{level.capitalize()} contests of {year}, in the layout of plan/PLAN.md section 3 with "
                         f"the fields data/README.md adds. Built by pipeline/intake/build_congress.py from the "
                         f"caches of the intake scripts named in each source block.",
                "missing_from_record": by_level.get(level + "_missing", []),
+               "sources": dict(SOURCES),
                "contests": contests}
         path = os.path.join(cc.DATA, level, f"{year}.json")
-        cc.write_json(path, out)
+        cc.write_contest_file(path, out)
         n_p0 = sum(1 for r in contests if r["p"] and r["p"]["value"] == 0.0)
         n_nc = sum(1 for r in contests if r["p"] and r["p"]["value"] is None and not
                    r["p"]["not_computed"].startswith("pending"))

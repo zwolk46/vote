@@ -141,6 +141,24 @@ def write_json(path, obj):
     os.replace(tmp, path)
 
 
+def write_contest_file(path, obj):
+    """A contest file with one contest per line: small enough to ship, and a diff shows which contests
+    changed. Every key but "contests" is written as indented JSON."""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    head = {k: v for k, v in obj.items() if k != "contests"}
+    with open(tmp, "w") as f:
+        body = json.dumps(head, indent=1, ensure_ascii=False)
+        f.write(body[:-2] + ',\n "contests": [\n')
+        cs = obj.get("contests", [])
+        for i, c in enumerate(cs):
+            f.write("  " + json.dumps(c, ensure_ascii=False, separators=(",", ":")) + (",\n" if i < len(cs) - 1 else "\n"))
+        f.write(" ]\n}\n")
+    with open(tmp) as f:
+        json.load(f)          # the file must read back as JSON
+    os.replace(tmp, path)
+
+
 def read_json(path, default=None):
     if not os.path.exists(path):
         return default

@@ -390,6 +390,7 @@ def summarize(bt, full):
 
 
 # ----------------------------------------------------------------------------- computing p
+RUN_UTC = cc.now_utc()
 METHOD = "D2-v1"            # the version of the method approved 2026-11-07 03:46 UTC (data/congress/REPORT.md)
 PI_VP_D_PROVISIONAL = 0.5   # P(the Vice President elected in 2024 is a Democrat), until D1's figure is in
 CAUCUS_D_LAST = {("ME", "KING"), ("VT", "SANDERS"), ("CT", "LIEBERMAN")}
@@ -402,13 +403,10 @@ def git_head():
 
 
 def model_source(year, level, m):
-    return cc.source_block(
-        f"the model's own forecast, method {METHOD} (data/congress/REPORT.md section 2), fitted to the {level} "
-        f"races of 2006-2024 other than {year} (leaving one cycle out: an orchestrator choice the maker may "
-        f"correct; the inputs are from before the election, the coefficients partly from later cycles)",
-        "https://github.com/zwolk46/vote/blob/main/pipeline/chambers.py", cc.now_utc(), None, mark="inferred",
-        note=f"b_lean {m['b_lean']:.4f}, b_inc {m['b_inc']:.4f}, s_e {m['s_e']:.4f}, national swing sd "
-             f"{NAT_RMSE[level]:.4f}; no polls are used, so it carries less than forecasters then knew")
+    return cc.source_block(f"the model's own forecast, method {METHOD}, fitted to the {level} races of 2006-2024 "
+                           f"other than {year}", "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+                           RUN_UTC, None, mark="inferred",
+                           note="the file's top-level \"model\" holds the fitted terms; no polls are used")
 
 
 def model_mean(m, year, lean, inc):
@@ -427,8 +425,7 @@ def seat_entry(c, m, year):
     st = c["place"]["state"]
     dcount = b.get("D", 0) + len(b.get("caucus_D", []))
     if p["value"] == 0.0 or (dcount == 0 and b.get("R", 0) == 0):
-        names = b.get("names", {})
-        party = next(iter(names.values()), None) if len(names) == 1 else None
+        party = None
         if dcount and not b.get("R"):
             return ("fixed", "D", "only Democratic candidates or an independent who caucuses with them on the ballot")
         if b.get("R") and not dcount:
@@ -570,10 +567,13 @@ def compute(year):
                                      "event": rt["event"], "method": rt["method"], "f_half": rt["f_half"]}]}
         if level in ("house", "senate"):
             control(d, level, year, m, sd_a, commit)
-        d["model"] = {"method": METHOD, "fit_years": [t for t in YEARS if t != year], "b_lean": m["b_lean"],
+        d["model"] = {"method": METHOD, "what": "the model's own forecast (data/congress/REPORT.md section 2): leaving "
+                      "one cycle out, an orchestrator choice the maker may correct, so the inputs are from before the "
+                      "election and the coefficients partly from later cycles; no polls are used, so it carries less "
+                      "than forecasters then knew", "fit_years": [t for t in YEARS if t != year], "b_lean": m["b_lean"],
                       "b_inc": m["b_inc"], "s_e": m["s_e"], "national_forecast": a_hat, "national_sd": sd_a,
                       "rho": sd_a ** 2 / (sd_a ** 2 + m["s_e"] ** 2), "c": m["c"], "commit": commit}
-        cc.write_json(path, d)
+        cc.write_contest_file(path, d)
         ps = [c["p"]["value"] for c in d["contests"] if c["p"]["value"]]
         print(f"{year} {level}: p computed for {len(ps)} contests; largest {max(ps):.3g} "
               f"({max(d['contests'], key=lambda c: c['p']['value'] or 0)['id']})" if ps else f"{year} {level}: none")
