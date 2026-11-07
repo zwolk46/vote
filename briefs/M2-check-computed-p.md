@@ -70,3 +70,17 @@ Work on a new branch from `main`, extending `checks/m2/` and adding a section to
 4. **D3's levels**, every p in `data/state-upper/`, `data/state-lower/`, `data/local/` and `data/measure/`: the like-race forecast (D3-v1.1), the calibration of #31, and the measures' threshold form, Yes ≈ (1 − t)·f(t)/n (MODEL §7), each by your own implementation. Every contest, not a sample, since a script makes them cheap.
 
 Report to the orchestrator in at most fifteen lines when items 1 and 2 are done, and again at the end. Open one pull request and update it as you go. A p wrong by more than a factor of two goes to the orchestrator at once, as before.
+
+## Amended 2026-11-07 10:54 UTC: the third pass
+
+*The orchestrator's word for a third pass, which your report of 10:54 leaves to it. Reason: since the second pass's last recheck (#59), D3 has computed or released new p (#60, #62) and changed which contests a route takes (#60), and every p the site shows is to be checked by you before it is shown (this brief, items 1 to 6). A check that cannot run on today's files checks nothing of today's.*
+
+Work on a new branch from `main`, extending `checks/m2/` and adding a section to `checks/M2-REPORT.md`. In this order:
+
+1. **Make the first pass run on today's files.** `run_all.sh` should run c1 to c15 on current `main`; fix c1 to c7's reads (c3's renamed input key and any others), changing what they read, never what they test. Report any number that differs from the run of record at d11cae2.
+2. **#60, the deciding rounds.** Your item 4 asked which reading the State Board's route should take for the 35 November contests after a nonpartisan primary: the orchestrator ruled at 09:53 (a November contest after an earlier round of the same contest that year is its deciding round, odd or even year; computed by the route's classes, marked; the earlier round not computed), and #60 applies it. Check that the two routes now agree on every such contest, and recompute their p.
+3. **#61, route (c)'s size bins.** Reproduce the robustness test's numbers (legislatures' deviance 105.8 to 45.0; the 49 to 51% total 3.4 under to 11.4 over; 8 of 33 cells further; fails with each year left out) and confirm no p of record changed.
+4. **#62, Louisiana 2024.** Check the gate of the Secretary of State's workbooks against D1 and D2, the deciding-round pairing (March to April, November to December), and recompute the 9 new p and the measures' note (52 against 36.4).
+5. **As they land:** D3's NJ county gate (the orchestrator's ruling of 10:45: 0.5% by county, a duplicate-row scan, a precinct ceiling, 5 contests against the clerks' own results) and the Louisiana follow-up (2023, party committees). Check each gate's numbers and recompute a sample of each one's p.
+
+Report in at most fifteen lines when 1 to 4 are done, and again at the end. One pull request, updated as you go. A p wrong by more than a factor of two goes to the orchestrator at once.
