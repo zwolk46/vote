@@ -866,6 +866,16 @@ def build(out_dir, dates):
             p = rec["p"]
             counts[f"{level}: " + ("p = 0" if p.get("value") == 0 else "p computed" if "value" in p else
                                    "not computed, " + p["not_computed"][:60])] += 1
+    # the lean note on this build's own back-test of its local questions (the orchestrator, 13:39; the two tests
+    # of the ruling of 11:01, pipeline/local_medsl.py's lean_note)
+    qnote = LM.lean_note(qtest, "North Carolina's local questions on the State Board's other dates")
+    for (level, year), recs in files.items():
+        if level == "measure":
+            for rec in recs:
+                fc = [x for x in rec.get("forecasts") or [] if x.get("route") == "like past measures"]
+                if fc and qnote["note"] and "value" in rec["p"]:
+                    rec["p"]["note"] = qnote["note"]
+                    counts["measure: lean note"] += 1
     total = 0
     for (level, year), recs in sorted(files.items()):
         meta = [(d, checks_of(d)["source"]) for d in used[(level, year)]]
@@ -902,8 +912,10 @@ def build(out_dir, dates):
                  "chance the class (its local questions of earlier years, counted whole) gave of finishing within "
                  "the forecast's own window and within 1, 2 and 5 points of the threshold, added up, beside how "
                  "many did. Those on MEDSL's general dates are in data/measure/backtest-measures.json "
-                 "(at_threshold_local).",
-        "years": LM.at_threshold(qtest)}
+                 "(at_threshold_local). near_votes: the same within 1,000 to 50,000 votes of the threshold. "
+                 "lean_note: the two tests of the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give "
+                 "(data/local/REPORT.md section 18).",
+        "years": LM.at_threshold(qtest), "lean_note": qnote}
     with open(os.path.join(out_dir, "local", "backtest-ncsbe.json"), "w") as f:
         json.dump(bt, f, indent=1)
     print(json.dumps(dict(sorted(counts.items())), indent=1))
@@ -963,7 +975,8 @@ def measure_p(rec, c, d, q_rows, book, qtest=None):
         tr = [r["s"] for r in train]
         qtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h, "in_own": abs(s_ - t) <= h,
                       "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr), abs(s_ - t) <= hh]
-                               for hh in L.WINDOWS}})
+                               for hh in L.WINDOWS},
+                      "votes": LM.vote_lines(tr, s_, t, yes + no)})
     if f <= 0:
         return {"value": 0.0, "event": 0.0, "reason": f"no like measure of {N} finished within {h:.0%} of the "
                                                        f"threshold"}
