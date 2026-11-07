@@ -1,0 +1,191 @@
+{
+ "state": "TX",
+ "name": "Texas",
+ "status": "partly-read",
+ "code": {
+  "name": "Texas Election Code (Texas Constitution and Statutes, published by the Texas Legislative Council at statutes.capitol.texas.gov)",
+  "edition": "not read: the statute site serves only a script shell to our fetches; the only text read is the Secretary of State's Recount Guide, revised 3/2/2026",
+  "site": "https://statutes.capitol.texas.gov/",
+  "reached": false
+ },
+ "sections": {
+  "sos-recount-guide": {
+   "citation": "Texas Secretary of State, Elections Division, Recount Guide (revised 3/2/2026); the guide cites Election Code chapters 212, 213, 214, 215 and 216",
+   "url": "https://www.sos.texas.gov/elections/forms/recount-guide.pdf",
+   "read_at": "state agency guide",
+   "note": "An agency's practical guide to the Election Code, not the statute: a lower grade than the statute. Fetched from the Secretary of State's own site as a plain PDF."
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "applies_to": "\"an election that requires a plurality or majority vote\" that \"results in a tie\" (the guide speaks of an election generally and of a candidate \"tied for nomination\")",
+   "resolution": "unread",
+   "steps": "an automatic recount, with no petition or deposit (the guide cites Election Code chapter 216); what follows if the tie survives the recount (a second election, or a drawing of lots) is NOT in the guide and the statute was not readable",
+   "who": "the political subdivision served by the presiding officer of the local canvassing authority pays the recount",
+   "sources": [
+    {
+     "section": "sos-recount-guide",
+     "quote": "An automatic recount only occurs if an election that requires a plurality or majority vote results in a tie."
+    }
+   ],
+   "mark": "stated",
+   "note": "Only the first step of a tie, the recount, is read, and only in an agency guide. The earlier reader's lead (research/historical-close-races-v2.md 3a: a Secretary of State slide deck of May 2025 saying the recount comes before a second election is called, and that the candidates may agree to cast lots) was NOT re-read by me: the one slide deck I tried on the same host (sos.texas.gov, 2024 seminar 'runoff elections second elections and recounts') answered HTTP 403 and I stopped on that host. The resolution after the recount is therefore recorded as unread, not as lot or new-election."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "any",
+   "threshold": {
+    "votes": 0,
+    "inclusive": true,
+    "combine": null,
+    "in_words": "a recount with no request happens only when the election results in a tie"
+   },
+   "who_may_request": [],
+   "cost_bearer": "the political subdivision served by the presiding officer of the local canvassing authority (no petition or deposit)",
+   "sources": [
+    {
+     "section": "sos-recount-guide",
+     "quote": "The method of counting votes in an automatic recount is the same method of counting used in the election that resulted in the tie vote. A petition and deposit are not required and all costs must be paid by the political subdivision that is served by the presiding officer of the local canvassing authority."
+    }
+   ],
+   "mark": "stated",
+   "note": "From an agency guide. The guide does not list kinds of office for this; it says 'an election', so the kinds are my reading [inferred from the guide's generality]. It says an election that requires a plurality or majority vote, so a measure (which has neither) is not included."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "no_margin_required": true,
+    "in_words": "where the votes were counted on an electronic voting system, no ground (and so no margin) is required for a petition to recount"
+   },
+   "who_may_request": [
+    "a candidate shown by the election returns not to have been elected to the office",
+    "the winning candidate, in certain circumstances, when a statewide canvass is affected"
+   ],
+   "cost_bearer": "the petitioner, by a deposit (about $100 per Election Day polling location or precinct with an electronic voting system, $60 where hand-counted paper ballots were used, early voting one more location), unless the outcome of the election changes: then the political subdivision pays and the deposit is refunded",
+   "sources": [
+    {
+     "section": "sos-recount-guide",
+     "quote": "No ground is required for a petition for a recount of electronic voting system results."
+    },
+    {
+     "section": "sos-recount-guide",
+     "quote": "If the outcome of the election changes, the political subdivision is responsible for the costs of a recount and the deposit must be refunded to the petitioner. If the outcome of the election does not change, the petitioner must bear the costs of a recount."
+    }
+   ],
+   "mark": "stated",
+   "note": "From an agency guide, not the statute. Who may petition: the guide says 'A candidate may petition for a recount if: The candidate is shown by the election returns not to have been elected to the office.' Deposit amounts are in the guide under 'Calculation of Deposit' (Sec. 212.111(b) as the guide cites it). A petition may not be amended more than once, and a petitioner who withdraws may not petition again."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 10,
+    "percent_of": "the number of votes received by the candidate who was elected, nominated, or entitled to a place on the runoff ballot",
+    "inclusive": false,
+    "conditions": "this is the guide's list of grounds for recounts other than of electronic voting system results; the guide also lists as grounds that the petitioner is shown by the returns to be entitled to a place on a runoff ballot, that an election judge swears the hand-counted paper ballots were counted incorrectly (certified by the Secretary of State), and that the total number of votes received by all candidates for the office is less than 1,000 (a total of votes cast, not a margin)",
+    "in_words": "where the count was not on an electronic voting system, the margin between the petitioner and the winner must be less than 10% of the winner's votes (or one of the other grounds applies, such as fewer than 1,000 votes cast in all)"
+   },
+   "who_may_request": [
+    "a candidate shown by the election returns not to have been elected to the office"
+   ],
+   "cost_bearer": "the petitioner, by a deposit, unless the outcome changes (then the political subdivision)",
+   "sources": [
+    {
+     "section": "sos-recount-guide",
+     "quote": "Recounts are petitioner-initiated and may only be requested if: [...] is less than 10% of the number of votes received by the candidate who was elected, nominated, or entitled to a place on the runoff ballot or tied for nomination, election, or entitlement to a place on the runoff ballot."
+    }
+   ],
+   "mark": "stated",
+   "note": "The earlier reader's lead ('requested, less than 10%') is right as far as it goes but the guide shows it is the ground for non-electronic counts only; where an electronic voting system was used the guide says no ground is required (the rule above). The fewer-than-1,000-votes ground is a different quantity (all votes cast, not a margin) and is kept in the conditions text. [inferred: which kinds of office; the guide says 'candidate' and 'the office' without limit.]"
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "no_margin_required": true,
+    "in_words": "the guide states no margin for a measure; where the votes were counted on an electronic voting system no ground is required"
+   },
+   "who_may_request": [
+    "the campaign treasurer of a specific-purpose political committee involved in the election",
+    "25 or more persons acting jointly who were eligible to vote in the election on the measure"
+   ],
+   "cost_bearer": "the petitioner by deposit unless the outcome changes (the guide's cost rule is stated for 'the election' generally)",
+   "sources": [
+    {
+     "section": "sos-recount-guide",
+     "quote": "In an election on a measure, a petition for a recount may be made by: [...] The campaign treasurer of a specific-purpose political committee involved in the election. [...] 25 or more persons acting jointly who were eligible to vote in the election on the measure."
+    }
+   ],
+   "mark": "stated",
+   "note": "From an agency guide. [inferred] that the 'no ground' sentence for electronic results also covers measures; the guide's ten-percent ground is worded for candidates and was not read as applying to measures."
+  }
+ ],
+ "unread": [
+  {
+   "what": "the Election Code itself: what a tie does after the recount (Election Code chapter 216 and the section on a second election or lots), the recount grounds (chapter 212), and the deposit and cost sections (212, 215)",
+   "reason": "statutes.capitol.texas.gov returns the same 250,874-byte script shell (an Angular application with no statute text; sha256 dbfba8a96dc3cd58) for every address tried, and the shell's own text is only the site menu. The site's pages show HTML, PDF and Word icons beside a section, but the links are drawn by script and are not in the page we receive, and the addresses tried for the PDF and Word files returned the identical shell.",
+   "urls_tried": [
+    "https://statutes.capitol.texas.gov/Docs/EL/htm/EL.212.htm",
+    "https://statutes.capitol.texas.gov/Docs/EL/pdf/EL.212.pdf",
+    "https://statutes.capitol.texas.gov/Docs/EL/docx/EL.212.docx",
+    "https://statutes.capitol.texas.gov/docs/sdocs/electioncode.pdf (the whole Election Code PDF, as a web search listed it)"
+   ],
+   "tried_utc": "2026-11-07T07:16Z to 07:17Z"
+  },
+  {
+   "what": "the Secretary of State's seminar deck 'runoff elections second elections and recounts' (2024, 36th), which would say what a tie does after a recount",
+   "reason": "HTTP 403 from www.sos.texas.gov for this address (the Recount Guide PDF on the same host was served a minute earlier); I stopped on that host and did not try the older host name sos.state.tx.us that a search also listed.",
+   "urls_tried": [
+    "https://www.sos.texas.gov/elections/forms/seminar/2024/36th/runoff-elections-second-elections-and-recounts.pdf"
+   ],
+   "tried_utc": "2026-11-07T07:18Z"
+  },
+  {
+   "what": "the Election Code (chapters 212, 216 and the section on a second election) from a compilation, as the orchestrator's amendment of 2026-11-07 07:21 allows (Justia or Cornell LII)",
+   "reason": "HTTP 403 from law.justia.com for the Title 13 chapter 216 page; I stopped on that host and did not retry. Cornell LII: a search restricted to law.cornell.edu for the Texas Election Code returned only Texas administrative-code and federal pages, so no Cornell page of the statute was found to fetch.",
+   "urls_tried": [
+    "https://law.justia.com/codes/texas/election-code/title-13/chapter-216/"
+   ],
+   "tried_utc": "2026-11-07T07:22Z"
+  }
+ ],
+ "notes": [
+  "Every Texas rule here rests on the Secretary of State's Recount Guide (an agency guide, lower grade than the statute), flagged 'stated'. No Texas statute text was read.",
+  "Not found in the guide: what happens to a tie that survives the recount; a measure's tie; a recount of a presidential-elector contest. A local office is covered only as the guide speaks of 'an election' generally; charters and local law were not read.",
+  "The compilation route (Justia) was refused with HTTP 403, so Texas stays partly-read, resting on the Secretary of State's guide only."
+ ]
+}

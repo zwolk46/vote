@@ -1,0 +1,136 @@
+{
+ "state": "CO",
+ "name": "Colorado",
+ "status": "read",
+ "code": {"name": "Colorado Revised Statutes", "edition": "Colorado Revised Statutes 2026, Title 1 - Elections, as the Office of Legislative Legal Services prints it (the PDF linked from the General Assembly's 2026 CRS Titles for Download page)", "site": "https://content.leg.colorado.gov/agencies/office-legislative-legal-services/2026-crs-titles-download", "reached": true},
+ "sections": {
+  "co-crs2026-title-01": {"citation": "C.R.S. 2026, Title 1 (sections 1-10.5-101 to 1-10.5-106 recounts; 1-11-101 and 1-11-102 tie votes; 1-13.5-1304 and 1-13.5-1306 local government elections)", "url": "https://olls.info/crs/crs2026-title-01.pdf", "read_at": "state", "note": "One plain PDF of the whole title, linked from the General Assembly's public page (https://content.leg.colorado.gov/agencies/office-legislative-legal-services/2026-crs-titles-download) and served by the Office of Legislative Legal Services: a documented download."}
+ },
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "state-legislative", "statewide"],
+   "applies_to": "a general or congressional vacancy election: presidential electors, U.S. senator, representative in congress, regent of the University of Colorado, member of the state board of education, state senator or state representative, district attorney",
+   "resolution": "recount-then-lot",
+   "steps": "after all recounts have been completed, the secretary of state determines by lot which of the tied candidates is declared elected, on reasonable notice to the candidates",
+   "who": "the secretary of state",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "any two or more persons tie for the highest number of votes for presidential electors, for United States senator, for representative in congress, for regent of the university of Colorado, for member of the state board of education, for state senator or state representative, or for district attorney, the secretary of state shall proceed to determine by lot which of the candidates shall be declared elected."}
+   ],
+   "mark": "measured",
+   "note": "C.R.S. 1-11-101(2). The \"statewide\" kind is listed for the regent and state board of education offices only; the executive offices are in the next rule."},
+  {"kinds": ["statewide"],
+   "applies_to": "governor and lieutenant governor (joint candidates), secretary of state, state treasurer, attorney general, in a general or congressional vacancy election",
+   "resolution": "legislature",
+   "steps": "after all recounts have been completed, one of the tied pairs or individual candidates is chosen by the two houses of the general assembly on a joint ballot",
+   "who": "the two houses of the general assembly, on a joint ballot",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "any two or more pairs of joint candidates for the offices of governor and lieutenant governor or if two or more candidates for the offices of secretary of state, state treasurer, or attorney general tie for the highest number of votes for the same office, one of the pairs or one of the individual candidates shall be chosen by the two houses of the general assembly on a joint ballot."}
+   ],
+   "mark": "measured",
+   "note": "C.R.S. 1-11-101(1). The Colorado Constitution was not read."},
+  {"kinds": ["primary"],
+   "applies_to": "a primary election for an office other than a county office, two or more candidates of the same party tied for the highest number of votes",
+   "resolution": "other",
+   "steps": "after all recounts have been completed, the tied candidates resolve the tie in a manner they agree on; if they fail to agree within five days after the canvass is complete, the tie is resolved by lot cast as the secretary of state may determine",
+   "who": "the tied candidates by agreement; failing that, the secretary of state's lot",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "any two or more candidates for an office other than a county office of the same political party tie for the highest number of votes for the same office, the tie shall be resolved in a manner agreed upon by the tying candidates. In case the candidates fail to agree on the method of resolution within five days after the canvass is complete, the tie shall be resolved by lot to be cast as the secretary of state may determine."}
+   ],
+   "mark": "measured",
+   "note": "C.R.S. 1-11-101(3). The default is a lot; the first resort is any method the candidates agree on."},
+  {"kinds": ["primary"],
+   "applies_to": "a primary election involving a county office, two or more candidates of the same party tied for the highest number of votes",
+   "resolution": "recount-then-lot",
+   "steps": "after all recounts have been completed, the canvass board determines by lot the person who shall be elected, on reasonable notice to the candidates",
+   "who": "the canvass board",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "the canvass board shall determine by lot the person who shall be elected. The canvass board shall provide the candidates affected by the tie vote reasonable notice of the time when the election will be determined."}
+   ],
+   "mark": "measured",
+   "note": "C.R.S. 1-11-101(4)."},
+  {"kinds": ["local"],
+   "applies_to": "nonpartisan elections (the general nonpartisan tie section), and nonpartisan elections of a local government not coordinated by the county clerk and recorder (the Colorado Local Government Election Code)",
+   "resolution": "lot",
+   "steps": "if two or more candidates tie for the highest number of votes for the same office and there are not enough offices remaining for all of them, the board of canvassers (or canvass board) determines by lot the person who shall be elected, on reasonable notice to the candidates",
+   "who": "the board of canvassers or canvass board",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "If any two or more candidates tie for the highest number of votes for the same office and if there are not enough offices remaining for all the candidates, the board of canvassers shall determine by lot the person who shall be elected."},
+    {"section": "co-crs2026-title-01", "quote": "If any two or more candidates receive an equal and highest number of votes for the same office, and if there are not enough offices remaining for all such candidates, the canvass board shall determine by lot the person who shall be elected."}
+   ],
+   "mark": "inferred",
+   "note": "C.R.S. 1-11-102 and 1-13.5-1304. Read as covering school districts, special districts and other local nonpartisan offices; municipal elections are governed by Title 31 and were not read. County offices in a partisan general election are not named in 1-11-101 or 1-11-102; whether any section covers them was not found. The state general law only; charters not read."},
+  {"kinds": ["measure"],
+   "applies_to": "a ballot issue or ballot question",
+   "resolution": "none-found",
+   "steps": null,
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "No section on a tie on a ballot issue or question was found in C.R.S. 1-10.5-101 to 1-10.5-107 (recounts), 1-11-101 and 1-11-102 (tie votes), 1-13.5-1304 and 1-13.5-1306 (local government elections), or by searching the whole of Title 1 for tie, equal number of votes and by lot. A tie would also fall under the automatic recount (a difference of zero is within one-half of one percent), which this file records. The initiative and referendum article (1-40) was not read."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"], "type": "automatic", "election": "primary, general, coordinated and recall",
+   "threshold": {"percent": 0.5, "percent_of": "the highest vote cast in that election contest (for a contest with more than one person to be elected, the votes cast for the candidate who won with the least votes)", "votes": null, "combine": null, "inclusive": true,
+                 "conditions": "the recount occurs only after the canvass board certifies the original count; a political subdivision that referred a ballot issue or question to the electors may waive the automatic recount if the issue or question fails, by written notice within twenty-three days after the election (C.R.S. 1-10.5-103)",
+                 "in_words": "a difference between the highest and the next highest vote of one-half of one percent or less of the highest vote: a recount is held"},
+   "who_may_request": [],
+   "waiver": "a political subdivision that referred a ballot issue or ballot question may waive the automatic recount if the issue fails, by written notice to the county clerk and recorder within twenty-three days after the election; no waiver by a candidate is stated",
+   "cost_bearer": "the entity that certified the candidate, ballot question or ballot issue for the ballot",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "A recount of any election contest shall be held if the difference between the highest number of votes cast in that election contest and the next highest number of votes cast in that election contest is less than or equal to one-half of one percent of the highest vote cast in that election contest."},
+    {"section": "co-crs2026-title-01", "quote": "If there is more than one person to be elected in an election contest, a recount shall be held if the difference between the votes cast for the candidate who won the election with the least votes and the candidate who lost the election with the most votes is less than or equal to one-half of one percent of the votes cast for the candidate who won the election with the least votes."},
+    {"section": "co-crs2026-title-01", "quote": "any expenses incurred in conducting a recount in any political subdivision shall be paid by the entity that certified the candidate, ballot question, or ballot issue for the ballot."},
+    {"section": "co-crs2026-title-01", "quote": "A political subdivision that referred a ballot issue or ballot question to the electors may waive the automatic recount provisions of this section if the ballot issue or ballot question fails by giving written notice to the county clerk and recorder within twenty-three days after any election."}
+   ],
+   "mark": "measured",
+   "note": "C.R.S. 1-10.5-101(1)(b) and (2) and 1-10.5-103. The secretary of state orders the recount for U.S. Senate and House, state offices, district offices of state concern and state questions (1-10.5-102); the county clerk and recorder for the rest in an election the clerk coordinates (1-10.5-103). \"Any election contest\" is read as including primaries (1-11-101(3) speaks of ties \"after all recounts have been completed\" in a primary, and 1-10.5-106 names primary elections)."},
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"], "type": "requested", "election": "primary, general, coordinated and recall",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null,
+                 "conditions": "whenever a recount is not required; a notarized written request filed no sooner than ten days nor later than twenty-two days after the election; may be made only once by an interested party",
+                 "in_words": "whenever a recount is not required, an interested party may request one at the party's own expense; no margin is required"},
+   "no_margin_required": true,
+   "who_may_request": ["an interested party: the candidate who lost, the political party or organization of that candidate, a petition representative for a ballot issue that did not pass, the governing body that referred a failed issue, or the agent of an issue committee that supported a ballot issue that failed or opposed one that passed"],
+   "waiver": null,
+   "cost_bearer": "the interested party that requests it, by certified funds placed in escrow; refunded if the result is reversed in favor of that party or the amended count is such that a recount would otherwise have been required",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "Whenever a recount is not required an interested party may submit a notarized written request for a recount to be conducted in accordance with section 1-10.5-102 at the expense of the interested party making the request."},
+    {"section": "co-crs2026-title-01", "quote": "If after the recount the result of the election is reversed in favor of the interested party that requested the recount or if the amended election count is such that a recount otherwise would have been required, the payment for expenses shall be refunded to the interested party that requested the recount."}
+   ],
+   "mark": "measured",
+   "note": "C.R.S. 1-10.5-106. The filing window and the \"only once\" limit are in the same subsection."},
+  {"kinds": ["local"], "type": "automatic", "election": "nonpartisan election of a local government not coordinated by the county clerk and recorder",
+   "threshold": {"percent": 0.5, "percent_of": "the highest number of votes cast in the election", "votes": null, "combine": null, "inclusive": true, "conditions": "completed no later than the twenty-eighth day after the election",
+                 "in_words": "a difference between the highest and the next highest vote of one-half of one percent or less of the highest vote: the designated election official orders a recount"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "the governing body of the local government",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "The designated election official shall order a recount of the votes cast in any election if it appears, as evidenced by the survey of returns, that the difference between the highest number of votes cast in the election and the next highest number of votes cast in the election is less than or equal to one-half of one percent of the highest number of votes cast in the election."},
+    {"section": "co-crs2026-title-01", "quote": "shall be completed no later than the twenty-eighth day following the election and shall be paid for by the governing body of the local government."}
+   ],
+   "mark": "measured",
+   "note": "C.R.S. 1-13.5-1306(1), under the article that applies only to nonpartisan elections not coordinated by the county clerk and recorder (1-13.5-102(1))."},
+  {"kinds": ["local"], "type": "requested", "election": "nonpartisan election of a local government not coordinated by the county clerk and recorder",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null, "conditions": "whenever a recount is not required; filed with the designated election official within seventeen days after the election",
+                 "in_words": "whenever a recount is not required, any interested party, including an eligible elector, a candidate or the issue committee, may request one at the party's own expense; no margin is required"},
+   "no_margin_required": true,
+   "who_may_request": ["any interested party, including an eligible elector or a candidate for office or the issue committee for a ballot issue or question"],
+   "waiver": null,
+   "cost_bearer": "the interested party that makes the request",
+   "sources": [
+    {"section": "co-crs2026-title-01", "quote": "Whenever a recount of the votes cast in an election is not required pursuant to subsection (1) of this section, any interested party, including an eligible elector or a candidate for office or the issue committee for a ballot issue or question, may submit to the designated election official a written request for a recount at the expense of the interested party making the request."}
+   ],
+   "mark": "measured",
+   "note": "C.R.S. 1-13.5-1306(2)(a)."}
+ ],
+ "unread": [
+  {"what": "Colorado Constitution (art. IV, on the governor); C.R.S. Title 31 (municipal elections) and Title 1 article 40 (initiative and referendum); the secretary of state's election rules",
+   "reason": "not read; the brief limits local to state general law. Read in Title 1: 1-10.5-101 to 1-10.5-107, 1-11-101 and 1-11-102, 1-13.5-1301 to 1-13.5-1306 in part, and a word search of the whole title for tie and by lot",
+   "url": null,
+   "tried_at": null}
+ ],
+ "notes": [
+  "Colorado's General Assembly publishes the whole Title 1 as one PDF (olls.info, linked from its 2026 CRS download page); it answered with text.",
+  "Surprise: the automatic recount runs at one-half of one percent of the highest vote, and the same threshold applies to local nonpartisan elections; a tie for governor and lieutenant governor, secretary of state, treasurer or attorney general goes to a joint ballot of the two houses, while the lot is cast by the secretary of state for the other offices.",
+  "A primary tie between candidates of the same party for a non-county office is first left to the candidates to settle by agreement (C.R.S. 1-11-101(3))."
+ ]
+}

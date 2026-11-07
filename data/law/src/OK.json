@@ -1,0 +1,320 @@
+{
+ "state": "OK",
+ "name": "Oklahoma",
+ "status": "read",
+ "code": {
+  "name": "Oklahoma Statutes",
+  "edition": "Oklahoma Statutes Title 26 (Elections) as the Oklahoma Legislature's page prints it: 'The Oklahoma Constitution and Oklahoma Statutes were last updated on November 18th, 2025'; the section on tie votes shows an amendment by Laws 2025, c. 446, eff. Nov. 1, 2025",
+  "site": "https://www.oklegislature.gov/osstatuestitle.html",
+  "reached": true
+ },
+ "sections": {
+  "ok-26": {
+   "citation": "Okla. Stat. tit. 26 (Elections): 26-8-105 (tie votes), 26-8-111 (petition for recount, deposits, issue and question recounts), 26-8-115 (certification of results, ties involving candidates), 26-8-117 (expenses of recount), 26-8-122 (new election when a winner cannot be determined, not for ties), 26-10-103 (presidential electors), 26-13-103 (municipal elections)",
+   "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os26.pdf",
+   "read_at": "state",
+   "note": "A documented download: the complete Title 26 as a PDF linked from the legislature's public statutes page (https://www.oklegislature.gov/osstatuestitle.html); the helper turned the PDF into text with pdftotext."
+  },
+  "ok-const6": {
+   "citation": "Okla. Const. art. VI, section 5 (Returns of election - Tie votes), as printed in the Oklahoma Senate's 'Oklahoma Constitution, Article VI - Executive Department' PDF",
+   "url": "https://oksenate.gov/sites/default/files/2022-05/oc6.pdf",
+   "read_at": "state",
+   "note": "A downloadable PDF of Article VI published on the Oklahoma Senate's site (oksenate.gov); the file name shows a 2022-05 upload and the page prints no edition date."
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "applies_to": "the nomination or election of \"any candidate\" in any Runoff Primary, General Election or Primary Election, except elections of state officers under Section 5 of Article VI of the Oklahoma Constitution (see the separate rule); for county offices the county election board, for offices filed with the State Election Board that board",
+   "resolution": "lot",
+   "steps": "when a tie vote is certified, the election board authorized to issue the certified list or certificate of election selects the nominee or electee by lot at a public meeting, in the presence of the candidates or their designees; the secretary notifies the tied candidates in writing by registered or certified mail at least five days before; the names are written on equal pieces of paper, put in opaque containers, tumbled in a transparent container, and a person other than the candidates draws one; if the tie appears at a recount, the board selects by lot at the meeting called for the recount or the issuing of the certificate",
+   "who": "the county election board, or the State Election Board for offices whose declarations of candidacy it accepts",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "When a tie vote is certified in the nomination or election of any candidate in any Runoff Primary, General Election, or Primary Election, the election board that is authorized by law to issue the certified list or certificate of election shall, at a public meeting of the board and in the presence of the candidates involved or their designee, if they or any of them desire to be present, select the nominee or electee by lot."
+    },
+    {
+     "section": "ok-26",
+     "quote": "In the event of a tie involving candidates, the election board authorized by law to issue the certified list or certificate of election shall, at the meeting called to conduct the recount or to issue the certified list or certificate of election, in the presence of the candidates involved, if they or any of them desire to be present, select the nominee or electee by lot substantially as prescribed in paragraphs 3 and 4 of Section 8-105 of this title."
+    }
+   ],
+   "mark": "measured",
+   "note": "The text says \"any candidate\" in a Primary, Runoff Primary or General Election and does not name federal, state or local offices; reading it as covering U.S. Senate and House, legislative and local offices is an inference. A tie does not lead to a new election: section 26-8-122 (new election ordered by the governor when no winner can be determined after a hearing) says it does not apply to elections resulting in tie votes, which are determined as provided by law. No recount is required before the lot; the second source says the lot is drawn at the recount meeting if a tie is found there."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "municipal elections (section 26-13-103(D))",
+   "resolution": "lot",
+   "steps": "the laws governing state and county primary and general elections, including the tie-by-lot rule of 26-8-105, apply to municipal elections unless otherwise provided by law",
+   "who": "the election board authorized to issue the certificate (the county election board conducts municipal elections)",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "Except as otherwise provided by law, the laws governing state and county Primary and General Elections shall be applicable to all municipal elections."
+    }
+   ],
+   "mark": "inferred",
+   "note": "Reached by reading 26-13-103(D) with 26-8-105; the same section says a charter municipality may provide otherwise for partisan status by charter or ordinance, and municipal charters were not read. State general law only."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a Primary Election for which a Runoff Primary will be held, with three or more candidates and a tie for first place for the nomination (section 26-8-105(C))",
+   "resolution": "runoff",
+   "steps": "the names of the tied candidates are placed on the Runoff Primary ballot",
+   "who": "the election board (names go on the runoff ballot)",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "When there are three (3) or more candidates and a tie for first place occurs for the nomination of a candidate at a Primary Election for which a Runoff Primary will be held, the names of the tied candidates shall be placed on the Runoff Primary ballot."
+    }
+   ],
+   "mark": "measured",
+   "note": "For any other primary tie (for example a tie in a two-candidate primary, or a tie in the runoff primary itself) the lot rule above applies."
+  },
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "applies_to": "elections of state officers pursuant to Section 5 of Article VI of the Oklahoma Constitution: the 'elective state officers' (Article VI-1 lists the Governor, Lieutenant Governor, State Auditor and Inspector, Attorney General, State Treasurer, Superintendent of Public Instruction, Commissioner of Labor, Commissioner of Insurance and other officers provided by law)",
+   "resolution": "legislature",
+   "steps": "the returns for every election for elective state officers go sealed to the Secretary of State, directed to the Speaker of the House, who opens and publishes them before a majority of each branch of the Legislature; if two or more have an equal and the highest number of votes for an office, the Legislature forthwith, by joint ballot, chooses one of them. Section 26-8-105(D) excepts these elections from the lot procedure",
+   "who": "the Legislature, by joint ballot",
+   "sources": [
+    {
+     "section": "ok-const6",
+     "quote": "in case two or more shall have an equal and the highest number of votes for either of said offices, the Legislature shall, forthwith, by joint ballot, choose one of the said persons so having an equal and the highest number of votes for said office."
+    },
+    {
+     "section": "ok-26",
+     "quote": "The procedures prescribed in this section shall not apply to elections of state officers pursuant to Section 5 of Article VI of the Oklahoma Constitution."
+    }
+   ],
+   "mark": "measured",
+   "note": "Which statewide offices are 'elective state officers' under Section 5 was read only from Article VI-1's list (other statewide offices created elsewhere in the Constitution, for example under other articles, were not read) [inferred for those]. For a statewide office outside Article VI the statute's lot rule above may apply."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "presidential electors (section 26-10-103), elected at the General Election",
+   "resolution": "lot",
+   "steps": "the electors are 'elected in the same manner as is provided for state officers'; they are candidates in a General Election, so the lot rule of 26-8-105(A) is read to apply: the election board authorized to issue the certificate selects the elector by lot at a public meeting",
+   "who": "the State Election Board (it issues certificates of election to electors)",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "Said electors shall be elected in the same manner as is provided for state officers."
+    },
+    {
+     "section": "ok-26",
+     "quote": "When a tie vote is certified in the nomination or election of any candidate in any Runoff Primary, General Election, or Primary Election, the election board that is authorized by law to issue the certified list or certificate of election shall, at a public meeting of the board and in the presence of the candidates involved or their designee, if they or any of them desire to be present, select the nominee or electee by lot."
+    }
+   ],
+   "mark": "inferred",
+   "note": "26-10-103 says only that electors are elected 'in the same manner as is provided for state officers'. Whether that sends a tie among electors to the Legislature (as Article VI-5 does for 'elective state officers') or to the lot of 26-8-105(A) is not stated; electors are not among the officers Article VI-1 lists, so the lot is read to apply [inferred]. Treat as uncertain."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a question or issue submitted to the voters",
+   "resolution": "none-found",
+   "steps": "no provision found saying what a tie on a question or issue does",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Title 26 was searched for the words tie, tied, ties and by lot: they occur only in 26-8-105, 26-8-115 and 26-8-122, which speak of candidates, nominees and electees. Chapter 8 (canvass, recount, contest; sections 26-8-101 to 26-8-122) was read through. An absence cannot be confirmed from one title alone."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "a candidate whose name was printed on the ballot for that office in that election; the deposit is doubled if the margin between first and second place is ten percent or more",
+    "in_words": "no margin condition: a candidate whose name was printed on the ballot may petition for a recount; the deposit is doubled when the margin between the first-place and second-place candidates is ten percent or greater"
+   },
+   "no_margin_required": true,
+   "who_may_request": [
+    "a candidate whose name was printed on the ballot for that office in that election (an individual 'authorized to request a recount' for a question or issue, see the measure rules)"
+   ],
+   "cost_bearer": "the petitioner, by a deposit (cashier's or certified check) of $600 for each 3,000 ballots or fraction thereof per county for a manual recount, or $600 for the first 3,000 and $300 for each additional 5,000 for an electronic-device recount, $300 more if filed with the State Election Board; the deposit is used for the actual expenses and the balance returned; if the petitioner is successful the deposit is returned and the county or state bears the expense (section 26-8-117)",
+   "waiver": "none found; no deposit beyond the first is required in a Primary Election with three or more candidates where the second- and third-place candidates are less than one percent apart, or the first-place candidate is within one percent of a majority (section 26-8-111(A)(6))",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "For an election involving candidates, the petition shall be filed with the secretary of the election board with whom the candidate filed the candidate's declaration of candidacy, unless otherwise provided for by law. The petition may only be filed by a candidate whose name was printed on the ballot for that office in that election."
+    },
+    {
+     "section": "ok-26",
+     "quote": "If the candidate or individual requests that the ballots be recounted manually, the petition must be accompanied by a cashier's check or certified check in the amount of Six Hundred Dollars ($600.00) for each three thousand (3,000) ballots or fraction thereof, to be recounted for each county affected."
+    },
+    {
+     "section": "ok-26",
+     "quote": "In elections involving candidates, an additional deposit equal to the total of the deposits required by paragraphs 2, 4 and 5 of this subsection shall be required if the margin between the first-place candidate and second-place candidate is ten percent (10%) or greater."
+    },
+    {
+     "section": "ok-26",
+     "quote": "In the event the contestant is successful in the recount, the deposit shall be returned to the [...] contestant, and the expense of the recount shall be borne by the county or state, as the case may be."
+    }
+   ],
+   "mark": "measured",
+   "note": "No automatic recount for candidate races was found in Title 26 (the word 'automatic' occurs once, for state questions). Kinds are mapped from the words 'an election involving candidates' [inferred]. The additional (doubled) deposit is refundable only if the contestant changes the outcome (section 26-8-117)."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": null,
+    "percent_of": "the total number of votes cast on the issue",
+    "votes": 150,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "a question or issue with no candidate involved, a majority required for approval, 15,000 or more total votes counted for and against; not a statewide question; requires a petition signed by 150 registered voters who participated",
+    "in_words": "a margin of 150 votes or less between those for and those against when 15,000 or more votes are counted"
+   },
+   "who_may_request": [
+    "a registered voter who participated in the election, presenting to the county election board a petition signed by 150 registered voters who participated"
+   ],
+   "cost_bearer": "the petitioner, by the deposits of section 26-8-111(A)",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "For elections on issues or questions when no candidate is involved and a majority is required for approval, recounts shall be authorized only when: 1. The margin of votes between those for and those against the issue is one hundred fifty (150) or less when fifteen thousand [...] (15,000) or more total votes are counted for and against the issue or question;"
+    }
+   ],
+   "mark": "measured",
+   "note": "Subsection C gives the same two tests for questions that need more than a majority, measured between the votes for the issue and the number required for approval. The quotation is cut with [...] at a page break."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the total number of votes cast on the issue",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "a question or issue with no candidate involved, a majority required for approval, 14,999 or fewer total votes cast for and against; not a statewide question; requires a petition signed by registered voters equal to one percent or more of the total votes cast on the issue",
+    "in_words": "a margin of one percent or less of the votes cast on the issue when 14,999 or fewer votes are cast"
+   },
+   "who_may_request": [
+    "a registered voter who participated in the election, presenting to the county election board a petition signed by a number of registered voters who participated equal to one percent or more of the total votes cast for and against the issue"
+   ],
+   "cost_bearer": "the petitioner, by the deposits of section 26-8-111(A)",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "The margin of votes between those for and those against the issue is one percent (1%) or less of the total number of votes cast on the issue when fourteen thousand nine hundred ninety-nine (14,999) or fewer total votes are cast for and against the issue or question."
+    }
+   ],
+   "mark": "measured",
+   "note": "See the preceding rule for questions needing more than a majority."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "automatic",
+   "election": "any",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total number of votes cast for and against a state question",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "a state question involving a statutory issue; one percent (1%) or less for a state question involving a constitutional issue; only 'subject to available funding', meaning a balance of $250,000 or more in the State Question Recount Revolving Fund as of the date of the election",
+    "in_words": "a margin required for approval of one-half of one percent or less (statutory state question) or one percent or less (constitutional state question) of the votes cast for and against, if the revolving fund held $250,000 or more on election day"
+   },
+   "who_may_request": [],
+   "cost_bearer": "state (the State Question Recount Revolving Fund, funded by legislative appropriation, pays the State Election Board's costs and reimburses county election boards)",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "Subject to available funding, the Secretary of the State Election Board shall order an automatic recount of a state question if: a. the margin of votes required for approval is one-half of one percent (1/2 of 1%) or less of the total number of votes cast for and against a state question involving a statutory issue or question, and b. the margin of votes required for approval is one percent (1%) or less of the total number of votes cast for and against a state question involving a constitutional issue or question."
+    },
+    {
+     "section": "ok-26",
+     "quote": "Expenditures from the fund shall be limited to:"
+    }
+   ],
+   "mark": "measured",
+   "note": "The statute's 'and' between a. and b. is printed as in the text; it is read as two alternative tiers by the kind of question, statutory at 0.5% and constitutional at 1% [inferred]. Recounts of other statewide questions are not permitted except at the governor's or attorney general's request (next rule)."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "a state question; request by the Governor or the Attorney General, by petition filed with the Secretary of the State Election Board by the deadline of section 8-109",
+    "in_words": "no margin condition: the Governor or the Attorney General may request a recount of any state question"
+   },
+   "no_margin_required": true,
+   "who_may_request": [
+    "the Governor",
+    "the Attorney General"
+   ],
+   "cost_bearer": "the requester, by the cashier's or certified check amount required by section 26-8-111(A)",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ok-26",
+     "quote": "Recounts of issue or question elections shall not be permitted of any statewide election, except as follows: 1. The Governor or the Attorney General may request a recount of any state question."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  }
+ ],
+ "unread": [
+  {
+   "what": "municipal charters; Oklahoma Constitution provisions other than Article VI",
+   "reason": "not part of the election-code chapters and the one constitutional article read; local charters were not read (state general law only)"
+  }
+ ],
+ "notes": [
+  "Title 26 was read as one PDF (the legislature's documented download); the whole title was searched for the words tie, tied, by lot, recount and automatic, and chapter 8 (sections 26-8-101 to 26-8-122) was read in full.",
+  "Oklahoma recounts of candidate races have no margin condition and are at the petitioner's cost, so a recount does not by itself follow a close margin; there is no automatic recount for candidate races.",
+  "A tie is settled by lot at the election board's public meeting, except: a primary tie for first place among three or more candidates where a runoff primary is to be held (the tied names go on the runoff ballot), and elections of elective state officers, where the Constitution (Art. VI, section 5) has the Legislature choose by joint ballot."
+ ]
+}

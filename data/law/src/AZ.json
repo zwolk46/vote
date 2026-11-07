@@ -1,0 +1,106 @@
+{
+ "state": "AZ",
+ "name": "Arizona",
+ "status": "read",
+ "code": {"name": "Arizona Revised Statutes", "edition": "as the Arizona Legislature's page (azleg.gov/ars) prints it; no edition or currency date is printed on the section pages", "site": "https://www.azleg.gov/arsDetail/", "reached": true},
+ "sections": {
+  "az-16-649": {"citation": "A.R.S. 16-649 (determination of tie vote; notice to candidates; exception)", "url": "https://www.azleg.gov/ars/16/00649.htm", "read_at": "state"},
+  "az-const-5-1": {"citation": "Arizona Constitution, art. 5, sec. 1 (executive department; election of its officers)", "url": "https://www.azleg.gov/const/5/1.htm", "read_at": "state"},
+  "az-16-661": {"citation": "A.R.S. 16-661 (automatic recount; requirements)", "url": "https://www.azleg.gov/ars/16/00661.htm", "read_at": "state"},
+  "az-16-662": {"citation": "A.R.S. 16-662 (certification to superior court of facts requiring recount)", "url": "https://www.azleg.gov/ars/16/00662.htm", "read_at": "state"},
+  "az-16-663": {"citation": "A.R.S. 16-663 (recount of votes; method)", "url": "https://www.azleg.gov/ars/16/00663.htm", "read_at": "state"},
+  "az-16-666": {"citation": "A.R.S. 16-666 (expenses of recount)", "url": "https://www.azleg.gov/ars/16/00666.htm", "read_at": "state"}
+ },
+ "ties": [
+  {"kinds": ["federal", "state-legislative", "local"],
+   "applies_to": "\"the same office\": U.S. Senate and House, state legislative seats, and county, city and town offices, in a general election; the section carves out only \"the executive offices of the state as defined by the constitution\"",
+   "resolution": "lot",
+   "steps": "the officer or board whose duty it is to declare the result (the secretary of state or the county board of supervisors, or the city or town governing body) determines by lot, in the presence of the candidates, which candidate is declared elected; ten days' notice to candidates for state offices and five days' for other offices",
+   "who": "the officer or board that declares the result",
+   "sources": [
+    {"section": "az-16-649", "quote": "If two or more candidates receive an equal number of votes for the same office, and a higher number than any other candidate, whether upon the canvass by the secretary of state or the county board of supervisors, or upon recount by a court, the officer or board whose duty it is to declare the result shall determine by lot and in the presence of the candidates which candidate shall be declared elected."},
+    {"section": "az-16-649", "quote": "Ten days' previous notice shall be given to candidates for state offices, and five days' previous notice shall be given to candidates for other offices"}
+   ],
+   "mark": "measured",
+   "note": "Federal, legislative and local offices are covered because the section says \"the same office\" and exempts only the state executive offices [inferred for local offices: the section names a city or town only through the board that declares the result; city and town charters were not read]. A tie is settled after the canvass and after any court recount; it does not wait for a new election."},
+  {"kinds": ["statewide"],
+   "applies_to": "the executive offices of the state as defined by the constitution: governor, lieutenant governor, secretary of state, attorney general, state treasurer and superintendent of public instruction",
+   "resolution": "legislature",
+   "steps": "the lot of A.R.S. 16-649 does not apply to these offices; if two or more persons have an equal and the highest number of votes, the two houses of the legislature at its next regular session elect one of them forthwith by joint ballot",
+   "who": "the two houses of the legislature, by joint ballot",
+   "sources": [
+    {"section": "az-16-649", "quote": "The provisions of this section shall not apply to candidates for the executive offices of the state as defined by the constitution."},
+    {"section": "az-const-5-1", "quote": "if two or more persons have an equal and the highest number of votes for the office, the two houses of the legislature at its next regular session shall elect forthwith, by joint ballot, one of such persons for said office."},
+    {"section": "az-const-5-1", "quote": "The executive department shall consist of the governor, lieutenant governor, secretary of state, attorney general, state treasurer and superintendent of public instruction"}
+   ],
+   "mark": "measured",
+   "note": "Constitution art. 5 sec. 1(B). Statewide offices outside the executive department (for example corporation commissioners and the mine inspector) are not named in it and so fall under the lot of A.R.S. 16-649 [inferred]; that reading was not tested against the constitution's other articles."},
+  {"kinds": ["statewide"],
+   "applies_to": "statewide offices that are not executive offices of the state under art. 5 sec. 1 (offices such as the corporation commission and the state mine inspector)",
+   "resolution": "lot",
+   "steps": "as in A.R.S. 16-649: the officer or board that declares the result determines the tie by lot in the presence of the candidates",
+   "who": "the secretary of state or the officer or board that declares the result",
+   "sources": [
+    {"section": "az-16-649", "quote": "the officer or board whose duty it is to declare the result shall determine by lot and in the presence of the candidates which candidate shall be declared elected."}
+   ],
+   "mark": "inferred",
+   "note": "The offices are not named in the sections read. The reading is that the exception in 16-649(C) covers only the six offices of the executive department listed in the constitution, so all other offices fall under the lot."},
+  {"kinds": ["presidential-electors"],
+   "applies_to": "presidential electors",
+   "resolution": "lot",
+   "steps": "if A.R.S. 16-649 reaches the electors, a tie is determined by lot by the officer or board that declares the result",
+   "who": "the secretary of state [inferred]",
+   "sources": [
+    {"section": "az-16-649", "quote": "If two or more candidates receive an equal number of votes for the same office, and a higher number than any other candidate"}
+   ],
+   "mark": "inferred",
+   "note": "No section read speaks of a tie among presidential electors as such. 16-649 says \"the same office\" and exempts only the state executive offices, so it is read as covering electors. The electors' chapter (A.R.S. 16-212 and following) was not read."},
+  {"kinds": ["primary"],
+   "applies_to": "a party primary: two or more candidates with an equal highest vote for the nomination",
+   "resolution": "lot",
+   "steps": "read as the lot of A.R.S. 16-649 [inferred]",
+   "who": "the officer or board that declares the result",
+   "sources": [
+    {"section": "az-16-649", "quote": "whether upon the canvass by the secretary of state or the county board of supervisors, or upon recount by a court, the officer or board whose duty it is to declare the result shall determine by lot"}
+   ],
+   "mark": "inferred",
+   "note": "16-649 speaks of candidates \"declared elected\" and does not mention a nomination. A.R.S. 16-645 (declaring the nominee of a party) says nothing on a tie. Whether the lot reaches a primary was not settled by the sections read; the recount section 16-661 does name primaries."},
+  {"kinds": ["measure"],
+   "applies_to": "a ballot issue",
+   "resolution": "other",
+   "steps": "a ballot issue that ends in a tie vote is deemed to have failed",
+   "who": null,
+   "sources": [
+    {"section": "az-16-649", "quote": "A ballot issue that ends in a tie vote is deemed to have failed."}
+   ],
+   "mark": "measured",
+   "note": "Subsection D. The same section says that an official subject to a recall is certified the winner if the recall election ends in a tie (subsection E)."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "statewide", "state-legislative", "local", "primary", "measure"], "type": "automatic", "election": "primary and general",
+   "threshold": {"percent": 0.5, "percent_of": "the number of votes cast for both such candidates or on such measures or proposals", "votes": null, "combine": null, "inclusive": true, "conditions": "the margin is between the two candidates receiving the greatest number of votes for the office, or between the votes for and against initiated or referred measures or proposals to amend the Constitution; not for precinct committeemen, school district governing boards, community college district governing boards, fire district boards or fire district chiefs or secretary-treasurers, or boards of other special districts",
+                 "in_words": "a margin of one-half of one percent or less of the votes cast for the top two candidates (or for and against a state-level measure): the recount is required"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "the state for an office filled by state electors or an initiative, referendum or constitutional measure; the county for a county or subdivision office; the city or town for a city or town office",
+   "sources": [
+    {"section": "az-16-661", "quote": "A recount of the vote is required when the canvass of returns in a primary or general election shows that the margin between the two candidates receiving the greatest number of votes for a particular office, or between the number of votes cast for and against initiated or referred measures or proposals to amend the Constitution of Arizona, is less than or equal to one-half of one percent of the number of votes cast for both such candidates or on such measures or proposals."},
+    {"section": "az-16-661", "quote": "Subsection A of this section does not apply to elections for precinct committeemen, school district governing boards, community college district governing boards, fire district boards or fire district chiefs or secretary-treasurers or boards of other special districts."},
+    {"section": "az-16-662", "quote": "When the canvass shows that a recount is required, the secretary of state, within twenty-four hours after the last county canvass or the last day for county canvasses prescribed by section 16-642, whichever is earlier, shall"},
+    {"section": "az-16-666", "quote": "The expenses of the recount of the votes as provided in this article, if for an office to be filled by state electors, or if upon an initiative or referendum measure, or proposal to amend the constitution, shall be a state charge, and if for an office to be filled by the electors of a county or a subdivision of a county, or precinct, shall be a county charge."}
+   ],
+   "mark": "measured",
+   "note": "The recount is ordered by the superior court after the secretary of state (or the board of supervisors, or the city or town council) certifies the facts (16-662, 16-663); it is automatic in that no one requests it. Measures: only initiated or referred measures and constitutional amendments are named; whether other ballot issues (for example local bond questions) are covered was not read. Which office kinds are \"state electors\" for cost is read from the section's words. City and town offices: the expense is a city or town charge (16-666, second sentence). Presidential electors are not named; whether the 0.5 percent test applies to them was not read. A.R.S. 16-661 to 16-667 provide no recount on request; election contests are a separate article (16-667 says the article supplements, and a contest abates a recount)."}
+ ],
+ "unread": [
+  {"what": "the electors' chapter, any recount on request, and election contests (A.R.S. 16-671 and following)",
+   "reason": "not fetched; the brief excludes contest chapters except where they say what happens to a tie, and A.R.S. 16-661 to 16-667 show no recount on request",
+   "url": null,
+   "tried_at": null}
+ ],
+ "notes": [
+  "Arizona's own statute site (azleg.gov/ars) answered with text for every section. The earlier reader reported the Arizona election office refused; the legislature's site did not.",
+  "Surprise: the state executive offices (governor and the other five of the executive department) are decided by a joint ballot of the two houses on a tie, not by lot; every other office read is decided by lot, and a tied ballot issue is deemed to have failed.",
+  "Read for ties and recounts: A.R.S. 16-645, 16-646, 16-649, 16-650, 16-661 to 16-667, 16-822 (not relevant); Arizona Constitution art. 5 sec. 1."
+ ]
+}

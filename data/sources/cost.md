@@ -29,7 +29,7 @@
 | Source | Publisher | Covers | Format | Licence | Reached |
 |---|---|---|---|---|---|
 | Each state's code, at the state's legislature, revisor or official code publisher; the Secretary of State's or Election Division's manual where the code could not be read | the states | the tie and recount provisions, with the statute's own words verified by script (`pipeline/intake/state_law.py check`) | html, pdf | the states' public law | see `data/law/ties.json` and `recounts.json` (`status`, `unread`, `notes` of each state) and `data/cost/REPORT.md` for the list of refusals |
-| Justia and Cornell LII compilations | Justia; Cornell Legal Information Institute | state codes as compilations (allowed by the orchestrator's ruling, 07:21, "via compilation") | html | as the sites print | Justia answered HTTP 403 to every state reader's first request (07:22 to 07:30); Cornell LII holds no state's election code that was needed. No state's law was read through either |
+| Justia and Cornell LII compilations | Justia; Cornell Legal Information Institute | state codes as compilations (allowed by the orchestrator's ruling, 07:21, "via compilation") | html | as the sites print | Justia answered HTTP 403 to the first request in each of five readings that tried it (AL, GA, NH, PA, TX); the other readers stopped there. Cornell LII: its AL and GA pages do not carry the code, and a search found no Texas Election Code page; otherwise not tried. No state's law was read through either |
 | NCSL and Ballotpedia summaries | NCSL; Ballotpedia | summaries of states' laws | html | | used only to find a citation; Ballotpedia refused (HTTP 403) |
 
 ## Refusals and gaps, for the orchestrator
