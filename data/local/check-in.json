@@ -1,0 +1,1487 @@
+{
+ "about": "Indiana's certified 2024 general election (pipeline/intake/in_enr.py), compared with the sources already in data/. Built by pipeline/local_in.py check.",
+ "certified_flag": "T",
+ "gate": {
+  "worst_miss": 0.0,
+  "fails": false,
+  "counts": "president D 1,163,603 against 1,163,603; president R 1,720,347 against 1,720,347; senate D 1,097,061 against 1,097,061; senate R 1,659,416 against 1,659,416; house D 1,103,484 against 1,103,484 (9 districts); house R 1,668,618 against 1,668,618 (9 districts)"
+ },
+ "contests": {
+  "office: Attorney General": 1,
+  "office: City-County or City Common Council Member": 1,
+  "office: Clerk of the Circuit Court": 30,
+  "office: County Auditor": 27,
+  "office: County Commissioner": 179,
+  "office: County Coroner": 70,
+  "office: County Council Member": 93,
+  "office: County Recorder": 38,
+  "office: County Surveyor": 63,
+  "office: County Treasurer": 77,
+  "office: Governor & Lt. Governor": 1,
+  "office: Judge, Circuit Court": 53,
+  "office: Judge, Probate Court": 1,
+  "office: Judge, Superior Court": 34,
+  "office: Other": 1,
+  "office: Presidential Electors for US President & VP": 1,
+  "office: School Board Member": 633,
+  "office: State Representative": 100,
+  "office: State Senator": 25,
+  "office: Town Clerk-Treasurer": 20,
+  "office: Town Council Member": 65,
+  "office: Township Board Member": 47,
+  "office: US Representative": 9,
+  "office: US Senator": 1,
+  "question: Court Of Appeals Judge Retention": 2,
+  "question: Local Judge Retention": 26,
+  "question: Local Public Question": 6,
+  "question: Ratification Of State Constitutional Amendment": 1,
+  "question: Supreme Court Justice Retention": 3
+ },
+ "legislature_medsl": {
+  "tally": {
+   "equal": 85,
+   "MEDSL splits the district into pieces": 5,
+   "differ": 39,
+   "not in MEDSL's file": 1
+  },
+  "differences": [
+   {
+    "district": "state senate 40",
+    "state": [
+     38424
+    ],
+    "medsl": [
+     9378
+    ],
+    "largest_difference": 29046,
+    "share_short": 0.7559
+   },
+   {
+    "district": "state house 61",
+    "state": [
+     17018
+    ],
+    "medsl": [
+     4569
+    ],
+    "largest_difference": 12449,
+    "share_short": 0.7315
+   },
+   {
+    "district": "state house 46",
+    "state": [
+     20852,
+     9847
+    ],
+    "medsl": [
+     9121,
+     4128
+    ],
+    "largest_difference": 11731,
+    "share_short": 0.5684
+   },
+   {
+    "district": "state house 62",
+    "state": [
+     18395,
+     17586
+    ],
+    "medsl": [
+     9526,
+     7780
+    ],
+    "largest_difference": 9806,
+    "share_short": 0.519
+   },
+   {
+    "district": "state house 38",
+    "state": [
+     25387,
+     8339
+    ],
+    "medsl": [
+     19184,
+     6673
+    ],
+    "largest_difference": 6203,
+    "share_short": 0.2333
+   },
+   {
+    "district": "state house 16",
+    "state": [
+     22500,
+     6740
+    ],
+    "medsl": [
+     19037,
+     5850
+    ],
+    "largest_difference": 3463,
+    "share_short": 0.1489
+   },
+   {
+    "district": "state house 60",
+    "state": [
+     25764,
+     8274
+    ],
+    "medsl": [
+     24535,
+     7287
+    ],
+    "largest_difference": 1229,
+    "share_short": 0.0651
+   },
+   {
+    "district": "state house 50",
+    "state": [
+     23785,
+     7136
+    ],
+    "medsl": [
+     23170,
+     6983
+    ],
+    "largest_difference": 615,
+    "share_short": 0.0248
+   },
+   {
+    "district": "state senate 44",
+    "state": [
+     48749
+    ],
+    "medsl": [
+     47729
+    ],
+    "largest_difference": 1020,
+    "share_short": 0.0209
+   },
+   {
+    "district": "state house 75",
+    "state": [
+     26617
+    ],
+    "medsl": [
+     21044,
+     5559
+    ],
+    "largest_difference": 5573,
+    "share_short": 0.0005
+   },
+   {
+    "district": "state house 51",
+    "state": [
+     16777,
+     5764
+    ],
+    "medsl": [
+     16774,
+     5763
+    ],
+    "largest_difference": 3,
+    "share_short": 0.0002
+   },
+   {
+    "district": "state house 55",
+    "state": [
+     24820,
+     6016
+    ],
+    "medsl": [
+     24820,
+     6014
+    ],
+    "largest_difference": 2,
+    "share_short": 0.0001
+   },
+   {
+    "district": "state senate 5",
+    "state": [
+     43489,
+     22419
+    ],
+    "medsl": [
+     43485,
+     22419
+    ],
+    "largest_difference": 4,
+    "share_short": 0.0001
+   },
+   {
+    "district": "state house 74",
+    "state": [
+     21681,
+     9944
+    ],
+    "medsl": [
+     21681,
+     9945
+    ],
+    "largest_difference": 1,
+    "share_short": -0.0
+   },
+   {
+    "district": "state senate 13",
+    "state": [
+     41096
+    ],
+    "medsl": [
+     41094
+    ],
+    "largest_difference": 2,
+    "share_short": 0.0
+   },
+   {
+    "district": "state senate 37",
+    "state": [
+     50188,
+     15938
+    ],
+    "medsl": [
+     50188,
+     14578,
+     1360
+    ],
+    "largest_difference": 1360,
+    "share_short": 0.0
+   },
+   {
+    "district": "state house 63",
+    "state": [
+     21651,
+     6709
+    ],
+    "medsl": [
+     21652,
+     6710
+    ],
+    "largest_difference": 1,
+    "share_short": -0.0001
+   },
+   {
+    "district": "state senate 50",
+    "state": [
+     43371,
+     10367
+    ],
+    "medsl": [
+     43375,
+     10367
+    ],
+    "largest_difference": 4,
+    "share_short": -0.0001
+   },
+   {
+    "district": "state house 78",
+    "state": [
+     24110
+    ],
+    "medsl": [
+     24120
+    ],
+    "largest_difference": 10,
+    "share_short": -0.0004
+   },
+   {
+    "district": "state house 52",
+    "state": [
+     22279,
+     6750
+    ],
+    "medsl": [
+     22279,
+     6846
+    ],
+    "largest_difference": 96,
+    "share_short": -0.0033
+   },
+   {
+    "district": "state senate 8",
+    "state": [
+     42545,
+     16782
+    ],
+    "medsl": [
+     34507,
+     17958,
+     11713
+    ],
+    "largest_difference": 8038,
+    "share_short": -0.0818
+   },
+   {
+    "district": "state house 21",
+    "state": [
+     14904,
+     3942
+    ],
+    "medsl": [
+     16537,
+     4345
+    ],
+    "largest_difference": 1633,
+    "share_short": -0.108
+   },
+   {
+    "district": "state house 17",
+    "state": [
+     22867
+    ],
+    "medsl": [
+     21994,
+     3459
+    ],
+    "largest_difference": 873,
+    "share_short": -0.1131
+   },
+   {
+    "district": "state senate 7",
+    "state": [
+     49168
+    ],
+    "medsl": [
+     59138
+    ],
+    "largest_difference": 9970,
+    "share_short": -0.2028
+   },
+   {
+    "district": "state house 57",
+    "state": [
+     22413
+    ],
+    "medsl": [
+     27347
+    ],
+    "largest_difference": 4934,
+    "share_short": -0.2201
+   },
+   {
+    "district": "state house 4",
+    "state": [
+     20111,
+     14800
+    ],
+    "medsl": [
+     20111,
+     14800,
+     7189,
+     2249
+    ],
+    "largest_difference": 0,
+    "share_short": -0.2703
+   },
+   {
+    "district": "state house 3",
+    "state": [
+     14763,
+     8617
+    ],
+    "medsl": [
+     14763,
+     8617,
+     5806,
+     1666
+    ],
+    "largest_difference": 0,
+    "share_short": -0.3196
+   },
+   {
+    "district": "state senate 9",
+    "state": [
+     42276
+    ],
+    "medsl": [
+     56302
+    ],
+    "largest_difference": 14026,
+    "share_short": -0.3318
+   },
+   {
+    "district": "state house 25",
+    "state": [
+     18794,
+     18730
+    ],
+    "medsl": [
+     25686,
+     25139
+    ],
+    "largest_difference": 6892,
+    "share_short": -0.3545
+   },
+   {
+    "district": "state senate 35",
+    "state": [
+     24689,
+     18707
+    ],
+    "medsl": [
+     35634,
+     24660
+    ],
+    "largest_difference": 10945,
+    "share_short": -0.3894
+   },
+   {
+    "district": "state senate 24",
+    "state": [
+     40337,
+     21185
+    ],
+    "medsl": [
+     71794,
+     39537
+    ],
+    "largest_difference": 31457,
+    "share_short": -0.8096
+   },
+   {
+    "district": "state house 28",
+    "state": [
+     23989,
+     9442
+    ],
+    "medsl": [
+     44767,
+     17350,
+     767
+    ],
+    "largest_difference": 20778,
+    "share_short": -0.881
+   },
+   {
+    "district": "state house 7",
+    "state": [
+     20991
+    ],
+    "medsl": [
+     40799
+    ],
+    "largest_difference": 19808,
+    "share_short": -0.9436
+   },
+   {
+    "district": "state house 5",
+    "state": [
+     16835,
+     14013
+    ],
+    "medsl": [
+     33670,
+     28026
+    ],
+    "largest_difference": 16835,
+    "share_short": -1.0
+   },
+   {
+    "district": "state house 6",
+    "state": [
+     14861,
+     3483
+    ],
+    "medsl": [
+     29722,
+     6966
+    ],
+    "largest_difference": 14861,
+    "share_short": -1.0
+   },
+   {
+    "district": "state house 8",
+    "state": [
+     19461
+    ],
+    "medsl": [
+     38922
+    ],
+    "largest_difference": 19461,
+    "share_short": -1.0
+   },
+   {
+    "district": "state house 40",
+    "state": [
+     17489,
+     12478
+    ],
+    "medsl": [
+     34978,
+     24956
+    ],
+    "largest_difference": 17489,
+    "share_short": -1.0
+   },
+   {
+    "district": "state senate 10",
+    "state": [
+     30420,
+     8686
+    ],
+    "medsl": [
+     60840,
+     17372
+    ],
+    "largest_difference": 30420,
+    "share_short": -1.0
+   },
+   {
+    "district": "state house 2",
+    "state": [
+     14997,
+     3290
+    ],
+    "medsl": [
+     14997,
+     13398,
+     8383,
+     3290
+    ],
+    "largest_difference": 10108,
+    "share_short": -1.1911
+   }
+  ]
+ },
+ "local_medsl": {
+  "medsl_contests": 1535,
+  "state_contests": 1433,
+  "tally": {
+   "differ": 331,
+   "equal": 1165,
+   "not found in the state's file": 39
+  },
+  "examples": [
+   {
+    "office": "ATTORNEY GENERAL",
+    "medsl": [
+     1750318,
+     1224763
+    ],
+    "state": [
+     1669586,
+     1168512
+    ],
+    "state_title": "Attorney General"
+   },
+   {
+    "office": "SCHOOL BOARD MEMBER",
+    "medsl": [
+     2226,
+     1808
+    ],
+    "state": [
+     4394,
+     3540
+    ],
+    "state_title": "School Board Member, District"
+   },
+   {
+    "office": "CLAY COMMUNITY SCHOOL BOARD",
+    "medsl": [
+     0,
+     0
+    ],
+    "state": [
+     2088,
+     490
+    ],
+    "state_title": "Clay Community School Board, District 1 (Clay, Parke)"
+   },
+   {
+    "office": "CLAY COMMUNITY SCHOOL BOARD",
+    "medsl": [
+     0,
+     0
+    ],
+    "state": [
+     1209,
+     564
+    ],
+    "state_title": "Clay Community School Board, District 2 (Clay, Parke)"
+   },
+   {
+    "office": "CLAY COMMUNITY SCHOOL BOARD",
+    "medsl": [
+     154,
+     140
+    ],
+    "state": [
+     1229,
+     1147
+    ],
+    "state_title": "Clay Community School Board, District 3 (Clay, Parke)"
+   },
+   {
+    "office": "CLAY COMMUNITY SCHOOL BOARD",
+    "medsl": [
+     0,
+     0,
+     0
+    ],
+    "state": [
+     1114,
+     1104,
+     731
+    ],
+    "state_title": "Clay Community School Board, District 4 (Clay, Parke)"
+   },
+   {
+    "office": "CLOVERDALE SCHOOL",
+    "medsl": [
+     1126,
+     993,
+     894,
+     836
+    ],
+    "state": [
+     1957,
+     1690,
+     1546,
+     1352
+    ],
+    "state_title": "Cloverdale School Board, Cloverdale Township (Putnam)"
+   },
+   {
+    "office": "DECATUR COUNTY SCHOOL BOARD",
+    "medsl": [
+     2901,
+     1958
+    ],
+    "state": [
+     2916,
+     1995
+    ],
+    "state_title": "Decatur County School Board, District B (Decatur, Shelby)"
+   },
+   {
+    "office": "DECATUR COUNTY SCHOOL BOARD",
+    "medsl": [
+     2447,
+     2042
+    ],
+    "state": [
+     2477,
+     2062
+    ],
+    "state_title": "Decatur County School Board, District C (Decatur, Shelby)"
+   },
+   {
+    "office": "DECATUR COUNTY SCHOOL BOARD",
+    "medsl": [
+     2665,
+     2178
+    ],
+    "state": [
+     2685,
+     2209
+    ],
+    "state_title": "Decatur County School Board, District D (Decatur, Shelby)"
+   },
+   {
+    "office": "JOHN GLENN SCHOOL",
+    "medsl": [
+     1648
+    ],
+    "state": [
+     2538
+    ],
+    "state_title": "John Glenn School Board, Johnson Township (Laporte, Marshall, St. Joseph)"
+   },
+   {
+    "office": "JOHN GLENN SCHOOL",
+    "medsl": [
+     1463
+    ],
+    "state": [
+     2271
+    ],
+    "state_title": "John Glenn School Board, Liberty Township (Laporte, Marshall, St. Joseph)"
+   },
+   {
+    "office": "JOHN GLENN SCHOOL",
+    "medsl": [
+     1656
+    ],
+    "state": [
+     2649
+    ],
+    "state_title": "John Glenn School Board, Polk Township (Laporte, Marshall, St. Joseph)"
+   },
+   {
+    "office": "LAKELAND SCHOOL BOARD",
+    "medsl": [
+     3473
+    ],
+    "state": [
+     3554
+    ],
+    "state_title": "Lakeland School Board, District 3 (Lagrange & Noble)"
+   },
+   {
+    "office": "LAKELAND SCHOOL BOARD",
+    "medsl": [
+     3399
+    ],
+    "state": [
+     3463
+    ],
+    "state_title": "Lakeland School Board, District 4 (Lagrange & Noble)"
+   },
+   {
+    "office": "LAKELAND SCHOOL BOARD",
+    "medsl": [
+     3220
+    ],
+    "state": [
+     3282
+    ],
+    "state_title": "Lakeland School Board, District 5 (Lagrange & Noble)"
+   },
+   {
+    "office": "MADISON-GRANT UNITED SCHOOL CORPORATION",
+    "medsl": [
+     1595
+    ],
+    "state": [
+     2640
+    ],
+    "state_title": "Madison-Grant United School Corporation, District 1 (Grant & Madison)"
+   },
+   {
+    "office": "MADISON-GRANT UNITED SCHOOL CORPORATION",
+    "medsl": [
+     1505
+    ],
+    "state": [
+     2556
+    ],
+    "state_title": "Madison-Grant United School Corporation, District 6 (Madison)"
+   },
+   {
+    "office": "METROPOLITAN SCHOOL DISTRICT OF SHAKAMAK",
+    "medsl": [
+     904
+    ],
+    "state": [
+     13940
+    ],
+    "state_title": "Judge Of The Huntington Circuit Court, 56th Judicial Circuit"
+   },
+   {
+    "office": "METROPOLITAN SCHOOL DISTRICT OF SHAKAMAK",
+    "medsl": [
+     1077
+    ],
+    "state": [
+     1515
+    ],
+    "state_title": "Msd Of Shakamak District 3, Wright Twp"
+   },
+   {
+    "office": "NETTLE CREEK SCHOOL BOARD",
+    "medsl": [
+     214,
+     187
+    ],
+    "state": [
+     1746,
+     1487
+    ],
+    "state_title": "Nettle Creek School Board, At Large 2 (Wayne-Henry)"
+   },
+   {
+    "office": "NETTLE CREEK SCHOOL BOARD",
+    "medsl": [
+     170,
+     84
+    ],
+    "state": [
+     1738,
+     782
+    ],
+    "state_title": "Nettle Creek School Board, District A (Wayne-Henry)"
+   },
+   {
+    "office": "NETTLE CREEK SCHOOL BOARD",
+    "medsl": [
+     230
+    ],
+    "state": [
+     2050
+    ],
+    "state_title": "Nettle Creek School Board, District C (Wayne-Henry)"
+   },
+   {
+    "office": "NEW PRAIRIE UNITED SCHOOL CORPORATION",
+    "medsl": [
+     2354,
+     1354
+    ],
+    "state": [
+     3942,
+     2161
+    ],
+    "state_title": "New Prairie United School Corporation, At Large, District 1 (Olive) Or District 2 (hudson, Wills)"
+   },
+   {
+    "office": "NEW PRAIRIE UNITED SCHOOL CORPORATION",
+    "medsl": [
+     1445
+    ],
+    "state": [
+     5051
+    ],
+    "state_title": "New Prairie United School Corporation, District 1, Olive Township (St. Joseph, Laporte)"
+   },
+   {
+    "office": "NEW PRAIRIE UNITED SCHOOL CORPORATION",
+    "medsl": [
+     1445
+    ],
+    "state": [
+     5051
+    ],
+    "state_title": "New Prairie United School Corporation, District 1, Olive Township (St. Joseph, Laporte)"
+   },
+   {
+    "office": "NEW PRAIRIE UNITED SCHOOL CORPORATION",
+    "medsl": [
+     1744,
+     1352
+    ],
+    "state": [
+     3047,
+     2532
+    ],
+    "state_title": "New Prairie United School Corporation, District 3, Galena, Kankakee Township Or District 2, Hudson, Wills Township"
+   },
+   {
+    "office": "OAK HILL UNITED SCHOOL CORPORATION",
+    "medsl": [
+     1871
+    ],
+    "state": [
+     2486
+    ],
+    "state_title": "Oak Hill United School Corporation, District 3 (Grant And Miami)"
+   },
+   {
+    "office": "OAK HILL UNITED SCHOOL CORPORATION",
+    "medsl": [
+     1595
+    ],
+    "state": [
+     2153
+    ],
+    "state_title": "Oak Hill United School Corporation, District 5 (Grant And Miami)"
+   },
+   {
+    "office": "PERRY TOWNSHIP SCHOOL BOARD MIDTERM CYCLE",
+    "medsl": [
+     16975,
+     12213
+    ],
+    "state": [
+     16975,
+     12213,
+     173
+    ],
+    "state_title": "Perry Township School Board Midterm Cycle"
+   },
+   {
+    "office": "PRAIRIE HEIGHTS SCHOOL",
+    "medsl": [
+     1334
+    ],
+    "state": [
+     3129
+    ],
+    "state_title": "Prairie Heights School Board, Jackson (Lagrange, Steuben)"
+   },
+   {
+    "office": "PRAIRIE HEIGHTS SCHOOL",
+    "medsl": [
+     1279
+    ],
+    "state": [
+     3097
+    ],
+    "state_title": "Prairie Heights School Board, Salem (Lagrange, Steuben)"
+   },
+   {
+    "office": "PRAIRIE HEIGHTS SCHOOL",
+    "medsl": [
+     1282
+    ],
+    "state": [
+     2867
+    ],
+    "state_title": "Prairie Heights School Board, Springfield (Lagrange, Steuben)"
+   },
+   {
+    "office": "ROSSVILLE CONSOLIDATED SCHOOL",
+    "medsl": [
+     933,
+     506
+    ],
+    "state": [
+     1233,
+     699
+    ],
+    "state_title": "Rossville Consolidated School Board, Clay Twp, (Carroll - Clinton)"
+   },
+   {
+    "office": "ROSSVILLE CONSOLIDATED SCHOOL BOARD",
+    "medsl": [
+     932,
+     495
+    ],
+    "state": [
+     1261,
+     651
+    ],
+    "state_title": "Rossville Consolidated School Board, District 20"
+   },
+   {
+    "office": "ST JOSEPH SOUTH BEND SCHOOL BOARD",
+    "medsl": [
+     12448,
+     10986
+    ],
+    "state": [
+     6224,
+     5493
+    ],
+    "state_title": "St. Joseph South Bend School Board, District 3"
+   },
+   {
+    "office": "ST JOSEPH SOUTH BEND SCHOOL BOARD",
+    "medsl": [
+     4496,
+     4108,
+     3548
+    ],
+    "state": [
+     2248,
+     2054,
+     1774
+    ],
+    "state_title": "St. Joseph South Bend School Board, District 4"
+   },
+   {
+    "office": "SHERIDAN SCHOOL",
+    "medsl": [
+     1618,
+     1548,
+     708
+    ],
+    "state": [
+     2022,
+     2016,
+     858
+    ],
+    "state_title": "Sheridan School Board, Marion Township (Hamilton, Boone)"
+   },
+   {
+    "office": "SMITH-GREEN SCHOOL BOARD",
+    "medsl": [
+     1640
+    ],
+    "state": [
+     13444,
+     5202
+    ],
+    "state_title": "Marshall County Commissioner, District 2"
+   },
+   {
+    "office": "SMITH-GREEN SCHOOL BOARD",
+    "medsl": [
+     1678
+    ],
+    "state": [
+     2355
+    ],
+    "state_title": "Smith-Green School Board, District 1 (Whitley, Noble)"
+   },
+   {
+    "office": "SMITH-GREEN SCHOOL BOARD",
+    "medsl": [
+     1495
+    ],
+    "state": [
+     17933
+    ],
+    "state_title": "Henry County Coroner"
+   },
+   {
+    "office": "ST JOSEPH SOUTH BEND SCHOOL BOARD",
+    "medsl": [
+     42228,
+     26896,
+     22136,
+     22002
+    ],
+    "state": [
+     21114,
+     13448,
+     11068,
+     11001
+    ],
+    "state_title": "St. Joseph South Bend School Board, At Large"
+   },
+   {
+    "office": "SUNMAN DEARBORN COMMUNITY SCHOOL BOARD",
+    "medsl": [
+     10506
+    ],
+    "state": [
+     11441
+    ],
+    "state_title": "Sunman Dearborn Community School Board, District 2"
+   },
+   {
+    "office": "SUNMAN DEARBORN COMMUNITY SCHOOL BOARD",
+    "medsl": [
+     10748
+    ],
+    "state": [
+     11690
+    ],
+    "state_title": "Sunman Dearborn Community School Board, District 7"
+   },
+   {
+    "office": "TRITON SCHOOL BOARD",
+    "medsl": [
+     374
+    ],
+    "state": [
+     1876
+    ],
+    "state_title": "Triton School Board, At Large (Marshall, Kosciusko)"
+   },
+   {
+    "office": "TRITON SCHOOL BOARD",
+    "medsl": [
+     329
+    ],
+    "state": [
+     1804
+    ],
+    "state_title": "Triton School Board, District 3 (Marshall, Kosciusko)"
+   },
+   {
+    "office": "UC/CC JOINT SCHOOL",
+    "medsl": [
+     80,
+     58
+    ],
+    "state": [
+     1757,
+     1215
+    ],
+    "state_title": "Uc/cc Joint School Board, Center Township (Union)"
+   },
+   {
+    "office": "UC/CC JOINT SCHOOL",
+    "medsl": [
+     84,
+     65
+    ],
+    "state": [
+     1853,
+     1156
+    ],
+    "state_title": "Uc/cc Joint School Board, Harmony Township (Union)"
+   },
+   {
+    "office": "UC/CC JOINT SCHOOL",
+    "medsl": [
+     137
+    ],
+    "state": [
+     2735
+    ],
+    "state_title": "Uc/cc Joint School Board, Harrison Township (Union)"
+   },
+   {
+    "office": "UNION NORTH UNITED SCHOOL BOARD",
+    "medsl": [
+     1812,
+     1182
+    ],
+    "state": [
+     1609,
+     1266
+    ],
+    "state_title": "Union North United School Board, At Large"
+   },
+   {
+    "office": "UNION NORTH UNITED SCHOOL",
+    "medsl": [
+     1073,
+     269
+    ],
+    "state": [
+     2148,
+     539
+    ],
+    "state_title": "Union North United School Board, North Township"
+   },
+   {
+    "office": "UNION NORTH UNITED SCHOOL",
+    "medsl": [
+     1074,
+     444
+    ],
+    "state": [
+     2117,
+     890
+    ],
+    "state_title": "Union North United School Board, Union Township"
+   },
+   {
+    "office": "NEW PRAIRIE UNITED SCHOOL CORP",
+    "medsl": [
+     2765,
+     1484
+    ],
+    "state": [
+     3942,
+     2161
+    ],
+    "state_title": "New Prairie United School Corporation, At Large, District 1 (Olive) Or District 2 (hudson, Wills)"
+   },
+   {
+    "office": "NEW PRAIRIE UNITED SCHOOL CORP",
+    "medsl": [
+     3606
+    ],
+    "state": [
+     5051
+    ],
+    "state_title": "New Prairie United School Corporation, District 1, Olive Township (St. Joseph, Laporte)"
+   },
+   {
+    "office": "NEW PRAIRIE UNITED SCHOOL CORP",
+    "medsl": [
+     2175,
+     1856
+    ],
+    "state": [
+     3047,
+     2532
+    ],
+    "state_title": "New Prairie United School Corporation, District 3, Galena, Kankakee Township Or District 2, Hudson, Wills Township"
+   },
+   {
+    "office": "JOHN GLENN SCHOOL BOARD",
+    "medsl": [
+     1731
+    ],
+    "state": [
+     2538
+    ],
+    "state_title": "John Glenn School Board, Johnson Township (Laporte, Marshall, St. Joseph)"
+   },
+   {
+    "office": "JOHN GLENN SCHOOL BOARD",
+    "medsl": [
+     1534
+    ],
+    "state": [
+     2271
+    ],
+    "state_title": "John Glenn School Board, Liberty Township (Laporte, Marshall, St. Joseph)"
+   },
+   {
+    "office": "JOHN GLENN SCHOOL BOARD",
+    "medsl": [
+     1733
+    ],
+    "state": [
+     2649
+    ],
+    "state_title": "John Glenn School Board, Polk Township (Laporte, Marshall, St. Joseph)"
+   },
+   {
+    "office": "CLAY COMMUNITY SCHOOL BOARD",
+    "medsl": [
+     1089,
+     993
+    ],
+    "state": [
+     1229,
+     1147
+    ],
+    "state_title": "Clay Community School Board, District 3 (Clay, Parke)"
+   },
+   {
+    "office": "METROPOLITAN SCHOOL DISTRICT OF SHAKAMAK",
+    "medsl": [
+     415
+    ],
+    "state": [
+     13940
+    ],
+    "state_title": "Judge Of The Huntington Circuit Court, 56th Judicial Circuit"
+   }
+  ]
+ },
+ "questions_medsl": {
+  "medsl_questions": 33,
+  "state_questions": 38,
+  "tally": {
+   "not equal to any of the state's": 31,
+   "equal": 2
+  },
+  "examples": [
+   {
+    "office": "SUPREME COURT - RETENTION - LORETTA RUSH",
+    "medsl": [
+     679676,
+     266160
+    ],
+    "counties_in_medsl": 50
+   },
+   {
+    "office": "CONSTITUTIONAL AMENDMENT QUESTION",
+    "medsl": [
+     484115,
+     433433
+    ],
+    "counties_in_medsl": 42
+   },
+   {
+    "office": "SUPREME COURT - RETENTION - MARK MASSA",
+    "medsl": [
+     621994,
+     264880
+    ],
+    "counties_in_medsl": 48
+   },
+   {
+    "office": "SUPREME COURT - RETENTION - DEREK MOLTER",
+    "medsl": [
+     620492,
+     258840
+    ],
+    "counties_in_medsl": 48
+   },
+   {
+    "office": "RETAIN FOLEY HANCOCK",
+    "medsl": [
+     1648,
+     719
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "COURT OF APPEALS - RETENTION - RUDOLPH PYLE",
+    "medsl": [
+     600340,
+     244435
+    ],
+    "counties_in_medsl": 46
+   },
+   {
+    "office": "COMMUNITY SCHOOLS NEW PALESTINE",
+    "medsl": [
+     27491,
+     10668
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "COMMUNITY SCHOOL CORP MT VERNON",
+    "medsl": [
+     37961,
+     16255
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "COMMUNITY SCHOOL CORP GREENFIELD-CENTRAL",
+    "medsl": [
+     37480,
+     15257
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PUBLIC QUESTION-CONST AMENDMENT",
+    "medsl": [
+     22829,
+     19166
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PUBLIC QUESTION-CONST AMENDMENT",
+    "medsl": [
+     5905,
+     4760
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PUBLIC QUESTION-CONST AMENDMENT",
+    "medsl": [
+     9688,
+     6913
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PUBLIC QUESTION-CONST AMENDMENT",
+    "medsl": [
+     19639,
+     15941
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "COURT OF APPEALS - RETENTION - PETER FOLEY",
+    "medsl": [
+     290936,
+     112395
+    ],
+    "counties_in_medsl": 21
+   },
+   {
+    "office": "PUBLIC QUESTION #1",
+    "medsl": [
+     6185,
+     5958
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PUBLIC QUESTION #1",
+    "medsl": [
+     3653,
+     3421
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PUBLIC QUESTION #1",
+    "medsl": [
+     6175,
+     6293
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PUBLIC QUESTION #1",
+    "medsl": [
+     4683,
+     5088
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "COURT OF APPEALS JUDICIAL RETENTION",
+    "medsl": [
+     27005,
+     10302
+    ],
+    "counties_in_medsl": 4
+   },
+   {
+    "office": "COURT OF APPEALS JUDICIAL RETENTION",
+    "medsl": [
+     26434,
+     10495
+    ],
+    "counties_in_medsl": 4
+   },
+   {
+    "office": "PUBLIC SCHOOL QUESTION-TWIN LAKES",
+    "medsl": [
+     447,
+     958
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "COUNTY COUNCIL MEMBER",
+    "medsl": [
+     592,
+     144
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "KANKAKEE VALLEY SB",
+    "medsl": [
+     1715,
+     566
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PLYMOUTH COMMUNITY SCHOOL BOARD",
+    "medsl": [
+     0,
+     121
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "JOHN GLENN SCHOOL BOARD",
+    "medsl": [
+     336,
+     126
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "WEST CENTRAL SB",
+    "medsl": [
+     0,
+     54
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "EASTERN PULASKI SB",
+    "medsl": [
+     233,
+     102
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "JUDICIAL - RETENTION - MANIER",
+    "medsl": [
+     65986,
+     21667
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "JUDICIAL - RETENTION - STEELE",
+    "medsl": [
+     66987,
+     20332
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "JUDICIAL - RETENTION - WOODS",
+    "medsl": [
+     67329,
+     21908
+    ],
+    "counties_in_medsl": 1
+   },
+   {
+    "office": "PUBLIC QUESTION-TWIN LAKES",
+    "medsl": [
+     1743,
+     3350
+    ],
+    "counties_in_medsl": 1
+   }
+  ]
+ }
+}
