@@ -49,7 +49,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
-- 2026-11-07 03:20: the maker (03:13, project chat): gather "absolutely as much data as we can find", through a token-light intake from standardized data; no live data (RULINGS). Applied: `plan/PLAN.md` §2 (every contest the sources allow, back as far as they go) and new §3a (one intake script per standardized source, `pipeline/intake/`; inventories in `data/sources/`); briefs D1, D2, X1 amended and told by message with his words attached; brief D3 (local, state legislatures, primaries, measures, by script) written, to start when X1 waits on his pick or D1 or D2 ends.
+- 2026-11-07 03:15: the maker (03:13, project chat): gather "absolutely as much data as we can find", through a token-light intake from standardized data; no live data (RULINGS). Applied: `plan/PLAN.md` §2 (every contest the sources allow, back as far as they go) and new §3a (one intake script per standardized source, `pipeline/intake/`; inventories in `data/sources/`); briefs D1, D2, X1 amended and told by message with his words attached; brief D3 (local, state legislatures, primaries, measures, by script) written, to start when X1 waits on his pick or D1 or D2 ends.
 
 - 2026-11-07 03:09: #13 merged (law in force, model of record, plan, briefs T1, D1, D2, X1, tracker source); main merged back. T1, D1, D2, X1 started by the coordinator on the networked environment (ids in the table). The maker told the plan, with two asks: allow web.archive.org; MEDSL's guestbook with his name and email. Tracker rows updated to match.
 
