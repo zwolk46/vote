@@ -953,7 +953,7 @@ def _backtest_one(M, k, rows, bad, pres):
         s100 += abs(r_["d"]["votes"] - r_["r"]["votes"]) <= 100
         bias += m - y
         t = office_type_in(r_["m"]["office"], r_["m"].get("state"), r_["m"].get("district"),
-                           "state" if r_["m"]["dataverse"] == "STATE" else "local")
+                           "state" if r_["m"]["dataverse"] == "STATE" else "local", r_["m"].get("counties"))
         by_type[t][0] += 1
         by_type[t][1] += abs(y - m) <= z["50"] * sd
     n = max(len(used), 1)
@@ -1505,17 +1505,36 @@ STATE_OFFICE_TYPES = {
 SEAT_DISTRICT = re.compile(r"^(WARD \d+,? )?POS(ITION)?\.? ?\d+$")
 
 
-# A state's own superintendent of public instruction is one statewide office, not a county's officer (M2's check c29
-# §29.2 and the orchestrator, 2026-11-07 15:50: "Type them as the statewide office they are"; reason: "the class
-# decides which pool and which back-test a race falls in"). Read only where the contest is a state office (MEDSL's
-# STATE files; the State Board's state offices), since a county's or a district's superintendent has the same words.
+# A state's single-seat statewide executive offices are statewide offices, not a county's officers (the orchestrator,
+# 2026-11-07 15:50, from M2's check c29 §29.2: "Type them as the statewide office they are", the state superintendents
+# of public instruction; and 16:08: "A single-seat statewide executive office in a state office's contest is typed
+# 'statewide officer', read the way you read the superintendents. That covers treasurer, auditor or comptroller,
+# secretary of state, lieutenant governor, attorney general, and the single commissioners (agriculture, insurance,
+# labour, public service where one seat is elected statewide)"; reason: "the class decides a race's pool and
+# back-test. A state treasurer's race belongs with other statewide races, not with county treasurers"). Read only in
+# a state office's contest (MEDSL's STATE files; the State Board's state offices) with no district and not one
+# county's, since a county's treasurer or superintendent has the same words. Statewide boards and commissions of
+# several seats and the courts keep their types (16:08: "Statewide multi-member bodies ... and judges keep their
+# present types"); so do a public service, utilities, corporation or railroad commissioner, a member of a commission
+# by its own name, the size of whose commission is not read here [inferred] (data/local/REPORT.md section 24).
 STATE_SUPT = re.compile(r"^(?=.*(SCHOOL|EDUCATION|INSTRUCTION)).*(\bSUPERINTENDENTS?\b|\bSUPT\b|"
                         r"\bSUPER\. OF PUBLIC INSTRUCTION\b)")
+STATE_EXEC = re.compile(
+    r"^(NC |STATE |[A-Z]+ STATE - )?("
+    r"TREASURER( OF STATE)?|GENERAL TREASURER|"
+    r"AUDITOR( OF (STATE|ACCOUNTS|PUBLIC ACCOUNTS)| GENERAL| AND INSPECTOR)?|(COMPTROLLER|CONTROLLER)( GENERAL)?|"
+    r"CHIEF FINANCIAL OFFICER|SECRETARY OF (THE )?(STATE|COMMONWEALTH)|SECRETARY OF AGRICULTURE|"
+    r"LIEUTENANT GOVERNOR|LT\.? GOVERNOR|ATTORNEY GENERAL( - [A-Z ]+)?|"
+    r"COMMISSIONER OF (AGRICULTURE( AND INDUSTRIES)?|INSURANCE|LABOR|PUBLIC LANDS|STATE LANDS|SCHOOL AND PUBLIC LANDS|"
+    r"THE BUREAU OF LABOR AND INDUSTRIES)|(AGRICULTURE|INSURANCE|LABOR|PUBLIC LANDS) COMMISSIONER|STATE MINE INSPECTOR"
+    r")$")
 
 
-def office_type_in(office, state=None, district=None, scope="local"):
-    """office_type, with a state office's superintendent of public instruction typed as the statewide office."""
-    if scope == "state" and STATE_SUPT.search(" ".join(office.upper().split())):
+def office_type_in(office, state=None, district=None, scope="local", counties=None):
+    """office_type, with a state office's single-seat statewide executive office typed "statewide officer"."""
+    o = " ".join(office.upper().split())
+    if scope == "state" and district in (None, "", "STATEWIDE") and (counties is None or len(counties) != 1) \
+            and (STATE_SUPT.search(o) or STATE_EXEC.match(o)):
         return "statewide officer"
     return office_type(office, state, district)
 
@@ -1556,7 +1575,7 @@ def local_structure(m):
     nd = sum(1 for x in b if major(x) == "D")
     nr = sum(1 for x in b if major(x) == "R")
     scope = "state" if m["dataverse"] == "STATE" else "local"
-    ot = office_type_in(m["office"], m.get("state"), m.get("district"), scope)
+    ot = office_type_in(m["office"], m.get("state"), m.get("district"), scope, m.get("counties"))
     if k > 1:
         slate = ("both major parties on the ballot" if nd and nr else "one major party or none")
         return ("boundary", f"{scope} {ot}, {k if k < 4 else '4+'} seats at once, {slate}")
@@ -1882,7 +1901,7 @@ def build(out_dir, with_p=True):
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
-                   "office": c["office"].title(), "office_type": office_type_in(c["office"], c["state"], c["district"], scope), "office_scope": scope,
+                   "office": c["office"].title(), "office_type": office_type_in(c["office"], c["state"], c["district"], scope, c.get("counties")), "office_scope": scope,
                    "election": c.get("election_words") or ((("general" if c["stage"] == "GEN" else
                                                                c["stage"].lower())
                                                               + (", special" if c["special"] else ""))
