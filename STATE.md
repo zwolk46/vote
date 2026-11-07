@@ -51,7 +51,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
-- 2026-11-07 05:08: D3 report 1: PR #25 (Klarner state legislatures 1967-2022 by script, 189,103 contests; the record's 52 of 109,093 reproduced exactly). Method D3-v1 approved with earlier-years-only fits (MODEL §3 "like past races"), the minimum cycles chosen by back-test; (b) 25q/n by class approved; (c) multi-seat boundary marked unchecked for M2. Size: plain compact JSON, not .json.gz; go if pack growth is under ~50 MB and no file is over 20 MB, measured first (replaces the 100 MB line). Runoff second rounds: computed as two-way, marked; first rounds not. #25 gated when D3 finishes its p.
+- 2026-11-07 05:06: D3 report 1: PR #25 (Klarner state legislatures 1967-2022 by script, 189,103 contests; the record's 52 of 109,093 reproduced exactly). Method D3-v1 approved with earlier-years-only fits (MODEL §3 "like past races"), the minimum cycles chosen by back-test; (b) 25q/n by class approved; (c) multi-seat boundary marked unchecked for M2. Size: plain compact JSON, not .json.gz; go if pack growth is under ~50 MB and no file is over 20 MB, measured first (replaces the 100 MB line). Runoff second rounds: computed as two-way, marked; first rounds not. #25 gated when D3 finishes its p.
 
 - 2026-11-07 05:05: the maker (project chat, 05:03) asked only for confirmation that desktop and mobile are both in the works; confirmed from fit.cjs on the options branch (320-430 px at 1-2x text; 900-1440 px; 390x664, 360x640, 1280x720; light and dark). No change of direction.
 
