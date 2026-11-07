@@ -47,6 +47,7 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(HERE, "intake"))
+sys.path.insert(0, HERE)
 import congress_common as cc  # noqa: E402
 
 YEARS = list(range(2006, 2025, 2))
@@ -388,6 +389,283 @@ def summarize(bt, full):
     return "\n".join(lines)
 
 
+# ----------------------------------------------------------------------------- computing p
+METHOD = "D2-v1"            # the version of the method approved 2026-11-07 03:46 UTC (data/congress/REPORT.md)
+PI_VP_D_PROVISIONAL = 0.5   # P(the Vice President elected in 2024 is a Democrat), until D1's figure is in
+CAUCUS_D_LAST = {("ME", "KING"), ("VT", "SANDERS"), ("CT", "LIEBERMAN")}
+
+
+def git_head():
+    import subprocess
+    out = subprocess.run(["git", "-C", REPO, "rev-parse", "--short", "HEAD"], capture_output=True, text=True)
+    return out.stdout.strip() or None
+
+
+def model_source(year, level, m):
+    return cc.source_block(
+        f"the model's own forecast, method {METHOD} (data/congress/REPORT.md section 2), fitted to the {level} "
+        f"races of 2006-2024 other than {year} (leaving one cycle out: an orchestrator choice the maker may "
+        f"correct; the inputs are from before the election, the coefficients partly from later cycles)",
+        "https://github.com/zwolk46/vote/blob/main/pipeline/chambers.py", cc.now_utc(), None, mark="inferred",
+        note=f"b_lean {m['b_lean']:.4f}, b_inc {m['b_inc']:.4f}, s_e {m['s_e']:.4f}, national swing sd "
+             f"{NAT_RMSE[level]:.4f}; no polls are used, so it carries less than forecasters then knew")
+
+
+def model_mean(m, year, lean, inc):
+    a_hat, sd_a = national(m, year)
+    return 0.5 + a_hat + m["b_lean"] * lean + m["b_inc"] * inc, sd_a
+
+
+def seat_entry(c, m, year):
+    """How a seat enters the control calculation. Returns (kind, value, note):
+       ("model", mean, ...)    the model's forecast, with the common swing;
+       ("inferred", mean, ...) the model's forecast for a structure it does not compute p for, marked;
+       ("fixed", "D"|"R"|"non-D", ...) settled by who was on the ballot, known before the election."""
+    b = c.get("ballot") or {}
+    fi = c.get("forecast_inputs") or {}
+    p = c["p"]
+    st = c["place"]["state"]
+    dcount = b.get("D", 0) + len(b.get("caucus_D", []))
+    if p["value"] == 0.0 or (dcount == 0 and b.get("R", 0) == 0):
+        names = b.get("names", {})
+        party = next(iter(names.values()), None) if len(names) == 1 else None
+        if dcount and not b.get("R"):
+            return ("fixed", "D", "only Democratic candidates or an independent who caucuses with them on the ballot")
+        if b.get("R") and not dcount:
+            return ("fixed", "R", "no Democrat on the ballot")
+        return ("fixed", party or "non-D", "one candidate on the ballot")
+    if dcount == 0:
+        return ("fixed", "non-D", "no Democrat on the ballot, nor an independent who caucuses with the Democrats "
+                "(Nebraska's Osborn in 2024 and Utah's McMullin in 2022 said they would join neither party's "
+                "caucus); for control only the Democrats' count matters, so the seat is not theirs whoever wins")
+    if b.get("R", 0) == 0:
+        return ("fixed", "D", "no Republican on the ballot")
+    if p["value"] is None and not (p["not_computed"] or "").startswith("pending"):
+        lean = fi.get("lean")
+        why = p["not_computed"]
+        if lean is None and fi.get("lean_same_day"):
+            lean = fi["lean_same_day"]["value"]
+            why = "the same day's presidential vote on these lines stands in for the missing earlier one"
+        if lean is None:
+            return ("fixed", None, "no input")
+        mean, _ = model_mean(m, year, lean, fi.get("incumbency", 0))
+        return ("inferred", mean, f"the model's two-way forecast, Democrat (or the caucusing independent) against "
+                                  f"Republican, used for control only: {why}")
+    return ("model", None, None)
+
+
+def stage_two(entries, s_e, sd_a, pivotal_weights, grid_points=401):
+    """For each modelled seat i: P(the other seats leave control to seat i | seat i tied), MATH 4.2.
+    entries: [(index, kind, mean or fixed party)]; pivotal_weights: {k: w}, the weight on the other
+    seats' Democratic count k (k counts fixed seats too) at which seat i decides control."""
+    grid = swing_grid(sd_a, points=grid_points)
+    means = [e[2] for e in entries if e[1] in ("model", "inferred")]
+    fixed_D = sum(1 for e in entries if e[1] == "fixed" and e[2] == "D")
+    dist = seat_dp(means, s_e, grid)
+    erf = np.vectorize(math.erf)
+    sd = math.sqrt(sd_a ** 2 + s_e ** 2)
+    out = {}
+    j = 0
+    for idx, kind, mu in entries:
+        if kind not in ("model", "inferred"):
+            continue
+        if kind == "model":
+            q = 0.5 * (1.0 + erf((mu + grid - 0.5) / (s_e * SQRT2)))
+            others = remove_seat(dist, q)
+            # the swing given this seat tied: d | y_i = 1/2 ~ N((1/2 - mu) sd_a^2/sd^2, sd_a^2 s_e^2/sd^2)
+            w = normal_weights(grid, (0.5 - mu) * sd_a ** 2 / sd ** 2, sd_a * s_e / sd)
+            prob = 0.0
+            for k, wt in pivotal_weights.items():
+                kk = k - fixed_D
+                if 0 <= kk < others.shape[1]:
+                    prob += wt * float((others[:, kk] * w).sum())
+            # and the unconditional chance, to show what conditioning on the tie changes (MATH 4.2)
+            w0 = normal_weights(grid, 0.0, sd_a)
+            prob0 = sum(wt * float((others[:, k - fixed_D] * w0).sum()) for k, wt in pivotal_weights.items()
+                        if 0 <= k - fixed_D < others.shape[1])
+            out[idx] = (prob, prob0)
+        j += 1
+    seats = (dist * normal_weights(grid, 0.0, sd_a)[:, None]).sum(axis=0)
+    return out, seats, fixed_D
+
+
+def senate_not_up(year):
+    """The seats not up in year t, each held by the winner of its latest election before t (Cha, Kuriwaki
+    and Snyder; the deciding round, runoffs included), counted by caucus. Class from the year: a regular
+    election in 2006, 2012, 2018, 2024 is class 1; 2008, 2014, 2020 class 2; 2010, 2016, 2022 class 3; a
+    special's class is that of the year its term ends (next_up). Specials whose term ends at the new
+    Congress (next_up = t) do not count."""
+    cha = _load("cha/normalized/contests.json")["contests"]
+
+    def cls(y):
+        return {2: 1, 4: 2, 0: 3}[y % 6]
+    latest = {}
+    up = set()
+    classes = {}
+    for c in cha:
+        if c["office"] == "senate" and not c["special"] and c["year"] % 2 == 0:
+            classes.setdefault(c["state"], set()).add(cls(c["year"]))
+    for c in cha:
+        if c["office"] != "senate" or c["state"] not in cc.STATES_50:
+            continue
+        if c["special"]:
+            if not c.get("next_up") or c["next_up"] <= c["year"]:
+                continue
+            k = (c["state"], cls(c["next_up"]) if c["next_up"] % 2 == 0 else None)
+            if k[1] not in classes.get(c["state"], ()):
+                # a next_up that names a class the state does not have (Alabama's 2017 special says 2018):
+                # the seat is the state's class whose regular election comes first after the special
+                nxt = {cl: min(y for y in range(c["year"] + 1, c["year"] + 7) if y % 2 == 0 and cls(y) == cl)
+                       for cl in classes.get(c["state"], ())}
+                k = (c["state"], min(nxt, key=nxt.get))
+        else:
+            k = (c["state"], cls(c["year"]))
+        if c["year"] == year:
+            up.add(k)
+            continue
+        if c["year"] > year:
+            continue
+        w = [a for a in c["candidates"] if a["won"] == 1]
+        if not w:
+            continue
+        if k not in latest or c["year"] >= latest[k][0]:
+            last = w[0]["name"].split(",")[0].split()[-1]
+            party = "D" if w[0]["party"] == "D" or (c["state"], last) in CAUCUS_D_LAST else \
+                "R" if w[0]["party"] == "R" else "non-D"
+            latest[k] = (c["year"], party, w[0]["name"])
+    held = {k: v for k, v in latest.items() if k not in up}
+    return held, up
+
+
+def compute(year):
+    """Fill forecasts, p and control for data/<level>/<year>.json, in place."""
+    from core import p_contest
+    commit = git_head()
+    rows, _ = fit_rows()
+    for level in LEVELS:
+        path = os.path.join(REPO, "data", level, f"{year}.json")
+        d = cc.read_json(path)
+        m = fit(rows, level, [t for t in YEARS if t != year])
+        sd_a = NAT_RMSE[level]
+        a_hat, _ = national(m, year)
+        sd = math.sqrt(sd_a ** 2 + m["s_e"] ** 2)
+        for c in d["contests"]:
+            fi = c.get("forecast_inputs")
+            pending = c["p"]["value"] is None and (c["p"]["not_computed"] or "").startswith("pending")
+            if not pending:
+                continue
+            mean, _ = model_mean(m, year, fi["lean"], fi["incumbency"])
+            src = model_source(year, level, m)
+            c["forecasts"] = [{"by": "the model's own", "published": False, "method": METHOD,
+                               "share": {"mean": round(mean, 6), "sd": round(sd, 6), "tails": t, "of": "Democrat, two-party"},
+                               "p_published": None, "convention": None, "as_of": c["date"], "source": src}
+                              for t in ("normal", "t4")]
+            n = c["two_party"]["n_other_voters"]
+            rn = p_contest(n, mean, sd, tails="normal")
+            rt = p_contest(n, mean, sd, tails="t4")
+            c["p"] = {"value": rn["p"], "event": rn["event"], "under": f"the model's own ({METHOD}), normal",
+                      "computed_by": "pipeline/chambers.py", "commit": commit, "not_computed": None, "reason": None,
+                      "method": rn["method"], "f_half": rn["f_half"], "n": n,
+                      "alongside": [{"under": f"the model's own ({METHOD}), t4 with the same sd", "value": rt["p"],
+                                     "event": rt["event"], "method": rt["method"], "f_half": rt["f_half"]}]}
+        if level in ("house", "senate"):
+            control(d, level, year, m, sd_a, commit)
+        d["model"] = {"method": METHOD, "fit_years": [t for t in YEARS if t != year], "b_lean": m["b_lean"],
+                      "b_inc": m["b_inc"], "s_e": m["s_e"], "national_forecast": a_hat, "national_sd": sd_a,
+                      "rho": sd_a ** 2 / (sd_a ** 2 + m["s_e"] ** 2), "c": m["c"], "commit": commit}
+        cc.write_json(path, d)
+        ps = [c["p"]["value"] for c in d["contests"] if c["p"]["value"]]
+        print(f"{year} {level}: p computed for {len(ps)} contests; largest {max(ps):.3g} "
+              f"({max(d['contests'], key=lambda c: c['p']['value'] or 0)['id']})" if ps else f"{year} {level}: none")
+
+
+def control(d, level, year, m, sd_a, commit):
+    s_e = m["s_e"]
+    entries = []
+    for i, c in enumerate(d["contests"]):
+        if level == "house" and c["special"]:
+            c["stage_two"] = {"of": None, "inputs": {}, "source": None,
+                              "note": "a special election fills the old Congress's term; not part of control"}
+            continue
+        if level == "senate" and c["special"]:
+            nu = [x for x in _load("cha/normalized/contests.json")["contests"] if x["year"] == year and
+                  x["office"] == "senate" and x["state"] == c["place"]["state"] and x["special"]]
+            if nu and nu[0].get("next_up") and nu[0]["next_up"] <= year:
+                c["stage_two"] = {"of": None, "inputs": {}, "source": None,
+                                  "note": "the term ends when the new Senate meets; not part of control"}
+                continue
+        kind, val, note = seat_entry(c, m, year)
+        if kind == "model":
+            val = c["forecasts"][0]["share"]["mean"]
+        entries.append((i, kind, val, note))
+    held = {}
+    if level == "house":
+        total = len(entries)
+        # the Democrats control with 218 of 435: seat i decides when the others give them exactly 217
+        piv = {{435: 217}.get(total, total // 2): 1.0}
+        rule = "218 of 435 seats (a majority of the whole House)"
+        vp = None
+    else:
+        held, up = senate_not_up(year)
+        notup_D = sum(1 for v in held.values() if v[1] == "D")
+        total = len(entries) + len(held)
+        pres = presidents()
+        if year % 4 == 0:
+            pi = PI_VP_D_PROVISIONAL
+            vp = {"P_democrat": pi, "mark": "provisional",
+                  "note": "the Vice President is elected the same day; until D1's published presidential win "
+                          "probability is in, 0.5, assumed independent of the Senate swing"}
+        else:
+            sitting = pres[max(y for y in pres if y < year)]
+            pi = 1.0 if sitting["party"] == "D" else 0.0
+            vp = {"P_democrat": pi, "who": sitting["vice_president"], "source": sitting["source"]}
+        # with a Democratic VP the Democrats control at 50; with a Republican at 51. Seat i decides when
+        # the others (seats not up included) give the Democrats 49 (D VP) or 50 (R VP).
+        piv = {k: w for k, w in ((49, pi), (50, 1 - pi)) if w > 0}
+        piv = {k - notup_D: w for k, w in piv.items()}
+        rule = "51 of 100 seats, or 50 with the Vice President's vote; seats not up and independents counted by caucus"
+    probs, seats, fixed_D = stage_two([(i, k, v) for i, k, v, _ in entries], s_e, sd_a, piv)
+    split = {}
+    if level == "senate" and year % 4 == 0:
+        # how far the provisional VP figure moves control: the same with the VP's party known
+        for party, k in (("D", 49), ("R", 50)):
+            split[party], _, _ = stage_two([(i, kk, v) for i, kk, v, _ in entries], s_e, sd_a, {k - notup_D: 1.0})
+    for i, kind, val, note in entries:
+        c = d["contests"][i]
+        st2 = {"of": "House control" if level == "house" else "Senate control",
+               "inputs": {"entered_as": kind, "mean": val if kind in ("model", "inferred") else None,
+                          "fixed": val if kind == "fixed" else None, "note": note,
+                          "rule": rule, "common_swing_sd": sd_a, "own_sd": s_e},
+               "source": model_source(year, level, m)}
+        if i in probs:
+            w_tie, w_uncond = probs[i]
+            st2["inputs"]["P_decides_given_tie"] = w_tie
+            st2["inputs"]["P_decides_unconditional"] = w_uncond
+            if split:
+                st2["inputs"]["P_decides_given_tie_if_VP_D"] = split["D"][i][0]
+                st2["inputs"]["P_decides_given_tie_if_VP_R"] = split["R"][i][0]
+            pv = c["p"]
+            pv["control"] = {"value": pv["value"] * w_tie, "event": pv["event"] * w_tie,
+                             "under": pv["under"] + "; stage two normal", "computed_by": "pipeline/chambers.py",
+                             "commit": commit}
+            for a in pv.get("alongside", []):
+                a["control"] = {"value": a["value"] * w_tie, "event": a["event"] * w_tie,
+                                "note": "stage two under the normal forecast"}
+        c["stage_two"] = st2
+    k = np.arange(len(seats))
+    d["chamber"] = {"of": "House control" if level == "house" else "Senate control", "rule": rule,
+                    "seats_in_play_modelled": int(sum(1 for e in entries if e[1] in ("model", "inferred"))),
+                    "seats_fixed_D": fixed_D, "seats_fixed_other": int(sum(1 for e in entries if e[1] == "fixed") - fixed_D),
+                    "seats_not_up": ({"D": int(sum(1 for v in held.values() if v[1] == "D")),
+                                      "R": int(sum(1 for v in held.values() if v[1] == "R")),
+                                      "non-D": int(sum(1 for v in held.values() if v[1] == "non-D"))} if held else None),
+                    "vice_president": vp,
+                    "expected_D_seats": float((k * seats).sum()) + fixed_D + (sum(1 for v in held.values() if v[1] == "D") if held else 0),
+                    "common_swing_sd": sd_a, "own_sd": s_e, "commit": commit,
+                    "not_up_source": ("Cha, Kuriwaki and Snyder: the winner of each seat's latest election before "
+                                      f"{year}") if held else None}
+
+
 PRES = None
 FULL = None
 NAT_RMSE = {}
@@ -408,6 +686,10 @@ def setup():
 
 def main(argv):
     rows, skipped = setup()
+    if argv[:1] == ["compute"]:
+        for y in [int(a) for a in argv[1:]]:
+            compute(y)
+        return
     if argv[:1] == ["backtest"]:
         print(f"fit rows: {len(rows)}; skipped: {skipped}")
         for L in LEVELS:
