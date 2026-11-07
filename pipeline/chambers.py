@@ -1112,10 +1112,11 @@ def compute(year):
             control(d, level, year, m, sd_a, commit)
         elif level in ("house", "senate"):
             for c in d["contests"]:
-                if c.get("stage_two") and c["stage_two"].get("of"):
-                    c["stage_two"] = {"of": c["stage_two"]["of"], "inputs": {}, "source": None,
-                                      "note": "control not computed: the chamber stage needs the model's common "
-                                              "swing, and " + too_few(level, year, fy)}
+                why = not_in_control(c, level, year)
+                c["stage_two"] = ({"of": None, "inputs": {}, "source": None, "note": why} if why else
+                                  {"of": "House control" if level == "house" else "Senate control", "inputs": {},
+                                   "source": None, "note": "control not computed: the chamber stage needs the "
+                                   "model's common swing, and " + too_few(level, year, fy)})
             d["chamber"] = {"of": "House control" if level == "house" else "Senate control", "not_computed":
                             "the chamber stage needs the model's common swing, and " + too_few(level, year, fy),
                             "commit": commit}
@@ -1173,31 +1174,32 @@ def chamber_marginal(f, sd_a, s_e):
             f"{sd * math.sqrt(rho) / sd_a:.3f} of the swing, at the model's own correlation, so that its sd stays 538's")
 
 
+def not_in_control(c, level, year):
+    """Why a contest is not one of the seats that decide control of the new chamber, or None."""
+    if level == "house" and c["special"]:
+        return "a special election fills the old Congress's term; not part of control"
+    if level == "senate" and c["special"] and (year, c["place"]["state"]) in OFF_DATE_SPECIALS:
+        return ("held before November; its winner holds the seat in November and is counted among the seats not "
+                "up. " + OFF_DATE_SPECIALS[(year, c["place"]["state"])])
+    if level == "senate" and c["special"]:
+        nu = [x for x in _load("cha/normalized/contests.json")["contests"] if x["year"] == year and
+              x["office"] == "senate" and x["state"] == c["place"]["state"] and x["special"]]
+        if nu and nu[0].get("next_up") and nu[0]["next_up"] <= year:
+            return "the term ends when the new Senate meets; not part of control"
+        if (year, c["place"]["state"]) in SAME_SEAT_SPECIALS:
+            return ("the term ends when the new Senate meets; not part of control. "
+                    + SAME_SEAT_SPECIALS[(year, c["place"]["state"])])
+    return None
+
+
 def control(d, level, year, m, sd_a, commit):
     s_e = m["s_e"]
     entries = []
     for i, c in enumerate(d["contests"]):
-        if level == "house" and c["special"]:
-            c["stage_two"] = {"of": None, "inputs": {}, "source": None,
-                              "note": "a special election fills the old Congress's term; not part of control"}
+        why = not_in_control(c, level, year)
+        if why:
+            c["stage_two"] = {"of": None, "inputs": {}, "source": None, "note": why}
             continue
-        if level == "senate" and c["special"] and (year, c["place"]["state"]) in OFF_DATE_SPECIALS:
-            c["stage_two"] = {"of": None, "inputs": {}, "source": None,
-                              "note": "held before November; its winner holds the seat in November and is "
-                                      "counted among the seats not up. " + OFF_DATE_SPECIALS[(year, c["place"]["state"])]}
-            continue
-        if level == "senate" and c["special"]:
-            nu = [x for x in _load("cha/normalized/contests.json")["contests"] if x["year"] == year and
-                  x["office"] == "senate" and x["state"] == c["place"]["state"] and x["special"]]
-            if nu and nu[0].get("next_up") and nu[0]["next_up"] <= year:
-                c["stage_two"] = {"of": None, "inputs": {}, "source": None,
-                                  "note": "the term ends when the new Senate meets; not part of control"}
-                continue
-            if (year, c["place"]["state"]) in SAME_SEAT_SPECIALS:
-                c["stage_two"] = {"of": None, "inputs": {}, "source": None,
-                                  "note": "the term ends when the new Senate meets; not part of control. "
-                                          + SAME_SEAT_SPECIALS[(year, c["place"]["state"])]}
-                continue
         kind, val, note = seat_entry(c, m, year)
         se, lam, alts, mark = s_e, 1.0, [], None
         if kind == "model":
