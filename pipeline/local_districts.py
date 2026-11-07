@@ -222,7 +222,7 @@ def test(kc, m, pr=None, b_test=True):
 
 
 COVER_GAP = 0.02      # the orchestrator, 22:26 (a): the chamber's rows missing beyond 2% of a county's precincts
-COVER_VERSION = 3
+COVER_VERSION = 4
 COVER_YEARS = {2016: (2016, 2018), 2018: (2016, 2018), 2022: (2022, 2024), 2024: (2022, 2024)}   # MEDSL's files on the same lines
 
 
@@ -240,6 +240,7 @@ def _coverage_file(path, year, out):
     import medsl_precinct as P
     per = collections.defaultdict(lambda: collections.defaultdict(set))   # (st, county) -> contest -> precincts
     rows_in = collections.defaultdict(lambda: collections.defaultdict(set))   # the same, rows with no votes too
+    pv = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))   # votes by precinct
     for r in P._rows(path):
         if (r.get("stage") or "").upper() != "GEN" or (r.get("special") or "").upper() == "TRUE":
             continue
@@ -267,6 +268,8 @@ def _coverage_file(path, year, out):
             rows_in[(st, county)][k].add(pk)
             if v > 0:
                 per[(st, county)][k].add(pk)
+                if k[1].strip().upper() in ("", "STATEWIDE", "000"):   # a contest of the whole state, by its votes
+                    pv[(st, county)][k][pk] += v
     if year in out["years_counted"]:
         # a contest with rows in at least 90% of its state's counties is statewide; a precinct of a county's top
         # contest with no row of any other contest (no district's row, no local one) is one whose district-level
@@ -285,6 +288,10 @@ def _coverage_file(path, year, out):
                                   if spread[(st, k)] < 0.9 * n_c[st]], cs.get(("LEG", 0), set()),
                                 cs.get(("LEG", 1), set()))
             rec["only_statewide"] = len(ps - local)
+            # the same by votes: the county's statewide contest with the most votes, its votes in those precincts
+            vt = max(pv[(st, county)].values(), key=lambda x: sum(x.values()), default=collections.Counter())
+            rec["top_votes"] = sum(vt.values())
+            rec["only_statewide_votes"] = sum(v for q, v in vt.items() if q not in local)
             out["counties"][f"{st}|{county}"] = rec
 
 
@@ -325,18 +332,24 @@ def district_cover(kc, m, year, cov, full_upper):
     where MEDSL lacks the chamber's rows beyond 2% of the county's precincts: {"counties", "gaps": [[county,
     missing, precincts]], "by"}. A staggered upper chamber is read by the lower chamber's rows."""
     st, sen = kc["state"], kc["sen"]
+    up_upper, up_lower = full_upper
     counties = set(cov["districts"].get(f"{st}|{sen}|{_dkey(m['district'])}", [])) | set(m.get("counties") or [])
-    ch = "upper" if sen and st in full_upper else "lower"
+    # the chamber's own rows; a staggered chamber by the other's, where that one is all up; neither all up: the day's
+    # top contest stands in, and a county it lacks leaves the district untested (the orchestrator, 22:42 (3))
+    own, other = (up_upper, up_lower) if sen else (up_lower, up_upper)
+    ch = ("upper" if sen else "lower") if st in own else ("lower" if sen else "upper") if st in other else "top"
     gaps = []
     for county in sorted(counties):
         rec = cov["counties"].get(f"{st}|{county}")
         if rec is None:   # the county has no row of this year's file at all
             gaps.append([county, None, None])
             continue
-        if rec["precincts"] and rec[ch + "_missing"] / rec["precincts"] > COVER_GAP:
+        if ch != "top" and rec["precincts"] and rec[ch + "_missing"] / rec["precincts"] > COVER_GAP:
             gaps.append([county, rec[ch + "_missing"], rec["precincts"]])
-    return {"counties": sorted(counties), "gaps": gaps, "by": f"the {ch} chamber's rows"
-            + (" (a staggered upper chamber)" if sen and ch == "lower" else "")}
+    by = (f"the {ch} chamber's rows" + ("" if ch == ("upper" if sen else "lower") else
+                                        f" (the {'upper' if sen else 'lower'} chamber is staggered)")
+          if ch != "top" else "the day's top contest (neither chamber is all up)")
+    return {"counties": sorted(counties), "gaps": gaps, "by": by, "untested": ch == "top" and bool(gaps)}
 
 
 def klarner_id(kc):
@@ -408,15 +421,20 @@ def check():
                      "orchestrator's orders of 2026-11-07 21:21 and 21:26; data/local/REPORT.md section 32)"),
            "rules": {"ratio_off_over": RATIO_OFF, "held_at_or_over": HOLD_GAP, "doubled_within": DOUBLE_TOL},
            "years": {}}
-    seats_up = collections.Counter((st, y) for st, y, _, _ in {(c["state"], c["year"], c["dname"], c["dno"])
-                                                                for c in cs if c["etype"] == "g" and c["sen"] == 1})
+    ups = {sen: collections.Counter((st, y) for st, y, _, _ in {(c["state"], c["year"], c["dname"], c["dno"])
+                                                                for c in cs if c["etype"] == "g" and c["sen"] == sen})
+           for sen in (0, 1)}
+
+    def all_up(sen, year):   # a chamber with all its seats up: its districts this year at least 90% of its most
+        u = ups[sen]
+        return {st for (st, y) in u if y == year and u[(st, y)] >= 0.9 * max(u.get((st, y_), 0)
+                                                                              for y_ in range(2012, 2023, 2))}
     for year in YEARS:
         cov = coverage(year)
         # an upper chamber with all its seats up this year (its districts this year at least 90% of its most in
         # 2012-2022); one that is staggered leaves whole districts without a row, so the lower chamber's rows stand
         # in for the file's coverage of each county
-        full_upper = {st for (st, y) in seats_up if y == year and seats_up[(st, y)] >= 0.9 * max(
-            seats_up.get((st, y_), 0) for y_ in range(2012, 2023, 2))}
+        full_upper = (all_up(1, year), all_up(0, year))
         status = {}
         pool = collections.defaultdict(list)
         for m in medsl_contests(year):
@@ -481,13 +499,16 @@ def check():
     for year in (2018, 2022, 2024):
         cov = coverage(year)
         out["incomplete_counties"][str(year)] = {
-            k: {"only_statewide": v["only_statewide"], "precincts": v["precincts"], "top": v["top"]}
+            k: {"only_statewide": v["only_statewide"], "precincts": v["precincts"],
+                "only_statewide_votes": v["only_statewide_votes"], "top_votes": v["top_votes"], "top": v["top"]}
             for k, v in sorted(cov["counties"].items())
-            if v["precincts"] and v["only_statewide"] / v["precincts"] > COVER_GAP}
-    out["incomplete_counties"]["about"] = ("counties where more than 2% of the precincts of the county's top contest "
-                                           "have no row of any contest but the statewide ones (a contest with rows in "
-                                           "90% of the state's counties); 2020 untested: MEDSL's file holds local "
-                                           "offices only")
+            if v["top_votes"] and v["only_statewide_votes"] / v["top_votes"] > COVER_GAP}
+    out["incomplete_counties"]["about"] = (
+        "counties where precincts holding more than 2% of the votes of the county's statewide contest with the most "
+        "votes have no row of any other contest (a contest with rows in 90% of the state's counties is statewide): "
+        "their district-level and local rows are missing (M2 measured Monroe's by its presidential vote, 29.0%); read "
+        "by votes, not precinct counts, so that one small precinct of federal-only ballots does not hold a county "
+        "[worker D3's reading]; 2020 untested: MEDSL's file holds local offices only")
     with open(CHECK, "w") as f:
         json.dump(out, f, indent=1, ensure_ascii=False)
         f.write("\n")
@@ -512,6 +533,8 @@ def outcome(kc, t, year, canv, cover=None):
             all(abs(p[3] / p[1] - 0.5) <= 0.5 * DOUBLE_TOL for p in voted):   # one candidate at half is no pattern
         return {"outcome": "MEDSL taken", "mark": "Klarner's figures are doubled; MEDSL's counts"}
     gaps, uncovered = [], None
+    if cover is not None and cover.get("untested"):   # 22:42 (3): neither chamber all up, the file lacks a county
+        return {"outcome": "untested: MEDSL's file does not cover the district", "coverage": cover}
     if t["flag_a"] and r < 1 and cover is not None and cover["gaps"]:
         # 22:26 (b): MEDSL lacks the chamber's rows in part of the district, which explains a Klarner count above
         # MEDSL's; (c) a Klarner count below MEDSL's partial count is not explained so, and goes on to the gap rule

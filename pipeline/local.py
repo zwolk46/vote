@@ -131,7 +131,7 @@ def load_klarner(raw=False):
     2022 counts from MEDSL's file where Klarner's are doubled (nh_2022), unless raw."""
     with open(os.path.join(KLARNER, "contests.jsonl")) as f:
         cs = [json.loads(line) for line in f]
-    return cs if raw else district_checks(c38(nh_2022(certified_votes(cs))))
+    return cs if raw else coarse_tier(district_checks(c38(nh_2022(certified_votes(cs)))))
 
 
 NH_COUNTY = {"belknap": "33001", "carroll": "33003", "cheshire": "33005", "coos": "33007", "grafton": "33009",
@@ -418,8 +418,8 @@ def district_checks(contests):
     for year, v in chk["years"].items():
         for fl in v["flags"]:
             o = fl["outcome"]
-            if o == "settled earlier":
-                DISTRICTS_COUNT[f"{year}: settled earlier"] += 1
+            if o in ("settled earlier", "untested: MEDSL's file does not cover the district"):
+                DISTRICTS_COUNT[f"{year}: {o}"] += 1
                 continue
             c = by.get(fl["id"])
             named = [a for a in c["cands"] if not a["scattering"]] if c else []
@@ -501,6 +501,76 @@ def district_checks(contests):
                 DISTRICTS_COUNT[f"{year}: settled by the state"] += 1
             else:
                 raise SystemExit(f"district_checks: {fl['id']}: unknown outcome {o!r}")
+    return contests
+
+
+COARSE = {   # the coarse tier of M2's seventh pass (its report §14.1, item 16), read district by district
+    ("SC", 1976): ("president", (1,)), ("SC", 1980): ("president", (1,)),
+    ("ID", 1984): ("president", (0, 1)), ("ID", 1986): ("governor", (0, 1)), ("ID", 1988): ("president", (0, 1)),
+    ("ID", 1990): ("governor", (0, 1))}
+COARSE_LINE = 2.0   # the orchestrator, 22:42: held where a district's votes exceed 2x its seats' share of the turnout
+COARSE_COUNT = collections.Counter()
+COARSE_RULE = ("the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' "
+               "share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to "
+               "7x\"")
+COARSE_HELD = ("Klarner's {chamber} of {state} {year}: one post of each district adds to {x:.2f} times the state's "
+               "turnout that day ({turn:,} votes for {level}, data/{level}/{year}.json), which posts do not explain; "
+               "this district's {votes:,} votes are {r:.2f} times its {k} of {n} seats' share of that turnout, more "
+               "than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of "
+               "State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot "
+               "stand ({rule}): p is not computed, and the contest is left out of the fits")
+COARSE_KEPT = ("Klarner's {chamber} of {state} {year} adds, one post per district, to {x:.2f} times the state's turnout "
+               "that day ({turn:,} votes for {level}); the {h} districts held for it ({held}) carry most of that, and "
+               "this district's own count is {r:.2f} times its seats' share of the turnout, within 2 times, so it is "
+               "kept [measured] ({rule})")
+COARSE_POSTS = ("each post is counted per voter: Klarner's {n} seats of the {state} {chamber} in {year} are {d} "
+                "districts' numbered posts, and each voter votes once in each post of the district, so the chamber's "
+                "votes add to {x_all:.2f} times the {turn:,} votes for president while one post per district adds to "
+                "{x:.2f} times [measured]; the posts explain the gap, so no district is held (the orchestrator, "
+                "2026-11-07 22:42)")
+
+
+def coarse_tier(contests):
+    """The orchestrator's ruling of 22:42 on M2's coarse tier (South Carolina's Senate of 1976 and 1980, Idaho's
+    chambers of 1984-1990), district by district: a district's votes (its post with the most) against its seats' share
+    of the state's turnout that day (D1's or D2's certified count). Over 2 times: every post held. Otherwise a note.
+    Where one post per district adds to no more than the turnout, the posts explain the chamber's total (a note)."""
+    COARSE_COUNT.clear()
+    for (st, year), (level, chambers) in COARSE.items():
+        with open(os.path.join(REPO, "data", level, f"{year}.json")) as f:
+            turn = next(sum(x["votes"] or 0 for x in c["result"]["candidates"]) for c in json.load(f)["contests"]
+                        if c["place"]["state"] == st and not c.get("special"))
+        for sen in chambers:
+            sel = [c for c in contests if c["state"] == st and c["year"] == year and c["sen"] == sen
+                   and c["etype"] == "g"]
+            chamber = "Senate" if sen else "House"
+            byd = collections.defaultdict(list)
+            for c in sel:
+                byd[(c["dname"], c["dno"])].append(c)
+            tot = lambda c: sum(a["votes"] or 0 for a in c["cands"])   # noqa: E731
+            one_post = sum(max(tot(c) for c in cs_) for cs_ in byd.values())
+            x = one_post / turn
+            if x <= 1:
+                for c in sel:
+                    _add_note(c, COARSE_POSTS.format(n=len(sel), state=st, chamber=chamber, year=year, d=len(byd),
+                                                     x_all=sum(tot(c_) for c_ in sel) / turn, turn=turn, x=x))
+                COARSE_COUNT[f"{st} {year} {chamber}: explained by posts"] += len(sel)
+                continue
+            ratio = {d: max(tot(c) for c in cs_) / (turn * len(cs_) / len(sel)) for d, cs_ in byd.items()}
+            held = sorted((d for d, r in ratio.items() if r > COARSE_LINE), key=lambda d: int(d[1]) if d[1].isdigit()
+                          else 0)
+            for d, cs_ in byd.items():
+                for c in cs_:
+                    if d in held:
+                        c["held_reason"] = COARSE_HELD.format(
+                            chamber=chamber, state=st, year=year, x=x, turn=turn, level=level,
+                            votes=max(tot(c_) for c_ in cs_), r=ratio[d], k=len(cs_), n=len(sel), rule=COARSE_RULE)
+                        COARSE_COUNT[f"{st} {year} {chamber}: held"] += 1
+                    else:
+                        _add_note(c, COARSE_KEPT.format(
+                            chamber=chamber, state=st, year=year, x=x, turn=turn, level=level, h=len(held),
+                            held=", ".join(d_[1] for d_ in held), r=ratio[d], rule=COARSE_RULE))
+                        COARSE_COUNT[f"{st} {year} {chamber}: kept with a note"] += 1
     return contests
 
 
