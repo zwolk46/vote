@@ -84,6 +84,7 @@ RCV_EXPLAINED = {"ME": "Maine counts its federal races by ranked choice, and MED
                        "counts (its README); its state and local races are not counted that way"}
 
 
+SPREADSHEET_ROWS = 1048575   # 2**20 rows less a header: a file of exactly this length was likely cut by a spreadsheet
 RANKED = {"AK": "counted by ranked choice (Alaska's state offices from 2022; MEDSL's 2022 README: its counts are the "
                 "first choices before any redistribution): a vote works through the rounds, so p is not computed "
                 "(model section 7); recorded with its first-choice counts"}
@@ -94,9 +95,14 @@ def quality(year):
     (2024) and US House totals (every year), added up from the precincts, against D1's and D2's certified totals."""
     chk = checks(year)
     out = {}
+    for name, f in chk.get("files", {}).items():
+        if f.get("rows_read") == SPREADSHEET_ROWS:
+            for st in f.get("states", {}):
+                out[st] = (f"the source's {year} file for this state ({name}) has {SPREADSHEET_ROWS:,} rows, the most a "
+                           f"spreadsheet holds, so it is likely cut short [inferred]; p not computed")
     for what, rows in (("presidential", chk.get("president") or {}), ("US House", chk.get("house_by_party") or {})):
         for st, rs in rows.items():
-            if st in out:
+            if st in out or not isinstance(rs, list):
                 continue
             worst = None
             for r in rs:
@@ -132,6 +138,19 @@ def name_key(name):
     if not toks:
         return "", ""
     return _letters(toks[-1]), _letters(toks[0])[:1]
+
+
+def name_keys(name):
+    """name_key, and for 'FIRST MIDDLE LAST' also the last two words run together, as Klarner writes a compound
+    surname ('duncanmoore, parker' for PARKER DUNCAN MOORE)."""
+    k = name_key(name)
+    out = {k}
+    if "," not in name:
+        n = re.sub(r'"[^"]*"|\([^)]*\)', " ", name.upper()).replace(".", " ")
+        toks = [_letters(t) for t in n.split() if _letters(t) and _letters(t) not in SUFFIXES]
+        if len(toks) >= 3:
+            out.add((toks[-2] + toks[-1], k[1]))
+    return out
 
 
 def major(c):
@@ -184,7 +203,7 @@ def check_2022(klarner=None, medsl=None):
         mr = sum(x["votes"] for x in m["candidates"] if major(x) == "R" and not x.get("writein"))
         kw = max((a for a in c["cands"] if not a["scattering"]), key=lambda a: a["votes"] or 0, default=None)
         mw = max(ballot(m["candidates"]) or m["candidates"], key=lambda x: x["votes"], default=None)
-        same_winner = bool(kw and mw and name_key(kw["name"])[0] == name_key(mw["name"])[0])
+        same_winner = bool(kw and mw and name_key(kw["name"])[0] in {k[0] for k in name_keys(mw["name"])})
         out["same winner" if same_winner else "winner differs"] += 1
         if kd == md and kr == mr:
             out["D and R votes identical"] += 1
@@ -263,9 +282,9 @@ def leg_rows_2024(m24, m22, klarner):
                     cls, ulag, last = "B", (1 if dv > 0 else -1), ("D" if dv > 0 else "R")
         inc = 0
         st_sit = sitting.get((m["state"], sen), set())
-        if name_key(d[0]["name"]) + ("D",) in st_sit:
+        if any(k + ("D",) in st_sit for k in name_keys(d[0]["name"])):
             inc += 1
-        if name_key(r[0]["name"]) + ("R",) in st_sit:
+        if any(k + ("R",) in st_sit for k in name_keys(r[0]["name"])):
             inc -= 1
         Lv = lean.get((m["state"], sen))
         rows.append({"m": m, "year": 2024, "state": m["state"], "sen": sen,
@@ -517,7 +536,8 @@ def build(out_dir, with_p=True):
     # -- state legislatures, 2024: route (a)
     prow = [r_ for r_ in L.partisan_rows(klarner) if r_["year"] in pres]
     M, kfit = L.fit_before(prow, pres, 2024)
-    rows24 = {id(r_["m"]): r_ for r_ in leg_rows_2024(m[2024], m[2022], klarner)}
+    m22_sound = [c for c in m[2022] if c["state"] not in bad[2022]]   # last results and like races: sound states only
+    rows24 = {id(r_["m"]): r_ for r_ in leg_rows_2024(m[2024], m22_sound, klarner)}
     ktrain = [r_ for r_ in L.class_rows(klarner) if r_["year"] < 2024]   # like races of earlier years only
     kdens = {}
     pieces = collections.Counter(leg_key(c) + (c["stage"], c["special"]) for c in m[2024]
@@ -631,7 +651,7 @@ def build(out_dir, with_p=True):
             files[(level, year, c["state"])].append(L._compact(rec))
 
     # -- local races: routes (b) and (c), from like races of earlier years
-    lrows = {y: local_rows(m[y]) for y in YEARS}
+    lrows = {y: local_rows([c for c in m[y] if c["state"] not in bad[y]]) for y in YEARS}
     dens = {}
     for year in YEARS:
         train = [r_ for y in YEARS if y < year for r_ in lrows[y]]

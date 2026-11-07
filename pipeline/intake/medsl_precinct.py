@@ -57,9 +57,12 @@ NOT_CANDIDATES = {"", "OVERVOTES", "UNDERVOTES", "OVER VOTES", "UNDER VOTES", "B
                   "TOTAL VOTES", "BALLOTS CAST", "REGISTERED VOTERS", "OVERVOTE", "UNDERVOTE", "NONE OF THE ABOVE",
                   # seen in the 2024 files as candidates' names: totals, void and blank ballots, empty lines
                   "CONTEST TOTAL", "CAST VOTES", "VOID", "BLANKS", "BLANK BALLOTS", "INVALID VOTES", "INVALID",
-                  "NO CANDIDATE FILED", "NO PETITION FILED"}
+                  "NO CANDIDATE FILED", "NO PETITION FILED",
+                  # and in 2022's: New York City's ballot-count lines, void ballots, Nevada's "none of these"
+                  "PUBLIC COUNTER", "ABSENTEE / MILITARY", "AFFIDAVIT", "FEDERAL", "MANUALLY COUNTED EMERGENCY",
+                  "SPECIAL VOTES", "BLANK/VOID", "NONE OF THESE CANDIDATES"}
 GENERIC = {"WRITE-IN", "WRITEIN", "WRITE IN", "SCATTERING", "WRITE-INS", "UNCERTIFIED WRITE-IN", "UNQUALIFIED WRITE-IN",
-           "ALL OTHERS", "SCATTER", "SCATTERED", "MISC"}
+           "ALL OTHERS", "SCATTER", "SCATTERED", "MISC", "OTHERS", "UNRESOLVED", "UNKNOWN", "FICTIONAL"}
 SUFFIXES = {"JR", "SR", "II", "III", "IV", "V"}
 _META = re.compile(r"^(TOTAL\b|VOTE FOR \d|TIMES (BLANK|OVER|UNDER)|.*\b(VOTES CAST|BALLOTS CAST|REGISTERED VOTERS|OVER ?VOTES?|"
                    r"UNDER ?VOTES?|BLANK VOTES?)\b)")
