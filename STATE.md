@@ -27,14 +27,17 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 | Thread | Id | Brief | Status |
 |---|---|---|---|
-| Verify vote decisiveness models | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi | `briefs/R1-research-decisiveness-models-at-source.md` (Sonnet 5.5, xhigh) | done; #2 merged 00:41 |
-| Verify historical close races | cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS | `briefs/R2-research-close-races-at-source.md` (Sonnet 5.5, xhigh) | done; #4 merged 00:53 |
-| Verify voting frameworks and costs | cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz | `briefs/R3-research-frameworks-at-source.md` (Sonnet 5.5, xhigh) | done; #5 merged 01:08 |
-| Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46 |
+| Verify vote decisiveness models | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi | `briefs/R1-research-decisiveness-models-at-source.md` (Sonnet 5.5, xhigh) | done; #2 merged 00:41; set aside |
+| Verify historical close races | cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS | `briefs/R2-research-close-races-at-source.md` (Sonnet 5.5, xhigh) | done; #4 merged 00:53; set aside |
+| Verify voting frameworks and costs | cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz | `briefs/R3-research-frameworks-at-source.md` (Sonnet 5.5, xhigh) | done; #5 merged 01:08; set aside |
+| Check the math of a deciding vote | cmsg_01FHkmcV6WaeZh9r5PfgnMbuST7d1oALJPJTFqCrnN4ZYd | `briefs/M1-math-check.md` (Fable 5.1, xhigh) | started 2026-11-07 ~01:10 |
+| Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 01:20: M1 up (Fable 5.1, xhigh); R1-R4 set aside. Draft 2 waits on M1, because the simple-mode formula and the constants are the heart of the page and draft 2 would otherwise be rewritten.
 
 - 2026-11-07 01:14: #6 merged (the record to `main`); asked the coordinator to start M1 (Fable 5.1, xhigh) and set aside R1-R4. Next for the orchestrator: draft 2 of the model from the four v2 reports, in parallel with M1; then Fable breaks draft 2.
 
