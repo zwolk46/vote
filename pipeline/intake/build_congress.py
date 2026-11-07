@@ -175,17 +175,15 @@ def match_cha(idx, year, office, state, district, special):
 
 # ----------------------------------------------------------------------------- checks between sources
 def compare(rec_cands, cha_c):
-    """Differences between the source of record's candidates and Cha's, matched by last name."""
+    """Differences between the source of record's candidates and Cha's, matched by cha_entry."""
     diffs = []
     if cha_c.get("runoff"):
         return ["the check source holds only the runoff, the deciding round (its guide); the November round "
                 "is not checked"]
-    pool = {last_name(a["name"]): a for a in cha_c["candidates"]}
-    by_votes = {a["votes"]: a for a in cha_c["candidates"] if a["votes"]}
     for a in rec_cands:
         if a["scattered"] or a["votes"] is None:
             continue
-        b = pool.get(last_name(a["name"])) or by_votes.get(a["votes"])
+        b = cha_entry(a, cha_c["candidates"])
         if b is None:
             if (a["votes"] or 0) >= 10:      # Cha leaves out candidates under ten votes
                 diffs.append(f"{a['name']} ({a['votes']:,}) is not in the check source")
@@ -196,27 +194,65 @@ def compare(rec_cands, cha_c):
     return diffs
 
 
+def first_name(name):
+    """'Johnson, Dustin (Dusty)' / 'Dusty Johnson' -> 'DUSTIN' / 'DUSTY': the first given name, for telling apart
+    two candidates of one last name."""
+    s = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().upper().replace(".", "")
+    s = re.sub(r"\([^)]*\)", " ", s)
+    toks = (s.split(",", 1)[1] if "," in s else s).split()
+    return toks[0] if toks else ""
+
+
+def cha_entry(a, cha_cands):
+    """Cha's entry for the source of record's candidate a, within the contest matched on year, office, state,
+    district and special (match_cha): the one of the same last name; among several of one last name, the one with
+    the same votes, else the same first name; with no name to go by, the one candidate with the same votes. None
+    where none is found or it stays ambiguous. Reason (M2's second pass, the orchestrator 2026-11-07 08:06): keyed
+    by last name alone, a second candidate of that name overwrote the first (South Dakota at large 2024, the two
+    Johnsons; Utah's Senate 2006, Orrin and Julian Hatch)."""
+    same = [b for b in cha_cands if last_name(b["name"]) == last_name(a["name"])]
+    if len(same) > 1:
+        same = ([b for b in same if a["votes"] is not None and b["votes"] == a["votes"]]
+                or [b for b in same if first_name(b["name"]) == first_name(a["name"])])
+    if len(same) > 1 and len({(b["votes"], b["inc"]) for b in same}) == 1:
+        # the source lists some candidates twice under two spellings with the same votes (Louisiana's Senate
+        # 2022, "La Fontaine Olson" and "Olson"): one candidate
+        return same[0]
+    if len(same) == 1:
+        return same[0]
+    if same:
+        return None
+    by_votes = [b for b in cha_cands if a["votes"] and b["votes"] == a["votes"]]
+    return by_votes[0] if len(by_votes) == 1 else None
+
+
 def incumbency(rec_cands, cha_c, year):
-    """inc = +1 (a Democratic incumbent runs), -1 (a Republican one), 0; from Cha by last name, else the
-    FEC's own mark (2006-2022 results workbooks mark the seat's incumbent)."""
-    pool = {last_name(a["name"]): a for a in (cha_c["candidates"] if cha_c else [])}
-    by_votes = {a["votes"]: a for a in (cha_c["candidates"] if cha_c else []) if a["votes"]}
+    """inc = +1 if the Democratic nominee is an incumbent, -1 if the Republican nominee is, 0 otherwise, as the fit
+    defines it (chambers.fit_rows; REPORT 2.2): Cha, Kuriwaki and Snyder's hand coding of the two nominees. The
+    nominees are the race's two sides as structure() takes them: the candidate with the most votes on a Democratic
+    line (or an independent who caucuses with the Democrats), and the one with the most votes on a Republican line;
+    a write-in line is not a nomination (major). Each is found in Cha by cha_entry; where Cha does not hold the
+    contest or the candidate, the source of record's own incumbent mark on that same nominee (the FEC, 2006-2022).
+    Reason (M2's second pass, 08:06): the mark was taken from any candidate on a major line, so a candidate who was
+    not the nominee set it (Crowley on New York 14's lines in 2018 after losing the primary; Bentivolio's write-in in
+    Michigan 11, 2014)."""
+    cha = cha_c["candidates"] if cha_c else []
     inc = {"D": 0, "R": 0}
     via = set()
-    for a in rec_cands:
-        m = major(a["parties"])
-        if m is None and a.get("state_caucus_D"):
-            m = "D"
-        if m is None:
+    for side in ("D", "R"):
+        on = [a for a in rec_cands if not a.get("scattered") and a["votes"]
+              and (major(a["parties"]) == side or (side == "D" and major(a["parties"]) is None
+                                                    and a.get("state_caucus_D")))]
+        if not on:
             continue
-        b = pool.get(last_name(a["name"])) or by_votes.get(a["votes"])
+        a = max(on, key=lambda x: x["votes"])
+        b = cha_entry(a, cha)
         if b is not None and b["inc"] is not None:
             via.add("cha")
-            if b["inc"] == 1:
-                inc[m] = 1
+            inc[side] = 1 if b["inc"] == 1 else 0
         elif a.get("incumbent_fec"):
             via.add("fec")
-            inc[m] = 1
+            inc[side] = 1
     return inc["D"] - inc["R"], sorted(via)
 
 
