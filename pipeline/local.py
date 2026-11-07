@@ -135,14 +135,13 @@ def load_klarner(raw=False):
 
 CERTIFIED_NOTE = ("votes: the North Carolina State Board of Elections' certified counts ({file}), in place of "
                   "Klarner's, which differ ({diff}); the certified one wins (brief D3, step 2; the orchestrator, "
-                  "08:05 and 08:08)")
+                  "08:05, 08:08 and, for 2002, 08:32)")
 
 
 def certified_votes(contests):
     """North Carolina's legislative generals: the State Board's counts in place of Klarner's where they differ, in the
     years whose State Board file passes its gate against the certified federal counts (pipeline/local_ncsbe.py gate:
-    2004-2024; 2000 and 2010 fall short and 2002 has no certified federal file in data/ to check it, so those keep
-    Klarner's). Candidates are matched by party for the Democrat and the Republican, by name otherwise, and, where each
+    2002-2024, 2002 against the Clerk of the House's statistics; 2000 and 2010 fall short, so they keep Klarner's). Candidates are matched by party for the Democrat and the Republican, by name otherwise, and, where each
     side has one candidate of neither major party whose names are spelled apart, those two; a contest whose named
     candidates do not all match keeps Klarner's (a write-in Klarner names and the State Board groups, for one). Each changed contest carries `votes_source` and a note."""
     import local_medsl as LM

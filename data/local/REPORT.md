@@ -276,11 +276,11 @@ Not read, because the sites refused and the readers stopped there (never routed 
 - **The gate against the certified federal counts** (D1's presidency, D2's Senate, and the House district by district in a year with neither). It covers each November general date of an even year.
   - Equal to the vote: 2004, 2006, 2008, 2012, 2014, 2016, 2018, 2022 and 2024.
   - 2020: the president's Republican count is 2 votes lower (2,758,773 against 2,758,775).
-  - 2002 is not checked, because D2's files start in 2006.
+  - 2002, which D2's files do not reach (they start in 2006), against the Clerk of the House's *Statistics of the Congressional Election of November 5, 2002* (`pipeline/intake/clerk_house.py`; the orchestrator, 08:32): the Senate and all 13 House districts are equal, every candidate's votes.
   - **2000 and 2010 fall short.** In 2000 the president's count is 0.8% lower (Democratic 1,247,003 against 1,257,692). In 2010 the Senate's is 1.0% lower (1,134,001 against 1,145,074). These files were likely posted before the final count [inferred]. Their 1,109 contests carry a note that their counts are the State Board's posted ones, not the certified.
 - **The legislature against Klarner** (D and R votes, single-seat districts).
   - Equal in all 170 districts in 2004, 2006, 2008, 2012, 2014, 2020 and 2022.
-  - 2002: 167 of 170. Of the 3 that differ, House 118 reads 113,717 Democratic votes in Klarner's against 13,717 in the State Board's, and Senate 15 reads 34,177 Republican against 36,177: both look like typing slips in Klarner's [inferred]. They stay Klarner's, since no certified federal file in `data/` checks the State Board's 2002 file.
+  - 2002: 167 of 170 in the D and R votes. Of the 3 that differ, House 118 reads 113,717 Democratic votes in Klarner's against 13,717 in the State Board's, and Senate 15 reads 34,177 Republican against 36,177; both look like typing slips in Klarner's [inferred]. A fourth, Senate 28, differs in its Libertarian (7,002 in Klarner's against 702). The State Board's 2002 file passes its gate, so its counts are written for these 4 (below).
   - 2000: 103 of 115 compared, the rest being multi-member.
   - 2010: none, since the file falls short.
   - 2016: 91 equal and 79 off, by 1 to 162 votes (median 5). The State Board is mostly higher, for example 33,456 against 33,441 in Senate 24, and its 2016 Senate and president equal the certified. So Klarner's 2016 North Carolina counts are slightly short [inferred].
@@ -307,14 +307,14 @@ Not read, because the sites refused and the readers stopped there (never routed 
 | Year | Counts in `data/state-*/<year>/NC.json` | Why |
 |---|---|---|
 | 2000 | Klarner's | the State Board's file falls short of the certified federal count |
-| 2002 | Klarner's | no certified federal file in `data/` checks the State Board's (two of Klarner's counts look mistyped, above) |
+| 2002 | Klarner's, with the State Board's in 4 of 170 | the State Board's file gated against the Clerk of the House's statistics (the orchestrator, 08:32) |
 | 2004, 2006, 2008, 2012, 2014, 2020, 2022 | Klarner's, equal to the State Board's in every contest compared | |
 | 2010 | Klarner's | the State Board's file falls short |
 | 2016 | Klarner's, with the State Board's in 79 of 170 contests | `pipeline/local.py`, `certified_votes` |
 | 2018 | Klarner's, with the State Board's in 22 of 170 | the same |
 | 2024 | MEDSL's, with the State Board's in 46 of 170 | `pipeline/local_medsl.py`, `certified_legislature` |
 
-The p of these contests are computed from the certified counts. Elsewhere, the fits that pool these contests moved p in 358 files by at most 1 part in 87,000 (a 2024 West Virginia prosecuting attorney: 0.00017365 to 0.000173648), and `data/local/backtest.json` in its seventh digit.
+The p of these contests are computed from the certified counts. Elsewhere, the fits that pool these contests moved p. The 2016, 2018 and 2024 counts moved them by at most 1 part in 87,000 (#46). The 2002 counts moved them more, because Klarner's 113,717 in House 118 sat in every later year's fit: 34,598 p in 981 files outside North Carolina, by a median of 0.011% and at most 0.36% (Kentucky's Senate 4 of 2022: 9.77926e-06 to 9.74402e-06) [measured]. In `data/local/backtest.json`, 2002's log score goes from 0.698 to 0.701 and 2012's share within 50 points from 0.5439 to 0.5427. The local calibration (`data/local/calibration-local.json`) moves in its first decimal, for example 2024's expected count before calibration from 59.7 to 59.8.
 
 **What is written** [measured]: 21,002 North Carolina contests from 2000 to 2026.
 - By level: 17,078 local (with the state's courts, district attorneys and Council of State), 3,057 primaries and 867 questions.
@@ -367,7 +367,6 @@ The p of these contests are computed from the certified counts. Elsewhere, the f
 **Size** [measured]. The repository packs to 28.48 MiB with this change, against 26.60 MiB at main's 001d3f7 (scratch clones, `git gc --aggressive`). The new files are 15.9 MB unpacked.
 
 **Still open.**
-- Klarner's 2002 North Carolina counts, two of which look mistyped, while the State Board's 2002 file has no certified federal count in `data/` to check it.
 - The 1990s PDFs (left for later, 07:30).
 - 2026-11-03, once certified.
 
