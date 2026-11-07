@@ -1,10 +1,50 @@
 # Senate, House and governor: sources, method and checks
 
-*Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04 and 07:19 UTC). Written 2026-11-07 and revised four times the same day (last at 08:05 UTC): for the follow-ups from M2 (§0.4), for the orchestrator's third round (§0.3), for its fourth, the near-ties (§0.2), and for its fifth, the means and the tails (§0.1). It covers every Senate and House race of the even years 2006 to 2024, and every governor race of the even years 1978 to 2024, that the sources hold, with p, and control of the Senate and the House.*
+*Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19 and 08:06 UTC). Written 2026-11-07 and revised five times the same day (last at 08:30 UTC): for the follow-ups from M2 (§0.5), for the orchestrator's third round (§0.4), for its fourth, the near-ties (§0.3), for its fifth, the means and the tails (§0.2), and for the incumbency fix after M2's second pass (§0.1). It covers every Senate and House race of the even years 2006 to 2024, and every governor race of the even years 1978 to 2024, that the sources hold, with p, and control of the Senate and the House.*
 
 ## 0. What each round changed
 
-### 0.1 Round 5 (the orchestrator, 2026-11-07 07:19 UTC): the means and the tails
+### 0.1 The incumbency fix (M2's second pass; the orchestrator, 2026-11-07 08:06 UTC)
+
+**What was wrong.** M2 found p wrong by more than a factor of two in four contests, all from `forecast_inputs.incumbency`. `build_congress.py` had two faults, and it is fixed there.
+- **It looked up Cha's candidates by last name alone.** A second candidate of the same name overwrote the first. South Dakota at large, 2024, has two Johnsons, and Utah's Senate race of 2006 has Orrin and Julian Hatch. So the incumbent was read as not running.
+- **It took the FEC's incumbent mark from any candidate on a major-party line,** including one who was not the nominee. In New York's 14th of 2018, Crowley had lost the primary and stayed on the ballot; in Michigan's 11th of 2014, Bentivolio ran as a write-in.
+
+The fit rows read Cha directly, so the fits were never affected.
+
+**The fix** (`incumbency`, `cha_entry`). Change nothing else, and not k: the orchestrator's words.
+- **The definition is now the fit's** (§2.2): Cha's hand coding of the race's two nominees. Those are the candidate with the most votes on a Democratic line (or the independent who caucuses with the Democrats) and the candidate with the most votes on a Republican line. Where Cha does not hold the nominee, the source of record's own mark on that same nominee is used.
+- **Cha's entry is found within the contest matched on year, office, state, district and special.** It is the candidate of the same last name; among several of one name, the one with the same votes, else the same first name. The source lists some candidates twice under two spellings with the same votes, and those count as one.
+- **The same lookup now serves the check against Cha** (§6).
+
+**What changed.** Thirteen contests' incumbency changed:
+
+| Contest | Incumbency, before → after | Why | p, before → after |
+|---|---|---|---|
+| Senate 2006, Utah | 0 → −1 | Hatch read as Julian Hatch | 2.798e-6 → 4.192e-7 (×0.150) |
+| House 2014, Michigan 11 | −1 → 0 | Bentivolio's write-in | 1.838e-6 → 8.729e-6 (×4.75) |
+| House 2018, New York 14 | +1 → 0 | Crowley not the nominee | 1.139e-14 → 2.360e-11 (×2,071) |
+| House 2024, South Dakota at large | 0 → −1 | Dusty Johnson read as Sheryl Johnson | 6.374e-7 → 2.249e-8 (×0.0353) |
+| House 2014, Louisiana 5 | −1 → 0 | McAllister was not the Republican with the most votes | not computed (open primary); its control mean 0.297 → 0.375 |
+| House 2006, Arkansas 4 | 0 → +1 | Mike Ross read as Joe Ross | not computed (House 2006) |
+| House 2006, Michigan 7 | −1 → 0 | Schwarz not the nominee | not computed (House 2006) |
+| House 2018, Washington 9 | 0 → +1 | Adam Smith read as Sarah Smith | not computed (two Democrats) |
+| House 2012, California 15 and 35; 2016, California 17 | +1 → 0 | the incumbent Democrat was not the Democrat with the most votes | not computed (two Democrats) |
+| House 2012, California 44 | +1 → 0 | Hahn, the Democrat with the most votes, is coded 2 in Cha (an incumbent elected in a special election), and the fit counts only 1 as an incumbent; Richardson, coded 1, had fewer votes | not computed (two Democrats) |
+| House 2016, Kansas 1 | −1 → 0 | Huelskamp not the nominee | not computed (no Democrat) |
+
+- **Control.** The four contests with p change their own control. Through P(decides | tie), the other seats of the same chambers move too:
+  - Senate 2006: control sum 1.155e-6 → 8.613e-7, with expected Democratic seats 45.56 → 45.40.
+  - House 2014: 6.590e-6 → 6.884e-6, with Michigan 11 and Louisiana 5 moving.
+  - House 2018 and House 2024 move under 0.4%.
+- **Sums of p.** Senate 2006: 5.134e-5 → 4.896e-5. House 2014: 1.1115e-3 → 1.1183e-3. House 2024: 7.0208e-4 → 7.0146e-4. Nothing else moves.
+- **In §5.** The results table and the historical check are brought up to date: Senate 2006's largest p for control (Rhode Island) is now 1 in 9,343,171, from 7,285,814; House 2014's (California 21) 1 in 4,061,804, from 4,273,353; House 2024's 1 in 711,488, from 711,626. The historical check moves by under 0.6% (House within 20,000 votes: 410.3 expected, from 410.0; Senate: 17.3, from 17.4), and every count seen is the same. The sums tables of rounds 4 and 5 stand as those rounds left them; this fix's sums are above.
+- **The check against Cha** loses nine false differences, each from the same name clash, and gains none (§6).
+- **Unchanged.** Every other contest's incumbency, mean and p, the fits, k, λ and the near-tie factors. Before the fix, the rebuilt files reproduced `main` exactly, apart from read times and commits.
+- **A source note, not changed.** Cha codes Angus King as an incumbent in 2012, when the seat was open, and as not one in 2018, when he was. The fix takes Cha's coding as it stands, as the fit does. Maine 2018 has no p (ranked choice); Maine 2012's p rests on +1. It is open (§7).
+- **A definition note, not changed.** Cha's guide codes `inc` 0 (not an incumbent), 1 (an incumbent), 2 (an incumbent elected in a special election) and 3 (a senator appointed by the governor). The fit counts only 1, so it reads 2 and 3 as not incumbents. The fix keeps that, since it takes the fit's definition. It is open (§7).
+
+### 0.2 Round 5 (the orchestrator, 2026-11-07 07:19 UTC): the means and the tails
 
 **What was asked.** Round 4 left one point open: the House's results land about 1.5 points nearer ½ than its means in races 5 to 20 points from even. The orchestrator asked for three variants, each fitted on earlier years only and scored out of sample on 2010-2024: (i) the mean shrunk toward ½ by a factor fitted on earlier years; (ii) t4 tails standing first in place of normal; (iii) both. The near-tie factor is refitted after each. Adoption is by round 4's three conditions, with the safe-seat bands (10 to 20 points from even, and beyond 20) added where the record's counts allow a test. *Reason, in its words:* "the far seats are most of the House, and a forecast too sure of them puts their p orders of magnitude too low, which no reader would see."
 
@@ -30,7 +70,7 @@
 - **The largest House p.** California's 22nd of 2024, from 1 in 32,693 to 1 in 29,944.
 - **What is left.** The House's forecast sd is wider than its results in every year 2010-2024: z rms 0.75 to 0.92 after shrinkage. k is fitted on all earlier years, and the errors have shrunk since. A too-wide sd near ½ gives exactly the near-even shortfall, so this is the likely root of it. It is open (§7).
 
-### 0.2 Round 4 (the orchestrator, 2026-11-07 07:04 UTC): the near-even shortfall
+### 0.3 Round 4 (the orchestrator, 2026-11-07 07:04 UTC): the near-even shortfall
 
 **What was asked.** Round 3's back-test found more races finishing within 49-51% than the forecasts expected: 113 against 89.3 in the House, 30 against 21.6 in the Senate. The orchestrator asked for D3's rule of #31: a near-tie calibration fitted on earlier years only, adopted only if it improves the out-of-sample test. *Reason, in its words:* "about 20% too few near-even finishes means p near even is about 20% low. That understates exactly the races law 1a says the site must show, and k cannot reach it because it moves the spread, not the shape."
 
@@ -53,7 +93,7 @@
 - **Where p rises and falls.** The House of 2024 rises 26% (factor 1.295) and the Senate of 2024 21% (1.229). The House and Senate of 2010 fall 11%: the factor fitted on the years before 2010 is 0.886, since those years had fewer near-ties than expected.
 - **What it does not reach.** The counts at 48-52% and 45-55% stay short (House 166.6 against 209, and 422.6 against 521). The House's results land about 1.5 points nearer ½ than its means in races 5 to 20 points from even. That is a question for the means, and it is left open (§7).
 
-### 0.3 Round 3 (the orchestrator, 2026-11-07 06:36 UTC), each item with its reason
+### 0.4 Round 3 (the orchestrator, 2026-11-07 06:36 UTC), each item with its reason
 
 1. **Governors from 1978, from Algara and Amlani's county returns.** *Reason, in the orchestrator's words:* "the maker wants as much data as can be found, and this both adds races and restores p."
    - **The source.** Algara and Amlani's county returns for governor, 1865-2020 (Harvard Dataverse, CC0 1.0, no guestbook). They are taken by script (`algara_amlani.py`), and the file's MD5 is checked against the one Dataverse publishes. The file is R's own format, and this environment has no R, so `rdata_reader.py` reads it from R's published description of the format, with no package added.
@@ -95,7 +135,7 @@
 
 The sums of p by level and year are in §5.
 
-### 0.4 Round 2: the follow-ups from M2 (brief, amended 2026-11-07 05:58 UTC), each with its reason
+### 0.5 Round 2: the follow-ups from M2 (brief, amended 2026-11-07 05:58 UTC), each with its reason
 
 M2 checked every p (`checks/M2-REPORT.md`) and the orchestrator decided its readings. These stand. Where round 3 changed a figure, it says so in brackets.
 
@@ -194,7 +234,7 @@ The two "other" House cases are a 538 Democrat not on our ballot (South Carolina
 
 ### 2.2 The model's own forecast (methods D2-v3 and D2-v4)
 
-D2-v3 is D2-v2 (round 2, §0.4) with governors fitted from 1978, the House of 2008-2012 on the Senate's national terms, and each level's sd calibrated on its earlier years (round 3, §0.3). D2-v4 (round 5, §2.7) is D2-v3 with the House's mean shrunk toward ½ by a factor fitted on earlier years, and the governors' t4 forecast standing first; the Senate stays D2-v3. It is used where no published forecast can be, and it is always kept beside 538's as the check. For a race in year t, with y the Democrat's share of the two-party vote:
+D2-v3 is D2-v2 (round 2, §0.5) with governors fitted from 1978, the House of 2008-2012 on the Senate's national terms, and each level's sd calibrated on its earlier years (round 3, §0.4). D2-v4 (round 5, §2.7) is D2-v3 with the House's mean shrunk toward ½ by a factor fitted on earlier years, and the governors' t4 forecast standing first; the Senate stays D2-v3. It is used where no published forecast can be, and it is always kept beside 538's as the check. For a race in year t, with y the Democrat's share of the two-party vote:
 
 > y = ½ + a_t + b_lean × lean + b_inc × inc [+ b_lag × (lag − ½), governors only] + e
 
@@ -202,7 +242,7 @@ D2-v3 is D2-v2 (round 2, §0.4) with governors fitted from 1978, the House of 20
   - For the House it is taken on the lines in use in year t (The Downballot); for the Senate and governors, in the state (MEDSL).
   - A House special is held on the old Congress's lines, so its lean is taken on the lines of t − 2.
 - **inc**: +1 if a Democratic incumbent runs, −1 if a Republican one does, 0 for an open seat.
-  - From 2006 it comes from Cha, Kuriwaki and Snyder's hand coding.
+  - From 2006 it comes from Cha, Kuriwaki and Snyder's hand coding of the Democratic and Republican nominees. Each contest's `forecast_inputs.incumbency` uses the same definition since the fix of §0.1.
   - For the Senate before 2006 it is inferred from MEDSL (below).
   - For governors before 2006 it is Algara and Amlani's seat status: "Democratic Incumbent" +1, "Republican Incumbent" −1, else 0. It is recorded in `forecast_inputs.seat_status`.
 - **lag** (governors only): the Democrat's two-party share in the state's last governor race before year t that a Democrat and a Republican led. Odd years and specials are included. It comes from Cha from 2006 and from Algara and Amlani before, and is recorded in `forecast_inputs.last_governor_race`, with its `source`.
@@ -348,7 +388,7 @@ Over 1986-2024 (20 years, 448 races) the z rms is 1.29 with calibration, and 0.9
 
 ### 2.6 Near-tie calibration of p (round 4)
 
-*Reason:* the orchestrator's of 07:04, quoted in §0.2.
+*Reason:* the orchestrator's of 07:04, quoted in §0.3.
 
 **The rule.** It is D3's of #31, for the model's own forecast (`chambers.py`, `near_tie_test` and `near_tie`).
 - **What it does to the forecast.** The density within one point of ½ (49-51%) is multiplied by a factor F, and the forecast renormalized: Z = 1 + (F − 1)·q, where q is the forecast's own chance of that window.
@@ -399,7 +439,7 @@ Over 1986-2024 (20 years, 448 races) the z rms is 1.29 with calibration, and 0.9
 
 ### 2.7 Shrinkage of the mean and t4 tails (round 5)
 
-*Reason:* the orchestrator's of 07:19, quoted in §0.1.
+*Reason:* the orchestrator's of 07:19, quoted in §0.2.
 
 **The variants** (`chambers.py`, `shrink_factor`, `variant_model` and `variant_test`). Each is fitted on earlier years only.
 - **none.** The record of round 4: the mean as fitted, normal first, k, and the near-tie factor where adopted.
@@ -540,7 +580,7 @@ What decides control:
 - Minnesota's Senate seat in January 2009, contested; Franken (D) was seated in July. We count 59 against 56 + 2 independents + 1 vacant.
 - New York's 22nd in January 2021, uncertified; Tenney (R) was seated in February. We count 213 R against 212.
 
-**The Vice President.** In midterms it is the sitting one: Cheney (R) in 2006, Biden (D) in 2010 and 2014, Pence (R) in 2018, Harris (D) in 2022. In presidential years the VP is elected the same day, and P(the VP is a Democrat) is the presidential chance (§0.4, item 1). It comes from D1's record of the year, in `chamber.vice_president`, with `by`, `as_of` and `note`:
+**The Vice President.** In midterms it is the sitting one: Cheney (R) in 2006, Biden (D) in 2010 and 2014, Pence (R) in 2018, Harris (D) in 2022. In presidential years the VP is elected the same day, and P(the VP is a Democrat) is the presidential chance (§0.5, item 1). It comes from D1's record of the year, in `chamber.vice_president`, with `by`, `as_of` and `note`:
 
 | Year | P(VP Democrat) | Whose |
 |---|---|---|
@@ -572,7 +612,7 @@ What decides control:
 | 2000 Governor | 11 | 9 | 0 | 0 | t4 first 9 | 0 | 2 | Delaware, 1 in 107,996 |  |
 | 2002 Governor | 35 | 33 | 0 | 0 | t4 first 33 | 0 | 2 | Wyoming, 1 in 62,733 |  |
 | 2004 Governor | 11 | 9 | 0 | 0 | t4 first 9 | 0 | 2 | Montana, 1 in 137,705 |  |
-| 2006 Senate | 33 | 31 | 0 | 0 | 0 | 0 | 2 | North Dakota, 1 in 131,113 | Rhode Island, 1 in 7,285,814 |
+| 2006 Senate | 33 | 31 | 0 | 0 | 0 | 0 | 2 | North Dakota, 1 in 131,113 | Rhode Island, 1 in 9,343,171 |
 | 2006 House | 438 | 0 | 0 | 0 | 0 | 30 | 408 |  |  |
 | 2006 Governor | 36 | 33 | 0 | 0 | t4 first 33 | 0 | 3 | Wyoming, 1 in 110,238 |  |
 | 2008 Senate | 35 | 31 | 0 | 0 | 0 | 0 | 4 | Wyoming special, 1 in 165,466 | South Dakota, 1 in 3,186,288 |
@@ -585,7 +625,7 @@ What decides control:
 | 2012 House | 441 | 344 | 0 | 0 | 0 | 10 | 87 | West Virginia 3, 1 in 65,635 | Arizona 1, 1 in 14,063,805 |
 | 2012 Governor | 11 | 10 | 0 | 0 | t4 first 10 | 0 | 1 | North Dakota, 1 in 132,220 |  |
 | 2014 Senate | 36 | 32 | 32 | 0 | 0 | 1 | 3 | Alaska, 1 in 29,076 | Alaska, 1 in 119,757 |
-| 2014 House | 440 | 358 | 0 | 21 | shrunk 358 | 27 | 55 | California 31, 1 in 33,223 | California 21, 1 in 4,273,353 |
+| 2014 House | 440 | 358 | 0 | 21 | shrunk 358 | 27 | 55 | California 31, 1 in 33,223 | California 21, 1 in 4,061,804 |
 | 2014 Governor | 35 | 33 | 0 | 0 | t4 first 33 | 0 | 2 | Rhode Island, 1 in 81,333 |  |
 | 2016 Senate | 34 | 30 | 26 | 4 | 0 | 0 | 4 | Nevada, 1 in 116,765 | Nevada, 1 in 556,042 |
 | 2016 House | 439 | 344 | 0 | 24 | shrunk 344 | 22 | 73 | California 21, 1 in 39,711 | California 21, 1 in 3,838,406 |
@@ -600,7 +640,7 @@ What decides control:
 | 2022 House | 444 | 390 | 292 | 0 | shrunk 98 | 15 | 39 | New Hampshire 1, 1 in 20,079 | New Hampshire 1, 1 in 997,543 |
 | 2022 Governor | 36 | 33 | 30 | 0 | t4 first 3 | 0 | 3 | Nevada, 1 in 134,249 |  |
 | 2024 Senate | 35 | 33 | 0 | 33 | 0 | 0 | 2 | Delaware, 1 in 177,824 | Delaware, 1 in 2,039,000 |
-| 2024 House | 443 | 373 | 0 | 117 | shrunk 373 | 13 | 57 | California 22, 1 in 29,944 | California 22, 1 in 711,626 |
+| 2024 House | 443 | 373 | 0 | 117 | shrunk 373 | 13 | 57 | California 22, 1 in 29,944 | California 22, 1 in 711,488 |
 | 2024 Governor | 11 | 10 | 0 | 0 | t4 first 10 | 0 | 1 | Delaware, 1 in 170,086 |  |
 
 **In all.**
@@ -699,8 +739,8 @@ Over all contests with p, the expected number decided by k votes or fewer is com
 
 | Level | Contests | within 1 vote | within 10 | within 100 | within 1,000 | within 5,000 | within 10,000 | within 20,000 |
 |---|---|---|---|---|---|---|---|---|
-| House, 2008-2024 | 3,362 | 0.020 vs 0 | 0.20 vs 1 | 2.0 vs 1 | 20.4 vs 25 | 101.7 vs 108 | 202.9 vs 192 | 410.0 vs 422 |
-| Senate, 2006-2024 | 316 | 0.001 vs 0 | 0.009 vs 0 | 0.09 vs 0 | 0.89 vs 1 | 4.4 vs 5 | 8.8 vs 8 | 17.4 vs 18 |
+| House, 2008-2024 | 3,362 | 0.020 vs 0 | 0.20 vs 1 | 2.0 vs 1 | 20.4 vs 25 | 101.8 vs 108 | 203.0 vs 192 | 410.3 vs 422 |
+| Senate, 2006-2024 | 316 | 0.001 vs 0 | 0.009 vs 0 | 0.09 vs 0 | 0.88 vs 1 | 4.4 vs 5 | 8.8 vs 8 | 17.3 vs 18 |
 | Governor, 1986-2024 | 420 | 0.002 vs 0 | 0.02 vs 0 | 0.21 vs 0 | 2.09 vs 1 | 10.4 vs 5 | 20.8 vs 14 | 41.4 vs 39 |
 
 - **House and Senate.** The forecasts pass at every k.
@@ -717,6 +757,7 @@ Over all contests with p, the expected number decided by k votes or fewer is com
 **House and Senate.** Every contest in the record is checked against Cha, Kuriwaki and Snyder, and the differences are kept in `checks`. The source of record wins.
 - **Most differences** are small candidates (under ten votes) and blank or write-in lines, which the check source leaves out by design.
 - **Real ones**: 2022 IL-03 (Ramirez 177,759 at the FEC, 121,764 in the check), 2024 Missouri Senate (W. C. Young 35,671 at the Clerk, 21,111 in the check), and 2012 AL-03 (Harris 98,141 at the FEC, 91,141 in the check).
+- **Matched by name within the contest** since §0.1: a candidate of the record is paired with Cha's candidate of the same last name, and among several of one name with the same votes or else the same first name. The old lookup by last name alone made nine false differences (Utah's Senate race of 2006, Pennsylvania's of 2012 and Missouri's of 2024; House 2006 AR-04, 2008 MI-02, 2010 TX-16, 2012 MS-02, 2018 WA-09 and 2024 SD-AL), and they are gone.
 - **Fixed in the record's reading**:
   - A fusion candidate's lines filed under two FEC ids are one candidate's. Connecticut's Senate race of 2010 is the case: Blumenthal's Democratic and Working Families lines now sum to 636,040, as the check has. Each merge is noted in the contest.
   - FEC rows with no candidate are not contests: a "California" row in 2018, and two Ohio rows in 2006.
@@ -751,6 +792,8 @@ Over all contests with p, the expected number decided by k votes or fewer is com
 - **Earlier still.**
   - Algara and Amlani also hold county returns for President (1872 on) and the Senate (1908 on). Their presidential returns would let governor contests reach before 1978. Their Senate returns would extend the Senate's fit, with incumbency from their seat status rather than inferred.
   - Their Missouri rows would need the missing jurisdiction found first.
+- **Cha's incumbency codes 2 and 3.** Cha's guide codes an incumbent elected in a special election 2, and a senator appointed by the governor 3. The fit (§2.2), and since §0.1 each contest's `forecast_inputs.incumbency`, count only 1. Among the fit's rows, 2006-2024, that reads as not incumbents 59 House nominees coded 2, 9 Senate nominees coded 2 and 13 coded 3, and 14 governor nominees coded 2 or 3 (Cha uses 3 for governors too; its guide does not say what it means there). Counting them would change the fits, k and every p, so it is a question for the orchestrator, not part of the fix.
+- **Angus King's coding in Cha.** Cha codes King an incumbent (1) in Maine's Senate race of 2012, when the seat was open, and not one (0) in 2018, when he was. Maine 2012's p rests on +1. Maine 2018 has no p (ranked choice).
 - **A third source for the governor disputes** of §6: MEDSL's precinct files (2016, 2022 and 2024), or the states' canvasses.
 - **Population before 2022.** The ACS table-based files on www2.census.gov begin with 2021. The older sequence-based summary files there hold the same table and are the next step. The Census API wants a key, which needs an email, so it is not used.
 - **Odd-year governors** (Virginia, New Jersey, Kentucky, Louisiana, Mississippi), which are in Cha and in Algara and Amlani.

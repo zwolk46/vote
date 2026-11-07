@@ -74,7 +74,95 @@ def load(year):
                     EMPTY[year] += 1
                     continue
                 out.append(c)
-    return fix_questions(out, year)
+    return certified_nc(fix_questions(out, year), year)
+
+
+def certified_nc(contests, year):
+    """North Carolina's local races and questions of MEDSL's general date, from the State Board's own file
+    (pipeline/local_ncsbe.py) in place of MEDSL's: where two sources hold one contest the certified one wins (brief D3,
+    step 2). MEDSL's North Carolina file joins contests the State Board keeps apart (Cherokee County's three
+    commissioner districts in 2018, the Court of Appeals' three seats in 2024) and files the 2024 amendment as 100
+    county questions (data/local/check-ncsbe.json). The governor and Congress stay MEDSL's; the legislature stays
+    MEDSL's contests, with the State Board's counts where they differ (certified_legislature)."""
+    import local_ncsbe as NS
+    if not glob.glob(os.path.join(NS.NORM, f"{year}_11_*.jsonl")):
+        raise SystemExit(f"the State Board's {year} file is not in the cache: run pipeline/intake/ncsbe.py list, "
+                         f"fetch and read first")
+    nc = NS.medsl_shape(year)
+    if nc is None:
+        print(f"{year}: the State Board's North Carolina file fails its gate; MEDSL's North Carolina contests kept")
+        return contests
+    if year == 2016:   # MEDSL's 2016 is read for its questions only
+        nc = [c for c in nc if c["question"]]
+    keep = [c for c in contests if not (c["state"] == "NC" and (c["question"] or is_local_level(c)))]
+    if year not in KLARNER_CHECKED and year >= 2024:   # the years whose legislature MEDSL's build writes
+        certified_legislature(keep, year)
+    return keep + nc
+
+
+CERTIFIED_NOTE = ("votes: the North Carolina State Board of Elections' certified counts ({file}), in place of "
+                  "MEDSL's, which differ ({diff}); the certified one wins (brief D3, step 2)")
+CERTIFIED_LEG = collections.Counter()
+
+
+def certified_legislature(contests, year):
+    """North Carolina's legislative generals of the year: the State Board's counts in place of MEDSL's where they
+    differ (48 of 170 in 2024, by a few votes; data/local/check-ncsbe.json, legislature_medsl_2024). Candidates are
+    matched by party for the Democrat and the Republican, by name otherwise, and, where each side has one candidate
+    of neither major party, those two; a contest whose named candidates do not all match keeps MEDSL's. Each changed
+    contest carries `votes_source` and a note with both counts. Called only when the State Board's file passes its
+    gate (certified_nc)."""
+    import local_ncsbe as NS
+    d = next((x for x in NS.load_dates() if x.startswith(str(year)) and NS.is_general_date(x)), None)
+    dates = {d: NS.load_dates()[d]}
+    NS.split_party(dates)
+    NS.classify(dates)
+    meta = NS.checks_of(d)["source"]
+    ns = collections.defaultdict(list)
+    for c in dates[d]:
+        if c.get("_level") == "legislature":
+            ns[c["_leg"]].append(c)
+    CERTIFIED_LEG.clear()
+    for c in contests:
+        if c["state"] != "NC" or c["office"] not in LEG or c["question"] or c["stage"] != "GEN" or c["special"]:
+            continue
+        hit = ns.get(("state-upper" if LEG[c["office"]] else "state-lower", int(district_no(c["district"]) or 0)))
+        if not hit or len(hit) != 1 or (c.get("magnitude") or 1) != 1:
+            CERTIFIED_LEG["kept MEDSL's: no single State Board contest"] += 1
+            continue
+        named = [x for x in hit[0]["choices"] if not _is_generic(x["name"])]
+        mine = [a for a in c["candidates"] if not a.get("writein") and not _is_generic(a["name"])]
+        minor_m = [a for a in mine if NS._major(a.get("party")) is None]
+        minor_n = [x for x in named if NS._major(x["party"]) is None]
+        new = {}
+        for a in mine:
+            pa = NS._major(a.get("party"))
+            if pa:
+                m = [x for x in named if NS._major(x["party"]) == pa]
+            else:
+                m = [x for x in named if NS._major(x["party"]) is None and name_key(x["name"]) == name_key(a["name"])]
+                if not m and len(minor_m) == 1 and len(minor_n) == 1:
+                    m = minor_n
+            if len(m) != 1:
+                new = None
+                break
+            new[id(a)] = m[0]
+        if new is None or len(new) != len(named):
+            CERTIFIED_LEG["kept MEDSL's: the candidates do not all match"] += 1
+            continue
+        diff = [(a["name"], new[id(a)]["name"], a["votes"], new[id(a)]["votes"]) for a in mine
+                if a["votes"] != new[id(a)]["votes"]]
+        if not diff:
+            CERTIFIED_LEG["equal"] += 1
+            continue
+        for a in mine:
+            a["votes"] = new[id(a)]["votes"]
+        f = meta["url"].rsplit("/", 1)[1]
+        c["votes_source"] = {"source": "ncsbe", "file": f, "medsl": {n: v for n, _, v, _ in diff}}
+        c["certified_note"] = CERTIFIED_NOTE.format(file=f, diff="; ".join(
+            f"{b}: {v:,} in MEDSL's, {w:,} certified" for _, b, v, w in diff))
+        CERTIFIED_LEG["replaced by the certified counts"] += 1
+    print(f"{year}: North Carolina's legislature against the State Board's: {dict(CERTIFIED_LEG)}")
 
 
 _POS = re.compile(r"^(YES|FOR|IN FAVOR)\b")
@@ -1042,7 +1130,8 @@ def _cands_out(cands, seats=1):
     winners = set() if tie else {id(x) for x in order[:seats]}
     out = []
     for x in b:
-        c = {"name": x["name"].title() if not _is_generic(x["name"]) else x["name"], "party": _party_word(x),
+        c = {"name": x["name"].title() if not (_is_generic(x["name"]) or x.get("as_named")) else x["name"],
+             "party": _party_word(x),
              "votes": x["votes"], "won": True if id(x) in winners else None}
         if x.get("votes_missing_in_some_precincts"):
             c["votes_incomplete"] = True
@@ -1079,6 +1168,13 @@ def _src_medsl(year, chk, files):
                     note="precinct returns compiled by MEDSL from each state's official sources (named per state in "
                          "its README); added up to the contest by pipeline/intake/medsl_precinct.py, files "
                          + ", ".join(sorted(files)))
+
+
+def _owns(r):
+    """The contests this build writes: MEDSL's, and the State Board's of MEDSL's general dates (certified_nc)."""
+    src = (r.get("result") or {}).get("source")
+    return src == "medsl" or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
+                              and (r.get("level") == "measure" or r.get("year") in YEARS))
 
 
 def build(out_dir, with_p=True):
@@ -1143,6 +1239,9 @@ def build(out_dir, with_p=True):
                    "result": {"candidates": _cands_out(c["candidates"], c.get("magnitude") or 1),
                               "total_votes": sum(x["votes"] for x in c["candidates"]), "source": "medsl"},
                    "forecasts": []}
+            if c.get("votes_source"):   # North Carolina's certified counts in place of MEDSL's (certified_legislature)
+                rec["result"]["votes_source"] = "ncsbe"
+                rec["notes"] = [c["certified_note"]]
             if c.get("office_as_filed"):
                 rec["office_as_filed"] = c["office_as_filed"].title()
             if not dist:
@@ -1257,7 +1356,8 @@ def build(out_dir, with_p=True):
                                + (", special" if c["special"] else ""),
                    "seats": c["magnitude"] if (c.get("magnitude") or 1) > 1 else None,
                    "result": {"candidates": _cands_out(c["candidates"], c.get("magnitude") or 1),
-                              "total_votes": sum(x["votes"] for x in c["candidates"]), "source": "medsl"},
+                              "total_votes": sum(x["votes"] for x in c["candidates"]),
+                              "source": c.get("source", "medsl")},
                    "forecasts": []}
             p = {}
             if c["state"] in bad[year] and route != "zero":
@@ -1333,7 +1433,8 @@ def build(out_dir, with_p=True):
                    "result": {"candidates": [{"name": x["name"], "votes": x["votes"],
                                               "votes_incomplete": True if x.get("votes_missing_in_some_precincts")
                                               else None} for x in c["candidates"]],
-                              "total_votes": sum(x["votes"] for x in c["candidates"]), "source": "medsl",
+                              "total_votes": sum(x["votes"] for x in c["candidates"]),
+                              "source": c.get("source", "medsl"),
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
                    "forecasts": []}
             notes = []
@@ -1457,11 +1558,18 @@ def build(out_dir, with_p=True):
                             "model": src_model, "nara": src_nara, "klarner": src_klarner}}
         path = os.path.join(out_dir, level, str(year), f"{st}.json")
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "w") as f:
-            body = json.dumps(head, ensure_ascii=False, separators=(",", ":"))
-            f.write(body[:-1] + ',"contests":[\n')
-            f.write(",\n".join(json.dumps(x, ensure_ascii=False, separators=(",", ":")) for x in cs))
-            f.write("\n]}\n")
+        others, other_src, _ = L.kept_from_others(path, _owns)
+        head["sources"] = dict(other_src, **head["sources"])
+        used = {(x.get("result") or {}).get("source") for x in cs + others}
+        if "medsl" not in used:   # North Carolina's local file of 2022: every contest is the State Board's now
+            del head["sources"]["medsl"]
+        certified = any((x.get("result") or {}).get("votes_source") == "ncsbe" for x in cs + others)
+        if "ncsbe" in used or certified:   # the State Board's contests, or its counts (certified_legislature): every
+            import local_ncsbe as NS        # file they come from, and for its contests their FIPS codes' source
+            head["sources"]["ncsbe"] = NS.block_for(cs + others)
+            if "ncsbe" in used:
+                head["sources"]["fips"] = NS.fips_source()
+        L.write_level_file(path, head, cs + others)
         sz = os.path.getsize(path)
         total += sz
         by_level[level] += sz
@@ -1471,6 +1579,11 @@ def build(out_dir, with_p=True):
         for path in glob.glob(os.path.join(out_dir, level, str(year), "*.json")):
             st = os.path.basename(path)[:-5]
             if (level, year, st) not in files and len(st) == 2:
+                others, other_src, ohead = L.kept_from_others(path, _owns)
+                if others:   # another source's contests stay; the file is theirs now
+                    print(f"kept {os.path.relpath(path, out_dir)}: no MEDSL {level} contests there, but another "
+                          f"source's")
+                    continue
                 os.remove(path)
                 print(f"removed {os.path.relpath(path, out_dir)}: this build has no {level} contests there")
     print(f"wrote {sum(len(v) for v in files.values()):,} contests in {len(files):,} files, {total / 1e6:.1f} MB: "
