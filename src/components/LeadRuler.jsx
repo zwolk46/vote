@@ -5,6 +5,7 @@
 // figure among the people the result touches. Every cold reader of 11-07 first read "$89 million to you" as a sum to
 // be received, and none could say why the figure is the cost times N; this is the picture of both.
 // The marks glide to their new places when the contest, the reading or the cost changes (`chart`, transform only).
+// Where the route's back-test leans one way, a dashed arrow from the figure points the way it may lie (Field.jsx).
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { money, oneIn, count } from '../lib/format.js';
 import { play } from '../lib/motion.js';
@@ -38,7 +39,7 @@ export function LeadRuler({ a, C, reading }) {
   const { w, font } = m;
   const per = reading === 'person';
   const X = lx => ((Math.max(LO, Math.min(HI, lx)) - LO) / SPAN) * w;
-  const lc = Math.log10(C), lt = lc + Math.log10(a.N), lp = lt - Math.log10(a.pop.value);
+  const lc = Math.log10(C), lt = lc + Math.log10(a.N), lp = a.pop ? lt - Math.log10(a.pop.value) : lt;
   const xc = X(lc), xt = X(lt), xp = X(lp);
   const times = oneIn(a.N).replace(/^1 in /, '');
   const sized = (k, t, x, cls) => ({ k, t, x, cls, w: w ? measure(t, font) : 0 });
@@ -82,6 +83,7 @@ export function LeadRuler({ a, C, reading }) {
           <span class="lr-ring lr-div" {...place('pr', `translateX(${xp - 5}px)`)} />
         </> : null}
         <span class={`lr-ring${per ? ' lr-dim' : ''}`} {...place('tr', `translateX(${xt - 5}px)`)} />
+        {a.lean ? <span class={`lr-lean${a.lean === 'low' ? ' low' : ''}${per ? ' lr-div' : ''}`} {...place('ln', `translateX(${Math.max(0, Math.min(w - 14, (per ? xp : xt) + (a.lean === 'low' ? -21 : 7)))}px)`)} /> : null}
         <span class="lr-dot" {...place('cd', `translateX(${xc - 4}px)`)} />
         {above.map(l => <span class={`lr-l lr-up ${l.cls}`} {...place(`l${l.k}`, `translateX(${l.l}px)`)}>{l.t}</span>)}
         {below.map(l => <span class={`lr-l lr-down ${l.cls}`} {...place(`l${l.k}`, `translateX(${l.l}px)`)}>{l.t}</span>)}

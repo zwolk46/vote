@@ -17,12 +17,13 @@
 /* the field (components/Field.jsx) */
 .field { position: relative; width: 100%; }
 .field-c { position: absolute; left: 0; top: 0; display: block; touch-action: pan-y; }
-.field-row { position: absolute; left: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: var(--t-src); pointer-events: none; }
+.field-row { position: absolute; left: 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 8px; font-size: var(--t-src); pointer-events: none; }
 .field-n { color: var(--fg); font-weight: 600; min-width: 0; flex: 0 1 auto; background: var(--bg); padding-right: 6px; line-height: 1.3; }
-.field-k { background: var(--bg); padding-left: 6px; }
+.field-k { background: var(--bg); padding-left: 6px; margin-left: auto; }
 .field-k { color: var(--faint); white-space: nowrap; }
 @media (min-width: 900px) {
-  .field-row { flex-direction: column; justify-content: center; align-items: flex-start; gap: 0; }
+  .field-row { flex-direction: column; flex-wrap: nowrap; justify-content: center; align-items: flex-start; gap: 0; }
+  .field-k { margin-left: 0; padding-left: 0; }
   .field-n { font-size: var(--t-body); }
 }
 .field-cost { position: absolute; left: 0; top: 0; font-size: var(--t-src); font-weight: 600; color: var(--accent); white-space: nowrap; padding-left: 6px; pointer-events: none; }
@@ -32,3 +33,4 @@
 .field-t.last { transform: translateX(-100%); }
 
 .field-t.mid { color: var(--faint); font-size: calc(var(--t-src) * 0.92); }
+.field-n .lg-lean { display: inline-block; margin-left: 6px; vertical-align: middle; }

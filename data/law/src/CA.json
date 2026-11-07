@@ -1,0 +1,47 @@
+{
+ "state": "CA",
+ "name": "California",
+ "status": "partly-read",
+ "code": {"name": "California Elections Code", "edition": "not read: the text read is the California Secretary of State's Recounts FAQ (a state agency guide, undated on the page) citing Elec. Code sections 359, 15620 to 15632, not the Code itself", "site": "https://leginfo.legislature.ca.gov/", "reached": false},
+ "sections": {
+  "ca-sos-recount-faq": {"citation": "California Secretary of State, Recounts - Frequently Asked Questions (citing Elec. Code 359, 15620-15624, 15632)", "url": "https://elections.cdn.sos.ca.gov/recount/recount-faq.pdf", "read_at": "state agency guide", "note": "A plain PDF linked from the Secretary of State's public site: a documented download. It is the Secretary of State's guide to the Code, a lower grade than the statute."}
+ },
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"],
+   "applies_to": "a tie for the highest number of votes, any office (Elections Code division 15, chapter 10, the section the search results name as Elec. Code 15651)",
+   "resolution": "unread",
+   "steps": null,
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "NOT READ: the Legislature's code site refused us (see unread). The Secretary of State's recount guide says nothing about a tie. No rule is recorded; the section number is from a search result only."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "measure"], "type": "requested", "election": "general",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null,
+                 "conditions": "for the Assembly, State Senate and Congress: a signed written request to the county elections official within five days (not later than 5 p.m. on the fifth day) after completion of the official canvass; for a statewide office or measure: to the Secretary of State within five days beginning on the 31st day after the election",
+                 "in_words": "any registered voter may request a recount of the votes for any office, for slates of presidential electors or for or against any measure; no margin is required"},
+   "no_margin_required": true,
+   "who_may_request": ["any registered California voter, by signed written request, on behalf of a specified candidate, slate of electors or side of a measure"],
+   "waiver": null,
+   "cost_bearer": "the voter or campaign committee that requests it, who must provide the money the county elections official asks for the first day's recount work, and again for each day the recount continues; the guide does not say whether it is refunded",
+   "sources": [
+    {"section": "ca-sos-recount-faq", "quote": "Yes. Any registered California voter may request a recount of votes."},
+    {"section": "ca-sos-recount-faq", "quote": "Recounts can be requested for votes cast for candidates for any office, for slates of presidential electors, or for or against any measure."},
+    {"section": "ca-sos-recount-faq", "quote": "the voter or campaign committee represented by the voter requesting the recount must provide the money requested by the county elections official to pay for the cost of the first day's recount work. This procedure is repeated for each day the recount continues."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites Elec. Code 15620, 15621, 15624, not from the Code. Whether the same chapter reaches a party or voter-nominated primary was not stated in the guide, so primary is not listed. A recount must cover every precinct in the jurisdiction or it is void (Elec. Code 15632, per the guide). Other voters may request further recounts of other precincts within 24 hours of one ending."}
+ ],
+ "unread": [
+  {"what": "the California Elections Code itself: the tie rule (the section the search results call Elec. Code 15651), sections 15620-15632 and 359 as the Code prints them, the semi-final canvass and 1 percent manual tally (15360), any threshold for a recount at the state's cost, and the California Constitution on a tie for governor",
+   "reason": "the Legislature's code site refused us twice: the helper reported HTTP 403 for https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=ELEC&sectionNum=15651 and again for the same address with the trailing period that the site's own links carry (sectionNum=15651.); stopped at the second refusal. The compilation route allowed at 07:21 was closed because Justia refused us with HTTP 403 on its first request (an Alabama page, 07:23Z), so no further request was made to that host.",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=ELEC&sectionNum=15651.",
+   "tried_at": "2026-11-07T07:26Z"}
+ ],
+ "notes": [
+  "California is partly read: the one recount rule recorded rests on the Secretary of State's Recounts FAQ, a state agency guide, a lower grade than the statute; marked stated.",
+  "The guide says: \"There is no provision in California law to require an \"automatic\" recount in any election contest.\" That is the guide's statement, not read in the Code. So California has no automatic recount at a margin or a tie, and every recount is on a voter's request and at the requester's cost.",
+  "The earlier reader's report did not cover California."
+ ]
+}

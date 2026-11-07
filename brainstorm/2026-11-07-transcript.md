@@ -61,3 +61,33 @@
 > I think one of the really cool aspects of the website or the presentation of data could be the amount of data that's available. Like, I want the site to be really special for someone to say, wow, which are like some of the principles behind the design of the last site too. And I really want to focus on like aggregating absolutely as much data as we can find. So maybe that involves researching enough to be able to create an intake flow that doesn't use as many tokens, something like that, if there's standardized data. Because especially about past elections, you don't necessarily need live data. We don't need live data at all. So we can pull maybe from standardized spreadsheets or other things like that. I trust you'll understand what I mean in light of the end goal of the end goals and what I'm trying to head towards. So just apply this as you see fit.
 
 **Orchestrator, 03:20.** "Applied. The data workers now gather every contest the sources allow, as far back as they go, rather than a sample of years. Data comes in by script: one intake script per standardized dataset, so adding a year or a whole source costs a run instead of an agent reading pages. Nothing is live. Design has been told that the sheer breadth should be part of the "wow". A fourth data worker for state legislatures, local races and ballot measures is ready to start when a slot frees. The plan has the details."
+
+**Zach, 04:06 UTC (project chat, relayed):**
+
+> One thing crucial to get right is the expanded explanation of how the formula or model works, but not necessarily technically. I want to be able to show it to a non technical person and because of the beautifully crafted and well thought through visuals they are able to understand. Probably a scroll animation? but you decide
+
+**Orchestrator, 04:08.** "Got it, and I agree it's crucial. The explainer will be a scroll-through story: one idea per step, with the same picture of dots changing as you scroll. It goes from "counted or not counted", through why only a tie matters, to why a town race and the presidency differ by millions, and ends at the break-even stakes. The designer starts it right after the first-screen versions, and you'll get two or three versions to pick from. Before you see them, each one is read cold by a reader with no statistics. If it doesn't explain itself to them, it gets fixed first."
+
+**Zach, 04:09 UTC (this thread):** "Keep in mind on option c as it exists currently on mobile it looks awful. Really scrutinized it to make sure it looks nice. An example of a component I love that serves its own specific purposes are the graphs with the dots that move together for each individual race from the midterms page"
+
+**Orchestrator, 04:09.** "Passing this to the designer now, with the midterms race-page dot charts as the model to study."
+
+**Zach, 04:09 UTC (this thread):** "And it should also be checked by an agent specifically instructed to lack some technical understanding and as a total layperson, who doesn't even understand the fundamental correct nature of a cost-benefit analysis"
+
+**Orchestrator, 04:10.** "Adding that reader to the explainer's test, and to the first-screen options too."
+
+**Orchestrator, 04:11.** "Done. Both the explainer and the first-screen options now get two cold readers before you see them: one with no statistics, and one told to be a total layperson who doesn't know what a cost-benefit analysis is. The page has to teach that weighing itself. The designer has your notes on option C and the midterms dot charts too."
+
+**Zach, 04:32 UTC (this thread):** "I want as much explanation as possible to be visual, because we must operate under the default assumption that AI-written prose will hardly at all serve the purpose of convincing or explaining by itself, at least without significant refinement. And the key idea that text should not be on the page given its cluttering nature unless truly needed to serve a purpose."
+
+**Orchestrator, 04:33.** "Recording this as a ruling now, then passing it to the design thread so the first screen and the explainer are cut to visuals."
+
+**Zach, 04:37 UTC (this thread):** "For instance often simple headings (such as Senate or House or U.S. Senate or U.S. House, each as relevant to the context in which they’re presented and understood and for the purpose they serve) count as text that is necessary and proper to satisfy a bona fide purpose."
+
+**Orchestrator, 04:38.** "Adding this to the ruling as its example, so the cut doesn't strip headings that orient the reader."
+
+**Orchestrator, 04:38.** "Got it. Plain headings like "Senate" or "U.S. House", worded to fit where they sit, are now written into the rule as text that stays, since they tell a reader where they are. The designer has it. The cut is only for sentences that try to explain what a picture should show."
+
+**Zach, 04:38 UTC (this thread):** "It’s also not “text that stays”; for their purposes, OFTEN, they fit"
+
+**Orchestrator, 04:39.** "Understood, my wording overstated it. Correcting the rule and the designer's brief now."

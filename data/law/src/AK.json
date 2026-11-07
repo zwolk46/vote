@@ -1,0 +1,136 @@
+{
+ "state": "AK",
+ "name": "Alaska",
+ "status": "read",
+ "code": {"name": "Alaska Statutes", "edition": "Alaska Statutes 2025, as the Alaska Legislature's statutes page prints it", "site": "https://www.akleg.gov/basis/statutes.asp", "reached": true},
+ "sections": {
+  "ak-15-20-recounts": {"citation": "AS 15.20.430-15.20.560 (recounts, appeals, tie votes, election contests)", "url": "https://www.akleg.gov/basis/statutes.asp?media=print&secStart=15.20.410&secEnd=15.20.560", "read_at": "state"},
+  "ak-15-15-canvass": {"citation": "AS 15.15.440-15.15.470 (state ballot counting review, certification, tie votes)", "url": "https://www.akleg.gov/basis/statutes.asp?media=print&secStart=15.15.440&secEnd=15.15.470", "read_at": "state"},
+  "ak-15-15-350": {"citation": "AS 15.15.350 (general procedure for ballot count; ranked-choice general elections)", "url": "https://www.akleg.gov/basis/statutes.asp?media=print&secStart=15.15.350&secEnd=15.15.350", "read_at": "state"},
+  "ak-15-25-primary": {"citation": "AS 15.25.010-15.25.110 (primary elections; AS 15.25.090 and 15.25.100)", "url": "https://www.akleg.gov/basis/statutes.asp?media=print&secStart=15.25.010&secEnd=15.25.110", "read_at": "state"},
+  "ak-15-30-electors": {"citation": "AS 15.30.010-15.30.090 (presidential electors)", "url": "https://www.akleg.gov/basis/statutes.asp?media=print&secStart=15.30.010&secEnd=15.30.090", "read_at": "state"},
+  "ak-29-26-municipal": {"citation": "AS 29.26.010-29.26.140 (municipal elections: general law)", "url": "https://www.akleg.gov/basis/statutes.asp?media=print&secStart=29.26.010&secEnd=29.26.140", "read_at": "state"}
+ },
+ "ties": [
+  {"kinds": ["federal", "statewide", "state-legislative"],
+   "applies_to": "an office for which only one candidate is to be elected, in a general election (U.S. Senate and House, governor and other statewide offices, state legislative seats)",
+   "resolution": "recount-then-lot",
+   "steps": "if two or more candidates tie for the highest number of votes, the director notifies the tied candidates and immediately proceeds with the recount under AS 15.20.430-15.20.530; if after the recount and appeal two or more candidates still tie, the director notifies them of a time and place to determine the successful candidate by lot and certifies the result. A candidate for the state legislature or Congress who believes the recount erred may appeal to the chamber in which the candidate seeks membership (AS 15.20.520), and the legislature's power to judge its members is not limited (AS 15.20.560).",
+   "who": "the director of elections draws the lot",
+   "sources": [
+    {"section": "ak-15-15-canvass", "quote": "If two or more candidates tie in having the highest number of votes for the same office for which there is to be elected only one candidate, the director shall so notify the candidates who are tied. The director shall immediately proceed with the recount of votes in the manner provided by"},
+    {"section": "ak-15-20-recounts", "quote": "If after a recount and appeal two or more candidates tie in having the highest number of votes for the same office, the director shall notify the candidates who are tied. The director shall notify the candidates of a reasonably suitable time and place to determine the successful candidate by lot."},
+    {"section": "ak-15-15-350", "quote": "in the event of a tie between the final two continuing candidates, the procedures in [...] shall apply to determine the winner of the general election; in the event of a tie between two candidates with the fewest votes, the tie shall be resolved by lot to determine which candidate is defeated."}
+   ],
+   "mark": "measured",
+   "note": "General elections are counted by ranked-choice voting (AS 15.15.350(c)); a tie between the final two continuing candidates goes to the same recount-then-lot procedure, and a tie for fewest votes in an earlier round is resolved by lot to decide who is defeated. AS 15.15.460 speaks of \"the same office for which there is to be elected only one candidate\"; all three kinds listed are single-winner offices in Alaska, which is [inferred] from the offices' nature, not stated in the section."},
+  {"kinds": ["presidential-electors"],
+   "applies_to": "the election of presidential electors at the general election",
+   "resolution": "recount-then-lot",
+   "steps": "electors are selected by the ranked-choice method of AS 15.15.350; a tie between the final two continuing candidates is handled by the procedures in AS 15.15.460 and AS 15.20.430-15.20.530 (recount, then lot)",
+   "who": "the director of elections",
+   "sources": [
+    {"section": "ak-15-30-electors", "quote": "Electors of President and Vice President of the United States are selected by election at the general election in presidential election years, in the manner and as determined by the ranked-choice method of tabulating votes described in"},
+    {"section": "ak-15-15-350", "quote": "in the event of a tie between the final two continuing candidates, the procedures in [...] shall apply to determine the winner of the general election"}
+   ],
+   "mark": "inferred",
+   "note": "No section on a tie for presidential electors as such was found in AS 15.30.010-15.30.090. The reading is that AS 15.30.010 sends the count to AS 15.15.350, whose tie rule then applies. Electors are voted for through the presidential ticket (AS 15.30.050), so a tie would be a tie between tickets."},
+  {"kinds": ["primary"],
+   "applies_to": "the open (top-four) primary: a tie between two candidates for the fourth greatest number of votes for an office",
+   "resolution": "recount-then-lot",
+   "steps": "the primary follows the general-election provisions on the determination of tie votes and recounts; if two candidates tie for fourth place, the director decides which name goes on the general election ballot, by lot under AS 15.20.530 where the director cannot decide because the votes are equal",
+   "who": "the director of elections",
+   "sources": [
+    {"section": "ak-15-25-primary", "quote": "If two candidates tie in having the fourth greatest number of votes for an office in the primary election, the director shall determine under (g) of this section which candidate's name shall appear on the general election ballot."},
+    {"section": "ak-15-25-primary", "quote": "If the director is unable to make a determination under this section because the candidates received an equal number of votes, the determination may be made by lot under"},
+    {"section": "ak-15-25-primary", "quote": "Unless specifically provided otherwise, all provisions regarding the conduct of a general election shall govern the conduct of a primary election, including [...] provisions for the determination of tie votes and of recount, contests, and appeal"}
+   ],
+   "mark": "inferred",
+   "note": "The statute says the determination \"may be made by lot\"; that a recount comes first is [inferred] from AS 15.25.090 carrying the general-election tie and recount provisions to the primary, with AS 15.20.530 requiring the recount before the lot. Only a tie at the cut-off (fourth place) matters in the top-four primary; a tie for the highest vote in the primary does not decide who wins anything."},
+  {"kinds": ["local"],
+   "applies_to": "municipal (city and borough) elections under state general law, AS 29.26; charters and ordinances were not read",
+   "resolution": "none-found",
+   "steps": "the municipality's governing body prescribes the rules for conducting its elections; state general law provides a runoff where no candidate receives over 40 percent of the votes cast (unless an ordinance says otherwise) and says nothing found about a tie",
+   "who": null,
+   "sources": [
+    {"section": "ak-29-26-municipal", "quote": "The governing body shall prescribe the rules for conducting an election."},
+    {"section": "ak-29-26-municipal", "quote": "Unless otherwise provided by ordinance, a runoff election shall be held if no candidate receives over 40 percent of the votes cast for the office of"}
+   ],
+   "mark": "inferred",
+   "note": "An absence, from AS 29.26.010-29.26.140 (the whole of AS 29.26 articles 1 and 2 as far as .140) read for the word tie: none appears. State election tie provisions (AS 15.15.460, 15.20.530) are written for state elections; whether a municipality that conducts its election under Title 15 would use them was not read. Local charters and ordinances were not read."},
+  {"kinds": ["measure"],
+   "applies_to": "a ballot question or proposition",
+   "resolution": "none-found",
+   "steps": null,
+   "who": null,
+   "sources": [
+    {"section": "ak-15-20-recounts", "quote": "or a question or proposition for which there was a tie vote on the issue, or the difference between the number of votes cast in favor of or opposed to the issue was 20 or less or was less than .5 percent"}
+   ],
+   "mark": "inferred",
+   "note": "AS 15.20.450 mentions a tie vote on a question or proposition only to waive the recount deposit; no section read says what a tie on a measure does. Read: AS 15.15.440-.470 and AS 15.20.410-.560 (canvass, recount, ties, contests) and AS 15.25.090-.100. Not read: the initiative and referendum chapter (AS 15.45) and AS 15.20.540-.560 beyond a tie in a contest, so the absence is not confirmed."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "primary"], "type": "automatic", "election": "general and primary",
+   "threshold": {"percent": null, "percent_of": null, "votes": 0, "combine": null, "inclusive": true, "conditions": "only when two or more candidates tie for the highest number of votes for an office with one seat",
+                 "in_words": "only on a tie: the director initiates the recount"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "the state (no deposit is required where candidates received a tie vote)",
+   "sources": [
+    {"section": "ak-15-20-recounts", "quote": "If there is a tie vote as provided in [...] the director shall initiate the recount and give notice to the interested parties as provided in"},
+    {"section": "ak-15-15-canvass", "quote": "The director shall immediately proceed with the recount of votes in the manner provided by"},
+    {"section": "ak-15-20-recounts", "quote": "If the recount includes an office for which candidates received a tie vote, [...] the application need not include a deposit, and the state shall bear the cost of the recount."}
+   ],
+   "mark": "measured",
+   "note": "No other automatic recount in AS 15.20.430-15.20.530. Candidates tied in a primary: carried over by AS 15.25.090 [inferred]."},
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "primary", "measure"], "type": "requested", "election": "general and primary",
+   "threshold": {"percent": 0.5, "percent_of": "the total number of votes cast for the two candidates for the contested office (for a question or proposition, the total votes in favor of or opposed to the issue)", "votes": 20, "combine": "or", "inclusive": false, "votes_inclusive": true,
+                 "conditions": "the difference of 20 votes or less is inclusive; the percentage test is \"less than .5 percent\"; applies to the cost, not to the right to apply",
+                 "in_words": "a difference of 20 votes or less, or less than one-half of one percent of the votes for the two candidates (or for and against the issue): the application needs no deposit and the state pays"},
+   "who_may_request": ["a defeated candidate, or 10 qualified voters, who believe a mistake was made in counting (application to the director)"],
+   "waiver": null,
+   "cost_bearer": "the state (no deposit) within this margin",
+   "sources": [
+    {"section": "ak-15-20-recounts", "quote": "or the difference between the number of votes cast was 20 or less or was less than .5 percent of the total number of votes cast for the two candidates for the contested office, [...] the application need not include a deposit, and the state shall bear the cost of the recount."}
+   ],
+   "mark": "measured",
+   "note": "This is the margin at which a requested recount costs the applicant nothing; it does not make the recount automatic."},
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "primary", "measure"], "type": "requested", "election": "general and primary",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null,
+                 "conditions": "application within five days after the completion of the state review (three days for governor and lieutenant governor in the general election); it must state the basis of the belief that a mistake was made",
+                 "in_words": "a defeated candidate or 10 qualified voters who believe a mistake was made may apply for a recount of any precinct or house district, with a deposit; no margin is required"},
+   "no_margin_required": true,
+   "who_may_request": ["a defeated candidate", "10 qualified voters"],
+   "waiver": null,
+   "cost_bearer": "the applicant, by deposit ($1,000 for each precinct, $2,000 for each house district, $15,000 for the entire state), refunded in full if a different candidate is declared elected or the recount vote for the applicant is four percent or more above the reported vote",
+   "sources": [
+    {"section": "ak-15-20-recounts", "quote": "A defeated candidate or 10 qualified voters who believe there has been a mistake made by an election official or by the counting board in counting the votes in an election, may file an application within five days after the completion of the state review to the director for a recount of the votes from any particular precinct or any house district and for any particular office, proposition, or question."},
+    {"section": "ak-15-20-recounts", "quote": "The application must include a deposit in cash, by certified check, or by bond with a surety approved by the director. The amount of the deposit is $1,000 for each precinct, $2,000 for each house district, and $15,000 for the entire state."}
+   ],
+   "mark": "measured",
+   "note": "The applicant must state in the application \"the basis of the belief that a mistake has been made\" (AS 15.20.440(a)); the statute names no margin."},
+  {"kinds": ["local"], "type": "requested", "election": "municipal",
+   "threshold": {"no_margin_required": true, "percent": 2, "percent_of": "the winning and losing vote on the result contested", "votes": null, "combine": null, "inclusive": false,
+                 "conditions": "the two percent is only part of the cost test, as printed: the contestant pays all costs if the recount fails to reverse a result, or if the difference between the winning and losing vote is more than two percent",
+                 "in_words": "a recount of a municipal election demanded by a contestant is at the contestant's cost if it fails to reverse a result, or if the difference between the winning and losing vote is more than two percent (as printed, joined by \"or\")"},
+   "no_margin_required": true,
+   "who_may_request": ["a contestant of a municipal election (a voter; an election may be contested only by a voter, unless an ordinance says otherwise)"],
+   "waiver": null,
+   "cost_bearer": "the contestant, if the recount fails to reverse a result or the difference is more than two percent (the text joins the two with \"or\"); who pays otherwise is not stated in the section",
+   "sources": [
+    {"section": "ak-29-26-municipal", "quote": "A contestant shall pay all costs and expenses incurred in a recount of an election demanded by the contestant if the recount fails to reverse a result of the election, or the difference between the winning and losing vote on the result contested is more than two percent."}
+   ],
+   "mark": "measured",
+   "note": "AS 29.26.070 is general law for municipalities; subsection (a) lets the governing body provide the time and procedure for a contest by ordinance, and (b)-(c) apply \"unless otherwise provided by ordinance\". Read as covering every municipal office [inferred]; ordinances and charters not read. The \"or\" in the cost sentence is copied as printed; whether the legislature meant \"and\" was not read."}
+ ],
+ "unread": [
+  {"what": "the initiative and referendum chapter (AS 15.45) and any rule for a tie on a ballot measure; municipal charters and ordinances; the Division of Elections' regulations (6 AAC 25)",
+   "reason": "not fetched; outside the canvass, recount and tie chapters that were read",
+   "url": null,
+   "tried_at": null}
+ ],
+ "notes": [
+  "Alaska's statute site (akleg.gov/basis/statutes.asp, print view by section range) answered with text for every page. elections.alaska.gov (the Division of Elections) was not used.",
+  "The earlier reader's lead for Alaska was confirmed for AS 15.20.530, 15.15.460 and 15.20.430-.450; the earlier note that any recount other than on a tie is on application stating a belief of mistake is also confirmed. New here: general elections are ranked-choice (AS 15.15.350), with a tie rule inside the count, and the open top-four primary has its own tie-for-fourth rule (AS 15.25.100)."
+ ]
+}

@@ -1,0 +1,146 @@
+{
+ "about": "route (a)'s class-C terms (fitted on Klarner's state legislative races of earlier years only) applied to local races between one Democrat and one Republican, the place's lean read from the US House vote of the previous general in the race's counties (MEDSL's precinct returns): the forecast against what happened. Built by pipeline/local_medsl.py backtest-local-partisan.",
+ "rule": "p is computed for a year only if its 50% interval holds between 40% and 60% of outcomes",
+ "years": {
+  "2020": {
+   "races": 1004,
+   "with_lean": 862,
+   "held_back_state": 0,
+   "lean_missing": {
+    "a county's US House race was not contested by both parties throughout": 134,
+    "no US House vote for a county in the previous general's returns": 8
+   },
+   "in_intervals_50_80_95": {
+    "50": 0.522,
+    "80": 0.833,
+    "95": 0.956
+   },
+   "within_49_51": {
+    "expected": 54.3,
+    "seen": 49
+   },
+   "within_100_votes": {
+    "expected": 46.2,
+    "seen": 43
+   },
+   "mean_forecast_minus_outcome": 0.0283,
+   "in_50_interval_by_office_type": {
+    "clerk, treasurer or other county officer": [
+     205,
+     0.605
+    ],
+    "council, commission or board": [
+     372,
+     0.468
+    ],
+    "judge": [
+     72,
+     0.569
+    ],
+    "mayor or executive": [
+     10,
+     0.4
+    ],
+    "other local office": [
+     19,
+     0.632
+    ],
+    "prosecutor": [
+     38,
+     0.737
+    ],
+    "school board": [
+     31,
+     0.516
+    ],
+    "sheriff or constable": [
+     103,
+     0.417
+    ],
+    "special district": [
+     12,
+     0.667
+    ]
+   },
+   "fit": {
+    "earlier_years_of_kind": 13,
+    "years_fitted": [
+     1968,
+     2019
+    ],
+    "method": "D3-v1.1"
+   },
+   "computed": true
+  },
+  "2024": {
+   "races": 1469,
+   "with_lean": 968,
+   "held_back_state": 11,
+   "lean_missing": {
+    "the previous general's returns for this state are held back (see the state's check)": 249,
+    "a county's US House race was not contested by both parties throughout": 241
+   },
+   "in_intervals_50_80_95": {
+    "50": 0.518,
+    "80": 0.811,
+    "95": 0.964
+   },
+   "within_49_51": {
+    "expected": 59.8,
+    "seen": 54
+   },
+   "within_100_votes": {
+    "expected": 50.7,
+    "seen": 42
+   },
+   "mean_forecast_minus_outcome": 0.03,
+   "in_50_interval_by_office_type": {
+    "clerk, treasurer or other county officer": [
+     146,
+     0.664
+    ],
+    "council, commission or board": [
+     458,
+     0.441
+    ],
+    "judge": [
+     89,
+     0.719
+    ],
+    "mayor or executive": [
+     13,
+     0.769
+    ],
+    "other local office": [
+     23,
+     0.609
+    ],
+    "prosecutor": [
+     53,
+     0.604
+    ],
+    "school board": [
+     85,
+     0.424
+    ],
+    "sheriff or constable": [
+     95,
+     0.463
+    ],
+    "special district": [
+     6,
+     0.333
+    ]
+   },
+   "fit": {
+    "earlier_years_of_kind": 14,
+    "years_fitted": [
+     1968,
+     2022
+    ],
+    "method": "D3-v1.1"
+   },
+   "computed": true
+  }
+ }
+}

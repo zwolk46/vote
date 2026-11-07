@@ -1,0 +1,332 @@
+{
+ "about": "the like-race route (D3-v1.1) on North Carolina's State Board contests: each year forecast from North Carolina's earlier years only (from 2014, when the files begin to give seats); for each contest, the chance its class gave of finishing in the class's window around 1/2, against whether it did. Built by pipeline/local_ncsbe.py build.",
+ "by_year": {
+  "2014": {},
+  "2015": {},
+  "2016": {
+   "all": {
+    "forecast": 4,
+    "expected_in_window": 0.5,
+    "seen_in_window": 1
+   },
+   "boundary": {
+    "forecast": 4,
+    "expected_in_window": 0.5,
+    "seen_in_window": 1
+   },
+   "local": {
+    "forecast": 4,
+    "expected_in_window": 0.5,
+    "seen_in_window": 1
+   }
+  },
+  "2017": {
+   "all": {
+    "forecast": 210,
+    "expected_in_window": 29.5,
+    "seen_in_window": 28
+   },
+   "boundary": {
+    "forecast": 205,
+    "expected_in_window": 29.1,
+    "seen_in_window": 28
+   },
+   "class": {
+    "forecast": 5,
+    "expected_in_window": 0.4,
+    "seen_in_window": 0
+   },
+   "local": {
+    "forecast": 208,
+    "expected_in_window": 29.4,
+    "seen_in_window": 28
+   },
+   "primary": {
+    "forecast": 2,
+    "expected_in_window": 0.2,
+    "seen_in_window": 0
+   }
+  },
+  "2018": {
+   "all": {
+    "forecast": 153,
+    "expected_in_window": 12.9,
+    "seen_in_window": 26
+   },
+   "boundary": {
+    "forecast": 9,
+    "expected_in_window": 1.0,
+    "seen_in_window": 1
+   },
+   "class": {
+    "forecast": 144,
+    "expected_in_window": 11.9,
+    "seen_in_window": 25
+   },
+   "local": {
+    "forecast": 87,
+    "expected_in_window": 7.4,
+    "seen_in_window": 15
+   },
+   "primary": {
+    "forecast": 66,
+    "expected_in_window": 5.5,
+    "seen_in_window": 11
+   }
+  },
+  "2019": {
+   "all": {
+    "forecast": 227,
+    "expected_in_window": 32.9,
+    "seen_in_window": 41
+   },
+   "boundary": {
+    "forecast": 217,
+    "expected_in_window": 32.2,
+    "seen_in_window": 40
+   },
+   "class": {
+    "forecast": 10,
+    "expected_in_window": 0.7,
+    "seen_in_window": 1
+   },
+   "local": {
+    "forecast": 225,
+    "expected_in_window": 32.8,
+    "seen_in_window": 41
+   },
+   "primary": {
+    "forecast": 2,
+    "expected_in_window": 0.1,
+    "seen_in_window": 0
+   }
+  },
+  "2020": {
+   "all": {
+    "forecast": 240,
+    "expected_in_window": 20.6,
+    "seen_in_window": 21
+   },
+   "boundary": {
+    "forecast": 13,
+    "expected_in_window": 2.0,
+    "seen_in_window": 3
+   },
+   "class": {
+    "forecast": 227,
+    "expected_in_window": 18.6,
+    "seen_in_window": 18
+   },
+   "local": {
+    "forecast": 124,
+    "expected_in_window": 12.0,
+    "seen_in_window": 14
+   },
+   "primary": {
+    "forecast": 116,
+    "expected_in_window": 8.6,
+    "seen_in_window": 7
+   }
+  },
+  "2021": {
+   "all": {
+    "forecast": 357,
+    "expected_in_window": 49.4,
+    "seen_in_window": 41
+   },
+   "boundary": {
+    "forecast": 233,
+    "expected_in_window": 39.8,
+    "seen_in_window": 36
+   },
+   "class": {
+    "forecast": 124,
+    "expected_in_window": 9.6,
+    "seen_in_window": 5
+   },
+   "local": {
+    "forecast": 357,
+    "expected_in_window": 49.4,
+    "seen_in_window": 41
+   }
+  },
+  "2022": {
+   "all": {
+    "forecast": 308,
+    "expected_in_window": 25.2,
+    "seen_in_window": 24
+   },
+   "boundary": {
+    "forecast": 22,
+    "expected_in_window": 3.1,
+    "seen_in_window": 2
+   },
+   "class": {
+    "forecast": 286,
+    "expected_in_window": 22.1,
+    "seen_in_window": 22
+   },
+   "local": {
+    "forecast": 196,
+    "expected_in_window": 17.2,
+    "seen_in_window": 13
+   },
+   "primary": {
+    "forecast": 112,
+    "expected_in_window": 8.0,
+    "seen_in_window": 11
+   }
+  },
+  "2023": {
+   "all": {
+    "forecast": 400,
+    "expected_in_window": 51.2,
+    "seen_in_window": 54
+   },
+   "boundary": {
+    "forecast": 241,
+    "expected_in_window": 40.0,
+    "seen_in_window": 44
+   },
+   "class": {
+    "forecast": 159,
+    "expected_in_window": 11.3,
+    "seen_in_window": 10
+   },
+   "local": {
+    "forecast": 398,
+    "expected_in_window": 51.1,
+    "seen_in_window": 54
+   },
+   "primary": {
+    "forecast": 2,
+    "expected_in_window": 0.1,
+    "seen_in_window": 0
+   }
+  },
+  "2024": {
+   "all": {
+    "forecast": 286,
+    "expected_in_window": 26.7,
+    "seen_in_window": 27
+   },
+   "boundary": {
+    "forecast": 38,
+    "expected_in_window": 6.0,
+    "seen_in_window": 3
+   },
+   "class": {
+    "forecast": 248,
+    "expected_in_window": 20.6,
+    "seen_in_window": 24
+   },
+   "local": {
+    "forecast": 162,
+    "expected_in_window": 15.6,
+    "seen_in_window": 13
+   },
+   "primary": {
+    "forecast": 124,
+    "expected_in_window": 11.0,
+    "seen_in_window": 14
+   }
+  },
+  "2025": {
+   "all": {
+    "forecast": 451,
+    "expected_in_window": 58.8,
+    "seen_in_window": 68
+   },
+   "boundary": {
+    "forecast": 250,
+    "expected_in_window": 39.7,
+    "seen_in_window": 48
+   },
+   "class": {
+    "forecast": 201,
+    "expected_in_window": 19.1,
+    "seen_in_window": 20
+   },
+   "local": {
+    "forecast": 446,
+    "expected_in_window": 58.5,
+    "seen_in_window": 67
+   },
+   "primary": {
+    "forecast": 5,
+    "expected_in_window": 0.3,
+    "seen_in_window": 1
+   }
+  },
+  "2026": {
+   "all": {
+    "forecast": 208,
+    "expected_in_window": 18.8,
+    "seen_in_window": 13
+   },
+   "boundary": {
+    "forecast": 2,
+    "expected_in_window": 0.3,
+    "seen_in_window": 0
+   },
+   "class": {
+    "forecast": 206,
+    "expected_in_window": 18.5,
+    "seen_in_window": 13
+   },
+   "local": {
+    "forecast": 24,
+    "expected_in_window": 2.0,
+    "seen_in_window": 2
+   },
+   "primary": {
+    "forecast": 184,
+    "expected_in_window": 16.8,
+    "seen_in_window": 11
+   }
+  }
+ },
+ "pooled": {
+  "all": {
+   "forecast": 2844,
+   "expected_in_window": 326.5,
+   "seen_in_window": 344
+  },
+  "boundary": {
+   "forecast": 1234,
+   "expected_in_window": 193.7,
+   "seen_in_window": 206
+  },
+  "class": {
+   "forecast": 1610,
+   "expected_in_window": 132.8,
+   "seen_in_window": 138
+  },
+  "local": {
+   "forecast": 2231,
+   "expected_in_window": 275.9,
+   "seen_in_window": 289
+  },
+  "primary": {
+   "forecast": 613,
+   "expected_in_window": 50.6,
+   "seen_in_window": 55
+  }
+ },
+ "calibration": {
+  "local": {
+   "years_testable": "each year with 30 or more expected in earlier years",
+   "seen": 245.0,
+   "expected_uncalibrated": 238.6,
+   "expected_calibrated": 261.7,
+   "adopted": false
+  },
+  "primary": {
+   "years_testable": "each year with 30 or more expected in earlier years",
+   "seen": 12.0,
+   "expected_uncalibrated": 17.1,
+   "expected_calibrated": 22.3,
+   "adopted": false
+  }
+ }
+}

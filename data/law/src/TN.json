@@ -1,0 +1,178 @@
+{
+ "state": "TN",
+ "name": "Tennessee",
+ "status": "partly-read",
+ "code": {
+  "name": "Tennessee Code Annotated, Title 2 (Elections); the official Tennessee Code Unannotated is published for the State by LexisNexis",
+  "edition": null,
+  "site": "https://www.lexisnexis.com/hottopics/tncode/",
+  "reached": false
+ },
+ "sections": {
+  "ctas-tie": {
+   "citation": "University of Tennessee Institute for Public Service, County Technical Assistance Service (CTAS), e-Li, 'Tie Votes' (CTAS-865), citing T.C.A. 2-8-111 and 2-8-114",
+   "url": "https://www.ctas.tennessee.edu/eli/tie-votes",
+   "read_at": "state agency guide",
+   "note": "A plain page of a state university agency that advises counties: the agency's guide to the Code, a lower grade than the statute. Read once with curl (HTTP 200, 2026-11-07T08:12Z). It gives the rule in a sentence and cites the sections; the Code's own words were not read."
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "a tie in a general election involving a single county or a part of a county, or in a municipal election",
+   "resolution": "legislature",
+   "steps": "the county legislative body (for a county election) or the municipal legislative body (for a municipal election) casts the deciding vote, or may call a runoff",
+   "who": "the county or municipal legislative body",
+   "sources": [
+    {
+     "section": "ctas-tie",
+     "quote": "Elections involving a single county or a part of a county - county legislative body (or the legislative body may call for a runoff);"
+    },
+    {
+     "section": "ctas-tie",
+     "quote": "Municipal elections - municipal legislative body (or the legislative body may call for a runoff);"
+    }
+   ],
+   "mark": "stated",
+   "note": "The guide's words, citing T.C.A. 2-8-111. 'A runoff election' is the body's option, not the rule."
+  },
+  {
+   "kinds": [
+    "federal"
+   ],
+   "applies_to": "a general election for a U.S. House seat (the guide says 'U.S. Congress' and sets the U.S. Senator apart)",
+   "resolution": "other",
+   "steps": "the governor casts the deciding vote",
+   "who": "the governor",
+   "sources": [
+    {
+     "section": "ctas-tie",
+     "quote": "Elections for U.S. Congress - governor;"
+    }
+   ],
+   "mark": "stated",
+   "note": "The guide lists 'U.S. Congress' and then 'except U.S. Senator' under the last item, so the House reading is [inferred] from its own separate rule for the Senator."
+  },
+  {
+   "kinds": [
+    "federal"
+   ],
+   "applies_to": "a general election for U.S. Senator",
+   "resolution": "new-election",
+   "steps": "the election is void and the governor orders a special election",
+   "who": "the governor",
+   "sources": [
+    {
+     "section": "ctas-tie",
+     "quote": "An election for U.S. Senator is void if it results in a tie, and the governor is to order a special election."
+    }
+   ],
+   "mark": "stated",
+   "note": "The guide's words, citing T.C.A. 2-8-111."
+  },
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "applies_to": "a general election for governor",
+   "resolution": "legislature",
+   "steps": "the General Assembly casts the deciding vote",
+   "who": "the General Assembly",
+   "sources": [
+    {
+     "section": "ctas-tie",
+     "quote": "Election for governor - General Assembly;"
+    }
+   ],
+   "mark": "stated",
+   "note": "The guide's words, citing T.C.A. 2-8-111."
+  },
+  {
+   "kinds": [
+    "statewide",
+    "state-legislative"
+   ],
+   "applies_to": "a general election for any other office except U.S. Senator that the guide does not list (the other statewide offices and the General Assembly are read to fall here)",
+   "resolution": "other",
+   "steps": "the state election commission casts the deciding vote",
+   "who": "the state election commission",
+   "sources": [
+    {
+     "section": "ctas-tie",
+     "quote": "Any other election except U.S. Senator (see below) - state election commission."
+    }
+   ],
+   "mark": "inferred",
+   "note": "The guide says 'any other election'; that this covers statewide offices other than governor and the General Assembly is the reader's reading [inferred]."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a primary election",
+   "resolution": "party-committee",
+   "steps": "the tie is broken according to the rules of the political party",
+   "who": "the party",
+   "sources": [
+    {
+     "section": "ctas-tie",
+     "quote": "If a tie vote occurs in a primary election, the tie shall be broken according to the rules of the political party."
+    }
+   ],
+   "mark": "stated",
+   "note": "The guide cites T.C.A. 2-8-114. The parties' rules were not read."
+  },
+  {
+   "kinds": [
+    "presidential-electors",
+    "measure"
+   ],
+   "applies_to": "presidential electors; a ballot measure",
+   "resolution": "unread",
+   "steps": "not read: the guide does not mention them",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "The guide is a short page; the Code was not reachable."
+  }
+ ],
+ "recounts": [],
+ "unread": [
+  {
+   "what": "Tennessee Code Annotated Title 2 (Elections): chapter 8 (determination of results, tie votes), the recount and election-contest provisions, and the primary chapters, for every kind of office and for measures",
+   "reason": "Read in the session's headless Chromium (`state_law.py fetch TN home https://www.lexisnexis.com/hottopics/tncode/ --render`, the way the orchestrator's ruling of 2026-11-07 08:00 UTC allows for a script-shell page that has not refused us), the address https://www.lexisnexis.com/hottopics/tncode/ answered 'STATUS 403 https://www.lexisnexis.com/hottopics/tncode/' (the helper printed: 'NOT READ: STATUS 403 https://www.lexisnexis.com/hottopics/tncode/ for https://www.lexisnexis.com/hottopics/tncode/'), at 2026-11-07T08:11Z. The final address was the one requested (no redirect was followed to advance.lexis.com), and the helper keeps no body for a status of 400 or more, so the text of the refusal page was not seen. A 403 on the address the orchestrator gave (not a mistyped one) is a refusal (briefs/_COMMON.md 13): stopped, not retried, and no other address of the same service was tried (not the advance.lexis.com viewer address the earlier reader had, not WebFetch, not a mirror, archive or compilation). The proxy's status page shows no denial for www.lexisnexis.com among its recent failures, so the 403 is read as the site's own answer.",
+   "url": "https://www.lexisnexis.com/hottopics/tncode/",
+   "time": "2026-11-07T08:11Z"
+  },
+  {
+   "what": "Tennessee Code Annotated Title 2, at the viewer the code site redirected a plain request to",
+   "reason": "On the earlier reader's request, https://www.lexisnexis.com/hottopics/tncode/ redirected to https://advance.lexis.com/container?config=014CJAA5ZGVhZjA3NS02MmMzLTRlZWQtOGJjNC00YzQ1MmZlNzc2YWYKAFBvZENhdGFsb2e9zYpNUjTRaIWVfyrur9ud, which served the helper 'only 0 characters of text (a script shell or an empty page)' (cached as tn-lexis-adv, 3,702 bytes of HTML, at 2026-11-07T07:32Z). That page was not rendered: the later 403 on the code site's own address (above) came first, and under the rule of stopping at the first refusal on a service the viewer address was not tried in the browser.",
+   "url": "https://advance.lexis.com/container?config=014CJAA5ZGVhZjA3NS02MmMzLTRlZWQtOGJjNC00YzQ1MmZlNzc2YWYKAFBvZENhdGFsb2e9zYpNUjTRaIWVfyrur9ud",
+   "time": "2026-11-07T07:31Z"
+  },
+  {
+   "what": "the Secretary of State's election pages, looked at only to find a plain downloadable file of the election laws",
+   "reason": "HTTP 403 for https://sos.tn.gov/elections on the first request; stopped, not retried, and not requested again (the orchestrator's instruction of 2026-11-07)",
+   "url": "https://sos.tn.gov/elections",
+   "time": "2026-11-07T07:30Z"
+  },
+  {
+   "what": "the compilation route the orchestrator allowed at 07:21 UTC (Justia)",
+   "reason": "not tried for Tennessee: the same host answered HTTP 403 to the first request made for the Pennsylvania reading (https://law.justia.com/codes/pennsylvania/ at 2026-11-07T07:23Z), so under 'if the compilation host itself refuses us, stop there' it was not retried; the orchestrator's instruction for this reading, 2026-11-07, is not to request justia.com. Cornell LII was not tried because it does not carry the Tennessee Code.",
+   "url": "https://law.justia.com/codes/tennessee/",
+   "time": "2026-11-07T07:32Z"
+  },
+  {
+   "what": "Tennessee recount and election-contest provisions, in any publisher",
+   "reason": "The only Tennessee text read is the CTAS guide on tie votes, which says nothing of recounts. The Code (Title 2) was refused (HTTP 403 at the LexisNexis code site, read in the headless Chromium at 08:11Z, and at sos.tn.gov to curl) and was not worked round.",
+   "url": "https://www.lexisnexis.com/hottopics/tncode/",
+   "time": "2026-11-07T08:12Z"
+  }
+ ],
+ "notes": [
+  "Tennessee is partly read: the tie rules rest on the University of Tennessee CTAS guide 'Tie Votes', a state agency guide (a lower grade than the statute) that cites T.C.A. 2-8-111 and 2-8-114; each is marked stated or inferred. The Code itself was not read: the LexisNexis code site answered HTTP 403 to the headless browser and sos.tn.gov answered HTTP 403 to curl; both are recorded as refusals and were not worked round. No recount rule was read.",
+  "The earlier reader's search leads (T.C.A. 2-8-110 and 2-8-111, 'Tie votes') are confirmed as the citations the CTAS guide gives (2-8-111 for general elections, 2-8-114 for primaries); they are still not readings of the Code."
+ ]
+}

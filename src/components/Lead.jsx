@@ -9,27 +9,40 @@ import { useFold, FoldBody } from './Fold.jsx';
 import { Seg } from './Seg.jsx';
 import { LeadRuler } from './LeadRuler.jsx';
 
-export const bstar = (a, C, reading) => (reading === 'person' ? (C * a.N) / a.pop.value : C * a.N);
+// B*, or null in the reading "to each person" where the data give no population yet (none is filled in)
+export const bstar = (a, C, reading) => (reading === 'person' ? (a.pop ? (C * a.N) / a.pop.value : null) : C * a.N);
 
-// Where a figure comes from, in words a reader without statistics reads (the cold readers of 11-07 took "Stylised"
-// for jargon and a bare "2008" for an error).
-export const whenOf = a => (a.when === 'stylised' ? 'An invented example, not a real race' : /^\d{4}$/.test(a.when) ? `From a study of the ${a.when} election` : `From a study of House races, ${a.when}`);
+// Which election, and why this one is named: "2024 · the closest state", "1980 · the lowest of 53,397 since 1975"
+export const whenOf = a => `${a.when} · ${a.role}`;
 // the people a per-person figure is shared among
-export const sharedBy = a => `shared by ${count(a.pop.value)} people in ${a.pop.of}${a.pop.sample ? ' (a round figure)' : ''}`;
+export const sharedBy = a => (a.pop ? `shared by ${count(a.pop.value)} people in ${a.pop.of}` : 'no population in the data yet');
+// A route's back-test, in the reader's words: the record's note, its "p" said as the chance, and what that does to
+// the figure (p.note; data/congress/REPORT.md §5)
+export const leanWords = a => {
+  const s = (a.note || '').replace(/so p may be (high|low)$/, (_, d) => `so this chance may be too ${d}, and the figure too ${d === 'high' ? 'low' : 'high'}`);
+  return s ? `${s[0].toUpperCase()}${s.slice(1)}.` : '';
+};
 
 // The figure the page leads with, B*, in the display size, the unit word lighter; under it what it is, in a label
 // (every cold reader of 11-07 first took "$89 million to you" for a sum they would receive); the working as figures;
 // and the working drawn, the cost carried to the figure by the odds (LeadRuler), which is what explains it.
 export function LeadFigure({ a, C, reading, id }) {
-  const v = bstar(a, C, reading);
-  const [n, w] = moneyParts(v);
   const per = reading === 'person';
+  if (per && !a.pop) {
+    // no population in the data yet: the figure is not made up; the working stays the reader's own figure's
+    return (
+      <div class="lead" id={id}>
+        <p class="lead-fig none"><span>No figure yet</span><span class="to">the data give no population for {a.place} yet</span></p>
+        <p class="working">{`${money(C)} × ${digits(a.N)} = ${money(C * a.N)} to you`}</p>
+        <LeadRuler a={a} C={C} reading="you" />
+      </div>
+    );
+  }
+  const [n, w] = moneyParts(bstar(a, C, reading));
   return (
     <div class="lead" id={id}>
       <p class="lead-fig"><span>{n}{w ? <span class="w"> {w}</span> : null}</span><span class="to">{per ? `the least the result must be worth to each person in ${a.pop.of}` : 'the least the result must be worth to you'}</span></p>
-      <p class="working">{per
-        ? `${money(C * a.N)} ÷ ${count(a.pop.value)} people${a.pop.sample ? ' (a round figure)' : ''}`
-        : `${money(C)} × ${digits(a.N)}`}</p>
+      <p class="working">{per ? `${money(C * a.N)} ÷ ${count(a.pop.value)} people` : `${money(C)} × ${digits(a.N)}`}</p>
       <LeadRuler a={a} C={C} reading={reading} />
     </div>
   );
@@ -76,7 +89,9 @@ export function ChanceRow({ a }) {
       <div class="key-row"><span class="l">Chance your ballot changes who wins</span><button type="button" class="f fig-btn" {...f.btn} onClick={f.toggle}>{oneIn(a.N)}</button></div>
       <FoldBody fold={f} cls="key-fold">
         {a.mark ? <p><span class="k">{a.mark}</span></p> : null}
+        {a.lean ? <p class="lean-p"><span class={`lg lg-lean${a.lean === 'low' ? ' low' : ''}`} aria-hidden="true" /> {leanWords(a)}</p> : null}
         <p>{a.src}</p>
+        <p>{a.pop ? `Population, for the reading "to each person": ${digits(a.pop.value)}, ${a.pop.of}; ${a.pop.src}.` : `The data give no population for ${a.place} yet, so it has no figure "to each person".`}</p>
         <p>{TIE} The chance the count without you lands within one vote is twice this: {oneIn(a.N / 2)}.</p>
       </FoldBody>
     </>
@@ -86,5 +101,8 @@ export function ChanceRow({ a }) {
 export function ReadingSeg({ reading, setReading, size = 'body' }) {
   return <Seg fit label="Whose stakes" size={size} options={[['you', 'To you'], ['person', 'To each person']]} value={reading} onChange={setReading} />;
 }
+
+// Where the chances come from, in one line under the named figures; each figure's own sources open from its chance
+export const SOURCES = 'Chances from this site’s model, or 538’s forecast where 538 published one, on the certified counts (the Federal Election Commission; the MIT Election Data and Science Lab; Cha, Kuriwaki and Snyder; Klarner). Populations from the Census Bureau. Read 7 November 2026.';
 
 export const ONE_Q = 'Only the chance of changing who wins is weighed here. Every other reason to vote, like duty or having your say, is set aside.';

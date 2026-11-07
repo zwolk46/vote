@@ -32,7 +32,7 @@ export function App() {
   if (HOW) {
     return (
       <>
-        <PreviewBar v={v} setV={setV} options={XOPTIONS} note={false} />
+        <PreviewBar v={v} setV={setV} options={XOPTIONS} />
         <Header />
         <Boundary what={`Explainer ${v.toUpperCase()}`} resetOn={[v]} fallback={() => <main class="page"><p class="muted">This part of the page could not be drawn.</p></main>}>
           <Explainer key={v} v={v} />
