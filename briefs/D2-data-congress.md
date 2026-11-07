@@ -59,3 +59,30 @@ M2 checked every p independently. Every one reproduces from its inputs, and no p
 8. Senate 2014's chances stand as exact, as recorded: no step at any plausible run count.
 
 After it merges, the orchestrator reruns `checks/m2/c3_chambers.py`.
+
+## Amended 2026-11-07 08:36 UTC: M2's second pass (#47), and a robustness test for every change to a forecast
+
+*From M2's report after items 1 and 2 of its second pass. Everything else reproduces: every p to 1e-15, every fit on earlier years only, every back-test cell by cell, and the adoption rule as written.*
+
+**Fix now, in one pull request:**
+
+1. **House specials' lean.** For a House special, the fit rows take the presidential vote from the sheet of the special's own year, while the files take it on the lines where the special was held (t − 2). The files are right: a special is held on the old lines (PA-18 in 2018: +0.13 in the fit rows against −0.11 in the files; 17 rows). Make the fit rows read as the files do. *Reason:* the fit must be fitted on the same inputs it is applied to.
+2. **Nine House contests where the FEC's file joins both nominees into one "D/R" line.**
+   - Two carry p = 0 for "only one candidate": 2008 NC-04 (Price and Lawson, 419,698 as one) and 2022 IL-03 (Ramirez and Burau). Their p should be about 5e-7 and 1e-6.
+   - Seven have no forecast: 2008 NJ-05, 2020 TN-07, 2016 PA-09, VT-AL in 2008 and 2016, and 2012 NY-05 and NY-13.
+   - Split each line into its candidates. Take the split from the FEC's own per-candidate rows where they exist, otherwise from Cha, marked.
+3. **The Vice President's tie vote.** Use the presidential chance with Maine's and Nebraska's districts: 0.5295 in 2024, not 0.5286, which treats the states as whole. *Reason:* that is how the College is chosen.
+4. **Re-take each of round 5's decisions** after 1 to 3, with the robustness test below, and report every one.
+
+**The robustness test (from now on, for every change to a forecast, at every level).** A change is adopted only if:
+- it improves the out-of-sample test, as before; and
+- it still improves it, with no tested cell made worse, when any one scored year is left out.
+
+Otherwise the forecast stays as it was, and the change is reported beside it. *Reason:* M2 finds that three of round 5's decisions turn on a single year or a single cell.
+- The House's shrinkage passes its tightest safe cell by 0.001, and fails it under the files' lean for specials, or without 2010, 2020, 2022 or 2024.
+- The governors' t4 fails without 2010, 2018 or 2020.
+- The Senate's rejection rests on one cell at exactly the minimum count.
+
+A change adopted on a knife edge is as likely noise as signal, and the model's default is no change. The test is fixed now, before the next round's scores, and applies to the recent-years k and the incumbency variants too.
+
+**The governors' near-even shortfall.** In 2006–2024, 4.7 governor races were expected within 5,000 votes and none was seen (P 0.009). Over 1986–2024 it is 10.4 against 5. If round 5's governor forecast stands after the test above, have the build write onto each governor p, from your own back-test: "this route's back-test shows fewer near-even finishes than it forecast (… against … within 5,000 votes, 2006 to 2024), so p may be high". Do not correct it. *Reason:* as with the measures (D3, #37), a reader should see a known lean of the forecast, and a factor fitted on one empty window would be noise.
