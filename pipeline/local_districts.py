@@ -104,7 +104,13 @@ def medsl_contests(year):
 
 
 GENERIC = re.compile(r"^\s*$|^OTHERS?$|\bALL OTHERS\b|SCATTER|\bVOIDS?\b|\bBLANKS?\b|FEDERAL BALLOTS|\bTOTALS?\b|"
-                     r"OVER ?VOTES?|UNDER ?VOTES?|NONE OF THE|UNCOMMITTED|EXHAUSTED|\bUNRESOLVED\b", re.I)
+                     r"OVER ?VOTES?|UNDER ?VOTES?|NONE OF THE|UNCOMMITTED|EXHAUSTED|\bUNRESOLVED\b|"
+                     # New York's 2016 file carries its ballot kinds as lines of their own
+                     r"^(AFFIDAVIT|FEDERAL|ABSENTEE(/MILITARY)?|MILITARY|MANUALLY COUNTED EMERGENCY|EMERGENCY|"
+                     r"SPECIAL PRESIDENTIAL|PUBLIC COUNTER)$", re.I)
+
+
+NOT_VOTES = re.compile(r"OVER ?VOTES?|UNDER ?VOTES?|\bBLANKS?\b|\bVOIDS?\b|\bTOTALS?\b|FEDERAL BALLOTS", re.I)
 
 
 def _generic(x):
@@ -200,6 +206,10 @@ def test(kc, m, pr=None, b_test=True):
     others = [x for x in others if not (_surs(x["name"]) & ksur)]
     unopposed = len(L.on_ballot(kc["cands"])) <= (kc["eseats"] or 1)
     ratio = mv / kv if kv else None
+    # MEDSL's write-in lines not paired (its write-in totals, scattering, and named write-ins): the scattering, should
+    # MEDSL's counts be taken; over- and undervotes, blanks, voids and totals are no one's votes
+    rest = [x for x in m["candidates"] if id(x) not in used and (_is_write_in(x) or re.search(
+        r"SCATTER|WRITE[- ]?IN|^OTHERS?$|\bALL OTHERS\b", x["name"], re.I)) and not NOT_VOTES.search(x["name"])]
     return {"matched": True, "pairs": [[a["name"], a["votes"], pr[id(a)]["name"], pr[id(a)]["votes"]] for a in named],
             "klarner": kv, "medsl": mv, "ratio": None if ratio is None else round(ratio, 5),
             "flag_a": ratio is not None and abs(ratio - 1) > RATIO_OFF,
@@ -207,7 +217,8 @@ def test(kc, m, pr=None, b_test=True):
             "others": [{"name": x["name"], "votes": x["votes"], "party": x.get("party"), "write_in": _is_write_in(x)}
                        for x in others],
             "flag_b": b_test and unopposed and bool(others), "b_tested": b_test,
-            "medsl_ballot_unpaired": len([x for x in others if not _is_write_in(x)])}
+            "medsl_ballot_unpaired": len([x for x in others if not _is_write_in(x)]),
+            "medsl_write_ins": sum(x["votes"] or 0 for x in rest)}
 
 
 def klarner_id(kc):
@@ -261,8 +272,13 @@ def settle_id(kc, t, canv):
     if len(cols) != 1:
         return None
     col, cs = cols[0]
-    return {"column": col, "candidates": [{"name": n.replace("(W/I)", "").strip(), "votes": v,
-                                            "write_in": "(W/I)" in n} for n, v in cs]}
+    with open(ID_CANVASS + ".meta.json") as f:
+        meta = json.load(f)
+    return {"column": col, "file": f"{os.path.basename(ID_CANVASS)} / 22 General Legislative - Precinct.xlsx / "
+                                   f"Leg Dist {int(kc['dno'])}", "url": meta["url"], "read_utc": meta["read_utc"],
+            "sha256": meta["sha256"],
+            "candidates": [{"name": n.replace("(W/I)", "").strip(), "votes": v, "write_in": "(W/I)" in n}
+                           for n, v in cs]}
 
 
 def check():

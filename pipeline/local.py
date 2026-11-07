@@ -131,7 +131,7 @@ def load_klarner(raw=False):
     2022 counts from MEDSL's file where Klarner's are doubled (nh_2022), unless raw."""
     with open(os.path.join(KLARNER, "contests.jsonl")) as f:
         cs = [json.loads(line) for line in f]
-    return cs if raw else c38(nh_2022(certified_votes(cs)))
+    return cs if raw else district_checks(c38(nh_2022(certified_votes(cs))))
 
 
 NH_COUNTY = {"belknap": "33001", "carroll": "33003", "cheshire": "33005", "coos": "33007", "grafton": "33009",
@@ -357,6 +357,141 @@ def c38(contests):
     C38_COUNT["VT 2018 Chittenden Senate: MEDSL's counts"] += 1
     return contests
 
+
+
+DISTRICTS_CHECK = os.path.join(REPO, "data", "local", "check-districts.json")
+DISTRICTS_COUNT = collections.Counter()
+D_RULE = ("the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is "
+          "held, and a gap under 5% is kept with a note\"")
+D_RATIO = ("MEDSL's precinct file ({file}) gives this district's {n} named candidate{s} {m:,} votes against Klarner's "
+           "{k:,}, {pct:+.1f}% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state "
+           "count is read")
+D_OTHERS = ("MEDSL's precinct file ({file}) names {who} on the ballot beside Klarner's unopposed candidate{s}, with "
+            "{share:.1f}% of the district's votes [measured: pipeline/local_districts.py], and no state count is read")
+D_HELD = "{what}; so neither count is relied on ({rule}): p is not computed, and the contest is left out of the fits"
+D_NOTED = "{what}; under 5%, so Klarner's count is kept ({rule})"
+D_WRITE_IN = ("MEDSL's precinct file ({file}) lists {who}, marked as a write-in [stated: the file], beside Klarner's "
+              "unopposed candidate{s}: added here as a write-in (party w), and the write-in rule decides the route "
+              "(the orchestrator, 2026-11-07 21:26: \"A (b) flag where MEDSL's other candidate is a write-in ... is not "
+              "a ballot opponent. Apply the existing write-in rule to it\")")
+D_DOUBLED = ("Klarner's figures for this district are doubled: every one of its named candidates has twice MEDSL's "
+             "votes, to within 2% [measured: pipeline/local_districts.py]; MEDSL's counts ({file}) (the orchestrator's "
+             "rule of 2026-11-07 19:04 for a doubled count: \"Use MEDSL's counts where every candidate matches by name, "
+             "marked 'Klarner's figures are doubled; MEDSL's counts'\"): {diff}")
+D_STATE = ("Idaho's canvass of the 2022 general (the Secretary of State's 'Canvass Files', its legislative workbook, the "
+           "district's total row, column {col}) in place of Klarner's figures, which MEDSL's file contradicts "
+           "[measured: pipeline/local_districts.py]; a write-in marked '(W/I)' is added as one (the orchestrator, "
+           "2026-11-07 21:21: \"Settle each by the state where it answers\"; 21:26: settle \"only where its file is "
+           "already cached\"): {diff}")
+
+
+def _add_note(c, note):
+    c["certified_note"] = (c["certified_note"] + "; " + note) if c.get("certified_note") else note
+
+
+def district_checks(contests):
+    """The district checks of 21:21 and 21:26 (pipeline/local_districts.py, which writes check-districts.json from the
+    contests as this function receives them): each flagged district's outcome applied. Held: held_reason. Noted: a
+    note. Write-in rule: MEDSL's write-ins added as party w. MEDSL taken: MEDSL's counts. Settled by the state: Idaho's
+    canvass. A flag whose Klarner figures are not the ones the check read stops the build (run the check again)."""
+    DISTRICTS_COUNT.clear()
+    if not os.path.exists(DISTRICTS_CHECK):
+        raise SystemExit("data/local/check-districts.json is missing: run pipeline/local_districts.py check first")
+    with open(DISTRICTS_CHECK) as f:
+        chk = json.load(f)
+    import local_districts as LD
+    by = {LD.klarner_id(c): c for c in contests if c["etype"] == "g"}
+    for year, v in chk["years"].items():
+        for fl in v["flags"]:
+            o = fl["outcome"]
+            if o == "settled earlier":
+                DISTRICTS_COUNT[f"{year}: settled earlier"] += 1
+                continue
+            c = by.get(fl["id"])
+            named = [a for a in c["cands"] if not a["scattering"]] if c else []
+            if c is None or [[a["name"], a["votes"]] for a in named] != [p_[:2] for p_ in fl["pairs"]]:
+                raise SystemExit(f"district_checks: {fl['id']} is not the contest the check read: run "
+                                 f"pipeline/local_districts.py check again")
+            n, s_ = len(named), "" if len(named) == 1 else "s"
+            fname = fl["medsl_file"]
+            if o in ("held", "noted"):
+                parts = []
+                if "a" in fl["flags"]:
+                    parts.append(D_RATIO.format(file=fname, n=n, s=s_, m=fl["medsl"], k=fl["klarner"],
+                                                pct=100 * (fl["ratio"] - 1)))
+                ballot_others = [x for x in fl["others"] if not x["write_in"]]
+                if "b" in fl["flags"] and ballot_others:
+                    tot = fl["medsl"] + sum(x["votes"] for x in fl["others"])
+                    parts.append(D_OTHERS.format(file=fname, s=s_, who=", ".join(
+                        f"{x['name']} ({x['votes']:,})" for x in ballot_others),
+                        share=100 * sum(x["votes"] for x in ballot_others) / tot if tot else 100.0))
+                what = "; ".join(parts)
+                if o == "held":
+                    c["held_reason"] = D_HELD.format(what=what, rule=D_RULE)
+                else:
+                    _add_note(c, D_NOTED.format(what=what, rule=D_RULE))
+                DISTRICTS_COUNT[f"{year}: {o}"] += 1
+            elif o == "write-in rule":
+                wi = [x for x in fl["others"] if x["write_in"]]
+                for x in wi:
+                    c["cands"].append({"name": x["name"], "candid": None, "party": "w",
+                                       "lines": ["write-in (MEDSL's precinct file)"], "votes": x["votes"],
+                                       "vote_missing": False, "outcome": "l", "exper": "none", "scattering": False})
+                _add_note(c, D_WRITE_IN.format(file=fname, s=s_, who=", ".join(
+                    f"{x['name']} ({x['votes']:,})" for x in wi)))
+                DISTRICTS_COUNT[f"{year}: write-in rule"] += 1
+            elif o == "MEDSL taken":
+                diff = []
+                for a, p_ in zip(named, fl["pairs"]):
+                    diff.append((a["name"], a["votes"], p_[3]))
+                    a["votes"] = p_[3]
+                for a in c["cands"]:
+                    if a["scattering"]:
+                        diff.append((a["name"] or "scattering", a["votes"], fl["medsl_write_ins"]))
+                        a["votes"] = fl["medsl_write_ins"]
+                _sum_parties(c)
+                c["votes_source"] = {"source": "medsl", "file": fname, "klarner": {n_: v_ for n_, v_, _ in diff}}
+                _add_note(c, D_DOUBLED.format(file=fname, diff="; ".join(
+                    f"{n_}: {v_:,} in Klarner's, {w_:,} in MEDSL's" for n_, v_, w_ in diff)))
+                DISTRICTS_COUNT[f"{year}: MEDSL taken"] += 1
+            elif o == "settled by the state":
+                sc = fl["state_count"]
+                left, diff = list(sc["candidates"]), []
+                for a in named:
+                    hit = [x for x in left if not x["write_in"] and LD._sur(x["name"]) == LD._sur(a["name"])]
+                    if len(hit) != 1:
+                        raise SystemExit(f"district_checks: {fl['id']}: the canvass does not name {a['name']} once")
+                    left.remove(hit[0])
+                    diff.append((a["name"], a["votes"], hit[0]["votes"]))
+                    a["votes"] = hit[0]["votes"]
+                if any(not x["write_in"] for x in left):
+                    raise SystemExit(f"district_checks: {fl['id']}: the canvass names another candidate on the ballot")
+                for x in left:
+                    t_ = x["name"].lower().split()
+                    c["cands"].append({"name": f"{t_[-1]}, {' '.join(t_[:-1])}", "candid": None, "party": "w",
+                                       "lines": ["write-in (the state's canvass)"], "votes": x["votes"],
+                                       "vote_missing": False, "outcome": "l", "exper": "none", "scattering": False})
+                    diff.append((x["name"] + " (write-in, added)", None, x["votes"]))
+                _sum_parties(c)
+                c["votes_source"] = {"source": "id_sos canvass", "file": sc["file"], "url": sc["url"],
+                                     "read_utc": sc["read_utc"], "sha256": sc["sha256"],
+                                     "klarner": {n_: v_ for n_, v_, _ in diff if v_ is not None}}
+                _add_note(c, D_STATE.format(col=sc["column"], diff="; ".join(
+                    f"{n_}: {v_:,} in Klarner's, {w_:,} in the canvass" if v_ is not None else f"{n_}: {w_:,}"
+                    for n_, v_, w_ in diff)))
+                DISTRICTS_COUNT[f"{year}: settled by the state"] += 1
+            else:
+                raise SystemExit(f"district_checks: {fl['id']}: unknown outcome {o!r}")
+    return contests
+
+
+def _sum_parties(c):
+    """Klarner's own D and R totals (dvote, rvote) kept in step with the candidates' votes."""
+    kv = c.get("klarner") or {}
+    for side, key in (("d", "dvote"), ("r", "rvote")):
+        got = [a["votes"] for a in c["cands"] if a["party"] == side and not a["scattering"]]
+        if got and key in kv:
+            kv[key] = sum(got)
 
 CERTIFIED_NOTE = ("votes: the North Carolina State Board of Elections' certified counts ({file}), in place of "
                   "Klarner's, which differ ({diff}); the certified one wins (brief D3, step 2; the orchestrator, "
