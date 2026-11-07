@@ -1814,10 +1814,45 @@ def too_few(level, year, fy):
 # the gap the same way, and more searching on the same years would fit noise (09:26). REPORT 0.1.
 _NOTE = {}
 
+# THE LEAN NOTE'S TWO TESTS (the orchestrator's ruling of 2026-11-07 11:01 UTC, fixed before the numbers were seen;
+# relayed 11:16). A back-test lean note stands only where two tests of the same back-test lean the same way:
+#   (s) seen against expected within the note's share line (1 point of 1/2);
+#   (v) seen against expected within k votes, k the smallest of 1,000, 5,000, 10,000, 20,000 and 50,000 at which
+#       5 or more are expected.
+# A test counts only with 5 or more seen or expected. The counts are M2's (checks/m2/c16_notes.py, M2's third pass,
+# as the orchestrator relayed them at 11:16); this route's own (s) for the House and the Senate is the same count
+# (REPORT 0.1). The House's note stands; the Senate's and the governors' go. Reason (11:16): a note that one reading
+# of the record contradicts tells the reader a direction the record does not give, and the site's first screen draws
+# these notes as arrows. Only notes change; no p moves.
+LEAN_MIN = 5
+LEAN_TESTS = {
+    "house": {"years": [2010, 2024], "s": {"within": "1 point", "seen": 105, "expected": 87.5},
+              "v": {"within_votes": 1000, "seen": 24, "expected": 16.9}},
+    "senate": {"years": [2010, 2024], "s": {"within": "1 point", "seen": 17, "expected": 11.1},
+               "v": {"within_votes": 10000, "seen": 4, "expected": 5.1}},
+    "governor": {"years": [2006, 2024], "s": {"within": "1 point", "seen": 17, "expected": 15.8},
+                 "v": {"within_votes": 10000, "seen": 6, "expected": 9.7}},
+}
+LEAN_SOURCE = ("M2, checks/m2/c16_notes.py (M2's third pass), as the orchestrator relayed its counts on 2026-11-07 "
+               "11:16 UTC")
+
+
+def lean_note_test(level):
+    """The two tests of the level's lean note under the ruling of 11:01, and whether the note stands."""
+    t = LEAN_TESTS[level]
+    way = lambda x: "more" if x["seen"] > x["expected"] else "fewer" if x["seen"] < x["expected"] else "as many"
+    counts = {k: max(t[k]["seen"], t[k]["expected"]) >= LEAN_MIN for k in ("s", "v")}
+    leans = {k: way(t[k]) for k in ("s", "v")}
+    stands = all(counts.values()) and leans["s"] == leans["v"] != "as many"
+    return {**t, "leans": leans, "counts": counts, "stands": stands, "source": LEAN_SOURCE,
+            "rule": "the note stands only where (s) and (v) both count (5 or more seen or expected) and lean the "
+                    "same way (the orchestrator, 2026-11-07 11:01 UTC)"}
+
 
 def near_even_note(rows, level):
-    """The near-even note for the model's own p of `level` (house or senate), or None."""
-    if level not in ("house", "senate"):
+    """The near-even note for the model's own p of `level` (house or senate), or None: None also where its two
+    tests (lean_note_test) do not lean the same way."""
+    if level not in ("house", "senate") or not lean_note_test(level)["stands"]:
         return None
     if level not in _NOTE:
         r = _variant_score(rows, level, variant_of_record(rows, level), VARIANT_YEARS)
@@ -2317,6 +2352,7 @@ def history():
         for k in ks:
             print(f"   within {k:>5} votes: expected {v['expected'][k]:8.3f}, seen {v['seen'][k]}")
     out["governor_note"] = governor_note(out)
+    out["lean_note"] = {L: lean_note_test(L) for L in LEAN_TESTS}
     cc.write_json(os.path.join(REPO, "data", "congress", "history.json"), out)
 
 
@@ -2326,7 +2362,8 @@ def history():
 # carries the sentence below, its counts read from this history; p is not corrected. Reason: a known lean of the
 # forecast should be visible to a reader, whichever forecast stands; and a factor fitted on one empty window would
 # be noise. The counts are seen against forecast, in the sentence's own order and as D3's note on the measures
-# (#37) gives them. history writes the note, so it runs after compute.
+# (#37) gives them. history writes the note, so it runs after compute. Since the ruling of 11:01 (relayed 11:16) it
+# is not written: its two tests lean opposite ways (LEAN_TESTS above), and history takes it off each p.
 GOV_NOTE_YEARS = (2006, 2024)
 GOV_NOTE_K = 5000
 
@@ -2338,7 +2375,8 @@ def governor_note(h):
     exp = sum(v[y]["expected"][GOV_NOTE_K] for y in ys)
     got = sum(v[y]["seen"][GOV_NOTE_K] for y in ys)
     note = None
-    if got < exp:
+    if got < exp and lean_note_test("governor")["stands"]:
+        # since 11:16 the note stands only where its two tests lean the same way; for the governors they do not
         note = (f"this route's back-test shows fewer near-even finishes than it forecast ({got} against {exp:.1f} "
                 f"within {GOV_NOTE_K:,} votes, {GOV_NOTE_YEARS[0]} to {GOV_NOTE_YEARS[1]}), so p may be high")
     n = 0
