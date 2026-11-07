@@ -45,12 +45,14 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | done; #18, #22 merged; woken 05:58 for the M2 follow-ups (brief amended 05:58) |
 | Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | started 03:08; #16 (spec) merged; options on its preview branch; X2 next in this thread |
 | Gather local, legislative, primary and measure data | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVThyXDPxVFHnA4YqgssTSs | `briefs/D3-data-local.md` (Opus 5.5, xhigh) | started ~04:30 |
-| Check every computed vote chance | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCEUo7XmYgNjtfLdxDRBTML | `briefs/M2-check-computed-p.md` (Fable 5.1, xhigh) | done; #26 merged 05:56; stopped; second pass (D3's levels) on the orchestrator's word |
+| Check every computed vote chance | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCEUo7XmYgNjtfLdxDRBTML | `briefs/M2-check-computed-p.md` (Fable 5.1, xhigh) | second pass started 07:42 (brief amended): Congress and governors after #38, D2's back-tests, k, D3's levels |
 | Gather voting costs and tie laws | cmsg_01FHkmcV6WaeZh9r5PfgnMbuGA4pBoUJj1By51aSAkx3E9 | `briefs/D4-data-cost-and-ties.md` (Sonnet 5.5, xhigh) | started 07:09 |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 07:42: #38 merged (D2 round 5, out of sample 2010-24, earlier-only fits: House mean shrinkage adopted (log score 1.5743 to 1.6008, lambda 1.00 in 2014 to 0.93 in 2022-24); governors t4 adopted (1.1780 to 1.2045); Senate nothing (shrinkage fails one 10-20 pt cell); far seats show no heavy tails toward 1/2. House sum 1.0158e-2 to 1.0178e-2, control 1.4184e-4 to 1.4438e-4, governors 9.8925e-4 to 1.0439e-3. Reproduced: governors 2024 exactly, House and Senate value_uncalibrated exactly, shrunk mean = 1/2 + 0.93(mean-1/2)). D2 holds: next test is a recent-years k (House sd wider than results, rms z 0.75-0.92). M2's second pass started (brief amended); slots D3, D4, M2.
 
 - 2026-11-07 07:30: #37 merged (D3: the near-1/2 shortfall written onto each of the 63 measure p by the build; REPORT says their own window shows 8 near-even against 3.6 expected, so p likely low, perhaps by half; 06:38 citation fixed). D3 on NC SBE results_pct 2010+ by script (public records, G.S. 132-1), 1990s PDFs left for later; then OpenElections.
 
