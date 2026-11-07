@@ -236,7 +236,7 @@ function Trip({ lines, shares, total, anySet, C, reading }) {
     <section class="bt-trip" aria-labelledby="bt-tr" aria-live="polite">
       <div class="bt-trip-h">
         <h2 id="bt-tr" class="bt-trip-t">The trip</h2>
-        <span class="bt-trip-f num">{!anySet ? `costs ${money(C)}` : pays ? (total < 10 ? `Pays: ${share(total)}` : `Pays ${share(total)} over`) : `${share(total)} of the way`}</span>
+        <span class="bt-trip-f num">{!anySet ? `costs ${money(C)}` : pays ? (total < 10 ? `${share(total)}, so it pays` : `Pays ${share(total)} over`) : `${share(total)} of the way`}</span>
       </div>
       <div class="bt-bar" role="img" aria-label={anySet ? `The shares add to ${total < 10 ? share(total) : `${share(total)} over`} what the trip costs.` : 'No stake set yet.'}>
         {segs.map(s => <span class="bt-seg" style={{ left: `${s.l}%`, width: `${s.w}%` }} />)}
