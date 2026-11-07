@@ -81,3 +81,13 @@
 **Zach, 04:32 UTC (this thread):** "I want as much explanation as possible to be visual, because we must operate under the default assumption that AI-written prose will hardly at all serve the purpose of convincing or explaining by itself, at least without significant refinement. And the key idea that text should not be on the page given its cluttering nature unless truly needed to serve a purpose."
 
 **Orchestrator, 04:33.** "Recording this as a ruling now, then passing it to the design thread so the first screen and the explainer are cut to visuals."
+
+**Zach, 04:37 UTC (this thread):** "For instance often simple headings (such as Senate or House or U.S. Senate or U.S. House, each as relevant to the context in which they’re presented and understood and for the purpose they serve) count as text that is necessary and proper to satisfy a bona fide purpose."
+
+**Orchestrator, 04:38.** "Adding this to the ruling as its example, so the cut doesn't strip headings that orient the reader."
+
+**Orchestrator, 04:38.** "Got it. Plain headings like "Senate" or "U.S. House", worded to fit where they sit, are now written into the rule as text that stays, since they tell a reader where they are. The designer has it. The cut is only for sentences that try to explain what a picture should show."
+
+**Zach, 04:38 UTC (this thread):** "It’s also not “text that stays”; for their purposes, OFTEN, they fit"
+
+**Orchestrator, 04:39.** "Understood, my wording overstated it. Correcting the rule and the designer's brief now."
