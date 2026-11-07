@@ -22,7 +22,8 @@ What it does, per file:
      not show which place holds it;
   4. checks: the rows read against the row count Dataverse records for the file, where it records one; and the
      presidency's totals by state and candidate against D1's certified totals in data/president/<year>.json.
-Writes $VOTE_CACHE/medsl/normalized/<year>/<ST>.jsonl (one contest per line) and checks-<year>.json.
+Writes $VOTE_CACHE/medsl/normalized/<year>/<ST>-<file id>.jsonl (one contest per line; a state can have two
+files, its own and a local one) and checks-<year>.json.
 
 Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/intake/medsl_precinct.py 2024 [--states DE,CO]
 """
@@ -55,6 +56,20 @@ ANSWERS = {"YES", "NO", "FOR", "AGAINST", "APPROVE", "REJECT", "APPROVED", "REJE
 NOT_CANDIDATES = {"", "OVERVOTES", "UNDERVOTES", "OVER VOTES", "UNDER VOTES", "BLANK", "BLANK VOTES", "SPOILED",
                   "TOTAL VOTES", "BALLOTS CAST", "REGISTERED VOTERS", "OVERVOTE", "UNDERVOTE", "NONE OF THE ABOVE"}
 GENERIC = {"WRITE-IN", "WRITEIN", "WRITE IN", "SCATTERING", "WRITE-INS", "UNCERTIFIED WRITE-IN", "UNQUALIFIED WRITE-IN"}
+_META = re.compile(r"^(TOTAL\b|VOTE FOR \d|TIMES (BLANK|OVER|UNDER)|.*\b(VOTES CAST|BALLOTS CAST|REGISTERED VOTERS|OVER ?VOTES?|"
+                   r"UNDER ?VOTES?|BLANK VOTES?)\b)")
+
+
+def is_meta(cand):
+    """A row that counts no candidate: totals, registration, over- and undervotes (MEDSL keeps some as candidates)."""
+    c = cand.strip().upper()
+    return c in NOT_CANDIDATES or bool(_META.match(c))
+
+
+def is_generic(name):
+    """Write-in totals and lines that name no one ('*NOT QUALIFIED 1*'): never used to join precincts."""
+    n = name.strip().upper()
+    return n in GENERIC or n.startswith("*") or "WRITE-IN" in n or "WRITE IN" in n or "WRITEIN" in n
 
 
 def split_answer(cand):
@@ -83,7 +98,7 @@ def data_files(year, rec):
     for f in rec["files"]:
         df = f["dataFile"]
         name = df.get("originalFileName") or df["filename"]
-        if not name.lower().endswith((".csv", ".tab")) or "codebook" in name.lower() or name.endswith(".md"):
+        if not name.lower().endswith((".csv", ".tab", ".zip")) or "codebook" in name.lower() or name.endswith(".md"):
             continue
         out.append({"id": df["id"], "name": name, "ingested": bool(df.get("originalFileName")),
                     "bytes": df.get("originalFileSize") or df.get("filesize")})
@@ -109,42 +124,84 @@ def ddi_rows(file_id, year):
 
 # ------------------------------------------------------------------ read and add up
 
+def _rows(path):
+    """The rows of a MEDSL csv, or of every csv inside a MEDSL zip (read in place, never extracted or run)."""
+    if path.lower().endswith(".zip"):
+        import io
+        import zipfile
+        with zipfile.ZipFile(path) as z:
+            for member in z.namelist():
+                if member.lower().endswith((".csv", ".tab", ".txt")) and not member.startswith("__MACOSX"):
+                    with z.open(member) as raw:
+                        delim = "\t" if member.lower().endswith(".tab") else ","
+                        yield from csv.DictReader(io.TextIOWrapper(raw, encoding="utf-8", errors="replace"),
+                                                  delimiter=delim)
+        return
+    with open(path, newline="", encoding="utf-8", errors="replace") as f:
+        yield from csv.DictReader(f)
+
+
 def read_file(path):
     """Rows of one MEDSL file into {contest key: {precinct key: {candidate key: {mode: votes or None}}}}."""
     agg = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     pres = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     n = 0
     states = collections.Counter()
-    with open(path, newline="", encoding="utf-8", errors="replace") as f:
-        for row in csv.DictReader(f):
-            n += 1
-            dv = row.get("dataverse", "")
-            cand = (row.get("candidate") or "").strip()
-            if cand.upper() in NOT_CANDIDATES:
-                continue
-            st = row.get("state_po", "")
-            states[st] += 1
-            v = row.get("votes", "")
-            try:
-                votes = int(float(v))
-            except ValueError:
-                votes = None          # "*": redacted (MEDSL's README)
-            mode = (row.get("mode") or "TOTAL").upper()
-            pk = (row.get("county_fips", ""), row.get("jurisdiction_fips", ""), row.get("precinct", ""))
-            ckey = (cand, row.get("party_detailed", ""), row.get("party_simplified", ""), row.get("writein", ""))
-            if dv == "PRESIDENT":
-                pres[st][pk][ckey][mode] = (pres[st][pk][ckey].get(mode) or 0) + (votes or 0)
-                continue
-            if dv not in ("STATE", "LOCAL"):
-                continue
-            k = (st, row.get("date", ""), row.get("stage", ""), row.get("special", ""), dv, row.get("office", ""),
-                 row.get("district", ""), row.get("magnitude", ""))
-            cell = agg[k][pk][ckey]
-            if votes is None:
-                cell[mode] = None
-            elif cell.get(mode, 0) is not None:
-                cell[mode] = cell.get(mode, 0) + votes
+    for row in _rows(path):
+        n += 1
+        dv = row.get("dataverse", "")
+        cand = (row.get("candidate") or "").strip()
+        if is_meta(cand):
+            continue
+        st = row.get("state_po", "")
+        states[st] += 1
+        v = row.get("votes", "")
+        try:
+            votes = int(float(v))
+        except ValueError:
+            votes = None          # "*": redacted (MEDSL's README)
+        mode = (row.get("mode") or "TOTAL").upper()
+        pk = (row.get("county_fips", ""), row.get("jurisdiction_fips", ""), row.get("precinct", ""))
+        ckey = (cand, row.get("party_detailed", ""), row.get("party_simplified", ""), row.get("writein", ""))
+        if dv == "PRESIDENT":
+            pres[st][pk][ckey][mode] = (pres[st][pk][ckey].get(mode) or 0) + (votes or 0)
+            continue
+        if dv not in ("STATE", "LOCAL"):
+            continue
+        mag = row.get("magnitude", "")
+        try:
+            mag = str(int(float(mag)))
+        except ValueError:
+            pass
+        k = (st, row.get("date", ""), row.get("stage", ""), row.get("special", ""), dv, row.get("office", ""),
+             row.get("district", ""), mag)
+        cell = agg[k][pk][ckey]
+        if votes is None:
+            cell[mode] = None
+        elif cell.get(mode, 0) is not None:
+            cell[mode] = cell.get(mode, 0) + votes
     return agg, pres, n, states
+
+
+def merge_statewide(agg):
+    """An office filed STATEWIDE in some rows and under a district in others (Santa Cruz County, Arizona, files the
+    2024 propositions under its supervisor districts) is one statewide office: its rows join the STATEWIDE key,
+    each precinct keeping its own district, so that candidates' contests are still told apart by their names."""
+    wide = {}
+    for k in agg:
+        if k[6] == "STATEWIDE":
+            wide[k[:6]] = k
+    moved = 0
+    for k in list(agg):
+        if k[6] != "STATEWIDE" and k[:6] in wide:
+            target = agg[wide[k[:6]]]
+            for pk, cands in agg.pop(k).items():
+                for ck, modes in cands.items():
+                    cell = target[pk + (k[6],)][ck]
+                    for m_, v in modes.items():
+                        cell[m_] = None if (v is None or cell.get(m_, 0) is None) else cell.get(m_, 0) + v
+            moved += 1
+    return moved
 
 
 def resolve(modes):
@@ -173,17 +230,38 @@ class _UF:
             self.p[rb] = ra
 
 
+DROPPED = collections.Counter()   # lines that form no contest: write-in totals alone, with no candidate named
+
+
 def contests_of(k, precincts):
-    """Split one office-and-district key into contests, and add each one up. Returns a list of contest dicts."""
-    st, date, stage, special, dv, office, district, magnitude = k
+    """Split one office-and-district key into contests, and add each one up. Returns a list of contest dicts.
+    Yes-or-no lines and candidates' lines are taken apart first: one office name can hold both (a county's recall
+    question beside another county's race for the same office, both filed as "DISTRICT ATTORNEY")."""
     yn = {}
     for pk, cands in precincts.items():
         for ck in cands:
             sa = split_answer(ck[0])
             if sa is not None:
                 yn[ck] = sa
-    named_all = {ck for cands in precincts.values() for ck in cands}
-    is_question = bool(named_all) and all(ck in yn or ck[0].upper() in GENERIC for ck in named_all) and bool(yn)
+    qprec, cprec = {}, {}
+    for pk, cands in precincts.items():
+        q = {ck: m for ck, m in cands.items() if ck in yn}
+        c = {ck: m for ck, m in cands.items() if ck not in yn}
+        if q:
+            qprec[pk] = q
+        if c:
+            cprec[pk] = c
+    out = _contests(k, qprec, yn, True) if qprec else []
+    for x in (_contests(k, cprec, yn, False) if cprec else []):
+        if any(not is_generic(c["name"]) for c in x["candidates"]):
+            out.append(x)
+        else:
+            DROPPED[k[0]] += 1
+    return out
+
+
+def _contests(k, precincts, yn, is_question):
+    st, date, stage, special, dv, office, district, magnitude = k
     groups = collections.defaultdict(list)    # group key -> precinct keys
     if is_question:
         # one question per subject (a retention's judge, or none), statewide for a state question, per county if local
@@ -198,7 +276,7 @@ def contests_of(k, precincts):
             uf.find(pk)
             for ck in cands:
                 name = ck[0].upper()
-                if name in GENERIC or ck in yn:
+                if is_generic(name) or ck in yn:
                     continue
                 if name in first_by_cand:
                     uf.union(first_by_cand[name], pk)
@@ -209,7 +287,7 @@ def contests_of(k, precincts):
             comp[uf.find(pk)].append(pk)
         # precincts with only write-in totals join their county's one component, if it has exactly one
         named_comp = {r: ps for r, ps in comp.items()
-                      if any(ck[0].upper() not in GENERIC for p in ps for ck in precincts[p])}
+                      if any(not is_generic(ck[0]) for p in ps for ck in precincts[p])}
         by_county = collections.defaultdict(set)
         for r, ps in named_comp.items():
             for p in ps:
@@ -336,6 +414,7 @@ def run(year, only=None):
         path = F.fetch(url, raw, storage_sites=("amazonaws.com",))
         expected = ddi_rows(fi["id"], year) if fi["ingested"] else None
         agg, pres, n, states = read_file(path)
+        moved = merge_statewide(agg)
         contests = []
         for k, precincts in agg.items():
             contests.extend(contests_of(k, precincts))
@@ -344,15 +423,17 @@ def run(year, only=None):
             by_state[c["state"]].append(c)
         m = F.meta(raw)
         for s, cs in by_state.items():
-            with open(os.path.join(OUT, str(year), f"{s}.jsonl"), "w") as f:
+            with open(os.path.join(OUT, str(year), f"{s}-{fi['id']}.jsonl"), "w") as f:
                 for c in cs:
                     c["file"] = {"id": fi["id"], "name": fi["name"], "url": m["url"], "read_utc": m["read_utc"],
                                  "sha256": m["sha256"]}
                     f.write(json.dumps(c, ensure_ascii=False, separators=(",", ":")) + "\n")
         checks["files"][fi["name"]] = {"rows_read": n, "rows_recorded_by_dataverse": expected,
                                        "rows_ok": (expected is None) or (expected == n),
-                                       "contests": len(contests), "states": dict(states)}
+                                       "contests": len(contests), "states": dict(states),
+                                       "district_keys_joined_to_statewide": moved}
         checks["president"].update(check_president(year, president_totals(pres)))
+        checks.setdefault("write_in_lines_alone", {}).update(dict(DROPPED))
         print(f"{fi['name']}: {n:,} rows (Dataverse records {expected}), {len(contests):,} contests", flush=True)
         with open(checks_path, "w") as f:
             json.dump(checks, f, indent=1)
