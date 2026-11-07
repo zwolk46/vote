@@ -1465,7 +1465,9 @@ def build(out_dir, with_p=True):
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
                    "forecasts": []}
             notes = []
-            by_county = c.get("source", "medsl") == "medsl"   # the State Board and Indiana name each question's place
+            # Indiana's file gives each question once, with its counties and its type, title and text; MEDSL's and
+            # the State Board's keep the note
+            by_county = c.get("source", "medsl") != "in_enr"   # local_in.SOURCE_KEY
             if scope == "local" and by_county:
                 notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
                              "it, so a question held across several counties appears once per county")
