@@ -4,7 +4,7 @@
 
 ## Where things stand
 
-- **Phase 2 (data, with design alongside) begins**, by `plan/PLAN.md` (written 03:04, told to the maker, not asked: law 7a). Briefs T1 (tracker), D1 (presidency), D2 (Congress and governors), X1 (design) written; threads started 03:08 (#13 put law, model, plan and briefs on `main`). Next: gate D1's `pipeline/core.py` PR first (D2 imports it); approve each data worker's own-forecast method before it computes p; send X1's options to the maker; start D3 (`briefs/D3-data-local.md`) when X1 waits on his pick or D1 or D2 ends.
+- **Phase 2 (data, with design alongside) begins**, by `plan/PLAN.md` (written 03:04, told to the maker, not asked: law 7a). Briefs T1 (tracker), D1 (presidency), D2 (Congress and governors), X1 (design) written; threads started 03:08 (#13 put law, model, plan and briefs on `main`). Next: gate D1's `pipeline/core.py` PR first (D2 imports it); approve each data worker's own-forecast method before it computes p; send X1's options to the maker; X1 takes up `briefs/X2-explainer.md` once its first-screen options are sent; start D3 (`briefs/D3-data-local.md`) when D1 or D2 ends.
 - **Tracker** for the maker: "Vote Work", https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH (source `tracker/vote-work.html`; db collection `tasks`, rows {s, t, o, link, linkLabel}; seeded 03:02, read back at view level). Kept current by T1.
 - Open with the maker: the design-effort card (max for design work only, recommended / xhigh; until he answers, design runs at xhigh); the batched asks of plan §5 (web.archive.org; MEDSL's guestbook).
 - Hold of 02:45 lifted at 02:54 (RULINGS). Design follows `inherited/design/` (#11, from the midterms orchestrator). Work autonomously: the plan is recorded and he is told, not asked.
@@ -48,6 +48,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 04:07: the maker (04:06, project chat): the expanded explanation of how the model works is "crucial", for a non-technical person through the visuals, "Probably a scroll animation? but you decide" (RULINGS). Decided: a scroll-driven story, one idea per step, one changing visual, two or three versions for his pick, tried first on a cold non-technical reader (a Sonnet subagent seeing only the page). Brief `X2-explainer.md`, for X1's thread once its first-screen options are sent; plan §4 and §5 updated; D3 now starts when D1 or D2 ends.
 
 - 2026-11-07 04:04: #18 merged (D2: Senate, House, governor 2024 and 2022 with p and chamber control; 35/435/11 and 36/436 contests, p for 32/373/10 and 32/390, the rest marked not computed; intake scripts for the Clerk, FEC, MEDSL Dataverse (guestbook files skipped), NARA, Census www2, Downballot, CAGE; inventory `data/sources/congress.md`). Gate: core tests, npm test and build pass; no secret or email; Montana 2024 recomputed by hand, 1 in 193,072. Largest p: MT Senate 1 in 193,072; CA-22 2024 1 in 46,024; CA-13 2022 1 in 36,331. 2024 VP at 0.5, provisional. Decisions: no Census API key (an email sign-up; the maker's email never used); D2's MEDSL and NARA scripts stand, D1 to use them.
 

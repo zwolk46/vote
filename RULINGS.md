@@ -94,3 +94,11 @@ In the project chat:
 1. **Breadth of data is a goal of its own** (law 5, Broad, made stronger): gather every contest the sources allow, at every level and as far back as standardized sources go, not a sample of years. The volume itself is part of what the site shows, so that a reader says "wow" (law 6, Beautiful, read with the midterms principle he names).
 2. **Intake by script, from standardized datasets.** Find the bulk, standardized sources first (spreadsheets, CSV releases, data repositories), and write one script per source that downloads and converts it into `data/`, so that a year, a state or a whole source costs a run, not an agent reading pages. *Reason:* his words, "an intake flow that doesn't use as many tokens".
 3. **No live data.** The site is built from static, published datasets; nothing is fed live. This does not settle the open point on an election before it is held, which is about forecasts, not live results.
+
+## 2026-11-07 04:06 UTC: the explanation of the model, for a non-technical person, through visuals
+
+In the project chat:
+
+> One thing crucial to get right is the expanded explanation of how the formula or model works, but not necessarily technically. I want to be able to show it to a non technical person and because of the beautifully crafted and well thought through visuals they are able to understand. Probably a scroll animation? but you decide
+
+*Reading.* The site has an expanded explanation of how p and B\* are worked out, and it is one of the surfaces that matter most (law 3, Plain, made stronger; law 6). Its test is a non-technical person who, from the visuals, understands it; the words are few and plain, and the technical form sits behind it, not in it. Its form is the orchestrator's to decide: a scroll-driven story, one idea per step, with one visual that changes as the reader scrolls, built as two or three whole versions for him to pick (law 9b), and tried on a cold non-technical reader before it goes to him.
