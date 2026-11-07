@@ -21,7 +21,7 @@ import m2lib as L  # noqa: E402
 import m2fit as F  # noqa: E402
 
 RECORD_VARIANT = {"house": "none", "senate": "none", "governor": "none"}   # after #51: round 5 withdrawn, every level D2-v3
-RECORD_SCHEME = {"house": "level", "senate": "level", "governor": None}
+RECORD_SCHEME = {"house": "level", "senate": None, "governor": None}   # after #53: the Senate's factor out under the robustness test
 
 
 def rel(a, b):

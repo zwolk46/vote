@@ -113,9 +113,9 @@ def inventory():
           + f"; p = 0: {sum(1 for r in kl if r['status'] == 'value' and r['route'] is None):,}.")
     loc = D.rows("local")
     for y in (2024, 2022, 2020, 2018):
-        ry = [r for r in loc if r["year"] == y and r["src"] == "medsl"]
+        ry = [r for r in loc if r["year"] == y and r["src"] in ("medsl", "in_enr")]   # Indiana's own 2024 file stands in MEDSL's place (#54)
         v = collections.Counter(r["route"] for r in ry if r["status"] == "value")
-        print(f"local {y} (MEDSL): {len(ry):,} contests; p computed: like races {v['class'] + v['boundary']:,} "
+        print(f"local {y} (MEDSL{', with Indiana' if y == 2024 else ''}): {len(ry):,} contests; p computed: like races {v['class'] + v['boundary']:,} "
               f"(class {v['class']:,}, boundary {v['boundary']:,}), partisan {v['partisan']:,}; p = 0: {v[None]:,} "
               f"(REPORT section 7: 2024 19,704 contests, p for 3,013 = 2,066 like-race + 947 partisan, p = 0 for 10,158; "
               f"2020 8,956, p = 0 for 3,617; 2022 441; 2018 14,177).")
@@ -297,7 +297,7 @@ def recompute():
                           abs(r["cal"]["factor"] - want) <= 6e-4 and r["cal"]["of"] == of and r["cal"]["fitted_on"] == f["fitted_on"],
                           rid, f"{r['cal']} vs {want} ({of}), fitted on {f['fitted_on']}")
                 T.add("calibration: 'calibrated' in p.under", "calibrated" in p.get("under", ""), rid, p.get("under"))
-            elif level == "local" and r["src"] == "medsl" and r["year"] in (2022, 2024):
+            elif level == "local" and r["src"] in ("medsl", "in_enr") and r["year"] in (2022, 2024):
                 T.add("local 2022/2024 MEDSL p without a calibration block", False, rid, f"{r['route']} {p.get('under')}")
         T.report(f"{level} ({n_exact:,} exact sums recomputed)")
     print("\n  largest relative differences, record against my own figure:")

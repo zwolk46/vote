@@ -149,9 +149,9 @@ def like_state():
     contests = [r for level in ("state-upper", "state-lower") for r in D.rows(level)
                 if r["route"] in ("class", "boundary", "runoff") and r["N"] is not None]
     kl = [r for r in contests if r["src"] == "klarner"]
-    md = [r for r in contests if r["src"] == "medsl"]
+    md = [r for r in contests if r["src"] in ("medsl", "in_enr")]
     compare_like(kl, pool, "Klarner-built years (1968-2023), like races from earlier years of the same pool")
-    compare_like(md, pool, "2024 (MEDSL-built), like races from Klarner's years before 2024")
+    compare_like(md, pool, "2024 (MEDSL-built, with Indiana's own file), like races from Klarner's years before 2024")
     # the window's widening as written: k < 10 at every narrower window
     return pool
 
@@ -202,14 +202,14 @@ def medsl_route(r):
     """Whether a local contest is one pipeline/local_medsl.py's routes forecast: MEDSL's own contests, and the State
     Board's North Carolina contests of MEDSL's general dates, which stand in place of MEDSL's (certified_nc). North
     Carolina's other dates are local_ncsbe.py's, whatever file holds them."""
-    if r["src"] == "medsl":
+    if r["src"] in ("medsl", "in_enr"):   # Indiana's own certified 2024 file stands in place of MEDSL's (#54, certified_in)
         return True
     return r["state"] == "NC" and r["src"] == "ncsbe" and (r["date"] or "")[5:7] == "11" and r["year"] in MEDSL_YEARS
 
 
 def measure_route(r):
     """The same for a question: MEDSL's, or the State Board's of MEDSL's general dates in the measure years."""
-    if r["src"] == "medsl":
+    if r["src"] in ("medsl", "in_enr"):
         return True
     return r["state"] == "NC" and r["src"] == "ncsbe" and (r["date"] or "")[5:7] == "11" and r["year"] in MEASURE_YEARS
 

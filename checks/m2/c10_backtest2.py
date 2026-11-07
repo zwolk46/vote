@@ -70,15 +70,39 @@ def section_near(rows, b):
             for bi, lab in enumerate(NBANDL):
                 D.add(f"{Lv} {sch} band {lab}", x["by_band"][bi]["expected"], xx["within_49_51_by_band"][lab]["expected"], 2e-4)
             if sch != "none":
-                for k in ("raises_log_score", "count_nearer", "safe_seats_supported", "improves"):
+                for k in ("raises_log_score", "count_nearer", "safe_seats_supported", "improves", "robust"):
                     D.add(f"{Lv} {sch} {k}", int(bool(x.get(k))), int(bool(xx.get(k))))
+                if "round_5_cells" in x or "round_5_cells" in xx:
+                    c5, cc5 = x.get("round_5_cells") or {}, xx.get("round_5_cells") or {}
+                    D.add(f"{Lv} {sch} round 5 cells improves", int(bool(c5.get("improves"))), int(bool(cc5.get("improves"))))
+                    D.add(f"{Lv} {sch} round 5 cells tested", len(c5.get("safe_bands_tested") or []), len(cc5.get("safe_bands_tested") or []))
+                    D.add(f"{Lv} {sch} round 5 cells further", len(c5.get("safe_bands_further") or []), len(cc5.get("safe_bands_further") or []))
+                    lo, llo = x.get("leave_one_year_out") or {}, xx.get("leave_one_year_out") or {}
+                    for y in sorted(set(lo) | set(int(t) for t in llo)):
+                        a, bb = lo.get(y) or {}, llo.get(str(y)) or {}
+                        D.add(f"{Lv} {sch} without {y} improves", int(bool(a.get("improves"))), int(bool(bb.get("improves"))))
+                        D.add(f"{Lv} {sch} without {y} fails", len(a.get("fails") or []), len(bb.get("fails") or []))
+                        if a.get("mean_log_score_gain") is not None and bb.get("mean_log_score_gain") is not None:
+                            D.add(f"{Lv} {sch} without {y} log score gain", a["mean_log_score_gain"], bb["mean_log_score_gain"], 2e-6)
             print(f"  {Lv:9s} {sch:7s} {x['races']:5d} {x['mean_log_score']:10.5f} / {xx['mean_log_score']:8.5f} "
                   f"{x['within'][0.01]['expected']:9.2f} / {xx['within']['49-51%']['expected']:6.2f} / {x['within'][0.01]['seen']:3d}   "
                   f"{x['within'][0.02]['expected']:6.1f} / {xx['within']['48-52%']['expected']:6.1f}  {x['within'][0.05]['expected']:6.1f} / {xx['within']['45-55%']['expected']:6.1f}  "
                   f"{x['by_band'][2]['expected']:5.1f} / {xx['within_49_51_by_band'][NBANDL[2]]['expected']:5.1f} vs {x['by_band'][2]['seen']:2d}   "
                   + (f"{fmt_flags(x)} / {fmt_flags(xx)}" if sch != "none" else ""))
+        for sch in ("level", "band"):
+            x, xx = r[sch], rr[sch]
+            if "round_5_cells" not in x and "round_5_cells" not in xx:
+                continue
+            c5, cc5 = x.get("round_5_cells") or {}, xx.get("round_5_cells") or {}
+            lo, llo = x.get("leave_one_year_out") or {}, xx.get("leave_one_year_out") or {}
+            print(f"  {Lv:9s} {sch:6s} round 5's cells: tested {len(c5.get('safe_bands_tested') or [])} / {len(cc5.get('safe_bands_tested') or [])}, "
+                  f"further {len(c5.get('safe_bands_further') or [])} / {len(cc5.get('safe_bands_further') or [])}; fails without "
+                  f"{[y for y in sorted(lo) if not lo[y]['improves']] or 'no year'} / {[int(y) for y in sorted(llo) if not llo[y]['improves']] or 'no year'}; "
+                  f"robust {bool(x.get('robust'))} / {bool(xx.get('robust'))}")
         print(f"  {Lv:9s} adopted: mine {r['adopted']!r}, D2 {rr['adopted']!r}")
         D.add(f"{Lv} adopted", {None: 0, "level": 1, "band": 2}[r["adopted"]], {None: 0, "level": 1, "band": 2}[rr["adopted"]])
+    print("  (the rule since D2's #53 (09:10; REPORT 0.2): a scheme is adopted only if it passes round 4's three tests, round 5's cells on the safe")
+    print("   bands (10-20 and 20+ points; 49-51, 48-52 and 45-55%, where seen or expected is 5 or more), and both with any one scored year left out)")
     D.report("the near-tie test's cells")
     # the factors of every year
     D2 = Diff()
@@ -294,22 +318,17 @@ def near_margins(nt, rows):
             print(f"    {Lv:9s} {sch:6s} log score {dls:+.5f}; 49-51% nearer by {dcount:+.2f}; safe band {dsafe:+.3f}; {'passes' if x['improves'] else 'fails'}")
         if r["level"]["improves"] and r["band"]["improves"]:
             print(f"    {Lv:9s} level over band in log score: {r['level']['mean_log_score'] - r['band']['mean_log_score']:+.6f}")
-    # leave one year out of the near-tie test's scoring years (the factors stay as fitted)
-    print("  (e) The near-tie scheme adopted when one year is left out of the scoring (factors as fitted), house / senate / governor:")
-    for y in F.VARIANT_YEARS:
-        ad = []
-        for Lv in F.LEVELS:
-            yrs = [t for t in nt["by_level"][Lv]["years"] if t != y]
-            best, b0 = None, F.near_score(rows, Lv, None, yrs, "none")
-            for sch in ("level", "band"):
-                x = F.near_score(rows, Lv, sch, yrs, "none")
-                better = x["mean_log_score"] > b0["mean_log_score"]
-                nearer = abs(x["within"][0.01]["expected"] - x["within"][0.01]["seen"]) < abs(b0["within"][0.01]["expected"] - b0["within"][0.01]["seen"])
-                safe = abs(x["by_band"][2]["expected"] - x["by_band"][2]["seen"]) <= abs(b0["by_band"][2]["expected"] - b0["by_band"][2]["seen"])
-                if better and nearer and safe and (best is None or x["mean_log_score"] > F.near_score(rows, Lv, best, yrs, "none")["mean_log_score"]):
-                    best = sch
-            ad.append(str(best))
-        print(f"    without {y}: {'/'.join(ad)}")
+    # leave one year out of the near-tie test's scoring years (the factors stay as fitted): the test's own record of it
+    print("  (e) The near-tie schemes with one year left out of the scoring (factors as fitted; round 4's tests and round 5's cells), by level:")
+    for Lv in F.LEVELS:
+        r = nt["by_level"][Lv]
+        for sch in ("level", "band"):
+            lo = r[sch].get("leave_one_year_out") or {}
+            if not lo:
+                print(f"    {Lv:9s} {sch:6s} no year reached")
+                continue
+            print(f"    {Lv:9s} {sch:6s} " + "; ".join(f"without {y}: {'passes' if lo[y]['improves'] else 'fails (' + ', '.join(str(f) for f in lo[y]['fails']) + ')'}"
+                                                       for y in sorted(lo)))
 
 
 def robustness(rows, b, nt):
@@ -346,22 +365,23 @@ def robustness(rows, b, nt):
         print(f"    {Lv:9s} adopted under the robustness test: mine {best!r}, D2 {b['variants']['adopted'][Lv]!r}")
         D.add(f"{Lv} adopted", int(best == b["variants"]["adopted"][Lv]), 1)
     D.report("the robustness test's cells")
-    print("  the near-tie schemes under none, the same test (factors as fitted): passes on all years, and the years without which it fails")
+    print("  the near-tie schemes under none, the same rule (factors as fitted; round 4's tests, round 5's cells, any one year left out): mine / D2's")
+    rec_nt = b["near_tie"]["by_level"]
     for Lv in F.LEVELS:
-        r = nt["by_level"][Lv]
+        r, rr = nt["by_level"][Lv], rec_nt[Lv]
         for sch in ("level", "band"):
-            fails = []
-            for y in F.VARIANT_YEARS:
-                yrs = [t for t in r["years"] if t != y]
-                b0, x = F.near_score(rows, Lv, None, yrs, "none"), F.near_score(rows, Lv, sch, yrs, "none")
-                better = x["mean_log_score"] > b0["mean_log_score"]
-                nearer = abs(x["within"][0.01]["expected"] - x["within"][0.01]["seen"]) < abs(b0["within"][0.01]["expected"] - b0["within"][0.01]["seen"])
-                safe = abs(x["by_band"][2]["expected"] - x["by_band"][2]["seen"]) <= abs(b0["by_band"][2]["expected"] - b0["by_band"][2]["seen"])
-                if not (better and nearer and safe):
-                    fails.append(y)
-            print(f"    {Lv:9s} {sch:6s} all years {'passes' if r[sch]['improves'] else 'fails'}; fails without {fails or 'no year'}; robust {bool(r[sch]['improves'] and not fails)}")
-    print("    (D2, REPORT 0.1: the House's level scheme passes with every year left out; the Senate's level fails without 2020, its band without 2024;")
-    print("     so under the test the Senate would take no near-tie factor; it stands as of record, for the orchestrator's word)")
+            x, xx = r[sch], rr[sch]
+            lo, llo = x.get("leave_one_year_out") or {}, xx.get("leave_one_year_out") or {}
+            fails = [y for y in sorted(lo) if not lo[y]["improves"]]
+            rfails = [int(y) for y in sorted(llo) if not llo[y]["improves"]]
+            D.add(f"{Lv} near-tie {sch} robust", int(bool(x.get("robust"))), int(bool(xx.get("robust"))))
+            print(f"    {Lv:9s} {sch:6s} all years {'passes' if x['improves'] else 'fails'} / {'passes' if xx.get('improves') else 'fails'}; "
+                  f"round 5's cells {'pass' if (x.get('round_5_cells') or {}).get('improves') else 'fail'} / {'pass' if (xx.get('round_5_cells') or {}).get('improves') else 'fail'}; "
+                  f"fails without {fails or 'no year'} / {rfails or 'no year'}; robust {bool(x.get('robust'))} / {bool(xx.get('robust'))}")
+        print(f"    {Lv:9s} adopted under the rule: mine {r['adopted']!r}, D2 {rr['adopted']!r}")
+    D.report("the near-tie schemes under the robustness rule")
+    print("    (D2's #53, 09:10, took the near-tie factors again under this rule; the House's level scheme stands; the Senate's level fails round 5's")
+    print("     48-52% cell in the 10-20 point band and without 2012, 2014, 2020 and 2024, so the Senate carries no near-tie factor as of record)")
 
 
 def main():

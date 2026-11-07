@@ -19,7 +19,7 @@ import m2fit as F  # noqa: E402
 import m2lib as L  # noqa: E402
 
 RECORD = {"house": "none", "senate": "none", "governor": "none"}   # after #51: round 5 withdrawn, every level D2-v3
-RECORD_SCHEME = {"house": "level", "senate": "level", "governor": None}
+RECORD_SCHEME = {"house": "level", "senate": None, "governor": None}   # after #53: the Senate's factor out under the robustness test
 WIN = {0.01: "49-51%", 0.02: "48-52%", 0.05: "45-55%"}
 BANDL = ["0.00-0.05", "0.05-0.10", "0.10-0.20", "0.20 up"]
 

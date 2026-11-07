@@ -782,22 +782,62 @@ def near_tie_test(rows, variant):
                                       "band": [near_tie_factor(rows, Lv, T, 0.5 + b + 1e-9, "band", variant) for b in NEAR_BANDS]} for T in yrs}
         best = None
         if reach:
-            b0 = res["none"]
             for sch in ("level", "band"):
                 r = res[sch]
-                better = r["mean_log_score"] > b0["mean_log_score"]
-                nearer = abs(r["within"][NEAR_W]["expected"] - r["within"][NEAR_W]["seen"]) < abs(b0["within"][NEAR_W]["expected"] - b0["within"][NEAR_W]["seen"])
-                kb = len(NEAR_BANDS) - 1
-                safe = abs(r["by_band"][kb]["expected"] - r["by_band"][kb]["seen"]) <= abs(b0["by_band"][kb]["expected"] - b0["by_band"][kb]["seen"])
-                r["raises_log_score"], r["count_nearer"], r["safe_seats_supported"] = better, nearer, safe
-                r["improves"] = bool(better and nearer and safe)
-                if r["improves"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
+                r.update(_round4(res["none"], r))
+                # round 5's cells on the scheme (D2's #53, REPORT 0.2): in the 10-20 and 20+ point bands no near-even
+                # count may move further from the one seen, tested where seen or expected is 5 or more
+                r["round_5_cells"] = _round5_cells(rows, Lv, variant, reach, sch)
+                # both again with any one scored year left out (the factors as fitted)
+                loo = {}
+                for y in reach:
+                    yrs = [t for t in reach if t != y]
+                    b0y, ry = near_score(rows, Lv, None, yrs, variant), near_score(rows, Lv, sch, yrs, variant)
+                    f4 = _round4(b0y, ry)
+                    c5 = _round5_cells(rows, Lv, variant, yrs, sch)
+                    fails = ([] if f4["raises_log_score"] else ["the log score"]) + ([] if f4["count_nearer"] else ["the 49-51% count"]) \
+                        + ([] if f4["safe_seats_supported"] else ["the safe seats' 49-51% count (|mean - 1/2| from 0.10)"]) + c5["safe_bands_further"]
+                    loo[y] = {"improves": bool(f4["improves"] and c5["improves"]), "mean_log_score_gain": ry["mean_log_score"] - b0y["mean_log_score"],
+                              "fails": fails}
+                r["leave_one_year_out"] = loo
+                r["robust"] = bool(r["improves"] and r["round_5_cells"]["improves"] and all(x["improves"] for x in loo.values()))
+                if r["robust"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
                     best = sch
         res["adopted"] = best
         out["by_level"][Lv] = res
         out["adopted"][Lv] = best
     _NEAR[ck] = out
     return out
+
+
+def _round4(b0, r):
+    """Round 4's three tests of a scheme against none on the same years (REPORT 2.6)."""
+    better = r["mean_log_score"] > b0["mean_log_score"]
+    nearer = abs(r["within"][NEAR_W]["expected"] - r["within"][NEAR_W]["seen"]) < abs(b0["within"][NEAR_W]["expected"] - b0["within"][NEAR_W]["seen"])
+    kb = len(NEAR_BANDS) - 1
+    safe = abs(r["by_band"][kb]["expected"] - r["by_band"][kb]["seen"]) <= abs(b0["by_band"][kb]["expected"] - b0["by_band"][kb]["seen"])
+    return {"raises_log_score": better, "count_nearer": nearer, "safe_seats_supported": safe, "improves": bool(better and nearer and safe)}
+
+
+def _round5_cells(rows, level, variant, years, sch, min_count=None):
+    """Round 5's safe cells (REPORT 2.7) applied to a near-tie scheme: the scheme's near-even counts in the safe bands
+    against none's (the same forecasts, so the bands are the same), tested where seen or expected is 5 or more."""
+    min_count = VARIANT_MIN_COUNT if min_count is None else min_count
+    r0 = variant_score(rows, level, variant, years, sch=None, use_sch=False)
+    r = variant_score(rows, level, variant, years, sch=sch, use_sch=False)
+    tested, failed = [], []
+    for b in VARIANT_SAFE:
+        for w, x0 in r0["by_band"][b]["within"].items():
+            if x0["seen"] < min_count and x0["expected"] < min_count:
+                continue
+            x = r["by_band"][b]["within"][w]
+            tested.append((b, w))
+            if abs(x["expected"] - x["seen"]) > abs(x0["expected"] - x0["seen"]):
+                failed.append((b, w))
+    # 'improves' as chambers.py records it: round 5's whole verdict on the scheme (the log score, the 49-51% count, the cells)
+    raises = r["mean_log_score"] > r0["mean_log_score"]
+    nearer = abs(r["within"][NEAR_W]["expected"] - r["within"][NEAR_W]["seen"]) < abs(r0["within"][NEAR_W]["expected"] - r0["within"][NEAR_W]["seen"])
+    return {"improves": bool(raises and nearer and not failed), "cells_hold": not failed, "safe_bands_tested": tested, "safe_bands_further": failed}
 
 
 # ------------------------------------------------------------------------------------------- variants
