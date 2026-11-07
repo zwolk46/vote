@@ -40,7 +40,7 @@ DOWNBALLOT = {  # the lines sheets for the three House rows (2008 MA-05, NC-04; 
 # A House special held for the old seat: the files give it the district presidential vote on the lines of t-2 (the
 # lines it was held on); D2's fit rows (chambers.py, fit_rows) give it the sheet of its own year t. "own" reproduces
 # D2's fits; "t-2" is the files' reading. Each special row carries both (lean_own, lean_t2).
-SPECIAL_LINES = "own"
+SPECIAL_LINES = "t-2"
 STATES_50 = ("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND "
              "OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY").split()
 LEVELS = ("house", "senate", "governor")

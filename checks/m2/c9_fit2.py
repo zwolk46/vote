@@ -20,8 +20,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m2lib as L  # noqa: E402
 import m2fit as F  # noqa: E402
 
-RECORD_VARIANT = {"house": "shrink", "senate": "none", "governor": "t4"}
-RECORD_SCHEME = {"house": "band", "senate": "level", "governor": None}
+RECORD_VARIANT = {"house": "none", "senate": "none", "governor": "none"}   # after #51: round 5 withdrawn, every level D2-v3
+RECORD_SCHEME = {"house": "level", "senate": "level", "governor": None}
 
 
 def rel(a, b):
@@ -97,13 +97,13 @@ def main():
                     worst[(level, k)] = (v, year)
     for level in F.LEVELS:
         print(f"  {level}, largest over the years: " + ", ".join(f"{k} {v:.1e} ({y})" for (l_, k), (v, y) in sorted(worst.items()) if l_ == level))
-    print("  (the House specials here take D2's lines convention, m2fit.SPECIAL_LINES 'own': a special's district presidential vote from the")
-    print("   sheet of its own year, as chambers.py fit_rows reads it; the files give a special the lines of t-2, the lines it was held on)")
+    print("  (the House specials here take the files' lines convention, m2fit.SPECIAL_LINES 't-2': a special's district presidential vote")
+    print("   on the lines of t-2, the lines it was held on; D2's fit rows read it so since #51, having taken the sheet of its own year before)")
 
-    print("\n9.2b THE HOUSE AGAIN WITH THE SPECIALS ON THE FILES' LINES (t-2): the same relative differences")
-    moved = F.set_special_lines(rows, "t-2")
+    print("\n9.2b THE HOUSE AGAIN WITH THE SPECIALS ON THE SHEET OF THEIR OWN YEAR (D2's rows before #51): the same relative differences")
+    moved = F.set_special_lines(rows, "own")
     sp = [r for r in rows if r["level"] == "house" and r["special"] and r.get("lean_own") is not None and abs(r["lean_own"] - r["lean_t2"]) > 1e-4]
-    print(f"  {moved} special rows move; {len(sp)} by more than 1e-4: " + ", ".join(f"{r['id'][:-8]} {r['lean_t2']:+.3f} (file) vs {r['lean_own']:+.3f} (D2's rows)" for r in sp))
+    print(f"  {moved} special rows move; {len(sp)} by more than 1e-4: " + ", ".join(f"{r['id'][:-8]} {r['lean_t2']:+.3f} (file, and D2's rows since #51) vs {r['lean_own']:+.3f} (D2's rows before #51)" for r in sp))
     for path in sorted(os.listdir(os.path.join(L.DATA, "house"))):
         doc = L.load_json(os.path.join(L.DATA, "house", path))
         year, m = doc["year"], doc.get("model") or {}
@@ -116,7 +116,7 @@ def main():
         lam = mm["shrink"]["factor"] if mm.get("shrink") else None
         print(f"  house {year}: b_lean {rel(m['b_lean'], mm['b_lean']):.1e} b_inc {rel(m['b_inc'], mm['b_inc']):.1e} s_e_fit {rel(m['s_e_fitted'], mm['s_e']):.1e} "
               f"s_a {rel(m['s_a'], mm['s_a']):.1e} nat sd {rel(m['national_sd'], nat_sd):.1e} k {rel(m['k'], mm['k']):.1e} lambda {rel(lam_rec, lam) if lam_rec and lam else float('nan'):.1e}")
-    F.set_special_lines(rows, "own")
+    F.set_special_lines(rows, "t-2")
 
     print("\n9.3-9.4 k AND lambda BY YEAR AGAINST backtest.json (variants.k_by_year, shrink_by_year), every level, 2010-2024")
     vt = b["variants"]

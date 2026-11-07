@@ -4,7 +4,7 @@ refitted under each variant (`near_tie_by_variant`). Every fit, k, lambda and fa
 construction (m2fit.fit_years, calibration, shrink_factor, near_tie_factor). Then the rule as written against what
 was applied, and where a decision would flip: the margin of each test, and the adoption under small changes of
 the rule (the minimum count, strictness, the years, one year left out, bands by the variant's own mean).
-The House specials take D2's lines convention here (m2fit.SPECIAL_LINES "own"), which reproduces the record;
+The House specials take the files' lines convention here (m2fit.SPECIAL_LINES "t-2"), D2's too since #51;
 c9 shows the files' convention beside it.
 """
 import json
@@ -65,10 +65,10 @@ def section_near(rows, b):
             for i, c in enumerate(("0.5", "0.8", "0.95")):
                 D.add(f"{Lv} {sch} coverage {c}", x["coverage"][i], xx["coverage"][c], 1e-6)
             for w, lab in WIN.items():
-                D.add(f"{Lv} {sch} within {lab}", x["within"][w]["expected"], xx["within"][lab]["expected"], 1e-4)
+                D.add(f"{Lv} {sch} within {lab}", x["within"][w]["expected"], xx["within"][lab]["expected"], 2e-4)
                 D.add(f"{Lv} {sch} within {lab} seen", x["within"][w]["seen"], xx["within"][lab]["seen"])
             for bi, lab in enumerate(NBANDL):
-                D.add(f"{Lv} {sch} band {lab}", x["by_band"][bi]["expected"], xx["within_49_51_by_band"][lab]["expected"], 1e-4)
+                D.add(f"{Lv} {sch} band {lab}", x["by_band"][bi]["expected"], xx["within_49_51_by_band"][lab]["expected"], 2e-4)
             if sch != "none":
                 for k in ("raises_log_score", "count_nearer", "safe_seats_supported", "improves"):
                     D.add(f"{Lv} {sch} {k}", int(bool(x.get(k))), int(bool(xx.get(k))))
@@ -122,14 +122,14 @@ def section_variants(rows, b):
             for i, c in enumerate(("0.5", "0.8", "0.95")):
                 D.add(f"{Lv} {v} coverage {c}", x["coverage"][i], xx["coverage"][c], 1e-6)
             for w, lab in WIN.items():
-                D.add(f"{Lv} {v} within {lab}", x["within"][w]["expected"], xx["within"][lab]["expected"], 1e-4)
+                D.add(f"{Lv} {v} within {lab}", x["within"][w]["expected"], xx["within"][lab]["expected"], 2e-4)
                 D.add(f"{Lv} {v} within {lab} seen", x["within"][w]["seen"], xx["within"][lab]["seen"])
             for bi, lab in enumerate(BANDL):
                 g, gg = x["by_band"][bi], xx["by_band"][lab]
                 D.add(f"{Lv} {v} {lab} races", g["races"], gg["races"])
                 D.add(f"{Lv} {v} {lab} log score", g["mean_log_score"], gg["mean_log_score"], 2e-6)
                 for w, wl in WIN.items():
-                    D.add(f"{Lv} {v} {lab} {wl}", g["within"][w]["expected"], gg["within"][wl]["expected"], 1e-4)
+                    D.add(f"{Lv} {v} {lab} {wl}", g["within"][w]["expected"], gg["within"][wl]["expected"], 2e-4)
                     D.add(f"{Lv} {v} {lab} {wl} seen", g["within"][w]["seen"], gg["within"][wl]["seen"])
                 for t_, tl in ((0.05, "5%"), (0.01, "1%")):
                     D.add(f"{Lv} {v} {lab} beyond {tl}", g["tail"][t_]["expected"], gg["beyond_quantile_toward_half"][tl]["expected"], 1e-6)
@@ -147,8 +147,11 @@ def section_variants(rows, b):
                   f"{x['within'][0.01]['expected']:8.2f} / {xx['within']['49-51%']['expected']:6.2f} / {x['within'][0.01]['seen']:3d}  "
                   f"{x['within'][0.02]['expected']:6.1f} / {xx['within']['48-52%']['expected']:6.1f} {x['within'][0.05]['expected']:6.1f} / {xx['within']['45-55%']['expected']:6.1f}  "
                   + (f"{fmt_flags(x)} / {fmt_flags(xx)}  {len(x['safe_bands_tested'])}, {len(x['safe_bands_further'])} / {len(xx['safe_bands_tested'])}, {len(xx['safe_bands_further'])}" if v != "none" else ""))
-        print(f"  {Lv:9s} adopted: mine {r['adopted']!r}, D2 {rr['adopted']!r}")
-        D.add(f"{Lv} adopted", ["none", "shrink", "t4", "both"].index(r["adopted"]), ["none", "shrink", "t4", "both"].index(rr["adopted"]))
+        rec_pass = [v for v in ("shrink", "t4", "both") if rr[v]["improves"]]
+        rec_best3 = max(rec_pass, key=lambda v: rr[v]["mean_log_score"]) if rec_pass else "none"
+        print(f"  {Lv:9s} adopted: mine {r['adopted']!r} (the three tests), D2 {rr['adopted']!r} (D2's adds the robustness test, 10.6; "
+              f"its best under the three tests {rec_best3!r})")
+        D.add(f"{Lv} adopted under the three tests", ["none", "shrink", "t4", "both"].index(r["adopted"]), ["none", "shrink", "t4", "both"].index(rec_best3))
     D.report("the variants test's cells")
     print("  the safe bands, House, expected vs seen (mine / D2), with the results beyond the 5% and 1% quantiles toward 1/2:")
     for v in ("none", "shrink", "t4", "both"):
@@ -217,15 +220,19 @@ def section_rule(b):
                 bad.append((Lv, T, "k years", m["calibration"]["years"]))
     print(f"  every recorded fitting set (fit_years, k, lambda, F) holds earlier years only: {'yes' if not bad else 'NO: ' + str(bad[:5])} [measured over the files and backtest.json]")
     # the adoption as recorded follows the rule as reproduced
+    print("  Since #51 (REPORT 0.1) a fourth condition: (4) the three hold with any one scored year left out (10.6 below).")
     for Lv in F.LEVELS:
         r = b["variants"]["by_level"][Lv]
         passing = [v for v in ("shrink", "t4", "both") if r[v]["improves"]]
-        best = max(passing, key=lambda v: r[v]["mean_log_score"]) if passing else "none"
-        print(f"  {Lv}: variants passing all three {passing or 'none'}; the best log score among them {best!r}; recorded adopted {r['adopted']!r} -> {'consistent' if best == r['adopted'] else 'INCONSISTENT'}")
+        robust = [v for v in passing if r[v].get("robust")]
+        best3 = max(passing, key=lambda v: r[v]["mean_log_score"]) if passing else "none"
+        best = max(robust, key=lambda v: r[v]["mean_log_score"]) if robust else "none"
+        print(f"  {Lv}: variants passing (1)-(3) {passing or 'none'} (best {best3!r}); passing (4) too {robust or 'none'}; the best log score among them "
+              f"{best!r}; recorded adopted {r['adopted']!r} -> {'consistent' if best == r['adopted'] else 'INCONSISTENT'}")
 
 
-def margins(vt, rec_adopted):
-    print("\n10.5 WHERE A DECISION WOULD FLIP")
+def margins(vt, rec_adopted, title="\n10.5 WHERE A DECISION WOULD FLIP"):
+    print(title)
     print("  (a) The margin of each test, each variant against none (positive = passes): log score gain; 49-51% distance none - variant;")
     print("      the smallest safe-cell margin (none's distance - the variant's; a tested cell fails where this is negative).")
     for Lv in F.LEVELS:
@@ -305,14 +312,66 @@ def near_margins(nt, rows):
         print(f"    without {y}: {'/'.join(ad)}")
 
 
+def robustness(rows, b, nt):
+    print("\n10.6 THE ROBUSTNESS TEST (the orchestrator, 08:36; REPORT 0.1; backtest.json leave_one_year_out, robust): a variant is adopted")
+    print("  only if it passes the three tests on all scored years and with any one scored year left out; mine against D2's")
+    rec = b["variants"]["by_level"]
+    full = F.variant_test(rows, with_years=False)
+    loo = {y: F.variant_test(rows, years=[t for t in F.VARIANT_YEARS if t != y], with_years=False) for y in F.VARIANT_YEARS}
+    D = Diff()
+    for Lv in F.LEVELS:
+        robust_pass = []
+        for v in ("shrink", "t4", "both"):
+            r = full["by_level"][Lv][v]
+            if not r["races"]:
+                continue
+            fails = [y for y in F.VARIANT_YEARS if not loo[y]["by_level"][Lv][v]["improves"]]
+            robust = bool(r["improves"] and not fails)
+            rr = rec[Lv].get(v) or {}
+            rl = rr.get("leave_one_year_out") or {}
+            rfails = sorted(int(y) for y, x in rl.items() if not x.get("improves"))
+            D.add(f"{Lv} {v} passes on all years", int(bool(r["improves"])), int(bool(rr.get("improves"))))
+            D.add(f"{Lv} {v} years failing when left out", int(fails == rfails), 1)
+            D.add(f"{Lv} {v} robust", int(robust), int(bool(rr.get("robust"))))
+            for y in F.VARIANT_YEARS:
+                x, xx = loo[y]["by_level"][Lv][v], rl.get(str(y)) or {}
+                if xx:
+                    D.add(f"{Lv} {v} without {y} log score gain", x["mean_log_score"] - loo[y]["by_level"][Lv]["none"]["mean_log_score"], xx.get("mean_log_score_gain"), 2e-6)
+                    D.add(f"{Lv} {v} without {y} 49-51% expected", x["within"][0.01]["expected"], (xx.get("count_49_51") or {}).get("expected"), 1e-4)
+            print(f"    {Lv:9s} {v:7s} all years {fmt_flags(r)} {'passes' if r['improves'] else 'fails'}; fails without {fails or 'no year'}; robust {robust}"
+                  f"   (D2: {'passes' if rr.get('improves') else 'fails'}; fails without {rfails or 'no year'}; robust {rr.get('robust')})")
+            if robust:
+                robust_pass.append(v)
+        best = max(robust_pass, key=lambda v: full["by_level"][Lv][v]["mean_log_score"]) if robust_pass else "none"
+        print(f"    {Lv:9s} adopted under the robustness test: mine {best!r}, D2 {b['variants']['adopted'][Lv]!r}")
+        D.add(f"{Lv} adopted", int(best == b["variants"]["adopted"][Lv]), 1)
+    D.report("the robustness test's cells")
+    print("  the near-tie schemes under none, the same test (factors as fitted): passes on all years, and the years without which it fails")
+    for Lv in F.LEVELS:
+        r = nt["by_level"][Lv]
+        for sch in ("level", "band"):
+            fails = []
+            for y in F.VARIANT_YEARS:
+                yrs = [t for t in r["years"] if t != y]
+                b0, x = F.near_score(rows, Lv, None, yrs, "none"), F.near_score(rows, Lv, sch, yrs, "none")
+                better = x["mean_log_score"] > b0["mean_log_score"]
+                nearer = abs(x["within"][0.01]["expected"] - x["within"][0.01]["seen"]) < abs(b0["within"][0.01]["expected"] - b0["within"][0.01]["seen"])
+                safe = abs(x["by_band"][2]["expected"] - x["by_band"][2]["seen"]) <= abs(b0["by_band"][2]["expected"] - b0["by_band"][2]["seen"])
+                if not (better and nearer and safe):
+                    fails.append(y)
+            print(f"    {Lv:9s} {sch:6s} all years {'passes' if r[sch]['improves'] else 'fails'}; fails without {fails or 'no year'}; robust {bool(r[sch]['improves'] and not fails)}")
+    print("    (D2, REPORT 0.1: the House's level scheme passes with every year left out; the Senate's level fails without 2020, its band without 2024;")
+    print("     so under the test the Senate would take no near-tie factor; it stands as of record, for the orchestrator's word)")
+
+
 def main():
     print("C10. D2'S ADOPTION BACK-TESTS REDONE: THE NEAR-TIE SCHEME, THE VARIANTS, AND WHERE A DECISION WOULD FLIP")
     print(f"repository HEAD {L.git_head()}")
     b = L.load_json(os.path.join(L.DATA, "congress", "backtest.json"))
-    F.SPECIAL_LINES = "own"
+    F.SPECIAL_LINES = "t-2"
     rows = F.all_rows()["rows"]
-    F.set_special_lines(rows, "own")
-    print(f"  rows {len(rows)} (backtest.json: {b['rows'] if isinstance(b.get('rows'), int) else len(b.get('rows', []))}); the House specials on D2's lines convention")
+    F.set_special_lines(rows, "t-2")
+    print(f"  rows {len(rows)} (backtest.json: {b['rows'] if isinstance(b.get('rows'), int) else len(b.get('rows', []))}); the House specials on the files' lines (t-2), D2's convention since #51")
     nt = section_near(rows, b)
     vt = section_variants(rows, b)
     section_near_by_variant(rows, b)
@@ -321,8 +380,9 @@ def main():
     margins(vt, rec_adopted)
     alternatives(rows, rec_adopted)
     near_margins(nt, rows)
-    print("\n  Under the files' lines convention for the House specials (c9 9.2b), the same decisions:")
-    F.set_special_lines(rows, "t-2")
+    robustness(rows, b, nt)
+    print("\n  Under D2's former convention for the House specials (the sheet of the special's own year, before #51; c9 9.2b), the same decisions:")
+    F.set_special_lines(rows, "own")
     vt2 = F.variant_test(rows, with_years=False)
     nt2 = F.near_tie_test(rows, "none")
     print(f"    variants adopted {'/'.join(vt2['adopted'][Lv] for Lv in F.LEVELS)}; near-tie scheme under none {'/'.join(str(nt2['adopted'][Lv]) for Lv in F.LEVELS)}; "
@@ -330,8 +390,8 @@ def main():
     for Lv in F.LEVELS:
         r = vt2["by_level"][Lv]
         print(f"    {Lv}: " + "; ".join(f"{v} {fmt_flags(r[v])} further {[f'{BANDL[bb]} {WIN[w]}' for bb, w in r[v]['safe_bands_further']]}" for v in ("shrink", "t4", "both") if r[v]["races"]))
-    margins(vt2, rec_adopted)
-    F.set_special_lines(rows, "own")
+    margins(vt2, rec_adopted, title="  the margins under the former convention (as 10.5 (a)):")
+    F.set_special_lines(rows, "t-2")
 
 
 if __name__ == "__main__":

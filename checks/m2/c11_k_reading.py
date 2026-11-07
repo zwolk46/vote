@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m2fit as F  # noqa: E402
 import m2lib as L  # noqa: E402
 
-RECORD = {"house": "shrink", "senate": "none", "governor": "t4"}
-RECORD_SCHEME = {"house": "band", "senate": "level", "governor": None}
+RECORD = {"house": "none", "senate": "none", "governor": "none"}   # after #51: round 5 withdrawn, every level D2-v3
+RECORD_SCHEME = {"house": "level", "senate": "level", "governor": None}
 WIN = {0.01: "49-51%", 0.02: "48-52%", 0.05: "45-55%"}
 BANDL = ["0.00-0.05", "0.05-0.10", "0.10-0.20", "0.20 up"]
 
@@ -54,7 +54,7 @@ def main():
     print("C11. THE SPREAD FACTOR k: A READING (chosen: nothing)")
     print(f"repository HEAD {L.git_head()}")
     rows = F.all_rows()["rows"]
-    F.set_special_lines(rows, "own")
+    F.set_special_lines(rows, "t-2")
     years = F.VARIANT_YEARS
     for Lv in F.LEVELS:
         rec = RECORD[Lv]
