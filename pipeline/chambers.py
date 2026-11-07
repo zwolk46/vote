@@ -1499,6 +1499,8 @@ def compute(year):
                       "of_forecast": head["of_forecast"], "alongside": rest}
             if "sd" in head:
                 c["p"]["sd"] = head["sd"]
+            if "value_uncalibrated" in head:
+                c["p"]["value_uncalibrated"] = head["value_uncalibrated"]
         if any(f.get("by") == "538" for c in d["contests"] for f in c.get("forecasts") or []):
             d["sources"][f"{level}_538"] = FTE["source"][level]
         if m and level in ("house", "senate"):
