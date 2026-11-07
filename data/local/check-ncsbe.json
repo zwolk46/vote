@@ -1523,7 +1523,555 @@
    "differences": []
   }
  },
- "legislature_medsl_2024": {},
+ "legislature_medsl_2024": {
+  "date": "2024-11-05",
+  "tally": {
+   "equal": 124,
+   "differ": 46
+  },
+  "differences": [
+   {
+    "district": "state-upper 32",
+    "ncsbe": [
+     67131,
+     27442,
+     2758
+    ],
+    "medsl": [
+     66488,
+     27281,
+     2715
+    ],
+    "largest_difference": 643
+   },
+   {
+    "district": "state-lower 46",
+    "ncsbe": [
+     29064
+    ],
+    "medsl": [
+     29537
+    ],
+    "largest_difference": 473
+   },
+   {
+    "district": "state-upper 8",
+    "ncsbe": [
+     87026,
+     58259
+    ],
+    "medsl": [
+     87420,
+     58546
+    ],
+    "largest_difference": 394
+   },
+   {
+    "district": "state-lower 72",
+    "ncsbe": [
+     31479
+    ],
+    "medsl": [
+     31141
+    ],
+    "largest_difference": 338
+   },
+   {
+    "district": "state-upper 3",
+    "ncsbe": [
+     64025,
+     42704
+    ],
+    "medsl": [
+     63782,
+     42466
+    ],
+    "largest_difference": 243
+   },
+   {
+    "district": "state-upper 31",
+    "ncsbe": [
+     78429,
+     47035
+    ],
+    "medsl": [
+     78211,
+     46857
+    ],
+    "largest_difference": 218
+   },
+   {
+    "district": "state-lower 3",
+    "ncsbe": [
+     29825,
+     18530
+    ],
+    "medsl": [
+     29616,
+     18321
+    ],
+    "largest_difference": 209
+   },
+   {
+    "district": "state-lower 71",
+    "ncsbe": [
+     31755
+    ],
+    "medsl": [
+     31550
+    ],
+    "largest_difference": 205
+   },
+   {
+    "district": "state-lower 75",
+    "ncsbe": [
+     26118,
+     19743
+    ],
+    "medsl": [
+     26008,
+     19623
+    ],
+    "largest_difference": 120
+   },
+   {
+    "district": "state-lower 74",
+    "ncsbe": [
+     26908,
+     25015
+    ],
+    "medsl": [
+     26820,
+     24952
+    ],
+    "largest_difference": 88
+   },
+   {
+    "district": "state-lower 91",
+    "ncsbe": [
+     29819,
+     14583
+    ],
+    "medsl": [
+     29794,
+     14504
+    ],
+    "largest_difference": 79
+   },
+   {
+    "district": "state-lower 13",
+    "ncsbe": [
+     35181,
+     15158
+    ],
+    "medsl": [
+     35154,
+     15126
+    ],
+    "largest_difference": 32
+   },
+   {
+    "district": "state-upper 1",
+    "ncsbe": [
+     62805,
+     46979
+    ],
+    "medsl": [
+     62801,
+     46962
+    ],
+    "largest_difference": 17
+   },
+   {
+    "district": "state-upper 29",
+    "ncsbe": [
+     70881,
+     32519
+    ],
+    "medsl": [
+     70864,
+     32508
+    ],
+    "largest_difference": 17
+   },
+   {
+    "district": "state-lower 5",
+    "ncsbe": [
+     22357,
+     18924
+    ],
+    "medsl": [
+     22351,
+     18908
+    ],
+    "largest_difference": 16
+   },
+   {
+    "district": "state-lower 67",
+    "ncsbe": [
+     36358,
+     12099
+    ],
+    "medsl": [
+     36342,
+     12087
+    ],
+    "largest_difference": 16
+   },
+   {
+    "district": "state-upper 21",
+    "ncsbe": [
+     67494,
+     40052
+    ],
+    "medsl": [
+     67508,
+     40065
+    ],
+    "largest_difference": 14
+   },
+   {
+    "district": "state-upper 42",
+    "ncsbe": [
+     62260,
+     62051
+    ],
+    "medsl": [
+     62269,
+     62065
+    ],
+    "largest_difference": 14
+   },
+   {
+    "district": "state-lower 78",
+    "ncsbe": [
+     38928,
+     11985
+    ],
+    "medsl": [
+     38936,
+     11989
+    ],
+    "largest_difference": 8
+   },
+   {
+    "district": "state-upper 18",
+    "ncsbe": [
+     59667,
+     59539,
+     3906
+    ],
+    "medsl": [
+     59665,
+     59531,
+     3905
+    ],
+    "largest_difference": 8
+   },
+   {
+    "district": "state-lower 32",
+    "ncsbe": [
+     21215,
+     20987,
+     1140
+    ],
+    "medsl": [
+     21213,
+     20980,
+     1140
+    ],
+    "largest_difference": 7
+   },
+   {
+    "district": "state-upper 40",
+    "ncsbe": [
+     67654,
+     17569
+    ],
+    "medsl": [
+     67660,
+     17570
+    ],
+    "largest_difference": 6
+   },
+   {
+    "district": "state-lower 52",
+    "ncsbe": [
+     25835,
+     16466
+    ],
+    "medsl": [
+     25838,
+     16472
+    ],
+    "largest_difference": 6
+   },
+   {
+    "district": "state-lower 99",
+    "ncsbe": [
+     27772,
+     4373
+    ],
+    "medsl": [
+     27778,
+     4374
+    ],
+    "largest_difference": 6
+   },
+   {
+    "district": "state-lower 105",
+    "ncsbe": [
+     27299,
+     27086
+    ],
+    "medsl": [
+     27303,
+     27087
+    ],
+    "largest_difference": 4
+   },
+   {
+    "district": "state-upper 5",
+    "ncsbe": [
+     59440,
+     48469
+    ],
+    "medsl": [
+     59443,
+     48470
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-lower 51",
+    "ncsbe": [
+     25829,
+     14339
+    ],
+    "medsl": [
+     25832,
+     14342
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-upper 39",
+    "ncsbe": [
+     88183
+    ],
+    "medsl": [
+     88186
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-lower 85",
+    "ncsbe": [
+     36145,
+     12574
+    ],
+    "medsl": [
+     36147,
+     12577
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-upper 47",
+    "ncsbe": [
+     75607,
+     42247
+    ],
+    "medsl": [
+     75609,
+     42250
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-lower 103",
+    "ncsbe": [
+     25772,
+     18609
+    ],
+    "medsl": [
+     25775,
+     18612
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-upper 38",
+    "ncsbe": [
+     94162
+    ],
+    "medsl": [
+     94165
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-lower 23",
+    "ncsbe": [
+     25140,
+     19390
+    ],
+    "medsl": [
+     25142,
+     19391
+    ],
+    "largest_difference": 2
+   },
+   {
+    "district": "state-upper 9",
+    "ncsbe": [
+     68632,
+     36900
+    ],
+    "medsl": [
+     68634,
+     36900
+    ],
+    "largest_difference": 2
+   },
+   {
+    "district": "state-lower 4",
+    "ncsbe": [
+     22093,
+     12961
+    ],
+    "medsl": [
+     22095,
+     12961
+    ],
+    "largest_difference": 2
+   },
+   {
+    "district": "state-lower 92",
+    "ncsbe": [
+     37214
+    ],
+    "medsl": [
+     37216
+    ],
+    "largest_difference": 2
+   },
+   {
+    "district": "state-lower 2",
+    "ncsbe": [
+     28332,
+     20874
+    ],
+    "medsl": [
+     28332,
+     20873
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-upper 37",
+    "ncsbe": [
+     82832,
+     45129
+    ],
+    "medsl": [
+     82833,
+     45129
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 25",
+    "ncsbe": [
+     23868,
+     23407,
+     1630
+    ],
+    "medsl": [
+     23869,
+     23408,
+     1631
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 104",
+    "ncsbe": [
+     27629,
+     21748
+    ],
+    "medsl": [
+     27630,
+     21748
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-upper 41",
+    "ncsbe": [
+     95805
+    ],
+    "medsl": [
+     95806
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 9",
+    "ncsbe": [
+     26888,
+     21173
+    ],
+    "medsl": [
+     26888,
+     21174
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 98",
+    "ncsbe": [
+     27083,
+     24800
+    ],
+    "medsl": [
+     27084,
+     24800
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 106",
+    "ncsbe": [
+     40633
+    ],
+    "medsl": [
+     40634
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 102",
+    "ncsbe": [
+     39811
+    ],
+    "medsl": [
+     39812
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 101",
+    "ncsbe": [
+     34424
+    ],
+    "medsl": [
+     34425
+    ],
+    "largest_difference": 1
+   }
+  ]
+ },
  "medsl_local": {
   "2016": {
    "date": "2016-11-08",
