@@ -1,10 +1,10 @@
 {
  "tallies": {
-  "medsl contest without a like-named Klarner contest": 699,
-  "matched": 4122,
-  "same winner": 4041,
-  "D and R votes identical": 3426,
-  "winner differs": 81,
+  "medsl contest without a like-named Klarner contest": 700,
+  "matched": 4235,
+  "same winner": 4153,
+  "D and R votes identical": 3539,
+  "winner differs": 82,
   "a major party's candidate in one source only": 86,
   "two-party share within 1 point, counts differ": 574,
   "two-party share differs by more than 1 point": 36
@@ -224,6 +224,12 @@
    "D and R votes identical": 222,
    "winner differs": 2,
    "two-party share within 1 point, counts differ": 6
+  },
+  "RI": {
+   "matched": 113,
+   "same winner": 112,
+   "D and R votes identical": 113,
+   "winner differs": 1
   },
   "SC": {
    "matched": 124,

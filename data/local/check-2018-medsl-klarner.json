@@ -2,9 +2,9 @@
  "tallies": {
   "matched": 4130,
   "same winner": 4077,
-  "D and R votes identical": 3785,
-  "medsl contest without a like-named Klarner contest": 747,
-  "two-party share within 1 point, counts differ": 305,
+  "D and R votes identical": 3763,
+  "medsl contest without a like-named Klarner contest": 748,
+  "two-party share within 1 point, counts differ": 327,
   "winner differs": 53,
   "two-party share differs by more than 1 point": 13,
   "a major party's candidate in one source only": 27
@@ -151,7 +151,8 @@
   "NC": {
    "matched": 170,
    "same winner": 169,
-   "D and R votes identical": 170,
+   "D and R votes identical": 148,
+   "two-party share within 1 point, counts differ": 22,
    "winner differs": 1
   },
   "NE": {
@@ -2527,6 +2528,23 @@
    "same_winner": true
   },
   {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "48",
+   "klarner": [
+    14619,
+    8641
+   ],
+   "medsl": [
+    14554,
+    8613
+   ],
+   "relative": 0.004,
+   "medsl_over_klarner": 0.996,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
    "state": "AL",
    "chamber": "state-lower",
    "district": "68",
@@ -3020,6 +3038,23 @@
    "same_winner": true
   },
   {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "70",
+   "klarner": [
+    5620,
+    18717
+   ],
+   "medsl": [
+    5600,
+    18673
+   ],
+   "relative": 0.0026,
+   "medsl_over_klarner": 0.997,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
    "state": "AL",
    "chamber": "state-lower",
    "district": "9",
@@ -3428,6 +3463,40 @@
    "same_winner": true
   },
   {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "21",
+   "klarner": [
+    33238,
+    13616
+   ],
+   "medsl": [
+    33176,
+    13585
+   ],
+   "relative": 0.002,
+   "medsl_over_klarner": 0.998,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "26",
+   "klarner": [
+    21217,
+    39103
+   ],
+   "medsl": [
+    21168,
+    39029
+   ],
+   "relative": 0.002,
+   "medsl_over_klarner": 0.998,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
    "state": "AL",
    "chamber": "state-lower",
    "district": "58",
@@ -3730,6 +3799,23 @@
    ],
    "relative": 0.0016,
    "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "78",
+   "klarner": [
+    5612,
+    20829
+   ],
+   "medsl": [
+    5593,
+    20805
+   ],
+   "relative": 0.0016,
+   "medsl_over_klarner": 0.998,
    "what": "two-party share within 1 point, counts differ",
    "same_winner": true
   },
@@ -4363,6 +4449,23 @@
    "same_winner": true
   },
   {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "27",
+   "klarner": [
+    16783,
+    7426
+   ],
+   "medsl": [
+    16768,
+    7420
+   ],
+   "relative": 0.0009,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
    "state": "AL",
    "chamber": "state-upper",
    "district": "17",
@@ -4499,6 +4602,40 @@
    "same_winner": true
   },
   {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "26",
+   "klarner": [
+    15283,
+    22770
+   ],
+   "medsl": [
+    15277,
+    22751
+   ],
+   "relative": 0.0007,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "28",
+   "klarner": [
+    9373,
+    17237
+   ],
+   "medsl": [
+    9366,
+    17225
+   ],
+   "relative": 0.0007,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
    "state": "AL",
    "chamber": "state-lower",
    "district": "27",
@@ -4529,6 +4666,23 @@
    ],
    "relative": 0.0006,
    "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "46",
+   "klarner": [
+    7339,
+    12687
+   ],
+   "medsl": [
+    7331,
+    12683
+   ],
+   "relative": 0.0006,
+   "medsl_over_klarner": 0.999,
    "what": "two-party share within 1 point, counts differ",
    "same_winner": true
   },
@@ -4652,6 +4806,40 @@
    "same_winner": true
   },
   {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "16",
+   "klarner": [
+    12443,
+    18146
+   ],
+   "medsl": [
+    12430,
+    18144
+   ],
+   "relative": 0.0005,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "13",
+   "klarner": [
+    18661,
+    31106
+   ],
+   "medsl": [
+    18644,
+    31098
+   ],
+   "relative": 0.0005,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
    "state": "FL",
    "chamber": "state-lower",
    "district": "26",
@@ -4720,6 +4908,23 @@
    "same_winner": true
   },
   {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "11",
+   "klarner": [
+    35258,
+    45768
+   ],
+   "medsl": [
+    35250,
+    45743
+   ],
+   "relative": 0.0004,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
    "state": "TX",
    "chamber": "state-lower",
    "district": "11",
@@ -4781,6 +4986,23 @@
    "medsl": [
     10357,
     13666
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "4",
+   "klarner": [
+    36471,
+    25391
+   ],
+   "medsl": [
+    36459,
+    25382
    ],
    "relative": 0.0003,
    "medsl_over_klarner": 1.0,
@@ -5002,6 +5224,40 @@
    "medsl": [
     5991,
     10996
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "71",
+   "klarner": [
+    18242,
+    6861
+   ],
+   "medsl": [
+    18237,
+    6861
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "10",
+   "klarner": [
+    20057,
+    33366
+   ],
+   "medsl": [
+    20050,
+    33360
    ],
    "relative": 0.0002,
    "medsl_over_klarner": 1.0,
@@ -5553,6 +5809,57 @@
    "same_winner": true
   },
   {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": [
+    8329,
+    18838
+   ],
+   "medsl": [
+    8329,
+    18836
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "103",
+   "klarner": [
+    19133,
+    19065
+   ],
+   "medsl": [
+    19134,
+    19064
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "32",
+   "klarner": [
+    47221,
+    17572
+   ],
+   "medsl": [
+    47216,
+    17572
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
    "state": "NY",
    "chamber": "state-upper",
    "district": "58",
@@ -6005,6 +6312,74 @@
    "medsl": [
     21643,
     15823
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "75",
+   "klarner": [
+    15599,
+    17652
+   ],
+   "medsl": [
+    15599,
+    17651
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-lower",
+   "district": "94",
+   "klarner": [
+    7998,
+    21278
+   ],
+   "medsl": [
+    7998,
+    21277
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "31",
+   "klarner": [
+    34693,
+    54267
+   ],
+   "medsl": [
+    34693,
+    54266
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NC",
+   "chamber": "state-upper",
+   "district": "45",
+   "klarner": [
+    26293,
+    48998
+   ],
+   "medsl": [
+    26293,
+    48997
    ],
    "relative": 0.0,
    "medsl_over_klarner": 1.0,

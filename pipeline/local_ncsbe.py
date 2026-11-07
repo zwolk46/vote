@@ -170,7 +170,7 @@ def classify(dates):
             ds = [x for x, where in seen[(d[:4], base, party)] if where & here]
             earlier, later = [x for x in ds if x < d], [x for x in ds if x > d]
             leg = LEG.match(base)
-            if FEDERAL.match(base) or GOVERNOR.match(base):
+            if FEDERAL.match(base) or GOVERNOR.match(base) or "STRAIGHT PARTY" in base:   # a town's too (2011)
                 c["_level"] = None
             elif is_question(c):
                 c["_level"] = "measure"
