@@ -60,3 +60,13 @@ Where either reader gets one wrong or cannot say, the page has failed there. Fix
 ## Done when
 
 Two or three versions are on one preview branch, with the checks passed and the cold readings recorded, and you have reported to the orchestrator in at most fifteen lines. Then wait for the maker's pick through the orchestrator, merge his pick, and stop (`_COMMON.md` 14).
+
+## Amended 2026-11-07 04:35 UTC: the visual explains; text only where truly needed
+
+The maker, 04:32 (`RULINGS.md`): "I want as much explanation as possible to be visual, because we must operate under the default assumption that AI-written prose will hardly at all serve the purpose of convincing or explaining by itself, at least without significant refinement. And the key idea that text should not be on the page given its cluttering nature unless truly needed to serve a purpose."
+
+This changes "Words are few and plain" above into a harder rule. *Reason:* his words; and the explainer is where prose is most tempting, since each of the nine ideas could be said in a sentence.
+- **Each of the nine ideas is carried by the picture.** A step's words, if any, name what the reader is looking at; they do not explain it. If a step only works with its sentence, the step's visual is redesigned first. Examples of the kind of thing meant, not a list to keep to: the two worlds as two counts side by side that differ by one ballot; the tie as a coin; the chance of a tie as the height of the forecast curve at 50-50, falling as the crowd grows; the break-even stakes as the cost stacked N times.
+- **A text ledger**, in `design/TEXT-LEDGER.md` beside the first screen's: every sentence in each version, what a reader fails without it, and why no visual carries it. A sentence with no entry is cut.
+- **What stays is refined**, word by word, not left as drafted.
+- **A third cold reading, of the visuals alone**, before the two in "The test before he sees it": a fresh layperson reader sees each step's screenshots with every sentence removed (labels, figures and axes kept) and explains the five questions as best it can. Where it fails, improve the visual, then add a word only if the visual cannot be made to carry it. Record it verbatim in `design/EXPLAINER-READINGS.md`, and report how many sentences each version has.

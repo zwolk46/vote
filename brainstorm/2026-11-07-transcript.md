@@ -77,3 +77,7 @@
 **Orchestrator, 04:10.** "Adding that reader to the explainer's test, and to the first-screen options too."
 
 **Orchestrator, 04:11.** "Done. Both the explainer and the first-screen options now get two cold readers before you see them: one with no statistics, and one told to be a total layperson who doesn't know what a cost-benefit analysis is. The page has to teach that weighing itself. The designer has your notes on option C and the midterms dot charts too."
+
+**Zach, 04:32 UTC (this thread):** "I want as much explanation as possible to be visual, because we must operate under the default assumption that AI-written prose will hardly at all serve the purpose of convincing or explaining by itself, at least without significant refinement. And the key idea that text should not be on the page given its cluttering nature unless truly needed to serve a purpose."
+
+**Orchestrator, 04:33.** "Recording this as a ruling now, then passing it to the design thread so the first screen and the explainer are cut to visuals."
