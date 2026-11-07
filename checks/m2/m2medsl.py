@@ -1,0 +1,319 @@
+"""checks/m2/m2medsl.py: M2's own reader of MEDSL's precinct files and of North Carolina's State Board results files,
+for the fifth pass (c34, c36).
+
+Reads the raw files checks/m2/fetch_fifth_pass.sh fetched (MEDSL's 2016 local set, its 2018 per-state zips and 2020
+local zip from GitHub, its 2022 and 2024 Dataverse files; the State Board's results_pct zips) and summarises each once
+into ~/.cache/vote-m2/fifth/derived/<file>.json (a deterministic summary of the raw file, remade if missing):
+  counties_all      "ST|date" -> every five-digit county with a positive vote in any contest below Congress (MEDSL's
+                    dataverse STATE or LOCAL; the candidate not a total or a blank line);
+  county_precincts  "ST|date|county" -> the county's precincts in the file on the date: from 2018, a precinct key with
+                    a positive vote in any contest of any kind; in 2016, every key on a general-election row (as
+                    pipeline/intake/medsl_county_precincts.py counts them, so that the counts can be compared; the
+                    precinct key is (county FIPS, jurisdiction FIPS or jurisdiction, precinct), as that script's);
+  state_contests    "ST|date|office|district" (dataverse STATE, stage GEN) -> its counties with a positive vote, the
+                    magnitudes on its rows, its precincts with a vote, its candidates' votes;
+  questions         "ST|date|county|office|district" (dataverse LOCAL, or any row of the 2016 local set, whose
+                    candidate is an answer: answer_of) -> its precincts with a positive vote, every precinct key on
+                    its rows, the yes and no votes.
+A precinct's votes for a candidate are its TOTAL row where it has one, else the sum of its modes (MEDSL's README).
+Nothing from pipeline/ is imported; the total and blank lines MEDSL keeps as candidates are listed here again
+(NOT_CANDIDATES, _META), copied from pipeline/intake/medsl_precinct.py so that the same rows are skipped.
+"""
+import collections
+import csv
+import hashlib
+import io
+import json
+import os
+import re
+import sys
+import zipfile
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import m2lib as L  # noqa: E402
+
+FIFTH = os.path.join(L.CACHE, "fifth")
+DERIVED = os.path.join(FIFTH, "derived")
+csv.field_size_limit(1 << 24)
+
+# copied from pipeline/intake/medsl_precinct.py (NOT_CANDIDATES and _META), so that the same rows are read as no candidate
+NOT_CANDIDATES = {"", "OVERVOTES", "UNDERVOTES", "OVER VOTES", "UNDER VOTES", "BLANK", "BLANK VOTES", "SPOILED",
+                  "TOTAL VOTES", "BALLOTS CAST", "REGISTERED VOTERS", "OVERVOTE", "UNDERVOTE", "NONE OF THE ABOVE",
+                  "CONTEST TOTAL", "CAST VOTES", "VOID", "BLANKS", "BLANK BALLOTS", "INVALID VOTES", "INVALID",
+                  "NO CANDIDATE FILED", "NO PETITION FILED",
+                  "PUBLIC COUNTER", "ABSENTEE / MILITARY", "AFFIDAVIT", "FEDERAL", "MANUALLY COUNTED EMERGENCY",
+                  "SPECIAL VOTES", "BLANK/VOID", "NONE OF THESE CANDIDATES"}
+_META = re.compile(r"^(TOTAL\b|VOTE FOR \d|TIMES (BLANK|OVER|UNDER)|.*\b(VOTES CAST|BALLOTS CAST|REGISTERED VOTERS|OVER ?VOTES?|"
+                   r"UNDER ?VOTES?|BLANK VOTES?)\b)")
+ANSWERS = {"YES", "NO", "FOR", "AGAINST", "APPROVE", "REJECT", "APPROVED", "REJECTED", "ACCEPT", "RETAIN",
+           "NOT RETAIN", "DO NOT RETAIN", "BONDS YES", "BONDS NO", "YES ON", "NO ON", "FOR THE MEASURE",
+           "AGAINST THE MEASURE", "IN FAVOR", "OPPOSED", "IN FAVOR OF", "YES FOR APPROVAL", "NO FOR REJECTION"}
+
+
+def is_meta(cand):
+    c = cand.strip().upper()
+    return c in NOT_CANDIDATES or bool(_META.match(c))
+
+
+_YES = re.compile(r"^(YES|FOR|IN FAVOR|APPROVE|APPROVED|ACCEPT|RETAIN|BONDS YES)\b|\b(- |\()?YES\)?$")
+_NO = re.compile(r"^(NO|AGAINST|OPPOSED|REJECT|REJECTED|NOT RETAIN|DO NOT RETAIN|BONDS NO)\b|\b(- |\()?NO\)?$")
+
+
+def answer_of(cand):
+    """YES or NO where a candidate line is a question's answer ('YES', 'For', 'Yes - Jefferson County Amendment',
+    'AGAINST THE PROPOSITION - NO'; MEDSL's 2016 files word the answers so), else None"""
+    c = " ".join(cand.strip().upper().split())
+    if c in ANSWERS:
+        return "NO" if c.startswith(("NO", "AGAINST", "REJECT", "OPPOSED", "NOT RETAIN", "DO NOT RETAIN", "BONDS NO")) else "YES"
+    if _YES.search(c) and not _NO.search(c):
+        return "YES"
+    if _NO.search(c) and not _YES.search(c):
+        return "NO"
+    if " - " in c:   # 'JUDI FULLER - AGAINST', 'JUDI FULLER - FOR RECALLING JUDI FULLER' (ID 2024): the part after the name
+        return answer_of(c.split(" - ", 1)[1])
+    return None
+
+
+def fips5(x):
+    x = (x or "").strip()
+    if re.fullmatch(r"\d{1,5}(\.0+)?", x):
+        return f"{int(float(x)):05d}"
+    return x
+
+
+def office_key(o):
+    """one spelling of an office: upper case, single spaces, no spaces inside brackets, no trailing punctuation
+    (pipeline/intake/medsl_precinct.py _office16 reads 2016's offices so; applied here to every year's for matching)"""
+    o = re.sub(r"\s+", " ", (o or "").upper()).strip().rstrip(",.;")
+    return re.sub(r"\(\s+", "(", re.sub(r"\s+\)", ")", o))
+
+
+def rows(path):
+    """the rows of a csv, or of every csv inside a zip (read in place)"""
+    if path.lower().endswith(".zip"):
+        with zipfile.ZipFile(path) as z:
+            for member in z.namelist():
+                if member.lower().endswith((".csv", ".tab", ".txt")) and not member.startswith("__MACOSX"):
+                    with z.open(member) as raw:
+                        delim = "\t" if member.lower().endswith(".tab") else ","
+                        yield from csv.DictReader(io.TextIOWrapper(raw, encoding="utf-8", errors="replace"), delimiter=delim)
+        return
+    with open(path, newline="", encoding="utf-8", errors="replace") as f:
+        yield from csv.DictReader(f)
+
+
+def _resolve(modes):
+    if "TOTAL" in modes:
+        return modes["TOTAL"]
+    if any(x is None for x in modes.values()):
+        return None
+    return sum(modes.values())
+
+
+def fetched():
+    """key -> path of what checks/m2/fetch_fifth_pass.sh fetched (HTTP 200), and the git-shown MEDSL zips by name"""
+    out = {}
+    p = os.path.join(FIFTH, "index.txt")
+    if not os.path.exists(p):
+        return out
+    for line in open(p):
+        f = line.rstrip("\n").split("\t")
+        if f[0] == "medsl" and len(f) >= 4 and os.path.exists(f[3]):
+            out["medsl:2018:" + os.path.basename(f[3])] = f[3]
+        elif len(f) >= 6 and f[1] == "200" and os.path.exists(f[5]):
+            out[f[0]] = f[5]
+    return out
+
+
+def medsl_file(year, st):
+    """the raw MEDSL file of a state-year, among those fetched: 2018 and 2024 by state, 2022 by its own names, 2020
+    and 2016 the one file"""
+    f = fetched()
+    if year == 2016:
+        return f.get("medsl:2016:2016-precinct-local.csv")
+    return _one_file(f, year, st)
+
+
+def medsl_files(year, st):
+    """every raw MEDSL file of a state-year the pipeline reads its questions from: 2016's two sets (local and state),
+    else the one file"""
+    f = fetched()
+    if year == 2016:
+        return [p for k in ("medsl:2016:2016-precinct-local.csv", "medsl:2016:2016-precinct-state.csv") for p in [f.get(k)] if p]
+    p = _one_file(f, year, st)
+    return [p] if p else []
+
+
+def _one_file(f, year, st):
+    if year == 2020:
+        p = os.path.join(L.CACHE, "fourth", "medsl", "2020-all-states-local-precinct-general.zip")
+        return p if os.path.exists(p) else None
+    if year == 2018:
+        for k, p in f.items():
+            if k.startswith("medsl:2018:") and p.endswith(f"2018-{st.lower()}-precinct-general.zip"):
+                return p
+        p = os.path.join(L.CACHE, "fourth", "medsl", f"2018-{st.lower()}-precinct-general.zip")
+        return p if os.path.exists(p) else None
+    if year == 2024:
+        return f.get(f"medsl:2024:2024-{st.lower()}-precinct-general.csv")
+    if year == 2022:
+        for k, p in f.items():
+            n = os.path.basename(p).lower()
+            if k.startswith("medsl:2022:") and (n.startswith(f"2022-{st.lower()}-") or n.startswith(st.lower() + "22")
+                                                 or n.startswith(st.lower() + "-") or n.startswith(st.lower() + "_")):
+                return p
+    return None
+
+
+def summary(path, year):
+    """the derived summary of one raw file (made once; read from the cache after)"""
+    os.makedirs(DERIVED, exist_ok=True)
+    out_path = os.path.join(DERIVED, os.path.basename(path) + ".json")
+    if os.path.exists(out_path):
+        with open(out_path) as f:
+            return json.load(f)
+    sha = L.sha256(path)
+    counties_all = collections.defaultdict(set)
+    county_pk = collections.defaultdict(set)
+    state_c = {}      # (st, date, office, district) -> {pk: {cand: {mode: votes}}}, magnitudes
+    state_mag = collections.defaultdict(set)
+    quest = {}        # (st, date, county, office, district) -> {pk: {cand: {mode: votes}}}
+    quest_all_pk = collections.defaultdict(set)
+    n = 0
+    for r in rows(path):
+        n += 1
+        if year == 2016:
+            st = r.get("state_postal", "")
+            stage = (r.get("stage") or "").upper()
+            if stage != "GEN":
+                continue
+            date = "2016-11-08"
+            dv = "LOCAL"
+            pk = (fips5(r.get("county_fips", "")), r.get("jurisdiction", ""), r.get("precinct", ""))
+        else:
+            st = r.get("state_po", "")
+            stage = (r.get("stage") or "").upper()
+            date = r.get("date", "")
+            dv = r.get("dataverse", "")
+            pk = (fips5(r.get("county_fips", "")), r.get("jurisdiction_fips", ""), r.get("precinct", ""))
+        cand = (r.get("candidate") or "").strip()
+        try:
+            votes = int(float(r.get("votes") or ""))
+        except ValueError:
+            votes = None
+        if is_meta(cand):
+            continue
+        if year == 2016:   # any general-election row of the file (the pipeline's county counts: meta lines aside)
+            county_pk[(st, date, pk[0])].add(pk)
+        elif votes is not None and votes > 0:
+            county_pk[(st, date, pk[0])].add(pk)
+        mode = (r.get("mode") or "TOTAL").upper()
+        office = office_key(r.get("office"))
+        district = (r.get("district") or "").strip()
+        if dv in ("STATE", "LOCAL") and votes is not None and votes > 0 and re.fullmatch(r"\d{5}", pk[0]):
+            counties_all[(st, date)].add(pk[0])
+        if dv == "STATE" and stage == "GEN":
+            key = (st, date, office, district)
+            cell = state_c.setdefault(key, {}).setdefault(pk, {}).setdefault(cand.upper(), {})
+            cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
+            state_mag[key].add((r.get("magnitude") or "").strip())
+        ans = answer_of(cand) if (dv == "LOCAL" or year == 2016) else None
+        if ans:
+            key = (st, date, pk[0], office, district)
+            cell = quest.setdefault(key, {}).setdefault(pk, {}).setdefault(ans, {})
+            cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
+            quest_all_pk[key].add(pk)
+
+    def fold(precincts):
+        voted = set()
+        tot = collections.Counter()
+        for pk, cands in precincts.items():
+            for c, modes in cands.items():
+                v = _resolve(modes)
+                if v is not None:
+                    tot[c] += v
+                if (v or 0) > 0:
+                    voted.add(pk)
+        return voted, tot
+    sc = {}
+    for key, precincts in state_c.items():
+        voted, tot = fold(precincts)
+        sc["|".join(key)] = {"counties": sorted({pk[0] for pk in voted}), "precincts": len(voted),
+                             "magnitudes": sorted(state_mag[key]), "cands": dict(tot)}
+    qs = {}
+    for key, precincts in quest.items():
+        voted, tot = fold(precincts)
+        qs["|".join(key)] = {"precincts": len(voted), "all_keys": len(quest_all_pk[key]), "answers": dict(tot)}
+    out = {"file": os.path.basename(path), "sha256": sha, "rows": n, "year": year,
+           "counties_all": {"|".join(k): sorted(v) for k, v in counties_all.items()},
+           "county_precincts": {"|".join(k): len(v) for k, v in county_pk.items()},
+           "state_contests": sc, "questions": qs}
+    with open(out_path, "w") as f:
+        json.dump(out, f)
+    return out
+
+
+# ------------------------------------------------------------------------------------------ North Carolina
+def ncsbe_summary(path):
+    """one State Board results_pct file: contest name -> {counties, vote_for values, choices' votes, precincts};
+    the columns by the file's own header (county, contest_name or contest, choice or name_on_ballot, vote_for,
+    total_votes or total_vote_count or ballot_count; pipeline/intake/ncsbe.py names the layouts)"""
+    os.makedirs(DERIVED, exist_ok=True)
+    out_path = os.path.join(DERIVED, os.path.basename(path) + ".json")
+    if os.path.exists(out_path):
+        with open(out_path) as f:
+            return json.load(f)
+    with zipfile.ZipFile(path) as z:
+        names = [n for n in z.namelist() if not n.endswith("/")]
+        raw = z.read(names[0])
+    text = raw.decode("utf-8-sig", errors="replace") if raw[:3] == b"\xef\xbb\xbf" else raw.decode("latin-1")
+    first = text.split("\n", 1)[0]
+    delim = "\t" if first.count("\t") > first.count(",") else ","
+    rd = csv.reader(io.StringIO(text), delimiter=delim)
+    row1 = next(rd)
+    head = None
+    pending = []
+    if row1 and row1[0].strip().lower().startswith("county"):
+        head = [re.sub(r"[^a-z0-9]+", "_", h.strip().lower()).strip("_") for h in row1]
+    else:
+        x = [v.strip() for v in row1]
+        if len(x) >= 10 and all(re.match(r"^\d+$", v) for v in x[6:10]):
+            head = ["county", "election_dt", "precinct", "contest", "name_on_ballot", "party_cd", "election_day_count",
+                    "absentee_count", "provisional_count", "total_vote_count"]
+        else:
+            head = ["county", "election_dt", "precinct_abbrv", "precinct", "contest_name", "name_on_ballot", "party_cd",
+                    "ballot_count", "ftp_date"]
+        pending = [row1]
+    con = {}
+    n = 0
+    for row in pending + list(rd):
+        if not row or all(not v.strip() for v in row):
+            continue
+        r = dict(zip(head, (v.strip() for v in row)))
+        n += 1
+        name = re.sub(r"\s+", " ", r.get("contest_name") or r.get("contest") or "").strip()
+        choice = r.get("choice") or r.get("name_on_ballot") or ""
+        v = (r.get("total_votes") or r.get("total_vote_count") or r.get("ballot_count") or "").replace(",", "")
+        votes = int(float(v)) if re.match(r"^-?\d+(\.\d+)?$", v) else None
+        if not name or not choice or votes is None:
+            continue
+        c = con.setdefault(name, {"counties": set(), "vote_for": set(), "choices": collections.Counter(), "precincts": set()})
+        c["counties"].add((r.get("county") or "").upper())
+        c["vote_for"].add((r.get("vote_for") or "").strip())
+        c["choices"][choice.upper()] += votes
+        c["precincts"].add(((r.get("county") or "").upper(), r.get("precinct") or r.get("precinct_abbrv") or ""))
+    out = {"file": os.path.basename(path), "sha256": L.sha256(path), "rows": n, "columns": head,
+           "contests": {k: {"counties": sorted(v["counties"]), "n_counties": len(v["counties"]),
+                            "vote_for": sorted(v["vote_for"]), "choices": dict(v["choices"]),
+                            "precincts": len(v["precincts"])} for k, v in con.items()}}
+    with open(out_path, "w") as f:
+        json.dump(out, f)
+    return out
+
+
+def hash_of(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
