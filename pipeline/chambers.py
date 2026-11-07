@@ -179,17 +179,26 @@ def aa_led_by_DR(r):
 def last_governor_index():
     """{state: [(year, Democrat's two-party share, special, source)]}: every governor election that a Democrat
     and a Republican led, odd years and specials included, the November round. From 2006, Cha, Kuriwaki and
-    Snyder (the record); before 2006, Algara and Amlani's county returns (aa_led_by_DR), Missouri apart."""
+    Snyder (the record); before 2006, and from 2006 where Cha does not hold the contest (New Jersey 2017, the
+    record's own source for that year), Algara and Amlani's county returns (aa_led_by_DR), Missouri apart. The
+    contests of 2023 and 2025 read from the states' own files are the last in the record, so none is any later
+    race's last race and they are not read here.
+    Reason for New Jersey 2017 (D2, 2026-11-07): the index took Algara and Amlani before 2006 only, so New Jersey
+    2021's last race was taken as 2013, though 2017 is in the record (data/governor/2017.json)."""
     out = {}
+    in_cha = set()
     for c in _load("cha/normalized/contests.json")["contests"]:
-        if c["office"] != "governor" or c["runoff"]:
+        if c["office"] != "governor":
+            continue
+        in_cha.add((c["year"], c["state"]))
+        if c["runoff"]:
             continue
         dr = _top_two_DR([a for a in c["candidates"]])
         if dr:
             out.setdefault(c["state"], []).append((c["year"], dr[0]["votes"] / (dr[0]["votes"] + dr[1]["votes"]),
                                                    bool(c["special"]), "cha"))
     for r in aa_governors():
-        if r["year"] >= 2006 or r["state"] in AA_INCOMPLETE:
+        if (r["year"] >= 2006 and (r["year"], r["state"]) in in_cha) or r["state"] in AA_INCOMPLETE:
             continue
         dr = aa_led_by_DR(r)
         if dr:
@@ -800,7 +809,7 @@ def model_source(year, level, m):
     return cc.source_block(f"the model's own forecast, method {method(level, m.get('variant'))}, fitted to the {level} races of "
                            + ("the even years " if year % 2 else "") +
                            f"{yrs[0]}-{yrs[-1]} ({len(yrs)} cycle{'s' if len(yrs) > 1 else ''}, all before {year})"
-                           + (f"; an odd year, {ODD_NOTE[m.get('odd_term') or 'plain']}" if year % 2 else "")
+                           + (f"; {ODD_NOTE[m.get('odd_term') or 'plain']}" if year % 2 else "")
                            + (f", with national terms from the Senate's earlier cycles ({nf['years'][0]}-"
                               f"{nf['years'][-1]})" if nf else ""),
                            "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
@@ -1835,7 +1844,7 @@ def too_few(level, year, fy):
 # unless both count and lean the same way.
 ODD_FROM = 1977          # the first odd year whose last presidential vote (1976) and sitting president are in the
                          # sources the inputs come from, the rule that makes 1978 the governors' first even year
-ODD_YEARS = list(range(ODD_FROM, 2024, 2))
+ODD_YEARS = list(range(ODD_FROM, 2026, 2))   # through 2025 (the orchestrator, 12:35: NJ and VA 2025)
 ODD_STATES = ("KY", "LA", "MS", "NJ", "VA")
 ODD_TERMS = {"plain": 0.0, "midterm": 1.0}
 ODD_NOTE = {"plain": "an odd year: neither the midterm nor the presidential-year term, z = (1, 0, 0) (the plain route; "
@@ -1846,6 +1855,65 @@ LEAN_KS = (1000, 5000, 10000, 20000, 50000)
 _ODD = {}
 
 
+def state_gov_contests(year):
+    """The governor contests of `year` read from the states' own certified files (pipeline/intake/state_governors.py:
+    New Jersey and Virginia 2025), gated within the certifying source; [] where the year has no such file."""
+    p = os.path.join(cc.CACHE, "state_gov", "normalized", f"governor-{year}.json")
+    if not os.path.exists(p):
+        return []
+    with open(p) as f:
+        return [c for c in json.load(f)["contests"] if not c["held"]]
+
+
+def state_gov_party(c):
+    """'D', 'R' or None from a candidate of a state's file ("Democratic", "Republican"; a write-in line is no party)."""
+    if c.get("write_in"):
+        return None
+    return {"DEMOCRATIC": "D", "REPUBLICAN": "R"}.get((c.get("party") or "").strip().upper())
+
+
+def sitting_governor(state, t):
+    """(year, last name) of the winner of the state's last governor contest before year t in Cha, Kuriwaki and Snyder
+    (the deciding round), or None. For the contests of 2023 and 2025, which no source read here codes for incumbency:
+    a nominee is the incumbent where his or her last name is this winner's (inferred: it assumes the winner still held
+    the office on election day)."""
+    best = None
+    for c in _load("cha/normalized/contests.json")["contests"]:
+        if c["office"] != "governor" or c["state"] != state or c["year"] >= t or c["special"]:
+            continue
+        key = (c["year"], bool(c["runoff"]))
+        if best is None or key > best[0]:
+            best = (key, c)
+    if best is None:
+        return None
+    w = max(best[1]["candidates"], key=lambda a: a["votes"] or 0)
+    return best[0][0], _surname(w["name"])
+
+
+def _surname(name):
+    """'YOUNGKIN, GLENN A.' / 'Winsome Earle-Sears' / 'Abigail D. Spanberger' -> 'YOUNGKIN' / 'EARLE-SEARS' / ..."""
+    s = name.upper().replace(".", "")
+    if "," in s:
+        return s.split(",")[0].split()[-1]
+    toks = [x for x in s.split() if x not in ("JR", "SR", "II", "III", "IV")]
+    return toks[-1] if toks else s
+
+
+def state_gov_incumbency(c, t):
+    """(inc, how) for a contest of a state's file: +1 if the Democratic nominee is the sitting governor (sitting_governor),
+    -1 if the Republican is, else 0."""
+    sg = sitting_governor(c["state"], t)
+    if sg is None:
+        return None, "no earlier governor contest of the state in Cha, Kuriwaki and Snyder"
+    inc = 0
+    for a in c["candidates"]:
+        side = state_gov_party(a)
+        if side and _surname(a["name"]) == sg[1]:
+            inc = 1 if side == "D" else -1
+    return inc, (f"inferred: the winner of the state's last governor contest in Cha, Kuriwaki and Snyder ({sg[0]}, "
+                 f"{sg[1].title()}) is " + ("one of the nominees" if inc else "neither nominee"))
+
+
 def odd_governor_rows(inc_codes=INC_CODES):
     """The odd-year governor races the route is scored on (odd_test), by fit_rows' rules: one Democrat and one
     Republican with votes, the two leading; the state's presidential vote and its last governor race known. From Cha,
@@ -1854,7 +1922,9 @@ def odd_governor_rows(inc_codes=INC_CODES):
     Left out: Louisiana (its two-round system: the sources hold the deciding round, a first round or a runoff, which
     the route is not fitted to), special elections and the contests of other states (held apart from the state's
     regular cycle), and Missouri's counts before 2006 (AA_INCOMPLETE; none is odd). Mississippi stays in: its p is not
-    computed (its rule before 2020 asked for two majorities), but its share is a forecast like the others."""
+    computed (its rule before 2020 asked for two majorities), but its share is a forecast like the others. From the
+    states' own files (state_gov_contests: New Jersey and Virginia 2025, the orchestrator, 12:35), by the same rules,
+    incumbency inferred (state_gov_incumbency)."""
     cha = _load("cha/normalized/contests.json")["contests"]
     ps, pres, gov = presidential_shares(), presidents(), last_governor_index()
     rows, skipped, in_cha = [], {}, set()
@@ -1911,6 +1981,24 @@ def odd_governor_rows(inc_codes=INC_CODES):
             skip("Algara and Amlani: not a Democrat and a Republican leading")
             continue
         add(t, st, dr[0], dr[1], r["incumbency"], "algara_amlani", "algara_amlani")
+    for t in ODD_YEARS:
+        for c in state_gov_contests(t):
+            st = c["state"]
+            if st not in ODD_STATES or st == "LA":
+                skip("a special election, or a state that elects its governor in even years")
+                continue
+            cands = [a for a in c["candidates"] if a["votes"]]
+            D = [a for a in cands if state_gov_party(a) == "D"]
+            R = [a for a in cands if state_gov_party(a) == "R"]
+            top2 = sorted(cands, key=lambda a: -a["votes"])[:2]
+            if len(D) != 1 or len(R) != 1 or {state_gov_party(a) for a in top2} != {"D", "R"}:
+                skip("not one Democrat and one Republican leading")
+                continue
+            inc, _ = state_gov_incumbency(c, t)
+            if inc is None:
+                skip("no incumbency")
+                continue
+            add(t, st, D[0]["votes"], R[0]["votes"], inc, "inferred", "state_gov")
     return rows, skipped
 
 
@@ -2013,7 +2101,7 @@ def lean_tests(raw):
 
 def odd_test(rows):
     """The odd-year term under the robustness test of 08:36, against the plain route, on every odd year the route
-    forecasts (from 1985, the first with K_MIN even cycles before it, to 2021); and the lean note's two tests on the
+    forecasts (from 1985, the first with K_MIN even cycles before it, to 2025); and the lean note's two tests on the
     term of record. Cached."""
     if id(rows) in _ODD:
         return _ODD[id(rows)]
