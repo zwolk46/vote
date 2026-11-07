@@ -2,7 +2,7 @@
  "about": "Every presidential contest of 1992 by state (and by district where electoral votes split), with inputs, sources and p. Layout: plan/PLAN.md section 3, fields added in data/README.md. Written by pipeline/president.py; do not edit by hand.",
  "year": 1992,
  "computed_by": "pipeline/president.py",
- "commit": "70b1e26",
+ "commit": "33c6ff3",
  "summary": {
   "vote_weighted_mean_p": 2.1950338546298227e-08,
   "one_in": 45557384,
@@ -69,9 +69,9 @@
     ],
     "total_votes": 1688060,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -101,7 +101,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -109,7 +109,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 9,
      "p": {
@@ -117,7 +117,7 @@
       "event": 2.79955551570828e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 71439912,
       "p_state": 3.1356587328851114e-06,
       "W": 0.004464062824101423,
@@ -174,7 +174,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -187,7 +187,7 @@
     "event": 2.79955551570828e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 71439912,
     "p_state": 3.1356587328851114e-06,
     "W": 0.004464062824101423,
@@ -268,9 +268,9 @@
     ],
     "total_votes": 258506,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -299,7 +299,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -307,7 +307,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -315,7 +315,7 @@
       "event": 3.128970562344192e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 63918786,
       "p_state": 1.7448491645768693e-05,
       "W": 0.000896630673260223,
@@ -372,7 +372,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -385,7 +385,7 @@
     "event": 3.128970562344192e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 63918786,
     "p_state": 1.7448491645768693e-05,
     "W": 0.000896630673260223,
@@ -454,9 +454,9 @@
     ],
     "total_votes": 1486975,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -485,7 +485,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -493,7 +493,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -501,7 +501,7 @@
       "event": 2.2649750495603753e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 88301193,
       "p_state": 3.7337913441456995e-06,
       "W": 0.003033076624798121,
@@ -558,7 +558,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -571,7 +571,7 @@
     "event": 2.2649750495603753e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 88301193,
     "p_state": 3.7337913441456995e-06,
     "W": 0.003033076624798121,
@@ -616,9 +616,9 @@
     ],
     "total_votes": 950653,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -647,7 +647,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -655,7 +655,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 6,
      "p": {
@@ -663,7 +663,7 @@
       "event": 7.632136388272404e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 26204982,
       "p_state": 5.449829352893937e-06,
       "W": 0.007002179237244952,
@@ -720,7 +720,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -733,7 +733,7 @@
     "event": 7.632136388272404e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 26204982,
     "p_state": 5.449829352893937e-06,
     "W": 0.007002179237244952,
@@ -796,9 +796,9 @@
     ],
     "total_votes": 11131721,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -827,7 +827,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -835,7 +835,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 54,
      "p": {
@@ -843,7 +843,7 @@
       "event": 6.618000299683597e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 30220609,
       "p_state": 1.325182445194699e-07,
       "W": 0.2497014778486318,
@@ -900,7 +900,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -913,7 +913,7 @@
     "event": 6.618000299683597e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 30220609,
     "p_state": 1.325182445194699e-07,
     "W": 0.2497014778486318,
@@ -994,9 +994,9 @@
     ],
     "total_votes": 1569180,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1023,7 +1023,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1031,7 +1031,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -1039,7 +1039,7 @@
       "event": 8.580237807641488e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 23309377,
       "p_state": 1.999441559012399e-06,
       "W": 0.021456585637540708,
@@ -1096,7 +1096,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1109,7 +1109,7 @@
     "event": 8.580237807641488e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 23309377,
     "p_state": 1.999441559012399e-06,
     "W": 0.021456585637540708,
@@ -1166,9 +1166,9 @@
     ],
     "total_votes": 1616156,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1195,7 +1195,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1203,7 +1203,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -1211,7 +1211,7 @@
       "event": 6.205191047187292e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 32231079,
       "p_state": 1.214558660180764e-06,
       "W": 0.025545044675996824,
@@ -1268,7 +1268,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1281,7 +1281,7 @@
     "event": 6.205191047187292e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 32231079,
     "p_state": 1.214558660180764e-06,
     "W": 0.025545044675996824,
@@ -1338,9 +1338,9 @@
     ],
     "total_votes": 289620,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1367,7 +1367,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1375,7 +1375,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -1383,7 +1383,7 @@
       "event": 1.6689170865980596e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 11983819,
       "p_state": 1.7758654845928668e-05,
       "W": 0.00469888373043264,
@@ -1440,7 +1440,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1453,7 +1453,7 @@
     "event": 1.6689170865980596e-07,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 11983819,
     "p_state": 1.7758654845928668e-05,
     "W": 0.00469888373043264,
@@ -1522,9 +1522,9 @@
     ],
     "total_votes": 227572,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1554,7 +1554,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1562,7 +1562,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -1570,7 +1570,7 @@
       "event": 1.4510831750630637e-11,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 137828074529,
       "p_state": 1.4070202262662676e-09,
       "W": 0.005156582499576867,
@@ -1627,7 +1627,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1640,7 +1640,7 @@
     "event": 1.4510831750630637e-11,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 137828074529,
     "p_state": 1.4070202262662676e-09,
     "W": 0.005156582499576867,
@@ -1691,9 +1691,9 @@
     ],
     "total_votes": 5313392,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1722,7 +1722,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1730,7 +1730,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 25,
      "p": {
@@ -1738,7 +1738,7 @@
       "event": 1.204014430838732e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 166110966,
       "p_state": 9.000748801098898e-07,
       "W": 0.0066884125834715796,
@@ -1795,7 +1795,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1808,7 +1808,7 @@
     "event": 1.204014430838732e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 166110966,
     "p_state": 9.000748801098898e-07,
     "W": 0.0066884125834715796,
@@ -1859,9 +1859,9 @@
     ],
     "total_votes": 2321133,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1890,7 +1890,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1898,7 +1898,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 13,
      "p": {
@@ -1906,7 +1906,7 @@
       "event": 2.3992572244911243e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 83359132,
       "p_state": 2.2334851886041394e-06,
       "W": 0.0053711061903002535,
@@ -1963,7 +1963,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1976,7 +1976,7 @@
     "event": 2.3992572244911243e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 83359132,
     "p_state": 2.2334851886041394e-06,
     "W": 0.0053711061903002535,
@@ -2045,9 +2045,9 @@
     ],
     "total_votes": 372842,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2074,7 +2074,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2082,7 +2082,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -2090,7 +2090,7 @@
       "event": 7.376018477801674e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 271148995,
       "p_state": 3.069914741755786e-07,
       "W": 0.012013393039024732,
@@ -2147,7 +2147,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2160,7 +2160,7 @@
     "event": 7.376018477801674e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 271148995,
     "p_state": 3.069914741755786e-07,
     "W": 0.012013393039024732,
@@ -2217,9 +2217,9 @@
     ],
     "total_votes": 482114,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2246,7 +2246,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2254,7 +2254,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -2262,7 +2262,7 @@
       "event": 1.3798150557199206e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 144946962,
       "p_state": 6.835188356009595e-06,
       "W": 0.0010093467684081942,
@@ -2319,7 +2319,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2332,7 +2332,7 @@
     "event": 1.3798150557199206e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 144946962,
     "p_state": 6.835188356009595e-06,
     "W": 0.0010093467684081942,
@@ -2407,9 +2407,9 @@
     ],
     "total_votes": 5050157,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2438,7 +2438,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2446,7 +2446,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 22,
      "p": {
@@ -2454,7 +2454,7 @@
       "event": 3.4774672250367944e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 57513123,
       "p_state": 2.0826226503524176e-07,
       "W": 0.08348769337662644,
@@ -2511,7 +2511,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2524,7 +2524,7 @@
     "event": 3.4774672250367944e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 57513123,
     "p_state": 2.0826226503524176e-07,
     "W": 0.08348769337662644,
@@ -2581,9 +2581,9 @@
     ],
     "total_votes": 2305871,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2612,7 +2612,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2620,7 +2620,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 12,
      "p": {
@@ -2628,7 +2628,7 @@
       "event": 2.5217134121613467e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 79311154,
       "p_state": 2.4572106767158455e-06,
       "W": 0.005131251943630066,
@@ -2685,7 +2685,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2698,7 +2698,7 @@
     "event": 2.5217134121613467e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 79311154,
     "p_state": 2.4572106767158455e-06,
     "W": 0.005131251943630066,
@@ -2791,9 +2791,9 @@
     ],
     "total_votes": 1354607,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2823,7 +2823,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2831,7 +2831,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 7,
      "p": {
@@ -2839,7 +2839,7 @@
       "event": 3.3650017606737562e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 594353329,
       "p_state": 7.928588714195662e-08,
       "W": 0.02122068555939169,
@@ -2896,7 +2896,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2909,7 +2909,7 @@
     "event": 3.3650017606737562e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 594353329,
     "p_state": 7.928588714195662e-08,
     "W": 0.02122068555939169,
@@ -2960,9 +2960,9 @@
     ],
     "total_votes": 1157236,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2991,7 +2991,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2999,7 +2999,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 6,
      "p": {
@@ -3007,7 +3007,7 @@
       "event": 8.40280131635371e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 23801586,
       "p_state": 5.183794053483803e-06,
       "W": 0.008104875723898166,
@@ -3064,7 +3064,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3077,7 +3077,7 @@
     "event": 8.40280131635371e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 23801586,
     "p_state": 5.183794053483803e-06,
     "W": 0.008104875723898166,
@@ -3146,9 +3146,9 @@
     ],
     "total_votes": 1492900,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3177,7 +3177,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3185,7 +3185,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -3193,7 +3193,7 @@
       "event": 8.239804038896016e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 24272422,
       "p_state": 2.9543879185195006e-06,
       "W": 0.01394502730539383,
@@ -3250,7 +3250,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3263,7 +3263,7 @@
     "event": 8.239804038896016e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 24272422,
     "p_state": 2.9543879185195006e-06,
     "W": 0.01394502730539383,
@@ -3350,9 +3350,9 @@
     ],
     "total_votes": 1790017,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3381,7 +3381,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3389,7 +3389,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 9,
      "p": {
@@ -3397,7 +3397,7 @@
       "event": 7.960872932229993e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 25122873,
       "p_state": 2.129420895255594e-06,
       "W": 0.01869257728701505,
@@ -3454,7 +3454,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3467,7 +3467,7 @@
     "event": 7.960872932229993e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 25122873,
     "p_state": 2.129420895255594e-06,
     "W": 0.01869257728701505,
@@ -3530,9 +3530,9 @@
     ],
     "total_votes": 679499,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3561,7 +3561,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3569,7 +3569,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -3577,7 +3577,7 @@
       "event": 1.1296269734607944e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 17704960,
       "p_state": 7.93532496479717e-06,
       "W": 0.007117710859177574,
@@ -3634,7 +3634,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3647,7 +3647,7 @@
     "event": 1.1296269734607944e-07,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 17704960,
     "p_state": 7.93532496479717e-06,
     "W": 0.007117710859177574,
@@ -3707,9 +3707,9 @@
     ],
     "total_votes": 1984580,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3736,7 +3736,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3744,7 +3744,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 10,
      "p": {
@@ -3752,7 +3752,7 @@
       "event": 4.1716049287884734e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 47943179,
       "p_state": 6.019911965756674e-07,
       "W": 0.03464838815349788,
@@ -3809,7 +3809,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3822,7 +3822,7 @@
     "event": 4.1716049287884734e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 47943179,
     "p_state": 6.019911965756674e-07,
     "W": 0.03464838815349788,
@@ -3903,9 +3903,9 @@
     ],
     "total_votes": 2773664,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3934,7 +3934,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3942,7 +3942,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 12,
      "p": {
@@ -3950,7 +3950,7 @@
       "event": 4.741122282981127e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 421841050,
       "p_state": 6.073709771821989e-08,
       "W": 0.039029871866588114,
@@ -4007,7 +4007,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4020,7 +4020,7 @@
     "event": 4.741122282981127e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 421841050,
     "p_state": 6.073709771821989e-08,
     "W": 0.039029871866588114,
@@ -4089,9 +4089,9 @@
     ],
     "total_votes": 4274673,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4120,7 +4120,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4128,7 +4128,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 18,
      "p": {
@@ -4136,7 +4136,7 @@
       "event": 7.102247122698954e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 28160102,
       "p_state": 7.009092933994468e-07,
       "W": 0.050664523851957244,
@@ -4193,7 +4193,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4206,7 +4206,7 @@
     "event": 7.102247122698954e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 28160102,
     "p_state": 7.009092933994468e-07,
     "W": 0.050664523851957244,
@@ -4299,9 +4299,9 @@
     ],
     "total_votes": 2347948,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4330,7 +4330,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4338,7 +4338,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 10,
      "p": {
@@ -4346,7 +4346,7 @@
       "event": 5.5411442209637125e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 360936283,
       "p_state": 8.50260026986601e-08,
       "W": 0.03258499779533346,
@@ -4403,7 +4403,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4416,7 +4416,7 @@
     "event": 5.5411442209637125e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 360936283,
     "p_state": 8.50260026986601e-08,
     "W": 0.03258499779533346,
@@ -4473,9 +4473,9 @@
     ],
     "total_votes": 981793,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4504,7 +4504,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4512,7 +4512,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 7,
      "p": {
@@ -4520,7 +4520,7 @@
       "event": 2.7583352000109058e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 72507504,
       "p_state": 4.842105597408248e-06,
       "W": 0.0028482807164380234,
@@ -4577,7 +4577,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4590,7 +4590,7 @@
     "event": 2.7583352000109058e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 72507504,
     "p_state": 4.842105597408248e-06,
     "W": 0.0028482807164380234,
@@ -4641,9 +4641,9 @@
     ],
     "total_votes": 2391270,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4670,7 +4670,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4678,7 +4678,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 11,
      "p": {
@@ -4686,7 +4686,7 @@
       "event": 4.985906562255318e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 40113066,
       "p_state": 6.666164875455264e-07,
       "W": 0.03739711404838909,
@@ -4743,7 +4743,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4756,7 +4756,7 @@
     "event": 4.985906562255318e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 40113066,
     "p_state": 6.666164875455264e-07,
     "W": 0.03739711404838909,
@@ -4807,9 +4807,9 @@
     ],
     "total_votes": 410583,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4838,7 +4838,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4846,7 +4846,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -4854,7 +4854,7 @@
       "event": 1.0515471818688099e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 19019594,
       "p_state": 5.889345927111119e-06,
       "W": 0.00892753792087589,
@@ -4911,7 +4911,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4924,7 +4924,7 @@
     "event": 1.0515471818688099e-07,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 19019594,
     "p_state": 5.889345927111119e-06,
     "W": 0.00892753792087589,
@@ -4975,9 +4975,9 @@
     ],
     "total_votes": 737546,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5006,7 +5006,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5014,7 +5014,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 5,
      "p": {
@@ -5022,7 +5022,7 @@
       "event": 3.156590210510137e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 63359507,
       "p_state": 7.636227682044778e-06,
       "W": 0.0020668518160690086,
@@ -5079,7 +5079,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5092,7 +5092,7 @@
     "event": 3.156590210510137e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 63359507,
     "p_state": 7.636227682044778e-06,
     "W": 0.0020668518160690086,
@@ -5169,9 +5169,9 @@
     ],
     "total_votes": 506318,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5200,7 +5200,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5208,7 +5208,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -5216,7 +5216,7 @@
       "event": 3.528441468227633e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 56682250,
       "p_state": 1.1276273251392262e-05,
       "W": 0.00156454237564347,
@@ -5273,7 +5273,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5286,7 +5286,7 @@
     "event": 3.528441468227633e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 56682250,
     "p_state": 1.1276273251392262e-05,
     "W": 0.00156454237564347,
@@ -5349,9 +5349,9 @@
     ],
     "total_votes": 537215,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5378,7 +5378,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5386,7 +5386,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -5394,7 +5394,7 @@
       "event": 1.1640525118023239e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 171813555,
       "p_state": 5.733020279502374e-06,
       "W": 0.001015217507571213,
@@ -5451,7 +5451,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5464,7 +5464,7 @@
     "event": 1.1640525118023239e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 171813555,
     "p_state": 5.733020279502374e-06,
     "W": 0.001015217507571213,
@@ -5569,9 +5569,9 @@
     ],
     "total_votes": 3343594,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5598,7 +5598,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5606,7 +5606,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 15,
      "p": {
@@ -5614,7 +5614,7 @@
       "event": 5.908324334581644e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 33850545,
       "p_state": 1.593909359314971e-06,
       "W": 0.018534066256819394,
@@ -5671,7 +5671,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5684,7 +5684,7 @@
     "event": 5.908324334581644e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 33850545,
     "p_state": 1.593909359314971e-06,
     "W": 0.018534066256819394,
@@ -5771,9 +5771,9 @@
     ],
     "total_votes": 569986,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5800,7 +5800,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5808,7 +5808,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 5,
      "p": {
@@ -5816,7 +5816,7 @@
       "event": 9.912625760187726e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 20176289,
       "p_state": 3.1479412697853313e-06,
       "W": 0.015744616736232345,
@@ -5873,7 +5873,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5886,7 +5886,7 @@
     "event": 9.912625760187726e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 20176289,
     "p_state": 3.1479412697853313e-06,
     "W": 0.015744616736232345,
@@ -5955,9 +5955,9 @@
     ],
     "total_votes": 7079432,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5986,7 +5986,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5994,7 +5994,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 33,
      "p": {
@@ -6002,7 +6002,7 @@
       "event": 1.1505408079580349e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 173831296,
       "p_state": 4.4951554107840345e-08,
       "W": 0.1279756429775317,
@@ -6059,7 +6059,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6072,7 +6072,7 @@
     "event": 1.1505408079580349e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 173831296,
     "p_state": 4.4951554107840345e-08,
     "W": 0.1279756429775317,
@@ -6141,9 +6141,9 @@
     ],
     "total_votes": 2611850,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6170,7 +6170,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6178,7 +6178,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 14,
      "p": {
@@ -6186,7 +6186,7 @@
       "event": 4.8726826889465845e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 41045152,
       "p_state": 2.175093627356852e-06,
       "W": 0.01120108722599636,
@@ -6243,7 +6243,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6256,7 +6256,7 @@
     "event": 4.8726826889465845e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 41045152,
     "p_state": 2.175093627356852e-06,
     "W": 0.01120108722599636,
@@ -6301,9 +6301,9 @@
     ],
     "total_votes": 308133,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6332,7 +6332,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6340,7 +6340,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -6348,7 +6348,7 @@
       "event": 1.5424345251450971e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 12966515,
       "p_state": 1.8177464359329447e-05,
       "W": 0.004242710904707274,
@@ -6405,7 +6405,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6418,7 +6418,7 @@
     "event": 1.5424345251450971e-07,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 12966515,
     "p_state": 1.8177464359329447e-05,
     "W": 0.004242710904707274,
@@ -6463,9 +6463,9 @@
     ],
     "total_votes": 4939967,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6495,7 +6495,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6503,7 +6503,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 21,
      "p": {
@@ -6511,7 +6511,7 @@
       "event": 7.370144678639139e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 27136509,
       "p_state": 9.051224700046631e-07,
       "W": 0.040713521776788775,
@@ -6568,7 +6568,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6581,7 +6581,7 @@
     "event": 7.370144678639139e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 27136509,
     "p_state": 9.051224700046631e-07,
     "W": 0.040713521776788775,
@@ -6632,9 +6632,9 @@
     ],
     "total_votes": 1390359,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6661,7 +6661,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6669,7 +6669,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -6677,7 +6677,7 @@
       "event": 5.722082700497328e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 34952309,
       "p_state": 4.611617866952562e-06,
       "W": 0.0062039861775001984,
@@ -6734,7 +6734,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6747,7 +6747,7 @@
     "event": 5.722082700497328e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 34952309,
     "p_state": 4.611617866952562e-06,
     "W": 0.0062039861775001984,
@@ -6804,9 +6804,9 @@
     ],
     "total_votes": 1462643,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6836,7 +6836,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6844,7 +6844,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 7,
      "p": {
@@ -6852,7 +6852,7 @@
       "event": 9.776481080401824e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 204572584,
       "p_state": 2.1063448463051427e-07,
       "W": 0.023207218650714522,
@@ -6909,7 +6909,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6922,7 +6922,7 @@
     "event": 9.776481080401824e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 204572584,
     "p_state": 2.1063448463051427e-07,
     "W": 0.023207218650714522,
@@ -6979,9 +6979,9 @@
     ],
     "total_votes": 4959810,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7008,7 +7008,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7016,7 +7016,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 23,
      "p": {
@@ -7024,7 +7024,7 @@
       "event": 3.97078879651819e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 50367826,
       "p_state": 2.2650288208210094e-07,
       "W": 0.08765426647151647,
@@ -7081,7 +7081,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7094,7 +7094,7 @@
     "event": 3.97078879651819e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 50367826,
     "p_state": 2.2650288208210094e-07,
     "W": 0.08765426647151647,
@@ -7169,9 +7169,9 @@
     ],
     "total_votes": 453365,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7198,7 +7198,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7206,7 +7206,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -7214,7 +7214,7 @@
       "event": 4.579086652306922e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 436768323,
       "p_state": 1.9768090501608725e-07,
       "W": 0.011582015602200617,
@@ -7271,7 +7271,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7284,7 +7284,7 @@
     "event": 4.579086652306922e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 436768323,
     "p_state": 1.9768090501608725e-07,
     "W": 0.011582015602200617,
@@ -7347,9 +7347,9 @@
     ],
     "total_votes": 1228912,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7376,7 +7376,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7384,7 +7384,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -7392,7 +7392,7 @@
       "event": 1.3218927288749324e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 151298207,
       "p_state": 2.9144907573794327e-06,
       "W": 0.002267793654050757,
@@ -7449,7 +7449,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7462,7 +7462,7 @@
     "event": 1.3218927288749324e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 151298207,
     "p_state": 2.9144907573794327e-06,
     "W": 0.002267793654050757,
@@ -7513,9 +7513,9 @@
     ],
     "total_votes": 336254,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7544,7 +7544,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7552,7 +7552,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -7560,7 +7560,7 @@
       "event": 1.2556103434145106e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 15928508,
       "p_state": 7.194012671281185e-06,
       "W": 0.008726773226484312,
@@ -7617,7 +7617,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7630,7 +7630,7 @@
     "event": 1.2556103434145106e-07,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 15928508,
     "p_state": 7.194012671281185e-06,
     "W": 0.008726773226484312,
@@ -7675,9 +7675,9 @@
     ],
     "total_votes": 1982638,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7707,7 +7707,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7715,7 +7715,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 11,
      "p": {
@@ -7723,7 +7723,7 @@
       "event": 4.872542463403269e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 41046333,
       "p_state": 2.760561658696547e-06,
       "W": 0.008825273741039958,
@@ -7780,7 +7780,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7793,7 +7793,7 @@
     "event": 4.872542463403269e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 41046333,
     "p_state": 2.760561658696547e-06,
     "W": 0.008825273741039958,
@@ -7844,9 +7844,9 @@
     ],
     "total_votes": 6154018,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7875,7 +7875,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7883,7 +7883,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 32,
      "p": {
@@ -7891,7 +7891,7 @@
       "event": 7.662943697318896e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 26099631,
       "p_state": 8.631888833478676e-07,
       "W": 0.04438740955280994,
@@ -7948,7 +7948,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7961,7 +7961,7 @@
     "event": 7.662943697318896e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 26099631,
     "p_state": 8.631888833478676e-07,
     "W": 0.04438740955280994,
@@ -8060,9 +8060,9 @@
     ],
     "total_votes": 743998,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8091,7 +8091,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8099,7 +8099,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 5,
      "p": {
@@ -8107,7 +8107,7 @@
       "event": 2.4783061096299237e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 807002812,
       "p_state": 1.0462190971265577e-06,
       "W": 0.0011844106633288358,
@@ -8164,7 +8164,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8177,7 +8177,7 @@
     "event": 2.4783061096299237e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 807002812,
     "p_state": 1.0462190971265577e-06,
     "W": 0.0011844106633288358,
@@ -8259,9 +8259,9 @@
     ],
     "total_votes": 289701,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8291,7 +8291,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8299,7 +8299,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -8307,7 +8307,7 @@
       "event": 1.0143705718425041e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 19716660,
       "p_state": 5.181842364848298e-06,
       "W": 0.009787740541121233,
@@ -8364,7 +8364,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8377,7 +8377,7 @@
     "event": 1.0143705718425041e-07,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 19716660,
     "p_state": 5.181842364848298e-06,
     "W": 0.009787740541121233,
@@ -8428,9 +8428,9 @@
     ],
     "total_votes": 2559129,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8460,7 +8460,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8468,7 +8468,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 13,
      "p": {
@@ -8476,7 +8476,7 @@
       "event": 2.0618926396555323e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 96998261,
       "p_state": 2.0066960161772257e-06,
       "W": 0.005137531103448984,
@@ -8533,7 +8533,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8546,7 +8546,7 @@
     "event": 2.0618926396555323e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 96998261,
     "p_state": 2.0066960161772257e-06,
     "W": 0.005137531103448984,
@@ -8627,9 +8627,9 @@
     ],
     "total_votes": 2287565,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8658,7 +8658,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8666,7 +8666,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 11,
      "p": {
@@ -8674,7 +8674,7 @@
       "event": 1.90533614002867e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 104968355,
       "p_state": 2.4559208322103166e-07,
       "W": 0.03879066692703357,
@@ -8731,7 +8731,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8744,7 +8744,7 @@
     "event": 1.90533614002867e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 104968355,
     "p_state": 2.4559208322103166e-07,
     "W": 0.03879066692703357,
@@ -8795,9 +8795,9 @@
     ],
     "total_votes": 683677,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8824,7 +8824,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8832,7 +8832,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 5,
      "p": {
@@ -8840,7 +8840,7 @@
       "event": 1.3232913569025675e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 151138295,
       "p_state": 4.043317911314898e-07,
       "W": 0.016363929153325338,
@@ -8897,7 +8897,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8910,7 +8910,7 @@
     "event": 1.3232913569025675e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 151138295,
     "p_state": 4.043317911314898e-07,
     "W": 0.016363929153325338,
@@ -8979,9 +8979,9 @@
     ],
     "total_votes": 2531064,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -9011,7 +9011,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -9019,7 +9019,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 11,
      "p": {
@@ -9027,7 +9027,7 @@
       "event": 1.0999808119718746e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 181821353,
       "p_state": 1.449493271334316e-07,
       "W": 0.03794363291384232,
@@ -9084,7 +9084,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -9097,7 +9097,7 @@
     "event": 1.0999808119718746e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 181821353,
     "p_state": 1.449493271334316e-07,
     "W": 0.03794363291384232,
@@ -9154,9 +9154,9 @@
     ],
     "total_votes": 199884,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -9183,7 +9183,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1992-11-03",
+     "as_of": "1992-11-02",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -9191,7 +9191,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1992-11-03, the last before the election"
+      "note": "538's national average of 1992-11-02, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -9199,7 +9199,7 @@
       "event": 5.1800496340908666e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 38609669,
       "p_state": 2.5062630678249755e-05,
       "W": 0.0010334209725610126,
@@ -9256,7 +9256,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1992",
      "url": "https://www.archives.gov/electoral-college/1992",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -9269,7 +9269,7 @@
     "event": 5.1800496340908666e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 38609669,
     "p_state": 2.5062630678249755e-05,
     "W": 0.0010334209725610126,

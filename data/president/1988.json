@@ -2,7 +2,7 @@
  "about": "Every presidential contest of 1988 by state (and by district where electoral votes split), with inputs, sources and p. Layout: plan/PLAN.md section 3, fields added in data/README.md. Written by pipeline/president.py; do not edit by hand.",
  "year": 1988,
  "computed_by": "pipeline/president.py",
- "commit": "70b1e26",
+ "commit": "33c6ff3",
  "summary": {
   "vote_weighted_mean_p": 6.353615961092003e-09,
   "one_in": 157390690,
@@ -69,9 +69,9 @@
     ],
     "total_votes": 1378476,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -100,7 +100,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -108,7 +108,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 9,
      "p": {
@@ -116,7 +116,7 @@
       "event": 1.7700912194541153e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 112988527,
       "p_state": 6.889381790043294e-07,
       "W": 0.01284651709978024,
@@ -173,7 +173,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -186,7 +186,7 @@
     "event": 1.7700912194541153e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 112988527,
     "p_state": 6.889381790043294e-07,
     "W": 0.01284651709978024,
@@ -243,9 +243,9 @@
     ],
     "total_votes": 200116,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -274,7 +274,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -282,7 +282,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -290,7 +290,7 @@
       "event": 2.72464119642571e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 734041606,
       "p_state": 3.5919909078008507e-07,
       "W": 0.003792661599599978,
@@ -347,7 +347,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -360,7 +360,7 @@
     "event": 2.72464119642571e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 734041606,
     "p_state": 3.5919909078008507e-07,
     "W": 0.003792661599599978,
@@ -411,9 +411,9 @@
     ],
     "total_votes": 1171873,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -442,7 +442,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -450,7 +450,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 7,
      "p": {
@@ -458,7 +458,7 @@
       "event": 2.1546406456467843e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 928229032,
       "p_state": 1.0806883132164832e-07,
       "W": 0.009968834766214258,
@@ -515,7 +515,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -528,7 +528,7 @@
     "event": 2.1546406456467843e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 928229032,
     "p_state": 1.0806883132164832e-07,
     "W": 0.009968834766214258,
@@ -585,9 +585,9 @@
     ],
     "total_votes": 827738,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -614,7 +614,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -622,7 +622,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 6,
      "p": {
@@ -630,7 +630,7 @@
       "event": 1.949766846042299e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 102576367,
       "p_state": 1.1669774523735652e-06,
       "W": 0.008353918244421025,
@@ -687,7 +687,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -700,7 +700,7 @@
     "event": 1.949766846042299e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 102576367,
     "p_state": 1.1669774523735652e-06,
     "W": 0.008353918244421025,
@@ -751,9 +751,9 @@
     ],
     "total_votes": 9887065,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -782,7 +782,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -790,7 +790,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 47,
      "p": {
@@ -798,7 +798,7 @@
       "event": 1.7335816092624613e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 115368091,
       "p_state": 2.4421172347054024e-07,
       "W": 0.035493414988973425,
@@ -855,7 +855,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -868,7 +868,7 @@
     "event": 1.7335816092624613e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 115368091,
     "p_state": 2.4421172347054024e-07,
     "W": 0.035493414988973425,
@@ -925,9 +925,9 @@
     ],
     "total_votes": 1372394,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -956,7 +956,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -964,7 +964,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -972,7 +972,7 @@
       "event": 5.842693853927507e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 342307855,
       "p_state": 2.3394108061809634e-07,
       "W": 0.012487532840513753,
@@ -1029,7 +1029,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1042,7 +1042,7 @@
     "event": 5.842693853927507e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 342307855,
     "p_state": 2.3394108061809634e-07,
     "W": 0.012487532840513753,
@@ -1093,9 +1093,9 @@
     ],
     "total_votes": 1443394,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1124,7 +1124,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1132,7 +1132,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -1140,7 +1140,7 @@
       "event": 1.5916444594160407e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 125656203,
       "p_state": 7.210827339105486e-07,
       "W": 0.011036489882265623,
@@ -1197,7 +1197,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1210,7 +1210,7 @@
     "event": 1.5916444594160407e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 125656203,
     "p_state": 7.210827339105486e-07,
     "W": 0.011036489882265623,
@@ -1261,9 +1261,9 @@
     ],
     "total_votes": 249891,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1290,7 +1290,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1298,7 +1298,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -1306,7 +1306,7 @@
       "event": 4.0583965511550845e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 49280547,
       "p_state": 5.835007248892356e-06,
       "W": 0.0034776276858314776,
@@ -1363,7 +1363,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1376,7 +1376,7 @@
     "event": 4.0583965511550845e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 49280547,
     "p_state": 5.835007248892356e-06,
     "W": 0.0034776276858314776,
@@ -1439,9 +1439,9 @@
     ],
     "total_votes": 192877,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1470,7 +1470,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1478,7 +1478,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -1486,7 +1486,7 @@
       "event": 4.47772251956731e-12,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 446655636043,
       "p_state": 3.930484509783457e-09,
       "W": 0.0005696145740330117,
@@ -1543,7 +1543,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1556,7 +1556,7 @@
     "event": 4.47772251956731e-12,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 446655636043,
     "p_state": 3.930484509783457e-09,
     "W": 0.0005696145740330117,
@@ -1607,9 +1607,9 @@
     ],
     "total_votes": 4302313,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1638,7 +1638,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1646,7 +1646,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 21,
      "p": {
@@ -1654,7 +1654,7 @@
       "event": 3.759106306720152e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 532041352,
       "p_state": 5.282688103337189e-08,
       "W": 0.035579483713466274,
@@ -1711,7 +1711,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1724,7 +1724,7 @@
     "event": 3.759106306720152e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 532041352,
     "p_state": 5.282688103337189e-08,
     "W": 0.035579483713466274,
@@ -1775,9 +1775,9 @@
     ],
     "total_votes": 1809672,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1806,7 +1806,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1814,7 +1814,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 12,
      "p": {
@@ -1822,7 +1822,7 @@
       "event": 2.283481538104493e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 87585556,
       "p_state": 7.462853973932361e-07,
       "W": 0.015298983110755351,
@@ -1879,7 +1879,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -1892,7 +1892,7 @@
     "event": 2.283481538104493e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 87585556,
     "p_state": 7.462853973932361e-07,
     "W": 0.015298983110755351,
@@ -1949,9 +1949,9 @@
     ],
     "total_votes": 354461,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -1978,7 +1978,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -1986,7 +1986,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -1994,7 +1994,7 @@
       "event": 3.182362448286635e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 62846393,
       "p_state": 1.113501285063258e-05,
       "W": 0.001428989122408532,
@@ -2051,7 +2051,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2064,7 +2064,7 @@
     "event": 3.182362448286635e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 62846393,
     "p_state": 1.113501285063258e-05,
     "W": 0.001428989122408532,
@@ -2115,9 +2115,9 @@
     ],
     "total_votes": 408968,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2144,7 +2144,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2152,7 +2152,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -2160,7 +2160,7 @@
       "event": 4.741021720273309e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 4218499973,
       "p_state": 5.571374127700261e-08,
       "W": 0.004254804660040213,
@@ -2217,7 +2217,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2230,7 +2230,7 @@
     "event": 4.741021720273309e-10,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 4218499973,
     "p_state": 5.571374127700261e-08,
     "W": 0.004254804660040213,
@@ -2287,9 +2287,9 @@
     ],
     "total_votes": 4559120,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2316,7 +2316,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2324,7 +2324,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 24,
      "p": {
@@ -2332,7 +2332,7 @@
       "event": 1.5566105659593932e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 128484288,
       "p_state": 7.683214140937386e-07,
       "W": 0.010129943910228433,
@@ -2389,7 +2389,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2402,7 +2402,7 @@
     "event": 1.5566105659593932e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 128484288,
     "p_state": 7.683214140937386e-07,
     "W": 0.010129943910228433,
@@ -2447,9 +2447,9 @@
     ],
     "total_votes": 2168621,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2476,7 +2476,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2484,7 +2484,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 12,
      "p": {
@@ -2492,7 +2492,7 @@
       "event": 1.223317815305049e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 163489812,
       "p_state": 3.289526508663038e-07,
       "W": 0.018594132196281372,
@@ -2549,7 +2549,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2562,7 +2562,7 @@
     "event": 1.223317815305049e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 163489812,
     "p_state": 3.289526508663038e-07,
     "W": 0.018594132196281372,
@@ -2643,9 +2643,9 @@
     ],
     "total_votes": 1225614,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2674,7 +2674,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2682,7 +2682,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -2690,7 +2690,7 @@
       "event": 9.887274774860252e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 202280208,
       "p_state": 3.706321781075539e-06,
       "W": 0.001333839229144192,
@@ -2747,7 +2747,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2760,7 +2760,7 @@
     "event": 9.887274774860252e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 202280208,
     "p_state": 3.706321781075539e-06,
     "W": 0.001333839229144192,
@@ -2799,9 +2799,9 @@
     ],
     "total_votes": 993044,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -2830,7 +2830,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -2838,7 +2838,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 7,
      "p": {
@@ -2846,7 +2846,7 @@
       "event": 2.633303811701744e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 759502185,
       "p_state": 1.3160647864510888e-07,
       "W": 0.010004461173992554,
@@ -2903,7 +2903,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -2916,7 +2916,7 @@
     "event": 2.633303811701744e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 759502185,
     "p_state": 1.3160647864510888e-07,
     "W": 0.010004461173992554,
@@ -2973,9 +2973,9 @@
     ],
     "total_votes": 1322517,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3002,7 +3002,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3010,7 +3010,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 9,
      "p": {
@@ -3018,7 +3018,7 @@
       "event": 2.2315077521146738e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 89625501,
       "p_state": 9.662059470171253e-07,
       "W": 0.011547785226347411,
@@ -3075,7 +3075,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3088,7 +3088,7 @@
     "event": 2.2315077521146738e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 89625501,
     "p_state": 9.662059470171253e-07,
     "W": 0.011547785226347411,
@@ -3151,9 +3151,9 @@
     ],
     "total_votes": 1628202,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3180,7 +3180,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3188,7 +3188,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 10,
      "p": {
@@ -3196,7 +3196,7 @@
       "event": 1.623028596856548e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 123226418,
       "p_state": 5.567891622507466e-07,
       "W": 0.014574893935575806,
@@ -3253,7 +3253,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3266,7 +3266,7 @@
     "event": 1.623028596856548e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 123226418,
     "p_state": 5.567891622507466e-07,
     "W": 0.014574893935575806,
@@ -3317,9 +3317,9 @@
     ],
     "total_votes": 555035,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3348,7 +3348,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3356,7 +3356,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -3364,7 +3364,7 @@
       "event": 1.9715963172803043e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 101440644,
       "p_state": 1.8245648191462028e-06,
       "W": 0.005402922101180555,
@@ -3421,7 +3421,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3434,7 +3434,7 @@
     "event": 1.9715963172803043e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 101440644,
     "p_state": 1.8245648191462028e-06,
     "W": 0.005402922101180555,
@@ -3487,9 +3487,9 @@
     ],
     "total_votes": 1714358,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3518,7 +3518,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3526,7 +3526,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 10,
      "p": {
@@ -3534,7 +3534,7 @@
       "event": 6.0786807668951435e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 329018759,
       "p_state": 2.6035590753363774e-06,
       "W": 0.0011673790743752922,
@@ -3591,7 +3591,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3604,7 +3604,7 @@
     "event": 6.0786807668951435e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 329018759,
     "p_state": 2.6035590753363774e-06,
     "W": 0.0011673790743752922,
@@ -3655,9 +3655,9 @@
     ],
     "total_votes": 2632801,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3686,7 +3686,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3694,7 +3694,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 13,
      "p": {
@@ -3702,7 +3702,7 @@
       "event": 2.964796923530804e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 674582459,
       "p_state": 1.5167877524174361e-06,
       "W": 0.00097732755252195,
@@ -3759,7 +3759,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3772,7 +3772,7 @@
     "event": 2.964796923530804e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 674582459,
     "p_state": 1.5167877524174361e-06,
     "W": 0.00097732755252195,
@@ -3823,9 +3823,9 @@
     ],
     "total_votes": 3669163,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -3854,7 +3854,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -3862,7 +3862,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 20,
      "p": {
@@ -3870,7 +3870,7 @@
       "event": 2.1370573072672065e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 93586634,
       "p_state": 4.5133018611552936e-07,
       "W": 0.023675098331669895,
@@ -3927,7 +3927,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -3940,7 +3940,7 @@
     "event": 2.1370573072672065e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 93586634,
     "p_state": 4.5133018611552936e-07,
     "W": 0.023675098331669895,
@@ -4033,9 +4033,9 @@
     ],
     "total_votes": 2096790,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4064,7 +4064,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4072,7 +4072,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 10,
      "p": {
@@ -4080,7 +4080,7 @@
       "event": 1.709537858659538e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 1169906820,
       "p_state": 1.4808829617936495e-06,
       "W": 0.0005772022174490214,
@@ -4137,7 +4137,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4150,7 +4150,7 @@
     "event": 1.709537858659538e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 1169906820,
     "p_state": 1.4808829617936495e-06,
     "W": 0.0005772022174490214,
@@ -4195,9 +4195,9 @@
     ],
     "total_votes": 931527,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4226,7 +4226,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4234,7 +4234,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 7,
      "p": {
@@ -4242,7 +4242,7 @@
       "event": 1.4954698320496237e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 133737235,
       "p_state": 7.074606547266004e-07,
       "W": 0.010569279168094168,
@@ -4299,7 +4299,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4312,7 +4312,7 @@
     "event": 1.4954698320496237e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 133737235,
     "p_state": 7.074606547266004e-07,
     "W": 0.010569279168094168,
@@ -4357,9 +4357,9 @@
     ],
     "total_votes": 2093228,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4386,7 +4386,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4394,7 +4394,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 11,
      "p": {
@@ -4402,7 +4402,7 @@
       "event": 1.8387603635835153e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 108768931,
       "p_state": 6.788926620269712e-07,
       "W": 0.013542349670517317,
@@ -4459,7 +4459,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4472,7 +4472,7 @@
     "event": 1.8387603635835153e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 108768931,
     "p_state": 6.788926620269712e-07,
     "W": 0.013542349670517317,
@@ -4523,9 +4523,9 @@
     ],
     "total_votes": 365674,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4552,7 +4552,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4560,7 +4560,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -4568,7 +4568,7 @@
       "event": 2.8536963761506394e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 70084541,
       "p_state": 2.583299994185578e-06,
       "W": 0.005523354590201801,
@@ -4625,7 +4625,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4638,7 +4638,7 @@
     "event": 2.8536963761506394e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 70084541,
     "p_state": 2.583299994185578e-06,
     "W": 0.005523354590201801,
@@ -4689,9 +4689,9 @@
     ],
     "total_votes": 661465,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4718,7 +4718,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4726,7 +4726,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 5,
      "p": {
@@ -4734,7 +4734,7 @@
       "event": 7.159852384912714e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 2793353679,
       "p_state": 6.065559965575215e-08,
       "W": 0.005902053912209344,
@@ -4791,7 +4791,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4804,7 +4804,7 @@
     "event": 7.159852384912714e-10,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 2793353679,
     "p_state": 6.065559965575215e-08,
     "W": 0.005902053912209344,
@@ -4855,9 +4855,9 @@
     ],
     "total_votes": 343133,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -4884,7 +4884,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -4892,7 +4892,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -4900,7 +4900,7 @@
       "event": 3.8164806488905e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 524043008,
       "p_state": 3.462561663972964e-07,
       "W": 0.005511065244844546,
@@ -4957,7 +4957,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -4970,7 +4970,7 @@
     "event": 3.8164806488905e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 524043008,
     "p_state": 3.462561663972964e-07,
     "W": 0.005511065244844546,
@@ -5021,9 +5021,9 @@
     ],
     "total_votes": 450525,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5050,7 +5050,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5058,7 +5058,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -5066,7 +5066,7 @@
       "event": 1.6458120954929565e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 1215205554,
       "p_state": 1.6040394495602371e-07,
       "W": 0.005130210781113182,
@@ -5123,7 +5123,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5136,7 +5136,7 @@
     "event": 1.6458120954929565e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 1215205554,
     "p_state": 1.6040394495602371e-07,
     "W": 0.005130210781113182,
@@ -5229,9 +5229,9 @@
     ],
     "total_votes": 3099553,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5258,7 +5258,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5266,7 +5266,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 16,
      "p": {
@@ -5274,7 +5274,7 @@
       "event": 1.732310233514876e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 115452761,
       "p_state": 3.938469204761548e-07,
       "W": 0.021992176953174344,
@@ -5331,7 +5331,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5344,7 +5344,7 @@
     "event": 1.732310233514876e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 115452761,
     "p_state": 3.938469204761548e-07,
     "W": 0.021992176953174344,
@@ -5413,9 +5413,9 @@
     ],
     "total_votes": 521387,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5444,7 +5444,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5452,7 +5452,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 5,
      "p": {
@@ -5460,7 +5460,7 @@
       "event": 3.093438941646939e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 64652965,
       "p_state": 2.478955039497607e-06,
       "W": 0.006239401062864507,
@@ -5517,7 +5517,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5530,7 +5530,7 @@
     "event": 3.093438941646939e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 64652965,
     "p_state": 2.478955039497607e-06,
     "W": 0.006239401062864507,
@@ -5599,9 +5599,9 @@
     ],
     "total_votes": 6485683,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5630,7 +5630,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5638,7 +5638,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 36,
      "p": {
@@ -5646,7 +5646,7 @@
       "event": 6.4210037856918355e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 311477779,
       "p_state": 6.965171531163974e-07,
       "W": 0.004609365151283503,
@@ -5703,7 +5703,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5716,7 +5716,7 @@
     "event": 6.4210037856918355e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 311477779,
     "p_state": 6.965171531163974e-07,
     "W": 0.004609365151283503,
@@ -5768,9 +5768,9 @@
     ],
     "total_votes": 2134370,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5797,7 +5797,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5805,7 +5805,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 13,
      "p": {
@@ -5813,7 +5813,7 @@
       "event": 1.3732443905643737e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 145640500,
       "p_state": 3.391215114800851e-07,
       "W": 0.02024708465957957,
@@ -5870,7 +5870,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -5883,7 +5883,7 @@
     "event": 1.3732443905643737e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 145640500,
     "p_state": 3.391215114800851e-07,
     "W": 0.02024708465957957,
@@ -5946,9 +5946,9 @@
     ],
     "total_votes": 297261,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -5975,7 +5975,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -5983,7 +5983,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -5991,7 +5991,7 @@
       "event": 5.830381670451371e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 343030716,
       "p_state": 6.694238156552835e-07,
       "W": 0.0043547761030462775,
@@ -6048,7 +6048,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6061,7 +6061,7 @@
     "event": 5.830381670451371e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 343030716,
     "p_state": 6.694238156552835e-07,
     "W": 0.0043547761030462775,
@@ -6118,9 +6118,9 @@
     ],
     "total_votes": 4393585,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6149,7 +6149,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6157,7 +6157,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 23,
      "p": {
@@ -6165,7 +6165,7 @@
       "event": 2.1013316279867675e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 95177742,
       "p_state": 3.859910670182793e-07,
       "W": 0.027219951542133164,
@@ -6222,7 +6222,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6235,7 +6235,7 @@
     "event": 2.1013316279867675e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 95177742,
     "p_state": 3.859910670182793e-07,
     "W": 0.027219951542133164,
@@ -6286,9 +6286,9 @@
     ],
     "total_votes": 1171036,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6315,7 +6315,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6323,7 +6323,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -6331,7 +6331,7 @@
       "event": 1.2306654435747001e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 1625137043,
       "p_state": 5.837990900046073e-08,
       "W": 0.010540145271252374,
@@ -6388,7 +6388,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6401,7 +6401,7 @@
     "event": 1.2306654435747001e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 1625137043,
     "p_state": 5.837990900046073e-08,
     "W": 0.010540145271252374,
@@ -6452,9 +6452,9 @@
     ],
     "total_votes": 1201694,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6483,7 +6483,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6491,7 +6491,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 7,
      "p": {
@@ -6499,7 +6499,7 @@
       "event": 1.786358477742181e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 111959611,
       "p_state": 3.1392883574115883e-06,
       "W": 0.0028451646907885083,
@@ -6556,7 +6556,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6569,7 +6569,7 @@
     "event": 1.786358477742181e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 111959611,
     "p_state": 3.1392883574115883e-06,
     "W": 0.0028451646907885083,
@@ -6638,9 +6638,9 @@
     ],
     "total_votes": 4536251,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6667,7 +6667,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6675,7 +6675,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 25,
      "p": {
@@ -6683,7 +6683,7 @@
       "event": 6.608481282160533e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 302641396,
       "p_state": 1.0028338264552714e-06,
       "W": 0.0032949034564976783,
@@ -6740,7 +6740,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6753,7 +6753,7 @@
     "event": 6.608481282160533e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 302641396,
     "p_state": 1.0028338264552714e-06,
     "W": 0.0032949034564976783,
@@ -6828,9 +6828,9 @@
     ],
     "total_votes": 404622,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -6859,7 +6859,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -6867,7 +6867,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 4,
      "p": {
@@ -6875,7 +6875,7 @@
       "event": 7.949698577545732e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 251581866,
       "p_state": 1.0268176361247404e-05,
       "W": 0.00038710372211507197,
@@ -6932,7 +6932,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -6945,7 +6945,7 @@
     "event": 7.949698577545732e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 251581866,
     "p_state": 1.0268176361247404e-05,
     "W": 0.00038710372211507197,
@@ -6996,9 +6996,9 @@
     ],
     "total_votes": 986009,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7025,7 +7025,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7033,7 +7033,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 8,
      "p": {
@@ -7041,7 +7041,7 @@
       "event": 8.825950617165718e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 226604486,
       "p_state": 3.524550458047226e-07,
       "W": 0.012520675646754293,
@@ -7098,7 +7098,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7111,7 +7111,7 @@
     "event": 8.825950617165718e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 226604486,
     "p_state": 3.524550458047226e-07,
     "W": 0.012520675646754293,
@@ -7150,9 +7150,9 @@
     ],
     "total_votes": 312991,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7181,7 +7181,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7189,7 +7189,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -7197,7 +7197,7 @@
       "event": 1.3347571272690864e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 149839994,
       "p_state": 1.479545538399933e-06,
       "W": 0.004510699713618044,
@@ -7254,7 +7254,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7267,7 +7267,7 @@
     "event": 1.3347571272690864e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 149839994,
     "p_state": 1.479545538399933e-06,
     "W": 0.004510699713618044,
@@ -7306,9 +7306,9 @@
     ],
     "total_votes": 1636250,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7337,7 +7337,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7345,7 +7345,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 11,
      "p": {
@@ -7353,7 +7353,7 @@
       "event": 2.628051074039035e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 76102022,
       "p_state": 1.4805563755376325e-06,
       "W": 0.008875214471602657,
@@ -7410,7 +7410,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7423,7 +7423,7 @@
     "event": 2.628051074039035e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 76102022,
     "p_state": 1.4805563755376325e-06,
     "W": 0.008875214471602657,
@@ -7474,9 +7474,9 @@
     ],
     "total_votes": 5427410,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7505,7 +7505,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7513,7 +7513,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 29,
      "p": {
@@ -7521,7 +7521,7 @@
       "event": 7.686338878822212e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 260201903,
       "p_state": 7.184360464087195e-08,
       "W": 0.05349354975466696,
@@ -7578,7 +7578,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7591,7 +7591,7 @@
     "event": 7.686338878822212e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 260201903,
     "p_state": 7.184360464087195e-08,
     "W": 0.05349354975466696,
@@ -7672,9 +7672,9 @@
     ],
     "total_votes": 647008,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7701,7 +7701,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7709,7 +7709,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 5,
      "p": {
@@ -7717,7 +7717,7 @@
       "event": 2.2956831082976137e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 8712003816,
       "p_state": 2.2892364481990425e-08,
       "W": 0.005014080371871684,
@@ -7774,7 +7774,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7787,7 +7787,7 @@
     "event": 2.2956831082976137e-10,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 8712003816,
     "p_state": 2.2892364481990425e-08,
     "W": 0.005014080371871684,
@@ -7868,9 +7868,9 @@
     ],
     "total_votes": 243328,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -7899,7 +7899,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -7907,7 +7907,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -7915,7 +7915,7 @@
       "event": 4.745853711944436e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 42142049,
       "p_state": 8.831274177122602e-06,
       "W": 0.0026869586521492904,
@@ -7972,7 +7972,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -7985,7 +7985,7 @@
     "event": 4.745853711944436e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 42142049,
     "p_state": 8.831274177122602e-06,
     "W": 0.0026869586521492904,
@@ -8036,9 +8036,9 @@
     ],
     "total_votes": 2191609,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8065,7 +8065,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8073,7 +8073,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 12,
      "p": {
@@ -8081,7 +8081,7 @@
       "event": 1.0105331036453044e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 197915337,
       "p_state": 2.6467744653658167e-07,
       "W": 0.019089898230252804,
@@ -8138,7 +8138,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8151,7 +8151,7 @@
     "event": 1.0105331036453044e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 197915337,
     "p_state": 2.6467744653658167e-07,
     "W": 0.019089898230252804,
@@ -8220,9 +8220,9 @@
     ],
     "total_votes": 1865253,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8249,7 +8249,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8257,7 +8257,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 10,
      "p": {
@@ -8265,7 +8265,7 @@
       "event": 1.854317495424614e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 107856395,
       "p_state": 1.7685461975212087e-06,
       "W": 0.005242490973726393,
@@ -8322,7 +8322,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8335,7 +8335,7 @@
     "event": 1.854317495424614e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 107856395,
     "p_state": 1.7685461975212087e-06,
     "W": 0.005242490973726393,
@@ -8380,9 +8380,9 @@
     ],
     "total_votes": 653311,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8409,7 +8409,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8417,7 +8417,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 6,
      "p": {
@@ -8425,7 +8425,7 @@
       "event": 2.2804305657324955e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 87702736,
       "p_state": 6.315505974010346e-06,
       "W": 0.001805421905320772,
@@ -8482,7 +8482,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8495,7 +8495,7 @@
     "event": 2.2804305657324955e-08,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 87702736,
     "p_state": 6.315505974010346e-06,
     "W": 0.001805421905320772,
@@ -8534,9 +8534,9 @@
     ],
     "total_votes": 2191608,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8566,7 +8566,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8574,7 +8574,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 11,
      "p": {
@@ -8582,7 +8582,7 @@
       "event": 9.887468902450236e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 202276237,
       "p_state": 2.0001364216307575e-06,
       "W": 0.0024716986290337023,
@@ -8639,7 +8639,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8652,7 +8652,7 @@
     "event": 9.887468902450236e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 202276237,
     "p_state": 2.0001364216307575e-06,
     "W": 0.0024716986290337023,
@@ -8703,9 +8703,9 @@
     ],
     "total_votes": 176551,
     "source": {
-     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-     "read_utc": "2026-11-07T03:22Z",
+     "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+     "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+     "read_utc": "2026-11-07T04:05Z",
      "licence": "CC0 1.0",
      "mark": "stated",
      "via": "MEDSL's compilation of state election offices' returns",
@@ -8732,7 +8732,7 @@
      },
      "p_published": null,
      "convention": null,
-     "as_of": "1988-11-08",
+     "as_of": "1988-11-07",
      "source": {
       "name": "the model's own forecast (pipeline/own_forecast.py, approved version)",
       "url": null,
@@ -8740,7 +8740,7 @@
       "licence": null,
       "mark": "inferred",
       "via": "538's national polling average (CC BY 4.0) and the certified results of the election before",
-      "note": "538's national average of 1988-11-08, the last before the election"
+      "note": "538's national average of 1988-11-07, the last before Election Day"
      },
      "unit_ev": 3,
      "p": {
@@ -8748,7 +8748,7 @@
       "event": 1.4089286104073288e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "70b1e26",
+      "commit": "33c6ff3",
       "one_in": 1419518338,
       "p_state": 2.0624621863523527e-07,
       "W": 0.0034156471321763818,
@@ -8805,7 +8805,7 @@
     "source": {
      "name": "National Archives, Electoral College results, 1988",
      "url": "https://www.archives.gov/electoral-college/1988",
-     "read_utc": "2026-11-07T03:29Z",
+     "read_utc": "2026-11-07T04:07Z",
      "licence": "CC0 1.0 (NARA's own works)",
      "mark": "stated",
      "via": null,
@@ -8818,7 +8818,7 @@
     "event": 1.4089286104073288e-09,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "70b1e26",
+    "commit": "33c6ff3",
     "one_in": 1419518338,
     "p_state": 2.0624621863523527e-07,
     "W": 0.0034156471321763818,
