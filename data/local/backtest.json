@@ -1,6 +1,6 @@
 {
  "method": "D3-v1.1",
- "written_utc": "2026-11-07T05:38Z",
+ "written_utc": "2026-11-07T08:26Z",
  "about": "Back-test of the model's own forecast for state legislative races, each year forecast from a fit on earlier years only. Route a: single-seat general elections with one Democrat and one Republican on the ballot; the headline tallies are for years whose fit had at least 3 earlier years of the same kind (presidential, midterm, odd), the fewest the back-test by earlier years supports ('partisan.by_earlier_years_of_kind'). Routes b and c and runoffs: like past races, from earlier years only. 'in_50' is the share of races inside their 50% interval; 'expected' counts sum the forecast's probabilities, 'seen' counts what happened. A margin of 0 or 1 is the check of brief step 5.",
  "partisan": {
   "min_earlier_years_of_kind": 3,
@@ -1272,47 +1272,47 @@
   "fit_on_all_years": {
    "races_fitted": 90953,
    "coef": {
-    "B": 0.003949344318161498,
-    "C": 0.001966613880559631,
-    "A_last": 0.7520256397821224,
-    "A_inc": 0.034488705986083334,
-    "A_lean": 0.03822828958625622,
-    "B_unopposed": 0.10803397092832655,
-    "B_inc": 0.04915479724561679,
-    "B_lean": 0.3579340855239353,
-    "C_inc": 0.11755575426879278,
-    "C_lean": 0.3748813594204595,
-    "lean_missing": 0.0037527186363381856
+    "B": 0.003949317909462298,
+    "C": 0.00196667909625357,
+    "A_last": 0.7520255270981675,
+    "A_inc": 0.03448871172329378,
+    "A_lean": 0.0382281615340304,
+    "B_unopposed": 0.10803398068258577,
+    "B_inc": 0.04915479338162573,
+    "B_lean": 0.3579341853417573,
+    "C_inc": 0.1175557750901431,
+    "C_lean": 0.37488034670591697,
+    "lean_missing": 0.00375267111113174
    },
    "swing": {
     "presidential": [
-     -0.0005880279049609842,
-     0.0037558662025429226
+     -0.0005880470989406202,
+     0.0037558611055597208
     ],
     "midterm": [
-     0.0010008384383443571,
-     -0.024207473776899042
+     0.0010008550594148978,
+     -0.02420750050418457
     ],
     "odd": [
-     -0.002442153908613313,
-     -0.009897229958548292
+     -0.002442149113383078,
+     -0.009897231157863434
     ]
    },
-   "s_a": 0.027446162629457586,
-   "s_g": 0.027162072480246328,
+   "s_a": 0.02744615781866792,
+   "s_g": 0.027162078420050823,
    "s_e": {
-    "C0": 0.11100861748655448,
-    "C1": 0.10523894679429864,
-    "C2": 0.10842617700276173,
-    "C3": 0.10888670222689162,
-    "A0": 0.08310476316210096,
-    "A1": 0.07350106070132074,
-    "B0": 0.10940778353619023,
-    "B2": 0.09793279877746398,
-    "B1": 0.10118834107705116,
-    "B3": 0.09410608363165422,
-    "A3": 0.06101400334528254,
-    "A2": 0.06677667012589879
+    "C0": 0.11100861992783258,
+    "C1": 0.10523894877106581,
+    "C2": 0.10842616500978748,
+    "C3": 0.10888663761388065,
+    "A0": 0.08310476179338465,
+    "A1": 0.07350105954060272,
+    "B0": 0.1094077862622238,
+    "B2": 0.09793280974337365,
+    "B1": 0.10118834169707447,
+    "B3": 0.09410607322537995,
+    "A3": 0.06101400283230733,
+    "A2": 0.06677663109961714
    }
   }
  },
