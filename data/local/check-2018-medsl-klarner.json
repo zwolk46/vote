@@ -1,0 +1,6134 @@
+{
+ "tallies": {
+  "matched": 4130,
+  "same winner": 4077,
+  "D and R votes identical": 3785,
+  "medsl contest without a like-named Klarner contest": 747,
+  "two-party share within 1 point, counts differ": 305,
+  "winner differs": 53,
+  "two-party share differs by more than 1 point": 13,
+  "a major party's candidate in one source only": 27
+ },
+ "by_state": {
+  "AK": {
+   "matched": 40,
+   "same winner": 40,
+   "D and R votes identical": 40
+  },
+  "AL": {
+   "matched": 140,
+   "same winner": 140,
+   "two-party share within 1 point, counts differ": 140
+  },
+  "AR": {
+   "matched": 55,
+   "same winner": 55,
+   "D and R votes identical": 55
+  },
+  "AZ": {
+   "matched": 30,
+   "same winner": 30,
+   "D and R votes identical": 30
+  },
+  "CA": {
+   "matched": 100,
+   "same winner": 100,
+   "D and R votes identical": 100
+  },
+  "CO": {
+   "matched": 82,
+   "same winner": 81,
+   "D and R votes identical": 82,
+   "winner differs": 1
+  },
+  "CT": {
+   "matched": 187,
+   "same winner": 184,
+   "two-party share within 1 point, counts differ": 6,
+   "D and R votes identical": 179,
+   "two-party share differs by more than 1 point": 2,
+   "winner differs": 3
+  },
+  "DE": {
+   "matched": 51,
+   "same winner": 50,
+   "D and R votes identical": 51,
+   "winner differs": 1
+  },
+  "FL": {
+   "matched": 103,
+   "same winner": 101,
+   "D and R votes identical": 94,
+   "two-party share within 1 point, counts differ": 7,
+   "winner differs": 2,
+   "two-party share differs by more than 1 point": 2
+  },
+  "GA": {
+   "matched": 234,
+   "same winner": 234,
+   "D and R votes identical": 234
+  },
+  "HI": {
+   "matched": 26,
+   "same winner": 26,
+   "D and R votes identical": 14,
+   "two-party share within 1 point, counts differ": 12
+  },
+  "IA": {
+   "matched": 125,
+   "same winner": 124,
+   "D and R votes identical": 125,
+   "winner differs": 1
+  },
+  "ID": {
+   "matched": 35,
+   "same winner": 35,
+   "D and R votes identical": 35
+  },
+  "IL": {
+   "matched": 162,
+   "same winner": 154,
+   "D and R votes identical": 157,
+   "winner differs": 8,
+   "a major party's candidate in one source only": 5
+  },
+  "IN": {
+   "matched": 127,
+   "same winner": 121,
+   "two-party share within 1 point, counts differ": 52,
+   "D and R votes identical": 67,
+   "a major party's candidate in one source only": 3,
+   "winner differs": 6,
+   "two-party share differs by more than 1 point": 5
+  },
+  "KS": {
+   "matched": 125,
+   "same winner": 125,
+   "D and R votes identical": 123,
+   "a major party's candidate in one source only": 1,
+   "two-party share within 1 point, counts differ": 1
+  },
+  "KY": {
+   "matched": 119,
+   "same winner": 118,
+   "two-party share within 1 point, counts differ": 8,
+   "D and R votes identical": 110,
+   "winner differs": 1,
+   "a major party's candidate in one source only": 1
+  },
+  "MD": {
+   "matched": 47,
+   "same winner": 47,
+   "D and R votes identical": 47
+  },
+  "ME": {
+   "matched": 186,
+   "same winner": 176,
+   "D and R votes identical": 179,
+   "winner differs": 10,
+   "a major party's candidate in one source only": 5,
+   "two-party share within 1 point, counts differ": 1,
+   "two-party share differs by more than 1 point": 1
+  },
+  "MI": {
+   "matched": 150,
+   "same winner": 150,
+   "D and R votes identical": 148,
+   "a major party's candidate in one source only": 1,
+   "two-party share within 1 point, counts differ": 1
+  },
+  "MO": {
+   "matched": 176,
+   "same winner": 176,
+   "D and R votes identical": 172,
+   "two-party share within 1 point, counts differ": 4
+  },
+  "MT": {
+   "matched": 125,
+   "same winner": 125,
+   "D and R votes identical": 125
+  },
+  "NC": {
+   "matched": 170,
+   "same winner": 169,
+   "D and R votes identical": 170,
+   "winner differs": 1
+  },
+  "NE": {
+   "matched": 24,
+   "same winner": 24,
+   "D and R votes identical": 24
+  },
+  "NH": {
+   "matched": 24,
+   "same winner": 24,
+   "D and R votes identical": 24
+  },
+  "NV": {
+   "matched": 53,
+   "same winner": 52,
+   "D and R votes identical": 48,
+   "a major party's candidate in one source only": 5,
+   "winner differs": 1
+  },
+  "NY": {
+   "matched": 137,
+   "same winner": 137,
+   "two-party share within 1 point, counts differ": 22,
+   "D and R votes identical": 114,
+   "two-party share differs by more than 1 point": 1
+  },
+  "OH": {
+   "matched": 116,
+   "same winner": 116,
+   "D and R votes identical": 114,
+   "two-party share differs by more than 1 point": 1,
+   "two-party share within 1 point, counts differ": 1
+  },
+  "OK": {
+   "matched": 92,
+   "same winner": 92,
+   "D and R votes identical": 92
+  },
+  "OR": {
+   "matched": 75,
+   "same winner": 74,
+   "two-party share within 1 point, counts differ": 4,
+   "D and R votes identical": 70,
+   "two-party share differs by more than 1 point": 1,
+   "winner differs": 1
+  },
+  "PA": {
+   "matched": 228,
+   "same winner": 226,
+   "D and R votes identical": 223,
+   "a major party's candidate in one source only": 4,
+   "two-party share within 1 point, counts differ": 1,
+   "winner differs": 2
+  },
+  "RI": {
+   "matched": 113,
+   "same winner": 112,
+   "D and R votes identical": 113,
+   "winner differs": 1
+  },
+  "SC": {
+   "matched": 123,
+   "same winner": 123,
+   "D and R votes identical": 122,
+   "two-party share within 1 point, counts differ": 1
+  },
+  "SD": {
+   "matched": 34,
+   "same winner": 32,
+   "D and R votes identical": 33,
+   "winner differs": 2,
+   "two-party share within 1 point, counts differ": 1
+  },
+  "TN": {
+   "matched": 116,
+   "same winner": 115,
+   "D and R votes identical": 116,
+   "winner differs": 1
+  },
+  "TX": {
+   "matched": 165,
+   "same winner": 158,
+   "two-party share within 1 point, counts differ": 26,
+   "D and R votes identical": 139,
+   "winner differs": 7
+  },
+  "UT": {
+   "matched": 89,
+   "same winner": 86,
+   "D and R votes identical": 81,
+   "winner differs": 3,
+   "two-party share within 1 point, counts differ": 8
+  },
+  "WA": {
+   "matched": 24,
+   "same winner": 24,
+   "D and R votes identical": 13,
+   "two-party share within 1 point, counts differ": 9,
+   "a major party's candidate in one source only": 2
+  },
+  "WV": {
+   "matched": 47,
+   "same winner": 47,
+   "D and R votes identical": 47
+  },
+  "WY": {
+   "matched": 75,
+   "same winner": 74,
+   "D and R votes identical": 75,
+   "winner differs": 1
+  }
+ },
+ "differences": [
+  {
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": [
+    441,
+    0
+   ],
+   "medsl": [
+    4419,
+    0
+   ],
+   "relative": 9.0204,
+   "medsl_over_klarner": 10.02,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": [
+    12229,
+    0
+   ],
+   "medsl": [
+    0,
+    12229
+   ],
+   "relative": 2.0,
+   "medsl_over_klarner": 1.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "17",
+   "klarner": [
+    0,
+    3022
+   ],
+   "medsl": [
+    3022,
+    0
+   ],
+   "relative": 2.0,
+   "medsl_over_klarner": 1.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "40",
+   "klarner": [
+    24806,
+    33751
+   ],
+   "medsl": [
+    90924,
+    79068
+   ],
+   "relative": 1.903,
+   "medsl_over_klarner": 2.903,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": false
+  },
+  {
+   "state": "KS",
+   "chamber": "state-lower",
+   "district": "81",
+   "klarner": [
+    2053,
+    3990
+   ],
+   "medsl": [
+    6043,
+    0
+   ],
+   "relative": 1.3205,
+   "medsl_over_klarner": 1.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "12",
+   "klarner": [
+    12467,
+    7192
+   ],
+   "medsl": [
+    0,
+    19659
+   ],
+   "relative": 1.2683,
+   "medsl_over_klarner": 1.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "36",
+   "klarner": [
+    23873,
+    33968
+   ],
+   "medsl": [
+    56395,
+    66361
+   ],
+   "relative": 1.1223,
+   "medsl_over_klarner": 2.122,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": false
+  },
+  {
+   "state": "IL",
+   "chamber": "state-lower",
+   "district": "4",
+   "klarner": [
+    31797,
+    0
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "IL",
+   "chamber": "state-lower",
+   "district": "25",
+   "klarner": [
+    32796,
+    0
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "IL",
+   "chamber": "state-lower",
+   "district": "40",
+   "klarner": [
+    27755,
+    0
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "IL",
+   "chamber": "state-upper",
+   "district": "17",
+   "klarner": [
+    66268,
+    0
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "IL",
+   "chamber": "state-upper",
+   "district": "48",
+   "klarner": [
+    42068,
+    32021
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "56",
+   "klarner": [
+    5891,
+    11926
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "86",
+   "klarner": [
+    2639,
+    10257
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "NV",
+   "chamber": "state-lower",
+   "district": "6",
+   "klarner": [
+    10390,
+    0
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "PA",
+   "chamber": "state-lower",
+   "district": "7",
+   "klarner": [
+    21573,
+    0
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "PA",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": [
+    0,
+    16090
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "PA",
+   "chamber": "state-lower",
+   "district": "73",
+   "klarner": [
+    0,
+    19607
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "PA",
+   "chamber": "state-lower",
+   "district": "75",
+   "klarner": [
+    0,
+    21725
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "88",
+   "klarner": [
+    15099,
+    18825
+   ],
+   "medsl": [
+    693,
+    0
+   ],
+   "relative": 0.9796,
+   "medsl_over_klarner": 0.02,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "99",
+   "klarner": [
+    1971,
+    2125
+   ],
+   "medsl": [
+    0,
+    4096
+   ],
+   "relative": 0.9624,
+   "medsl_over_klarner": 1.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "25",
+   "klarner": [
+    6872,
+    16668
+   ],
+   "medsl": [
+    424,
+    817
+   ],
+   "relative": 0.9473,
+   "medsl_over_klarner": 0.053,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": false
+  },
+  {
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "119",
+   "klarner": [
+    0,
+    2324
+   ],
+   "medsl": [
+    0,
+    127
+   ],
+   "relative": 0.9454,
+   "medsl_over_klarner": 0.055,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": false
+  },
+  {
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "14",
+   "klarner": [
+    10790,
+    7850
+   ],
+   "medsl": [
+    18640,
+    0
+   ],
+   "relative": 0.8423,
+   "medsl_over_klarner": 1.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "SC",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": [
+    9722,
+    0
+   ],
+   "medsl": [
+    2794,
+    0
+   ],
+   "relative": 0.7126,
+   "medsl_over_klarner": 0.287,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NV",
+   "chamber": "state-lower",
+   "district": "15",
+   "klarner": [
+    9347,
+    4719
+   ],
+   "medsl": [
+    0,
+    4719
+   ],
+   "relative": 0.6645,
+   "medsl_over_klarner": 0.335,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "101",
+   "klarner": [
+    1542,
+    2514
+   ],
+   "medsl": [
+    1542,
+    0
+   ],
+   "relative": 0.6198,
+   "medsl_over_klarner": 0.38,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "31",
+   "klarner": [
+    28612,
+    30221
+   ],
+   "medsl": [
+    11034,
+    15301
+   ],
+   "relative": 0.5524,
+   "medsl_over_klarner": 0.448,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "29",
+   "klarner": [
+    31974,
+    24403
+   ],
+   "medsl": [
+    13327,
+    14868
+   ],
+   "relative": 0.4999,
+   "medsl_over_klarner": 0.5,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": false
+  },
+  {
+   "state": "NV",
+   "chamber": "state-lower",
+   "district": "4",
+   "klarner": [
+    14530,
+    14410
+   ],
+   "medsl": [
+    14530,
+    0
+   ],
+   "relative": 0.4979,
+   "medsl_over_klarner": 0.502,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "73",
+   "klarner": [
+    0,
+    17824
+   ],
+   "medsl": [
+    0,
+    10044
+   ],
+   "relative": 0.4365,
+   "medsl_over_klarner": 0.564,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "38",
+   "klarner": [
+    29618,
+    19905
+   ],
+   "medsl": [
+    29614,
+    0
+   ],
+   "relative": 0.402,
+   "medsl_over_klarner": 0.598,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "NV",
+   "chamber": "state-upper",
+   "district": "21",
+   "klarner": [
+    22391,
+    13721
+   ],
+   "medsl": [
+    22391,
+    0
+   ],
+   "relative": 0.38,
+   "medsl_over_klarner": 0.62,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "NV",
+   "chamber": "state-lower",
+   "district": "20",
+   "klarner": [
+    12029,
+    7342
+   ],
+   "medsl": [
+    12029,
+    0
+   ],
+   "relative": 0.379,
+   "medsl_over_klarner": 0.621,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "33",
+   "klarner": [
+    32552,
+    12769
+   ],
+   "medsl": [
+    32552,
+    0
+   ],
+   "relative": 0.2817,
+   "medsl_over_klarner": 0.718,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "75",
+   "klarner": [
+    10236,
+    16118
+   ],
+   "medsl": [
+    7358,
+    11784
+   ],
+   "relative": 0.2737,
+   "medsl_over_klarner": 0.726,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "2",
+   "klarner": [
+    53920,
+    17288
+   ],
+   "medsl": [
+    55827,
+    0
+   ],
+   "relative": 0.2696,
+   "medsl_over_klarner": 0.784,
+   "what": "a major party's candidate in one source only",
+   "same_winner": true
+  },
+  {
+   "state": "OR",
+   "chamber": "state-lower",
+   "district": "32",
+   "klarner": [
+    15442,
+    13618
+   ],
+   "medsl": [
+    19379,
+    17338
+   ],
+   "relative": 0.2635,
+   "medsl_over_klarner": 1.263,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "125",
+   "klarner": [
+    1978,
+    1186
+   ],
+   "medsl": [
+    1186,
+    1186
+   ],
+   "relative": 0.2503,
+   "medsl_over_klarner": 0.75,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": false
+  },
+  {
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "58",
+   "klarner": [
+    1469,
+    9011
+   ],
+   "medsl": [
+    1216,
+    6901
+   ],
+   "relative": 0.2255,
+   "medsl_over_klarner": 0.775,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "145",
+   "klarner": [
+    0,
+    31884
+   ],
+   "medsl": [
+    0,
+    24927
+   ],
+   "relative": 0.2182,
+   "medsl_over_klarner": 0.782,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "47",
+   "klarner": [
+    16064,
+    31853
+   ],
+   "medsl": [
+    13276,
+    25278
+   ],
+   "relative": 0.1954,
+   "medsl_over_klarner": 0.805,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "100",
+   "klarner": [
+    14070,
+    0
+   ],
+   "medsl": [
+    16296,
+    0
+   ],
+   "relative": 0.1582,
+   "medsl_over_klarner": 1.158,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "OH",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": [
+    10347,
+    31908
+   ],
+   "medsl": [
+    12540,
+    35889
+   ],
+   "relative": 0.1461,
+   "medsl_over_klarner": 1.146,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": true
+  },
+  {
+   "state": "OR",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": [
+    17713,
+    13232
+   ],
+   "medsl": [
+    15587,
+    15418
+   ],
+   "relative": 0.1393,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": true
+  },
+  {
+   "state": "OR",
+   "chamber": "state-upper",
+   "district": "16",
+   "klarner": [
+    50398,
+    0
+   ],
+   "medsl": [
+    57145,
+    0
+   ],
+   "relative": 0.1339,
+   "medsl_over_klarner": 1.134,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "126",
+   "klarner": [
+    23317,
+    30505
+   ],
+   "medsl": [
+    20779,
+    26415
+   ],
+   "relative": 0.1231,
+   "medsl_over_klarner": 0.877,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "KS",
+   "chamber": "state-lower",
+   "district": "117",
+   "klarner": [
+    0,
+    7974
+   ],
+   "medsl": [
+    0,
+    7173
+   ],
+   "relative": 0.1005,
+   "medsl_over_klarner": 0.9,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "102",
+   "klarner": [
+    23432,
+    30129
+   ],
+   "medsl": [
+    21220,
+    27221
+   ],
+   "relative": 0.0956,
+   "medsl_over_klarner": 0.904,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "132",
+   "klarner": [
+    0,
+    38269
+   ],
+   "medsl": [
+    0,
+    35271
+   ],
+   "relative": 0.0783,
+   "medsl_over_klarner": 0.922,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "9",
+   "klarner": [
+    73412,
+    45417
+   ],
+   "medsl": [
+    68279,
+    42301
+   ],
+   "relative": 0.0694,
+   "medsl_over_klarner": 0.931,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "13",
+   "klarner": [
+    6494,
+    15270
+   ],
+   "medsl": [
+    6070,
+    14454
+   ],
+   "relative": 0.057,
+   "medsl_over_klarner": 0.943,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "OH",
+   "chamber": "state-upper",
+   "district": "5",
+   "klarner": [
+    55669,
+    62574
+   ],
+   "medsl": [
+    57781,
+    66662
+   ],
+   "relative": 0.0524,
+   "medsl_over_klarner": 1.052,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "68",
+   "klarner": [
+    4834,
+    17841
+   ],
+   "medsl": [
+    5026,
+    18473
+   ],
+   "relative": 0.0363,
+   "medsl_over_klarner": 1.036,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "67",
+   "klarner": [
+    11624,
+    0
+   ],
+   "medsl": [
+    11239,
+    0
+   ],
+   "relative": 0.0331,
+   "medsl_over_klarner": 0.967,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "58",
+   "klarner": [
+    7981,
+    13784
+   ],
+   "medsl": [
+    7288,
+    13784
+   ],
+   "relative": 0.0318,
+   "medsl_over_klarner": 0.968,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": [
+    0,
+    10861
+   ],
+   "medsl": [
+    0,
+    11196
+   ],
+   "relative": 0.0308,
+   "medsl_over_klarner": 1.031,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "42",
+   "klarner": [
+    52292,
+    48572
+   ],
+   "medsl": [
+    52292,
+    51607
+   ],
+   "relative": 0.0301,
+   "medsl_over_klarner": 1.03,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "5",
+   "klarner": [
+    11240,
+    11713
+   ],
+   "medsl": [
+    11080,
+    12213
+   ],
+   "relative": 0.0288,
+   "medsl_over_klarner": 1.015,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "16",
+   "klarner": [
+    6209,
+    14661
+   ],
+   "medsl": [
+    6050,
+    14227
+   ],
+   "relative": 0.0284,
+   "medsl_over_klarner": 0.972,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "106",
+   "klarner": [
+    5299,
+    5697
+   ],
+   "medsl": [
+    5575,
+    5697
+   ],
+   "relative": 0.0251,
+   "medsl_over_klarner": 1.025,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "120",
+   "klarner": [
+    14359,
+    31393
+   ],
+   "medsl": [
+    14054,
+    30586
+   ],
+   "relative": 0.0243,
+   "medsl_over_klarner": 0.976,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "35",
+   "klarner": [
+    5461,
+    5979
+   ],
+   "medsl": [
+    5461,
+    6240
+   ],
+   "relative": 0.0228,
+   "medsl_over_klarner": 1.023,
+   "what": "two-party share differs by more than 1 point",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "28",
+   "klarner": [
+    8484,
+    19757
+   ],
+   "medsl": [
+    8769,
+    20080
+   ],
+   "relative": 0.0215,
+   "medsl_over_klarner": 1.022,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "40",
+   "klarner": [
+    12121,
+    16501
+   ],
+   "medsl": [
+    11836,
+    16178
+   ],
+   "relative": 0.0212,
+   "medsl_over_klarner": 0.979,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "69",
+   "klarner": [
+    6480,
+    14604
+   ],
+   "medsl": [
+    6342,
+    14300
+   ],
+   "relative": 0.021,
+   "medsl_over_klarner": 0.979,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "57",
+   "klarner": [
+    0,
+    78364
+   ],
+   "medsl": [
+    0,
+    79910
+   ],
+   "relative": 0.0197,
+   "medsl_over_klarner": 1.02,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "44",
+   "klarner": [
+    6690,
+    14776
+   ],
+   "medsl": [
+    6587,
+    14459
+   ],
+   "relative": 0.0196,
+   "medsl_over_klarner": 0.98,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "42",
+   "klarner": [
+    8570,
+    13073
+   ],
+   "medsl": [
+    8673,
+    13389
+   ],
+   "relative": 0.0194,
+   "medsl_over_klarner": 1.019,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "27",
+   "klarner": [
+    11429,
+    27795
+   ],
+   "medsl": [
+    11630,
+    28354
+   ],
+   "relative": 0.0194,
+   "medsl_over_klarner": 1.019,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "PA",
+   "chamber": "state-lower",
+   "district": "59",
+   "klarner": [
+    7803,
+    18490
+   ],
+   "medsl": [
+    7932,
+    18849
+   ],
+   "relative": 0.0186,
+   "medsl_over_klarner": 1.019,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "68",
+   "klarner": [
+    2367,
+    10509
+   ],
+   "medsl": [
+    2289,
+    10359
+   ],
+   "relative": 0.0177,
+   "medsl_over_klarner": 0.982,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": [
+    3673,
+    1318
+   ],
+   "medsl": [
+    3729,
+    1346
+   ],
+   "relative": 0.0168,
+   "medsl_over_klarner": 1.017,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "32",
+   "klarner": [
+    7269,
+    18296
+   ],
+   "medsl": [
+    7148,
+    17995
+   ],
+   "relative": 0.0165,
+   "medsl_over_klarner": 0.983,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "55",
+   "klarner": [
+    61407,
+    66279
+   ],
+   "medsl": [
+    61389,
+    64514
+   ],
+   "relative": 0.014,
+   "medsl_over_klarner": 0.986,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "30",
+   "klarner": [
+    0,
+    14711
+   ],
+   "medsl": [
+    0,
+    14511
+   ],
+   "relative": 0.0136,
+   "medsl_over_klarner": 0.986,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "30",
+   "klarner": [
+    25505,
+    21517
+   ],
+   "medsl": [
+    25184,
+    21220
+   ],
+   "relative": 0.0131,
+   "medsl_over_klarner": 0.987,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "9",
+   "klarner": [
+    4555,
+    5130
+   ],
+   "medsl": [
+    4442,
+    5117
+   ],
+   "relative": 0.013,
+   "medsl_over_klarner": 0.987,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "35",
+   "klarner": [
+    59344,
+    0
+   ],
+   "medsl": [
+    58603,
+    0
+   ],
+   "relative": 0.0125,
+   "medsl_over_klarner": 0.988,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "68",
+   "klarner": [
+    26664,
+    8210
+   ],
+   "medsl": [
+    26891,
+    8400
+   ],
+   "relative": 0.012,
+   "medsl_over_klarner": 1.012,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "101",
+   "klarner": [
+    0,
+    10160
+   ],
+   "medsl": [
+    0,
+    10274
+   ],
+   "relative": 0.0112,
+   "medsl_over_klarner": 1.011,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "99",
+   "klarner": [
+    11655,
+    4239
+   ],
+   "medsl": [
+    11794,
+    4270
+   ],
+   "relative": 0.0107,
+   "medsl_over_klarner": 1.011,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "103",
+   "klarner": [
+    8725,
+    0
+   ],
+   "medsl": [
+    8818,
+    0
+   ],
+   "relative": 0.0107,
+   "medsl_over_klarner": 1.011,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "33",
+   "klarner": [
+    34633,
+    0
+   ],
+   "medsl": [
+    34995,
+    0
+   ],
+   "relative": 0.0105,
+   "medsl_over_klarner": 1.01,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "100",
+   "klarner": [
+    0,
+    11963
+   ],
+   "medsl": [
+    0,
+    12086
+   ],
+   "relative": 0.0103,
+   "medsl_over_klarner": 1.01,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "114",
+   "klarner": [
+    0,
+    33889
+   ],
+   "medsl": [
+    0,
+    33540
+   ],
+   "relative": 0.0103,
+   "medsl_over_klarner": 0.99,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "35",
+   "klarner": [
+    13694,
+    28816
+   ],
+   "medsl": [
+    13896,
+    29046
+   ],
+   "relative": 0.0102,
+   "medsl_over_klarner": 1.01,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "97",
+   "klarner": [
+    8651,
+    4566
+   ],
+   "medsl": [
+    8740,
+    4605
+   ],
+   "relative": 0.0097,
+   "medsl_over_klarner": 1.01,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "21",
+   "klarner": [
+    15733,
+    29797
+   ],
+   "medsl": [
+    15616,
+    29497
+   ],
+   "relative": 0.0092,
+   "medsl_over_klarner": 0.991,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "71",
+   "klarner": [
+    13239,
+    10031
+   ],
+   "medsl": [
+    13055,
+    10056
+   ],
+   "relative": 0.009,
+   "medsl_over_klarner": 0.993,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "104",
+   "klarner": [
+    4636,
+    10088
+   ],
+   "medsl": [
+    4695,
+    10152
+   ],
+   "relative": 0.0084,
+   "medsl_over_klarner": 1.008,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "105",
+   "klarner": [
+    0,
+    10092
+   ],
+   "medsl": [
+    0,
+    10176
+   ],
+   "relative": 0.0083,
+   "medsl_over_klarner": 1.008,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "5",
+   "klarner": [
+    4677,
+    12304
+   ],
+   "medsl": [
+    4725,
+    12395
+   ],
+   "relative": 0.0082,
+   "medsl_over_klarner": 1.008,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "34",
+   "klarner": [
+    0,
+    34822
+   ],
+   "medsl": [
+    0,
+    35093
+   ],
+   "relative": 0.0078,
+   "medsl_over_klarner": 1.008,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "53",
+   "klarner": [
+    8311,
+    0
+   ],
+   "medsl": [
+    8375,
+    0
+   ],
+   "relative": 0.0077,
+   "medsl_over_klarner": 1.008,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-upper",
+   "district": "6",
+   "klarner": [
+    8911,
+    0
+   ],
+   "medsl": [
+    8978,
+    0
+   ],
+   "relative": 0.0075,
+   "medsl_over_klarner": 1.008,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "39",
+   "klarner": [
+    0,
+    34199
+   ],
+   "medsl": [
+    0,
+    34457
+   ],
+   "relative": 0.0075,
+   "medsl_over_klarner": 1.008,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": [
+    8476,
+    11186
+   ],
+   "medsl": [
+    8565,
+    11240
+   ],
+   "relative": 0.0073,
+   "medsl_over_klarner": 1.007,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "98",
+   "klarner": [
+    9604,
+    0
+   ],
+   "medsl": [
+    9674,
+    0
+   ],
+   "relative": 0.0073,
+   "medsl_over_klarner": 1.007,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "23",
+   "klarner": [
+    30140,
+    0
+   ],
+   "medsl": [
+    29920,
+    0
+   ],
+   "relative": 0.0073,
+   "medsl_over_klarner": 0.993,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "47",
+   "klarner": [
+    0,
+    74552
+   ],
+   "medsl": [
+    0,
+    74014
+   ],
+   "relative": 0.0072,
+   "medsl_over_klarner": 0.993,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "1",
+   "klarner": [
+    15725,
+    32905
+   ],
+   "medsl": [
+    15830,
+    33141
+   ],
+   "relative": 0.007,
+   "medsl_over_klarner": 1.007,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "44",
+   "klarner": [
+    37656,
+    29445
+   ],
+   "medsl": [
+    37389,
+    29254
+   ],
+   "relative": 0.0068,
+   "medsl_over_klarner": 0.993,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": [
+    0,
+    7300
+   ],
+   "medsl": [
+    0,
+    7348
+   ],
+   "relative": 0.0066,
+   "medsl_over_klarner": 1.007,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "84",
+   "klarner": [
+    9903,
+    0
+   ],
+   "medsl": [
+    9962,
+    0
+   ],
+   "relative": 0.006,
+   "medsl_over_klarner": 1.006,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "2",
+   "klarner": [
+    4780,
+    12969
+   ],
+   "medsl": [
+    4798,
+    13056
+   ],
+   "relative": 0.0059,
+   "medsl_over_klarner": 1.006,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "90",
+   "klarner": [
+    0,
+    10097
+   ],
+   "medsl": [
+    0,
+    10037
+   ],
+   "relative": 0.0059,
+   "medsl_over_klarner": 0.994,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "55",
+   "klarner": [
+    5951,
+    15474
+   ],
+   "medsl": [
+    5993,
+    15557
+   ],
+   "relative": 0.0058,
+   "medsl_over_klarner": 1.006,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "2",
+   "klarner": [
+    26725,
+    31849
+   ],
+   "medsl": [
+    26911,
+    31997
+   ],
+   "relative": 0.0057,
+   "medsl_over_klarner": 1.006,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "21",
+   "klarner": [
+    8337,
+    13245
+   ],
+   "medsl": [
+    8391,
+    13311
+   ],
+   "relative": 0.0056,
+   "medsl_over_klarner": 1.006,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "102",
+   "klarner": [
+    0,
+    10987
+   ],
+   "medsl": [
+    0,
+    11048
+   ],
+   "relative": 0.0056,
+   "medsl_over_klarner": 1.006,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "144",
+   "klarner": [
+    7202,
+    0
+   ],
+   "medsl": [
+    7242,
+    0
+   ],
+   "relative": 0.0056,
+   "medsl_over_klarner": 1.006,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "59",
+   "klarner": [
+    0,
+    91738
+   ],
+   "medsl": [
+    0,
+    92222
+   ],
+   "relative": 0.0053,
+   "medsl_over_klarner": 1.005,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "7",
+   "klarner": [
+    24222,
+    29952
+   ],
+   "medsl": [
+    24363,
+    30080
+   ],
+   "relative": 0.005,
+   "medsl_over_klarner": 1.005,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "25",
+   "klarner": [
+    0,
+    14902
+   ],
+   "medsl": [
+    0,
+    14974
+   ],
+   "relative": 0.0048,
+   "medsl_over_klarner": 1.005,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "30",
+   "klarner": [
+    2909,
+    13721
+   ],
+   "medsl": [
+    2931,
+    13779
+   ],
+   "relative": 0.0048,
+   "medsl_over_klarner": 1.005,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "78",
+   "klarner": [
+    9461,
+    0
+   ],
+   "medsl": [
+    9506,
+    0
+   ],
+   "relative": 0.0048,
+   "medsl_over_klarner": 1.005,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "29",
+   "klarner": [
+    3075,
+    11992
+   ],
+   "medsl": [
+    3143,
+    11989
+   ],
+   "relative": 0.0047,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "6",
+   "klarner": [
+    0,
+    11839
+   ],
+   "medsl": [
+    0,
+    11893
+   ],
+   "relative": 0.0046,
+   "medsl_over_klarner": 1.005,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "79",
+   "klarner": [
+    6977,
+    9679
+   ],
+   "medsl": [
+    7015,
+    9717
+   ],
+   "relative": 0.0046,
+   "medsl_over_klarner": 1.005,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "77",
+   "klarner": [
+    10590,
+    0
+   ],
+   "medsl": [
+    10638,
+    0
+   ],
+   "relative": 0.0045,
+   "medsl_over_klarner": 1.005,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "91",
+   "klarner": [
+    0,
+    11394
+   ],
+   "medsl": [
+    0,
+    11445
+   ],
+   "relative": 0.0045,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "56",
+   "klarner": [
+    5110,
+    3806
+   ],
+   "medsl": [
+    5150,
+    3806
+   ],
+   "relative": 0.0045,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "45",
+   "klarner": [
+    36061,
+    65270
+   ],
+   "medsl": [
+    35956,
+    64919
+   ],
+   "relative": 0.0045,
+   "medsl_over_klarner": 0.995,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "4",
+   "klarner": [
+    4292,
+    11039
+   ],
+   "medsl": [
+    4325,
+    11074
+   ],
+   "relative": 0.0044,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "7",
+   "klarner": [
+    3572,
+    10851
+   ],
+   "medsl": [
+    3592,
+    10892
+   ],
+   "relative": 0.0042,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "8",
+   "klarner": [
+    5442,
+    8771
+   ],
+   "medsl": [
+    5469,
+    8803
+   ],
+   "relative": 0.0042,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "20",
+   "klarner": [
+    8481,
+    14538
+   ],
+   "medsl": [
+    8527,
+    14589
+   ],
+   "relative": 0.0042,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "41",
+   "klarner": [
+    4586,
+    14034
+   ],
+   "medsl": [
+    4610,
+    14088
+   ],
+   "relative": 0.0042,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "86",
+   "klarner": [
+    3219,
+    11186
+   ],
+   "medsl": [
+    3238,
+    11226
+   ],
+   "relative": 0.0041,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "19",
+   "klarner": [
+    12625,
+    0
+   ],
+   "medsl": [
+    12675,
+    0
+   ],
+   "relative": 0.004,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "29",
+   "klarner": [
+    3013,
+    11489
+   ],
+   "medsl": [
+    3032,
+    11528
+   ],
+   "relative": 0.004,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "28",
+   "klarner": [
+    28329,
+    0
+   ],
+   "medsl": [
+    28442,
+    0
+   ],
+   "relative": 0.004,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "68",
+   "klarner": [
+    10342,
+    0
+   ],
+   "medsl": [
+    10382,
+    0
+   ],
+   "relative": 0.0039,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "82",
+   "klarner": [
+    11367,
+    0
+   ],
+   "medsl": [
+    11411,
+    0
+   ],
+   "relative": 0.0039,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "85",
+   "klarner": [
+    7279,
+    6249
+   ],
+   "medsl": [
+    7315,
+    6266
+   ],
+   "relative": 0.0039,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "6",
+   "klarner": [
+    18819,
+    32354
+   ],
+   "medsl": [
+    18819,
+    32554
+   ],
+   "relative": 0.0039,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "41",
+   "klarner": [
+    14458,
+    28888
+   ],
+   "medsl": [
+    14538,
+    28979
+   ],
+   "relative": 0.0039,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "32",
+   "klarner": [
+    59200,
+    0
+   ],
+   "medsl": [
+    58972,
+    0
+   ],
+   "relative": 0.0039,
+   "medsl_over_klarner": 0.996,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "45",
+   "klarner": [
+    7109,
+    13629
+   ],
+   "medsl": [
+    7148,
+    13669
+   ],
+   "relative": 0.0038,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "38",
+   "klarner": [
+    4927,
+    11109
+   ],
+   "medsl": [
+    4944,
+    11151
+   ],
+   "relative": 0.0037,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "10",
+   "klarner": [
+    0,
+    25810
+   ],
+   "medsl": [
+    0,
+    25902
+   ],
+   "relative": 0.0036,
+   "medsl_over_klarner": 1.004,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "74",
+   "klarner": [
+    6124,
+    9431
+   ],
+   "medsl": [
+    6160,
+    9449
+   ],
+   "relative": 0.0035,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "57",
+   "klarner": [
+    12787,
+    0
+   ],
+   "medsl": [
+    12831,
+    0
+   ],
+   "relative": 0.0034,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "26",
+   "klarner": [
+    31857,
+    7843
+   ],
+   "medsl": [
+    31973,
+    7863
+   ],
+   "relative": 0.0034,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "132",
+   "klarner": [
+    5432,
+    6493
+   ],
+   "medsl": [
+    5432,
+    6533
+   ],
+   "relative": 0.0034,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "66",
+   "klarner": [
+    12427,
+    10336
+   ],
+   "medsl": [
+    12352,
+    10334
+   ],
+   "relative": 0.0034,
+   "medsl_over_klarner": 0.997,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "27",
+   "klarner": [
+    20503,
+    29658
+   ],
+   "medsl": [
+    20586,
+    29741
+   ],
+   "relative": 0.0033,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "19",
+   "klarner": [
+    0,
+    29985
+   ],
+   "medsl": [
+    0,
+    29885
+   ],
+   "relative": 0.0033,
+   "medsl_over_klarner": 0.997,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "43",
+   "klarner": [
+    5817,
+    14999
+   ],
+   "medsl": [
+    5847,
+    15035
+   ],
+   "relative": 0.0032,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "3",
+   "klarner": [
+    0,
+    37175
+   ],
+   "medsl": [
+    0,
+    37295
+   ],
+   "relative": 0.0032,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "76",
+   "klarner": [
+    11645,
+    0
+   ],
+   "medsl": [
+    11681,
+    0
+   ],
+   "relative": 0.0031,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "87",
+   "klarner": [
+    0,
+    13794
+   ],
+   "medsl": [
+    0,
+    13835
+   ],
+   "relative": 0.003,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "29",
+   "klarner": [
+    0,
+    34170
+   ],
+   "medsl": [
+    0,
+    34273
+   ],
+   "relative": 0.003,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "22",
+   "klarner": [
+    0,
+    13889
+   ],
+   "medsl": [
+    0,
+    13929
+   ],
+   "relative": 0.0029,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "56",
+   "klarner": [
+    13731,
+    0
+   ],
+   "medsl": [
+    13769,
+    0
+   ],
+   "relative": 0.0028,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "25",
+   "klarner": [
+    20777,
+    32968
+   ],
+   "medsl": [
+    20866,
+    33029
+   ],
+   "relative": 0.0028,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "47",
+   "klarner": [
+    7696,
+    9150
+   ],
+   "medsl": [
+    7721,
+    9170
+   ],
+   "relative": 0.0027,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "3",
+   "klarner": [
+    8515,
+    9427
+   ],
+   "medsl": [
+    8540,
+    9448
+   ],
+   "relative": 0.0026,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "90",
+   "klarner": [
+    6034,
+    11035
+   ],
+   "medsl": [
+    6051,
+    11063
+   ],
+   "relative": 0.0026,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "6",
+   "klarner": [
+    21732,
+    22631
+   ],
+   "medsl": [
+    21796,
+    22683
+   ],
+   "relative": 0.0026,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "62",
+   "klarner": [
+    10264,
+    13571
+   ],
+   "medsl": [
+    10264,
+    13510
+   ],
+   "relative": 0.0026,
+   "medsl_over_klarner": 0.997,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "9",
+   "klarner": [
+    0,
+    13264
+   ],
+   "medsl": [
+    0,
+    13297
+   ],
+   "relative": 0.0025,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "48",
+   "klarner": [
+    7801,
+    14764
+   ],
+   "medsl": [
+    7832,
+    14789
+   ],
+   "relative": 0.0025,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "16",
+   "klarner": [
+    21770,
+    37000
+   ],
+   "medsl": [
+    21851,
+    37068
+   ],
+   "relative": 0.0025,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "19",
+   "klarner": [
+    38570,
+    0
+   ],
+   "medsl": [
+    38668,
+    0
+   ],
+   "relative": 0.0025,
+   "medsl_over_klarner": 1.003,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "17",
+   "klarner": [
+    6631,
+    13664
+   ],
+   "medsl": [
+    6581,
+    13664
+   ],
+   "relative": 0.0025,
+   "medsl_over_klarner": 0.998,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "32",
+   "klarner": [
+    7745,
+    4500
+   ],
+   "medsl": [
+    7761,
+    4513
+   ],
+   "relative": 0.0024,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "64",
+   "klarner": [
+    3995,
+    13016
+   ],
+   "medsl": [
+    4022,
+    13030
+   ],
+   "relative": 0.0024,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "81",
+   "klarner": [
+    4681,
+    12796
+   ],
+   "medsl": [
+    4696,
+    12823
+   ],
+   "relative": 0.0024,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "12",
+   "klarner": [
+    14971,
+    27352
+   ],
+   "medsl": [
+    15010,
+    27416
+   ],
+   "relative": 0.0024,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "18",
+   "klarner": [
+    39724,
+    0
+   ],
+   "medsl": [
+    39819,
+    0
+   ],
+   "relative": 0.0024,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "31",
+   "klarner": [
+    0,
+    33059
+   ],
+   "medsl": [
+    0,
+    33137
+   ],
+   "relative": 0.0024,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "18",
+   "klarner": [
+    3876,
+    9824
+   ],
+   "medsl": [
+    3886,
+    9845
+   ],
+   "relative": 0.0023,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "52",
+   "klarner": [
+    13254,
+    0
+   ],
+   "medsl": [
+    13284,
+    0
+   ],
+   "relative": 0.0023,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "75",
+   "klarner": [
+    0,
+    13198
+   ],
+   "medsl": [
+    0,
+    13229
+   ],
+   "relative": 0.0023,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "13",
+   "klarner": [
+    12804,
+    31545
+   ],
+   "medsl": [
+    12839,
+    31614
+   ],
+   "relative": 0.0023,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "15",
+   "klarner": [
+    0,
+    44691
+   ],
+   "medsl": [
+    0,
+    44792
+   ],
+   "relative": 0.0023,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "28",
+   "klarner": [
+    5715,
+    7079
+   ],
+   "medsl": [
+    5731,
+    7091
+   ],
+   "relative": 0.0022,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "36",
+   "klarner": [
+    4241,
+    11380
+   ],
+   "medsl": [
+    4256,
+    11399
+   ],
+   "relative": 0.0022,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "60",
+   "klarner": [
+    14401,
+    0
+   ],
+   "medsl": [
+    14432,
+    0
+   ],
+   "relative": 0.0022,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "40",
+   "klarner": [
+    3817,
+    11159
+   ],
+   "medsl": [
+    3819,
+    11188
+   ],
+   "relative": 0.0021,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "83",
+   "klarner": [
+    8927,
+    5126
+   ],
+   "medsl": [
+    8940,
+    5142
+   ],
+   "relative": 0.0021,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "20",
+   "klarner": [
+    36401,
+    0
+   ],
+   "medsl": [
+    36478,
+    0
+   ],
+   "relative": 0.0021,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "46",
+   "klarner": [
+    8421,
+    13322
+   ],
+   "medsl": [
+    8445,
+    13341
+   ],
+   "relative": 0.002,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "65",
+   "klarner": [
+    8998,
+    10068
+   ],
+   "medsl": [
+    9010,
+    10095
+   ],
+   "relative": 0.002,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "58",
+   "klarner": [
+    12474,
+    0
+   ],
+   "medsl": [
+    12498,
+    0
+   ],
+   "relative": 0.0019,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "73",
+   "klarner": [
+    5760,
+    12889
+   ],
+   "medsl": [
+    5772,
+    12913
+   ],
+   "relative": 0.0019,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "15",
+   "klarner": [
+    6930,
+    14198
+   ],
+   "medsl": [
+    6951,
+    14212
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "37",
+   "klarner": [
+    4494,
+    11137
+   ],
+   "medsl": [
+    4505,
+    11153
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "54",
+   "klarner": [
+    13265,
+    0
+   ],
+   "medsl": [
+    13287,
+    0
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "63",
+   "klarner": [
+    0,
+    10222
+   ],
+   "medsl": [
+    0,
+    10239
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "93",
+   "klarner": [
+    0,
+    11954
+   ],
+   "medsl": [
+    0,
+    11974
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "4",
+   "klarner": [
+    0,
+    39750
+   ],
+   "medsl": [
+    0,
+    39817
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "8",
+   "klarner": [
+    0,
+    37850
+   ],
+   "medsl": [
+    0,
+    37913
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "11",
+   "klarner": [
+    11386,
+    36138
+   ],
+   "medsl": [
+    11411,
+    36192
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "21",
+   "klarner": [
+    15956,
+    33331
+   ],
+   "medsl": [
+    16005,
+    33368
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "109",
+   "klarner": [
+    3807,
+    2154
+   ],
+   "medsl": [
+    3807,
+    2164
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "30",
+   "klarner": [
+    10151,
+    27747
+   ],
+   "medsl": [
+    10145,
+    27689
+   ],
+   "relative": 0.0017,
+   "medsl_over_klarner": 0.998,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "26",
+   "klarner": [
+    0,
+    8934
+   ],
+   "medsl": [
+    0,
+    8948
+   ],
+   "relative": 0.0016,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "14",
+   "klarner": [
+    13135,
+    34910
+   ],
+   "medsl": [
+    13171,
+    34953
+   ],
+   "relative": 0.0016,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "22",
+   "klarner": [
+    0,
+    34452
+   ],
+   "medsl": [
+    0,
+    34507
+   ],
+   "relative": 0.0016,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "13",
+   "klarner": [
+    5787,
+    0
+   ],
+   "medsl": [
+    5796,
+    0
+   ],
+   "relative": 0.0016,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "MO",
+   "chamber": "state-lower",
+   "district": "150",
+   "klarner": [
+    2132,
+    6525
+   ],
+   "medsl": [
+    2137,
+    6534
+   ],
+   "relative": 0.0016,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "62",
+   "klarner": [
+    5255,
+    11267
+   ],
+   "medsl": [
+    5265,
+    11282
+   ],
+   "relative": 0.0015,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "27",
+   "klarner": [
+    4940,
+    1699
+   ],
+   "medsl": [
+    4949,
+    1700
+   ],
+   "relative": 0.0015,
+   "medsl_over_klarner": 1.002,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "23",
+   "klarner": [
+    0,
+    10808
+   ],
+   "medsl": [
+    0,
+    10823
+   ],
+   "relative": 0.0014,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "35",
+   "klarner": [
+    0,
+    11551
+   ],
+   "medsl": [
+    0,
+    11567
+   ],
+   "relative": 0.0014,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "92",
+   "klarner": [
+    0,
+    11895
+   ],
+   "medsl": [
+    0,
+    11912
+   ],
+   "relative": 0.0014,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": [
+    0,
+    43340
+   ],
+   "medsl": [
+    0,
+    43280
+   ],
+   "relative": 0.0014,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "8",
+   "klarner": [
+    19194,
+    39960
+   ],
+   "medsl": [
+    19174,
+    39898
+   ],
+   "relative": 0.0014,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "33",
+   "klarner": [
+    4921,
+    10142
+   ],
+   "medsl": [
+    4928,
+    10155
+   ],
+   "relative": 0.0013,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "39",
+   "klarner": [
+    0,
+    11570
+   ],
+   "medsl": [
+    0,
+    11585
+   ],
+   "relative": 0.0013,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "49",
+   "klarner": [
+    0,
+    10780
+   ],
+   "medsl": [
+    0,
+    10794
+   ],
+   "relative": 0.0013,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "51",
+   "klarner": [
+    3165,
+    15375
+   ],
+   "medsl": [
+    3174,
+    15390
+   ],
+   "relative": 0.0013,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "61",
+   "klarner": [
+    6481,
+    12393
+   ],
+   "medsl": [
+    6491,
+    12407
+   ],
+   "relative": 0.0013,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "71",
+   "klarner": [
+    12384,
+    0
+   ],
+   "medsl": [
+    12400,
+    0
+   ],
+   "relative": 0.0013,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": [
+    3396,
+    8501
+   ],
+   "medsl": [
+    3407,
+    8506
+   ],
+   "relative": 0.0013,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "55",
+   "klarner": [
+    13093,
+    0
+   ],
+   "medsl": [
+    13109,
+    0
+   ],
+   "relative": 0.0012,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "59",
+   "klarner": [
+    12021,
+    0
+   ],
+   "medsl": [
+    12036,
+    0
+   ],
+   "relative": 0.0012,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "70",
+   "klarner": [
+    11527,
+    0
+   ],
+   "medsl": [
+    11541,
+    0
+   ],
+   "relative": 0.0012,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "94",
+   "klarner": [
+    6243,
+    15291
+   ],
+   "medsl": [
+    6257,
+    15302
+   ],
+   "relative": 0.0012,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "17",
+   "klarner": [
+    11911,
+    30320
+   ],
+   "medsl": [
+    11911,
+    30270
+   ],
+   "relative": 0.0012,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "54",
+   "klarner": [
+    41269,
+    67223
+   ],
+   "medsl": [
+    41222,
+    67310
+   ],
+   "relative": 0.0012,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "44",
+   "klarner": [
+    68730,
+    28534
+   ],
+   "medsl": [
+    68686,
+    28466
+   ],
+   "relative": 0.0012,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "7",
+   "klarner": [
+    21592,
+    48042
+   ],
+   "medsl": [
+    21578,
+    47975
+   ],
+   "relative": 0.0012,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "42",
+   "klarner": [
+    0,
+    12398
+   ],
+   "medsl": [
+    0,
+    12412
+   ],
+   "relative": 0.0011,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "44",
+   "klarner": [
+    0,
+    14581
+   ],
+   "medsl": [
+    0,
+    14597
+   ],
+   "relative": 0.0011,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "89",
+   "klarner": [
+    5344,
+    7794
+   ],
+   "medsl": [
+    5348,
+    7804
+   ],
+   "relative": 0.0011,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "96",
+   "klarner": [
+    5013,
+    13685
+   ],
+   "medsl": [
+    5019,
+    13699
+   ],
+   "relative": 0.0011,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "5",
+   "klarner": [
+    0,
+    42356
+   ],
+   "medsl": [
+    0,
+    42404
+   ],
+   "relative": 0.0011,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "9",
+   "klarner": [
+    0,
+    35153
+   ],
+   "medsl": [
+    0,
+    35192
+   ],
+   "relative": 0.0011,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "32",
+   "klarner": [
+    15165,
+    45687
+   ],
+   "medsl": [
+    15193,
+    45726
+   ],
+   "relative": 0.0011,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "31",
+   "klarner": [
+    27492,
+    0
+   ],
+   "medsl": [
+    27464,
+    0
+   ],
+   "relative": 0.001,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "7",
+   "klarner": [
+    4793,
+    9301
+   ],
+   "medsl": [
+    4790,
+    9290
+   ],
+   "relative": 0.001,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "50",
+   "klarner": [
+    0,
+    14399
+   ],
+   "medsl": [
+    0,
+    14412
+   ],
+   "relative": 0.0009,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "72",
+   "klarner": [
+    12799,
+    0
+   ],
+   "medsl": [
+    12811,
+    0
+   ],
+   "relative": 0.0009,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "88",
+   "klarner": [
+    4785,
+    11494
+   ],
+   "medsl": [
+    4793,
+    11500
+   ],
+   "relative": 0.0009,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "95",
+   "klarner": [
+    0,
+    16992
+   ],
+   "medsl": [
+    0,
+    17008
+   ],
+   "relative": 0.0009,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "24",
+   "klarner": [
+    37362,
+    0
+   ],
+   "medsl": [
+    37394,
+    0
+   ],
+   "relative": 0.0009,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "30",
+   "klarner": [
+    0,
+    35226
+   ],
+   "medsl": [
+    0,
+    35256
+   ],
+   "relative": 0.0009,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-upper",
+   "district": "17",
+   "klarner": [
+    0,
+    45925
+   ],
+   "medsl": [
+    0,
+    45964
+   ],
+   "relative": 0.0008,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "33",
+   "klarner": [
+    29013,
+    53870
+   ],
+   "medsl": [
+    28974,
+    53845
+   ],
+   "relative": 0.0008,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "74",
+   "klarner": [
+    25439,
+    0
+   ],
+   "medsl": [
+    25419,
+    0
+   ],
+   "relative": 0.0008,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "12",
+   "klarner": [
+    0,
+    14677
+   ],
+   "medsl": [
+    0,
+    14687
+   ],
+   "relative": 0.0007,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "16",
+   "klarner": [
+    0,
+    14670
+   ],
+   "medsl": [
+    0,
+    14681
+   ],
+   "relative": 0.0007,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "24",
+   "klarner": [
+    0,
+    12385
+   ],
+   "medsl": [
+    0,
+    12394
+   ],
+   "relative": 0.0007,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "31",
+   "klarner": [
+    0,
+    14313
+   ],
+   "medsl": [
+    0,
+    14323
+   ],
+   "relative": 0.0007,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "46",
+   "klarner": [
+    22571,
+    27012
+   ],
+   "medsl": [
+    22552,
+    26996
+   ],
+   "relative": 0.0007,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "27",
+   "klarner": [
+    2452,
+    13240
+   ],
+   "medsl": [
+    2456,
+    13245
+   ],
+   "relative": 0.0006,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "11",
+   "klarner": [
+    17179,
+    27089
+   ],
+   "medsl": [
+    17179,
+    27115
+   ],
+   "relative": 0.0006,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "15",
+   "klarner": [
+    13195,
+    20285
+   ],
+   "medsl": [
+    13193,
+    20268
+   ],
+   "relative": 0.0006,
+   "medsl_over_klarner": 0.999,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "11",
+   "klarner": [
+    0,
+    13091
+   ],
+   "medsl": [
+    0,
+    13098
+   ],
+   "relative": 0.0005,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "13",
+   "klarner": [
+    0,
+    13748
+   ],
+   "medsl": [
+    0,
+    13755
+   ],
+   "relative": 0.0005,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "14",
+   "klarner": [
+    0,
+    13387
+   ],
+   "medsl": [
+    0,
+    13394
+   ],
+   "relative": 0.0005,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "34",
+   "klarner": [
+    0,
+    13324
+   ],
+   "medsl": [
+    0,
+    13331
+   ],
+   "relative": 0.0005,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "69",
+   "klarner": [
+    12861,
+    0
+   ],
+   "medsl": [
+    12867,
+    0
+   ],
+   "relative": 0.0005,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "79",
+   "klarner": [
+    0,
+    18984
+   ],
+   "medsl": [
+    0,
+    18994
+   ],
+   "relative": 0.0005,
+   "medsl_over_klarner": 1.001,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "26",
+   "klarner": [
+    30549,
+    30610
+   ],
+   "medsl": [
+    30539,
+    30593
+   ],
+   "relative": 0.0004,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "22",
+   "klarner": [
+    3661,
+    1812
+   ],
+   "medsl": [
+    3662,
+    1813
+   ],
+   "relative": 0.0004,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "45",
+   "klarner": [
+    16493,
+    30357
+   ],
+   "medsl": [
+    16484,
+    30346
+   ],
+   "relative": 0.0004,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "MO",
+   "chamber": "state-lower",
+   "district": "152",
+   "klarner": [
+    3307,
+    7373
+   ],
+   "medsl": [
+    3309,
+    7375
+   ],
+   "relative": 0.0004,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "11",
+   "klarner": [
+    13350,
+    38716
+   ],
+   "medsl": [
+    13343,
+    38704
+   ],
+   "relative": 0.0004,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "66",
+   "klarner": [
+    4007,
+    10428
+   ],
+   "medsl": [
+    4008,
+    10431
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "41",
+   "klarner": [
+    4005,
+    3440
+   ],
+   "medsl": [
+    4007,
+    3440
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "74",
+   "klarner": [
+    10359,
+    13671
+   ],
+   "medsl": [
+    10357,
+    13666
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "21",
+   "klarner": [
+    0,
+    46435
+   ],
+   "medsl": [
+    0,
+    46421
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "68",
+   "klarner": [
+    0,
+    45916
+   ],
+   "medsl": [
+    0,
+    45903
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "86",
+   "klarner": [
+    10221,
+    46991
+   ],
+   "medsl": [
+    10219,
+    46975
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-upper",
+   "district": "2",
+   "klarner": [
+    104897,
+    153151
+   ],
+   "medsl": [
+    104859,
+    153122
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": [
+    5516,
+    4719
+   ],
+   "medsl": [
+    5515,
+    4717
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "26",
+   "klarner": [
+    7098,
+    1795
+   ],
+   "medsl": [
+    7101,
+    1795
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "29",
+   "klarner": [
+    23120,
+    0
+   ],
+   "medsl": [
+    23114,
+    0
+   ],
+   "relative": 0.0003,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "123",
+   "klarner": [
+    5060,
+    5915
+   ],
+   "medsl": [
+    5062,
+    5915
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "40",
+   "klarner": [
+    2406,
+    3036
+   ],
+   "medsl": [
+    2406,
+    3037
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "47",
+   "klarner": [
+    3792,
+    2689
+   ],
+   "medsl": [
+    3792,
+    2690
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-upper",
+   "district": "12",
+   "klarner": [
+    9505,
+    3998
+   ],
+   "medsl": [
+    9507,
+    3999
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "48",
+   "klarner": [
+    0,
+    38824
+   ],
+   "medsl": [
+    0,
+    38833
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "21",
+   "klarner": [
+    5988,
+    10996
+   ],
+   "medsl": [
+    5991,
+    10996
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "105",
+   "klarner": [
+    21878,
+    29487
+   ],
+   "medsl": [
+    21883,
+    29493
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "107",
+   "klarner": [
+    28282,
+    29170
+   ],
+   "medsl": [
+    28282,
+    29160
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "5",
+   "klarner": [
+    11610,
+    44604
+   ],
+   "medsl": [
+    11608,
+    44592
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "13",
+   "klarner": [
+    13494,
+    51126
+   ],
+   "medsl": [
+    13491,
+    51115
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "17",
+   "klarner": [
+    20069,
+    33522
+   ],
+   "medsl": [
+    20069,
+    33512
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "25",
+   "klarner": [
+    0,
+    40902
+   ],
+   "medsl": [
+    0,
+    40895
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "87",
+   "klarner": [
+    0,
+    32314
+   ],
+   "medsl": [
+    0,
+    32307
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-upper",
+   "district": "25",
+   "klarner": [
+    173698,
+    236753
+   ],
+   "medsl": [
+    173667,
+    236710
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "8",
+   "klarner": [
+    6581,
+    6795
+   ],
+   "medsl": [
+    6579,
+    6794
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "31",
+   "klarner": [
+    25320,
+    37834
+   ],
+   "medsl": [
+    25315,
+    37825
+   ],
+   "relative": 0.0002,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "AL",
+   "chamber": "state-lower",
+   "district": "17",
+   "klarner": [
+    0,
+    12157
+   ],
+   "medsl": [
+    0,
+    12158
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "29",
+   "klarner": [
+    36275,
+    37778
+   ],
+   "medsl": [
+    36273,
+    37785
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "30",
+   "klarner": [
+    35655,
+    31704
+   ],
+   "medsl": [
+    35656,
+    31709
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "36",
+   "klarner": [
+    4081,
+    4932
+   ],
+   "medsl": [
+    4081,
+    4933
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-lower",
+   "district": "37",
+   "klarner": [
+    6883,
+    2799
+   ],
+   "medsl": [
+    6884,
+    2799
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "HI",
+   "chamber": "state-upper",
+   "district": "18",
+   "klarner": [
+    11844,
+    5829
+   ],
+   "medsl": [
+    11845,
+    5830
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "51",
+   "klarner": [
+    4285,
+    12907
+   ],
+   "medsl": [
+    4284,
+    12907
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "67",
+   "klarner": [
+    4713,
+    16294
+   ],
+   "medsl": [
+    4712,
+    16295
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "70",
+   "klarner": [
+    9574,
+    18120
+   ],
+   "medsl": [
+    9574,
+    18118
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "37",
+   "klarner": [
+    14141,
+    16913
+   ],
+   "medsl": [
+    14140,
+    16912
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "39",
+   "klarner": [
+    14207,
+    18861
+   ],
+   "medsl": [
+    14206,
+    18859
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "7",
+   "klarner": [
+    11267,
+    10540
+   ],
+   "medsl": [
+    11265,
+    10540
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "65",
+   "klarner": [
+    7724,
+    17398
+   ],
+   "medsl": [
+    7724,
+    17396
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "20",
+   "klarner": [
+    8590,
+    13631
+   ],
+   "medsl": [
+    8589,
+    13630
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "60",
+   "klarner": [
+    10708,
+    15384
+   ],
+   "medsl": [
+    10709,
+    15386
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "59",
+   "klarner": [
+    8930,
+    12519
+   ],
+   "medsl": [
+    8928,
+    12519
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "61",
+   "klarner": [
+    16870,
+    0
+   ],
+   "medsl": [
+    16868,
+    0
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": [
+    5445,
+    11050
+   ],
+   "medsl": [
+    5445,
+    11049
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "89",
+   "klarner": [
+    3722,
+    11615
+   ],
+   "medsl": [
+    3721,
+    11615
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "100",
+   "klarner": [
+    7497,
+    6418
+   ],
+   "medsl": [
+    7496,
+    6418
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "MO",
+   "chamber": "state-lower",
+   "district": "145",
+   "klarner": [
+    2445,
+    11381
+   ],
+   "medsl": [
+    2445,
+    11383
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "MO",
+   "chamber": "state-lower",
+   "district": "153",
+   "klarner": [
+    3331,
+    9717
+   ],
+   "medsl": [
+    3331,
+    9718
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "58",
+   "klarner": [
+    39814,
+    58487
+   ],
+   "medsl": [
+    39812,
+    58482
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "41",
+   "klarner": [
+    58746,
+    59434
+   ],
+   "medsl": [
+    58756,
+    59439
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "103",
+   "klarner": [
+    46179,
+    0
+   ],
+   "medsl": [
+    46184,
+    0
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "OR",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": [
+    10071,
+    22077
+   ],
+   "medsl": [
+    10068,
+    22077
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "SD",
+   "chamber": "state-upper",
+   "district": "12",
+   "klarner": [
+    4845,
+    4869
+   ],
+   "medsl": [
+    4845,
+    4870
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "12",
+   "klarner": [
+    15855,
+    33063
+   ],
+   "medsl": [
+    15855,
+    33060
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "45",
+   "klarner": [
+    43207,
+    40531
+   ],
+   "medsl": [
+    43204,
+    40528
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "60",
+   "klarner": [
+    0,
+    56741
+   ],
+   "medsl": [
+    0,
+    56737
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "71",
+   "klarner": [
+    10828,
+    38511
+   ],
+   "medsl": [
+    10827,
+    38507
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "88",
+   "klarner": [
+    6486,
+    33425
+   ],
+   "medsl": [
+    6486,
+    33421
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-upper",
+   "district": "3",
+   "klarner": [
+    56398,
+    215058
+   ],
+   "medsl": [
+    56391,
+    215048
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-upper",
+   "district": "30",
+   "klarner": [
+    82669,
+    234374
+   ],
+   "medsl": [
+    82663,
+    234364
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-upper",
+   "district": "31",
+   "klarner": [
+    0,
+    174367
+   ],
+   "medsl": [
+    0,
+    174343
+   ],
+   "relative": 0.0001,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": [
+    13431,
+    42438
+   ],
+   "medsl": [
+    13430,
+    42437
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "21",
+   "klarner": [
+    37764,
+    39982
+   ],
+   "medsl": [
+    37763,
+    39981
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "28",
+   "klarner": [
+    36758,
+    38673
+   ],
+   "medsl": [
+    36760,
+    38674
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "FL",
+   "chamber": "state-upper",
+   "district": "23",
+   "klarner": [
+    110587,
+    143346
+   ],
+   "medsl": [
+    110590,
+    143351
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "23",
+   "klarner": [
+    0,
+    36226
+   ],
+   "medsl": [
+    0,
+    36225
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "25",
+   "klarner": [
+    6872,
+    16668
+   ],
+   "medsl": [
+    6873,
+    16668
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "35",
+   "klarner": [
+    12799,
+    12465
+   ],
+   "medsl": [
+    12799,
+    12464
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "33",
+   "klarner": [
+    7161,
+    12966
+   ],
+   "medsl": [
+    7161,
+    12965
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "26",
+   "klarner": [
+    18556,
+    27647
+   ],
+   "medsl": [
+    18556,
+    27646
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "36",
+   "klarner": [
+    11446,
+    9211
+   ],
+   "medsl": [
+    11445,
+    9211
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "24",
+   "klarner": [
+    15428,
+    20618
+   ],
+   "medsl": [
+    15428,
+    20617
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "29",
+   "klarner": [
+    10475,
+    19251
+   ],
+   "medsl": [
+    10474,
+    19251
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "2",
+   "klarner": [
+    16428,
+    28252
+   ],
+   "medsl": [
+    16428,
+    28251
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "18",
+   "klarner": [
+    21644,
+    15823
+   ],
+   "medsl": [
+    21643,
+    15823
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "56",
+   "klarner": [
+    42497,
+    53091
+   ],
+   "medsl": [
+    42498,
+    53088
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "40",
+   "klarner": [
+    62155,
+    58321
+   ],
+   "medsl": [
+    62156,
+    58321
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "19",
+   "klarner": [
+    69320,
+    7820
+   ],
+   "medsl": [
+    69320,
+    7819
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "OR",
+   "chamber": "state-lower",
+   "district": "55",
+   "klarner": [
+    8694,
+    23832
+   ],
+   "medsl": [
+    8693,
+    23832
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "59",
+   "klarner": [
+    0,
+    39453
+   ],
+   "medsl": [
+    0,
+    39452
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": [
+    27781,
+    0
+   ],
+   "medsl": [
+    27780,
+    0
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  },
+  {
+   "state": "TX",
+   "chamber": "state-upper",
+   "district": "5",
+   "klarner": [
+    136792,
+    182550
+   ],
+   "medsl": [
+    136789,
+    182538
+   ],
+   "relative": 0.0,
+   "medsl_over_klarner": 1.0,
+   "what": "two-party share within 1 point, counts differ",
+   "same_winner": true
+  }
+ ]
+}
