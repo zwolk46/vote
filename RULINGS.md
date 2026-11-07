@@ -118,3 +118,13 @@ In the orchestrator's thread, a minute later:
 > And it should also be checked by an agent specifically instructed to lack some technical understanding and as a total layperson, who doesn't even understand the fundamental correct nature of a cost-benefit analysis
 
 *Reading.* The explainer, and with it the first-screen options, is read cold by a second agent as well: one told it has no technical understanding and does not know how a cost-benefit weighing works, so the page must teach the weighing itself. Briefs X2 and X1 carry it.
+
+## 2026-11-07 04:32 UTC: explanation by visuals; no text unless it is truly needed
+
+In the orchestrator's thread:
+
+> I want as much explanation as possible to be visual, because we must operate under the default assumption that AI-written prose will hardly at all serve the purpose of convincing or explaining by itself, at least without significant refinement. And the key idea that text should not be on the page given its cluttering nature unless truly needed to serve a purpose.
+
+*Reading.* Two rules, for every surface of the site, the first screen and the explainer above all.
+1. **The visual carries the explanation.** Wherever an idea can be shown, it is shown, not told. Prose is not counted as explaining or convincing anyone: the default assumption is that an AI-written sentence does neither on its own. A sentence that stays is refined deliberately, word by word, and tested on cold readers like the visuals, not left as drafted.
+2. **No text unless it is truly needed.** Text clutters, so a line is on the page only if a reader fails without it, and the work says what it serves. This is his midterms rule (`inherited/design/TASTE.md`, 2026-11-02 13:17:57 and 2026-11-05 14:21) made a standing rule here and made stronger: it applies to explanation, not only to subheads.
