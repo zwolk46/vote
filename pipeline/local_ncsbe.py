@@ -913,7 +913,7 @@ def build(out_dir, dates):
                  "the forecast's own window and within 1, 2 and 5 points of the threshold, added up, beside how "
                  "many did. Those on MEDSL's general dates are in data/measure/backtest-measures.json "
                  "(at_threshold_local). near_votes: the same within 1,000 to 50,000 votes of the threshold. "
-                 "lean_note: the two tests of the orchestrator's ruling of 11:01 and the note they give "
+                 "lean_note: the two tests of the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give "
                  "(data/local/REPORT.md section 18).",
         "years": LM.at_threshold(qtest), "lean_note": qnote}
     with open(os.path.join(out_dir, "local", "backtest-ncsbe.json"), "w") as f:
