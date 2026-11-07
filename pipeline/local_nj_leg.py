@@ -87,13 +87,19 @@ GATE_BY = {2023: "within the certifying source (no federal or statewide contest 
            2025: "within the certifying source, and its Governor's list equal to D2's data/governor/2025.json"}
 
 
+_LOADED = {}
+
+
 def load(year):
-    """The year's normalized lists, or None if any is missing from the cache."""
+    """The year's normalized lists, or None if any is missing from the cache (read once a run, so that a contest is
+    the same object wherever it is read)."""
+    if year in _LOADED:
+        return _LOADED[year]
     path = os.path.join(SOS.NORM, f"{year}-general.json")
     if not os.path.exists(path):
         return None
     with open(path) as f:
-        res = json.load(f)
+        res = _LOADED[year] = json.load(f)
     if set(res["files"]) != set(LISTS[year]):
         raise SystemExit(f"local_nj_leg: {year}: the lists read are {sorted(res['files'])}, not {sorted(LISTS[year])}")
     return res
