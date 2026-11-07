@@ -3,11 +3,11 @@
  "rule": "p is computed for a year only if its 50% interval holds between 40% and 60% of outcomes",
  "years": {
   "2020": {
-   "races": 979,
-   "with_lean": 856,
+   "races": 1004,
+   "with_lean": 862,
    "held_back_state": 0,
    "lean_missing": {
-    "a county's US House race was not contested by both parties throughout": 115,
+    "a county's US House race was not contested by both parties throughout": 134,
     "no US House vote for a county in the previous general's returns": 8
    },
    "in_intervals_50_80_95": {
@@ -16,26 +16,26 @@
     "95": 0.956
    },
    "within_49_51": {
-    "expected": 53.8,
+    "expected": 54.2,
     "seen": 49
    },
    "within_100_votes": {
-    "expected": 46.1,
+    "expected": 46.2,
     "seen": 43
    },
-   "mean_forecast_minus_outcome": 0.0278,
+   "mean_forecast_minus_outcome": 0.0283,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
      205,
      0.605
     ],
     "council, commission or board": [
-     368,
-     0.465
+     372,
+     0.468
     ],
     "judge": [
-     70,
-     0.571
+     72,
+     0.556
     ],
     "mayor or executive": [
      10,
@@ -73,39 +73,39 @@
    "computed": true
   },
   "2024": {
-   "races": 1401,
-   "with_lean": 953,
+   "races": 1416,
+   "with_lean": 968,
    "held_back_state": 11,
    "lean_missing": {
     "a county's US House race was not contested by both parties throughout": 241,
     "the previous general's returns for this state are held back (see the state's check)": 196
    },
    "in_intervals_50_80_95": {
-    "50": 0.513,
-    "80": 0.809,
-    "95": 0.963
+    "50": 0.518,
+    "80": 0.811,
+    "95": 0.964
    },
    "within_49_51": {
-    "expected": 58.8,
-    "seen": 53
+    "expected": 59.7,
+    "seen": 54
    },
    "within_100_votes": {
     "expected": 50.7,
-    "seen": 43
+    "seen": 42
    },
-   "mean_forecast_minus_outcome": 0.0299,
+   "mean_forecast_minus_outcome": 0.03,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
      146,
      0.664
     ],
     "council, commission or board": [
-     454,
-     0.443
+     458,
+     0.441
     ],
     "judge": [
-     79,
-     0.684
+     89,
+     0.719
     ],
     "mayor or executive": [
      13,
@@ -116,8 +116,8 @@
      0.609
     ],
     "prosecutor": [
-     52,
-     0.596
+     53,
+     0.604
     ],
     "school board": [
      85,
