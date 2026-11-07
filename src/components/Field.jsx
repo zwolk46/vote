@@ -34,18 +34,35 @@ export const STAGGER = { 'nav-in': 240, chart: 150 };
 // A row's stacks: each dot in the bin of its x, counted from the cost, stacked up from the row's base. `rel` is each
 // dot's log10(N) (or log10(N ÷ population)), so the layout does not depend on the cost. Returns, per dot, its offset in
 // px from the cost line and its place in its stack.
-export function stacks(rel, pw, r) {
-  const bw = 2 * r, at = new Array(rel.length), bins = new Map();
+// `kind` (the `avg` flags) marks the first and last dot of each kind in each bin (`e`), which thinning keeps.
+export function stacks(rel, pw, r, kind) {
+  const bw = 2 * r, at = new Array(rel.length), bins = new Map(), ends = new Map();
   let rows = 0;
   for (let i = 0; i < rel.length; i++) {
     if (!Number.isFinite(rel[i])) { at[i] = null; continue; }   // no place in this reading
     const dx = (Math.max(LO, Math.min(HI, rel[i])) / SPAN) * pw;
     const b = Math.floor(dx / bw);
     const k = bins.get(b) || 0; bins.set(b, k + 1);
-    at[i] = { dx: (b + 0.5) * bw, k };
+    at[i] = { dx: (b + 0.5) * bw, k, e: false };
     rows = Math.max(rows, k + 1);
+    const key = b * 2 + (kind ? kind[i] : 0), e = ends.get(key);
+    if (!e) ends.set(key, [i, i]); else e[1] = i;   // a bin fills upward, so its first and last of a kind are these
   }
+  for (const [a, z] of ends.values()) { at[a].e = true; at[z].e = true; }
   return { at, rows };
+}
+// Thinning a dense pile: where a stack's dots stand closer than a radius, drawing every one of them paints the same
+// shape many times over. Every `step`-th dot, and the first and last of each kind in each stack, give the same pile to
+// the pixel, at a tenth of the work or less, so the state legislatures' 9,000 dots move inside a frame on a slow phone
+// (M-motion s.4 rule 12: no gap between frames over 50 ms at 4x CPU). Only dots that keep their bin in both readings
+// (those with no population) are thinned; the rest are few.
+export const thinStep = (pitch, r) => Math.max(1, Math.floor((0.8 * r) / Math.max(1e-6, pitch)));
+// The dots a row draws and moves: every dot with a place "to each person", and the thinned rest. Each frame visits only
+// these, so its work is the drawing's, not the data's.
+export function liveOf(you, person, step) {
+  const out = [];
+  for (let i = 0; i < you.length; i++) if (person[i] !== null || you[i].e || you[i].k % step === 0) out.push(i);
+  return Int32Array.from(out);
 }
 // The stacks' pitch: a dot's width, closer when the tallest stack would pass the strip (lib/markets.js pitchFor)
 export const pitchFor = (rows, r, h) => (rows <= 1 ? 2 * r : Math.min(2 * r, (h - 2 * r) / (rows - 1)));
@@ -131,12 +148,14 @@ export function Field({ C, reading, sel, onSel, desk }) {
     if (!w) return null;
     let y = g.topH;
     const L = rows.map((R, ri) => {
-      const you = stacks(R.you, g.pw, g.r), person = stacks(R.person, g.pw, g.r);
+      const you = stacks(R.you, g.pw, g.r, R.avg), person = stacks(R.person, g.pw, g.r, R.avg);
       const n = Math.max(you.rows, person.rows);
       const strip = Math.max(g.minH - g.lane, Math.min(g.stripH, n * 2 * g.r + 3));
       const top = y, base = top + (desk ? 0 : Math.max(g.labelH, lh[ri] || 0)) + strip;
       y = base + g.lane + g.gap;
-      return { you: you.at, person: person.at, pitch: pitchFor(n, g.r, strip - 3), order: orderOf(R.you), top, strip, base, lane: base + g.lane / 2 + 1 };
+      const pitch = pitchFor(n, g.r, strip - 3);
+      const step = thinStep(pitch, g.r);
+      return { you: you.at, person: person.at, pitch, step, live: liveOf(you.at, person.at, step), order: orderOf(R.you), top, strip, base, lane: base + g.lane / 2 + 1 };
     });
     L.end = y - g.gap;
     L.h = L.end + g.axisH;
@@ -179,7 +198,7 @@ export function Field({ C, reading, sel, onSel, desk }) {
     const r = g.r, right = g.left + g.pw;
     // how far the dots are toward the reading "to each person", on average: a dot with no population fades by it
     let mix = 0, n = 0;
-    for (const M of cur.current.m) for (let i = 0; i < M.length; i++) { mix += M[i]; n++; }
+    lay.forEach((L, ri) => { const M = cur.current.m[ri]; for (const i of L.live) { mix += M[i]; n++; } });
     const mm = n ? mix / n : 0;
     cur.current.mm = mm;
     lay.forEach((L, ri) => {
@@ -194,7 +213,7 @@ export function Field({ C, reading, sel, onSel, desk }) {
         const al = (avg ? AVG_A : 1) * (has ? 1 : 1 - mm);
         if (al < 0.02) continue;
         ctx.globalAlpha = al; ctx.beginPath();
-        for (let i = 0; i < L.you.length; i++) {
+        for (const i of L.live) {
           if (R.avg[i] !== avg || (L.person[i] !== null) !== has) continue;
           const a = L.you[i], b = L.person[i] || a, m = has ? M[i] : 0, k = K[i];
           const x = cx0 + (a.dx + (b.dx - a.dx) * m) * k;
@@ -240,12 +259,12 @@ export function Field({ C, reading, sel, onSel, desk }) {
   const run = (token, set) => {
     cancelAnimationFrame(owner.current.raf); owner.current.raf = 0;
     const total = TOKENS[token].duration, st = STAGGER[token] || 0, slide = total - st;
-    if (reducedMotion() || document.hidden) { lay.forEach((L, ri) => { for (let i = 0; i < L.you.length; i++) set(ri, i, 1); }); draw(); return; }
+    if (reducedMotion() || document.hidden) { lay.forEach((L, ri) => { for (const i of L.live) set(ri, i, 1); }); draw(); return; }
     const t0 = performance.now();
     const step = t => {
       const e = t - t0; let live = false;
       lay.forEach((L, ri) => {
-        for (let i = 0; i < L.you.length; i++) {
+        for (const i of L.live) {
           const q = (e - L.order[i] * st) / slide;
           if (q < 1) live = true;
           set(ri, i, springValue(Math.max(0, Math.min(1, q))));

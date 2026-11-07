@@ -18,25 +18,27 @@
 | B's trip note ("Drag a line… the trip pays at 100%"; "1 of 3 lines with a figure set…") | The same labels and the bar. |
 | "The town race is the model's stylised example." in the sources line | The town race's own label, "An invented example, not a real race". |
 | The preview note's second sentence ("The named figures come from published studies, except the town race…") | Each named figure's label ("From a study of the 2008 election") and its sources line. |
+| "The grey dots are invented samples until the data lands." (the preview note; cut 11-07 when the real contests replaced the samples) | Nothing needs to: every dot is a real contest (`src/data/build-field.mjs`). The bar stays on previews only, as "Preview" and the picker. |
+| A sentence that a state legislature's class C chance is its chamber's average district's, and that like-race chances are averages (the orchestrator, 09:31) | The same dot, lighter, stacked above the contests' own; the key's "an average race's chance, not its own". |
+| "This route's back-test shows fewer near-even finishes than it forecast, so p may be high" (the governors' note in the data) | A dashed arrow toward where the figure may lie: on the governors' row, beside their named figure, its list entry and B's line, and after the drawn working's ring; the key's "may be higher". The note itself is in the chance's fold, as a source. |
 | The figure's label "is the least the result must be worth to you" | Refined to a label: "the least the result must be worth to you". |
 
 ### What stays
 
 | Line | Option | Kind | What a reader fails without it | Why no visual carries it |
 |---|---|---|---|---|
-| "The grey dots are invented samples until the data lands." | A, B | sentence | Takes 48,828 invented contests for real ones (law 8: a sample is marked as a sample). | A mark cannot say that it is invented. |
 | "How much would the outcome have to be worth for one vote to pay?" | A | heading, the site's question | Does not know what the figure answers. Every round-1 reader quoted it back as the page's claim. | It is the question itself. |
 | "One trip to vote, every contest on the ballot" | B | heading | Does not know that the lines are one ballot and the trip one cost (round 1: "I didn't know what 'trip' meant for a long time"). | It names what the lines are. |
 | "Only the chance of changing who wins is weighed here. Every other reason to vote, like duty or having your say, is set aside." | A, B | two sentences | Takes the figure for the whole case for voting (law 1b: what is set aside is said, once). A round-1 layperson asked what the other reasons are, hence the two named. | What is left out of a picture cannot be drawn. |
-| The sources line (two citations and the date read) | A, B | citations | Cannot check a figure (law 4). | A source is a name. |
-| Each fold's sources and the tie (behind the cost and the chance, closed until tapped): 4 sentences on the cost, 1 to 2 on the chance, plus the tie rule | A, B | sentences behind a fold | Cannot check the cost or the chance (law 4); the tie counts as half (law 2b). | They are sources and a rule, read only by a reader who asks. |
+| The sources line (the forecasters, the counts' sources, the Census Bureau, the date read) | A, B | citations | Cannot check a figure (law 4). | A source is a name. |
+| Each fold's sources and the tie (behind the cost and the chance, closed until tapped): 4 sentences on the cost; on the chance, its forecast and count, its population or that there is none, the back-test's note where there is one, and the tie rule | A, B | sentences behind a fold | Cannot check the cost or the chance (law 4); the tie counts as half (law 2b). | They are sources and a rule, read only by a reader who asks. |
 
-Labels kept, as labels: the contest's name and "From a study of the 2008 election"; "the least the result must be worth to you"; "Your cost of voting" with "14 minutes at the polls, at $38 an hour" (every round-1 reader asked what the $8.87 was made of); "Chance your ballot changes who wins"; "To you" / "To each person"; the key; the rows' names and counts; the scale; the named figures' names and their "From a study of…" or "An invented example, not a real race"; per person, "shared by 4,000 people (a round figure)"; B's "Where you vote for president", "No figure yet", "Its figure comes with the data", "Worth to you: drag to set", "repays 24% of the cost", "The trip".
+Labels kept, as labels: the contest's name and its year and why it is named ("2024 · the closest state", "1980 · the lowest of 53,397 since 1975"); "the least the result must be worth to you"; "Your cost of voting" with "14 minutes at the polls, at $38 an hour" (every round-1 reader asked what the $8.87 was made of); "Chance your ballot changes who wins"; "To you" / "To each person"; the key; the rows' names and counts, and "189 past $1T ›" where a row's contests run past the scale's end; "96,801 contests, 1969–2024"; the scale; the named figures' names and their year and reason; per person, "shared by 340 million people in the United States", or "No figure yet" with "the data give no population for … yet"; B's "Closest state / Average voter / Safest state", the line's place and year, "the lowest of 317 since 2006", "Worth to you: drag to set", "repays 24% of the cost", "The trip".
 
 ### Sentences on the screen
 
-- **A:** 4 (the preview note, the heading's question, the two on what is set aside), plus the citations line. Behind folds: the sources of the cost and the chance.
-- **B:** 3 (the preview note and the two on what is set aside), plus the citations line. Behind folds: the same.
+- **A:** 3 (the heading's question, the two on what is set aside), plus the citations line. Behind folds: the sources of the cost and the chance.
+- **B:** 2 (the two on what is set aside), plus the citations line. Behind folds: the same.
 
 ## The explainer, "How the figure is worked out", versions A and B
 
