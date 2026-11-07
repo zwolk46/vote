@@ -1,0 +1,4945 @@
+{
+ "about": "Average hourly earnings in dollars, for the value of an hour in the cost of voting (model section 6). National default: CES0500000003, all employees, total private, seasonally adjusted. Values are read from FRED (second-hand; origin BLS) and checked month by month against the BLS API where BLS was read (check).",
+ "source": {
+  "name": "FRED, Federal Reserve Bank of St. Louis: BLS Current Employment Statistics and State and Metro Area series (fredgraph.csv per series)",
+  "url": "https://fred.stlouisfed.org/",
+  "read_utc": "2026-11-07T07:31Z",
+  "licence": "FRED prints that some series are copyrighted and refers to the series notes; the notes of these series name only the U.S. Bureau of Labor Statistics as source and print no other restriction [measured]; BLS data are a U.S. Government work",
+  "mark": "stated",
+  "via": "FRED, Federal Reserve Bank of St. Louis",
+  "origin": {
+   "name": "U.S. Bureau of Labor Statistics, Current Employment Statistics (national) and State and Metro Area Employment, Hours, and Earnings (state)",
+   "url": "https://www.bls.gov/ces/"
+  },
+  "note": "Second-hand by the orchestrator's ruling of 2026-11-07 07:21: the BLS API's daily limit (25 requests per address) was reached; BLS's help pages and flat files answered Access Denied and were not tried another way."
+ },
+ "check_against_bls": {
+  "method": "month-by-month comparison of every BLS API response held in the cache with FRED's value for the same series and month",
+  "bls_requests_read": [
+   {
+    "file": "b0_2007_2016.json",
+    "series": 25,
+    "read_utc": "2026-11-07T07:20Z",
+    "sha256": "dd65adf85e69039623e2ea08047eb77ca72d90b3db870dd1f52e2100c2f30fb7"
+   }
+  ],
+  "series_checked": 25,
+  "months_compared": 3000,
+  "differences": [],
+  "series_checked_list": [
+   "CES0500000003",
+   "CES0500000008",
+   "SMU01000000500000003",
+   "SMU02000000500000003",
+   "SMU04000000500000003",
+   "SMU05000000500000003",
+   "SMU06000000500000003",
+   "SMU08000000500000003",
+   "SMU09000000500000003",
+   "SMU10000000500000003",
+   "SMU11000000500000003",
+   "SMU12000000500000003",
+   "SMU13000000500000003",
+   "SMU15000000500000003",
+   "SMU16000000500000003",
+   "SMU17000000500000003",
+   "SMU18000000500000003",
+   "SMU19000000500000003",
+   "SMU20000000500000003",
+   "SMU21000000500000003",
+   "SMU22000000500000003",
+   "SMU23000000500000003",
+   "SMU24000000500000003",
+   "SMU25000000500000003",
+   "SMU26000000500000003"
+  ],
+  "bls_request_this_run": null,
+  "open": "BLS API batches not yet read (daily limit reached on 2026-11-07); run `python3 pipeline/intake/bls_earnings.py --bls` after the limit resets to read the next batch, and again until all four are cached."
+ },
+ "national": {
+  "CES0500000003": {
+   "series": "CES0500000003",
+   "fred_id": "CES0500000003",
+   "bls_source_code_on_page": "CES0500000003",
+   "title": "Average Hourly Earnings of All Employees, Total Private",
+   "units": "Dollars per Hour, Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2006,
+    "month": 3
+   },
+   "latest": {
+    "year": 2026,
+    "month": 10,
+    "value": 38.0,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.86,
+     "mean_of_months": 21.5658,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 22.73,
+     "mean_of_months": 22.5792,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 23.63,
+     "mean_of_months": 23.4675,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 24.66,
+     "mean_of_months": 24.46,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 25.9,
+     "mean_of_months": 25.6525,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 27.44,
+     "mean_of_months": 27.1025,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 29.64,
+     "mean_of_months": 29.36,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 32.82,
+     "mean_of_months": 32.2583,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 35.6,
+     "mean_of_months": 35.0575,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:23Z",
+    "sha256": "1f6811dd492c4f3ec927753758592a10c94d9b3fa9169b94aa171218e2e09264"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:22Z",
+    "sha256": "172c51c1f605d499e7666e90d7acaac03d44d2c2411bb9fa6163cdfe91e9e82a"
+   }
+  },
+  "CES0500000008": {
+   "series": "CES0500000008",
+   "fred_id": "AHETPI",
+   "bls_source_code_on_page": "CES0500000008",
+   "title": "Average Hourly Earnings of Production and Nonsupervisory Employees, Total Private",
+   "units": "Dollars per Hour, Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 1964,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 10,
+    "value": 32.75,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 18.31,
+     "mean_of_months": 18.065,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 19.21,
+     "mean_of_months": 19.0517,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 19.84,
+     "mean_of_months": 19.7242,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 20.77,
+     "mean_of_months": 20.5958,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 21.71,
+     "mean_of_months": 21.5392,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 23.0,
+     "mean_of_months": 22.7008,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 24.94,
+     "mean_of_months": 24.6842,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.11,
+     "mean_of_months": 27.565,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 30.56,
+     "mean_of_months": 30.1217,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:23Z",
+    "sha256": "54d8fb85836b34d675559812fd6993ee9b16d2130319eed5c0ffbca05d438472"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:23Z",
+    "sha256": "047bf7eee805ba2c1bb0cb97136ae48ca8211e9a96365ebc37dc8523dcc812ef"
+   }
+  }
+ },
+ "states": {
+  "AL": {
+   "series": "SMU01000000500000003",
+   "fred_id": "SMU01000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Alabama",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 32.35,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 19.99,
+     "mean_of_months": 19.5608,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 19.86,
+     "mean_of_months": 19.8542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 20.18,
+     "mean_of_months": 20.2142,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 21.08,
+     "mean_of_months": 20.855,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.22,
+     "mean_of_months": 22.0658,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 23.92,
+     "mean_of_months": 23.4633,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.36,
+     "mean_of_months": 25.83,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.96,
+     "mean_of_months": 28.4725,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 30.52,
+     "mean_of_months": 30.1292,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:23Z",
+    "sha256": "4d4b69d86fc96e2b2f6d15beb8981dcd241d5774b833dd326a26701943b83d6c"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:22Z",
+    "sha256": "00e34981a1a3ef7e92a449437d25250fd7d3c32bf2ae8ebe13ab5f5418b3f0e3"
+   }
+  },
+  "AK": {
+   "series": "SMU02000000500000003",
+   "fred_id": "SMU02000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Alaska",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 38.43,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 25.16,
+     "mean_of_months": 24.9975,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 22.5,
+     "mean_of_months": 23.9258,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 26.44,
+     "mean_of_months": 25.5883,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 27.39,
+     "mean_of_months": 27.1658,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 28.81,
+     "mean_of_months": 28.2375,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 29.19,
+     "mean_of_months": 28.8117,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 32.2,
+     "mean_of_months": 31.0067,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 34.62,
+     "mean_of_months": 33.7225,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 37.26,
+     "mean_of_months": 36.5842,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:23Z",
+    "sha256": "62644e61a6c8d43624e677d5a52ae36ab3cb470429bac89665b7e68fdc3b59ec"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "5d5b4c5e110e42ced4e86133dfca7b4e6dc4299e8839bf8d26a59b14237c32ea"
+   }
+  },
+  "AZ": {
+   "series": "SMU04000000500000003",
+   "fred_id": "SMU04000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Arizona",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 36.29,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.44,
+     "mean_of_months": 20.6917,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.81,
+     "mean_of_months": 22.1658,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.57,
+     "mean_of_months": 22.6092,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.76,
+     "mean_of_months": 22.8133,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 24.34,
+     "mean_of_months": 23.9267,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 25.59,
+     "mean_of_months": 25.5642,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.77,
+     "mean_of_months": 27.5558,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.66,
+     "mean_of_months": 30.2283,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 33.34,
+     "mean_of_months": 33.19,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "64241475c8d5f9634465332cf982408f86422aff9d454a8c702cf6a9f2e85121"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "a020dc09036861dced8c9f24b0c2edcd0683588266d82d9f9404cdb251423f40"
+   }
+  },
+  "AR": {
+   "series": "SMU05000000500000003",
+   "fred_id": "SMU05000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Arkansas",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 29.85,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 17.58,
+     "mean_of_months": 17.2083,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 18.15,
+     "mean_of_months": 18.0767,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 19.05,
+     "mean_of_months": 18.5683,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 19.62,
+     "mean_of_months": 19.5283,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 20.2,
+     "mean_of_months": 20.1083,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 21.25,
+     "mean_of_months": 21.0508,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 23.51,
+     "mean_of_months": 23.3967,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 26.35,
+     "mean_of_months": 25.7183,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 28.8,
+     "mean_of_months": 28.6433,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "30f7a295df9f9932e4ffe90583ecb9b3cbcda123bb47d2a17f1ff01e70ba07bf"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "f56bf34687d911bf7837ff5f08764895bc9bfd1456046bf13633ee58aebcdeda"
+   }
+  },
+  "CA": {
+   "series": "SMU06000000500000003",
+   "fred_id": "SMU06000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in California",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 42.58,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 25.25,
+     "mean_of_months": 24.7275,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 26.54,
+     "mean_of_months": 26.3683,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 26.84,
+     "mean_of_months": 26.915,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 28.07,
+     "mean_of_months": 27.4975,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 29.33,
+     "mean_of_months": 28.985,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 31.36,
+     "mean_of_months": 31.0017,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 35.18,
+     "mean_of_months": 34.4333,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 37.65,
+     "mean_of_months": 37.4683,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 40.31,
+     "mean_of_months": 39.5233,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "f75062e21653ebf488186c24738ac3d37047ae623644393f220c4956adef1d8a"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "61458f55db4fb26f033cddfae757ae02caf2f80c21eaf1c686777547eed30496"
+   }
+  },
+  "CO": {
+   "series": "SMU08000000500000003",
+   "fred_id": "SMU08000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Colorado",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 40.19,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 24.18,
+     "mean_of_months": 23.7958,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 23.86,
+     "mean_of_months": 23.7917,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 24.77,
+     "mean_of_months": 24.6,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 26.66,
+     "mean_of_months": 26.2925,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 26.97,
+     "mean_of_months": 27.0717,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 29.57,
+     "mean_of_months": 28.92,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 31.27,
+     "mean_of_months": 31.0058,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 35.35,
+     "mean_of_months": 34.4633,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 39.16,
+     "mean_of_months": 38.145,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "60be4ec47d9463eff03dbea8c9e6f73e46be0b728b3ff3fd16692c446a5b98d8"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "05374e974c8d424ae32b8f3e2674fc2614e8b154ce55f8bf7a9ff61ddd3dba47"
+   }
+  },
+  "CT": {
+   "series": "SMU09000000500000003",
+   "fred_id": "SMU09000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Connecticut",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 40.06,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 27.95,
+     "mean_of_months": 27.7092,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 28.08,
+     "mean_of_months": 28.0758,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 28.21,
+     "mean_of_months": 28.135,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 28.66,
+     "mean_of_months": 28.1542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 30.57,
+     "mean_of_months": 30.4233,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 32.3,
+     "mean_of_months": 32.0383,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 34.66,
+     "mean_of_months": 34.0483,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 35.03,
+     "mean_of_months": 34.6617,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 38.3,
+     "mean_of_months": 37.84,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "f26be780917b0f64e91ec7af9bac6df37c95db66fa996f133edee68db53ac0f3"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "eec4dc1e2d0f2695d002fb5e0fc0ed03177119d61316f7849ea742f96957c96d"
+   }
+  },
+  "DE": {
+   "series": "SMU10000000500000003",
+   "fred_id": "SMU10000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Delaware",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 34.1,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 23.07,
+     "mean_of_months": 22.7292,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 22.51,
+     "mean_of_months": 22.7175,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.12,
+     "mean_of_months": 22.0133,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 21.69,
+     "mean_of_months": 21.7083,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 25.16,
+     "mean_of_months": 24.3975,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.77,
+     "mean_of_months": 26.2017,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 29.03,
+     "mean_of_months": 28.675,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 29.78,
+     "mean_of_months": 29.6492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 31.94,
+     "mean_of_months": 31.7183,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "03e136a4412effc3cb2c0a7d521fa98e33af2fd236c1cfd8099ed8e6a5b46329"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:24Z",
+    "sha256": "951bc9e2aff9bdb529d40a48cb38c952a2d0c1c8de5cc10b205a83ef3a822815"
+   }
+  },
+  "DC": {
+   "series": "SMU11000000500000003",
+   "fred_id": "SMU11000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in District of Columbia",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 57.86,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 31.67,
+     "mean_of_months": 32.3733,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 34.64,
+     "mean_of_months": 34.1725,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 36.86,
+     "mean_of_months": 36.8308,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 39.59,
+     "mean_of_months": 38.945,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 39.63,
+     "mean_of_months": 38.4067,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 43.74,
+     "mean_of_months": 43.0817,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 52.04,
+     "mean_of_months": 49.8442,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 49.12,
+     "mean_of_months": 50.1642,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 51.88,
+     "mean_of_months": 51.2658,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "23dc7af7e82bc80dfe4c15ec17c7c3831ec83781c3cbaebab8c7f22999f95db9"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "ca29d224fae9c9cb8d080a145dea3c55c5b9e999e53ec19d06b6343af55fe061"
+   }
+  },
+  "FL": {
+   "series": "SMU12000000500000003",
+   "fred_id": "SMU12000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Florida",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 36.02,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.27,
+     "mean_of_months": 21.0042,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.55,
+     "mean_of_months": 21.4433,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.65,
+     "mean_of_months": 21.6208,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.28,
+     "mean_of_months": 22.1917,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 23.69,
+     "mean_of_months": 23.305,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 25.01,
+     "mean_of_months": 24.8117,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.3,
+     "mean_of_months": 26.9367,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.47,
+     "mean_of_months": 29.4967,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 33.11,
+     "mean_of_months": 32.4942,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "628376d506dee13895c2ec08e36ba031b1720145fb25efdaf326b83e223b9364"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "4bfa02c7e06e2222ee73228f10db1471e96ae4552d31637b48b2c35731cd76f1"
+   }
+  },
+  "GA": {
+   "series": "SMU13000000500000003",
+   "fred_id": "SMU13000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Georgia",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 35.39,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.5,
+     "mean_of_months": 20.7742,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.81,
+     "mean_of_months": 21.57,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.9,
+     "mean_of_months": 21.7483,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 23.9,
+     "mean_of_months": 23.3375,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 24.39,
+     "mean_of_months": 24.2117,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.57,
+     "mean_of_months": 26.365,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 28.0,
+     "mean_of_months": 27.39,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.25,
+     "mean_of_months": 29.7525,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 33.24,
+     "mean_of_months": 32.1325,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "0915c15f180fccbfbf178ca1821e52e687178dd4bfc225dbb5c5be7d38f2a42d"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "d08f85545ab8a6c1f72301125ab2fe8ef9f0f62f07a14a2e64c3f68928c0431d"
+   }
+  },
+  "HI": {
+   "series": "SMU15000000500000003",
+   "fred_id": "SMU15000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Hawaii",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 41.08,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.08,
+     "mean_of_months": 20.825,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.85,
+     "mean_of_months": 21.6725,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 23.02,
+     "mean_of_months": 22.7367,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 24.63,
+     "mean_of_months": 24.3592,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 25.51,
+     "mean_of_months": 25.445,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 28.03,
+     "mean_of_months": 27.7742,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 32.14,
+     "mean_of_months": 31.3883,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 34.06,
+     "mean_of_months": 33.5733,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 37.22,
+     "mean_of_months": 36.8692,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "031f8baa949a672b4c41da585106195819dd84413dd004790c587ef8ddc1514b"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "79409d24dd872b050138209ff7a9f5f6f9a2376191e5282607d48926e39ba05a"
+   }
+  },
+  "ID": {
+   "series": "SMU16000000500000003",
+   "fred_id": "SMU16000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Idaho",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 35.74,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 17.75,
+     "mean_of_months": 17.5317,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.18,
+     "mean_of_months": 21.0358,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 20.93,
+     "mean_of_months": 21.0117,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 21.83,
+     "mean_of_months": 21.3442,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.24,
+     "mean_of_months": 22.29,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 22.69,
+     "mean_of_months": 22.7442,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.14,
+     "mean_of_months": 24.7817,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 29.02,
+     "mean_of_months": 27.8775,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 32.79,
+     "mean_of_months": 31.9758,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "cbecab9ccdbc6c01897ebcbc00c5bd48554e567a9c98b5a03ce331223f6fa422"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "6545a8457facc0d8bfe4a6e98e8164c5f23a4e4df30043a2c745d327226cc5ff"
+   }
+  },
+  "IL": {
+   "series": "SMU17000000500000003",
+   "fred_id": "SMU17000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Illinois",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 36.83,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 22.75,
+     "mean_of_months": 22.6833,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 23.23,
+     "mean_of_months": 23.1575,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 24.56,
+     "mean_of_months": 24.3425,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 26.01,
+     "mean_of_months": 25.5017,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 26.7,
+     "mean_of_months": 26.5717,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 28.15,
+     "mean_of_months": 27.6825,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 30.6,
+     "mean_of_months": 30.055,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 33.23,
+     "mean_of_months": 32.7783,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 34.17,
+     "mean_of_months": 33.7583,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "73c09acfe1902e5a59f54c90105881eb04f40cef042db0610c297297b8c178a4"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "ddc515b6772cf582d8b60be1fa5a4cbe08238e8307966394c8247c964cd46404"
+   }
+  },
+  "IN": {
+   "series": "SMU18000000500000003",
+   "fred_id": "SMU18000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Indiana",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 33.7,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 20.36,
+     "mean_of_months": 20.2983,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.58,
+     "mean_of_months": 20.5708,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.61,
+     "mean_of_months": 21.3783,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.91,
+     "mean_of_months": 22.6058,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 23.85,
+     "mean_of_months": 23.52,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 24.92,
+     "mean_of_months": 24.915,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.49,
+     "mean_of_months": 26.2633,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 29.23,
+     "mean_of_months": 28.9308,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 31.35,
+     "mean_of_months": 30.5683,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:25Z",
+    "sha256": "a9d48430877263d8950bad2bcf6f4a7418a8f100690d96343cbf85163217f835"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "e43e9658d294ed4257cf6f31d951ccc58b46aeefde689935ea06beccfac32f0f"
+   }
+  },
+  "IA": {
+   "series": "SMU19000000500000003",
+   "fred_id": "SMU19000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Iowa",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 31.23,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 18.9,
+     "mean_of_months": 18.3525,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.26,
+     "mean_of_months": 20.3775,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.19,
+     "mean_of_months": 20.8542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.01,
+     "mean_of_months": 21.7775,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 23.04,
+     "mean_of_months": 23.1417,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 24.26,
+     "mean_of_months": 23.9167,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 25.94,
+     "mean_of_months": 25.7358,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.65,
+     "mean_of_months": 28.1758,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 29.81,
+     "mean_of_months": 29.5067,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "42f565e30dc8dce0fbf2b39b267af3b01620a42d661957b6020aa380c45c4862"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "2b9a88f43511432954d7a885566942c74d0e342dcc2d2f69576307887b3433d5"
+   }
+  },
+  "KS": {
+   "series": "SMU20000000500000003",
+   "fred_id": "SMU20000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Kansas",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 33.06,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 20.43,
+     "mean_of_months": 20.125,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 19.86,
+     "mean_of_months": 20.075,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.02,
+     "mean_of_months": 21.0267,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.55,
+     "mean_of_months": 22.0983,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.96,
+     "mean_of_months": 22.78,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 24.57,
+     "mean_of_months": 24.09,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.44,
+     "mean_of_months": 26.0617,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.7,
+     "mean_of_months": 28.5917,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 30.96,
+     "mean_of_months": 30.3825,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "acd9980232cff851072c1776015788a44a568ed7864589a1861bcea170135ffc"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "c6e0cbf54b15d3d4c19d2aacd450459194b4c8e623af5d818dbb347d330cf564"
+   }
+  },
+  "KY": {
+   "series": "SMU21000000500000003",
+   "fred_id": "SMU21000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Kentucky",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 30.63,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 18.35,
+     "mean_of_months": 18.07,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 19.45,
+     "mean_of_months": 19.395,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 20.02,
+     "mean_of_months": 20.0658,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 20.87,
+     "mean_of_months": 20.53,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 21.34,
+     "mean_of_months": 21.255,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 22.43,
+     "mean_of_months": 22.1108,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 24.07,
+     "mean_of_months": 23.6308,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 27.11,
+     "mean_of_months": 26.9342,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 29.59,
+     "mean_of_months": 29.0175,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "6dc8c4cc06fd8e9e37052c7c04c9fc978e53e46862b54389a51434792b9fcf9f"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "3525fe4bff77c0dd0bda9a6a2636ebb7adb27a726870d648920bd45098dddb72"
+   }
+  },
+  "LA": {
+   "series": "SMU22000000500000003",
+   "fred_id": "SMU22000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Louisiana",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 31.11,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 19.6,
+     "mean_of_months": 19.2225,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 19.78,
+     "mean_of_months": 19.5525,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.59,
+     "mean_of_months": 21.3642,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.05,
+     "mean_of_months": 22.1183,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.87,
+     "mean_of_months": 22.6467,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 23.78,
+     "mean_of_months": 23.4875,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 25.98,
+     "mean_of_months": 25.3733,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 27.91,
+     "mean_of_months": 27.4708,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 28.89,
+     "mean_of_months": 28.6967,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "57a5a49d90bb0fc6276a2f42930361af1f3279a6c71e6770def8eaad4ee70b4f"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "61aa1adbae4abf76671d95f11130f60a1ae2de325df81d523a964a39d85815c5"
+   }
+  },
+  "ME": {
+   "series": "SMU23000000500000003",
+   "fred_id": "SMU23000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Maine",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 33.68,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 19.26,
+     "mean_of_months": 18.9608,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 19.66,
+     "mean_of_months": 19.4525,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.18,
+     "mean_of_months": 20.9625,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 21.74,
+     "mean_of_months": 21.3317,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.66,
+     "mean_of_months": 22.26,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 24.35,
+     "mean_of_months": 23.865,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.62,
+     "mean_of_months": 26.1492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 29.44,
+     "mean_of_months": 28.985,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 32.0,
+     "mean_of_months": 31.6342,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "39bf97d762b95e19f64356178f02a9e0a7992d7cd3f878abd01190829b49ca88"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "173c08b6d25e3d172a349ebfdda6b81c4a32b4f1b23b813c6d7ab3505ef18431"
+   }
+  },
+  "MD": {
+   "series": "SMU24000000500000003",
+   "fred_id": "SMU24000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Maryland",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 38.19,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 25.09,
+     "mean_of_months": 24.5658,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 25.97,
+     "mean_of_months": 26.1783,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 26.01,
+     "mean_of_months": 25.9417,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 27.78,
+     "mean_of_months": 27.5308,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 28.27,
+     "mean_of_months": 27.8158,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 30.21,
+     "mean_of_months": 30.025,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 32.61,
+     "mean_of_months": 32.0167,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 33.7,
+     "mean_of_months": 34.235,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 35.45,
+     "mean_of_months": 34.9925,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "e0a515dada776f58d5ba611c5aa53cc8a9e5cc24fbe64197053214d5ee9622c5"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:26Z",
+    "sha256": "0ede06d1119622784a0d104cdc87e780c994d8614dce7186c30d049e1c522fac"
+   }
+  },
+  "MA": {
+   "series": "SMU25000000500000003",
+   "fred_id": "SMU25000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Massachusetts",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 43.75,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 26.87,
+     "mean_of_months": 26.39,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 27.25,
+     "mean_of_months": 27.1517,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 28.02,
+     "mean_of_months": 28.1408,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 30.33,
+     "mean_of_months": 29.4908,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 31.39,
+     "mean_of_months": 31.0325,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 33.2,
+     "mean_of_months": 32.8492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 36.54,
+     "mean_of_months": 35.7792,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 40.04,
+     "mean_of_months": 39.2825,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 41.93,
+     "mean_of_months": 41.2867,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "54f19fd49229b71f0bf7491c3438d468a8621fba708d8ae933f2bc6fa5b974c1"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "0e75492b439fdc4c608f0af65c1c0f64e7e90cfe858535d65d3b6aa374da88c1"
+   }
+  },
+  "MI": {
+   "series": "SMU26000000500000003",
+   "fred_id": "SMU26000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Michigan",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 34.62,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.99,
+     "mean_of_months": 21.615,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 22.5,
+     "mean_of_months": 22.2567,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.47,
+     "mean_of_months": 22.4558,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 23.85,
+     "mean_of_months": 23.5975,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 24.12,
+     "mean_of_months": 24.0017,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.01,
+     "mean_of_months": 25.4733,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.89,
+     "mean_of_months": 27.575,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.7,
+     "mean_of_months": 30.2492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 32.77,
+     "mean_of_months": 32.3717,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 120,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "485f6d07fe1cff24bd275c7bb873aad7eb1e6bbad29deace5d7678ffa6dfac76"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "d9155ebe5b0751bc4fb17e4a46fbb1ed0ee0f5068091aebab2186601fe9096b3"
+   }
+  },
+  "MN": {
+   "series": "SMU27000000500000003",
+   "fred_id": "SMU27000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Minnesota",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 39.78,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 23.55,
+     "mean_of_months": 23.2333,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 24.28,
+     "mean_of_months": 23.8508,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 25.27,
+     "mean_of_months": 24.9467,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 25.88,
+     "mean_of_months": 25.7908,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 27.78,
+     "mean_of_months": 27.1033,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 29.32,
+     "mean_of_months": 29.0558,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 32.06,
+     "mean_of_months": 31.6867,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 35.09,
+     "mean_of_months": 34.58,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 38.3,
+     "mean_of_months": 37.5742,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "bdac6d43ecb22496e76fe9d675616d1589f250a79e279012931bcaf23de1372d"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "7be8fdf671ad8a703ffe20fa0a6581d9ae2d74a4aee3414009fba96277ba61be"
+   }
+  },
+  "MS": {
+   "series": "SMU28000000500000003",
+   "fred_id": "SMU28000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Mississippi",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 29.36,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 17.22,
+     "mean_of_months": 16.8933,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 17.96,
+     "mean_of_months": 18.0517,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 19.04,
+     "mean_of_months": 18.83,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 19.22,
+     "mean_of_months": 19.3092,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 20.29,
+     "mean_of_months": 20.105,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 20.4,
+     "mean_of_months": 20.2542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 22.58,
+     "mean_of_months": 22.3325,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 24.45,
+     "mean_of_months": 23.9758,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 27.16,
+     "mean_of_months": 26.5967,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "c5f9dd0b6aef4bc98a91d8afe71b4655a9d55f68627fec111e958ec523c0a541"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "bf273f28b19cf773401a02d5791536ec249a7b5e62c38a70f3ad26980a7fc0d0"
+   }
+  },
+  "MO": {
+   "series": "SMU29000000500000003",
+   "fred_id": "SMU29000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Missouri",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 34.38,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.33,
+     "mean_of_months": 20.5692,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.37,
+     "mean_of_months": 21.1925,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.53,
+     "mean_of_months": 21.4633,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.04,
+     "mean_of_months": 21.855,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 23.09,
+     "mean_of_months": 22.4042,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 24.72,
+     "mean_of_months": 24.6383,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.93,
+     "mean_of_months": 26.5592,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 29.59,
+     "mean_of_months": 28.7542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 32.1,
+     "mean_of_months": 31.5767,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "ee7bf59b6d51e711fb18a7e1d9b65a12814b80580496b95d932d9e06d8591667"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "d2181e9d66f943d0a808deb106408b2d411e7dcb671eb76b900a188aca9f928d"
+   }
+  },
+  "MT": {
+   "series": "SMU30000000500000003",
+   "fred_id": "SMU30000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Montana",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 33.28,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 18.91,
+     "mean_of_months": 18.4375,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.8,
+     "mean_of_months": 20.19,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 20.56,
+     "mean_of_months": 20.665,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 21.51,
+     "mean_of_months": 21.1992,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.41,
+     "mean_of_months": 21.9492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 23.94,
+     "mean_of_months": 23.6975,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.42,
+     "mean_of_months": 25.8117,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.77,
+     "mean_of_months": 27.9467,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 32.34,
+     "mean_of_months": 31.6583,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "666fef4553af84bde216f5a3c06bde02dafd1b9326c18d1b58dfb61492717890"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "3bfeee6061d52551c8da17e2649d4a78d986c52d50e4fb13cf149d92e49c1ad8"
+   }
+  },
+  "NE": {
+   "series": "SMU31000000500000003",
+   "fred_id": "SMU31000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Nebraska",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 32.89,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 20.09,
+     "mean_of_months": 19.7992,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.89,
+     "mean_of_months": 20.8842,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 20.95,
+     "mean_of_months": 20.945,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 21.69,
+     "mean_of_months": 21.3508,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 23.06,
+     "mean_of_months": 22.9833,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 24.66,
+     "mean_of_months": 24.7208,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.34,
+     "mean_of_months": 27.0017,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 29.69,
+     "mean_of_months": 29.5867,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 31.87,
+     "mean_of_months": 31.4775,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:27Z",
+    "sha256": "263632a413b54ebf9b0f09f6d95267834e2addf6c1ae193e836f742f1667b4e8"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "6f82c3d6032d6a05382e7138bca346a433b43ff7fa0654036f4317f769932158"
+   }
+  },
+  "NV": {
+   "series": "SMU32000000500000003",
+   "fred_id": "SMU32000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Nevada",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 33.26,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 19.71,
+     "mean_of_months": 19.7467,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 19.09,
+     "mean_of_months": 19.1283,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 20.11,
+     "mean_of_months": 19.8258,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 21.45,
+     "mean_of_months": 20.9467,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.16,
+     "mean_of_months": 22.15,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 23.88,
+     "mean_of_months": 23.3317,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 25.92,
+     "mean_of_months": 26.0967,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.98,
+     "mean_of_months": 28.5808,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 30.68,
+     "mean_of_months": 30.3792,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "e79feada17849697f33a50ef909aa2e200d2c098b228536c8ef9037c3592065e"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "31fb99e9e3b4c84af388395036d77fd9b80181f091b71bf563787ba3808708a6"
+   }
+  },
+  "NH": {
+   "series": "SMU33000000500000003",
+   "fred_id": "SMU33000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in New Hampshire",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 36.92,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 23.05,
+     "mean_of_months": 22.6617,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 23.05,
+     "mean_of_months": 22.9867,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 24.11,
+     "mean_of_months": 23.7175,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 24.44,
+     "mean_of_months": 24.3308,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 26.16,
+     "mean_of_months": 25.7175,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.66,
+     "mean_of_months": 26.5917,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 30.46,
+     "mean_of_months": 29.5217,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 33.0,
+     "mean_of_months": 32.6425,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 35.49,
+     "mean_of_months": 35.2217,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "95ddfbbd926cac328d4fb1c3a678e937e171cb43f9f4854fd777f128305539cc"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "4aa2abc442e59f95197315a253212c6898a101fd919fee058c7295e43b715ebc"
+   }
+  },
+  "NJ": {
+   "series": "SMU34000000500000003",
+   "fred_id": "SMU34000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in New Jersey",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 39.32,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 24.77,
+     "mean_of_months": 25.3225,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 25.67,
+     "mean_of_months": 25.965,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 26.67,
+     "mean_of_months": 26.4458,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 27.4,
+     "mean_of_months": 26.875,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 28.32,
+     "mean_of_months": 28.1067,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 30.2,
+     "mean_of_months": 29.8475,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 32.75,
+     "mean_of_months": 32.1492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 34.32,
+     "mean_of_months": 33.9267,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 37.46,
+     "mean_of_months": 36.4042,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "86ae80b3aeadde4a0018c01b79bb4df188fd75aa8db55692b9aaa8b21f6567bf"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "9d5ca7a4b46ef7558d07729d02f37ffac59b590124b4a664746a7050a18fbc60"
+   }
+  },
+  "NM": {
+   "series": "SMU35000000500000003",
+   "fred_id": "SMU35000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in New Mexico",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 31.43,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 18.93,
+     "mean_of_months": 18.7358,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 19.81,
+     "mean_of_months": 19.57,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 19.93,
+     "mean_of_months": 19.8317,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 20.35,
+     "mean_of_months": 20.4408,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 20.82,
+     "mean_of_months": 20.5992,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 22.38,
+     "mean_of_months": 22.095,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 24.39,
+     "mean_of_months": 23.8767,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 27.54,
+     "mean_of_months": 27.0342,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 28.91,
+     "mean_of_months": 28.2542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "342d78897264c61a9f924380a31f12eee8e292c16ddec94027914fd6be6ea223"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "68d87ffe5772879136e7f5e588cf384d87627f86fb17627a255ea44a5ee4377d"
+   }
+  },
+  "NY": {
+   "series": "SMU36000000500000003",
+   "fred_id": "SMU36000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in New York",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 39.87,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 25.66,
+     "mean_of_months": 25.4875,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 26.23,
+     "mean_of_months": 26.0742,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 27.28,
+     "mean_of_months": 27.1817,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 28.74,
+     "mean_of_months": 28.235,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 29.39,
+     "mean_of_months": 29.2725,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 31.56,
+     "mean_of_months": 31.1367,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 34.31,
+     "mean_of_months": 33.9508,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 36.06,
+     "mean_of_months": 35.8375,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 37.97,
+     "mean_of_months": 37.8775,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "ec9365a04893bf559da1b117695ba02b87876445dba75884ca9c95a5e665df7c"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "1989307498ce6f863e65b87d23052932406794fbb85faf7b6f7e3082cfc08417"
+   }
+  },
+  "NC": {
+   "series": "SMU37000000500000003",
+   "fred_id": "SMU37000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in North Carolina",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 34.48,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 20.88,
+     "mean_of_months": 19.9108,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.41,
+     "mean_of_months": 20.6183,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.76,
+     "mean_of_months": 21.6833,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.06,
+     "mean_of_months": 21.8467,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 23.66,
+     "mean_of_months": 23.4008,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 25.21,
+     "mean_of_months": 24.995,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.19,
+     "mean_of_months": 26.5517,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.49,
+     "mean_of_months": 29.9467,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 32.93,
+     "mean_of_months": 32.5142,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "30e3b56386ab007c59a68c7fed2a21bf2f839522362ed1fc9ac1934dfdf1b117"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:28Z",
+    "sha256": "4cea99fba80cfe6d8708028a6149e011b23831bbe9ce6dcd35a9f826bbc1ab7c"
+   }
+  },
+  "ND": {
+   "series": "SMU38000000500000003",
+   "fred_id": "SMU38000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in North Dakota",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 35.45,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 19.08,
+     "mean_of_months": 18.7533,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.94,
+     "mean_of_months": 20.1683,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.98,
+     "mean_of_months": 22.7175,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 24.72,
+     "mean_of_months": 24.5767,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 25.61,
+     "mean_of_months": 25.5925,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 27.1,
+     "mean_of_months": 26.7342,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.67,
+     "mean_of_months": 27.6142,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 31.88,
+     "mean_of_months": 30.7833,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 34.22,
+     "mean_of_months": 33.8758,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "cabe56a2af5e59edb4ff15e9c551c25eace829d70b3a1a5fd09d42c37d7636a6"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "b40368ca3b760ae5df1e4bd1131e87f2acf855d515e40e3aaadce9d407ce5984"
+   }
+  },
+  "OH": {
+   "series": "SMU39000000500000003",
+   "fred_id": "SMU39000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Ohio",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 34.39,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 20.31,
+     "mean_of_months": 20.115,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.39,
+     "mean_of_months": 20.2133,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.24,
+     "mean_of_months": 22.0075,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.53,
+     "mean_of_months": 22.2908,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 23.74,
+     "mean_of_months": 23.4042,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 25.09,
+     "mean_of_months": 24.8058,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.69,
+     "mean_of_months": 26.0542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 29.86,
+     "mean_of_months": 29.2583,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 32.67,
+     "mean_of_months": 31.92,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "958ad4148fe12d9b15879cf9f5aa736b1cabde162ee1b1740973ca52898f3a75"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "d3f8d38f8088a232def11954154851670e54172fa73a75edd71187d227d69fe4"
+   }
+  },
+  "OK": {
+   "series": "SMU40000000500000003",
+   "fred_id": "SMU40000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Oklahoma",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 32.21,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 17.96,
+     "mean_of_months": 17.4417,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.05,
+     "mean_of_months": 19.2,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 21.06,
+     "mean_of_months": 20.9117,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 22.06,
+     "mean_of_months": 21.5383,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.31,
+     "mean_of_months": 22.03,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 24.26,
+     "mean_of_months": 23.6767,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 24.93,
+     "mean_of_months": 24.9008,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 27.61,
+     "mean_of_months": 26.9592,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 30.76,
+     "mean_of_months": 30.1633,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "11d9e6305ef1bc8515982ed5c1f0e9fb51202fc49e58639443137d699c265784"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "f3379708d38f0cdd1977d7019e84e2d4919258e0631ba0e821bfdb9e60a89c4a"
+   }
+  },
+  "OR": {
+   "series": "SMU41000000500000003",
+   "fred_id": "SMU41000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Oregon",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 38.63,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.17,
+     "mean_of_months": 20.9383,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.54,
+     "mean_of_months": 21.5608,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.29,
+     "mean_of_months": 22.2258,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 23.1,
+     "mean_of_months": 22.9067,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 25.2,
+     "mean_of_months": 24.7158,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.56,
+     "mean_of_months": 26.2158,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 29.21,
+     "mean_of_months": 28.8858,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 33.7,
+     "mean_of_months": 32.4692,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 36.3,
+     "mean_of_months": 35.88,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "f23a7d4bd1ffee3fbcfed3b45092a3fc7e9ae0fa424b958fc3a9cb33aab1aa25"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "b60094de4e7321da2788c2a477f1b09431e4697de2625c4824f83f724adab939"
+   }
+  },
+  "PA": {
+   "series": "SMU42000000500000003",
+   "fred_id": "SMU42000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Pennsylvania",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 34.11,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 20.69,
+     "mean_of_months": 20.4392,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.38,
+     "mean_of_months": 21.2167,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.89,
+     "mean_of_months": 22.6275,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 23.81,
+     "mean_of_months": 23.735,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 24.95,
+     "mean_of_months": 24.6833,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.06,
+     "mean_of_months": 25.7492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.56,
+     "mean_of_months": 27.33,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.51,
+     "mean_of_months": 29.8825,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 32.11,
+     "mean_of_months": 31.7892,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "b6dea5eecea7e5caa49d38ebeee71219c4eb23721c02e8a2584cb45a05e0a268"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "8c467a24e2de05165e65eec66e8187abb4bee0addb342a1211f3d69a1b1c76bf"
+   }
+  },
+  "RI": {
+   "series": "SMU44000000500000003",
+   "fred_id": "SMU44000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Rhode Island",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 37.94,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 22.73,
+     "mean_of_months": 22.5017,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 22.9,
+     "mean_of_months": 22.665,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 24.89,
+     "mean_of_months": 25.0033,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 25.13,
+     "mean_of_months": 25.1033,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 26.51,
+     "mean_of_months": 25.9883,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 27.83,
+     "mean_of_months": 27.6808,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 29.15,
+     "mean_of_months": 28.9133,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 33.19,
+     "mean_of_months": 32.0483,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 36.02,
+     "mean_of_months": 35.7867,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "11af509de661615aaeb3e6dc8d8408c8d4c43bd084ecfac9d561f2f69be271b6"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "c4bc9859f2724547ab400e07481a727a666448427c4704f09f8b94c988ad7d02"
+   }
+  },
+  "SC": {
+   "series": "SMU45000000500000003",
+   "fred_id": "SMU45000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in South Carolina",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 33.62,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 18.99,
+     "mean_of_months": 18.8025,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.25,
+     "mean_of_months": 19.8958,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 20.16,
+     "mean_of_months": 20.095,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 21.47,
+     "mean_of_months": 21.0483,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 22.49,
+     "mean_of_months": 22.1083,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 24.38,
+     "mean_of_months": 23.9683,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.84,
+     "mean_of_months": 26.0533,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.76,
+     "mean_of_months": 28.1867,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 31.69,
+     "mean_of_months": 30.685,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:29Z",
+    "sha256": "4958868ee00e9288700a65ee809f836b6ce1655cf60dc0654042b2627e6250d6"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "2cbe550dafe9b7f7637c81c647a988f8c7d213b44101011c799bec1f61fe3b37"
+   }
+  },
+  "SD": {
+   "series": "SMU46000000500000003",
+   "fred_id": "SMU46000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in South Dakota",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 32.44,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 17.11,
+     "mean_of_months": 16.5367,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 18.73,
+     "mean_of_months": 18.5542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 19.51,
+     "mean_of_months": 19.4267,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 20.61,
+     "mean_of_months": 20.1758,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 21.72,
+     "mean_of_months": 21.3733,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 22.92,
+     "mean_of_months": 22.6108,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 24.97,
+     "mean_of_months": 24.4883,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 27.69,
+     "mean_of_months": 27.3458,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 31.1,
+     "mean_of_months": 30.7183,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "01817067b3fa99d53c2ff6214d935c7014f2603d3fcbc73abbba0e6b0806cd43"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "15a292aa3a925e65a75380356ede0488123f1442987218c4030aeff311daff56"
+   }
+  },
+  "TN": {
+   "series": "SMU47000000500000003",
+   "fred_id": "SMU47000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Tennessee",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 32.26,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 19.63,
+     "mean_of_months": 19.4125,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 20.2,
+     "mean_of_months": 19.9508,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 20.22,
+     "mean_of_months": 20.1508,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 20.93,
+     "mean_of_months": 20.7767,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 21.96,
+     "mean_of_months": 21.6442,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 23.79,
+     "mean_of_months": 23.3783,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 25.53,
+     "mean_of_months": 25.1075,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.7,
+     "mean_of_months": 28.2425,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 30.3,
+     "mean_of_months": 30.0925,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "3caf0ae1a902d2d6f93ac1c4fd481261fe2adf03fcaf28318640ed846a107117"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "dbf49f3d2a3875da66b618e7dc4c1916a57926ee4e547db5c4055b79f15cc423"
+   }
+  },
+  "TX": {
+   "series": "SMU48000000500000003",
+   "fred_id": "SMU48000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Texas",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 36.76,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.41,
+     "mean_of_months": 21.295,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.48,
+     "mean_of_months": 21.3617,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.34,
+     "mean_of_months": 22.1975,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 24.27,
+     "mean_of_months": 23.7983,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 24.79,
+     "mean_of_months": 24.5917,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.17,
+     "mean_of_months": 25.9092,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.49,
+     "mean_of_months": 27.0283,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.44,
+     "mean_of_months": 29.955,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 33.48,
+     "mean_of_months": 33.0733,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "9094357dcff711fad31e7463db2443df2b8cfa2c2757941856dca450e5e9b023"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "d1235586866c9d9f4e583de32852ed3da744f3a5a7a02499e5a889e0f7e17fe0"
+   }
+  },
+  "UT": {
+   "series": "SMU49000000500000003",
+   "fred_id": "SMU49000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Utah",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 36.02,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.44,
+     "mean_of_months": 21.0983,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 24.12,
+     "mean_of_months": 24.31,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.38,
+     "mean_of_months": 22.2508,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 24.12,
+     "mean_of_months": 23.6967,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 24.91,
+     "mean_of_months": 24.575,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 25.86,
+     "mean_of_months": 25.6208,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 29.38,
+     "mean_of_months": 28.4467,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 32.06,
+     "mean_of_months": 31.5592,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 34.29,
+     "mean_of_months": 33.9267,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "c05a7d292f4f54161276ac9b3f7e81e3fb2fbb11346c87d04cd291c7374d4acd"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "e1e83253b66cf28813e99f1fb9fd4ea63a798aa5f9a537771580fdb48bd0df68"
+   }
+  },
+  "VT": {
+   "series": "SMU50000000500000003",
+   "fred_id": "SMU50000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Vermont",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 36.0,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 22.13,
+     "mean_of_months": 21.3542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 22.93,
+     "mean_of_months": 23.0167,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.83,
+     "mean_of_months": 22.795,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 23.57,
+     "mean_of_months": 23.17,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 24.67,
+     "mean_of_months": 24.3492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.12,
+     "mean_of_months": 25.3908,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.52,
+     "mean_of_months": 27.49,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.99,
+     "mean_of_months": 30.1383,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 34.51,
+     "mean_of_months": 33.8575,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "278185a0e47d11870c3b036ae14e5dccad3af30c295e2ed6755976a0f7e494c0"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "2ff8405a56837c9d731b2bf08d1ed90a54dbb4926c53577d002981fa50ffbfe3"
+   }
+  },
+  "VA": {
+   "series": "SMU51000000500000003",
+   "fred_id": "SMU51000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Virginia",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 38.63,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 22.38,
+     "mean_of_months": 22.3142,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 23.73,
+     "mean_of_months": 23.5475,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 24.77,
+     "mean_of_months": 24.9825,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 25.64,
+     "mean_of_months": 25.3383,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 27.13,
+     "mean_of_months": 26.9625,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 28.65,
+     "mean_of_months": 28.3858,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 30.83,
+     "mean_of_months": 29.8067,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 32.74,
+     "mean_of_months": 32.69,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 34.47,
+     "mean_of_months": 33.8908,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "9f70c030bcd07a6f75ef44369e258170dc06d9da17b25b461d3ed078102229a9"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:30Z",
+    "sha256": "638b605ed8d99d8a73ac81c81dd686aa3d34593c45ffc31762d3ddf037be57b7"
+   }
+  },
+  "WA": {
+   "series": "SMU53000000500000003",
+   "fred_id": "SMU53000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Washington",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 43.8,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 25.74,
+     "mean_of_months": 25.225,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 27.26,
+     "mean_of_months": 26.9558,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 27.49,
+     "mean_of_months": 27.3592,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 29.13,
+     "mean_of_months": 28.4917,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 30.65,
+     "mean_of_months": 30.3767,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 33.66,
+     "mean_of_months": 32.8633,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 34.95,
+     "mean_of_months": 34.7492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 38.45,
+     "mean_of_months": 37.75,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 41.62,
+     "mean_of_months": 41.0525,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:31Z",
+    "sha256": "4cbfaf96c1e3994a999df71e3721fb6a2f08e7bbf7195c94818649d71e422479"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:31Z",
+    "sha256": "f3a3d27dd72754c317c8017cd46c2963d1fd2b7550c5fda01955beea79c68236"
+   }
+  },
+  "WV": {
+   "series": "SMU54000000500000003",
+   "fred_id": "SMU54000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in West Virginia",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 30.12,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 18.19,
+     "mean_of_months": 17.7875,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 18.69,
+     "mean_of_months": 18.7225,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 19.86,
+     "mean_of_months": 19.63,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 20.57,
+     "mean_of_months": 20.615,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 21.16,
+     "mean_of_months": 20.9917,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 23.41,
+     "mean_of_months": 23.0067,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 24.76,
+     "mean_of_months": 24.5283,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 27.27,
+     "mean_of_months": 26.7492,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 29.1,
+     "mean_of_months": 28.6892,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:31Z",
+    "sha256": "8bca8bed42964ae2de459f5f2ea21e3b2bd3819f8f0ae63cc0ae515cdfce7305"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:31Z",
+    "sha256": "586af86469938a2a22c0745e0f8738ccb546db01a4bb57d728ffc70a288d83ee"
+   }
+  },
+  "WI": {
+   "series": "SMU55000000500000003",
+   "fred_id": "SMU55000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Wisconsin",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 34.46,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 20.81,
+     "mean_of_months": 20.6817,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.49,
+     "mean_of_months": 21.3558,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.67,
+     "mean_of_months": 22.3817,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 23.24,
+     "mean_of_months": 23.2475,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 24.31,
+     "mean_of_months": 24.0283,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 25.97,
+     "mean_of_months": 25.9333,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 27.82,
+     "mean_of_months": 27.5758,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 30.59,
+     "mean_of_months": 30.0708,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 33.55,
+     "mean_of_months": 33.4783,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:31Z",
+    "sha256": "de0257d4a6e153ba486ead6f2f0381f0aef5cd27adae581feceeb35384d21164"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:31Z",
+    "sha256": "ac92a8992904ab8841ae599813ce6194defa3eb9db6d7796c627e360f49d0c4a"
+   }
+  },
+  "WY": {
+   "series": "SMU56000000500000003",
+   "fred_id": "SMU56000000500000003",
+   "bls_source_code_on_page": null,
+   "title": "Average Hourly Earnings of All Employees: Total Private in Wyoming",
+   "units": "Dollars per Hour, Not Seasonally Adjusted",
+   "source_named_by_fred": "U.S. Bureau of Labor Statistics",
+   "first_observation": {
+    "year": 2007,
+    "month": 1
+   },
+   "latest": {
+    "year": 2026,
+    "month": 9,
+    "value": 33.53,
+    "preliminary": null
+   },
+   "by_election_year": {
+    "2008": {
+     "november": 21.37,
+     "mean_of_months": 20.8225,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2010": {
+     "november": 21.61,
+     "mean_of_months": 21.4375,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2012": {
+     "november": 22.64,
+     "mean_of_months": 22.5275,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2014": {
+     "november": 23.48,
+     "mean_of_months": 23.1775,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2016": {
+     "november": 23.77,
+     "mean_of_months": 23.2308,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2018": {
+     "november": 26.49,
+     "mean_of_months": 25.3742,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2020": {
+     "november": 26.83,
+     "mean_of_months": 26.635,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2022": {
+     "november": 28.59,
+     "mean_of_months": 28.5542,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    },
+    "2024": {
+     "november": 31.49,
+     "mean_of_months": 31.205,
+     "months": 12,
+     "first_month": 1,
+     "last_month": 12
+    }
+   },
+   "checked_against_bls_months": 0,
+   "fred_csv": {
+    "read_utc": "2026-11-07T07:31Z",
+    "sha256": "e61185791c9f99db2873e0f09067a1ceb128a41ed23efbffe5f001e2931da605"
+   },
+   "fred_page": {
+    "read_utc": "2026-11-07T07:31Z",
+    "sha256": "210991e9735c88fbcd56707e2138db59159c39fba17127fb970334a07c7a56b8"
+   }
+  }
+ },
+ "unread": [
+  {
+   "what": "BLS documentation of the State and Metro Area series format (www.bls.gov/help/hlpforma.htm) and the series catalog (download.bls.gov/pub/time.series/)",
+   "reason": "HTTP 403 Access Denied to curl (2026-11-07); not tried another way (briefs/_COMMON.md 6)"
+  }
+ ]
+}

@@ -1,0 +1,327 @@
+{
+ "state": "IA",
+ "name": "Iowa",
+ "status": "read",
+ "code": {
+  "name": "Iowa Code",
+  "edition": "Iowa Code 2026, chapters 43 and 50, as the Iowa Legislature's PDFs print them (printed Tue Dec 09 22:30:57 2025)",
+  "site": "https://www.legis.iowa.gov/law/statutory",
+  "reached": true
+ },
+ "sections": {
+  "ia-ch50": {
+   "citation": "Iowa Code 2026, chapter 50 (canvass of votes): 50.8 (error on state or district office; tie vote), 50.44 (tie vote), 50.45 (canvass public; result determined), 50.48 (general recount provisions), 50.49 (recounts for public measures); whole-chapter PDF",
+   "url": "https://www.legis.iowa.gov/docs/code/50.pdf",
+   "read_at": "state"
+  },
+  "ia-ch43": {
+   "citation": "Iowa Code 2026, chapter 43 (primary elections): 43.56 (primary election recount provisions), 43.75 (tie vote); whole-chapter PDF",
+   "url": "https://www.legis.iowa.gov/docs/code/43.pdf",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative"
+   ],
+   "applies_to": "general election: persons, including presidential electors, found to have an equal and the highest number of votes (more than the requisite number to be elected)",
+   "resolution": "lot",
+   "steps": "the name of each tied candidate is written on a separate piece of paper of nearly uniform size and material and placed in a receptacle so the names cannot be seen; in the presence of the board of canvassers one of them publicly draws one name, and that person is declared elected; the result is entered on the abstract of votes and recorded, and a certificate of election issued",
+   "who": "the board of canvassers (a person from the tied candidates draws publicly)",
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "If more than the requisite number of persons, including presidential electors, are found to have an equal and the highest number of votes, the election of one of them shall be determined by lot. The name of each of such candidates shall be written on separate pieces of paper, as nearly uniform in size and material as possible, and placed in a receptacle so that the names cannot be seen. In the presence of the board of canvassers, one of them shall publicly draw one of such names, and such person shall be declared elected."
+    }
+   ],
+   "mark": "measured",
+   "note": "50.44 says 'persons' and 'candidates' and names presidential electors; it does not name federal, statewide or legislative offices but the chapter is the canvass of votes for all elections, read as covering them [inferred]."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "county, city and school elections canvassed under the same chapter",
+   "resolution": "lot",
+   "steps": "as in the rule above: lot, drawn before the board of canvassers",
+   "who": "the board of canvassers",
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "If more than the requisite number of persons, including presidential electors, are found to have an equal and the highest number of votes, the election of one of them shall be determined by lot."
+    }
+   ],
+   "mark": "inferred",
+   "note": "The section does not name local offices; the page lists 'Referred to in 331.383' (counties) and elsewhere in the chapter prints the abstracts for cities and school districts. That 50.44 settles a local tie is the reader's reading [inferred]. City chapter 376 and county chapter 331 were not read; city runoffs (376.9) exist and were not read."
+  },
+  {
+   "kinds": [
+    "statewide",
+    "state-legislative",
+    "federal"
+   ],
+   "applies_to": "a state or district office where an excess of ballots in a precinct (more ballots than voters) causes the tie",
+   "resolution": "new-election",
+   "steps": "the error is certified to the state commissioner; if it affects the result, the canvass is suspended and a new vote ordered in the precinct where the error occurred; when there is a tie vote due to such an excess, there shall be a new election",
+   "who": "the state commissioner (new vote in the precinct)",
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "When there is a tie vote due to such an excess, there shall be a new election."
+    }
+   ],
+   "mark": "measured",
+   "note": "A special case within 50.8: a tie caused by an excess of ballots in a precinct, not a tie in the count. The text says 'a district or state office'; federal offices are read as covered [inferred]."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a primary tie resulting in no nomination, for any office except senator or representative in the general assembly",
+   "resolution": "lot",
+   "steps": "the tie is forthwith determined by lot by the board of canvassers",
+   "who": "the board of canvassers",
+   "sources": [
+    {
+     "section": "ia-ch43",
+     "quote": "In case of a tie vote resulting in no nomination for any office, except for senator or representative in the general assembly, the tie shall forthwith be determined by lot by the board of canvassers."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a primary tie for the nomination for senator or representative in the general assembly",
+   "resolution": "party-committee",
+   "steps": "the party precinct committee members whose precincts lie within the district select the winning candidate from among those with the equal and highest number of votes; the state party chairperson convenes them",
+   "who": "the party's precinct committee members in the district",
+   "sources": [
+    {
+     "section": "ia-ch43",
+     "quote": "the party precinct committee members whose precincts lie within the senatorial or representative district involved shall select the winning candidate from among the candidates having received the equal and highest number of votes."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a public measure whose affirmative vote is exactly half of the votes for and against",
+   "resolution": "other",
+   "steps": "a proposition is declared adopted only if the vote in favor is greater than fifty percent of the total vote cast in favor and against; an exact tie is therefore not adopted; no lot, new election or other tie-break is provided in the sections read",
+   "who": null,
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "When a public measure has been submitted to the electors, the proposition shall be declared to have been adopted if the vote cast in favor of the question is greater than fifty percent of the total vote cast in favor and against the question"
+    }
+   ],
+   "mark": "inferred",
+   "note": "The text sets the test for adoption; that a tie means the measure fails is the reader's deduction from 'greater than fifty percent' [inferred]. The text adds 'unless laws pertaining specifically to the public measure election establish a higher percentage', which were not read."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "general and primary",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "not stated in the text (the difference between the apparent winner's total and the requesting candidate's total is compared with 'one percent')",
+    "votes": 50,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "written request not later than 5:00 p.m. on the day after the county board's canvass; filed with the county commissioner of elections; the county board of canvassers orders a recount in each precinct where a vote was cast for the office; applies to offices other than those in the state commissioner rule below",
+    "in_words": "a margin of less than either one percent or fifty votes, whichever is lesser, between the apparent winner and the candidate requesting the recount"
+   },
+   "who_may_request": [
+    "a candidate for that office or nomination whose name was printed on the ballot",
+    "any other person who receives votes for that office or nomination in the precinct and is legally qualified to seek and hold the office"
+   ],
+   "cost_bearer": "not stated in 50.48 as read (its only mention of cost is that a candidate for statewide office is not required to pay more than one bond)",
+   "waiver": "before the final report the requester may agree in writing with the apparent winner to accept the original canvass (50.48(9))",
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "the county board of canvassers shall order a recount of the votes cast for a particular office or nomination in each election precinct where a vote was cast for an office if a written request for a recount is made not later than 5:00 p.m. on the day following the county board’s canvass of the election in question and the abstracts prepared pursuant to section 50.24, or section 43.49 in the case of a primary election, indicate that the difference between the total number of votes cast for the apparent winner and the total number of votes cast for the candidate requesting the recount is less than either one percent or fifty votes, whichever is lesser."
+    },
+    {
+     "section": "ia-ch50",
+     "quote": "(1) A candidate for that office or nomination whose name was printed on the ballot of the precinct or precincts where the recount is requested."
+    },
+    {
+     "section": "ia-ch43",
+     "quote": "Recounts of votes for primary elections shall be conducted following the procedure outlined in section 50.48."
+    }
+   ],
+   "mark": "measured",
+   "note": "There is no automatic recount in chapter 50 as read. 'Less than' is exclusive. County and city offices are read as covered by 'a particular office' [inferred]; city primaries and runoffs have their own timing (50.48(6), (7))."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "general and primary",
+   "threshold": {
+    "percent": 0.15,
+    "percent_of": "not stated in the text (the difference between the apparent winner's total and the requesting candidate's total is compared with 'fifteen hundredths of one percent')",
+    "votes": null,
+    "combine": null,
+    "inclusive": false,
+    "conditions": "the state commissioner of elections orders the recount; written request not later than 5:00 p.m. on the day after the county board's canvass; the state commissioner orders the start within seven days of receiving the request",
+    "in_words": "a margin of less than fifteen hundredths of one percent for a statewide elected office or a federal office"
+   },
+   "who_may_request": [
+    "a candidate for that office or nomination (the written request)"
+   ],
+   "cost_bearer": "not stated in 50.48 as read (a candidate for an office filled by the electors of the entire state is not required to pay more than one bond)",
+   "waiver": "before the final report the requester may agree in writing with the apparent winner to accept the original canvass (50.48(9))",
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "The state commissioner of elections shall order a recount of the votes cast for the election or nomination of a candidate for a statewide elected office, member of the general assembly, or federal office in each precinct where a vote was cast for the office if a written request for a recount is made [...] is less than fifteen hundredths of one percent for the election or nomination of a candidate for a statewide elected office or federal office, or less than either one percent or fifty votes, whichever is lesser, for all other elections or nominations."
+    },
+    {
+     "section": "ia-ch50",
+     "quote": "A candidate for an office filled by the electors of the entire state shall not be required to pay more than one bond for a recount."
+    }
+   ],
+   "mark": "measured",
+   "note": "Presidential electors are read as covered by 'federal office' because 50.48(4)(b) sets a deadline for 'a recount of the offices of president and vice president' [inferred]. The same sentence of the statute covers the General Assembly at the lesser of one percent or fifty votes, recorded in the next rule."
+  },
+  {
+   "kinds": [
+    "state-legislative",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "general and primary",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "not stated in the text (as in the rule for local offices)",
+    "votes": 50,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "the state commissioner of elections orders the recount of a member of the general assembly; written request not later than 5:00 p.m. on the day after the county board's canvass",
+    "in_words": "a margin of less than either one percent or fifty votes, whichever is lesser, for a member of the general assembly"
+   },
+   "who_may_request": [
+    "a candidate for that office or nomination (the written request)"
+   ],
+   "cost_bearer": "not stated in 50.48 as read",
+   "waiver": "before the final report the requester may agree in writing with the apparent winner to accept the original canvass (50.48(9))",
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "The state commissioner of elections shall order a recount of the votes cast for the election or nomination of a candidate for a statewide elected office, member of the general assembly, or federal office in each precinct where a vote was cast for the office if a written request for a recount is made [...] is less than fifteen hundredths of one percent for the election or nomination of a candidate for a statewide elected office or federal office, or less than either one percent or fifty votes, whichever is lesser, for all other elections or nominations."
+    }
+   ],
+   "mark": "measured",
+   "note": "'All other elections or nominations' in the sentence that lists statewide office, the general assembly and federal office is read as the general assembly [inferred]."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "general",
+   "threshold": {
+    "percent": 0.15,
+    "percent_of": "not stated in the text (the difference between affirmative and negative votes is compared with 'fifteen hundredths of one percent')",
+    "votes": null,
+    "combine": null,
+    "inclusive": false,
+    "conditions": "petition filed with the state commissioner not later than three days after the completion of the canvass; signed by the greater of at least ten eligible electors or a number equal to one percent of the votes cast upon the measure",
+    "in_words": "a margin between affirmative and negative votes of less than fifteen hundredths of one percent for a statewide measure"
+   },
+   "who_may_request": [
+    "petitioners: the greater of ten eligible electors or electors equal to one percent of the votes cast upon the measure"
+   ],
+   "cost_bearer": "not stated in 50.49 as read",
+   "waiver": null,
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "A recount for any public measure shall be ordered by the board of canvassers if a petition requesting a recount is filed with the state commissioner for a public measure voted on by the electors of the entire state, or the county commissioner for all other public measures"
+    },
+    {
+     "section": "ia-ch50",
+     "quote": "indicate that the difference between the affirmative and negative votes cast on the public measure is less than fifteen hundredths of one percent for a public measure voted on by the electors of the entire state, or less than either one percent or fifty votes, whichever is lesser, for all other public measures."
+    },
+    {
+     "section": "ia-ch50",
+     "quote": "The petition shall be signed by the greater of not less than ten eligible electors or a number of eligible electors equaling one percent of the total number of [...] votes cast upon the public measure."
+    }
+   ],
+   "mark": "measured",
+   "note": "Statewide measures. Other measures are in the next rule.",
+   "applies_to": "a public measure voted on by the electors of the entire state"
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "general",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "not stated in the text (as for offices)",
+    "votes": 50,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "petition filed with the county commissioner not later than three days after the completion of the canvass; signed by the greater of at least ten eligible electors or a number equal to one percent of the votes cast upon the measure",
+    "in_words": "a margin between affirmative and negative votes of less than either one percent or fifty votes, whichever is lesser, for any measure not voted on by the electors of the entire state"
+   },
+   "who_may_request": [
+    "petitioners: the greater of ten eligible electors or electors equal to one percent of the votes cast upon the measure"
+   ],
+   "cost_bearer": "not stated in 50.49 as read",
+   "waiver": null,
+   "sources": [
+    {
+     "section": "ia-ch50",
+     "quote": "A recount for any public measure shall be ordered by the board of canvassers if a petition requesting a recount is filed with the state commissioner for a public measure voted on by the electors of the entire state, or the county commissioner for all other public measures"
+    },
+    {
+     "section": "ia-ch50",
+     "quote": "indicate that the difference between the affirmative and negative votes cast on the public measure is less than fifteen hundredths of one percent for a public measure voted on by the electors of the entire state, or less than either one percent or fifty votes, whichever is lesser, for all other public measures."
+    },
+    {
+     "section": "ia-ch50",
+     "quote": "The petition shall be signed by the greater of not less than ten eligible electors or a number of eligible electors equaling one percent of the total number of [...] votes cast upon the public measure."
+    }
+   ],
+   "mark": "measured",
+   "note": "Local measures. Statewide measures are in the previous rule.",
+   "applies_to": "all other public measures (local)"
+  }
+ ],
+ "unread": [
+  {
+   "what": "Iowa Code chapters 331 (counties) and 376 (cities, including 376.7, 376.9 and 376.11 on city primaries, runoffs and ties), chapter 54 (presidential electors), chapter 277 (school elections), and the election contest chapters (57)",
+   "reason": "not read; local rules are read only through chapter 50, and contests are litigation (brief)",
+   "url": "https://www.legis.iowa.gov/law/statutory",
+   "tried_utc": "2026-11-07T07:29Z"
+  }
+ ],
+ "notes": [
+  "Iowa was read at the Iowa Legislature's PDFs of whole chapters 43 and 50. The earlier reader's leads (research/historical-close-races-v2.md 3a and 3b) are borne out: 50.44 draws lots; 50.48 on written request at the lesser of one percent or fifty votes (fifteen hundredths of one percent for statewide and federal office). New here: primary ties go by lot, except for the General Assembly where the party's precinct committee members choose (43.75); measures have their own recount (50.49); and 50.48 as printed names no cost-bearer.",
+  "Iowa has no automatic recount in chapters 43 and 50 as read."
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "state": "DC",
+ "name": "District of Columbia",
+ "status": "read",
+ "code": {"name": "Code of the District of Columbia", "edition": "as the D.C. Law Library (the Council's code site) prints each section; no currency date appears in the page text read", "site": "https://code.dccouncil.gov/us/dc/council/code/", "reached": true},
+ "sections": {
+  "dc-1-1001-10": {"citation": "D.C. Code 1-1001.10 (dates for holding elections; tie votes; filling vacancy)", "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-1001.10", "read_at": "state"},
+  "dc-1-1001-11": {"citation": "D.C. Code 1-1001.11 (recount; judicial review of election)", "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-1001.11", "read_at": "state"},
+  "dc-1-1001-08a": {"citation": "D.C. Code 1-1001.08a (ranked choice voting)", "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-1001.08a", "read_at": "state"},
+  "dc-1-309-07": {"citation": "D.C. Code 1-309.07 (Advisory Neighborhood Commissions: determination of election winners)", "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-309.07", "read_at": "state"}
+ },
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"],
+   "applies_to": "\"any election\" held under the elections subchapter: presidential electors, Delegate to the House, Mayor, Attorney General, Chairman and members of the Council, State Board of Education, and Advisory Neighborhood Commissioners",
+   "resolution": "lot",
+   "steps": "the candidates receiving the tie vote cast lots before the Board of Elections at 12:00 noon on a date the Board sets, no sooner than 2 days after the Board determines the results; the candidate to whom the lot falls is declared the winner; a candidate who fails to appear (in person or by written proxy) has the lot cast for them by the Board",
+   "who": "the tied candidates, before the Board of Elections (the Board casts lots for an absent candidate)",
+   "sources": [
+    {"section": "dc-1-1001-10", "quote": "In the case of a tie vote, the resolution of which will affect the outcome of any election, the candidates receiving the tie vote shall cast lots before the Board at 12:00 noon on a date to be set by the Board. This date shall be set no sooner than 2 days following determination by the Board of the results of the election which resulted in a tie. The candidate to whom the lot shall fall shall be declared the winner. If the candidate or candidates fail to appear by 12:00 noon on said day, the Board shall cast lots for the candidate or candidates."},
+    {"section": "dc-1-1001-10", "quote": "Candidates receiving the highest number of votes in such election shall be declared the winners, except that in the case of a tie it shall be resolved in the same manner as is provided in subsection (c) of this section."},
+    {"section": "dc-1-309-07", "quote": "The candidate in each single-member district receiving the highest number of votes cast in such election shall be declared the winner, except that in the case of a tie the procedures set forth in"}
+   ],
+   "mark": "measured",
+   "note": "D.C. Code 1-1001.10(c) (all elections), (a)(2) (presidential electors, stated expressly) and 1-309.07 (Advisory Neighborhood Commissions, stated expressly). The other offices are covered by \"any election\" [inferred]; Delegate, Mayor, Attorney General, Council and State Board of Education elections are held under this subchapter. The District has no state legislature; the Council is listed under state-legislative as the nearest kind. The statute does not require a recount before the lot, but a tie is within the automatic recount margin of 1-1001.11(a)(2) for the offices listed there. Ranked-choice contests: a tie for the fewest votes is resolved by an automated lot to choose who is eliminated, and a tie for the greatest number of votes is resolved under 1-1001.10(c) (1-1001.08a(j))."},
+  {"kinds": ["primary"],
+   "applies_to": "a party primary: a tie vote that affects the outcome",
+   "resolution": "lot",
+   "steps": "as in 1-1001.10(c): the tied candidates cast lots before the Board of Elections",
+   "who": "the tied candidates before the Board",
+   "sources": [
+    {"section": "dc-1-1001-10", "quote": "In the case of a tie vote, the resolution of which will affect the outcome of any election, the candidates receiving the tie vote shall cast lots before the Board at 12:00 noon on a date to be set by the Board."},
+    {"section": "dc-1-1001-08a", "quote": "if 2 or more candidates are tied for the greatest number of votes and the tie must be broken to determine the winner or nominee, that tie shall be resolved pursuant to"}
+   ],
+   "mark": "inferred",
+   "note": "1-1001.10(c) says \"any election\" and 1-1001.08a(j) says \"winner or nominee\", so a primary tie is read as going to the same lot [inferred]. Whether the party's own rules intervene was not read."},
+  {"kinds": ["measure"],
+   "applies_to": "an initiative, referendum or recall measure",
+   "resolution": "none-found",
+   "steps": null,
+   "who": null,
+   "sources": [
+    {"section": "dc-1-1001-10", "quote": "In the case of a tie vote, the resolution of which will affect the outcome of any election, the candidates receiving the tie vote shall cast lots before the Board"}
+   ],
+   "mark": "inferred",
+   "note": "The tie section speaks of candidates only. Read: 1-1001.08a, 1-1001.10, 1-1001.11 and 1-309.07; no section on a tied measure was found there (the measures chapter, 1-1001.16 and 1-1001.17, was not read)."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"], "type": "automatic", "election": "general (and special)",
+   "threshold": {"percent": 1, "percent_of": "the total votes cast for the office", "votes": null, "combine": null, "inclusive": false, "conditions": "for President and Vice President, Delegate to the House, Chairman of the Council, member of the Council, Mayor, Attorney General or member of the State Board of Education; the margin is the margin of victory in the results the Board certifies",
+                 "in_words": "a margin of victory of less than one percent of the total votes cast for the office: the Board shall conduct a recount, at no cost to any candidate"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "the District (the cost \"shall not be charged to any candidate\")",
+   "sources": [
+    {"section": "dc-1-1001-11", "quote": "If in any election for President and Vice President of the United States, Delegate to the House of Representatives, Chairman of the Council, member of the Council, Mayor, Attorney General, or member of the State Board of Education, the results certified by the Board show a margin of victory for a candidate that is less than one percent of the total votes cast for the office, the Board shall conduct a recount. The cost of a recount conducted pursuant to this paragraph shall not be charged to any candidate."}
+   ],
+   "mark": "measured",
+   "note": "D.C. Code 1-1001.11(a)(2). Advisory Neighborhood Commissioners are not in the list. The statute says \"election\", not a specific stage; whether the one percent test applies to a primary was not stated (primary is not listed here)."},
+  {"kinds": ["measure"], "type": "automatic", "election": "general",
+   "threshold": {"percent": 1, "percent_of": "the total votes cast", "votes": null, "combine": null, "inclusive": false, "conditions": "an initiative or referendum measure placed on the ballot under 1-1001.16, or a recall measure under 1-1001.17",
+                 "in_words": "a difference between the votes for and against of less than one percent of the total votes cast: the Board shall conduct a recount"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "not stated in the paragraph read",
+   "sources": [
+    {"section": "dc-1-1001-11", "quote": "the Board shall conduct a recount if the difference between the number of votes for and against the initiative, referendum, or recall measure is less than one percent of the total votes cast."}
+   ],
+   "mark": "measured",
+   "note": "D.C. Code 1-1001.11(a)(3)."},
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary"], "type": "requested", "election": "any election for an office",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null, "conditions": "a written petition within 7 days after the Board certifies the results, specifying the precincts to be recounted",
+                 "in_words": "a candidate for the office may petition for a recount of one or more precincts; no margin is required"},
+   "no_margin_required": true,
+   "who_may_request": ["a candidate for the office, by written petition to the Board of Elections"],
+   "waiver": null,
+   "cost_bearer": "the petitioner, who deposits $50 per precinct and is liable for the actual cost (not counting salaried election officials); the deposit is refunded if the result is changed",
+   "sources": [
+    {"section": "dc-1-1001-11", "quote": "The Board shall recount the votes cast in one or more voting precincts, if, within 7 days after the Board certifies the results of an election for an office, a candidate for that office petitions the Board in writing and specifies the precincts in which the recount shall be conducted."},
+    {"section": "dc-1-1001-11", "quote": "If the petitioner chooses to proceed with the recount, the petitioner shall deposit the amount of $50 per precinct included in the recount. If the result of the election is changed as a result of the recount, the deposit shall be refunded. If the result is not changed, the Board shall determine the actual cost of the recount."}
+   ],
+   "mark": "measured",
+   "note": "D.C. Code 1-1001.11(a)(1). Primary is listed because the section says \"an election for an office\" [inferred]. A voter may also petition the D.C. Court of Appeals within 7 days to review an election (1-1001.11(b)); not recorded as a recount."}
+ ],
+ "unread": [
+  {"what": "D.C. Code 1-1001.16 and 1-1001.17 (initiative, referendum and recall measures) for any rule on a tied measure; the Board of Elections' regulations (D.C. Mun. Regs. title 3)",
+   "reason": "not fetched; outside the tie and recount sections of the election subchapter that were read",
+   "url": null,
+   "tried_at": null}
+ ],
+ "notes": [
+  "The D.C. Law Library (code.dccouncil.gov) answered with text for every section.",
+  "The District has no state legislature or governor; the Council stands in the state-legislative kind, the Mayor, Attorney General and Council Chairman in the statewide kind, the Delegate in the federal kind.",
+  "Surprise: D.C. runs ranked-choice voting (1-1001.08a); the tie rule for the final count is still the lot of 1-1001.10(c). 1-1001.08a(l)(3) says a tie between presidential slates in the national-popular-vote count 'shall remain unresolved'; that concerns reporting under an interstate compact, not the District's own tie rule, and is not recorded as a rule."
+ ]
+}

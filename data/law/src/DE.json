@@ -1,0 +1,155 @@
+{
+ "state": "DE",
+ "name": "Delaware",
+ "status": "read",
+ "code": {"name": "Delaware Code", "edition": "Title 15 Elections, as the Delaware Code Online prints it: \"This version includes all acts enacted as of October 1, 2026, up to and including 85 Del. Laws, c. 550\" (prepared by the Delaware Code Revisors and LexisNexis for the General Assembly; \"considered an official version\")", "site": "https://delcode.delaware.gov/title15/index.html", "reached": true},
+ "sections": {
+  "de-title15": {"citation": "Del. Code Ann. tit. 15 (sections 3172, 5702, 5703, 5708, 7101, 7102, 7301, 7321, 7331, 7558)", "url": "https://delcode.delaware.gov/title15/Title15.pdf", "read_at": "state", "note": "The whole of Title 15 as one plain PDF linked from the Delaware Code Online: a documented download."}
+ },
+ "ties": [
+  {"kinds": ["state-legislative"],
+   "applies_to": "State Senator and State Representative in a general election",
+   "resolution": "new-election",
+   "steps": "the court (the Superior Court sitting as the county board of canvass) certifies to the Governor that a vacancy will occur in the office; a vacancy in either house by reason of failure to elect is filled by a writ of election issued by the presiding officer within 10 days, and the special election is set 30 to 35 days after the writ (or at the general election if the vacancy falls in the stated window)",
+   "who": "the voters, in a special election; the presiding officer of the house issues the writ",
+   "sources": [
+    {"section": "de-title15", "quote": "If, by reason of an equal number of votes having been cast for 2 or more individuals for an office, it appears to the Court that a vacancy will occur in that office, the Court shall create a certificate of this fact, under its seal, and deliver this certificate to the Governor under § 5709 of this title."},
+    {"section": "de-title15", "quote": "Whenever there is a vacancy in either house of the General Assembly, by reason of failure to elect, ineligibility, death, resignation or otherwise, within 10 days of the creation of the vacancy a writ of election shall be issued by the presiding officer of the house in which the vacancy exists"},
+    {"section": "de-title15", "quote": "the officer issuing the writ shall set the day for holding the special election for the vacancy in the General Assembly, but such day shall not be less than 30 nor more than 35 days next after the day of issuing the writ."}
+   ],
+   "mark": "inferred",
+   "note": "Del. Code tit. 15, sections 5708, 7101 and 7102. The chain from a tie to a special election is read across two sections: 5708 makes a tie a vacancy, and 7101 lists \"failure to elect\" among the vacancies filled by writ of election. A recount at state expense comes first if the margin is under the threshold (section 5702(e)), which a tie always is, so recount-then-new-election in effect."},
+  {"kinds": ["federal"],
+   "applies_to": "Representative in Congress",
+   "resolution": "new-election",
+   "steps": "a tie creates a vacancy (section 5708); a vacancy in the representation in the House \"by death, resignation or otherwise\" is filled by an election on a day the Governor appoints",
+   "who": "the voters, in an election on a day the Governor appoints",
+   "sources": [
+    {"section": "de-title15", "quote": "Whenever a vacancy shall happen by death, resignation or otherwise in the representation from this State in the House of Representatives of the United States, an election shall be held to fill such vacancy on such day as the Governor shall appoint"},
+    {"section": "de-title15", "quote": "If, by reason of an equal number of votes having been cast for 2 or more individuals for an office, it appears to the Court that a vacancy will occur in that office, the Court shall create a certificate of this fact, under its seal, and deliver this certificate to the Governor under § 5709 of this title."}
+   ],
+   "mark": "inferred",
+   "note": "Del. Code tit. 15, sections 5708 and 7301. That \"or otherwise\" covers a vacancy that arises from a tie is [inferred]; no section says so."},
+  {"kinds": ["federal"],
+   "applies_to": "Senator in the Senate of the United States",
+   "resolution": "other",
+   "steps": "a tie creates a vacancy (section 5708); for a vacancy in the office of U.S. Senator the Governor may appoint a temporary senator, who serves until the vacancy is filled at the next ensuing general election",
+   "who": "the Governor appoints; the voters decide at the next general election",
+   "sources": [
+    {"section": "de-title15", "quote": "Whenever a vacancy shall happen by death, resignation or otherwise in the office of Senator from this State in the Senate of the United States, the Governor may make a temporary or ad interim appointment from among the qualified electors of this State of some person to fill such vacancy until the same shall be filled at the next ensuing general election in the manner prescribed by law."}
+   ],
+   "mark": "inferred",
+   "note": "Del. Code tit. 15, sections 5708 and 7321. That a vacancy from a tie falls under \"or otherwise\" is [inferred]."},
+  {"kinds": ["statewide"],
+   "applies_to": "Governor, Lieutenant Governor, Attorney General, Insurance Commissioner, State Treasurer and Auditor of Accounts in a general election",
+   "resolution": "unread",
+   "steps": "a tie creates a vacancy that the court certifies to the Governor (and, for Governor or Lieutenant Governor, to the President of the Senate); how that vacancy is filled was not read (the Delaware Constitution and Title 29)",
+   "who": null,
+   "sources": [
+    {"section": "de-title15", "quote": "If, by reason of an equal number of votes having been cast for 2 or more individuals for an office, it appears to the Court that a vacancy will occur in that office, the Court shall create a certificate of this fact, under its seal, and deliver this certificate to the Governor under § 5709 of this title."}
+   ],
+   "mark": "inferred",
+   "note": "Del. Code tit. 15, section 5708. The Delaware Constitution (on the Governor's election and on filling state offices) was not read."},
+  {"kinds": ["presidential-electors"],
+   "applies_to": "electors of President and Vice President",
+   "resolution": "legislature",
+   "steps": "if it appears that there has been a failure to choose one or more electors, or if for any cause electors fail to be chosen, the Governor issues writs convening the General Assembly, which appoints the elector or electors not chosen by ballot in joint meeting",
+   "who": "the General Assembly, by ballot in joint meeting of the Senate and House",
+   "sources": [
+    {"section": "de-title15", "quote": "If upon examining the certificates of the boards of canvass it shall appear to the Governor that there has been a failure to choose 1 or more of the electors of a President and Vice President of the United States to be appointed in this State or, if from any cause such electors shall fail to be chosen, the Governor shall immediately issue writs for convening the General Assembly"},
+    {"section": "de-title15", "quote": "shall be appointed by ballot by the General Assembly so convened in joint meeting of the Senate and House of Representatives."}
+   ],
+   "mark": "inferred",
+   "note": "Del. Code tit. 15, section 7331. The section speaks of a \"failure to choose\"; that a tie is such a failure is [inferred]. Section 7332 gives the President of the Senate a casting vote if the General Assembly's own ballot ties."},
+  {"kinds": ["primary"],
+   "applies_to": "a party primary: any tie vote",
+   "resolution": "party-committee",
+   "steps": "the Department of Elections immediately notifies the chair and secretary of the county committee of the party (for a statewide contest, the State Election Commissioner notifies the state committee), and the committee convenes within 5 days to decide who is entitled to the nomination",
+   "who": "the county committee of the party, or the state committee for a statewide contest",
+   "sources": [
+    {"section": "de-title15", "quote": "In all cases of a tie vote, the Department shall immediately notify the chair and secretary of the county committee of the political party holding the primary election. This committee shall convene within 5 days of such notification to determine which candidate shall be entitled to the nomination."},
+    {"section": "de-title15", "quote": "In cases where there is a tie vote in a statewide contest, the State Election Commissioner shall immediately notify the chair and secretary of the state committee of the political party involved, and that committee shall convene within 5 days, as provided above, to decide upon the nomination."}
+   ],
+   "mark": "measured",
+   "note": "Del. Code tit. 15, section 3172(c) and (d). The statute does not say how the committee decides. A tie is within the automatic primary recount margin of section 3172(e), so a recount precedes it."},
+  {"kinds": ["local"],
+   "applies_to": "a municipal office, after certification and the resolution of any contest; municipal elections under the municipal chapter (Chapter 75) or a charter",
+   "resolution": "new-election",
+   "steps": "the State Election Commissioner orders a new election in which only the candidates or positions tied are on the ballot, unless the laws of the municipality otherwise provide; the Department of Elections defrays the cost of that election up to $2,500",
+   "who": "the voters of the municipality, in a new election ordered by the State Election Commissioner",
+   "sources": [
+    {"section": "de-title15", "quote": "If, following certification of the election and the resolution of any contest, there is a tie vote for a municipal office, then the State Election Commissioner shall order a new election in which only the candidates or positions tied will be on the ballot, unless the laws of the municipality otherwise provide."}
+   ],
+   "mark": "measured",
+   "note": "Del. Code tit. 15, section 7558(e). County offices (levy court, county council, register of wills and so on) fall under section 5708 (a vacancy); how that vacancy is filled was not read. School board elections (Title 14) were not read. Municipal charters were not read."},
+  {"kinds": ["measure"],
+   "applies_to": "a ballot question",
+   "resolution": "none-found",
+   "steps": null,
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Title 15 was searched for tie, equal number of votes, by lot and recount: no section on a tie on a ballot question appears. The absence is not confirmed: the Delaware Constitution and any statute outside Title 15 were not read."}
+ ],
+ "recounts": [
+  {"kinds": ["state-legislative", "local"], "type": "automatic", "election": "general",
+   "threshold": {"percent": 0.5, "percent_of": "all votes cast for the 2 candidates", "votes": 1000, "combine": "lesser-of", "inclusive": false,
+                 "conditions": "applies to State Senator, State Representative or county office; the margin is between a candidate and the closest opposing candidate",
+                 "in_words": "a margin of less than 1,000 votes or 1/2 of 1% of all votes cast for the 2 candidates, whichever is less: the Court recounts the ballots at state expense"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "the state",
+   "sources": [
+    {"section": "de-title15", "quote": "If the number of votes separating a candidate and the closest opposing candidate in an election for State Senator, State Representative, or county office is less than 1,000 votes or 1/2 of 1% of all votes cast for the 2 candidates, whichever is less, the Court shall recount the ballots cast in that election at state expense."}
+   ],
+   "mark": "measured",
+   "note": "Del. Code tit. 15, section 5702(e). \"Court\" is the Superior Court acting as the board of canvass for the county (section 5701(b))."},
+  {"kinds": ["statewide"], "type": "requested", "election": "general",
+   "threshold": {"percent": 0.5, "percent_of": "all votes cast for the two candidates", "votes": 1000, "combine": "lesser-of", "inclusive": false,
+                 "conditions": "the request must be presented before the board of canvass for the election adjourns; any recount does not extend beyond the petitioner's contest",
+                 "in_words": "a margin of less than 1,000 votes or less than one half of one percent of all votes cast for the two candidates, whichever is less: a candidate for statewide office may apply for a recount at state expense"},
+   "who_may_request": ["any candidate for statewide office in a general election, by application to the Court"],
+   "waiver": null,
+   "cost_bearer": "the state",
+   "sources": [
+    {"section": "de-title15", "quote": "Any candidate for statewide office in a general election may apply to the Court for a recount of all the ballots cast and recorded for such office if the number of votes separating such candidate and the closest opposing candidate is less than 1,000 votes or less than one half of one percent of all votes cast for the two candidates, whichever amount is less. Such recount shall thereupon be conducted by the Court at state expense."}
+   ],
+   "mark": "measured",
+   "note": "Del. Code tit. 15, section 5702(c). Whether the U.S. Senate seat, the one Representative in Congress and the presidential electors count as \"statewide office\" was not stated in the sections read; no automatic or requested recount rule for those offices was found in 5702, so federal is not listed."},
+  {"kinds": ["primary"], "type": "automatic", "election": "primary",
+   "threshold": {"percent": 0.5, "percent_of": "all votes cast for the 2 candidates (any contest other than statewide)", "votes": 1000, "combine": "lesser-of", "inclusive": false,
+                 "conditions": "1,000 votes applies to a statewide contest; one-half of one percent of all votes cast for the 2 candidates applies to any other contest; whichever is less",
+                 "in_words": "a primary margin of less than 1,000 votes (statewide) or 1/2 of 1% of all votes cast for the 2 candidates (any other contest), whichever is less: the Department recounts the ballots at state expense as part of the canvass"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "the state",
+   "sources": [
+    {"section": "de-title15", "quote": "If the number of votes separating a candidate and the closest opposing candidate in a primary election is less than 1,000 votes, in the case of a statewide contest, or ½ of 1% of all votes cast for the 2 candidates, in the case of any other contest, whichever is less, the Department shall recount the ballots cast in that election at state expense as part of the canvass of the vote."}
+   ],
+   "mark": "measured",
+   "note": "Del. Code tit. 15, section 3172(e)."},
+  {"kinds": ["local"], "type": "automatic", "election": "municipal",
+   "threshold": {"percent": 0.5, "percent_of": "the total votes cast for the office", "votes": null, "combine": null, "inclusive": true,
+                 "conditions": "where electors vote for more than 1 candidate, the margin is between the last candidate elected and the next closest candidate",
+                 "in_words": "a difference between the top 2 candidates of 1/2 of 1% or less of the total votes cast for the office: the municipal Board of Elections recounts the ballots"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "not stated in the section read",
+   "sources": [
+    {"section": "de-title15", "quote": "The municipal Board of Elections shall recount the ballots if the difference between the top 2 candidates is 1/2 of 1% or less than the total votes cast for the office."}
+   ],
+   "mark": "measured",
+   "note": "Del. Code tit. 15, section 7558(c). The words are \"1/2 of 1% or less than the total votes cast for the office\", copied as printed; read as a margin of one-half of one percent or less of the total votes cast."}
+ ],
+ "unread": [
+  {"what": "the Delaware Constitution (election and tie for Governor and other state offices); Title 29 (state officers); Title 14 (school board elections); recount or tie rules for the U.S. House seat and the U.S. Senate; the provisions for filling a county office vacancy",
+   "reason": "not fetched; the brief limits the reading to the election code's canvass, tie and recount chapters, and Title 15 chapters 31, 57, 71, 73 and 75 sections named above were read",
+   "url": null,
+   "tried_at": null}
+ ],
+ "notes": [
+  "Delaware's General Assembly publishes the whole Title 15 as one PDF on delcode.delaware.gov; it answered with text, current to October 1, 2026.",
+  "Surprise: in Delaware a tie in a general election is not settled by a lot at all in the sections read: the court certifies a vacancy, and a vacancy in the General Assembly or in the House is filled by a special election; a municipal tie is a new election run by the State Election Commissioner; a primary tie goes to the party's committee.",
+  "Delaware's automatic recount thresholds are the lesser of 1,000 votes and one-half of one percent of the two candidates' votes, which is mainly the percentage for any race under about 200,000 votes."
+ ]
+}

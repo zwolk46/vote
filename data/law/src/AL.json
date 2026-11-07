@@ -1,0 +1,97 @@
+{
+ "state": "AL",
+ "name": "Alabama",
+ "status": "partly-read",
+ "code": {"name": "Code of Alabama 1975", "edition": "not printed on the page read; the text read is the Alabama Law Institute's Election Handbook, 20th edition (a state agency guide that cites Acts through 2021 and looks ahead to the 2022 election), not the Code itself", "site": "https://alison.legislature.state.al.us/code-of-alabama", "reached": false},
+ "sections": {
+  "al-handbook-ch9": {"citation": "Alabama Law Institute, Election Handbook (20th ed.), chapter 9, Post-Election Activities (citing Ala. Code 11-46-55, 11-46-55.1, 17-16-20, 17-16-21)", "url": "https://alison.legislature.state.al.us/files/pdf/lsa/ALI/election_handbook/Elect_Hndbk_20th_edition/chapters/law-institute-final-chapter-9.pdf", "read_at": "state agency guide", "note": "A plain PDF linked from the Alabama Legislature's public site (alison.legislature.state.al.us): a documented download. It is the Law Institute's summary of the Code, a lower grade than the statute."},
+  "al-handbook-ch18": {"citation": "Alabama Law Institute, Election Handbook (20th ed.), chapter 18, Party Officials, 18.10.3 Tie Votes (citing Ala. Code 17-13-21)", "url": "https://alison.legislature.state.al.us/files/pdf/lsa/ALI/election_handbook/Elect_Hndbk_20th_edition/chapters/law-institute-final-chapter-18.pdf", "read_at": "state agency guide", "note": "A plain PDF linked from the Alabama Legislature's public site: a documented download. A summary of the Code, a lower grade than the statute."}
+ },
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "measure"],
+   "applies_to": "a tie in a general election (Code of Alabama 17-12-23, the section the search results name as \"How tie vote decided\")",
+   "resolution": "unread",
+   "steps": null,
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "NOT READ: the Code section itself could not be read (see unread). The Law Institute handbook chapters read (2, 8, 9, 18) say nothing about a tie in a general election. A lead only, not recorded as a rule: the House-engrossed text of HB144 (2022 Regular Session, on the Legislature's site, strike-outs not visible in the extracted text) has a caption saying a tie between two candidates for a county or precinct office is decided by lot by the judge of probate, and its text for 17-12-23 puts senator, representative and state-officer ties to the Secretary of State to decide by lot in the Governor's presence; whether that became law and what the Code now says was not read."},
+  {"kinds": ["local"],
+   "applies_to": "a municipal election (a city or town council or commission office) in which the second or runoff election ends in a tie; state general law as summarised by the handbook, municipal charters not read",
+   "resolution": "legislature",
+   "steps": "when no candidate has a majority, the municipal governing body orders a runoff between the top two; a tie is decided by a majority vote of the entire municipal governing body",
+   "who": "the municipal governing body",
+   "sources": [{"section": "al-handbook-ch9", "quote": "A tie is decided by a majority vote of the entire municipal governing body."}],
+   "mark": "stated",
+   "note": "From an agency guide that cites 11-46-55(d), not from the Code. The handbook predates 2022; HB144 (2022 Regular Session, engrossed text read) would add that if the governing body fails to break the tie the judge of probate decides by lot. Whether that is law now was not read. County and precinct offices: unread."},
+  {"kinds": ["primary"],
+   "applies_to": "a tie vote in any primary election",
+   "resolution": "other",
+   "steps": "the tie is decided by the county party chair if the office is a county office, and by the state party chair if it is a non-county office; the handbook does not say how the chair decides",
+   "who": "the party chair (county chair for county offices, state chair for other offices)",
+   "sources": [{"section": "al-handbook-ch18", "quote": "If a tie vote is cast during any primary election, the tie is decided by the county party chair if the office is a county office. The tie is decided by the state party chair if the office is a non-county office."}],
+   "mark": "stated",
+   "note": "From an agency guide that cites 17-13-21, not from the Code. The method (lot or other) is not stated in the guide."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "statewide", "state-legislative", "local", "measure"], "type": "automatic", "election": "general",
+   "threshold": {"percent": 0.5, "percent_of": "the votes cast for the office, or the ballot measure", "votes": null, "combine": null, "inclusive": true,
+                 "conditions": null,
+                 "in_words": "a margin of defeat of not more than one-half of one percent of the votes cast for the office or ballot measure"},
+   "who_may_request": [],
+   "waiver": "the defeated candidate may submit a written waiver within 24 hours after the certification (to the Secretary of State for state and federal offices and any office that is not a county office; to the judge of probate for a county office)",
+   "cost_bearer": "the state for any federal, state, circuit or district office, the state Senate or House, or any other office that is not a county office; otherwise the county",
+   "sources": [
+    {"section": "al-handbook-ch9", "quote": "An automatic recount occurs when the margin of defeat in a general election is not more than one-half of one percent of the votes cast for the office, or the ballot measure."},
+    {"section": "al-handbook-ch9", "quote": "an automatic recount will be commenced within 72 hours after certification of the results of the election unless, within 24 hours after the certification, a written waiver for a recount is submitted by the defeated candidate."},
+    {"section": "al-handbook-ch9", "quote": "expenses of an automatic recount shall be a state charge if the recount is held for any federal, state, circuit, or district office, or the state Senate, state House of Representatives, or any other office that is not a county office. Otherwise, the expenses shall be a county charge."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites 17-16-20, not from the Code. The guide says \"general election\"; whether the electors for President are covered was not stated, so presidential-electors is not listed. The guide says the Code provides no automatic recount for primary elections (chapter 9, 9.9.3)."},
+  {"kinds": ["federal", "statewide", "state-legislative", "local", "primary", "measure"], "type": "requested", "election": "general and primary",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null, "conditions": "request within 48 hours after the official canvass of county returns",
+                 "in_words": "any person with standing to contest the election may petition for a recount of any or all precincts; no margin is required"},
+   "no_margin_required": true,
+   "who_may_request": ["any person with standing to contest the election (in a primary, a qualified elector of the party who took part in that primary), by petition to the canvassing board"],
+   "waiver": null,
+   "cost_bearer": "the person who requests it (who gives security), unless the recount changes the result, when the county unit bears it",
+   "sources": [
+    {"section": "al-handbook-ch9", "quote": "Any person with standing to contest may petition the canvassing board for a recount of any or all precincts. A recount request must be made within 48 hours after the official canvas of county returns."},
+    {"section": "al-handbook-ch9", "quote": "Other than for an automatic recount, a person with standing to contest an election who petitions for a recount, must be prepared to pay the costs and should be required to give security to cover the same. If the recounting does not change the announced result, the requesting party should pay the costs. If the recounting changes the results of the election, the cost should be borne by the county unit involved."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites 17-16-21, not from the Code. The guide itself says the cost \"should\" be borne so; the statutory wording was not read."},
+  {"kinds": ["local"], "type": "requested", "election": "municipal",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null, "conditions": "petition within 48 hours after the official canvass of returns",
+                 "in_words": "any person with standing to contest a municipal election may petition for a recount of any or all precinct returns; no margin is required"},
+   "no_margin_required": true,
+   "who_may_request": ["any person with standing to contest a municipal election, by petition to the canvassing authority"],
+   "waiver": null,
+   "cost_bearer": "the petitioner (who gives security for the estimated costs); the municipality if the recount of the resulting contest alters the result",
+   "sources": [
+    {"section": "al-handbook-ch9", "quote": "Any person with standing to contest a municipal election may petition the canvassing authority for a recount of any or all precinct returns within 48 hours after the official canvass of returns."},
+    {"section": "al-handbook-ch9", "quote": "The petitioner must give security to cover the estimated costs of the recount and must be prepared to pay the actual costs."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites 11-46-55.1, not from the Code."}
+ ],
+ "unread": [
+  {"what": "the Code of Alabama itself: 17-12-23 (tie votes in general elections), 17-13-21 (primary ties), 17-16-20 and 17-16-21 (recounts), 11-46-55 and 11-46-55.1 (municipal), and any section on a tie in a ballot measure or in the electors for President",
+   "reason": "two routes into the Legislature's own Code publication failed. (1) The older Code site alisondb.legislature.state.al.us was refused by the session's egress proxy: curl said \"CONNECT tunnel failed, response 502\" and the agent proxy reported connect_rejected for alisondb.legislature.state.al.us:443 (a policy denial or an upstream failure); not tried again. (2) The Legislature's current Code page https://alison.legislature.state.al.us/code-of-alabama (also ?section=17-12-23) answers with a script shell that holds no section text (its data comes from a /graphql endpoint, which is an undocumented endpoint and was not used).",
+   "url": "https://alisondb.legislature.state.al.us/alison/CodeOfAlabama/1975/17-12-23.htm",
+   "tried_at": "2026-11-07T07:16Z"},
+  {"what": "the same Code sections (17-12-23 and the others above) from a compilation, as the orchestrator's amendment of 2026-11-07 07:21 allows",
+   "reason": "Justia refused us: the helper reported HTTP 403 for https://law.justia.com/codes/alabama/title-17/chapter-12/section-17-12-23/ (first and only request to that host; stopped there). Cornell LII does not host the Code of Alabama (its Alabama page, https://www.law.cornell.edu/states/alabama, only links to state sites and the administrative code).",
+   "url": "https://law.justia.com/codes/alabama/title-17/chapter-12/section-17-12-23/",
+   "tried_at": "2026-11-07T07:23Z"},
+  {"what": "the Alabama Secretary of State's Election Laws page, hoping for a downloadable copy of Title 17",
+   "reason": "refused: the helper reported HTTP 403 for https://www.sos.alabama.gov/alabama-votes/voter/election-laws (first and only request to that host; stopped there). The Law Institute handbook chapters 11 and 12 were also read and hold no tie rule.",
+   "url": "https://www.sos.alabama.gov/alabama-votes/voter/election-laws",
+   "tried_at": "2026-11-07T07:34Z"}
+ ],
+ "notes": [
+  "Alabama is partly read: every rule recorded rests on the Alabama Law Institute's Election Handbook (20th edition), a state agency guide on the Legislature's own site, which is a lower grade than the statute; the quotations are the guide's words and each rule is marked stated. Tie rules for general elections (federal, statewide, state-legislative, county) were not found in the guide and the Code was not reachable.",
+  "No compilation or other publisher was read for any Alabama section: Justia refused us (HTTP 403) when the amendment of 07:21 allowed trying it, and Cornell LII does not carry the Code of Alabama. Search results naming Justia, FindLaw and others were used only to learn the section numbers (17-12-23 and 17-13-21).",
+  "Handbook chapters read: 2, 8, 9, 11, 12, 18. Chapters 2, 8, 11 and 12 (elections generally, conduct of elections, Secretary of State, Judge of Probate) have no tie or recount rule beyond the second (runoff) primary when no one has a majority."
+ ]
+}

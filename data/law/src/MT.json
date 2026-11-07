@@ -1,0 +1,307 @@
+{
+ "state": "MT",
+ "name": "Montana",
+ "status": "read",
+ "code": {
+  "name": "Montana Code Annotated (MCA), Title 13 Elections, chapters 15, 16 and 25",
+  "edition": "Montana Code Annotated 2025, as the Legislature's MCA site prints it (13-16-201 shows its last amendment as Ch. 547, L. 2025)",
+  "site": "https://mca.legmt.gov/",
+  "reached": true
+ },
+ "sections": {
+  "mt-13-15-403": {"citation": "MCA 13-15-403 (county canvass: investigation of discrepancies; board may require a recount)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0150/part_0040/section_0030/0130-0150-0040-0030.html", "read_at": "state"},
+  "mt-13-15-405": {"citation": "MCA 13-15-405 (county canvass: declaration or certification of results; a tie is certified to the election administrator)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0150/part_0040/section_0050/0130-0150-0040-0050.html", "read_at": "state"},
+  "mt-13-16-201": {"citation": "MCA 13-16-201 (conditions under which a recount is to be conducted)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0020/section_0010/0130-0160-0020-0010.html", "read_at": "state"},
+  "mt-13-16-203": {"citation": "MCA 13-16-203 (recount for tie votes)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0020/section_0030/0130-0160-0020-0030.html", "read_at": "state"},
+  "mt-13-16-205": {"citation": "MCA 13-16-205 (expenses of recount)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0020/section_0050/0130-0160-0020-0050.html", "read_at": "state"},
+  "mt-13-16-211": {"citation": "MCA 13-16-211 (recounts allowed if bond posted to cover all costs)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0020/section_0110/0130-0160-0020-0110.html", "read_at": "state"},
+  "mt-13-16-301": {"citation": "MCA 13-16-301 (application and court order for recount)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0030/section_0010/0130-0160-0030-0010.html", "read_at": "state"},
+  "mt-13-16-307": {"citation": "MCA 13-16-307 (expenses of court-ordered recount)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0030/section_0070/0130-0160-0030-0070.html", "read_at": "state"},
+  "mt-13-16-501": {"citation": "MCA 13-16-501 (tie vote after recount)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0050/section_0010/0130-0160-0050-0010.html", "read_at": "state"},
+  "mt-13-16-502": {"citation": "MCA 13-16-502 (tie vote in election for United States congress)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0050/section_0020/0130-0160-0050-0020.html", "read_at": "state"},
+  "mt-13-16-503": {"citation": "MCA 13-16-503 (tie vote for supreme court justice, district court judge, or state legislator)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0050/section_0030/0130-0160-0050-0030.html", "read_at": "state"},
+  "mt-13-16-504": {"citation": "MCA 13-16-504 (tie vote for state executive officers)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0050/section_0040/0130-0160-0050-0040.html", "read_at": "state"},
+  "mt-13-16-505": {"citation": "MCA 13-16-505 (tie vote for county commissioner)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0050/section_0050/0130-0160-0050-0050.html", "read_at": "state"},
+  "mt-13-16-506": {"citation": "MCA 13-16-506 (tie vote for other county officers)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0050/section_0060/0130-0160-0050-0060.html", "read_at": "state"},
+  "mt-13-16-507": {"citation": "MCA 13-16-507 (tie vote for officers of a nonspecified political subdivision)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0160/part_0050/section_0070/0130-0160-0050-0070.html", "read_at": "state"},
+  "mt-13-25-103": {"citation": "MCA 13-25-103 (presidential elections: returns, lists of electors elected)", "url": "https://mca.legmt.gov/bills/mca/title_0130/chapter_0250/part_0010/section_0030/0130-0250-0010-0030.html", "read_at": "state"}
+ },
+ "ties": [
+  {
+   "kinds": ["primary"],
+   "applies_to": "nomination in a primary election",
+   "resolution": "recount-then-lot",
+   "steps": "a certified tie first brings a recount as if a petition had been filed (13-16-203); if the recount still shows a tie and it cannot be determined who is nominated, the election officer with whom the candidates' nominating declarations or petitions were filed determines by lot which candidate is nominated, after written notice of the time and place of the drawing to each candidate",
+   "who": "the election officer with whom the candidates' nominating declarations or petitions were filed",
+   "sources": [
+    {"section": "mt-13-16-501", "quote": "If the recount shows a tie vote for any office and it cannot be determined who has been nominated by the primary election, the election officer with whom the candidates' nominating declarations or petitions were filed shall determine by lot which candidate shall be nominated. Written notice of the time and place of the drawing shall be given to each candidate involved."},
+    {"section": "mt-13-16-203", "quote": "the administrator or the secretary of state shall proceed as if a petition for a recount has been filed. If a tie exists after the recount, the tie must be resolved as provided by law."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-501(1) and 13-16-203(1). 13-15-405(1) excepts 13-10-204 (primary results), which was not read."
+  },
+  {
+   "kinds": ["federal"],
+   "applies_to": "United States Representative or Senator, general election",
+   "resolution": "recount-then-new-election",
+   "steps": "a certified tie brings a recount as if a petition had been filed; if the recount still shows a tie, the secretary of state sends a certified statement to the governor showing the votes cast, and the governor orders a special election",
+   "who": "the governor orders it",
+   "sources": [
+    {"section": "mt-13-16-502", "quote": "If there is a tie vote for United States representative or senator, the secretary of state shall send a certified statement to the governor showing the votes cast and the governor shall order a special election."},
+    {"section": "mt-13-16-501", "quote": "If the recount after a general election shows a tie vote and it cannot be determined who has been elected, the office or position shall be filled as provided by 13-16-502 through 13-16-506"}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-502 and 13-16-501(2). The special election's candidates (the tied only, or all) are not stated in the section."
+  },
+  {
+   "kinds": ["state-legislative", "statewide"],
+   "applies_to": "justice of the supreme court, judge of a district court, or member of the legislature, general election",
+   "resolution": "other",
+   "steps": "a certified tie brings a recount; if the recount still shows a tie, the secretary of state sends a certified statement to the governor showing the votes cast for each individual, and the governor appoints one of the tied candidates to the office",
+   "who": "the governor",
+   "sources": [
+    {"section": "mt-13-16-503", "quote": "If there is a tie vote for justice of the supreme court, judge of a district court, or member of the legislature, the secretary of state shall send a certified statement to the governor showing the votes cast for each individual and the governor shall appoint one of those candidates to the office."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-503. 'Statewide' is listed for the supreme court justice; the legislator is 'state-legislative'. A seat in either house is also judged by the house (not read)."
+  },
+  {
+   "kinds": ["statewide"],
+   "applies_to": "governor and lieutenant governor, secretary of state, attorney general, state auditor, clerk of the supreme court, superintendent of public instruction, or any other state executive officer, general election",
+   "resolution": "legislature",
+   "steps": "a certified tie brings a recount; if the recount still shows a tie, the secretary of state sends the legislature a certified copy of the statement showing the votes for the candidates with an equal and highest number of votes, and the legislature, at its next regular session, elects one of them by joint ballot of the two houses",
+   "who": "the legislature, by joint ballot of the two houses",
+   "sources": [
+    {"section": "mt-13-16-504", "quote": "If there is a tie vote for governor and lieutenant governor, secretary of state, attorney general, state auditor, clerk of the supreme court, superintendent of public instruction, or any other state executive officer, the secretary of state shall transmit a certified copy of the statement to the legislature showing the votes cast for the two or more candidates having an equal and the highest number of votes. The legislature, at its next regular session, shall elect one of these candidates to fill the office by joint ballot of the two houses."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-504. The Montana Constitution was not read."
+  },
+  {
+   "kinds": ["local"],
+   "applies_to": "county commissioner; clerk of the district court, county attorney and every other county officer; any officer of another political subdivision not specifically provided for in the part",
+   "resolution": "other",
+   "steps": "a tie certified by the county canvassing board brings a recount; if the recount still shows a tie, one of the tied candidates is appointed to fill the office as in other cases of vacancy: by the senior district judge for a county commissioner, by the county commissioners for any other county officer, by the governing body for an officer of another political subdivision",
+   "who": "the senior district judge (county commissioner); the county commissioners (other county officers); the governing body of the jurisdiction (other subdivisions)",
+   "sources": [
+    {"section": "mt-13-16-505", "quote": "If there is a tie vote for commissioner, the senior district judge shall appoint one of the candidates who tied to fill the office as in other cases of vacancy."},
+    {"section": "mt-13-16-506", "quote": "If there is a tie vote for clerk of the district court, county attorney, or any county officer except county commissioner, the commissioners shall appoint one of the candidates who tied to fill the office as in other cases of vacancy."},
+    {"section": "mt-13-16-507", "quote": "If there is a tie vote for an officer of any political subdivision not specifically provided for in this part, the governing body of that jurisdiction shall appoint one of the candidates who tied to fill the office as in other cases of vacancy."},
+    {"section": "mt-13-15-405", "quote": "If there is a tie vote for a county office, an office of a political subdivision wholly within the county, a precinct office, or a ballot issue voted on only in that county or portion of that county, the board shall certify the vote to the election administrator."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-505 to 13-16-507 and 13-15-405(4). A tie in a school election goes to the board of trustees and 20-20-418 (13-16-203(2)), not read. A city's own charter was not read."
+  },
+  {
+   "kinds": ["presidential-electors"],
+   "applies_to": "presidential electors",
+   "resolution": "none-found",
+   "steps": "no tie provision for presidential electors was found",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Read: MCA 13-25-102 (votes for the candidates for president and vice president of a party count for that party's electors) and 13-25-103(1) (these votes are given, received, returned and canvassed as the votes for candidates for congress), and the whole of 13-16 part 5 (tie votes, 13-16-501 to 13-16-507), which names no presidential office. 13-25-103(1) might lead a reader to 13-16-502 (a special election for congress), but no section says so; the rest of chapter 25 (part 3, Uniform Faithful Presidential Electors Act) was not read."
+  },
+  {
+   "kinds": ["measure"],
+   "applies_to": "a tie vote on a ballot issue",
+   "resolution": "none-found",
+   "steps": "a tie on a ballot issue is certified for a recount; no rule for a tie that remains after the recount was found",
+   "who": null,
+   "sources": [
+    {"section": "mt-13-15-405", "quote": "If there is a tie vote for a county office, an office of a political subdivision wholly within the county, a precinct office, or a ballot issue voted on only in that county or portion of that county, the board shall certify the vote to the election administrator."}
+   ],
+   "mark": "inferred",
+   "note": "13-15-405(4) puts a tied ballot issue in the same step as a tied county office (certified to the election administrator, and then 13-16-203 starts a recount). 13-16-501 to 13-16-507 name offices only; none names a ballot issue. Chapters 27 (statewide ballot issues) and 28 (local government ballot issues) and the Constitution were not read; they may say what a tie does."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": ["local"],
+   "type": "requested",
+   "election": "general or primary; precinct office, county, municipal or district office voted for in only one county (not a legislator or district judge)",
+   "threshold": {
+    "percent": 0.25,
+    "percent_of": "the total votes cast",
+    "votes": 10,
+    "combine": "whichever is greater",
+    "inclusive": true,
+    "conditions": "the defeated candidate files a verified petition with the election administrator within 5 days after the official canvass, stating that the candidate believes a recount will change the result",
+    "in_words": "a recount must be conducted if the defeated candidate lost by no more than one-quarter of one percent of the total votes cast, or by no more than 10 votes, whichever is greater, and petitions within 5 days of the canvass"
+   },
+   "who_may_request": ["the defeated candidate, by a verified petition to the election administrator (the school election filing officer for a school election) within 5 days after the official canvass"],
+   "cost_bearer": "the county (a county charge); the school district for a school election",
+   "sources": [
+    {"section": "mt-13-16-201", "quote": "A recount must be conducted if: (a) a candidate for a precinct office or for a county, municipal, or district office voted for in only one county, other than a legislator or a judge of the district court, is defeated by a margin not exceeding 1/4 of 1% of the total votes cast or by a margin not exceeding 10 votes, whichever is greater, and the defeated candidate, within 5 days after the official canvass, files with the election administrator a verified petition stating that the candidate believes that a recount will change the result and that a recount of the votes for the office or nomination should be conducted;"},
+    {"section": "mt-13-16-205", "quote": "Except as provided in subsection (2), the expense of the recount provided for in 13-16-201 is a county charge. Recount expenses of the secretary of state and board of state canvassers are a state charge."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-201(1)(a) and 13-16-205. 'Whichever is greater' makes the ten-vote floor matter in small contests. The 2025 amendment (Ch. 547, L. 2025) is in the text read."
+  },
+  {
+   "kinds": ["federal", "statewide", "state-legislative"],
+   "type": "requested",
+   "election": "general or primary; congressional office, state or district office voted on in more than one county, the legislature, judge of the district court",
+   "threshold": {
+    "percent": 0.25,
+    "percent_of": "the total votes cast for all candidates for the same position",
+    "inclusive": true,
+    "conditions": "the defeated candidate petitions the secretary of state within 5 days after the official canvass; the secretary of state notifies each election administrator whose county has precincts that voted for the office, and a recount is conducted in those precincts",
+    "in_words": "a recount must be conducted if the defeated candidate lost by no more than one-quarter of one percent of the total votes cast for all candidates for the position, on a petition to the secretary of state within 5 days of the canvass"
+   },
+   "who_may_request": ["the defeated candidate, by a petition to the secretary of state within 5 days after the official canvass"],
+   "cost_bearer": "the counties (a county charge for the recount in each county); the state for the expenses of the secretary of state and the board of state canvassers",
+   "sources": [
+    {"section": "mt-13-16-201", "quote": "(b) a candidate for a congressional office, a state or district office voted on in more than one county, the legislature, or judge of the district court is defeated by a margin not exceeding 1/4 of 1% of the total votes cast for all candidates for the same position and the defeated candidate, within 5 days after the official canvass, files a petition with the secretary of state as set forth in subsection (1)(a). The secretary of state shall immediately notify each election administrator whose county includes any precincts that voted for the office, and a recount must be conducted in those precincts."},
+    {"section": "mt-13-16-205", "quote": "Except as provided in subsection (2), the expense of the recount provided for in 13-16-201 is a county charge. Recount expenses of the secretary of state and board of state canvassers are a state charge."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-201(1)(b). Unlike (1)(a), this paragraph has no ten-vote alternative. The petition is 'as set forth in subsection (1)(a)': verified, stating that the candidate believes a recount will change the result."
+  },
+  {
+   "kinds": ["local", "measure"],
+   "type": "requested",
+   "election": "a question voted on by a county, municipality or district within a county",
+   "threshold": {
+    "percent": 0.25,
+    "percent_of": "the total votes cast for and against the question",
+    "inclusive": true,
+    "conditions": "a petition to the election administrator signed by at least 10 electors of the jurisdiction, filed within 5 days after the official canvass",
+    "in_words": "a recount must be conducted if the question is decided by no more than one-quarter of one percent of the votes cast for and against, on a petition of 10 electors within 5 days of the canvass"
+   },
+   "who_may_request": ["at least 10 electors of the jurisdiction, by petition to the election administrator"],
+   "cost_bearer": "the county (a county charge); the school district for a school election",
+   "sources": [
+    {"section": "mt-13-16-201", "quote": "(c) a question submitted to the vote of the people of a county, municipality, or district within a county is decided by a margin not exceeding 1/4 of 1% of the total votes cast for and against the question and a petition as set forth in subsection (1)(a) is filed with the election administrator. This petition must be signed by not less than 10 electors of the jurisdiction and must be filed within 5 days after the official canvass."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-201(1)(c)."
+  },
+  {
+   "kinds": ["measure"],
+   "type": "requested",
+   "election": "a question voted on by the people of the state",
+   "threshold": {
+    "percent": 0.25,
+    "percent_of": "the total votes cast for and against the question",
+    "inclusive": true,
+    "conditions": "a petition to the secretary of state signed by at least 100 electors of the state representing at least five counties, filed within 5 days after the official canvass; the recount is in all precincts in each affected county",
+    "in_words": "a recount must be conducted if a statewide question is decided by no more than one-quarter of one percent, on a petition of 100 electors from at least five counties within 5 days of the canvass"
+   },
+   "who_may_request": ["at least 100 electors of the state, representing at least five counties, by petition to the secretary of state"],
+   "cost_bearer": "the counties for the recount in each county; the state for the expenses of the secretary of state and the board of state canvassers",
+   "sources": [
+    {"section": "mt-13-16-201", "quote": "(d) a question submitted to the vote of the people of the state is decided by a margin not exceeding 1/4 of 1% of the total votes cast for and against the question and a petition as set forth in subsection (1)(a) is filed with the secretary of state. This petition must be signed by not less than 100 electors of the state, representing at least five counties of the state, and must be filed within 5 days after the official canvass."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-201(1)(d) and (3)."
+  },
+  {
+   "kinds": ["measure"],
+   "type": "requested",
+   "election": "a question voted on by the people of a multicounty district",
+   "threshold": {
+    "percent": 0.25,
+    "percent_of": "the total votes cast for and against the question",
+    "inclusive": true,
+    "conditions": "a petition to the secretary of state signed by at least 25 electors of the district representing at least two counties, filed within 5 days after the official canvass",
+    "in_words": "a recount must be conducted if a multicounty district question is decided by no more than one-quarter of one percent, on a petition of 25 electors from at least two counties within 5 days of the canvass"
+   },
+   "who_may_request": ["at least 25 electors of the district, representing at least two counties, by petition to the secretary of state"],
+   "cost_bearer": "the counties; the state for the expenses of the secretary of state and the board of state canvassers",
+   "sources": [
+    {"section": "mt-13-16-201", "quote": "(e) a question submitted to the vote of the people of a multicounty district is decided by a margin not exceeding 1/4 of 1% of the total votes cast for and against the question and a petition as set forth in subsection (1)(a) is filed with the secretary of state. This petition must be signed by not less than 25 electors of the district, representing at least two counties, and must be filed within 5 days after the official canvass."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-201(1)(e)."
+  },
+  {
+   "kinds": ["federal", "statewide", "state-legislative", "local", "primary", "measure"],
+   "type": "automatic",
+   "election": "any election where a tie is certified",
+   "threshold": {
+    "votes": 0,
+    "inclusive": true,
+    "conditions": "the county canvassing board certifies a tie to the election administrator (13-15-405(4)), or a tie is certified to the secretary of state",
+    "in_words": "a tie vote brings a recount without any petition"
+   },
+   "who_may_request": [],
+   "cost_bearer": "the county (a county charge); the state for the secretary of state's and board of state canvassers' expenses",
+   "sources": [
+    {"section": "mt-13-16-203", "quote": "When a tie has been certified to the election administrator, as provided in 13-15-405 (4), or the secretary of state, the administrator or the secretary of state shall proceed as if a petition for a recount has been filed. If a tie exists after the recount, the tie must be resolved as provided by law."},
+    {"section": "mt-13-16-205", "quote": "Except as provided in subsection (2), the expense of the recount provided for in 13-16-201 is a county charge. Recount expenses of the secretary of state and board of state canvassers are a state charge."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-203(1). The only automatic recount found: on a tie. The sections that say what happens if the tie remains are recorded under ties. The section's cost clause speaks of 'the recount provided for in 13-16-201', and a tie recount is run 'as if a petition for a recount has been filed', so the county charge is read to cover it [inferred]."
+  },
+  {
+   "kinds": ["federal", "statewide", "state-legislative", "local", "primary"],
+   "type": "requested",
+   "election": "a candidate defeated by more than one-quarter but not more than one-half of one percent",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total votes cast for all candidates for the same position",
+    "inclusive": true,
+    "conditions": "the margin must exceed 1/4 of 1% (the free recount above) but not exceed 1/2 of 1%; the candidate petitions the officer with whom the declaration or petition for nomination was filed within 5 days after the official canvass, and posts a bond with the election administrator of the county of residence, set to cover all costs of the recount in each county where it is sought",
+    "in_words": "a candidate beaten by more than one-quarter and up to one-half of one percent may have a recount by petition within 5 days of the canvass if the candidate posts a bond that covers all the costs"
+   },
+   "who_may_request": ["the defeated candidate, by a petition to the officer with whom the candidate's declaration or petition for nomination was filed, within 5 days after the official canvass"],
+   "cost_bearer": "the candidate, by a bond sufficient to cover all costs of the recount (the county recount board, election administrator and other personnel, supplies and travel)",
+   "sources": [
+    {"section": "mt-13-16-211", "quote": "If a candidate for a public office is defeated by a margin exceeding 1/4 of 1% but not exceeding 1/2 of 1% of the total votes cast for all candidates for the same position, the candidate may, within 5 days after the official canvass, file with the officer with whom the candidate's declaration or petition for nomination was filed a petition stating that the candidate believes a recount will change the result of the election."},
+    {"section": "mt-13-16-211", "quote": "The unsuccessful candidate shall post a bond with the election administrator of the county in which the candidate resides. The bond must be in an amount set by the election administrator sufficient to cover all costs of the recount incurred by each county in which a recount is sought"}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-211. The section says 'a public office' and names a 'declaration or petition for nomination'; that it covers every kind of office and primary nominations is my reading [inferred]. It names no refund if the result changes."
+  },
+  {
+   "kinds": ["federal", "statewide", "state-legislative", "local", "primary", "measure"],
+   "type": "court",
+   "election": "any election, by application to the district court",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "an application verified by the applicant, within 5 days after the canvass of election returns, specifying the grounds; the judge hears it within 5 days and orders a recount if there is probable cause to believe that the votes cast for the applicant or the ballot issue were not correctly counted",
+    "in_words": "no margin is required; an unsuccessful candidate (or an elector eligible to vote on a ballot issue) may ask the district court within 5 days of the canvass, which orders a recount on probable cause that votes were not correctly counted"
+   },
+   "who_may_request": ["an unsuccessful candidate for any public office at an election; an elector eligible to vote on the issue who believes there are grounds for a recount of a ballot issue"],
+   "cost_bearer": "the applicant deposits in cash the probable expense set by the court; the deposit is returned if the recount shows the applicant elected (or reverses a ballot issue result); otherwise the applicant pays any excess and is refunded any difference",
+   "sources": [
+    {"section": "mt-13-16-301", "quote": "Within 5 days after the canvass of election returns, an unsuccessful candidate for any public office at an election may apply to the district court of the county where the election was held for an order directing the appropriate county or school recount board to make a recount of the votes cast in any or all of the precincts or the school district polling places."},
+    {"section": "mt-13-16-301", "quote": "If the judge finds there is probable cause to believe that the votes cast for the applicant or the ballot issue were not correctly counted, the judge shall order the appropriate county or school recount board to assemble within 5 days after the order is issued at a time and place fixed by the order."},
+    {"section": "mt-13-16-307", "quote": "The court shall in its order determine the probable expense of making the recount, and the applicant or applicants asking for the recount shall deposit with the board the amount determined, in cash."},
+    {"section": "mt-13-16-307", "quote": "If the recount shows that an applicant has been elected to office, the deposit of the applicant must be returned to the applicant."}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-16-301 and 13-16-307. If the election was held in more than one county the application goes to the district court of the county where the candidate resides. Whether a primary is 'an election' for this part is my reading from 13-16-501 (a recount in a primary) [inferred]."
+  },
+  {
+   "kinds": ["federal", "statewide", "state-legislative", "local", "primary", "measure"],
+   "type": "other",
+   "election": "any election, during the county canvass",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "during a canvass the board finds votes for a candidate or ballot issue exceeding the electors or persons who voted in a precinct, or any error affecting accuracy; it must investigate within 2 days",
+    "in_words": "no margin; the county canvassing board may require the election administrator to conduct a recount (or inspect ballots) as part of investigating a discrepancy"
+   },
+   "who_may_request": ["the county board of canvassers (its own motion)"],
+   "cost_bearer": "the county (a county charge)",
+   "sources": [
+    {"section": "mt-13-15-403", "quote": "The board may require the election administrator to conduct a recount of the votes cast in a race or races, a ballot issue or ballot issues, or the precinct or precincts"},
+    {"section": "mt-13-16-201", "quote": "a canvassing board requires the election administrator to conduct a recount, as provided in 13-15-403"}
+   ],
+   "mark": "measured",
+   "note": "MCA 13-15-403(4) and 13-16-201(1)(f). The cost clause (13-16-205) speaks of 'the recount provided for in 13-16-201', which includes (1)(f); read as a county charge [inferred]."
+  }
+ ],
+ "unread": [
+  {
+   "what": "MCA 13-10-204 (primary results), chapter 14 (nonpartisan elections), chapters 27 and 28 (statewide and local government ballot issues), chapter 36 (contests), 20-20-418 (school election ties), the rest of 13-16 (parts 1, 3 and 4 other than the sections cited) and the Montana Constitution",
+   "reason": "not read in this pass (about 30 fetches and searches had been spent on this state, a little over the limit of 25)"
+  }
+ ],
+ "notes": [
+  "Every section was read one at a time on the Legislature's MCA site (mca.legmt.gov, 'Montana Code Annotated 2025'); no refusal. The index pages (chapter and part tables of contents) were read to find sections and are not cited.",
+  "Montana's tie rules are the most varied of the nine: after a recount, a tie for Congress goes to a special election ordered by the governor; for a supreme court justice, district judge or legislator the governor appoints one of the tied; for statewide executive officers the legislature elects by joint ballot; county commissioner, other county and subdivision offices are filled by appointment of one of the tied; a primary tie is decided by lot. Every certified tie is recounted first.",
+  "Recounts are all on petition except the tie recount: a free recount at one-quarter of one percent (or 10 votes for local offices, whichever is greater), a recount at one-quarter to one-half of one percent if the candidate posts a bond, and a court-ordered recount on probable cause at any margin."
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "state": "NJ",
+ "name": "New Jersey",
+ "status": "unread",
+ "code": {"name": "New Jersey Statutes (N.J.S.A. Title 19, Elections)", "edition": "not read", "site": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu", "reached": false},
+ "sections": {},
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"],
+   "applies_to": "all kinds of office and measures",
+   "resolution": "unread",
+   "steps": "not read",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "The legislature's statute viewer serves only a script shell, no plain downloadable file was found on the public page, and the one compilation allowed by the coordinator's amendment of 07:21 UTC refused us (see unread). A web search, used only to find citations, returned section titles in N.J.S.A. 19:28 (19:28-1 to 19:28-4 and 19:28-8, which came up for a query on recounts and ties); they are leads to citations, not readings, and no text of them was read."}
+ ],
+ "recounts": [],
+ "unread": [
+  {"what": "all of New Jersey's tie and recount law (N.J.S.A. Title 19; chapter 28 is where a search on recounts and ties pointed)", "reason": "The Legislature's statute viewer https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu is linked from njleg.state.nj.us as \"Statutes\" and the helper reported \"only 132 characters of text (a script shell or an empty page)\". The Legislature's \"Downloads\" page (https://www.njleg.state.nj.us/downloads) links to https://www.njleg.state.nj.us/legislative-downloads?downloadType=Statutes, whose file list is drawn by script and is not in the page's HTML, so no plain downloadable file (PDF or Word) was found. https://www.njleg.state.nj.us/statutes answered HTTP 404.", "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu", "time": "2026-11-07T07:24Z"},
+  {"what": "the same law, from a compilation allowed by the amendment of 2026-11-07 07:21 UTC", "reason": "Justia answered HTTP 403 to its first request in this task (https://law.justia.com/codes/new-hampshire/title-lxiii/, for New Hampshire at 2026-11-07T07:22Z); stopped at that refusal and made no request to Justia for New Jersey. Cornell LII: a search of law.cornell.edu returned New Jersey regulations (N.J. Admin. Code) but no page of the New Jersey Statutes, so none was tried.", "url": "https://law.justia.com/codes/new-hampshire/title-lxiii/ (the refused request; no New Jersey URL was requested)", "time": "2026-11-07T07:22Z"}
+ ],
+ "notes": ["New Jersey is unread. No lead from the earlier report applies (the earlier reader did not read New Jersey)."]
+}
