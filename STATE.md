@@ -51,6 +51,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 06:01: #27 merged (M2 follow-ups in the D1 and D2 briefs; headings rulings; MATH notes). D2 woken with its eight items. Workers: X1 (X2), D3, D2, + T1.
+
 - 2026-11-07 05:59: #26 merged (M2). Gate: clean, checks/ only; scipy installed; c1, c3 and c7 rerun and every line found verbatim in OUTPUT.txt. Decided on M2's readings: earlier-cycles-only fits for every level (MODEL §3 'like past races'); 538's sd kept only where p's error |z²−1|×sd error < 20% (174 entries move: Congress 164, presidency 10); control under 538 by reading (c), the presidency's rule; governors cleared to show and gain the last governor race (A4); files record f(½) and full-precision mean and sd; Senate 2014 chances exact; Economist W thin under 30 weighted draws. Notes added to MATH §1.3 (error grows with z away from ½) and §8.2 (cdf form for large k). D2 woken; D1 queued.
 
 - 2026-11-07 05:24: #25 merged (4ca6b90 re-gated: no partisan p off the top two, no numeric party codes; WI-25 2010 not computed with reason; 93,285 p, 66,534 p=0). D3 restarts its branch from main for MEDSL.
