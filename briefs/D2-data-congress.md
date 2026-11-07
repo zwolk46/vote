@@ -44,3 +44,18 @@ The maker's ruling of 03:13 (`RULINGS.md`; `plan/PLAN.md` §3a) amends this brie
 - **Intake by script.** For each standardized source, write `pipeline/intake/<source>.py` once: download to a cache outside the repository, check row counts and totals, convert into the layout of plan §3 with the source block filled. *Reason:* "an intake flow that doesn't use as many tokens"; a year or a state then costs a run, not a reading.
 - **An inventory.** List every standardized dataset you find, for your level and any other, in `data/sources/<your level>.md`: publisher, coverage, format, licence, and whether this environment reaches it. *Reason:* the next worker starts from what is known.
 - **No live data.** Everything is a published dataset taken in by script.
+
+
+## Amended 2026-11-07 05:58 UTC: follow-ups from M2 (`checks/M2-REPORT.md`, #26), and the Vice President
+
+M2 checked every p independently. Every one reproduces from its inputs, and no p is off by a factor of two. The forecasts are honest, with the points below, which the orchestrator has decided. Do them in one pull request, each with its reason in `data/congress/REPORT.md`, then report the changed totals and sums.
+1. **The Vice President's tie vote** in presidential years is the presidential chance, not one half: 538's where it stands first, else the model's own. *Reason:* the Senate's control in a presidential year turns on who becomes Vice President.
+2. **Fit on earlier cycles only**, as D1 and D3 do; never leave one cycle out. Choose the fewest earlier cycles a fit needs from your back-test. Extend the fitting data back where your sources reach (MEDSL from 1976, Cha) and the predictors exist. A year that still has too few earlier cycles gets p not computed, with that reason, unless a published forecast stands first. *Reason:* the model's own forecast is fitted to like past races, from what was known before the election (MODEL §3); a coefficient fitted partly on later years is something no voter knew. M2 measured the effect (3.4): the sum of p × 0.81 (House 2014) to × 1.04.
+3. **538 kept on p's error, not the sd's.** Keep 538's implied sd only where p's relative error, |z² − 1| × the sd's, is under 20%; otherwise the model's own stands first. *Reason:* the reader sees p, and at z = 3.94 a 7% error in the sd is a 105% error in p (M2 3.9: 164 Congress entries move).
+4. **Control under 538, reading (c):** take 538's mean and sd as the seat's marginal in the chamber stage, with s_e,i = √(sd₅₃₈² − s_a²), as the presidency already treats 538's marginals. Where sd₅₃₈ < s_a, say what you do and mark it. *Reason:* one forecast of the seat throughout its figure; the record's mix conditions what a tie tells the chamber on the model's mean while the tie's chance is 538's (M2 2.6).
+5. **Governors: add the state's last governor race** as a predictor (M2's A4: log score 1.064 → 1.143), then report the back-test's z sd and coverage. The governors' p may be shown: M2 found the 0 of 4.4 specific to the 5,000-vote line, and the forecast slightly too wide, so p is if anything a little low (3.1, 3.2).
+6. **The files reproduce themselves.** Record f(½) in each p block, and mean and sd at full precision. Give the p = 0 blocks their script and commit (M2 1.4, 1.5). *Reason:* law 4, a reader recomputing p from the file gets the file's p.
+7. **One fetch and one FEC intake:** `pipeline/fetch.py` (D1's, which refuses cross-site redirects) replaces `congress_common.fetch`, and `fec_president.py` folds into `fec_federal_elections.py`. *Reason:* one implementation of each thing.
+8. Senate 2014's chances stand as exact, as recorded: no step at any plausible run count.
+
+After it merges, the orchestrator reruns `checks/m2/c3_chambers.py`.

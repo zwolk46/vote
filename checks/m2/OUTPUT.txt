@@ -1,0 +1,1035 @@
+M2 checks: 2026-11-07T05:40Z, repository HEAD 503657b, python3 3.13.18
+
+C1. EVERY p RECOMPUTED FROM ITS OWN INPUTS (M2's code; no pipeline import)
+repository HEAD 503657b
+1.1 The presidency: p_state = f(1/2) / (2 n) from the forecast p.under names, every contest
+  contests: 574 with p, 114 without; without p and without a 'No p' note: none; p lacking under/computed_by/commit: none
+  the model's own: f(1/2) by quadrature vs the record (tolerance 1e-4): 566 compared, largest relative difference 2.63e-11 (1984-president-AK [the model's own]); 0 beyond tolerance
+  538: normal density at the implied sd (tolerance 1e-9): 213 compared, largest relative difference 4.44e-16 (2016-president-VA [538 polls-plus]); 0 beyond tolerance
+  538: implied sd = (mean - 1/2) / Phi^-1(chance) (tolerance 1e-9): 213 compared, largest relative difference 8.88e-16 (2016-president-MN [538 polls-only]); 0 beyond tolerance
+  The Economist: window count / (K width) / (2n), and W = weighted / in-window: 32 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  event = 2 p (exact): 1369 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  p = p_state x W (exact): 1369 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  units where the model's rule would send p_state to the exact sum (n < 1,000 or n sd^2 < 6.25): none
+1.2 senate: p = f(1/2) / (2 n) from the forecast p.under names, every contest, and every 'alongside' p
+  contests: 316 with p > 0, 2 with p = 0, 33 not computed
+  not computed without a reason: none; p = 0 without a reason: none
+  p > 0 lacking under/computed_by/commit: none; p = 0 lacking computed_by or commit: 2 (e.g. ['2010-senate-SD', '2014-senate-AL'])
+  p blocks whose 'under' names no forecast in the contest: none
+  f(1/2) from the recorded (six-decimal) mean and sd (tolerance: the rounding bound of each contest): 1024 compared, largest relative difference 1.00e-04 (2014-senate-WY [the model's own (D2-v1), nor]); 0 beyond tolerance
+     largest difference as a share of its rounding bound: 0.974 (2014-senate-IA [the model's own (D2-v1), nor])
+  p = f(1/2) / (2n) (tolerance: the same bound): 1024 compared, largest relative difference 1.00e-04 (2014-senate-WY [the model's own (D2-v1), nor]); 0 beyond tolerance
+  event = 2 p (exact): 1340 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  538: implied sd = (mean - 1/2) / Phi^-1(D chance / (D + R chances)) (tolerance: the rounding bound of each entry): 392 compared, largest relative difference 2.87e-04 (2022-senate-NV [538 (deluxe), normal with th]); 0 beyond tolerance
+  control p = seat p x P(decides | tie) as recorded (exact): 2030 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  method recorded against the model's rule (exact below n = 1,000 or n sd^2 = 6.25): 0 differ
+  exact lattice sum vs density form, the 6 contests nearest the switch (smallest n sd^2) and a sample:
+     2014-senate-AK               n   264,875 mean 0.4885 sd 0.0177 n sd^2     83.2 density 3.439353e-05 exact 3.436597e-05 ratio 1.000802
+     2014-senate-NH               n   486,530 mean 0.5117 sd 0.0143 n sd^2     99.4 density 2.047882e-05 exact 2.047036e-05 ratio 1.000413
+     2014-senate-SD               n   223,196 mean 0.4262 sd 0.0269 n sd^2    161.2 density 7.646073e-07 exact 7.684880e-07 ratio 0.994950
+     2006-senate-MD               n 1,752,658 mean 0.6087 sd 0.0567 n sd^2   5636.6 density 3.199883e-07 exact 3.200071e-07 ratio 0.999941
+     2008-senate-IL               n 5,136,464 mean 0.6229 sd 0.0590 n sd^2  17887.3 density 7.518981e-08 exact 7.519155e-08 ratio 0.999977
+     2012-senate-NY               n 6,581,031 mean 0.5856 sd 0.0621 n sd^2  25395.5 density 1.888752e-07 exact 1.888757e-07 ratio 0.999997
+  largest |density / exact - 1| over these: 5.05e-03
+  1.3 senate: the exact lattice sum for every p (316 contests), largest |density / exact - 1| by the size of p:
+     p >= 1e-6            1.22e-03 (2014-senate-AR n sd^2 201 z -1.7 ratio 0.9988); the forecast's smallest mass in (0, 1) 1.0000 (2012-senate-DE): a truncated forecast would raise that p by 1 / mass
+     1e-8 <= p < 1e-6     5.05e-03 (2014-senate-SD n sd^2 161 z -2.7 ratio 0.9950); the forecast's smallest mass in (0, 1) 0.9990 (2020-senate-RI): a truncated forecast would raise that p by 1 / mass
+     p < 1e-8             5.89e-03 (2014-senate-WY n sd^2 372 z -4.3 ratio 0.9941); the forecast's smallest mass in (0, 1) 1.0000 (2016-senate-NY): a truncated forecast would raise that p by 1 / mass
+     MATH 1.3's convolved normal (variance sd^2 + 1/(4n)), normal forecasts only: largest |convolved / exact - 1| 1.79e-04 (2014-senate-DE n sd^2 322 z +3.0 ratio 1.0002)
+1.2 house: p = f(1/2) / (2 n) from the forecast p.under names, every contest, and every 'alongside' p
+  contests: 3730 with p > 0, 176 with p = 0, 505 not computed
+  not computed without a reason: none; p = 0 without a reason: none
+  p > 0 lacking under/computed_by/commit: none; p = 0 lacking computed_by or commit: 176 (e.g. ['2006-house-AL-05', '2006-house-AL-06', '2006-house-AL-07'])
+  p blocks whose 'under' names no forecast in the contest: none
+  f(1/2) from the recorded (six-decimal) mean and sd (tolerance: the rounding bound of each contest): 10219 compared, largest relative difference 7.24e-04 (2006-house-NY-16 [the model's own (D2-v1), nor]); 0 beyond tolerance
+     largest difference as a share of its rounding bound: 0.999 (2014-house-CA-46 [the model's own (D2-v1), t4 ])
+  p = f(1/2) / (2n) (tolerance: the same bound): 10219 compared, largest relative difference 7.24e-04 (2006-house-NY-16 [the model's own (D2-v1), nor]); 0 beyond tolerance
+  event = 2 p (exact): 13949 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  538: implied sd = (mean - 1/2) / Phi^-1(D chance / (D + R chances)) (tolerance: the rounding bound of each entry): 2759 compared, largest relative difference 3.85e-04 (2022-house-PA-17 [538 (lite), normal with the ]); 0 beyond tolerance
+  control p = seat p x P(decides | tie) as recorded (exact): 20378 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  method recorded against the model's rule (exact below n = 1,000 or n sd^2 = 6.25): 0 differ
+  exact lattice sum vs density form, the 12 contests nearest the switch (smallest n sd^2) and a sample:
+     2022-house-NH-01             n   309,619 mean 0.4995 sd 0.0129 n sd^2     51.7 density 4.980270e-05 exact 4.968307e-05 ratio 1.002408
+     2006-house-TX-29             n    49,520 mean 0.6546 sd 0.0501 n sd^2    124.2 density 6.831323e-07 exact 6.890024e-07 ratio 0.991480
+     2006-house-NY-16             n    58,882 mean 0.9389 sd 0.0501 n sd^2    147.6 density 1.392815e-21 exact 1.485001e-21 ratio 0.937922
+     2006-house-TX-15             n    59,836 mean 0.5959 sd 0.0501 n sd^2    150.0 density 1.062498e-05 exact 1.064842e-05 ratio 0.997799
+     2014-house-NY-07             n    62,305 mean 0.8444 sd 0.0527 n sd^2    173.3 density 3.343566e-14 exact 3.441889e-14 ratio 0.971433
+     2010-house-NY-16             n    64,399 mean 0.8762 sd 0.0522 n sd^2    175.5 density 3.136731e-16 exact 3.248901e-16 ratio 0.965474
+     2006-house-NY-12             n    70,028 mean 0.8627 sd 0.0501 n sd^2    175.6 density 2.301194e-16 exact 2.386914e-16 ratio 0.964087
+     2010-house-TX-29             n    66,081 mean 0.6084 sd 0.0522 n sd^2    180.1 density 6.703540e-06 exact 6.716812e-06 ratio 0.998024
+     2014-house-CA-29             n    67,140 mean 0.7583 sd 0.0527 n sd^2    186.7 density 3.472065e-10 exact 3.525791e-10 ratio 0.984762
+     2006-house-CA-34             n    74,817 mean 0.7695 sd 0.0501 n sd^2    187.6 density 2.725864e-11 exact 2.775046e-11 ratio 0.982277
+     2006-house-AZ-04             n    75,090 mean 0.7050 sd 0.0501 n sd^2    188.3 density 1.220522e-08 exact 1.233322e-08 ratio 0.989622
+     2006-house-CA-47             n    75,618 mean 0.6001 sd 0.0501 n sd^2    189.6 density 7.148224e-06 exact 7.162235e-06 ratio 0.998044
+     2006-house-NY-07             n    76,216 mean 0.8119 sd 0.0501 n sd^2    191.1 density 1.971276e-13 exact 2.020521e-13 ratio 0.975628
+     2014-house-UT-01             n   120,652 mean 0.1794 sd 0.0527 n sd^2    335.6 density 2.949668e-13 exact 2.989392e-13 ratio 0.986711
+     2014-house-CA-45             n   162,901 mean 0.4205 sd 0.0527 n sd^2    453.1 density 7.455626e-06 exact 7.458849e-06 ratio 0.999568
+     2006-house-AR-02             n   206,302 mean 0.5916 sd 0.0501 n sd^2    517.2 density 3.622049e-06 exact 3.624086e-06 ratio 0.999438
+     2010-house-UT-02             n   243,151 mean 0.4349 sd 0.0522 n sd^2    662.6 density 7.219784e-06 exact 7.220865e-06 ratio 0.999850
+     2024-house-IL-03             n   259,811 mean 0.7189 sd 0.0538 n sd^2    753.0 density 3.673042e-09 exact 3.681970e-09 ratio 0.997575
+     2016-house-CA-48             n   306,415 mean 0.3897 sd 0.0527 n sd^2    851.4 density 1.380749e-06 exact 1.381519e-06 ratio 0.999442
+     2022-house-TX-21             n   330,080 mean 0.3376 sd 0.0563 n sd^2   1045.0 density 1.668057e-07 exact 1.669515e-07 ratio 0.999127
+  largest |density / exact - 1| over these: 6.21e-02
+  1.3 house: the exact lattice sum for every p (3730 contests), largest |density / exact - 1| by the size of p:
+     p >= 1e-6            3.79e-03 (2014-house-TX-16 n sd^2 197 z +2.8 ratio 0.9962); the forecast's smallest mass in (0, 1) 1.0000 (2020-house-OH-07): a truncated forecast would raise that p by 1 / mass
+     1e-8 <= p < 1e-6     1.04e-02 (2006-house-AZ-04 n sd^2 188 z +4.1 ratio 0.9896); the forecast's smallest mass in (0, 1) 0.9790 (2020-house-HI-02): a truncated forecast would raise that p by 1 / mass
+     p < 1e-8             6.21e-02 (2006-house-NY-16 n sd^2 148 z +8.8 ratio 0.9379); the forecast's smallest mass in (0, 1) 0.7625 (2018-house-NY-15): a truncated forecast would raise that p by 1 / mass
+     MATH 1.3's convolved normal (variance sd^2 + 1/(4n)), normal forecasts only: largest |convolved / exact - 1| 1.09e-03 (2010-house-NY-16 n sd^2 176 z +7.2 ratio 1.0011)
+1.2 governor: p = f(1/2) / (2 n) from the forecast p.under names, every contest, and every 'alongside' p
+  contests: 218 with p > 0, 0 with p = 0, 17 not computed
+  not computed without a reason: none; p = 0 without a reason: none
+  p > 0 lacking under/computed_by/commit: none; p = 0 lacking computed_by or commit: 0 (e.g. [])
+  p blocks whose 'under' names no forecast in the contest: none
+  f(1/2) from the recorded (six-decimal) mean and sd (tolerance: the rounding bound of each contest): 633 compared, largest relative difference 3.02e-05 (2014-governor-WY [the model's own (D2-v1), nor]); 0 beyond tolerance
+     largest difference as a share of its rounding bound: 0.970 (2006-governor-ID [the model's own (D2-v1), nor])
+  p = f(1/2) / (2n) (tolerance: the same bound): 633 compared, largest relative difference 3.02e-05 (2014-governor-WY [the model's own (D2-v1), nor]); 0 beyond tolerance
+  event = 2 p (exact): 851 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  538: implied sd = (mean - 1/2) / Phi^-1(D chance / (D + R chances)) (tolerance: the rounding bound of each entry): 197 compared, largest relative difference 3.46e-04 (2018-governor-NV [538 (lite), normal with the ]); 0 beyond tolerance
+  control p = seat p x P(decides | tie) as recorded (exact): 0 compared, largest relative difference 0.00e+00 (None); 0 beyond tolerance
+  method recorded against the model's rule (exact below n = 1,000 or n sd^2 = 6.25): 0 differ
+  exact lattice sum vs density form, the 3 contests nearest the switch (smallest n sd^2) and a sample:
+     2014-governor-SD             n   266,025 mean 0.3330 sd 0.0867 n sd^2   2000.8 density 1.354103e-06 exact 1.354384e-06 ratio 0.999793
+     2008-governor-MT             n   476,937 mean 0.5079 sd 0.0842 n sd^2   3384.0 density 4.943204e-06 exact 4.943007e-06 ratio 1.000040
+     2006-governor-CT             n 1,108,267 mean 0.5330 sd 0.0837 n sd^2   7758.1 density 1.990264e-06 exact 1.990231e-06 ratio 1.000017
+  largest |density / exact - 1| over these: 2.07e-04
+  1.3 governor: the exact lattice sum for every p (218 contests), largest |density / exact - 1| by the size of p:
+     p >= 1e-6            6.96e-04 (2022-governor-SD n sd^2 547 z -2.0 ratio 0.9993); the forecast's smallest mass in (0, 1) 0.9999 (2014-governor-SD): a truncated forecast would raise that p by 1 / mass
+     1e-8 <= p < 1e-6     2.04e-03 (2022-governor-WY n sd^2 711 z -3.4 ratio 0.9980); the forecast's smallest mass in (0, 1) 0.9994 (2014-governor-WY): a truncated forecast would raise that p by 1 / mass
+     p < 1e-8             5.57e-04 (2022-governor-OH n sd^2 2998 z -3.8 ratio 0.9994); the forecast's smallest mass in (0, 1) 1.0000 (2018-governor-MA): a truncated forecast would raise that p by 1 / mass
+     MATH 1.3's convolved normal (variance sd^2 + 1/(4n)), normal forecasts only: largest |convolved / exact - 1| 1.48e-04 (2022-governor-WY n sd^2 711 z -3.4 ratio 0.9999)
+
+C2. THE ELECTORAL COLLEGE: W GIVEN THE TIE, BY METHODS OTHER THAN THE PIPELINE'S
+repository HEAD 503657b
+2.1 The model's own forecast, every year: Fourier count on a 1,201-point Simpson grid (+-12 s_d), and importance-sampling Monte Carlo (1,000,000 draws, seed 12345)
+  1976: no own forecast in the record
+  1980: no own forecast in the record
+  1984: 51 units (0 districts: none), total 538, majority 270, s_nat 0.02869, s_state 0.04558
+    1984 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 1.27e-14 (MA: record 5.48161, here 5.48161); 0 beyond 0.0001
+    1984 W by Fourier vs the record: 51 units; largest relative difference 3.42e-13 (GA: record 2.65016e-05, here 2.65016e-05); 0 beyond 0.0001
+    1984 W_unconditional by Fourier vs the record: 51 units; largest relative difference 1.75e-14 (MS: record 0.000314315, here 0.000314315); 0 beyond 0.0001
+    1984 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 2.23 (SC: record 0.00049427, Monte Carlo 0.00043808 +- 2.5e-05); 0 beyond 3 se (about 0.1 expected by chance)
+     unit      ev     mean   W record  W Fourier       W MC       +-      ess   W uncond
+     CA        47   0.3646    0.03741    0.03741    0.03824  6.1e-04   364025    0.00424
+     TX        29   0.3876    0.01867    0.01867    0.01860  4.4e-04   356515    0.00189
+     FL        21   0.3688    0.01329    0.01329    0.01343  4.0e-04   358641    0.00131
+     OH        23   0.4019    0.01133    0.01133    0.01113  3.1e-04   382288    0.00130
+     NJ        16   0.3852    0.00936    0.00936    0.00895  3.1e-04   354588    0.00091
+     IL        24   0.4159    0.00788    0.00788    0.00747  2.2e-04   432013    0.00123
+     IN        12   0.3613    0.00686    0.00686    0.00667  2.8e-04   369423    0.00067
+     PA        25   0.4207    0.00679    0.00679    0.00643  1.9e-04   454683    0.00122
+     VA        12   0.3911    0.00645    0.00645    0.00606  2.5e-04   360542    0.00064
+     WA        10   0.3883    0.00544    0.00544    0.00525  2.4e-04   357221    0.00053
+     MI        20   0.4238    0.00479    0.00479    0.00471  1.5e-04   471163    0.00096
+     IA         8   0.3886    0.00426    0.00426    0.00418  2.1e-04   357556    0.00041
+     OK         8   0.3256    0.00347    0.00347    0.00351  1.8e-04   471547    0.00042
+     CT         8   0.4037    0.00344    0.00344    0.00330  1.7e-04   387268    0.00040
+     CO         8   0.3200    0.00331    0.00331    0.00335  1.7e-04   491203    0.00042
+     OR         7   0.4038    0.00299    0.00299    0.00279  1.5e-04   387402    0.00035
+     KS         7   0.3245    0.00298    0.00298    0.00301  1.6e-04   475169    0.00037
+     NM         5   0.3602    0.00268    0.00268    0.00270  1.8e-04   371442    0.00025
+     MO        11   0.4236    0.00267    0.00267    0.00254  1.1e-04   470136    0.00053
+     NY        36   0.4446    0.00261    0.00261    0.00259  7.4e-05   605498    0.00130
+     AZ         7   0.2772    0.00208    0.00208    0.00211  1.1e-04   630294    0.00037
+     LA        10   0.4312    0.00178    0.00178    0.00164  7.8e-05   514082    0.00047
+     WI        11   0.4334    0.00177    0.00177    0.00166  7.5e-05   528081    0.00051
+     MT         4   0.3226    0.00163    0.00163    0.00167  1.2e-04   481843    0.00020
+     NH         4   0.2886    0.00125    0.00125    0.00129  9.0e-05   596810    0.00020
+     NE         5   0.2435    0.00118    0.00118    0.00123  7.5e-05   710915    0.00026
+     SD         3   0.3029    0.00104    0.00104    0.00108  8.7e-05   550521    0.00015
+     NV         4   0.2600    0.00103    0.00103    0.00108  7.3e-05   674516    0.00020
+     NC        13   0.4483    0.00098    0.00098    0.00092  4.1e-05   632915    0.00056
+     AK         3   0.2863    0.00091    0.00091    0.00095  7.6e-05   603842    0.00015
+     ID         4   0.2341    0.00089    0.00089    0.00092  6.2e-05   728992    0.00020
+     UT         5   0.1796    0.00088    0.00088    0.00092  5.5e-05   808522    0.00026
+     WY         3   0.2680    0.00081    0.00081    0.00083  6.6e-05   654897    0.00015
+     VT         3   0.4234    0.00073    0.00073    0.00072  5.6e-05   468851    0.00014
+     ND         3   0.2495    0.00072    0.00072    0.00075  5.8e-05   698343    0.00015
+     KY         9   0.4522    0.00057    0.00057    0.00054  2.9e-05   661858    0.00040
+     MA        13   0.4584    0.00057    0.00057    0.00055  2.5e-05   708348    0.00055
+     AL         9   0.4525    0.00056    0.00056    0.00052  2.8e-05   664590    0.00040
+     TN        11   0.4578    0.00051    0.00051    0.00050  2.4e-05   703958    0.00047
+     SC         8   0.4529    0.00049    0.00049    0.00044  2.5e-05   667521    0.00036
+     ME         4   0.4402    0.00048    0.00048    0.00049  3.4e-05   574090    0.00019
+     MS         7   0.4525    0.00045    0.00045    0.00040  2.4e-05   664440    0.00031
+     AR         6   0.4561    0.00032    0.00032    0.00029  1.9e-05   691317    0.00027
+     DE         3   0.4466    0.00027    0.00027    0.00026  2.1e-05   620526    0.00014
+     MD        10   0.4755    0.00018    0.00018    0.00018  9.5e-06   822900    0.00042
+     MN        10   0.4814    0.00014    0.00014    0.00013  7.0e-06   853228    0.00042
+     HI         4   0.4701    0.00011    0.00011    0.00010  7.7e-06   790546    0.00018
+     WV         6   0.4830    0.00008    0.00008    0.00007  5.2e-06   860048    0.00026
+     DC         3   0.8074    0.00004    0.00004    0.00004  3.2e-06   793284    0.00014
+     GA        12   0.5359    0.00003    0.00003    0.00003  1.3e-06   749914    0.00048
+     RI         4   0.5209    0.00001    0.00001    0.00001  1.0e-06   842114    0.00018
+  1988: 51 units (0 districts: none), total 538, majority 270, s_nat 0.02345, s_state 0.04706
+    1988 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 8.33e-15 (PA: record 9.01554, here 9.01554); 0 beyond 0.0001
+    1988 W by Fourier vs the record: 51 units; largest relative difference 3.33e-15 (MD: record 0.00116738, here 0.00116738); 0 beyond 0.0001
+    1988 W_unconditional by Fourier vs the record: 51 units; largest relative difference 1.01e-14 (WV: record 0.00207056, here 0.00207056); 0 beyond 0.0001
+    1988 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 2.10 (ME: record 0.0054029, Monte Carlo 0.0056927 +- 0.00014); 0 beyond 3 se (about 0.1 expected by chance)
+  1992: 51 units (0 districts: none), total 538, majority 270, s_nat 0.02212, s_state 0.04250
+    1992 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 2.11e-14 (CO: record 4.76879, here 4.76879); 0 beyond 0.0001
+    1992 W by Fourier vs the record: 51 units; largest relative difference 2.33e-15 (FL: record 0.00668841, here 0.00668841); 0 beyond 0.0001
+    1992 W_unconditional by Fourier vs the record: 51 units; largest relative difference 2.13e-14 (AL: record 0.00972081, here 0.00972081); 0 beyond 0.0001
+    1992 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 1.80 (AR: record 0.0070022, Monte Carlo 0.0071536 +- 8.4e-05); 0 beyond 3 se (about 0.1 expected by chance)
+  1996: 51 units (0 districts: none), total 538, majority 270, s_nat 0.02049, s_state 0.04149
+    1996 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 3.04e-14 (AK: record 8.03956, here 8.03956); 0 beyond 0.0001
+    1996 W by Fourier vs the record: 51 units; largest relative difference 3.44e-12 (NE: record 1.46445e-05, here 1.46445e-05); 0 beyond 0.0001
+    1996 W_unconditional by Fourier vs the record: 51 units; largest relative difference 1.49e-13 (IN: record 0.000339658, here 0.000339658); 0 beyond 0.0001
+    1996 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 2.47 (PA: record 0.0089827, Monte Carlo 0.0083524 +- 0.00026); 0 beyond 3 se (about 0.1 expected by chance)
+  2000: 51 units (0 districts: none), total 538, majority 270, s_nat 0.02194, s_state 0.03992
+    2000 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 2.62e-14 (DC: record 0.00182381, here 0.00182381); 0 beyond 0.0001
+    2000 W by Fourier vs the record: 51 units; largest relative difference 1.11e-15 (AR: record 0.0144527, here 0.0144527); 0 beyond 0.0001
+    2000 W_unconditional by Fourier vs the record: 51 units; largest relative difference 2.65e-14 (AZ: record 0.0343064, here 0.0343064); 0 beyond 0.0001
+    2000 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 1.98 (TX: record 0.16735, Monte Carlo 0.16643 +- 0.00047); 0 beyond 3 se (about 0.1 expected by chance)
+     unit      ev     mean   W record  W Fourier       W MC       +-      ess   W uncond
+     FL        25   0.4641    0.16795    0.16795    0.16752  4.5e-04   734382    0.11757
+     TX        32   0.4060    0.16735    0.16735    0.16643  4.7e-04   439029    0.14802
+     CA        54   0.5047    0.16218    0.16218    0.16185  3.6e-04   919743    0.19563
+     OH        21   0.4685    0.13943    0.13943    0.13929  4.2e-04   770993    0.09672
+     PA        23   0.4842    0.13849    0.13849    0.13778  3.9e-04   880060    0.10540
+     NC        14   0.4073    0.07658    0.07658    0.07635  3.3e-04   439436    0.06128
+     GA        13   0.4263    0.07456    0.07456    0.07422  3.3e-04   478756    0.05686
+     VA        13   0.4220    0.07356    0.07356    0.07345  3.3e-04   464186    0.05682
+     MO        11   0.4680    0.07010    0.07010    0.06973  3.1e-04   766918    0.04782
+     TN        11   0.4454    0.06782    0.06782    0.06761  3.2e-04   584744    0.04771
+     MI        18   0.5058    0.06676    0.06676    0.06644  2.4e-04   917682    0.07421
+     IN        12   0.4011    0.06530    0.06530    0.06501  3.0e-04   439881    0.05201
+     WI        11   0.4918    0.05567    0.05567    0.05571  2.5e-04   911554    0.04681
+     AZ         8   0.4448    0.04930    0.04930    0.04905  2.7e-04   580303    0.03431
+     AL         9   0.3952    0.04905    0.04905    0.04876  2.6e-04   445494    0.03858
+     KY         8   0.4379    0.04804    0.04804    0.04768  2.7e-04   535288    0.03427
+     CO         8   0.4250    0.04593    0.04593    0.04605  2.6e-04   474083    0.03421
+     IL        22   0.5286    0.04415    0.04415    0.04396  1.6e-04   793738    0.08393
+     SC         8   0.4015    0.04389    0.04389    0.04385  2.5e-04   439686    0.03417
+     OK         8   0.3886    0.04351    0.04351    0.04335  2.5e-04   457219    0.03416
+     WA        11   0.5045    0.04278    0.04278    0.04247  2.0e-04   920105    0.04560
+     OR         7   0.4795    0.04098    0.04098    0.04098  2.3e-04   852456    0.02966
+     LA         9   0.4982    0.03985    0.03985    0.03946  2.0e-04   923202    0.03735
+     MS         7   0.4051    0.03861    0.03861    0.03864  2.4e-04   438911    0.02979
+     NY        33   0.5927    0.03776    0.03776    0.03763  1.3e-04   440305    0.11258
+     IA         7   0.4899    0.03597    0.03597    0.03585  2.0e-04   905515    0.02938
+     KS         6   0.3318    0.03232    0.03232    0.03240  2.0e-04   645473    0.02549
+     NM         5   0.4728    0.03060    0.03060    0.03073  2.0e-04   804858    0.02110
+     NJ        15   0.5322    0.02969    0.02969    0.02948  1.3e-04   764661    0.05863
+     MD        10   0.5190    0.02760    0.02760    0.02740  1.4e-04   862174    0.04034
+     NE         5   0.3270    0.02679    0.02679    0.02681  1.8e-04   660574    0.02108
+     UT         5   0.3124    0.02663    0.02663    0.02663  1.8e-04   702217    0.02108
+     NV         4   0.4384    0.02405    0.02405    0.02409  1.9e-04   538713    0.01681
+     MN        10   0.5264    0.02332    0.02332    0.02316  1.2e-04   811138    0.03999
+     ID         4   0.3246    0.02141    0.02141    0.02140  1.6e-04   667958    0.01680
+     NH         4   0.4887    0.02073    0.02073    0.02077  1.5e-04   900905    0.01663
+     MA        12   0.6190    0.01973    0.01973    0.01959  9.7e-05   476247    0.04644
+     MT         3   0.4157    0.01704    0.01704    0.01709  1.5e-04   448952    0.01263
+     SD         3   0.4132    0.01695    0.01695    0.01710  1.5e-04   444904    0.01263
+     ND         3   0.3935    0.01656    0.01656    0.01666  1.5e-04   448098    0.01262
+     WY         3   0.3577    0.01635    0.01635    0.01643  1.4e-04   555160    0.01262
+     AK         3   0.3283    0.01618    0.01618    0.01624  1.4e-04   656686    0.01262
+     CT         8   0.5362    0.01562    0.01562    0.01551  9.3e-05   731720    0.03197
+     WV         5   0.5161    0.01501    0.01501    0.01501  1.1e-04   878484    0.02029
+     AR         6   0.5261    0.01445    0.01445    0.01441  9.6e-05   813140    0.02423
+     DC         3   0.8338    0.00918    0.00918    0.00916  7.7e-05   896111    0.01208
+     DE         3   0.5188    0.00856    0.00856    0.00860  7.6e-05   863072    0.01219
+     RI         4   0.6226    0.00723    0.00723    0.00724  5.7e-05   486929    0.01608
+     ME         4   0.5592    0.00619    0.00619    0.00620  5.1e-05   553835    0.01612
+     HI         4   0.5753    0.00593    0.00593    0.00594  4.8e-05   473637    0.01610
+     VT         3   0.5644    0.00456    0.00456    0.00457  4.2e-05   522838    0.01210
+  2004: 51 units (0 districts: none), total 538, majority 270, s_nat 0.02205, s_state 0.03916
+    2004 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 5.55e-15 (DC: record 0.000742228, here 0.000742228); 0 beyond 0.0001
+    2004 W by Fourier vs the record: 51 units; largest relative difference 8.88e-16 (VT: record 0.00991061, here 0.00991061); 0 beyond 0.0001
+    2004 W_unconditional by Fourier vs the record: 51 units; largest relative difference 6.00e-15 (VT: record 0.0175133, here 0.0175133); 0 beyond 0.0001
+    2004 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 2.19 (DE: record 0.0086344, Monte Carlo 0.008491 +- 6.6e-05); 0 beyond 3 se (about 0.1 expected by chance)
+  2008: 51 units (0 districts: none), total 538, majority 270, s_nat 0.02068, s_state 0.03741
+    2008 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 8.55e-15 (DC: record 0.000298806, here 0.000298806); 0 beyond 0.0001
+    2008 W by Fourier vs the record: 51 units; largest relative difference 7.55e-15 (MT: record 0.00106628, here 0.00106628); 0 beyond 0.0001
+    2008 W_unconditional by Fourier vs the record: 51 units; largest relative difference 1.21e-14 (DC: record 0.00552172, here 0.00552172); 0 beyond 0.0001
+    2008 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 2.15 (MN: record 0.056167, Monte Carlo 0.055321 +- 0.00039); 0 beyond 3 se (about 0.1 expected by chance)
+  2012: 51 units (0 districts: none), total 538, majority 270, s_nat 0.01950, s_state 0.03736
+    2012 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 2.84e-14 (AL: record 0.0864333, here 0.0864333); 0 beyond 0.0001
+    2012 W by Fourier vs the record: 51 units; largest relative difference 9.99e-16 (AK: record 0.0204676, here 0.0204676); 0 beyond 0.0001
+    2012 W_unconditional by Fourier vs the record: 51 units; largest relative difference 2.86e-14 (DE: record 0.0279565, here 0.0279565); 0 beyond 0.0001
+    2012 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 2.08 (WI: record 0.087597, Monte Carlo 0.086985 +- 0.00029); 0 beyond 3 se (about 0.1 expected by chance)
+  2016: 51 units (0 districts: none), total 538, majority 270, s_nat 0.01933, s_state 0.03609
+    2016 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 1.51e-14 (CT: record 0.62096, here 0.62096); 0 beyond 0.0001
+    2016 W by Fourier vs the record: 51 units; largest relative difference 1.42e-14 (MT: record 0.00479785, here 0.00479785); 0 beyond 0.0001
+    2016 W_unconditional by Fourier vs the record: 51 units; largest relative difference 1.69e-14 (MT: record 0.0138558, here 0.0138558); 0 beyond 0.0001
+    2016 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 2.34 (NY: record 0.23414, Monte Carlo 0.23532 +- 0.0005); 0 beyond 3 se (about 0.1 expected by chance)
+     unit      ev     mean   W record  W Fourier       W MC       +-      ess   W uncond
+     CA        55   0.6216    0.43650    0.43650    0.43715  6.4e-04   548415    0.43366
+     NY        29   0.6459    0.23414    0.23414    0.23532  5.0e-04   642178    0.19530
+     PA        20   0.5302    0.18606    0.18606    0.18710  4.8e-04   759062    0.12469
+     IL        20   0.5887    0.16504    0.16504    0.16587  4.9e-04   457217    0.12575
+     FL        29   0.5073    0.15846    0.15846    0.15862  3.8e-04   916326    0.14509
+     MI        16   0.5509    0.14867    0.14867    0.14943  4.7e-04   579497    0.09899
+     OH        18   0.5180    0.14040    0.14040    0.14065  4.0e-04   860053    0.10423
+     NJ        14   0.5927    0.11326    0.11326    0.11409  4.2e-04   461601    0.08224
+     VA        13   0.5226    0.10439    0.10439    0.10475  3.6e-04   825610    0.07300
+     WA        12   0.5792    0.10086    0.10086    0.10163  4.0e-04   458810    0.07050
+     MN        10   0.5423    0.08892    0.08892    0.08943  3.7e-04   649087    0.05608
+     WI        10   0.5380    0.08816    0.08816    0.08839  3.6e-04   687007    0.05586
+     MA        11   0.6207    0.08677    0.08677    0.08725  3.5e-04   545005    0.06326
+     MD        10   0.6361    0.07720    0.07720    0.07753  3.3e-04   605550    0.05657
+     CO         9   0.5304    0.07458    0.07458    0.07447  3.2e-04   757597    0.04860
+     OR         7   0.5656    0.06121    0.06121    0.06140  3.2e-04   494105    0.03980
+     CT         7   0.5906    0.05783    0.05783    0.05788  3.1e-04   458957    0.03971
+     NC        15   0.4925    0.05596    0.05596    0.05601  2.1e-04   915769    0.07179
+     NV         6   0.5370    0.05298    0.05298    0.05316  2.8e-04   696940    0.03338
+     IA         6   0.5325    0.05192    0.05192    0.05206  2.7e-04   738210    0.03335
+     NM         5   0.5558    0.04324    0.04324    0.04337  2.7e-04   545485    0.02711
+     TX        38   0.4228    0.03574    0.03574    0.03576  1.2e-04   460547    0.12242
+     NH         4   0.5312    0.03372    0.03372    0.03372  2.2e-04   749754    0.02174
+     ME         4   0.5815    0.03309    0.03309    0.03316  2.3e-04   456791    0.02188
+     RI         4   0.6430    0.03068    0.03068    0.03075  2.0e-04   631832    0.02188
+     HI         4   0.7199    0.02854    0.02854    0.02862  1.8e-04   821143    0.02188
+     GA        16   0.4633    0.02724    0.02724    0.02726  1.2e-04   699193    0.06924
+     DE         3   0.5973    0.02462    0.02462    0.02464  1.9e-04   469672    0.01650
+     VT         3   0.6854    0.02234    0.02234    0.02238  1.6e-04   757218    0.01650
+     DC         3   0.9288    0.01937    0.01937    0.01941  1.4e-04   950133    0.01650
+     UT         6   0.2566    0.01926    0.01926    0.01930  1.1e-04   851531    0.02853
+     TN        11   0.3994    0.01908    0.01908    0.01912  9.4e-05   476827    0.04949
+     AZ        11   0.4567    0.01869    0.01869    0.01871  9.5e-05   640437    0.05021
+     OK         7   0.3352    0.01806    0.01806    0.01807  1.0e-04   703836    0.03279
+     IN        11   0.4509    0.01755    0.01755    0.01761  9.0e-05   592365    0.05002
+     AL         9   0.3907    0.01707    0.01707    0.01708  9.0e-05   502680    0.04139
+     MO        10   0.4551    0.01699    0.01699    0.01707  9.0e-05   626374    0.04620
+     KY         8   0.3875    0.01574    0.01574    0.01574  8.6e-05   514058    0.03716
+     SC         9   0.4498    0.01474    0.01474    0.01474  8.2e-05   584154    0.04176
+     LA         8   0.4154    0.01330    0.01330    0.01333  7.6e-05   454939    0.03722
+     AR         6   0.3813    0.01271    0.01271    0.01273  7.8e-05   536895    0.02855
+     KS         6   0.3917    0.01194    0.01194    0.01195  7.4e-05   499249    0.02856
+     WV         5   0.3661    0.01186    0.01186    0.01188  7.7e-05   596744    0.02440
+     ID         4   0.3387    0.01066    0.01066    0.01067  7.4e-05   693344    0.01940
+     NE         5   0.3916    0.01027    0.01027    0.01028  6.8e-05   499780    0.02441
+     MS         6   0.4449    0.01009    0.01009    0.01010  6.6e-05   549466    0.02871
+     WY         3   0.2913    0.00878    0.00878    0.00881  6.9e-05   803085    0.01387
+     ND         3   0.4017    0.00549    0.00549    0.00552  4.7e-05   471245    0.01386
+     SD         3   0.4107    0.00521    0.00521    0.00523  4.5e-05   456979    0.01386
+     AK         3   0.4297    0.00482    0.00482    0.00482  4.2e-05   476494    0.01386
+     MT         3   0.4325    0.00480    0.00480    0.00483  4.2e-05   486070    0.01386
+  2020: 51 units (0 districts: none), total 538, majority 270, s_nat 0.01875, s_state 0.03629
+    2020 f(1/2) by Fourier-grid quadrature vs the record: 51 units; largest relative difference 3.53e-14 (WY: record 0.0089449, here 0.0089449); 0 beyond 0.0001
+    2020 W by Fourier vs the record: 51 units; largest relative difference 2.71e-14 (AK: record 0.00205448, here 0.00205448); 0 beyond 0.0001
+    2020 W_unconditional by Fourier vs the record: 51 units; largest relative difference 3.75e-14 (CT: record 0.0223045, here 0.0223045); 0 beyond 0.0001
+    2020 W by Monte Carlo vs the record: 51 units; largest |z| = |W_mc - W_record| / se: 1.60 (PA: record 0.10696, Monte Carlo 0.10634 +- 0.00039); 0 beyond 3 se (about 0.1 expected by chance)
+  2024: 56 units (5 districts: ME-1, ME-2, NE-1, NE-2, NE-3), total 538, majority 270, s_nat 0.02753, s_state 0.03491
+    2024 f(1/2) by Fourier-grid quadrature vs the record: 56 units; largest relative difference 4.86e-14 (AZ: record 9.87431, here 9.87431); 0 beyond 0.0001
+    2024 W by Fourier vs the record: 56 units; largest relative difference 6.99e-15 (NE-1: record 0.00299578, here 0.00299578); 0 beyond 0.0001
+    2024 W_unconditional by Fourier vs the record: 56 units; largest relative difference 4.91e-14 (DE: record 0.0174998, here 0.0174998); 0 beyond 0.0001
+    2024 W by Monte Carlo vs the record: 56 units; largest |z| = |W_mc - W_record| / se: 2.19 (ME-2: record 0.0044376, Monte Carlo 0.0045385 +- 4.6e-05); 0 beyond 3 se (about 0.2 expected by chance)
+     unit      ev     mean   W record  W Fourier       W MC       +-      ess   W uncond
+     FL        30   0.4758    0.19015    0.19015    0.19028  4.1e-04   738472    0.21809
+     PA        19   0.4986    0.18616    0.18616    0.18561  4.4e-04   839985    0.13979
+     TX        40   0.4644    0.16526    0.16526    0.16537  3.6e-04   641068    0.27691
+     CA        54   0.6418    0.14802    0.14802    0.14783  3.8e-04   274144    0.28925
+     GA        16   0.4939    0.14575    0.14575    0.14589  4.0e-04   833309    0.11271
+     MI        15   0.5069    0.13800    0.13800    0.13805  3.9e-04   831599    0.10323
+     NC        16   0.4859    0.13052    0.13052    0.13087  3.7e-04   803581    0.11159
+     AZ        11   0.4943    0.09662    0.09662    0.09702  3.3e-04   834143    0.07407
+     WI        10   0.4959    0.09051    0.09051    0.09006  3.2e-04   837153    0.06843
+     NY        28   0.6100    0.07809    0.07809    0.07824  2.6e-04   219787    0.16380
+     MN        10   0.5291    0.06830    0.06830    0.06804  2.7e-04   698861    0.06578
+     OH        17   0.4520    0.06377    0.06377    0.06371  2.2e-04   524675    0.11283
+     VA        13   0.5443    0.06239    0.06239    0.06234  2.5e-04   560123    0.08032
+     IL        19   0.5793    0.05573    0.05573    0.05578  2.1e-04   297888    0.11576
+     NV         6   0.5050    0.05128    0.05128    0.05157  2.5e-04   835798    0.03796
+     MA        11   0.6639    0.04752    0.04752    0.04758  2.0e-04   377006    0.06757
+     NJ        14   0.5735    0.04459    0.04459    0.04467  1.9e-04   329255    0.08579
+     MD        10   0.6630    0.04433    0.04433    0.04436  1.9e-04   372558    0.06302
+     CO        10   0.5621    0.03769    0.03769    0.03783  1.8e-04   405712    0.06355
+     WA        12   0.5920    0.03642    0.03642    0.03652  1.7e-04   249271    0.07243
+     TN        11   0.3745    0.03560    0.03560    0.03576  1.5e-04   233512    0.07081
+     AL         9   0.3636    0.03162    0.03162    0.03174  1.5e-04   259500    0.05796
+     OK         7   0.3233    0.03047    0.03047    0.03055  1.5e-04   444330    0.04494
+     IN        11   0.4108    0.02975    0.02975    0.02985  1.3e-04   257449    0.07088
+     KY         8   0.3607    0.02899    0.02899    0.02910  1.4e-04   268841    0.05174
+     SC         9   0.4335    0.02704    0.02704    0.02701  1.3e-04   373041    0.05813
+     OR         8   0.5758    0.02703    0.02703    0.02708  1.4e-04   315980    0.05032
+     MO        10   0.4144    0.02696    0.02696    0.02704  1.3e-04   270302    0.06399
+     NH         4   0.5302    0.02636    0.02636    0.02672  1.7e-04   689446    0.02457
+     NM         5   0.5479    0.02415    0.02415    0.02427  1.5e-04   526406    0.03131
+     IA         6   0.4509    0.02328    0.02328    0.02325  1.3e-04   514921    0.03786
+     LA         8   0.3981    0.02313    0.02313    0.02322  1.2e-04   228393    0.05176
+     AR         6   0.3506    0.02278    0.02278    0.02285  1.2e-04   308756    0.03781
+     CT         7   0.5947    0.02246    0.02246    0.02263  1.3e-04   242052    0.04277
+     WV         4   0.2948    0.01995    0.01995    0.01996  1.2e-04   571422    0.02665
+     UT         6   0.3858    0.01838    0.01838    0.01843  1.0e-04   222020    0.03781
+     ID         4   0.3340    0.01755    0.01755    0.01757  1.1e-04   390166    0.02665
+     DC         3   0.9374    0.01706    0.01706    0.01722  1.2e-04   901658    0.01750
+     KS         6   0.4178    0.01668    0.01668    0.01670  9.7e-05   284372    0.03781
+     MS         6   0.4089    0.01666    0.01666    0.01672  9.6e-05   251632    0.03781
+     WY         3   0.2679    0.01658    0.01658    0.01664  1.1e-04   659556    0.02077
+     HI         4   0.6431    0.01657    0.01657    0.01677  1.1e-04   278904    0.02443
+     ND         3   0.3207    0.01456    0.01456    0.01462  9.8e-05   457480    0.02077
+     VT         3   0.6757    0.01368    0.01368    0.01383  1.0e-04   437659    0.01750
+     RI         4   0.5987    0.01346    0.01346    0.01366  9.7e-05   233133    0.02443
+     SD         3   0.3584    0.01226    0.01226    0.01234  8.6e-05   277143    0.02077
+     MT         4   0.4088    0.01191    0.01191    0.01193  8.1e-05   251271    0.02668
+     AK         3   0.4401    0.01127    0.01127    0.01130  8.4e-05   422430    0.02096
+     ME         2   0.5394    0.00983    0.00983    0.00993  9.2e-05   605513    0.01065
+     DE         3   0.5890    0.00976    0.00976    0.00990  8.1e-05   258506    0.01750
+     NE         2   0.3949    0.00656    0.00656    0.00664  5.7e-05   224764    0.01349
+     NE-2       1   0.5261    0.00595    0.00595    0.00597  6.2e-05   723835    0.00531
+     NE-3       1   0.2214    0.00544    0.00544    0.00554  5.0e-05   760915    0.00629
+     ME-2       1   0.4544    0.00444    0.00444    0.00454  4.6e-05   547429    0.00624
+     ME-1       1   0.6116    0.00313    0.00313    0.00318  3.5e-05   219244    0.00536
+     NE-1       1   0.4159    0.00300    0.00300    0.00305  3.1e-05   276333    0.00628
+2.2 538's marginals (mean, implied sd, normal) with the model's own national swing: 2016 (three models) and 2020 (polls-plus; its districts are the record's p)
+  2016 538 polls-plus: 56 units; s_d 0.01933 (the own national sd; the record's method text says 0.0193); fallback units given the own sd: ['UT']
+    2016 polls-plus W by Fourier vs the record: 53 units; largest relative difference 2.66e-15 (LA: record 0.00404006, here 0.00404006); 0 beyond 0.0001
+    2016 polls-plus W by Monte Carlo vs the record: 53 units; largest |z| = |W_mc - W_record| / se: 2.81 (VT: record 0.020191, Monte Carlo 0.020596 +- 0.00014); 0 beyond 3 se (about 0.1 expected by chance)
+     unit      ev     mean       sd   W record  W Fourier       W MC       +-
+     FL        29   0.5027   0.0294    0.20994    0.20994    0.20890  4.3e-04
+     PA        20   0.5198   0.0264    0.19287    0.19287    0.19347  4.8e-04
+     MI        16   0.5232   0.0276    0.14474    0.14474    0.14507  4.3e-04
+     NC        15   0.5026   0.0250    0.11562    0.11562    0.11524  3.6e-04
+     VA        13   0.5297   0.0274    0.11108    0.11108    0.11135  3.9e-04
+     IL        20   0.5672   0.0320    0.10062    0.10062    0.10100  3.7e-04
+     NY        29   0.6026   0.0351    0.08803    0.08803    0.08809  3.6e-04
+     WI        10   0.5281   0.0289    0.08693    0.08693    0.08715  3.4e-04
+     MN        10   0.5325   0.0295    0.08377    0.08377    0.08386  3.3e-04
+     NJ        14   0.5619   0.0323    0.08310    0.08310    0.08347  3.3e-04
+     OH        18   0.4901   0.0268    0.07993    0.07993    0.07978  2.6e-04
+     CO         9   0.5222   0.0289    0.07922    0.07922    0.07968  3.2e-04
+     NE-1       1   0.4141   0.0654    0.00465    0.00465    0.00462  4.3e-05
+     NE-2       1   0.4860   0.0573    0.00605    0.00605    0.00602  5.4e-05
+     NE-3       1   0.2962   0.0829    0.00386    0.00386    0.00383  3.6e-05
+  2016 538 polls-only: 56 units; s_d 0.01933 (the own national sd; the record's method text says 0.0193); fallback units given the own sd: ['DC', 'UT', 'ME-2']
+    2016 polls-only W by Fourier vs the record: 52 units; largest relative difference 1.78e-15 (AK: record 0.0146319, here 0.0146319); 0 beyond 0.0001
+    2016 polls-only W by Monte Carlo vs the record: 52 units; largest |z| = |W_mc - W_record| / se: 2.44 (FL: record 0.22309, Monte Carlo 0.22197 +- 0.00046); 0 beyond 3 se (about 0.1 expected by chance)
+  2016 538 now-cast: 56 units; s_d 0.01933 (the own national sd; the record's method text says 0.0193); fallback units given the own sd: ['UT']
+    2016 now-cast W by Fourier vs the record: 53 units; largest relative difference 1.78e-15 (AK: record 0.0146307, here 0.0146307); 0 beyond 0.0001
+    2016 now-cast W by Monte Carlo vs the record: 53 units; largest |z| = |W_mc - W_record| / se: 2.77 (FL: record 0.21723, Monte Carlo 0.21599 +- 0.00045); 0 beyond 3 se (about 0.1 expected by chance)
+  2020 538 polls-plus: 56 units; s_d 0.01875 (the own national sd; the record's method text says 0.0188); fallback units given the own sd: ['DC']
+    2020 polls-plus W by Fourier vs the record: 55 units; largest relative difference 4.80e-14 (NE: record 0.000243953, here 0.000243953); 0 beyond 0.0001
+    2020 polls-plus W by Monte Carlo vs the record: 55 units; largest |z| = |W_mc - W_record| / se: 1.95 (MN: record 0.096382, Monte Carlo 0.0954 +- 0.0005); 0 beyond 3 se (about 0.1 expected by chance)
+     unit      ev     mean       sd   W record  W Fourier       W MC       +-
+     CA        55   0.6525   0.0515    0.34454    0.34454    0.34392  7.2e-04
+     PA        20   0.5235   0.0233    0.19043    0.19043    0.18977  5.9e-04
+     MI        16   0.5403   0.0250    0.16095    0.16095    0.16105  6.5e-04
+     NY        29   0.6469   0.0388    0.15870    0.15870    0.15861  8.2e-04
+     FL        29   0.5124   0.0252    0.10563    0.10563    0.10558  3.5e-04
+     VA        13   0.5631   0.0265    0.10538    0.10538    0.10426  6.2e-04
+     NJ        14   0.6024   0.0421    0.10392    0.10392    0.10334  4.7e-04
+     WI        10   0.5419   0.0265    0.09685    0.09685    0.09606  4.9e-04
+     MN        10   0.5462   0.0269    0.09638    0.09638    0.09540  5.0e-04
+     WA        12   0.6215   0.0504    0.08533    0.08533    0.08478  4.0e-04
+     IL        20   0.5905   0.0277    0.08376    0.08376    0.08316  6.7e-04
+     MA        11   0.6768   0.0527    0.08349    0.08349    0.08279  4.4e-04
+     ME-1       1   0.6065   0.0556    0.00655    0.00655    0.00654  7.8e-05
+     ME-2       1   0.5081   0.0444    0.00385    0.00385    0.00379  4.4e-05
+     NE-1       1   0.4381   0.0350    0.00038    0.00038    0.00038  5.6e-06
+     NE-2       1   0.5164   0.0283    0.00545    0.00545    0.00537  6.2e-05
+     NE-3       1   0.2598   0.0685    0.00062    0.00062    0.00061  8.2e-06
+2.3 The Economist's 2020 draws, recounted from the raw file (electoral_college_simulations.csv)
+  zip sha256 b8cce0da03ff2996b6e1d45aa884cf13d116ddb67277a022e7ef513ef8cf9e88 (record's source sha256 matches)
+  80,000 draws, 51 states; draws with a state printed at exactly one half: 1229
+  (a) the record's window counts (in_window, weighted) for k = 25, 50, 100, 200 steps: all 204 recounted exactly
+  (b) W by window width, and by a local-linear fit of w on (share - 1/2) within +-0.03 (its intercept),
+      and p_state's numerator (the share's density at one half) by the window count vs a normal fit of the state's draws;
+      ratio = the Fourier-free estimate / the record's W (k = 100, the record's window)
+     state  ev    mean      sd     W rec    W k=50   W k=200  W loclin       +- f(1/2) win  f normal  ratio f
+     PA     20  0.5314  0.0195   0.25649   0.29151   0.17611   0.24018  2.6e-03     6.0155    5.5875   1.0766
+     MI     16  0.5421  0.0195   0.21036   0.20534   0.19265   0.21867  4.9e-03     2.3221    2.0069   1.1570
+     VA     13  0.5585  0.0208   0.15000   0.14286   0.14836   0.14693  1.0e-02     0.5162    0.3703   1.3937
+     WI     10  0.5404  0.0196   0.13156   0.13197   0.10946   0.12837  3.1e-03     2.8315    2.4315   1.1645
+     NM      5  0.5635  0.0222   0.12928   0.13240   0.08749   0.12561  8.2e-03     0.3993    0.3013   1.3249
+     MN     10  0.5459  0.0198   0.09764   0.08385   0.09769   0.10255  4.2e-03     1.6368    1.3660   1.1983
+     CO      9  0.5620  0.0204   0.05882   0.05473   0.06495   0.06938  9.4e-03     0.2960    0.1949   1.5192
+     NH      4  0.5456  0.0207   0.04252   0.04007   0.03169   0.04045  2.0e-03     1.9745    1.6912   1.1675
+     FL     29  0.5166  0.0198   0.03748   0.03956   0.03671   0.06381  8.4e-04    13.9695   14.1655   0.9862
+     NV      6  0.5339  0.0209   0.02197   0.02281   0.01767   0.02406  9.7e-04     5.4478    5.1302   1.0619
+     AZ     11  0.5124  0.0202   0.01893   0.01934   0.01806   0.02389  5.4e-04    16.0833   16.3957   0.9809
+     TX     38  0.4893  0.0207   0.01383   0.01368   0.01615   0.01602  6.0e-04    16.3955   16.8554   0.9727
+     GA     16  0.5043  0.0204   0.01381   0.01330   0.01475   0.01795  4.7e-04    18.2886   19.1010   0.9575
+     NC     15  0.5104  0.0200   0.01232   0.01131   0.01353   0.02187  4.9e-04    16.8644   17.4043   0.9690
+     OH     18  0.4971  0.0199   0.00042   0.00013   0.00182   0.00487  2.9e-04    19.0653   19.8781   0.9591
+     IA      6  0.4975  0.0198   0.00039   0.00022   0.00093   0.00146  1.4e-04    19.1219   19.9461   0.9587
+  states whose record W rests on fewer than 10 weighted draws (the record marks these): 0: 
+
+C3. CHAMBER CONTROL: P(decides | tie) BY METHODS OTHER THAN THE PIPELINE'S, AND 538 x OWN COHERENCE
+repository HEAD 503657b
+3.1 Every chamber-year, every modelled seat: Fourier count on a 1,201-point Simpson grid (tolerance 1e-6), and importance-sampling Monte Carlo where run
+  senate 2006: 32 seats with a mean (31 modelled, 1 inferred), fixed D 0, fixed other 1, not-up D 27, pivots over all seats {23: 1.0}, sd_a 0.02106, s_e 0.05265
+    senate 2006 P(decides | tie) by Fourier vs the record: 31 seats; largest relative difference 3.30e-13 (2006-senate-MA: record 0.0152365, here 0.0152365); 0 beyond 1e-06
+    senate 2006 P(decides), unconditional, by Fourier vs the record: 31 seats; largest relative difference 1.98e-14 (2006-senate-ME: record 0.0949994, here 0.0949994); 0 beyond 1e-06
+    senate 2006 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 2.03 (2006-senate-PA: record 0.091524, MC 0.091124 +- 0.0002); 0 of 31 beyond 3 se (0.1 expected)
+  senate 2008: 33 seats with a mean (31 modelled, 2 inferred), fixed D 1, fixed other 1, not-up D 39, pivots over all seats {10: 0.5, 11: 0.5}, sd_a 0.02106, s_e 0.05513
+    senate 2008 P(decides | tie) by Fourier vs the record: 31 seats; largest relative difference 5.74e-14 (2008-senate-MA: record 0.147095, here 0.147095); 0 beyond 1e-06
+    senate 2008 P(decides), unconditional, by Fourier vs the record: 31 seats; largest relative difference 1.90e-14 (2008-senate-MA: record 0.0811156, here 0.0811156); 0 beyond 1e-06
+    senate 2008 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.97 (2008-senate-ME: record 0.070987, MC 0.071237 +- 0.00013); 0 of 31 beyond 3 se (0.1 expected)
+  senate 2010: 35 seats with a mean (31 modelled, 4 inferred), fixed D 0, fixed other 2, not-up D 40, pivots over all seats {9: 1.0}, sd_a 0.02106, s_e 0.05619
+    senate 2010 P(decides | tie) by Fourier vs the record: 31 seats; largest relative difference 9.51e-14 (2010-senate-HI: record 0.0688809, here 0.0688809); 0 beyond 1e-06
+    senate 2010 P(decides), unconditional, by Fourier vs the record: 31 seats; largest relative difference 1.81e-14 (2010-senate-HI: record 0.0168732, here 0.0168732); 0 beyond 1e-06
+    senate 2010 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.82 (2010-senate-NC: record 0.0018772, MC 0.001911 +- 1.9e-05); 0 of 31 beyond 3 se (0.1 expected)
+  senate 2012: 33 seats with a mean (33 modelled, 0 inferred), fixed D 0, fixed other 0, not-up D 30, pivots over all seats {19: 0.5, 20: 0.5}, sd_a 0.02106, s_e 0.05844
+    senate 2012 P(decides | tie) by Fourier vs the record: 33 seats; largest relative difference 1.38e-13 (2012-senate-WY: record 0.0729558, here 0.0729558); 0 beyond 1e-06
+    senate 2012 P(decides), unconditional, by Fourier vs the record: 33 seats; largest relative difference 1.94e-14 (2012-senate-OH: record 0.13699, here 0.13699); 0 beyond 1e-06
+    senate 2012 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.66 (2012-senate-NV: record 0.1421, MC 0.14237 +- 0.00016); 0 of 33 beyond 3 se (0.1 expected)
+  senate 2014: 35 seats with a mean (32 modelled, 3 inferred), fixed D 0, fixed other 1, not-up D 34, pivots over all seats {15: 1.0}, sd_a 0.02106, s_e 0.05842
+    senate 2014 P(decides | tie) by Fourier vs the record: 32 seats; largest relative difference 3.93e-13 (2014-senate-WY: record 0.116724, here 0.116724); 0 beyond 1e-06
+    senate 2014 P(decides), unconditional, by Fourier vs the record: 32 seats; largest relative difference 1.95e-14 (2014-senate-NH: record 0.133581, here 0.133581); 0 beyond 1e-06
+    senate 2014 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.86 (2014-senate-NE: record 0.15535, MC 0.15588 +- 0.00028); 0 of 32 beyond 3 se (0.1 expected)
+  senate 2016: 33 seats with a mean (30 modelled, 3 inferred), fixed D 1, fixed other 0, not-up D 36, pivots over all seats {13: 0.5, 14: 0.5}, sd_a 0.02106, s_e 0.05746
+    senate 2016 P(decides | tie) by Fourier vs the record: 30 seats; largest relative difference 9.52e-13 (2016-senate-UT: record 0.158088, here 0.158088); 0 beyond 1e-06
+    senate 2016 P(decides), unconditional, by Fourier vs the record: 30 seats; largest relative difference 2.01e-14 (2016-senate-IL: record 0.0726302, here 0.0726302); 0 beyond 1e-06
+    senate 2016 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.15 (2016-senate-CO: record 0.038183, MC 0.038277 +- 8.2e-05); 0 of 30 beyond 3 se (0.1 expected)
+  senate 2018: 33 seats with a mean (32 modelled, 1 inferred), fixed D 1, fixed other 1, not-up D 23, pivots over all seats {27: 1.0}, sd_a 0.02106, s_e 0.05885
+    senate 2018 P(decides | tie) by Fourier vs the record: 32 seats; largest relative difference 4.12e-13 (2018-senate-HI: record 0.00892411, here 0.00892411); 0 beyond 1e-06
+    senate 2018 P(decides), unconditional, by Fourier vs the record: 32 seats; largest relative difference 2.02e-14 (2018-senate-MO: record 0.0688544, here 0.0688544); 0 beyond 1e-06
+    senate 2018 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.44 (2018-senate-MT: record 0.061262, MC 0.061494 +- 0.00016); 0 of 32 beyond 3 se (0.1 expected)
+  senate 2020: 34 seats with a mean (30 modelled, 4 inferred), fixed D 0, fixed other 1, not-up D 35, pivots over all seats {14: 0.5, 15: 0.5}, sd_a 0.02106, s_e 0.05919
+    senate 2020 P(decides | tie) by Fourier vs the record: 30 seats; largest relative difference 6.54e-14 (2020-senate-WV: record 0.148943, here 0.148943); 0 beyond 1e-06
+    senate 2020 P(decides), unconditional, by Fourier vs the record: 30 seats; largest relative difference 1.97e-14 (2020-senate-MI: record 0.106893, here 0.106893); 0 beyond 1e-06
+    senate 2020 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.60 (2020-senate-MN: record 0.10526, MC 0.10503 +- 0.00014); 0 of 30 beyond 3 se (0.1 expected)
+  senate 2022: 34 seats with a mean (31 modelled, 3 inferred), fixed D 0, fixed other 1, not-up D 36, pivots over all seats {13: 1.0}, sd_a 0.02106, s_e 0.05931
+    senate 2022 P(decides | tie) by Fourier vs the record: 31 seats; largest relative difference 1.67e-13 (2022-senate-ND: record 0.177954, here 0.177954); 0 beyond 1e-06
+    senate 2022 P(decides), unconditional, by Fourier vs the record: 31 seats; largest relative difference 1.97e-14 (2022-senate-CO: record 0.159411, here 0.159411); 0 beyond 1e-06
+    senate 2022 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.13 (2022-senate-PA: record 0.21653, MC 0.21619 +- 0.0003); 0 of 31 beyond 3 se (0.1 expected)
+  senate 2024: 33 seats with a mean (32 modelled, 1 inferred), fixed D 0, fixed other 1, not-up D 28, pivots over all seats {21: 0.5, 22: 0.5}, sd_a 0.02106, s_e 0.05974
+    senate 2024 P(decides | tie) by Fourier vs the record: 32 seats; largest relative difference 3.04e-13 (2024-senate-WY: record 0.186834, here 0.186834); 0 beyond 1e-06
+    senate 2024 P(decides), unconditional, by Fourier vs the record: 32 seats; largest relative difference 2.00e-14 (2024-senate-DE: record 0.0622968, here 0.0622968); 0 beyond 1e-06
+    senate 2024 P(decides | tie) by Monte Carlo (2,000,000 draws): largest |z| 1.48 (2024-senate-MD: record 0.026779, MC 0.026685 +- 6.4e-05); 0 of 32 beyond 3 se (0.1 expected)
+       seat                       mean     P rec P Fourier  P uncond
+       2024-senate-WY           0.2654   0.18683   0.18683   0.10516
+       2024-senate-ND           0.3042   0.17876   0.17876   0.10516
+       2024-senate-TN           0.3440   0.16746   0.16746   0.10507
+       2024-senate-WV           0.3442   0.16741   0.16741   0.10507
+       2024-senate-MS           0.3694   0.15875   0.15875   0.10477
+       2024-senate-MO           0.3735   0.15723   0.15723   0.10467
+       2024-senate-TX           0.4104   0.14099   0.14099   0.10257
+       2024-senate-UT           0.4114   0.14049   0.14049   0.10246
+       2024-senate-NE-special   0.4181   0.13685   0.13685   0.10166
+       2024-senate-FL           0.4188   0.13646   0.13646   0.10157
+  house 2006: 378 seats with a mean (368 modelled, 10 inferred), fixed D 47, fixed other 10, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.04636
+    house 2006 P(decides | tie) by Fourier vs the record: 368 seats; largest relative difference 2.66e-07 (2006-house-NY-15: record 0.00210847, here 0.00210847); 0 beyond 1e-06
+    house 2006 P(decides), unconditional, by Fourier vs the record: 368 seats; largest relative difference 3.20e-14 (2006-house-CA-01: record 0.0122567, here 0.0122567); 0 beyond 1e-06
+  house 2008: 377 seats with a mean (370 modelled, 7 inferred), fixed D 43, fixed other 15, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.04600
+    house 2008 P(decides | tie) by Fourier vs the record: 370 seats; largest relative difference 7.05e-08 (2008-house-NY-15: record 0.00117762, here 0.00117762); 0 beyond 1e-06
+    house 2008 P(decides), unconditional, by Fourier vs the record: 370 seats; largest relative difference 3.24e-14 (2008-house-CA-02: record 0.0208984, here 0.0208984); 0 beyond 1e-06
+  house 2010: 406 seats with a mean (400 modelled, 6 inferred), fixed D 5, fixed other 24, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.04865
+    house 2010 P(decides | tie) by Fourier vs the record: 400 seats; largest relative difference 3.28e-09 (2010-house-NY-16: record 0.000356338, here 0.000356338); 0 beyond 1e-06
+    house 2010 P(decides), unconditional, by Fourier vs the record: 400 seats; largest relative difference 3.21e-14 (2010-house-CA-20: record 0.0255248, here 0.0255248); 0 beyond 1e-06
+  house 2012: 388 seats with a mean (341 modelled, 47 inferred), fixed D 22, fixed other 25, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.04902
+    house 2012 P(decides | tie) by Fourier vs the record: 341 seats; largest relative difference 4.04e-09 (2012-house-NY-15: record 1.51934e-07, here 1.51934e-07); 0 beyond 1e-06
+    house 2012 P(decides), unconditional, by Fourier vs the record: 341 seats; largest relative difference 3.08e-14 (2012-house-FL-01: record 0.00310232, here 0.00310232); 0 beyond 1e-06
+  house 2014: 358 seats with a mean (355 modelled, 3 inferred), fixed D 41, fixed other 36, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.04922
+    house 2014 P(decides | tie) by Fourier vs the record: 355 seats; largest relative difference 4.98e-10 (2014-house-CA-13: record 2.24386e-08, here 2.24386e-08); 0 beyond 1e-06
+    house 2014 P(decides), unconditional, by Fourier vs the record: 355 seats; largest relative difference 3.42e-14 (2014-house-AZ-01: record 0.000748326, here 0.000748326); 0 beyond 1e-06
+  house 2016: 371 seats with a mean (341 modelled, 30 inferred), fixed D 34, fixed other 30, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.04919
+    house 2016 P(decides | tie) by Fourier vs the record: 341 seats; largest relative difference 1.88e-08 (2016-house-NY-15: record 3.18864e-07, here 3.18864e-07); 0 beyond 1e-06
+    house 2016 P(decides), unconditional, by Fourier vs the record: 341 seats; largest relative difference 3.30e-14 (2016-house-NY-19: record 0.00629122, here 0.00629122); 0 beyond 1e-06
+  house 2018: 392 seats with a mean (380 modelled, 12 inferred), fixed D 39, fixed other 4, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.04984
+    house 2018 P(decides | tie) by Fourier vs the record: 380 seats; largest relative difference 6.17e-08 (2018-house-NY-15: record 0.00193015, here 0.00193015); 0 beyond 1e-06
+    house 2018 P(decides), unconditional, by Fourier vs the record: 380 seats; largest relative difference 3.19e-14 (2018-house-FL-19: record 0.0260555, here 0.0260555); 0 beyond 1e-06
+    house 2018 P(decides | tie) by Monte Carlo (400,000 draws): largest |z| 1.16 (2018-house-NM-02: record 0.026679, MC 0.026977 +- 0.00026); 0 of 380 beyond 3 se (1.0 expected)
+  house 2020: 407 seats with a mean (398 modelled, 9 inferred), fixed D 19, fixed other 9, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.05028
+    house 2020 P(decides | tie) by Fourier vs the record: 398 seats; largest relative difference 2.36e-08 (2020-house-NY-13: record 0.0377453, here 0.0377453); 0 beyond 1e-06
+    house 2020 P(decides), unconditional, by Fourier vs the record: 398 seats; largest relative difference 4.15e-14 (2020-house-GA-07: record 0.00195548, here 0.00195548); 0 beyond 1e-06
+  house 2022: 398 seats with a mean (389 modelled, 9 inferred), fixed D 14, fixed other 23, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.05031
+    house 2022 P(decides | tie) by Fourier vs the record: 389 seats; largest relative difference 4.61e-10 (2022-house-CA-12: record 6.06766e-05, here 6.06766e-05); 0 beyond 1e-06
+    house 2022 P(decides), unconditional, by Fourier vs the record: 389 seats; largest relative difference 3.23e-14 (2022-house-NC-01: record 0.0182285, here 0.0182285); 0 beyond 1e-06
+    house 2022 P(decides | tie) by Monte Carlo (400,000 draws): largest |z| 2.30 (2022-house-FL-15: record 0.026291, MC 0.025613 +- 0.00029); 0 of 389 beyond 3 se (1.1 expected)
+       seat                       mean     P rec P Fourier  P uncond
+       2022-house-MS-03         0.3076   0.04087   0.04087   0.01932
+       2022-house-MI-05         0.3081   0.04087   0.04087   0.01932
+       2022-house-MS-04         0.3083   0.04086   0.04086   0.01932
+       2022-house-OR-02         0.3058   0.04086   0.04086   0.01932
+       2022-house-AR-03         0.3096   0.04086   0.04086   0.01932
+       2022-house-CA-20         0.3042   0.04086   0.04086   0.01932
+       2022-house-ID-02         0.3114   0.04085   0.04085   0.01932
+       2022-house-NC-03         0.3036   0.04085   0.04085   0.01932
+       2022-house-WI-05         0.3133   0.04084   0.04084   0.01932
+       2022-house-TX-02         0.3136   0.04083   0.04083   0.01932
+  house 2024: 397 seats with a mean (373 modelled, 24 inferred), fixed D 18, fixed other 20, pivots over all seats {217: 1.0}, sd_a 0.01893, s_e 0.05040
+    house 2024 P(decides | tie) by Fourier vs the record: 373 seats; largest relative difference 1.70e-09 (2024-house-MD-04: record 0.000412131, here 0.000412131); 0 beyond 1e-06
+    house 2024 P(decides), unconditional, by Fourier vs the record: 373 seats; largest relative difference 3.25e-14 (2024-house-VA-07: record 0.0360179, here 0.0360179); 0 beyond 1e-06
+    house 2024 P(decides | tie) by Monte Carlo (400,000 draws): largest |z| 1.72 (2024-house-CO-03: record 0.043056, MC 0.042463 +- 0.00034); 0 of 373 beyond 3 se (1.0 expected)
+3.2 '538's seat p x the model's own P(decides | tie)': what conditioning on 538's mean would do
+    (a) the record: the swing given the tie from the model's own mean for the seat;
+    (b) the swing given the tie from 538's mean, with the model's sd_a and s_e;
+    (c) 538's mean and sd as the seat's marginal: s_e,i = sqrt(sd_538^2 - sd_a^2) (as the presidency treats 538),
+        where sd_538 > 1.05 sd_a, else (b).
+    control p = seat p (538's, unchanged) x P; so ratio = P(b or c) / P(a).
+  house 2018: 318 seats with 538's p; P(b)/P(a) median 0.979, range 0.320-4.073; P(c)/P(a) median 1.098, range 0.352-6.386; sum of control p over these seats: (a) 3.617e-05, (b) 4.002e-05, (c) 3.880e-05
+       seat                   own mean 538 mean  538 sd      P(a)      P(b)      P(c)  control p (a)        (c)
+       2018-house-KY-05         0.2237   0.2245  0.0716   0.00123   0.00125   0.00785      9.636e-12  6.154e-11
+       2018-house-OK-02         0.2709   0.3812  0.0562   0.00265   0.01079   0.01225      4.910e-09  2.270e-08
+       2018-house-NE-03         0.2485   0.2422  0.0693   0.00186   0.00168   0.00782      2.495e-11  1.047e-10
+       2018-house-MO-08         0.2543   0.2305  0.0725   0.00204   0.00138   0.00847      2.147e-11  8.888e-11
+       2018-house-WV-03         0.3305   0.4755  0.0421   0.00604   0.02335   0.02116      1.382e-07  4.838e-07
+  house 2020: 332 seats with 538's p; P(b)/P(a) median 1.165, range 0.067-8.615; P(c)/P(a) median 1.097, range 0.227-68.562; sum of control p over these seats: (a) 2.608e-06, (b) 2.109e-06, (c) 1.822e-06
+       seat                   own mean 538 mean  538 sd      P(a)      P(b)      P(c)  control p (a)        (c)
+       2020-house-KY-05         0.2103   0.2014  0.0788   0.00000   0.00000   0.00012      1.160e-14  7.956e-13
+       2020-house-MO-08         0.2408   0.2048  0.0848   0.00000   0.00000   0.00020      7.269e-14  3.330e-12
+       2020-house-OK-03         0.2435   0.2291  0.0790   0.00000   0.00000   0.00016      1.046e-13  3.723e-12
+       2020-house-WV-03         0.2615   0.2826  0.0764   0.00001   0.00001   0.00023      1.515e-12  4.712e-11
+       2020-house-OK-02         0.2574   0.2590  0.0764   0.00001   0.00001   0.00018      4.323e-13  1.176e-11
+  house 2022: 358 seats with 538's p; P(b)/P(a) median 0.971, range 0.242-2.317; P(c)/P(a) median 0.981, range 0.113-6.696; sum of control p over these seats: (a) 3.151e-05, (b) 3.029e-05, (c) 2.979e-05
+       seat                   own mean 538 mean  538 sd      P(a)      P(b)      P(c)  control p (a)        (c)
+       2022-house-NM-01         0.5219   0.5466  0.0306   0.01399   0.01093   0.00158      1.020e-07  1.156e-08
+       2022-house-NM-03         0.5631   0.5920  0.0378   0.00885   0.00627   0.00107      1.042e-08  1.264e-09
+       2022-house-GA-13         0.7636   0.7701  0.0694   0.00039   0.00034   0.00259      2.169e-12  1.452e-11
+       2022-house-NY-14         0.7477   0.7917  0.0750   0.00053   0.00022   0.00314      6.321e-12  3.777e-11
+       2022-house-GA-04         0.7529   0.7586  0.0682   0.00048   0.00043   0.00263      3.828e-12  2.109e-11
+  senate 2014: 32 seats with 538's p; P(b)/P(a) median 1.020, range 0.673-1.196; P(c)/P(a) median 0.633, range 0.007-1.196; sum of control p over these seats: (a) 1.210e-05, (b) 1.260e-05, (c) 1.227e-05
+       seat                   own mean 538 mean  538 sd      P(a)      P(b)      P(c)  control p (a)        (c)
+       2014-senate-NJ           0.5434   0.5821  0.0250   0.12402   0.10877   0.00085      2.422e-09  1.654e-11
+       2014-senate-NM           0.5742   0.5612  0.0234   0.10607   0.11127   0.00164      5.794e-08  8.958e-10
+       2014-senate-MA           0.6217   0.5942  0.0277   0.08332   0.09433   0.00173      9.060e-10  1.883e-11
+       2014-senate-TX           0.3616   0.3849  0.0300   0.14738   0.15178   0.02024      1.430e-10  1.964e-11
+       2014-senate-OR           0.5814   0.5916  0.0329   0.10230   0.09820   0.01697      9.565e-09  1.587e-09
+  senate 2016: 29 seats with 538's p; P(b)/P(a) median 0.864, range 0.614-1.155; P(c)/P(a) median 0.990, range 0.098-1.737; sum of control p over these seats: (a) 2.387e-06, (b) 2.020e-06, (c) 1.911e-06
+       seat                   own mean 538 mean  538 sd      P(a)      P(b)      P(c)  control p (a)        (c)
+       2016-senate-CO           0.5620   0.5420  0.0262   0.03818   0.04371   0.00372      3.113e-08  3.037e-09
+       2016-senate-WA           0.5973   0.5815  0.0332   0.02820   0.03177   0.00317      2.554e-09  2.873e-10
+       2016-senate-IL           0.4897   0.5623  0.0333   0.07523   0.04993   0.01213      1.510e-08  2.434e-09
+       2016-senate-MD           0.5813   0.6415  0.0511   0.03230   0.02014   0.01097      1.033e-09  3.505e-10
+       2016-senate-OR           0.5875   0.6445  0.0512   0.03064   0.01949   0.01055      1.274e-09  4.385e-10
+  senate 2018: 32 seats with 538's p; P(b)/P(a) median 1.174, range 0.633-2.323; P(c)/P(a) median 0.583, range 0.102-1.760; sum of control p over these seats: (a) 4.233e-06, (b) 4.042e-06, (c) 3.741e-06
+       seat                   own mean 538 mean  538 sd      P(a)      P(b)      P(c)  control p (a)        (c)
+       2018-senate-OH           0.5729   0.5592  0.0298   0.03780   0.04156   0.00387      7.995e-09  8.179e-10
+       2018-senate-MI           0.6044   0.5549  0.0287   0.02897   0.04143   0.00322      7.785e-09  8.652e-10
+       2018-senate-CT           0.6596   0.5958  0.0343   0.01825   0.03042   0.00223      1.571e-09  1.917e-10
+       2018-senate-MN           0.6117   0.6046  0.0372   0.02729   0.02880   0.00348      1.126e-09  1.435e-10
+       2018-senate-WI           0.6022   0.5608  0.0305   0.02950   0.03984   0.00400      9.961e-09  1.349e-09
+  senate 2020: 29 seats with 538's p; P(b)/P(a) median 0.994, range 0.560-1.220; P(c)/P(a) median 0.995, range 0.248-1.118; sum of control p over these seats: (a) 6.398e-06, (b) 6.110e-06, (c) 6.224e-06
+       seat                   own mean 538 mean  538 sd      P(a)      P(b)      P(c)  control p (a)        (c)
+       2020-senate-VA           0.6075   0.5823  0.0338   0.06821   0.07697   0.01693      4.699e-09  1.166e-09
+       2020-senate-NH           0.5882   0.5784  0.0381   0.07610   0.07958   0.03382      6.173e-08  2.743e-08
+       2020-senate-IL           0.6530   0.6237  0.0437   0.05254   0.06176   0.02454      7.802e-10  3.644e-10
+       2020-senate-MN           0.5331   0.5428  0.0317   0.10526   0.10170   0.05093      8.993e-08  4.351e-08
+       2020-senate-NJ           0.6402   0.6285  0.0459   0.05661   0.06033   0.02804      1.118e-09  5.537e-10
+  senate 2022: 31 seats with 538's p; P(b)/P(a) median 1.028, range 0.770-1.264; P(c)/P(a) median 0.830, range 0.083-1.320; sum of control p over these seats: (a) 6.271e-06, (b) 6.600e-06, (c) 6.456e-06
+       seat                   own mean 538 mean  538 sd      P(a)      P(b)      P(c)  control p (a)        (c)
+       2022-senate-NY           0.6116   0.5867  0.0288   0.10585   0.11732   0.00877      1.374e-09  1.138e-10
+       2022-senate-IL           0.5892   0.5756  0.0304   0.11866   0.12502   0.02367      8.756e-09  1.747e-09
+       2022-senate-OR           0.5867   0.5842  0.0346   0.12027   0.12142   0.03780      1.915e-08  6.019e-09
+       2022-senate-CA           0.5760   0.6036  0.0382   0.12726   0.11437   0.04013      1.542e-09  4.863e-10
+       2022-senate-CT           0.6005   0.5695  0.0321   0.11199   0.12634   0.03847      5.296e-08  1.819e-08
+
+C4. CONGRESS AND GOVERNOR FORECASTS: THE GOVERNORS' MISS, AND LEAVE-ONE-CYCLE-OUT VS EARLIER CYCLES ONLY
+repository HEAD 503657b
+  governor: 232 rows rebuilt from the record (skipped: {'top two not a D and an R': 3}); the record's fit used 232. Full fit here: b_lean 0.4113 (record 0.4113), b_inc 0.0761 (0.0761), s_e 0.0765 (0.0765), s_a 0.0312 (0.0312)
+  senate: 319 rows rebuilt from the record (skipped: {'top two not a D and an R': 21, 'another D or R with 2% or more': 10, 'one candidate': 1}); the record's fit used 319. Full fit here: b_lean 0.7603 (record 0.7458), b_inc 0.0548 (0.0561), s_e 0.0576 (0.0576), s_a 0.0178 (0.0177)
+  house: 3787 rows rebuilt from the record (skipped: {'top two not a D and an R': 402, 'one candidate': 98, 'another D or R with 2% or more': 41, 'no lean or incumbency recorded': 83}); the record's fit used 3805. Full fit here: b_lean 0.8136 (record 0.8144), b_inc 0.0528 (0.0529), s_e 0.0487 (0.0490), s_a 0.0155 (0.0155)
+4.1 The governors
+  national sd (root-mean-square leave-one-out miss of the national forecast): here 0.03989, record 0.03989
+  the record's own forecast (leave-one-cycle-out) reproduced for 218 races: largest difference in mean or sd 5.33e-07 (the record rounds to six decimals)
+  (a) calibration of the record's governor forecast, 232 races: standardized residual sd 0.950 (1 if the sd is right), mean +0.059, skew -0.26, excess kurtosis +1.00; PIT deciles [19, 12, 18, 30, 28, 34, 31, 16, 16, 28]; coverage 50/80/95%: 0.61/0.80/0.96
+      |mean - 1/2| in [0, 0.03):  68 races; residual sd 0.0832 vs forecast sd 0.0867 (ratio 0.96); 50% coverage 0.60
+      |mean - 1/2| in [0.03, 0.06):  49 races; residual sd 0.0813 vs forecast sd 0.0866 (ratio 0.94); 50% coverage 0.63
+      |mean - 1/2| in [0.06, 0.1):  53 races; residual sd 0.0821 vs forecast sd 0.0865 (ratio 0.95); 50% coverage 0.68
+      |mean - 1/2| in [0.1, 0.3):  62 races; residual sd 0.0745 vs forecast sd 0.0867 (ratio 0.86); 50% coverage 0.53
+  (b) races near even, expected under the forecast vs seen: in share, |y - 1/2| <= h
+      h = 0.0025: expected   3.72, seen   3, P(seen or fewer | forecast) 0.489
+      h = 0.005 : expected   7.45, seen   6, P(seen or fewer | forecast) 0.385
+      h = 0.01  : expected  14.88, seen  17, P(seen or fewer | forecast) 0.759
+      h = 0.02  : expected  29.67, seen  34, P(seen or fewer | forecast) 0.814
+      h = 0.05  : expected  72.56, seen  82, P(seen or fewer | forecast) 0.877
+      in votes, |D - R| <= k, over the 218 races with p, from the record's p (the site's mix of 538 and own; P = 2 p k in the density form):
+      k = 1000  : expected   0.88, seen   0, P(seen or fewer) 0.416
+      k = 2000  : expected   1.75, seen   0, P(seen or fewer) 0.173
+      k = 5000  : expected   4.38, seen   0, P(seen or fewer) 0.013
+      k = 10000 : expected   8.76, seen   4, P(seen or fewer) 0.064
+      k = 20000 : expected  17.52, seen  13, P(seen or fewer) 0.169
+      k = 50000 : expected  42.70, seen  37, P(seen or fewer) 0.216
+      the closest governor races by votes:
+        2010-governor-CT     margin    6404 votes, share 0.5028; forecast 0.5000 +- 0.0879
+        2012-governor-MT     margin    7571 votes, share 0.5081; forecast 0.4589 +- 0.0866
+        2006-governor-RI     margin    7803 votes, share 0.4899; forecast 0.4883 +- 0.0837
+        2010-governor-MN     margin    8770 votes, share 0.5024; forecast 0.4762 +- 0.0879
+        2016-governor-NC     margin   10277 votes, share 0.5011; forecast 0.3892 +- 0.0853
+        2018-governor-SD     margin   11458 votes, share 0.4829; forecast 0.4420 +- 0.0893 (538 first)
+        2014-governor-RI     margin   14471 votes, share 0.5290; forecast 0.5196 +- 0.0867
+        2022-governor-NV     margin   15386 votes, share 0.4921; forecast 0.5361 +- 0.0875 (538 first)
+      given the 14 races that did finish within 1 point, 2.02 would be expected within 5,000 votes if the forecast density were flat across the point; the chance of none is 0.13
+      the own forecast's standardized residual sd where the site's p is the model's own (152 races): 1.019; where the site's p is 538's (66 races, 2018 and 2022): 0.671
+      538's own forecast there (the version the site shows), standardized residual sd 0.780, mean -0.108: 538's implied sds ran wide for the governors of 2018 and 2022 [measured]
+  (c) options for the governors' own forecast over the 218 races with p, each leave-one-cycle-out as the record (nothing applied):
+      option                                                z sd      50/80/95%  within 1pt exp/seen  within 5k exp/seen log score  p ratio median (10-90%)
+      A0 the record: normal, one s_e                       0.927 0.62/0.80/0.97      14.0 / 14           3.98 / 0            1.094    1.000 (1.00-1.00)
+      A1 t4 tails, same sd (the record's 'alongside')      0.927 0.54/0.77/0.97      15.1 / 14           4.22 / 0            1.107    0.997 (0.63-1.32)
+      A2 heteroskedastic s_e(x) = g0 + g1 min(|mean-1/2|, .25) 1.000 0.61/0.78/0.93      14.8 / 14           4.20 / 0            1.092    1.046 (0.96-1.12)
+      A3 sd scaled by the back-test's z sd (0.93)          1.000 0.61/0.79/0.93      14.5 / 14           4.10 / 0            1.099    1.039 (0.86-1.08)
+      A4 a lagged term (the state's last governor race in the record, 187 races 2010-2024): full-fit b_lag +0.246, b_lean 0.367, s_e 0.0666 vs 0.0702 without it on the same rows
+         leave-one-cycle-out on those races: without lag z sd 1.005, 50% 0.61, log score 1.064; with lag z sd 0.989, 50% 0.59, log score 1.143; p ratio median 1.030 (0.60-1.32)
+4.2 Leave-one-cycle-out (the record) against a fit on earlier cycles only, 2014-2024 (the first year with four earlier cycles for the national swing's three terms)
+    p here is the model's own normal p for every row (the 'alongside' p where 538 is first); the national sd is (i) the record's, unchanged, and (ii) from earlier cycles only: the root-mean-square miss of the national forecast over the cycles before T that themselves had four earlier cycles, where three or more exist, else the fit's own prediction sd
+  senate: national sd here 0.0212 (record 0.0211)
+         T    n  b_lean loco/exp   s_e loco/exp  nat fc loco/exp sd_a (ii)  p exp/loco median (10-90%) sum p ratio with sd_a (ii) site p affected
+      2014   33   0.749/0.672   0.0584/0.0701  -0.005/-0.016     0.0322    0.924 (0.75-1.57)       0.962          0.969       0 of 33
+      2016   29   0.739/0.706   0.0573/0.0672  +0.000/+0.003     0.0244    0.924 (0.78-1.83)       0.890          0.903       1 of 29
+      2018   32   0.775/0.745   0.0589/0.0663  +0.057/+0.067     0.0218    0.832 (0.65-1.21)       0.984          0.983       0 of 32
+      2020   32   0.747/0.727   0.0591/0.0639  +0.037/+0.030     0.0233    0.967 (0.82-1.35)       0.935          0.942       1 of 32
+      2022   33   0.749/0.743   0.0594/0.0618  -0.014/-0.012     0.0202    1.021 (0.94-1.33)       0.991          0.987       0 of 33
+      2024   32   0.755/0.755   0.0597/0.0597  +0.008/+0.008     0.0198    1.000 (1.00-1.00)       1.000          0.998      32 of 32
+  house: national sd here 0.0189 (record 0.0189)
+         T    n  b_lean loco/exp   s_e loco/exp  nat fc loco/exp sd_a (ii)  p exp/loco median (10-90%) sum p ratio with sd_a (ii) site p affected
+      2014  360   0.811/0.770   0.0489/0.0568  -0.014/-0.019     0.0395    0.927 (0.60-5.48)       0.810          0.926     358 of 360
+      2016  344   0.806/0.776   0.0489/0.0556  +0.007/+0.012     0.0273    0.995 (0.65-3.19)       0.861          0.899     343 of 344
+      2018  393   0.814/0.791   0.0496/0.0544  +0.049/+0.061     0.0221    1.085 (0.51-3.25)       1.001          1.002      64 of 393
+      2020  406   0.812/0.788   0.0500/0.0532  +0.036/+0.032     0.0118    1.082 (0.81-5.34)       0.921          0.897      66 of 406
+      2022  400   0.801/0.792   0.0501/0.0516  -0.019/-0.019     0.0164    1.065 (0.93-1.56)       0.972          0.967      32 of 400
+      2024  381   0.805/0.805   0.0501/0.0501  +0.010/+0.010     0.0160    1.000 (1.00-1.00)       1.000          0.985     373 of 381
+  governor: national sd here 0.0399 (record 0.0399)
+         T    n  b_lean loco/exp   s_e loco/exp  nat fc loco/exp sd_a (ii)  p exp/loco median (10-90%) sum p ratio with sd_a (ii) site p affected
+      2014   35   0.433/0.460   0.0770/0.0814  -0.032/-0.028     0.0215    0.883 (0.80-0.98)       0.890          0.876      33 of 35
+      2016   12   0.411/0.395   0.0755/0.0801  -0.021/-0.024     0.0173    0.965 (0.95-1.03)       0.972          1.032      11 of 12
+      2018   36   0.398/0.397   0.0799/0.0814  +0.010/+0.037     0.0149    0.985 (0.75-1.24)       1.039          1.105       0 of 36
+      2020   11   0.432/0.415   0.0764/0.0767  +0.032/+0.027     0.0171    1.005 (0.98-1.12)       1.024          1.025      11 of 11
+      2022   36   0.383/0.390   0.0779/0.0768  -0.037/-0.034     0.0469    1.024 (0.99-1.06)       1.021          1.011       1 of 36
+      2024   11   0.419/0.419   0.0755/0.0755  -0.010/-0.010     0.0426    1.000 (1.00-1.00)       1.000          0.993      10 of 11
+
+C4b. THE PRESIDENCY'S OWN FORECAST (HORIZON, t4 SCALE) AND 538'S IMPLIED-SD RULE
+repository HEAD 503657b
+4.3 The model's own presidential forecast, refitted from the record's inputs
+    538's national averages in the record: year, 9 September (date), eve (date), two-party Democratic share; the result
+      1976: 0.5724 (1976-09-09), 0.5032 (1976-11-01); result 0.5105
+      1980: 0.4766 (1980-09-09), 0.4869 (1980-11-03); result 0.4470
+      1984: 0.4017 (1984-09-09), 0.4063 (1984-11-05); result 0.4082
+      1988: 0.4730 (1988-09-09), 0.4435 (1988-11-07); result 0.4610
+      1992: 0.5454 (1992-09-09), 0.5467 (1992-11-02); result 0.5348
+      1996: 0.5865 (1996-09-09), 0.5754 (1996-11-04); result 0.5474
+      2000: 0.5150 (2000-09-09), 0.4799 (2000-11-06); result 0.5027
+      2004: 0.4674 (2004-09-09), 0.4916 (2004-11-01); result 0.4876
+      2008: 0.4972 (2008-09-09), 0.5378 (2008-11-03); result 0.5369
+      2012: 0.5142 (2012-09-09), 0.5019 (2012-11-05); result 0.5196
+      2016: 0.5184 (2016-09-09), 0.5225 (2016-11-07); result 0.5111
+      2020: 0.5412 (2020-09-09), 0.5441 (2020-11-02); result 0.5227
+      2024: 0.5156 (2024-09-09), 0.5154 (2024-09-12); result 0.4925
+    year, the poll the record used, s_nat and s_state here vs the record's file; and s_nat under the other horizon
+      1984: eve (1984-11-05); s_nat 0.028687 (record 0.028687), s_state 0.045576 (record 0.045576); 2 cycles 1976-1980; s_nat under the 9 September horizon: 0.0485 (2 cycles)
+      1988: eve (1988-11-07); s_nat 0.023451 (record 0.023451), s_state 0.047063 (record 0.047063); 3 cycles 1976-1984; s_nat under the 9 September horizon: 0.0398 (3 cycles)
+      1992: eve (1992-11-02); s_nat 0.022118 (record 0.022118), s_state 0.042504 (record 0.042504); 4 cycles 1976-1988; s_nat under the 9 September horizon: 0.0350 (4 cycles)
+      1996: eve (1996-11-04); s_nat 0.020491 (record 0.020491), s_state 0.041495 (record 0.041495); 5 cycles 1976-1992; s_nat under the 9 September horizon: 0.0316 (5 cycles)
+      2000: eve (2000-11-06); s_nat 0.021936 (record 0.021936), s_state 0.039921 (record 0.039921); 6 cycles 1976-1996; s_nat under the 9 September horizon: 0.0330 (6 cycles)
+      2004: eve (2004-11-01); s_nat 0.022053 (record 0.022053), s_state 0.039157 (record 0.039157); 7 cycles 1976-2000; s_nat under the 9 September horizon: 0.0309 (7 cycles)
+      2008: eve (2008-11-03); s_nat 0.020679 (record 0.020679), s_state 0.037407 (record 0.037407); 8 cycles 1976-2004; s_nat under the 9 September horizon: 0.0298 (8 cycles)
+      2012: eve (2012-11-05); s_nat 0.019499 (record 0.019499), s_state 0.037364 (record 0.037364); 9 cycles 1976-2008; s_nat under the 9 September horizon: 0.0310 (9 cycles)
+      2016: eve (2016-11-07); s_nat 0.019334 (record 0.019334), s_state 0.036087 (record 0.036087); 10 cycles 1976-2012; s_nat under the 9 September horizon: 0.0295 (10 cycles)
+      2020: eve (2020-11-02); s_nat 0.018751 (record 0.018751), s_state 0.036289 (record 0.036289); 11 cycles 1976-2016; s_nat under the 9 September horizon: 0.0282 (11 cycles)
+      2024: input 2024-09-12, errors at 9 September (2024-09-09); s_nat 0.027527 (record 0.027527), s_state 0.034912 (record 0.034912); 12 cycles 1976-2020; s_nat under the eve horizon: 0.0190 (12 cycles)
+    largest difference from the record's sds: 0.0e+00
+    2024 Pennsylvania (mean 0.49864): the input is the 12 September average, the national error sd 0.0275 is fitted to the 9 September averages of 1976-2020 (a horizon 3 days longer than the input's). f(1/2) 9.9795 (record 9.9795). With the eve-fitted national sd (0.0190, 1976-2020), which no 2024 eve average exists to pair with, f(1/2) would be 11.7828 (1.181 x); W would move too (not recomputed: no such forecast is proposed)
+    the 12 September 2024 average 0.5156 (2024-09-09) against the result 0.4925: residual -0.0231, -0.84 national sds
+    t4 scale: the record's state error is t4 with scale s_state / sqrt(2) (variance = s_state^2). Alternative readings for 2024 PA:
+      record: t4, scale sd/sqrt2 (sd matched)      f(1/2) 9.9795  ratio to the record 1.000
+      t4 with scale = sd (variance 2 sd^2)         f(1/2) 8.2589  ratio to the record 0.828
+      normal state error, same sd                  f(1/2) 8.9691  ratio to the record 0.899
+    the pipeline's two t4 cdf formulas (own_forecast.T4, chambers.t4_cdf), retyped, against scipy.stats.t.cdf(x, 4) at 8 points: largest differences 1.1e-16, 1.1e-16; both are applied at z sqrt(2) = (x - mean) / (sd / sqrt(2)), the sd-matched scale
+4.4 538's implied sd: the run counts re-measured from the chances' steps, every entry's error recomputed, and the error's effect on p
+  fte_presidential_elections.csv: sha256 d99482b55c46c12b008af15671c4495569f5dfe949e392907d76d993136c6da3
+      president 2008 -          :    104 chances, printed to 4 decimals, 30 distinct; smallest step between distinct chances 1.00e-03; smallest N with 99% whole multiples of 1/N: 10000 (fit 1.0000); with every chance: 10000
+      president 2012 -          :  18126 chances, printed to 4 decimals, 4983 distinct; smallest step between distinct chances 1.00e-04; smallest N with 99% whole multiples of 1/N: 10000 (fit 1.0000); with every chance: 10000
+      president 2016 now-cast   :  25936 chances, printed to 5 decimals, 9510 distinct; smallest step between distinct chances 5.00e-05; smallest N with 99% whole multiples of 1/N: 20000 (fit 1.0000); with every chance: 20000
+      president 2016 polls-only :  26062 chances, printed to 5 decimals, 10195 distinct; smallest step between distinct chances 5.00e-05; smallest N with 99% whole multiples of 1/N: 20000 (fit 1.0000); with every chance: 20000
+      president 2016 polls-plus :  25999 chances, printed to 5 decimals, 9370 distinct; smallest step between distinct chances 5.00e-05; smallest N with 99% whole multiples of 1/N: 20000 (fit 1.0000); with every chance: 20000
+      president 2020 polls-plus :   9404 chances, printed to 6 decimals, 6593 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+  fte_us_senate_elections.csv: sha256 981e5e0560bec7ce9ac10e49cb88eb8417755e23620696fd77cf361eb725771d
+      senate 2008 -          :     70 chances, printed to 4 decimals, 14 distinct; smallest step between distinct chances 9.00e-04; smallest N with 99% whole multiples of 1/N: 10000 (fit 1.0000); with every chance: 10000
+      senate 2010 -          :     76 chances, printed to 4 decimals, 46 distinct; smallest step between distinct chances 1.00e-04; smallest N with 99% whole multiples of 1/N: 10000 (fit 1.0000); with every chance: 10000
+      senate 2012 -          :   2070 chances, printed to 4 decimals, 1540 distinct; smallest step between distinct chances 1.00e-04; smallest N with 99% whole multiples of 1/N: 10000 (fit 1.0000); with every chance: 10000
+        no N fits 99%: the best is 50000 at 0.0211
+      senate 2014 -          :   1324 chances, printed to 20 decimals, 1135 distinct; smallest step between distinct chances 3.00e-09; smallest N with 99% whole multiples of 1/N: None (fit nan); with every chance: None
+        no N fits 99%: the best is 20000 at 0.9708; the rows off that step are ['US'] (e.g. ('US', 'D', '.2016378')); with those rows aside the step is 20000
+      senate 2016 now-cast   :   8022 chances, printed to 20 decimals, 4469 distinct; smallest step between distinct chances 2.00e-07; smallest N with 99% whole multiples of 1/N: 20000 (fit 0.9708); with every chance: None
+        no N fits 99%: the best is 20000 at 0.9710; the rows off that step are ['US'] (e.g. ('US', 'D', '.3256585')); with those rows aside the step is 20000
+      senate 2016 polls-only :   8070 chances, printed to 20 decimals, 4844 distinct; smallest step between distinct chances 1.10e-06; smallest N with 99% whole multiples of 1/N: 20000 (fit 0.9710); with every chance: None
+        no N fits 99%: the best is 20000 at 0.9710; the rows off that step are ['US'] (e.g. ('US', 'D', '.3689187')); with those rows aside the step is 20000
+      senate 2016 polls-plus :   8012 chances, printed to 20 decimals, 4873 distinct; smallest step between distinct chances 1.00e-07; smallest N with 99% whole multiples of 1/N: 20000 (fit 0.9710); with every chance: None
+      senate 2018 classic    :   7666 chances, printed to 5 decimals, 4484 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      senate 2018 deluxe     :   7640 chances, printed to 5 decimals, 4297 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      senate 2018 lite       :   7866 chances, printed to 5 decimals, 5278 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      senate 2020 classic    :   3872 chances, printed to 6 decimals, 2743 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      senate 2020 deluxe     :   3868 chances, printed to 6 decimals, 2652 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      senate 2020 lite       :   3881 chances, printed to 6 decimals, 3194 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      senate 2022 classic    :   6850 chances, printed to 6 decimals, 3956 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      senate 2022 deluxe     :   6824 chances, printed to 6 decimals, 3687 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      senate 2022 lite       :   6962 chances, printed to 6 decimals, 4724 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+  fte_us_house_elections.csv: sha256 d63d5d49275480e4df8f1d349c6fd9f3c55beac1eaad61238e9bc27ef7bf5ac0
+      house 2010 -          :    855 chances, printed to 4 decimals, 368 distinct; smallest step between distinct chances 1.00e-04; smallest N with 99% whole multiples of 1/N: 10000 (fit 1.0000); with every chance: 10000
+      house 2018 classic    :  74023 chances, printed to 5 decimals, 20804 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      house 2018 deluxe     :  72733 chances, printed to 5 decimals, 19375 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      house 2018 lite       :  79466 chances, printed to 5 decimals, 23480 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      house 2020 classic    :  20594 chances, printed to 6 decimals, 8129 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      house 2020 deluxe     :  20342 chances, printed to 6 decimals, 7505 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      house 2020 lite       :  20977 chances, printed to 6 decimals, 9570 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      house 2022 classic    :  34752 chances, printed to 6 decimals, 11418 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      house 2022 deluxe     :  33780 chances, printed to 6 decimals, 10061 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      house 2022 lite       :  41282 chances, printed to 6 decimals, 13464 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+  fte_governors_elections.csv: sha256 213b13c16b80517315688c99abf3d3efa01285eec27ab37c6bd7e0cf0e9725d5
+      governor 2010 -          :     82 chances, printed to 4 decimals, 72 distinct; smallest step between distinct chances 1.00e-04; smallest N with 99% whole multiples of 1/N: 10000 (fit 1.0000); with every chance: 10000
+      governor 2018 classic    :   1876 chances, printed to 5 decimals, 1678 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      governor 2018 deluxe     :   1877 chances, printed to 5 decimals, 1646 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      governor 2018 lite       :   1877 chances, printed to 5 decimals, 1717 distinct; smallest step between distinct chances 2.00e-05; smallest N with 99% whole multiples of 1/N: 50000 (fit 1.0000); with every chance: 50000
+      governor 2022 classic    :   4100 chances, printed to 6 decimals, 2841 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      governor 2022 deluxe     :   4087 chances, printed to 6 decimals, 2551 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+      governor 2022 lite       :   4140 chances, printed to 6 decimals, 3118 distinct; smallest step between distinct chances 2.50e-05; smallest N with 99% whole multiples of 1/N: 40000 (fit 1.0000); with every chance: 40000
+    the record's run counts (presidency: runs_inferred; Congress: each 538 entry's 'simulations') against the re-measurement:
+      president 2008 published  : record 10000 (step 0.0001); re-measured 10000
+      president 2012 published  : record 10000 (step 0.0001); re-measured 10000
+      president 2016 now-cast   : record 20000 (step 5e-05); re-measured 20000
+      president 2016 polls-only : record 20000 (step 5e-05); re-measured 20000
+      president 2016 polls-plus : record 20000 (step 5e-05); re-measured 20000
+      president 2020 polls-plus : record 40000 (step 2.5e-05); re-measured 40000
+      governor 2018 classic    : record 50000; re-measured 50000
+      governor 2018 deluxe     : record 50000; re-measured 50000
+      governor 2018 lite       : record 50000; re-measured 50000
+      governor 2022 classic    : record 40000; re-measured 40000
+      governor 2022 deluxe     : record 40000; re-measured 40000
+      governor 2022 lite       : record 40000; re-measured 40000
+      house 2018 classic    : record 50000; re-measured 50000
+      house 2018 deluxe     : record 50000; re-measured 50000
+      house 2018 lite       : record 50000; re-measured 50000
+      house 2020 classic    : record 40000; re-measured 40000
+      house 2020 deluxe     : record 40000; re-measured 40000
+      house 2020 lite       : record 40000; re-measured 40000
+      house 2022 classic    : record 40000; re-measured 40000
+      house 2022 deluxe     : record 40000; re-measured 40000
+      house 2022 lite       : record 40000; re-measured 40000
+      senate 2016 now-cast   : record 20000; re-measured 20000
+      senate 2016 polls-only : record 20000; re-measured 20000
+      senate 2016 polls-plus : record 20000; re-measured 20000
+      senate 2018 classic    : record 50000; re-measured 50000
+      senate 2018 deluxe     : record 50000; re-measured 50000
+      senate 2018 lite       : record 50000; re-measured 50000
+      senate 2020 classic    : record 40000; re-measured 40000
+      senate 2020 deluxe     : record 40000; re-measured 40000
+      senate 2020 lite       : record 40000; re-measured 40000
+      senate 2022 classic    : record 40000; re-measured 40000
+      senate 2022 deluxe     : record 40000; re-measured 40000
+      senate 2022 lite       : record 40000; re-measured 40000
+    every Congress 538 entry's sd relative error recomputed (chance sampling error sqrt(q(1-q)/N) carried through Phi^-1 at both ends, and the two-party mean's rounding at half the last printed digit of the percent, in quadrature) against the record's sd_relative_error:
+      3606 entries compared; largest difference 5.00e-05 (the record rounds to four decimals); 0 beyond 6e-4
+      presidency: 218 entries' sd_rel_error.value recomputed from the recorded runs and mean rounding; largest difference 9.1e-16
+    the error's effect on p: relative error of p = |z^2 - 1| x relative error of sd, z = (mean - 1/2) / sd
+      where                  entries sd err median p err median p err 90% p err max p err >= 20%  >= 50%  >= 100%
+      governor, kept beside (not first)          145         0.008        0.023     0.165     1.048            9       4        2
+      governor, site's p (538 first)              66         0.008        0.018     0.115     0.736            2       1        0
+      house, kept beside (not first)            1978         0.014        0.072     1.049     8.295          632     381      258
+      house, site's p (538 first)               1008         0.010        0.037     0.303     1.052          155      52       22
+      president, kept beside (not first)         126         0.011        0.023     0.130     0.725            8       1        0
+      president, site's p (538 first)             92         0.010        0.031     0.215     1.048           10       5        2
+      senate, kept beside (not first)            255         0.012        0.041     0.250     8.294           34      10        4
+      senate, site's p (538 first)               154         0.009        0.016     0.140     1.033            7       2        1
+      the site's 538-first entries with the largest p error:
+        2018-house-CA-33         lite        z  +3.94 sd err 0.072 -> p err 1.05
+        2018-house-IL-09         lite        z  +3.94 sd err 0.072 -> p err 1.05
+        2018-house-OH-03         lite        z  +3.94 sd err 0.072 -> p err 1.05
+        2018-house-NC-12         lite        z  +3.94 sd err 0.072 -> p err 1.05
+        2018-house-MD-05         lite        z  +3.94 sd err 0.072 -> p err 1.05
+        2018-house-VA-11         lite        z  +3.94 sd err 0.072 -> p err 1.05
+        2018-house-TX-01         lite        z  -3.94 sd err 0.072 -> p err 1.05
+        2018-house-TX-19         lite        z  -3.94 sd err 0.072 -> p err 1.05
+      under a rule on p's error instead (|z^2 - 1| x sd error < 20%): of the 190 Congress entries the record rejects for the sd's error, 0 would pass (their z is near 1, where p hardly depends on sd); of the 1320 entries the site shows first, 174 would fail
+
+C5. PUBLISHED FIGURES: THE ECONOMIST 2020, GKB 1992, GSE 2008
+repository HEAD 503657b
+5.1 The Economist, 2020: GSE's method on the Economist's own draws (P(necessary) x t4 density at 0 of the vote margin among the necessary draws), against its published p_decisive_vote and the record's window count
+    state  ev   P(nec) p_tipping  draws    M/S  p GSE-t4 published  ratio  p record rec/pub GSE-normal/pub t4 scale S/sqrt2 /pub
+    PA     20   0.0561    0.4089   4706   0.53 1.110e-07 1.143e-07  0.972 1.129e-07   0.988          1.064                 1.174
+    WI     10   0.0280    0.0946   3227   1.55 4.208e-08 6.819e-08  0.617 5.747e-08   0.843          0.640                 0.393
+    NV      6   0.0075    0.0334    733   0.73 4.392e-08 6.463e-08  0.680 4.358e-08   0.674          0.757                 0.728
+    NH      4   0.0082    0.0254   1044   1.60 3.735e-08 5.786e-08  0.645 5.310e-08   0.918          0.657                 0.400
+    MI     16   0.0438    0.0843   3629   1.61 3.858e-08 4.848e-08  0.796 4.478e-08   0.924          0.807                 0.490
+    MN     10   0.0277    0.0442   3197   2.03 2.163e-08 3.487e-08  0.620 2.496e-08   0.716          0.494                 0.315
+    AZ     11   0.0145    0.0486   1235  -0.69 4.073e-08 3.447e-08  1.182 4.566e-08   1.324          1.312                 1.300
+    FL     29   0.0279    0.1081   2328  -0.92 2.182e-08 2.689e-08  0.812 2.388e-08   0.888          0.914                 0.770
+    NM      5   0.0132    0.0382   1155   1.89 2.575e-08 2.624e-08  0.981 2.856e-08   1.088          0.865                 0.529
+    GA     16   0.0173    0.0300   1588  -0.94 2.285e-08 2.123e-08  1.077 2.558e-08   1.205          1.213                 1.006
+    NC     15   0.0145    0.0368   1263  -1.11 1.706e-08 2.020e-08  0.845 1.908e-08   0.945          0.950                 0.703
+    VA     13   0.0399    0.0171   3267   2.51 1.058e-08 1.280e-08  0.826 8.847e-09   0.691          0.401                 0.354
+    TX     38   0.0295    0.0188   2419  -1.44 9.168e-09 9.645e-09  0.951 1.017e-08   1.054          1.020                 0.647
+    ME      4   0.0083    0.0003   1044   3.24 5.549e-09 8.773e-09  0.633       nan     nan          0.088                 0.229
+    OH     18   0.0176    0.0006   1466  -3.44 1.755e-09 4.978e-09  0.353 6.929e-10   0.139          0.031                 0.123
+    IA      6   0.0033    0.0014    364  -2.59 2.524e-09 4.340e-09  0.581 2.252e-09   0.519          0.254                 0.244
+    CO      9   0.0157    0.0090   1325   2.57 5.007e-09 4.074e-09  1.229 2.747e-09   0.674          0.552                 0.518
+    AK      3   0.0019    0.0000    223  -3.47 1.795e-09 3.512e-09  0.511       nan     nan          0.042                 0.178
+    IL     20   0.0510    0.0001   4221   4.31 1.268e-09 1.472e-09  0.862       nan     nan          0.006                 0.272
+    RI      4   0.0082    0.0000   1043   5.63 7.104e-10 1.159e-09  0.613       nan     nan          0.000                 0.177
+    NJ     14   0.0403    0.0001   3293   4.52 1.028e-09 1.138e-09  0.903       nan     nan          0.003                 0.279
+    OR      7   0.0152    0.0000   1278   4.42 9.584e-10 1.050e-09  0.913       nan     nan          0.005                 0.285
+    MT      3   0.0019    0.0000    223  -5.13 2.812e-10 5.953e-10  0.472       nan     nan          0.000                 0.140
+    DE      3   0.0040    0.0000    386   4.94 7.043e-10 5.684e-10  1.239       nan     nan          0.001                 0.372
+    CT      7   0.0152    0.0000   1278   5.69 3.613e-10 3.838e-10  0.942       nan     nan          0.000                 0.271
+    SC      9   0.0045    0.0000    431  -3.90 3.970e-10 2.986e-10  1.329       nan     nan          0.036                 0.438
+    MS      6   0.0033    0.0000    366  -4.30 3.391e-10 2.711e-10  1.251       nan     nan          0.010                 0.395
+    WA     12   0.0397    0.0000   3238   6.97 2.005e-10 2.419e-10  0.829       nan     nan          0.000                 0.228
+    HI      4   0.0082    0.0000   1043   8.00 1.086e-10 1.988e-10  0.546       nan     nan          0.000                 0.147
+    MD     10   0.0274    0.0000   3175   7.12 1.223e-10 1.704e-10  0.718       nan     nan          0.000                 0.197
+    NY     29   0.0886    0.0000   7174   7.16 1.521e-10 1.647e-10  0.923       nan     nan          0.000                 0.253
+    MO     10   0.0082    0.0000    994  -5.79 1.520e-10 1.624e-10  0.936       nan     nan          0.000                 0.268
+    KS      6   0.0033    0.0000    366  -5.77 1.139e-10 1.212e-10  0.940       nan     nan          0.000                 0.270
+    SD      3   0.0019    0.0000    223  -6.37 1.163e-10 1.162e-10  1.001       nan     nan          0.000                 0.281
+    LA      8   0.0042    0.0000    397  -4.86 1.546e-10 1.146e-10  1.349       nan     nan          0.001                 0.407
+    NE      5   0.0026    0.0000    279  -6.29 7.721e-11 1.098e-10  0.703       nan     nan          0.000                 0.198
+    UT      6   0.0033    0.0000    366  -6.31 6.527e-11 8.965e-11  0.728       nan     nan          0.000                 0.205
+    IN     11   0.0118    0.0000   1007  -7.33 7.122e-11 7.491e-11  0.951       nan     nan          0.000                 0.260
+    TN     11   0.0118    0.0000   1007  -6.66 8.435e-11 6.657e-11  1.267       nan     nan          0.000                 0.352
+    CA     55   0.2427    0.0000  19757   9.55 5.589e-11 6.382e-11  0.876       nan     nan          0.000                 0.231
+    MA     11   0.0393    0.0000   3222   9.65 4.217e-11 4.467e-11  0.944       nan     nan          0.000                 0.249
+    VT      3   0.0040    0.0000    386  10.27 3.506e-11 3.364e-11  1.042       nan     nan          0.000                 0.273
+    ND      3   0.0019    0.0000    223  -9.03 2.943e-11 3.193e-11  0.922       nan     nan          0.000                 0.244
+    AR      6   0.0033    0.0000    366  -7.95 2.647e-11 2.195e-11  1.206       nan     nan          0.000                 0.325
+    AL      9   0.0045    0.0000    431  -6.89 3.499e-11 2.190e-11  1.598       nan     nan          0.000                 0.441
+    ID      4   0.0023    0.0000    254  -9.72 1.055e-11 1.807e-11  0.584       nan     nan          0.000                 0.154
+    KY      8   0.0042    0.0000    397  -8.67 1.405e-11 1.624e-11  0.865       nan     nan          0.000                 0.231
+    OK      7   0.0040    0.0000    381  -8.78 1.453e-11 1.259e-11  1.154       nan     nan          0.000                 0.307
+    WV      5   0.0026    0.0000    279 -11.96 5.431e-12 7.531e-12  0.721       nan     nan          0.000                 0.187
+    WY      3   0.0019    0.0000    223 -13.95 5.063e-12 6.440e-12  0.786       nan     nan          0.000                 0.202
+    DC      3   0.0040    0.0000    386  74.93 5.036e-15 4.138e-15  1.217       nan     nan          0.000                 0.305
+    GSE-t4 / published over 51 states: median 0.903, range 0.353-1.598; within 10% in 15 states, within 25% in 30
+    P(necessary) against p_tipping_point: largest |difference| 0.3527 (p_tipping_point is the share of draws in which the state is the tipping-point state, a different quantity)
+    the record's window p / published over the 16 states with a record p: median 0.903, range 0.139-1.324
+    the n the published figure implies if the method is GSE's (n_implied = p_GSE x n_2020 / p_published), over the 16 states with a record p: n_implied / n_2020 median 0.819 (10-90% 0.60-1.13); n_implied / n_2016 median 0.970 (0.69-1.44); n_2020 / n_2016 median 1.197
+    the same draws, two readings of P(tie and decisive) for the states the record computes:
+    state   window: weighted/in-window/K/width  GSE: P(nec) x f_t4(0) empirical f(0) among nec, +-0.01 t4 fit f(0) normal fit
+    PA        2481/  9673/80000/0.0201 -> 1.129e-07  0.0561 x 1.978e-06 = 1.110e-07                        1.135e-07   1.110e-07  1.216e-07
+    WI         599/  4553/80000/0.0201 -> 5.747e-08  0.0280 x 1.502e-06 = 4.208e-08                        5.237e-08   4.208e-08  4.361e-08
+    NV         192/  8760/80000/0.0201 -> 4.358e-08  0.0075 x 5.827e-06 = 4.392e-08                        4.750e-08   4.392e-08  4.893e-08
+    NH         135/  3175/80000/0.0201 -> 5.310e-08  0.0082 x 4.541e-06 = 3.735e-08                        4.685e-08   3.735e-08  3.804e-08
+    MI         786/  3734/80000/0.0201 -> 4.478e-08  0.0438 x 8.805e-07 = 3.858e-08                        4.493e-08   3.858e-08  3.911e-08
+    MN         257/  2632/80000/0.0201 -> 2.496e-08  0.0277 x 7.815e-07 = 2.163e-08                        2.247e-08   2.163e-08  1.723e-08
+    AZ         490/ 25862/80000/0.0201 -> 4.566e-08  0.0145 x 2.812e-06 = 4.073e-08                        4.455e-08   4.073e-08  4.523e-08
+    FL         842/ 22463/80000/0.0201 -> 2.388e-08  0.0279 x 7.819e-07 = 2.182e-08                        2.404e-08   2.182e-08  2.456e-08
+    NM          83/   642/80000/0.0201 -> 2.856e-08  0.0132 x 1.952e-06 = 2.575e-08                        2.705e-08   2.575e-08  2.270e-08
+    GA         406/ 29408/80000/0.0201 -> 2.558e-08  0.0173 x 1.318e-06 = 2.285e-08                        2.532e-08   2.285e-08  2.574e-08
+    NC         334/ 27118/80000/0.0201 -> 1.908e-08  0.0145 x 1.180e-06 = 1.706e-08                        1.941e-08   1.706e-08  1.918e-08
+    VA         124/   830/80000/0.0201 -> 8.847e-09  0.0399 x 2.647e-07 = 1.058e-08                        8.898e-09   1.058e-08  5.130e-09
+    TX         364/ 26364/80000/0.0201 -> 1.017e-08  0.0295 x 3.106e-07 = 9.168e-09                        9.992e-09   9.168e-09  9.836e-09
+    OH          13/ 30657/80000/0.0201 -> 6.929e-10  0.0176 x 9.978e-08 = 1.755e-09                        6.650e-10   1.755e-09  1.554e-10
+    IA          12/ 30748/80000/0.0201 -> 2.252e-09  0.0033 x 7.604e-07 = 2.524e-09                        1.780e-09   2.524e-09  1.101e-09
+    CO          28/   476/80000/0.0201 -> 2.747e-09  0.0157 x 3.195e-07 = 5.007e-09                        3.063e-09   5.007e-09  2.249e-09
+5.2 Gelman, King and Boscardin, 1992: the record's 1992 forecast under other horizons and error sizes
+    the record: national mean 0.5467 (538's average of 1992-11-02), s_nat 0.0221, s_state 0.0425 (t4); the 9 September average 0.5454 (1992-09-09); the result 0.5348; GKB's error sds: national 2.5%, regional 2.5% (5.0% South), state 3.5% (B4 ledger)
+    forecast                                                   avg p (vote-weighted)         1 in P(D wins) spread max/min (50 states)        highest
+    record: eve mean, s_nat .022, s_state .0425, t4                        2.195e-08   45,557,384     0.956                         67 DE 1 in 11,983,819
+    9 September mean and its fit (s_nat .035, s_state .0425), t4             3.395e-08   29,456,989     0.870                         73 DE 1 in 8,230,908
+    eve mean, GKB-size errors: s_nat .035 (nat+regional), s_state .035, t4             3.232e-08   30,938,310     0.881                        156 DE 1 in 7,854,264
+    eve mean, s_nat .035, s_state .035, normal                             3.268e-08   30,596,044     0.878                        538 DE 1 in 9,080,314
+    eve mean, s_nat .050, s_state .035, t4                                 3.248e-08   30,789,328     0.801                        161 SD 1 in 7,913,217
+    a closer mean (0.52, hypothetical), s_nat .022, s_state .0425, t4             7.618e-08   13,126,156     0.741                         75 DE 1 in 3,678,283
+    a closer mean (0.52, hypothetical), s_nat .035, s_state .035, t4             5.854e-08   17,083,470     0.673                        166 SD 1 in 4,329,809
+5.3 Gelman, Silver and Edlin, 2008: a poll-based 2008 forecast (The Economist's back-test table) through the record's College stage
+    source: TheEconomist/us-potus-model README.md, commit b89e602ec03e81c797c66cf2743af6fdae4aa526 (2020-10-15), sha256 70dd5e44601c7e3ec37a5e6d067a62e24ae4d5a29743468c432a61fdc624fab1 (as recorded); its 2008 table 'Predictions for each state': mean, low, high, prob, se (se = (high - mean) / 1.68 in its README.Rmd; polls up to election day: a back-test)
+    rows read: 52 (national row label ['–']); national mean 0.539, prob 1.0
+    the Economist's 2008 state sds: se as printed median 0.0220; (high - mean)/1.96 median 0.0189; the record's own 2008 sd 0.0427 (s_nat 0.0207, s_state 0.0374)
+    reading of the table                                      s_d   P(D)   avg 1 in     NM     VA     NH     CO     OH      NY      CA      TX        UT        DC   (1 in millions; GSE: ~10, 10, 10, 10, 32, 1000, 1000, 1000, 5000, 500000)
+    the record (own forecast, uniform swing, t4)           0.0207              65.0   15.9   35.7   23.5   22.1   21.7     959     152    1205     18815  2.34e+05
+    (the table's national win probability is 1.000: an election-day back-test, so no national swing sd can be fitted to it; a late-October forecast would carry more. Rows with a stated s_d:)
+    Economist means, sd = se, t4, s_d = 0.010              0.0100  0.998      578.6  430.1   94.4  221.7   76.5  126.2   50756    5679   28678    700063  2.88e+16
+    Economist means, sd = se, t4, s_d = 0.015              0.0150  0.988      136.9   65.1   19.2   30.3   11.2   31.4   44339    6763   13952    313024   6.9e+15
+    Economist means, sd = se, t4, s_d = 0.020              0.0200  0.959       61.7   45.1    8.1   15.0    2.3   25.9  712386   44993   21776    576967  3.31e+15
+    Economist means, sd = (high-mean)/1.96, t4, s_d = 0.015 0.0150  0.988      138.4  111.4   17.0   35.7    7.3   35.7  159006   34084   39744   1166103  7.04e+15
+    own means, s_nat .0207, s_state .020 (poll-sized), t4  0.0207              79.3   12.9   69.8   27.5   16.7   12.6    8320     970   16619    278832  3.62e+06
+    own means, s_nat .0207, s_state .0374 (record), normal 0.0207              61.4   17.9   35.8   22.8   26.7   26.5    1729     102    1001  67635235  1.16e+27
+    mean |Economist mean - own mean| over 51 states: 0.0154; |Economist mean - result|: 0.0161; |own mean - result|: 0.0273
+
+C6. THE RECORD AGAINST THE FORECASTS: PRESIDENTIAL CONTESTS DECIDED BY k VOTES OR FEWER
+repository HEAD 503657b
+    year contests            k=1           k=10          k=100         k=1000         k=5000        k=10000        k=20000        k=50000       k=100000   (expected / seen)
+    1976: no p
+    1980: no p
+    1984       51   0.000 / 0      0.001 / 0      0.013 / 0      0.135 / 0      0.674 / 1      1.347 / 1      2.695 / 2      6.718 / 4     10.853 / 15  
+    1988       51   0.000 / 0      0.002 / 0      0.016 / 0      0.165 / 0      0.824 / 0      1.649 / 1      3.298 / 2      8.105 / 13    13.013 / 20  
+    1992       51   0.000 / 0      0.004 / 0      0.040 / 0      0.397 / 0      1.987 / 0      3.974 / 1      7.946 / 6     15.898 / 15    24.389 / 28  
+    1996       51   0.000 / 0      0.003 / 0      0.028 / 0      0.284 / 0      1.421 / 1      2.842 / 1      5.567 / 5     10.601 / 16    16.960 / 22  
+    2000       51   0.000 / 0      0.002 / 0      0.018 / 0      0.183 / 2      0.915 / 3      1.829 / 6      3.658 / 6      8.733 / 11    14.833 / 21  
+    2004       51   0.000 / 0      0.001 / 0      0.014 / 0      0.140 / 0      0.699 / 0      1.397 / 2      2.795 / 4      6.986 / 7     12.316 / 19  
+    2008       51   0.000 / 0      0.001 / 0      0.011 / 0      0.115 / 0      0.573 / 1      1.146 / 1      2.292 / 3      5.730 / 6     11.007 / 10  
+    2012       51   0.000 / 0      0.001 / 0      0.010 / 0      0.095 / 0      0.477 / 0      0.954 / 0      1.908 / 0      4.769 / 2      9.071 / 11  
+    2016       54   0.000 / 0      0.002 / 0      0.018 / 0      0.184 / 0      0.920 / 1      1.840 / 2      3.680 / 3      8.942 / 9     15.362 / 15  
+    2020       56   0.000 / 0      0.002 / 0      0.017 / 0      0.166 / 0      0.831 / 0      1.662 / 0      3.324 / 2      7.302 / 8     11.566 / 15  
+    2024       56   0.000 / 0      0.001 / 0      0.011 / 0      0.114 / 0      0.570 / 0      1.141 / 0      2.281 / 1      5.439 / 7      9.601 / 13  
+     all      574   0.002 / 0      0.020 / 0      0.198 / 0      1.978 / 2      9.891 / 7     19.781 / 15    39.443 / 34    89.223 / 98   148.972 / 189 
+     cdf            0.002 / 0      0.020 / 0      0.198 / 0      1.978 / 2      9.886 / 7     19.747 / 15    39.297 / 34    97.083 / 98   187.630 / 189    (expected by the forecast's cdf over the band, which the density form at 1/2 understates where the mean is far from even)
+    P(seen or fewer | the forecasts), Poisson, cdf form: k=1: 0.998, k=10: 0.980, k=100: 0.821, k=1000: 0.683, k=5000: 0.231, k=10000: 0.170, k=20000: 0.225, k=50000: 0.564, k=100000: 0.559
+    P(seen or more | the forecasts), cdf form: k=1: 1.000, k=10: 1.000, k=100: 1.000, k=1000: 0.588, k=5000: 0.863, k=10000: 0.885, k=20000: 0.822, k=50000: 0.476, k=100000: 0.470
+    the contests decided by 20,000 votes or fewer, with the forecast's P(within that margin):
+      2000-president-NM      margin    366 of    573,200; p_state 6.762e-06; P(|D-R| <= margin) 0.005; under the model's own
+      2000-president-FL      margin    537 of  5,825,043; p_state 5.441e-07; P(|D-R| <= margin) 0.001; under the model's own
+      2016-president-NH      margin   2736 of    694,316; p_state 6.833e-06; P(|D-R| <= margin) 0.037; under 538 (polls-plus)
+      1984-president-MN      margin   3761 of  2,068,967; p_state 1.882e-06; P(|D-R| <= margin) 0.014; under the model's own
+      2008-president-MO      margin   3903 of  2,887,725; p_state 1.737e-06; P(|D-R| <= margin) 0.014; under the model's own
+      2000-president-IA      margin   4144 of  1,272,890; p_state 3.880e-06; P(|D-R| <= margin) 0.032; under the model's own
+      1996-president-NV      margin   4730 of    403,218; p_state 3.753e-06; P(|D-R| <= margin) 0.036; under the model's own
+      2000-president-WI      margin   5708 of  2,480,266; p_state 2.018e-06; P(|D-R| <= margin) 0.023; under the model's own
+      2004-president-NM      margin   5988 of    747,872; p_state 6.630e-06; P(|D-R| <= margin) 0.079; under the model's own
+      2016-president-NE-2    margin   6534 of    268,594; p_state 1.258e-05; P(|D-R| <= margin) 0.164; under 538 (polls-plus)
+      1992-president-NH      margin   6556 of    411,524; p_state 5.733e-06; P(|D-R| <= margin) 0.075; under the model's own
+      2000-president-OR      margin   6765 of  1,433,919; p_state 3.048e-06; P(|D-R| <= margin) 0.041; under the model's own
+      2000-president-NH      margin   7211 of    539,907; p_state 9.054e-06; P(|D-R| <= margin) 0.131; under the model's own
+      1988-president-VT      margin   8556 of    240,106; p_state 8.831e-06; P(|D-R| <= margin) 0.151; under the model's own
+      2004-president-NH      margin   9274 of    671,748; p_state 6.828e-06; P(|D-R| <= margin) 0.127; under the model's own
+      2004-president-IA      margin  10059 of  1,493,855; p_state 3.354e-06; P(|D-R| <= margin) 0.067; under the model's own
+      1992-president-MT      margin  10300 of    298,714; p_state 5.889e-06; P(|D-R| <= margin) 0.121; under the model's own
+      2020-president-AZ      margin  10457 of  3,333,829; p_state 2.412e-06; P(|D-R| <= margin) 0.050; under The Economist
+      2016-president-MI      margin  10704 of  4,548,382; p_state 1.115e-06; P(|D-R| <= margin) 0.024; under 538 (polls-plus)
+      2008-president-MT      margin  11096 of    474,430; p_state 3.486e-06; P(|D-R| <= margin) 0.077; under the model's own
+      1992-president-WY      margin  11187 of    147,507; p_state 2.506e-05; P(|D-R| <= margin) 0.561; under the model's own
+      1996-president-SD      margin  11210 of    289,876; p_state 1.559e-05; P(|D-R| <= margin) 0.350; under the model's own
+      2004-president-WI      margin  11384 of  2,967,624; p_state 1.682e-06; P(|D-R| <= margin) 0.038; under the model's own
+      1996-president-MT      margin  11730 of    347,574; p_state 4.517e-06; P(|D-R| <= margin) 0.106; under the model's own
+      2020-president-GA      margin  11779 of  4,935,487; p_state 1.853e-06; P(|D-R| <= margin) 0.044; under The Economist
+      1992-president-SD      margin  11830 of    261,606; p_state 7.194e-06; P(|D-R| <= margin) 0.170; under the model's own
+      1992-president-NV      margin  13320 of    364,976; p_state 1.128e-05; P(|D-R| <= margin) 0.300; under the model's own
+      1996-president-KY      margin  13331 of  1,259,897; p_state 1.182e-06; P(|D-R| <= margin) 0.032; under the model's own
+      1992-president-GA      margin  13714 of  2,004,218; p_state 2.233e-06; P(|D-R| <= margin) 0.061; under the model's own
+      2008-president-NC      margin  14177 of  4,271,125; p_state 1.200e-06; P(|D-R| <= margin) 0.034; under the model's own
+      2024-president-NE-2    margin  14636 of    312,446; p_state 1.264e-05; P(|D-R| <= margin) 0.370; under the model's own
+      1984-president-RI      margin  14974 of    409,186; p_state 9.290e-06; P(|D-R| <= margin) 0.278; under the model's own
+      1996-president-ND      margin  18145 of    231,955; p_state 1.279e-05; P(|D-R| <= margin) 0.464; under the model's own
+      1988-president-SD      margin  19855 of    310,975; p_state 1.480e-06; P(|D-R| <= margin) 0.059; under the model's own
+    the same test under every forecast kept in the record (its own p_state), over the contests it covers:
+      538 now-cast                   53 contests, 2016-2016: k=100: 0.02/0 k=1000: 0.19/0 k=5000: 0.93/1 k=10000: 1.85/2 k=20000: 3.71/3 k=50000: 9.14/9
+      538 polls-only                 52 contests, 2016-2016: k=100: 0.02/0 k=1000: 0.19/0 k=5000: 0.94/1 k=10000: 1.88/2 k=20000: 3.76/3 k=50000: 9.18/9
+      538 polls-plus                108 contests, 2016-2020: k=100: 0.04/0 k=1000: 0.35/0 k=5000: 1.76/1 k=10000: 3.53/2 k=20000: 7.05/5 k=50000: 16.37/17
+      The Economist                  16 contests, 2020-2020: k=100: 0.00/0 k=1000: 0.04/0 k=5000: 0.19/0 k=10000: 0.39/0 k=20000: 0.78/2 k=50000: 1.95/4
+      the model's own               566 contests, 1984-2024: k=100: 0.18/0 k=1000: 1.77/2 k=5000: 8.84/7 k=10000: 17.67/14 k=20000: 35.22/33 k=50000: 79.93/94
+
+C7. THE FIRST-SCREEN FIGURES, BY HAND
+repository HEAD 503657b
+7.1 The presidency: each year's average voter (vote-weighted mean of the states' p) and the closest states, against the files and data/president/REPORT.md
+    year avg p by hand           1 in           file         REPORT   closest states by hand (REPORT in brackets)
+    1984    8.5200e-10 1 in 1,173,707,241 1 in 1,173,707,241 1 in 1,173,707,241   VT 1 in 298,251,585, DE 1 in 455,041,412, ME 1 in 647,793,472  [VT 298M, DE 455M, ME 648M]
+    1988    6.3536e-09 1 in 157,390,690 1 in 157,390,690 1 in 157,390,690   VT 1 in 42,142,049, DE 1 in 49,280,547, HI 1 in 62,846,393  [VT 42.1M, DE 49.3M, HI 62.8M]
+    1992    2.1950e-08 1 in 45,557,384 1 in 45,557,384 1 in 45,557,384   DE 1 in 11,983,819, ND 1 in 12,966,515, SD 1 in 15,928,508  [DE 12.0M, ND 13.0M, SD 15.9M]
+    1996    6.0259e-10 1 in 1,659,502,375 1 in 1,659,502,375 1 in 1,659,502,375   NV 1 in 471,109,089, MT 1 in 541,952,953, NH 1 in 547,849,237  [NV 471M, MT 542M, NH 548M]
+    2000    5.6528e-08 1 in 17,690,421 1 in 17,690,421 1 in 17,690,421   NM 1 in 4,833,785, NH 1 in 5,326,669, IA 1 in 7,165,419  [NM 4.83M, NH 5.33M, IA 7.17M]
+    2004    5.8372e-08 1 in 17,131,511 1 in 17,131,511 1 in 17,131,511   NM 1 in 3,916,650, NH 1 in 4,777,882, IA 1 in 5,504,271  [NM 3.92M, NH 4.78M, IA 5.50M]
+    2008    1.5389e-08 1 in 64,982,810 1 in 64,982,810 1 in 64,982,810   NM 1 in 15,920,231, NV 1 in 16,228,206, IA 1 in 20,897,196  [NM 15.9M, NV 16.2M, IA 20.9M]
+    2012    6.7293e-08 1 in 14,860,470 1 in 14,860,470 1 in 14,860,470   NH 1 in 3,078,868, NV 1 in 4,507,295, VA 1 in 4,652,647  [NH 3.08M, NV 4.51M, VA 4.65M]
+    2016    6.2764e-08 1 in 15,932,632 1 in 15,932,632 1 in 15,932,632   NV 1 in 3,809,722, NH 1 in 4,888,513, NC 1 in 4,968,325  [NV 3.81M, NH 4.89M, NC 4.97M]
+    2020    1.5455e-08 1 in 64,705,610 1 in 64,705,610 1 in 64,705,610   PA 1 in 8,861,048, WI 1 in 17,401,024, NH 1 in 18,833,754  [PA 8.86M, WI 17.4M, NH 18.8M]
+    2024    4.3037e-08 1 in 23,235,822 1 in 23,235,822 1 in 23,235,822   NV 1 in 5,737,099, AZ 1 in 7,029,292, GA 1 in 7,253,075  [NV 5.74M, AZ 7.03M, GA 7.25M]
+7.2 The closest House, Senate and governor races: the largest p of each year and level by hand (normal density at the forecast's mean and sd, over twice the count), against the file and data/congress/REPORT.md section 5 (the file's mean and sd are rounded to six decimals, so the last digit of '1 in' can differ by one)
+    year, level      contest                    mean       sd          n   f(1/2)  p by hand           1 in           file   REPORT
+    2006 senate      2006-senate-ND           0.4905   0.0567    214,562    6.936  1.616e-05    1 in 61,867    1 in 61,867   North Dakota, 1 in 61,867
+    2008 senate      2008-senate-SD           0.5012   0.0590    380,672    6.759  8.878e-06   1 in 112,640   1 in 112,640   South Dakota, 1 in 112,640
+    2010 senate      2010-senate-ND           0.4360   0.0600    234,643    3.765  8.023e-06   1 in 124,646   1 in 124,645   North Dakota, 1 in 124,645
+    2012 senate      2012-senate-MT           0.5131   0.0621    454,173    6.280  6.914e-06   1 in 144,640   1 in 144,641   Montana, 1 in 144,641
+    2014 senate      2014-senate-AK           0.4885   0.0177    264,875   18.220  3.439e-05    1 in 29,075    1 in 29,075   Alaska, 1 in 29,075
+    2016 senate      2016-senate-NV           0.5051   0.0223  1,017,072   17.420  8.564e-06   1 in 116,767   1 in 116,767   Nevada, 1 in 116,767
+    2018 senate      2018-senate-MT           0.5193   0.0326    489,838   10.272  1.048e-05    1 in 95,378    1 in 95,378   Montana, 1 in 95,378
+    2020 senate      2020-senate-AK           0.4760   0.0451    337,179    7.683  1.139e-05    1 in 87,769    1 in 87,769   Alaska, 1 in 87,769
+    2022 senate      2022-senate-NH           0.5145   0.0272    608,120   12.718  1.046e-05    1 in 95,630    1 in 95,630   New Hampshire, 1 in 95,630
+    2024 senate      2024-senate-MT           0.4874   0.0633    595,986    6.174  5.179e-06   1 in 193,072   1 in 193,072   Montana, 1 in 193,072
+    2006 house       2006-house-NY-13         0.4685   0.0501    104,464    6.535  3.128e-05    1 in 31,970    1 in 31,970   New York 13, 1 in 31,970
+    2008 house       2008-house-NY-13         0.4815   0.0497    176,659    7.484  2.118e-05    1 in 47,211    1 in 47,211   New York 13, 1 in 47,211
+    2010 house       2010-house-NY-13         0.5029   0.0522    125,796    7.631  3.033e-05    1 in 32,972    1 in 32,972   New York 13, 1 in 32,972
+    2012 house       2012-house-IL-08         0.5168   0.0525    225,065    7.216  1.603e-05    1 in 62,383    1 in 62,384   Illinois 8, 1 in 62,384
+    2014 house       2014-house-CA-21         0.4621   0.0527     79,376    5.844  3.681e-05    1 in 27,166    1 in 27,166   California 21, 1 in 27,166
+    2016 house       2016-house-CA-21         0.4837   0.0527    132,407    7.214  2.724e-05    1 in 36,709    1 in 36,709   California 21, 1 in 36,709
+    2018 house       2018-house-NM-02         0.4953   0.0329    199,255   12.004  3.012e-05    1 in 33,197    1 in 33,197   New Mexico 2, 1 in 33,197
+    2020 house       2020-house-OK-05         0.4965   0.0322    303,848   12.301  2.024e-05    1 in 49,402    1 in 49,402   Oklahoma 5, 1 in 49,402
+    2022 house       2022-house-NH-01         0.4995   0.0129    309,619   30.840  4.980e-05    1 in 20,079    1 in 20,079   New Hampshire 1, 1 in 20,079
+    2024 house       2024-house-CA-22         0.4898   0.0538    167,506    7.279  2.173e-05    1 in 46,023    1 in 46,024   California 22, 1 in 46,024
+    2006 governor    2006-governor-WY         0.4855   0.0837    193,615    4.697  1.213e-05    1 in 82,437    1 in 82,437   Wyoming, 1 in 82,437
+    2008 governor    2008-governor-DE         0.4938   0.0842    393,522    4.723  6.001e-06   1 in 166,637   1 in 166,637   Delaware, 1 in 166,637
+    2010 governor    2010-governor-WY         0.3909   0.0879    167,019    2.101  6.290e-06   1 in 158,976   1 in 158,976   Wyoming, 1 in 158,976
+    2012 governor    2012-governor-ND         0.4460   0.0866    309,572    3.792  6.125e-06   1 in 163,273   1 in 163,273   North Dakota, 1 in 163,273
+    2014 governor    2014-governor-RI         0.5196   0.0867    249,326    4.484  8.993e-06   1 in 111,200   1 in 111,200   Rhode Island, 1 in 111,200
+    2016 governor    2016-governor-DE         0.5097   0.0853    415,255    4.644  5.592e-06   1 in 178,840   1 in 178,840   Delaware, 1 in 178,840
+    2018 governor    2018-governor-SD         0.5050   0.0349    334,365   11.317  1.692e-05    1 in 59,093    1 in 59,093   South Dakota, 1 in 59,093
+    2020 governor    2020-governor-MT         0.4788   0.0862    579,407    4.491  3.876e-06   1 in 258,028   1 in 258,029   Montana, 1 in 258,029
+    2022 governor    2022-governor-NV         0.4912   0.0258    979,367   14.590  7.449e-06   1 in 134,250   1 in 134,250   Nevada, 1 in 134,250
+    2024 governor    2024-governor-DE         0.5205   0.0854    498,634    4.539  4.551e-06   1 in 219,726   1 in 219,725   Delaware, 1 in 219,725
+
