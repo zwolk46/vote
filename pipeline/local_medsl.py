@@ -210,7 +210,7 @@ QJOINS_EXPECTED = {2022: {("WA", "WASHINGTON STATE - ADVISORY VOTE NO. 39"), ("W
 HOLDS_EXPECTED = {
     2018: {("NY", "COMPTROLLER", "", "incomplete"), ("NY", "ATTORNEY GENERAL", "", "incomplete")},
     2022: {("AZ", "STATE TREASURER", "", "incomplete"), ("AZ", "STATE MINE INSPECTOR", "", "incomplete"),
-           ("AZ", "ATTORNEY GENERAL", "", "second count"), ("GA", "SECRETARY OF STATE", "", "no county"),
+           ("GA", "SECRETARY OF STATE", "", "no county"),
            ("ID", "LIEUTENANT GOVERNOR", "", "incomplete"), ("ID", "SECRETARY OF STATE", "", "incomplete"),
            ("ID", "STATE CONTROLLER", "", "incomplete"), ("ID", "STATE TREASURER", "", "incomplete"),
            ("ID", "SUPERINTENDENT OF PUBLIC INSTRUCTION", "", "incomplete"),
@@ -452,6 +452,7 @@ def statewide_pieces(contests, year):
         return {name_key(x["name"]) for x in ballot(m["candidates"])}
     # (a) join the pieces
     mains = [m for m in contests if _sw_kind(m) and not m.get("held_reason") and len(a_[(m["state"], m["date"])]) > 1
+             and "RECOUNT" not in (m.get("stage") or "")
              and not whole(m)
              and (_sw_kind(m) == "officer" or len(set(m["counties"]) & a_[(m["state"], m["date"])])
                   >= len(a_[(m["state"], m["date"])]) / 2)]
@@ -460,6 +461,7 @@ def statewide_pieces(contests, year):
         a, mine = a_[(m["state"], m["date"])], set(m["counties"])
         ps = [o for o in contests if o is not m and not o["question"] and o.get("dataverse") == "STATE"
               and o["state"] == m["state"] and o["date"] == m["date"] and o.get("counties")
+              and (o.get("stage"), o.get("special")) == (m.get("stage"), m.get("special"))
               and not (set(o["counties"]) & mine) and set(o["counties"]) <= a and names(o)
               and (names(o) <= names(m) or (o["office"] == m["office"] and (o.get("district") or "") ==
                                             (m.get("district") or "") and names(m) <= names(o)))
@@ -499,6 +501,7 @@ def statewide_pieces(contests, year):
             continue
         ps = [o for o in contests if o is not m and o["question"] and o.get("dataverse") == "STATE"
               and o["state"] == m["state"] and o["date"] == m["date"] and o.get("counties") and qwords(o) == qwords(m)
+              and (o.get("stage"), o.get("special")) == (m.get("stage"), m.get("special"))
               and not (set(o["counties"]) & mine) and names(o) == names(m) and id(o) not in taken]
         if ps:
             taken.update(id(o) for o in ps)
@@ -513,12 +516,12 @@ def statewide_pieces(contests, year):
     for m in contests:
         k = _sw_kind(m)
         a = a_[(m.get("state"), m.get("date"))]
-        if not k or len(a) <= 1 or whole(m) or m.get("held_reason"):
-            continue
+        if not k or len(a) <= 1 or whole(m) or m.get("held_reason") or "RECOUNT" in (m.get("stage") or ""):
+            continue   # a recount's lines are recorded as the recount they are (Arizona's 2022 Attorney General, Cochise)
         mine = set(m.get("counties") or []) & a
         key = (m["state"], m["office"], m.get("district") or "")
         twin = next((w for w in contests if w is not m and whole(w) and w["state"] == m["state"]
-                     and w["date"] == m["date"] and w["office"] == m["office"]
+                     and w["date"] == m["date"] and w["office"] == m["office"] and w.get("stage") == m.get("stage")
                      and (w.get("district") or "") == (m.get("district") or "") and names(m) <= names(w)), None)
         if not mine:
             _hold(m, "a line with no county: MEDSL's file " + ("holds this contest whole and, apart from it, "
