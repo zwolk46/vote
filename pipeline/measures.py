@@ -41,6 +41,9 @@ STATEWIDE_COVER = 0.9   # a question filed with the state's offices is statewide
 _RET_WORDS = re.compile(r"RETENTION|RETAIN")
 _COURT = re.compile(r"\b(JUDGE|JUSTICE|COURT|MAGISTRATE)\b")
 _RET_SUBJECT = re.compile(r"\bBE RETAINED\b")
+# a tax, bond or fee proposition that names a court or justice system ('Parishwide Criminal Justice Proposition, 3.16
+# Mills Renewal'; 'Florida Parishes Juvenile Justice Dist., 3 Mills Ext.': Louisiana 2023-2024) is a measure
+_TAX_WORDS = re.compile(r"\b(MILLS?|MILLAGE|TAX|BONDS?|PARCEL FEE)\b")
 
 
 def kind_of(c):
@@ -51,6 +54,8 @@ def kind_of(c):
     if any(x["name"] in ("RETAIN", "NOT RETAIN", "DO NOT RETAIN") for x in c["candidates"]):
         return "retention"
     if type_of(c) in ("amendment", "statute", "bond", "convention"):
+        return "measure"
+    if _TAX_WORDS.search(office) and not _RET_WORDS.search(office):
         return "measure"
     if _RET_WORDS.search(office) or _COURT.search(office):
         return "retention"
