@@ -728,6 +728,11 @@ def statewide_pieces(contests, year):
 LISTED_NOTE = "a possible total row in the source, not dropped"
 LISTED = collections.defaultdict(list)   # year -> each listed row with its record's figures, for the check file
 LISTED_CHECK = os.path.join(L.REPO, "data", "local", "check-listed-rows.json")
+LISTED_RECORD = {}   # a listed row's key -> the record its contest became (listed_note; load runs more than once)
+
+
+def _listed_key(r):
+    return (r["file"], r["state"], r["office"], r["district"], r["county"], r["precinct"], r["kind"])
 
 
 def listed_rows(contests, year):
@@ -1117,7 +1122,7 @@ def volume_note(rec, c):
 def listed_note(rec, c):
     """The listed rows' notes (listed_rows) on the record a row falls in, and the record's id beside each row."""
     for r in c.get("listed_rows_recs") or []:
-        r["record"] = rec.get("id")
+        LISTED_RECORD[_listed_key(r)] = rec.get("id")
     for n in c.get("listed_rows_notes") or []:
         if n not in (rec.get("notes") or []):
             rec["notes"] = (rec.get("notes") or []) + [n]
@@ -3220,7 +3225,7 @@ def build(out_dir, with_p=True):
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     for y in MEASURE_YEARS:
         for r in LISTED[y]:
-            r.setdefault("record", None)
+            r["record"] = LISTED_RECORD.get(_listed_key(r))
         write_listed(y)
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:
