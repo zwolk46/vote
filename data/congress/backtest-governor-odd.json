@@ -1,0 +1,802 @@
+{
+ "what": "the odd-year governors' forecast (the orchestrator, 2026-11-07 12:01 UTC): the plain route against the one odd-year term, under the robustness test of 08:36; written by pipeline/chambers.py odd",
+ "rows": 46,
+ "skipped": {
+  "Louisiana: the deciding round of a two-round system": 11,
+  "a special election, or a state that elects its governor in even years": 2
+ },
+ "years": [
+  1977,
+  1979,
+  1981,
+  1983,
+  1985,
+  1987,
+  1989,
+  1991,
+  1993,
+  1995,
+  1997,
+  1999,
+  2001,
+  2003,
+  2005,
+  2007,
+  2009,
+  2011,
+  2013,
+  2015,
+  2017,
+  2019,
+  2021
+ ],
+ "min_count": 5,
+ "plain": {
+  "term": "plain",
+  "races": 38,
+  "years_scored": [
+   1985,
+   1987,
+   1989,
+   1991,
+   1993,
+   1995,
+   1997,
+   1999,
+   2001,
+   2003,
+   2005,
+   2007,
+   2009,
+   2011,
+   2013,
+   2015,
+   2017,
+   2019,
+   2021
+  ],
+  "mean_log_score": 1.127585422229936,
+  "z_rms": 0.930455074361552,
+  "z_mean": 0.08142748858780385,
+  "coverage": {
+   "0.5": 0.5789473684210527,
+   "0.8": 0.8157894736842105,
+   "0.95": 0.9736842105263158
+  },
+  "cells": {
+   "all races": {
+    "49-51%": {
+     "expected": 3.1206174800594884,
+     "seen": 6
+    },
+    "48-52%": {
+     "expected": 6.208005419016885,
+     "seen": 11
+    },
+    "45-55%": {
+     "expected": 14.960672444229502,
+     "seen": 18
+    }
+   },
+   "|mean - 1/2| 0.00-0.05": {
+    "49-51%": {
+     "expected": 2.2351108512711493,
+     "seen": 3
+    },
+    "48-52%": {
+     "expected": 4.439816372115938,
+     "seen": 6
+    },
+    "45-55%": {
+     "expected": 10.592781440389055,
+     "seen": 12
+    }
+   },
+   "|mean - 1/2| 0.05-0.10": {
+    "49-51%": {
+     "expected": 0.8411245564459244,
+     "seen": 3
+    },
+    "48-52%": {
+     "expected": 1.6790042690111926,
+     "seen": 5
+    },
+    "45-55%": {
+     "expected": 4.138445337639452,
+     "seen": 6
+    }
+   },
+   "|mean - 1/2| 0.10-0.20": {
+    "49-51%": {
+     "expected": 0.04438207234241487,
+     "seen": 0
+    },
+    "48-52%": {
+     "expected": 0.08918477788975543,
+     "seen": 0
+    },
+    "45-55%": {
+     "expected": 0.22944566620099283,
+     "seen": 0
+    }
+   },
+   "|mean - 1/2| 0.20 up": {
+    "49-51%": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "48-52%": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "45-55%": {
+     "expected": 0.0,
+     "seen": 0
+    }
+   }
+  },
+  "races_by_band": {
+   "|mean - 1/2| 0.00-0.05": 24,
+   "|mean - 1/2| 0.05-0.10": 13,
+   "|mean - 1/2| 0.10-0.20": 1,
+   "|mean - 1/2| 0.20 up": 0
+  },
+  "lean_tests_raw": {
+   "s": {
+    "within": "1 point",
+    "expected": 3.1206174800594884,
+    "seen": 6
+   },
+   "v": {
+    "1000": {
+     "expected": 0.12579383628269986,
+     "seen": 0
+    },
+    "5000": {
+     "expected": 0.628911141884236,
+     "seen": 0
+    },
+    "10000": {
+     "expected": 1.2574595521660878,
+     "seen": 3
+    },
+    "20000": {
+     "expected": 2.512017760106537,
+     "seen": 3
+    },
+    "50000": {
+     "expected": 6.229354487116419,
+     "seen": 9
+    }
+   }
+  },
+  "per_year": {
+   "1985": {
+    "races": 2,
+    "cycles": 4,
+    "k": 1.0,
+    "mean_log_score": 0.7340055484469912
+   },
+   "1987": {
+    "races": 2,
+    "cycles": 5,
+    "k": 1.0,
+    "mean_log_score": 0.9107585278024866
+   },
+   "1989": {
+    "races": 2,
+    "cycles": 6,
+    "k": 1.0,
+    "mean_log_score": 0.7603456016022703
+   },
+   "1991": {
+    "races": 2,
+    "cycles": 7,
+    "k": 0.965294521005485,
+    "mean_log_score": 0.7651961158141739
+   },
+   "1993": {
+    "races": 2,
+    "cycles": 8,
+    "k": 0.9765050567000655,
+    "mean_log_score": 1.0030335055696749
+   },
+   "1995": {
+    "races": 2,
+    "cycles": 9,
+    "k": 0.9915653421231985,
+    "mean_log_score": 1.4941957269833501
+   },
+   "1997": {
+    "races": 2,
+    "cycles": 10,
+    "k": 1.0176087151533961,
+    "mean_log_score": 1.2988874871068032
+   },
+   "1999": {
+    "races": 2,
+    "cycles": 11,
+    "k": 0.9925341845505541,
+    "mean_log_score": 0.715851994007083
+   },
+   "2001": {
+    "races": 2,
+    "cycles": 12,
+    "k": 0.9755792363922111,
+    "mean_log_score": 1.432859519869646
+   },
+   "2003": {
+    "races": 2,
+    "cycles": 13,
+    "k": 0.96273392155832,
+    "mean_log_score": 1.1113817032046642
+   },
+   "2005": {
+    "races": 2,
+    "cycles": 14,
+    "k": 0.9600185911431575,
+    "mean_log_score": 1.505008916897547
+   },
+   "2007": {
+    "races": 2,
+    "cycles": 15,
+    "k": 0.9677553701056463,
+    "mean_log_score": 0.3528625349156579
+   },
+   "2009": {
+    "races": 2,
+    "cycles": 16,
+    "k": 0.9851226744058339,
+    "mean_log_score": 0.7560334060187168
+   },
+   "2011": {
+    "races": 2,
+    "cycles": 17,
+    "k": 0.9732543957143793,
+    "mean_log_score": 1.2168400767025287
+   },
+   "2013": {
+    "races": 2,
+    "cycles": 18,
+    "k": 0.9671786394251634,
+    "mean_log_score": 1.4618523647595374
+   },
+   "2015": {
+    "races": 2,
+    "cycles": 19,
+    "k": 0.9539052942009839,
+    "mean_log_score": 1.4002801596781747
+   },
+   "2017": {
+    "races": 2,
+    "cycles": 20,
+    "k": 0.9571000324589375,
+    "mean_log_score": 1.3978482124686984
+   },
+   "2019": {
+    "races": 2,
+    "cycles": 21,
+    "k": 0.9354085485316804,
+    "mean_log_score": 1.5173104454940147
+   },
+   "2021": {
+    "races": 2,
+    "cycles": 22,
+    "k": 0.9461171742980355,
+    "mean_log_score": 1.5895711750267592
+   }
+  }
+ },
+ "midterm": {
+  "term": "midterm",
+  "races": 38,
+  "years_scored": [
+   1985,
+   1987,
+   1989,
+   1991,
+   1993,
+   1995,
+   1997,
+   1999,
+   2001,
+   2003,
+   2005,
+   2007,
+   2009,
+   2011,
+   2013,
+   2015,
+   2017,
+   2019,
+   2021
+  ],
+  "mean_log_score": 1.1627268606115617,
+  "z_rms": 0.8846571623472799,
+  "z_mean": 0.0865378934084257,
+  "coverage": {
+   "0.5": 0.5789473684210527,
+   "0.8": 0.8157894736842105,
+   "0.95": 0.9473684210526315
+  },
+  "cells": {
+   "all races": {
+    "49-51%": {
+     "expected": 3.0346796688146003,
+     "seen": 6
+    },
+    "48-52%": {
+     "expected": 6.039052062742884,
+     "seen": 11
+    },
+    "45-55%": {
+     "expected": 14.585986761766092,
+     "seen": 18
+    }
+   },
+   "|mean - 1/2| 0.00-0.05": {
+    "49-51%": {
+     "expected": 2.141096500387572,
+     "seen": 3
+    },
+    "48-52%": {
+     "expected": 4.255515409348258,
+     "seen": 6
+    },
+    "45-55%": {
+     "expected": 10.1922759920249,
+     "seen": 12
+    }
+   },
+   "|mean - 1/2| 0.05-0.10": {
+    "49-51%": {
+     "expected": 0.8635194318632969,
+     "seen": 3
+    },
+    "48-52%": {
+     "expected": 1.7227671228251147,
+     "seen": 5
+    },
+    "45-55%": {
+     "expected": 4.231374459695903,
+     "seen": 6
+    }
+   },
+   "|mean - 1/2| 0.10-0.20": {
+    "49-51%": {
+     "expected": 0.03006373656373129,
+     "seen": 0
+    },
+    "48-52%": {
+     "expected": 0.0607695305695084,
+     "seen": 0
+    },
+    "45-55%": {
+     "expected": 0.16233631004528504,
+     "seen": 0
+    }
+   },
+   "|mean - 1/2| 0.20 up": {
+    "49-51%": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "48-52%": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "45-55%": {
+     "expected": 0.0,
+     "seen": 0
+    }
+   }
+  },
+  "races_by_band": {
+   "|mean - 1/2| 0.00-0.05": 24,
+   "|mean - 1/2| 0.05-0.10": 13,
+   "|mean - 1/2| 0.10-0.20": 1,
+   "|mean - 1/2| 0.20 up": 0
+  },
+  "lean_tests_raw": {
+   "s": {
+    "within": "1 point",
+    "expected": 3.0346796688146003,
+    "seen": 6
+   },
+   "v": {
+    "1000": {
+     "expected": 0.12277343181421224,
+     "seen": 0
+    },
+    "5000": {
+     "expected": 0.6138068393005879,
+     "seen": 0
+    },
+    "10000": {
+     "expected": 1.2272368370404227,
+     "seen": 3
+    },
+    "20000": {
+     "expected": 2.4514637015715666,
+     "seen": 3
+    },
+    "50000": {
+     "expected": 6.076519007648292,
+     "seen": 9
+    }
+   }
+  },
+  "per_year": {
+   "1985": {
+    "races": 2,
+    "cycles": 4,
+    "k": 1.0,
+    "mean_log_score": 0.6248896816368846
+   },
+   "1987": {
+    "races": 2,
+    "cycles": 5,
+    "k": 1.0,
+    "mean_log_score": 1.0418411343332141
+   },
+   "1989": {
+    "races": 2,
+    "cycles": 6,
+    "k": 1.0,
+    "mean_log_score": 0.8998317106170639
+   },
+   "1991": {
+    "races": 2,
+    "cycles": 7,
+    "k": 0.965294521005485,
+    "mean_log_score": 0.7984473955000051
+   },
+   "1993": {
+    "races": 2,
+    "cycles": 8,
+    "k": 0.9765050567000655,
+    "mean_log_score": 1.165772856716651
+   },
+   "1995": {
+    "races": 2,
+    "cycles": 9,
+    "k": 0.9915653421231985,
+    "mean_log_score": 1.3996061393638217
+   },
+   "1997": {
+    "races": 2,
+    "cycles": 10,
+    "k": 1.0176087151533961,
+    "mean_log_score": 1.2544498411026785
+   },
+   "1999": {
+    "races": 2,
+    "cycles": 11,
+    "k": 0.9925341845505541,
+    "mean_log_score": 0.4136970306362797
+   },
+   "2001": {
+    "races": 2,
+    "cycles": 12,
+    "k": 0.9755792363922111,
+    "mean_log_score": 1.5228596712080238
+   },
+   "2003": {
+    "races": 2,
+    "cycles": 13,
+    "k": 0.96273392155832,
+    "mean_log_score": 0.8990353284878394
+   },
+   "2005": {
+    "races": 2,
+    "cycles": 14,
+    "k": 0.9600185911431575,
+    "mean_log_score": 1.5631249896065802
+   },
+   "2007": {
+    "races": 2,
+    "cycles": 15,
+    "k": 0.9677553701056463,
+    "mean_log_score": 0.5882285601541428
+   },
+   "2009": {
+    "races": 2,
+    "cycles": 16,
+    "k": 0.9851226744058339,
+    "mean_log_score": 0.9960004159039864
+   },
+   "2011": {
+    "races": 2,
+    "cycles": 17,
+    "k": 0.9732543957143793,
+    "mean_log_score": 1.2255738122438935
+   },
+   "2013": {
+    "races": 2,
+    "cycles": 18,
+    "k": 0.9671786394251634,
+    "mean_log_score": 1.487066458129061
+   },
+   "2015": {
+    "races": 2,
+    "cycles": 19,
+    "k": 0.9539052942009839,
+    "mean_log_score": 1.5168847538810728
+   },
+   "2017": {
+    "races": 2,
+    "cycles": 20,
+    "k": 0.9571000324589375,
+    "mean_log_score": 1.52958045282718
+   },
+   "2019": {
+    "races": 2,
+    "cycles": 21,
+    "k": 0.9354085485316804,
+    "mean_log_score": 1.6031592223096676
+   },
+   "2021": {
+    "races": 2,
+    "cycles": 22,
+    "k": 0.9461171742980355,
+    "mean_log_score": 1.561760896961625
+   }
+  },
+  "raises_log_score": true,
+  "mean_log_score_gain": 0.035141438381625756,
+  "cells_tested": [
+   "all races, 49-51%",
+   "all races, 48-52%",
+   "all races, 45-55%",
+   "|mean - 1/2| 0.00-0.05, 48-52%",
+   "|mean - 1/2| 0.00-0.05, 45-55%",
+   "|mean - 1/2| 0.05-0.10, 48-52%",
+   "|mean - 1/2| 0.05-0.10, 45-55%"
+  ],
+  "cells_further": [
+   "all races, 49-51%",
+   "all races, 48-52%",
+   "all races, 45-55%",
+   "|mean - 1/2| 0.00-0.05, 48-52%",
+   "|mean - 1/2| 0.00-0.05, 45-55%"
+  ],
+  "improves": false,
+  "leave_one_year_out": {
+   "1985": {
+    "improves": false,
+    "mean_log_score_gain": 0.043155733114499606,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "1987": {
+    "improves": false,
+    "mean_log_score_gain": 0.029811373484452952,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "1989": {
+    "improves": false,
+    "mean_log_score_gain": 0.029344512235338627,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "1991": {
+    "improves": false,
+    "mean_log_score_gain": 0.035246447198058695,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "1993": {
+    "improves": false,
+    "mean_log_score_gain": 0.028052665450217562,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "1995": {
+    "improves": false,
+    "mean_log_score_gain": 0.04234871760391168,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "1997": {
+    "improves": false,
+    "mean_log_score_gain": 0.03956249862527872,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "1999": {
+    "improves": false,
+    "mean_log_score_gain": 0.053880127367871955,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2001": {
+    "improves": false,
+    "mean_log_score_gain": 0.03209373210625066,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2003": {
+    "improves": false,
+    "mean_log_score_gain": 0.04889076133153969,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2005": {
+    "improves": false,
+    "mean_log_score_gain": 0.033865069807881065,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2007": {
+    "improves": false,
+    "mean_log_score_gain": 0.024017850222911363,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%",
+     "|mean - 1/2| 0.05-0.10, 48-52%",
+     "|mean - 1/2| 0.05-0.10, 45-55%"
+    ]
+   },
+   "2009": {
+    "improves": false,
+    "mean_log_score_gain": 0.02376223996475657,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2011": {
+    "improves": false,
+    "mean_log_score_gain": 0.03660853298386235,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2013": {
+    "improves": false,
+    "mean_log_score_gain": 0.03569295754896462,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2015": {
+    "improves": false,
+    "mean_log_score_gain": 0.03061570750266629,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2017": {
+    "improves": false,
+    "mean_log_score_gain": 0.029775282716244744,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2019": {
+    "improves": false,
+    "mean_log_score_gain": 0.032324364024179486,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 48-52%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   },
+   "2021": {
+    "improves": false,
+    "mean_log_score_gain": 0.03863875596200117,
+    "fails": [
+     "all races, 49-51%",
+     "all races, 48-52%",
+     "all races, 45-55%",
+     "|mean - 1/2| 0.00-0.05, 45-55%"
+    ]
+   }
+  },
+  "robust": false
+ },
+ "adopted": "plain",
+ "adopted_if": "raises the mean log score with no tested cell further from the count seen, on every scored odd year and on every set with one scored year left out; fails with one scored year only",
+ "lean_note": {
+  "s": {
+   "within": "1 point",
+   "expected": 3.1206174800594884,
+   "seen": 6
+  },
+  "v": {
+   "within_votes": 50000,
+   "expected": 6.229354487116419,
+   "seen": 9
+  },
+  "counts": {
+   "s": true,
+   "v": true
+  },
+  "leans": {
+   "s": "more",
+   "v": "more"
+  },
+  "stands": true,
+  "rule": "the note stands only where (s) and (v) both count (5 or more seen or expected) and lean the same way (the orchestrator, 2026-11-07 11:01 UTC)"
+ }
+}

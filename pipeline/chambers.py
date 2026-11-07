@@ -120,7 +120,9 @@ def sitting_party(t, pres):
 
 
 def last_pres_year(t):
-    return t - 4 if t % 4 == 0 else t - 2
+    """The last presidential election year before year t: t - 4 in a presidential year, else the one before t (an
+    odd year's too: 2021 and 2023 take 2020)."""
+    return t - (t % 4 or 4)
 
 
 def district_key(state, dist, lean_year):
@@ -480,7 +482,12 @@ def national(m, t):
     the uncertainty of the terms fitted on few cycles. Reason: a fit on earlier cycles only (item 2 of
     2026-11-07 05:58); the sd of record before was the leave-one-cycle-out miss, which used later cycles."""
     P = sitting_party(t, PRES)
-    z = np.array([1.0, (t % 4 != 0) * P, (t % 4 == 0) * P])
+    if t % 2:
+        # an odd year is neither a midterm nor a presidential year: the plain route gives it neither presidency
+        # term; the one odd-year term tested carries the midterm's (ODD_TERMS, odd_test)
+        z = np.array([1.0, ODD_TERMS[m.get("odd_term") or "plain"] * P, 0.0])
+    else:
+        z = np.array([1.0, (t % 4 != 0) * P, (t % 4 == 0) * P])
     a_hat = float(z @ np.array(m["c"]))
     sd = m["s_a"] * math.sqrt(1.0 + float(z @ np.array(m["ZtZ_inv"]) @ z))
     return a_hat, sd * m.get("k", 1.0)
@@ -791,7 +798,9 @@ def model_source(year, level, m):
     yrs = m["years"]
     nf = m.get("national_from")
     return cc.source_block(f"the model's own forecast, method {method(level, m.get('variant'))}, fitted to the {level} races of "
+                           + ("the even years " if year % 2 else "") +
                            f"{yrs[0]}-{yrs[-1]} ({len(yrs)} cycle{'s' if len(yrs) > 1 else ''}, all before {year})"
+                           + (f"; an odd year, {ODD_NOTE[m.get('odd_term') or 'plain']}" if year % 2 else "")
                            + (f", with national terms from the Senate's earlier cycles ({nf['years'][0]}-"
                               f"{nf['years'][-1]})" if nf else ""),
                            "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
@@ -1805,6 +1814,259 @@ def too_few(level, year, fy):
             f"{len(fy)} before {year} ({first})")
 
 
+# THE ODD-YEAR GOVERNORS (the orchestrator, 2026-11-07 12:01 UTC: "the odd-year governors ... Forecast: your route,
+# fitted on earlier cycles only. Odd years have no presidential or midterm environment of the same kind, so say how the
+# route treats that. Any odd-year term goes through the robustness test of 08:36"). Reason (the orchestrator): the
+# governor is the most prominent office on those ballots, and the record skipped it every odd year.
+#   Kentucky, Louisiana and Mississippi elect their governors in the year before a presidential election, New Jersey
+# and Virginia in the year after one. An odd year's races are forecast by the governors' route as it stands, fitted on
+# the even years before them (fit_years) with k from the even years before them (calibration), and they are never fit
+# rows of any later year, so no even-year p moves. The route's national swing has two presidency terms, the
+# president's party in a midterm and in a presidential year (fit, stage two), and an odd year is neither:
+#   plain (the route as it stands): z = (1, 0, 0). The odd year's swing is the intercept c0, with sd
+#       s_a sqrt(1 + z (Z'Z)^-1 z'), the spread of the even years' swings around their terms;
+#   midterm (the one odd-year term tested, fixed before any score): z = (1, P, 0), the midterm's swing against the
+#       president's party carried to an odd year, which is held under the same president.
+# The term is adopted only by the robustness test of 08:36 (odd_test): over every scored odd year it must raise the
+# mean log score with no tested cell further from the count seen, and still do both with any one scored year left
+# out; with one scored year only, it fails. A cell is a near-even window (49-51%, 48-52%, 45-55%), over all races and
+# in each band of |mean - 1/2| by the plain route's means, tested where VARIANT_MIN_COUNT or more are seen or expected
+# under the plain route. The lean note's two tests (the ruling of 11:01) are taken on the same back-test: no note
+# unless both count and lean the same way.
+ODD_FROM = 1977          # the first odd year whose last presidential vote (1976) and sitting president are in the
+                         # sources the inputs come from, the rule that makes 1978 the governors' first even year
+ODD_YEARS = list(range(ODD_FROM, 2024, 2))
+ODD_STATES = ("KY", "LA", "MS", "NJ", "VA")
+ODD_TERMS = {"plain": 0.0, "midterm": 1.0}
+ODD_NOTE = {"plain": "an odd year: neither the midterm nor the presidential-year term, z = (1, 0, 0) (the plain route; "
+                     "the midterm's term failed the robustness test for odd years, REPORT 8)",
+            "midterm": "an odd year: the midterm's term carried to it, z = (1, P, 0) (it passed the robustness test "
+                       "for odd years, REPORT 8)"}
+LEAN_KS = (1000, 5000, 10000, 20000, 50000)
+_ODD = {}
+
+
+def odd_governor_rows(inc_codes=INC_CODES):
+    """The odd-year governor races the route is scored on (odd_test), by fit_rows' rules: one Democrat and one
+    Republican with votes, the two leading; the state's presidential vote and its last governor race known. From Cha,
+    Kuriwaki and Snyder in the years they hold (2007-2021; incumbency their code, of record 1 only), from Algara and
+    Amlani otherwise (1977-2005, and New Jersey 2017, which Cha does not hold; incumbency the authors' seat status).
+    Left out: Louisiana (its two-round system: the sources hold the deciding round, a first round or a runoff, which
+    the route is not fitted to), special elections and the contests of other states (held apart from the state's
+    regular cycle), and Missouri's counts before 2006 (AA_INCOMPLETE; none is odd). Mississippi stays in: its p is not
+    computed (its rule before 2020 asked for two majorities), but its share is a forecast like the others."""
+    cha = _load("cha/normalized/contests.json")["contests"]
+    ps, pres, gov = presidential_shares(), presidents(), last_governor_index()
+    rows, skipped, in_cha = [], {}, set()
+
+    def skip(why):
+        skipped[why] = skipped.get(why, 0) + 1
+
+    def add(t, st, D, R, inc, inc_source, source):
+        py = last_pres_year(t)
+        if st not in ps.get(py, {}):
+            return skip("no state presidential vote")
+        lg = last_governor_race(gov, st, t)
+        if lg is None:
+            return skip("no earlier governor race in the state")
+        rows.append({"year": t, "level": "governor", "state": st, "district": None, "special": False,
+                     "y": D / (D + R), "n2": D + R, "lean": ps[py][st] - ps[py]["US"], "inc": inc,
+                     "inc_source": inc_source, "M": None, "P": sitting_party(t, pres), "source": source,
+                     "lag": lg[1], "lag_year": lg[0]})
+    for c in cha:
+        t, st = c["year"], c["state"]
+        if c["office"] != "governor" or t % 2 == 0 or st not in cc.STATES_50:
+            continue
+        in_cha.add((t, st))
+        if st not in ODD_STATES or c["special"]:
+            skip("a special election, or a state that elects its governor in even years")
+            continue
+        if st == "LA":
+            skip("Louisiana: the deciding round of a two-round system")
+            continue
+        if c["runoff"]:
+            skip("runoff (the November round is not in this source)")
+            continue
+        cands = [a for a in c["candidates"] if a["votes"]]
+        D = [a for a in cands if a["party"] == "D"]
+        R = [a for a in cands if a["party"] == "R"]
+        top2 = sorted(cands, key=lambda a: -a["votes"])[:2]
+        if len(D) != 1 or len(R) != 1 or {a["party"] for a in top2} != {"D", "R"}:
+            skip("not one Democrat and one Republican leading")
+            continue
+        add(t, st, D[0]["votes"], R[0]["votes"],
+            (1 if D[0]["inc"] in inc_codes else 0) - (1 if R[0]["inc"] in inc_codes else 0), "cha", "cha")
+    for r in aa_governors():
+        t, st = r["year"], r["state"]
+        if t % 2 == 0 or t < ODD_FROM or st not in cc.STATES_50 or (t, st) in in_cha:
+            continue
+        if st not in ODD_STATES:
+            skip("a special election, or a state that elects its governor in even years")
+            continue
+        if st == "LA":
+            skip("Louisiana: the deciding round of a two-round system")
+            continue
+        dr = aa_led_by_DR(r)
+        if not dr:
+            skip("Algara and Amlani: not a Democrat and a Republican leading")
+            continue
+        add(t, st, dr[0], dr[1], r["incumbency"], "algara_amlani", "algara_amlani")
+    return rows, skipped
+
+
+def _odd_score(rows, odd, term, years, bands_by=None):
+    """The odd-year races of `years` forecast under the odd-year term, each year from the governors' model of record
+    for it (year_model: the even years before it, k from them): log score, z, coverage, the near-even windows overall
+    and by band of |mean - 1/2| (by bands_by's means, the plain route's), and the lean note's two tests."""
+    nb = len(VARIANT_BANDS)
+    tot = {"races": 0, "ls": 0.0, "z": [], "cov": [0, 0, 0], "win": {w: [0.0, 0] for w in NEAR_WINDOWS},
+           "lean_s": [0.0, 0], "lean_v": {k: [0.0, 0] for k in LEAN_KS}}
+    band = [{"races": 0, "win": {w: [0.0, 0] for w in NEAR_WINDOWS}} for _ in range(nb)]
+    per_year, means = {}, {}
+    for T in years:
+        test = [r for r in odd if r["year"] == T]
+        m, fy = year_model(rows, "governor", T)
+        if m is None or not test:
+            continue
+        m = dict(m, odd_term=term)
+        tl = m["tails"]
+        py = per_year.setdefault(T, {"races": 0, "ls": 0.0, "cycles": len(fy), "k": m["k"]})
+        for r in test:
+            mu, sd, _ = predict(m, r)
+            means[(T, r["state"])] = mu
+            mu0 = bands_by[(T, r["state"])] if bands_by else mu
+            b = max(i for i, x in enumerate(VARIANT_BANDS) if abs(mu0 - 0.5) >= x)
+            l_ = logpdf(r["y"], mu, sd, tl)
+            u = cdf(r["y"], mu, sd, tl)
+            for g in (tot, band[b]):
+                g["races"] += 1
+                for w in NEAR_WINDOWS:
+                    g["win"][w][0] += cdf(0.5 + w, mu, sd, tl) - cdf(0.5 - w, mu, sd, tl)
+                    g["win"][w][1] += abs(r["y"] - 0.5) < w
+            tot["ls"] += l_
+            tot["z"].append((r["y"] - mu) / sd)
+            for i, c_ in enumerate((0.5, 0.8, 0.95)):
+                tot["cov"][i] += abs(u - 0.5) <= c_ / 2
+            tot["lean_s"][0] += cdf(0.5 + NEAR_W, mu, sd, tl) - cdf(0.5 - NEAR_W, mu, sd, tl)
+            tot["lean_s"][1] += abs(r["y"] - 0.5) < NEAR_W
+            margin = abs(2 * r["y"] - 1) * r["n2"]
+            for k in LEAN_KS:
+                h = k / (2 * r["n2"])
+                tot["lean_v"][k][0] += cdf(0.5 + h, mu, sd, tl) - cdf(0.5 - h, mu, sd, tl)
+                tot["lean_v"][k][1] += margin < k
+            py["races"] += 1
+            py["ls"] += l_
+    n = tot["races"]
+    wk = lambda w: f"{50 - round(w * 100)}-{50 + round(w * 100)}%"
+    bk = lambda b: (f"|mean - 1/2| {VARIANT_BANDS[b]:.2f}-{VARIANT_BANDS[b + 1]:.2f}" if b + 1 < nb
+                    else f"|mean - 1/2| {VARIANT_BANDS[b]:.2f} up")
+    z = np.array(tot["z"]) if n else np.array([0.0])
+    return {"term": term, "races": n, "years_scored": sorted(per_year),
+            "mean_log_score": tot["ls"] / n if n else None,
+            "z_rms": float(np.sqrt(np.mean(z ** 2))) if n else None, "z_mean": float(z.mean()) if n else None,
+            "coverage": {q: c_ / n for q, c_ in zip(("0.5", "0.8", "0.95"), tot["cov"])} if n else None,
+            "cells": {"all races": {wk(w): {"expected": v[0], "seen": v[1]} for w, v in tot["win"].items()},
+                      **{bk(b): {wk(w): {"expected": v[0], "seen": v[1]} for w, v in g["win"].items()}
+                         for b, g in enumerate(band)}},
+            "races_by_band": {bk(b): g["races"] for b, g in enumerate(band)},
+            "lean_tests_raw": {"s": {"within": "1 point", "expected": tot["lean_s"][0], "seen": tot["lean_s"][1]},
+                               "v": {str(k): {"expected": v[0], "seen": v[1]} for k, v in tot["lean_v"].items()}},
+            "per_year": {str(T): {"races": v["races"], "cycles": v["cycles"], "k": v["k"],
+                                  "mean_log_score": v["ls"] / v["races"]} for T, v in per_year.items()},
+            "_means": means}
+
+
+def _odd_verdict(r, b0):
+    """The robustness test's conditions for the term's scores r against the plain route's b0 on the same years: a
+    higher mean log score, and no tested cell further from the count seen."""
+    tested, failed = [], []
+    for cell, ws in b0["cells"].items():
+        for w, x0 in ws.items():
+            if x0["seen"] < VARIANT_MIN_COUNT and x0["expected"] < VARIANT_MIN_COUNT:
+                continue
+            x = r["cells"][cell][w]
+            tested.append(f"{cell}, {w}")
+            if abs(x["expected"] - x["seen"]) > abs(x0["expected"] - x0["seen"]):
+                failed.append(f"{cell}, {w}")
+    raises = r["mean_log_score"] is not None and r["mean_log_score"] > b0["mean_log_score"]
+    return {"raises_log_score": raises, "mean_log_score_gain": (r["mean_log_score"] - b0["mean_log_score"])
+            if r["mean_log_score"] is not None else None, "cells_tested": tested, "cells_further": failed,
+            "improves": bool(raises and not failed)}
+
+
+def lean_tests(raw):
+    """The lean note's two tests (the ruling of 11:01) from a back-test's raw counts: (s) within 1 point; (v) within
+    k votes, k the smallest of LEAN_KS at which LEAN_MIN or more are expected (none: the largest, which then does not
+    count). A test counts with LEAN_MIN or more seen or expected; the note stands only where both count and lean the
+    same way."""
+    s = dict(raw["s"])
+    k = next((k for k in LEAN_KS if raw["v"][str(k)]["expected"] >= LEAN_MIN), LEAN_KS[-1])
+    v = {"within_votes": k, **raw["v"][str(k)]}
+    way = lambda x: "more" if x["seen"] > x["expected"] else "fewer" if x["seen"] < x["expected"] else "as many"
+    counts = {"s": max(s["seen"], s["expected"]) >= LEAN_MIN, "v": max(v["seen"], v["expected"]) >= LEAN_MIN}
+    leans = {"s": way(s), "v": way(v)}
+    return {"s": s, "v": v, "counts": counts, "leans": leans,
+            "stands": all(counts.values()) and leans["s"] == leans["v"] != "as many",
+            "rule": "the note stands only where (s) and (v) both count (5 or more seen or expected) and lean the same "
+                    "way (the orchestrator, 2026-11-07 11:01 UTC)"}
+
+
+def odd_test(rows):
+    """The odd-year term under the robustness test of 08:36, against the plain route, on every odd year the route
+    forecasts (from 1985, the first with K_MIN even cycles before it, to 2021); and the lean note's two tests on the
+    term of record. Cached."""
+    if id(rows) in _ODD:
+        return _ODD[id(rows)]
+    odd, skipped = odd_governor_rows()
+    years = sorted({r["year"] for r in odd})
+    b0 = _odd_score(rows, odd, "plain", years)
+    bands = b0.pop("_means")
+    r = _odd_score(rows, odd, "midterm", years, bands_by=bands)
+    r.pop("_means")
+    r.update(_odd_verdict(r, b0))
+    scored = b0["years_scored"]
+    loo = {}
+    for Y in scored:
+        ys = [T for T in years if T != Y]
+        x0 = _odd_score(rows, odd, "plain", ys)
+        x0.pop("_means")
+        x = _odd_score(rows, odd, "midterm", ys, bands_by=bands)
+        x.pop("_means")
+        vd = _odd_verdict(x, x0)
+        loo[str(Y)] = {"improves": vd["improves"], "mean_log_score_gain": vd["mean_log_score_gain"],
+                       "fails": ([] if vd["raises_log_score"] else ["the log score"]) + vd["cells_further"]}
+    r["leave_one_year_out"] = loo
+    r["robust"] = len(scored) > 1 and all(x["improves"] for x in loo.values())
+    adopted = "midterm" if r["improves"] and r["robust"] else "plain"
+    of_record = r if adopted == "midterm" else b0
+    out = {"what": "the odd-year governors' forecast (the orchestrator, 2026-11-07 12:01 UTC): the plain route against "
+                   "the one odd-year term, under the robustness test of 08:36; written by pipeline/chambers.py odd",
+           "rows": len(odd), "skipped": skipped, "years": years, "min_count": VARIANT_MIN_COUNT,
+           "plain": b0, "midterm": r, "adopted": adopted,
+           "adopted_if": "raises the mean log score with no tested cell further from the count seen, on every scored "
+                         "odd year and on every set with one scored year left out; fails with one scored year only",
+           "lean_note": lean_tests(of_record["lean_tests_raw"])}
+    _ODD[id(rows)] = out
+    return out
+
+
+def odd_term_of_record(rows):
+    return odd_test(rows)["adopted"]
+
+
+def odd_note(rows):
+    """The lean note for the odd-year governors' p, from their own back-test (odd_test), or None where its two tests
+    (the ruling of 11:01) do not both count and lean the same way."""
+    ot = odd_test(rows)
+    ln = ot["lean_note"]
+    if not ln["stands"]:
+        return None
+    s, ys, way = ln["s"], ot[ot["adopted"]]["years_scored"], ln["leans"]["s"]
+    return (f"this route's back-test of the odd-year governor races shows {way} near-even finishes than it forecast "
+            f"({s['seen']} against {s['expected']:.1f} within 1 point, {ys[0]} to {ys[-1]}), so p may be "
+            f"{'low' if way == 'more' else 'high'}")
+
+
 # THE NEAR-EVEN NOTE FOR THE HOUSE AND THE SENATE (the orchestrator, 2026-11-07 09:26: "Write the House's and the
 # Senate's near-even shortfall onto each of their model's own p, built from your back-test with its counts, as for
 # the governors"). Each p of the model's own normal forecast, the one the back-test scores, standing first or
@@ -1873,10 +2135,14 @@ def compute(year):
     rows, _ = fit_rows()
     for level in LEVELS:
         path = os.path.join(REPO, "data", level, f"{year}.json")
-        if year not in file_years(level):
+        odd = year % 2 == 1
+        if year not in file_years(level) and not (odd and level == "governor" and year in ODD_YEARS):
             continue
         d = cc.read_json(path)
         m, fy = year_model(rows, level, year)
+        if m and odd:
+            # an odd year: the term of record for odd years (odd_test; the orchestrator, 12:01)
+            m = dict(m, odd_term=odd_term_of_record(rows))
         if m:
             a_hat, sd_a = national(m, year)
             sd = math.sqrt(sd_a ** 2 + own_s_e(m) ** 2)
@@ -1913,7 +2179,7 @@ def compute(year):
                         f["shrink"] = m["shrink"]
                 for t_, f in zip(order, own):
                     r_ = p_contest(n, mean, sd, tails=t_)
-                    nn = near_even_note(rows, level) if t_ == "normal" else None
+                    nn = ((odd_note(rows) if odd else near_even_note(rows, level)) if t_ == "normal" else None)
                     e_ = {"under": f"the model's own ({method(level, m['variant'])}), " +
                           ("normal" if t_ == "normal" else "t4 with the same sd") +
                           (f", {SHRINK_NOTE}" if m.get("shrink") else ""),
@@ -2020,7 +2286,18 @@ def compute(year):
                                      + (" + b_lag * (last governor race's Democratic share - 1/2)" if m["lag"] else ""),
                           "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = k s_a sqrt(1 + z (Z'Z)^-1 z'), "
                                    "s_e = k s_e_fitted, z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic "
-                                   "president, -1 Republican; k the calibration factor"}
+                                   "president, -1 Republican; k the calibration factor"
+                                   + ("; in an odd year z = (1, w P, 0), w = 1 under the midterm term and 0 under the "
+                                      "plain route (odd_year below)" if odd else "")}
+            if odd:
+                ot = odd_test(rows)
+                d["model"]["odd_year"] = {
+                    "term": m["odd_term"], "z": [1.0, ODD_TERMS[m["odd_term"]] * sitting_party(year, PRES), 0.0],
+                    "note": ODD_NOTE[m["odd_term"]] + "; fitted on the even years before it, never on odd years",
+                    "test": "data/congress/backtest-governor-odd.json",
+                    "midterm_term": {"improves": ot["midterm"]["improves"], "robust": ot["midterm"]["robust"],
+                                     "mean_log_score_gain": ot["midterm"]["mean_log_score_gain"]},
+                    "lean_note_stands": ot["lean_note"]["stands"]}
             V = variant_of_record(rows, level)
             d["model"]["variant"] = {"of_record": V, "tails_first": m["tails"], "shrink": m["shrink"],
                                      "note": VARIANT_NOTE[V]}
@@ -2408,6 +2685,19 @@ def main(argv):
     if argv[:1] == ["compute"]:
         for y in [int(a) for a in argv[1:]]:
             compute(y)
+        return
+    if argv[:1] == ["odd"]:
+        ot = odd_test(rows)
+        cc.write_json(os.path.join(REPO, "data", "congress", "backtest-governor-odd.json"), ot)
+        for k in ("plain", "midterm"):
+            x = ot[k]
+            print(f"{k}: {x['races']} races, {len(x['years_scored'])} years; log score {x['mean_log_score']:.4f}, "
+                  f"z rms {x['z_rms']:.3f} (mean {x['z_mean']:+.3f}), cover {x['coverage']}")
+        r = ot["midterm"]
+        print(f"midterm term: gain {r['mean_log_score_gain']:+.4f}; tested {r['cells_tested']}; further "
+              f"{r['cells_further']}; improves {r['improves']}; robust {r['robust']}; fails without "
+              f"{ {Y: v['fails'] for Y, v in r['leave_one_year_out'].items() if not v['improves']} }")
+        print(f"adopted: {ot['adopted']}; lean note: {ot['lean_note']}")
         return
     if argv[:1] == ["backtest"]:
         print(f"fit rows: {len(rows)} ({sum(1 for r in rows if r['source'] == 'medsl_senate')} Senate rows of "
