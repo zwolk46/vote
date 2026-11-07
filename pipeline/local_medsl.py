@@ -871,9 +871,23 @@ def backtest_measures(mtest, mhalf):
     within 1, 2 and 5 points of 1/2 added up, beside how many did. At the threshold, the same for the measures given
     a forecast, and within the forecast's own window."""
     half = _near_table(mhalf, lambda r_: (f"{r_['year']} {r_['key']} (trained on {r_['train']})", f"all years {r_['key']}"))
+    return {"about": "statewide measures and retentions, like past measures out of sample (each year's class from "
+                     "earlier years only): expected and seen counts finishing near 1/2 (every statewide question) "
+                     "and near the threshold (those given a forecast). at_threshold_local is the same for local "
+                     "questions given p by step (b) on these dates (each state's own class); North Carolina's "
+                     "questions on its other dates are in data/local/backtest-ncsbe.json. Built by "
+                     "pipeline/local_medsl.py build.",
+            "near_half": half,
+            "at_threshold": at_threshold([r_ for r_ in mtest if not r_["key"].startswith("local ")]),
+            "at_threshold_local": at_threshold([r_ for r_ in mtest if r_["key"].startswith("local ")], by_key=True)}
+
+
+def at_threshold(rows, by_key=False):
+    """Expected and seen counts of measures finishing within the forecast's own window and within 1, 2 and 5 points
+    of the threshold, by year and over all years (and by class where by_key)."""
     at_t = {}
-    for r_ in mtest:
-        for grp in (f"{r_['year']}", "all years"):
+    for r_ in rows:
+        for grp in (f"{r_['year']}", "all years") + ((f"all years {r_['key']}",) if by_key else ()):
             y = at_t.setdefault(grp, {"measures": 0, "own_window": [0.0, 0], "near_threshold": {}})
             y["measures"] += 1
             y["own_window"][0] += r_["q_own"]
@@ -886,10 +900,7 @@ def backtest_measures(mtest, mhalf):
         y["own_window"] = {"expected": round(y["own_window"][0], 1), "seen": y["own_window"][1]}
         y["near_threshold"] = {f"within {float(hh):.0%}": {"expected": round(v[0], 1), "seen": v[1]}
                                for hh, v in sorted(y["near_threshold"].items(), key=lambda kv: float(kv[0]))}
-    return {"about": "statewide measures and retentions, like past measures out of sample (each year's class from "
-                     "earlier years only): expected and seen counts finishing near 1/2 (every statewide question) "
-                     "and near the threshold (those given a forecast). Built by pipeline/local_medsl.py build.",
-            "near_half": half, "at_threshold": dict(sorted(at_t.items()))}
+    return dict(sorted(at_t.items()))
 
 
 def backtest_local_classes(files):

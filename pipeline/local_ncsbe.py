@@ -815,6 +815,7 @@ def build(out_dir, dates):
     import measures as MS
     book = MS.load_thresholds()          # step (b): the local rules read from North Carolina's law
     q_rows = question_rows(dates)        # its local questions of every date, counted whole
+    qtest = []
     with open(os.path.join(out_dir, "local", "backtest-ncsbe.json"), "w") as f:
         bt = backtest(rows)
         json.dump(bt, f, indent=1)
@@ -845,7 +846,7 @@ def build(out_dir, dates):
                 continue
             rec = record(c, d, fips, commit)
             if rec["p"] is None and level == "measure":
-                rec["p"] = measure_p(rec, c, d, q_rows, book)
+                rec["p"] = measure_p(rec, c, d, q_rows, book, qtest)
             elif rec["p"] is None:
                 rec["p"] = route_p(rec, c, d, rows, dens, commit, counts, note)
             rec = L._compact(rec)
@@ -895,6 +896,16 @@ def build(out_dir, dates):
             head["sources"].setdefault("model", src_model)
         L.write_level_file(path, head, out)
         total += os.path.getsize(path)
+    # step (b): the local questions given p here (dates other than MEDSL's general dates), out of sample
+    bt["questions_at_threshold"] = {
+        "about": "North Carolina's local questions given p by step (b) on the State Board's other dates: the "
+                 "chance the class (its local questions of earlier years, counted whole) gave of finishing within "
+                 "the forecast's own window and within 1, 2 and 5 points of the threshold, added up, beside how "
+                 "many did. Those on MEDSL's general dates are in data/measure/backtest-measures.json "
+                 "(at_threshold_local).",
+        "years": LM.at_threshold(qtest)}
+    with open(os.path.join(out_dir, "local", "backtest-ncsbe.json"), "w") as f:
+        json.dump(bt, f, indent=1)
     print(json.dumps(dict(sorted(counts.items())), indent=1))
     print(f"{sum(len(v) for v in files.values())} contests in {len(files)} files, {total / 2**20:.2f} MiB")
 
@@ -915,7 +926,7 @@ def route_p(rec, c, d, rows, dens, commit, counts, cal_note_text):
     return p
 
 
-def measure_p(rec, c, d, q_rows, book):
+def measure_p(rec, c, d, q_rows, book, qtest=None):
     """p of a local question (step (b)): the threshold North Carolina's law sets for its kind (measures.py's
     local_rule_for, data/measure/thresholds.json), and the like-past-measures density at it among the State Board's
     local questions of earlier years, counted whole (question_rows), as pipeline/local_medsl.py's build does on the
@@ -947,6 +958,12 @@ def measure_p(rec, c, d, q_rows, book):
                              "q": round(f * 2 * h, 5), "source": "model",
                              "fitted_on": f"North Carolina's State Board local questions of "
                                           f"{min(r['year'] for r in train)}-{year - 1}"})
+    if qtest is not None:   # out of sample: the class is fitted on earlier years only, so this year's share tests it
+        s_ = yes / (yes + no)
+        tr = [r["s"] for r in train]
+        qtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h, "in_own": abs(s_ - t) <= h,
+                      "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr), abs(s_ - t) <= hh]
+                               for hh in L.WINDOWS}})
     if f <= 0:
         return {"value": 0.0, "event": 0.0, "reason": f"no like measure of {N} finished within {h:.0%} of the "
                                                        f"threshold"}
