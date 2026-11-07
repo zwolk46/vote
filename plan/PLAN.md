@@ -1,6 +1,6 @@
 # PLAN: how the site gets built from here
 
-*Written 2026-11-07 03:10 UTC by the orchestrator, under law 7a: "Before the data work begins, the orchestrator records its plan in the repository and tells the maker; it does not wait for his approval." He is told, not asked. Changes to this plan are logged in `STATE.md` and made here by the orchestrator only. Every step carries its reason; a step without one is a fault to report.*
+*Written 2026-11-07 03:04 UTC by the orchestrator, under law 7a: "Before the data work begins, the orchestrator records its plan in the repository and tells the maker; it does not wait for his approval." He is told, not asked. Changes to this plan are logged in `STATE.md` and made here by the orchestrator only. Every step carries its reason; a step without one is a fault to report.*
 
 ## 1. Phases
 
@@ -16,12 +16,12 @@
 
 ## 2. Which contests, in which order
 
-1. **The presidency, state by state, with the Electoral College stage**, 2024 back to 2000, the most recent first. *Reason:* the only level with published estimates of p to check our computation against (model §4), and the case most readers bring.
-2. **Senate, governor and House, with control of each chamber**, 2024 and 2022 first; 2026 once its counts are certified, and before that only as an unofficial count marked so. *Reason:* the most recent cycles are the ones readers remember; 2026 was held four days ago, and its counts are not final (law 8: a figure carries its source and date).
+1. **The presidency, state by state, with the Electoral College stage**, from 2024 back as far as standardized sources go, the most recent first. *Reason:* the only level with published estimates of p to check our computation against (model §4), and the case most readers bring.
+2. **Senate, governor and House, with control of each chamber**, 2024 and 2022 first, then back as far as standardized sources go; 2026 once its counts are certified, and before that only as an unofficial count marked so. *Reason:* the most recent cycles are the ones readers remember; 2026 was held four days ago, and its counts are not final (law 8: a figure carries its source and date).
 3. **State legislatures, local races, primaries and ballot measures.** *Reason:* these are where p is largest and B\* smallest, which law 1a says the site must show; their data is the hardest to gather, so it starts as soon as a worker is free.
 4. **The cost of voting**: the share voting by mail, time in line by state where measured, wages, and the tie and recount laws of every state. *Reason:* C and the tie rules enter every contest (model §6, §10).
 
-Past contests only, for now. Whether the site covers an election before it is held is an open point of the law, so nothing is built that assumes it. *Reason:* law, open points; and an ex ante forecast of a past contest is already what the model computes (law 2a).
+**Every contest the sources allow** (the maker, 03:13, `RULINGS.md`: "aggregating absolutely as much data as we can find"). The volume is itself part of what the site shows. Past contests only, for now. Whether the site covers an election before it is held is an open point of the law, so nothing is built that assumes it. *Reason:* law, open points; and an ex ante forecast of a past contest is already what the model computes (law 2a).
 
 ## 3. The data: one layout for every contest
 
@@ -60,6 +60,15 @@ Two-candidate share is the leading two candidates' share of their combined vote,
 
 **The model's own forecast**, where no forecaster published one (model §3, "Which forecast"): fitted to like past races, from variables known before the election. Each data worker proposes its method for its level in its report, with a back-test on past cycles, before it computes p with it; the orchestrator approves it under the maker's word of 02:38, and the page marks the forecast as the model's own. *Reason:* the method decides every number below the presidency, so it is checked before it is used, and it stays the model's, not a forecaster's.
 
+## 3a. Intake by script (the maker, 03:13)
+
+Data comes in by script, not by an agent reading pages. For each standardized source (a CSV or spreadsheet release, a data repository, a documented download), a worker writes `pipeline/intake/<source>.py` once: it downloads the files to a cache outside the repository, checks them (row counts, totals against a published total where one exists), and converts them into the layout of §3, with the source block filled from the file's own metadata. Adding a year, a state or a whole source is then a run of a script. Agents spend their reading on choosing sources, on the forecasts, and on what no standardized source covers.
+
+- **Breadth first, across sources.** Each data worker lists every standardized dataset it finds, for its level and any other, in `data/sources/<level>.md`: who publishes it, what it covers (levels, years, states, precinct or contest), its format, its licence, and whether this environment reaches it. *Reason:* one inventory lets the next worker start from what is known, and the maker's aim is everything that can be found.
+- **One script per source, rerunnable.** The script and a small sample of its output are committed; the raw files are not, unless small and licensed for it. *Reason:* anyone can fetch the same files again and get the same `data/` (law 8), and the repository stays small.
+- **Where two sources cover the same contest**, both are read and the differences listed; the certified source wins, and the other is the check. *Reason:* law 8, checked by another source.
+- **No live data.** Nothing is fed to the site live; everything is a published dataset taken in by script (the maker, 03:13).
+
 ## 4. Who does what
 
 At most three workers at once, plus the tracker (OPERATIONS §4; the tracker runs beside the limit at the maker's ask of 02:58, `RULINGS.md`). Models and effort from `PROJECT-INSTRUCTIONS.md`; every brief names its own.
@@ -70,12 +79,12 @@ At most three workers at once, plus the tracker (OPERATIONS §4; the tracker run
 | `D1-data-president.md` | the presidency by state and the College stage; writes `pipeline/` core | Opus 5.5, xhigh | now |
 | `D2-data-congress.md` | Senate, governor, House, and chamber control | Opus 5.5, xhigh | now |
 | `X1-design.md` | the site's design spec, then two or three whole first-screen options on a preview branch | Opus 5.5, xhigh (max if the maker says so on the open card) | now |
-| D3 | state legislatures, local races, primaries, ballot measures | Opus 5.5, xhigh | when one of D1, D2, X1 ends |
+| `D3-data-local.md` | state legislatures, local races, primaries, ballot measures, by script from standardized sources | Opus 5.5, xhigh | when X1 waits on the maker's pick, or one of D1, D2 ends |
 | D4 | cost inputs, mail share, tie and recount laws | Sonnet 5.5, xhigh (clear directive, at source) | after D3 starts |
 | M2 | Fable checks every computed p and the model's own forecasts against the model | Fable 5.1, xhigh | when D1's p are in |
 | Build workers | the pages, after the maker's pick | Opus 5.5, xhigh | phase 3 |
 
-*Reason:* data first because everything shown rests on it (law 7a); the presidency and Congress in parallel because they share nothing but the layout and the core; design alongside because it needs no new data; local races next because law 1a needs them most, but they wait for a free slot because usage is a real limit (OPERATIONS §4).
+*Reason:* data first because everything shown rests on it (law 7a); the presidency and Congress in parallel because they share nothing but the layout and the core; design alongside because it needs no new data; local races next because law 1a needs them most, but they wait for a free slot because usage is a real limit (OPERATIONS §4). A worker waiting on the maker's pick spends nothing, so it does not hold a slot.
 
 ## 5. What goes to the maker
 

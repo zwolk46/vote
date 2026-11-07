@@ -83,3 +83,14 @@ In the project chat:
 
 *Reading.* An artifact task list like the midterms one ("Midterms Work"), showing what pages and features are being worked on, with links to previews, kept current by a dedicated thread. It is his ask, so it runs beside the three-worker limit, not within it.
 
+
+## 2026-11-07 03:13 UTC: as much data as can be found, taken in by script from standardized sources
+
+In the project chat:
+
+> I think one of the really cool aspects of the website or the presentation of data could be the amount of data that's available. Like, I want the site to be really special for someone to say, wow, which are like some of the principles behind the design of the last site too. And I really want to focus on like aggregating absolutely as much data as we can find. So maybe that involves researching enough to be able to create an intake flow that doesn't use as many tokens, something like that, if there's standardized data. Because especially about past elections, you don't necessarily need live data. We don't need live data at all. So we can pull maybe from standardized spreadsheets or other things like that. I trust you'll understand what I mean in light of the end goal of the end goals and what I'm trying to head towards. So just apply this as you see fit.
+
+*Reading.* Three things, applied as the orchestrator sees fit, as he asks.
+1. **Breadth of data is a goal of its own** (law 5, Broad, made stronger): gather every contest the sources allow, at every level and as far back as standardized sources go, not a sample of years. The volume itself is part of what the site shows, so that a reader says "wow" (law 6, Beautiful, read with the midterms principle he names).
+2. **Intake by script, from standardized datasets.** Find the bulk, standardized sources first (spreadsheets, CSV releases, data repositories), and write one script per source that downloads and converts it into `data/`, so that a year, a state or a whole source costs a run, not an agent reading pages. *Reason:* his words, "an intake flow that doesn't use as many tokens".
+3. **No live data.** The site is built from static, published datasets; nothing is fed live. This does not settle the open point on an election before it is held, which is about forecasts, not live results.
