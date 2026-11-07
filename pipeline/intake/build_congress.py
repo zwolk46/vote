@@ -222,10 +222,15 @@ def structure(year, office, state, cands, special):
         return (NOT_COMPUTED, "Vermont's legislature chooses the governor when no candidate has a majority "
                 "(Vermont Constitution, ch. II, sec. 47); with three or more candidates that can happen")
     top2 = sorted(voted, key=lambda a: -a["votes"])[:2]
-    parties = [major(a["parties"]) for a in top2]
+    # an independent who caucuses with the Democrats (Sanders, King) stands as the Democrat, as 538 also has it
+    parties = [major(a["parties"]) or ("D" if a.get("state_caucus_D") else None) for a in top2]
+    if parties == ["D", "D"] and any(a.get("state_caucus_D") for a in top2):
+        return (NOT_COMPUTED, "a Democrat against an independent who caucuses with the Democrats (Connecticut "
+                "2006); the model's own forecast is fitted to races of a Democrat against a Republican")
     if parties[0] == parties[1] and parties[0] is not None:
-        return (NOT_COMPUTED, "the top two are of one party (a top-two or open special election); the "
-                "model's own forecast is fitted to races of a Democrat against a Republican")
+        return (NOT_COMPUTED, "the top two are of one party (a top-two or open special election, or, in "
+                "Connecticut in 2006, Lieberman on a Democratic and a third-party line against the Democratic "
+                "nominee); the model's own forecast is fitted to races of a Democrat against a Republican")
     if set(parties) != {"D", "R"}:
         return (NOT_COMPUTED, "the top two are not a Democrat and a Republican; the model's own forecast is "
                 "fitted to races of a Democrat against a Republican")
@@ -341,9 +346,9 @@ def contest(year, office, c, cha_c, cha_src, P):
     district = c.get("district") if office == "house" else None
     special = c["special"]
     cands = c["candidates"]
-    kind = structure(year, office, c["state"], cands, special)
     for a in cands:
         a["state_caucus_D"] = (c["state"], last_name(a["name"])) in CAUCUS_D and major(a["parties"]) is None
+    kind = structure(year, office, c["state"], cands, special)
     inc, inc_via = incumbency(cands, cha_c, year)
     real = [a for a in cands if not a["scattered"]]
     voted = sorted([a for a in real if a["votes"]], key=lambda a: -a["votes"])
