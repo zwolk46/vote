@@ -276,15 +276,16 @@ Not read, because the sites refused and the readers stopped there (never routed 
 - **The gate against the certified federal counts** (D1's presidency, D2's Senate, and the House district by district in a year with neither). It covers each November general date of an even year.
   - Equal to the vote: 2004, 2006, 2008, 2012, 2014, 2016, 2018, 2022 and 2024.
   - 2020: the president's Republican count is 2 votes lower (2,758,773 against 2,758,775).
-  - 2002 is not checked, because D2's files start in 2006.
+  - 2002, which D2's files do not reach (they start in 2006), against the Clerk of the House's *Statistics of the Congressional Election of November 5, 2002* (`pipeline/intake/clerk_house.py`; the orchestrator, 08:32): the Senate and all 13 House districts are equal, every candidate's votes.
   - **2000 and 2010 fall short.** In 2000 the president's count is 0.8% lower (Democratic 1,247,003 against 1,257,692). In 2010 the Senate's is 1.0% lower (1,134,001 against 1,145,074). These files were likely posted before the final count [inferred]. Their 1,109 contests carry a note that their counts are the State Board's posted ones, not the certified.
 - **The legislature against Klarner** (D and R votes, single-seat districts).
   - Equal in all 170 districts in 2004, 2006, 2008, 2012, 2014, 2020 and 2022.
-  - 2002: 167 of 170.
+  - 2002: 167 of 170 in the D and R votes. Of the 3 that differ, House 118 reads 113,717 Democratic votes in Klarner's against 13,717 in the State Board's, and Senate 15 reads 34,177 Republican against 36,177; both look like typing slips in Klarner's [inferred]. A fourth, Senate 28, differs in its Libertarian (7,002 in Klarner's against 702). The State Board's 2002 file passes its gate, so its counts are written for these 4 (below).
   - 2000: 103 of 115 compared, the rest being multi-member.
   - 2010: none, since the file falls short.
-  - 2016: 91 equal and 79 off by a few votes. The State Board is higher, for example 33,456 against 33,441 in Senate 24, and its 2016 Senate and president equal the certified. So Klarner's 2016 North Carolina counts are slightly short [inferred]. They stay in `data/state-*/` as Klarner's, and the orchestrator may want the certified ones there.
-  - 2018: 148 equal, and 22 off by about one vote.
+  - 2016: 91 equal and 79 off, by 1 to 162 votes (median 5). The State Board is mostly higher, for example 33,456 against 33,441 in Senate 24, and its 2016 Senate and president equal the certified. So Klarner's 2016 North Carolina counts are slightly short [inferred].
+  - 2018: 148 equal, and 22 off by 1 to 74 votes (median 12).
+- **The legislature's 2024 generals against MEDSL's** (`legislature_medsl_2024`; named candidates' votes): 124 of 170 equal and 46 off, by up to 643 votes (Senate 32: 67,131 in the State Board's against 66,488 in MEDSL's).
 - **MEDSL's North Carolina contests** (the same names and votes).
   - 2018: 810 races equal, 73 off by a few votes, and 112 not found.
   - 2020: 742 equal, 95 not found.
@@ -292,7 +293,7 @@ Not read, because the sites refused and the readers stopped there (never routed 
   - 2022: MEDSL's set holds only 29 North Carolina races.
   - The races not found are mostly ones MEDSL joins and the State Board keeps apart. Cherokee County's three 2018 commissioner districts are one MEDSL contest. The Court of Appeals' three 2024 seats are one MEDSL contest of four names. MEDSL also files the 2024 amendment (citizens-only voting) as 100 county questions, so §8 counted it as 100 local questions.
 
-**The certified file wins** (brief D3, step 2: "let the certified one win"). On MEDSL's general dates (2016 to 2024), North Carolina's local races and questions are now the State Board's. `pipeline/local_medsl.py` reads them in place of MEDSL's (`certified_nc`) and gives them MEDSL's routes and checks. The legislature, the governor and Congress stay MEDSL's. The State Board's other dates are written by `pipeline/local_ncsbe.py` into the same files, and each build keeps the other's contests. Running both builds in either order gives the same files [measured]. What changed:
+**The certified file wins** (brief D3, step 2: "let the certified one win"). On MEDSL's general dates (2016 to 2024), North Carolina's local races and questions are now the State Board's. `pipeline/local_medsl.py` reads them in place of MEDSL's (`certified_nc`) and gives them MEDSL's routes and checks. The governor and Congress stay MEDSL's. The legislature keeps its contests from Klarner and MEDSL, with the State Board's counts where they differ (below). The State Board's other dates are written by `pipeline/local_ncsbe.py` into the same files, and each build keeps the other's contests. Running both builds in either order gives the same files [measured]. What changed:
 - North Carolina's 2024 amendment is one statewide measure with its threshold (N.C. Const. art. XIII, sec. 4) and p. Statewide measures with p go from 63 to 64. The measures' back-test reads 49 against 35.5 within 5 points (was 35.3), and so does each p's note.
 - 2022 gains about 1,000 North Carolina local races, which MEDSL's 2022 set lacked. 110 of them get p by like races, calibrated on 2020.
 - **Outside North Carolina**, the like-race classes and the calibration are fitted on these certified contests too. So 2,786 local p of 2024 in other states moved: by a median of −1.8%, and at most −20.5%.
@@ -300,6 +301,20 @@ Not read, because the sites refused and the readers stopped there (never routed 
   - The pooled like-race factor goes from 0.781 to 0.759.
   - The 2024 out-of-sample test now reads 195 finishes within 1 point against 191.9 expected after calibration. Before, it read 202 against 214.7.
   - So §7's figures for 2024 are now these.
+
+**The legislature's counts: which source each year carries** (the orchestrator, 08:05: "Replace Klarner's 2016 North Carolina legislative counts with the certified ones too, in a later PR, marked"; 08:08: "Mark which source each year carries") [measured]. Only a State Board file that passes its gate replaces another source's count. A replaced contest keeps its Klarner or MEDSL record, takes the State Board's votes for each candidate, and is marked: `result.votes_source` is `"ncsbe"`, its first note gives both counts for each candidate that changed, and its file gains the State Board's source block. Candidates are matched by party for the Democrat and the Republican, and by name otherwise. A contest whose named candidates do not all match keeps its count. There are 8 such contests, all in Klarner's years, and in each every vote is equal: Klarner names a write-in candidate whose State Board line is marked "(Write-In)", which the match leaves out.
+
+| Year | Counts in `data/state-*/<year>/NC.json` | Why |
+|---|---|---|
+| 2000 | Klarner's | the State Board's file falls short of the certified federal count |
+| 2002 | Klarner's, with the State Board's in 4 of 170 | the State Board's file gated against the Clerk of the House's statistics (the orchestrator, 08:32) |
+| 2004, 2006, 2008, 2012, 2014, 2020, 2022 | Klarner's, equal to the State Board's in every contest compared | |
+| 2010 | Klarner's | the State Board's file falls short |
+| 2016 | Klarner's, with the State Board's in 79 of 170 contests | `pipeline/local.py`, `certified_votes` |
+| 2018 | Klarner's, with the State Board's in 22 of 170 | the same |
+| 2024 | MEDSL's, with the State Board's in 46 of 170 | `pipeline/local_medsl.py`, `certified_legislature` |
+
+The p of these contests are computed from the certified counts. Elsewhere, the fits that pool these contests moved p. The 2016, 2018 and 2024 counts moved them by at most 1 part in 87,000 (#46). The 2002 counts moved them more, because Klarner's 113,717 in House 118 sat in every later year's fit: 34,598 p in 981 files outside North Carolina, by a median of 0.011% and at most 0.36% (Kentucky's Senate 4 of 2022: 9.77926e-06 to 9.74402e-06) [measured]. In `data/local/backtest.json`, 2002's log score goes from 0.698 to 0.701 and 2012's share within 50 points from 0.5439 to 0.5427. The local calibration (`data/local/calibration-local.json`) moves in its first decimal, for example 2024's expected count before calibration from 59.7 to 59.8.
 
 **What is written** [measured]: 21,002 North Carolina contests from 2000 to 2026.
 - By level: 17,078 local (with the state's courts, district attorneys and Council of State), 3,057 primaries and 867 questions.
@@ -344,7 +359,7 @@ Not read, because the sites refused and the readers stopped there (never routed 
     - no seats before 2014: 3,343;
     - first rounds, second primaries and primaries that a second primary followed: 380;
     - after an earlier round: 171;
-    - write-ins near the winner's votes: 1,158;
+    - write-ins near the winner's votes: 1,158 (the same number as the boundary races with p, by coincidence; with the 91 on MEDSL's dates, 1,249 State Board contests carry this reason) [measured];
     - a write-in in the deciding pair: 41;
     - no votes: 1;
     - questions, waiting on step (b): 572.
@@ -352,7 +367,6 @@ Not read, because the sites refused and the readers stopped there (never routed 
 **Size** [measured]. The repository packs to 28.48 MiB with this change, against 26.60 MiB at main's 001d3f7 (scratch clones, `git gc --aggressive`). The new files are 15.9 MB unpacked.
 
 **Still open.**
-- Klarner's 2016 North Carolina counts, against the certified ones.
 - The 1990s PDFs (left for later, 07:30).
 - 2026-11-03, once certified.
 
