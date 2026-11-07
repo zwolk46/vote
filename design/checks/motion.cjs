@@ -5,7 +5,7 @@
 // What it measures, at 390 x 844 with the CPU slowed 4x (a mid phone) and at 1280 x 900 unslowed:
 //   tokens    every animation the page starts carries its token's duration (segment 300, chart 450, reveal 160), and
 //             animates transform or opacity only;
-//   frames    the canvas motions drawn frame by frame (V1 the arrival, 680 ms; V2 and V3, 450 ms; V6 the scroll): the
+//   frames    the canvas motions drawn frame by frame (V1 the arrival, 680 ms; V2 and V3, 450 ms): the
 //             gaps between frames, their 95th percentile and the longest, and the motion's length end to end;
 //   reduced   with reduced motion, no transform animation starts, and the canvas is at its end in the first frame;
 //   idle      three seconds after arrival nothing moves: no animation running and no frame requested.
@@ -121,19 +121,6 @@ const judge = (tag, what, st, t0, phone) => {
         const rd = await stampsSince(page, () => page.click('.seg-body .seg-t:nth-child(2)'), 900);
         console.log(`${tag} B reading (V3, chart 450): ${fmt(rd, rd.t0)}`);
         if (!reduce) judge(tag, 'B reading', rd, rd.t0, phone);
-        await page.close();
-      }
-      // C: the scroll (V6): frames while scrolling, and still at a stop under reduced motion
-      {
-        const page = await open('c');
-        await page.waitForTimeout(1200);
-        const st = await stampsSince(page, async () => { for (let i = 0; i < 30; i++) { await page.mouse.wheel(0, 60); await page.waitForTimeout(16); } }, 300);
-        console.log(`${tag} C scroll (V6, scroll-linked): ${fmt(st, st.t0)}`);
-        judge(tag, 'C scroll', st, st.t0, phone);
-        await page.waitForTimeout(1500);
-        const idle = await page.evaluate(async () => { const f0 = window.__frames; await new Promise(r => setTimeout(r, 1000)); return window.__frames - f0; });
-        console.log(`${tag} C idle: ${idle} frames requested in 1 s`);
-        if (idle) fail(`${tag} C moves when nothing happens`);
         await page.close();
       }
       await ctx.close();

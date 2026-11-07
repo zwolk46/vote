@@ -75,7 +75,7 @@ export function ChanceRow({ a }) {
 }
 
 export function ReadingSeg({ reading, setReading, size = 'body' }) {
-  return <Seg label="Whose stakes" size={size} options={[['you', 'To you'], ['person', 'To each person']]} value={reading} onChange={setReading} />;
+  return <Seg fit label="Whose stakes" size={size} options={[['you', 'To you'], ['person', 'To each person']]} value={reading} onChange={setReading} />;
 }
 
 export const ONE_Q = 'This weighs one vote’s effect on who wins against what it costs. Every other reason to vote is set aside.';

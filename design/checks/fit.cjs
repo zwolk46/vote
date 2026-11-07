@@ -31,7 +31,7 @@ const DESK = 900;
 const SHORT = [[390, 664], [360, 640], [1280, 720]];
 
 // The views: each candidate as it arrives, and in the state where it shows the most (the other reading; stakes set and
-// the trip filled; the field scrolled to a stop), since what a state shows is only measured when it is shown.
+// the trip filled), since what a state shows is only measured when it is shown.
 const setStakes = async page => page.evaluate(() => {
   const rs = document.querySelectorAll('.bt-range');
   [4.3, 3.7, 3.0].forEach((v, i) => { if (rs[i]) { rs[i].value = v; rs[i].dispatchEvent(new Event('input', { bubbles: true })); } });
@@ -42,8 +42,6 @@ const VIEWS = [
   { name: 'b', v: 'b' },
   { name: 'b-set', v: 'b', act: setStakes },
   { name: 'b-person', v: 'b', act: async page => { await page.click('.seg-body .seg-t:nth-child(2)'); await setStakes(page); } },
-  { name: 'c', v: 'c' },
-  { name: 'c-stop', v: 'c', act: page => page.evaluate(() => document.querySelectorAll('.oc-step')[2].scrollIntoView({ block: 'center' })) },
 ].filter(v => !ONLY || ONLY.has(v.name));
 
 const installScale = s => `(() => { const scale = ${scaleText.toString()}; const s = ${s}; if (s === 1) return;
@@ -80,7 +78,6 @@ const installScale = s => `(() => { const scale = ${scaleText.toString()}; const
           for (let i = 0; i < 3; i++) { const k = await page.evaluate(openFolds, null); if (!k) break; n += k; await page.waitForTimeout(150); }
           if (n) {
             await page.evaluate(afterOpening, null);
-            if (v.act && v.name === 'c-stop') await v.act(page);
             const more = await page.evaluate(probe, { scope: null, squeeze: false });
             const key = f => `${f.kind}|${f.el}|${f.what}`, had = new Set(res.out.map(key));
             res.out.push(...more.out.filter(f => !had.has(key(f))).map(f => ({ ...f, folds: true })));

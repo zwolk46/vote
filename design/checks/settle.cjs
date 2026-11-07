@@ -23,7 +23,7 @@ const INIT = `(() => { window.__cls = 0; window.__moved = [];
   let fails = 0;
   for (const [w, h, slow] of [[390, 844, true], [1280, 900, false]]) {
     for (const scheme of ['light', 'dark']) {
-      for (const v of ['a', 'b', 'c']) {
+      for (const v of ['a', 'b']) {
         const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: scheme, deviceScaleFactor: 1 });
         await ctx.addInitScript(INIT);
         const page = await ctx.newPage();

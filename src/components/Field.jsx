@@ -55,22 +55,27 @@ export function useGroups() {
 // left. Under the stacks, a lane for the named figures' marks.
 // A row's stacks are as tall as they need to be, up to stripH, so a level of a few dots takes a thin row and the
 // levels with thousands of contests take the room (the breadth is in the heights too).
-function geometry(w, desk) {
-  const left = desk ? 168 : 0, right = desk ? 8 : 0;
-  return { w, left, pw: Math.max(10, w - left - right), labelH: desk ? 0 : 20, stripH: desk ? 60 : 46, minH: desk ? 46 : 0, lane: 18, gap: desk ? 10 : 8, topH: 22, axisH: 30, r: desk ? 3 : 2.1 };
+// The heights that hold words follow the reader's text size (fs, the small type's size as drawn), so at large text a
+// row's name never covers its own dots.
+function geometry(w, desk, fs) {
+  const left = desk ? 168 : 0, right = desk ? 8 : 0, line = Math.ceil(fs * 1.4);
+  return { w, left, pw: Math.max(10, w - left - right), labelH: desk ? 0 : Math.max(20, line + 3), stripH: desk ? 60 : 46, minH: desk ? Math.max(46, Math.ceil(fs * 1.25 * 1.4) + line + 6) : 0, lane: 18, gap: desk ? 10 : 8, topH: Math.max(22, line + 6), axisH: Math.max(30, line + 14), r: desk ? 3 : 2.1, fs };
 }
 
 export function Field({ C, reading, sel, onSel, desk }) {
   const wrap = useRef(null), cvs = useRef(null), costL = useRef(null);
   const rows = useGroups();
   const colours = useColours();
-  const [w, setW] = useState(0);
+  const [w, setW] = useState(0), [fs, setFs] = useState(12);
   useLayoutEffect(() => {
-    const ro = new ResizeObserver(e => setW(Math.round(e[0].contentRect.width)));
-    ro.observe(wrap.current);
+    const ro = new ResizeObserver(() => {
+      setW(Math.round(wrap.current.getBoundingClientRect().width));
+      setFs(parseFloat(getComputedStyle(costL.current).fontSize) || 12);
+    });
+    ro.observe(wrap.current); ro.observe(costL.current);
     return () => ro.disconnect();
   }, []);
-  const g = useMemo(() => geometry(w, desk), [w, desk]);
+  const g = useMemo(() => geometry(w, desk, fs), [w, desk, fs]);
   const X = lx => g.left + ((lx - LO) / SPAN) * g.pw;
   // both readings laid out at once, so a row's pitch is the same in each and only the dots move (Prices.jsx)
   const lay = useMemo(() => {
@@ -234,8 +239,16 @@ export function Field({ C, reading, sel, onSel, desk }) {
     if (best) onSel(best);
   };
 
-  const ticks = [-2, 0, 3, 6, 9, 12];
+  // The scale's labels: long ones where they fit, else short; then, at large text on a narrow phone, a label that would
+  // touch a kept one is left out, the dollar decades first kept and the cent last.
   const long = (g.pw * 3) / SPAN >= 96;
+  const label = p => (p === -2 ? '1¢' : long ? tick(p) : tickShort(p));
+  const ticks = useMemo(() => {
+    const ext = p => { const wd = label(p).length * g.fs * 0.6, x = X(p); return p === LO ? [x, x + wd] : p === HI ? [x - wd, x] : [x - wd / 2, x + wd / 2]; };
+    const kept = [];
+    for (const p of [0, 12, 6, 3, 9, -2]) { const [a, b] = ext(p); if (kept.every(q => { const [c, d] = ext(q); return b + 6 <= c || d + 6 <= a; })) kept.push(p); }
+    return kept.sort((a, b) => a - b);
+  }, [g, long]);
   return (
     <div class="field" ref={wrap} style={{ height: `${lay ? lay.h : 400}px` }}>
       <canvas ref={cvs} class="field-c" data-fit-under style={{ width: `${w}px`, height: `${lay ? lay.h : 400}px` }} role="img" onClick={pick}
@@ -247,7 +260,7 @@ export function Field({ C, reading, sel, onSel, desk }) {
       ))}
       <span ref={costL} class="field-cost" aria-hidden="true">Your cost</span>
       <div class="field-axis" style={{ top: `${lay ? lay.end + 8 : 0}px` }} aria-hidden="true">
-        {ticks.map(p => <span class={`field-t${p === LO ? ' first' : p === HI ? ' last' : ''}`} style={{ left: `${X(p)}px` }}>{p === -2 ? '1¢' : long ? tick(p) : tickShort(p)}</span>)}
+        {ticks.map(p => <span class={`field-t${p === LO ? ' first' : p === HI ? ' last' : ''}`} style={{ left: `${X(p)}px` }}>{label(p)}</span>)}
       </div>
     </div>
   );

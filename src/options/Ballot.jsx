@@ -83,7 +83,7 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
             <h2 id="bt-b">Your ballot</h2>
             <span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests behind its lines, a dot for each {UNIT}</span>
           </div>
-          <div class="bt-where"><span class="src">Where you vote for president</span><Seg label="Where you vote for president" options={WHERE} value={where} onChange={setWhere} /></div>
+          <div class="bt-where"><span class="src">Where you vote for president</span><Seg fit label="Where you vote for president" options={WHERE} value={where} onChange={setWhere} /></div>
           <Boundary what="The ballot" fallback={() => <p class="muted">The ballot could not be drawn.</p>}>
             <Lines lines={lines} C={C} reading={reading} desk={desk} stakes={stakes} setStakes={setStakes} shares={shares} focus={focus} setFocus={setFocus} />
           </Boundary>
