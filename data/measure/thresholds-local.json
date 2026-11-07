@@ -1,0 +1,1798 @@
+{
+ "about": "Thresholds of local questions (step (b)), read from each state's law by worker D3's readers on 2026-11-07 (the orchestrator, 2026-11-07 06:16: 'local thresholds read from the governing state law or p not computed (never inferred 1/2)'). Only questions whose place the source shows take a rule here: North Carolina's State Board, Louisiana's Secretary of State and Indiana's file; MEDSL counts a local question by county and its p stays not computed. Each rule names the kind of question it governs and the pattern on the source's title that shows one (match, with match_also and dates where set); a question takes the first rule in this file's order that its title matches, so one place's own act comes before the general law. t is the yes share of those voting that the question needs. hold, where set, is why p is held back though a law was read: the source does not show which law governs the question, or the law leaves the threshold open. mark is 'stated' where the law's words name the kind of question, 'inferred' where the reader joined a general rule to the question (match_note says how). Every quote was checked word for word against the page saved when it was read (saved_file, in the cache, not committed); the texts are those in force when read, applied to earlier years as in force then [inferred] except where from_year/to_year say otherwise. Used by pipeline/measures.py's local_rule_for.",
+ "states": {
+  "IN": {
+   "not_read": "Indiana's code site (iga.in.gov) returns the same page for every address, a shell that needs scripts to show any law (4 addresses tried, 2026-11-07 12:46-12:47 UTC), Cornell LII holds no Indiana code (it links to iga.in.gov), and Justia answered 403 with a challenge page (law.justia.com/codes/indiana/2024/, 2026-11-07 13:32 UTC); no Indiana law was read, so no threshold is given",
+   "questions": 33,
+   "kinds": [
+    {
+     "kind": "Indiana Court of Appeals judge retention (by district)",
+     "count": 1
+    },
+    {
+     "kind": "Lake County superior court judge retention",
+     "count": 3
+    },
+    {
+     "kind": "Marion County superior court judge retention",
+     "count": 18
+    },
+    {
+     "kind": "St. Joseph County superior court judge retention",
+     "count": 5
+    },
+    {
+     "kind": "school corporation property tax referendum (new increase, eight years)",
+     "count": 2
+    },
+    {
+     "kind": "school corporation property tax referendum (renewal: 'Continue To Impose')",
+     "count": 1
+    },
+    {
+     "kind": "town and township consolidation (plan of reorganization) public question",
+     "count": 2
+    },
+    {
+     "kind": "town council size increase public question",
+     "count": 1
+    }
+   ]
+  },
+  "LA": {
+   "read_by": "a reader (Sonnet), checked by D3",
+   "source_of_law": "legis.la.gov (Revised Statutes, Constitution art. VI)",
+   "questions": 619,
+   "with_a_rule": 608,
+   "not_covered": [
+    {
+     "kind": "change of a municipality's chief of police from elected to appointed",
+     "count": 3,
+     "why": "R.S. 33:381 (read whole, saved as LA_RS33_381_d90347.html) has elections for other towns on abolishing the office of chief of police (Bienville, Goldonna, Sorrento), where the test is 'a majority of the qualified electors voting'; but Columbia, Slaughter and Chatham are not named in it and I found in it no general provision for an election to make the chief appointed. The act that authorizes these three was not found."
+    },
+    {
+     "kind": "'Lepa' proposition of the City of Ruston",
+     "count": 1,
+     "why": "The title gives no subject; I did not identify the question or its law."
+    },
+    {
+     "kind": "'Repeal Ordinance' proposition of the City of Harahan",
+     "count": 1,
+     "why": "The title does not say which ordinance, or under which charter or statute the vote is held; not identified."
+    },
+    {
+     "kind": "'W. Sterlington Sewer System' proposition of the Town of Sterlington (10 years)",
+     "count": 1,
+     "why": "The title does not say whether this is a tax, a charge or a bond; not identified."
+    },
+    {
+     "kind": "parcel fee of four other districts (no act read for them)",
+     "count": 4,
+     "why": "Knotts Subdivision Gravity Drainage District No. 11, Drainage District No. 4, the parish-wide Economic Development District, Stonebridge Subdivision Special District: their acts were not found. Every parcel-fee act read (the 16 districts of the two district rules, R.S. 40:1505 and R.S. 33:2740.16) says a majority of the voters voting, so the same is likely, but it is not read for these four."
+    },
+    {
+     "kind": "millage reduction proposition ('5.41 To 3.64 Mills Reduction')",
+     "count": 1,
+     "why": "R.S. 18:1290 speaks of a tax 'levied or increased'; a reduction is neither, and the title does not say why it is put to the voters. The law requiring this vote was not found. It is the first of two propositions of the same parish (the second is '8.00 Mills In Lieu')."
+    }
+   ],
+   "notes": [
+    "Every rule's t is a share of those voting on the question, strictly more than half (exactly half is not a majority), because each text read says majority and no text read sets a larger share. The only departures are the second test of R.S. 38:1783 (acres, one question) and the Lawrason Act's 'legal votes cast' wording (one question).",
+    "legis.la.gov answered every request with 200 on 2026-11-07 from 12:47Z to 13:22Z, unlike the connection reset another reader met at 07:16Z; no compilation (Justia, Cornell) was used and no WebFetch. Pages were found by their public Law.aspx?d= addresses, which I took from the public contents pages Laws_Toc.aspx?folder=N&level=Parent (N = 92 for Title 18, 107 for Title 33, 112 for Title 38, 113 for Title 39, 120 for Title 46, 91 for Title 17 and 100 for Title 26; those pages list each section with its address), and, for the Constitution, by probing addresses near known sections. One request at a time, at least five seconds apart.",
+    "The Secretary of State's Election Code PDF (https://www.sos.la.gov/media/oy5jhnk1/election-code.pdf, an agency publication of Title 18 as amended through the 2025 First Extraordinary Session, 420 pages, read 2026-11-07T12:56Z, saved as pages/sos_election_code.pdf and sos_election_code.txt) was read as a cross-check: its R.S. 18:1290 and 18:1300.12 are word for word the legislature's pages. No quote in the rules is taken from it; the legislature's own pages are the sources.",
+    "Reach of the general rule: R.S. 18:1282 defines 'political subdivision' for Chapter 6-A to include parishes, municipalities, school boards and school districts and 'any special service district, including but not limited to a road, water, sewerage, fire, protection, recreation, gas utility, or garbage district, and any other board, district, or unit of local government authorized by law to conduct elections for the issuance of bonds, the levying or increasing of any tax, or the assumption of indebtedness'. R.S. 18:1283(A) says an election that the Constitution or a law requires 'as a prerequisite to the issuance of bonds, levying or increasing of any tax, or the assumption of indebtedness' is held under Chapter 6-A's procedures. So R.S. 18:1290's majority reaches the tax and bond propositions of all the district kinds in the file, whatever the district's own act says; the district acts I read (fire, hospital, recreation, waterworks, parcel-fee districts) either say the same or send to the general law. District acts I did not read could add conditions; the one found that does is R.S. 38:1783.",
+    "Older text that speaks of 'property taxpayers' (R.S. 39:702, R.S. 38:1771, 38:1783) is in the code beside R.S. 18:1290's 'qualified electors'. R.S. 39:701's own note says the Part II Chapter 4 election provisions it points to are 'Repealed; see, now, R.S. 18:1281 et seq.' R.S. 18:1281 says Chapter 6-A 'shall apply to and shall supersede' older procedure provisions, 'notwithstanding any contrary provisions contained therein'. I record the conflict for the acreage tax and settle nothing.",
+    "In questions.json all 619 questions have kind 'measure' except two with kind 'retention' whose titles are millage propositions ('Parishwide Criminal Justice Proposition, 3.16 Mills Renewal - Pj - 10 Yrs.', 'Florida Parishes Juvenile Justice Dist., 3 Mills Ext. & Reded. - Comm. - 10 Yrs.'; both are in the millage renewal rule); the two recalls are kind 'measure' with the answers FOR RECALL / AGAINST RECALL. Rules are matched by title, not by kind. Each rule lists question_ids, so no title matching is needed to apply them; the ids are disjoint and with the kinds_not_covered ids they make all 619.",
+    "Abbreviations at the end of titles are the calling body: Boc board of commissioners, Pj police jury, Sb school board, Pc parish council, Cc city council, M&Boa mayor and board of aldermen, M&Cc mayor and city council, M&Tc mayor and town council, Mc metro council, Bod board of directors, Da district attorney. They do not change the threshold in any text read.",
+    "No amendment history on any page read shows a change of the threshold within 2008-2026, but the pages show amendment lists, not earlier wording, so I could not compare earlier text; no from_year or to_year is given. R.S. 26:588 was amended by Acts 2018, No. 334 and Acts 1997, No. 330; art. VI sec. 29 by Acts 1996, No. 46; R.S. 18:1290 and R.S. 18:1300.12 are unamended since 1977 and 1995; all are before the earliest question (2023-03-25).",
+    "Parcel-fee districts: R.S. 18:1300.31 to 18:1300.33 (Chapter 6-E, in the Election Code) lets a neighborhood crime prevention and security district and its parcel fee be put to an election 'in the manner provided for in Chapter 6-A'. Eleven acts for districts in New Orleans and five R.S. 33:9097.x acts for districts in East Baton Rouge Parish (each act names its city or parish) were read; each says 'a majority of the registered voters of the district' voting on (or who vote on) the proposition. R.S. 33:9091.1, .2, .3, .5 (Lakeview, Garden District, Audubon, Lake Vista; not in the file's titles) were also read and say the same.",
+    "Read but not used in a rule: R.S. 26:581 (definitions), 26:582; R.S. 33:130.151, .201, .581, .741 (four economic development districts: no parcel fee in them); R.S. 40:1502 (DeSoto Parish fire district service charge: also 'a majority of electors of the district voting'); R.S. 39:702, 703, 705; R.S. 18:1283, 18:1299 and Art. VI sec. 22 (procedure)."
+   ]
+  },
+  "NC": {
+   "read_by": "a reader (Sonnet), checked by D3",
+   "source_of_law": "www.ncleg.gov (General Statutes, Constitution art. V, session laws)",
+   "questions": 870,
+   "with_a_rule": 863,
+   "not_covered": [
+    {
+     "kind": "Town of Wrightsville Beach proposed ordinance referendum",
+     "count": 1,
+     "why": "A voter-petitioned ordinance question under a charter or local act; no act or statute naming it was found on ncleg.gov (the data has no ballot words), so no threshold is claimed."
+    },
+    {
+     "kind": "Board of education redistricting (Rockingham County)",
+     "count": 1,
+     "why": "The only act found for a Rockingham board of education referendum (S.L. 2015-38) sets its election for 3 May 2016, not 15 Mar 2016, and its referendum threshold section was not read; the match is not claimed."
+    },
+    {
+     "kind": "Town of Holden Beach referendum",
+     "count": 1,
+     "why": "Title gives no subject; no act or statute naming it was found."
+    },
+    {
+     "kind": "Town of Summerfield referendums",
+     "count": 2,
+     "why": "Titles give no subject; no act or statute naming them was found."
+    },
+    {
+     "kind": "H2GO annexation of Brunswick Forest",
+     "count": 1,
+     "why": "A water and sewer district annexation vote; the act or article governing it was not found."
+    },
+    {
+     "kind": "Town of Matthews Parks and Recreation Referendum",
+     "count": 1,
+     "why": "The title does not say bond or tax, so it is not placed under the bond rule (G.S. 159-61(a)); it is probably a bond question but the data does not say so."
+    }
+   ],
+   "notes": [
+    "All 870 questions were placed by TITLE only: questions.json has no 'subject' or 'text' (ballot wording) for any question, so every kind below is read from the title (and the date/county in the id where noted). Each rule carries 'match_regex' (Python, case-insensitive, applied to the title) and 'question_ids'; a question belongs to the first rule in file order whose match applies, so the rules partition the 863 questions covered. 7 questions are in kinds_not_covered.",
+    "Every threshold found is a simple majority of the votes cast on the question (t = 0.5). 'Exactly half is not a majority': all the quoted provisions say 'majority' (or, for referenda generally, G.S. 163-182.15(d), that the proposal with the highest number of votes prevails); a tie carries nothing. No quoted provision sets a turnout floor, a share of registered voters, or a supermajority for any listed kind. The only compound conditions found are the multicounty-district rule for Article 43 transportation districts (G.S. 105-509.1, 105-510.1) and the service-district concurrent-majority rule for bonds (G.S. 153A-308, 160A-543); both are written in the 'compound' fields and apply only in those settings.",
+    "Fetching: all pages were fetched with curl -sSL from www.ncleg.gov, one request every six seconds or more, no refusals (every page returned 200). WebFetch was not used. WebSearch was used three times only to look for session-law numbers; nothing in the rules is taken from a search result, only from pages saved in /tmp/vote-cache/law-local/NC/pages/. The saved folder also holds whole-chapter pages (Chapters 18B, 69, 105, 115C, 153A, 159, 160A, 163 from /EnactedLegislation/Statutes/HTML/ByChapter/) used to find the sections, and the session-law index pages (https://www.ncleg.gov/Laws/SessionLaws/<year>) used to find local acts. Justia and Cornell LII were not needed.",
+    "Quotes: each 'quote' was checked by script as an exact substring of the saved page's text after tags were removed and runs of whitespace (including the line breaks in the session-law pages) were collapsed to one space. '[...]' marks a cut. Every 'also_cited' quote was checked the same way.",
+    "Dates of the text: the code pages are the current text as fetched on 2026-11-07 (their history lines are on each page). For the 2008-2010 quarter-cent sales tax questions and the 2008 land transfer tax questions the 2007 enacting text was also read (S.L. 2007-323, s. 31.17, saved as SL2007-323.html) and has the same sentence, so no from_year/to_year is given for the sales tax rules. The land transfer tax article (G.S. 105-600 to 105-604, Art. 60) was repealed by S.L. 2011-18 effective 2011-03-31; the current code page shows only 'Repealed', so that rule is read from S.L. 2007-323 and carries from_year 2007, to_year 2011. For the other statutes cited the history lines show amendments (e.g. G.S. 159-61 by 2013-200 and 2023-134 on ballot wording; G.S. 18B-602 by 2021-150; G.S. 160A-209 by 2022-62, s. 47; G.S. 153A-149 by 2022-62 and 2023-107) but the page does not show whether the threshold sentence itself changed; the sentences quoted are the ones now in force. The subsection letters quoted (e.g. 160A-209(e), 153A-149(d)) are the current ones and may differ for older questions.",
+    "G.S. 163-182.15(d) ('In a referendum, the ballot proposal receiving the highest number of votes shall be declared to have prevailed') is the only general referendum result rule read. The page does not show when that sentence was added; it is used only as support for the mixed beverage, ABC store, alcohol-unnamed and Asheville water rules, all marked inferred.",
+    "Alcohol: G.S. 18B-602(b) and (e) state the majority test for malt beverage and unfortified wine propositions. For ABC store and mixed beverage elections the Article states only the ballot words (18B-602(g), (h)); the threshold is read from 18B-601(a), 18B-604(b)-(c) and 163-182.15(d), so those two rules are 'inferred'. Township elections (Lee, Moore, Harnett, etc.) are decided 'in the same manner as county elections' (G.S. 18B-600(f)).",
+    "Local sales and use tax referendums: Articles 43 and 46 call the referendum 'advisory' in the text but tie the board's power to levy to the majority vote of those voting; the share needed is the same in Articles 39, 43 and 46. The title alone does not say which Article a question was held under, except 'QUARTER' (Article 46) and 'PUBLIC TRANSPORTATION' (Article 43). A tax defeated by the voters can also be levied by the board without an election after five years (G.S. 105-466(b), Article 39); that is not a vote threshold.",
+    "Local acts: 18 questions were matched by name and date to a local act that was fetched and read (Pink Hill S.L. 2011-46, Kinston 2011-67, Reidsville 2011-139, Oak Island 2011-51, Rougemont 2011-114, Castle Hayne 2011-166, Sneads Ferry 2009-431, Tobaccoville 2016-43, Alexander County board of education 2023-41, Rowan-Salisbury board of education 2024-2, Greene County 2011-169, Caswell County zoning 2020-22, Hatteras pathway 2017-50 (matched by subject word and county only, marked inferred), Durham prepared food tax 2008-116, Indian Trail and Stallings occupancy taxes 2023-144 (4 questions)). All use 'a majority of the votes cast' (or 'of those voting'), except the Caswell zoning referendum, which is advisory and sets no threshold (t = null). The other charter amendment, board of commissioners structure, and fire/property tax questions could have been put under a local act instead of the general law cited; the acts for those were not located or read, so those rules are inferred.",
+    "Rowan-Salisbury board of education (S.L. 2024-2, s. 5(b)): 'If the majority of the qualified voters of Rowan County vote in favor of the referendum' could be read as a majority of all qualified voters rather than of those voting. The act does not say 'of all registered voters'; the sister act for Alexander County (S.L. 2023-41, s. 4) says 'the majority of the votes cast'. t = 0.5 of those voting is used; the other reading is flagged here, not applied.",
+    "N.C. Const. art. V as fetched shows S.L. 2026-4 and 2026-5 amendments to sections 2(5) and 2(6) 'contingent upon the results of the November 3, 2026, referendum'. They do not touch the 'majority of the qualified voters of the unit who vote thereon' wording in sections 2(5) and 4(2). Whether that referendum has passed is not on the page.",
+    "Bonds: G.S. 159-49 puts every bond that needs a vote under the Local Government Bond Act, and 159-61(a) sets the test. The constitution (art. V, sec. 4(2)) sets the same majority for pledging a unit's faith and credit. A bond a unit may issue without a vote (G.S. 159-49 exceptions, revenue bonds) would not appear as a ballot question. The sentence in 159-61(a) reads 'the affirmative vote or a majority' in the code (apparently a slip for 'of'); the quote keeps the code's own words.",
+    "The 'Greensboro City Council Four-Year T' question and the Mecklenburg 'Board of Commissioners 4 Year Terms' question are term-length changes, which are optional forms under G.S. 160A-101(4) and 153A-58(2); they are placed under the matching general vote rule (inferred)."
+   ]
+  }
+ },
+ "rules": [
+  {
+   "kind": "charter amendment referendum: Town of Pink Hill (S.L. 2011-46)",
+   "t": 0.5,
+   "rule": "The act takes effect only if approved by the qualified voters in the referendum of 8 Nov 2011; it takes effect if a majority of the votes cast are in favor of the question (simple majority of those voting on it).",
+   "citation": "S.L. 2011-46, s. 3 (Town of Pink Hill charter)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-46.html",
+   "quote": "If a majority of the votes cast are in favor of the question, Section 1 of this act becomes effective upon certification of the results of the question and applies to those elected in 2011.",
+   "read_utc": "2026-11-07T12:57Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2011-46, s. 2",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-46.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2011-46.html",
+     "read_utc": "2026-11-07T12:57Z",
+     "quote": "The election shall be conducted by the Lenoir County Board of Elections on November 8, 2011."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2011-46.html",
+   "match": "\\bPINK HILL\\b",
+   "dates": [
+    "2011-11-08"
+   ],
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "charter amendment referendum: City of Kinston (S.L. 2011-67)",
+   "t": 0.5,
+   "rule": "The act (mayoral veto) takes effect only if a majority of the votes cast in the referendum of 8 Nov 2011 are in favor of the question.",
+   "citation": "S.L. 2011-67, s. 4 (City of Kinston charter)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-67.html",
+   "quote": "If a majority of the votes cast are in favor of the question, Sections 1 and 2 of this act become effective 30 days after certification of the results of the question.",
+   "read_utc": "2026-11-07T12:57Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2011-67, s. 3",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-67.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2011-67.html",
+     "read_utc": "2026-11-07T12:57Z",
+     "quote": "The election shall be conducted by the Lenoir County Board of Elections on November 8, 2011."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2011-67.html",
+   "match": "\\bKINSTON CITY CHARTER\\b",
+   "dates": [
+    "2011-11-08"
+   ],
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "charter amendment referendum: City of Reidsville (S.L. 2011-139)",
+   "t": 0.5,
+   "rule": "The act takes effect only if a majority of the votes cast in the referendum of 11 Oct 2011 are in favor of the question.",
+   "citation": "S.L. 2011-139, s. 3 (City of Reidsville charter)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-139.html",
+   "quote": "If a majority of the votes cast are in favor of the question, Section 1 of this act becomes effective as provided therein.",
+   "read_utc": "2026-11-07T12:57Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2011-139, s. 2",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-139.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2011-139.html",
+     "read_utc": "2026-11-07T12:57Z",
+     "quote": "The election shall be conducted by the Rockingham County Board of Elections on October 11, 2011"
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2011-139.html",
+   "match": "\\bREIDSVILLE\\b",
+   "dates": [
+    "2011-10-11"
+   ],
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "charter amendment referendum: Town of Oak Island recall procedure (S.L. 2011-51)",
+   "t": 0.5,
+   "rule": "Section 1 of the act (recall procedure for Oak Island) becomes effective if a majority of the votes cast in the referendum of 8 Nov 2011 are in the affirmative.",
+   "citation": "S.L. 2011-51, s. 2 (Town of Oak Island charter)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-51.html",
+   "quote": "If a majority of the votes cast in the referendum shall be in the affirmative, Section 1 of this act shall become effective on the date that the Brunswick County Board of Elections certifies the results of the referendum.",
+   "read_utc": "2026-11-07T12:57Z",
+   "mark": "stated",
+   "also_cited": [],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2011-51.html",
+   "match": "\\bOAK ISLAND\\b",
+   "dates": [
+    "2011-11-08"
+   ],
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "incorporation referendum: Town of Rougemont (S.L. 2011-114)",
+   "t": 0.5,
+   "rule": "Incorporation takes effect if a majority of the votes are cast FOR incorporation (simple majority of those voting on the question).",
+   "citation": "S.L. 2011-114, s. 4 (Town of Rougemont)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-114.html",
+   "quote": "In the election, if a majority of the votes are cast \"FOR Incorporation of the Town of Rougemont,\" Section 1 of this act shall become effective on the date that the Durham County Board of Elections certifies the results of the election.",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2011-114.html",
+   "match": "\\bROUGEMONT\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "incorporation referendum: Town of Castle Hayne (S.L. 2011-166)",
+   "t": 0.5,
+   "rule": "Incorporation takes effect if a majority of the votes are cast FOR incorporation (simple majority of those voting on the question).",
+   "citation": "S.L. 2011-166, s. 4 (Town of Castle Hayne)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-166.html",
+   "quote": "In the election, if a majority of the votes are cast \"FOR Incorporation of the Town of Castle Hayne,\" Section 1 of this act shall become effective on the date that the New Hanover County Board of Elections certifies the results of the election.",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2011-166.html",
+   "match": "\\bCASTLE HAYNE\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "incorporation referendum: Village of Sneads Ferry (S.L. 2009-431)",
+   "t": 0.5,
+   "rule": "Incorporation takes effect if a majority of the votes are cast FOR incorporation (simple majority of those voting on the question).",
+   "citation": "S.L. 2009-431, s. 4 (Village of Sneads Ferry)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2009-2010/SL2009-431.html",
+   "quote": "In the election, if a majority of the votes are cast \"For the Incorporation of the Village of Sneads Ferry,\" Section 1 of this act shall become effective on the date that the Onslow County Board of Elections certifies the results of the election.",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2009-431.html",
+   "match": "\\bSNEADS FERRY\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "village recall election: Village of Tobaccoville (S.L. 2016-43)",
+   "t": 0.5,
+   "rule": "An officer is removed on the affirmative vote of a majority of those voting on the question of removal (a petition of 20 percent of registered voters is needed to call it, not to decide it).",
+   "citation": "S.L. 2016-43, s. 1 (adding Sec. 6.3 to the Tobaccoville charter)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2015-2016/SL2016-43.html",
+   "quote": "An officer is removed upon the filing of a sufficient recall petition and the affirmative vote of a majority of those voting on the question of removal at a recall election.",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2016-43, s. 1 (Sec. 6.3)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2015-2016/SL2016-43.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2016-43.html",
+     "read_utc": "2026-11-07T12:58Z",
+     "quote": "If a majority of the votes cast on the question are for the officer's recall, the officer is removed on the date the board of elections certifies the results of the election."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2016-43.html",
+   "match": "\\bTOBACCOVILLE\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county board of education election method referendum: Alexander County (S.L. 2023-41)",
+   "t": 0.5,
+   "rule": "Sections 1 and 2 of the act (nonpartisan to partisan election) take effect only if approved by a majority of the qualified voters of Alexander County in the 2024 general election referendum; section 4 reads this as a majority of the votes cast in the referendum.",
+   "citation": "S.L. 2023-41, s. 4",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2023-2024/SL2023-41.html",
+   "quote": "If the majority of the votes cast in the referendum in Section 3 of this act are in favor of the question, Section 1 of this act becomes effective with respect to elections conducted in 2026 and thereafter",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2023-41, s. 3",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2023-2024/SL2023-41.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2023-41.html",
+     "read_utc": "2026-11-07T12:58Z",
+     "quote": "Sections 1 and 2 of this act become effective only if approved by a majority of the qualified voters of Alexander County in a referendum."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2023-41.html",
+   "match": "\\bALEXANDER COUNTY BOARD OF EDUCATION\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county board of education election method referendum: Rowan-Salisbury (S.L. 2024-2)",
+   "t": 0.5,
+   "rule": "Sections 3 and 4 of the act (nonpartisan to partisan) take effect only if approved in the 2024 general election referendum; section 5(b) says 'the majority of the qualified voters of Rowan County vote in favor'. Read as a majority of those voting on the question (the same act and the sibling Alexander act speak of 'votes cast'); the wording could also be read as a majority of all qualified voters, which the act does not say outright (see notes).",
+   "citation": "S.L. 2024-2, s. 5(b)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2023-2024/SL2024-2.html",
+   "quote": "If the majority of the qualified voters of Rowan County vote in favor of the referendum held under this section, Section 2 of this act is repealed and the elections in 2026 and thereafter shall be conducted accordingly.",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2024-2, s. 5(a)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2023-2024/SL2024-2.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2024-2.html",
+     "read_utc": "2026-11-07T12:58Z",
+     "quote": "Sections 3 and 4 of this act become effective December 1, 2026, only if approved by the qualified voters of Rowan County in a referendum."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2024-2.html",
+   "match": "\\bROWAN.SALISBURY BOARD OF EDUCATION\\b",
+   "hold": "S.L. 2024-2, s. 5(b) asks for 'the majority of the qualified voters of Rowan County', which may mean a majority of all qualified voters rather than of those voting (a share the model does not forecast); not settled by the words",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county commissioner residency-districts referendum: Greene County (S.L. 2011-169)",
+   "t": 0.5,
+   "rule": "Sections 2 through 4 of the act take effect only if approved by a majority of the qualified voters of Greene County in the 2012 general election referendum; subsection (b) says a majority of the votes cast in favor.",
+   "citation": "S.L. 2011-169, s. 1(b)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-169.html",
+   "quote": "If a majority of the votes cast are in favor of the question, Sections 2 through 4 of this act become effective with respect to elections conducted in 2014 and thereafter.",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2011-169, s. 1(a)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-169.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2011-169.html",
+     "read_utc": "2026-11-07T12:58Z",
+     "quote": "Sections 2 through 4 of this act become effective only if approved by a majority of the qualified voters of the County of Greene in a referendum."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2011-169.html",
+   "match": "\\bGREENE COUNTY COMMISSIONER BOARD\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "advisory county zoning referendum: Caswell County (S.L. 2020-22)",
+   "rule": "The act authorizes an advisory referendum only; its result is not legally binding on the board of commissioners, and the act sets no share of the vote that decides anything. No threshold applies.",
+   "citation": "S.L. 2020-22, s. 1",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2019-2020/SL2020-22.html",
+   "quote": "The results of the referendum shall be used by the Caswell County Board of Commissioners to determine the desires of the residents of Caswell County regarding zoning but shall not be legally binding on the Board of County Commissioners.",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2020-22.html",
+   "match": "\\bCASWELL COUNTY ZONING\\b",
+   "advisory": true,
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "Hatteras Village Community Center District pathway tax-use referendum (S.L. 2017-50)",
+   "t": 0.5,
+   "rule": "The Dare County commissioners may adopt the resolution if a majority of the qualified voters voting at the election vote in favor of allowing the Hatteras Village Community Center District to expand the uses of its ad valorem tax to fund multiuse pathways. Identification of this question with S.L. 2017-50 is by the title word 'pathway' and the county (Dare); the data gives no ballot words or act number.",
+   "citation": "S.L. 2017-50, s. 1(d)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2017-2018/SL2017-50.html",
+   "quote": "If a majority of the qualified voters voting at the election shall vote in favor of allowing the Hatteras Village Community Center District to expand the uses of the ad valorem tax to include funding the construction and maintenance of multiuse pathways around the village of Hatteras",
+   "read_utc": "2026-11-07T12:59Z",
+   "mark": "inferred",
+   "also_cited": [],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2017-50.html",
+   "match": "^PATHWAY REFERENDUM\\b",
+   "match_note": "matched to S.L. 2017-50 by the title word 'pathway' and its county, Dare [inferred]",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "room occupancy tax referendum: Town of Indian Trail (S.L. 2023-144)",
+   "t": 0.5,
+   "rule": "The town council may levy the room occupancy tax if a majority of those voting in the (advisory) referendum vote for the levy.",
+   "citation": "S.L. 2023-144, s. 2.1(a)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2023-2024/SL2023-144.html",
+   "quote": "If the majority of those voting in a referendum held pursuant to subsection (b) of this section vote for the levy of the tax, the Town Council of the Town of Indian Trail may levy a room occupancy tax of up to five percent (5%)",
+   "read_utc": "2026-11-07T13:01Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2023-144, s. 2.1(b)(3)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2023-2024/SL2023-144.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2023-144.html",
+     "read_utc": "2026-11-07T13:01Z",
+     "quote": "A majority of those voting in the referendum vote for the levy of the room occupancy tax."
+    }
+   ],
+   "n_questions": 2,
+   "saved_file": "NC/pages/SL2023-144.html",
+   "match": "\\bINDIAN TRAIL OCCUPANCY\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "room occupancy tax referendum: Stallings District S (S.L. 2023-144)",
+   "t": 0.5,
+   "rule": "The governing body of Stallings District S may levy the room occupancy tax if a majority of those voting in the (advisory) referendum vote for the levy.",
+   "citation": "S.L. 2023-144, s. 3.2(a)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2023-2024/SL2023-144.html",
+   "quote": "If the majority of those voting in a referendum held pursuant to subsection (b) of this section vote for the levy of the tax, the governing body of Stallings District S may levy a room occupancy tax of up to five percent (5%)",
+   "read_utc": "2026-11-07T13:01Z",
+   "mark": "stated",
+   "also_cited": [],
+   "n_questions": 2,
+   "saved_file": "NC/pages/SL2023-144.html",
+   "match": "\\bSTALLINGS DISTRICT S OCCUPANCY\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county prepared food tax referendum: Durham County (S.L. 2008-116)",
+   "t": 0.5,
+   "rule": "The board of commissioners may levy the tax if the majority of those voting in the referendum (held 4 Nov 2008 under the act) vote for the levy.",
+   "citation": "S.L. 2008-116, s. 1",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2007-2008/SL2008-116.html",
+   "quote": "If the majority of those voting in a referendum held pursuant to this act vote for the levy of the tax, the Board of Commissioners for the county may, by resolution, levy a local prepared food tax up to one percent (1%) of the sales price",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "S.L. 2008-116, s. 2",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2007-2008/SL2008-116.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2008-116.html",
+     "read_utc": "2026-11-07T12:58Z",
+     "quote": "The election shall be held on November 4, 2008"
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/SL2008-116.html",
+   "match": "\\bPREPARED FOOD TAX\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county land transfer tax referendum (G.S. Art. 60 of Chapter 105, repealed 2011)",
+   "t": 0.5,
+   "rule": "The county commissioners may levy the tax if the majority of those voting in the referendum vote for the levy. The article was in force for the 4 Nov 2008 votes and was repealed by S.L. 2011-18 effective 31 Mar 2011; the words are read from the enacting session law because the current code page shows only 'Repealed'.",
+   "citation": "G.S. 105-601(a) as enacted by S.L. 2007-323, s. 31.17(a) (Art. 60 repealed by S.L. 2011-18, s. 1)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2007-2008/SL2007-323.html",
+   "quote": "If the majority of those voting in a referendum held pursuant to this Article vote for the levy of the tax, the board of county commissioners may, by resolution and after 10 days' public notice, levy a local land transfer tax on instruments conveying interests in real property located in the county",
+   "read_utc": "2026-11-07T13:00Z",
+   "mark": "stated",
+   "from_year": 2007,
+   "to_year": 2011,
+   "also_cited": [
+    {
+     "citation": "S.L. 2011-18, s. 1 (effective March 31, 2011)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2011-2012/SL2011-18.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2011-18.html",
+     "read_utc": "2026-11-07T12:53Z",
+     "quote": "Article 60 of Chapter 105 of the General Statutes is repealed."
+    },
+    {
+     "citation": "G.S. 105-600 (current code page)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-600.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_105-600.html",
+     "read_utc": "2026-11-07T12:53Z",
+     "quote": "Repealed by Session Laws 2011-18, s. 1, effective March 31, 2011."
+    }
+   ],
+   "n_questions": 2,
+   "saved_file": "NC/pages/SL2007-323.html",
+   "match": "\\bLAND TRANSFER\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "general obligation bond referendum: school, community college or county library bonds",
+   "t": 0.5,
+   "compound": null,
+   "rule": "The bond order takes effect on the affirmative vote of a majority of those who vote on the question (the constitution: 'a majority of the qualified voters of the unit who vote thereon'). The title does not say 'general obligation', but the Local Government Bond Act (G.S. 159-49) puts every bond that needs a vote under this test; revenue bonds need no vote. Section 159-61 is headed 'Bond referenda; majority required', so the kind is named by the law; the only reading made is that each title containing 'bond' is such a referendum.",
+   "citation": "N.C. Gen. Stat. § 159-61(a)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_159/GS_159-61.html",
+   "quote": "If a bond order is to take effect upon approval of the voters, the affirmative vote or a majority of those who vote thereon shall be required.",
+   "read_utc": "2026-11-07T12:53Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "N.C. Const. art. V, § 4(2)",
+     "url": "https://www.ncleg.gov/Laws/Constitution/Article5",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/Const_Article5.html",
+     "read_utc": "2026-11-07T12:49Z",
+     "quote": "The General Assembly shall have no power to authorize any county, city or town, special district, or other unit of local government to contract debts secured by a pledge of its faith and credit unless approved by a majority of the qualified voters of the unit who vote thereon"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 153A-308",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_153A.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/Chapter_153A_full.html",
+     "read_utc": "2026-11-07T12:52Z",
+     "quote": "the proposed bond issue must be approved concurrently by a majority of those voting throughout the entire county and by a majority of the total of those voting in all of the affected or to-be-affected service districts"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 160A-543",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_160A.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/Chapter_160A_full.html",
+     "read_utc": "2026-11-07T12:52Z",
+     "quote": "the proposed bond issue must be approved concurrently by a majority of those voting throughout the entire city and by a majority of the total of those voting in all of the affected or to be affected service districts"
+    }
+   ],
+   "n_questions": 278,
+   "saved_file": "NC/pages/GS_159-61.html",
+   "match": "\\bBONDS?\\b",
+   "match_also": "\\bSCHOOLS?\\b|COMMUNITY COLLEGE|TECHNICAL COMMUNITY|EDUCATIONAL FACILITIES|\\bCOUNTY\\b.*\\bLIBRAR(Y|IES)\\b",
+   "match_note": "a school, community college or library is not among the services a county service district may provide (G.S. 153A-301, read), so G.S. 153A-308's concurrent majorities cannot apply [inferred from the title]",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "general obligation bond referendum: other bonds",
+   "t": 0.5,
+   "compound": null,
+   "rule": "The bond order takes effect on the affirmative vote of a majority of those who vote on the question (the constitution: 'a majority of the qualified voters of the unit who vote thereon'). The title does not say 'general obligation', but the Local Government Bond Act (G.S. 159-49) puts every bond that needs a vote under this test; revenue bonds need no vote. Section 159-61 is headed 'Bond referenda; majority required', so the kind is named by the law; the only reading made is that each title containing 'bond' is such a referendum.",
+   "citation": "N.C. Gen. Stat. § 159-61(a)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_159/GS_159-61.html",
+   "quote": "If a bond order is to take effect upon approval of the voters, the affirmative vote or a majority of those who vote thereon shall be required.",
+   "read_utc": "2026-11-07T12:53Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "N.C. Const. art. V, § 4(2)",
+     "url": "https://www.ncleg.gov/Laws/Constitution/Article5",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/Const_Article5.html",
+     "read_utc": "2026-11-07T12:49Z",
+     "quote": "The General Assembly shall have no power to authorize any county, city or town, special district, or other unit of local government to contract debts secured by a pledge of its faith and credit unless approved by a majority of the qualified voters of the unit who vote thereon"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 153A-308",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_153A.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/Chapter_153A_full.html",
+     "read_utc": "2026-11-07T12:52Z",
+     "quote": "the proposed bond issue must be approved concurrently by a majority of those voting throughout the entire county and by a majority of the total of those voting in all of the affected or to-be-affected service districts"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 160A-543",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByChapter/Chapter_160A.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/Chapter_160A_full.html",
+     "read_utc": "2026-11-07T12:52Z",
+     "quote": "the proposed bond issue must be approved concurrently by a majority of those voting throughout the entire city and by a majority of the total of those voting in all of the affected or to be affected service districts"
+    }
+   ],
+   "n_questions": 278,
+   "saved_file": "NC/pages/GS_159-61.html",
+   "match": "\\bBONDS?\\b",
+   "hold": "a bond whose proceeds may serve a service district: then it needs a majority in the whole unit and in the districts at once (G.S. 153A-308, 160A-543), and the source does not show whether it does",
+   "service_district_rule": "Applies only where the bond proceeds are for service districts: 'the proposed bond issue must be approved concurrently by a majority of those voting throughout the entire county and by a majority of the total of those voting in all of the affected or to-be-affected service districts' (G.S. 153A-308; same words for cities in G.S. 160A-543). Not shown in the data for any listed question; noted because some listed bonds are for water, sewer or fire-type districts.",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county quarter-cent local sales and use tax referendum (Article 46)",
+   "t": 0.5,
+   "rule": "The county commissioners may levy the 0.25% tax if the majority of those voting in the referendum vote for the levy (an advisory referendum on the question). The same sentence stood in the Article as enacted by S.L. 2007-323, s. 31.17(b), so the rule is the same for 2008-2026.",
+   "citation": "N.C. Gen. Stat. § 105-537(a)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-537.html",
+   "quote": "If the majority of those voting in a referendum held pursuant to this Article vote for the levy of the tax, the board of county commissioners may, by resolution and after 10 days' public notice, levy a local sales and use tax at a rate of one-quarter percent (0.25%).",
+   "read_utc": "2026-11-07T12:54Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "G.S. 105-537(a) as enacted by S.L. 2007-323, s. 31.17(b)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2007-2008/SL2007-323.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2007-323.html",
+     "read_utc": "2026-11-07T13:00Z",
+     "quote": "If the majority of those voting in a referendum held pursuant to this Article vote for the levy of the tax, the board of county commissioners may, by resolution and after 10 days' public notice, levy a local sales and use tax at a rate of one-quarter percent (0.25%)."
+    }
+   ],
+   "n_questions": 14,
+   "saved_file": "NC/pages/GS_105-537.html",
+   "match": "QUARTER",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county public transportation (1/2 cent) sales and use tax referendum (Article 43)",
+   "t": 0.5,
+   "compound": "In determining the results of the election in a multicounty district, all the counties of the district shall be considered to be one unit but also must receive a majority vote in each county, except that if the referendum is passed in one or more but not all of the counties, the counties in which the referendum was not approved are removed from the special district upon certification of the election result and the county or counties that approved the referendum shall remain in the special district. (G.S. 105-509.1; the same in G.S. 105-510.1 for the Triad district.) This applies only where a multicounty special district is created; a single-county referendum (Mecklenburg, Part 2) has no such condition.",
+   "rule": "The county (or the transportation authority for its special district) may levy the 1/2% tax if the majority of those voting in the referendum vote for the levy. Titles with 'PUBLIC TRANSPORTATION' name the Article; the 'ONE-HALF' titles are read as Article 43 because the other half-cent articles (40, 42) need no referendum.",
+   "citation": "N.C. Gen. Stat. § 105-507.2(a) (Mecklenburg, Part 2)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-507.2.html",
+   "quote": "If the majority of those voting in a referendum held pursuant to G.S. 105-507.1 vote for the levy of the tax, the board of commissioners of the county may, by resolution, levy one-half percent (1/2%) local sales and use taxes",
+   "read_utc": "2026-11-07T12:54Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 105-509.1 (Triangle district, Part 4)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-509.1.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_105-509.1.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "If the majority of those voting in a referendum held pursuant to G.S. 105-509 vote for the levy of the tax, the transportation authority may, by resolution, levy one-half percent"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 105-509.1",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-509.1.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_105-509.1.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "In determining the results of the election in a multicounty district, all the counties of the district shall be considered to be one unit but also must receive a majority vote in each county"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 105-510.1 (Triad district, Part 5)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-510.1.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_105-510.1.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "If the majority of those voting in a referendum held pursuant to G.S. 105-510 vote for the levy of the tax, the transportation authority may, by resolution, levy one-half percent"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 105-511.3 (other counties, Part 6)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-511.3.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_105-511.3.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "If the majority of those voting in a referendum held pursuant to this Part vote for the levy of the tax, the board of commissioners of the county may, by resolution, levy one-quarter percent"
+    }
+   ],
+   "n_questions": 4,
+   "saved_file": "NC/pages/GS_105-507.2.html",
+   "match": "PUBLIC TRANSPORTATION|ONE.HALF",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county local sales and use tax referendum (article not named in title)",
+   "t": 0.5,
+   "rule": "Every county sales and use tax referendum provision in G.S. Chapter 105 in force 2008-2026 (Art. 46 quarter-cent, Art. 43 transportation, Art. 39 one-cent) uses the same test: the majority of those voting in the referendum must vote for the levy. The title does not say which Article a given question was held under, so the Art. 46 sentence (the one that fits the quarter-cent referendums of 2008-2026) is the main quote and the others are in also_cited. Inferred, not stated, for this reason.",
+   "citation": "N.C. Gen. Stat. § 105-537(a); same test in § 105-466(a), § 105-507.2(a), § 105-509.1, § 105-510.1, § 105-511.3",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-537.html",
+   "quote": "If the majority of those voting in a referendum held pursuant to this Article vote for the levy of the tax, the board of county commissioners may, by resolution and after 10 days' public notice, levy a local sales and use tax at a rate of one-quarter percent (0.25%).",
+   "read_utc": "2026-11-07T12:54Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 105-466(a) (Art. 39, first one-cent tax)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-466.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_105-466.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "In the event a majority of those voting in a special election held pursuant to G.S. 105-465 shall approve the levy of the local sales and use tax, the board of county commissioners may, by resolution, proceed to levy the tax."
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 105-507.2(a) (Art. 43 Part 2)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-507.2.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_105-507.2.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "If the majority of those voting in a referendum held pursuant to G.S. 105-507.1 vote for the levy of the tax"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 105-511.3 (Art. 43 Part 6)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-511.3.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_105-511.3.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "If the majority of those voting in a referendum held pursuant to this Part vote for the levy of the tax"
+    },
+    {
+     "citation": "G.S. 105-537(a) as enacted by S.L. 2007-323, s. 31.17(b) (2007), for the 2008-2010 questions",
+     "url": "https://www.ncleg.gov/EnactedLegislation/SessionLaws/HTML/2007-2008/SL2007-323.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/SL2007-323.html",
+     "read_utc": "2026-11-07T13:00Z",
+     "quote": "If the majority of those voting in a referendum held pursuant to this Article vote for the levy of the tax, the board of county commissioners may, by resolution and after 10 days' public notice, levy a local sales and use tax at a rate of one-quarter percent (0.25%)."
+    }
+   ],
+   "n_questions": 135,
+   "saved_file": "NC/pages/GS_105-537.html",
+   "match": "SALES? AND USE TAX|SALES? TAX|LOCAL OPTION SALES",
+   "match_note": "every county sales and use tax article that puts the levy to the voters (39, 43, 46) sets this share; the title does not name the article",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "malt beverage election (county, city/town, township)",
+   "t": 0.5,
+   "rule": "The kind of malt beverage sales on a proposition is allowed if that proposition receives a majority of the votes FOR (each voter votes on each proposition; FOR versus AGAINST). Township elections are decided 'in the same manner as county elections' (G.S. 18B-600(f)). Titles with 'Hotels, Etc.', 'Off Premises', 'On Premises' etc. are separate propositions under § 18B-602(a), each with the same test.",
+   "citation": "N.C. Gen. Stat. § 18B-602(b)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-602.html",
+   "quote": "The kind of malt beverage sales described in each proposition that receives a majority of votes \"FOR\" shall be allowed.",
+   "read_utc": "2026-11-07T12:47Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 18B-600(f)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-600.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_18B-600.html",
+     "read_utc": "2026-11-07T12:47Z",
+     "quote": "For purposes of this Article, townships holding any election under this subsection shall be treated on the same basis as counties"
+    }
+   ],
+   "n_questions": 122,
+   "saved_file": "NC/pages/GS_18B-602.html",
+   "match": "MALT",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "unfortified wine election (county, city/town, township)",
+   "t": 0.5,
+   "rule": "The kind of unfortified wine sales on a proposition is allowed if that proposition receives a majority of the votes FOR. Township elections are decided in the same manner as county elections (G.S. 18B-600(f)).",
+   "citation": "N.C. Gen. Stat. § 18B-602(e)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-602.html",
+   "quote": "The kind of unfortified wine sales described in each proposition that receives a majority of votes \"FOR\" shall be allowed.",
+   "read_utc": "2026-11-07T12:47Z",
+   "mark": "stated",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 18B-600(f)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-600.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_18B-600.html",
+     "read_utc": "2026-11-07T12:47Z",
+     "quote": "For purposes of this Article, townships holding any election under this subsection shall be treated on the same basis as counties"
+    }
+   ],
+   "n_questions": 105,
+   "saved_file": "NC/pages/GS_18B-602.html",
+   "match": "WINE",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "mixed beverage election (county, city/town)",
+   "t": 0.5,
+   "rule": "G.S. 18B-602(h) sets only the ballot words for a mixed beverage election; the result rule is not in that subsection. G.S. 18B-601(a) runs an alcoholic beverage election 'in the same manner and under the same rules as a referendum under Chapter 163'; G.S. 18B-604(b) speaks of 'a majority of voters' voting in favor of alcoholic beverage sales; G.S. 163-182.15(d) says that in a referendum the proposal with the highest number of votes prevails. Read together: more FOR than AGAINST (a simple majority of those voting on the question). Inferred because no sentence of Article 6 states the threshold for mixed beverage elections by name.",
+   "citation": "N.C. Gen. Stat. § 18B-604(b); § 18B-601(a); § 163-182.15(d)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-604.html",
+   "quote": "If a majority of voters vote in favor of certain alcoholic beverage sales in a county election, sale of that kind of alcoholic beverage shall be lawful throughout the county",
+   "read_utc": "2026-11-07T12:47Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 18B-601(a)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-601.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_18B-601.html",
+     "read_utc": "2026-11-07T12:47Z",
+     "quote": "an alcoholic beverage election shall be conducted in the same manner and under the same rules as a referendum under Chapter 163"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 163-182.15(d)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_163/GS_163-182.15.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_163-182.15.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "In a referendum, the ballot proposal receiving the highest number of votes shall be declared to have prevailed, and the certificate shall be issued accordingly."
+    }
+   ],
+   "n_questions": 86,
+   "saved_file": "NC/pages/GS_18B-604.html",
+   "match": "MIXED BEVERAGE",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "ABC store election (county, city/town)",
+   "t": 0.5,
+   "rule": "G.S. 18B-602(g) sets only the ballot words for an ABC store election; no sentence of Article 6 states the threshold for it by name. Same reading as the mixed beverage election: G.S. 18B-601(a) (conducted as a Chapter 163 referendum), G.S. 18B-604(b) ('a majority of voters vote in favor'), G.S. 163-182.15(d) (highest number of votes prevails). Simple majority of those voting on the question. Inferred.",
+   "citation": "N.C. Gen. Stat. § 18B-604(b); § 18B-601(a); § 163-182.15(d)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-604.html",
+   "quote": "If a majority of voters vote in favor of certain alcoholic beverage sales in a county election, sale of that kind of alcoholic beverage shall be lawful throughout the county",
+   "read_utc": "2026-11-07T12:47Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 18B-601(a)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-601.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_18B-601.html",
+     "read_utc": "2026-11-07T12:47Z",
+     "quote": "an alcoholic beverage election shall be conducted in the same manner and under the same rules as a referendum under Chapter 163"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 163-182.15(d)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_163/GS_163-182.15.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_163-182.15.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "In a referendum, the ballot proposal receiving the highest number of votes shall be declared to have prevailed, and the certificate shall be issued accordingly."
+    }
+   ],
+   "n_questions": 25,
+   "saved_file": "NC/pages/GS_18B-604.html",
+   "match": "\\bABC\\b",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "alcoholic beverage election, kind not named in title (Town of Glen Alpine)",
+   "t": 0.5,
+   "rule": "The title does not say which beverage or ABC store question was put. Every Article 6 election is conducted as a Chapter 163 referendum (G.S. 18B-601(a)) and the malt/wine tests are 'a majority of votes FOR'; G.S. 163-182.15(d) gives the highest-votes-prevails test for any referendum. Simple majority; inferred.",
+   "citation": "N.C. Gen. Stat. § 18B-601(a); § 163-182.15(d)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18B/GS_18B-601.html",
+   "quote": "an alcoholic beverage election shall be conducted in the same manner and under the same rules as a referendum under Chapter 163",
+   "read_utc": "2026-11-07T12:47Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 163-182.15(d)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_163/GS_163-182.15.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_163-182.15.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "In a referendum, the ballot proposal receiving the highest number of votes shall be declared to have prevailed, and the certificate shall be issued accordingly."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/GS_18B-601.html",
+   "match": "ALCOHOL REFERENDUM",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "city or town charter amendment referendum (not otherwise listed)",
+   "t": 0.5,
+   "rule": "Under the general law (Art. 5 Part 4 of Chapter 160A) a charter amendment put to the voters carries if a majority of the votes cast on the proposition are in the affirmative. The title does not say whether the question was put under G.S. 160A-102 to 160A-105 or by a local act; the four 2011 local acts read in the file (S.L. 2011-46, -51, -67, -139) and the three incorporation acts use the same 'majority of the votes cast' test, so a local act is expected to say the same, but the individual acts for these questions were not read. Inferred.",
+   "citation": "N.C. Gen. Stat. § 160A-105",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160A/GS_160A-105.html",
+   "quote": "If a majority of the votes cast on a proposition shall be in the affirmative, the plan contained therein shall be put into effect as provided in this Article. If a majority of the votes cast shall be against the proposition, the ordinance or petition proposing the amendments shall be void and of no effect.",
+   "read_utc": "2026-11-07T12:54Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 160A-104 (initiative petitions)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160A/GS_160A-104.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_160A-104.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "If a majority of the votes cast in the special election shall be in favor of the proposed changes, the council shall adopt an ordinance amending the charter to put them into effect."
+    }
+   ],
+   "n_questions": 28,
+   "saved_file": "NC/pages/GS_160A-105.html",
+   "match": "CHARTER AMENDMENT",
+   "hold": "the source does not show whether this question was put under the general law read or under a local act, which was not read",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "city council term-length referendum (Greensboro)",
+   "t": 0.5,
+   "rule": "Term length of council members is one of the optional charter forms (G.S. 160A-101(4)); a proposition to approve it carries on a majority of the votes cast (G.S. 160A-105). The act or ordinance behind the Greensboro question was not found; inferred.",
+   "citation": "N.C. Gen. Stat. § 160A-105",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160A/GS_160A-105.html",
+   "quote": "If a majority of the votes cast on a proposition shall be in the affirmative, the plan contained therein shall be put into effect as provided in this Article.",
+   "read_utc": "2026-11-07T12:54Z",
+   "mark": "inferred",
+   "also_cited": [],
+   "n_questions": 1,
+   "saved_file": "NC/pages/GS_160A-105.html",
+   "match": "GREENSBORO CITY COUNCIL",
+   "hold": "the source does not show whether this question was put under the general law read or under a local act, which was not read",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county board of commissioners structure referendum",
+   "t": 0.5,
+   "rule": "Under G.S. 153A-58 to 153A-61 an alteration of the structure of the board (size, terms, districts) takes effect if a majority of the votes cast on the proposition are in the affirmative. The title does not say whether each question was put under the general law or a local act; inferred.",
+   "citation": "N.C. Gen. Stat. § 153A-61",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_153A/GS_153A-61.html",
+   "quote": "If a majority of the votes cast on the proposition are in the affirmative, the plan contained in the resolution shall be put into effect as provided in this Part. If a majority of the votes cast are in the negative, the resolution and the plan contained therein are void.",
+   "read_utc": "2026-11-07T12:55Z",
+   "mark": "inferred",
+   "also_cited": [],
+   "n_questions": 10,
+   "saved_file": "NC/pages/GS_153A-61.html",
+   "match": "BOARD OF COMMISSIONERS",
+   "hold": "the source does not show whether this question was put under the general law read or under a local act, which was not read",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "city water system sale or lease referendum (Asheville)",
+   "t": 0.5,
+   "rule": "For water systems G.S. 160A-321(b) lets a city (but does not require it to) submit the question to voters and says the referendum is conducted under the laws applicable to special elections; it states no threshold. The general referendum rule (G.S. 163-182.15(d): the ballot proposal receiving the highest number of votes prevails) is used, giving a simple majority. Inferred; the optional referendum may in effect be advisory.",
+   "citation": "N.C. Gen. Stat. § 160A-321(b); § 163-182.15(d)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160A/GS_160A-321.html",
+   "quote": "For the sale, lease, or discontinuance of water treatment systems, water distribution systems, or wastewater collection and treatment systems, a city may, but is not required to, submit to its voters the question of whether such sale, lease, or discontinuance shall be undertaken.",
+   "read_utc": "2026-11-07T13:00Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 163-182.15(d)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_163/GS_163-182.15.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_163-182.15.html",
+     "read_utc": "2026-11-07T12:54Z",
+     "quote": "In a referendum, the ballot proposal receiving the highest number of votes shall be declared to have prevailed, and the certificate shall be issued accordingly."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/GS_160A-321.html",
+   "match": "WATER SYSTEM SALE OR LEASE",
+   "hold": "G.S. 160A-321(b) lets a city put a water system's sale to its voters but sets no threshold, and the vote may be advisory; the general referendum rule (G.S. 163-182.15(d)) is not shown to govern it",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "city sale/lease of a city-owned public enterprise (Salisbury lease, Davidson and Mooresville sale of Continuum)",
+   "t": 0.5,
+   "rule": "A city-owned public enterprise may not be sold, leased or discontinued unless the proposal is first submitted to a vote and 'approved by a majority of those who vote thereon'. Read as covering these three questions because a sale or lease of a city-owned enterprise is what the titles name; the data gives no ballot words, and what 'Continuum' is is not stated in the data. Inferred.",
+   "citation": "N.C. Gen. Stat. § 160A-321(a)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160A/GS_160A-321.html",
+   "quote": "a city-owned public enterprise shall not be sold, leased to another, or discontinued unless the proposal to sell, lease, or discontinue is first submitted to a vote of the people and approved by a majority of those who vote thereon.",
+   "read_utc": "2026-11-07T13:00Z",
+   "mark": "inferred",
+   "also_cited": [],
+   "n_questions": 3,
+   "saved_file": "NC/pages/GS_160A-321.html",
+   "match": "LEASE REFERENDUM|SALE OF CONTINUUM",
+   "hold": "the source does not show that what is sold or leased is a city-owned public enterprise under G.S. 160A-321(a)",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "city annexation referendum (Town of Leland)",
+   "t": 0.5,
+   "rule": "Under the involuntary-annexation referendum section, the municipality may proceed only if a majority of the votes cast on the referendum are for annexation; only registered voters of the proposed annexation area vote. The data gives no ballot words; this section is read as the one governing the question. Inferred.",
+   "citation": "N.C. Gen. Stat. § 160A-58.64(f)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160A/GS_160A-58.64.html",
+   "quote": "If a majority of the votes cast on the referendum are for annexation, the municipal governing body may proceed with the adoption of the annexation ordinance under G.S. 160A-58.55.",
+   "read_utc": "2026-11-07T12:55Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 160A-58.64(c)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160A/GS_160A-58.64.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_160A-58.64.html",
+     "read_utc": "2026-11-07T12:55Z",
+     "quote": "Only registered voters of the proposed annexation area shall be allowed to vote on the referendum."
+    }
+   ],
+   "n_questions": 1,
+   "saved_file": "NC/pages/GS_160A-58.64.html",
+   "match": "LELAND ANNEXATION",
+   "hold": "the source does not show whether this question was put under the general law read or under a local act, which was not read",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "supplemental school tax election (titles that say 'supplemental')",
+   "t": 0.5,
+   "rule": "A supplemental school tax (or its increase) carries if a majority of the voters voting in the election vote in favor. 'Supplemental' titles name the Article; the Northampton 'School Tax Referendum' is read as the same kind (inferred).",
+   "citation": "N.C. Gen. Stat. § 115C-508(b)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_115C/GS_115C-508.html",
+   "quote": "If, in any election authorized by this Article, a majority of the voters voting in such election vote in favor of a supplemental tax, or in favor of the increase of a supplemental tax, or in favor of a tax to supplement and equalize educational advantages",
+   "read_utc": "2026-11-07T12:55Z",
+   "mark": "inferred",
+   "also_cited": [],
+   "n_questions": 4,
+   "saved_file": "NC/pages/GS_115C-508.html",
+   "match": "SUPPLEMENTAL (SCHOOL )?TAX",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "supplemental school tax election (other school tax titles)",
+   "t": 0.5,
+   "rule": "A supplemental school tax (or its increase) carries if a majority of the voters voting in the election vote in favor. 'Supplemental' titles name the Article; the Northampton 'School Tax Referendum' is read as the same kind (inferred).",
+   "citation": "N.C. Gen. Stat. § 115C-508(b)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_115C/GS_115C-508.html",
+   "quote": "If, in any election authorized by this Article, a majority of the voters voting in such election vote in favor of a supplemental tax, or in favor of the increase of a supplemental tax, or in favor of a tax to supplement and equalize educational advantages",
+   "read_utc": "2026-11-07T12:55Z",
+   "mark": "inferred",
+   "also_cited": [],
+   "n_questions": 4,
+   "saved_file": "NC/pages/GS_115C-508.html",
+   "match": "SCHOOL TAX",
+   "hold": "the title does not say the tax is a supplemental school tax under Article 36 of Chapter 115C, and the act behind it was not read",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "city/town special property tax referendum",
+   "t": 0.5,
+   "rule": "A city or town may levy a property tax for a purpose above its ordinary limit with an approving vote: 'If a majority of those participating in the referendum approve the proposition'. Simple majority of those voting. The data gives no ballot words; the title names a city/town property tax. Inferred.",
+   "citation": "N.C. Gen. Stat. § 160A-209(e)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_160A/GS_160A-209.html",
+   "quote": "If a majority of those participating in the referendum approve the proposition, the city council may proceed to levy annually a property tax within the limitations (if any) described in the proposition.",
+   "read_utc": "2026-11-07T12:54Z",
+   "mark": "inferred",
+   "also_cited": [],
+   "n_questions": 5,
+   "saved_file": "NC/pages/GS_160A-209.html",
+   "match": "SPINDALE|DREXEL|ROANOKE RAPIDS PROPERTY|TOWN OF GASTON PROPERTY",
+   "hold": "the source does not show whether this question was put under the general law read or under a local act, which was not read",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "county special property tax referendum (rescue services; school construction)",
+   "t": 0.5,
+   "rule": "A county may levy property taxes for any authorized purpose with an approving vote: 'If a majority of those participating in the referendum approve the proposition'. The title names a county property tax; whether the Central Middle School question was put under this section or a local act is not stated. Inferred.",
+   "citation": "N.C. Gen. Stat. § 153A-149(d)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_153A/GS_153A-149.html",
+   "quote": "If a majority of those participating in the referendum approve the proposition, the board of commissioners may proceed to levy annually a property tax within the limitations (if any) described in the proposition.",
+   "read_utc": "2026-11-07T12:55Z",
+   "mark": "inferred",
+   "also_cited": [],
+   "n_questions": 2,
+   "saved_file": "NC/pages/GS_153A-149.html",
+   "match": "COLUMBUS COUNTY PROPERTY TAX|CENTRAL MIDDLE SCHOOL CONSTRUCTION",
+   "hold": "the source does not show whether this question was put under the general law read or under a local act, which was not read",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "rural fire protection district tax election",
+   "t": 0.5,
+   "rule": "The county commissioners may levy the district fire tax if a majority of the qualified voters voting at the election vote in favor (and the same for an increase of the tax limit).",
+   "citation": "N.C. Gen. Stat. § 69-25.4(a)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_69/GS_69-25.4.html",
+   "quote": "If a majority of the qualified voters voting at said election vote in favor of levying and collecting a tax in said district, then the board of county commissioners is authorized and directed to levy and collect a tax in said district",
+   "read_utc": "2026-11-07T12:55Z",
+   "mark": "stated",
+   "also_cited": [],
+   "n_questions": 2,
+   "saved_file": "NC/pages/GS_69-25.4.html",
+   "match": "RURAL FIRE PROTECTION",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "fire district / township fire tax election",
+   "t": 0.5,
+   "rule": "Fire-protection tax elections are decided by a majority of the qualified voters voting: G.S. 69-25.4(a) for a Chapter 69 fire protection district; G.S. 153A-307 for a county service district whose rate goes beyond the county limit ('approved by a majority of the qualified voters residing within the district', held as in G.S. 153A-149, i.e. 'a majority of those participating'). The titles do not say which of these (or a local act) governs each district, so this is inferred; the threshold is the same.",
+   "citation": "N.C. Gen. Stat. § 153A-307; § 69-25.4(a)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_153A/GS_153A-307.html",
+   "quote": "unless the portion of the rate in excess of this limitation is submitted to and approved by a majority of the qualified voters residing within the district. Any referendum held pursuant to this paragraph shall be held and conducted as provided in G.S. 153A-149.",
+   "read_utc": "2026-11-07T12:55Z",
+   "mark": "inferred",
+   "also_cited": [
+    {
+     "citation": "N.C. Gen. Stat. § 69-25.4(a)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_69/GS_69-25.4.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_69-25.4.html",
+     "read_utc": "2026-11-07T12:55Z",
+     "quote": "If a majority of the qualified voters voting at said election vote in favor of levying and collecting a tax in said district"
+    },
+    {
+     "citation": "N.C. Gen. Stat. § 153A-149(d)",
+     "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_153A/GS_153A-149.html",
+     "saved_file": "/tmp/vote-cache/law-local/NC/pages/GS_153A-149.html",
+     "read_utc": "2026-11-07T12:55Z",
+     "quote": "If a majority of those participating in the referendum approve the proposition, the board of commissioners may proceed to levy annually a property tax within the limitations (if any) described in the proposition."
+    }
+   ],
+   "n_questions": 16,
+   "saved_file": "NC/pages/GS_153A-307.html",
+   "match": "FIRE",
+   "hold": "the source does not show whether this question was put under the general law read or under a local act, which was not read",
+   "state": "NC",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "recall election (FOR RECALL / AGAINST RECALL)",
+   "t": 0.5,
+   "rule": "The recall carries when it receives a majority of the votes cast on the recall question; if it does not, the effort fails. Exactly half is not a majority. The Constitution leaves the method to general law and says the sole issue is whether the official shall be recalled.",
+   "citation": "La. R.S. 18:1300.12 (recall election: result)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=81318",
+   "quote": "The majority of the votes cast shall determine the result of the recall election. If the proposition for the recall does not receive a majority of the votes cast, the effort to recall shall have failed.",
+   "read_utc": "2026-11-07T13:08Z",
+   "mark": "stated",
+   "supporting": [
+    {
+     "citation": "La. Const. art. X, § 26 (recall)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=206637",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_CONST_art10_s26_d206637.html",
+     "read_utc": "2026-11-07T13:13Z",
+     "quote": "The legislature shall provide by general law for the recall by election of any state, district, parochial, ward, or municipal official except judges of the courts of record. The sole issue at a recall election shall be whether the official shall be recalled."
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS18_1300.12_d81318.html",
+   "n_questions": 2,
+   "match": "^RECALL\\b",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "local option alcoholic beverage (wet/dry) proposition",
+   "t": 0.5,
+   "rule": "A majority vote cast on each of the five propositions separately decides that issue for the ward, election district or incorporated municipality. Strictly more than half Yes.",
+   "citation": "La. R.S. 26:588(C) (local option alcoholic beverage elections)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=84775",
+   "quote": "In an election a majority vote cast on each proposition shall separately determine that issue for the ward, the election district, or for the incorporated municipality",
+   "read_utc": "2026-11-07T12:58Z",
+   "mark": "stated",
+   "supporting": [
+    {
+     "citation": "La. R.S. 26:582(A)(1) (local option: what is voted)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=84769",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS26_582_d84769.html",
+     "read_utc": "2026-11-07T12:58Z",
+     "quote": "Upon petition of not less than twenty-five percent of the qualified electors residing in any ward, election district, or any incorporated municipality, the governing authority shall order a referendum election to be held to determine whether or not the business of selling alcoholic beverages shall be conducted and licensed therein."
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS26_588_d84775.html",
+   "n_questions": 20,
+   "match": "WET/DRY",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "parcel fee of a New Orleans neighborhood improvement, security or crime prevention district (each district's own act)",
+   "t": 0.5,
+   "rule": "Each district's act says the fee is imposed (or levied, or renewed) only after approval by a majority of the registered voters of the district voting on the proposition, at an election under the Election Code. The electorate is the district's registered voters. Strictly more than half Yes. All eleven acts read give the same words; they are listed under 'supporting' with the district each covers. The match of a title to its act is by the district's name.",
+   "citation": "La. R.S. 33:9091.21 (Eastover Neighborhood Improvement and Security District)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=860875",
+   "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district voting on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+   "read_utc": "2026-11-07T13:13Z",
+   "mark": "stated",
+   "supporting": [
+    {
+     "citation": "La. R.S. 33:9079 (Kingswood Subdivision Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=321772",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9079_d321772.html",
+     "read_utc": "2026-11-07T13:13Z",
+     "quote": "(c) The fee shall be levied only upon request by the board to the city of New Orleans and only after the question of its levy has been approved by a majority of the registered voters of the district voting on the proposition at an election held for that purpose in accordance with the Louisiana Election Code at a regularly scheduled election.",
+     "district": "Kingswood"
+    },
+    {
+     "citation": "La. R.S. 33:9071 (Lake Carmel Subdivision Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=91711",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9071_d91711.html",
+     "read_utc": "2026-11-07T13:14Z",
+     "quote": "(b) Such fee shall be levied only after the question of its levy has been approved by a majority of the registered voters of the district, who vote at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Lake Carmel"
+    },
+    {
+     "citation": "La. R.S. 33:9080.1 (McKendall Estates Neighborhood Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=631543",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9080.1_d631543.html",
+     "read_utc": "2026-11-07T13:14Z",
+     "quote": "(5)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district who vote on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "McKendall"
+    },
+    {
+     "citation": "La. R.S. 33:9080.2 (Tamaron Subdivision Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=631544",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9080.2_d631544.html",
+     "read_utc": "2026-11-07T13:14Z",
+     "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district who vote on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Tamaron"
+    },
+    {
+     "citation": "La. R.S. 33:9091.9 (Twinbrook Security District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=321773",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9091.9_d321773.html",
+     "read_utc": "2026-11-07T13:13Z",
+     "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district voting on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Twinbrook"
+    },
+    {
+     "citation": "La. R.S. 33:9073 (Lake Willow Subdivision Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=91713",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9073_d91713.html",
+     "read_utc": "2026-11-07T13:14Z",
+     "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district who vote on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Lake Willow"
+    },
+    {
+     "citation": "La. R.S. 33:9091.25 (Delachaise Security and Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=1107439",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9091.25_d1107439.html",
+     "read_utc": "2026-11-07T13:13Z",
+     "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district who vote on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Delachaise"
+    },
+    {
+     "citation": "La. R.S. 33:9091.4 (Lake Terrace Crime Prevention District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=91723",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9091.4_d91723.html",
+     "read_utc": "2026-11-07T13:06Z",
+     "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district voting at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Lake Terrace"
+    },
+    {
+     "citation": "La. R.S. 33:9091.14 (Mid-City Security District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=631548",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9091.14_d631548.html",
+     "read_utc": "2026-11-07T13:13Z",
+     "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district who vote on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Mid-City"
+    },
+    {
+     "citation": "La. R.S. 33:9091.7 (Lakeshore Crime Prevention District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=286140",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9091.7_d286140.html",
+     "read_utc": "2026-11-07T13:13Z",
+     "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district voting on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Lakeshore"
+    },
+    {
+     "citation": "La. R.S. 18:1300.33(A) (neighborhood crime prevention and security district parcel fee: election under Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=630762",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1300.33_d630762.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "If the required number of qualified electors within the subdivision or subdivisions proposing the creation of a district and the levy of a parcel fee sign the petition, the appropriate local governing authority may adopt a resolution ordering an election within such area for the purpose of creating the district and approving the levy of the parcel fee in the manner provided for in Chapter 6-A of this Title."
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS33_9091.21_d860875.html",
+   "n_questions": 13,
+   "match": "PARCEL FEE",
+   "match_also": "EASTOVER|KINGSWOOD|LAKE CARMEL|MCKENDALL|TAMARON|TWINBROOK|LAKE WILLOW|DELACHAISE|LAKE TERRACE|MID-CITY|LAKESHORE",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "parcel fee of a crime prevention and improvement district under R.S. 33:9097.x (East Baton Rouge Parish; each district's own act)",
+   "t": 0.5,
+   "rule": "Each district's act says the fee is imposed (or renewed) only after approval by a majority of the registered voters of the district voting on the proposition, at an election under the Election Code. Strictly more than half Yes. The match of a title to its act is by the district's name.",
+   "citation": "La. R.S. 33:9097.9 (Shenandoah Estates Crime Prevention and Improvement District)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=727573",
+   "quote": "(3)(a)(i) The fee of fifty dollars for the first calendar year, subject to change thereafter by duly adopted resolution of the board, not to exceed the maximum amount authorized as provided in this Subsection, shall be imposed only after the question of its imposition and the board's authority to increase the fee has been approved by a majority of the registered voters of the district who vote on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+   "read_utc": "2026-11-07T13:14Z",
+   "mark": "stated",
+   "supporting": [
+    {
+     "citation": "La. R.S. 33:9097.18 (Mayfair Park/Park East/Heights Crime Prevention and Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=815511",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9097.18_d815511.html",
+     "read_utc": "2026-11-07T13:14Z",
+     "quote": "(3)(a) The fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district voting on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Mayfair"
+    },
+    {
+     "citation": "La. R.S. 33:9097.27 (Woodlawn Estates Crime Prevention and Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=963969",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9097.27_d963969.html",
+     "read_utc": "2026-11-07T13:14Z",
+     "quote": "(c) No fee may be imposed or increased pursuant to the provisions of this Subsection unless the question of its imposition and the board's authority to increase the fee has been approved by a majority of the registered voters of the district who vote on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Woodlawn"
+    },
+    {
+     "citation": "La. R.S. 33:9097.22 (Tara Subdivision Crime Prevention and Neighborhood Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=921477",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9097.22_d921477.html",
+     "read_utc": "2026-11-07T13:14Z",
+     "quote": "(c) No fee may be imposed or increased pursuant to the provisions of this Subsection unless the question of its imposition and the board's authority to increase the fee has been approved by a majority of the registered voters of the district who vote on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Tara"
+    },
+    {
+     "citation": "La. R.S. 33:9097.24 (Villa del Rey Crime Prevention and Neighborhood Improvement District)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=921479",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_9097.24_d921479.html",
+     "read_utc": "2026-11-07T13:14Z",
+     "quote": "(b) The annual parcel fee shall be imposed only after the question of its imposition has been approved by a majority of the registered voters of the district voting on the proposition at an election held for that purpose in accordance with the Louisiana Election Code.",
+     "district": "Villa del Rey"
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS33_9097.9_d727573.html",
+   "n_questions": 5,
+   "match": "PARCEL FEE",
+   "match_also": "SHENANDOAH|MAYFAIR|WOODLAWN|\\bTARA\\b|VILLA DEL REY",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "parcel fee of a gravity drainage district (Pierre Part districts)",
+   "t": 0.5,
+   "rule": "R.S. 33:2740.16 puts the parcel fee of a gravity drainage district in Assumption Parish to a majority of the voters of the district voting at the election (and calls the fee 'a special tax'). Mark inferred: the page names Assumption Parish, not Pierre Part; that Pierre Part's districts are in Assumption Parish is my reading of their names.",
+   "citation": "La. R.S. 33:2740.16(A)(2) (Assumption Parish gravity drainage districts: parcel fee)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=89973",
+   "quote": "The parcel fee shall be imposed by the gravity drainage district only after the question of the imposition of the parcel fee and its purpose, rate, and duration have been approved by a majority of the voters of the district voting at an election held for such purpose.",
+   "read_utc": "2026-11-07T13:14Z",
+   "mark": "inferred",
+   "saved_file": "LA/pages/LA_RS33_2740.16_d89973.html",
+   "n_questions": 2,
+   "match": "PARCEL FEE",
+   "match_also": "PIERRE PART",
+   "match_note": "the source puts both districts in parish 22007, which MEDSL's 2024 Louisiana file names Assumption [measured]",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "parcel fee of a fire protection district",
+   "t": 0.5,
+   "rule": "R.S. 40:1505 puts the parcel fee of a fire protection district to a majority of the voters of the district voting at the election. Mark inferred: the page says 'Each district' and I read that as the fire protection districts of these titles (its heading is 'Parcel fee; submission to voters'); the six districts are not named on the page.",
+   "citation": "La. R.S. 40:1505(A)(1) (fire protection district parcel fee)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=97631",
+   "quote": "which parcel fee shall be imposed by resolution or ordinance of the governing authority of the district only after the question of the imposition of the parcel fee and the purpose, rate, and duration of the parcel fee has been approved by a majority of the voters of the district voting at an election held therein.",
+   "read_utc": "2026-11-07T13:01Z",
+   "mark": "inferred",
+   "saved_file": "LA/pages/LA_RS40_1505_d97631.html",
+   "n_questions": 6,
+   "match": "PARCEL FEE",
+   "match_also": "\\bFIRE\\b|\\bFPD\\b",
+   "hold": "the source does not show whether this question was put under the general law read or under its own act, which was not read",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "fire protection district service charge",
+   "t": 0.5,
+   "rule": "The fire protection district statutes read put the service charge to a majority of the electors of the district voting at an election held for that purpose. R.S. 40:1502.1 names Morehouse Parish among its parishes (Bastrop Area is in Morehouse Parish: my reading of the name, not the page's). The parish of the other two districts is not in questions.json, so which district statute governs each is not shown; R.S. 40:1506(I)(6)(b) says the same of the special fire protection districts it creates. Mark inferred.",
+   "citation": "La. R.S. 40:1502.1(B) (fire protection district service charge; Morehouse, Rapides, Lincoln, Claiborne, Union, East Carroll, West Carroll, St. Mary, East Baton Rouge, Livingston, Caddo and named districts)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=97615",
+   "quote": "However, the resolution assessing said service charges shall be adopted by the governing authority only after the question of the assessment, its duration, and the amount of the service charge or rates of service charges established have been submitted to and approved by a majority of electors of the district voting at an election held for that purpose.",
+   "read_utc": "2026-11-07T13:02Z",
+   "mark": "inferred",
+   "supporting": [
+    {
+     "citation": "La. R.S. 40:1506(I)(6)(b) (special fire protection district: service charge)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=97633",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS40_1506_d97633.html",
+     "read_utc": "2026-11-07T13:01Z",
+     "quote": "However, the resolution assessing the service charges shall be adopted by the board only after the question of the assessment and the amount of the service charge or rates of service charges established have been submitted to and approved by a majority of electors of the district voting at an election held for that purpose."
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS40_1502.1_d97615.html",
+   "n_questions": 3,
+   "match": "SERVICE CHARGE",
+   "hold": "the source does not show which fire protection district statute (or the district's own act) governs each charge",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "gravity drainage district acreage tax",
+   "t": 0.5,
+   "compound": "R.S. 38:1783: \"If a majority in number of the qualified taxpayers and a majority in number of acres voting at the election shall vote in favor of the proposition to levy a forced contribution or acreage tax\": a second test, a majority in number of acres voting, which the ballot counts do not show",
+   "rule": "R.S. 38:1783 sets two tests for a gravity drainage district's acreage tax: a majority in number of the qualified taxpayers voting, and a majority in number of acres voting. The first is a share of those voting (t = 0.5, on 'qualified taxpayers', not 'qualified electors'); the second is a count of acres. The general rule, R.S. 18:1290, speaks of a majority in number of qualified electors voting; whether it displaces the acreage test is a legal question I did not settle (R.S. 18:1281 says Chapter 6-A governs the procedure of such elections notwithstanding contrary provisions of existing laws). Mark inferred: the title does not say that the district is under Title 38 or give the parish.",
+   "citation": "La. R.S. 38:1783 (gravity drainage district: acreage tax vote)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=94771",
+   "quote": "If a majority in number of the qualified taxpayers and a majority in number of acres voting at the election shall vote in favor of the proposition to levy a forced contribution or acreage tax, the governing authority may by resolution proceed to levy the forced contribution or acreage tax for the term for which the tax shall have been voted.",
+   "read_utc": "2026-11-07T13:10Z",
+   "mark": "inferred",
+   "supporting": [
+    {
+     "citation": "La. R.S. 38:1771 (gravity drainage district: to whom the acreage-tax question goes)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=94759",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS38_1771_d94759.html",
+     "read_utc": "2026-11-07T13:10Z",
+     "quote": "The governing authority of any gravity drainage district or gravity sub-drainage district may call a special election and submit to the qualified taxpaying voters, or submit at any special election in the district called for other purposes, the question of levying a forced contribution or acreage tax hereunder and incurring debt and issuing negotiable bonds secured by the tax."
+    },
+    {
+     "citation": "La. R.S. 38:1770(A)(1) (gravity drainage district: acreage tax, election on petition)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=94758",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS38_1770_d94758.html",
+     "read_utc": "2026-11-07T13:10Z",
+     "quote": "order an election to be held to determine whether or not the acreage tax or forced contribution shall be imposed, the amount thereof, and the length of time the tax shall run."
+    },
+    {
+     "citation": "La. R.S. 18:1290(A) (Election Code, Chapter 6-A, bond, debt, and tax elections)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81305",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1290_d81305.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "All qualified electors of the political subdivision ordering the election shall be entitled to vote in an election on the issuance of bonds, levying or increase of a tax, or the assumption of indebtedness by the political subdivision, and such bonds may be issued, such tax levied or increased, or indebtedness assumed if approved by a vote of a majority in number of the qualified electors voting on the proposition at such election as is provided in this Chapter."
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS38_1783_d94771.html",
+   "n_questions": 1,
+   "match": "ACREAGE TAX",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "municipal hotel occupancy tax",
+   "t": 0.5,
+   "rule": "R.S. 18:1290 says any tax levied or increased by a political subdivision at an election under Chapter 6-A needs a majority in number of the qualified electors voting on the proposition. Mark inferred: each hotel tax rests on its own act, which I did not find or read; I take a hotel occupancy tax to be a 'tax' within R.S. 18:1290.",
+   "citation": "La. R.S. 18:1290(A) (Election Code, Chapter 6-A, bond, debt, and tax elections)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=81305",
+   "quote": "All qualified electors of the political subdivision ordering the election shall be entitled to vote in an election on the issuance of bonds, levying or increase of a tax, or the assumption of indebtedness by the political subdivision, and such bonds may be issued, such tax levied or increased, or indebtedness assumed if approved by a vote of a majority in number of the qualified electors voting on the proposition at such election as is provided in this Chapter.",
+   "read_utc": "2026-11-07T13:08Z",
+   "mark": "inferred",
+   "supporting": [
+    {
+     "citation": "La. R.S. 18:1282 (who is a \"political subdivision\" for Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81296",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1282_d81296.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "For purposes of this Chapter, the term \"political subdivision\" means a state department, agency, board, or commission; a parish; a municipality; a school board and a school district; a levee board and a levee district; a port board and a port commission; a port, harbor, terminal and industrial district; and any special service district, including but not limited to a road, water, sewerage, fire, protection, recreation, gas utility, or garbage district, and any other board, district, or unit of local government authorized by law to conduct elections for the issuance of bonds, the levying or increasing of any tax, or the assumption of indebtedness."
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS18_1290_d81305.html",
+   "n_questions": 3,
+   "match": "\\bHOTEL\\b",
+   "hold": "each hotel tax rests on its own act, which was not read",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "adoption of the mayor-board of aldermen form of government (the Lawrason Act)",
+   "t": 0.5,
+   "rule": "R.S. 33:322: a municipality not governed by Part I of Chapter 2 of Title 33 (the mayor and board of aldermen form, R.S. 33:321) becomes governed by it if a majority of the legal votes cast are for adopting it. Mark inferred: the pages do not use the name Lawrason; I read the title as this Part. The test is worded as a majority of the 'legal votes cast', not of 'electors voting'.",
+   "citation": "La. R.S. 33:322 (election to adopt mayor-board of aldermen form of government)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=90124",
+   "quote": "If a majority of the legal votes cast are for adopting the provisions of this Part, the municipality shall be governed by its provisions, and the result of the election shall be certified to the secretary of state, who shall make a record of the same in his office.",
+   "read_utc": "2026-11-07T13:15Z",
+   "mark": "inferred",
+   "supporting": [
+    {
+     "citation": "La. R.S. 33:321 (what \"this Part\" is)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=90123",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_321_d90123.html",
+     "read_utc": "2026-11-07T13:16Z",
+     "quote": "All municipalities shall be governed by the provisions of this Part except those municipalities governed by a special legislative charter or a home rule charter or plan of government adopted pursuant to Article VI of the Constitution of Louisiana."
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS33_322_d90124.html",
+   "n_questions": 1,
+   "match": "LAWRASON",
+   "hold": "the pages read do not name the Lawrason Act, so that the title's act is R.S. 33:321 et seq. is not shown by them",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "local sales and use tax proposition (also the one combined S&U tax and mills proposition)",
+   "t": 0.5,
+   "rule": "Passes when a majority of the electors voting on the proposition vote Yes (exactly half is not a majority). The Constitution says it of sales and use taxes of local governmental subdivisions and school boards; R.S. 18:1290 says it of any tax levied by any political subdivision, special districts included; R.S. 40:1506(I)(7)(f) says it for special fire protection districts.",
+   "citation": "La. Const. art. VI, § 29(A) (local sales and use tax)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=206819",
+   "quote": "the governing authority of any local governmental subdivision or school board may levy and collect a tax upon the sale at retail, the use, the lease or rental, the consumption, and the storage for use or consumption, of tangible personal property and on sales of services as defined by law, if approved by a majority of the electors voting thereon in an election held for that purpose.",
+   "read_utc": "2026-11-07T12:52Z",
+   "mark": "stated",
+   "supporting": [
+    {
+     "citation": "La. Const. art. VI, § 29(B) (additional local sales and use tax)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=206819",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_CONST_art06_s29_d206819.html",
+     "read_utc": "2026-11-07T12:52Z",
+     "quote": "the legislature, by general or by local or special law, may authorize the imposition of additional sales and use taxes by local governmental subdivisions or school boards, if approved by a majority of the electors voting thereon in an election held for that purpose."
+    },
+    {
+     "citation": "La. R.S. 18:1290(A) (Election Code, Chapter 6-A, bond, debt, and tax elections)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81305",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1290_d81305.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "All qualified electors of the political subdivision ordering the election shall be entitled to vote in an election on the issuance of bonds, levying or increase of a tax, or the assumption of indebtedness by the political subdivision, and such bonds may be issued, such tax levied or increased, or indebtedness assumed if approved by a vote of a majority in number of the qualified electors voting on the proposition at such election as is provided in this Chapter."
+    },
+    {
+     "citation": "La. R.S. 18:1282 (who is a \"political subdivision\" for Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81296",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1282_d81296.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "For purposes of this Chapter, the term \"political subdivision\" means a state department, agency, board, or commission; a parish; a municipality; a school board and a school district; a levee board and a levee district; a port board and a port commission; a port, harbor, terminal and industrial district; and any special service district, including but not limited to a road, water, sewerage, fire, protection, recreation, gas utility, or garbage district, and any other board, district, or unit of local government authorized by law to conduct elections for the issuance of bonds, the levying or increasing of any tax, or the assumption of indebtedness."
+    },
+    {
+     "citation": "La. R.S. 18:1283(A) (elections required for bonds, taxes and debt are held under Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81297",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1283_d81297.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "In every case in which the provisions of the Louisiana Constitution of 1974 as now existing or hereafter amended, or of law, as now existing or hereafter amended or enacted, requires the approval of voters at an election in a political subdivision as a prerequisite to the issuance of bonds, levying or increasing of any tax, or the assumption of indebtedness by said political subdivision, the election shall be held substantially in accordance with the election laws set forth in Title 18 of the Louisiana Revised Statutes of 1950, except that the election shall be called, conducted, canvassed, promulgated, and notice thereof given by the governing authority of the political subdivision in accordance with the procedures hereinafter set forth."
+    },
+    {
+     "citation": "La. R.S. 40:1506(I)(7)(f) (special fire protection district: sales and use tax)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=97633",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS40_1506_d97633.html",
+     "read_utc": "2026-11-07T13:01Z",
+     "quote": "a majority of those voting in the election shall have voted in favor of the imposition of the tax."
+    }
+   ],
+   "saved_file": "LA/pages/LA_CONST_art06_s29_d206819.html",
+   "n_questions": 74,
+   "match": "S&U TAX|SALES TAX",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "bond proposition",
+   "t": 0.5,
+   "rule": "Passes when a majority of the electors voting on the proposition vote Yes (exactly half is not a majority). The titles do not say whether the bonds are general obligation bonds; art. VI sec. 33(A) says it of general obligation bonds, and R.S. 18:1290 says it of 'the issuance of bonds' by any political subdivision at an election under Chapter 6-A.",
+   "citation": "La. R.S. 18:1290(A) (Election Code, Chapter 6-A, bond, debt, and tax elections)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=81305",
+   "quote": "All qualified electors of the political subdivision ordering the election shall be entitled to vote in an election on the issuance of bonds, levying or increase of a tax, or the assumption of indebtedness by the political subdivision, and such bonds may be issued, such tax levied or increased, or indebtedness assumed if approved by a vote of a majority in number of the qualified electors voting on the proposition at such election as is provided in this Chapter.",
+   "read_utc": "2026-11-07T13:08Z",
+   "mark": "stated",
+   "supporting": [
+    {
+     "citation": "La. Const. art. VI, § 33(A) (general obligation bonds of political subdivisions)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=206825",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_CONST_art06_s33_d206825.html",
+     "read_utc": "2026-11-07T12:51Z",
+     "quote": "general obligation bonds may be issued only after authorization by a majority of the electors voting on the proposition at an election in the political subdivision issuing the bonds."
+    },
+    {
+     "citation": "La. R.S. 18:1282 (who is a \"political subdivision\" for Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81296",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1282_d81296.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "For purposes of this Chapter, the term \"political subdivision\" means a state department, agency, board, or commission; a parish; a municipality; a school board and a school district; a levee board and a levee district; a port board and a port commission; a port, harbor, terminal and industrial district; and any special service district, including but not limited to a road, water, sewerage, fire, protection, recreation, gas utility, or garbage district, and any other board, district, or unit of local government authorized by law to conduct elections for the issuance of bonds, the levying or increasing of any tax, or the assumption of indebtedness."
+    },
+    {
+     "citation": "La. R.S. 18:1281 (purpose of Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81295",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1281_d81295.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "The purpose of this Chapter is to implement Article VI, Section 22 of the Louisiana Constitution of 1974 by establishing a uniform procedure for the conduct of elections to authorize the issuance of bonds, the assumption of indebtedness, and the imposition or increase of taxes by political subdivisions."
+    },
+    {
+     "citation": "La. R.S. 18:1283(A) (elections required for bonds, taxes and debt are held under Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81297",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1283_d81297.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "In every case in which the provisions of the Louisiana Constitution of 1974 as now existing or hereafter amended, or of law, as now existing or hereafter amended or enacted, requires the approval of voters at an election in a political subdivision as a prerequisite to the issuance of bonds, levying or increasing of any tax, or the assumption of indebtedness by said political subdivision, the election shall be held substantially in accordance with the election laws set forth in Title 18 of the Louisiana Revised Statutes of 1950, except that the election shall be called, conducted, canvassed, promulgated, and notice thereof given by the governing authority of the political subdivision in accordance with the procedures hereinafter set forth."
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS18_1290_d81305.html",
+   "n_questions": 30,
+   "match": "\\bBONDS?\\b",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "home rule charter adoption or amendment",
+   "t": 0.5,
+   "rule": "Passes when approved by a majority of the electors voting on the proposition. A charter's own text could add its own conditions to its own amendment; no charter was read.",
+   "citation": "La. Const. art. VI, § 5(C) (home rule charter: adoption, amendment, repeal)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=206520",
+   "quote": "A home rule charter shall be adopted, amended, or repealed when approved by a majority of the electors voting thereon at an election held for that purpose.",
+   "read_utc": "2026-11-07T12:48Z",
+   "mark": "stated",
+   "saved_file": "LA/pages/LA_CONST_art06_s05_d206520.html",
+   "n_questions": 23,
+   "match": "\\bHRC\\b|HOME RULE CHARTER|CHARTER AMENDMENT",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "amendment of a section of a charter (title says only Amends Section/Art., not charter)",
+   "t": 0.5,
+   "rule": "Inferred: the titles do not say what is amended. 'Art. Iii, Sec. A.2' is the same reference as 'Pw Hrc Amendment Prop. No. 1 Of 2, Art. Iii, Sec. A.2 - Pc' of 2023-10-14 in the same file; if these are charter sections the test is art. VI sec. 5(C)'s majority of the electors voting thereon.",
+   "citation": "La. Const. art. VI, § 5(C) (home rule charter: adoption, amendment, repeal)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=206520",
+   "quote": "A home rule charter shall be adopted, amended, or repealed when approved by a majority of the electors voting thereon at an election held for that purpose.",
+   "read_utc": "2026-11-07T12:48Z",
+   "mark": "inferred",
+   "saved_file": "LA/pages/LA_CONST_art06_s05_d206520.html",
+   "n_questions": 3,
+   "match": "AMENDS (SECTION|ART\\.)",
+   "hold": "the title does not say what is amended (a home rule charter's section is not shown)",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "ad valorem millage proposition (renewal, continuation, in lieu, rededication or extension of an existing millage)",
+   "t": 0.5,
+   "rule": "Same test as the other millage propositions: a majority in number of the qualified electors voting on the proposition. Mark inferred because R.S. 18:1290 speaks of a tax 'levied or increased'; a renewal, continuation or in-lieu proposition asks the electors to authorize the levy of the tax for a further term, which I read as 'levying'; the page does not use the words renewal or continuation. Art. VI sec. 32 says a political subdivision 'may levy special taxes when authorized by a majority of the electors [...] who vote thereon'.",
+   "citation": "La. R.S. 18:1290(A) (Election Code, Chapter 6-A, bond, debt, and tax elections)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=81305",
+   "quote": "All qualified electors of the political subdivision ordering the election shall be entitled to vote in an election on the issuance of bonds, levying or increase of a tax, or the assumption of indebtedness by the political subdivision, and such bonds may be issued, such tax levied or increased, or indebtedness assumed if approved by a vote of a majority in number of the qualified electors voting on the proposition at such election as is provided in this Chapter.",
+   "read_utc": "2026-11-07T13:08Z",
+   "mark": "inferred",
+   "supporting": [
+    {
+     "citation": "La. R.S. 18:1282 (who is a \"political subdivision\" for Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81296",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1282_d81296.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "For purposes of this Chapter, the term \"political subdivision\" means a state department, agency, board, or commission; a parish; a municipality; a school board and a school district; a levee board and a levee district; a port board and a port commission; a port, harbor, terminal and industrial district; and any special service district, including but not limited to a road, water, sewerage, fire, protection, recreation, gas utility, or garbage district, and any other board, district, or unit of local government authorized by law to conduct elections for the issuance of bonds, the levying or increasing of any tax, or the assumption of indebtedness."
+    },
+    {
+     "citation": "La. R.S. 18:1283(A) (elections required for bonds, taxes and debt are held under Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81297",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1283_d81297.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "In every case in which the provisions of the Louisiana Constitution of 1974 as now existing or hereafter amended, or of law, as now existing or hereafter amended or enacted, requires the approval of voters at an election in a political subdivision as a prerequisite to the issuance of bonds, levying or increasing of any tax, or the assumption of indebtedness by said political subdivision, the election shall be held substantially in accordance with the election laws set forth in Title 18 of the Louisiana Revised Statutes of 1950, except that the election shall be called, conducted, canvassed, promulgated, and notice thereof given by the governing authority of the political subdivision in accordance with the procedures hereinafter set forth."
+    },
+    {
+     "citation": "La. Const. art. VI, § 32 (special taxes)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=206824",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_CONST_art06_s32_d206824.html",
+     "read_utc": "2026-11-07T12:52Z",
+     "quote": "For the purpose of acquiring, constructing, improving, maintaining, or operating any work of public improvement, a political subdivision may levy special taxes when authorized by a majority of the electors in the political subdivision who vote thereon in an election held for that purpose."
+    },
+    {
+     "citation": "La. R.S. 40:1506(I)(5) (special fire protection district: special tax)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=97633",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS40_1506_d97633.html",
+     "read_utc": "2026-11-07T13:01Z",
+     "quote": "However, the resolution levying the tax shall be adopted by the board only after the question of the levy and the amount of the tax have been submitted to and approved by a majority of electors of the district voting at an election held for that purpose."
+    },
+    {
+     "citation": "La. R.S. 33:4566 (recreation districts: taxes and bonds; no threshold of its own)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=90961",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_4566_d90961.html",
+     "read_utc": "2026-11-07T13:11Z",
+     "quote": "are authorized to vote and levy special maintenance taxes and issue bonds when authorized to do so by a vote of the qualified electors of the district and as authorized by the Constitution and laws of the state of Louisiana."
+    },
+    {
+     "citation": "La. R.S. 46:1065 (hospital service districts: tax and bond election; refers to the general election law)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=100196",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS46_1065_d100196.html",
+     "read_utc": "2026-11-07T13:11Z",
+     "quote": "the governing body of the district may in the same election submit to the qualified electors of the district, in the manner provided by Part II of Chapter 4 of Title 39 of the Louisiana Revised Statutes, a proposition to levy a special tax not to exceed five mills on the dollar for a period not to exceed ten years for the purpose of constructing, maintaining and operating the district's hospital facilities."
+    },
+    {
+     "citation": "La. R.S. 33:3821 (waterworks districts: bonds and taxes; refers to Title 39)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=90369",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_3821_d90369.html",
+     "read_utc": "2026-11-07T13:11Z",
+     "quote": "Waterworks districts shall be subdivisions of the state and as such may issue bonds and levy taxes in accordance with the provisions of Part III of Chapter 4 of Subtitle II of Title 39 of the Louisiana Revised Statutes of 1950."
+    },
+    {
+     "citation": "La. R.S. 39:701 and its note (special-tax elections now under R.S. 18:1281 et seq.)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=96568",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS39_701_d96568.html",
+     "read_utc": "2026-11-07T13:10Z",
+     "quote": "*R.S. 39:501 et seq. (Repealed; see, now, R.S. 18:1281 et seq.)"
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS18_1290_d81305.html",
+   "n_questions": 366,
+   "match": "^(?!.*\\bMILLS REDUCTION\\b)(?=.*(\\bMILLS?\\b|\\bMILLAGE\\b))(?=.*(RENEW|CONTINU|\\bCONT\\.|IN.LIEU|REDED|\\bEXT\\.))",
+   "match_note": "a renewal, continuation, in-lieu, rededication or extension asks the electors to levy the tax for a further term, read as a levy under R.S. 18:1290(A) [inferred]; no law read sets another share for it",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  },
+  {
+   "kind": "ad valorem millage proposition (levy or increase; title does not say renewal)",
+   "t": 0.5,
+   "rule": "Passes when more than half of the qualified electors voting on the proposition vote Yes (exactly half is not a majority). Applies to a tax levied or increased by any parish, municipality, school board or special district (fire, recreation, hospital, drainage, waterworks, road, communications, law enforcement and others, which R.S. 18:1282 makes 'political subdivisions' of Chapter 6-A). Parish and municipal millage increases and special taxes are also put to a majority of the electors voting thereon in the Constitution. The district acts read (R.S. 40:1506, 33:4566, 46:1065, 33:3821) give no other threshold: they repeat the majority or send to the general election law.",
+   "citation": "La. R.S. 18:1290(A) (Election Code, Chapter 6-A, bond, debt, and tax elections)",
+   "url": "https://legis.la.gov/Legis/Law.aspx?d=81305",
+   "quote": "All qualified electors of the political subdivision ordering the election shall be entitled to vote in an election on the issuance of bonds, levying or increase of a tax, or the assumption of indebtedness by the political subdivision, and such bonds may be issued, such tax levied or increased, or indebtedness assumed if approved by a vote of a majority in number of the qualified electors voting on the proposition at such election as is provided in this Chapter.",
+   "read_utc": "2026-11-07T13:08Z",
+   "mark": "stated",
+   "supporting": [
+    {
+     "citation": "La. R.S. 18:1282 (who is a \"political subdivision\" for Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81296",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1282_d81296.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "For purposes of this Chapter, the term \"political subdivision\" means a state department, agency, board, or commission; a parish; a municipality; a school board and a school district; a levee board and a levee district; a port board and a port commission; a port, harbor, terminal and industrial district; and any special service district, including but not limited to a road, water, sewerage, fire, protection, recreation, gas utility, or garbage district, and any other board, district, or unit of local government authorized by law to conduct elections for the issuance of bonds, the levying or increasing of any tax, or the assumption of indebtedness."
+    },
+    {
+     "citation": "La. R.S. 18:1281 (purpose of Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81295",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1281_d81295.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "The purpose of this Chapter is to implement Article VI, Section 22 of the Louisiana Constitution of 1974 by establishing a uniform procedure for the conduct of elections to authorize the issuance of bonds, the assumption of indebtedness, and the imposition or increase of taxes by political subdivisions."
+    },
+    {
+     "citation": "La. R.S. 18:1283(A) (elections required for bonds, taxes and debt are held under Chapter 6-A)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=81297",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS18_1283_d81297.html",
+     "read_utc": "2026-11-07T13:08Z",
+     "quote": "In every case in which the provisions of the Louisiana Constitution of 1974 as now existing or hereafter amended, or of law, as now existing or hereafter amended or enacted, requires the approval of voters at an election in a political subdivision as a prerequisite to the issuance of bonds, levying or increasing of any tax, or the assumption of indebtedness by said political subdivision, the election shall be held substantially in accordance with the election laws set forth in Title 18 of the Louisiana Revised Statutes of 1950, except that the election shall be called, conducted, canvassed, promulgated, and notice thereof given by the governing authority of the political subdivision in accordance with the procedures hereinafter set forth."
+    },
+    {
+     "citation": "La. Const. art. VI, § 26(A) (parish ad valorem tax)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=206816",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_CONST_art06_s26_d206816.html",
+     "read_utc": "2026-11-07T12:51Z",
+     "quote": "Millage rates may be increased in any parish when approved by a majority of the electors voting thereon in an election held for that purpose."
+    },
+    {
+     "citation": "La. Const. art. VI, § 27(A) (municipal ad valorem tax)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=206817",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_CONST_art06_s27_d206817.html",
+     "read_utc": "2026-11-07T12:51Z",
+     "quote": "Millage rates may be increased in any municipality when approved by a majority of the electors voting thereon in an election held for that purpose."
+    },
+    {
+     "citation": "La. Const. art. VI, § 32 (special taxes)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=206824",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_CONST_art06_s32_d206824.html",
+     "read_utc": "2026-11-07T12:52Z",
+     "quote": "For the purpose of acquiring, constructing, improving, maintaining, or operating any work of public improvement, a political subdivision may levy special taxes when authorized by a majority of the electors in the political subdivision who vote thereon in an election held for that purpose."
+    },
+    {
+     "citation": "La. R.S. 40:1506(I)(5) (special fire protection district: special tax)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=97633",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS40_1506_d97633.html",
+     "read_utc": "2026-11-07T13:01Z",
+     "quote": "However, the resolution levying the tax shall be adopted by the board only after the question of the levy and the amount of the tax have been submitted to and approved by a majority of electors of the district voting at an election held for that purpose."
+    },
+    {
+     "citation": "La. R.S. 33:4566 (recreation districts: taxes and bonds; no threshold of its own)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=90961",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_4566_d90961.html",
+     "read_utc": "2026-11-07T13:11Z",
+     "quote": "are authorized to vote and levy special maintenance taxes and issue bonds when authorized to do so by a vote of the qualified electors of the district and as authorized by the Constitution and laws of the state of Louisiana."
+    },
+    {
+     "citation": "La. R.S. 46:1065 (hospital service districts: tax and bond election; refers to the general election law)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=100196",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS46_1065_d100196.html",
+     "read_utc": "2026-11-07T13:11Z",
+     "quote": "the governing body of the district may in the same election submit to the qualified electors of the district, in the manner provided by Part II of Chapter 4 of Title 39 of the Louisiana Revised Statutes, a proposition to levy a special tax not to exceed five mills on the dollar for a period not to exceed ten years for the purpose of constructing, maintaining and operating the district's hospital facilities."
+    },
+    {
+     "citation": "La. R.S. 33:3821 (waterworks districts: bonds and taxes; refers to Title 39)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=90369",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS33_3821_d90369.html",
+     "read_utc": "2026-11-07T13:11Z",
+     "quote": "Waterworks districts shall be subdivisions of the state and as such may issue bonds and levy taxes in accordance with the provisions of Part III of Chapter 4 of Subtitle II of Title 39 of the Louisiana Revised Statutes of 1950."
+    },
+    {
+     "citation": "La. R.S. 39:701 and its note (special-tax elections now under R.S. 18:1281 et seq.)",
+     "url": "https://legis.la.gov/Legis/Law.aspx?d=96568",
+     "saved_file": "/tmp/vote-cache/law-local/LA/pages/LA_RS39_701_d96568.html",
+     "read_utc": "2026-11-07T13:10Z",
+     "quote": "*R.S. 39:501 et seq. (Repealed; see, now, R.S. 18:1281 et seq.)"
+    }
+   ],
+   "saved_file": "LA/pages/LA_RS18_1290_d81305.html",
+   "n_questions": 56,
+   "match": "^(?!.*\\bMILLS REDUCTION\\b)(?=.*(\\bMILLS?\\b|\\bMILLAGE\\b))",
+   "state": "LA",
+   "scope": "local",
+   "type": "local"
+  }
+ ]
+}

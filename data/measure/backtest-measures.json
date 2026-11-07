@@ -1,5 +1,5 @@
 {
- "about": "statewide measures and retentions, like past measures out of sample (each year's class from earlier years only): expected and seen counts finishing near 1/2 (every statewide question) and near the threshold (those given a forecast). Built by pipeline/local_medsl.py build.",
+ "about": "statewide measures and retentions, like past measures out of sample (each year's class from earlier years only): expected and seen counts finishing near 1/2 (every statewide question) and near the threshold (those given a forecast). at_threshold_local is the same for local questions given p by step (b) on these dates (each state's own class); North Carolina's questions on its other dates are in data/local/backtest-ncsbe.json. Built by pipeline/local_medsl.py build.",
  "near_half": {
   "2018 statewide measure (trained on 83)": {
    "measures": 87,
@@ -216,6 +216,176 @@
     "within 5%": {
      "expected": 9.9,
      "seen": 24
+    }
+   }
+  }
+ },
+ "at_threshold_local": {
+  "2016": {
+   "measures": 58,
+   "own_window": {
+    "expected": 2.3,
+    "seen": 1
+   },
+   "near_threshold": {
+    "within 1%": {
+     "expected": 2.3,
+     "seen": 1
+    },
+    "within 2%": {
+     "expected": 5.4,
+     "seen": 2
+    },
+    "within 5%": {
+     "expected": 12.9,
+     "seen": 6
+    }
+   }
+  },
+  "2018": {
+   "measures": 53,
+   "own_window": {
+    "expected": 1.8,
+    "seen": 3
+   },
+   "near_threshold": {
+    "within 1%": {
+     "expected": 1.8,
+     "seen": 3
+    },
+    "within 2%": {
+     "expected": 4.1,
+     "seen": 6
+    },
+    "within 5%": {
+     "expected": 10.4,
+     "seen": 14
+    }
+   }
+  },
+  "2020": {
+   "measures": 21,
+   "own_window": {
+    "expected": 0.6,
+    "seen": 1
+   },
+   "near_threshold": {
+    "within 1%": {
+     "expected": 0.6,
+     "seen": 1
+    },
+    "within 2%": {
+     "expected": 1.6,
+     "seen": 1
+    },
+    "within 5%": {
+     "expected": 4.3,
+     "seen": 2
+    }
+   }
+  },
+  "2022": {
+   "measures": 24,
+   "own_window": {
+    "expected": 0.8,
+    "seen": 0
+   },
+   "near_threshold": {
+    "within 1%": {
+     "expected": 0.8,
+     "seen": 0
+    },
+    "within 2%": {
+     "expected": 2.0,
+     "seen": 0
+    },
+    "within 5%": {
+     "expected": 4.9,
+     "seen": 3
+    }
+   }
+  },
+  "2024": {
+   "measures": 338,
+   "own_window": {
+    "expected": 15.3,
+    "seen": 14
+   },
+   "near_threshold": {
+    "within 1%": {
+     "expected": 8.2,
+     "seen": 8
+    },
+    "within 2%": {
+     "expected": 16.8,
+     "seen": 16
+    },
+    "within 5%": {
+     "expected": 46.1,
+     "seen": 46
+    }
+   }
+  },
+  "all years": {
+   "measures": 494,
+   "own_window": {
+    "expected": 20.7,
+    "seen": 19
+   },
+   "near_threshold": {
+    "within 1%": {
+     "expected": 13.6,
+     "seen": 13
+    },
+    "within 2%": {
+     "expected": 29.8,
+     "seen": 25
+    },
+    "within 5%": {
+     "expected": 78.5,
+     "seen": 71
+    }
+   }
+  },
+  "all years local measure, LA": {
+   "measures": 304,
+   "own_window": {
+    "expected": 14.2,
+    "seen": 14
+   },
+   "near_threshold": {
+    "within 1%": {
+     "expected": 7.1,
+     "seen": 8
+    },
+    "within 2%": {
+     "expected": 14.2,
+     "seen": 14
+    },
+    "within 5%": {
+     "expected": 39.7,
+     "seen": 41
+    }
+   }
+  },
+  "all years local measure, NC": {
+   "measures": 190,
+   "own_window": {
+    "expected": 6.5,
+    "seen": 5
+   },
+   "near_threshold": {
+    "within 1%": {
+     "expected": 6.5,
+     "seen": 5
+    },
+    "within 2%": {
+     "expected": 15.6,
+     "seen": 11
+    },
+    "within 5%": {
+     "expected": 38.9,
+     "seen": 30
     }
    }
   }
