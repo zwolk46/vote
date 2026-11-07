@@ -133,3 +133,25 @@
 **In `data/president/inputs/fte_president_forecasts.json`**, for each year and model: `forecast_date`, `election_date`, `dated_election_day`, `note`, `probwin_step` (the step every printed chance is a whole multiple of, measured) and `runs_inferred` (one over it); for each candidate, `projected_voteshare_printed`, the share as printed. **In `fte_poll_averages.json`**: the snapshots `two_months_out` (9 September) and `eve` (the last average before Election Day).
 
 **Contest ids for districts**: `<year>-president-ME-1`, with `place.district` "1" and `place.name` "Maine, congressional district 1".
+
+## Fields added by D3 (state legislatures, primaries, local races, measures; `data/state-upper/`, `data/state-lower/`, `data/primary/`, `data/local/`, `data/measure/`)
+
+**Files.** One file per level, year and state: `data/<level>/<year>/<ST>.json`, compact JSON with one contest per line. **An absent field means null** (the files leave nulls out to keep the repository small).
+
+**At the top of a file**
+- `level`, `year`, `state`: what every contest in the file shares.
+- `chamber`: the chambers' names in that state (`state-upper`, `state-lower`).
+- `sources`: source blocks by key, as D2's; `result.source` and `forecasts[].source` hold a key.
+- `p_computed_by`, `p_commit`: the script and commit that computed every `p` in the file (in place of each contest's `p.computed_by` and `p.commit`).
+
+**In each contest**
+- `election`: the kind of election in words (`general`, `general, for the rest of a term`, `Democratic primary`, or the source's own code where it has no words, such as `lafsettled`, Louisiana's first round).
+- `seats`: the seats the contest fills, when more than one ("vote for k").
+- `office` (primaries): the office the primary nominates for (`state-upper`, `state-lower`).
+- `result.candidates[]`: `won` is `true`, `"to runoff"` or `"tied"` (absent for a loss); `incumbent` is `true` when the source marks the candidate as the sitting member; `party` is `D`, `R`, `write-in`, `nonpartisan`, or a minor party's own name.
+- `two_party`: as D2's, without the names: the votes of the two leading candidates (route b) or of the Democrat and the Republican (route a), `n_other_voters` (their votes minus one) and `share_first`.
+- `boundary`: for a race that fills several seats, the same for the last winner and the first loser (model section 7).
+- `forecasts[].route`: how the model's own forecast was built: `partisan` (the seat's last result, incumbency, the chamber's lean and the year's swing), `class` (like past races) or `boundary`. For `class` and `boundary`: `class` names the class, `like_races` how many races of the class in other years, `window` the share window and `in_window` how many of them finished in it, `q` their share; `note` says when the route is not yet checked.
+- `forecast_inputs` (route `partisan`): `class` (`A` last result contested, `B` last result unopposed, `C` none on these lines), `incumbency` (+1 D incumbent, −1 R, 0 open), `lean` and `lean_year` (the chamber's mean Democratic share at its previous election, minus ½), `swing` (the year's forecast swing), `last_D` and `last_year` (the seat's previous Democratic two-party share) or `last_unopposed`.
+- `p.alongside.t4`: p under the same forecast with Student-t tails (4 degrees of freedom, the same sd).
+- `notes`: the source's own flags (Klarner's `dontuse`, its uncertainty marks), and where a candidate outside the two parties finished among the leading two.
