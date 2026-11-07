@@ -2,7 +2,7 @@
 
 *Orchestrator, 2026-11-07. Replaces draft 2; drafts 1 and 2 are kept as the record. Fable tried to break draft 2 and found 45 breaks (`model/BREAKS-draft-2.md`). Each one is taken in here, and §11 says where. Figures are read at their source or, where the research reports mark it, at the nearest readable text (`research/*-v2.md`). Formulas are derived and checked by script in `model/MATH.md`; `model/math/run_all.sh` reproduces its output exactly, re-run by the orchestrator and by Fable. Section marks like (MATH §1.1) point there.*
 
-*Zach's words so far. Importance is "the chance it decides the outcome", with the ballot counted or not and everything else the same (2026-11-06 19:32). The page leads with break-even stakes and shows both readings of B (2026-11-07 00:24). The site covers US races at every level (01:59). Everything else here is the orchestrator's reading. §9 lists the readings he may correct, and §10 the one question put to him.*
+*Zach's words so far. Importance is "the chance it decides the outcome", with the ballot counted or not and everything else the same (2026-11-06 19:32). The page leads with break-even stakes and shows both readings of B (2026-11-07 00:24). The site covers US races at every level (01:59). Each race shows its own p and B\*, and whether the trip pays adds up every race on the ballot (02:32). Everything else here is the orchestrator's reading, and §9 lists the readings he may correct.*
 
 ---
 
@@ -22,7 +22,7 @@ What you called "the magnitude, given a probability of one" is B. The expected o
 
 The page leads with **B\* = C ÷ p, the break-even stakes**: how much the outcome would have to be worth for this vote to pay. B\* is the same test whichever welfare a reader counts in B. Beside it the page shows what B\* means **for you alone**, and **per person the outcome affects** (Zach's ruling, 00:24; §5).
 
-**One trip, a whole ballot.** A US general-election ballot carries many races: the presidency, Congress, the state legislature, local offices and ballot measures. You pay for the trip once. So each race on the ballot pays for a share of the trip, **B ÷ B\***, and the trip pays when those shares add up to more than 100%. This is the same test, summed over the ballot: p₁B₁ + p₂B₂ + … > C. The model shows p and B\* race by race and the sum for the ballot. Which of the two carries the site's verdict is the question for Zach (§10).
+**One trip, a whole ballot.** A US general-election ballot carries many races: the presidency, Congress, the state legislature, local offices and ballot measures. You pay for the trip once. So each race on the ballot pays for a share of the trip, **B ÷ B\***, and the trip pays when those shares add up to more than 100%. This is the same test, summed over the ballot: p₁B₁ + p₂B₂ + … > C. The model shows p and B\* race by race, and judges the trip by the sum for the ballot (Zach's ruling, 02:32).
 
 **At the scale of a presidential race.** Take p = 1 in 10 million, Gelman, Silver & Edlin's figure for the best-placed states in 2008, and a cost of about $9 to $12 (§6). Then B\* is **about $89 million to $120 million**. For their average voter that year, at 1 in 60 million, it is **about $530 million to $720 million**. In the safest states, at about 1 in a billion, it is **about $9 billion to $12 billion** (B\* is C times the "1 in" figure; MATH §1.6).
 
@@ -143,7 +143,6 @@ These follow from Zach's setup. He can overrule any of them.
 
 ## 10. What is not yet settled
 
-- **For Zach: race or ballot.** Should the site judge one race against the whole cost of the trip, or the whole ballot, or show both (§2)?
 - **Forecasts for past years.** 538's archived pages need web.archive.org, which this environment's network refuses. The Economist's repository holds back-tests of its 2020 model on 2008, 2012 and 2016, which no voter saw. For those years, no forecast a voter could have seen has been read.
 - **For the data stage, after the law:**
   - certified results at every level;
@@ -177,7 +176,7 @@ These follow from Zach's setup. He can overrule any of them.
 | #15 classics | §10 | #38 anchor for closeness | §3 table |
 | #16 header claims | header | #39 list PR | dropped (scope ruling) |
 | #17 EGK's example | §5 | #40 below one in n | §4 |
-| #18 Chen and CCES | §6 | #41 one trip, many races | §2, §10 |
+| #18 Chen and CCES | §6 | #41 one trip, many races | §2 (ruled 02:32) |
 | #19 the value of a tie | §3 | #42 voting by mail | §6 |
 | #20 ballot measures | §7 | #43 per-person divisor | §5, §10 |
 | #21 simple mode, president | §8 | #44 which forecaster | §3 |

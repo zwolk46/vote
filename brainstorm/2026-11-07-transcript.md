@@ -15,3 +15,5 @@
 **Zach, 01:59** (decision card). Chose "US races at every level".
 
 **Orchestrator, 02:29.** Put model draft 3 (`model/MODEL-DRAFT-3.md`), which takes in Fable's 45 breaks of draft 2 and the scope ruling, with a decision card: "Judge the trip against one race, or the whole ballot?" (each race, and the ballot summed, recommended / one race at a time / the whole ballot only). Said: "The biggest change is that one trip casts a whole ballot, and a close 2,000-voter local race on it can be 20,000 times likelier to turn on you than the presidency (break-even around $5,000 against $100 million). The card asks which the site judges. My readings for you to correct are in §9; the main one counts a tie as half a decision."
+
+**Zach, 02:32** (decision card). Chose "Each race, and the ballot summed".

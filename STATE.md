@@ -38,6 +38,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 02:33: the maker chose "Each race, and the ballot summed" (RULINGS): each race shows p and B*, the trip is judged over the ballot's sum. Folded into draft 3 (§2) and into `law/LAW-DRAFT-1.md` (2c), the law's first draft, written from the brainstorm. Next: two cold readings (Sonnet 5.5 subagents, xhigh) and a Fable break of the law draft, in parallel.
+
 - 2026-11-07 02:28: B1 done, #9 merged (`model/BREAKS-draft-2.md`, 45 breaks). Wrote `model/MODEL-DRAFT-3.md`, taking in every break (its §11 maps each) and the scope ruling: per-race p and B* with the ballot summed (shares B/B* adding past 100%); a tie counted as half a decision, now listed as a choice open to correction; where no forecast was published, the model's own, fitted to like past races (GKB, M&H), so past races are inputs; cost $8.87 to $12.03 (14 to 19 minutes at $38.00); mail voting as its own cost case; ballot-measure formula corrected; other countries dropped. One decision card to the maker: race or whole ballot (#41). Next, while he answers: draft the law from the brainstorm.
 
 - 2026-11-07 01:59: the maker chose "US races at every level" (RULINGS). Draft 2's §7 (other systems) and §10 to follow in draft 3; the data plan (wave 3) covers president, Senate, House, state legislature and local races.
