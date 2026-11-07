@@ -43,12 +43,12 @@ of z over the level's earlier years scored out of sample, once CAL_MIN = 3 such 
 CALIBRATION (07:04, round 4): the model's own p is then multiplied by F / Z, F the factor that matches earlier
 years' out-of-sample near-ties (49-51%), where adopted for the level (near_tie_test); since 08:54 only where it
 also passes the robustness test below, which the House's does and the Senate's does not, so the Senate's is taken
-out and shown beside each p (near_tie_not_of_record; REPORT 0.2). SHRINKAGE AND TAILS (07:19,
+out and shown beside each p (near_tie_not_of_record; REPORT 0.3). SHRINKAGE AND TAILS (07:19,
 round 5): where the test adopts it for the level (variant_test), the mean is shrunk toward 1/2 by lambda, fitted on
 the level's earlier years (shrink_factor; the House), with k refitted on the shrunk means, or t4 tails stand first
 in place of normal (governors); the near-tie factor is refitted under the variant. A variant is adopted only if its
 gain also holds with any one scored year left out (the robustness test, 08:36, from M2's second pass); since then
-none is, at any level (REPORT 0.3). So the forecast for race i is
+none is, at any level (REPORT 0.4). So the forecast for race i is
 normal (t4 where adopted) with mean 1/2 + lambda (c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G (lag_i - 1/2))),
 lambda 1 where not shrunk, and variance k^2 (sd_nat^2 + s_e^2); the other tails, matched on the same sd, are
 computed alongside (model section 9.5). The common part sd_nat^2 is what ties races together for
@@ -1281,7 +1281,7 @@ VARIANT_NOTE = {"none": "the mean as fitted, normal tails first (no variant of r
                 "both": "the mean shrunk toward 1/2 by the factor fitted on earlier years, k refitted on the shrunk "
                         "means, t4 tails with the same sd first (REPORT 2.7)",
                 "halflife": "the mean as fitted, normal tails first, k with each earlier year weighted by a half-life "
-                            "of two cycles (REPORT 0.1)"}
+                            "of two cycles (REPORT 0.2)"}
 
 
 def shrink_factor(rows, level, year):
@@ -1595,7 +1595,7 @@ def near_tie_taken_out(rows, level, year, mean, sd, tails):
     F = f["factor"]
     return {"factor": F, "multiplier": F / (1 + (F - 1) * near_q(mean, sd, tails)), "scheme": sch,
             "note": "round 4's near-tie factor, taken out of p: it does not pass the robustness test (the "
-                    "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.2). "
+                    "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.3). "
                     "value is what p would be with it, p times multiplier"}
 
 
@@ -1805,6 +1805,32 @@ def too_few(level, year, fy):
             f"{len(fy)} before {year} ({first})")
 
 
+# THE NEAR-EVEN NOTE FOR THE HOUSE AND THE SENATE (the orchestrator, 2026-11-07 09:26: "Write the House's and the
+# Senate's near-even shortfall onto each of their model's own p, built from your back-test with its counts, as for
+# the governors"). Each p of the model's own normal forecast, the one the back-test scores, standing first or
+# beside 538's, carries the back-test's count within 1 point of 1/2 (49-51%) on 2010-2024, out of sample, under
+# the forecast of record (the House's near-tie factor included), seen against forecast. p is not corrected for it.
+# Reason: the same disclosure at every level, whichever way the forecast leans. Six variants have failed to close
+# the gap the same way, and more searching on the same years would fit noise (09:26). REPORT 0.1.
+_NOTE = {}
+
+
+def near_even_note(rows, level):
+    """The near-even note for the model's own p of `level` (house or senate), or None."""
+    if level not in ("house", "senate"):
+        return None
+    if level not in _NOTE:
+        r = _variant_score(rows, level, variant_of_record(rows, level), VARIANT_YEARS)
+        w = r["within"][f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%"]
+        exp, got = w["expected"], w["seen"]
+        ys = [T for T in VARIANT_YEARS if _near_scored(rows, variant_of_record(rows, level)).get((level, T))]
+        way = "more" if got > exp else "fewer" if got < exp else None
+        _NOTE[level] = (f"this route's back-test shows {way} near-even finishes than it forecast ({got} against "
+                        f"{exp:.1f} within {round(NEAR_W * 100)} point, {ys[0]} to {ys[-1]}), so p may be "
+                        f"{'low' if way == 'more' else 'high'}") if way and ys else None
+    return _NOTE[level]
+
+
 def compute(year):
     """Fill forecasts, p and control for data/<level>/<year>.json, in place."""
     from core import p_contest
@@ -1852,6 +1878,7 @@ def compute(year):
                         f["shrink"] = m["shrink"]
                 for t_, f in zip(order, own):
                     r_ = p_contest(n, mean, sd, tails=t_)
+                    nn = near_even_note(rows, level) if t_ == "normal" else None
                     e_ = {"under": f"the model's own ({method(level, m['variant'])}), " +
                           ("normal" if t_ == "normal" else "t4 with the same sd") +
                           (f", {SHRINK_NOTE}" if m.get("shrink") else ""),
@@ -1871,6 +1898,9 @@ def compute(year):
                         if out_:
                             # round 4's factor, taken out by the robustness test (08:54): reported beside p
                             e_["near_tie_not_of_record"] = dict(out_, value=r_["p"] * out_["multiplier"])
+                    if nn:
+                        # the near-even disclosure (the orchestrator, 09:26), on the forecast the back-test scores
+                        e_["note"] = nn
                     own_p.append(e_)
             fte = [fte_forecast(c, level, year, v, f) for v, f in (fte_versions(c, level, year) or [])]
             tally = None
@@ -1921,6 +1951,8 @@ def compute(year):
                 c["p"]["value_uncalibrated"] = head["value_uncalibrated"]
             if "near_tie_not_of_record" in head:
                 c["p"]["near_tie_not_of_record"] = head["near_tie_not_of_record"]
+            if "note" in head:
+                c["p"]["note"] = head["note"]
         if any(f.get("by") == "538" for c in d["contests"] for f in c.get("forecasts") or []):
             d["sources"][f"{level}_538"] = FTE["source"][level]
         if m and level in ("house", "senate"):
@@ -1993,7 +2025,7 @@ def compute(year):
                                   "fails_on_every_year": r_["round_5_cells"]["safe_bands_further"]},
                     "note": f"round 4's near-tie factor ({nt_out} scheme) is taken out of p for this level: it passes "
                             "round 4's test on every year, but not the robustness test (the orchestrator, 2026-11-07 "
-                            "08:54; REPORT 0.2)" + (f"; the {nt_rule} scheme, which passes it, stands" if nt_rule else
+                            "08:54; REPORT 0.3)" + (f"; the {nt_rule} scheme, which passes it, stands" if nt_rule else
                             ". Each model's own p shows beside it, under near_tie_not_of_record, what p would be with "
                             "the factor")}
             if m.get("national_from"):
