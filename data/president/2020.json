@@ -2,10 +2,10 @@
  "about": "Every presidential contest of 2020 by state (and by district where electoral votes split), with inputs, sources and p. Layout: plan/PLAN.md section 3, fields added in data/README.md. Written by pipeline/president.py; do not edit by hand.",
  "year": 2020,
  "computed_by": "pipeline/president.py",
- "commit": "33c6ff3",
+ "commit": "32d7f50",
  "summary": {
-  "vote_weighted_mean_p": 1.545461041094755e-08,
-  "one_in": 64705610,
+  "vote_weighted_mean_p": 1.5511900220564843e-08,
+  "one_in": 64466634,
   "top": [
    [
     "PA",
@@ -128,7 +128,7 @@
       "event": 8.621488887904825e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 2319784930,
       "p_state": 5.688535920796321e-08,
       "W": 0.007577950643140115,
@@ -156,7 +156,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0006388356596183403,
-       "mean_rounding": 2.3141615193824493e-07
+       "mean_rounding": 2.3141615193824493e-07,
+       "z": -2.129656291587961
+      },
+      "p_rel_error": {
+       "value": 0.026105959512035162,
+       "z": -2.129656291587961,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.0166,
@@ -175,17 +181,17 @@
      },
      "unit_ev": 9,
      "p": {
-      "value": 8.23434075999222e-10,
-      "event": 1.646868151998444e-09,
+      "value": 8.230095914045503e-10,
+      "event": 1.6460191828091005e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 1214426302,
+      "commit": "32d7f50",
+      "one_in": 1215052668,
       "p_state": 1.9048766204623484e-07,
-      "W": 0.004322768557048905,
+      "W": 0.00432054014713452,
       "n_other_voters": 2290793,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.022578269253977455
+      "W_unconditional": 0.022571585001262075
      }
     },
     {
@@ -263,8 +269,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.004322768557048905,
-     "W_unconditional": 0.022578269253977455,
+     "W": 0.00432054014713452,
+     "W_unconditional": 0.022571585001262075,
      "unit_ev": 9,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -281,17 +287,17 @@
     }
    },
    "p": {
-    "value": 8.23434075999222e-10,
-    "event": 1.646868151998444e-09,
+    "value": 8.230095914045503e-10,
+    "event": 1.6460191828091005e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 1214426302,
+    "commit": "32d7f50",
+    "one_in": 1215052668,
     "p_state": 1.9048766204623484e-07,
-    "W": 0.004322768557048905,
+    "W": 0.00432054014713452,
     "n_other_voters": 2290793,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.022578269253977455
+    "W_unconditional": 0.022571585001262075
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -419,7 +425,7 @@
       "event": 2.166993028040713e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 92293790,
       "p_state": 5.273816728056304e-06,
       "W": 0.002054482682828619,
@@ -447,7 +453,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0017844990149548977,
-       "mean_rounding": 5.1310874837075143e-08
+       "mean_rounding": 5.1310874837075143e-08,
+       "z": -1.0371842431489675
+      },
+      "p_rel_error": {
+       "value": 0.000561658160793081,
+       "z": -1.0371842431489675,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.149825,
@@ -466,17 +478,17 @@
      },
      "unit_ev": 3,
      "p": {
-      "value": 2.7528979959407668e-08,
-      "event": 5.5057959918815336e-08,
+      "value": 2.7512619230282686e-08,
+      "event": 5.502523846056537e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 36325356,
+      "commit": "32d7f50",
+      "one_in": 36346957,
       "p_state": 8.115565405801798e-06,
-      "W": 0.003392121014726499,
+      "W": 0.0033901050456218345,
       "n_other_voters": 343728,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.008268668549713159
+      "W_unconditional": 0.008265220584223793
      }
     },
     {
@@ -554,8 +566,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.003392121014726499,
-     "W_unconditional": 0.008268668549713159,
+     "W": 0.0033901050456218345,
+     "W_unconditional": 0.008265220584223793,
      "unit_ev": 3,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -572,17 +584,17 @@
     }
    },
    "p": {
-    "value": 2.7528979959407668e-08,
-    "event": 5.5057959918815336e-08,
+    "value": 2.7512619230282686e-08,
+    "event": 5.502523846056537e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 36325356,
+    "commit": "32d7f50",
+    "one_in": 36346957,
     "p_state": 8.115565405801798e-06,
-    "W": 0.003392121014726499,
+    "W": 0.0033901050456218345,
     "n_other_voters": 343728,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.008268668549713159
+    "W_unconditional": 0.008265220584223793
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -719,7 +731,7 @@
       "event": 1.2375240031402341e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 16161303,
       "p_state": 1.5709774260475718e-06,
       "W": 0.03938707146969405,
@@ -747,7 +759,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0023307848430035322,
-       "mean_rounding": 2.844079510189885e-07
+       "mean_rounding": 2.844079510189885e-07,
+       "z": 0.4700070229810687
+      },
+      "p_rel_error": {
+       "value": 0.010832215554569993,
+       "z": 0.4700070229810687,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.680825,
@@ -766,17 +784,17 @@
      },
      "unit_ev": 11,
      "p": {
-      "value": 8.028424038601102e-08,
-      "event": 1.6056848077202205e-07,
+      "value": 8.023469368249852e-08,
+      "event": 1.6046938736499704e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 12455745,
+      "commit": "32d7f50",
+      "one_in": 12463436,
       "p_state": 1.9256557599659926e-06,
-      "W": 0.04169189636855388,
+      "W": 0.0416661665862415,
       "n_other_voters": 3333828,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.03221520800189773
+      "W_unconditional": 0.03219801949655816
      }
     },
     {
@@ -810,7 +828,7 @@
       "event": 9.131107630194843e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 21903148,
       "p_state": 2.4121420381215424e-06,
       "W": 0.018927383806356817,
@@ -823,6 +841,12 @@
       "W_mvn": 0.01877,
       "W_mvn_se": 0.00042423681004835026,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.01991676575505351,
+       "+-0.0050": 0.019601907212593656,
+       "+-0.0100": 0.018927383806356817,
+       "+-0.0200": 0.018130692072019138
+      },
       "ratio_to_published": 1.3243825658389452
      }
     }
@@ -884,7 +908,7 @@
     "event": 9.131107630194843e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 21903148,
     "p_state": 2.4121420381215424e-06,
     "W": 0.018927383806356817,
@@ -897,6 +921,12 @@
     "W_mvn": 0.01877,
     "W_mvn_se": 0.00042423681004835026,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.01991676575505351,
+     "+-0.0050": 0.019601907212593656,
+     "+-0.0100": 0.018927383806356817,
+     "+-0.0200": 0.018130692072019138
+    },
     "ratio_to_published": 1.3243825658389452
    },
    "notes": [
@@ -1058,7 +1088,7 @@
       "event": 1.2395234029171847e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 1613523388,
       "p_state": 1.1404689232707584e-07,
       "W": 0.005434270840814966,
@@ -1086,7 +1116,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00048691168026142073,
-       "mean_rounding": 5.0900490762171744e-08
+       "mean_rounding": 5.0900490762171744e-08,
+       "z": -2.3425980786952807
+      },
+      "p_rel_error": {
+       "value": 0.03718687062108254,
+       "z": -2.3425980786952807,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.009575,
@@ -1105,17 +1141,17 @@
      },
      "unit_ev": 6,
      "p": {
-      "value": 6.252672653382912e-10,
-      "event": 1.2505345306765824e-09,
+      "value": 6.249471931651655e-10,
+      "event": 1.249894386330331e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 1599316093,
+      "commit": "32d7f50",
+      "one_in": 1600135197,
       "p_state": 2.1956709494582565e-07,
-      "W": 0.0028477275499435148,
+      "W": 0.0028462698079571545,
       "n_other_voters": 1184578,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.015731280070031734
+      "W_unconditional": 0.015727378480520422
      }
     },
     {
@@ -1193,8 +1229,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0028477275499435148,
-     "W_unconditional": 0.015731280070031734,
+     "W": 0.0028462698079571545,
+     "W_unconditional": 0.015727378480520422,
      "unit_ev": 6,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -1211,17 +1247,17 @@
     }
    },
    "p": {
-    "value": 6.252672653382912e-10,
-    "event": 1.2505345306765824e-09,
+    "value": 6.249471931651655e-10,
+    "event": 1.249894386330331e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 1599316093,
+    "commit": "32d7f50",
+    "one_in": 1600135197,
     "p_state": 2.1956709494582565e-07,
-    "W": 0.0028477275499435148,
+    "W": 0.0028462698079571545,
     "n_other_voters": 1184578,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.015731280070031734
+    "W_unconditional": 0.015727378480520422
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -1376,7 +1412,7 @@
       "event": 3.7998235752626523e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 5263402262,
       "p_state": 5.263677976805384e-10,
       "W": 0.36094757240153486,
@@ -1404,7 +1440,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00019510730220829759,
-       "mean_rounding": 3.5003097712445684e-07
+       "mean_rounding": 3.5003097712445684e-07,
+       "z": 2.9626531897430612
+      },
+      "p_rel_error": {
+       "value": 0.10997055231458068,
+       "z": 2.9626531897430612,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.998475,
@@ -1423,17 +1465,17 @@
      },
      "unit_ev": 55,
      "p": {
-      "value": 9.683601736608293e-10,
-      "event": 1.9367203473216587e-09,
+      "value": 9.6853144014854e-10,
+      "event": 1.93706288029708e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 1032673614,
+      "commit": "32d7f50",
+      "one_in": 1032491005,
       "p_state": 2.810625268319543e-09,
-      "W": 0.344535496985625,
+      "W": 0.344596432354577,
       "n_other_voters": 17117156,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.23555739567787118
+      "W_unconditional": 0.2355711772663836
      }
     },
     {
@@ -1511,8 +1553,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.344535496985625,
-     "W_unconditional": 0.23555739567787118,
+     "W": 0.344596432354577,
+     "W_unconditional": 0.2355711772663836,
      "unit_ev": 55,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -1529,17 +1571,17 @@
     }
    },
    "p": {
-    "value": 9.683601736608293e-10,
-    "event": 1.9367203473216587e-09,
+    "value": 9.6853144014854e-10,
+    "event": 1.93706288029708e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 1032673614,
+    "commit": "32d7f50",
+    "one_in": 1032491005,
     "p_state": 2.810625268319543e-09,
-    "W": 0.344535496985625,
+    "W": 0.344596432354577,
     "n_other_voters": 17117156,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.23555739567787118
+    "W_unconditional": 0.2355711772663836
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -1761,7 +1803,7 @@
       "event": 4.584525182969021e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 43625019,
       "p_state": 3.9031000549541276e-07,
       "W": 0.0587292808078283,
@@ -1789,7 +1831,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0008739936713157592,
-       "mean_rounding": 5.1357074750325023e-08
+       "mean_rounding": 5.1357074750325023e-08,
+       "z": 1.8584862091546257
+      },
+      "p_rel_error": {
+       "value": 0.01645735333826882,
+       "z": 1.8584862091546257,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.96845,
@@ -1808,17 +1856,17 @@
      },
      "unit_ev": 9,
      "p": {
-      "value": 2.4980647834257385e-08,
-      "event": 4.996129566851477e-08,
+      "value": 2.498971974259895e-08,
+      "event": 4.99794394851979e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 40030987,
+      "commit": "32d7f50",
+      "one_in": 40016455,
       "p_state": 3.452852938873595e-07,
-      "W": 0.07234784763931093,
+      "W": 0.07237412129909943,
       "n_other_voters": 3168958,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.03040446984935473
+      "W_unconditional": 0.030411178847618656
      }
     },
     {
@@ -1852,7 +1900,7 @@
       "event": 5.494845726381695e-09,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 363977462,
       "p_state": 4.670618867424441e-08,
       "W": 0.058823529411764705,
@@ -1865,6 +1913,14 @@
       "W_mvn": 0.063245,
       "W_mvn_se": 0.0007323426109069441,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.043478260869565216,
+       "+-0.0050": 0.05472636815920398,
+       "+-0.0100": 0.058823529411764705,
+       "+-0.0200": 0.06494661921708185
+      },
+      "W_thin": true,
+      "W_thin_note": "the window holds 28 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0.043 to 0.065 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure",
       "ratio_to_published": 0.6743482276886846
      }
     }
@@ -1926,7 +1982,7 @@
     "event": 5.494845726381695e-09,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 363977462,
     "p_state": 4.670618867424441e-08,
     "W": 0.058823529411764705,
@@ -1939,10 +1995,19 @@
     "W_mvn": 0.063245,
     "W_mvn_se": 0.0007323426109069441,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.043478260869565216,
+     "+-0.0050": 0.05472636815920398,
+     "+-0.0100": 0.058823529411764705,
+     "+-0.0200": 0.06494661921708185
+    },
+    "W_thin": true,
+    "W_thin_note": "the window holds 28 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0.043 to 0.065 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure",
     "ratio_to_published": 0.6743482276886846
    },
    "notes": [
-    "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
+    "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
+    "The Economist's W here is thin: the window holds 28 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0.043 to 0.065 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure."
    ]
   },
   {
@@ -2116,7 +2181,7 @@
       "event": 8.048302677291246e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 248499600,
       "p_state": 9.402627525127463e-08,
       "W": 0.042798157513860166,
@@ -2144,7 +2209,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00013458030827353382,
-       "mean_rounding": 5.044489878483284e-08
+       "mean_rounding": 5.044489878483284e-08,
+       "z": 3.1845086046015743
+      },
+      "p_rel_error": {
+       "value": 0.1692432024475121,
+       "z": 3.1845086046015743,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.999275,
@@ -2163,17 +2234,17 @@
      },
      "unit_ev": 7,
      "p": {
-      "value": 9.646261378890977e-10,
-      "event": 1.9292522757781954e-09,
+      "value": 9.6513157631586e-10,
+      "event": 1.93026315263172e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 1036671059,
+      "commit": "32d7f50",
+      "one_in": 1036128156,
       "p_state": 1.832561346274153e-08,
-      "W": 0.052638136226670615,
+      "W": 0.05266571720930947,
       "n_other_voters": 1795547,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.023385379985476105
+      "W_unconditional": 0.0233911263692267
      }
     },
     {
@@ -2251,8 +2322,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.052638136226670615,
-     "W_unconditional": 0.023385379985476105,
+     "W": 0.05266571720930947,
+     "W_unconditional": 0.0233911263692267,
      "unit_ev": 7,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -2269,17 +2340,17 @@
     }
    },
    "p": {
-    "value": 9.646261378890977e-10,
-    "event": 1.9292522757781954e-09,
+    "value": 9.6513157631586e-10,
+    "event": 1.93026315263172e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 1036671059,
+    "commit": "32d7f50",
+    "one_in": 1036128156,
     "p_state": 1.832561346274153e-08,
-    "W": 0.052638136226670615,
+    "W": 0.05266571720930947,
     "n_other_voters": 1795547,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.023385379985476105
+    "W_unconditional": 0.0233911263692267
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -2506,7 +2577,7 @@
       "event": 2.016483471214892e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 99182564,
       "p_state": 5.556228031832202e-07,
       "W": 0.018146154726392177,
@@ -2522,11 +2593,11 @@
      "published": true,
      "share": {
       "mean": 0.6295236867710426,
-      "sd": 0.03329151207644534,
+      "sd": null,
       "tails": "normal",
       "mean_mark": "stated (538's projected shares, made two-party here)",
-      "sd_mark": "inferred",
-      "sd_how": "implied by 538's projected share and chance of winning (normal)",
+      "sd_mark": null,
+      "sd_how": "not read from 538: p's estimated relative error under 538's implied sd is 105%, not under 20% (the sd's own error 7.4%, at z = 3.89; 538's chance 0.99995 out of 40,000 runs, its two-party mean 0.6295); the College stage under 538 takes the model's own sd for 2020 here (0.0408, inferred)",
       "sd_rel_error": {
        "value": 0.07410622493895662,
        "from_chance": 0.07410622493792914,
@@ -2534,7 +2605,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 3.5354455164800125e-05,
-       "mean_rounding": 5.0545256959450084e-08
+       "mean_rounding": 5.0545256959450084e-08,
+       "z": 3.89059188641312
+      },
+      "p_rel_error": {
+       "value": 1.0476178574054396,
+       "z": 3.89059188641312,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.99995,
@@ -2552,19 +2629,8 @@
       "sha256": "d99482b55c46c12b008af15671c4495569f5dfe949e392907d76d993136c6da3"
      },
      "unit_ev": 3,
-     "p": {
-      "value": 1.0016340713666932e-10,
-      "event": 2.0032681427333863e-10,
-      "under": "538 (polls-plus)",
-      "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 9983685945,
-      "p_state": 6.228880461881679e-09,
-      "W": 0.016080483122068296,
-      "n_other_voters": 496870,
-      "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.009553570887370461
-     }
+     "p": null,
+     "note": "No p under 538 here: p's estimated relative error under 538's implied sd is 105%, not under 20% (the sd's own error 7.4%, at z = 3.89; 538's chance 0.99995 out of 40,000 runs, its two-party mean 0.6295). The orchestrator's rules of 2026-11-07 04:12 and 04:20: where the implied sd breaks down, the contest's p falls back to the model's own forecast."
     },
     {
      "by": "The Economist",
@@ -2641,11 +2707,12 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.016080483122068296,
-     "W_unconditional": 0.009553570887370461,
+     "W": 0.018146154726392177,
+     "W_unconditional": 0.008954138220732884,
      "unit_ev": 3,
-     "method": "538's marginals with the model's own national swing",
-     "districts_modelled": true
+     "method": "the model's own joint forecast: a common national error (normal, sd 0.0188) and independent state errors (t4, sd 0.0363); W given the tie, by dynamic programming over the other units",
+     "national_swing_sd": 0.018751479968302055,
+     "districts_modelled": false
     },
     "source": {
      "name": "National Archives, Electoral College results, 2020",
@@ -2659,21 +2726,22 @@
     }
    },
    "p": {
-    "value": 1.0016340713666932e-10,
-    "event": 2.0032681427333863e-10,
-    "under": "538 (polls-plus)",
+    "value": 1.008241735607446e-08,
+    "event": 2.016483471214892e-08,
+    "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 9983685945,
-    "p_state": 6.228880461881679e-09,
-    "W": 0.016080483122068296,
+    "commit": "32d7f50",
+    "one_in": 99182564,
+    "p_state": 5.556228031832202e-07,
+    "W": 0.018146154726392177,
     "n_other_voters": 496870,
-    "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.009553570887370461
+    "method": "density form at f(1/2) of the forecast; W by the swing model given the tie",
+    "W_unconditional": 0.008954138220732884,
+    "f_half": 0.5521446044352932
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
-    "The Economist's draws cannot fix p here (see its forecast's p_bound), so p is 538's, the other forecast published for 2020."
+    "p is the model's own forecast's: the Economist's draws cannot fix p here (see its forecast's p_bound), and 538's implied sd breaks down here (see its forecast's note) (the orchestrator's rules of 2026-11-07 04:12 and 04:20: where a published forecast's implied sd breaks down, fall back to the model's own forecast, marked)."
    ]
   },
   {
@@ -2794,7 +2862,7 @@
       "event": 6.029748053441261e-12,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 331688817223,
       "p_state": 2.7271516906975016e-10,
       "W": 0.011055028721007963,
@@ -2815,7 +2883,8 @@
       "mean_mark": "stated (538's projected shares, made two-party here)",
       "sd_mark": null,
       "sd_how": "not read from 538: 538's chance here is exactly 1, which fixes no spread; the College stage under 538 takes the model's own sd for 2020 here (0.0408, inferred)",
-      "sd_rel_error": null
+      "sd_rel_error": null,
+      "p_rel_error": null
      },
      "win_prob": 1.0,
      "p_published": null,
@@ -2933,7 +3002,7 @@
     "event": 6.029748053441261e-12,
     "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 331688817223,
     "p_state": 2.7271516906975016e-10,
     "W": 0.011055028721007963,
@@ -3108,7 +3177,7 @@
       "event": 1.1652182231141766e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 17164167,
       "p_state": 3.719999426436521e-07,
       "W": 0.15661537671665288,
@@ -3136,7 +3205,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.002314309778314044,
-       "mean_rounding": 5.035375020128911e-08
+       "mean_rounding": 5.035375020128911e-08,
+       "z": 0.4933008894603294
+      },
+      "p_rel_error": {
+       "value": 0.010065718145691795,
+       "z": 0.4933008894603294,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.6891,
@@ -3155,17 +3230,17 @@
      },
      "unit_ev": 29,
      "p": {
-      "value": 6.756635174122956e-08,
-      "event": 1.3513270348245912e-07,
+      "value": 6.75433861337906e-08,
+      "event": 1.350867722675812e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 14800266,
+      "commit": "32d7f50",
+      "one_in": 14805299,
       "p_state": 6.396305089899391e-07,
-      "W": 0.1056334099008594,
+      "W": 0.10559750541050725,
       "n_other_voters": 10965775,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.08649969484051415
+      "W_unconditional": 0.08648498286019482
      }
     },
     {
@@ -3199,7 +3274,7 @@
       "event": 4.775146679518957e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 41883530,
       "p_state": 6.369603317222941e-07,
       "W": 0.03748386235142234,
@@ -3212,6 +3287,12 @@
       "W_mvn": 0.03674,
       "W_mvn_se": 0.0005870278732734929,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.03668927143105547,
+       "+-0.0050": 0.0397359678265431,
+       "+-0.0100": 0.03748386235142234,
+       "+-0.0200": 0.03675324977327163
+      },
       "ratio_to_published": 0.8880661117419982
      }
     }
@@ -3273,7 +3354,7 @@
     "event": 4.775146679518957e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 41883530,
     "p_state": 6.369603317222941e-07,
     "W": 0.03748386235142234,
@@ -3286,6 +3367,12 @@
     "W_mvn": 0.03674,
     "W_mvn_se": 0.0005870278732734929,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.03668927143105547,
+     "+-0.0050": 0.0397359678265431,
+     "+-0.0100": 0.03748386235142234,
+     "+-0.0200": 0.03675324977327163
+    },
     "ratio_to_published": 0.8880661117419982
    },
    "notes": [
@@ -3499,7 +3586,7 @@
       "event": 9.600348409439602e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 20832577,
       "p_state": 1.1473304261157077e-06,
       "W": 0.04183776613482493,
@@ -3527,7 +3614,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.002467283979272552,
-       "mean_rounding": 5.037501173737774e-08
+       "mean_rounding": 5.037501173737774e-08,
+       "z": 0.20349263714715674
+      },
+      "p_rel_error": {
+       "value": 0.0297623744918088,
+       "z": 0.20349263714715674,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.580625,
@@ -3546,17 +3639,17 @@
      },
      "unit_ev": 16,
      "p": {
-      "value": 5.6386131370841266e-08,
-      "event": 1.1277226274168253e-07,
+      "value": 5.636535016788685e-08,
+      "event": 1.127307003357737e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 17734857,
+      "commit": "32d7f50",
+      "one_in": 17741396,
       "p_state": 1.6771819992632287e-06,
-      "W": 0.03361956626985694,
+      "W": 0.03360717572252007,
       "n_other_voters": 4935486,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.04521571085031221
+      "W_unconditional": 0.04521124261792512
      }
     },
     {
@@ -3590,7 +3683,7 @@
       "event": 5.115758857163302e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 39094884,
       "p_state": 1.8527615328997337e-06,
       "W": 0.01380576713819369,
@@ -3603,6 +3696,12 @@
       "W_mvn": 0.014795,
       "W_mvn_se": 0.00036767659668518476,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.013858308509260458,
+       "+-0.0050": 0.013231834814427601,
+       "+-0.0100": 0.01380576713819369,
+       "+-0.0200": 0.014731646666541077
+      },
       "ratio_to_published": 1.2050488038670777
      }
     }
@@ -3664,7 +3763,7 @@
     "event": 5.115758857163302e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 39094884,
     "p_state": 1.8527615328997337e-06,
     "W": 0.01380576713819369,
@@ -3677,6 +3776,12 @@
     "W_mvn": 0.014795,
     "W_mvn_se": 0.00036767659668518476,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.013858308509260458,
+     "+-0.0050": 0.013231834814427601,
+     "+-0.0100": 0.01380576713819369,
+     "+-0.0200": 0.014731646666541077
+    },
     "ratio_to_published": 1.2050488038670777
    },
    "notes": [
@@ -3799,7 +3904,7 @@
       "event": 4.207280462151464e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 4753664554,
       "p_state": 1.16087775026894e-08,
       "W": 0.018121117667974796,
@@ -3827,7 +3932,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0003987179454200664,
-       "mean_rounding": 5.0793666273625276e-08
+       "mean_rounding": 5.0793666273625276e-08,
+       "z": 2.4892858647872407
+      },
+      "p_rel_error": {
+       "value": 0.047561117772908904,
+       "z": 2.4892858647872407,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.9936,
@@ -3846,17 +3957,17 @@
      },
      "unit_ev": 4,
      "p": {
-      "value": 4.9062087942383816e-09,
-      "event": 9.812417588476763e-09,
+      "value": 4.907575953508921e-09,
+      "event": 9.815151907017843e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 203823368,
+      "commit": "32d7f50",
+      "one_in": 203766586,
       "p_state": 2.1399638568383262e-07,
-      "W": 0.022926596533677086,
+      "W": 0.022932985236300128,
       "n_other_voters": 562993,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.012970928673662044
+      "W_unconditional": 0.01297348030391044
      }
     },
     {
@@ -3934,8 +4045,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.022926596533677086,
-     "W_unconditional": 0.012970928673662044,
+     "W": 0.022932985236300128,
+     "W_unconditional": 0.01297348030391044,
      "unit_ev": 4,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -3952,17 +4063,17 @@
     }
    },
    "p": {
-    "value": 4.9062087942383816e-09,
-    "event": 9.812417588476763e-09,
+    "value": 4.907575953508921e-09,
+    "event": 9.815151907017843e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 203823368,
+    "commit": "32d7f50",
+    "one_in": 203766586,
     "p_state": 2.1399638568383262e-07,
-    "W": 0.022926596533677086,
+    "W": 0.022932985236300128,
     "n_other_voters": 562993,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.012970928673662044
+    "W_unconditional": 0.01297348030391044
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -4144,7 +4255,7 @@
       "event": 3.424852079101316e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 5839668265,
       "p_state": 3.75241877097197e-08,
       "W": 0.004563525939049433,
@@ -4172,7 +4283,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00037723415722200977,
-       "mean_rounding": 5.155537939655253e-08
+       "mean_rounding": 5.155537939655253e-08,
+       "z": -2.5286565819556595
+      },
+      "p_rel_error": {
+       "value": 0.05084580733037727,
+       "z": -2.5286565819556595,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.005725,
@@ -4191,17 +4308,17 @@
      },
      "unit_ev": 4,
      "p": {
-      "value": 2.5844460499188596e-10,
-      "event": 5.168892099837719e-10,
+      "value": 2.5831253994528547e-10,
+      "event": 5.166250798905709e-10,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 3869301122,
+      "commit": "32d7f50",
+      "one_in": 3871279343,
       "p_state": 2.1667842570226338e-07,
-      "W": 0.00119275651996389,
+      "W": 0.0011921470220585381,
       "n_other_voters": 841139,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.010498949366771532
+      "W_unconditional": 0.010496995516259391
      }
     },
     {
@@ -4279,8 +4396,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.00119275651996389,
-     "W_unconditional": 0.010498949366771532,
+     "W": 0.0011921470220585381,
+     "W_unconditional": 0.010496995516259391,
      "unit_ev": 4,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -4297,17 +4414,17 @@
     }
    },
    "p": {
-    "value": 2.5844460499188596e-10,
-    "event": 5.168892099837719e-10,
+    "value": 2.5831253994528547e-10,
+    "event": 5.166250798905709e-10,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 3869301122,
+    "commit": "32d7f50",
+    "one_in": 3871279343,
     "p_state": 2.1667842570226338e-07,
-    "W": 0.00119275651996389,
+    "W": 0.0011921470220585381,
     "n_other_voters": 841139,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.010498949366771532
+    "W_unconditional": 0.010496995516259391
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -4525,7 +4642,7 @@
       "event": 3.313636533012989e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 603566499,
       "p_state": 1.353211680613012e-08,
       "W": 0.12243600097775886,
@@ -4553,7 +4670,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00011722814295211393,
-       "mean_rounding": 5.067517577191468e-08
+       "mean_rounding": 5.067517577191468e-08,
+       "z": 3.2636163700692213
+      },
+      "p_rel_error": {
+       "value": 0.19907935616891123,
+       "z": 3.2636163700692213,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.99945,
@@ -4572,17 +4695,17 @@
      },
      "unit_ev": 20,
      "p": {
-      "value": 4.952280162887687e-10,
-      "event": 9.904560325775374e-10,
+      "value": 4.95498162765456e-10,
+      "event": 9.90996325530912e-10,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 2019271865,
+      "commit": "32d7f50",
+      "one_in": 2018170954,
       "p_state": 5.912644689090123e-09,
-      "W": 0.08375744566598974,
+      "W": 0.08380313528390061,
       "n_other_voters": 5918805,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.07205996278540347
+      "W_unconditional": 0.07206698284762574
      }
     },
     {
@@ -4660,8 +4783,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.08375744566598974,
-     "W_unconditional": 0.07205996278540347,
+     "W": 0.08380313528390061,
+     "W_unconditional": 0.07206698284762574,
      "unit_ev": 20,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -4678,17 +4801,17 @@
     }
    },
    "p": {
-    "value": 4.952280162887687e-10,
-    "event": 9.904560325775374e-10,
+    "value": 4.95498162765456e-10,
+    "event": 9.90996325530912e-10,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 2019271865,
+    "commit": "32d7f50",
+    "one_in": 2018170954,
     "p_state": 5.912644689090123e-09,
-    "W": 0.08375744566598974,
+    "W": 0.08380313528390061,
     "n_other_voters": 5918805,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.07205996278540347
+    "W_unconditional": 0.07206698284762574
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -4867,7 +4990,7 @@
       "event": 4.072591793749671e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 491087765,
       "p_state": 2.8684803120312163e-07,
       "W": 0.007098866561273004,
@@ -4895,7 +5018,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0009223702398576182,
-       "mean_rounding": 5.063463937959199e-08
+       "mean_rounding": 5.063463937959199e-08,
+       "z": -1.8083631451301918
+      },
+      "p_rel_error": {
+       "value": 0.0150518317586943,
+       "z": -1.8083631451301918,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.035275,
@@ -4914,17 +5043,17 @@
      },
      "unit_ev": 11,
      "p": {
-      "value": 5.157918307325119e-10,
-      "event": 1.0315836614650238e-09,
+      "value": 5.15451866159253e-10,
+      "event": 1.030903732318506e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 1938766650,
+      "commit": "32d7f50",
+      "one_in": 1940045358,
       "p_state": 4.3377042288648175e-07,
-      "W": 0.0011890894434439003,
+      "W": 0.0011883057003500383,
       "n_other_voters": 2972354,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.029641744736387463
+      "W_unconditional": 0.029632656312489607
      }
     },
     {
@@ -5002,8 +5131,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0011890894434439003,
-     "W_unconditional": 0.029641744736387463,
+     "W": 0.0011883057003500383,
+     "W_unconditional": 0.029632656312489607,
      "unit_ev": 11,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -5020,17 +5149,17 @@
     }
    },
    "p": {
-    "value": 5.157918307325119e-10,
-    "event": 1.0315836614650238e-09,
+    "value": 5.15451866159253e-10,
+    "event": 1.030903732318506e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 1938766650,
+    "commit": "32d7f50",
+    "one_in": 1940045358,
     "p_state": 4.3377042288648175e-07,
-    "W": 0.0011890894434439003,
+    "W": 0.0011883057003500383,
     "n_other_voters": 2972354,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.029641744736387463
+    "W_unconditional": 0.029632656312489607
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -5172,7 +5301,7 @@
       "event": 4.543566558211983e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 44018283,
       "p_state": 2.994152067104244e-06,
       "W": 0.007587401134582714,
@@ -5200,7 +5329,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.002448179805360505,
-       "mean_rounding": 5.078542194306041e-08
+       "mean_rounding": 5.078542194306041e-08,
+       "z": -0.2566486697833916
+      },
+      "p_rel_error": {
+       "value": 0.0231026620866116,
+       "z": -0.2566486697833916,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.398725,
@@ -5219,17 +5354,17 @@
      },
      "unit_ev": 6,
      "p": {
-      "value": 3.4351513149210534e-08,
-      "event": 6.870302629842107e-08,
+      "value": 3.433411122296924e-08,
+      "event": 6.866822244593848e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 29110799,
+      "commit": "32d7f50",
+      "one_in": 29125554,
       "p_state": 4.018959656324769e-06,
-      "W": 0.008547364513886182,
+      "W": 0.00854303455595443,
       "n_other_voters": 1656732,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.015745278377084497
+      "W_unconditional": 0.015741364326669845
      }
     },
     {
@@ -5263,7 +5398,7 @@
       "event": 4.504462138211961e-09,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 444004176,
       "p_state": 5.7709667427392244e-06,
       "W": 0.00039026928580720695,
@@ -5276,6 +5411,14 @@
       "W_mvn": 0.00017,
       "W_mvn_se": 4.061663452330829e-05,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.00012078753472641623,
+       "+-0.0050": 0.00021944949526616088,
+       "+-0.0100": 0.00039026928580720695,
+       "+-0.0200": 0.0009347336009237368
+      },
+      "W_thin": true,
+      "W_thin_note": "the window holds 12 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0.00012 to 0.00093 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure",
       "ratio_to_published": 0.5189600673975012
      }
     }
@@ -5337,7 +5480,7 @@
     "event": 4.504462138211961e-09,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 444004176,
     "p_state": 5.7709667427392244e-06,
     "W": 0.00039026928580720695,
@@ -5350,10 +5493,19 @@
     "W_mvn": 0.00017,
     "W_mvn_se": 4.061663452330829e-05,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.00012078753472641623,
+     "+-0.0050": 0.00021944949526616088,
+     "+-0.0100": 0.00039026928580720695,
+     "+-0.0200": 0.0009347336009237368
+    },
+    "W_thin": true,
+    "W_thin_note": "the window holds 12 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0.00012 to 0.00093 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure",
     "ratio_to_published": 0.5189600673975012
    },
    "notes": [
-    "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
+    "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
+    "The Economist's W here is thin: the window holds 12 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0.00012 to 0.00093 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure."
    ]
   },
   {
@@ -5451,7 +5603,7 @@
       "event": 3.511263808636657e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 569595482,
       "p_state": 4.032194814126017e-07,
       "W": 0.004354035420530304,
@@ -5479,7 +5631,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.000590031447784777,
-       "mean_rounding": 3.1082693173737577e-07
+       "mean_rounding": 3.1082693173737577e-07,
+       "z": -2.193797091771529
+      },
+      "p_rel_error": {
+       "value": 0.029042717428062068,
+       "z": -2.193797091771529,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.014125,
@@ -5498,17 +5656,17 @@
      },
      "unit_ev": 6,
      "p": {
-      "value": 1.504805047133615e-10,
-      "event": 3.00961009426723e-10,
+      "value": 1.503665630151254e-10,
+      "event": 3.007331260302508e-10,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 6645379093,
+      "commit": "32d7f50",
+      "one_in": 6650414693,
       "p_state": 4.370023262021841e-07,
-      "W": 0.0003443471480372395,
+      "W": 0.00034408641327359114,
       "n_other_voters": 1341728,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.015730926993001874
+      "W_unconditional": 0.01572702551534082
      }
     },
     {
@@ -5586,8 +5744,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0003443471480372395,
-     "W_unconditional": 0.015730926993001874,
+     "W": 0.00034408641327359114,
+     "W_unconditional": 0.01572702551534082,
      "unit_ev": 6,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -5604,17 +5762,17 @@
     }
    },
    "p": {
-    "value": 1.504805047133615e-10,
-    "event": 3.00961009426723e-10,
+    "value": 1.503665630151254e-10,
+    "event": 3.007331260302508e-10,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 6645379093,
+    "commit": "32d7f50",
+    "one_in": 6650414693,
     "p_state": 4.370023262021841e-07,
-    "W": 0.0003443471480372395,
+    "W": 0.00034408641327359114,
     "n_other_voters": 1341728,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.015730926993001874
+    "W_unconditional": 0.01572702551534082
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -5798,7 +5956,7 @@
       "event": 5.620817225810554e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 3558201449,
       "p_state": 3.748123616194531e-08,
       "W": 0.007498174822095874,
@@ -5826,7 +5984,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0005987131512669486,
-       "mean_rounding": 5.0609469598587974e-08
+       "mean_rounding": 5.0609469598587974e-08,
+       "z": -2.1821291823941418
+      },
+      "p_rel_error": {
+       "value": 0.028485533040713537,
+       "z": -2.1821291823941418,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.01455,
@@ -5845,17 +6009,17 @@
      },
      "unit_ev": 8,
      "p": {
-      "value": 5.330149306697196e-10,
-      "event": 1.0660298613394392e-09,
+      "value": 5.326948593571186e-10,
+      "event": 1.0653897187142373e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 1876120053,
+      "commit": "32d7f50",
+      "one_in": 1877247325,
       "p_state": 2.1040787560557446e-07,
-      "W": 0.0025332461018184346,
+      "W": 0.002531724907273412,
       "n_other_voters": 2099119,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.020381280497578643
+      "W_unconditional": 0.02037442411995877
      }
     },
     {
@@ -5933,8 +6097,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0025332461018184346,
-     "W_unconditional": 0.020381280497578643,
+     "W": 0.002531724907273412,
+     "W_unconditional": 0.02037442411995877,
      "unit_ev": 8,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -5951,17 +6115,17 @@
     }
    },
    "p": {
-    "value": 5.330149306697196e-10,
-    "event": 1.0660298613394392e-09,
+    "value": 5.326948593571186e-10,
+    "event": 1.0653897187142373e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 1876120053,
+    "commit": "32d7f50",
+    "one_in": 1877247325,
     "p_state": 2.1040787560557446e-07,
-    "W": 0.0025332461018184346,
+    "W": 0.002531724907273412,
     "n_other_voters": 2099119,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.020381280497578643
+    "W_unconditional": 0.02037442411995877
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -6123,7 +6287,7 @@
       "event": 4.11654536297947e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 485844276,
       "p_state": 3.938763259884615e-07,
       "W": 0.0052256826462579314,
@@ -6151,7 +6315,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0008287871315211163,
-       "mean_rounding": 2.3519048998300765e-07
+       "mean_rounding": 2.3519048998300765e-07,
+       "z": -1.906772916148118
+      },
+      "p_rel_error": {
+       "value": 0.017906405286900136,
+       "z": -1.906772916148118,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.028275,
@@ -6170,17 +6340,17 @@
      },
      "unit_ev": 8,
      "p": {
-      "value": 1.619021221701153e-09,
-      "event": 3.238042443402306e-09,
+      "value": 1.6181634477858767e-09,
+      "event": 3.2363268955717535e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 617657129,
+      "commit": "32d7f50",
+      "one_in": 617984544,
       "p_state": 3.119805344371259e-07,
-      "W": 0.005189494352980019,
+      "W": 0.0051867449060735826,
       "n_other_voters": 2111809,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.02038542296555022
+      "W_unconditional": 0.020378523571849216
      }
     },
     {
@@ -6258,8 +6428,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.005189494352980019,
-     "W_unconditional": 0.02038542296555022,
+     "W": 0.0051867449060735826,
+     "W_unconditional": 0.020378523571849216,
      "unit_ev": 8,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -6276,17 +6446,17 @@
     }
    },
    "p": {
-    "value": 1.619021221701153e-09,
-    "event": 3.238042443402306e-09,
+    "value": 1.6181634477858767e-09,
+    "event": 3.2363268955717535e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 617657129,
+    "commit": "32d7f50",
+    "one_in": 617984544,
     "p_state": 3.119805344371259e-07,
-    "W": 0.005189494352980019,
+    "W": 0.0051867449060735826,
     "n_other_voters": 2111809,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.02038542296555022
+    "W_unconditional": 0.020378523571849216
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -6403,7 +6573,7 @@
       "event": 1.1679790166159836e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 17123595,
       "p_state": 2.4551816080649763e-06,
       "W": 0.023786000448588262,
@@ -6431,7 +6601,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0014973296230289441,
-       "mean_rounding": 5.0745435219747536e-08
+       "mean_rounding": 5.0745435219747536e-08,
+       "z": 1.2838341267084525
+      },
+      "p_rel_error": {
+       "value": 0.004344482860548338,
+       "z": 1.2838341267084525,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.9004,
@@ -6450,17 +6626,17 @@
      },
      "unit_ev": 2,
      "p": {
-      "value": 2.6254702540059926e-08,
-      "event": 5.250940508011985e-08,
+      "value": 2.6264766783546874e-08,
+      "event": 5.252953356709375e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 38088415,
+      "commit": "32d7f50",
+      "one_in": 38073820,
       "p_state": 2.3570000649969542e-06,
-      "W": 0.01113903343914157,
+      "W": 0.011143303376863001,
       "n_other_voters": 795808,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.006736398525149184
+      "W_unconditional": 0.00673828557660963
      }
     },
     {
@@ -6538,8 +6714,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.01113903343914157,
-     "W_unconditional": 0.006736398525149184,
+     "W": 0.011143303376863001,
+     "W_unconditional": 0.00673828557660963,
      "unit_ev": 2,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -6556,17 +6732,17 @@
     }
    },
    "p": {
-    "value": 2.6254702540059926e-08,
-    "event": 5.250940508011985e-08,
+    "value": 2.6264766783546874e-08,
+    "event": 5.252953356709375e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 38088415,
+    "commit": "32d7f50",
+    "one_in": 38073820,
     "p_state": 2.3570000649969542e-06,
-    "W": 0.01113903343914157,
+    "W": 0.011143303376863001,
     "n_other_voters": 795808,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.006736398525149184
+    "W_unconditional": 0.00673828557660963
    },
    "notes": [
     "Maine gives two electors to the statewide winner and one to each district's; this contest is the statewide count, which decides the two at-large electors. A voter here also votes in a district contest.",
@@ -6822,7 +6998,7 @@
       "event": 5.610771461998971e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 3564572205,
       "p_state": 5.337071687921425e-09,
       "W": 0.052564138071228915,
@@ -6838,11 +7014,11 @@
      "published": true,
      "share": {
       "mean": 0.6589300971870098,
-      "sd": 0.0480887884556295,
+      "sd": null,
       "tails": "normal",
       "mean_mark": "stated (538's projected shares, made two-party here)",
-      "sd_mark": "inferred",
-      "sd_how": "implied by 538's projected share and chance of winning (normal)",
+      "sd_mark": null,
+      "sd_how": "not read from 538: p's estimated relative error under 538's implied sd is 22%, not under 20% (the sd's own error 2.2%, at z = 3.30; 538's chance 0.99952 out of 40,000 runs, its two-party mean 0.6589); the College stage under 538 takes the model's own sd for 2020 here (0.0408, inferred)",
       "sd_rel_error": {
        "value": 0.02188665730809268,
        "from_chance": 0.02188665730576768,
@@ -6850,7 +7026,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0001089465895519455,
-       "mean_rounding": 5.070168084184259e-08
+       "mean_rounding": 5.070168084184259e-08,
+       "z": 3.3049303650818986
+      },
+      "p_rel_error": {
+       "value": 0.2171717735782852,
+       "z": 3.3049303650818986,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.999525,
@@ -6868,19 +7050,8 @@
       "sha256": "d99482b55c46c12b008af15671c4495569f5dfe949e392907d76d993136c6da3"
      },
      "unit_ev": 10,
-     "p": {
-      "value": 4.532010655104507e-10,
-      "event": 9.064021310209014e-10,
-      "under": "538 (polls-plus)",
-      "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 2206526145,
-      "p_state": 5.950166114948064e-09,
-      "W": 0.07616611986208498,
-      "n_other_voters": 2961436,
-      "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.03530013728607233
-     }
+     "p": null,
+     "note": "No p under 538 here: p's estimated relative error under 538's implied sd is 22%, not under 20% (the sd's own error 2.2%, at z = 3.30; 538's chance 0.99952 out of 40,000 runs, its two-party mean 0.6589). The orchestrator's rules of 2026-11-07 04:12 and 04:20: where the implied sd breaks down, the contest's p falls back to the model's own forecast."
     },
     {
      "by": "The Economist",
@@ -6957,11 +7128,12 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.07616611986208498,
-     "W_unconditional": 0.03530013728607233,
+     "W": 0.052564138071228915,
+     "W_unconditional": 0.03264906413676024,
      "unit_ev": 10,
-     "method": "538's marginals with the model's own national swing",
-     "districts_modelled": true
+     "method": "the model's own joint forecast: a common national error (normal, sd 0.0188) and independent state errors (t4, sd 0.0363); W given the tie, by dynamic programming over the other units",
+     "national_swing_sd": 0.018751479968302055,
+     "districts_modelled": false
     },
     "source": {
      "name": "National Archives, Electoral College results, 2020",
@@ -6975,21 +7147,22 @@
     }
    },
    "p": {
-    "value": 4.532010655104507e-10,
-    "event": 9.064021310209014e-10,
-    "under": "538 (polls-plus)",
+    "value": 2.8053857309994856e-10,
+    "event": 5.610771461998971e-10,
+    "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 2206526145,
-    "p_state": 5.950166114948064e-09,
-    "W": 0.07616611986208498,
+    "commit": "32d7f50",
+    "one_in": 3564572205,
+    "p_state": 5.337071687921425e-09,
+    "W": 0.052564138071228915,
     "n_other_voters": 2961436,
-    "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.03530013728607233
+    "method": "density form at f(1/2) of the forecast; W by the swing model given the tie",
+    "W_unconditional": 0.03264906413676024,
+    "f_half": 0.03161079246238255
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
-    "The Economist's draws cannot fix p here (see its forecast's p_bound), so p is 538's, the other forecast published for 2020."
+    "p is the model's own forecast's: the Economist's draws cannot fix p here (see its forecast's p_bound), and 538's implied sd breaks down here (see its forecast's note) (the orchestrator's rules of 2026-11-07 04:12 and 04:20: where a published forecast's implied sd breaks down, fall back to the model's own forecast, marked)."
    ]
   },
   {
@@ -7096,7 +7269,7 @@
       "event": 4.3496483640188533e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 4598072839,
       "p_state": 3.736457262961256e-09,
       "W": 0.05820551471491507,
@@ -7112,11 +7285,11 @@
      "published": true,
      "share": {
       "mean": 0.6768235180400334,
-      "sd": 0.05273914140769676,
+      "sd": null,
       "tails": "normal",
       "mean_mark": "stated (538's projected shares, made two-party here)",
-      "sd_mark": "inferred",
-      "sd_how": "implied by 538's projected share and chance of winning (normal)",
+      "sd_mark": null,
+      "sd_how": "not read from 538: p's estimated relative error under 538's implied sd is 24%, not under 20% (the sd's own error 2.4%, at z = 3.35; 538's chance 0.99960 out of 40,000 runs, its two-party mean 0.6768); the College stage under 538 takes the model's own sd for 2020 here (0.0408, inferred)",
       "sd_rel_error": {
        "value": 0.023503239999977946,
        "from_chance": 0.023503239911794968,
@@ -7124,7 +7297,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 9.99799979995944e-05,
-       "mean_rounding": 3.600072688898825e-07
+       "mean_rounding": 3.600072688898825e-07,
+       "z": 3.352794780504859
+      },
+      "p_rel_error": {
+       "value": 0.24070215244392917,
+       "z": 3.352794780504859,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.9996,
@@ -7142,19 +7321,8 @@
       "sha256": "d99482b55c46c12b008af15671c4495569f5dfe949e392907d76d993136c6da3"
      },
      "unit_ev": 11,
-     "p": {
-      "value": 3.222691173229182e-10,
-      "event": 6.445382346458364e-10,
-      "under": "538 (polls-plus)",
-      "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 3102996677,
-      "p_state": 3.860015128243077e-09,
-      "W": 0.08348908141963736,
-      "n_other_voters": 3549403,
-      "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.03999547507612733
-     }
+     "p": null,
+     "note": "No p under 538 here: p's estimated relative error under 538's implied sd is 24%, not under 20% (the sd's own error 2.4%, at z = 3.35; 538's chance 0.99960 out of 40,000 runs, its two-party mean 0.6768). The orchestrator's rules of 2026-11-07 04:12 and 04:20: where the implied sd breaks down, the contest's p falls back to the model's own forecast."
     },
     {
      "by": "The Economist",
@@ -7231,11 +7399,12 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.08348908141963736,
-     "W_unconditional": 0.03999547507612733,
+     "W": 0.05820551471491507,
+     "W_unconditional": 0.03685135157429505,
      "unit_ev": 11,
-     "method": "538's marginals with the model's own national swing",
-     "districts_modelled": true
+     "method": "the model's own joint forecast: a common national error (normal, sd 0.0188) and independent state errors (t4, sd 0.0363); W given the tie, by dynamic programming over the other units",
+     "national_swing_sd": 0.018751479968302055,
+     "districts_modelled": false
     },
     "source": {
      "name": "National Archives, Electoral College results, 2020",
@@ -7249,21 +7418,22 @@
     }
    },
    "p": {
-    "value": 3.222691173229182e-10,
-    "event": 6.445382346458364e-10,
-    "under": "538 (polls-plus)",
+    "value": 2.1748241820094266e-10,
+    "event": 4.3496483640188533e-10,
+    "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 3102996677,
-    "p_state": 3.860015128243077e-09,
-    "W": 0.08348908141963736,
+    "commit": "32d7f50",
+    "one_in": 4598072839,
+    "p_state": 3.736457262961256e-09,
+    "W": 0.05820551471491507,
     "n_other_voters": 3549403,
-    "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.03999547507612733
+    "method": "density form at f(1/2) of the forecast; W by the swing model given the tie",
+    "W_unconditional": 0.03685135157429505,
+    "f_half": 0.026524385237052937
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
-    "The Economist's draws cannot fix p here (see its forecast's p_bound), so p is 538's, the other forecast published for 2020."
+    "p is the model's own forecast's: the Economist's draws cannot fix p here (see its forecast's p_bound), and 538's implied sd breaks down here (see its forecast's note) (the orchestrator's rules of 2026-11-07 04:12 and 04:20: where a published forecast's implied sd breaks down, fall back to the model's own forecast, marked)."
    ]
   },
   {
@@ -7414,7 +7584,7 @@
       "event": 1.1753329084969123e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 17016455,
       "p_state": 6.5249668535534e-07,
       "W": 0.09006428192480728,
@@ -7442,7 +7612,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0011236522760623058,
-       "mean_rounding": 5.0493962234959736e-08
+       "mean_rounding": 5.0493962234959736e-08,
+       "z": 1.6132048965686774
+      },
+      "p_rel_error": {
+       "value": 0.010365256111603176,
+       "z": 1.6132048965686774,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.94665,
@@ -7461,17 +7637,17 @@
      },
      "unit_ev": 16,
      "p": {
-      "value": 6.414001207065128e-08,
-      "event": 1.2828002414130255e-07,
+      "value": 6.415859995487191e-08,
+      "event": 1.2831719990974383e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 15590892,
+      "commit": "32d7f50",
+      "one_in": 15586375,
       "p_state": 3.9851729786800563e-07,
-      "W": 0.16094661991785192,
+      "W": 0.16099326252112178,
       "n_other_voters": 5453891,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.0586882314313417
+      "W_unconditional": 0.05869386956801234
      }
     },
     {
@@ -7505,7 +7681,7 @@
       "event": 8.956816791454429e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 22329361,
       "p_state": 2.128883125352695e-07,
       "W": 0.21036422067487948,
@@ -7518,6 +7694,12 @@
       "W_mvn": 0.198485,
       "W_mvn_se": 0.0012391981470894794,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.21985383678440926,
+       "+-0.0050": 0.2077338129496403,
+       "+-0.0100": 0.21036422067487948,
+       "+-0.0200": 0.19303219605958674
+      },
       "ratio_to_published": 0.923799075306348
      }
     }
@@ -7579,7 +7761,7 @@
     "event": 8.956816791454429e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 22329361,
     "p_state": 2.128883125352695e-07,
     "W": 0.21036422067487948,
@@ -7592,6 +7774,12 @@
     "W_mvn": 0.198485,
     "W_mvn_se": 0.0012391981470894794,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.21985383678440926,
+     "+-0.0050": 0.2077338129496403,
+     "+-0.0100": 0.21036422067487948,
+     "+-0.0200": 0.19303219605958674
+    },
     "ratio_to_published": 0.923799075306348
    },
    "notes": [
@@ -7731,7 +7919,7 @@
       "event": 1.011047732758017e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 19781460,
       "p_state": 8.157147851931736e-07,
       "W": 0.061973115549118406,
@@ -7759,7 +7947,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0010123119501295043,
-       "mean_rounding": 5.0846254553027876e-08
+       "mean_rounding": 5.0846254553027876e-08,
+       "z": 1.7188043675504496
+      },
+      "p_rel_error": {
+       "value": 0.01276066373157694,
+       "z": 1.7188043675504496,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.957175,
@@ -7778,17 +7972,17 @@
      },
      "unit_ev": 10,
      "p": {
-      "value": 5.096884836408186e-08,
-      "event": 1.0193769672816372e-07,
+      "value": 5.0984861072391825e-08,
+      "event": 1.0196972214478365e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 19619827,
+      "commit": "32d7f50",
+      "one_in": 19613665,
       "p_state": 5.288230997892982e-07,
-      "W": 0.09638166030264118,
+      "W": 0.09641194019834988,
       "n_other_voters": 3201141,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.03605641630712748
+      "W_unconditional": 0.03606188851351096
      }
     },
     {
@@ -7822,7 +8016,7 @@
       "event": 4.992778220227292e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 40057858,
       "p_state": 2.5566132831981e-07,
       "W": 0.09764437689969604,
@@ -7835,6 +8029,12 @@
       "W_mvn": 0.10401,
       "W_mvn_se": 0.0009048310333979486,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.06605504587155964,
+       "+-0.0050": 0.08340649692712906,
+       "+-0.0100": 0.09764437689969604,
+       "+-0.0200": 0.0976215368531103
+      },
       "ratio_to_published": 0.7159948522091982
      }
     }
@@ -7896,7 +8096,7 @@
     "event": 4.992778220227292e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 40057858,
     "p_state": 2.5566132831981e-07,
     "W": 0.09764437689969604,
@@ -7909,6 +8109,12 @@
     "W_mvn": 0.10401,
     "W_mvn_se": 0.0009048310333979486,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.06605504587155964,
+     "+-0.0050": 0.08340649692712906,
+     "+-0.0100": 0.09764437689969604,
+     "+-0.0200": 0.0976215368531103
+    },
     "ratio_to_published": 0.7159948522091982
    },
    "notes": [
@@ -8046,7 +8252,7 @@
       "event": 8.62365045056159e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 231920346,
       "p_state": 1.039637958791599e-06,
       "W": 0.004147429582402467,
@@ -8074,7 +8280,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0013901206725946491,
-       "mean_rounding": 5.036954117579031e-08
+       "mean_rounding": 5.036954117579031e-08,
+       "z": -1.3759083814845765
+      },
+      "p_rel_error": {
+       "value": 0.005864807912866854,
+       "z": -1.3759083814845765,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.084425,
@@ -8093,17 +8305,17 @@
      },
      "unit_ev": 6,
      "p": {
-      "value": 7.64193686003257e-09,
-      "event": 1.528387372006514e-08,
+      "value": 7.638771695322608e-09,
+      "event": 1.5277543390645216e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 130856878,
+      "commit": "32d7f50",
+      "one_in": 130911099,
       "p_state": 1.1381945210333952e-06,
-      "W": 0.0067140868443948095,
+      "W": 0.006711305979919123,
       "n_other_voters": 1296161,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.015727665397418406
+      "W_unconditional": 0.015723785801499118
      }
     },
     {
@@ -8181,8 +8393,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0067140868443948095,
-     "W_unconditional": 0.015727665397418406,
+     "W": 0.006711305979919123,
+     "W_unconditional": 0.015723785801499118,
      "unit_ev": 6,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -8199,17 +8411,17 @@
     }
    },
    "p": {
-    "value": 7.64193686003257e-09,
-    "event": 1.528387372006514e-08,
+    "value": 7.638771695322608e-09,
+    "event": 1.5277543390645216e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 130856878,
+    "commit": "32d7f50",
+    "one_in": 130911099,
     "p_state": 1.1381945210333952e-06,
-    "W": 0.0067140868443948095,
+    "W": 0.006711305979919123,
     "n_other_voters": 1296161,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.015727665397418406
+    "W_unconditional": 0.015723785801499118
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -8353,7 +8565,7 @@
       "event": 4.2208007627472656e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 473843735,
       "p_state": 3.284356173999412e-07,
       "W": 0.006425613634966287,
@@ -8381,7 +8593,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0012078187920275955,
-       "mean_rounding": 5.066032696580307e-08
+       "mean_rounding": 5.066032696580307e-08,
+       "z": -1.5363604545256615
+      },
+      "p_rel_error": {
+       "value": 0.008793003189507176,
+       "z": -1.5363604545256615,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.062225,
@@ -8400,17 +8618,17 @@
      },
      "unit_ev": 10,
      "p": {
-      "value": 1.4571947891926776e-09,
-      "event": 2.914389578385355e-09,
+      "value": 1.4562978860931378e-09,
+      "event": 2.9125957721862756e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 686250052,
+      "commit": "32d7f50",
+      "one_in": 686672699,
       "p_state": 6.623531765398413e-07,
-      "W": 0.00220002687509573,
+      "W": 0.0021986727589967856,
       "n_other_voters": 2971749,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.02582323301778511
+      "W_unconditional": 0.025816091770665888
      }
     },
     {
@@ -8488,8 +8706,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.00220002687509573,
-     "W_unconditional": 0.02582323301778511,
+     "W": 0.0021986727589967856,
+     "W_unconditional": 0.025816091770665888,
      "unit_ev": 10,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -8506,17 +8724,17 @@
     }
    },
    "p": {
-    "value": 1.4571947891926776e-09,
-    "event": 2.914389578385355e-09,
+    "value": 1.4562978860931378e-09,
+    "event": 2.9125957721862756e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 686250052,
+    "commit": "32d7f50",
+    "one_in": 686672699,
     "p_state": 6.623531765398413e-07,
-    "W": 0.00220002687509573,
+    "W": 0.0021986727589967856,
     "n_other_voters": 2971749,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.02582323301778511
+    "W_unconditional": 0.025816091770665888
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -8646,7 +8864,7 @@
       "event": 3.883174130595944e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 515042574,
       "p_state": 9.202424582215243e-07,
       "W": 0.0021098646861505556,
@@ -8674,7 +8892,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0019156093963475435,
-       "mean_rounding": 5.0982395065230454e-08
+       "mean_rounding": 5.0982395065230454e-08,
+       "z": -0.9202349386411979
+      },
+      "p_rel_error": {
+       "value": 0.0012246903856003677,
+       "z": -0.9202349386411979,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.178725,
@@ -8693,17 +8917,17 @@
      },
      "unit_ev": 3,
      "p": {
-      "value": 1.7848223236793848e-08,
-      "event": 3.5696446473587695e-08,
+      "value": 1.7836784649944196e-08,
+      "event": 3.567356929988839e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 56027986,
+      "commit": "32d7f50",
+      "one_in": 56063916,
       "p_state": 6.298597675052752e-06,
-      "W": 0.0028336820602919946,
+      "W": 0.0028318660073481847,
       "n_other_voters": 588387,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.008265782646680084
+      "W_unconditional": 0.008262349265994739
      }
     },
     {
@@ -8781,8 +9005,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0028336820602919946,
-     "W_unconditional": 0.008265782646680084,
+     "W": 0.0028318660073481847,
+     "W_unconditional": 0.008262349265994739,
      "unit_ev": 3,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -8799,17 +9023,17 @@
     }
    },
    "p": {
-    "value": 1.7848223236793848e-08,
-    "event": 3.5696446473587695e-08,
+    "value": 1.7836784649944196e-08,
+    "event": 3.567356929988839e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 56027986,
+    "commit": "32d7f50",
+    "one_in": 56063916,
     "p_state": 6.298597675052752e-06,
-    "W": 0.0028336820602919946,
+    "W": 0.0028318660073481847,
     "n_other_voters": 588387,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.008265782646680084
+    "W_unconditional": 0.008262349265994739
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -8913,7 +9137,7 @@
       "event": 1.7066497371787338e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 1171886625,
       "p_state": 1.969003401876136e-07,
       "W": 0.004333790727716818,
@@ -8941,7 +9165,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0003731166037581281,
-       "mean_rounding": 5.083368772885961e-08
+       "mean_rounding": 5.083368772885961e-08,
+       "z": -2.5363960132149588
+      },
+      "p_rel_error": {
+       "value": 0.051520048520362585,
+       "z": -2.5363960132149588,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.0056,
@@ -8960,17 +9190,17 @@
      },
      "unit_ev": 2,
      "p": {
-      "value": 5.804076915641174e-11,
-      "event": 1.1608153831282348e-10,
+      "value": 5.7979307881527345e-11,
+      "event": 1.1595861576305469e-10,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 17229268573,
+      "commit": "32d7f50",
+      "one_in": 17247532551,
       "p_state": 2.3791759212224422e-07,
-      "W": 0.00024395324716715302,
+      "W": 0.0002436949170691718,
       "n_other_voters": 931428,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.0060277941794678195
+      "W_unconditional": 0.00602385830616148
      }
     },
     {
@@ -9048,8 +9278,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.00024395324716715302,
-     "W_unconditional": 0.0060277941794678195,
+     "W": 0.0002436949170691718,
+     "W_unconditional": 0.00602385830616148,
      "unit_ev": 2,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -9066,17 +9296,17 @@
     }
    },
    "p": {
-    "value": 5.804076915641174e-11,
-    "event": 1.1608153831282348e-10,
+    "value": 5.7979307881527345e-11,
+    "event": 1.1595861576305469e-10,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 17229268573,
+    "commit": "32d7f50",
+    "one_in": 17247532551,
     "p_state": 2.3791759212224422e-07,
-    "W": 0.00024395324716715302,
+    "W": 0.0002436949170691718,
     "n_other_voters": 931428,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.0060277941794678195
+    "W_unconditional": 0.00602385830616148
    },
    "notes": [
     "Nebraska gives two electors to the statewide winner and one to each district's; this contest is the statewide count, which decides the two at-large electors. A voter here also votes in a district contest.",
@@ -9188,7 +9418,7 @@
       "event": 1.2058979421879437e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 16585151,
       "p_state": 1.6019163226138615e-06,
       "W": 0.03763923012596154,
@@ -9216,7 +9446,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0016413247507729846,
-       "mean_rounding": 5.073845766048219e-08
+       "mean_rounding": 5.073845766048219e-08,
+       "z": 1.1608571429992336
+      },
+      "p_rel_error": {
+       "value": 0.0024279775530919993,
+       "z": 1.1608571429992336,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.87715,
@@ -9235,17 +9471,17 @@
      },
      "unit_ev": 6,
      "p": {
-      "value": 1.218746619442031e-07,
-      "event": 2.437493238884062e-07,
+      "value": 1.2192377179779454e-07,
+      "event": 2.438475435955891e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 8205151,
+      "commit": "32d7f50",
+      "one_in": 8201846,
       "p_state": 2.7635538373328567e-06,
-      "W": 0.044100701168834834,
+      "W": 0.04411847171230246,
       "n_other_voters": 1373375,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.01909251974260598
+      "W_unconditional": 0.019098702127367407
      }
     },
     {
@@ -9279,7 +9515,7 @@
       "event": 8.716769298134793e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 22944281,
       "p_state": 1.9833480273158645e-06,
       "W": 0.021974885844748857,
@@ -9292,6 +9528,12 @@
       "W_mvn": 0.02297,
       "W_mvn_se": 0.00043350177738966646,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.02126631222812953,
+       "+-0.0050": 0.0223342939481268,
+       "+-0.0100": 0.021974885844748857,
+       "+-0.0200": 0.017574121293935305
+      },
       "ratio_to_published": 0.6743588023349896
      }
     }
@@ -9353,7 +9595,7 @@
     "event": 8.716769298134793e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 22944281,
     "p_state": 1.9833480273158645e-06,
     "W": 0.021974885844748857,
@@ -9366,6 +9608,12 @@
     "W_mvn": 0.02297,
     "W_mvn_se": 0.00043350177738966646,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.02126631222812953,
+     "+-0.0050": 0.0223342939481268,
+     "+-0.0100": 0.021974885844748857,
+     "+-0.0200": 0.017574121293935305
+    },
     "ratio_to_published": 0.6743588023349896
    },
    "notes": [
@@ -9602,7 +9850,7 @@
       "event": 1.7254151344115177e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 11591413,
       "p_state": 4.0907273917842505e-06,
       "W": 0.021089343888776518,
@@ -9630,7 +9878,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0015569405897464424,
-       "mean_rounding": 5.048398491498143e-08
+       "mean_rounding": 5.048398491498143e-08,
+       "z": 1.2329350428482886
+      },
+      "p_rel_error": {
+       "value": 0.0035389430363970053,
+       "z": 1.2329350428482886,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.8912,
@@ -9649,17 +9903,17 @@
      },
      "unit_ev": 4,
      "p": {
-      "value": 6.167538811126768e-08,
-      "event": 1.2335077622253537e-07,
+      "value": 6.168472925471989e-08,
+      "event": 1.2336945850943978e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 16213923,
+      "commit": "32d7f50",
+      "one_in": 16211468,
       "p_state": 2.716809615871501e-06,
-      "W": 0.02270140231798443,
+      "W": 0.022704840594777047,
       "n_other_voters": 790596,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.013314641703283971
+      "W_unconditional": 0.013316064909583692
      }
     },
     {
@@ -9693,7 +9947,7 @@
       "event": 1.0619232057915422e-07,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 18833754,
       "p_state": 1.248743029032647e-06,
       "W": 0.04251968503937008,
@@ -9706,6 +9960,12 @@
       "W_mvn": 0.04166,
       "W_mvn_se": 0.0005685019296361271,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.04277286135693215,
+       "+-0.0050": 0.04006968641114982,
+       "+-0.0100": 0.04251968503937008,
+       "+-0.0200": 0.0316937997921718
+      },
       "ratio_to_published": 0.9175898542382898
      }
     }
@@ -9767,7 +10027,7 @@
     "event": 1.0619232057915422e-07,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 18833754,
     "p_state": 1.248743029032647e-06,
     "W": 0.04251968503937008,
@@ -9780,6 +10040,12 @@
     "W_mvn": 0.04166,
     "W_mvn_se": 0.0005685019296361271,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.04277286135693215,
+     "+-0.0050": 0.04006968641114982,
+     "+-0.0100": 0.04251968503937008,
+     "+-0.0200": 0.0316937997921718
+    },
     "ratio_to_published": 0.9175898542382898
    },
    "notes": [
@@ -9911,7 +10177,7 @@
       "event": 6.10414185334657e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 327646383,
       "p_state": 3.5417355029437865e-08,
       "W": 0.08617444538522127,
@@ -9939,7 +10205,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.000429956320455926,
-       "mean_rounding": 5.0414736832553005e-08
+       "mean_rounding": 5.0414736832553005e-08,
+       "z": 2.4348005526400582
+      },
+      "p_rel_error": {
+       "value": 0.04338749911372701,
+       "z": 2.4348005526400582,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.99255,
@@ -9958,17 +10230,17 @@
      },
      "unit_ev": 14,
      "p": {
-      "value": 5.6623660954725276e-09,
-      "event": 1.1324732190945055e-08,
+      "value": 5.663694843302101e-09,
+      "event": 1.1327389686604202e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 176604618,
+      "commit": "32d7f50",
+      "one_in": 176563185,
       "p_state": 5.448876304812016e-08,
-      "W": 0.10391805169942973,
+      "W": 0.103942437421462,
       "n_other_voters": 4491712,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.0493359282829403
+      "W_unconditional": 0.049339847152143845
      }
     },
     {
@@ -10046,8 +10318,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.10391805169942973,
-     "W_unconditional": 0.0493359282829403,
+     "W": 0.103942437421462,
+     "W_unconditional": 0.049339847152143845,
      "unit_ev": 14,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -10064,17 +10336,17 @@
     }
    },
    "p": {
-    "value": 5.6623660954725276e-09,
-    "event": 1.1324732190945055e-08,
+    "value": 5.663694843302101e-09,
+    "event": 1.1327389686604202e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 176604618,
+    "commit": "32d7f50",
+    "one_in": 176563185,
     "p_state": 5.448876304812016e-08,
-    "W": 0.10391805169942973,
+    "W": 0.103942437421462,
     "n_other_voters": 4491712,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.0493359282829403
+    "W_unconditional": 0.049339847152143845
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -10194,7 +10466,7 @@
       "event": 3.4821251178961374e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 57436190,
       "p_state": 5.610188893542644e-07,
       "W": 0.03103393828596468,
@@ -10222,7 +10494,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0007239815152163767,
-       "mean_rounding": 2.496943058089938e-07
+       "mean_rounding": 2.496943058089938e-07,
+       "z": 2.025169133331153
+      },
+      "p_rel_error": {
+       "value": 0.02191708520342914,
+       "z": 2.025169133331153,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.978575,
@@ -10241,17 +10519,17 @@
      },
      "unit_ev": 5,
      "p": {
-      "value": 3.6208989609160867e-08,
-      "event": 7.241797921832173e-08,
+      "value": 3.621930302174774e-08,
+      "event": 7.243860604349548e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 27617451,
+      "commit": "32d7f50",
+      "one_in": 27609587,
       "p_state": 8.670192911862167e-07,
-      "W": 0.04176261125588262,
+      "W": 0.04177450650745512,
       "n_other_voters": 903507,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.016730185521422636
+      "W_unconditional": 0.01673244435841524
      }
     },
     {
@@ -10285,7 +10563,7 @@
       "event": 5.712951357641453e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 35008175,
       "p_state": 2.20946672988302e-07,
       "W": 0.1292834890965732,
@@ -10298,6 +10576,12 @@
       "W_mvn": 0.124975,
       "W_mvn_se": 0.0010326361865390927,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.13358778625954199,
+       "+-0.0050": 0.13240418118466898,
+       "+-0.0100": 0.1292834890965732,
+       "+-0.0200": 0.08749394086282114
+      },
       "ratio_to_published": 1.0884452441889862
      }
     }
@@ -10359,7 +10643,7 @@
     "event": 5.712951357641453e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 35008175,
     "p_state": 2.20946672988302e-07,
     "W": 0.1292834890965732,
@@ -10372,6 +10656,12 @@
     "W_mvn": 0.124975,
     "W_mvn_se": 0.0010326361865390927,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.13358778625954199,
+     "+-0.0050": 0.13240418118466898,
+     "+-0.0100": 0.1292834890965732,
+     "+-0.0200": 0.08749394086282114
+    },
     "ratio_to_published": 1.0884452441889862
    },
    "notes": [
@@ -10607,7 +10897,7 @@
       "event": 1.283670338531292e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 1558032417,
       "p_state": 3.6381872104687815e-09,
       "W": 0.17641620184326506,
@@ -10623,11 +10913,11 @@
      "published": true,
      "share": {
       "mean": 0.6469284150592619,
-      "sd": 0.03875645567825159,
+      "sd": null,
       "tails": "normal",
       "mean_mark": "stated (538's projected shares, made two-party here)",
-      "sd_mark": "inferred",
-      "sd_how": "implied by 538's projected share and chance of winning (normal)",
+      "sd_mark": null,
+      "sd_how": "not read from 538: p's estimated relative error under 538's implied sd is 74%, not under 20% (the sd's own error 5.5%, at z = 3.79; 538's chance 0.99992 out of 40,000 runs, its two-party mean 0.6469); the College stage under 538 takes the model's own sd for 2020 here (0.0408, inferred)",
       "sd_rel_error": {
        "value": 0.05505388938185265,
        "from_chance": 0.05505388938077987,
@@ -10635,7 +10925,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 4.329964636115613e-05,
-       "mean_rounding": 5.049756258364921e-08
+       "mean_rounding": 5.049756258364921e-08,
+       "z": 3.791069448636699
+      },
+      "p_rel_error": {
+       "value": 0.7361920360266461,
+       "z": 3.791069448636699,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.999925,
@@ -10653,19 +10949,8 @@
       "sha256": "d99482b55c46c12b008af15671c4495569f5dfe949e392907d76d993136c6da3"
      },
      "unit_ev": 29,
-     "p": {
-      "value": 7.277368401775394e-11,
-      "event": 1.4554736803550787e-10,
-      "under": "538 (polls-plus)",
-      "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 13741230961,
-      "p_state": 4.5855476492834244e-10,
-      "W": 0.158702274152851,
-      "n_other_voters": 8496882,
-      "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.11034912203417288
-     }
+     "p": null,
+     "note": "No p under 538 here: p's estimated relative error under 538's implied sd is 74%, not under 20% (the sd's own error 5.5%, at z = 3.79; 538's chance 0.99992 out of 40,000 runs, its two-party mean 0.6469). The orchestrator's rules of 2026-11-07 04:12 and 04:20: where the implied sd breaks down, the contest's p falls back to the model's own forecast."
     },
     {
      "by": "The Economist",
@@ -10742,11 +11027,12 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.158702274152851,
-     "W_unconditional": 0.11034912203417288,
+     "W": 0.17641620184326506,
+     "W_unconditional": 0.11653448576467546,
      "unit_ev": 29,
-     "method": "538's marginals with the model's own national swing",
-     "districts_modelled": true
+     "method": "the model's own joint forecast: a common national error (normal, sd 0.0188) and independent state errors (t4, sd 0.0363); W given the tie, by dynamic programming over the other units",
+     "national_swing_sd": 0.018751479968302055,
+     "districts_modelled": false
     },
     "source": {
      "name": "National Archives, Electoral College results, 2020",
@@ -10760,21 +11046,22 @@
     }
    },
    "p": {
-    "value": 7.277368401775394e-11,
-    "event": 1.4554736803550787e-10,
-    "under": "538 (polls-plus)",
+    "value": 6.41835169265646e-10,
+    "event": 1.283670338531292e-09,
+    "under": "the model's own",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 13741230961,
-    "p_state": 4.5855476492834244e-10,
-    "W": 0.158702274152851,
+    "commit": "32d7f50",
+    "one_in": 1558032417,
+    "p_state": 3.6381872104687815e-09,
+    "W": 0.17641620184326506,
     "n_other_voters": 8496882,
-    "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.11034912203417288
+    "method": "density form at f(1/2) of the forecast; W by the swing model given the tie",
+    "W_unconditional": 0.11653448576467546,
+    "f_half": 0.0618264948425248
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
-    "The Economist's draws cannot fix p here (see its forecast's p_bound), so p is 538's, the other forecast published for 2020."
+    "p is the model's own forecast's: the Economist's draws cannot fix p here (see its forecast's p_bound), and 538's implied sd breaks down here (see its forecast's note) (the orchestrator's rules of 2026-11-07 04:12 and 04:20: where a published forecast's implied sd breaks down, fall back to the model's own forecast, marked)."
    ]
   },
   {
@@ -10893,7 +11180,7 @@
       "event": 9.882719706656251e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 20237344,
       "p_state": 9.640299714309348e-07,
       "W": 0.051257326014392854,
@@ -10921,7 +11208,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00240336011853717,
-       "mean_rounding": 5.035184864798237e-08
+       "mean_rounding": 5.035184864798237e-08,
+       "z": 0.3522510431106315
+      },
+      "p_rel_error": {
+       "value": 0.01595725243892247,
+       "z": 0.3522510431106315,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.637675,
@@ -10940,17 +11233,17 @@
      },
      "unit_ev": 15,
      "p": {
-      "value": 6.429366686393401e-08,
-      "event": 1.2858733372786801e-07,
+      "value": 6.427682477443292e-08,
+      "event": 1.2855364954886583e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 15553631,
+      "commit": "32d7f50",
+      "one_in": 15557707,
       "p_state": 1.3680318216332528e-06,
-      "W": 0.046997201269174935,
+      "W": 0.046984890086617076,
       "n_other_voters": 5443066,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.04388618048554328
+      "W_unconditional": 0.04388217237654407
      }
     },
     {
@@ -10984,7 +11277,7 @@
       "event": 3.816074300514997e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 52409881,
       "p_state": 1.5491662107988876e-06,
       "W": 0.012316542517884799,
@@ -10997,6 +11290,12 @@
       "W_mvn": 0.01168,
       "W_mvn_se": 0.00032952355909706966,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.010980556721219751,
+       "+-0.0050": 0.011308677098150782,
+       "+-0.0100": 0.012316542517884799,
+       "+-0.0200": 0.013527428375295282
+      },
       "ratio_to_published": 0.9447289940603967
      }
     }
@@ -11058,7 +11357,7 @@
     "event": 3.816074300514997e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 52409881,
     "p_state": 1.5491662107988876e-06,
     "W": 0.012316542517884799,
@@ -11071,6 +11370,12 @@
     "W_mvn": 0.01168,
     "W_mvn_se": 0.00032952355909706966,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.010980556721219751,
+     "+-0.0050": 0.011308677098150782,
+     "+-0.0100": 0.012316542517884799,
+     "+-0.0200": 0.013527428375295282
+    },
     "ratio_to_published": 0.9447289940603967
    },
    "notes": [
@@ -11174,7 +11479,7 @@
       "event": 4.107797831070915e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 4868788782,
       "p_state": 5.685431304586902e-08,
       "W": 0.0036125648266621554,
@@ -11202,7 +11507,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0007656337142361222,
-       "mean_rounding": 5.1253181284962355e-08
+       "mean_rounding": 5.1253181284962355e-08,
+       "z": -1.976925959428919
+      },
+      "p_rel_error": {
+       "value": 0.020197947354131166,
+       "z": -1.976925959428919,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.024025,
@@ -11221,17 +11532,17 @@
      },
      "unit_ev": 3,
      "p": {
-      "value": 3.7645929353151745e-09,
-      "event": 7.529185870630349e-09,
+      "value": 3.762390417383814e-09,
+      "event": 7.524780834767628e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 265632969,
+      "commit": "32d7f50",
+      "one_in": 265788472,
       "p_state": 1.4321045102203574e-06,
-      "W": 0.0026287138322997933,
+      "W": 0.002627175873361991,
       "n_other_voters": 350792,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.008237728215195708
+      "W_unconditional": 0.008234377499793251
      }
     },
     {
@@ -11309,8 +11620,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0026287138322997933,
-     "W_unconditional": 0.008237728215195708,
+     "W": 0.002627175873361991,
+     "W_unconditional": 0.008234377499793251,
      "unit_ev": 3,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -11327,17 +11638,17 @@
     }
    },
    "p": {
-    "value": 3.7645929353151745e-09,
-    "event": 7.529185870630349e-09,
+    "value": 3.762390417383814e-09,
+    "event": 7.524780834767628e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 265632969,
+    "commit": "32d7f50",
+    "one_in": 265788472,
     "p_state": 1.4321045102203574e-06,
-    "W": 0.0026287138322997933,
+    "W": 0.002627175873361991,
     "n_other_voters": 350792,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.008237728215195708
+    "W_unconditional": 0.008234377499793251
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -11487,7 +11798,7 @@
       "event": 4.666203879992078e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 42861393,
       "p_state": 9.457722721267102e-07,
       "W": 0.024668749642550957,
@@ -11515,7 +11826,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.002489362842049146,
-       "mean_rounding": 5.0507555475731176e-08
+       "mean_rounding": 5.0507555475731176e-08,
+       "z": -0.11575085579920821
+      },
+      "p_rel_error": {
+       "value": 0.05356313904320904,
+       "z": -0.11575085579920821,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.453925,
@@ -11534,17 +11851,17 @@
      },
      "unit_ev": 18,
      "p": {
-      "value": 3.198935236256476e-08,
-      "event": 6.397870472512952e-08,
+      "value": 3.197830467389797e-08,
+      "event": 6.395660934779594e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 31260402,
+      "commit": "32d7f50",
+      "one_in": 31271201,
       "p_state": 1.3090012198278023e-06,
-      "W": 0.02443798514318644,
+      "W": 0.024429545358334106,
       "n_other_voters": 5833998,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.049656218925518615
+      "W_unconditional": 0.04965108101562933
      }
     },
     {
@@ -11578,7 +11895,7 @@
       "event": 1.385769606782152e-09,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 1443241351,
       "p_state": 1.6339822628892473e-06,
       "W": 0.00042404671037609684,
@@ -11591,6 +11908,14 @@
       "W_mvn": 0.000155,
       "W_mvn_se": 3.904817217233093e-05,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.0,
+       "+-0.0050": 0.00012606366214938544,
+       "+-0.0100": 0.00042404671037609684,
+       "+-0.0200": 0.0018177144535840189
+      },
+      "W_thin": true,
+      "W_thin_note": "the window holds 13 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0 to 0.0018 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure",
       "ratio_to_published": 0.1391898307947685
      }
     }
@@ -11652,7 +11977,7 @@
     "event": 1.385769606782152e-09,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 1443241351,
     "p_state": 1.6339822628892473e-06,
     "W": 0.00042404671037609684,
@@ -11665,10 +11990,19 @@
     "W_mvn": 0.000155,
     "W_mvn_se": 3.904817217233093e-05,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.0,
+     "+-0.0050": 0.00012606366214938544,
+     "+-0.0100": 0.00042404671037609684,
+     "+-0.0200": 0.0018177144535840189
+    },
+    "W_thin": true,
+    "W_thin_note": "the window holds 13 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0 to 0.0018 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure",
     "ratio_to_published": 0.1391898307947685
    },
    "notes": [
-    "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
+    "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
+    "The Economist's W here is thin: the window holds 13 weighted decisive draws, under 30, and W read at the four window widths (+-0.0025 to +-0.02) runs from 0 to 0.0018 (W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled figure."
    ]
   },
   {
@@ -11784,7 +12118,7 @@
       "event": 2.5180969876238177e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 7942505828,
       "p_state": 1.52054441369532e-08,
       "W": 0.008280248064258066,
@@ -11812,7 +12146,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.000382115309003709,
-       "mean_rounding": 5.0536505651295295e-08
+       "mean_rounding": 5.0536505651295295e-08,
+       "z": -2.519564831317692
+      },
+      "p_rel_error": {
+       "value": 0.05006599948201729,
+       "z": -2.519564831317692,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.005875,
@@ -11831,17 +12171,17 @@
      },
      "unit_ev": 7,
      "p": {
-      "value": 3.252755740547262e-10,
-      "event": 6.505511481094524e-10,
+      "value": 3.250907267090596e-10,
+      "event": 6.501814534181192e-10,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 3074316302,
+      "commit": "32d7f50",
+      "one_in": 3076064366,
       "p_state": 1.0816452945020942e-07,
-      "W": 0.0030072295946561474,
+      "W": 0.0030055206486032577,
       "n_other_voters": 1524169,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.018282252679902126
+      "W_unconditional": 0.018276301209670956
      }
     },
     {
@@ -11919,8 +12259,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0030072295946561474,
-     "W_unconditional": 0.018282252679902126,
+     "W": 0.0030055206486032577,
+     "W_unconditional": 0.018276301209670956,
      "unit_ev": 7,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -11937,17 +12277,17 @@
     }
    },
    "p": {
-    "value": 3.252755740547262e-10,
-    "event": 6.505511481094524e-10,
+    "value": 3.250907267090596e-10,
+    "event": 6.501814534181192e-10,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 3074316302,
+    "commit": "32d7f50",
+    "one_in": 3076064366,
     "p_state": 1.0816452945020942e-07,
-    "W": 0.0030072295946561474,
+    "W": 0.0030055206486032577,
     "n_other_voters": 1524169,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.018282252679902126
+    "W_unconditional": 0.018276301209670956
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -12063,7 +12403,7 @@
       "event": 9.847350244914319e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 203100321,
       "p_state": 1.1206673741299621e-07,
       "W": 0.043935205361713046,
@@ -12091,7 +12431,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0006652086021504825,
-       "mean_rounding": 5.103985538979853e-08
+       "mean_rounding": 5.103985538979853e-08,
+       "z": 2.0963630225638776
+      },
+      "p_rel_error": {
+       "value": 0.024696388505523272,
+       "z": 2.0963630225638776,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.981975,
@@ -12110,17 +12456,17 @@
      },
      "unit_ev": 7,
      "p": {
-      "value": 9.560274643591916e-09,
-      "event": 1.9120549287183832e-08,
+      "value": 9.56395831837533e-09,
+      "event": 1.912791663675066e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 104599505,
+      "commit": "32d7f50",
+      "one_in": 104559218,
       "p_state": 2.039860247270659e-07,
-      "W": 0.046867302092795826,
+      "W": 0.046885360559243916,
       "n_other_voters": 2298830,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.02338210426811053
+      "W_unconditional": 0.02338818354230845
      }
     },
     {
@@ -12198,8 +12544,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.046867302092795826,
-     "W_unconditional": 0.02338210426811053,
+     "W": 0.046885360559243916,
+     "W_unconditional": 0.02338818354230845,
      "unit_ev": 7,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -12216,17 +12562,17 @@
     }
    },
    "p": {
-    "value": 9.560274643591916e-09,
-    "event": 1.9120549287183832e-08,
+    "value": 9.56395831837533e-09,
+    "event": 1.912791663675066e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 104599505,
+    "commit": "32d7f50",
+    "one_in": 104559218,
     "p_state": 2.039860247270659e-07,
-    "W": 0.046867302092795826,
+    "W": 0.046885360559243916,
     "n_other_voters": 2298830,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.02338210426811053
+    "W_unconditional": 0.02338818354230845
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -12328,7 +12674,7 @@
       "event": 1.197696844587376e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 16698716,
       "p_state": 5.598672707854406e-07,
       "W": 0.10696257015588008,
@@ -12356,7 +12702,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.001821827653758719,
-       "mean_rounding": 5.035008413499059e-08
+       "mean_rounding": 5.035008413499059e-08,
+       "z": 1.0043706321915893
+      },
+      "p_rel_error": {
+       "value": 6.624634942589957e-05,
+       "z": 1.0043706321915893,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.8424,
@@ -12375,17 +12727,17 @@
      },
      "unit_ev": 20,
      "p": {
-      "value": 1.4371128621088483e-07,
-      "event": 2.8742257242176965e-07,
+      "value": 1.4374648771713604e-07,
+      "event": 2.874929754342721e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 6958396,
+      "commit": "32d7f50",
+      "one_in": 6956692,
       "p_state": 7.546795793637515e-07,
-      "W": 0.19042689128019558,
+      "W": 0.19047353558754637,
       "n_other_voters": 6835902,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.07930091421906442
+      "W_unconditional": 0.07931955954358498
      }
     },
     {
@@ -12419,7 +12771,7 @@
       "event": 2.25706929057964e-07,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 8861048,
       "p_state": 4.399965991087637e-07,
       "W": 0.2564871291222992,
@@ -12432,6 +12784,12 @@
       "W_mvn": 0.30134,
       "W_mvn_se": 0.0014230221516195734,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.3122503328894807,
+       "+-0.0050": 0.2934571366875405,
+       "+-0.0100": 0.2564871291222992,
+       "+-0.0200": 0.17651877133105803
+      },
       "ratio_to_published": 0.98766308912339
      }
     }
@@ -12493,7 +12851,7 @@
     "event": 2.25706929057964e-07,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 8861048,
     "p_state": 4.399965991087637e-07,
     "W": 0.2564871291222992,
@@ -12506,6 +12864,12 @@
     "W_mvn": 0.30134,
     "W_mvn_se": 0.0014230221516195734,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.3122503328894807,
+     "+-0.0050": 0.2934571366875405,
+     "+-0.0100": 0.2564871291222992,
+     "+-0.0200": 0.17651877133105803
+    },
     "ratio_to_published": 0.98766308912339
    },
    "notes": [
@@ -12621,7 +12985,7 @@
       "event": 9.18923525422602e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 217645968,
       "p_state": 2.0720119013819849e-07,
       "W": 0.02217466812834668,
@@ -12649,7 +13013,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.000151998715043907,
-       "mean_rounding": 3.254982748864686e-06
+       "mean_rounding": 3.254982748864686e-06,
+       "z": 3.113312529010383
+      },
+      "p_rel_error": {
+       "value": 0.14684938599008612,
+       "z": 3.113312529010383,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.999075,
@@ -12668,17 +13038,17 @@
      },
      "unit_ev": 4,
      "p": {
-      "value": 2.131265263522963e-09,
-      "event": 4.262530527045926e-09,
+      "value": 2.132085003002488e-09,
+      "event": 4.264170006004976e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 469204851,
+      "commit": "32d7f50",
+      "one_in": 469024452,
       "p_state": 6.953630494858108e-08,
-      "W": 0.030649676670322593,
+      "W": 0.030661465324898517,
       "n_other_voters": 507407,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.01296942311172375
+      "W_unconditional": 0.012971993034847053
      }
     },
     {
@@ -12756,8 +13126,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.030649676670322593,
-     "W_unconditional": 0.01296942311172375,
+     "W": 0.030661465324898517,
+     "W_unconditional": 0.012971993034847053,
      "unit_ev": 4,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -12774,17 +13144,17 @@
     }
    },
    "p": {
-    "value": 2.131265263522963e-09,
-    "event": 4.262530527045926e-09,
+    "value": 2.132085003002488e-09,
+    "event": 4.264170006004976e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 469204851,
+    "commit": "32d7f50",
+    "one_in": 469024452,
     "p_state": 6.953630494858108e-08,
-    "W": 0.030649676670322593,
+    "W": 0.030661465324898517,
     "n_other_voters": 507407,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.01296942311172375
+    "W_unconditional": 0.012971993034847053
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -12904,7 +13274,7 @@
       "event": 1.3357928696539596e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 149723812,
       "p_state": 1.0447793546245813e-06,
       "W": 0.006392703223610059,
@@ -12932,7 +13302,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0015009994795135673,
-       "mean_rounding": 5.037471229742441e-08
+       "mean_rounding": 5.037471229742441e-08,
+       "z": -1.2806973242250623
+      },
+      "p_rel_error": {
+       "value": 0.004294216069151497,
+       "z": -1.2806973242250623,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.10015,
@@ -12951,17 +13327,17 @@
      },
      "unit_ev": 9,
      "p": {
-      "value": 2.763853864260112e-09,
-      "event": 5.527707728520224e-09,
+      "value": 2.7620635065374017e-09,
+      "event": 5.524127013074803e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 361813630,
+      "commit": "32d7f50",
+      "one_in": 362048156,
       "p_state": 1.2031058395654278e-06,
-      "W": 0.002297265771113238,
+      "W": 0.002295777657878448,
       "n_other_voters": 2476643,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.02259572101778306
+      "W_unconditional": 0.02258900140518708
      }
     },
     {
@@ -13039,8 +13415,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.002297265771113238,
-     "W_unconditional": 0.02259572101778306,
+     "W": 0.002295777657878448,
+     "W_unconditional": 0.02258900140518708,
      "unit_ev": 9,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -13057,17 +13433,17 @@
     }
    },
    "p": {
-    "value": 2.763853864260112e-09,
-    "event": 5.527707728520224e-09,
+    "value": 2.7620635065374017e-09,
+    "event": 5.524127013074803e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 361813630,
+    "commit": "32d7f50",
+    "one_in": 362048156,
     "p_state": 1.2031058395654278e-06,
-    "W": 0.002297265771113238,
+    "W": 0.002295777657878448,
     "n_other_voters": 2476643,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.02259572101778306
+    "W_unconditional": 0.02258900140518708
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -13169,7 +13545,7 @@
       "event": 1.009708387223044e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 1980769919,
       "p_state": 1.7097802386502503e-07,
       "W": 0.002952743178328394,
@@ -13197,7 +13573,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0011121506192957858,
-       "mean_rounding": 5.070545999435547e-08
+       "mean_rounding": 5.070545999435547e-08,
+       "z": -1.623886660628952
+      },
+      "p_rel_error": {
+       "value": 0.01059439485812675,
+       "z": -1.623886660628952,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.0522,
@@ -13216,17 +13598,17 @@
      },
      "unit_ev": 3,
      "p": {
-      "value": 7.445762863614875e-09,
-      "event": 1.489152572722975e-08,
+      "value": 7.44147662326742e-09,
+      "event": 1.488295324653484e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 134304573,
+      "commit": "32d7f50",
+      "one_in": 134381931,
       "p_state": 2.4453863285983317e-06,
-      "W": 0.0030448206798811637,
+      "W": 0.0030430678932979855,
       "n_other_voters": 411513,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.008245457624262017
+      "W_unconditional": 0.008242083028589024
      }
     },
     {
@@ -13304,8 +13686,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0030448206798811637,
-     "W_unconditional": 0.008245457624262017,
+     "W": 0.0030430678932979855,
+     "W_unconditional": 0.008242083028589024,
      "unit_ev": 3,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -13322,17 +13704,17 @@
     }
    },
    "p": {
-    "value": 7.445762863614875e-09,
-    "event": 1.489152572722975e-08,
+    "value": 7.44147662326742e-09,
+    "event": 1.488295324653484e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 134304573,
+    "commit": "32d7f50",
+    "one_in": 134381931,
     "p_state": 2.4453863285983317e-06,
-    "W": 0.0030448206798811637,
+    "W": 0.0030430678932979855,
     "n_other_voters": 411513,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.008245457624262017
+    "W_unconditional": 0.008242083028589024
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -13498,7 +13880,7 @@
       "event": 1.0468090252916148e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 1910568166,
       "p_state": 5.926280477628098e-08,
       "W": 0.008831922731664093,
@@ -13526,7 +13908,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0008872781060637076,
-       "mean_rounding": 5.0599927925462676e-08
+       "mean_rounding": 5.0599927925462676e-08,
+       "z": -1.8445707856343307
+      },
+      "p_rel_error": {
+       "value": 0.01605749249624568,
+       "z": -1.8445707856343307,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.03255,
@@ -13545,17 +13933,17 @@
      },
      "unit_ev": 11,
      "p": {
-      "value": 1.6196158445321347e-09,
-      "event": 3.2392316890642694e-09,
+      "value": 1.6187868878091552e-09,
+      "event": 3.2375737756183105e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 617430364,
+      "commit": "32d7f50",
+      "one_in": 617746541,
       "p_state": 2.821470964481271e-07,
-      "W": 0.005740324337627561,
+      "W": 0.005737386307311407,
       "n_other_voters": 2996185,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.02967443469554423
+      "W_unconditional": 0.029665296821071545
      }
     },
     {
@@ -13633,8 +14021,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.005740324337627561,
-     "W_unconditional": 0.02967443469554423,
+     "W": 0.005737386307311407,
+     "W_unconditional": 0.029665296821071545,
      "unit_ev": 11,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -13651,17 +14039,17 @@
     }
    },
    "p": {
-    "value": 1.6196158445321347e-09,
-    "event": 3.2392316890642694e-09,
+    "value": 1.6187868878091552e-09,
+    "event": 3.2375737756183105e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 617430364,
+    "commit": "32d7f50",
+    "one_in": 617746541,
     "p_state": 2.821470964481271e-07,
-    "W": 0.005740324337627561,
+    "W": 0.005737386307311407,
     "n_other_voters": 2996185,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.02967443469554423
+    "W_unconditional": 0.029665296821071545
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -13832,7 +14220,7 @@
       "event": 3.0121280818610014e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 66398239,
       "p_state": 4.69724023833169e-07,
       "W": 0.03206274247249075,
@@ -13860,7 +14248,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.002432562319345591,
-       "mean_rounding": 5.045695330622719e-08
+       "mean_rounding": 5.045695330622719e-08,
+       "z": -0.2932906497382003
+      },
+      "p_rel_error": {
+       "value": 0.019855472411581695,
+       "z": -0.2932906497382003,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.38465,
@@ -13879,17 +14273,17 @@
      },
      "unit_ev": 38,
      "p": {
-      "value": 1.5690443373145786e-08,
-      "event": 3.138088674629157e-08,
+      "value": 1.5682331341430366e-08,
+      "event": 3.136466268286073e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 63733062,
+      "commit": "32d7f50",
+      "one_in": 63766029,
       "p_state": 6.601775474815899e-07,
-      "W": 0.023767005456336483,
+      "W": 0.023754717804709485,
       "n_other_voters": 11149472,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.08360881409178855
+      "W_unconditional": 0.08359371013649432
      }
     },
     {
@@ -13923,7 +14317,7 @@
       "event": 2.0330927283158517e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 98372296,
       "p_state": 7.352600368905229e-07,
       "W": 0.013825671370050068,
@@ -13936,6 +14330,12 @@
       "W_mvn": 0.013285,
       "W_mvn_se": 0.0003604997749652556,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.014108187134502924,
+       "+-0.0050": 0.013684987089634821,
+       "+-0.0100": 0.013825671370050068,
+       "+-0.0200": 0.016149324533360834
+      },
       "ratio_to_published": 1.0539820140492457
      }
     }
@@ -13997,7 +14397,7 @@
     "event": 2.0330927283158517e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 98372296,
     "p_state": 7.352600368905229e-07,
     "W": 0.013825671370050068,
@@ -14010,6 +14410,12 @@
     "W_mvn": 0.013285,
     "W_mvn_se": 0.0003604997749652556,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.014108187134502924,
+     "+-0.0050": 0.013684987089634821,
+     "+-0.0100": 0.013825671370050068,
+     "+-0.0200": 0.016149324533360834
+    },
     "ratio_to_published": 1.0539820140492457
    },
    "notes": [
@@ -14186,7 +14592,7 @@
       "event": 2.0169476093531994e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 991597397,
       "p_state": 2.1331896562251123e-07,
       "W": 0.004727539352788691,
@@ -14214,7 +14620,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.001047154470159489,
-       "mean_rounding": 5.14664701608214e-08
+       "mean_rounding": 5.14664701608214e-08,
+       "z": -1.6851999537326479
+      },
+      "p_rel_error": {
+       "value": 0.011965541710814522,
+       "z": -1.6851999537326479,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.045975,
@@ -14233,17 +14645,17 @@
      },
      "unit_ev": 6,
      "p": {
-      "value": 2.805278311990689e-09,
-      "event": 5.610556623981378e-09,
+      "value": 2.8038435114727478e-09,
+      "event": 5.6076870229454955e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 356470870,
+      "commit": "32d7f50",
+      "one_in": 356653285,
       "p_state": 8.05205343954368e-07,
-      "W": 0.003483929078530392,
+      "W": 0.003482147172177294,
       "n_other_voters": 1425421,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.015734481753348337
+      "W_unconditional": 0.015730576095575845
      }
     },
     {
@@ -14321,8 +14733,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.003483929078530392,
-     "W_unconditional": 0.015734481753348337,
+     "W": 0.003482147172177294,
+     "W_unconditional": 0.015730576095575845,
      "unit_ev": 6,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -14339,17 +14751,17 @@
     }
    },
    "p": {
-    "value": 2.805278311990689e-09,
-    "event": 5.610556623981378e-09,
+    "value": 2.8038435114727478e-09,
+    "event": 5.6076870229454955e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 356470870,
+    "commit": "32d7f50",
+    "one_in": 356653285,
     "p_state": 8.05205343954368e-07,
-    "W": 0.003483929078530392,
+    "W": 0.003482147172177294,
     "n_other_voters": 1425421,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.015734481753348337
+    "W_unconditional": 0.015730576095575845
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -14563,7 +14975,7 @@
       "event": 9.39019561118603e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 2129881083,
       "p_state": 3.231945872065047e-08,
       "W": 0.014527154820798683,
@@ -14591,7 +15003,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0003243127107823572,
-       "mean_rounding": 5.1948526906012234e-08
+       "mean_rounding": 5.1948526906012234e-08,
+       "z": 2.633539525277247
+      },
+      "p_rel_error": {
+       "value": 0.0608709522099489,
+       "z": 2.633539525277247,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.995775,
@@ -14610,17 +15028,17 @@
      },
      "unit_ev": 3,
      "p": {
-      "value": 4.006996325813225e-09,
-      "event": 8.01399265162645e-09,
+      "value": 4.0084810786398885e-09,
+      "event": 8.016962157279777e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 249563493,
+      "commit": "32d7f50",
+      "one_in": 249471054,
       "p_state": 2.3281396133942815e-07,
-      "W": 0.017211151353467485,
+      "W": 0.017217528775242883,
       "n_other_voters": 355523,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.009546976765520753
+      "W_unconditional": 0.009549490042900451
      }
     },
     {
@@ -14698,8 +15116,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.017211151353467485,
-     "W_unconditional": 0.009546976765520753,
+     "W": 0.017217528775242883,
+     "W_unconditional": 0.009549490042900451,
      "unit_ev": 3,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -14716,17 +15134,17 @@
     }
    },
    "p": {
-    "value": 4.006996325813225e-09,
-    "event": 8.01399265162645e-09,
+    "value": 4.0084810786398885e-09,
+    "event": 8.016962157279777e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 249563493,
+    "commit": "32d7f50",
+    "one_in": 249471054,
     "p_state": 2.3281396133942815e-07,
-    "W": 0.017211151353467485,
+    "W": 0.017217528775242883,
     "n_other_voters": 355523,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.009546976765520753
+    "W_unconditional": 0.009549490042900451
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -14830,7 +15248,7 @@
       "event": 4.6614806225972074e-08,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 42904823,
       "p_state": 2.653825618429914e-07,
       "W": 0.0878256768309269,
@@ -14858,7 +15276,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0004656564586688355,
-       "mean_rounding": 5.047234544484559e-08
+       "mean_rounding": 5.047234544484559e-08,
+       "z": 2.37603084196121
+      },
+      "p_rel_error": {
+       "value": 0.03931981353297843,
+       "z": 2.37603084196121,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.99125,
@@ -14877,17 +15301,17 @@
      },
      "unit_ev": 13,
      "p": {
-      "value": 1.0754313322278001e-08,
-      "event": 2.1508626644556002e-08,
+      "value": 1.0758645825964578e-08,
+      "event": 2.1517291651929155e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 92985946,
+      "commit": "32d7f50",
+      "one_in": 92948501,
       "p_state": 1.020556906595868e-07,
-      "W": 0.10537690992802834,
+      "W": 0.10541936227594323,
       "n_other_voters": 4375997,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.04648515975303189
+      "W_unconditional": 0.046489313873173926
      }
     },
     {
@@ -14921,7 +15345,7 @@
       "event": 1.7693196118353907e-08,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 113037802,
       "p_state": 5.897732039451303e-08,
       "W": 0.15,
@@ -14934,6 +15358,12 @@
       "W_mvn": 0.12231,
       "W_mvn_se": 0.001022547132899017,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.11935483870967742,
+       "+-0.0050": 0.14285714285714285,
+       "+-0.0100": 0.15,
+       "+-0.0200": 0.14836003051106025
+      },
       "ratio_to_published": 0.6910581812374621
      }
     }
@@ -14995,7 +15425,7 @@
     "event": 1.7693196118353907e-08,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 113037802,
     "p_state": 5.897732039451303e-08,
     "W": 0.15,
@@ -15008,6 +15438,12 @@
     "W_mvn": 0.12231,
     "W_mvn_se": 0.001022547132899017,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.11935483870967742,
+     "+-0.0050": 0.14285714285714285,
+     "+-0.0100": 0.15,
+     "+-0.0200": 0.14836003051106025
+    },
     "ratio_to_published": 0.6910581812374621
    },
    "notes": [
@@ -15129,7 +15565,7 @@
       "event": 3.184667345381822e-09,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 628009077,
       "p_state": 2.2121284141960596e-08,
       "W": 0.07198197276759827,
@@ -15157,7 +15593,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00044473023775655154,
-       "mean_rounding": 5.114033747304137e-08
+       "mean_rounding": 5.114033747304137e-08,
+       "z": 2.410057649215081
+      },
+      "p_rel_error": {
+       "value": 0.04162309696325681,
+       "z": 2.410057649215081,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.992025,
@@ -15176,17 +15618,17 @@
      },
      "unit_ev": 12,
      "p": {
-      "value": 4.678805282476885e-09,
-      "event": 9.35761056495377e-09,
+      "value": 4.679783525363704e-09,
+      "event": 9.359567050727409e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 213729775,
+      "commit": "32d7f50",
+      "one_in": 213685098,
       "p_state": 5.483103452501732e-08,
-      "W": 0.08533133330435566,
+      "W": 0.0853491743481239,
       "n_other_voters": 3954262,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.043455929540856614
+      "W_unconditional": 0.043459536104765696
      }
     },
     {
@@ -15264,8 +15706,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.08533133330435566,
-     "W_unconditional": 0.043455929540856614,
+     "W": 0.0853491743481239,
+     "W_unconditional": 0.043459536104765696,
      "unit_ev": 12,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -15282,17 +15724,17 @@
     }
    },
    "p": {
-    "value": 4.678805282476885e-09,
-    "event": 9.35761056495377e-09,
+    "value": 4.679783525363704e-09,
+    "event": 9.359567050727409e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 213729775,
+    "commit": "32d7f50",
+    "one_in": 213685098,
     "p_state": 5.483103452501732e-08,
-    "W": 0.08533133330435566,
+    "W": 0.0853491743481239,
     "n_other_voters": 3954262,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.043455929540856614
+    "W_unconditional": 0.043459536104765696
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -15400,7 +15842,7 @@
       "event": 1.8334646227165364e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 10908309739,
       "p_state": 1.3341656064695663e-08,
       "W": 0.006871203296748902,
@@ -15428,7 +15870,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00043493848343760066,
-       "mean_rounding": 5.0887244552393254e-08
+       "mean_rounding": 5.0887244552393254e-08,
+       "z": -2.426386966768371
+      },
+      "p_rel_error": {
+       "value": 0.04277876446947448,
+       "z": -2.426386966768371,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.007625,
@@ -15447,17 +15895,17 @@
      },
      "unit_ev": 5,
      "p": {
-      "value": 8.18904858047289e-10,
-      "event": 1.637809716094578e-09,
+      "value": 8.186052651067715e-10,
+      "event": 1.637210530213543e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 1221143079,
+      "commit": "32d7f50",
+      "one_in": 1221589993,
       "p_state": 2.0878880080154603e-07,
-      "W": 0.003922168501871223,
+      "W": 0.003920733592817829,
       "n_other_voters": 781365,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.013025869642831839
+      "W_unconditional": 0.013023782748215113
      }
     },
     {
@@ -15535,8 +15983,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.003922168501871223,
-     "W_unconditional": 0.013025869642831839,
+     "W": 0.003920733592817829,
+     "W_unconditional": 0.013023782748215113,
      "unit_ev": 5,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -15553,17 +16001,17 @@
     }
    },
    "p": {
-    "value": 8.18904858047289e-10,
-    "event": 1.637809716094578e-09,
+    "value": 8.186052651067715e-10,
+    "event": 1.637210530213543e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 1221143079,
+    "commit": "32d7f50",
+    "one_in": 1221589993,
     "p_state": 2.0878880080154603e-07,
-    "W": 0.003922168501871223,
+    "W": 0.003920733592817829,
     "n_other_voters": 781365,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.013025869642831839
+    "W_unconditional": 0.013023782748215113
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -15728,7 +16176,7 @@
       "event": 1.2399241543762324e-07,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 16130019,
       "p_state": 1.1912711835363655e-06,
       "W": 0.052042061098776744,
@@ -15756,7 +16204,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0011580180738550673,
-       "mean_rounding": 5.047088834113394e-08
+       "mean_rounding": 5.047088834113394e-08,
+       "z": 1.5815602257118329
+      },
+      "p_rel_error": {
+       "value": 0.009702125207194651,
+       "z": 1.5815602257118329,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.943125,
@@ -15775,17 +16229,17 @@
      },
      "unit_ev": 10,
      "p": {
-      "value": 6.436633802591572e-08,
-      "event": 1.2873267605183144e-07,
+      "value": 6.438517472806953e-08,
+      "event": 1.2877034945613905e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 15536071,
+      "commit": "32d7f50",
+      "one_in": 15531526,
       "p_state": 6.646037520107367e-07,
-      "W": 0.09684919447291335,
+      "W": 0.096877537229175,
       "n_other_voters": 3241049,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.03628322061207791
+      "W_unconditional": 0.03628880653804443
      }
     },
     {
@@ -15819,7 +16273,7 @@
       "event": 1.1493576240622874e-07,
       "under": "The Economist",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 17401024,
       "p_state": 4.3681346096457387e-07,
       "W": 0.13156160773116626,
@@ -15832,6 +16286,12 @@
       "W_mvn": 0.139375,
       "W_mvn_se": 0.0010109753180716134,
       "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+      "W_by_window": {
+       "+-0.0025": 0.12975951903807614,
+       "+-0.0050": 0.13124696749150896,
+       "+-0.0100": 0.13156160773116626,
+       "+-0.0200": 0.10933816099696868
+      },
       "ratio_to_published": 0.842711580067645
      }
     }
@@ -15893,7 +16353,7 @@
     "event": 1.1493576240622874e-07,
     "under": "The Economist",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
+    "commit": "32d7f50",
     "one_in": 17401024,
     "p_state": 4.3681346096457387e-07,
     "W": 0.13156160773116626,
@@ -15906,6 +16366,12 @@
     "W_mvn": 0.139375,
     "W_mvn_se": 0.0010109753180716134,
     "W_mvn_note": "a check: W from the Economist's means, sds and correlation matrix read as a multivariate normal, 100,000 seeded draws of the other states given the tie",
+    "W_by_window": {
+     "+-0.0025": 0.12975951903807614,
+     "+-0.0050": 0.13124696749150896,
+     "+-0.0100": 0.13156160773116626,
+     "+-0.0200": 0.10933816099696868
+    },
     "ratio_to_published": 0.842711580067645
    },
    "notes": [
@@ -16017,7 +16483,7 @@
       "event": 1.4660088368160315e-10,
       "under": "the model's own",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
+      "commit": "32d7f50",
       "one_in": 13642482567,
       "p_state": 1.674767185511326e-08,
       "W": 0.004376754122897511,
@@ -16045,7 +16511,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.00021340509453853253,
-       "mean_rounding": 5.16399825663419e-08
+       "mean_rounding": 5.16399825663419e-08,
+       "z": -2.9069255989362413
+      },
+      "p_rel_error": {
+       "value": 0.09914386724350885,
+       "z": -2.9069255989362413,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.001825,
@@ -16064,17 +16536,17 @@
      },
      "unit_ev": 3,
      "p": {
-      "value": 3.0125794519916343e-10,
-      "event": 6.025158903983269e-10,
+      "value": 3.010707909874168e-10,
+      "event": 6.021415819748336e-10,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 3319414528,
+      "commit": "32d7f50",
+      "one_in": 3321477971,
       "p_state": 1.7705837988665312e-07,
-      "W": 0.0017014610965717565,
+      "W": 0.0017004040767805075,
       "n_other_voters": 267049,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.008232494218586526
+      "W_unconditional": 0.008229159146100867
      }
     },
     {
@@ -16152,8 +16624,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0017014610965717565,
-     "W_unconditional": 0.008232494218586526,
+     "W": 0.0017004040767805075,
+     "W_unconditional": 0.008229159146100867,
      "unit_ev": 3,
      "method": "538's marginals with the model's own national swing",
      "districts_modelled": true
@@ -16170,17 +16642,17 @@
     }
    },
    "p": {
-    "value": 3.0125794519916343e-10,
-    "event": 6.025158903983269e-10,
+    "value": 3.010707909874168e-10,
+    "event": 6.021415819748336e-10,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 3319414528,
+    "commit": "32d7f50",
+    "one_in": 3321477971,
     "p_state": 1.7705837988665312e-07,
-    "W": 0.0017014610965717565,
+    "W": 0.0017004040767805075,
     "n_other_voters": 267049,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.008232494218586526
+    "W_unconditional": 0.008229159146100867
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
@@ -16247,7 +16719,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0008223559049310704,
-       "mean_rounding": 5.06987967248983e-08
+       "mean_rounding": 5.06987967248983e-08,
+       "z": 1.9137664822644262
+      },
+      "p_rel_error": {
+       "value": 0.01812457648817031,
+       "z": 1.9137664822644262,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.972175,
@@ -16266,17 +16744,17 @@
      },
      "unit_ev": 1,
      "p": {
-      "value": 8.74429751245731e-09,
-      "event": 1.748859502491462e-08,
+      "value": 8.745856049989165e-09,
+      "event": 1.749171209997833e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 114360244,
+      "commit": "32d7f50",
+      "one_in": 114339865,
       "p_state": 1.3344318037436786e-06,
-      "W": 0.0065528245714210655,
+      "W": 0.0065539925123585365,
       "n_other_voters": 430420,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.0036156313489164034
+      "W_unconditional": 0.0036157382616494897
      }
     }
    ],
@@ -16308,8 +16786,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0065528245714210655,
-     "W_unconditional": 0.0036156313489164034,
+     "W": 0.0065539925123585365,
+     "W_unconditional": 0.0036157382616494897,
      "unit_ev": 1,
      "method": "538's marginals with the model's own national swing (the Economist's draws have no districts)",
      "national_swing_sd": 0.018751479968302055,
@@ -16327,17 +16805,17 @@
     }
    },
    "p": {
-    "value": 8.74429751245731e-09,
-    "event": 1.748859502491462e-08,
+    "value": 8.745856049989165e-09,
+    "event": 1.749171209997833e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 114360244,
+    "commit": "32d7f50",
+    "one_in": 114339865,
     "p_state": 1.3344318037436786e-06,
-    "W": 0.0065528245714210655,
+    "W": 0.0065539925123585365,
     "n_other_voters": 430420,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.0036156313489164034
+    "W_unconditional": 0.0036157382616494897
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
@@ -16403,7 +16881,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.002473597452977141,
-       "mean_rounding": 5.079725272202159e-08
+       "mean_rounding": 5.079725272202159e-08,
+       "z": 0.18267886496895985
+      },
+      "p_rel_error": {
+       "value": 0.03338027188224127,
+       "z": 0.18267886496895985,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.572475,
@@ -16422,17 +16906,17 @@
      },
      "unit_ev": 1,
      "p": {
-      "value": 4.653286916081497e-08,
-      "event": 9.306573832162993e-08,
+      "value": 4.6509662724543264e-08,
+      "event": 9.301932544908653e-08,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 21490186,
+      "commit": "32d7f50",
+      "one_in": 21500908,
       "p_state": 1.2095832558053532e-05,
-      "W": 0.00384701664292078,
+      "W": 0.0038450980948456204,
       "n_other_voters": 365387,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.0036935161887342357
+      "W_unconditional": 0.0036918371645726883
      }
     }
    ],
@@ -16464,8 +16948,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.00384701664292078,
-     "W_unconditional": 0.0036935161887342357,
+     "W": 0.0038450980948456204,
+     "W_unconditional": 0.0036918371645726883,
      "unit_ev": 1,
      "method": "538's marginals with the model's own national swing (the Economist's draws have no districts)",
      "national_swing_sd": 0.018751479968302055,
@@ -16483,17 +16967,17 @@
     }
    },
    "p": {
-    "value": 4.653286916081497e-08,
-    "event": 9.306573832162993e-08,
+    "value": 4.6509662724543264e-08,
+    "event": 9.301932544908653e-08,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 21490186,
+    "commit": "32d7f50",
+    "one_in": 21500908,
     "p_state": 1.2095832558053532e-05,
-    "W": 0.00384701664292078,
+    "W": 0.0038450980948456204,
     "n_other_voters": 365387,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.0036935161887342357
+    "W_unconditional": 0.0036918371645726883
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
@@ -16559,7 +17043,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0009586950685045794,
-       "mean_rounding": 5.082057957008636e-08
+       "mean_rounding": 5.082057957008636e-08,
+       "z": -1.7716661008651677
+      },
+      "p_rel_error": {
+       "value": 0.014080890043597869,
+       "z": -1.7716661008651677,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.038225,
@@ -16578,17 +17068,17 @@
      },
      "unit_ev": 1,
      "p": {
-      "value": 1.4521540851357617e-09,
-      "event": 2.9043081702715235e-09,
+      "value": 1.4507029433677685e-09,
+      "event": 2.901405886735537e-09,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 688632157,
+      "commit": "32d7f50",
+      "one_in": 689320998,
       "p_state": 3.80125886776477e-06,
-      "W": 0.0003820192561601738,
+      "W": 0.00038163750321503783,
       "n_other_voters": 312550,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.0033810986896578303
+      "W_unconditional": 0.003379034338260731
      }
     }
    ],
@@ -16620,8 +17110,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.0003820192561601738,
-     "W_unconditional": 0.0033810986896578303,
+     "W": 0.00038163750321503783,
+     "W_unconditional": 0.003379034338260731,
      "unit_ev": 1,
      "method": "538's marginals with the model's own national swing (the Economist's draws have no districts)",
      "national_swing_sd": 0.018751479968302055,
@@ -16639,17 +17129,17 @@
     }
    },
    "p": {
-    "value": 1.4521540851357617e-09,
-    "event": 2.9043081702715235e-09,
+    "value": 1.4507029433677685e-09,
+    "event": 2.901405886735537e-09,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 688632157,
+    "commit": "32d7f50",
+    "one_in": 689320998,
     "p_state": 3.80125886776477e-06,
-    "W": 0.0003820192561601738,
+    "W": 0.00038163750321503783,
     "n_other_voters": 312550,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.0033810986896578303
+    "W_unconditional": 0.003379034338260731
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
@@ -16715,7 +17205,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 0.0022481676427704407,
-       "mean_rounding": 5.0624109205518405e-08
+       "mean_rounding": 5.0624109205518405e-08,
+       "z": 0.5789839544090714
+      },
+      "p_rel_error": {
+       "value": 0.007665905932362208,
+       "z": 0.5789839544090714,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.7187,
@@ -16734,17 +17230,17 @@
      },
      "unit_ev": 1,
      "p": {
-      "value": 9.799638648026163e-08,
-      "event": 1.9599277296052326e-07,
+      "value": 9.79492822807903e-08,
+      "event": 1.958985645615806e-07,
       "under": "538 (polls-plus)",
       "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 10204458,
+      "commit": "32d7f50",
+      "one_in": 10209365,
       "p_state": 1.7994114019254715e-05,
-      "W": 0.005446024537545999,
+      "W": 0.005443406781571966,
       "n_other_voters": 330844,
       "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.0037525720115749446
+      "W_unconditional": 0.003750997633820024
      }
     }
    ],
@@ -16776,8 +17272,8 @@
      "total_ev": 538,
      "majority": 270,
      "pi_house": 0.5,
-     "W": 0.005446024537545999,
-     "W_unconditional": 0.0037525720115749446,
+     "W": 0.005443406781571966,
+     "W_unconditional": 0.003750997633820024,
      "unit_ev": 1,
      "method": "538's marginals with the model's own national swing (the Economist's draws have no districts)",
      "national_swing_sd": 0.018751479968302055,
@@ -16795,17 +17291,17 @@
     }
    },
    "p": {
-    "value": 9.799638648026163e-08,
-    "event": 1.9599277296052326e-07,
+    "value": 9.79492822807903e-08,
+    "event": 1.958985645615806e-07,
     "under": "538 (polls-plus)",
     "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 10204458,
+    "commit": "32d7f50",
+    "one_in": 10209365,
     "p_state": 1.7994114019254715e-05,
-    "W": 0.005446024537545999,
+    "W": 0.005443406781571966,
     "n_other_voters": 330844,
     "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.0037525720115749446
+    "W_unconditional": 0.003750997633820024
    },
    "notes": [
     "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
@@ -16859,11 +17355,11 @@
      "published": true,
      "share": {
       "mean": 0.25980031469043297,
-      "sd": 0.06845482625289363,
+      "sd": null,
       "tails": "normal",
       "mean_mark": "stated (538's projected shares, made two-party here)",
-      "sd_mark": "inferred",
-      "sd_how": "implied by 538's projected share and chance of winning (normal)",
+      "sd_mark": null,
+      "sd_how": "not read from 538: p's estimated relative error under 538's implied sd is 34%, not under 20% (the sd's own error 3.0%, at z = -3.51; 538's chance 0.00022 out of 40,000 runs, its two-party mean 0.2598); the College stage under 538 takes the model's own sd for 2020 here (0.0408, inferred)",
       "sd_rel_error": {
        "value": 0.030324981438590273,
        "from_chance": 0.03032498143784475,
@@ -16871,7 +17367,13 @@
        "runs": 40000,
        "runs_mark": "inferred: every chance 538 printed for this model and year is a whole multiple of 2.5e-05",
        "chance_se": 7.499156202533723e-05,
-       "mean_rounding": 5.107615935475692e-08
+       "mean_rounding": 5.107615935475692e-08,
+       "z": -3.508878751984468
+      },
+      "p_rel_error": {
+       "value": 0.34304316768577864,
+       "z": -3.508878751984468,
+       "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"
       }
      },
      "win_prob": 0.000225,
@@ -16889,19 +17391,8 @@
       "sha256": "d99482b55c46c12b008af15671c4495569f5dfe949e392907d76d993136c6da3"
      },
      "unit_ev": 1,
-     "p": {
-      "value": 1.336604694874963e-11,
-      "event": 2.673209389749926e-11,
-      "under": "538 (polls-plus)",
-      "computed_by": "pipeline/president.py",
-      "commit": "33c6ff3",
-      "one_in": 74816436291,
-      "p_state": 2.145203329270154e-08,
-      "W": 0.000623066670015707,
-      "n_other_voters": 288032,
-      "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-      "W_unconditional": 0.003378767284008452
-     }
+     "p": null,
+     "note": "No p under 538 here: p's estimated relative error under 538's implied sd is 34%, not under 20% (the sd's own error 3.0%, at z = -3.51; 538's chance 0.00022 out of 40,000 runs, its two-party mean 0.2598). The orchestrator's rules of 2026-11-07 04:12 and 04:20: where the implied sd breaks down, the contest's p falls back to the model's own forecast."
     }
    ],
    "population": {
@@ -16931,13 +17422,7 @@
      "ev_state": 5,
      "total_ev": 538,
      "majority": 270,
-     "pi_house": 0.5,
-     "W": 0.000623066670015707,
-     "W_unconditional": 0.003378767284008452,
-     "unit_ev": 1,
-     "method": "538's marginals with the model's own national swing (the Economist's draws have no districts)",
-     "national_swing_sd": 0.018751479968302055,
-     "districts_modelled": true
+     "pi_house": 0.5
     },
     "source": {
      "name": "National Archives, Electoral College results, 2020",
@@ -16950,21 +17435,10 @@
      "sha256": "bbcb50298d00027470b3955fcca41d4112d8128ab058491ffd546ce26b252023"
     }
    },
-   "p": {
-    "value": 1.336604694874963e-11,
-    "event": 2.673209389749926e-11,
-    "under": "538 (polls-plus)",
-    "computed_by": "pipeline/president.py",
-    "commit": "33c6ff3",
-    "one_in": 74816436291,
-    "p_state": 2.145203329270154e-08,
-    "W": 0.000623066670015707,
-    "n_other_voters": 288032,
-    "method": "core.p_contest at 538's mean and implied sd; W by the model's swing model (national swing sd 0.0188) given the tie",
-    "W_unconditional": 0.003378767284008452
-   },
+   "p": null,
    "notes": [
-    "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
+    "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)",
+    "No p: 538's implied sd breaks down here (p's estimated relative error under 538's implied sd is 34%, not under 20% (the sd's own error 3.0%, at z = -3.51; 538's chance 0.00022 out of 40,000 runs, its two-party mean 0.2598)), and the model's own forecast does not model this unit in 2020."
    ]
   }
  ]

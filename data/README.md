@@ -35,11 +35,15 @@
 **At the top of a contest file**
 - `sources`: source blocks (plan §3 shape) named by key. The fields below that end in `_source`, and `checks[].against`, hold one of these keys rather than repeating the block in every contest.
 - `missing_from_record`: contests the check source has and the source of record does not (mostly special elections held on other dates). They are added to `contests` with the check source as their record.
-- `model`: the fitted terms of the model's own forecast used in the file, fitted on the level's earlier cycles only (D2-v2).
+- `model`: the fitted terms of the model's own forecast used in the file, fitted on the level's earlier cycles only (D2-v3; `data/congress/REPORT.md` §2).
   - `method`, `fit_years`, `cycles`, `races`.
   - `b_lean`, `b_inc`, and `b_lag` for governors (the last governor race's term; null otherwise).
-  - `s_e` (the race's own sd), `s_a` (the national swing's spread about its terms), `c` (the terms c₀, c_mid, c_on) and `ZtZ_inv`.
-  - `national_forecast` and `national_sd`: the year's swing and its prediction sd, s_a·√(1 + z(Z′Z)⁻¹z′).
+  - `s_e_fitted` (the race's own sd as fitted), `k` (the calibration factor) and `s_e` (the race's own sd used, k × `s_e_fitted`).
+  - `calibration`: how k was found: `k`, the earlier `years` scored out of sample, their `races`, and a `note` (k = 1, "not calibrated", where fewer than three such years exist).
+  - `s_a` (the national swing's spread about its terms), `c` (the terms c₀, c_mid, c_on) and `ZtZ_inv`.
+  - `national_forecast` and `national_sd`: the year's swing and its prediction sd, k·s_a·√(1 + z(Z′Z)⁻¹z′).
+  - `near_tie`: the year's near-tie calibration of p (round 4, REPORT §2.6): its `scheme` (`level`, or null where not adopted for the level, with a `note` why), `window`, `factor`, `of` (whose earlier years it is fitted on), `fitted_on` (`{level: [years]}`), and the `expected` and `seen` near-ties it rests on.
+  - `national_from` (the House of 2008-2012 only): `level` (`senate`), the Senate's `years` whose fit gives `c`, `s_a` and `ZtZ_inv`, and a `note`: national terms from the Senate's earlier cycles, since the House has fewer than four of its own.
   - `sd` and `rho`.
   - `mean_is` and `sd_is`: the formulas that rebuild each forecast from the contest's `forecast_inputs`.
   - `commit`.
@@ -50,7 +54,7 @@
   - `seat_model`: the form each seat takes in the chamber stage.
   - `commit`.
   - `vice_president`: `P_democrat` with `by`, `as_of`, `source` and `note`. In presidential years it is the presidential chance from D1's record: 538's where it stands first, else the model's own.
-  - `not_computed` (with `commit`) where the chamber stage cannot run (the House of 2006-2012: no model of its own).
+  - `not_computed` (with `commit`) where the chamber stage cannot run (the House of 2006: no model of its own).
   - `seats_not_up_list`: each Senate seat not up, by state and class, with the year it was last elected, its caucus, the winner and the source key. `not_up_source` says where the winners come from.
   - `check`: the seats not up plus the seats won (counted from the check source's winners), against the division the new Congress opened with (`division`, with the chamber's own notes), and whether they `agree`.
 - `fte_538`: how many of the file's races have a 538 forecast, in how many it comes first, why the others fell back (by kind), and which of 538's versions comes first, with why.
@@ -62,15 +66,15 @@
 - `forecast_inputs`: what the model's own forecast is built from.
   - `lean`: the district's or state's Democratic two-party share in the presidential election before the race, minus the national share.
   - `pres_year`, `district_share_D` or `state_share_D`, `national_share_D`.
-  - `incumbency`: +1 if a Democratic incumbent runs, −1 if a Republican one does, 0 otherwise.
+  - `incumbency`: +1 if a Democratic incumbent runs, −1 if a Republican one does, 0 otherwise. `incumbency_source` is `cha`, `record` (the source of record's own incumbent mark) or `algara_amlani` (governors before 2006, with the authors' `seat_status` as they wrote it).
   - `midterm`, `president_party`, and each one's `_source` key.
   - `lean_missing`: why there is no `lean`.
   - `lines`: for a House special, the lines its lean is taken on (the old Congress's, on which a special is held).
   - `lean_same_day`: the same day's presidential vote on the lines, marked inferred. It is used for control only and never for the seat's own p.
-  - `last_governor_race` (governors): the state's last governor race before the year that a Democrat and a Republican led, with its `year`, `share_D` (two-party), `special` and `source`. `last_governor_race_missing`: why there is none.
+  - `last_governor_race` (governors): the state's last governor race before the year that a Democrat and a Republican led, with its `year`, `share_D` (two-party), `special` and `source` (`cha` from 2006, `algara_amlani` before). `last_governor_race_missing`: why there is none.
 - `checks`: the same contest in a second source (`against`) and every difference between the two (plan §3a). The source of record wins. `against` is null for a contest only the check source holds; it is then the record, with no second source.
 - `date`: null where the sources read here do not give the date (special elections only the check source holds); `result.certified` is null where the source does not say whether its count is the certified one. A note says so in each case.
-- `forecasts[].method`: the version of the model's own method (`D2-v2`; for governors, `D2-v2 (with the last governor race)`). `forecasts[].share.of` names whose share the mean is (`Democrat, two-party`). `share.mean` and `share.sd` are at full precision, so that p recomputes from them exactly.
+- `forecasts[].method`: the version of the model's own method (`D2-v3`; for governors, `D2-v3 (with the last governor race)`). `forecasts[].share.of` names whose share the mean is (`Democrat, two-party`). `share.mean` and `share.sd` are at full precision, so that p recomputes from them exactly.
 - A forecast `by` `"538"` (FiveThirtyEight's, published) also carries:
   - `version`: 538's version (`lite`, `classic`, `deluxe`; `polls-plus`, `polls-only`, `now-cast`; `only` where the file names none).
   - `chance`: 538's chance of winning by party, as published. `note` says when the forecast is dated Election Day.
@@ -80,10 +84,12 @@
   - `simulations` and `simulations_mark`: the run count the chances step by (inferred), which both errors rest on.
   - `unusable` and `unusable_kind`: why 538's forecast does not come first in this race (a sentence and a short class, such as `p's error 20% or more`); null when it does.
   - `source`: a key into the file's `sources` (`senate_538`, `house_538`, `governor_538`).
+- `forecasts[].calibration` (the model's own, House and Senate, 2010-2024): the near-tie calibration of p (round 4, REPORT §2.6). `factor` multiplies the forecast's density within the `window` of ½ (49-51%), and the forecast is renormalized. So p is multiplied by `multiplier` = factor ÷ (1 + (factor − 1)·q), where q is the forecast's own chance of the window. Also `scheme`, `of`, `fitted_on` (`{level: [years]}`, all before the race's year), `expected` and `seen` (the fitting years' near-ties) and `what`. `share.mean` and `share.sd` are the forecast before calibration.
 - The first forecast with a usable share is the one `p.value` uses; `p.under` names it.
 - `p.of_forecast`: the index in `forecasts` of the forecast p is computed from. `p.computed_by` and `p.commit`: the script and commit that set the block, whether it holds a value, p = 0 (`pipeline/intake/build_congress.py`) or a reason it is not computed (`pipeline/chambers.py`).
 - `p.not_computed`: why p is not computed: a structure the model does not compute yet, a missing input, or too few earlier cycles for the model's own fit with no published forecast reachable. It is `null` when p is computed.
 - `p.reason`: why p is 0 (one candidate).
+- `p.value_uncalibrated`: where p is calibrated to earlier years' near-ties (`p.under` ends so), p before it: what pipeline/core.py gives from the forecast's mean and sd. `p.value`, `p.event` and `p.f_half` are that times the forecast's `calibration.multiplier`, and so is each `p.alongside` entry of the model's own.
 - `p.method` (`exact` or `density`), `p.f_half` and `p.n` are pipeline/core.py's own outputs. `p.sd`: for 538, the implied sd p used.
 - `p.alongside`: p under the other forecasts: the model's own with t4 tails (same sd), the model's own normal where 538's comes first, and 538's other versions. Each has its own `event`, `f_half`, `of_forecast`, its `control`, and for 538 the implied `sd`.
 - `p.control`: p for control of the chamber, which is p × `P_decides_given_tie` (MATH §4.2), with its `event`. The chamber stage is the model's common swing and the other seats, with this seat entered under the forecast p is computed from (for 538, reading (c)); `p.control.under` says so.
@@ -94,6 +100,12 @@
   - `P_decides_given_tie` and `P_decides_unconditional` (what the usual shortcut would use).
   - In presidential years for the Senate, `P_decides_given_tie_if_VP_D` and `_if_VP_R`: the same given a Democratic or a Republican Vice President.
 - `stage_two.note`: why a contest is not part of control (a special that fills the old Congress's term).
+- **Governors of 1978-2004** (`data/governor/1978.json` to `2004.json`, from Algara and Amlani's county returns):
+  - `result.certified` is null: the votes are the authors' county returns summed to the state, not a certified total. `result.votes_incomplete` is true where a county has no count in the source, or for Missouri, whose count is taken as incomplete (REPORT §3).
+  - `result.candidates` names the two nominees; everyone else is one line, `"others (not named in the source)"` with `party` null, the county total less the two nominees.
+  - `ballot.others` is null (the source does not say how many others ran). `ballot.D` and `ballot.R` count the nominees the source names.
+  - `checks` is `[{"against": null, ...}]`: no second source is read for these years.
+  - `date` is the general election day, inferred (the source gives the year); a note says so.
 
 ## Fields added by D1 (the presidency; `data/president/`)
 
@@ -133,7 +145,8 @@
 - `win_prob`: the forecaster's chance that the Democrat wins the unit, as published (538's made two-party: its Democratic chance over the sum of the two nominees' chances).
 - `share.mean_mark`, `share.sd_mark`, `share.sd_how`: how each was obtained (stated, measured from draws, or inferred, and how).
 - `share.low`, `share.high`: the Economist's published interval (the 2.5% and 97.5% points of its draws, measured).
-- `share.sd_rel_error`: for 538, the estimated relative error of the sd its mean and chance imply (`value`), from the chance's sampling error (`from_chance`, `chance_se`, with `runs`, the simulation runs its printed chances count, and `runs_mark`, how that was inferred) and the rounding of the printed shares (`from_mean_rounding`, `mean_rounding`); `null` where unbounded. *Reason:* the orchestrator's rule of 2026-11-07 04:20 keeps 538's sd only where this is under 20%; where it is not, `share.sd` is `null`, `share.sd_how` says why and which sd the College stage used, and the contest's `p` is the model's own, marked in `notes`.
+- `share.sd_rel_error`: for 538, the estimated relative error of the sd its mean and chance imply (`value`), from the chance's sampling error (`from_chance`, `chance_se`, with `runs`, the simulation runs its printed chances count, and `runs_mark`, how that was inferred) and the rounding of the printed shares (`from_mean_rounding`, `mean_rounding`), and `z` = Φ⁻¹(538's two-party chance); `null` where unbounded.
+- `share.p_rel_error`: for 538, p's estimated relative error under that sd (`value`, `z`, `how`): the sd's error from the chance times \|z² − 1\|, combined with the mean's rounding at factor 1. *Reason:* the orchestrator's amendment of 2026-11-07 05:58 (after M2 3.9; the reader sees p, not the sd) keeps 538's sd only where this is under 20%, as D2 does for Congress; where it is not, `share.sd` is `null`, `share.sd_how` says why and which sd the College stage used, and the contest's `p` is the model's own, marked in `notes`.
 - `share.national_sd`, `share.state_sd`: for the model's own forecast, the two error sds whose sum of squares is `share.sd`; its `tails` is "normal national error + t4 state error".
 - `unit_ev`: the electoral votes the unit's count decides in that forecaster's model (2 for Maine's and Nebraska's statewide count where districts are modelled; 4 or 5 where the forecaster treats the state whole).
 - `p`: the p under this forecast, in the same shape as the contest's `p` (below). *Reason:* model §3, "where two forecasters published, the page shows both"; the contest's own `p` is the one shown first.
@@ -149,7 +162,7 @@
 - `method`: how p_state and W were computed, in words.
 - `W_unconditional`: the unconditional chance the unit's votes decide, for the record only (the product formula the brief forbids; MATH §4 measures its error).
 - `f_half`: the forecast density at one half (the model's own forecast).
-- From the Economist's draws: `window_draws`, `window_weighted`, `window_width`, `relative_error` (1 ÷ √ of the decisive count), `ratio_to_published` (our p over its own `p_decisive_vote`), and the check `W_mvn`, `W_mvn_se`, `W_mvn_note`.
+- From the Economist's draws: `window_draws`, `window_weighted`, `window_width`, `relative_error` (1 ÷ √ of the decisive count), `ratio_to_published` (our p over its own `p_decisive_vote`), and the check `W_mvn`, `W_mvn_se`, `W_mvn_note`; `W_by_window`, W read at each of the four window half-widths counted (±0.0025, ±0.005, ±0.01, ±0.02); and `W_thin`, `W_thin_note` where the window holds fewer than 30 weighted decisive draws. *Reason:* the amendment of 05:58 (M2 2.4): there W moves by factors of 3 to 10 with the window's width, and the page must say so.
 
 **`stage_two.inputs`** (Electoral College): `ev` (the electoral votes this contest's count decides: the state's, or 2 at large, or 1 for a district), `ev_state`, `total_ev`, `majority`, `pi_house` (one half: a 269 tie goes to the House, whose choice is counted as a fair lot, model §3), and, from the forecast that gives the contest's `p`: `W`, `W_unconditional`, `unit_ev`, `method`, `national_swing_sd` (the common swing stated), `districts_modelled`.
 

@@ -9,6 +9,7 @@ Written 2026-11-07 by worker D2. Reads only the cache (CACHE); run the source sc
   medsl_dataverse.py senate president  the check on Senate results; state presidential vote
   downballot_pres_by_cd.py             district presidential vote
   nara_electoral_college.py            president's party
+  algara_amlani.py governors           governors of 1978-2004 (the source of record before Cha's 2006)
 
 What it writes for each contest (plan section 3, with the fields data/README.md adds):
   result     from the source of record, every candidate and line it prints;
@@ -45,6 +46,19 @@ R_LABELS = {"R", "REP", "REPUBLICAN"}
 RCV = {("ME", "senate"): 2018, ("ME", "house"): 2018, ("AK", "senate"): 2022, ("AK", "house"): 2022,
        ("AK", "governor"): 2022}
 NOT_COMPUTED = "not computed"
+
+
+def general_election_day(year):
+    """The Tuesday after the first Monday in November (2 U.S.C. 7 for Congress; the even-year governor elections
+    of 1978-2004 that Algara and Amlani hold were held with the general election)."""
+    import datetime
+    d = datetime.date(year, 11, 1)
+    first_monday = d + datetime.timedelta(days=(0 - d.weekday()) % 7)
+    return (first_monday + datetime.timedelta(days=1)).isoformat()
+
+
+for _y in range(chambers.GOV_FROM, 2006, 2):
+    ELECTION_DAY[_y] = general_election_day(_y)
 SOURCE_POOL = {}
 SOURCES = {}      # the file's top-level "sources": blocks that fields of this script's own name by key
 
@@ -351,11 +365,15 @@ def forecast_inputs(year, office, state, district, inc, inc_via, P, special=Fals
             GOV_INDEX = chambers.last_governor_index()
         lg = chambers.last_governor_race(GOV_INDEX, state, year)
         if lg:
-            out["last_governor_race"] = {"year": lg[0], "share_D": lg[1], "special": lg[2], "source": "cha"}
+            out["last_governor_race"] = {"year": lg[0], "share_D": lg[1], "special": lg[2], "source": lg[3]}
+            if lg[3] == "algara_amlani":
+                SOURCES["algara_amlani"] = AA_SOURCE()
         else:
             out["last_governor_race"] = None
-            out["last_governor_race_missing"] = (f"no earlier governor race in {state} that a Democrat and a Republican "
-                                                 f"led is in Cha, Kuriwaki and Snyder, which begins in 2006")
+            out["last_governor_race_missing"] = (
+                f"no earlier governor race in {state} that a Democrat and a Republican led is in Cha, Kuriwaki and "
+                f"Snyder (from 2006) or Algara and Amlani (before 2006)"
+                + (f"; {chambers.AA_INCOMPLETE[state]}" if state in chambers.AA_INCOMPLETE else ""))
     return out
 
 
@@ -454,6 +472,107 @@ def governors(year, cha_src, idx, P):
     return out
 
 
+_AA = {}
+
+
+def AA_SOURCE():
+    if "source" not in _AA:
+        d = cc.read_json(os.path.join(cc.CACHE, "algara_amlani", "normalized", "governors.json"))
+        _AA["source"], _AA["elections"] = d["source"], d["elections"]
+    return _AA["source"]
+
+
+def aa_structure(r):
+    """None if the race is a two-way race of a Democrat against a Republican the model covers; else (kind, reason).
+    The source gives the other candidates only as a total (r["others"])."""
+    D, R, o = r["D"], r["R"], r["others"]
+    if r["state"] in chambers.AA_INCOMPLETE:
+        return (NOT_COMPUTED, chambers.AA_INCOMPLETE[r["state"]])
+    if o is None:
+        return (NOT_COMPUTED, "the source's county totals sum to less than the two nominees' votes")
+    if (D == 0) != (R == 0) and o == 0:
+        return ("uncontested", "only one candidate received votes")
+    if D == 0 or R == 0:
+        return (NOT_COMPUTED, "no Democrat or no Republican received votes; the source names no other candidate, so "
+                "who the top two were is not known")
+    if o >= min(D, R):
+        return (NOT_COMPUTED, f"a candidate other than the two nominees may be among the top two: the source gives the "
+                f"others' vote only as a total ({o:,}), which is at least the second nominee's")
+    if r["state"] == "GA" and o > 0:
+        return (NOT_COMPUTED, "Georgia requires a majority; with a third candidate a runoff can follow (model section 7: "
+                "runoffs are not yet computed)")
+    if r["state"] == "VT" and o > 0:
+        return (NOT_COMPUTED, "Vermont's legislature chooses the governor when no candidate has a majority (Vermont "
+                "Constitution, ch. II, sec. 47); with a third candidate that can happen")
+    return None
+
+
+def aa_governors(year, P):
+    """The governor contests of an even year before 2006, from Algara and Amlani's county returns summed to the
+    state (pipeline/intake/algara_amlani.py): the record, with no second source read for these years."""
+    AA_SOURCE()
+    out = []
+    for r in _AA["elections"]:
+        if r["year"] != year or r["state"] not in cc.STATES_50:
+            continue
+        SOURCES["algara_amlani"] = _AA["source"]
+        cands = [{"name": r["dem_nominee"], "party": "D", "votes": r["D"]},
+                 {"name": r["rep_nominee"], "party": "R", "votes": r["R"]}]
+        cands = [a for a in cands if a["name"] is not None or a["votes"]]
+        if r["others"]:
+            cands.append({"name": "others (not named in the source)", "party": None, "votes": r["others"]})
+        top2 = sorted([a for a in cands if a["party"] and a["votes"]], key=lambda a: -a["votes"])[:2]
+        notes = [f"the votes are Algara and Amlani's county returns summed over {r['counties']} counties; not the "
+                 f"state's certified total, and other candidates appear only as the total less the two nominees",
+                 f"date: the general election day (the Tuesday after the first Monday in November), inferred; the "
+                 f"source gives the year"]
+        if r["counties_missing"]:
+            notes.append(f"{r['counties_missing']} of the {r['counties']} counties have no count in the source "
+                         f"(left out of the sums)")
+        if r.get("note"):
+            notes.append(r["note"])
+        rec = {
+            "id": cc.contest_id(year, "governor", r["state"]),
+            "year": year, "date": ELECTION_DAY[year], "level": "governor",
+            "place": {"state": r["state"], "district": None, "name": cc.STATE_NAMES[r["state"]]},
+            "special": False,
+            "result": {"certified": None, "candidates": cands, "total_votes": r["total"],
+                       "votes_incomplete": bool(r["counties_missing"]) or r["state"] in chambers.AA_INCOMPLETE,
+                       "source": _AA["source"]},
+            "two_party": ({"candidates": [a["name"] for a in top2], "votes": [a["votes"] for a in top2],
+                           "n_other_voters": sum(a["votes"] for a in top2) - 1,
+                           "share_first": round(top2[0]["votes"] / sum(a["votes"] for a in top2), 6)}
+                          if len(top2) == 2 else None),
+            "forecasts": [], "population": None, "stage_two": None, "p": None, "forecast_inputs": None,
+            "checks": [{"against": None, "differences": ["no second source read for this contest (Cha, Kuriwaki "
+                                                         "and Snyder begin in 2006)"]}],
+            "notes": notes,
+            "ballot": {"D": int(bool(r["dem_nominee"])), "R": int(bool(r["rep_nominee"])), "caucus_D": [],
+                       "others": None},
+        }
+        kind = aa_structure(r)
+        if kind and kind[0] == "uncontested":
+            rec["p"] = {"value": 0.0, "event": 0.0, "under": None, "computed_by": "pipeline/intake/build_congress.py",
+                        "commit": COMMIT, "not_computed": None, "reason": kind[1]}
+            out.append(rec)
+            continue
+        fi = forecast_inputs(year, "governor", r["state"], None, r["incumbency"], {"algara_amlani"}, P)
+        fi["incumbency_source"] = "algara_amlani"
+        fi["seat_status"] = r["seat_status"]
+        rec["forecast_inputs"] = fi
+        if kind:
+            rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
+                        "not_computed": kind[1], "reason": None}
+        elif fi.get("lean") is None:
+            rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
+                        "not_computed": fi.get("lean_missing") or "no presidential vote for the state", "reason": None}
+        else:
+            rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
+                        "not_computed": "pending: p is computed by pipeline/chambers.py compute", "reason": None}
+        out.append(rec)
+    return out
+
+
 POP = {}
 # a special election the November record leaves out, held on a date one of the chambers' own pages gives
 OFF_DATE = {(2010, "senate", "MA"): ("2010-01-19", "U.S. Senate, Party Division, 111th Congress, note 4: \"Scott Brown (R) "
@@ -494,7 +613,29 @@ def cha_only(year, office, st, d, special, cs, cha_src, P):
     return r
 
 
+def build_early_governors(year):
+    """An even year before 2006: governors only, from Algara and Amlani."""
+    P = pres_inputs()
+    SOURCES.clear()
+    contests = sorted(aa_governors(year, P), key=lambda r: r["id"])
+    srcs = {"algara_amlani": AA_SOURCE()}
+    srcs.update({k: v for k, v in SOURCES.items()})
+    out = {"level": "governor", "year": year,
+           "about": f"Governor contests of {year}, in the layout of plan/PLAN.md section 3 with the fields "
+                    f"data/README.md adds. Built by pipeline/intake/build_congress.py from Algara and Amlani's county "
+                    f"returns (pipeline/intake/algara_amlani.py) and the caches named in each source block. Alaska is "
+                    f"not in the source.",
+           "missing_from_record": [], "sources": srcs, "contests": contests}
+    cc.write_contest_file(os.path.join(cc.DATA, "governor", f"{year}.json"), out)
+    n_p0 = sum(1 for r in contests if r["p"]["value"] == 0.0)
+    n_pend = sum(1 for r in contests if (r["p"]["not_computed"] or "").startswith("pending"))
+    print(f"{year} governor: {len(contests)} contests; uncontested {n_p0}; awaiting the forecast {n_pend}; not computed "
+          f"{len(contests) - n_p0 - n_pend}")
+
+
 def build(year):
+    if year < 2006:
+        return build_early_governors(year)
     pop = cc.read_json(os.path.join(cc.CACHE, "census", "normalized", f"population_{year}.json"))
     if pop:
         POP[year] = pop
