@@ -43,12 +43,12 @@ of z over the level's earlier years scored out of sample, once CAL_MIN = 3 such 
 CALIBRATION (07:04, round 4): the model's own p is then multiplied by F / Z, F the factor that matches earlier
 years' out-of-sample near-ties (49-51%), where adopted for the level (near_tie_test); since 08:54 only where it
 also passes the robustness test below, which the House's does and the Senate's does not, so the Senate's is taken
-out and shown beside each p (near_tie_not_of_record; REPORT 0.1). SHRINKAGE AND TAILS (07:19,
+out and shown beside each p (near_tie_not_of_record; REPORT 0.2). SHRINKAGE AND TAILS (07:19,
 round 5): where the test adopts it for the level (variant_test), the mean is shrunk toward 1/2 by lambda, fitted on
 the level's earlier years (shrink_factor; the House), with k refitted on the shrunk means, or t4 tails stand first
 in place of normal (governors); the near-tie factor is refitted under the variant. A variant is adopted only if its
 gain also holds with any one scored year left out (the robustness test, 08:36, from M2's second pass); since then
-none is, at any level (REPORT 0.2). So the forecast for race i is
+none is, at any level (REPORT 0.3). So the forecast for race i is
 normal (t4 where adopted) with mean 1/2 + lambda (c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G (lag_i - 1/2))),
 lambda 1 where not shrunk, and variance k^2 (sd_nat^2 + s_e^2); the other tails, matched on the same sd, are
 computed alongside (model section 9.5). The common part sd_nat^2 is what ties races together for
@@ -341,10 +341,14 @@ def aa_governor_rows(ps, pres, gov):
     return rows, skipped
 
 
-def fit_rows():
+INC_CODES = (1,)     # Cha's inc codes counted as an incumbent, of record (REPORT 2.2; inc_test tries 1-2 and 1-3)
+
+
+def fit_rows(inc_codes=INC_CODES):
     """One row per race both major parties contested in November: 2006-2024 from Cha, Kuriwaki and Snyder,
     every level; the Senate also 1982-2004 from MEDSL (medsl_senate_rows). A governor's row carries the state's
-    last governor race (last_governor_race)."""
+    last governor race (last_governor_race). A nominee of 2006-2024 is an incumbent where Cha's code is one of
+    inc_codes (of record: 1 only; inc_test tries the others)."""
     cha = _load("cha/normalized/contests.json")["contests"]
     dbx = _load("downballot/normalized/pres_by_cd.json")
     db = dbx["lean_inputs"]
@@ -397,7 +401,7 @@ def fit_rows():
                 skip("no state presidential vote")
                 continue
             lean = ps[py][c["state"]] - ps[py]["US"]
-        inc = (1 if D[0]["inc"] == 1 else 0) - (1 if R[0]["inc"] == 1 else 0)
+        inc = (1 if D[0]["inc"] in inc_codes else 0) - (1 if R[0]["inc"] in inc_codes else 0)
         n2 = D[0]["votes"] + R[0]["votes"]
         row = {"year": t, "level": L, "state": c["state"], "district": c["district"],
                "special": c["special"], "y": D[0]["votes"] / n2, "n2": n2, "lean": lean, "inc": inc,
@@ -438,6 +442,8 @@ def fit(rows, level, years, national_from=None):
                   + ([r["lag"] - 0.5] if lag else []) for r in R])
     y = np.array([r["y"] - 0.5 for r in R])
     beta, res = ols(X, y)
+    # b_inc's standard error, for the report only (inc_test): the OLS form, s^2 (X'X)^-1
+    b_inc_se = float(np.sqrt((res ** 2).sum() / (len(y) - X.shape[1]) * np.linalg.pinv(X.T @ X)[len(ys) + 1, len(ys) + 1]))
     a = dict(zip(ys, beta[:len(ys)]))
     bL, bI = beta[len(ys)], beta[len(ys) + 1]
     bG = float(beta[len(ys) + 2]) if lag else None
@@ -448,7 +454,7 @@ def fit(rows, level, years, national_from=None):
     x = np.minimum(np.abs(X @ beta), CAP)
     g, _ = ols(np.column_stack([np.ones_like(x), x]), np.abs(res) * math.sqrt(math.pi / 2))
     base = {"level": level, "years": ys, "n": len(R), "a": {t: float(a[t]) for t in ys}, "b_lean": float(bL),
-            "b_inc": float(bI), "b_lag": bG, "lag": lag, "s_e": s_e, "g": [float(v) for v in g]}
+            "b_inc": float(bI), "b_inc_se": b_inc_se, "b_lag": bG, "lag": lag, "s_e": s_e, "g": [float(v) for v in g]}
     if national_from is not None:
         return dict(base, c=list(national_from["c"]), s_a=national_from["s_a"],
                     ZtZ_inv=national_from["ZtZ_inv"], national_from={"level": national_from["level"],
@@ -1206,7 +1212,7 @@ _CAL = {}
 
 def _raw(rows, level):
     """{year: [(mean, sd, y) of each race]} for every year the level's raw_model forecasts, cached."""
-    if level not in _CAL:
+    if (id(rows), level) not in _CAL:
         out = {}
         for T in range(FIT_FROM[level], 2025, 2):
             test = _test_rows(rows, level, T)
@@ -1214,23 +1220,38 @@ def _raw(rows, level):
             if m is None or not test:
                 continue
             out[T] = [(mu, sd, r["y"]) for r in test for mu, sd, _ in [predict(m, r)]]
-        _CAL[level] = out
-    return _CAL[level]
+        _CAL[(id(rows), level)] = out
+    return _CAL[(id(rows), level)]
 
 
-def calibration(rows, level, year, shrink=None):
-    """k for the level's forecasts of `year`; with shrink (shrink_factor's result), k of the means shrunk by it."""
+# THE HALF-LIFE k (the orchestrator, 2026-11-07 07:43 and 09:03; /mnt/project-files/d2/recent-k-design.md, fixed
+# before any score). After round 5 the House's forecast sd is wider than its results in every year 2010-2024 (z rms
+# 0.75 to 0.97), and k, the RMS of z over all earlier scored years, is held up by the noisier early years. The
+# variant weights each earlier scored year T' by 0.5^((T - T') / K_HALF_LIFE), a half-life of two cycles, over every
+# earlier scored year. M2 tested the last one, two and three years and a trend k (09:03): each fails the rule, so only
+# this one is run. Reason: the tokens are better spent on the untested variant.
+K_HALF_LIFE = 4
+
+
+def calibration(rows, level, year, shrink=None, rule="all"):
+    """k for the level's forecasts of `year`; with shrink (shrink_factor's result), k of the means shrunk by it;
+    rule "halflife" weights each earlier year by its half-life weight."""
     sc = _raw(rows, level)
     yrs = [t for t in sorted(sc) if t < year]
     if len(yrs) < CAL_MIN:
         return {"k": 1.0, "years": yrs, "races": sum(len(sc[t]) for t in yrs),
                 "note": f"not calibrated: {len(yrs)} earlier year(s) scored out of sample, {CAL_MIN} needed"}
     lam = shrink["factor"] if shrink else None
-    zs = [((y - mu) if lam is None else (y - 0.5 - lam * (mu - 0.5))) / sd for t in yrs for mu, sd, y in sc[t]]
-    return {"k": math.sqrt(sum(z * z for z in zs) / len(zs)), "years": yrs, "races": len(zs),
-            "note": "k = the root mean square of z = (y - mean) / sd over these earlier years' races, each year "
-                    "forecast from its own earlier cycles" + (", the means shrunk toward 1/2 by this year's shrinkage "
-                                                              "factor" if lam is not None else "")}
+    zs = [(((y - mu) if lam is None else (y - 0.5 - lam * (mu - 0.5))) / sd,
+           0.5 ** ((year - t) / K_HALF_LIFE) if rule == "halflife" else 1.0) for t in yrs for mu, sd, y in sc[t]]
+    out = {"k": math.sqrt(sum(w * z * z for z, w in zs) / sum(w for _, w in zs)), "years": yrs, "races": len(zs),
+           "note": "k = the root mean square of z = (y - mean) / sd over these earlier years' races, each year "
+                   "forecast from its own earlier cycles" + (", the means shrunk toward 1/2 by this year's shrinkage "
+                                                             "factor" if lam is not None else "") +
+                   (f", each year weighted by 0.5^((year - that year) / {K_HALF_LIFE})" if rule == "halflife" else "")}
+    if rule == "halflife":
+        out["rule"] = "halflife"
+    return out
 
 
 # SHRINKAGE AND TAILS (the orchestrator, 2026-11-07 07:19, round 5). The back-test found results landing about 1.5
@@ -1243,7 +1264,8 @@ def calibration(rows, level, year, shrink=None):
 # under each (near_tie_test with the variant). A variant is adopted for a level by the conditions of round 4 with
 # the safe-seat bands added (variant_test).
 VARIANTS = {"none": {"shrink": False, "tails": "normal"}, "shrink": {"shrink": True, "tails": "normal"},
-            "t4": {"shrink": False, "tails": "t4"}, "both": {"shrink": True, "tails": "t4"}}
+            "t4": {"shrink": False, "tails": "t4"}, "both": {"shrink": True, "tails": "t4"},
+            "halflife": {"shrink": False, "tails": "normal", "k": "halflife"}}
 VARIANT_YEARS = list(range(2010, 2025, 2))
 VARIANT_BANDS = (0.0, 0.05, 0.10, 0.20)
 VARIANT_SAFE = (2, 3)               # the safe-seat bands: |mean - 1/2| from 0.10 to 0.20, and from 0.20 up
@@ -1257,14 +1279,16 @@ VARIANT_NOTE = {"none": "the mean as fitted, normal tails first (no variant of r
                           "means, normal tails first (REPORT 2.7)",
                 "t4": "the mean as fitted, t4 tails with the same sd first (REPORT 2.7)",
                 "both": "the mean shrunk toward 1/2 by the factor fitted on earlier years, k refitted on the shrunk "
-                        "means, t4 tails with the same sd first (REPORT 2.7)"}
+                        "means, t4 tails with the same sd first (REPORT 2.7)",
+                "halflife": "the mean as fitted, normal tails first, k with each earlier year weighted by a half-life "
+                            "of two cycles (REPORT 0.1)"}
 
 
 def shrink_factor(rows, level, year):
     """lambda for the level's forecasts of `year`: the slope, through 1/2, of the result on the raw mean over the
     level's earlier years' raw out-of-sample forecasts, weighted by 1/sd^2; 1 (not shrunk) with fewer than CAL_MIN
     earlier years scored."""
-    ck = (level, year)
+    ck = (id(rows), level, year)
     if ck in _SHRINK:
         return _SHRINK[ck]
     sc = _raw(rows, level)
@@ -1289,7 +1313,7 @@ def variant_model(rows, level, year, variant):
         return None, fy
     v = VARIANTS[variant]
     sh = shrink_factor(rows, level, year) if v["shrink"] else None
-    cal = calibration(rows, level, year, sh)
+    cal = calibration(rows, level, year, sh, v.get("k", "all"))
     return dict(m, k=cal["k"], calibration=cal, shrink=sh, tails=v["tails"], variant=variant), fy
 
 
@@ -1336,7 +1360,7 @@ def near_band(mean):
 def _near_scored(rows, variant):
     """{(level, year): [(mean, sd, y)]}: every year's out-of-sample forecasts under the variant (variant_model,
     before the near-tie factor), cached."""
-    ck = ("scored", variant)
+    ck = ("scored", id(rows), variant)
     if ck not in _NEAR:
         out = {}
         for L in LEVELS:
@@ -1382,10 +1406,10 @@ def near_tie_factor(rows, level, year, mean, scheme, variant):
     the variant's forecasts: {"factor", "of", "fitted_on", "expected", "seen"}; factor 1 with "of" null where the
     fitting years have too few expected near-ties."""
     b = near_band(mean) if scheme == "band" else None
-    ck = ("factor", variant, scheme, year, level, b)
+    ck = ("factor", id(rows), variant, scheme, year, level, b)
     if ck in _NEAR:
         return _NEAR[ck]
-    cc_ = ("counts", variant, scheme, year)
+    cc_ = ("counts", id(rows), variant, scheme, year)
     if cc_ not in _NEAR:
         if scheme == "level":
             _NEAR[cc_] = (_near_counts(rows, year, lambda L, mu: L, variant),
@@ -1482,7 +1506,7 @@ def near_tie_test(rows, variant):
     """The orchestrator's test (07:04): both schemes against none, on the years either reaches, by level, for the
     variant's forecasts (round 5: the factor refitted under each), with the robustness test (08:54); and the rule,
     {level: scheme or None}. "adopted_round_4" is the rule of round 4's test alone."""
-    ck = ("test", variant)
+    ck = ("test", id(rows), variant)
     if ck in _NEAR:
         return _NEAR[ck]
     out = {"variant": variant, "window": f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%",
@@ -1571,11 +1595,11 @@ def near_tie_taken_out(rows, level, year, mean, sd, tails):
     F = f["factor"]
     return {"factor": F, "multiplier": F / (1 + (F - 1) * near_q(mean, sd, tails)), "scheme": sch,
             "note": "round 4's near-tie factor, taken out of p: it does not pass the robustness test (the "
-                    "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.1). "
+                    "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.2). "
                     "value is what p would be with it, p times multiplier"}
 
 
-def _variant_score(rows, level, variant, years, scheme="of record"):
+def _variant_score(rows, level, variant, years, scheme="of record", band_rows=None):
     """The level's out-of-sample forecasts of `years` under the variant, of record (the near-tie factor refitted
     under it, where its near_tie_test adopts one for the level; or under the near-tie `scheme` given, None for
     none): log score, coverage, near-even counts overall and by band of |mean - 1/2| (the bands by variant none's
@@ -1583,7 +1607,7 @@ def _variant_score(rows, level, variant, years, scheme="of record"):
     beyond the forecast's 5% and 1% quantiles toward 1/2."""
     tails = VARIANTS[variant]["tails"]
     sch = near_tie_test(rows, variant)["adopted"].get(level) if scheme == "of record" else scheme
-    sc, sc0 = _near_scored(rows, variant), _near_scored(rows, "none")
+    sc, sc0 = _near_scored(rows, variant), _near_scored(band_rows or rows, "none")
     nb = len(VARIANT_BANDS)
     tot = {"races": 0, "ls": 0.0, "cov": [0, 0, 0], "win": {w: [0.0, 0] for w in NEAR_WINDOWS}}
     band = [{"races": 0, "ls": 0.0, "win": {w: [0.0, 0] for w in NEAR_WINDOWS},
@@ -1662,8 +1686,8 @@ def variant_test(rows):
     robustness test (08:36, from M2's second pass): (1)-(3) hold again with any one scored year left out of the
     scoring. Reason: a change adopted on a knife edge, on one year or one cell, is as likely noise as signal, and
     the model's default is no change. Of the variants that pass, the better log score."""
-    if "test" in _VT:
-        return _VT["test"]
+    if ("test", id(rows)) in _VT:
+        return _VT[("test", id(rows))]
     out = {"years": VARIANT_YEARS, "bands": list(VARIANT_BANDS), "safe_bands": [VARIANT_BANDS[b] for b in VARIANT_SAFE],
            "min_count": VARIANT_MIN_COUNT, "variants": VARIANTS, "by_level": {}, "adopted": {},
            "shrink_by_year": {}, "k_by_year": {}}
@@ -1672,7 +1696,7 @@ def variant_test(rows):
         b0 = res["none"]
         scored = [T for T in VARIANT_YEARS if any(_near_scored(rows, "none").get((L, T), []))]
         best = None
-        for v in ("shrink", "t4", "both"):
+        for v in ("shrink", "t4", "both", "halflife"):
             r = res[v]
             if not r["races"]:
                 continue
@@ -1697,9 +1721,66 @@ def variant_test(rows):
         out["adopted"][L] = best or "none"
         out["shrink_by_year"][L] = {str(T): shrink_factor(rows, L, T) for T in VARIANT_YEARS}
         out["k_by_year"][L] = {str(T): {"none": calibration(rows, L, T)["k"],
-                                        "shrunk": calibration(rows, L, T, shrink_factor(rows, L, T))["k"]}
+                                        "shrunk": calibration(rows, L, T, shrink_factor(rows, L, T))["k"],
+                                        "halflife": calibration(rows, L, T, rule="halflife")["k"]}
                                for T in VARIANT_YEARS}
-    _VT["test"] = out
+    _VT[("test", id(rows))] = out
+    return out
+
+
+# CHA'S INCUMBENCY CODES 2 AND 3 (the orchestrator, 2026-11-07 08:20 and 09:08; /mnt/project-files/d2/
+# recent-k-design.md, Part 2, fixed before any score). Cha's guide codes inc 1 (an incumbent), 2 (an incumbent
+# elected in a special election) and 3 (a senator appointed by the governor; Cha uses it for governors too). The fit
+# counts only 1. In the orchestrator's words: "an incumbent elected in a special is an incumbent by any plain
+# reading, and an appointed senator holds the seat too. So test it rather than assume it." Two definitions, fixed
+# before any score: (a) codes 1 and 2 count; (b) 1, 2 and 3. Each applies to the fit rows of 2006-2024 (Cha); the
+# Senate's rows of 1982-2004 (MEDSL, inferred) and the governors' before 2006 (Algara and Amlani) keep their own.
+# Under each, everything is refitted on earlier years only, as the record is: the coefficients (b_inc among them),
+# k, and the near-tie factor and its rule (near_tie_test on the variant's rows). Each is scored against the record
+# on 2010-2024, out of sample, by level, banded by the record's means, under the rule of variant_test and the
+# robustness test. The half-life k was not adopted at any level, so there is no second setting to score.
+INC_VARIANTS = {"a": (1, 2), "b": (1, 2, 3)}
+
+
+def inc_test(rows):
+    """Each incumbency definition of INC_VARIANTS against the record, by level (see above): the scores, the
+    verdict, each year left out, b_inc and its standard error by year, and how many fit rows change."""
+    out = {"record": list(INC_CODES), "variants": {k: list(v) for k, v in INC_VARIANTS.items()}, "years": VARIANT_YEARS,
+           "adopted_if": "improves on every scored year, and on every set with one scored year left out",
+           "by_level": {}, "adopted": {}, "b_inc_by_year": {}, "rows_changed": {}}
+    alt = {k: fit_rows(v)[0] for k, v in INC_VARIANTS.items()}
+    for L in LEVELS:
+        b0 = _variant_score(rows, L, "none", VARIANT_YEARS)
+        scored = [T for T in VARIANT_YEARS if _near_scored(rows, "none").get((L, T))]
+        res, best = {"record": b0}, None
+        for k, rs in alt.items():
+            r = _variant_score(rs, L, "none", VARIANT_YEARS, band_rows=rows)
+            r.update(_variant_verdict(r, b0))
+            loo = {}
+            for Y in scored:
+                yrs = [T for T in VARIANT_YEARS if T != Y]
+                vd = _variant_verdict(_variant_score(rs, L, "none", yrs, band_rows=rows),
+                                      _variant_score(rows, L, "none", yrs))
+                loo[str(Y)] = {"improves": vd["improves"], "mean_log_score_gain": vd["mean_log_score_gain"],
+                               "count_49_51": vd["count_49_51"],
+                               "fails": ([] if vd["raises_log_score"] else ["the log score"]) +
+                                        ([] if vd["count_nearer"] else ["the 49-51% count"]) + vd["safe_bands_further"]}
+            r["leave_one_year_out"] = loo
+            r["robust"] = all(x["improves"] for x in loo.values())
+            if r["improves"] and r["robust"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
+                best = k
+            res[k] = r
+        res["adopted"] = best or "record"
+        out["by_level"][L] = res
+        out["adopted"][L] = best or "record"
+        out["b_inc_by_year"][L] = {
+            str(T): {name: ({"b_inc": m["b_inc"], "se": m["b_inc_se"], "races": m["n"]} if m else None)
+                     for name, rs in [("record", rows)] + list(alt.items()) for m in [raw_model(rs, L, T)[0]]}
+            for T in VARIANT_YEARS}
+        mine = [r for r in rows if r["level"] == L]
+        out["rows_changed"][L] = {k: {"rows": sum(1 for r0, r1 in zip(mine, [r for r in rs if r["level"] == L])
+                                                  if r0["inc"] != r1["inc"]),
+                                      "of": sum(1 for r in mine if r["source"] == "cha")} for k, rs in alt.items()}
     return out
 
 
@@ -1912,7 +1993,7 @@ def compute(year):
                                   "fails_on_every_year": r_["round_5_cells"]["safe_bands_further"]},
                     "note": f"round 4's near-tie factor ({nt_out} scheme) is taken out of p for this level: it passes "
                             "round 4's test on every year, but not the robustness test (the orchestrator, 2026-11-07 "
-                            "08:54; REPORT 0.1)" + (f"; the {nt_rule} scheme, which passes it, stands" if nt_rule else
+                            "08:54; REPORT 0.2)" + (f"; the {nt_rule} scheme, which passes it, stands" if nt_rule else
                             ". Each model's own p shows beside it, under near_tie_not_of_record, what p would be with "
                             "the factor")}
             if m.get("national_from"):
@@ -2347,6 +2428,16 @@ def main(argv):
                     print(f"  {L} {v['years'][0]}-{v['years'][-1]} {sch:5s}: {x['races']} races, log score "
                           f"{x['mean_log_score']:.4f}, coverage " + "/".join(f"{c_:.3f}" for c_ in x["coverage"].values())
                           + "; " + ", ".join(f"{k} {w['expected']:.1f} vs {w['seen']}" for k, w in x["within"].items()))
+        it = inc_test(rows)
+        out["incumbency_test"] = it
+        print("\nCha's incumbency codes (the next round): adopted", it["adopted"])
+        for L, res in it["by_level"].items():
+            for k in ("record",) + tuple(INC_VARIANTS):
+                x = res[k]
+                print(f"  {L} {k:6s}: log score {x['mean_log_score']:.4f}, coverage "
+                      + "/".join(f"{c_:.3f}" for c_ in x["coverage"].values()) + "; "
+                      + ", ".join(f"{kk} {w['expected']:.1f} vs {w['seen']}" for kk, w in x["within"].items())
+                      + ("" if k == "record" else f"; improves {x['improves']}, robust {x['robust']}"))
         os.makedirs(os.path.join(REPO, "data", "congress"), exist_ok=True)
         cc.write_json(os.path.join(REPO, "data", "congress", "backtest.json"), out)
 
