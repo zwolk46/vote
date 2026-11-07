@@ -241,7 +241,10 @@ def cycle(t):
     return "presidential" if t % 4 == 0 else "midterm" if t % 4 == 2 else "odd"
 
 
-def two_leading(cands):
+def on_ballot(cands):
+    """Every named candidate on the ballot, by votes: not write-ins (party w) and not the source's 'scattering'. (Called
+    two_leading before 2026-11-07 09:45 UTC, a name that read as the first two; it has always returned them all, so
+    partisan_rows' rows are the contests with one Democrat and one Republican on the ballot, as its docstring says.)"""
     named = [a for a in cands if not a["scattering"] and a["party"] != "w"]
     named.sort(key=lambda a: -(a["votes"] or 0))
     return named
@@ -276,7 +279,7 @@ def partisan_rows(contests):
             continue
         if any(a["vote_missing"] for a in c["cands"] if not a["scattering"]):
             continue
-        lead = two_leading(c["cands"])
+        lead = on_ballot(c["cands"])
         ds = [a for a in lead if a["party"] == "d"]
         rs = [a for a in lead if a["party"] == "r"]
         if len(ds) != 1 or len(rs) != 1:
@@ -434,7 +437,7 @@ def first_round_index(contests):
 def runoff_key(c, idx):
     """The class of a runoff's second round, from what was known before it: its kind, and how far ahead the
     first round's leader of the two finished in the first round (their share of the two's first-round votes)."""
-    named = two_leading(c["cands"])[:2]
+    named = on_ballot(c["cands"])[:2]
     fr = [x for x in idx.get(_seat(c), []) if x["etype"] in RUNOFF_FIRST[c["etype"]]]
     kind = RUNOFF_KIND[c["etype"]]
     if fr:
@@ -453,7 +456,7 @@ def class_rows(contests):
     rows = []
     idx = first_round_index(contests)
     for c in contests:
-        lead = two_leading(c["cands"])
+        lead = on_ballot(c["cands"])
         if len(lead) < 2 or any(a["vote_missing"] for a in c["cands"] if not a["scattering"]):
             continue
         kind = structure(c)
@@ -500,7 +503,7 @@ def structure(c):
     """(route, class key or reason) for a normalized Klarner contest."""
     et = c["etype"]
     kv = c.get("klarner") or {}
-    named = two_leading(c["cands"])
+    named = on_ballot(c["cands"])
     if any(a["vote_missing"] for a in c["cands"] if not a["scattering"]) and len(named) > 1:
         return ("not computed", "the source does not report every candidate's votes")
     if len(named) <= (c["eseats"] or 1):
@@ -784,6 +787,25 @@ def _cands(c):
 FORECAST_SCOPE = {"A": "district (class A)", "B": "district (class B)", "C": "chamber average (class C)"}
 
 
+def _p_like(n, f, under, commit):
+    """p by like past races: the class's measured density f at 1/2 (method D3-v1.1), through a normal of mean 1/2 whose
+    density at 1/2 is f (sd 1/(sqrt(2 pi) f)) as a device for pipeline/core.py. Where core takes the exact lattice sum
+    (n under 1,000, or n sd^2 under 6.25), its normal is truncated to (0, 1) and renormalised: right for a forecast of a
+    share, but here it raises the density above the measured f in a flat class (M2, #47 item 4: 41 of 3,202 exact
+    like-race p over 10% high, at worst 1.99 times). So the exact sum is multiplied by the normal's mass on the sum's
+    grid, which is the unrenormalised mix, and the measured f stands (the orchestrator, 2026-11-07 09:03 and 09:36:
+    "keep the measured f(1/2) ... multiplying the exact pmf by the normal's mass inside (0, 1)"; model/math/common.py
+    is not changed). The density form f/(2n) needs no change."""
+    sd = 1.0 / (math.sqrt(2 * math.pi) * f)
+    out = _p_block(n, 0.5, sd, under, commit)
+    if out["method"] == "exact":
+        lo, hi = max(1e-9, 0.5 - 12 * sd), min(1 - 1e-9, 0.5 + 12 * sd)   # common._grid's range for normalmix_pmf
+        mass = _ncdf(hi, 0.5, sd) - _ncdf(lo, 0.5, sd)
+        out["value"], out["event"] = out["value"] * mass, out["event"] * mass
+        out["exact_mass"] = mass
+    return out
+
+
 def _p_block(n, mean, sd, under, commit, alongside=None):
     r = core.p_contest(n, mean, sd, "normal")
     out = {"value": r["p"], "event": r["event"], "under": under, "method": r["method"], "f_half": r["f_half"],
@@ -947,7 +969,7 @@ def build(out_dir, with_p=False, sample=False):
             r_ = by_contest[id(c)]
             M = fits[t]
             mean, sd, a = predict_partisan(M, r_, pres)
-            lead = two_leading(c["cands"])
+            lead = on_ballot(c["cands"])
             d = next(x for x in lead if x["party"] == "d")
             rr = next(x for x in lead if x["party"] == "r")
             off_pair = {tn[0]["party"], tn[1]["party"]} != {"d", "r"}
@@ -987,7 +1009,7 @@ def build(out_dir, with_p=False, sample=False):
             if (t, key) not in dens_cache:
                 dens_cache[(t, key)] = class_density([x for x in crow if x["year"] < t], key)
             f, N, h, kin = dens_cache[(t, key)]
-            lead = two_leading(c["cands"])
+            lead = on_ballot(c["cands"])
             kk = (c["eseats"] or 1) if route == "boundary" else 1
             pair = lead[kk - 1:kk + 1]
             n = pair[0]["votes"] + pair[1]["votes"] - 1
@@ -1017,9 +1039,8 @@ def build(out_dir, with_p=False, sample=False):
                 rec["forecasts"].append(fc)
                 if with_p and n >= 1:
                     if f > 0:
-                        sd_eq = 1.0 / (math.sqrt(2 * math.pi) * f)
-                        p = _p_block(n, 0.5, sd_eq, f"the model's own ({METHOD}), like past "
-                                                     f"{'runoffs' if route == 'runoff' else 'races'}", commit)
+                        p = _p_like(n, f, f"the model's own ({METHOD}), like past "
+                                          f"{'runoffs' if route == 'runoff' else 'races'}", commit)
                     else:
                         p.update({"value": 0.0, "event": 0.0,
                                   "reason": f"no like race in {N} finished within {round(50 - 100 * h)}-{round(50 + 100 * h)}%"})
