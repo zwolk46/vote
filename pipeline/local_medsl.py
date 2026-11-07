@@ -1232,6 +1232,14 @@ def _src_medsl(year, chk, files):
                          + ", ".join(sorted(files)))
 
 
+def _deciding_words(earlier):
+    """The State Board's November contests whose name was on an earlier ballot that year (pipeline/local_ncsbe.py,
+    medsl_shape): the deciding round, in the State Board route's words, so that both routes mark it alike (the
+    orchestrator, 2026-11-07 09:53 UTC)."""
+    import local_ncsbe as NS
+    return NS.deciding_words(earlier)
+
+
 def _owns(r):
     """The contests this build writes: MEDSL's, Indiana's own of 2024 (certified_in), and the State Board's of MEDSL's
     general dates (certified_nc)."""
@@ -1420,8 +1428,9 @@ def build(out_dir, with_p=True):
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
                    "office": c["office"].title(), "office_type": office_type(c["office"]), "office_scope": scope,
-                   "election": ("general" if c["stage"] == "GEN" else c["stage"].lower())
-                               + (", special" if c["special"] else ""),
+                   "election": (("general" if c["stage"] == "GEN" else c["stage"].lower())
+                                + (", special" if c["special"] else "")) if not c.get("earlier_round") else
+                               _deciding_words(c["earlier_round"]),
                    "seats": c["magnitude"] if (c.get("magnitude") or 1) > 1 else None,
                    "result": {"candidates": _cands_out(c["candidates"], c.get("magnitude") or 1),
                               "total_votes": sum(x["votes"] for x in c["candidates"]),

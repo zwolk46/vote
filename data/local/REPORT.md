@@ -372,37 +372,41 @@ The p of these contests are computed from the certified counts. Elsewhere, the f
   - "a Democrat against a Republican", since these dates have no county lean;
   - primaries by office type and number of candidates, with p between the top two (model section 7).
 - **The back-test.** Each year is forecast from earlier years only. For each class, the expected count is the chance its like races gave of finishing in the class's window around ½; the seen count is how many did.
-  - Local races, 2016-2026: 2,231 forecast, 275.9 expected and 289 seen.
-  - Single-seat races: 132.8 against 138. Multi-seat boundaries: 193.7 against 206.
+  - Local races, 2016-2026: 2,424 forecast, 288.6 expected and 304 seen.
+  - Single-seat races: 142.7 against 150. Multi-seat boundaries: 196.7 against 209.
   - Primaries, 2017-2026: 613 forecast, 50.6 against 55.
-  - These are the figures after the correction of 09:21 above. Before it they were 2,191 forecast, 270.3 against 281; single-seat 115.3 against 113; and primaries 484 forecast, 38.7 against 38.
+  - These are the figures with the deciding rounds below (the orchestrator, 09:53). Before them (after the correction of 09:21 above) they were 2,231 forecast, 275.9 against 289; single-seat 132.8 against 138; boundaries 193.7 against 206. Before the correction: 2,191 forecast, 270.3 against 281; single-seat 115.3 against 113; and primaries 484 forecast, 38.7 against 38.
 - **A single year is rougher than the pooled figure.**
 
   | Year | Local races: expected, seen | Primaries: expected, seen |
   |---|---|---|
   | 2016 | 0.5, 1 | |
-  | 2017 | 29.4, 28 | 0.2, 0 |
-  | 2018 | 7.4, 15 | 5.5, 11 |
-  | 2019 | 32.8, 41 | 0.1, 0 |
-  | 2020 | 12.0, 14 | 8.6, 7 |
-  | 2021 | 49.4, 41 | |
-  | 2022 | 17.2, 13 | 8.0, 11 |
-  | 2023 | 51.1, 54 | 0.1, 0 |
-  | 2024 | 15.6, 13 | 11.0, 14 |
-  | 2025 | 58.5, 67 | 0.3, 1 |
-  | 2026 | 2.0, 2 | 16.8, 11 |
+  | 2017 | 29.7, 29 | 0.2, 0 |
+  | 2018 | 8.0, 17 | 5.5, 11 |
+  | 2019 | 44.2, 53 | 0.1, 0 |
+  | 2020 | 11.6, 11 | 8.6, 7 |
+  | 2021 | 50.0, 41 | |
+  | 2022 | 17.7, 13 | 8.0, 11 |
+  | 2023 | 52.0, 57 | 0.1, 0 |
+  | 2024 | 16.2, 14 | 11.0, 14 |
+  | 2025 | 56.1, 65 | 0.3, 1 |
+  | 2026 | 2.6, 3 | 16.8, 11 |
 
   In 2018, twice as many local races finished in the window as were expected. In 2021, a sixth fewer.
-- **No calibration.** A factor fitted on earlier years only (the 06:38 rule) brings 2019-2026 to 261.7 expected against 245 seen; uncalibrated gives 238.6 (before the correction of 09:21: 251.6, 237 and 233.0). It makes the later years worse, so it is not applied, and each forecast says so in its `note`. Unlike MEDSL's national classes (0.75-0.78, §7), North Carolina's own classes are about right.
+- **No calibration: the factor fails the robustness test** (*rewritten 2026-11-07 at 10:06 UTC*; `backtest-ncsbe.json`, `calibration`).
+  - **Why it is retested.** With the deciding rounds in the pool, the 06:38 rule alone, a pooled count brought nearer, would now take the factor: 284.5 expected against 274 seen in 2018-2026, against 258.5 uncalibrated. Each forecast's note said, as a fixed text, that it was not taken. So the factor now goes through the robustness test of the brief's amendment of 08:36, as MEDSL's did in §7. Each year with 30 or more expected in earlier years is scored with its own pooled factor (2018-2026: 0.99 to 1.23).
+  - **Local races.** It fails. The count comes nearer, but the deviance by office type rises from 5.08 to 5.57. Two tested cells are made worse: single-seat mayors (29.0 to 32.9 against 26 seen) and school boards (16.6 to 18.1 against 13). With each year left out it fails too.
+  - **Primaries.** It fails: 2025 and 2026 are scored, 17.1 expected rises to 22.1 against 12 seen, and the councils' cell is made worse.
+  - **So p stays uncalibrated**, and each forecast's `note` now gives the reason from the record. The earlier figures: the factor brought 2019-2026 to 261.7 expected against 245 seen, uncalibrated 238.6 (before the correction of 09:21: 251.6, 237 and 233.0). Unlike MEDSL's national classes (0.75-0.78, §7), North Carolina's own classes are about right.
 - **What it gives, on the State Board's other dates** (the State Board's contests on MEDSL's dates take MEDSL's routes, above).
-  - p: 1,750 local races (592 single-seat, 1,158 at the boundary, marked not yet checked for M2) and 613 primaries.
+  - p: 1,912 local races (734 single-seat, 1,178 at the boundary, marked not yet checked for M2) and 613 primaries. Of the local ones, 64 are deciding rounds (46 single-seat, 18 at the boundary).
   - p = 0: 5,263.
   - Out of reach, each with its reason:
-    - too few like races in earlier years: 1,754 local, 1,375 primaries;
+    - too few like races in earlier years: 1,733 local, 1,375 primaries;
     - 2014, with no earlier year to fit on: 603;
     - no seats before 2014: 3,343;
     - first rounds, second primaries and primaries that a second primary followed: 522;
-    - after an earlier round: 171;
+    - a second round on a date other than November's (perhaps a runoff): 30;
     - write-ins near the winner's votes: 1,162 (with the 91 on MEDSL's dates, 1,253 State Board contests carry this reason) [measured];
     - a write-in in the deciding pair: 41;
     - no votes: 1;
@@ -413,7 +417,19 @@ The p of these contests are computed from the certified counts. Elsewhere, the f
 - They are November contests of MEDSL's years (2018-2024) whose name was on a ballot earlier that year, a nonpartisan primary: Johnston, Moore, Wayne, Craven and Watauga counties' school boards, and Asheville's and Mount Airy's councils and mayors.
   - MEDSL's route writes them to the files as generals, with like races and p.
   - The State Board's route reads the same contest as "a contest after an earlier round this year (perhaps a runoff)". It leaves the contest out of its own pool and computes no p for it on its own dates (171 local contests, §9 above).
-- So the two routes read one contest two ways. In an even year's November general, North Carolina holds no runoff, because its second primaries are party primaries in the spring [inferred; not read in the statute yet]. The State Board's route could read those as generals, as MEDSL's does. That would add the 35 rows, and the even-year November contests among the 171 would get p. This is not done here. It changes which contests a route takes, so it waits for the orchestrator.
+- So the two routes read one contest two ways. In an even year's November general, North Carolina holds no runoff, because its second primaries are party primaries in the spring [inferred; not read in the statute yet]. The State Board's route could read those as generals, as MEDSL's does. That would add the 35 rows, and the even-year November contests among the 171 would get p. This was not done in #59: it changes which contests a route takes, so it waited for the orchestrator, who ruled at 09:53 (below).
+
+**November's deciding rounds** (*added 2026-11-07 at 10:06 UTC*; the orchestrator, 09:53) [measured].
+- **The ruling.** "A November contest that follows an earlier round of the same contest that year is that contest's deciding round, whether the earlier round was a nonpartisan primary or a first round. This holds in odd and even years alike. So compute it by the route's classes (number of candidates and seats as usual), and mark it 'deciding round after an earlier round'. The earlier round stays not computed, as model §7 records." *Reason, in its words:* "the November count is the one that elects, and MEDSL already reads them that way, so both routes will agree."
+- **What changed** (`pipeline/local_ncsbe.py`, `p_of`, `deciding_words`).
+  - A November contest whose name was on an earlier ballot that year now takes the route's classes, and its `election` begins "deciding round after an earlier round on <date>".
+  - MEDSL's route writes the State Board's contests on its own general dates (2018-2024). Those of the same kind carry the same words, 35 of them, through `medsl_shape`'s `earlier_round`. Their p is MEDSL's route's, as before (23 computed, 12 not, each with its reason), and does not move.
+  - The earlier round stays not computed. So does a second round on a date other than November's, 30 contests, now in those words.
+  - A question has no rounds. One whose title was on another ballot that year (21) now says only that, in place of the rounds' words it carried before.
+- **What it gives.** Of the 141 November contests of 2014-2025 that were not computed as "after an earlier round", 64 get p: 46 single-seat and 18 at the boundary, all in the odd years 2017-2025. The other 77 stay out, because their class has too few like races in earlier years. Before 2014 the files give no seats, so deciding rounds there change in words only.
+- **The pool.** The deciding rounds enter the route's like races, so later years' classes change. 98 contests get p for the first time, because their class now reaches 100 earlier like races; 95 of them are 2019's mayors. 1,572 p move: by a median of ×0.990, from ×0.762 to ×1.524. 907 move by more than 1% and 73 by more than 10%.
+- **Every moved p** is in `data/local/moves-ncsbe-deciding-round.json`, 1,734 in all, with its id, before, after and why (`D`, `N`, `P`).
+- **Words only.** 373 local `election` texts, 244 primaries' (each date now named once) and 310 `not_computed` texts (counts of like races) change without a p.
 
 **Size** [measured]. The repository packs to 28.48 MiB with this change, against 26.60 MiB at main's 001d3f7 (scratch clones, `git gc --aggressive`). The new files are 15.9 MB unpacked.
 
