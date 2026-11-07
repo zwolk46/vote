@@ -214,8 +214,12 @@ def measure_route(r):
     return r["state"] == "NC" and r["src"] == "ncsbe" and (r["date"] or "")[5:7] == "11" and r["year"] in MEASURE_YEARS
 
 
-def local_pools():
-    """(MEDSL pool, North Carolina pool): (year, key, s) rows from the local files.
+ODD_LA_YEARS = (2023,)   # Louisiana's odd year (#70): the record keeps it out of every later year's like races (local_medsl.py ODD_YEARS)
+
+
+def local_pools(odd_la=False):
+    """(MEDSL pool, North Carolina pool): (year, key, s) rows from the local files. odd_la=True takes Louisiana's 2023
+    rows (#70) into the MEDSL pool too; the record keeps them out of later years' like races (c22 measures both).
     MEDSL (pipeline/local_medsl.py local_rows): every contest of MEDSL's route (medsl_route) that local_structure
     sends to routes (b) or (c), with the recorded class and deciding pair, or both rebuilt from the ballot where the
     file records neither (a write-in in the deciding pair: the contest's own p is not computed, but it is a like race).
@@ -250,6 +254,9 @@ def local_pools():
             continue
         s = max(v0, v1) / (v0 + v1)
         if medsl_route(r):
+            if r["src"] == "la_sos" and r["year"] in ODD_LA_YEARS and not odd_la:
+                miss["Louisiana's odd year, kept out of later years' like races (#70)"] += 1
+                continue
             if r["route"] in ("class", "boundary") or (r["cls"] and not r["route"]):
                 medsl.append((r["year"], r["cls"], s))
             elif reason.startswith("a write-in line is in the pair"):
@@ -318,13 +325,16 @@ def side(name):
 _STATE_FAULT = re.compile(r"^the source's \d{4} .*this state")
 
 
-def measure_pool():
+def measure_pool(odd_la=False):
     """(year, key, yes share) rows of the measure files on MEDSL's route (measure_route): every question of the measure
     years with yes or no votes, statewide or local (partial left out; a question the source gives one answer of, and a
-    state whose counts do not add up that year, left out), as pipeline/measures.py rows counts them."""
+    state whose counts do not add up that year, left out), as pipeline/measures.py rows counts them. Louisiana's 2023
+    questions (#70) only with odd_la=True: the record keeps them out of later years' like measures."""
     pool = []
     for r in D.rows("measure"):
         if not measure_route(r) or not r["question"]:
+            continue
+        if r["src"] == "la_sos" and r["year"] in ODD_LA_YEARS and not odd_la:
             continue
         q = r["question"]
         reason = r["reason"] or ""

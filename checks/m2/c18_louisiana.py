@@ -242,6 +242,9 @@ def files_check(cs, rd):
     used = set()
     for f in loc + mea:
         q = "question" in f
+        if f.get("party_office"):
+            t["local: a party committee (18.5)"] += 1
+            continue
         title = (f["question"]["title"] if q else f["office"])
         cands = [(_norm(x["name"]), x["votes"]) for x in f["result"]["candidates"]]
         hits = [c for k, v in mine.items() if k[0] == f["date"] for c in v
@@ -362,6 +365,74 @@ def main():
     rd = rounds_check(cs)
     loc, mea = files_check(cs, rd)
     p_check(loc)
+    committees_check(cs, rd, loc)
+
+
+def committees_check(cs, rd, loc):
+    """18.5 #68: the parties' committees (La. R.S. 18:443, 18:444), 241 contests of 2024-03-23 with no p."""
+    import html
+    print("18.5 #68: the parties' committees against my parse, their words, and the statutes' text")
+    mine = [c for c in cs if COMMITTEE.match(c["title"])]
+    by_kind = collections.Counter(c["title"][:4] for c in mine)
+    print(f"  my parse: {len(mine)} committee contests on {sorted({c['date'] for c in mine})}, by committee {dict(sorted(by_kind.items()))} (the record: 241 of 2024-03-23: DSCC 84, RSCC 83, RPEC 43, DPEC 31)")
+    later = sum(1 for c in mine if rd[id(c)][0] != "first" or rd[id(c)][1])
+    print(f"  committee contests with a later round of the name in the source: {later} (so each is decided in one round, as the statute says)")
+    fc = [f for f in loc if f.get("party_office")]
+    t = collections.Counter()
+    bad = []
+    used = set()
+    for f in fc:
+        cands = [(_norm(x["name"]), x["votes"]) for x in f["result"]["candidates"]]
+        hits = [c for c in mine if c["date"] == f["date"] and sorted(x["votes"] for x in c["cands"]) == sorted(v for _, v in cands)
+                and {_norm(x["name"]) for x in c["cands"]} == {n for n, _ in cands} and _norm(c["base"]) == _norm(f["office"])]
+        if len(hits) != 1:
+            t[f"{len(hits)} parses with these candidates and votes"] += 1
+            bad.append((f["id"], len(hits)))
+            continue
+        c = hits[0]
+        used.add(id(c))
+        t["matched"] += 1
+        po = f["party_office"]
+        want_party = "D" if c["title"][0] == "D" else "R"
+        if po.get("party") != want_party:
+            bad.append((f["id"], f"party {po.get('party')} vs {want_party}"))
+            t["party differs"] += 1
+        want_law = "18:443" if c["title"][1:4] == "SCC" else "18:444"
+        if want_law not in (po.get("law") or ""):
+            bad.append((f["id"], f"law {po.get('law')} vs {want_law}"))
+            t["law differs"] += 1
+        if (f.get("seats") or 1) != c["seats"]:
+            bad.append((f["id"], f"seats {f.get('seats')} vs {c['seats']}"))
+            t["seats differ"] += 1
+        if "value" in f["p"]:
+            bad.append((f["id"], "has p"))
+            t["HAS p"] += 1
+        if not (f["p"].get("not_computed") or "").startswith("fewer than 100 like races"):
+            t["another reason"] += 1
+        if "decided in it" not in f["election"] or "18:443, 18:444" not in f["election"]:
+            t["election words differ"] += 1
+        if f.get("office_type") != "council, commission or board":
+            t["office type not 'council, commission or board'"] += 1
+    seats = collections.Counter(min(f.get("seats") or 1, 2) for f in fc)
+    print(f"  the file's {len(fc)} party-committee contests: " + "; ".join(f"{k} {v}" for k, v in sorted(t.items()))
+          + f"; my parse's committee contests not matched: {len(mine) - len(used)}; seats: one {seats.get(1, 0)}, several {seats.get(2, 0)} (the record: 212 one, 29 with 5 to 14; max here {max((f.get('seats') or 1) for f in fc)})")
+    for rid, what in bad[:6]:
+        print(f"    {rid[:80]}: {what}")
+    # the statutes' text, read from the pages fetched by curl into the cache (legis.la.gov Law.aspx?d=81577, 81580)
+    for d, sec in (("81577", "18:443"), ("81580", "18:444")):
+        path = os.path.join(L.CACHE, "la_sos", "law", f"law_{d}.html")
+        if not os.path.exists(path):
+            print(f"  {sec}: the page is not in the cache ({path}); fetched by curl -sSL from https://legis.la.gov/Legis/Law.aspx?d={d}")
+            continue
+        txt = open(path, encoding="utf-8", errors="replace").read()
+        txt = re.sub(r"<script.*?</script>", " ", txt, flags=re.S)
+        txt = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", txt)).split())
+        phrases = ["every four years at the same time as the presidential preference primary election",
+                   "the candidate who receives the greater number of votes cast shall be elected"]
+        found = {ph[:40] + "...": ph in txt for ph in phrases}
+        i = txt.find("tie")
+        lot = bool(re.search(r"\btie\b.{0,200}\blot\b|\blot\b.{0,200}\btie\b", txt))
+        print(f"  La. R.S. {sec} (the page's text): {found}; a tie decided by lot: {lot}; section heading: '{txt[txt.find('§4'):txt.find('§4') + 40]}'")
 
 
 if __name__ == "__main__":

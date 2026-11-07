@@ -20,6 +20,7 @@ on the side it fell) of the sum of the contests' own Bernoulli chances, exact by
 [measured] throughout; the note's own figures are quoted from the files [stated].
 """
 import collections
+import glob
 import os
 import sys
 
@@ -260,6 +261,36 @@ def main():
     for label, (ls, lv, stands, s, v) in summary:
         print(f"    {label:20s} (s) {s[1]} against {s[0]:.1f} ({ls}; chance {s[2]:.3f}); (v) at {v[0]:,} votes {v[2]} against {v[1]:.1f} ({lv}; chance {v[3]:.3f}); "
               f"the note {'stands' if stands else 'goes'}")
+    after_67({label: x for label, x in summary})
+
+
+def after_67(summary):
+    """D. D2's #67 (the ruling of 11:01, relayed 11:16): data/congress/history.json records each note's two tests with
+    M2's counts (set A), and the note is written only where it stands. Checked: the recorded counts against mine, the
+    recorded verdicts, and which p blocks carry a near-even note today."""
+    print("  D. after D2's #67: history.json's lean_note block against set A, and the notes on the p blocks")
+    h = L.load_json(os.path.join(L.DATA, "congress", "history.json"))
+    ln = h.get("lean_note") or {}
+    for level in ("house", "senate", "governor"):
+        r = ln.get(level)
+        if not r:
+            print(f"    {level}: no lean_note block in history.json")
+            continue
+        ls, lv, stands, s, v = summary[f"{level} (A)"]
+        same = (r["s"]["seen"] == s[1] and abs(r["s"]["expected"] - s[0]) < 0.051 and r["v"]["within_votes"] == v[0]
+                and r["v"]["seen"] == v[2] and abs(r["v"]["expected"] - v[1]) < 0.051 and bool(r["stands"]) == stands)
+        print(f"    {level}: the record (s) {r['s']['seen']} against {r['s']['expected']} within {r['s']['within']}, (v) {r['v']['seen']} against {r['v']['expected']} within {r['v']['within_votes']:,} votes, "
+              f"stands {r['stands']}; mine (s) {s[1]} against {s[0]:.1f}, (v) {v[2]} against {v[1]:.1f} at {v[0]:,}, stands {stands}: {'the same' if same else 'DIFFER'}")
+    g = h.get("governor_note") or {}
+    print(f"    governor_note: note {g.get('note')!r}, written on {g.get('written_on')} p blocks (its own 5,000-vote count {g.get('seen')} against {g.get('expected', 0):.2f})")
+    for level in ("house", "senate", "governor"):
+        t = collections.Counter()
+        for path in L.level_files(level) if hasattr(L, "level_files") else sorted(glob.glob(os.path.join(L.DATA, level, "[0-9]*.json"))):
+            for c in L.load_json(path)["contests"]:
+                p = c.get("p") or {}
+                note = p.get("note") or ""
+                t["near-even note" if "near-even" in note else "another note" if note else "no note"] += 1
+        print(f"    {level}: p blocks by note: {dict(t)}" + (" (the note stands: expected on the model's own p)" if level == "house" else " (the note goes: none expected)"))
 
 
 if __name__ == "__main__":

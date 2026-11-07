@@ -139,27 +139,35 @@ def section_1_2(rows):
     return dec
 
 
+AFTER = "354cae2"   # main at #60; since then #72 (a2433b1) moved p again, which c23 checks
+
+
 def section_3(rows, dec):
-    print("19.3 The moves file against the files before #60 (8816d1d) and today")
+    print(f"19.3 The moves file against the files before #60 ({BEFORE}) and at #60 ({AFTER}); today's p against #60's")
     mv = json.load(open(os.path.join(L.DATA, "local", "moves-ncsbe-deciding-round.json")))
     print(f"  the file: before_commit {mv['before_commit']}, after_code_commit {mv['after_code_commit']}, counts {mv['counts']}")
-    before = {}
+    before, after = {}, {}
     years = sorted({r["year"] for r in rows})
     for y in years:
         b = p_by_id_at(BEFORE, f"data/local/{y}/NC.json")
         if b:
             before.update(b)
+        a = p_by_id_at(AFTER, f"data/local/{y}/NC.json")
+        if a:
+            after.update(a)
     today = {r["id"]: (r["p"].get("value"), (r["election"] or "")[:30]) for r in rows}
     dec_ids = {r["id"] for r in dec}
     t = collections.Counter()
     bad = []
     ratios = []
     in_moves = set()
+    again = 0
     for rid, b, a, why in mv["p"]:
         in_moves.add(rid)
-        rb, ra = before.get(rid, ("absent", ""))[0], today.get(rid, ("absent", ""))[0]
+        rb, ra = before.get(rid, ("absent", ""))[0], after.get(rid, ("absent", ""))[0]
         ok_b = same(rb, b)
         ok_a = same(ra, a)
+        again += not same(today.get(rid, ("absent", ""))[0], ra)
         if why == "D":
             ok_w = b is None and a is not None and rid in dec_ids
         elif why == "N":
@@ -177,13 +185,14 @@ def section_3(rows, dec):
     if ratios:
         ratios = np.array(ratios)
         print(f"  the P rows' after/before: median {np.median(ratios):.3f}, from {ratios.min():.3f} to {ratios.max():.3f} (the record: median x0.990, x0.762 to x1.524); {int((ratios < 1).sum())} fell, {int((ratios > 1).sum())} rose")
-    # every other North Carolina local p: unchanged?
+    print(f"  of these rows, p today differs from #60's: {again} (moved again by #72, which c23 checks row by row)")
+    # every other North Carolina local p: unchanged by #60?
     other = collections.Counter()
     moved_out = []
-    for rid in set(before) | set(today):
+    for rid in set(before) | set(after):
         if rid in in_moves:
             continue
-        b, a = before.get(rid, ("absent", ""))[0], today.get(rid, ("absent", ""))[0]
+        b, a = before.get(rid, ("absent", ""))[0], after.get(rid, ("absent", ""))[0]
         if b == "absent" or a == "absent":
             other["in one version only"] += 1
             moved_out.append((rid, b, a))
@@ -194,21 +203,22 @@ def section_3(rows, dec):
         else:
             other["p CHANGED outside the moves file"] += 1
             moved_out.append((rid, b, a))
-    print(f"  North Carolina local contests outside the moves file: " + "; ".join(f"{k} {v:,}" for k, v in sorted(other.items())) + (f"; e.g. {moved_out[:4]}" if moved_out else ""))
+    print(f"  North Carolina local contests outside the moves file, {BEFORE} against {AFTER}: " + "; ".join(f"{k} {v:,}" for k, v in sorted(other.items())) + (f"; e.g. {moved_out[:4]}" if moved_out else ""))
+    later = [rid for rid in set(after) & set(today) if not same(today[rid][0], after[rid][0])]
+    m72 = {row[0] for row in json.load(open(os.path.join(L.DATA, "local", "moves-ncsbe-rounds-by-place.json")))["contests"]}
+    print(f"  North Carolina local p today against #60's: {len(later)} differ, of them in #72's moves file {sum(1 for rid in later if rid in m72)} (c23 §23.2 checks that file row by row)")
     # the primaries' files changed in #60 too
     pt = collections.Counter()
     for y in sorted({r["year"] for r in D.rows("primary") if r["state"] == "NC"}):
         b = p_by_id_at(BEFORE, f"data/primary/{y}/NC.json")
-        if not b:
-            pt[f"{y}: no file before"] += 1
+        a = p_by_id_at(AFTER, f"data/primary/{y}/NC.json")
+        if not b or not a:
+            pt[f"{y}: no file at one commit"] += 1
             continue
-        for r in D.rows("primary"):
-            if r["state"] != "NC" or r["year"] != y:
-                continue
-            vb, va = b.get(r["id"], ("absent", ""))[0], r["p"].get("value")
-            pt["unchanged" if same(va, vb) else "changed"] += 1
-    print(f"  North Carolina primaries' p, today against {BEFORE}: {dict(pt)}")
-
+        for rid, (va, _) in a.items():
+            vb = b.get(rid, ("absent", ""))[0]
+            pt["unchanged by #60" if same(va, vb) else "changed by #60"] += 1
+    print(f"  North Carolina primaries' p, {AFTER} against {BEFORE}: {dict(pt)}")
 
 def section_4(dec):
     print("19.4 The deciding rounds' like-race forecasts from my own pool (the deciding rounds among the like races)")
