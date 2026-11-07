@@ -74,7 +74,7 @@ def load(year):
                     EMPTY[year] += 1
                     continue
                 out.append(c)
-    return certified_in(certified_nc(fix_questions(out, year), year), year)
+    return certified_la(certified_in(certified_nc(fix_questions(out, year), year), year), year)
 
 
 def certified_nc(contests, year):
@@ -184,6 +184,24 @@ def certified_in(contests, year):
     keep = [c for c in contests if not (c["state"] == "IN" and (c["question"] or c["office"] in LEG
                                                                  or is_local_level(c)))]
     CERTIFIED_STATES[year].add("IN")
+    return keep + st
+
+
+def certified_la(contests, year):
+    """Louisiana's local races and questions of 2024, from the Secretary of State's official results
+    (pipeline/local_la.py) in place of MEDSL's, which count Election Day only (quality()): the certified one wins (brief
+    D3, step 2; the orchestrator, 08:08 and 10:17). The presidency and Congress stay MEDSL's lines here (D1's and D2's
+    are the record for them). Louisiana is then no longer held back in `year` (build: bad[year])."""
+    if year != 2024:
+        return contests
+    import local_la as LA
+    st = LA.medsl_shape(year)
+    if st is None:
+        print(f"{year}: Louisiana's own file is missing or fails its gate; MEDSL's Louisiana contests kept")
+        return contests
+    keep = [c for c in contests if not (c["state"] == "LA" and (c["question"] or c["office"] in LEG
+                                                                 or is_local_level(c)))]
+    CERTIFIED_STATES[year].add("LA")
     return keep + st
 
 
@@ -1116,6 +1134,8 @@ def local_structure(m):
     """(route, class key or reason) for a MEDSL local candidate contest; ex ante: who is on the ballot."""
     b = ballot(m["candidates"])
     k = m.get("magnitude")
+    if m.get("held_round"):   # a round the source's own state file marks as not the deciding one (local_la.py)
+        return ("not computed", m["held_round"])
     if k is None:
         return ("not computed", "the number of seats is not verified in the source (MEDSL's magnitude is empty)")
     if m["special"]:
@@ -1194,7 +1214,7 @@ def _cands_out(cands, seats=1):
     for x in b:
         c = {"name": x["name"].title() if not (_is_generic(x["name"]) or x.get("as_named")) else x["name"],
              "party": _party_word(x),
-             "votes": x["votes"], "won": True if id(x) in winners else None}
+             "votes": x["votes"], "won": x["won_marked"] if "won_marked" in x else True if id(x) in winners else None}
         if x.get("votes_missing_in_some_precincts"):
             c["votes_incomplete"] = True
         if x.get("lines"):   # a candidate on several parties' lines, or spelled differently by county: each line
@@ -1232,11 +1252,19 @@ def _src_medsl(year, chk, files):
                          + ", ".join(sorted(files)))
 
 
+def _deciding_words(earlier):
+    """The State Board's November contests whose name was on an earlier ballot that year (pipeline/local_ncsbe.py,
+    medsl_shape): the deciding round, in the State Board route's words, so that both routes mark it alike (the
+    orchestrator, 2026-11-07 09:53 UTC)."""
+    import local_ncsbe as NS
+    return NS.deciding_words(earlier)
+
+
 def _owns(r):
     """The contests this build writes: MEDSL's, Indiana's own of 2024 (certified_in), and the State Board's of MEDSL's
     general dates (certified_nc)."""
     src = (r.get("result") or {}).get("source")
-    return src in ("medsl", "in_enr") or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
+    return src in ("medsl", "in_enr", "la_sos") or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
                               and (r.get("level") == "measure" or r.get("year") in YEARS))
 
 
@@ -1415,13 +1443,17 @@ def build(out_dir, with_p=True):
             where = "-".join(x for x in (c["district"] if c["district"] not in ("", "STATEWIDE") else "",
                                          ("county-" + c["counties"][0]) if c["counties"] and scope == "local" else "")
                              if x)
-            rec = {"id": cid(f"{year}-local-{c['state']}-{L._slug(c['office'])[:60]}-{L._slug(where)}".rstrip("-")),
+            rec = {"id": cid(f"{year}-local-{c['state']}-{L._slug(c['office'])[:60]}-{L._slug(where)}".rstrip("-")
+                             + (f"-{c['date']}" if c.get("id_date") else "")),
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
                    "office": c["office"].title(), "office_type": office_type(c["office"]), "office_scope": scope,
-                   "election": ("general" if c["stage"] == "GEN" else c["stage"].lower())
-                               + (", special" if c["special"] else ""),
+                   "election": c.get("election_words") or ((("general" if c["stage"] == "GEN" else
+                                                               c["stage"].lower())
+                                                              + (", special" if c["special"] else ""))
+                                                             if not c.get("earlier_round") else
+                                                             _deciding_words(c["earlier_round"])),
                    "seats": c["magnitude"] if (c.get("magnitude") or 1) > 1 else None,
                    "result": {"candidates": _cands_out(c["candidates"], c.get("magnitude") or 1),
                               "total_votes": sum(x["votes"] for x in c["candidates"]),
@@ -1492,7 +1524,8 @@ def build(out_dir, with_p=True):
             yes, no = yes_no(c)
             rec = {"id": cid(f"{year}-measure-{c['state']}-{L._slug(c['office'])[:60]}"
                              + (f"-{L._slug(c['subject'])}" if c.get("subject") else "")
-                             + ("" if scope == "statewide" else f"-{c['counties'][0] if c['counties'] else 'none'}")),
+                             + ("" if scope == "statewide" else f"-{c['counties'][0] if c['counties'] else 'none'}")
+                             + (f"-{c['date']}" if c.get("id_date") else "")),
                    "year": year, "date": c["date"] or None, "level": "measure",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "statewide" else c["counties"]},
@@ -1649,6 +1682,10 @@ def build(out_dir, with_p=True):
             head["sources"]["ncsbe"] = NS.block_for(cs + others)
             if "ncsbe" in used:
                 head["sources"]["fips"] = NS.fips_source()
+        if "la_sos" in used:   # Louisiana's own official results (certified_la), and its parishes' FIPS codes
+            import local_la as LA
+            head["sources"]["la_sos"] = LA.source_block()
+            head["sources"]["fips"] = LA.fips_source()
         if "in_enr" in used:   # Indiana's own certified file (certified_in)
             import local_in as LI
             head["sources"]["in_enr"] = LI.source_block()
