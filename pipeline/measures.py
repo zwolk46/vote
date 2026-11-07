@@ -331,8 +331,9 @@ def rows(contests, year, ref):
             continue
         out.append({"key": f"{scope} {kind_of(c)}", "s": yes / (yes + no), "n": yes + no,
                     "year": year, "state": c["state"],
-                    # counted whole: a state's own file that shows the question's place (not MEDSL's by county)
-                    "whole": c.get("source", "medsl") != "medsl"})
+                    # counted whole: a state's own file that shows the question's place (not MEDSL's by county),
+                    # or one county's question whose place lies wholly in it (local_medsl.one_place)
+                    "whole": c.get("source", "medsl") != "medsl" or bool(c.get("one_place"))})
     return out
 
 

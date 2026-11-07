@@ -160,6 +160,44 @@ def join_statewide(contests, year):
     return out
 
 
+ONE_PLACE = collections.defaultdict(collections.Counter)   # year -> what one_place found, for the report
+
+
+def one_place(contests, year, mref, counts):
+    """A local question MEDSL holds in one county's file only is counted whole where the place its title names lies
+    wholly in that county (pipeline/places.py; the orchestrator's item 5: "count one whole only where the place it
+    names lies entirely within that county, by the Census Bureau's place-to-county relationship file. Hold the
+    rest"; reason: "a question can sit in one county's file only because another county's file is missing it").
+    Sets c["one_place"]; every other one-county question is held as before (counted by county), its reason
+    counted."""
+    import measures as MS
+    import places as PL
+    mine = [c for c in contests if c["question"] and c.get("source", "medsl") == "medsl"
+            and MS.scope_of(c, mref, year) == "local"]
+    where = collections.defaultdict(set)
+    for c in mine:
+        where[(c["state"], c["office"].upper(), (c.get("subject") or "").upper(), c.get("date"))].update(c["counties"])
+    ONE_PLACE[year] = collections.Counter()
+    for c in mine:
+        if len(where[(c["state"], c["office"].upper(), (c.get("subject") or "").upper(), c.get("date"))]) != 1:
+            ONE_PLACE[year]["in more than one county's file: held"] += 1
+            continue
+        if MS.kind_of(c) == "retention":
+            ONE_PLACE[year]["one county: a retention (a court's district, not a place): held"] += 1
+            continue
+        if len(c["counties"]) != 1:
+            ONE_PLACE[year]["one county: the line names no county: held"] += 1
+            continue
+        found, why = PL.match(c["office"], c["state"], c["counties"][0])
+        if found:
+            c["one_place"] = found
+            ONE_PLACE[year][f"one county: whole, the place [{found['mark']}]"] += 1
+        else:
+            ONE_PLACE[year][f"one county: held, {why.split(' (')[0].split(' so ')[0]}"] += 1
+    for k, v in ONE_PLACE[year].items():
+        counts[f"one-county {year}: {k}"] = v
+
+
 def certified_count(j, q):
     """The certified count wins (the orchestrator's ruling, 2026-11-07 15:16: 'Where a state page that prints totals
     marks them certified or official, its totals are the statewide record's counts, shown and used in every pool.
@@ -1851,6 +1889,8 @@ def build(out_dir, with_p=True):
     import measures as MS
     book = MS.load_thresholds()
     mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
+    for y in MEASURE_YEARS + ODD_YEARS:
+        one_place(m[y], y, mref, counts)
     mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS + ODD_YEARS}
     mdens, mtest, mhalf = {}, [], []
     import local_ncsbe as NS
@@ -1909,7 +1949,14 @@ def build(out_dir, with_p=True):
             # MEDSL's wording of a local question does not show its place; the State Board's file names it (or the
             # question is one county's own: pipeline/intake/ncsbe.py, generic), and Indiana's gives each question
             # once with its counties and its type, title and text
-            by_county = c.get("source", "medsl") == "medsl"
+            by_county = c.get("source", "medsl") == "medsl" and not c.get("one_place")
+            if c.get("one_place"):   # one county's own question: the place its title names lies wholly in it
+                op = c["one_place"]
+                rec["place_whole"] = op
+                notes.append(f"counted whole: held in one county's file only, and its title names {op['place']}, "
+                             f"which lies wholly in {op['county_name']} by the Census Bureau's 2020 place-by-county "
+                             f"file ({op['how']}; [{op['mark']}]; the place's county [measured] for 2020"
+                             + ("" if year == 2020 else ", [inferred] for " + str(year)) + ")")
             if scope == "local" and by_county:
                 notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
                              "it, so a question held across several counties appears once per county")
@@ -2139,6 +2186,10 @@ def build(out_dir, with_p=True):
         if "in_enr" in used:   # Indiana's own certified file (certified_in)
             import local_in as LI
             head["sources"]["in_enr"] = LI.source_block()
+        if any(x.get("place_whole") for x in cs + others):   # the Census files that place a one-county question
+            import places as PL
+            for b_ in PL.source_blocks():
+                head["sources"]["census_places" if "place_by_county" in b_["url"] else "census_cousub"] = b_
         if any((x.get("result") or {}).get("votes_source") == "state_certified" for x in cs + others):
             head["sources"]["state_certified"] = {   # the certified count wins (certified_count)
                 "name": "the state's own certified statewide totals of a statewide question MEDSL files with local "
