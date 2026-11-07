@@ -157,8 +157,9 @@ def source_block():
                     "results site's archive)", meta["source"]["url"], meta["source"]["read_utc"], ENR.LICENCE,
                     mark="stated",
                     note=f"the state's results files, marked certified in its settings ('Certified': "
-                         f"'{meta['certified']}'); {meta['files']} JSON files, {meta['bytes']:,} bytes besides the "
-                         f"three index files, read by pipeline/intake/in_enr.py; the site lists no write-in totals")
+                         f"'{meta['certified']}'); {meta['files']} JSON files (the {meta['files'] - 3} office and "
+                         f"county files {meta['bytes']:,} bytes), read by pipeline/intake/in_enr.py; the site lists no "
+                         f"write-in totals")
 
 
 def _sig(cands):
