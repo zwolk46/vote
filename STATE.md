@@ -49,6 +49,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 04:09: the maker (04:09, this thread): option C "looks awful" on mobile; scrutinize; the midterms race-page graphs whose dots move together per race are a component he loves (RULINGS). Passed to X1 with his words: fix C on the phone or drop it, check A and B by eye at phone widths, study that midterms component and name it.
+
 - 2026-11-07 04:07: the maker (04:06, project chat): the expanded explanation of how the model works is "crucial", for a non-technical person through the visuals, "Probably a scroll animation? but you decide" (RULINGS). Decided: a scroll-driven story, one idea per step, one changing visual, two or three versions for his pick, tried first on a cold non-technical reader (a Sonnet subagent seeing only the page). Brief `X2-explainer.md`, for X1's thread once its first-screen options are sent; plan §4 and §5 updated; D3 now starts when D1 or D2 ends.
 
 - 2026-11-07 04:04: #18 merged (D2: Senate, House, governor 2024 and 2022 with p and chamber control; 35/435/11 and 36/436 contests, p for 32/373/10 and 32/390, the rest marked not computed; intake scripts for the Clerk, FEC, MEDSL Dataverse (guestbook files skipped), NARA, Census www2, Downballot, CAGE; inventory `data/sources/congress.md`). Gate: core tests, npm test and build pass; no secret or email; Montana 2024 recomputed by hand, 1 in 193,072. Largest p: MT Senate 1 in 193,072; CA-22 2024 1 in 46,024; CA-13 2022 1 in 36,331. 2024 VP at 0.5, provisional. Decisions: no Census API key (an email sign-up; the maker's email never used); D2's MEDSL and NARA scripts stand, D1 to use them.

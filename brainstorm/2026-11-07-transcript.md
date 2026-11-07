@@ -67,3 +67,7 @@
 > One thing crucial to get right is the expanded explanation of how the formula or model works, but not necessarily technically. I want to be able to show it to a non technical person and because of the beautifully crafted and well thought through visuals they are able to understand. Probably a scroll animation? but you decide
 
 **Orchestrator, 04:08.** "Got it, and I agree it's crucial. The explainer will be a scroll-through story: one idea per step, with the same picture of dots changing as you scroll. It goes from "counted or not counted", through why only a tie matters, to why a town race and the presidency differ by millions, and ends at the break-even stakes. The designer starts it right after the first-screen versions, and you'll get two or three versions to pick from. Before you see them, each one is read cold by a reader with no statistics. If it doesn't explain itself to them, it gets fixed first."
+
+**Zach, 04:09 UTC (this thread):** "Keep in mind on option c as it exists currently on mobile it looks awful. Really scrutinized it to make sure it looks nice. An example of a component I love that serves its own specific purposes are the graphs with the dots that move together for each individual race from the midterms page"
+
+**Orchestrator, 04:09.** "Passing this to the designer now, with the midterms race-page dot charts as the model to study."
