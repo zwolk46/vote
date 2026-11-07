@@ -39,18 +39,23 @@ STATEWIDE_COVER = 0.9   # a question filed with the state's offices is statewide
 
 _RET_WORDS = re.compile(r"RETENTION|RETAIN")
 _COURT = re.compile(r"\b(JUDGE|JUSTICE|COURT|MAGISTRATE)\b")
+_RET_SUBJECT = re.compile(r"\bBE RETAINED\b")
 
 
 def kind_of(c):
     """'retention' for a judge's yes-or-no question, else 'measure'. A title that reads as an amendment, a statute,
     a bond or a convention question is a measure even where it names a court ('STATEWIDE AMENDMENT NO. 2 -
     STATEWIDE BUSINESS COURT')."""
-    text = (c["office"] + " " + (c.get("subject") or "")).upper()
+    office, subject = c["office"].upper(), (c.get("subject") or "").upper()
     if any(x["name"] in ("RETAIN", "NOT RETAIN", "DO NOT RETAIN") for x in c["candidates"]):
         return "retention"
     if type_of(c) in ("amendment", "statute", "bond", "convention"):
         return "measure"
-    if _RET_WORDS.search(text) or _COURT.search(text):
+    if _RET_WORDS.search(office) or _COURT.search(office):
+        return "retention"
+    # a ballot text names the judge to be retained; "retain" alone in a text is often a school levy's purpose
+    # ("the retention and attraction of teachers", "retaining ... teachers": Indiana's 2024 school levies) [measured]
+    if _RET_SUBJECT.search(subject) or _COURT.search(subject):
         return "retention"
     return "measure"
 
