@@ -22,6 +22,10 @@
 .xk-bar { width: 8px; height: 14px; border: 1.2px solid var(--accent); }
 .xk-barfill { width: 8px; height: 14px; background: linear-gradient(0deg, var(--accent) 50%, transparent 50%); border: 1.2px solid var(--accent); }
 .xk-fig { width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--fg); background: var(--bg); }
+.xk-pres, .xk-house, .xk-town { width: 11px; height: 11px; }
+.xk-pres { background: var(--accent); }
+.xk-house { background: var(--fg); }
+.xk-town { background: var(--muted); }
 .xk-arrow { width: 16px; height: 2px; background: var(--accent); position: relative; }
 .xk-arrow::after { content: ''; position: absolute; right: -1px; top: -4px; border-left: 7px solid var(--accent); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
 
@@ -40,7 +44,7 @@
 .xp-card { min-height: 46vh; padding: 28px 0; display: flex; flex-direction: column; justify-content: center; border-bottom: 1px solid var(--line); }
 .xp-card:last-child { border-bottom: 0; }
 
-/* B · Steps */
+/* B · Steps: the steps as a bar of segments, the one shown in the accent, each a button to it */
 .xp-b .xp-words { margin-top: 16px; min-height: 8.5em; }
 .xp-nav { margin-top: 16px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; }
 .xp-go { font: inherit; font-size: var(--t-body); color: var(--fg); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 8px; padding: 8px 14px; cursor: pointer; }
@@ -49,9 +53,9 @@
 .xp-dots { list-style: none; margin: 0; padding: 0; display: flex; min-width: 0; }
 .xp-dots li { flex: 1 1 0; min-width: 0; }
 .xp-dots button { display: block; width: 100%; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; position: relative; }
-.xp-dots button::after { content: ''; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--line-strong); }
+.xp-dots button::after { content: ''; position: absolute; left: 1px; right: 1px; top: 50%; height: 4px; margin-top: -2px; border-radius: 2px; background: var(--line-strong); }
 .xp-dots button.past::after { background: var(--dot); }
-.xp-dots button.on::after { background: var(--accent); width: 8px; height: 8px; margin: -4px 0 0 -4px; }
+.xp-dots button.on::after { background: var(--accent); height: 6px; margin-top: -3px; }
 
 @media (max-width: 899px) {
   .xp-slot { margin: 12px calc(-1 * var(--gutter)) 0; padding: 8px var(--gutter) 8px; background: var(--bg); }

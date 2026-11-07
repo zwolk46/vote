@@ -41,6 +41,31 @@ function wrap(ctx, S, s, x, y, maxW, o = {}) {
   ls.forEach((l, i) => text(ctx, S, l, x, y + i * lineH(S, o.size || 1), o));
   return ls.length * lineH(S, o.size || 1);
 }
+// A label's centre kept inside the box, so it is never cut at an edge.
+function inside(ctx, S, s, x, o = {}) { font(ctx, S, o); const w = ctx.measureText(s).width; return Math.max(w / 2 + 1, Math.min(S.W - w / 2 - 1, x)); }
+// Labels on rows under a line, each on the first row where it crosses no other; a label marked `drop` is left out
+// rather than given a row of its own. Returns the rows used.
+function rowsOf(ctx, S, items, y, o = {}) {
+  const rows = [], lh = lineH(S, o.size || 1), gap = 8;
+  for (const it of items) {
+    font(ctx, S, { ...o, ...it });
+    const w = ctx.measureText(it.s).width, x = inside(ctx, S, it.s, it.x, { ...o, ...it }), a = x - w / 2 - gap / 2, b = x + w / 2 + gap / 2;
+    let r = 0;
+    while (rows[r] && rows[r].some(([p, q]) => a < q && b > p)) r++;
+    if (it.drop && r >= it.drop) continue;
+    (rows[r] || (rows[r] = [])).push([a, b]);
+    text(ctx, S, it.s, x, y + r * lh, { ...o, ...it });
+  }
+  return rows.length;
+}
+// Many dots of one colour in one path and one fill: a picture of thousands of dots drawn each frame of a scroll stays
+// inside a frame's time on a slow phone (the motion check, 4x slowed).
+function dots(ctx, pts, r, c) {
+  if (!pts.length) return;
+  ctx.fillStyle = c; ctx.beginPath();
+  for (let i = 0; i < pts.length; i += 2) { ctx.moveTo(pts[i] + r, pts[i + 1]); ctx.arc(pts[i], pts[i + 1], r, 0, TAU); }
+  ctx.fill();
+}
 function dot(ctx, x, y, r, c) { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); }
 function ring(ctx, x, y, r, c, w = 1.6) { ctx.strokeStyle = c; ctx.lineWidth = w; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.stroke(); }
 function half(ctx, x, y, r, c, side) {   // side −1: the left half, +1: the right
@@ -72,28 +97,45 @@ function stippleTurned(ctx, S, x, y, w, h) {
 }
 
 // ---- 1. two worlds: the town's 2,000 ballots twice; yours counted in one, not in the other -----------------------
-// 1,040 of 2,000 are your side's with you (52%); yours is the last of them. Everyone else is the same in both.
-function worlds(ctx, S) {
+// k 0: a run where your side has 1,040 of 2,000 with you (52%): the same winner either way. k 1: a closer run of the
+// same race, 1,000 to 1,000 with you: counted, a tie, settled by lot; not counted, 999 to 1,000, the other side wins.
+// Each world names its winner under its count.
+function worlds(ctx, S, st) {
   const { W, H, col, fs } = S;
   const gap = Math.max(14, W * 0.05), pw = (W - gap) / 2, cols = 40, rows = 50;
-  const top = lineH(S) + 6, bottom = lineH(S, 1.15) + 8;
+  const ours = Math.round(lerp(1040, 1000, st.k));   // your side's ballots, yours among them
+  const me = Math.floor((ours - 1) / cols) * cols + cols / 2;   // yours: in the middle of your side's last row
+  const close = st.k >= 0.5;
+  const tally = [[`${(ours).toLocaleString('en-US')}`, `to ${(2000 - ours).toLocaleString('en-US')}`], [`${(ours - 1).toLocaleString('en-US')}`, `to ${(2000 - ours).toLocaleString('en-US')}`]];
+  const who = close ? ['a tie: by lot', 'the other side wins'] : ['your side wins', 'your side wins'];
+  // the words first, each wrapped to its block's width: the titles, and the counts and winners under the blocks
+  const titles = ['Counted', 'Not counted'].map(t => lines(ctx, S, t, pw, { weight: 600 }));
+  const tl = tally.map(([a, b]) => (lines(ctx, S, `${a} ${b}`, pw, { weight: 600, size: 1.15 }).length > 1 ? [a, b] : [`${a} ${b}`]));
+  const wl = who.map(t => lines(ctx, S, t, pw));
+  const top = Math.max(...titles.map(t => t.length)) * lineH(S) + 6;
+  const bottom = Math.max(...tl.map(t => t.length)) * lineH(S, 1.15) + Math.max(...wl.map(t => t.length)) * lineH(S) + 10;
   const pitch = Math.min(pw / cols, (H - top - bottom) / rows), r = Math.max(0.8, pitch * 0.36);
-  const gw = cols * pitch, gh = rows * pitch, me = 1020;   // yours: in the middle of your side's last row
+  const gw = cols * pitch, gh = rows * pitch;
   const y0 = Math.max(0, (H - (top + gh + bottom)) / 2);
   for (let p = 0; p < 2; p++) {
     const x0 = p * (pw + gap) + (pw - gw) / 2, cx = p * (pw + gap) + pw / 2;
-    text(ctx, S, p === 0 ? 'Counted' : 'Not counted', cx, y0 + fs, { weight: 600, color: col.fg });
+    titles[p].forEach((t, i) => text(ctx, S, t, cx, y0 + fs + i * lineH(S), { weight: 600, color: col.fg }));
+    const a = [], b = [];
     for (let k = 0; k < 2000; k++) {
       if (k === me) continue;
-      ctx.globalAlpha = k < 1040 ? 0.9 : 0.75;
-      dot(ctx, x0 + ((k % cols) + 0.5) * pitch, y0 + top + (Math.floor(k / cols) + 0.5) * pitch, r, k < 1040 ? col.fg : col.dot);
+      (k < ours ? a : b).push(x0 + ((k % cols) + 0.5) * pitch, y0 + top + (Math.floor(k / cols) + 0.5) * pitch);
     }
+    ctx.globalAlpha = 0.9; dots(ctx, a, r, col.fg);
+    ctx.globalAlpha = 0.75; dots(ctx, b, r, col.dot);
     ctx.globalAlpha = 1;
-    const mx = x0 + ((me % cols) + 0.5) * pitch, my = y0 + top + (Math.floor(me / cols) + 0.5) * pitch, rr = Math.max(6, r * 3.4);
-    if (p === 0) dot(ctx, mx, my, Math.max(2.2, r * 1.4), col.accent);
+    const mx = x0 + ((me % cols) + 0.5) * pitch, my = y0 + top + (Math.floor(me / cols) + 0.5) * pitch, rr = Math.max(7, r * 3.6);
+    if (p === 0) dot(ctx, mx, my, Math.max(2.5, r * 1.5), col.accent);
     else dot(ctx, mx, my, rr - 1, col.bg);
-    ring(ctx, mx, my, rr, col.accent);
-    text(ctx, S, p === 0 ? '1,040 to 960' : '1,039 to 960', cx, y0 + top + gh + 6 + fs * 1.15, { weight: 600, color: col.fg, size: 1.15 });
+    ring(ctx, mx, my, rr, col.accent, 2);
+    let y = y0 + top + gh + 6 + fs * 1.15;
+    tl[p].forEach(t => { text(ctx, S, t, cx, y, { weight: 600, color: col.fg, size: 1.15 }); y += lineH(S, 1.15); });
+    // the winners, the one that differs in the accent: the change your ballot makes
+    wl[p].forEach(t => { text(ctx, S, t, cx, y, { color: close ? (p === 0 ? col.fg : col.accent) : col.muted, weight: close ? 600 : 400 }); y += lineH(S); });
   }
 }
 
@@ -162,7 +204,7 @@ const AXIS_C = 'your side’s share of the vote, as forecast';
 function curve(ctx, S, st, beat) {
   const { W, H, col, fs } = S;
   const axisH = lines(ctx, S, AXIS_C, W - 4).length * lineH(S);
-  const lo = 0.3, hi = 0.7, top = fs * 0.6, base = H - (lineH(S) + 8 + axisH), ph = base - top;
+  const lo = 0.3, hi = 0.7, top = fs * 1.5, base = H - (lineH(S) + 8 + axisH), ph = base - top;
   const X = v => ((v - lo) / (hi - lo)) * W, Y = d => base - (Math.min(d, Y_MAX * 1.02) / Y_MAX) * ph;
   const at = v => pdf(v, st.mu, st.sd) / st.n;
   const path = () => { for (let i = 0; i <= 240; i++) { const v = lo + ((hi - lo) * i) / 240; i ? ctx.lineTo(X(v), Y(at(v))) : ctx.moveTo(X(v), Y(at(v))); } };
@@ -175,7 +217,23 @@ function curve(ctx, S, st, beat) {
   const h = at(0.5), bw = Math.max(8, fs * 0.65), x = X(0.5), yT = Y(h), yH = Y(h / 2);
   ctx.fillStyle = col.accent; ctx.fillRect(x - bw / 2, yH, bw, base - yH);
   if (base - yT > 3) { ctx.strokeStyle = col.accent; ctx.lineWidth = 1.2; ctx.strokeRect(x - bw / 2 + 0.6, yT + 0.6, bw - 1.2, base - yT - 1.2); }
-  if (beat.figIn) text(ctx, S, beat.figIn, x + bw / 2 + 6, Math.min(base - fs * 0.75, yH), { align: 'left', base: 'middle', color: col.accent, weight: 600, size: 1.1, halo: true });
+  // the outline named at its top, where there is room beside the curve
+  if (base - yT > fs * 2.4) {
+    const t = 'a tie or one short';
+    font(ctx, S, { size: 0.92 });
+    if (x - bw / 2 - 6 - ctx.measureText(t).width >= 0) text(ctx, S, t, x - bw / 2 - 6, yT + fs * 0.4, { align: 'right', base: 'middle', size: 0.92, color: col.accent, halo: true });
+  }
+  // the forecast's centre, named at the curve's top, while the curve stands high enough to hold it
+  const pk = at(st.mu);
+  if (base - Y(pk) > ph * 0.35 && Math.abs(X(st.mu) - x) > fs * 3) text(ctx, S, `${Math.round(st.mu * 100)}%`, X(st.mu), Y(pk) - 6, { size: 0.92, color: col.fg, weight: 600, halo: true });
+  if (beat.figIn) {
+    font(ctx, S, { weight: 600, size: 1.1 });
+    // beside the bar, on the right, or the left; where neither has room, over the bar
+    const lw = ctx.measureText(beat.figIn).width, o = { base: 'middle', color: col.accent, weight: 600, size: 1.1, halo: true }, ly = Math.min(base - fs * 0.75, yH);
+    if (x + bw / 2 + 6 + lw <= W) text(ctx, S, beat.figIn, x + bw / 2 + 6, ly, { ...o, align: 'left' });
+    else if (x - bw / 2 - 6 - lw >= 0) text(ctx, S, beat.figIn, x - bw / 2 - 6, ly, { ...o, align: 'right' });
+    else text(ctx, S, beat.figIn, inside(ctx, S, beat.figIn, x, o), Math.min(ly, yT) - fs * 1.1, o);
+  }
   for (const [v, t] of [[0.4, '40%'], [0.5, '50–50'], [0.6, '60%']]) text(ctx, S, t, X(v), base + 4 + fs, { color: v === 0.5 ? col.accent : col.muted, weight: v === 0.5 ? 600 : 400 });
   wrap(ctx, S, AXIS_C, W / 2, base + 6 + fs + lineH(S), W - 4);
 }
@@ -188,10 +246,10 @@ function fieldOf(ctx, S, n, cx, cy, D, inner = []) {
   if (pitch >= 2.5) {
     const cols = Math.ceil(side), rows = Math.ceil(n / cols), x0 = cx - (cols * pitch) / 2, y0 = cy - (rows * pitch) / 2, s = Math.max(1, pitch * 0.55);
     ctx.globalAlpha = 0.75; ctx.fillStyle = col.dot;
-    for (let k = 0; k < n; k++) {
-      const x = x0 + ((k % cols) + 0.5) * pitch, y = y0 + (Math.floor(k / cols) + 0.5) * pitch;
-      if (pitch > 7) dot(ctx, x, y, s / 2, col.dot); else ctx.fillRect(x - s / 2, y - s / 2, s, s);
-    }
+    const pts = [];
+    for (let k = 0; k < n; k++) pts.push(x0 + ((k % cols) + 0.5) * pitch, y0 + (Math.floor(k / cols) + 0.5) * pitch);
+    if (pitch > 7) dots(ctx, pts, s / 2, col.dot);
+    else { ctx.beginPath(); for (let i = 0; i < pts.length; i += 2) ctx.rect(pts[i] - s / 2, pts[i + 1] - s / 2, s, s); ctx.fill(); }
   } else { ctx.globalAlpha = 0.6; stippleRect(ctx, S, cx - D / 2, cy - D / 2, D, D); }
   ctx.globalAlpha = 1;
   ctx.strokeStyle = col.fg; ctx.lineWidth = 1.2;
@@ -212,12 +270,14 @@ function stages(ctx, S, st) {
   const D = Math.min(W * 0.56, H - 4);
   const cx = lerp(lerp(W / 2, D / 2 + 2, g), W / 2, b), cy = H / 2;
   const n = Math.exp(lerp(Math.log(PA.state), Math.log(PA.N), b));
-  fieldOf(ctx, S, n, cx, cy, D, b > 0 ? [PA.state] : []);
+  fieldOf(ctx, S, n, cx, cy, D, []);
   const a = g * (1 - b);
   if (a > 0) {
     const room = W - D - 4, gw = Math.max(40, Math.min(room - fs * 1.6, H - 8)), p = gw / 10, x0 = W - gw, y0 = cy - gw / 2;
     ctx.globalAlpha = a;
-    for (let i = 0; i < 100; i++) dot(ctx, x0 + ((i % 10) + 0.5) * p, y0 + (Math.floor(i / 10) + 0.5) * p, p * 0.33, i < 19 ? col.accent : col.dot);
+    const lit = [], not = [];
+    for (let i = 0; i < 100; i++) (i < 19 ? lit : not).push(x0 + ((i % 10) + 0.5) * p, y0 + (Math.floor(i / 10) + 0.5) * p);
+    dots(ctx, lit, p * 0.33, col.accent); dots(ctx, not, p * 0.33, col.dot);
     // the arrow from the ringed run to the hundred
     ctx.strokeStyle = col.accent; ctx.fillStyle = col.accent; ctx.lineWidth = 1.6;
     const ax = cx + 12, bx = x0 - 4;
@@ -241,8 +301,8 @@ function trips(ctx, S, st) {
   const { W, H, col, fs } = S;
   const k = st.k, m = clamp01(k);                    // 0: the grid; 1: the trips on the seesaw
   const T1 = C0 * TOWN.N, T2 = C0 * CLOSE08, ME = 9 * 26 + 13;
-  if (k < 3.5) {
-    const tA = k <= 3 ? 1 : clamp01(1 - (k - 3) * 2);
+  if (k < 4.5) {
+    const tA = k <= 4 ? 1 : clamp01(1 - (k - 4) * 2), ev = clamp01(k - 3);   // ev: everyone's stakes on the right
     const balA = tA * clamp01(k * 1.5 - 0.5);
     const cols = 26, rows = 18, gp = Math.min((W - 8) / cols, (H - 8) / rows), gx = (W - cols * gp) / 2, gy = (H - rows * gp) / 2;
     // the seesaw: the beam turns with the reader from one weighing to the next
@@ -250,6 +310,7 @@ function trips(ctx, S, st) {
     let a = turn(T1, WORTH.lo);
     if (k > 1) a = lerp(a, turn(T1, WORTH.hi), clamp01(k - 1));
     if (k > 2) a = lerp(turn(T1, WORTH.hi), turn(T2, WORTH.hi), clamp01(k - 2));
+    if (k > 3) a = lerp(turn(T2, WORTH.hi), 0, ev);   // 300 million people at 30¢ each weigh what 10 million trips do
     a *= m;
     const u = [Math.cos(a), -Math.sin(a)], nv = [-Math.sin(a), -Math.cos(a)];   // along the beam, and up from it
     const L = [pivX - arm * u[0], pivY - arm * u[1]], R = [pivX + arm * u[0], pivY + arm * u[1]];
@@ -265,13 +326,15 @@ function trips(ctx, S, st) {
     // the trips: from the grid to a heap on the beam's left end; for the presidency, a block standing for 10 million
     const heapW = arm * 0.78, hp = Math.max(2.6, Math.min(gp * 0.7, heapW / 26)), hc = Math.max(1, Math.floor(heapW / hp)), big = clamp01(k - 2);
     const s0 = arm * 0.08;   // the heap's left edge, in from the beam's end
+    const pts = [];
     for (let i = 0; i < TOWN.N; i++) {
       if (i === ME) continue;
       const gxI = gx + ((i % cols) + 0.5) * gp, gyI = gy + (Math.floor(i / cols) + 0.5) * gp;
       const [hx, hy] = at(L, s0 + ((i % hc) + 0.5) * hp, 2.5 + (Math.floor(i / hc) + 0.5) * hp);
-      ctx.globalAlpha = tA * (1 - big);
-      dot(ctx, lerp(gxI, hx, m), lerp(gyI, hy, m), lerp(gp * 0.34, hp * 0.4, m), col.dot);
+      pts.push(lerp(gxI, hx, m), lerp(gyI, hy, m));
     }
+    ctx.globalAlpha = tA * (1 - big);
+    if (ctx.globalAlpha > 0) dots(ctx, pts, lerp(gp * 0.34, hp * 0.4, m), col.dot);
     if (big > 0) {
       const bh = lerp(Math.ceil(TOWN.N / hc) * hp, Math.min(pivY * 0.95, arm * 0.9), big), bw = lerp(hc * hp, heapW, big);
       ctx.save(); ctx.globalAlpha = tA * big * 0.8;
@@ -282,26 +345,23 @@ function trips(ctx, S, st) {
     // the run your ballot decides: from the grid to the beam's right end, where it stands for the result
     const g0 = [gx + ((ME % cols) + 0.5) * gp, gy + (Math.floor(ME / cols) + 0.5) * gp], e = at(R, -arm * 0.2, 13);
     const ox = lerp(g0[0], e[0], m), oy = lerp(g0[1], e[1], m);
-    ctx.globalAlpha = tA;
+    ctx.globalAlpha = tA * (1 - ev);
     dot(ctx, ox, oy, lerp(gp * 0.34, 5.5, m), col.accent);
     ring(ctx, ox, oy, lerp(Math.max(7, gp * 0.9), 10.5, m), col.accent, 2);
-    // the two ends' figures, under the beam
+    // everyone's stakes: 300 dots, each a million people at 30¢, on the right end in its place
+    if (ev > 0) {
+      const pc = 20, pp = heapW / pc, pts = [];
+      for (let i = 0; i < 300; i++) pts.push(...at(R, -s0 - heapW + ((i % pc) + 0.5) * pp, 2.5 + (Math.floor(i / pc) + 0.5) * pp));
+      ctx.globalAlpha = tA * ev; dots(ctx, pts, pp * 0.32, col.fg);
+    }
+    // the two ends' figures, under the beam, each on a row of its own where they would cross
     if (m > 0.5) {
       ctx.globalAlpha = tA * clamp01(m * 2 - 1);
       const lx = at(L, s0 + heapW / 2, 0), rx = at(R, -arm * 0.2, 0);
-      text(ctx, S, k > 2.5 ? money(T2) : money(T1), lx[0], Math.max(lx[1], rx[1]) + lineH(S) + 4, { color: col.fg, weight: 600 });
-      text(ctx, S, k > 1.5 ? money(WORTH.hi) : money(WORTH.lo), rx[0], Math.max(lx[1], rx[1]) + lineH(S) + 4, { color: col.accent, weight: 600 });
+      const ly = Math.max(lx[1], rx[1]) + lineH(S) + 4;
+      const wl = k > 3.5 ? `300 million × ${money(T2 / PEOPLE)}` : k > 1.5 ? money(WORTH.hi) : money(WORTH.lo);
+      rowsOf(ctx, S, [{ s: k > 2.5 ? money(T2) : money(T1), x: lx[0], color: col.fg }, { s: wl, x: rx[0], color: k > 3.5 ? col.fg : col.accent }], ly, { weight: 600 });
     }
-    ctx.globalAlpha = 1;
-  }
-  // the presidency's $89 million shared by 300 million people: each dot a million people, 30¢ each
-  const sA = band(k, 4, 0.5);
-  if (sA > 0) {
-    ctx.globalAlpha = sA;
-    const cols = 20, rows = 15, p = Math.min((W - 8) / cols, (H - lineH(S, 1.1) - 10) / rows), x0 = (W - cols * p) / 2;
-    const y0 = Math.max(2, (H - (rows * p + lineH(S, 1.1) + 6)) / 2);
-    for (let i = 0; i < 300; i++) dot(ctx, x0 + ((i % cols) + 0.5) * p, y0 + (Math.floor(i / cols) + 0.5) * p, p * 0.3, col.fg);
-    text(ctx, S, `${money(T2 / PEOPLE)} each`, W / 2, y0 + rows * p + fs * 1.3, { color: col.accent, weight: 600, size: 1.1 });
     ctx.globalAlpha = 1;
   }
   // the scale of dollars: your cost, × 468 and × 10 million
@@ -310,67 +370,83 @@ function trips(ctx, S, st) {
     ctx.globalAlpha = rA;
     const pad = Math.max(24, fs * 2.4), X = lx => pad + ((lx - LO) / (HI - LO)) * (W - 2 * pad), y = H * 0.55;
     ctx.fillStyle = col.lineStrong; ctx.fillRect(0, y, W, 1);
-    for (const [p, t] of [[0, '$1'], [3, '$1,000'], [6, '$1M'], [9, '$1B']]) { ctx.fillStyle = col.lineStrong; ctx.fillRect(X(p), y - 3, 1, 7); text(ctx, S, t, X(p), y + fs * 1.5 + lineH(S, 1.1), { size: 0.9 }); }
+    const ticks = [[0, '$1'], [3, '$1,000'], [6, '$1 million'], [9, '$1 billion']];
+    for (const [p] of ticks) ctx.fillRect(X(p), y - 3, 1, 7);
     const c = Math.log10(C0), t1 = c + Math.log10(TOWN.N), t2 = c + Math.log10(CLOSE08);
     const arrow = (x1, x2, yy, label) => {
       ctx.strokeStyle = col.accent; ctx.fillStyle = col.accent; ctx.lineWidth = 2.5;
       ctx.beginPath(); ctx.moveTo(x1, yy); ctx.lineTo(x2 - 8, yy); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(x2, yy); ctx.lineTo(x2 - 10, yy - 5.5); ctx.lineTo(x2 - 10, yy + 5.5); ctx.closePath(); ctx.fill();
-      text(ctx, S, label, (x1 + x2) / 2, yy - 8, { color: col.accent, weight: 600, size: 1.1 });
+      text(ctx, S, label, inside(ctx, S, label, (x1 + x2) / 2, { weight: 600, size: 1.1 }), yy - 8, { color: col.accent, weight: 600, size: 1.1 });
     };
     arrow(X(c), X(t1), y - lineH(S, 1.1) * 1.6, '× 468');
     arrow(X(c), X(t2), y - lineH(S, 1.1) * 3.4, '× 10 million');
     dot(ctx, X(c), y, 5.5, col.accent);
     for (const t of [t1, t2]) { dot(ctx, X(t), y, 6, col.bg); ring(ctx, X(t), y, 6, col.fg, 2.2); }
-    text(ctx, S, '$8.87', X(c), y + fs * 1.6, { color: col.accent, weight: 600, size: 1.1 });
-    text(ctx, S, '$4,150', X(t1), y + fs * 1.6, { color: col.fg, weight: 600, size: 1.1 });
-    text(ctx, S, '$89M', X(t2), y + fs * 1.6, { color: col.fg, weight: 600, size: 1.1 });
+    // the figures under their marks, then the scale's steps on the row below, each left out where it would cross
+    const used = rowsOf(ctx, S, [
+      { s: '$8.87', x: X(c), color: col.accent }, { s: '$4,150', x: X(t1), color: col.fg }, { s: '$89 million', x: X(t2), color: col.fg },
+    ], y + 6 + fs * 1.1, { weight: 600, size: 1.1 });
+    rowsOf(ctx, S, ticks.map(([p, t]) => ({ s: t, x: X(p), drop: 1 })), y + 10 + used * lineH(S, 1.1) + fs, { size: 0.9 });
     ctx.globalAlpha = 1;
   }
 }
 
-// ---- 8. one trip, the whole ballot: each race repays its share of the trip; the shares together fill it -----------
-// An example of what the result might be worth to a reader: the presidency $45 million (closest states, 2008, whose
-// figure is $89 million), a House race $400,000 (the average race, $1.6 million), the town race $1,200 ($4,150).
+// ---- 8. one trip, the whole ballot: one trip on one end; on the other, what each race repays of it, the race's worth
+// to you ÷ its N. The races arrive one at a time (n); the beam tips when together they outweigh the trip.
+// An example: the presidency worth $50 million to you (closest states, 2008, 1 in 10 million): $5.00 a trip; a House
+// race worth $400,000 (the average race, 1 in 180,000): $2.22; the town race worth $1,000 (1 in 468): $2.14.
+// Alone none pays; together, $9.36 against $8.87.
 export const EXAMPLE = [
-  { name: 'President', B: 45e6, Bs: C0 * CLOSE08 },
-  { name: 'U.S. House', B: 400e3, Bs: C0 * HOUSE },
-  { name: 'Town race', B: 1200, Bs: C0 * TOWN.N },
+  { name: 'President', B: 50e6, N: CLOSE08 },
+  { name: 'U.S. House', B: 400e3, N: HOUSE },
+  { name: 'Town race', B: 1000, N: TOWN.N },
 ];
 function ballot(ctx, S, st) {
   const { W, H, col, fs } = S;
-  const f = st.fill, barH = Math.max(9, fs * 0.7), rowH = fs * 1.4 + barH + 16, bw = (W - 4) * 0.84;
-  const shades = [col.accent, col.fg, col.dot];
-  const used = 3 * rowH + lineH(S) + 14 + barH + fs * 1.6, y0 = Math.max(0, (H - used) / 2);
-  const ty = y0 + 3 * rowH + lineH(S) + 14;
-  let cum = 0;
-  EXAMPLE.forEach((l, i) => {
-    const sh = l.B / l.Bs, y = y0 + i * rowH + fs;
-    text(ctx, S, l.name, 2, y, { align: 'left', color: col.fg, weight: 600 });
-    text(ctx, S, `${Math.round(sh * 100)}%`, 2 + bw, y, { align: 'right', color: col.fg });
-    ctx.fillStyle = col.track || col.line; ctx.fillRect(2, y + 6, bw, barH);
-    // each share slides down into the trip, after the one before it
-    const x = lerp(2, 2 + cum * bw, f), yy = lerp(y + 6, ty, f);
-    ctx.fillStyle = shades[i]; ctx.fillRect(x, yy, sh * bw, barH);
-    cum += sh;
+  const per = EXAMPLE.map(l => l.B / l.N), on = EXAMPLE.map((_, i) => clamp01(st.n - i));
+  const sum = per.reduce((t, v, i) => t + v * on[i], 0);
+  const a = 0.24 * Math.tanh((6 * (C0 - sum)) / C0);
+  const below = lineH(S) * 2 + 10;
+  const pivX = W / 2, pivY = Math.min(H * 0.66, H - below - 20), arm = Math.min(W * 0.44, H * 0.9), standH = Math.max(12, Math.min(H * 0.2, H - pivY - below));
+  const u = [Math.cos(a), -Math.sin(a)];
+  const L = [pivX - arm * u[0], pivY - arm * u[1]], R = [pivX + arm * u[0], pivY + arm * u[1]];
+  ctx.fillStyle = col.lineStrong;
+  ctx.beginPath(); ctx.moveTo(pivX, pivY); ctx.lineTo(pivX - standH * 0.45, pivY + standH); ctx.lineTo(pivX + standH * 0.45, pivY + standH); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle = col.fg; ctx.lineWidth = 3; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(L[0], L[1]); ctx.lineTo(R[0], R[1]); ctx.stroke(); ctx.lineCap = 'butt';
+  // dollars to height: the taller stack fits above the beam at its highest
+  const bw = arm * 0.5, ppd = Math.max(4, (pivY - arm * Math.sin(0.24) - 14) / 9.6);
+  ctx.save(); ctx.translate(L[0], L[1]); ctx.rotate(-a);
+  ctx.fillStyle = col.dot; ctx.fillRect(arm * 0.12, -2 - C0 * ppd, bw, C0 * ppd);
+  ctx.restore();
+  ctx.save(); ctx.translate(R[0], R[1]); ctx.rotate(-a);
+  const shades = [col.accent, col.fg, col.muted];
+  let h = 2;
+  per.forEach((v, i) => {
+    if (on[i] <= 0) return;
+    const ph = v * ppd, drop = (1 - on[i]) * 36;
+    ctx.globalAlpha = on[i]; ctx.fillStyle = shades[i];
+    ctx.fillRect(-arm * 0.12 - bw, -h - ph - drop, bw, ph - 1);
+    h += ph * on[i];
   });
-  text(ctx, S, 'The trip', 2, ty - 7, { align: 'left', color: col.fg, weight: 600 });
-  ctx.strokeStyle = col.lineStrong; ctx.lineWidth = 1; ctx.strokeRect(2.5, ty - 0.5, bw - 1, barH + 1);
-  // the trip's end: 100%, its cost repaid
-  ctx.fillStyle = col.fg; ctx.fillRect(2 + bw - 1, ty - 7, 2, barH + 14);
-  const tot = EXAMPLE.reduce((s, l) => s + Math.round((l.B / l.Bs) * 100), 0);
-  text(ctx, S, f > 0.5 ? `${tot}%` : '100%', 2 + bw, ty + barH + fs * 1.6, { align: 'center', color: f > 0.5 ? col.accent : col.muted, weight: 600 });
+  ctx.globalAlpha = 1; ctx.restore();
+  const y = Math.max(L[1], R[1]) + lineH(S) + 4;
+  rowsOf(ctx, S, [
+    { s: money(C0), x: L[0] + (arm * 0.12 + bw / 2) * u[0], color: col.fg },
+    { s: `$${sum.toFixed(2)}`, x: R[0] - (arm * 0.12 + bw / 2) * u[0], color: sum > C0 ? col.accent : col.fg },
+  ], y, { weight: 600 });
 }
 
 export const SCENES = { worlds, margins, curve, field, stages, trips, ballot };
 
 // What each scene shows, for a screen reader (the canvas is one image).
 export const ALT = {
-  worlds: 'Two blocks of the town’s 2,000 ballots, the same in both but for yours: counted on the left, not counted on the right. Your side wins both, 1,040 to 960 and 1,039 to 960.',
+  worlds: 'Two blocks of the town’s 2,000 ballots, the same in both but for yours: counted on the left, not counted on the right. In one run your side wins both, 1,040 to 960 and 1,039 to 960; in a closer run, counted is a tie, 1,000 to 1,000, and not counted the other side wins, 999 to 1,000.',
   margins: 'A row of possible counts of everyone else, by your side’s lead, from three behind to three ahead; for each, who wins with your ballot counted and without it. They differ only at a tie and at one vote short, where a lot decides: each gives half a change, and the halves make one.',
   curve: 'A forecast curve of the chance of each count of your side’s votes. At 50–50 a bar: its outline the chance of a tie or one short, its filled half the chance your ballot changes who wins.',
   field: 'A square field of dots, one for each run of the election; one, ringed, is a run your ballot decides.',
   stages: 'The presidency in two steps: a field for the chance your ballot changes Pennsylvania’s winner, then a hundred dots, nineteen lit, for the times its electoral votes then decide the College, then the larger field of both.',
-  trips: 'A trip of $8.87 in each of the town race’s 468 runs; the trips on a balance against what the result is worth to you; the presidency’s 10 million trips; its $89 million shared by 300 million people; and your cost carried to both figures on a scale of dollars.',
-  ballot: 'Three races on one ballot, each repaying a share of the trip; the shares slide into one bar, and together they pass its end.',
+  trips: 'A trip of $8.87 in each of the town race’s 468 runs; the trips on a seesaw against what the result is worth to you; the presidency’s 10 million trips; against them, 300 million people at 30¢ each; and your cost carried to both figures on a scale of dollars.',
+  ballot: 'A seesaw: one trip of $8.87 on one end; on the other, what each race repays of the trip, its worth to you divided by its N, added one race at a time. Together they outweigh the trip.',
 };

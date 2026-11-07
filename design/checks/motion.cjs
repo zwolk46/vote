@@ -1,5 +1,5 @@
 // The motion check for the first-screen candidates (design/DESIGN-SPEC.md §4 and §6; brief X1, step 4: "motion
-// measured with the motion.js tokens"). *Reason:* M-motion's rules (inherited/design/specs/MOTION-SPEC.md) are the
+// measured with the motion.js tokens"), and for the explainer's (brief X2: the same checks). *Reason:* M-motion's rules (inherited/design/specs/MOTION-SPEC.md) are the
 // maker's defaults here, and a motion is only known to keep them when it is measured in a browser.
 //
 // What it measures, at 390 x 844 with the CPU slowed 4x (a mid phone) and at 1280 x 900 unslowed:
@@ -59,7 +59,7 @@ const judge = (tag, what, st, t0, phone) => {
       const open = async v => {
         const page = await ctx.newPage();
         if (slow > 1) { const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: slow }); }
-        await page.goto(`${base}/?v=${v}`, { waitUntil: 'load' });
+        await page.goto(`${base}/?${v.includes('=') ? v : `v=${v}`}`, { waitUntil: 'load' });
         return page;
       };
       const stampsSince = async (page, fn, ms) => { await page.evaluate(() => { window.__stamps = []; window.__t0 = null; }); await fn(); await page.waitForTimeout(ms); const r = await page.evaluate(() => ({ st: window.__stamps.slice(), t0: window.__t0 })); const st = r.t0 == null ? r.st : r.st.filter(x => x >= r.t0 - 17); st.t0 = r.t0; return st; };
@@ -124,6 +124,54 @@ const judge = (tag, what, st, t0, phone) => {
         const rd = await stampsSince(page, () => page.click('.seg-body .seg-t:nth-child(2)'), 900);
         console.log(`${tag} B reading (V3, chart 450): ${fmt(rd, rd.t0)}`);
         if (!reduce) judge(tag, 'B reading', rd, rd.t0, phone);
+        await page.close();
+      }
+      // The explainer (brief X2). B: each step's picture moves on `chart` (450 ms) from the press, and its words arrive on
+      // `reveal`; under reduced motion each step is drawn at once. A: the picture follows the scroll frame by frame with no
+      // duration of its own; nothing moves once the scroll stops.
+      {
+        const page = await open('page=how&v=b');
+        await page.waitForTimeout(1200);
+        await page.evaluate(() => { window.__anims = []; });
+        let worst = 0, worstAt = '', longRun = 0, n = 0, over = 0;
+        for (let i = 0; i < 21; i++) {
+          const st = await stampsSince(page, () => page.click('.xp-next'), 800);
+          if (st.length < 2) continue;
+          n++;
+          const g = gaps(st), run = st[st.length - 1] - st[0];
+          if (g[g.length - 1] > worst) { worst = g[g.length - 1]; worstAt = `step ${i + 1} to ${i + 2}`; }
+          longRun = Math.max(longRun, run);
+          if (!reduce) judge(tag, `explainer B step ${i + 1} to ${i + 2}`, st, st.t0, phone);
+          if (reduce && st.length > 3) over++;
+        }
+        console.log(`${tag} explainer B steps (chart 450): ${n} steps drawn; longest gap ${worst.toFixed(1)} ms (${worstAt}); longest run ${Math.round(longRun)} ms`);
+        if (!reduce && longRun > 450 * 1.5) fail(`${tag} explainer B a step ran ${Math.round(longRun)} ms, past 1.5 x its token`);
+        if (reduce && over) fail(`${tag} explainer B ${over} steps drawn over several frames under reduced motion`);
+        const an = await page.evaluate(() => window.__anims);
+        for (const a of an) {
+          const tok = Object.entries(TOKENS).find(([k]) => a.id === `motion:${k}`);
+          const bad = a.props.filter(p => !ALLOWED.has(p));
+          if (bad.length) fail(`${tag} explainer B an animation moves ${bad.join(', ')}`);
+          if (tok && a.dur !== tok[1]) fail(`${tag} explainer B ${a.id} ran ${a.dur} ms, its token is ${tok[1]}`);
+        }
+        console.log(`${tag} explainer B animations started: ${[...new Set(an.map(a => `${a.props.join('+')} ${a.dur} ms`))].join('; ') || 'none'}`);
+        await page.waitForTimeout(1500);
+        const idle = await page.evaluate(async () => { const f0 = window.__frames; await new Promise(r => setTimeout(r, 1000)); return { frames: window.__frames - f0, running: document.getAnimations().filter(a => a.playState === 'running').length }; });
+        if (idle.frames || idle.running) fail(`${tag} explainer B moves when nothing happens (${idle.frames} frames, ${idle.running} animations)`);
+        await page.close();
+      }
+      {
+        const page = await open('page=how&v=a');
+        await page.waitForTimeout(1200);
+        const box = page.viewportSize();
+        await page.mouse.move(box.width / 2, box.height * 0.75);
+        const st = await stampsSince(page, async () => { for (let i = 0; i < 90; i++) { await page.mouse.wheel(0, 90); await page.waitForTimeout(16); } }, 600);
+        console.log(`${tag} explainer A scroll (no duration): ${fmt(st)}`);
+        if (st.length > 2) { const g = gaps(st.slice(1)); if (g[g.length - 1] > 50) fail(`${tag} explainer A scroll: a gap of ${g[g.length - 1].toFixed(1)} ms between frames (over 50)`); }
+        await page.waitForTimeout(1500);
+        const idle = await page.evaluate(async () => { const f0 = window.__frames; await new Promise(r => setTimeout(r, 1000)); return { frames: window.__frames - f0, running: document.getAnimations().filter(a => a.playState === 'running').length }; });
+        console.log(`${tag} explainer A idle: ${idle.frames} frames requested, ${idle.running} animations running in 1 s`);
+        if (idle.frames || idle.running) fail(`${tag} explainer A moves when nothing happens`);
         await page.close();
       }
       await ctx.close();

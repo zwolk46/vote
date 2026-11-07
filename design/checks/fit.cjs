@@ -1,4 +1,5 @@
-// The fit check for the first-screen candidates (design/DESIGN-SPEC.md §6; brief X1, step 4). It loads each candidate
+// The fit check for the first-screen candidates (design/DESIGN-SPEC.md §6; brief X1, step 4), and for the explainer's
+// (brief X2: the same checks). It loads each candidate
 // in a real browser at the phone widths and text sizes and the desktop widths, light and dark, and measures it with the
 // midterms probe (design/checks/probe.cjs, taken whole from inherited/design/code/fitcheck.cjs): a page that scrolls
 // sideways, text or a picture past the screen's edge, text cut without an ellipsis, a word broken inside itself where
@@ -9,7 +10,7 @@
 // Run: `npm run build && node design/checks/fit.cjs` (serves dist/ on a free port with Vite's preview).
 // Options by the environment:
 //   W=320,360,390,430,900,1000,1100,1280,1440   widths      S=1,1.3,1.6,2   phone text scales (a desktop is checked at 1)
-//   SCHEMES=light,dark      FAST=1 (390 and 900 and 1280; 1x and 2x)      ONLY=a,b-set   views by name
+//   SCHEMES=light,dark      FAST=1 (390 and 900 and 1280; 1x and 2x)      ONLY=a,b-set,how-a,how-b   views by name
 //   SHOTS=dir               a screenshot of each failing view               MAX=8   findings printed per view
 // The short screens 390 x 664, 360 x 640 and 1280 x 720 are run too, unless W is given.
 // Playwright is the machine's (the cloud sessions have it); nothing is added to package.json.
@@ -42,6 +43,16 @@ const VIEWS = [
   { name: 'b', v: 'b' },
   { name: 'b-set', v: 'b', act: setStakes },
   { name: 'b-person', v: 'b', act: async page => { await page.click('.seg-body .seg-t:nth-child(2)'); await setStakes(page); } },
+  // the explainer (brief X2): A at its top, at the tie's halves, at the weighing, at its end; B at every step, since its
+  // words and the picture's key change at each
+  { name: 'how-a', q: 'page=how&v=a', states: ['top', 2, 15, 'end'], to: async (page, s) => page.evaluate(s => {
+    if (s === 'top') return scrollTo(0, 0);
+    if (s === 'end') return scrollTo(0, document.documentElement.scrollHeight);
+    const c = document.querySelectorAll('.xp-card')[s], slot = document.querySelector('.xp-slot'), desk = innerWidth >= 900;
+    const sb = desk ? 0 : slot.offsetHeight, F = desk ? innerHeight * 0.5 : sb + (innerHeight - sb) * 0.5, r = c.getBoundingClientRect();
+    scrollBy(0, r.top + r.height / 2 - F);
+  }, s) },
+  { name: 'how-b', q: 'page=how&v=b', states: Array.from({ length: 22 }, (_, i) => i), to: async (page, i) => page.evaluate(i => document.querySelectorAll('.xp-dots button')[i].click(), i) },
 ].filter(v => !ONLY || ONLY.has(v.name));
 
 const installScale = s => `(() => { const scale = ${scaleText.toString()}; const s = ${s}; if (s === 1) return;
@@ -70,17 +81,22 @@ const installScale = s => `(() => { const scale = ${scaleText.toString()}; const
         for (const v of VIEWS) {
           const page = await ctx.newPage();
           const errs = []; page.on('pageerror', e => errs.push(String(e))); page.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
-          await page.goto(`${base}/?v=${v.v}`, { waitUntil: 'networkidle' });
+          await page.goto(`${base}/?${v.q || `v=${v.v}`}`, { waitUntil: 'networkidle' });
           await page.waitForTimeout(900);
           if (v.act) { await v.act(page); await page.waitForTimeout(700); }
-          const res = await page.evaluate(probe, { scope: null, squeeze: false });
-          let n = 0;
-          for (let i = 0; i < 3; i++) { const k = await page.evaluate(openFolds, null); if (!k) break; n += k; await page.waitForTimeout(150); }
-          if (n) {
-            await page.evaluate(afterOpening, null);
-            const more = await page.evaluate(probe, { scope: null, squeeze: false });
-            const key = f => `${f.kind}|${f.el}|${f.what}`, had = new Set(res.out.map(key));
-            res.out.push(...more.out.filter(f => !had.has(key(f))).map(f => ({ ...f, folds: true })));
+          const res = { out: [] }, key = f => `${f.kind}|${f.el}|${f.what}`, had = new Set();
+          for (const st of v.states || [null]) {
+            if (st != null) { await v.to(page, st); await page.waitForTimeout(600); }
+            const tag = st != null ? ` (at ${st})` : '';
+            const first = await page.evaluate(probe, { scope: null, squeeze: false });
+            for (const f of first.out) if (!had.has(key(f))) { had.add(key(f)); res.out.push({ ...f, what: f.what + tag }); }
+            let n = 0;
+            for (let i = 0; i < 3; i++) { const k = await page.evaluate(openFolds, null); if (!k) break; n += k; await page.waitForTimeout(150); }
+            if (n) {
+              await page.evaluate(afterOpening, null);
+              const more = await page.evaluate(probe, { scope: null, squeeze: false });
+              for (const f of more.out) if (!had.has(key(f))) { had.add(key(f)); res.out.push({ ...f, what: f.what + tag, folds: true }); }
+            }
           }
           for (const e of errs) res.out.push({ kind: 'error', what: e.slice(0, 160) });
           views++;

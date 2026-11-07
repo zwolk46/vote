@@ -1,4 +1,5 @@
-// The settle check (design/DESIGN-SPEC.md §6; brief X1, step 4: "nothing jumping while loading"). Each candidate is
+// The settle check (design/DESIGN-SPEC.md §6; brief X1, step 4: "nothing jumping while loading"; brief X2: the same
+// checks for the explainer, ?page=how&v=a and &v=b). Each candidate is
 // loaded at 390 x 844 (the network and CPU slowed, as a phone on a fair connection) and at 1280 x 900, light and dark,
 // and every layout shift from the first paint to three seconds after load is summed, as the browser's Cumulative
 // Layout Shift counts them, with the elements that moved. *Reason:* a figure that moves under the reader's eye as the
@@ -23,7 +24,7 @@ const INIT = `(() => { window.__cls = 0; window.__moved = [];
   let fails = 0;
   for (const [w, h, slow] of [[390, 844, true], [1280, 900, false]]) {
     for (const scheme of ['light', 'dark']) {
-      for (const v of ['a', 'b']) {
+      for (const v of ['a', 'b', 'page=how&v=a', 'page=how&v=b']) {
         const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: scheme, deviceScaleFactor: 1 });
         await ctx.addInitScript(INIT);
         const page = await ctx.newPage();
@@ -33,7 +34,7 @@ const INIT = `(() => { window.__cls = 0; window.__moved = [];
           await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: (1.6 * 1024 * 1024) / 8, uploadThroughput: (750 * 1024) / 8 });
           await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
         }
-        await page.goto(`${base}/?v=${v}`, { waitUntil: 'load' });
+        await page.goto(`${base}/?${v.includes('=') ? v : `v=${v}`}`, { waitUntil: 'load' });
         await page.waitForTimeout(3000);
         const r = await page.evaluate(() => ({ cls: window.__cls, moved: window.__moved.slice(0, 6) }));
         const bad = r.cls > LIMIT;
