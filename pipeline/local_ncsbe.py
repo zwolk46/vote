@@ -249,9 +249,11 @@ def p_of(c, seats):
     kind = c["_round"][0]
     b = _ballot(c)
     if c["_level"] == "measure":
-        return {"not_computed": "not computed in this step: North Carolina's questions need the threshold their law sets "
-                                "(step (b) for local questions) and the like-past-measures forecast fitted to earlier "
-                                "years"}
+        if len(c["counties"]) >= 100:
+            return {"not_computed": "not computed in this step: a statewide question on a date other than November's "
+                                    "general; the like-past-measures forecast of statewide questions is fitted in "
+                                    "pipeline/local_medsl.py's build, which takes the general dates only"}
+        return None   # a local question: the threshold its kind's law sets (step (b)), measure_p
     if kind in ("first round", "second primary"):
         return {"not_computed": "a first round or a second primary: model section 7 records runoff systems' rounds "
                                 "with their results and does not compute p for them"}
@@ -606,6 +608,27 @@ def medsl_shape(year):
     return out
 
 
+def question_rows(dates=None):
+    """The like-past-measures rows of the State Board's local questions, every date (step (b)): each question's
+    yes share, counted whole (the State Board's file shows its place, the counties that hold it), in the layout of
+    measures.py rows (key "local measure"). Questions held in 100 counties or more are statewide and left out."""
+    if dates is None:
+        dates = load_dates()
+        split_party(dates)
+        classify(dates)
+    out = []
+    for d, cs in sorted(dates.items()):
+        for c in cs:
+            if c["_level"] != "measure" or len(c["counties"]) >= 100:
+                continue
+            yes = sum(x["votes"] for x in c["choices"] if LM.side(x["name"]) == "yes")
+            no = sum(x["votes"] for x in c["choices"] if LM.side(x["name"]) == "no")
+            if yes + no > 0:
+                out.append({"key": "local measure", "s": yes / (yes + no), "n": yes + no, "year": int(d[:4]),
+                            "date": _iso(d), "state": "NC", "whole": True})
+    return out
+
+
 def medsl_dates(dates):
     """MEDSL's general dates (its years): the contests local_medsl.py writes from the State Board's file."""
     return {d for d in dates for y in LM.MEASURE_YEARS if d.startswith(str(y)) and is_general_date(d)}
@@ -789,6 +812,9 @@ def build(out_dir, dates):
     gated = gate(dates)
     rows = like_rows(dates)
     dens = {}
+    import measures as MS
+    book = MS.load_thresholds()          # step (b): the local rules read from North Carolina's law
+    q_rows = question_rows(dates)        # its local questions of every date, counted whole
     with open(os.path.join(out_dir, "local", "backtest-ncsbe.json"), "w") as f:
         bt = backtest(rows)
         json.dump(bt, f, indent=1)
@@ -818,7 +844,9 @@ def build(out_dir, dates):
                 counts["written by pipeline/local_medsl.py: MEDSL's general date, the State Board's counts"] += 1
                 continue
             rec = record(c, d, fips, commit)
-            if rec["p"] is None:
+            if rec["p"] is None and level == "measure":
+                rec["p"] = measure_p(rec, c, d, q_rows, book)
+            elif rec["p"] is None:
                 rec["p"] = route_p(rec, c, d, rows, dens, commit, counts, note)
             rec = L._compact(rec)
             if gated.get(d, (0,))[0] > LM.QUALITY_LINE:
@@ -885,6 +913,43 @@ def route_p(rec, c, d, rows, dens, commit, counts, cal_note_text):
         rec["forecasts"][-1]["fitted_on"] = f"North Carolina's State Board contests of {FIRST_FIT_YEAR}-{year - 1}"
         rec["forecasts"][-1]["note"] = "; ".join(x for x in (rec["forecasts"][-1].get("note"), cal_note_text) if x)
     return p
+
+
+def measure_p(rec, c, d, q_rows, book):
+    """p of a local question (step (b)): the threshold North Carolina's law sets for its kind (measures.py's
+    local_rule_for, data/measure/thresholds.json), and the like-past-measures density at it among the State Board's
+    local questions of earlier years, counted whole (question_rows), as pipeline/local_medsl.py's build does on the
+    general dates."""
+    import measures as MS
+    year = int(d[:4])
+    rule, how, why = MS.local_rule_for({"state": "NC", "office": c["_base"], "subject": None}, book, year)
+    if rule is None:
+        return {"not_computed": why}
+    t = rule["t"]
+    rec["threshold"] = {k: rule.get(k) for k in ("t", "rule", "citation", "url", "quote", "read_utc", "read_via",
+                                                 "mark") if rule.get(k) is not None}
+    rec["threshold"]["matched"] = how
+    yes = sum(x["votes"] for x in c["choices"] if LM.side(x["name"]) == "yes")
+    no = sum(x["votes"] for x in c["choices"] if LM.side(x["name"]) == "no")
+    if yes + no <= 0:
+        return {"not_computed": "no yes or no votes"}
+    key = "local measure, NC"
+    train = [dict(r, key=key) for r in q_rows if r["year"] < year]
+    f, N, h, kin = MS.density_at(train, key, t)
+    n = yes + no - 1
+    rec["two_way"] = {"votes": [yes, no], "n_other_voters": n, "share_yes": round(yes / (yes + no), 6)}
+    if f is None:
+        return {"not_computed": f"fewer than {L.MIN_CLASS} like measures in earlier years in the sources taken in "
+                                f"({N}) for the class '{key}'"}
+    rec["forecasts"].append({"by": "the model's own", "method": L.METHOD, "route": "like past measures", "class": key,
+                             "like_measures": N, "window": [round(t - h, 4), round(t + h, 4)], "in_window": kin,
+                             "q": round(f * 2 * h, 5), "source": "model",
+                             "fitted_on": f"North Carolina's State Board local questions of "
+                                          f"{min(r['year'] for r in train)}-{year - 1}"})
+    if f <= 0:
+        return {"value": 0.0, "event": 0.0, "reason": f"no like measure of {N} finished within {h:.0%} of the "
+                                                       f"threshold"}
+    return MS.p_block(f, t, n, f"the model's own ({L.METHOD}), like past measures")
 
 
 def owns(r, mdates):

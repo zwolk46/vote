@@ -135,7 +135,7 @@ def rule_for(c, kind, book, year):
     state's measures sets the same threshold."""
     st = c["state"]
     states = book.get("states", {})
-    mine = [r for r in book["rules"] if r["state"] == st and _in_year(r, year)]
+    mine = [r for r in book["rules"] if r["state"] == st and _in_year(r, year) and r.get("scope") != "local"]
     if not mine:
         why = (states.get(st) or {}).get("not_read")
         return None, None, (f"the thresholds of this state's {kind}s are not read: {why}" if why else
@@ -183,6 +183,29 @@ def rule_for(c, kind, book, year):
     return _one(general, how)
 
 
+def local_rule_for(c, book, year):
+    """(rule, how, None) or (None, None, the reason p is not computed) for a local question whose place the source
+    shows (step (b): the orchestrator, 2026-11-07 06:16, "local thresholds read from the governing state law or p not
+    computed (never inferred 1/2)"). A local rule names the kind of question it governs and how to know one by its
+    title or ballot words (`match`, a pattern on them); the question takes the rule its words match, and none where
+    they match none, or match rules that set different thresholds."""
+    st = c["state"]
+    mine = [r for r in book["rules"] if r["state"] == st and r.get("scope") == "local" and _in_year(r, year)]
+    if not mine:
+        why = ((book.get("local_states") or {}).get(st) or {}).get("not_read")
+        return None, None, ("the thresholds of this state's local questions are not read" + (f": {why}" if why else
+                                                                                               ""))
+    words = " ".join((c["office"] + " " + (c.get("subject") or "")).upper().split())
+    hit = [r for r in mine if re.search(r["match"], words)]
+    if not hit:
+        return None, None, ("the source's words do not show which kind of local question this is among the kinds "
+                            "whose law was read")
+    if len({(r.get("t"), r.get("compound")) for r in hit}) > 1:
+        return None, None, ("the source's words fit two kinds of local question whose laws set different thresholds ("
+                            + "; ".join(f"{r['kind']}: {r['citation']}" for r in hit) + ")")
+    return _one(hit, f"by the kind the source's words show ({hit[0]['kind']})")
+
+
 def _one(rs, how):
     r = rs[0]
     if r.get("compound") or r.get("t") is None:
@@ -205,7 +228,9 @@ def rows(contests, year, ref):
         if yes + no <= 0:
             continue
         out.append({"key": f"{scope} {kind_of(c)}", "s": yes / (yes + no), "n": yes + no,
-                    "year": year, "state": c["state"]})
+                    "year": year, "state": c["state"],
+                    # counted whole: a state's own file that shows the question's place (not MEDSL's by county)
+                    "whole": c.get("source", "medsl") != "medsl"})
     return out
 
 
