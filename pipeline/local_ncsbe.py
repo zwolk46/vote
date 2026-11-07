@@ -533,7 +533,7 @@ def check(dates):
                                  "equal": dv == d1v.get("Democratic") and rv == d1v.get("Republican")})
     # 2. the legislature's generals: Klarner (to 2022), MEDSL (2024)
     kl = collections.defaultdict(list)
-    for k in L.load_klarner():
+    for k in L.load_klarner(raw=True):   # Klarner's own counts, before certified_votes
         if k["state"] == "NC" and k["etype"] == "g" and k["year"] >= 2000:
             kl[(k["year"], "state-upper" if k["sen"] else "state-lower", int(k["dno"]))].append(k)
     for d, cs in sorted(dates.items()):
@@ -564,6 +564,37 @@ def check(dates):
                               "klarner": [k["dvote"], k["rvote"]]})
         if t:
             out["legislature_klarner"][str(year)] = {"tally": dict(t), "differences": diffs[:40]}
+    # 2b. the legislature's 2024 generals: MEDSL's own counts (before certified_legislature), by named candidates
+    d24 = next((x for x in dates if x.startswith("2024") and is_general_date(x)), None)
+    paths = glob.glob(os.path.join(LM.NORM, "2024", "NC-*.jsonl"))
+    if d24 and paths:
+        mine = collections.defaultdict(list)
+        for c in dates[d24]:
+            if c.get("_level") == "legislature":
+                mine[c["_leg"]].append(c)
+        t = collections.Counter()
+        diffs = []
+        for p in paths:
+            with open(p) as f:
+                for m in (json.loads(ln) for ln in f):
+                    if m.get("office") not in LM.LEG or m.get("question") or m.get("stage") != "GEN" or m.get("special"):
+                        continue
+                    key = ("state-upper" if LM.LEG[m["office"]] else "state-lower", int(LM.district_no(m["district"]) or 0))
+                    hit = mine.get(key)
+                    if not hit:
+                        t["not in the State Board's file"] += 1
+                        continue
+                    a = sorted((x["votes"] for x in m["candidates"] if not x.get("writein") and not LM._is_generic(x["name"])),
+                               reverse=True)
+                    b = sorted((x["votes"] for x in hit[0]["choices"] if not LM._is_generic(x["name"])), reverse=True)
+                    if a == b:
+                        t["equal"] += 1
+                    else:
+                        t["differ"] += 1
+                        diffs.append({"district": f"{key[0]} {key[1]}", "ncsbe": b, "medsl": a,
+                                      "largest_difference": max((abs(x - y) for x, y in zip(a, b)), default=None)})
+        out["legislature_medsl_2024"] = {"date": _iso(d24), "tally": dict(t),
+                                         "differences": sorted(diffs, key=lambda x: -(x["largest_difference"] or 0))}
     # 3. MEDSL's NC contests (its general dates): the same contests, by their candidates' names and votes
     for year in LM.MEASURE_YEARS:
         d = next((x for x in dates if x.startswith(str(year)) and is_general_date(x)), None)
@@ -630,14 +661,21 @@ def source_block(year_dates, files_meta):
 
 
 def block_for(records):
-    """The State Board's source block for a file: every results file its State Board contests come from."""
-    ds = sorted({r["date"].replace("-", "_") for r in records if (r.get("result") or {}).get("source") == SOURCE_KEY})
+    """The State Board's source block for a file: every results file its State Board contests, or its contests with
+    the State Board's counts (result.votes_source), come from."""
+    ds = sorted({r["date"].replace("-", "_") for r in records if SOURCE_KEY in ((r.get("result") or {}).get("source"),
+                                                                              (r.get("result") or {}).get("votes_source"))})
     return source_block(ds, [(d, checks_of(d)["source"]) for d in ds]) if ds else None
 
 
 def build(out_dir, dates):
     commit = L.git_commit()
     fips, fmeta = county_fips()
+    # the block a like-race forecast cites (its "source": "model"), written into every file that holds one
+    src_model = F.source(f"the model's own forecast, method {L.METHOD}",
+                         "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+                         datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), None,
+                         mark="inferred", note="each year forecast from a fit on earlier years only; no polls are used")
     mdates = medsl_dates(dates)
     gated = gate(dates)
     rows = like_rows(dates)
@@ -714,6 +752,8 @@ def build(out_dir, dates):
                     "sources": {SOURCE_KEY: src,
                                 "fips": fips_source()}}
             out = recs
+        if any(f.get("source") == "model" for r in recs for f in r.get("forecasts") or []):
+            head["sources"].setdefault("model", src_model)
         L.write_level_file(path, head, out)
         total += os.path.getsize(path)
     print(json.dumps(dict(sorted(counts.items())), indent=1))
