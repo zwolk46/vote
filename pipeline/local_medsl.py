@@ -74,7 +74,7 @@ def load(year):
                     EMPTY[year] += 1
                     continue
                 out.append(c)
-    return certified_nc(fix_questions(out, year), year)
+    return certified_in(certified_nc(fix_questions(out, year), year), year)
 
 
 def certified_nc(contests, year):
@@ -163,6 +163,28 @@ def certified_legislature(contests, year):
             f"{b}: {v:,} in MEDSL's, {w:,} certified" for _, b, v, w in diff))
         CERTIFIED_LEG["replaced by the certified counts"] += 1
     print(f"{year}: North Carolina's legislature against the State Board's: {dict(CERTIFIED_LEG)}")
+
+
+CERTIFIED_STATES = collections.defaultdict(set)   # year -> states whose own certified file replaced MEDSL's
+
+
+def certified_in(contests, year):
+    """Indiana's legislature, local races and questions of 2024, from the state's own certified file
+    (pipeline/local_in.py) in place of MEDSL's, whose Indiana counts fall short of the certified presidential count
+    (quality()): the certified one wins (brief D3, step 2; the orchestrator, 08:08 and 08:32). The presidency, Congress
+    and the governor stay MEDSL's lines here (D1's and D2's are the record for them). Indiana is then no longer held
+    back in `year` (build: bad[year])."""
+    if year != 2024:
+        return contests
+    import local_in as LI
+    st = LI.medsl_shape(year)
+    if st is None:
+        print(f"{year}: Indiana's own file is missing or fails its gate; MEDSL's Indiana contests kept")
+        return contests
+    keep = [c for c in contests if not (c["state"] == "IN" and (c["question"] or c["office"] in LEG
+                                                                 or is_local_level(c)))]
+    CERTIFIED_STATES[year].add("IN")
+    return keep + st
 
 
 _POS = re.compile(r"^(YES|FOR|IN FAVOR)\b")
@@ -1171,9 +1193,10 @@ def _src_medsl(year, chk, files):
 
 
 def _owns(r):
-    """The contests this build writes: MEDSL's, and the State Board's of MEDSL's general dates (certified_nc)."""
+    """The contests this build writes: MEDSL's, Indiana's own of 2024 (certified_in), and the State Board's of MEDSL's
+    general dates (certified_nc)."""
     src = (r.get("result") or {}).get("source")
-    return src == "medsl" or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
+    return src in ("medsl", "in_enr") or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
                               and (r.get("level") == "measure" or r.get("year") in YEARS))
 
 
@@ -1198,6 +1221,9 @@ def build(out_dir, with_p=True):
                            "https://doi.org/10.7910/DVN/FJOGJB", info["files"]["candidate"]["read_utc"], info["licence"],
                            mark="stated")
     bad = {y: quality(y) for y in MEASURE_YEARS}
+    for y, sts in CERTIFIED_STATES.items():   # a state whose own certified file replaced MEDSL's (certified_in)
+        for st in sts:
+            bad[y].pop(st, None)
     seen = set()
 
     def cid(base):
@@ -1237,7 +1263,8 @@ def build(out_dir, with_p=True):
                                + (", special" if c["special"] else ""),
                    "seats": c["magnitude"] if (c.get("magnitude") or 1) > 1 else None,
                    "result": {"candidates": _cands_out(c["candidates"], c.get("magnitude") or 1),
-                              "total_votes": sum(x["votes"] for x in c["candidates"]), "source": "medsl"},
+                              "total_votes": sum(x["votes"] for x in c["candidates"]),
+                              "source": c.get("source", "medsl")},
                    "forecasts": []}
             if c.get("votes_source"):   # North Carolina's certified counts in place of MEDSL's (certified_legislature)
                 rec["result"]["votes_source"] = "ncsbe"
@@ -1569,6 +1596,9 @@ def build(out_dir, with_p=True):
             head["sources"]["ncsbe"] = NS.block_for(cs + others)
             if "ncsbe" in used:
                 head["sources"]["fips"] = NS.fips_source()
+        if "in_enr" in used:   # Indiana's own certified file (certified_in)
+            import local_in as LI
+            head["sources"]["in_enr"] = LI.source_block()
         L.write_level_file(path, head, cs + others)
         sz = os.path.getsize(path)
         total += sz
