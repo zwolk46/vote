@@ -76,23 +76,32 @@ export function Field({ C, reading, sel, onSel, desk }) {
     return () => ro.disconnect();
   }, []);
   const g = useMemo(() => geometry(w, desk, fs), [w, desk, fs]);
+  // on the phone a row's name may take two lines (a long name at large text): each row's label is measured, and its
+  // stacks start under it
+  const labs = useRef([]);
+  const [lh, setLh] = useState([]);
+  useLayoutEffect(() => {
+    if (desk || !w) return;
+    const hs = labs.current.map(el => (el ? Math.ceil(el.getBoundingClientRect().height) + 3 : 0));
+    if (hs.join() !== lh.join()) setLh(hs);
+  });
   const X = lx => g.left + ((lx - LO) / SPAN) * g.pw;
   // both readings laid out at once, so a row's pitch is the same in each and only the dots move (Prices.jsx)
   const lay = useMemo(() => {
     if (!w) return null;
     let y = g.topH;
-    const L = rows.map(R => {
+    const L = rows.map((R, ri) => {
       const you = stacks(R.you, g.pw, g.r), person = stacks(R.person, g.pw, g.r);
       const n = Math.max(you.rows, person.rows);
       const strip = Math.max(g.minH - g.lane, Math.min(g.stripH, n * 2 * g.r + 3));
-      const top = y, base = top + g.labelH + strip;
+      const top = y, base = top + (desk ? 0 : Math.max(g.labelH, lh[ri] || 0)) + strip;
       y = base + g.lane + g.gap;
       return { you: you.at, person: person.at, pitch: pitchFor(n, g.r, strip - 3), order: orderOf(R.you), top, strip, base, lane: base + g.lane / 2 + 1 };
     });
     L.end = y - g.gap;
     L.h = L.end + g.axisH;
     return L;
-  }, [rows, w, g]);
+  }, [rows, w, g, lh.join()]);
 
   // What is drawn now: the cost (lc), and for each dot a mix between its places in the two readings (m) and between
   // the cost line and its place (k). A tween moves these toward their targets, from wherever they stand.
@@ -108,7 +117,9 @@ export function Field({ C, reading, sel, onSel, desk }) {
     }
   };
 
-  const draw = () => {
+  const drawRef = useRef(null);
+  const draw = () => drawRef.current && drawRef.current();
+  drawRef.current = () => {
     const el = cvs.current; if (!el || !w || !colours || !lay) return;
     ensure();
     const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -242,11 +253,13 @@ export function Field({ C, reading, sel, onSel, desk }) {
   // The scale's labels: long ones where they fit, else short; then, at large text on a narrow phone, a label that would
   // touch a kept one is left out, the dollar decades first kept and the cent last.
   const long = (g.pw * 3) / SPAN >= 96;
-  const label = p => (p === -2 ? '1¢' : long ? tick(p) : tickShort(p));
+  // between the dollar marks, the step itself ("×1,000"), where it fits: the round-1 readers found the steps uneven
+  // and unexplained, and a label on the scale says it without a sentence
+  const label = p => (p % 3 === 1.5 ? '×1,000' : p === -2 ? '1¢' : long ? tick(p) : tickShort(p));
   const ticks = useMemo(() => {
-    const ext = p => { const wd = label(p).length * g.fs * 0.6, x = X(p); return p === LO ? [x, x + wd] : p === HI ? [x - wd, x] : [x - wd / 2, x + wd / 2]; };
+    const ext = p => { const wd = label(p).length * g.fs * (p % 3 === 1.5 ? 0.5 : 0.6), x = X(p); return p === LO ? [x, x + wd] : p === HI ? [x - wd, x] : [x - wd / 2, x + wd / 2]; };
     const kept = [];
-    for (const p of [0, 12, 6, 3, 9, -2]) { const [a, b] = ext(p); if (kept.every(q => { const [c, d] = ext(q); return b + 6 <= c || d + 6 <= a; })) kept.push(p); }
+    for (const p of [0, 12, 6, 3, 9, -2, 1.5, 4.5, 7.5, 10.5]) { const [a, b] = ext(p); if (kept.every(q => { const [c, d] = ext(q); return b + 5 <= c || d + 5 <= a; })) kept.push(p); }
     return kept.sort((a, b) => a - b);
   }, [g, long]);
   return (
@@ -254,13 +267,13 @@ export function Field({ C, reading, sel, onSel, desk }) {
       <canvas ref={cvs} class="field-c" data-fit-under style={{ width: `${w}px`, height: `${lay ? lay.h : 400}px` }} role="img" onClick={pick}
         aria-label={`Every contest on one scale of dollars, from 1 cent to 1 trillion, in rows: ${rows.map(r => `${r.name}, ${r.count.toLocaleString('en-US')}`).join('; ')}. Each dot is ${UNIT} sample contests. The named figures are ringed, and listed below.`} />
       {lay && rows.map((r, ri) => (
-        <div class="field-row" style={{ top: `${lay[ri].top}px`, height: `${desk ? lay[ri].base + g.lane - lay[ri].top : g.labelH}px`, width: desk ? `${g.left - 16}px` : '100%' }} aria-hidden="true">
+        <div class="field-row" ref={el => { labs.current[ri] = el; }} style={{ top: `${lay[ri].top}px`, height: desk ? `${lay[ri].base + g.lane - lay[ri].top}px` : 'auto', width: desk ? `${g.left - 16}px` : '100%' }} aria-hidden="true">
           <span class="field-n">{r.name}</span><span class="field-k num">{r.count.toLocaleString('en-US')}</span>
         </div>
       ))}
       <span ref={costL} class="field-cost" aria-hidden="true">Your cost</span>
       <div class="field-axis" style={{ top: `${lay ? lay.end + 8 : 0}px` }} aria-hidden="true">
-        {ticks.map(p => <span class={`field-t${p === LO ? ' first' : p === HI ? ' last' : ''}`} style={{ left: `${X(p)}px` }}>{label(p)}</span>)}
+        {ticks.map(p => <span class={`field-t${p === LO ? ' first' : p === HI ? ' last' : ''}${p % 3 === 1.5 ? ' mid' : ''}`} style={{ left: `${X(p)}px` }}>{label(p)}</span>)}
       </div>
     </div>
   );

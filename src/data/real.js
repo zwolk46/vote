@@ -65,7 +65,7 @@ export const TIE = 'A tie counts as half: a lot would have gone your way half th
 
 // The levels of contest, top of the ballot to the bottom (design/DESIGN-SPEC.md §2.2).
 export const LEVELS = [
-  { id: 'president', name: 'President, by state' },
+  { id: 'president', name: 'President, by state and year' },
   { id: 'senate', name: 'U.S. Senate' },
   { id: 'governor', name: 'Governor' },
   { id: 'house', name: 'U.S. House' },

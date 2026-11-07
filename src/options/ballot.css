@@ -2,7 +2,6 @@
    key, then the ballot, with the trip held at the foot of the screen while the ballot is in view. Desktop: the ballot
    at the left; the line in focus, its key and the trip in a column at the right that stays in view. */
 .bt-main > * + * { margin-top: 24px; }
-.bt-say { margin-top: 8px; color: var(--muted); max-width: 60ch; }
 .bt-lead > * + * { margin-top: 14px; }
 .bt-lead .seg { width: max-content; max-width: 100%; }
 .bt-lead .key { margin-top: 20px; }
@@ -82,3 +81,5 @@
   .bt-range { top: 16px; }
   .bt-ctx, .bt-worth, .bt-share { align-self: start; padding-top: 2px; }
 }
+
+.bt-t.mid { color: var(--faint); font-size: calc(var(--t-src) * 0.92); }

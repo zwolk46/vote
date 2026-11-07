@@ -15,7 +15,7 @@ export function PreviewBar({ v, setV }) {
   return (
     <div class="prevbar" role="note">
       <div class="prevbar-in">
-        <p>{isPreview ? 'Preview. ' : ''}The grey dots are sample contests, invented until the data lands; the named figures are real and sourced.</p>
+        <p data-sentence>{isPreview ? 'Preview. ' : ''}The grey dots are invented samples until the data lands.</p>
         {isPreview ? <Seg label="Candidate" options={OPTIONS} value={v} onChange={setV} /> : null}
       </div>
     </div>

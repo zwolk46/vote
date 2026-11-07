@@ -131,13 +131,14 @@ p { margin: 0; }
 /* ---- the lead: the figure, its key and its working (§2.1, §2.4) ---- */
 .lead-fig { font-size: var(--t-display); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.28em; }
 .lead-fig .w { font-weight: 400; }
-.lead-fig .to { font-size: var(--t-sub); font-weight: 400; color: var(--muted); letter-spacing: 0; }
-.working { font-size: var(--t-src); color: var(--muted); font-variant-numeric: tabular-nums; margin-top: 6px; }
+.lead-fig .to { flex: 1 1 100%; font-size: var(--t-sub); font-weight: 400; color: var(--muted); letter-spacing: 0; line-height: 1.35; margin-top: 4px; text-wrap: pretty; }
+.working { font-size: var(--t-src); color: var(--muted); font-variant-numeric: tabular-nums; margin-top: 6px; line-height: 1.45; max-width: 52ch; }
 .key { border-top: 1px solid var(--line-strong); }
 /* a label and its figure on one line; where the two cannot share it (a narrow phone at large text), the figure takes the
    next line at the right edge rather than run over the label */
 .key-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
 .key-row .l { color: var(--muted); flex: 1 1 0; }
+.key-row .sub { display: block; font-size: var(--t-src); color: var(--faint); margin-top: 2px; }
 .key-row .f { font-weight: 600; white-space: nowrap; text-align: right; margin-left: auto; }
 .key-fold { border-bottom: 1px solid var(--line); }
 .oneq { font-size: var(--t-src); color: var(--muted); line-height: 1.5; max-width: 46ch; }
@@ -157,3 +158,39 @@ p { margin: 0; }
 
 .foot { max-width: var(--maxw); margin: 0 auto; padding: 24px var(--gutter) 40px; border-top: 1px solid var(--line); }
 .foot > * + * { margin-top: 8px; }
+
+/* ---- the figure's working, drawn (components/LeadRuler.jsx; the maker, 11-07 04:32) ---- */
+.lr { position: relative; height: 4.1em; margin: 14px 0 6px; font-size: var(--t-src); }
+.lr.per { height: 4.9em; }
+.lr > span { position: absolute; left: 0; top: 0; }
+.lr .lr-track { top: 1.9em; right: 0; height: 1px; background: var(--line-strong); }
+.lr .lr-tick { top: calc(1.9em - 3px); width: 1px; height: 7px; background: var(--line-strong); }
+.lr .lr-arrow { top: calc(1.9em - 1px); width: 1px; height: 2px; background: var(--accent); transform-origin: 0 0; }
+.lr .lr-head { top: calc(1.9em - 4px); width: 0; height: 0; border-left: 7px solid var(--accent); border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+.lr .lr-head.lr-left { border-left: 0; border-right: 7px solid var(--accent); }
+.lr .lr-arrow.lr-div { top: calc(2.8em - 1px); }
+.lr .lr-head.lr-div { top: calc(2.8em - 4px); }
+.lr .lr-drop { top: 1.9em; width: 1px; height: 0.9em; background: var(--accent); }
+.lr .lr-dot { top: calc(1.9em - 4px); width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.lr .lr-ring { top: calc(1.9em - 5px); width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--fg); background: var(--bg); box-sizing: border-box; }
+.lr .lr-ring.lr-div { top: calc(2.8em - 5px); }
+.lr .lr-ring.lr-dim { border-color: var(--faint); }
+.lr.per .lr-arrow:not(.lr-div) { background: var(--faint); }
+.lr.per .lr-head:not(.lr-div) { border-left-color: var(--faint); }
+.lr .lr-l { white-space: nowrap; font-weight: 600; color: var(--fg); line-height: 1.3; font-variant-numeric: tabular-nums; }
+.lr .lr-up { top: 0.15em; }
+.lr .lr-down { top: 2.6em; }
+.lr.per .lr-down { top: 3.45em; }
+.lr .lr-you, .lr .lr-op { color: var(--accent); }
+.lr .lr-dim, .lr.per .lr-up { color: var(--faint); font-weight: 400; }
+
+/* ---- a key of marks (components/Legend.jsx) ---- */
+.legend { list-style: none; margin: 10px 0 14px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: var(--t-src); color: var(--muted); }
+.legend li { display: inline-flex; align-items: center; gap: 6px; }
+.lg { display: inline-block; flex: none; }
+.lg-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--dot); }
+.lg-ring { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid var(--fg); box-sizing: border-box; position: relative; }
+.lg-ring::after { content: ''; position: absolute; inset: 2.5px; border-radius: 50%; background: var(--fg); }
+.lg-line { width: 2px; height: 13px; background: var(--accent); }
+.lg-tick { width: 2px; height: 13px; background: var(--fg); }
+.lg-knob { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }

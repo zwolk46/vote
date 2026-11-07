@@ -7,21 +7,30 @@ import { money, moneyParts, oneIn, digits, count } from '../lib/format.js';
 import { COST, TIE } from '../data/real.js';
 import { useFold, FoldBody } from './Fold.jsx';
 import { Seg } from './Seg.jsx';
+import { LeadRuler } from './LeadRuler.jsx';
 
 export const bstar = (a, C, reading) => (reading === 'person' ? (C * a.N) / a.pop.value : C * a.N);
 
-// The figure the page leads with, B*, in the display size, the unit word lighter; under it the working, so the
-// multiplication is on the page and not only behind it (§2.4, the receipt).
+// Where a figure comes from, in words a reader without statistics reads (the cold readers of 11-07 took "Stylised"
+// for jargon and a bare "2008" for an error).
+export const whenOf = a => (a.when === 'stylised' ? 'An invented example, not a real race' : /^\d{4}$/.test(a.when) ? `From a study of the ${a.when} election` : `From a study of House races, ${a.when}`);
+// the people a per-person figure is shared among
+export const sharedBy = a => `shared by ${count(a.pop.value)} people${a.pop.sample ? ' (a round figure)' : ''}`;
+
+// The figure the page leads with, B*, in the display size, the unit word lighter; under it what it is, in a label
+// (every cold reader of 11-07 first took "$89 million to you" for a sum they would receive); the working as figures;
+// and the working drawn, the cost carried to the figure by the odds (LeadRuler), which is what explains it.
 export function LeadFigure({ a, C, reading, id }) {
   const v = bstar(a, C, reading);
   const [n, w] = moneyParts(v);
   const per = reading === 'person';
   return (
     <div class="lead" id={id}>
-      <p class="lead-fig"><span>{n}{w ? <span class="w"> {w}</span> : null}</span><span class="to">{per ? `to each person in ${a.pop.of}` : 'to you'}</span></p>
+      <p class="lead-fig"><span>{n}{w ? <span class="w"> {w}</span> : null}</span><span class="to">{per ? `the least the result must be worth to each person in ${a.pop.of}` : 'the least the result must be worth to you'}</span></p>
       <p class="working">{per
-        ? `${money(C * a.N)} ÷ ${count(a.pop.value)} people${a.pop.sample ? ' (a sample population)' : ''}`
+        ? `${money(C * a.N)} ÷ ${count(a.pop.value)} people${a.pop.sample ? ' (a round figure)' : ''}`
         : `${money(C)} × ${digits(a.N)}`}</p>
+      <LeadRuler a={a} C={C} reading={reading} />
     </div>
   );
 }
@@ -40,7 +49,7 @@ export function CostRow({ minutes, wage, setCost }) {
   const changed = minutes !== COST.minutes || wage !== COST.wage;
   return (
     <>
-      <div class="key-row"><span class="l">Your cost</span><button type="button" class="f fig-btn" {...f.btn} onClick={f.toggle}>{money(C)}</button></div>
+      <div class="key-row"><span class="l">Your cost of voting<span class="sub">{minutes} minutes at the polls, at {money(wage)} an hour</span></span><button type="button" class="f fig-btn" {...f.btn} onClick={f.toggle}>{money(C)}</button></div>
       <FoldBody fold={f} cls="key-fold">
         <div class="cost-ed">
           <label>Minutes<input type="number" inputmode="decimal" min="1" max="600" step="1" value={m} onInput={e => setM(e.currentTarget.value)} onChange={e => commit(e.currentTarget.value, w)} /></label>
@@ -78,4 +87,4 @@ export function ReadingSeg({ reading, setReading, size = 'body' }) {
   return <Seg fit label="Whose stakes" size={size} options={[['you', 'To you'], ['person', 'To each person']]} value={reading} onChange={setReading} />;
 }
 
-export const ONE_Q = 'This weighs one vote’s effect on who wins against what it costs. Every other reason to vote is set aside.';
+export const ONE_Q = 'Only the chance of changing who wins is weighed here. Every other reason to vote, like duty or having your say, is set aside.';

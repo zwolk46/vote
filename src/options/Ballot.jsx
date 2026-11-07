@@ -12,10 +12,11 @@ import { sampleTotal, UNIT } from '../data/sample.js';
 import { money, oneIn, pct, count, tick, tickShort } from '../lib/format.js';
 import { useMedia, DESKTOP, useColours } from '../lib/media.js';
 import { play, reducedMotion, springValue, TOKENS } from '../lib/motion.js';
-import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar } from '../components/Lead.jsx';
+import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar, whenOf, sharedBy } from '../components/Lead.jsx';
 import { useGroups, stacks, pitchFor, orderOf, STAGGER, LO, HI } from '../components/Field.jsx';
 import { Seg } from '../components/Seg.jsx';
 import { Boundary } from '../components/Boundary.jsx';
+import { Legend } from '../components/Legend.jsx';
 import './ballot.css';
 
 const SPAN = HI - LO;
@@ -32,9 +33,9 @@ const LINES = [
   { level: 'president', name: 'President' },
   { level: 'senate', name: 'U.S. Senate' },
   { level: 'governor', name: 'Governor' },
-  { level: 'house', name: 'U.S. House', a: 'house', ctx: 'On average, 1898–1992' },
+  { level: 'house', name: 'U.S. House', a: 'house', ctx: 'The average race, 1898–1992' },
   { level: 'state', name: 'State legislature' },
-  { level: 'local', name: 'Town race', a: 'town', ctx: 'Stylised, 2,000 voters' },
+  { level: 'local', name: 'Town race', a: 'town', ctx: 'An invented example, 2,000 voters' },
 ];
 
 export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
@@ -49,7 +50,7 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
   const lines = LINES.map(L => {
     const id = L.level === 'president' ? where : L.a;
     const a = id ? anchor(id) : null;
-    return { ...L, a, ctx: L.level === 'president' ? `${WHERE.find(w => w[0] === where)[1]}, 2008` : L.ctx };
+    return { ...L, a, ctx: L.level === 'president' ? `${WHERE.find(w => w[0] === where)[1]}, 2008 election` : L.ctx };
   });
   const fl = lines.find(l => l.level === focus) || lines[0];
   const shares = lines.map(l => (l.a && stakes[l.level] != null ? 10 ** stakes[l.level] / bstar(l.a, C, reading) : 0));
@@ -58,7 +59,7 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
 
   const lead = (
     <div class="bt-lead">
-      <p class="contest"><span class="n">{fl.a.name}</span><br /><span class="w">{fl.a.when === 'stylised' ? 'Stylised' : fl.a.when}</span></p>
+      <p class="contest"><span class="n">{fl.a.name}</span><br /><span class="w">{whenOf(fl.a)}</span></p>
       <LeadFigure a={fl.a} C={C} reading={reading} />
       <ReadingSeg reading={reading} setReading={setReading} />
       <div class="key">
@@ -73,16 +74,16 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
     <main class="page bt">
       <div class="bt-main">
         <section class="bt-intro" aria-labelledby="bt-h">
-          <h1 id="bt-h">One trip, every contest on the ballot</h1>
-          <p class="bt-say">Each line’s figure is what its outcome would have to be worth for one vote on it to pay. Set what each is worth to you; the trip pays when the shares add to 100%.</p>
+          <h1 id="bt-h">One trip to vote, every contest on the ballot</h1>
         </section>
         {desk ? null : lead}
-        {desk ? null : <p class="oneq">{ONE_Q}</p>}
+        {desk ? null : <p class="oneq" data-sentence>{ONE_Q}</p>}
         <section class="bt-ballot" aria-labelledby="bt-b">
           <div class="bt-bh">
             <h2 id="bt-b">Your ballot</h2>
-            <span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests behind its lines, a dot for each {UNIT}</span>
+            <span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests</span>
           </div>
+          <Legend items={[['dot', `${UNIT} sample contests`], ['tick', 'the line’s figure'], ['knob', 'what it is worth to you']]} />
           <div class="bt-where"><span class="src">Where you vote for president</span><Seg fit label="Where you vote for president" options={WHERE} value={where} onChange={setWhere} /></div>
           <Boundary what="The ballot" fallback={() => <p class="muted">The ballot could not be drawn.</p>}>
             <Lines lines={lines} C={C} reading={reading} desk={desk} stakes={stakes} setStakes={setStakes} shares={shares} focus={focus} setFocus={setFocus} />
@@ -90,7 +91,7 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
           {desk ? null : trip}
         </section>
       </div>
-      {desk ? <aside class="bt-side" aria-label="The line in focus and the trip">{lead}{trip}<p class="oneq">{ONE_Q}</p></aside> : null}
+      {desk ? <aside class="bt-side" aria-label="The line in focus and the trip">{lead}{trip}<p class="oneq" data-sentence>{ONE_Q}</p></aside> : null}
     </main>
   );
 }
@@ -102,11 +103,11 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
 function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setFocus }) {
   const rows = useGroups();
   const colours = useColours();
-  const first = useRef(null);
-  const [w, setW] = useState(0);
+  const first = useRef(null), axisEl = useRef(null);
+  const [w, setW] = useState(0), [afs, setAfs] = useState(12);
   useLayoutEffect(() => {
-    const ro = new ResizeObserver(e => setW(Math.round(e[0].contentRect.width)));
-    ro.observe(first.current);
+    const ro = new ResizeObserver(() => { setW(Math.round(first.current.getBoundingClientRect().width)); setAfs(parseFloat(getComputedStyle(axisEl.current).fontSize) || 12); });
+    ro.observe(first.current); ro.observe(axisEl.current);
     return () => ro.disconnect();
   }, []);
   const wide = useMedia('(min-width: 1100px)');   // the line in one row (ballot.css)
@@ -183,11 +184,14 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
     prevLc.current = lc;
   }, [lc]);
 
-  const axis = [0, 3, 6, 9];
+  // the dollar marks, and between them the step itself ("×1,000") where it fits (the round-1 readers: the steps
+  // looked uneven and unexplained)
+  const step = (w * 3) / SPAN - 3.2 * afs * 0.6;
+  const axis = [0, 3, 6, 9, ...(step >= 6 * afs * 0.5 + 10 ? [1.5, 4.5, 7.5] : [])];
   return (
     <>
-      <div class="bt-axis" aria-hidden="true">
-        <span class="bt-axis-in">{axis.map(p => <span class={`bt-t${p === HI ? ' last' : ''}`} style={{ left: `${at(p)}%` }}>{desk ? tick(p) : tickShort(p)}</span>)}</span>
+      <div class="bt-axis" aria-hidden="true" ref={axisEl}>
+        <span class="bt-axis-in">{axis.map(p => <span class={`bt-t${p === HI ? ' last' : ''}${p % 3 ? ' mid' : ''}`} style={{ left: `${at(p)}%` }}>{p % 3 ? '×1,000' : desk ? tick(p) : tickShort(p)}</span>)}</span>
       </div>
       <ol class="bt-lines">
         {lines.map((l, i) => {
@@ -201,7 +205,7 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
               {l.a
                 ? <button type="button" class="bt-fig" aria-pressed={l.level === focus ? 'true' : 'false'} aria-label={`${l.name}: ${money(B)}. Show in focus`} onClick={() => setFocus(l.level)}>{money(B)}</button>
                 : <span class="bt-fig none">No figure yet</span>}
-              <span class="bt-ctx">{l.a ? `${l.ctx} · ${oneIn(l.a.N)}` : 'Its figure comes with the data'}<span class="bt-n"><span class="sep"> · </span><span class="num">{r.count.toLocaleString('en-US')}</span> sample contests</span></span>
+              <span class="bt-ctx">{l.a ? `${l.ctx} · ${oneIn(l.a.N)}${per ? ` · ${sharedBy(l.a)}` : ''}` : 'Its figure comes with the data'}<span class="bt-n"><span class="sep"> · </span><span class="num">{r.count.toLocaleString('en-US')}</span> sample contests</span></span>
               <div class="bt-track" ref={i === 0 ? first : null}>
                 <div class="bt-layer" ref={el => { layers.current[i] = el; }}>
                   <canvas ref={el => { cvs.current[i] = el; }} class="bt-c" style={{ width: `${w}px`, height: `${H}px` }} aria-hidden="true" />
@@ -211,18 +215,18 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
                 {l.a
                   ? <input type="range" class={`bt-range${v == null ? ' unset' : ''}`} min={LO} max={HI} step="0.01" value={v ?? LO}
                     aria-label={`What the outcome of the ${l.name} line is worth ${per ? 'to each person' : 'to you'}`} aria-valuetext={v == null ? 'Not set' : money(10 ** v)}
-                    onInput={e => { const x = snap(parseFloat(e.currentTarget.value)); setStakes(s => ({ ...s, [l.level]: x })); setFocus(l.level); }} />
+                    onInput={e => { const x = snap(parseFloat(e.currentTarget.value)); setStakes(s => ({ ...s, [l.level]: x })); }} />
                   : null}
               </div>
               {l.a
                 ? <span class="bt-worth">{v == null ? <span class="muted">{per ? 'Worth to each person: drag to set' : 'Worth to you: drag to set'}</span> : <>{per ? 'Worth to each person' : 'Worth to you'} <b class="num">{money(10 ** v)}</b></>}</span>
                 : <span class="bt-worth" />}
-              <span class="bt-share num">{l.a && v != null ? (shares[i] < 10 ? `${share(shares[i])} of the trip` : `${share(shares[i])} the trip`) : ''}</span>
+              <span class="bt-share num">{l.a && v != null ? (shares[i] < 10 ? `repays ${share(shares[i])} of the cost` : `repays the cost ${share(shares[i])}`) : ''}</span>
             </li>
           );
         })}
       </ol>
-      <p class="src bt-srcs">Gelman, Silver and Edlin, Economic Inquiry, 2012 (the presidency, 2008). Mulligan and Hunter, Public Choice, 2003 (the House). The town race is the model’s stylised example. The grey dots on each line are sample contests, a dot for each 100, invented until the data lands; the upright mark on each line is its figure. Read 7 November 2026.</p>
+      <p class="src bt-srcs" data-sentence>Gelman, Silver and Edlin, Economic Inquiry, 2012 (the presidency, 2008). Mulligan and Hunter, Public Choice, 2003 (the House). Read 7 November 2026.</p>
     </>
   );
 }
@@ -236,14 +240,11 @@ function Trip({ lines, shares, total, anySet, C, reading }) {
     <section class="bt-trip" aria-labelledby="bt-tr" aria-live="polite">
       <div class="bt-trip-h">
         <h2 id="bt-tr" class="bt-trip-t">The trip</h2>
-        <span class="bt-trip-f num">{!anySet ? `costs ${money(C)}` : pays ? (total < 10 ? `${share(total)}, so it pays` : `Pays ${share(total)} over`) : `${share(total)} of the way`}</span>
+        <span class="bt-trip-f num">{!anySet ? `costs ${money(C)}` : pays ? (total < 10 ? `${share(total)} repaid: it pays` : `repaid ${share(total)} over`) : `${share(total)} repaid`}</span>
       </div>
-      <div class="bt-bar" role="img" aria-label={anySet ? `The shares add to ${total < 10 ? share(total) : `${share(total)} over`} what the trip costs.` : 'No stake set yet.'}>
+      <div class="bt-bar" role="img" aria-label={anySet ? `The lines repay ${total < 10 ? `${share(total)} of` : `${share(total)} over`} what the trip costs.` : 'No stake set yet.'}>
         {segs.map(s => <span class="bt-seg" style={{ left: `${s.l}%`, width: `${s.w}%` }} />)}
       </div>
-      <p class="src bt-trip-s">{!anySet
-        ? `Drag a line to say what its outcome is worth ${reading === 'person' ? 'to each person' : 'to you'}. Each line adds its share; the trip pays at 100%.`
-        : `${lines.filter((l, i) => shares[i] > 0).length} of ${lines.filter(l => l.a).length} lines with a figure set. A share below 1% shows as <1%.`}</p>
     </section>
   );
 }
