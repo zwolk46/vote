@@ -347,7 +347,7 @@ function stages(ctx, S, st) {
 // k 1, 2, 3: a seesaw: the trips heaped on one end, the result your ballot decides on the other, worth $1,000, then
 //   $10,000 to you (examples); then the presidency's 10 million trips against the same $10,000. The heavier end goes
 //   down: the trips' end, it does not pay; the result's end, it pays.
-// k 4: the presidency's $89 million shared by 300 million people (a round figure): 30¢ each.
+// k 4: the presidency's $89 million shared by the country's 304 million people of 2008: 29¢ each.
 // k 5: the scale of dollars of the first page: your cost, × 468 and × 10 million.
 const LO = -2, HI = 12;
 // the beam's turn: up at the result's end when the trips weigh more (a > 0), down when the result does
@@ -365,7 +365,7 @@ function trips(ctx, S, st) {
     let a = turn(T1, WORTH.lo);
     if (k > 1) a = lerp(a, turn(T1, WORTH.hi), clamp01(k - 1));
     if (k > 2) a = lerp(turn(T1, WORTH.hi), turn(T2, WORTH.hi), clamp01(k - 2));
-    if (k > 3) a = lerp(turn(T2, WORTH.hi), 0, ev);   // 300 million people at 30¢ each weigh what 10 million trips do
+    if (k > 3) a = lerp(turn(T2, WORTH.hi), 0, ev);   // 304 million people at 29¢ each weigh what 10 million trips do
     a *= m;
     const u = [Math.cos(a), -Math.sin(a)], nv = [-Math.sin(a), -Math.cos(a)];   // along the beam, and up from it
     const L = [pivX - arm * u[0], pivY - arm * u[1]], R = [pivX + arm * u[0], pivY + arm * u[1]];
@@ -403,10 +403,10 @@ function trips(ctx, S, st) {
     ctx.globalAlpha = tA * (1 - ev);
     dot(ctx, ox, oy, lerp(gp * 0.34, 5.5, m), col.accent);
     ring(ctx, ox, oy, lerp(Math.max(7, gp * 0.9), 10.5, m), col.accent, 2);
-    // everyone's stakes: 300 dots, each a million people at 30¢, on the right end in its place
+    // everyone's stakes: a dot for each million people, at 29¢ each, on the right end in its place
     if (ev > 0) {
       const pc = 20, pp = heapW / pc, pts = [];
-      for (let i = 0; i < 300; i++) pts.push(...at(R, -s0 - heapW + ((i % pc) + 0.5) * pp, 2.5 + (Math.floor(i / pc) + 0.5) * pp));
+      for (let i = 0; i < Math.round(PEOPLE / 1e6); i++) pts.push(...at(R, -s0 - heapW + ((i % pc) + 0.5) * pp, 2.5 + (Math.floor(i / pc) + 0.5) * pp));
       ctx.globalAlpha = tA * ev; dots(ctx, pts, pp * 0.32, col.fg);
     }
     // the two ends' figures, under the beam, each on a row of its own where they would cross
@@ -414,7 +414,7 @@ function trips(ctx, S, st) {
       ctx.globalAlpha = tA * clamp01(m * 2 - 1);
       const lx = at(L, s0 + heapW / 2, 0), rx = at(R, -arm * 0.2, 0);
       const ly = Math.max(lx[1], rx[1]) + lineH(S) + 4;
-      const wl = k > 3.5 ? `300 million × ${money(T2 / PEOPLE)}` : k > 1.5 ? money(WORTH.hi) : money(WORTH.lo);
+      const wl = k > 3.5 ? `${Math.round(PEOPLE / 1e6)} million × ${money(T2 / PEOPLE)}` : k > 1.5 ? money(WORTH.hi) : money(WORTH.lo);
       rowsOf(ctx, S, [{ s: k > 2.5 ? money(T2) : money(T1), x: lx[0], color: col.fg }, { s: wl, x: rx[0], color: k > 3.5 ? col.fg : col.accent }], ly, { weight: 600 });
       // the level beam, named over its pivot: the two ends weigh the same
       const lv = 'level: they weigh the same';
@@ -508,6 +508,6 @@ export const ALT = {
   curve: 'A forecast curve of the chance of each count of your side’s votes. At 50–50 a bar: its outline the chance of a tie or one short, its filled half the chance your ballot changes who wins.',
   field: 'A square field of dots, one for each run of the election; one, ringed, is a run your ballot decides.',
   stages: 'The presidency in two steps: a field for the chance your ballot changes Pennsylvania’s winner, then a hundred dots, nineteen lit, for the times its electoral votes then decide the College, then the larger field of both.',
-  trips: 'A trip of $8.87 in each of the town race’s 468 runs; the trips on a seesaw against what the result is worth to you; the presidency’s 10 million trips; against them, 300 million people at 30¢ each; and your cost carried to both figures on a scale of dollars.',
+  trips: `A trip of $8.87 in each of the town race’s 468 runs; the trips on a seesaw against what the result is worth to you; the presidency’s 10 million trips; against them, ${Math.round(PEOPLE / 1e6)} million people at ${money(C0 * CLOSE08 / PEOPLE)} each; and your cost carried to both figures on a scale of dollars.`,
   ballot: 'A seesaw: one trip of $8.87 on one end; on the other, what each race repays of the trip, its worth to you divided by its N, added one race at a time. Together they outweigh the trip.',
 };

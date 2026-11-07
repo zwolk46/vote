@@ -6,7 +6,8 @@
 // p_from_pmf: a forecast of the share as a normal, the count binomial on it), run 2026-11-07 for this page.
 // The town race is the model's stylised example (model §2). The presidency of 2008 is Gelman, Silver and Edlin (2012);
 // the two stages are D1's figures for Pennsylvania in 2024 under the model's own forecast (data/president/2024.json).
-import { COST } from '../data/real.js';
+import { COST, FIELD } from '../data/real.js';
+import { money } from '../lib/format.js';
 
 export const C0 = (COST.minutes / 60) * COST.wage;   // $8.87
 
@@ -18,7 +19,7 @@ export const SRC = {
   pa: 'Pennsylvania, 2024, under the site’s model’s own forecast: your ballot changes the state’s winner 1 in 1,396,136; in those runs the state’s electoral votes decide the Electoral College 18.6% of the time, when the other states leave it close enough; both, 1 in 7,499,626.',
   cost: 'Your cost of voting: 14 minutes at the polls (the middle of all voters’ times, from a study by Chen, Haggag, Pope and Rohla of 2016) at $38.00 an hour (average hourly pay, US private employers, Bureau of Labor Statistics, October 2026, preliminary): $8.87. The least the result must be worth to you is your cost × N, where the chance is 1 in N (the site’s model, sections 2 and 6).',
   worth: 'What the result is worth to you is yours to say; $1,000 and $10,000 are examples. The cost and the chances are the site’s model’s (section 2).',
-  pop: 'Counting what the result is worth to each person it touches, not to you alone: the least it must be worth to each is your cost × N ÷ the people. 300 million is a round figure for the country (the site’s model, section 5).',
+  pop: `Counting what the result is worth to each person it touches, not to you alone: the least it must be worth to each is your cost × N ÷ the people. The country’s people in 2008: ${Math.round(FIELD.nation[2008].value).toLocaleString('en-US')} (${FIELD.nation[2008].src}, 1 July 2008) (the site’s model, section 5).`,
   ballot: 'An example. The presidency, closest states, 2008: 1 in 10 million (Gelman, Silver and Edlin, 2012). A House race at the average of 1898–1992: 1 in 180,000 (Mulligan and Hunter, Public Choice, 2003). The town race: 1 in 468 (stylised). What each result is worth to you, $50 million, $400,000 and $1,000, is an example. Each race repays what it is worth to you ÷ N of each trip: $5.00, $2.22 and $2.14, together $9.36, more than the trip’s $8.87. One trip votes in every race, so the shares add.',
 };
 
@@ -36,7 +37,9 @@ export const PA = { state: 1396136, W: 0.18616, N: 7499626 };
 export const TOWN = { N: 468, voters: 2000 };
 export const CLOSE08 = 10e6;
 export const HOUSE = 180000;
-export const PEOPLE = 300e6;
+// the nation's people in 2008, the year of the presidency's figure (D1's population_nation, data/president/2008.json)
+export const PEOPLE = FIELD.nation[2008].value;
+const MILLIONS = `${Math.round(PEOPLE / 1e6)} million`;
 export const WORTH = { lo: 1000, hi: 10000 };
 
 // The beats, in order. `scene` names the picture and `st` its state. `head` orients (a heading); `fig` is the beat's one
@@ -62,7 +65,7 @@ export const BEATS = [
   { id: 'weighLo', idea: 7, scene: 'trips', st: { k: 1 }, head: 'Weighed against what the result is worth to you', fig: 'Does not pay', sub: 'worth $1,000 to you (an example)', key: [['trip', 'your trips'], ['you', 'the result: what it is worth to you']], src: 'worth' },
   { id: 'weighHi', idea: 7, scene: 'trips', st: { k: 2 }, head: 'Worth more than $4,150', fig: 'It pays', sub: 'worth $10,000 to you (an example)', key: [['trip', 'your trips'], ['you', 'the result: what it is worth to you']], src: 'worth' },
   { id: 'presW', idea: 7, scene: 'trips', st: { k: 3 }, head: 'The presidency: 10 million trips for one', fig: 'Does not pay', sub: '$89 million against the same $10,000 · closest states, 2008', key: [['trip', 'your trips'], ['you', 'the result: what it is worth to you']], src: 'gse' },
-  { id: 'share', idea: 7, scene: 'trips', st: { k: 4 }, head: 'Counting what it is worth to everyone', fig: '30¢ each', sub: '$89 million ÷ 300 million people (a round figure for the country)', key: [['trip', 'your trips'], ['person', 'each dot: a million people']], src: 'pop' },
+  { id: 'share', idea: 7, scene: 'trips', st: { k: 4 }, head: 'Counting what it is worth to everyone', fig: `${money(C0 * CLOSE08 / PEOPLE)} each`, sub: `$89 million ÷ ${MILLIONS} people, 2008`, key: [['trip', 'your trips'], ['person', 'each dot: a million people']], src: 'pop' },
   { id: 'ruler', idea: 7, scene: 'trips', st: { k: 5 }, head: 'The least the result must be worth to you', fig: 'Your cost × N', sub: 'where the chance is 1 in N', key: [['youdot', 'your cost'], ['fig', 'your cost × N'], ['arrow', '× N']], src: 'cost' },
   { id: 'ballot1', idea: 8, scene: 'ballot', st: { n: 1 }, head: 'One trip votes in every race', fig: '$5.00 of the $8.87', sub: 'the presidency, worth $50 million to you (an example)', key: [['tripbox', 'one trip: $8.87'], ['pres', 'President: $50 million shared over 10 million trips']], src: 'ballot' },
   { id: 'ballot2', idea: 8, scene: 'ballot', st: { n: 2 }, head: 'The House race too', fig: '$7.22 of the $8.87', sub: 'worth $400,000 to you (an example)', key: [['tripbox', 'one trip: $8.87'], ['pres', 'President'], ['house', 'House: $400,000 shared over 180,000 trips']], src: 'ballot' },
