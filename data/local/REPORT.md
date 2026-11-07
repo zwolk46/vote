@@ -479,3 +479,35 @@ The p of these contests are computed from the certified counts. Elsewhere, the f
 
 **Still open.** Indiana's other years: the archive keeps earlier elections in the same layout [inferred from its address; not read].
 
+
+## 11. The boundary route (c) by size: the design, fixed before any score
+
+*Written 2026-11-07 at 10:10 UTC, and committed before any score was run.* [inferred: a design]
+
+**What was asked.** The orchestrator, 09:36: "as a separate step under the robustness test: size bins for the boundary route (c). M2 finds it 12% low under 3,000 votes and 20% high over 30,000. Adopt only if the test passes." At 10:09: "with the design fixed in REPORT first". M2's reading 10.10 gives, by the deciding pair's votes, 205 expected within 49-51% against 234 seen under 3,000; 562 against 625 at 3,000-10,000; 314 against 280 at 10,000-30,000; and 356 against 298 over 30,000.
+
+**The variant: one, fixed now.**
+- **What changes.** Route (c)'s class density f(½) is read off the class's earlier like races whose deciding pair falls in the same size bin as the contest's own.
+- **The bins** are route (a)'s for s_e (`pipeline/local.py`, `BINS`): the two candidates' votes under 3,000, 3,000-10,000, 10,000-30,000, and 30,000 or more.
+- **Which count.** The pair's votes are the n at which p is computed, so the bin comes from the same count as p. Route (a)'s s_e is read the same way (§2; M2 10.11) [inferred: the law's ex-ante rule is about who is on the ballot, and p already takes this n].
+- **What stays.** The windows rule does not change: 49-51%, widening to 48-52 and then 45-55 until 10 like races fall in the window. Where the bin holds fewer than 100 earlier like races (`MIN_CLASS`), the class as a whole is used, as now. Route (b) and runoffs keep their classes.
+
+**The pools it is tested on.** Each pool is tested separately, and each year is forecast from that pool's earlier years only, as in its back-test.
+1. **State legislatures.** Klarner's multi-seat generals of 1968-2022 (`pipeline/local.py`, `backtest`). Their like races also forecast MEDSL's 2024 legislature, so 2024's outcomes are scored in this pool too, forecast from 1967-2022.
+2. **MEDSL's local races at the boundary,** 2020-2024, from MEDSL's earlier years (2018 has none).
+3. **North Carolina's State Board,** 2015-2026, from its own earlier years (counted from 2014).
+
+The variant is adopted in a pool only where it passes there. A pool where it fails keeps the record's class density.
+
+**The test** (brief D3, amended 08:36; cells as D2's, 5 or more):
+- **The counts.** For every boundary contest given a forecast, three expected counts, each capped at 1, are set against what was seen, as in `backtest.json`'s class tallies:
+  - within 49-51%: 0.02 f;
+  - within 10 votes: 10.5 f / n;
+  - a margin of 0 or 1: 1.5 f / n.
+- **Improves.** Over all scored years, the 49-51% count comes nearer the count seen, and the Poisson deviance of the 49-51% counts over the cells falls.
+- **The cells.** Each class and size bin, for each of the three counts. A cell is tested where its count seen or expected, as the record stands, is 5 or more. It is made worse where the variant's expected count moves further from the count seen.
+- **Adopted** only if it improves with no tested cell made worse over all scored years, and again with any one scored year left out.
+
+**What follows.**
+- **If it is adopted in a pool,** the p of that pool's boundary contests change. Each forecast names the bin its density came from (`forecasts[].size_bin`, with `like_races` counted in that bin), and every moved p is listed.
+- **If it is not,** nothing changes. The test is recorded in `data/local/size-bins-test.json` and here.
