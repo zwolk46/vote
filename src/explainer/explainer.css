@@ -4,7 +4,8 @@
 .xp-title { margin-bottom: 4px; }
 .xp-stage { background: var(--bg); }
 .xp-box { position: relative; width: 100%; height: clamp(240px, 44vh, 420px); }
-.xp-c { display: block; width: 100%; height: 100%; }
+.xp-c { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
+.xp-measure { position: absolute; left: var(--gutter); right: var(--gutter); top: 0; height: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
 .xp-fs { position: absolute; left: 0; top: 0; visibility: hidden; pointer-events: none; font-size: 13px; line-height: 1; }
 .xp-key { margin: 8px 0 0; min-height: 1.4em; }
 
@@ -67,6 +68,19 @@
 @media (max-width: 899px) {
   .xp-slot { margin: 12px calc(-1 * var(--gutter)) 0; padding: 8px var(--gutter) 8px; background: var(--bg); }
   .xp-a .xp-slot { position: sticky; top: 0; z-index: 2; border-bottom: 1px solid var(--line); }
+  .xp-a .xp-box { height: min(clamp(240px, 44vh, 420px), max(160px, calc(60svh - var(--xp-keyh, 0px) - 24px))); }
+  .page.xp-a { position: relative; }
+  /* B: Back, the steps and Next held at the foot of the screen, clear of the phone's own bar; the page keeps their
+     height free under its last line, so nothing is left behind them */
+  .page.xp-b { position: relative; box-sizing: border-box; min-height: calc(100svh - var(--xp-top, 0px)); display: flex; flex-direction: column; padding-bottom: calc(var(--xp-nav, 0px) + 8px); }
+  .xp-b .xp-slot, .xp-b .xp-stage { flex: 1 1 auto; display: flex; flex-direction: column; }
+  .xp-b .xp-box { flex: 1 1 0; height: auto; min-height: 180px; max-height: 420px; }
+  .xp-b .xp-stage .xp-key { min-height: var(--xp-keyh, 1.4em); }
+  .xp-b .xp-words { min-height: var(--xp-wordsh, 8.5em); margin-top: 10px; }
+  /* the spaces between the parts drawn in, so the picture keeps what they gave up */
+  .page.xp-b { padding-top: 16px; }
+  .xp-b .xp-slot { margin-top: 8px; padding-bottom: 0; }
+  .xp-b .xp-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 3; margin: 0; padding: 8px var(--gutter) calc(8px + env(safe-area-inset-bottom)); background: var(--bg); border-top: 1px solid var(--line); }
 }
 @media (min-width: 900px) {
   .xp { display: grid; grid-template-columns: minmax(320px, 420px) minmax(0, 1fr); column-gap: 56px; align-items: start; }

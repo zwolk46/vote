@@ -98,6 +98,25 @@ function Stage({ api, onTap }) {
   );
 }
 
+// Every step's key and words, laid out unseen at the page's width, for their tallest (B's room on a phone).
+function Measure({ r }) {
+  return (
+    <div class="xp-measure" ref={r} aria-hidden="true" inert>
+      {BEATS.map(b => (
+        <div key={b.id}>
+          <Key items={b.key} />
+          <div class="xp-mw">
+            <h2 class="xp-h">{b.head}</h2>
+            {b.fig ? <p class="xp-fig">{b.fig}</p> : null}
+            {b.sub ? <p class="xp-sub">{b.sub}</p> : null}
+            <span class="xp-srcb">Source</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function Words({ b }) {
   const f = useFold();
   return (
@@ -118,7 +137,15 @@ export function Explainer({ v }) {
 // ---- A · Scroll ------------------------------------------------------------------------------------------------------
 function Scroll() {
   const desk = useMedia(DESKTOP);
-  const api = useRef(null), cards = useRef([]), slot = useRef(null);
+  const api = useRef(null), cards = useRef([]), slot = useRef(null), main = useRef(null), meas = useRef(null);
+  // On a phone the picture and its key are held at the top while the words pass under them. At a large text size the
+  // key grows, so the picture gives up height to keep the room for the words at no less than two fifths of the screen;
+  // the key's room is the tallest step's, so the picture does not change size between steps.
+  useLayoutEffect(() => {
+    const m = () => main.current && meas.current && main.current.style.setProperty('--xp-keyh', `${Math.ceil(Math.max(0, ...[...meas.current.querySelectorAll('.xp-key')].map(e => e.getBoundingClientRect().height)))}px`);
+    const ro = new ResizeObserver(m); ro.observe(meas.current); m();
+    return () => ro.disconnect();
+  }, []);
   useEffect(() => {
     // where the reader is: the step whose middle is nearest the reading line (below the held picture on a phone, the
     // screen's middle on a desktop), and how far towards the next
@@ -150,8 +177,9 @@ function Scroll() {
     return () => { removeEventListener('scroll', on); removeEventListener('resize', on); cancelAnimationFrame(raf); };
   }, [desk]);
   return (
-    <main class="page xp xp-a">
+    <main class="page xp xp-a" ref={main}>
       <h1 class="xp-title">{TITLE}</h1>
+      <Measure r={meas} />
       <div class="xp-slot" ref={slot}><Stage api={api} /></div>
       <ol class="xp-list">
         {BEATS.map((b, i) => <li key={b.id} class="xp-card" ref={el => { cards.current[i] = el; }}><Words b={b} /></li>)}
@@ -165,6 +193,25 @@ function Scroll() {
 function Steps() {
   const [i, setI] = useState(0);
   const api = useRef(null), cur = useRef(0), owner = useRef({}), words = useRef(null), shown = useRef([0, 0, 0]);
+  const main = useRef(null), nav = useRef(null), meas = useRef(null);
+  // On a phone one step is one screen: the title, the picture, its key, the words, and Back, the steps and Next held at
+  // the foot, where a thumb finds Next without scrolling. The picture takes the room the rest leaves (M-spec s.23: what
+  // is held in view on a short screen). The key and the words keep the room of the longest step's, measured from all
+  // of them at the reader's text size, so the picture is the same size at every step and does not jump between them.
+  // Where the text is too large for one screen, and at the last step, where the line on what is set aside follows the
+  // words, the page scrolls, and keeps the controls' height free under its last line, so nothing is left behind them.
+  useLayoutEffect(() => {
+    const m = () => {
+      const el = main.current; if (!el || !nav.current || !meas.current) return;
+      const hi = sel => Math.max(0, ...[...meas.current.querySelectorAll(sel)].map(e => e.getBoundingClientRect().height));
+      el.style.setProperty('--xp-nav', `${Math.ceil(nav.current.getBoundingClientRect().height)}px`);
+      el.style.setProperty('--xp-keyh', `${Math.ceil(hi('.xp-key'))}px`);
+      el.style.setProperty('--xp-wordsh', `${Math.ceil(hi('.xp-mw'))}px`);
+      el.style.setProperty('--xp-top', `${Math.round(el.getBoundingClientRect().top + scrollY)}px`);
+    };
+    const ro = new ResizeObserver(m); ro.observe(nav.current); ro.observe(meas.current); ro.observe(document.body); m();
+    return () => ro.disconnect();
+  }, []);
   const draw = (a, b, f) => { shown.current = [a, b, f]; if (api.current) api.current.draw(a, b, f); };
   const go = j => {
     j = Math.max(0, Math.min(BEATS.length - 1, j));
@@ -186,13 +233,14 @@ function Steps() {
   }, []);
   const b = BEATS[i], last = i === BEATS.length - 1;
   return (
-    <main class="page xp xp-b">
+    <main class="page xp xp-b" ref={main}>
       <h1 class="xp-title">{TITLE}</h1>
       <div class="xp-slot"><Stage api={api} onTap={() => go(cur.current + 1)} /></div>
       <div class="xp-side">
         <div class="xp-words" ref={words} aria-live="polite"><Words key={b.id} b={b} /></div>
         {last ? <p class="oneq xp-oneq" data-sentence>{ONE_Q}</p> : null}
-        <div class="xp-nav">
+        <Measure r={meas} />
+        <div class="xp-nav" ref={nav}>
           <button type="button" class="xp-go" onClick={() => go(i - 1)} disabled={i === 0}>Back</button>
           <ol class="xp-dots" aria-label={`Step ${i + 1} of ${BEATS.length}`}>
             {BEATS.map((x, k) => <li key={x.id}><button type="button" class={k === i ? 'on' : k < i ? 'past' : ''} aria-label={`Step ${k + 1}: ${x.head}`} aria-current={k === i ? 'step' : null} onClick={() => go(k)} /></li>)}
