@@ -90,7 +90,7 @@ def pres_2025():
 
 
 if 2025 not in C15.PRES:
-    C15.PRES[2025] = pres_2025()   # c15's table ends with 2024; the 2024 winner's party carries 2025's odd year
+    C15.PRES[2025] = pres_2025()   # c15's table carries 2025 since the run of record; kept for a c15 without it
 
 
 def h1(s):
