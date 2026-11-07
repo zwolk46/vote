@@ -1402,7 +1402,7 @@ def _lean_reason(why):
 
 
 def backtest_local_partisan(write=True, years=None, prow=None, pres=None):
-    """Route (a)'s class-C terms, fitted on Klarner's races before the year, applied to the year's local races
+    """Route (a)'s class-C terms, fitted on the legislative races before the year (prow), applied to the year's local races
     between one Democrat and one Republican with the county's previous-general US House lean: the forecasts against
     what happened. {year: tallies}; written to data/local/backtest-local-partisan.json."""
     if prow is None:
@@ -1417,8 +1417,9 @@ def backtest_local_partisan(write=True, years=None, prow=None, pres=None):
         res[year] = _backtest_one(M, k, rows, quality(year), pres)
     if write:
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-partisan.json"), "w") as f:
-            json.dump({"about": "route (a)'s class-C terms (fitted on Klarner's state legislative races of earlier "
-                                "years only) applied to local races between one Democrat and one Republican, the "
+            json.dump({"about": "route (a)'s class-C terms (fitted on the state legislative races of earlier years "
+                                "only: Klarner's, and New Jersey's 2023 Senate from its Official List) applied to "
+                                "local races between one Democrat and one Republican, the "
                                 "place's lean read from the US House vote of the previous general in the race's "
                                 "counties (MEDSL's precinct returns): the forecast against what happened. Built by "
                                 "pipeline/local_medsl.py backtest-local-partisan.",
@@ -1873,8 +1874,9 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
     rec["forecasts"].append({"by": "the model's own", "method": L.METHOD, "route": "partisan",
                              "share": {"of": "Democrat, two-party", "mean": round(mean, 4), "sd": round(sd, 4),
                                        "tails": "normal"},
-                             "note": "transferred, not yet checked: route (a)'s class-C terms, fitted on Klarner's "
-                                     "state legislative races of earlier years, applied with the county's US House "
+                             "note": "transferred, not yet checked: route (a)'s class-C terms, fitted on the state "
+                                     "legislative races of earlier years (Klarner's, and New Jersey's 2023 Senate), "
+                                     "applied with the county's US House "
                                      "lean; incumbency not matched (taken as 0); back-test in "
                                      "data/local/backtest-local-partisan.json",
                              "source": "model"})
@@ -2391,7 +2393,10 @@ def build(out_dir, with_p=True):
                             leg24.append({"year": 2024, "key": key, "s": max(x1, x2) / (x1 + x2), "n": x1 + x2})
                 if rec["forecasts"]:
                     rec["forecasts"][-1]["note"] = ((rec["forecasts"][-1].get("note", "") + "; ") if route ==
-                                                    "boundary" else "") + "like races from Klarner's 1967-2022 returns"
+                                                    "boundary" else "") + ("like races of every earlier year in the "
+                                                                           "sources taken in: Klarner's returns of "
+                                                                           "1967-2022 and Louisiana's and New "
+                                                                           "Jersey's of 2023")
             elif r_ is None:
                 p["not_computed"] = "no votes for the Democrat or the Republican"
                 counts[f"{label}: not computed, no votes"] += 1
@@ -2411,7 +2416,8 @@ def build(out_dir, with_p=True):
                 rec["forecasts"].append({"by": "the model's own", "method": L.METHOD, "route": "partisan",
                                          "share": {"of": "Democrat, two-party", "mean": round(mean, 4),
                                                    "sd": round(sd, 4), "tails": "normal"},
-                                         "note": "fitted on Klarner's races of 1967-2022; incumbency matched by name",
+                                         "note": "fitted on Klarner's races of 1967-2022 and New Jersey's 2023 "
+                                                 "Senate; incumbency matched by name",
                                          "source": "model"})
                 if any(x.get("writein") or _is_generic(x["name"]) for x in top[:2]) or \
                         {major(top[0]), major(top[1])} != {"D", "R"}:
