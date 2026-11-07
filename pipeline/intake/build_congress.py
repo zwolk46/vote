@@ -13,6 +13,8 @@ Written 2026-11-07 by worker D2. Reads only the cache (CACHE); run the source sc
                                        odd years 1977-2005 (and a contest Cha does not hold, or holds only its winner)
   la_sos_governor.py 2023              Louisiana's governor of 2023, from the Secretary of State (D3's reader)
   ms_governor_rule.py                  Mississippi's rule for electing its governor before 2020 (HC 47 of 2020)
+  state_governors.py 2023 2025         New Jersey's and Virginia's governors of 2025 from the states' certified
+                                       results, and the refusals of Kentucky's and Mississippi's 2023 results
 
 What it writes for each contest (plan section 3, with the fields data/README.md adds):
   result     from the source of record, every candidate and line it prints;
@@ -667,6 +669,23 @@ def aa_governors(year, P):
     return out
 
 
+def aa_not_in_cha(year, cha_rows, P):
+    """The governor contests of an even year from 2006 that Cha, Kuriwaki and Snyder do not hold, from Algara and
+    Amlani's county sums, the record for them as for New Jersey 2017 (build_odd_governors): Rhode Island 2010 (the
+    orchestrator, 2026-11-07 12:35: "Yes to RI 2010")."""
+    have = {r["place"]["state"] for r in cha_rows}
+    out = []
+    for r in aa_governors(year, P):
+        if r["place"]["state"] in have:
+            continue
+        r["notes"].append("Cha, Kuriwaki and Snyder do not hold this contest, so Algara and Amlani's county sums "
+                          "stand as the record")
+        r["checks"] = [{"against": None, "differences": ["no second source read for this contest (Cha, Kuriwaki and "
+                                                         "Snyder do not hold it)"]}]
+        out.append(r)
+    return out
+
+
 POP = {}
 # a special election the November record leaves out, held on a date one of the chambers' own pages gives
 OFF_DATE = {(2010, "senate", "MA"): ("2010-01-19", "U.S. Senate, Party Division, 111th Congress, note 4: \"Scott Brown (R) "
@@ -790,6 +809,52 @@ def la_sos_governors(year, P):
     return out
 
 
+STATE_GOV_SRC = {"NJ": "nj_doe", "VA": "va_elect"}
+
+
+def state_gov_governors(year, P):
+    """The governor contests of `year` from the states' own certified results (pipeline/intake/state_governors.py:
+    New Jersey and Virginia 2025), gated within the certifying source as Louisiana's 2023 is; and the refusals of the
+    year's other states (Kentucky and Mississippi 2023)."""
+    d = cc.read_json(os.path.join(cc.CACHE, "state_gov", "normalized", f"governor-{year}.json"))
+    if d is None:
+        return [], {}
+    out = []
+    for c in d["contests"]:
+        s = c["source"]
+        src = cc.source_block(s["name"], s["url"], s["read_utc"], s["licence"], mark="stated", via=s["via"],
+                              note=f"sha256 {s['sha256'][:16]}; read by pipeline/intake/state_governors.py; "
+                                   + c["gate"]["official_how"])
+        SOURCES[STATE_GOV_SRC[c["state"]]] = src
+        cands = [{"name": x["name"], "party": x["party"], "parties": [x["party"] or ("Write-In" if x["write_in"] else "")],
+                  "votes": x["votes"], "scattered": bool(x["write_in"])} for x in c["candidates"]]
+        rec = {"office": "governor", "state": c["state"], "district": None, "special": False, "candidates": cands,
+               "printed_total": None, "computed_total": c["total_votes"], "runoff": None, "source": src,
+               "notes": [f"the state's own count over its {c['parts']['n']} {c['parts']['kind']}, the parties as the "
+                         f"source prints them"] + c["notes"]}
+        r = contest(year, "governor", rec, None, None, P)
+        r["date"] = c["date"]
+        r["result"]["certified"] = True
+        r["notes"].append(f"date: {c['date']}, stated (the source's date of the election)")
+        g = c["gate"]
+        r["gate"] = {k: g[k] for k in ("by", "ruled", "official", "official_how", "parts_add_up", "parts_how",
+                                       "statewide_equal")}
+        r["checks"] = [{"against": ch["against"], "differences": ch["differences"]} for ch in c["checks"]]
+        fi = r.get("forecast_inputs")
+        if fi is not None:
+            inc, how = chambers.state_gov_incumbency(c, year)
+            fi["incumbency"] = inc
+            fi["incumbency_source"] = "inferred"
+            fi["incumbency_how"] = how
+            SOURCES["cha"] = cha_source(cha_index()[0], "governor")
+        if c["held"]:
+            r["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
+                      "not_computed": "held by the gate within the certifying source: " + c["held"], "reason": None}
+        out.append(r)
+    refused = {x["state"]: x for x in d.get("refused", [])}
+    return out, refused
+
+
 def _off_round(r, why):
     """A contest whose date the sources do not give (Louisiana's rounds before 2023; a special or later round)."""
     r["date"] = None
@@ -833,6 +898,9 @@ def build_odd_governors(year):
     if os.path.exists(la):
         for r in la_sos_governors(year, P):
             by_state["LA"] = r
+    sg, refused = state_gov_governors(year, P)
+    for r in sg:
+        by_state[r["place"]["state"]] = r
     for st, r in by_state.items():
         if r["date"] is None or st == "LA" and r["result"]["source"].get("name", "").startswith("Louisiana"):
             continue
@@ -847,12 +915,16 @@ def build_odd_governors(year):
         srcs["ms_hc47_2020"] = ms_rule_source()
     missing = [f"{st}: not in the sources read here (Cha, Kuriwaki and Snyder end in 2021, Algara and Amlani in 2019"
                + ("; Louisiana's own file is read for 2023 only" if st == "LA" else "") + ")"
+               + (f"; the state's own results were refused: {refused[st]['who']}, {refused[st]['url']}, "
+                  f"{refused[st]['when_utc']}: {refused[st]['answer']}; {refused[st]['tried']} (the orchestrator, "
+                  f"2026-11-07 12:40: \"record them and try nothing else\")" if st in refused else "")
                for st in ODD_STATES if st not in by_state and (year % 4 == 3) == (st in ("KY", "LA", "MS"))]
     out = {"level": "governor", "year": year,
            "about": f"Governor contests of {year}, an odd year, in the layout of plan/PLAN.md section 3 with the fields "
                     f"data/README.md adds. Built by pipeline/intake/build_congress.py from Cha, Kuriwaki and Snyder "
-                    f"(2007-2021), Algara and Amlani's county returns (before, and where Cha lacks a contest) and "
-                    f"Louisiana's Secretary of State (2023), as each contest's source block says. The forecast is the "
+                    f"(2007-2021), Algara and Amlani's county returns (before, and where Cha lacks a contest), "
+                    f"Louisiana's Secretary of State (2023) and New Jersey's and Virginia's certified results (2025), "
+                    f"as each contest's source block says. The forecast is the "
                     f"governors' route fitted on the even years before it (data/congress/REPORT.md section 8).",
            "missing_from_record": [], "not_in_sources": missing, "sources": srcs, "contests": contests}
     cc.write_contest_file(os.path.join(cc.DATA, "governor", f"{year}.json"), out)
@@ -885,6 +957,7 @@ def build(year):
         by_level[c["office"]].append(r)
         seen.add((c["office"], c["state"], c.get("district") if c["office"] == "house" else None, c["special"]))
     by_level["governor"] = governors(year, cha_src, idx, P)
+    by_level["governor"] += aa_not_in_cha(year, by_level["governor"], P)
     SOURCE_POOL.update(SOURCES)
     for (y, office, st, dist, special), cs in sorted(idx.items()):
         if y == year and office in ("house", "senate") and st in cc.STATES_50:
@@ -905,6 +978,13 @@ def build(year):
                     SOURCES[fi[k]] = SOURCE_POOL[fi[k]]
             if (fi.get("lean_same_day") or {}).get("source"):
                 SOURCES[fi["lean_same_day"]["source"]] = SOURCE_POOL[fi["lean_same_day"]["source"]]
+            # the last governor race's own source (Algara and Amlani before 2006): its block was left out of the
+            # file's sources though the field names it (D2, 2026-11-07, found while adding Rhode Island 2010)
+            lg = fi.get("last_governor_race") or {}
+            if lg.get("source") == "algara_amlani":
+                SOURCES["algara_amlani"] = AA_SOURCE()
+            if r["result"]["source"] is _AA.get("source"):
+                SOURCES["algara_amlani"] = AA_SOURCE()
         contests = sorted(by_level[level], key=lambda r: r["id"])
         out = {"level": level, "year": year,
                "about": f"{level.capitalize()} contests of {year}, in the layout of plan/PLAN.md section 3 with "
