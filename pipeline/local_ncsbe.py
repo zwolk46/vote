@@ -533,7 +533,7 @@ def check(dates):
                                  "equal": dv == d1v.get("Democratic") and rv == d1v.get("Republican")})
     # 2. the legislature's generals: Klarner (to 2022), MEDSL (2024)
     kl = collections.defaultdict(list)
-    for k in L.load_klarner():
+    for k in L.load_klarner(raw=True):   # Klarner's own counts, before certified_votes
         if k["state"] == "NC" and k["etype"] == "g" and k["year"] >= 2000:
             kl[(k["year"], "state-upper" if k["sen"] else "state-lower", int(k["dno"]))].append(k)
     for d, cs in sorted(dates.items()):
@@ -638,6 +638,11 @@ def block_for(records):
 def build(out_dir, dates):
     commit = L.git_commit()
     fips, fmeta = county_fips()
+    # the block a like-race forecast cites (its "source": "model"), written into every file that holds one
+    src_model = F.source(f"the model's own forecast, method {L.METHOD}",
+                         "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+                         datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), None,
+                         mark="inferred", note="each year forecast from a fit on earlier years only; no polls are used")
     mdates = medsl_dates(dates)
     gated = gate(dates)
     rows = like_rows(dates)
@@ -714,6 +719,8 @@ def build(out_dir, dates):
                     "sources": {SOURCE_KEY: src,
                                 "fips": fips_source()}}
             out = recs
+        if any(f.get("source") == "model" for r in recs for f in r.get("forecasts") or []):
+            head["sources"].setdefault("model", src_model)
         L.write_level_file(path, head, out)
         total += os.path.getsize(path)
     print(json.dumps(dict(sorted(counts.items())), indent=1))

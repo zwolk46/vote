@@ -62,6 +62,7 @@ Run:
 import argparse
 import collections
 import datetime
+import glob
 import json
 import math
 import os
@@ -125,9 +126,88 @@ KLARNER_CODES = {
 
 # ------------------------------------------------------------------ inputs
 
-def load_klarner():
+def load_klarner(raw=False):
+    """Klarner's contests; with North Carolina's certified counts where they win (certified_votes), unless raw."""
     with open(os.path.join(KLARNER, "contests.jsonl")) as f:
-        return [json.loads(line) for line in f]
+        cs = [json.loads(line) for line in f]
+    return cs if raw else certified_votes(cs)
+
+
+CERTIFIED_NOTE = ("votes: the North Carolina State Board of Elections' certified counts ({file}), in place of "
+                  "Klarner's, which differ ({diff}); the certified one wins (brief D3, step 2; the orchestrator, "
+                  "08:05 and 08:08)")
+
+
+def certified_votes(contests):
+    """North Carolina's legislative generals: the State Board's counts in place of Klarner's where they differ, in the
+    years whose State Board file passes its gate against the certified federal counts (pipeline/local_ncsbe.py gate:
+    2004-2024; 2000 and 2010 fall short and 2002 has no certified federal file in data/ to check it, so those keep
+    Klarner's). Candidates are matched by party for the Democrat and the Republican and by name otherwise; a contest
+    whose named candidates do not all match keeps Klarner's. Each changed contest carries `votes_source` and a note."""
+    import local_medsl as LM
+    import local_ncsbe as NS
+    if not glob.glob(os.path.join(NS.NORM, "*.jsonl")):
+        raise SystemExit("the State Board's files are not in the cache: run pipeline/intake/ncsbe.py list, fetch and "
+                         "read first")
+    dates = NS.load_dates()
+    NS.split_party(dates)
+    NS.classify(dates)
+    gate = NS.gate(dates)
+    ns = {}
+    for d, (worst, counted) in gate.items():
+        if not counted or worst > LM.QUALITY_LINE:
+            continue
+        meta = NS.checks_of(d)["source"]
+        for c in dates[d]:
+            if c.get("_level") == "legislature":
+                ns.setdefault((int(d[:4]), *c["_leg"]), []).append((c, meta))
+    CERTIFIED_COUNT.clear()
+    for c in contests:
+        if c["state"] != "NC" or c["etype"] != "g" or c["eseats"] != 1:
+            continue
+        hit = ns.get((c["year"], "state-upper" if c["sen"] else "state-lower", int(c["dno"])))
+        if not hit or len(hit) != 1:
+            continue
+        nc, meta = hit[0]
+        named = [x for x in nc["choices"] if not LM._is_generic(x["name"])]
+        new = {}
+        for a in c["cands"]:
+            if a["scattering"]:
+                continue
+            if a["party"] in ("d", "r"):
+                m = [x for x in named if NS._major(x["party"]) == a["party"].upper()]
+            else:
+                m = [x for x in named if LM.name_key(x["name"]) == LM.name_key(a["name"])]
+            if len(m) != 1:
+                new = None
+                break
+            new[id(a)] = m[0]["votes"]
+        if new is None or len(new) != len(named):
+            CERTIFIED_COUNT[(c["year"], "kept Klarner's: the candidates do not all match")] += 1
+            continue
+        diff = [(a["name"], a["votes"], new[id(a)]) for a in c["cands"] if id(a) in new and a["votes"] != new[id(a)]]
+        if not diff:
+            CERTIFIED_COUNT[(c["year"], "equal")] += 1
+            continue
+        for a in c["cands"]:
+            if id(a) in new:
+                a["votes"] = new[id(a)]
+        kv = c.get("klarner") or {}
+        for side, key in (("d", "dvote"), ("r", "rvote")):
+            got = [a["votes"] for a in c["cands"] if a["party"] == side and not a["scattering"]]
+            if got and key in kv:
+                kv[key] = sum(got)
+        c["votes_source"] = {"source": "ncsbe", "file": meta["url"].rsplit("/", 1)[1], "url": meta["url"],
+                             "read_utc": meta["read_utc"], "sha256": meta["sha256"],
+                             "klarner": {n: v for n, v, _ in diff}}
+        c["certified_note"] = CERTIFIED_NOTE.format(
+            file=meta["url"].rsplit("/", 1)[1],
+            diff="; ".join(f"{n.title()}: {v:,} in Klarner's, {w:,} certified" for n, v, w in diff))
+        CERTIFIED_COUNT[(c["year"], "replaced by the certified counts")] += 1
+    return contests
+
+
+CERTIFIED_COUNT = collections.Counter()
 
 
 def klarner_info():
@@ -813,9 +893,11 @@ def build(out_dir, with_p=False, sample=False):
         named = [x for x in cands if x["party"] != "write-in" and x["name"] != "scattering"]
         total = sum(x["votes"] or 0 for x in cands)
         rec["result"] = {"candidates": cands, "total_votes": total, "source": "klarner"}
+        if c.get("votes_source"):
+            rec["result"]["votes_source"] = "ncsbe"
         rec["forecasts"] = []
         p = {}
-        notes = []
+        notes = [c["certified_note"]] if c.get("certified_note") else []
         kv = c.get("klarner") or {}
         if kv.get("dontuse") == 1:
             notes.append("Klarner advises against analysing this contest (dontuse = 1)")
@@ -956,6 +1038,10 @@ def build(out_dir, with_p=False, sample=False):
                                for a in x["result"]["candidates"] if a.get("party_code")})} or None,
                "sources": {"klarner": src_klarner, "nara": src_nara, "model": src_model},
                "contests": cs}
+        vs = sorted({x["date"].replace("-", "_") for x in cs if (x.get("result") or {}).get("votes_source") == "ncsbe"})
+        if vs:   # North Carolina's certified counts in place of Klarner's (certified_votes): the files they come from
+            import local_ncsbe as NS
+            obj["sources"]["ncsbe"] = NS.source_block(vs, [(d, NS.checks_of(d)["source"]) for d in vs])
         path = os.path.join(out_dir, level, str(t), f"{st}.json")
         os.makedirs(os.path.dirname(path), exist_ok=True)
         head = {k: v for k, v in obj.items() if k != "contests" and v is not None}
