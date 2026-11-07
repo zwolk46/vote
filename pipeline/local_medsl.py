@@ -1563,10 +1563,12 @@ def build(out_dir, with_p=True):
         used = {(x.get("result") or {}).get("source") for x in cs + others}
         if "medsl" not in used:   # North Carolina's local file of 2022: every contest is the State Board's now
             del head["sources"]["medsl"]
-        if "ncsbe" in used:   # the State Board's contests: every file they come from, and their FIPS codes' source
-            import local_ncsbe as NS
+        certified = any((x.get("result") or {}).get("votes_source") == "ncsbe" for x in cs + others)
+        if "ncsbe" in used or certified:   # the State Board's contests, or its counts (certified_legislature): every
+            import local_ncsbe as NS        # file they come from, and for its contests their FIPS codes' source
             head["sources"]["ncsbe"] = NS.block_for(cs + others)
-            head["sources"]["fips"] = NS.fips_source()
+            if "ncsbe" in used:
+                head["sources"]["fips"] = NS.fips_source()
         L.write_level_file(path, head, cs + others)
         sz = os.path.getsize(path)
         total += sz
