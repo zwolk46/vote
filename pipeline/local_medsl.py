@@ -1465,7 +1465,8 @@ def build(out_dir, with_p=True):
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
                    "forecasts": []}
             notes = []
-            if scope == "local":
+            by_county = c.get("source", "medsl") == "medsl"   # the State Board and Indiana name each question's place
+            if scope == "local" and by_county:
                 notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
                              "it, so a question held across several counties appears once per county")
             if c.get("read_as_question"):
@@ -1497,8 +1498,9 @@ def build(out_dir, with_p=True):
             elif scope == "local":
                 p = {"not_computed": f"a local {kind}: its threshold is the one state law sets for its kind of "
                                      f"{'measure' if kind == 'measure' else 'judge'}, which the source's wording does "
-                                     f"not show, and the place that holds it is not shown either (it is counted by "
-                                     f"county); not inferred (the orchestrator, 2026-11-07 06:16)"}
+                                     f"not show" + (", and the place that holds it is not shown either (it is "
+                                                    "counted by county)" if by_county else "")
+                                     + "; not inferred (the orchestrator, 2026-11-07 06:16)"}
                 counts[f"{label}: not computed, local"] += 1
             else:
                 rule, how, why = MS.rule_for(c, kind, book, year)

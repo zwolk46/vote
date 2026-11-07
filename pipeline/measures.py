@@ -75,8 +75,15 @@ def coverage(contests_by_year):
 
 def scope_of(c, ref, year):
     """'statewide', 'partial' (a statewide question in a year whose source holds only part of the state) or
-    'local'."""
-    if c["dataverse"] != "STATE" or (c.get("precincts") or 0) < STATEWIDE_COVER * ref["precincts"][(c["state"], year)]:
+    'local'. A state's own file read by county, with no precinct count (Indiana's, pipeline/local_in.py), is
+    statewide when it covers the state's counties."""
+    if c["dataverse"] != "STATE":
+        return "local"
+    if c.get("precincts") is None and c.get("source") not in (None, "medsl"):
+        known = _known(c["counties"])
+        n = ref["counties"][c["state"]]
+        return "statewide" if n and len(known) >= STATEWIDE_COVER * n else "local"
+    if (c.get("precincts") or 0) < STATEWIDE_COVER * ref["precincts"][(c["state"], year)]:
         return "local"
     known = _known(c["counties"])
     if known and ref["counties"][c["state"]] and len(known) < STATEWIDE_COVER * ref["counties"][c["state"]]:

@@ -39,7 +39,9 @@ import local_medsl as LM  # noqa: E402
 
 ELECTION = "2024General"
 SOURCE_KEY = "in_enr"
-PARTY = {"D": "DEMOCRAT", "R": "REPUBLICAN", "L": "LIBERTARIAN", "I": "INDEPENDENT", "": "NONPARTISAN"}
+# the site's party codes (settings.json PolParties: PARTY_ABBREV "N" is "Non Partisan", every school board candidate)
+PARTY = {"D": "DEMOCRAT", "R": "REPUBLICAN", "L": "LIBERTARIAN", "I": "INDEPENDENT", "N": "NONPARTISAN",
+         "": "NONPARTISAN"}
 LEG = {"State Senator": "STATE SENATE", "State Representative": "STATE HOUSE"}
 SKIP = {"Presidential Electors for US President & VP", "US Senator", "US Representative", "Governor & Lt. Governor"}
 STATEWIDE_Q = {"Ratification Of State Constitutional Amendment", "Supreme Court Justice Retention",
