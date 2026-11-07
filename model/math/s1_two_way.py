@@ -56,6 +56,8 @@ for n in [100, 300, 1000, 3000, 10000, 100000, 1000000]:
 print("    Reading: at mu = 1/2 the error of f/(2n) is +1/(8 n tau^2) to first order (the binomial noise widens the")
 print("    forecast by sd^2 -> tau^2 + 1/(4n)): 12.5% at n tau^2 = 1, 4.6% at 2.7, 1.4% at 9, 0.1% at 100. Off centre")
 print("    the sign reverses (the widening lifts a tail). The convolved form is within 1% everywhere in the table.")
+print("    First-order thresholds: within 2% once n tau^2 > 6.25, within 10% once n tau^2 > 1.25; n tau^2 > 6.25 means")
+print("    the forecast's spread in votes, n tau, is at least 5 times the count noise sqrt(n)/2.")
 
 # ------------------------------------------------- 1.4 known share
 print("\n1.4 A KNOWN share (no forecast uncertainty): the two regimes")

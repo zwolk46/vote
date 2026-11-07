@@ -1,0 +1,828 @@
+OUTPUT.txt: produced by run_all.sh on 2026-11-07 with Python 3.13.18 and numpy 2.5.3
+Every number in model/MATH.md is in this file, under the section label the text cites.
+
+==============================================================================
+S1. THE TWO-WAY RACE, EXACTLY
+==============================================================================
+
+1.1 p under each tie rule, exact, for a Beta-binomial forecast (kappa = 400, mu = 0.51)
+    n = other voters. p = sum_M P(M)[W(M+1) - W(M)]. 'pi' = a tie is settled by a new election
+    or a body in which A's chance is pi (here pi = 0.3). 'A' and 'B' = the tie goes to that side.
+       n parity         lot           A           B      pi=0.3      f/(2n)  swing(lot)
+    1000   even    0.006363           0     0.01273    0.008908    0.007359     0.01273
+    1001    odd    0.006321     0.01264           0    0.003792    0.007352     0.01271
+   10000   even   0.0007239           0    0.001448    0.001013   0.0007359    0.001448
+   10001    odd   0.0007232    0.001446           0   0.0004339   0.0007359    0.001448
+  100000   even   7.347e-05           0   0.0001469   0.0001029   7.359e-05   0.0001469
+  100001    odd   7.346e-05   0.0001469           0   4.408e-05   7.359e-05   0.0001469
+    Reading: under a lot, p is the same for either parity and equals f(1/2)/(2n) to the
+    approximation's accuracy. Under a deterministic rule p is 0 for one parity and f(1/2)/n for
+    the other; the average over the two parities is again f(1/2)/(2n), for any pi.
+
+1.2 The two standard approximations and their constants (normal forecast of the share, mean mu, sd tau)
+    (a) share density: P(M = 0 or M = -1 event) ~ f_v(1/2)/n ; p ~ f_v(1/2)/(2n)
+    (b) margin density: the margin in votes m = 2X - n has density g(0) = f_v(1/2)/(2n) at zero,
+        and takes every SECOND integer, so P(m = 0) ~ 2 g(0) = f_v(1/2)/n, and p = g(0) exactly
+        the density of the margin in votes at zero (nothing more).
+    mu=0.5 tau=0.03 n=10,000: f_v(1/2)=13.2981  event f/n=0.00133  p=f/(2n)=0.0006649  exact p=0.0006558  ratio exact/approx=0.9863
+    mu=0.52 tau=0.03 n=10,000: f_v(1/2)=10.6483  event f/n=0.001065  p=f/(2n)=0.0005324  exact p=0.0005283  ratio exact/approx=0.9922
+    mu=0.5 tau=0.02 n=200,000: f_v(1/2)=19.9471  event f/n=9.974e-05  p=f/(2n)=4.987e-05  exact p=4.979e-05  ratio exact/approx=0.9984
+    mu=0.515 tau=0.056 n=92,000,000: f_v(1/2)=6.8729  event f/n=7.471e-08  p=f/(2n)=3.735e-08  exact p=3.735e-08  ratio exact/approx=1.0000
+
+1.3 Relative error of p ~ f(1/2)/(2n) and of the convolved form sd^2 = tau^2 + 1/(4n), exact p as the reference
+    (normal forecast, mu = 0.50 unless shown; the exact p integrates the binomial kernel over the forecast)
+        n    tau     mu     exact p      f/(2n)    err %   convolved    err %
+      100   0.01    0.5     0.03902      0.1995    411.2     0.03912      0.3
+      100   0.03    0.5     0.03411     0.06649     95.0     0.03421      0.3
+      100   0.03   0.55     0.02354     0.01658    -29.6     0.02369      0.6
+      100    0.1    0.5     0.01771     0.01995     12.6     0.01784      0.7
+      100    0.1   0.55     0.01602      0.0176      9.9     0.01614      0.8
+      300   0.01    0.5     0.02175     0.06649    205.8     0.02176      0.1
+      300   0.03    0.5     0.01595     0.02216     39.0     0.01597      0.2
+      300   0.03   0.55    0.007736    0.005527    -28.6    0.007765      0.4
+      300    0.1    0.5    0.006369    0.006649      4.4    0.006388      0.3
+      300    0.1   0.55    0.005675    0.005868      3.4    0.005692      0.3
+     1000   0.01    0.5     0.01066     0.01995     87.1     0.01066      0.0
+     1000   0.03    0.5    0.005878    0.006649     13.1    0.005882      0.1
+     1000   0.03   0.55    0.001981    0.001658    -16.3    0.001984      0.1
+     1000    0.1    0.5    0.001968    0.001995      1.3     0.00197      0.1
+     1000    0.1   0.55    0.001742     0.00176      1.0    0.001744      0.1
+     3000   0.01    0.5     0.00491    0.006649     35.4    0.004911      0.0
+     3000   0.03    0.5     0.00212    0.002216      4.6     0.00212      0.0
+     3000   0.03   0.55   0.0005945   0.0005527     -7.0   0.0005948      0.0
+     3000    0.1    0.5   0.0006619   0.0006649      0.4   0.0006622      0.0
+     3000    0.1   0.55   0.0005848   0.0005868      0.3   0.0005849      0.0
+    10000   0.01    0.5    0.001784    0.001995     11.8    0.001784      0.0
+    10000   0.03    0.5   0.0006558   0.0006649      1.4   0.0006559      0.0
+    10000   0.03   0.55   0.0001698   0.0001658     -2.3   0.0001698      0.0
+    10000    0.1    0.5   0.0001992   0.0001995      0.1   0.0001992      0.0
+    10000    0.1   0.55   0.0001759    0.000176      0.1   0.0001759      0.0
+   100000   0.01    0.5    0.000197   0.0001995      1.2    0.000197      0.0
+   100000   0.03    0.5    6.64e-05   6.649e-05      0.1    6.64e-05      0.0
+   100000   0.03   0.55   1.662e-05   1.658e-05     -0.2   1.662e-05      0.0
+   100000    0.1    0.5   1.994e-05   1.995e-05      0.0   1.994e-05      0.0
+   100000    0.1   0.55    1.76e-05    1.76e-05      0.0    1.76e-05      0.0
+  1000000   0.01    0.5   1.992e-05   1.995e-05      0.1   1.992e-05      0.0
+  1000000   0.03    0.5   6.648e-06   6.649e-06      0.0   6.648e-06      0.0
+  1000000   0.03   0.55   1.658e-06   1.658e-06     -0.0   1.658e-06      0.0
+  1000000    0.1    0.5   1.995e-06   1.995e-06      0.0   1.995e-06      0.0
+  1000000    0.1   0.55    1.76e-06    1.76e-06      0.0    1.76e-06     -0.0
+    Reading: at mu = 1/2 the error of f/(2n) is +1/(8 n tau^2) to first order (the binomial noise widens the
+    forecast by sd^2 -> tau^2 + 1/(4n)): 12.5% at n tau^2 = 1, 4.6% at 2.7, 1.4% at 9, 0.1% at 100. Off centre
+    the sign reverses (the widening lifts a tail). The convolved form is within 1% everywhere in the table.
+    First-order thresholds: within 2% once n tau^2 > 6.25, within 10% once n tau^2 > 1.25; n tau^2 > 6.25 means
+    the forecast's spread in votes, n tau, is at least 5 times the count noise sqrt(n)/2.
+
+1.4 A KNOWN share (no forecast uncertainty): the two regimes
+        n     v0      exact p  1/sqrt(2 pi n)   (1/2)sqrt(2/(pi n))[4v(1-v)]^(n/2)
+        9    0.5        0.123           0.133                                0.133
+        9   0.51       0.1204           0.133                               0.1327
+        9   0.55       0.1064           0.133                               0.1271
+       99    0.5      0.03979          0.0401                               0.0401
+       99   0.51      0.03824          0.0401                              0.03931
+       99   0.55      0.02189          0.0401                              0.02438
+      999    0.5      0.01261         0.01262                              0.01262
+      999   0.51      0.01012         0.01262                              0.01034
+      999   0.55    7.534e-05         0.01262                            8.335e-05
+     9999    0.5     0.003989         0.00399                              0.00399
+     9999   0.51    0.0005291         0.00399                            0.0005398
+     9999   0.55    5.439e-25         0.00399                            6.013e-25
+    99999    0.5     0.001262        0.001262                             0.001262
+    99999   0.51    2.539e-12        0.001262                             2.59e-12
+    99999   0.55   6.595e-222        0.001262                           7.292e-222
+   999999    0.5    0.0003989       0.0003989                            0.0003989
+   999999   0.51      5.2e-91       0.0003989                            5.305e-91
+   999999   0.55            0       0.0003989                                    0
+    Reading: at a known 50-50 split p falls as 1/sqrt(n) (p = 1/sqrt(2 pi n), half of sqrt(2/(pi n)));
+    at any other known split it falls exponentially (for v0 = 0.51, n = 999,999 the factor [4v(1-v)]^(n/2) = exp(-200)).
+
+1.5 A Student-t(4) forecast instead of a normal (Gelman, Silver & Edlin's choice): centre and tails
+    mu=0.5: normal(sd 0.03) p=6.648e-06   t4(sd 0.03) p=8.836e-06   t4(scale 0.03) p=6.249e-06
+    mu=0.52: normal(sd 0.03) p=5.324e-06   t4(sd 0.03) p=5.353e-06   t4(scale 0.03) p=4.803e-06
+    mu=0.55: normal(sd 0.03) p=1.658e-06   t4(sd 0.03) p=1.003e-06   t4(scale 0.03) p=1.673e-06
+    mu=0.6: normal(sd 0.03) p=2.574e-08   t4(sd 0.03) p=8.035e-08   t4(scale 0.03) p=2.254e-07
+    mu=0.7: normal(sd 0.03) p=1.494e-15   t4(sd 0.03) p=3.402e-09   t4(scale 0.03) p=1.225e-08
+    Reading: at the centre the three differ by at most 1.33 (t4 with sd 0.03: 0.530/sd against the normal's
+    0.399/sd; t4 with scale 0.03: 0.375/s, i.e. 0.94 of the normal). At mu = 0.70 the normal is 2e-10 of its
+    centre value, the t4 between 4e-4 and 2e-3 of its own.
+    GSE's District of Columbia example (normal 5e-85, t4 2e-12) is this tail difference.
+
+1.6 Break-even stakes B* = C / p are a rearrangement of p B > C (p > 0); with the EVENT probability
+    in place of p, B* is half what it should be. Example: p = 1e-7, C = $4 and $12:
+    C = $4: B* = $40,000,000;  with the event probability 2e-7 one would print $20,000,000
+    C = $12: B* = $120,000,000;  with the event probability 2e-7 one would print $60,000,000
+    p = 1/60,000,000: C = $4 gives B* = $240,000,000 (not $230 million; $228 million needs C = $3.80).
+
+==============================================================================
+S2. PUBLISHED CONVENTIONS AND FLAGGED EXAMPLES
+==============================================================================
+
+2.1 Random voting (every other voter a fair coin): the constant, by exact count
+    n=1000: swing (A-vs-B, GKT/GKBafumi 'voting power') = 0.025225   sqrt(2/(pi n)) = 0.025231   p (counted-vs-not) = 0.012613   1/sqrt(2 pi n) = 0.012616
+    n=1001: swing (A-vs-B, GKT/GKBafumi 'voting power') = 0.025200   sqrt(2/(pi n)) = 0.025219   p (counted-vs-not) = 0.012600   1/sqrt(2 pi n) = 0.012609
+    n=10000: swing (A-vs-B, GKT/GKBafumi 'voting power') = 0.007979   sqrt(2/(pi n)) = 0.007979   p (counted-vs-not) = 0.003989   1/sqrt(2 pi n) = 0.003989
+    n=10001: swing (A-vs-B, GKT/GKBafumi 'voting power') = 0.007978   sqrt(2/(pi n)) = 0.007978   p (counted-vs-not) = 0.003989   1/sqrt(2 pi n) = 0.003989
+    C(1000,500)/2^1000 = 0.025225  (GKT's printed binomial expression lacks the factor 2^-(n-1); with it, this number)
+    2/sqrt(pi) = 1.1284 (the extraction error in the first-pass report) is neither constant.
+
+2.2 GKT 2002 eq. (2) and (5): density of the DIFFERENTIAL V = v_A - v_B = 2v - 1 at zero, over n
+    f_V(0) = f_v(1/2)/2, so f_V(0)/n = f_v(1/2)/(2n) = our p, which is HALF of the paper's own definition
+    (power = P(A wins | vote A) - P(A wins | vote B) = the swing ~ f_v(1/2)/n). Under random voting:
+    n=10001: f_V(0)/n = 0.003989 = 1/sqrt(2 pi n) = 0.003989; the exact swing beside it in the paper is sqrt(2/(pi n)) = 0.007978
+    GKT eq. (6), 1/(n sd(V)), drops the constant 1/sqrt(2 pi) = 0.399 as well (a proportionality).
+
+2.3 Gelman, Katz & Bafumi 2004, p. 663: '10,000 voters, forecast 52% with standard error 3%'
+    the printed expression [1/(sqrt(2 pi) 0.03)] exp(-0.5 (0.05/0.03)^2)  = 3.316   (R1's 3.316)
+    the stated inputs, distance 0.02 = 0.52 - 0.50                        = 10.648   (R4's 10.65; GKB 1998 section 5 formula)
+    with 0.03 under the square root as a variance, distance 0.02           = 1.844   (the printed 1.84)
+    so 1.84 reproduces only by treating the 3% standard error as a variance in the normalising constant.
+    Under the stated inputs the density is 10.65: event/swing 10.65/n, our p 5.32/n = 0.0005324 at n = 10,000.
+    exact p for that forecast at n = 10,000 (binomial kernel folded in): 0.0005283 = 5.283/n
+
+2.4 Myatt & Fisher 2002 Lemma 1 eq. (2): Pr[x1 = x2 > x3] ~ (integral_{1/3}^{1/2} f(z,z,1-2z) dz)/(6n) as printed
+    Check with a uniform belief f = 2 on the simplex (every outcome of n voters equally likely):
+    n=302: n Pr[x1=x2>x3] = 0.33442  (integral of f over [1/3,1/2] = 1/3 = 0.33333; printed /6 would give 0.05556);  n^2 Pr[x1=x2=x3+1] = 1.9803 (f(1/3,1/3,1/3) = 2)
+    n=3002: n Pr[x1=x2>x3] = 0.33344  (integral of f over [1/3,1/2] = 1/3 = 0.33333; printed /6 would give 0.05556);  n^2 Pr[x1=x2=x3+1] = 1.9980 (f(1/3,1/3,1/3) = 2)
+    n=30002: n Pr[x1=x2>x3] = 0.33334  (integral of f over [1/3,1/2] = 1/3 = 0.33333; printed /6 would give 0.05556);  n^2 Pr[x1=x2=x3+1] = 1.9998 (f(1/3,1/3,1/3) = 2)
+    So the two-way constant is the integral over n, not over 6n; Proposition 1 and eq. (3) are as printed.
+
+2.5 Gelman, Silver & Edlin 2012: 'the density at 0 of the Student-t (4 df), mean M, scale S' of the margin in votes
+    t4 density at its centre with scale S:      0.3750/S
+    t4 with standard deviation S (scale S/sqrt2): 0.5303/S
+    normal with sd S:                            0.3989/S
+    (a) with S as the t's scale parameter the centre density is 0.375/S, 0.94 of a normal's with sd S; with S
+        as the t's standard deviation (scale S/sqrt 2) it is 0.530/S, 1.33 of it: a spread of sqrt(2) at the centre.
+    (b) the margin in votes takes every second integer, so 'the density at 0' is g(0) = f_v(1/2)/(2n) = our p,
+        while P(exact tie) = 2 g(0). The paper does not say which it intends; as written, its figure is in our
+        convention; if an exact-tie probability was intended, its figures are twice ours.
+
+2.6 Gelman, King & Boscardin 1998: the printed numbers, reproduced and converted
+    popular vote 1992: normal mean 51.5%, sd 5.6%, 92 million voters: f(1/2) = 6.8729; f/n = 7.471e-08 = 1 in 13,385,838 (paper: 1 in 13.3 million; an exact tie, no 1/2)
+      under our convention p = f/(2n) = 3.735e-08 = 1 in 26,771,675 (twice the paper's printed figure: 1 in 26.6 million)
+    section 5 bound, tau = 2%, mu = 1/2: f(1/2) = 19.947 -> '20/n' (event); ours 10/n; at n = 200,000: event 9.974e-05 ('1 in 10,000'), ours 4.987e-05
+    section 5 rough presidential: (.18/.04) x 1/2 x (2/11) x (e/50) = 0.00818 e/n (printed .008 e/n); e = 10, n = 2,000,000: 4.091e-08 = 1 in 24,444,444 (printed 1 in 25 million)
+      here the 1/2 is explained as 'casting a vote, not switching a preference', i.e. OUR half, so this rough
+      figure is already in our convention; the model computation (eqs. 1-3) has no state-level half and is twice ours.
+
+2.7 Mulligan & Hunter (NBER WP 8590): eq. (3) f(1/2)/(v+1) is P(tie | v even) = the EVENT, twice our p
+    f(1/2) from Figure 5: (1/6000)(2/3)(20001) = 2.222 (printed '~ 2'); uniform A on [0.25,0.75] gives f = 2 exactly
+    eq. (4): P(pivot election) ~ 1.5 f/(v+1) (parity-averaged: f/(v+1) for v even, 2f/(v+1) for v odd)
+    'pivotal vote' frequency = f/(v+1): all v ballots in a tie, half of them in a one-vote win.  Ours: f/(2(v+1)).
+    '2/v' per ballot (f = 2) is therefore 1/v in our convention; '1 in 89,000' is 1 in 178,000.
+    footnote 14, v = 100,000, A = 0.61: normal-density value 10^-1107.0 (printed 10^-1108); exact binomial 10^-1079.9
+
+2.8 Edlin, Gelman & Kaplan 2007 and Barnett 2020 are in our convention
+    EGK: differential uniform on +-6% -> f_V(0) = 1/0.12 = 8.33; p = f_V(0)/n = 1/(0.12 n), stated to be 'half the
+        probability that a single vote can make or break an exact tie'. Share density f_v(1/2) = 1/0.06 = 16.7;
+        ours f_v/(2n) = 8.33/n = 1/(0.12 n). K = 10 is a differential uniform on +-5%: 10/n. Check at n = 1,000,000: 8.333e-06.
+    Barnett: EB = (1/2) B d with d = P(the one tie event possible for the parity) ~ f_v(1/2)/n, so (1/2) d = our p;
+        his bound d >= 1/N (two candidates each with at least a 10% chance, the others all voting, N large) is p >= 1/(2N).
+        His $134.92 = (1/2)(33e9)/122,293,322 = 134.92.
+
+2.9 Summary: what each source's printed p is, in our convention (multiply by the factor)
+    Gelman, King & Boscardin 1998, eqs. 1-3 (model)                event f/n at the state; 1/2 only on an EV tie    x 1/2
+      same paper, section 5 rough .008 e/n and 20/n                1/2 for casting in the rough formula; 20/n is the event rough: x 1; 20/n: x 1/2
+    Gelman, Katz & Tuerlinckx 2002, definition and exact count     swing = P(win|A) - P(win|B)                      x 1/2
+      same paper, eqs. (2), (5) as printed                         density of the differential over n = f_v/(2n)    x 1 (inconsistent with its definition by 2)
+    Gelman, Katz & Bafumi 2004, eq. (2), sqrt(2/pi)/sqrt(n), 1.84/n swing                                            x 1/2 (and 1.84 -> 10.65)
+    Gelman, Silver & Edlin 2012                                    density at 0 of the margin in votes (t4)         x 1 as written; x 1/2 if an exact tie was meant; centre scale spread sqrt(2)
+    Edlin, Gelman & Kaplan 2007, p = K/n, 1/(0.12 n)               coin-flip halved                                 x 1
+    Barnett 2020, EB = (1/2) B d                                   d = event; the 1/2 is outside                    (1/2) d = p, x 1
+    Mulligan & Hunter 2003, f(1/2)/(v+1), 2/v, 1 in 89,000         pivotal-ballot frequency = event                 x 1/2
+
+==============================================================================
+S4. TWO STAGES: STATE THEN ELECTORAL COLLEGE; SEAT THEN CHAMBER
+==============================================================================
+
+4.0 Inputs: 51 states, 538 electoral votes, two-party vote 128,369,958; state forecast sd from
+    0.0206 to 0.0223 (Economist se x 1.68/1.96); national swing share rho of the typical state's variance.
+
+4.1 Stage two per state: W = P(the state's electoral votes decide the College | the state is tied), and
+    the unconditional W' used by the product formula. rho = 0 (independent states): W = W' exactly.
+    p = p_state x W, with p_state = f_i(1/2)/(2 n_i) and n_i the 2016 two-party vote.
+ st  ev     mu    tau  n (2-party)   p_state   W rho=0  W|tie .3      W .3  W|tie .5      W .5  W|tie .7      W .7   p rho=.5
+ AK   3  0.425 0.0223      279,841  1.11e-07    0.0341    0.0201    0.0310    0.0139    0.0291    0.0094    0.0273   1.54e-09
+ AL   9  0.384 0.0197    2,047,802   1.5e-13    0.0986    0.0287    0.0924    0.0104    0.0878    0.0032    0.0833   1.56e-15
+ AR   6  0.382 0.0197    1,065,366  1.58e-13    0.0735    0.0215    0.0680    0.0077    0.0644    0.0023    0.0610   1.22e-15
+ AZ  11  0.471 0.0206    2,413,610  1.49e-06    0.1320    0.1038    0.1243    0.0897    0.1188    0.0777    0.1134   1.33e-07
+ CA  55  0.620 0.0197   13,237,598  6.88e-15    0.7165    0.3520    0.6549    0.1696    0.6215    0.0682    0.5927   1.17e-15
+ CO   9  0.516 0.0197    2,541,354  2.86e-06    0.1322    0.1266    0.1186    0.1228    0.1113    0.1194    0.1051   3.52e-07
+ CT   7  0.565 0.0206    1,570,787  4.19e-08    0.1146    0.1119    0.1012    0.0987    0.0945    0.0825    0.0890   4.14e-09
+ DC   3  0.908 0.0103      295,553         0    0.0419    0.0000    0.0369    0.0000    0.0343    0.0000    0.0320          0
+ DE   3  0.568 0.0214      420,730  1.44e-07    0.0418    0.0427    0.0369    0.0385    0.0343    0.0329    0.0320   5.54e-09
+ FL  29  0.496 0.0206    9,122,861  1.04e-06    0.3545    0.3320    0.3389    0.3177    0.3263    0.3047    0.3134   3.31e-07
+ GA  16  0.470 0.0197    3,967,067  8.01e-07    0.1708    0.1310    0.1649    0.1109    0.1592    0.0938    0.1531   8.89e-08
+ HI   4  0.661 0.0197      395,738  8.42e-20    0.0589    0.0433    0.0523    0.0162    0.0490    0.0039    0.0461   1.37e-21
+ IA   6  0.478 0.0197    1,454,652  3.73e-06    0.0751    0.0602    0.0690    0.0528    0.0652    0.0466    0.0616   1.97e-07
+ ID   4  0.349 0.0189      598,820  2.11e-19    0.0468    0.0068    0.0426    0.0011    0.0400    0.0001    0.0375    2.4e-22
+ IL  20  0.583 0.0206    5,236,744   5.4e-10    0.3249    0.2675    0.2820    0.2048    0.2610    0.1451    0.2440   1.11e-10
+ IN  11  0.419 0.0197    2,590,412  8.43e-10    0.1272    0.0585    0.1209    0.0327    0.1160    0.0172    0.1110   2.76e-11
+ KS   6  0.403 0.0189    1,098,023  1.73e-11    0.0735    0.0252    0.0680    0.0105    0.0644    0.0038    0.0610   1.81e-13
+ KY   8  0.373 0.0197    1,831,825  5.38e-15    0.0908    0.0230    0.0845    0.0072    0.0802    0.0019    0.0760   3.86e-17
+ LA   8  0.410 0.0206    1,958,792  3.45e-10    0.0908    0.0409    0.0845    0.0225    0.0802    0.0116    0.0760   7.78e-12
+ MA  11  0.629 0.0197    3,086,089  1.65e-15    0.1934    0.1385    0.1715    0.0709    0.1611    0.0280    0.1529   1.17e-16
+ MD  10  0.639 0.0197    2,621,434  6.19e-17    0.1663    0.1176    0.1468    0.0546    0.1372    0.0186    0.1295   3.38e-18
+ ME   4  0.542 0.0206      693,328  1.74e-06    0.0588    0.0590    0.0523    0.0561    0.0490    0.0523    0.0462   9.77e-08
+ MI  16  0.518 0.0206    4,548,382  1.45e-06    0.2657    0.2490    0.2378    0.2394    0.2235    0.2312    0.2117   3.48e-07
+ MN  10  0.527 0.0206    2,690,654  1.52e-06    0.1670    0.1591    0.1492    0.1526    0.1402    0.1461    0.1329   2.32e-07
+ MO  10  0.439 0.0197    2,665,579  3.16e-08    0.1141    0.0650    0.1079    0.0439    0.1031    0.0288    0.0985   1.39e-09
+ MS   6  0.436 0.0206    1,185,845  6.47e-08    0.0735    0.0431    0.0680    0.0298    0.0644    0.0201    0.0610   1.93e-09
+ MT   3  0.406 0.0206      456,949  6.21e-10    0.0341    0.0150    0.0310    0.0080    0.0291    0.0039    0.0273   4.96e-12
+ NC  15  0.492 0.0206    4,551,947  1.98e-06    0.1888    0.1692    0.1755    0.1587    0.1668    0.1498    0.1586   3.13e-07
+ ND   3  0.389 0.0206      310,552  1.49e-11    0.0341    0.0125    0.0310    0.0056    0.0291    0.0022    0.0273   8.25e-14
+ NE   5  0.388 0.0197      780,455  1.27e-12    0.0591    0.0188    0.0543    0.0073    0.0511    0.0025    0.0481   9.29e-15
+ NH   4  0.514 0.0206      694,316  1.11e-05    0.0603    0.0581    0.0547    0.0567    0.0516    0.0554    0.0490   6.28e-07
+ NJ  14  0.578 0.0206    3,750,211  1.95e-09    0.2290    0.2021    0.2008    0.1628    0.1871    0.1220    0.1761   3.18e-10
+ NM   5  0.532 0.0214      704,901  4.33e-06    0.0782    0.0768    0.0701    0.0742    0.0660    0.0714    0.0627   3.22e-07
+ NV   6  0.508 0.0206    1,051,318  8.55e-06    0.0876    0.0822    0.0791    0.0792    0.0743    0.0767    0.0701   6.77e-07
+ NY  29  0.611 0.0197    6,906,931  1.91e-13    0.4614    0.2938    0.4027    0.1652    0.3735    0.0783    0.3496   3.16e-14
+ OH  18  0.484 0.0197    5,235,169  1.39e-06    0.2024    0.1733    0.1926    0.1577    0.1848    0.1441    0.1770   2.19e-07
+ OK   7  0.342 0.0189    1,369,511   4.4e-21    0.0848    0.0106    0.0789    0.0015    0.0749    0.0001    0.0711   6.68e-24
+ OR   7  0.549 0.0214    1,784,509  3.82e-07    0.1146    0.1118    0.1013    0.1044    0.0947    0.0954    0.0893   3.99e-08
+ PA  20  0.514 0.0206    5,897,174   1.3e-06    0.3254    0.3035    0.2917    0.2917    0.2740    0.2821    0.2592   3.81e-07
+ RI   4  0.595 0.0206      433,068  5.24e-10    0.0589    0.0587    0.0523    0.0458    0.0490    0.0314    0.0461    2.4e-11
+ SC   9  0.452 0.0206    2,010,762  3.17e-07    0.0988    0.0661    0.0925    0.0508    0.0879    0.0388    0.0833   1.61e-08
+ SD   3  0.398 0.0197      345,179  4.51e-11    0.0341    0.0125    0.0310    0.0055    0.0291    0.0022    0.0273   2.48e-13
+ TN  11  0.403 0.0197    2,393,620  2.34e-11    0.1272    0.0482    0.1209    0.0225    0.1160    0.0095    0.1110   5.26e-13
+ TX  38  0.443 0.0206    8,562,915  2.44e-08    0.2336    0.1447    0.2541    0.1042    0.2596    0.0736    0.2612   2.54e-09
+ UT   6  0.375 0.0189      825,885  3.68e-15    0.0735    0.0165    0.0680    0.0044    0.0644    0.0009    0.0610   1.63e-17
+ VA  13  0.523 0.0197    3,750,916  1.37e-06    0.2198    0.2071    0.1964    0.1986    0.1847    0.1906    0.1752   2.71e-07
+ VT   3  0.658 0.0197      273,942  4.17e-19    0.0419    0.0322    0.0369    0.0127    0.0343    0.0033    0.0320   5.28e-21
+ WA  12  0.567 0.0206    2,964,465  1.63e-08    0.2051    0.1859    0.1811    0.1583    0.1695    0.1280    0.1603   2.57e-09
+ WI  10  0.521 0.0206    2,787,820  2.07e-06    0.1675    0.1596    0.1506    0.1543    0.1420    0.1495    0.1350   3.19e-07
+ WV   5  0.353 0.0189      678,165  9.94e-19    0.0591    0.0092    0.0543    0.0017    0.0511    0.0002    0.0481   1.65e-21
+ WY   3  0.289 0.0180      230,392  6.98e-35    0.0341    0.0009    0.0310    0.0000    0.0291    0.0000    0.0273   1.33e-39
+
+4.2 What independence costs: ratio of the product formula (W') to the conditional (W), by rho
+    rho = 0.3: ratio W'/W for states within 2 points of even (8): 0.937 to 1.111; 2 to 3 points (5): 0.938 to 1.198; 3 to 10 points (20): 0.86 to 2.70; 10 points or more: 1.1 to 35, and W|tie below 1e-6 in DC
+    rho = 0.5: ratio W'/W for states within 2 points of even (8): 0.906 to 1.172; 2 to 3 points (5): 0.919 to 1.325; 3 to 10 points (20): 0.87 to 6.14; 10 points or more: 2.3 to 1.5e+03, and W|tie below 1e-6 in DC
+    rho = 0.7: ratio W'/W for states within 2 points of even (8): 0.880 to 1.229; 2 to 3 points (5): 0.903 to 1.459; 3 to 10 points (20): 0.88 to 16.00; 10 points or more: 4.5 to 4.9e+02, and W|tie below 1e-6 in DC, WY
+    FL: mu = 0.496; W|tie at rho 0, .3, .5, .7 = 0.3545, 0.3320, 0.3177, 0.3047; W' = 0.3545, 0.3389, 0.3263, 0.3134
+    NH: mu = 0.514; W|tie at rho 0, .3, .5, .7 = 0.0603, 0.0581, 0.0567, 0.0554; W' = 0.0603, 0.0547, 0.0516, 0.0490
+    PA: mu = 0.514; W|tie at rho 0, .3, .5, .7 = 0.3254, 0.3035, 0.2917, 0.2821; W' = 0.3254, 0.2917, 0.2740, 0.2592
+    UT: mu = 0.375; W|tie at rho 0, .3, .5, .7 = 0.0735, 0.0165, 0.0044, 0.0009; W' = 0.0735, 0.0680, 0.0644, 0.0610
+    WV: mu = 0.353; W|tie at rho 0, .3, .5, .7 = 0.0591, 0.0092, 0.0017, 0.0002; W' = 0.0591, 0.0543, 0.0511, 0.0481
+    DC: mu = 0.908; W|tie at rho 0, .3, .5, .7 = 0.0419, 0.0000, 0.0000, 0.0000; W' = 0.0419, 0.0369, 0.0343, 0.0320
+    Reading: for a state within 2 points of even the two agree within 12%, 17% and 23% at rho = 0.3, 0.5, 0.7, because
+    conditioning on a near-even state moves the national swing little; at 2 to 3 points off they differ by
+    up to a third at rho = 0.5. For a lopsided state they differ by orders of
+    magnitude: a tie in Utah (mu 0.375) implies a swing that hands A almost every state, so W|tie falls; but
+    p_state there is already ~1e-10 or less, so the error lands on numbers that do not matter. The product
+    formula is safe where p is large and wrong where p is negligible.
+
+4.3 The average voter's p (vote-weighted mean of p_i), and the College-level total
+    rho = 0.0: average p (conditional) = 1.383e-07 (1 in 7,229,955); product formula = 1.383e-07; max state p = 7.487e-07 (NV)
+    rho = 0.3: average p (conditional) = 1.267e-07 (1 in 7,893,479); product formula = 1.273e-07; max state p = 7.03e-07 (NV)
+    rho = 0.5: average p (conditional) = 1.2e-07 (1 in 8,333,882); product formula = 1.208e-07; max state p = 6.772e-07 (NV)
+    rho = 0.7: average p (conditional) = 1.141e-07 (1 in 8,763,009); product formula = 1.149e-07; max state p = 6.559e-07 (NV)
+    Reading: the national swing lowers every W (it makes the College less likely to sit on a knife-edge
+    through any one state's e_i, since states move together), independent of the conditioning question.
+    The 1/2 on the House in the window weights is 'ex ante unknowable', as in the two-way tie rule.
+
+4.4 A seat then a chamber (STYLISED inputs: 435 seats, the other 434 with forecast means spread evenly
+    from 0.30 to 0.70, each with sd 0.03, a common swing with share rho of that variance; this seat tied).
+    A's majority needs 218 of 435; the flip of this seat decides iff the other 434 give A exactly 217.
+ this seat mu   rho  P(217|tie)    P(217)   ratio  E[seats|tie]
+         0.50   0.0      0.0931    0.0931   1.000         217.0
+         0.50   0.3      0.0259    0.0219   1.184         217.0
+         0.50   0.5      0.0239    0.0171   1.398         217.0
+         0.50   0.7      0.0262    0.0146   1.798         217.0
+         0.45   0.0      0.0931    0.0931   1.000         217.0
+         0.45   0.3      0.0148    0.0219   0.678         233.3
+         0.45   0.5      0.0064    0.0171   0.372         244.1
+         0.45   0.7      0.0012    0.0146   0.081         255.0
+         0.40   0.0      0.0931    0.0931   1.000         217.0
+         0.40   0.3      0.0028    0.0219   0.128         249.5
+         0.40   0.5      0.0001    0.0171   0.007         271.2
+         0.40   0.7      0.0000    0.0146   0.000         292.9
+    Reading: with 434 other seats the conditioning bites harder than in the College, because the swing
+    implied by a tie in a seat that leans 10 points moves the expected seat count by tens of seats.
+    R4's chamber.py takes P(exactly 217) unconditionally (its rows are the 'P(217)' column, with its own
+    draws of means); that is the rho = 0 case, or the product formula at rho > 0. See S7.
+
+==============================================================================
+S5. THE CLAIMS OF MODEL-DRAFT.md, SECTIONS 2, 3, 7, 8
+==============================================================================
+
+5.1 Section 2: 'the expected outcome when you vote, minus when you don't, equals p times B, and nothing else'
+    E[gain] = P(M=0) (U_A - U_tie) + P(M=-1) (U_tie - U_B). With B = U_A - U_B this is p B exactly when
+    U_tie = (U_A + U_B)/2, i.e. when a tie settled by a fair lot is valued at its expectation; and for any
+    deterministic tie rule (only one term is non-zero and U_tie is U_A or U_B). Numerically, n = 1000 and 1001:
+    n=1000: U_A=1, U_B=0, U_tie=0.5: E[gain] = 0.006363; p B = 0.006363; ratio 1.000
+    n=1000: U_A=1, U_B=0, U_tie=0.3: E[gain] = 0.008908; p B = 0.006363; ratio 1.400
+    n=1001: U_A=1, U_B=0, U_tie=0.5: E[gain] = 0.006321; p B = 0.006321; ratio 1.000
+    n=1001: U_A=1, U_B=0, U_tie=0.3: E[gain] = 0.003792; p B = 0.006321; ratio 0.600
+    Verdict: holds under the stated condition (a tie is worth the average of the two outcomes, or the
+    jurisdiction's rule is deterministic); otherwise a tie-value term is added. With parity unknown ex ante
+    the two cases average to p B for any tie value.
+
+5.2 Section 2 arithmetic: B* = C / p
+    p = 1e-07 (1 in 10,000,000), C = $4: B* = $40,000,000
+    p = 1e-07 (1 in 10,000,000), C = $12: B* = $120,000,000
+    p = 1.67e-08 (1 in 60,000,000), C = $4: B* = $240,000,000
+    p = 1.67e-08 (1 in 60,000,000), C = $12: B* = $720,000,000
+    Verdict: '$40 to $120 million' holds; '$230 to $720 million' should read $240 to $720 million
+    (C = $4 at p = 1 in 60 million gives $240 million; $230 million needs C = $3.83).
+
+5.3 Section 3: 'with a fair coin breaking ties, p = 1/2 x [chance of an exact tie + chance your side is one short]'
+    Holds under a fair lot. At a given n only one of the two chances is non-zero (an exact tie needs n even,
+    one short needs n odd); so p = (1/2) P(tie) or (1/2) P(one short), never a sum of two non-zero terms.
+    Under a deterministic tie rule the formula is wrong for either parity (p = 0 or p = P(event)); see S1.1.
+    'Either way, your ballot moves the result half a win': holds under the lot (W rises by 1/2 in each event).
+
+5.4 Section 3: 'the 1/2 appears in Gelman, King & Boscardin (1998) and Barnett (2020)'
+    Barnett 2020: yes, EB = (1/2) B d, d the exact-tie event. GKB 1998: yes in the section-5 rough formula
+    ('for casting a vote, not switching a preference'); no in the model of eqs. 1-3, whose state-level term
+    is the event probability f/n and whose 1/2 weights the Electoral-College tie ends. Verdict: holds in part.
+
+5.5 Section 3: 'p ~ (how likely the race is to land at dead even) / (number of voters), up to a small constant'
+    Holds with the constant stated: p = f(1/2)/(2n) with f the forecast density of the share at one half, or
+    p = 25 q1 / n with q1 = P(share within one point of even). Without the constant, 'closeness / voters' is
+    off by a factor that depends on what 'closeness' means (S6.4). The error of the approximation is
+    +1/(8 n tau^2) at mu = 1/2 (S1.3): small once n tau^2 exceeds ~10.
+
+5.6 Section 3, table row 1: 'p falls roughly as 1 / N'
+        N  tau=0.03: N p  tau=0.01: N p  known 50-50: N p  sqrt(N/(2 pi))
+      100          3.411          3.902             3.979           3.989
+     1000          5.878         10.659            12.613          12.616
+    10000          6.558         17.840            39.893          39.894
+   100000          6.640         19.702           126.156         126.157
+  1000000          6.648         19.922           398.942         398.942
+    Verdict: holds under the condition that the forecast uncertainty is wider than the vote-count noise,
+    n tau^2 >> 1 (N p is then constant). With a KNOWN 50-50 split p falls as 1/sqrt(N); with any other
+    known split it falls exponentially (S1.4). The reason given ('the same uncertainty is spread over more
+    possible margins') is the right one for the forecast regime.
+
+5.7 Section 3, table row 2: 'p falls steeply, faster than exponentially, as the forecast moves away from 50-50'
+    p(d)/p(0) for an expected margin d = |mu - 1/2| in units of the forecast sd (n = 1,000,000):
+  d/sd       normal  exp(-d^2/2)  t4 (same sd)  t4 (same scale)
+     1        0.607        0.607         0.363            0.573
+     2        0.135        0.135        0.0642            0.177
+     3       0.0111       0.0111        0.0141           0.0525
+     5     3.74e-06     3.73e-06       0.00149          0.00707
+    Verdict: holds for a normal forecast (p falls as exp(-d^2/(2 tau^2)), faster than exponential).
+    Wrong for a heavy-tailed forecast: with Gelman, Silver & Edlin's t(4) the fall is polynomial, (1 +
+    d^2/(4 s^2))^(-5/2), slower than exponential beyond ~3 sd. Corrected: 'steeply; how steeply depends on
+    the forecast's tails, and real forecasts have tails heavier than a normal'.
+
+5.8 Section 3, table row 3: 'more uncertainty helps a lopsided race and hurts a dead-even one'
+    p ~ (1/tau) exp(-d^2/(2 tau^2)) / (2n) is maximised at tau = d. n = 100,000:
+    mu    tau=0.01    tau=0.02    tau=0.03    tau=0.05     tau=0.1
+   0.5    0.000197    9.94e-05    6.64e-05    3.99e-05    1.99e-05
+  0.51    0.000121    8.78e-05    6.28e-05    3.91e-05    1.98e-05
+  0.52     2.8e-05    6.05e-05    5.32e-05    3.68e-05    1.95e-05
+  0.55    9.96e-10    4.45e-06    1.66e-05    2.42e-05    1.76e-05
+   0.6    1.29e-25       4e-10    2.61e-07    5.41e-06    1.21e-05
+    Verdict: holds with the dividing line stated: more uncertainty helps when the expected margin exceeds
+    one forecast sd (|mu - 1/2| > tau) and hurts when it is within one sd. 'Lopsided' and 'dead-even' are
+    the two ends; a race 2 points off with a 3-point sd is hurt by more uncertainty.
+
+5.9 Section 3, table row 4: 'structure multiplies stages: p = (chance your state is tied) x (chance it then decides)'
+    An identity when the second factor is the conditional probability given the tie; an approximation
+    (independent states) when it is the unconditional one. S4 measures the gap: a few percent for close
+    states, orders of magnitude for lopsided ones, where p is negligible anyway. Verdict: holds under the
+    stated condition, with 'then decides' read as 'decides, given that your state is tied'.
+
+5.10 Section 7: 'with recounts and noise, your ballot still shifts the chance your side is declared the winner
+     by about the same p'. Let pi(m) = P(A is declared the winner | counted margin m), a logistic of width w
+     votes (w = 0 is the sharp rule). gain = sum_M P(M) [pi(M+1) - pi(M)], exact lattice sum; n = 100,000.
+     mu = 0.5: sharp p = 6.64e-05; gain / p for w=10: 1.000, w=100: 1.000, w=1000: 0.958, w=3000: 0.760, w=10000: 0.347
+     mu = 0.52: sharp p = 5.32e-05; gain / p for w=10: 1.000, w=100: 1.000, w=1000: 0.975, w=3000: 0.830, w=10000: 0.420
+     (n tau = 3,000 votes is the forecast's own spread in votes; the sum over k runs 20,000 either side of n/2)
+     Verdict: holds under the condition that the zone of recount-and-noise uncertainty is narrow next to the
+     forecast's spread (w << n tau); the sum telescopes to the density of the margin at zero, which is p. When
+     the zone is as wide as the forecast (w ~ n tau) the gain differs from p (the table's w = 3,000 column), and
+     the right measure is the smoothed one. The draft's 'about the same p' is right for every real election,
+     where recount zones are a few hundred votes against forecast spreads of tens of thousands.
+
+5.11 Section 2: 'p is the chance that your ballot changes the winner'
+     P(the declared winner differs with and without your ballot) = sum_M P(M) P(differs | M). Under a lot the
+     coin that decides a tie is the same coin either way, so at M = 0 the winner differs iff the coin would
+     have gone to B (1/2), and at M = -1 iff it now goes to A (1/2): (1/2)P(M=0) + (1/2)P(M=-1) = p. Under a
+     deterministic rule the winner differs iff the one event occurs, = p. Verdict: holds (with the coin
+     coupled across the two worlds; any other coupling gives a larger 'differs' probability and p is the
+     rise in A's chance, which is what the decision needs).
+
+5.12 Sections 2 and 8: '1 in 10 million' (best-placed 2008 states) and '1 in 60 million' (average 2008 voter)
+     are Gelman, Silver & Edlin's figures. As written in their text (the density at 0 of the margin in votes)
+     they are in our convention; if an exact-tie probability was intended they are twice ours (S2.5). Their
+     scale convention adds a factor of up to sqrt(2) either way at the centre. Verdict: usable as ours, with
+     that caveat stated beside them; B* = C/p then holds as computed in 5.2.
+
+5.13 Section 8: 'the arithmetic is one line: p ~ closeness / voters, and B* = C / p'
+     Holds with the constant of 5.5 and the two-stage factor of 5.9 where a state or a seat feeds a larger
+     body; the simple mode's error is bounded in S6.2 (within a factor 1.2 of the exact p for n >= 1,000 and
+     forecast sd >= 2 points; within 1.03 for n >= 10,000 and sd >= 3 points).
+
+==============================================================================
+S6. THE SIMPLEST LAY FORMULA
+==============================================================================
+
+6.1 Why 25 q1 / n: q1 ~ 0.02 f(1/2) when the forecast is wider than the one-point window, so
+    25 q1 / n ~ 0.5 f(1/2) / n = f(1/2)/(2n). The ratio q1 / (0.02 f(1/2)) at mu = 1/2:
+    tau = 0.005: q1 = 0.9545, 0.02 f = 1.5958, ratio = 0.598
+    tau = 0.010: q1 = 0.6827, 0.02 f = 0.7979, ratio = 0.856
+    tau = 0.015: q1 = 0.4950, 0.02 f = 0.5319, ratio = 0.931
+    tau = 0.020: q1 = 0.3829, 0.02 f = 0.3989, ratio = 0.960
+    tau = 0.030: q1 = 0.2611, 0.02 f = 0.2660, ratio = 0.982
+    tau = 0.050: q1 = 0.1585, 0.02 f = 0.1596, ratio = 0.993
+    tau = 0.100: q1 = 0.0797, 0.02 f = 0.0798, ratio = 0.998
+    (a narrower window, +-0.5 point and 50 q/n, tracks f more closely but is harder to say)
+
+6.2 Error of each candidate against the exact p (normal forecast, binomial kernel folded in)
+    columns: exact p; then ratio candidate / exact for (F) f/(2n), (Q) 25 q1/n, (K) 8.33/n, (K') 10/n
+         n    mu   tau     exact p       F       Q   K8.33     K10
+       300   0.5  0.02     0.01891   1.758   1.687    1.47    1.76
+       300   0.5  0.03     0.01595   1.390   1.365    1.74    2.09
+       300   0.5  0.05     0.01149   1.157   1.150    2.42    2.90
+       300   0.5   0.1    0.006369   1.044   1.042    4.36    5.23
+       300  0.52  0.02     0.01607   1.254   1.253    1.73    2.07
+       300  0.52  0.03      0.0142   1.249   1.237    1.96    2.35
+       300  0.52  0.05     0.01082   1.135   1.128    2.57    3.08
+       300  0.52   0.1    0.006253   1.042   1.041    4.44    5.33
+       300  0.55  0.03    0.007736   0.714   0.737    3.59    4.31
+       300  0.55  0.05    0.007892   1.022   1.022    3.52    4.22
+       300  0.55   0.1    0.005675   1.034   1.033    4.89    5.87
+       300   0.6  0.05    0.002556   0.704   0.718   10.87   13.04
+       300   0.6   0.1    0.004013   1.005   1.005    6.92    8.31
+      1000   0.5  0.02     0.00782   1.275   1.224    1.07    1.28
+      1000   0.5  0.03    0.005878   1.131   1.111    1.42    1.70
+      1000   0.5  0.05      0.0038   1.050   1.043    2.19    2.63
+      1000   0.5   0.1    0.001968   1.013   1.012    4.23    5.08
+      1000  0.52  0.02    0.005747   1.053   1.052    1.45    1.74
+      1000  0.52  0.03    0.004939   1.078   1.067    1.69    2.02
+      1000  0.52  0.05    0.003534   1.042   1.036    2.36    2.83
+      1000  0.52   0.1     0.00193   1.013   1.011    4.32    5.18
+      1000  0.55  0.03    0.001981   0.837   0.864    4.21    5.05
+      1000  0.55  0.05    0.002412   1.003   1.003    3.45    4.15
+      1000  0.55   0.1    0.001742   1.010   1.009    4.78    5.74
+      1000   0.6  0.05   0.0006166   0.876   0.893   13.51   16.22
+      1000   0.6   0.1    0.001209   1.001   1.001    6.90    8.27
+      3000   0.5  0.02    0.003024   1.100   1.055    0.92    1.10
+      3000   0.5  0.03     0.00212   1.046   1.027    1.31    1.57
+      3000   0.5  0.05    0.001308   1.017   1.010    2.12    2.55
+      3000   0.5   0.1   0.0006619   1.004   1.003    4.20    5.04
+      3000  0.52  0.02    0.001999   1.009   1.008    1.39    1.67
+      3000  0.52  0.03     0.00173   1.026   1.016    1.61    1.93
+      3000  0.52  0.05     0.00121   1.014   1.009    2.30    2.75
+      3000  0.52   0.1   0.0006489   1.004   1.003    4.28    5.14
+      3000  0.55  0.03   0.0005945   0.930   0.960    4.67    5.61
+      3000  0.55  0.05   0.0008061   1.001   1.001    3.45    4.14
+      3000  0.55   0.1   0.0005848   1.003   1.002    4.75    5.70
+      3000   0.6  0.05   0.0001888   0.953   0.972   14.72   17.66
+      3000   0.6   0.1   0.0004032   1.000   1.000    6.89    8.27
+     10000   0.5  0.02   0.0009675   1.031   0.989    0.86    1.03
+     10000   0.5  0.03   0.0006558   1.014   0.995    1.27    1.52
+     10000   0.5  0.05   0.0003969   1.005   0.998    2.10    2.52
+     10000   0.5   0.1   0.0001992   1.001   1.000    4.18    5.02
+     10000  0.52  0.02   0.0006043   1.001   1.000    1.38    1.65
+     10000  0.52  0.03   0.0005283   1.008   0.998    1.58    1.89
+     10000  0.52  0.05   0.0003667   1.004   0.999    2.27    2.73
+     10000  0.52   0.1   0.0001953   1.001   1.000    4.27    5.12
+     10000  0.55  0.03   0.0001698   0.977   1.008    4.91    5.89
+     10000  0.55  0.05   0.0002419   1.000   1.000    3.44    4.13
+     10000  0.55   0.1   0.0001759   1.001   1.000    4.74    5.69
+     10000   0.6  0.05   5.479e-05   0.985   1.005   15.21   18.25
+     10000   0.6   0.1    0.000121   1.000   1.000    6.89    8.27
+    100000   0.5  0.02   9.942e-05   1.003   0.963    0.84    1.01
+    100000   0.5  0.03    6.64e-05   1.001   0.983    1.26    1.51
+    100000   0.5  0.05   3.987e-05   1.001   0.994    2.09    2.51
+    100000   0.5   0.1   1.994e-05   1.000   0.998    4.18    5.01
+    100000  0.52  0.02   6.049e-05   1.000   0.999    1.38    1.65
+    100000  0.52  0.03    5.32e-05   1.001   0.991    1.57    1.88
+    100000  0.52  0.05   3.681e-05   1.000   0.995    2.26    2.72
+    100000  0.52   0.1   1.955e-05   1.000   0.999    4.26    5.12
+    100000  0.55  0.03   1.662e-05   0.998   1.030    5.01    6.02
+    100000  0.55  0.05    2.42e-05   1.000   1.000    3.44    4.13
+    100000  0.55   0.1    1.76e-05   1.000   0.999    4.73    5.68
+    100000   0.6  0.05   5.407e-06   0.999   1.018   15.41   18.49
+    100000   0.6   0.1    1.21e-05   1.000   1.000    6.89    8.27
+   1000000   0.5  0.02    9.97e-06   1.000   0.960    0.84    1.00
+   1000000   0.5  0.03   6.648e-06   1.000   0.982    1.25    1.50
+   1000000   0.5  0.05   3.989e-06   1.000   0.993    2.09    2.51
+   1000000   0.5   0.1   1.995e-06   1.000   0.998    4.18    5.01
+   1000000  0.52  0.02   6.049e-06   1.000   0.999    1.38    1.65
+   1000000  0.52  0.03   5.324e-06   1.000   0.990    1.57    1.88
+   1000000  0.52  0.05   3.683e-06   1.000   0.994    2.26    2.72
+   1000000  0.52   0.1   1.955e-06   1.000   0.998    4.26    5.11
+   1000000  0.55  0.03   1.658e-06   1.000   1.032    5.03    6.03
+   1000000  0.55  0.05    2.42e-06   1.000   1.000    3.44    4.13
+   1000000  0.55   0.1    1.76e-06   1.000   0.999    4.73    5.68
+   1000000   0.6  0.05     5.4e-07   1.000   1.020   15.43   18.52
+   1000000   0.6   0.1    1.21e-06   1.000   1.000    6.89    8.27
+   7000000   0.5  0.02   1.425e-06   1.000   0.960    0.84    1.00
+   7000000   0.5  0.03   9.498e-07   1.000   0.982    1.25    1.50
+   7000000   0.5  0.05   5.699e-07   1.000   0.993    2.09    2.51
+   7000000   0.5   0.1    2.85e-07   1.000   0.998    4.18    5.01
+   7000000  0.52  0.02   8.642e-07   1.000   0.999    1.38    1.65
+   7000000  0.52  0.03   7.606e-07   1.000   0.990    1.57    1.88
+   7000000  0.52  0.05   5.261e-07   1.000   0.994    2.26    2.72
+   7000000  0.52   0.1   2.793e-07   1.000   0.998    4.26    5.11
+   7000000  0.55  0.03   2.369e-07   1.000   1.032    5.03    6.03
+   7000000  0.55  0.05   3.457e-07   1.000   1.000    3.44    4.13
+   7000000  0.55   0.1   2.515e-07   1.000   0.999    4.73    5.68
+   7000000   0.6  0.05   7.713e-08   1.000   1.020   15.43   18.52
+   7000000   0.6   0.1   1.728e-07   1.000   1.000    6.89    8.27
+  16000000   0.5  0.02   6.233e-07   1.000   0.960    0.84    1.00
+  16000000   0.5  0.03   4.156e-07   1.000   0.982    1.25    1.50
+  16000000   0.5  0.05   2.493e-07   1.000   0.993    2.09    2.51
+  16000000   0.5   0.1   1.247e-07   1.000   0.998    4.18    5.01
+  16000000  0.52  0.02   3.781e-07   1.000   0.999    1.38    1.65
+  16000000  0.52  0.03   3.328e-07   1.000   0.990    1.57    1.88
+  16000000  0.52  0.05   2.302e-07   1.000   0.994    2.26    2.72
+  16000000  0.52   0.1   1.222e-07   1.000   0.998    4.26    5.11
+  16000000  0.55  0.03   1.036e-07   1.000   1.032    5.03    6.03
+  16000000  0.55  0.05   1.512e-07   1.000   1.000    3.44    4.13
+  16000000  0.55   0.1     1.1e-07   1.000   0.999    4.73    5.68
+  16000000   0.6  0.05   3.374e-08   1.000   1.020   15.43   18.52
+  16000000   0.6   0.1   7.562e-08   1.000   1.000    6.89    8.27
+    over the rows with n >= 1,000: (F) within a factor 1.28 of exact, (Q) within 1.22; (K) 8.33/n ranges from 0.84 to 15.43
+    over the rows with n >= 1,000 and tau >= 0.03: (Q) within a factor 1.16
+    over the rows with n >= 10,000 and tau >= 0.03: (Q) within a factor 1.032
+
+6.3 The constant K cannot stand in for the forecast: f(1/2) over the range of real races
+    mu = 0.50, tau = 0.02: f(1/2) =   19.947; p n =   9.974; 25 q1 =   9.573
+    mu = 0.50, tau = 0.05: f(1/2) =    7.979; p n =   3.989; 25 q1 =   3.963
+    mu = 0.52, tau = 0.03: f(1/2) =   10.648; p n =   5.324; 25 q1 =   5.270
+    mu = 0.55, tau = 0.03: f(1/2) =    3.316; p n =   1.658; 25 q1 =   1.712
+    mu = 0.55, tau = 0.05: f(1/2) =    4.839; p n =   2.420; 25 q1 =   2.420
+    mu = 0.60, tau = 0.05: f(1/2) =    1.080; p n =   0.540; 25 q1 =   0.551
+    mu = 0.65, tau = 0.05: f(1/2) =    0.089; p n =   0.044; 25 q1 =   0.047
+    mu = 0.60, tau = 0.10: f(1/2) =    2.420; p n =   1.210; 25 q1 =   1.210
+    A 60-40 race forecast with sd 5 points has p n = 0.54 against 3.99 for a 50-50 race, a factor 7; a 65-35
+    race has 0.044, a factor 90: the constant K must carry the closeness, which no single K can.
+
+6.4 Reading the draft's 'closeness divided by voters': with closeness q1 (within one point) the lay
+    formula is p = 25 q1 / n; the EVENT probability (a tie or one-vote win among the others) is 50 q1 / n,
+    twice it; 'closeness / voters' with no constant is neither. At q1 = 0.3, n = 100,000:
+    p = 7.50e-05 (1 in 13,333); event = 1.50e-04; q1/n = 3.00e-06 (1 in 333,333).
+
+6.5 Sizes in the brief: from a few hundred voters to a presidential state (stage one only)
+    n =       300, mu = 0.5, tau = 0.05: exact p = 0.01149 (1 in 87); 25 q1/n = 0.01321; ratio 1.150
+    n =     2,000, mu = 0.52, tau = 0.04: exact p = 0.002137 (1 in 468); 25 q1/n = 0.002183; ratio 1.021
+    n =    30,000, mu = 0.51, tau = 0.03: exact p = 0.0002088 (1 in 4,789); 25 q1/n = 0.0002063; ratio 0.988
+    n =   300,000, mu = 0.53, tau = 0.025: exact p = 1.295e-05 (1 in 77,223); 25 q1/n = 1.309e-05; ratio 1.011
+    n = 3,000,000, mu = 0.49, tau = 0.02: exact p = 2.934e-06 (1 in 340,873); 25 q1/n = 2.845e-06; ratio 0.970
+    n = 9,122,861, mu = 0.496, tau = 0.0206: exact p = 1.042e-06 (1 in 960,105); 25 q1/n = 1.004e-06; ratio 0.963
+    (the last row is Florida 2016 in the Economist back-test, mean 0.496, sd 0.0206, two-party vote 9,122,861: see S4 for stage two)
+
+==============================================================================
+S7. OTHER ELECTORAL SYSTEMS: R4'S CALCULATIONS RE-RUN AND CHECKED
+==============================================================================
+
+7.1 R4's seven scripts, copied verbatim (r4/README.md), re-run here. Their output follows each name.
+
+--- r4/plur.py ---
+== two candidates, known shares (0.5,0.5): exact Q_A vs sqrt(2/(pi N))/2 style comparison
+100 Q_A=0.0397946  1/sqrt(2 pi N)=0.0398942  sqrt(2/(pi N))=0.0797885
+1000 Q_A=0.0126125  1/sqrt(2 pi N)=0.0126157  sqrt(2/(pi N))=0.0252313
+10000 Q_A=0.00398932  1/sqrt(2 pi N)=0.00398942  sqrt(2/(pi N))=0.00797885
+100000 Q_A=0.00126156  1/sqrt(2 pi N)=0.00126157  sqrt(2/(pi N))=0.00252313
+1000000 Q_A=0.000398942  1/sqrt(2 pi N)=0.000398942  sqrt(2/(pi N))=0.000797885
+== two candidates, uncertain shares, Beta-Binomial, mu=(.51,.49)
+kappa=100 sd_share=0.0497 N=1000 Q_A=0.00372507  N*Q_A=3.725
+kappa=100 sd_share=0.0497 N=10000 Q_A=0.000388129  N*Q_A=3.881
+kappa=100 sd_share=0.0497 N=100000 Q_A=3.898e-05  N*Q_A=3.898
+kappa=400 sd_share=0.0250 N=1000 Q_A=0.00636319  N*Q_A=6.363
+kappa=400 sd_share=0.0250 N=10000 Q_A=0.000723861  N*Q_A=7.239
+kappa=400 sd_share=0.0250 N=100000 Q_A=7.34695e-05  N*Q_A=7.347
+kappa=2500 sd_share=0.0100 N=1000 Q_A=0.00923913  N*Q_A=9.239
+kappa=2500 sd_share=0.0100 N=10000 Q_A=0.00119554  N*Q_A=11.96
+kappa=2500 sd_share=0.0100 N=100000 Q_A=0.000120927  N*Q_A=12.09
+
+--- r4/plur3.py ---
+N=1000 two-cand (.51,.49) kappa=400: Q_A=0.00636319 N*Q=6.363
+N=1000 3 cand, forecast (.40,.38,.22), kappa=400: Q1=0.00706638 Q2=0.00711841 Q3=2.94448e-07  N*Q=['7.066', '7.118', '0.000']
+N=1000 3 cand, forecast (.36,.34,.30), kappa=400: Q1=0.008013 Q2=0.00755276 Q3=0.00249786  N*Q=['8.013', '7.553', '2.498']
+N=1000 3 cand, forecast (.45,.45,.10), kappa=400: Q1=0.00710412 Q2=0.00710412 Q3=2.43296e-23  N*Q=['7.104', '7.104', '0.000']
+N=1000 known shares (0.333, 0.333, 0.333): Q1=0.0154881 Q2=0.0154881 Q3=0.0154881 | two-cand known (.5,.5) Q_A=0.0126125
+N=1000 known shares (0.4, 0.4, 0.2): Q1=0.0140973 Q2=0.0140973 Q3=2.08246e-24 | two-cand known (.5,.5) Q_A=0.0126125
+N=1000 known shares (0.45, 0.45, 0.1): Q1=0.0132912 Q2=0.0132912 Q3=8.40546e-91 | two-cand known (.5,.5) Q_A=0.0126125
+N=10000 two-cand (.51,.49) kappa=400: Q_A=0.000723861 N*Q=7.239
+N=10000 3 cand, forecast (.40,.38,.22), kappa=400: Q1=0.000801946 Q2=0.000802738 Q3=1.55709e-09  N*Q=['8.019', '8.027', '0.000']
+N=10000 3 cand, forecast (.36,.34,.30), kappa=400: Q1=0.000894732 Q2=0.00084596 Q3=0.000206552  N*Q=['8.947', '8.460', '2.066']
+N=10000 3 cand, forecast (.45,.45,.10), kappa=400: Q1=0.000824367 Q2=0.000824367 Q3=7.34684e-30  N*Q=['8.244', '8.244', '0.000']
+N=10000 known shares (0.333, 0.333, 0.333): Q1=0.00489034 Q2=0.00489034 Q3=0.00489034 | two-cand known (.5,.5) Q_A=0.00398932
+N=10000 known shares (0.4, 0.4, 0.2): Q1=0.00446007 Q2=0.00446007 Q3=7.45715e-216 | two-cand known (.5,.5) Q_A=0.00398932
+N=10000 known shares (0.45, 0.45, 0.1): Q1=0.004205 Q2=0.004205 Q3=0 | two-cand known (.5,.5) Q_A=0.00398932
+
+--- r4/pr.py ---
+council-sized: M=27, N=4,000 valid votes kappa=400
+   shares (0.3, 0.25, 0.2, 0.15, 0.1)
+   Q_j (P that one more vote adds a seat): ['0.00515', '0.00558', '0.00588', '0.00624', '0.00665']
+   M/N = 0.00675 ; Q_j / (M/N) = ['0.76', '0.83', '0.87', '0.92', '0.99']
+district: M=5, N=50,000 kappa=400
+   shares (0.35, 0.3, 0.2, 0.1, 0.05)
+   Q_j (P that one more vote adds a seat): ['2.36e-05', '4.69e-05', '4.46e-06', '2.11e-05', '1.07e-124']
+   M/N = 0.0001 ; Q_j / (M/N) = ['0.24', '0.47', '0.04', '0.21', '0.00']
+district: M=10, N=100,000 kappa=400
+   shares (0.35, 0.3, 0.2, 0.1, 0.05)
+   Q_j (P that one more vote adds a seat): ['5.8e-05', '6.2e-05', '4.39e-05', '9.1e-05', '9.83e-06']
+   M/N = 0.0001 ; Q_j / (M/N) = ['0.58', '0.62', '0.44', '0.91', '0.10']
+national list: M=150, N=5,000,000 kappa=400
+   shares (0.3, 0.25, 0.2, 0.15, 0.1)
+   Q_j (P that one more vote adds a seat): ['2.1e-05', '2.36e-05', '2.52e-05', '2.59e-05', '2.69e-05']
+   M/N = 3e-05 ; Q_j / (M/N) = ['0.70', '0.79', '0.84', '0.86', '0.90']
+
+--- r4/pr_check.py ---
+analytic: [6.25597894e-03 1.03476639e-02 3.58309993e-03 8.61965691e-03
+ 1.22939603e-05]
+brute j=0: 0.006233333333333333
+brute j=1: 0.0112
+brute j=3: 0.008933333333333333
+
+--- r4/ref.py ---
+== known shares (binomial), simple majority, mu=0.5: Q_yes ~ 1/sqrt(2 pi N)
+N=9  Q_yes=0.1230 Q_no=0.1230  1/sqrt(2piN)=0.1330
+N=19  Q_yes=0.0881 Q_no=0.0881  1/sqrt(2piN)=0.0915
+N=29  Q_yes=0.0722 Q_no=0.0722  1/sqrt(2piN)=0.0741
+N=99  Q_yes=0.0398 Q_no=0.0398  1/sqrt(2piN)=0.0401
+N=999  Q_yes=0.0126 Q_no=0.0126  1/sqrt(2piN)=0.0126
+N=9999  Q_yes=0.0040 Q_no=0.0040  1/sqrt(2piN)=0.0040
+== uncertain share (kappa=400, sd 2.5pts at mu=.5), N=10,000 others; thresholds 0.5, 0.6, 2/3
+forecast yes share 0.500 | t=0.500: Q_yes=0.000782 Q_no=0.000782 | t=0.600: Q_yes=0 Q_no=6.38e-07 | t=0.667: Q_yes=0 Q_no=2.66e-13
+forecast yes share 0.550 | t=0.500: Q_yes=0.000113 Q_no=0.000113 | t=0.600: Q_yes=0 Q_no=0.000224 | t=0.667: Q_yes=0 Q_no=2.31e-08
+forecast yes share 0.600 | t=0.500: Q_yes=3.31e-07 Q_no=3.31e-07 | t=0.600: Q_yes=0 Q_no=0.0016 | t=0.667: Q_yes=0 Q_no=4.11e-05
+forecast yes share 0.667 | t=0.500: Q_yes=2.3e-13 Q_no=2.3e-13 | t=0.600: Q_yes=0 Q_no=3.87e-05 | t=0.667: Q_yes=0 Q_no=0.00166
+== small electorates, uncertain share kappa=20 (sd ~11pts), forecast .5 and .6; simple majority
+N=9 mu=0.5 Q_yes=0.1036 mu=0.6 Q_yes=0.0783
+N=19 mu=0.5 Q_yes=0.0635 mu=0.6 Q_yes=0.0462
+N=29 mu=0.5 Q_yes=0.0463 mu=0.6 Q_yes=0.0329
+N=99 mu=0.5 Q_yes=0.0162 mu=0.6 Q_yes=0.0110
+N=999 mu=0.5 Q_yes=0.0017 mu=0.6 Q_yes=0.0011
+
+--- r4/ref2.py ---
+Referendum with threshold t on Yes/(Yes+No); others N~10,000 (averaged over N=10000..10029 to avoid lattice artefacts); Dirichlet-style uncertainty kappa=400 (sd 2.5 pts at 50%)
+Q_yes = P(pass | I vote Yes) - P(pass | I abstain); Q_no = P(pass | abstain) - P(pass | I vote No)
+forecast Yes 0.500 | t=0.500: yes=0.000781 no=0.000781 | t=0.600: yes=2.56e-07 no=3.81e-07 | t=0.667: yes=9.01e-14 no=1.78e-13
+forecast Yes 0.550 | t=0.500: yes=0.000113 no=0.000113 | t=0.600: yes=8.97e-05 no=0.000134 | t=0.667: yes=7.78e-09 no=1.54e-08
+forecast Yes 0.600 | t=0.500: yes=3.29e-07 no=3.32e-07 | t=0.600: yes=0.000637 no=0.000956 | t=0.667: yes=1.38e-05 no=2.74e-05
+forecast Yes 0.667 | t=0.500: yes=2.28e-13 no=2.31e-13 | t=0.600: yes=1.54e-05 no=2.32e-05 | t=0.667: yes=0.000552 no=0.0011
+
+--- r4/chamber.py ---
+Stylised chamber: 434 other seats, baseline margins ~ N(m0, 14 pts), idiosyncratic sd 3 pts, national swing sd sigma_nat.
+sigma_nat=1.0 m0=+0.0: expected D seats among others=209 (sd 12.9)  P(tip | seat tied)=0.0257  (1 in 39)
+sigma_nat=1.0 m0=+3.0: expected D seats among others=245 (sd 12.7)  P(tip | seat tied)=0.0029  (1 in 341)
+sigma_nat=1.0 m0=+6.0: expected D seats among others=280 (sd 12.2)  P(tip | seat tied)=0.0000  (1 in 98534204)
+sigma_nat=2.0 m0=+0.0: expected D seats among others=209 (sd 24.4)  P(tip | seat tied)=0.0155  (1 in 64)
+sigma_nat=2.0 m0=+3.0: expected D seats among others=245 (sd 24.0)  P(tip | seat tied)=0.0084  (1 in 118)
+sigma_nat=2.0 m0=+6.0: expected D seats among others=279 (sd 23.0)  P(tip | seat tied)=0.0005  (1 in 1884)
+sigma_nat=3.0 m0=+0.0: expected D seats among others=209 (sd 35.9)  P(tip | seat tied)=0.0108  (1 in 93)
+sigma_nat=3.0 m0=+3.0: expected D seats among others=244 (sd 35.4)  P(tip | seat tied)=0.0082  (1 in 123)
+sigma_nat=3.0 m0=+6.0: expected D seats among others=279 (sd 33.8)  P(tip | seat tied)=0.0023  (1 in 431)
+
+7.2 Plurality, three candidates, KNOWN shares: the top-two tie has the difference x1 - x2 with variance
+    n (p1 + p2), so Q ~ 1/sqrt(2 pi n (p1 + p2)) = two-way Q / sqrt(p1 + p2) (when the third is out of reach).
+    N=1000 shares (0.45, 0.45, 0.1): R4 exact Q1 = 0.0132912; two-way/sqrt(p1+p2) = 0.0132948; ratio 0.9997
+    N=1000 shares (0.4, 0.4, 0.2): R4 exact Q1 = 0.0140973; two-way/sqrt(p1+p2) = 0.0141012; ratio 0.9997
+    N=1000 shares (0.333, 0.333, 0.333): R4 exact Q1 = 0.0154881; two-way/sqrt(p1+p2) = 0.0154471; ratio 1.0027
+    N=10000 shares (0.45, 0.45, 0.1): R4 exact Q1 = 0.004205; two-way/sqrt(p1+p2) = 0.00420512; ratio 1.0000
+    N=10000 shares (0.4, 0.4, 0.2): R4 exact Q1 = 0.00446007; two-way/sqrt(p1+p2) = 0.0044602; ratio 1.0000
+    N=10000 shares (0.333, 0.333, 0.333): R4 exact Q1 = 0.00489034; two-way/sqrt(p1+p2) = 0.0048859; ratio 1.0009
+    Sound; at equal thirds the match includes three-way ties and shared wins, by the same count.
+
+7.3 Plurality, three candidates, Dirichlet forecast (kappa = 400): the continuous route.
+    Candidate 1 can tie with either rival j. For the pair (1, j): s = v1 + vj ~ Beta(kappa(mu1+muj), kappa mu_k)
+    and r = v1/(v1+vj) ~ Beta(kappa mu1, kappa muj), independent; D = v1 - vj = s(2r - 1) has density
+    f_D(0) = f_r(1/2) E[1[s > 2/3]/(2s)] (the third must be below the tied pair, 1 - s < s/2). Q1 ~ sum_j f_D(0)/n,
+    with the count noise (sd sqrt(s/n) in D) folded in by a normal approximation.
+    shares (0.4, 0.38, 0.22), N=1000: f_D(0) for rivals 2, 3 = 8.150, 0.000; continuous N Q1 ~ 6.884; R4 exact N Q1 = 7.066; ratio 0.974
+    shares (0.4, 0.38, 0.22), N=10000: f_D(0) for rivals 2, 3 = 8.150, 0.000; continuous N Q1 ~ 7.991; R4 exact N Q1 = 8.019; ratio 0.996
+    shares (0.45, 0.45, 0.1), N=1000: f_D(0) for rivals 2, 3 = 8.407, 0.000; continuous N Q1 ~ 7.102; R4 exact N Q1 = 7.104; ratio 1.000
+    shares (0.45, 0.45, 0.1), N=10000: f_D(0) for rivals 2, 3 = 8.407, 0.000; continuous N Q1 ~ 8.243; R4 exact N Q1 = 8.244; ratio 1.000
+    shares (0.36, 0.34, 0.3), N=1000: f_D(0) for rivals 2, 3 = 7.826, 1.246; continuous N Q1 ~ 7.661; R4 exact N Q1 = 8.013; ratio 0.956
+    shares (0.36, 0.34, 0.3), N=10000: f_D(0) for rivals 2, 3 = 7.826, 1.246; continuous N Q1 ~ 8.894; R4 exact N Q1 = 8.947; ratio 0.994
+    Sound to within the normal approximation of the count noise (within 5% at N = 1,000, under 1% at 10,000).
+    Note the lattice: with a third candidate x1 - x2 takes EVERY integer, so both the tie and the one-short
+    event occur for either parity and Q ~ f_D(0)/n, with no further 1/2; in the two-way case f_D(0) = f_v(1/2)/2.
+
+7.4 List PR, 'about M/N': two parties under D'Hondt, exact. Q = E[seats_1(X+1) - seats_1(X)] with X the
+    count for party 1 among N others, v ~ Beta(kappa mu, kappa(1-mu)). If E[seats_1] ~ M v over the forecast's
+    spread, Q ~ (M/N) dE[seats]/d(M v) = M/N. Ties at the last seat by lot (1/2).
+    N=4,000 M=27 mu=0.3 kappa=400 (sd 0.0229, i.e. 0.62 seats): Q = 0.006999; M/N = 0.00675; Q/(M/N) = 1.037
+    N=4,000 M=27 mu=0.3 kappa=100000 (sd 0.0014, i.e. 0.04 seats): Q = 0.002184; M/N = 0.00675; Q/(M/N) = 0.324
+    N=4,000 M=27 mu=0.1 kappa=400 (sd 0.0150, i.e. 0.40 seats): Q = 0.006793; M/N = 0.00675; Q/(M/N) = 1.006
+    N=4,000 M=27 mu=0.1 kappa=100000 (sd 0.0009, i.e. 0.03 seats): Q = 0.007168; M/N = 0.00675; Q/(M/N) = 1.062
+    N=50,000 M=5 mu=0.35 kappa=400 (sd 0.0238, i.e. 0.12 seats): Q = 0.0002664; M/N = 0.0001; Q/(M/N) = 2.664
+    N=50,000 M=5 mu=0.35 kappa=100000 (sd 0.0015, i.e. 0.01 seats): Q = 3.542e-12; M/N = 0.0001; Q/(M/N) = 0.000
+    N=50,000 M=5 mu=0.05 kappa=400 (sd 0.0109, i.e. 0.05 seats): Q = 1.988e-15; M/N = 0.0001; Q/(M/N) = 0.000
+    N=50,000 M=5 mu=0.05 kappa=100000 (sd 0.0007, i.e. 0.00 seats): Q = 0; M/N = 0.0001; Q/(M/N) = 0.000
+    Sound as 'about M/N' when the forecast spans half a seat or more (sd x M >~ 0.4 above); when it spans a
+    tenth of a seat or less, Q is whatever the staircase does at the mean, from 0 to 2.7 x M/N above.
+    R4's pr.py (five parties, Poisson counts) finds Q_j/(M/N) from 0.70 to 0.99 where M is 27 or 150, and
+    from 0.00 to 0.91 where M is 5 or 10: the same pattern. A seat is not an outcome in the site's sense, so
+    'M/N' is the chance one ballot moves one seat, not the chance it changes a winner.
+
+7.5 Referendum with a threshold t on the Yes share. Z = (1 - t) Y - t X decides (pass iff Z >= 0); a Yes ballot
+    adds (1 - t) to Z, a No ballot subtracts t, so with g the density of Z at 0: Q_yes ~ (1 - t) g, Q_no ~ t g,
+    Q_no / Q_yes = t / (1 - t): 1.5 at t = 0.6 and 2 at t = 2/3. R4's ref2.py (averaged over N):
+Referendum with threshold t on Yes/(Yes+No); others N~10,000 (averaged over N=10000..10029 to avoid lattice artefacts); Dirichlet-style uncertainty kappa=400 (sd 2.5 pts at 50%)
+Q_yes = P(pass | I vote Yes) - P(pass | I abstain); Q_no = P(pass | abstain) - P(pass | I vote No)
+forecast Yes 0.500 | t=0.500: yes=0.000781 no=0.000781 | t=0.600: yes=2.56e-07 no=3.81e-07 | t=0.667: yes=9.01e-14 no=1.78e-13
+forecast Yes 0.550 | t=0.500: yes=0.000113 no=0.000113 | t=0.600: yes=8.97e-05 no=0.000134 | t=0.667: yes=7.78e-09 no=1.54e-08
+forecast Yes 0.600 | t=0.500: yes=3.29e-07 no=3.32e-07 | t=0.600: yes=0.000637 no=0.000956 | t=0.667: yes=1.38e-05 no=2.74e-05
+forecast Yes 0.667 | t=0.500: yes=2.28e-13 no=2.31e-13 | t=0.600: yes=1.54e-05 no=2.32e-05 | t=0.667: yes=0.000552 no=0.0011
+    forecast Yes 0.6, t = 0.600: Q_no/Q_yes = 1.500 (t/(1-t) = 1.500)
+    forecast Yes 0.6, t = 0.667: Q_no/Q_yes = 1.989 (t/(1-t) = 2.000)
+    forecast Yes 0.667, t = 0.600: Q_no/Q_yes = 1.508 (t/(1-t) = 1.500)
+    forecast Yes 0.667, t = 0.667: Q_no/Q_yes = 2.000 (t/(1-t) = 2.000)
+    At a FIXED N the pass condition Y >= t N sits on the lattice of Y, and whether a Yes or a No ballot can cross
+    it depends on the fractional part of t N: t = 0.6, forecast Yes 0.60, N = 10,000 to 10,004 (R4's ref.py Q):
+      N = 10000: t N = 6000.0; Q_yes = 0; Q_no = 0.001596
+      N = 10001: t N = 6000.6; Q_yes = 0; Q_no = 0.001596
+      N = 10002: t N = 6001.2; Q_yes = 0.001596; Q_no = 0
+      N = 10003: t N = 6001.8; Q_yes = 0; Q_no = 0.001596
+      N = 10004: t N = 6002.4; Q_yes = 0.001595; Q_no = 0
+    The ex ante N is uncertain by far more than five, so the average over N is the right ex ante quantity and
+    R4's averaging is legitimate; the fixed-N values are artefacts of an exactly known turnout.
+
+7.6 A turnout quorum (STRUCTURE, with a stylised number). Let the proposal fail unless turnout T >= q R
+    (R registered). A ballot can change the outcome in two ways: the ordinary tie among those who vote, and
+    completing the quorum when T would have fallen one short. Ex ante, with f_T the density of the turnout
+    share at q (over R) and P(pass | quorum met) the chance the vote itself passes:
+      Q_yes ~ f_v(1/2)/(2N) x P(quorum met | tie)  +  f_T(q)/R x P(pass | quorum met, T = qR)
+      Q_no  ~ f_v(1/2)/(2N) x P(quorum met | tie)  -  f_T(q)/R x P(pass | quorum met, T = qR)   (a No ballot that
+              completes the quorum HELPS the proposal; a No voter who wants it to fail should abstain).
+    Stylised: R = 1,000,000, turnout forecast 52% (sd 3), q = 50%; Yes share forecast 56% (sd 4), P(pass | quorum) = 0.93:
+      tie term f_v(1/2)/(2N) = 3.113e-06; quorum term f_T(q)/R x 0.93 = 9.903e-06: the quorum term is 3.2 x the tie term.
+    No published counterpart was read; R4 gave structure only, and so does this.
+
+7.7 Tiny electorates: exact binomial at a known 50-50 split (R4's ref.py, S1.4):
+    N = 9: exact p = 0.1230; 1/sqrt(2 pi N) = 0.1330 (8.1% high)
+    N = 19: exact p = 0.0881; 1/sqrt(2 pi N) = 0.0915 (3.9% high)
+    N = 29: exact p = 0.0722; 1/sqrt(2 pi N) = 0.0741 (2.6% high)
+    N = 99: exact p = 0.0398; 1/sqrt(2 pi N) = 0.0401 (0.8% high)
+    Sound; the exact lattice sum is the model's own below a few hundred voters (the approximation is 8% high at N = 9).
+
+7.8 Runoff, IRV, STV: R4 made no calculation, and reports Baltz's closed forms as unreliable against exact
+    counts (1/2 to 1/21 of exact). Structure only: a two-round runoff gives p = p(first round settles it or
+    sets the pair) + sum over pairs P(pair) x p(final | pair); IRV sums over elimination orders; STV over
+    quotas and transfers. Each term is a two-way p of the kind in S1 with the pair's conditional forecast, so
+    the model can compute them by enumeration for small N and by simulation otherwise; nothing here is
+    offered as the model's own number.
+
+7.9 Chamber: R4's chamber.py reports P(other 434 seats give exactly 217) without conditioning on the tied
+    seat (its 'P(tip | seat tied)' is the unconditional P(217)); S4.4 shows the conditional one. Its magnitude
+    (1 in 39 to 1 in 93 at m0 = 0) agrees with S4.4's unconditional column (0.015 to 0.022 at rho 0.3-0.7).
+    Its rows are a function of three random draws of 434 seat means (seed 0, 1, 2), as R4's note says.
+
+7.10 Verdicts: sound enough for the model's own use: two-way exact (7.7), plurality-3 (7.2, 7.3), list PR as
+     'about M/N' when the forecast spans a seat (7.4), referendum thresholds with N averaged (7.5). Structure
+     only, no number: quorum (7.6), runoff/IRV/STV (7.8). Chamber: use the conditional form (7.9, S4.4).
+
+==============================================================================
+S8. THE HISTORICAL FREQUENCIES
+==============================================================================
+
+8.1 Mulligan & Hunter's figures, reproduced from the paper's numbers (R2, section 1a)
+    US House 1898-1992: 16,577 elections x 111,370 average votes = 1,846,180,490 ballots; one one-vote race
+      (NY-36 1910, 20,685 to 20,684). 20,685 / 1,846,180,490 = 1.120e-05 = 1 in 89,252  (abstract: 1 in 89,000)
+      counting both finalists' ballots, 41,369: 1 in 44,627
+    State legislatures 1968-89: 40,036 elections x 23,658 = 947,171,688 ballots; 2 ties and 7 one-vote races.
+      all 61,328 ballots in the nine: 1 in 15,444 (abstract: 1 in 15,000); the US treatment, 37,104: 1 in 25,527
+
+8.2 What a per-ballot frequency estimates. Let election e have N_e voters and forecast density f_e of the
+    share at one half. Ex ante, with parity unknown: P(exact tie) ~ f_e/(2 N_e), P(one-vote win) ~ f_e/N_e,
+    and our p_e = f_e/(2 N_e), the event (tie or one short) ~ f_e/N_e.
+    'Ballots cast for a candidate who tied or won by one' count N_e in a tie and ~N_e/2 in a one-vote win, so
+    E[count_e] ~ N_e [f_e/(2N_e)] + (N_e/2)[f_e/N_e] = f_e. The frequency F = sum count_e / sum N_e therefore
+    estimates sum_e f_e / sum_e N_e = the ballot-weighted average of the EVENT probability f_e/N_e,
+    which is twice the ballot-weighted average of our p_e. Counting every ballot in a pivot election gives
+    1.5 sum f_e / sum N_e (M&H's eq. 4), three times the average p.
+    US '1 in 89,252' (winner's ballots): implied ballot-weighted average p = F/2 = 5.602e-06 = 1 in 178,504
+    state '1 in 15,444' (all ballots): implied ballot-weighted average p = F/3 = 2.158e-05 = 1 in 46,333
+    state in the US treatment, '1 in 25,527': implied ballot-weighted average p = F/2 = 1.959e-05 = 1 in 51,055
+    Implied average density at one half: US f-bar = F x average N = 1.25; state f-bar = 1.02
+    (M&H's own Figure 5 reading is f ~ 2 for the whole sample; GKB's '18% of states within 2 points' is
+    f ~ 4.5 for presidential-state forecasts: House and state-legislative races are on average less close.)
+
+8.3 The sampling error of a count of one
+    US House one-vote races: 1 in 16,577; 95% interval for the expected count [0.025, 5.57], i.e. the rate
+      is known to within a factor 5.6 above and 39.5 below the point estimate
+    state legislative ties or one-vote races: 9 in 40,036; 95% interval for the expected count [4.115, 17.08], i.e. the rate
+      is known to within a factor 1.9 above and 2.2 below the point estimate
+    So '1 in 89,252' is a point estimate from one event; the data are consistent with 1 in 16,019 and with 1 in 3,525,271.
+
+8.4 Klarner's counts (state legislative general elections 1968-2022; R2, section 1b)
+    all contests with a margin: 52 events (margin 0 or 1) in 109,093: 0.0004767 per contest (1 in 2,098); 95% [3.56e-04, 6.25e-04]
+    single-seat contests: 30 events (margin 0 or 1) in 99,165: 0.0003025 per contest (1 in 3,306); 95% [2.04e-04, 4.32e-04]
+    2018-2024 (seats): 5 events (margin 0 or 1) in 23,830: 0.0002098 per contest (1 in 4,766); 95% [6.81e-05, 4.90e-04]
+    A per-CONTEST event rate estimates the contest-average of P(margin 0 or 1) = 1.5 f_e/N_e (parity averaged),
+    i.e. 3 x the contest-average of p_e. Contest averages weight small districts heavily (p_e ~ 1/N_e), so
+    the implied contest-average p = 0.0001589 (1 in 6,294) is not comparable to M&H's
+    ballot-weighted figure, which weights large districts. Both are averages over every contest, lopsided
+    ones included; neither is the p of any particular contest.
+
+8.5 Relation to the ex ante p, in one line each
+    (i) F estimates an average of event probabilities over a population of elections, not a probability for one.
+    (ii) The ex ante p for one election can be far from that average: 1/(2N) x f_e with f_e from 0 (a 70-30
+         race) to ~20 (a dead heat with a 2-point sd); the population average f-bar is about 1 to 2.
+    (iii) F counts the first official margin; later counts and recounts move it (M&H's own check cut their
+          unweighted frequency by 50% and the vote-weighted by 76%), so F overstates how often a ballot settled
+          the result under section 7's smoothed definition.
+    (iv) The reality check the model can pass: the sum over a population of elections of the model's
+         event probabilities should land inside the Poisson interval of the observed count. For Klarner's
+         universe that is 52 events with 95% interval [39, 68]; the check needs a forecast
+         for each contest, which no source read provides. What can be checked now is the average density:
+         F x N-bar = 1.25 (US) and 1.02 (state), against ~2 from M&H's own Figure 5.
+

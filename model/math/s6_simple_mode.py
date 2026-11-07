@@ -55,7 +55,8 @@ print("\n6.3 The constant K cannot stand in for the forecast: f(1/2) over the ra
 for mu, tau in [(0.5, 0.02), (0.5, 0.05), (0.52, 0.03), (0.55, 0.03), (0.55, 0.05), (0.60, 0.05), (0.65, 0.05), (0.60, 0.10)]:
     f = normal_density(0.5, mu, tau)
     print(f"    mu = {mu:.2f}, tau = {tau:.2f}: f(1/2) = {f:8.3f}; p n = {f / 2:7.3f}; 25 q1 = {25 * q1(mu, tau):7.3f}")
-print("    A 60-40 race forecast with sd 5 points has p n = 0.054 against 4.0 for a 50-50 race: a factor 70.")
+print("    A 60-40 race forecast with sd 5 points has p n = 0.54 against 3.99 for a 50-50 race, a factor 7; a 65-35")
+print("    race has 0.044, a factor 90: the constant K must carry the closeness, which no single K can.")
 
 print("\n6.4 Reading the draft's 'closeness divided by voters': with closeness q1 (within one point) the lay")
 print("    formula is p = 25 q1 / n; the EVENT probability (a tie or one-vote win among the others) is 50 q1 / n,")

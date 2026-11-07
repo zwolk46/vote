@@ -113,19 +113,19 @@ for i, st in enumerate(states):
 print("\n4.2 What independence costs: ratio of the product formula (W') to the conditional (W), by rho")
 for rho in rhos[1:]:
     r = Wu[rho] / np.maximum(W[rho], 1e-300)
-    g1 = [i for i in range(51) if abs(mu[i] - 0.5) < 0.015]
-    g2 = [i for i in range(51) if 0.015 <= abs(mu[i] - 0.5) < 0.03]
+    g1 = [i for i in range(51) if abs(mu[i] - 0.5) < 0.02]
+    g2 = [i for i in range(51) if 0.02 <= abs(mu[i] - 0.5) < 0.03]
     g3 = [i for i in range(51) if 0.03 <= abs(mu[i] - 0.5) < 0.10]
     far = [i for i in range(51) if abs(mu[i] - 0.5) >= 0.10 and W[rho][i] > 1e-6]
     zero = [states[i] for i in range(51) if W[rho][i] <= 1e-6]
-    print(f"    rho = {rho}: ratio W'/W for states within 1.5 points of even ({len(g1)}): {r[g1].min():.3f} to {r[g1].max():.3f};"
-          f" 1.5 to 3 points ({len(g2)}): {r[g2].min():.3f} to {r[g2].max():.3f}; 3 to 10 points ({len(g3)}): {r[g3].min():.2f} to {r[g3].max():.2f};"
+    print(f"    rho = {rho}: ratio W'/W for states within 2 points of even ({len(g1)}): {r[g1].min():.3f} to {r[g1].max():.3f};"
+          f" 2 to 3 points ({len(g2)}): {r[g2].min():.3f} to {r[g2].max():.3f}; 3 to 10 points ({len(g3)}): {r[g3].min():.2f} to {r[g3].max():.2f};"
           f" 10 points or more: {r[far].min():.2g} to {r[far].max():.2g}, and W|tie below 1e-6 in {', '.join(zero) or 'none'}")
 for st in ["FL", "NH", "PA", "UT", "WV", "DC"]:
     i = states.index(st)
     print(f"    {st}: mu = {mu[i]:.3f}; W|tie at rho 0, .3, .5, .7 = " + ", ".join(f"{W[r][i]:.4f}" for r in rhos)
           + "; W' = " + ", ".join(f"{Wu[r][i]:.4f}" for r in rhos))
-print("    Reading: for a state within 1.5 points of even the two agree within about 10% at any rho, because")
+print("    Reading: for a state within 2 points of even the two agree within 12%, 17% and 23% at rho = 0.3, 0.5, 0.7, because")
 print("    conditioning on a near-even state moves the national swing little; at 2 to 3 points off they differ by")
 print("    up to a third at rho = 0.5. For a lopsided state they differ by orders of")
 print("    magnitude: a tie in Utah (mu 0.375) implies a swing that hands A almost every state, so W|tie falls; but")

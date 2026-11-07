@@ -74,7 +74,7 @@ print("        convention; if an exact-tie probability was intended, its figures
 print("\n2.6 Gelman, King & Boscardin 1998: the printed numbers, reproduced and converted")
 f = normal_density(0.5, 0.515, 0.056)
 print(f"    popular vote 1992: normal mean 51.5%, sd 5.6%, 92 million voters: f(1/2) = {f:.4f}; f/n = {fmt(f / 92e6)} = {one_in(f / 92e6)} (paper: 1 in 13.3 million; an exact tie, no 1/2)")
-print(f"      under our convention p = f/(2n) = {fmt(f / 184e6)} = {one_in(f / 184e6)}")
+print(f"      under our convention p = f/(2n) = {fmt(f / 184e6)} = {one_in(f / 184e6)} (twice the paper's printed figure: 1 in 26.6 million)")
 f2 = normal_density(0.5, 0.5, 0.02)
 print(f"    section 5 bound, tau = 2%, mu = 1/2: f(1/2) = {f2:.3f} -> '20/n' (event); ours 10/n; at n = 200,000: event {fmt(f2 / 2e5)} ('1 in 10,000'), ours {fmt(f2 / 4e5)}")
 rough = (0.18 / 0.04) * 0.5 * (2 / 11) * (1 / 50)
