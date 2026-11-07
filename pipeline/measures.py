@@ -153,6 +153,13 @@ def rule_for(c, kind, book, year, rid=None):
     step (a) (`rid`, its record's id, in data/measure/ballot-texts.json), gives its type and whether a special rule's
     condition holds."""
     text = (book.get("ballot_texts") or {}).get(rid) if rid else None
+    if text is None and c.get("filed_local"):   # the state's list of its statewide measures (local_medsl.join_statewide)
+        q = c["filed_local"]["listed"]
+        text = {"type": q.get("type"), "type_mark": q.get("type_mark"), "proposer": q.get("proposer"),
+                "fact": q.get("fact"), "said_by": "the state's list of its statewide measures",
+                "file": "data/measure/statewide-filed-local.json"}
+    who = proposer_of(c, text)
+    who = who if who[0] else None
     st = c["state"]
     states = book.get("states", {})
     mine = [r for r in book["rules"] if r["state"] == st and _in_year(r, year) and r.get("scope") != "local"]
@@ -170,7 +177,8 @@ def rule_for(c, kind, book, year, rid=None):
     tty = (text or {}).get("type")
     if tty and tty != ty:   # the ballot text's own words give the type where the title does not, or says otherwise
         said = "states" if text.get("type_mark") == "stated" else f"shows [{text.get('type_mark')}]"
-        how_t = (f"by the type the ballot text {said} ({tty}; data/measure/ballot-texts.json)" +
+        how_t = (f"by the type {text.get('said_by', 'the ballot text')} {said} ({tty}; "
+                 f"{text.get('file', 'data/measure/ballot-texts.json')})" +
                  (f", not the title's ({ty})" if ty is not None else ""))
         ty = tty
     else:
@@ -200,15 +208,16 @@ def rule_for(c, kind, book, year, rid=None):
     if special and fact.get("applies") is not None:   # the ballot text settles whether the special rule's case holds
         pick = special if fact["applies"] else general
         if pick and len({form(r) for r in pick}) == 1 and len({r["only_if"] for r in special}) == 1:
-            return _one(pick, f"{how}; the ballot text shows it is {'' if fact['applies'] else 'not '}"
-                              f"{special[0]['only_if']} [{fact['mark']}] (data/measure/ballot-texts.json)")
+            return _one(pick, f"{how}; {text.get('said_by', 'the ballot text')} shows it is "
+                              f"{'' if fact['applies'] else 'not '}{special[0]['only_if']} [{fact['mark']}] "
+                              f"({text.get('file', 'data/measure/ballot-texts.json')})", who)
     unshown = ("; its ballot text, read in step (a), does not show it either (data/measure/ballot-texts.json)"
-               if text else "")
+               if text and not text.get("said_by") else "")
     if not general:
         return None, None, (f"the general threshold is not read; {special[0]['citation']} covers only "
                             f"{special[0]['only_if']}" + (unshown if special and fact.get("applies") is None else ""))
     if all(r.get("compound") or r.get("t") is None for r in general):
-        return _one(general, how)
+        return _one(general, how, who)
     if len({form(r) for r in general}) > 1:
         return None, None, ("the state's law sets different thresholds for different kinds of measure, and the "
                             "source's title does not show which kind this is")
@@ -216,7 +225,7 @@ def rule_for(c, kind, book, year, rid=None):
     if other:
         return None, None, (f"{other[0]['citation']} sets another threshold for {other[0]['only_if']}, and the "
                             f"source does not show whether this measure is one" + unshown)
-    return _one(general, how)
+    return _one(general, how, who)
 
 
 def local_rule_for(c, book, year):
@@ -249,11 +258,61 @@ def local_rule_for(c, book, year):
                 + (f"; {r['match_note']}" if r.get("match_note") else ""))
 
 
-def _one(rs, how):
-    r = rs[0]
+# who put a question on the ballot, as its title says it [stated: the title's words]; read only to cite the rule that
+# governs its kind where several rules set the same share (the orchestrator, 2026-11-07 14:36: "Cite the rule that
+# governs each question by its kind, not the first general rule in the file that sets the same share")
+_PROPOSER_WORDS = (("initiative", r"INITIATIVE PETITION|PROPOSED BY INITIATIVE|CONSTITUTIONAL INITIATIVE|\bCI-\d|"
+                                  r"\bINITIATIVE (MEASURE )?(NO\.? ?)?\d|LEGISLATIVE INITIATIVE|\bINITIATED\b"),
+                   ("legislature", r"LEGISLATIVE REFERENDUM|\bLR-?\d|REFERRED BY THE (LEGISLATURE|LEGISLATIVE ASSEMBLY|"
+                                   r"GENERAL ASSEMBLY)|\b[HS]JR ?\d|\(ACT (NO\. )?\d+[^)]*\b[HS]B ?\d+"))
+
+
+def proposer_of(c, text=None):
+    """(who, how) for the question: from its ballot text where read (step (a)), else from its title's words; (None,
+    None) where neither shows it."""
+    pr = (text or {}).get("proposer")
+    if pr:
+        return pr["who"], (f"[{pr['mark']}: {text.get('said_by', 'the ballot text read')}, "
+                           f"{text.get('file', 'data/measure/ballot-texts.json')}]")
+    t = " ".join((c["office"] + " " + (c.get("subject") or "")).upper().split())
+    hits = {who for who, pat in _PROPOSER_WORDS if re.search(pat, t)}
+    return (hits.pop(), "[stated: the title's words]") if len(hits) == 1 else (None, None)
+
+
+def _one(rs, how, who=None):
+    """The rule of `rs` (all setting the same threshold) that governs the question: where they are several, the one
+    for its proposer (`proposer` on the rule; a rule without it governs any proposer), and where the source does not
+    show which governs, every one that could, cited together."""
+    seen, cands = set(), []
+    for r in rs:
+        if r["citation"] not in seen:
+            seen.add(r["citation"]); cands.append(r)
+    # one law read two ways is one rule: a citation whose parts all lie in another's ('Wyo. Const. art. 20, §1' in
+    # 'Wyo. Stat. 22-2-117(d); Wyo. Const. art. 20, §1') is that one, not a second rule that could govern
+    parts = [set(x["citation"].split("; ")) for x in cands]
+    cands = [x for i, x in enumerate(cands)
+             if not any(j != i and parts[i] < parts[j] for j in range(len(cands)))]
+    whom, narrowed = (who[0] if who else None), False
+    if whom and len(cands) > 1:
+        fit = [r for r in cands if whom in (r.get("proposer") or [])]
+        if fit:
+            narrowed = len(cands)
+            cands = fit + [r for r in cands if not r.get("proposer")]
+            narrowed = len(cands) < narrowed
+    r = cands[0]
+    cite = r["citation"] if len(cands) == 1 else ", or ".join(x["citation"] for x in cands)
     if r.get("compound") or r.get("t") is None:
-        return None, None, (f"{r['citation']}: {r.get('compound') or r.get('rule')}: the threshold turns on more than "
+        return None, None, (f"{cite}" + (" (the source does not show which of these governs it)" if len(cands) > 1
+                                         else "") + f": {r.get('compound') or r.get('rule')}: the threshold turns on more than "
                             f"the yes share of those voting on the question, and the model forecasts that share only")
+    if narrowed and len(cands) == 1:
+        how += f"; proposed by the {whom} {who[1]}, so {r['citation']} governs ({r['applies_to']})"
+    elif len(cands) > 1:
+        how += ("; the source does not show which of these governs it (" + "; ".join(
+            f"{x['citation']}: {x['applies_to']}" for x in cands) + "), and each sets this share")
+        r = dict(r, citation=cite, also_governs=[{k: x.get(k) for k in ("citation", "applies_to", "url", "quote",
+                                                                          "read_utc") if x.get(k) is not None}
+                                                 for x in cands[1:]])
     return r, how, None
 
 
@@ -272,8 +331,9 @@ def rows(contests, year, ref):
             continue
         out.append({"key": f"{scope} {kind_of(c)}", "s": yes / (yes + no), "n": yes + no,
                     "year": year, "state": c["state"],
-                    # counted whole: a state's own file that shows the question's place (not MEDSL's by county)
-                    "whole": c.get("source", "medsl") != "medsl"})
+                    # counted whole: a state's own file that shows the question's place (not MEDSL's by county),
+                    # or one county's question whose place lies wholly in it (local_medsl.one_place)
+                    "whole": c.get("source", "medsl") != "medsl" or bool(c.get("one_place"))})
     return out
 
 

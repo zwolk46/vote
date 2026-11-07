@@ -1,0 +1,493 @@
+{
+ "about": "Every record the ruling of 2026-11-07 15:16 ('the certified count wins') touched, against 96a1ff5: each joined statewide question whose state page prints its statewide totals (data/measure/statewide-filed-local.json, state_total). Where the state marks them certified, they are the record's counts ('counts_used': 'state'); where it does not, MEDSL's stand ('why_not'). Every other record of every file is unchanged, the stamps apart.",
+ "against": "96a1ff5",
+ "summary": {
+  "records": 17,
+  "counts_from_the_state": 10,
+  "counts_moved": 4,
+  "p_moved": 0,
+  "medsl_stands": 7
+ },
+ "records": [
+  {
+   "id": "2016-measure-AR-ISSUE_NO__1__PROPOSING_AN_AMENDMENT_TO_THE_ARKANSAS_CONSTITU",
+   "file": "data/measure/2016/AR.json",
+   "title": "Issue No. 1: Proposing An Amendment To The Arkansas Constitution Concerning The Terms, Election, And Eligibility Of Elected Officials",
+   "counts_used": "medsl",
+   "certified": false,
+   "why_not": "the Secretary of State's table 'Initiatives and Amendments, 1938-2018' prints each issue's statewide yes and no with no word certified or official",
+   "votes_before": {
+    "YES": 747855,
+    "NO": 317092
+   },
+   "votes_after": {
+    "YES": 747855,
+    "NO": 317092
+   },
+   "yes_share_before": 0.702246,
+   "yes_share_after": 0.702246,
+   "p_before": {
+    "not_computed": "Ark. Const. art. 19, §22: text reads 'majority of the electors voting at such election'; the base (ballots on the amendment, or all ballots at the election) is not stated here. Amendment 7 states the initiative rule differently (see next object): the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "p_after": {
+    "not_computed": "Ark. Const. art. 19, §22: text reads 'majority of the electors voting at such election'; the base (ballots on the amendment, or all ballots at the election) is not stated here. Amendment 7 states the initiative rule differently (see next object): the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "counts_moved": false,
+   "p_moved": false
+  },
+  {
+   "id": "2016-measure-AR-ISSUE_NO__2__A_CONSTITUTIONAL_AMENDMENT_TO_ALLOW_THE_GOVERNO",
+   "file": "data/measure/2016/AR.json",
+   "title": "Issue No. 2: A Constitutional Amendment To Allow The Governor To Retain His Or Her Powers And Duties When Absent From The State",
+   "counts_used": "medsl",
+   "certified": false,
+   "why_not": "the Secretary of State's table 'Initiatives and Amendments, 1938-2018' prints each issue's statewide yes and no with no word certified or official",
+   "votes_before": {
+    "YES": 777972,
+    "NO": 296289
+   },
+   "votes_after": {
+    "YES": 777972,
+    "NO": 296289
+   },
+   "yes_share_before": 0.724193,
+   "yes_share_after": 0.724193,
+   "p_before": {
+    "not_computed": "Ark. Const. art. 19, §22: text reads 'majority of the electors voting at such election'; the base (ballots on the amendment, or all ballots at the election) is not stated here. Amendment 7 states the initiative rule differently (see next object): the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "p_after": {
+    "not_computed": "Ark. Const. art. 19, §22: text reads 'majority of the electors voting at such election'; the base (ballots on the amendment, or all ballots at the election) is not stated here. Amendment 7 states the initiative rule differently (see next object): the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "counts_moved": false,
+   "p_moved": false
+  },
+  {
+   "id": "2016-measure-AR-ISSUE_NO__3__AN_AMENDMENT_TO_THE_ARKANSAS_CONSTITUTION_CONCE",
+   "file": "data/measure/2016/AR.json",
+   "title": "Issue No. 3: An Amendment To The Arkansas Constitution Concerning Job Creation, Job Expansion, And Economic Development",
+   "counts_used": "medsl",
+   "certified": false,
+   "why_not": "the Secretary of State's table 'Initiatives and Amendments, 1938-2018' prints each issue's statewide yes and no with no word certified or official",
+   "votes_before": {
+    "YES": 689980,
+    "NO": 365995
+   },
+   "votes_after": {
+    "YES": 689980,
+    "NO": 365995
+   },
+   "yes_share_before": 0.653406,
+   "yes_share_after": 0.653406,
+   "p_before": {
+    "not_computed": "Ark. Const. art. 19, §22: text reads 'majority of the electors voting at such election'; the base (ballots on the amendment, or all ballots at the election) is not stated here. Amendment 7 states the initiative rule differently (see next object): the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "p_after": {
+    "not_computed": "Ark. Const. art. 19, §22: text reads 'majority of the electors voting at such election'; the base (ballots on the amendment, or all ballots at the election) is not stated here. Amendment 7 states the initiative rule differently (see next object): the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "counts_moved": false,
+   "p_moved": false
+  },
+  {
+   "id": "2016-measure-AR-ISSUE_NO__6__ARKANSAS_MEDICAL_MARIJUANA_AMENDMENT_OF_2016",
+   "file": "data/measure/2016/AR.json",
+   "title": "Issue No. 6: Arkansas Medical Marijuana Amendment Of 2016",
+   "counts_used": "medsl",
+   "certified": false,
+   "why_not": "the Secretary of State's table 'Initiatives and Amendments, 1938-2018' prints each issue's statewide yes and no with no word certified or official",
+   "votes_before": {
+    "YES": 585028,
+    "NO": 516523
+   },
+   "votes_after": {
+    "YES": 585028,
+    "NO": 516523
+   },
+   "yes_share_before": 0.531095,
+   "yes_share_after": 0.531095,
+   "p_before": {
+    "not_computed": "fewer than 100 like measures in earlier years in the sources taken in (0) for the class 'statewide measure'"
+   },
+   "p_after": {
+    "not_computed": "fewer than 100 like measures in earlier years in the sources taken in (0) for the class 'statewide measure'"
+   },
+   "counts_moved": false,
+   "p_moved": false
+  },
+  {
+   "id": "2018-measure-AZ-STATE_PROPOSITION_127",
+   "file": "data/measure/2018/AZ.json",
+   "title": "State Proposition 127",
+   "counts_used": "medsl",
+   "certified": false,
+   "why_not": "a memo of the Arizona Legislative Council (December 4, 2018) of ballot measure results; it is not a certification and prints no word certified or official on the totals",
+   "votes_before": {
+    "NO": 1580101,
+    "YES": 723138
+   },
+   "votes_after": {
+    "NO": 1580101,
+    "YES": 723138
+   },
+   "yes_share_before": 0.313966,
+   "yes_share_after": 0.313966,
+   "p_before": {
+    "not_computed": "the thresholds of this state's measures are not read for 2018"
+   },
+   "p_after": {
+    "not_computed": "the thresholds of this state's measures are not read for 2018"
+   },
+   "counts_moved": false,
+   "p_moved": false
+  },
+  {
+   "id": "2018-measure-WA-ADVISORY_VOTE_NO__19_ENGROSSED_SECOND_SUBSTITUTE_SENATE_BILL",
+   "file": "data/measure/2018/WA.json",
+   "title": "Advisory Vote No. 19 Engrossed Second Substitute Senate Bill 6269",
+   "counts_used": "medsl",
+   "certified": false,
+   "why_not": "the results page prints no mark on its totals. The site's index page says 'Election results are certified by each county on November 27, 2018. The Secretary of State certifies final results by December 6, 2018.' and 'The results posted before certification are unofficial.', and the measure's page was last updated '11/27/2018 4:27 PM', so its totals are likely the certified ones [inferred]. The Secretary of State's 2018 general election data download (2018-general-data.zip, its 'FINAL 2018Gen - Cong by District.pdf') prints the same statewide total, also unmarked; no certified canvass of 2018 was found on the Secretary of State's results pages. Under the ruling MEDSL's counts stand.",
+   "votes_before": {
+    "REPEALED": 1566001,
+    "MAINTAINED": 1359963
+   },
+   "votes_after": {
+    "REPEALED": 1566001,
+    "MAINTAINED": 1359963
+   },
+   "p_before": {
+    "not_computed": "no yes or no votes"
+   },
+   "p_after": {
+    "not_computed": "no yes or no votes"
+   },
+   "counts_moved": false,
+   "p_moved": false
+  },
+  {
+   "id": "2020-measure-AL-PROPOSED_STATEWIDE_AMENDMENT_NUMBER_ONE",
+   "file": "data/measure/2020/AL.json",
+   "title": "Proposed Statewide Amendment Number One",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "YES": 1535862,
+    "NO": 458487
+   },
+   "votes_after": {
+    "YES": 1535862,
+    "NO": 458487
+   },
+   "yes_share_before": 0.770107,
+   "yes_share_after": 0.770107,
+   "p_before": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "p_after": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "counts_moved": false,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2020-measure-AL-PROPOSED_STATEWIDE_AMENDMENT_NUMBER_TWO",
+   "file": "data/measure/2020/AL.json",
+   "title": "Proposed Statewide Amendment Number Two",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "NO": 919380,
+    "YES": 881145
+   },
+   "votes_after": {
+    "NO": 919380,
+    "YES": 881145
+   },
+   "yes_share_before": 0.489382,
+   "yes_share_after": 0.489382,
+   "p_before": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "p_after": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "counts_moved": false,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2020-measure-AL-PROPOSED_STATEWIDE_AMENDMENT_NUMBER_THREE",
+   "file": "data/measure/2020/AL.json",
+   "title": "Proposed Statewide Amendment Number Three",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "YES": 1193532,
+    "NO": 647305
+   },
+   "votes_after": {
+    "YES": 1193532,
+    "NO": 647305
+   },
+   "yes_share_before": 0.648364,
+   "yes_share_after": 0.648364,
+   "p_before": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "p_after": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "counts_moved": false,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2020-measure-AL-PROPOSED_STATEWIDE_AMENDMENT_NUMBER_FOUR",
+   "file": "data/measure/2020/AL.json",
+   "title": "Proposed Statewide Amendment Number Four",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "YES": 1222682,
+    "NO": 607090
+   },
+   "votes_after": {
+    "YES": 1222682,
+    "NO": 607090
+   },
+   "yes_share_before": 0.668215,
+   "yes_share_after": 0.668215,
+   "p_before": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "p_after": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "counts_moved": false,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2020-measure-AL-PROPOSED_STATEWIDE_AMENDMENT_NUMBER_FIVE",
+   "file": "data/measure/2020/AL.json",
+   "title": "Proposed Statewide Amendment Number Five",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "YES": 1213544,
+    "NO": 481088
+   },
+   "votes_after": {
+    "YES": 1213544,
+    "NO": 481088
+   },
+   "yes_share_before": 0.716111,
+   "yes_share_after": 0.716111,
+   "p_before": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "p_after": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "counts_moved": false,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2020-measure-AL-PROPOSED_STATEWIDE_AMENDMENT_NUMBER_SIX",
+   "file": "data/measure/2020/AL.json",
+   "title": "Proposed Statewide Amendment Number Six",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "YES": 1216008,
+    "NO": 482189
+   },
+   "votes_after": {
+    "YES": 1216008,
+    "NO": 482189
+   },
+   "yes_share_before": 0.716058,
+   "yes_share_after": 0.716058,
+   "p_before": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "p_after": {
+    "not_computed": "the thresholds of this state's measures are not read: alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+   },
+   "counts_moved": false,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2020-measure-MT-LEGISLATIVE_REFERENDUM_NO_130",
+   "file": "data/measure/2020/MT.json",
+   "title": "Legislative Referendum No 130",
+   "counts_used": "medsl",
+   "certified": false,
+   "why_not": "the Secretary of State's report is headed '2020 STATEWIDE GENERAL ELECTION CANVASS'; the words certified and official do not appear in it, so it is read as unmarked; its totals equal MEDSL's to the vote, so nothing turns on it",
+   "votes_before": {
+    "YES": 298388,
+    "NO": 287129
+   },
+   "votes_after": {
+    "YES": 298388,
+    "NO": 287129
+   },
+   "yes_share_before": 0.509615,
+   "yes_share_after": 0.509615,
+   "p_before": {
+    "value": 1.24252e-06,
+    "value_of": "either ballot",
+    "yes": 1.24252e-06,
+    "no": 1.24252e-06,
+    "event": 2.48503e-06,
+    "threshold": 0.5,
+    "f_t": 1.45503,
+    "n": 585516,
+    "under": "the model's own (D3-v1.1), like past measures",
+    "method": "density, threshold form (model section 7)",
+    "note": "this route's back-test of statewide measures shows more near-even finishes than it forecast (12 against 9.1 within 1 point of ½, and 11 against 6.9 within 20,000 votes, 2018 to 2024), so p may be low"
+   },
+   "p_after": {
+    "value": 1.24252e-06,
+    "value_of": "either ballot",
+    "yes": 1.24252e-06,
+    "no": 1.24252e-06,
+    "event": 2.48503e-06,
+    "threshold": 0.5,
+    "f_t": 1.45503,
+    "n": 585516,
+    "under": "the model's own (D3-v1.1), like past measures",
+    "method": "density, threshold form (model section 7)",
+    "note": "this route's back-test of statewide measures shows more near-even finishes than it forecast (12 against 9.1 within 1 point of ½, and 11 against 6.9 within 20,000 votes, 2018 to 2024), so p may be low"
+   },
+   "counts_moved": false,
+   "p_moved": false
+  },
+  {
+   "id": "2024-measure-WA-INITIATIVE_MEASURE_NO__2066",
+   "file": "data/measure/2024/WA.json",
+   "title": "Initiative Measure No. 2066",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "YES": 1938152,
+    "NO": 1811213
+   },
+   "votes_after": {
+    "YES": 1941474,
+    "NO": 1813169
+   },
+   "yes_share_before": 0.516928,
+   "yes_share_after": 0.517086,
+   "p_before": {
+    "not_computed": "Wash. Const. art. II, §1(d) (Amend. 72): majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election: the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "p_after": {
+    "not_computed": "Wash. Const. art. II, §1(d) (Amend. 72): majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election: the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "counts_moved": true,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2024-measure-WA-INITIATIVE_MEASURE_NO__2109",
+   "file": "data/measure/2024/WA.json",
+   "title": "Initiative Measure No. 2109",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "NO": 2435100,
+    "YES": 1362567
+   },
+   "votes_after": {
+    "NO": 2437419,
+    "YES": 1364510
+   },
+   "yes_share_before": 0.358791,
+   "yes_share_after": 0.358899,
+   "p_before": {
+    "not_computed": "Wash. Const. art. II, §1(d) (Amend. 72): majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election: the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "p_after": {
+    "not_computed": "Wash. Const. art. II, §1(d) (Amend. 72): majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election: the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "counts_moved": true,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2024-measure-WA-INITIATIVE_MEASURE_NO__2117",
+   "file": "data/measure/2024/WA.json",
+   "title": "Initiative Measure No. 2117",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "YES": 1434889,
+    "NO": 2338369
+   },
+   "votes_after": {
+    "YES": 1437103,
+    "NO": 2340077
+   },
+   "yes_share_before": 0.380279,
+   "yes_share_after": 0.38047,
+   "p_before": {
+    "not_computed": "Wash. Const. art. II, §1(d) (Amend. 72): majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election: the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "p_after": {
+    "not_computed": "Wash. Const. art. II, §1(d) (Amend. 72): majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election: the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "counts_moved": true,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  },
+  {
+   "id": "2024-measure-WA-INITIATIVE_MEASURE_NO__2124",
+   "file": "data/measure/2024/WA.json",
+   "title": "Initiative Measure No. 2124",
+   "counts_used": "state",
+   "certified": true,
+   "votes_before": {
+    "YES": 1665224,
+    "NO": 2074571
+   },
+   "votes_after": {
+    "YES": 1668435,
+    "NO": 2077216
+   },
+   "yes_share_before": 0.445271,
+   "yes_share_after": 0.445433,
+   "p_before": {
+    "not_computed": "Wash. Const. art. II, §1(d) (Amend. 72): majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election: the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "p_after": {
+    "not_computed": "Wash. Const. art. II, §1(d) (Amend. 72): majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election: the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   },
+   "counts_moved": true,
+   "p_moved": false,
+   "other_changes": [
+    "result.votes_source"
+   ]
+  }
+ ]
+}

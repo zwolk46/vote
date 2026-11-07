@@ -1,5 +1,5 @@
 {
- "about": "Each state's thresholds for statewide ballot measures and judicial retentions, read from its constitution or statute by worker D3's readers on 2026-11-07 (briefs/D3-data-local.md step 4; the orchestrator, 2026-11-07 06:16: 'Read statewide thresholds from each constitution or statute, with URLs'). Every quote was checked against the page saved when it was read, except where read_via says otherwise. t is the yes share of those voting on the question that the measure needs; compound, where set, is a rule that turns on more than that share, and p is not computed for it. only_if marks an exception that turns on what the measure does. The texts are those in force when read: applying them to 2016-2024 reads each section as in force then [inferred], except where from_year says otherwise. Used by pipeline/measures.py. Rules with read_in were read in step (a), with the ballot texts (data/measure/ballot-texts.json): Georgia's referendums on tax-exemption Acts and Rhode Island's bond acts of 2018, 2022 and 2024 (the orchestrator, 2026-11-07 14:21); to_year, where set, closes a rule's years.",
+ "about": "Each state's thresholds for statewide ballot measures and judicial retentions, read from its constitution or statute by worker D3's readers on 2026-11-07 (briefs/D3-data-local.md step 4; the orchestrator, 2026-11-07 06:16: 'Read statewide thresholds from each constitution or statute, with URLs'). Every quote was checked against the page saved when it was read, except where read_via says otherwise. t is the yes share of those voting on the question that the measure needs; compound, where set, is a rule that turns on more than that share, and p is not computed for it. only_if marks an exception that turns on what the measure does. The texts are those in force when read: applying them to 2016-2024 reads each section as in force then [inferred], except where from_year says otherwise. Used by pipeline/measures.py. Rules with read_in were read in step (a), with the ballot texts (data/measure/ballot-texts.json): Georgia's referendums on tax-exemption Acts and Rhode Island's bond acts of 2018, 2022 and 2024 (the orchestrator, 2026-11-07 14:21); to_year, where set, closes a rule's years. proposer, where set, names who puts the questions a rule governs on the ballot (legislature, initiative, referendum by petition, revision), read by D3 from the rule's own words and its applies_to, so that a question is cited to the rule that governs its kind where several rules set the same share (the orchestrator, 2026-11-07 14:36).",
  "states": {
   "AK": {
    "complete": true
@@ -375,7 +375,10 @@
    "citation": "D.C. Code §1-1001.16(r)(1)",
    "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-1001.16",
    "quote": "An initiative measure which has been ratified by a majority of the registered qualified electors voting on the measure shall not take effect until the end of the 30-day congressional review period",
-   "read_utc": "2026-11-07T07:00Z"
+   "read_utc": "2026-11-07T07:00Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "DC",
@@ -387,7 +390,10 @@
    "citation": "D.C. Code §1-1001.16(r)(2)",
    "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-1001.16",
    "quote": "If a majority of the registered qualified electors voting in a referendum on an act or part or parts thereof vote to disapprove the act or part or parts thereof, then such action shall be deemed a rejection of the act or part or parts thereof",
-   "read_utc": "2026-11-07T07:00Z"
+   "read_utc": "2026-11-07T07:00Z",
+   "proposer": [
+    "referendum"
+   ]
   },
   {
    "state": "FL",
@@ -716,7 +722,10 @@
    "citation": "Me. Const. art. IV, pt. 3, §17(1)",
    "url": "https://lldc.mainelegislature.org/Open/Const/Versions/MeConst_2024_Amd.pdf",
    "quote": "that the same have been ratified by a majority of the electors voting thereon at a statewide or general election.",
-   "read_utc": "2026-11-07T07:02Z"
+   "read_utc": "2026-11-07T07:02Z",
+   "proposer": [
+    "referendum"
+   ]
   },
   {
    "state": "ME",
@@ -765,7 +774,10 @@
    "citation": "Mich. Const. art. XII, §1",
    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-Article-XII-1",
    "quote": "If a majority of electors voting on a proposed amendment approve the same, it shall become part of the constitution",
-   "read_utc": "2026-11-07T06:53Z"
+   "read_utc": "2026-11-07T06:53Z",
+   "proposer": [
+    "legislature"
+   ]
   },
   {
    "state": "MI",
@@ -777,7 +789,10 @@
    "citation": "Mich. Const. art. XII, §2",
    "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-Article-XII-2",
    "quote": "If the proposed amendment is approved by a majority of the electors voting on the question, it shall become part of the constitution",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "MI",
@@ -874,7 +889,10 @@
    "citation": "Mo. Const. art. III, §51",
    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=III%20%2051&bid=-1",
    "quote": "Except as provided in this constitution, any measure proposed shall take effect when approved by a majority of the votes cast thereon.",
-   "read_utc": "2026-11-07T06:56Z"
+   "read_utc": "2026-11-07T06:56Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "MO",
@@ -886,7 +904,11 @@
    "citation": "Mo. Const. art. III, §52(b)",
    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=III%20%2052(b)&bid=-1",
    "quote": "Any measure referred to the people shall take effect when approved by a majority of the votes cast thereon, and not otherwise.",
-   "read_utc": "2026-11-07T06:56Z"
+   "read_utc": "2026-11-07T06:56Z",
+   "proposer": [
+    "referendum",
+    "legislature"
+   ]
   },
   {
    "state": "MO",
@@ -910,7 +932,10 @@
    "citation": "Mont. Const. art. XIV, §8",
    "url": "https://leg.mt.gov/bills/mca/title_0000/article_0140/part_0010/section_0080/0000-0140-0010-0080.html",
    "quote": "If approved by a majority of the electors voting thereon, the amendment shall become a part of this constitution on the first day of July after certification of the election returns unless the amendment provides otherwise.",
-   "read_utc": "2026-11-07T07:00Z"
+   "read_utc": "2026-11-07T07:00Z",
+   "proposer": [
+    "legislature"
+   ]
   },
   {
    "state": "MT",
@@ -922,7 +947,10 @@
    "citation": "Mont. Const. art. XIV, §9(3)",
    "url": "https://leg.mt.gov/bills/mca/title_0000/article_0140/part_0010/section_0090/0000-0140-0010-0090.html",
    "quote": "If approved by a majority voting thereon, it shall become a part of the constitution effective the first day of July following its approval, unless the amendment provides otherwise.",
-   "read_utc": "2026-11-07T07:00Z"
+   "read_utc": "2026-11-07T07:00Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "MT",
@@ -1006,7 +1034,11 @@
    "citation": "N.D. Const. art. III, sec. 8 (and sec. 9)",
    "url": "https://ndlegis.gov/constit/a03.pdf",
    "quote": "If a majority of votes cast upon an initiated or a referred measure are affirmative, it shall be deemed enacted.",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "initiative",
+    "referendum"
+   ]
   },
   {
    "state": "ND",
@@ -1018,7 +1050,10 @@
    "citation": "N.D. Const. art. III, sec. 8 (and sec. 9)",
    "url": "https://ndlegis.gov/constit/a03.pdf",
    "quote": "If a majority of votes cast upon an initiated or a referred measure are affirmative, it shall be deemed enacted.",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "ND",
@@ -1030,7 +1065,10 @@
    "citation": "N.D. Const. art. III, sec. 9",
    "url": "https://ndlegis.gov/constit/a03.pdf",
    "quote": "All other provisions relating to initiative measures apply to initiative measures for constitutional amendments.",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "ND",
@@ -1042,7 +1080,10 @@
    "citation": "N.D. Const. art. IV, sec. 16",
    "url": "https://ndlegis.gov/constit/a04.pdf",
    "quote": "If agreed to upon a roll call by a majority of the members elected to each house, must be submitted to the electors and if a majority of the votes cast upon the question are in the affirmative, the amendment is a part of this constitution.",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "legislature"
+   ]
   },
   {
    "state": "NE",
@@ -1054,7 +1095,10 @@
    "citation": "Neb. Const. art. III, sec. 4",
    "url": "https://nebraskalegislature.gov/laws/articles.php?article=III-4",
    "quote": "A measure initiated shall become a law or part of the Constitution, as the case may be, when a majority of the votes cast thereon, and not less than thirty-five per cent of the total vote cast at the election at which the same was submitted, are cast in favor thereof",
-   "read_utc": "2026-11-07T06:53Z"
+   "read_utc": "2026-11-07T06:53Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "NE",
@@ -1066,7 +1110,10 @@
    "citation": "Neb. Const. art. III, sec. 4",
    "url": "https://nebraskalegislature.gov/laws/articles.php?article=III-4",
    "quote": "A measure initiated shall become a law or part of the Constitution, as the case may be, when a majority of the votes cast thereon, and not less than thirty-five per cent of the total vote cast at the election at which the same was submitted, are cast in favor thereof",
-   "read_utc": "2026-11-07T06:53Z"
+   "read_utc": "2026-11-07T06:53Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "NE",
@@ -1078,7 +1125,10 @@
    "citation": "Neb. Const. art. XVI, sec. 1",
    "url": "https://nebraskalegislature.gov/laws/articles.php?article=XVI-1",
    "quote": "If a majority of the electors voting on any such amendment adopt the same, it shall become a part of this Constitution, provided the votes cast in favor of such amendment shall not be less than thirty-five per cent of the total votes cast at such election.",
-   "read_utc": "2026-11-07T06:53Z"
+   "read_utc": "2026-11-07T06:53Z",
+   "proposer": [
+    "legislature"
+   ]
   },
   {
    "state": "NE",
@@ -1102,7 +1152,10 @@
    "citation": "Neb. Const. art. III, sec. 3",
    "url": "https://nebraskalegislature.gov/laws/articles.php?article=III-3",
    "quote": "When the referendum is invoked as to any act or part of act, other than emergency acts or those for the immediate preservation of the public peace, health, or safety, by petition signed by not less than ten percent of the registered voters of the state distributed as aforesaid, it shall suspend the taking effect of such act or part of act until the same has been approved by the electors of the state.",
-   "read_utc": "2026-11-07T06:55Z"
+   "read_utc": "2026-11-07T06:55Z",
+   "proposer": [
+    "referendum"
+   ]
   },
   {
    "state": "NE",
@@ -1235,7 +1288,10 @@
    "citation": "Ohio Const. art. XVI, sec. 1",
    "url": "https://codes.ohio.gov/ohio-constitution/section-16.1",
    "quote": "If the majority of the electors voting on the same shall adopt such amendments the same shall become a part of the constitution.",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "legislature"
+   ]
   },
   {
    "state": "OH",
@@ -1247,7 +1303,10 @@
    "citation": "Ohio Const. art. II, sec. 1b",
    "url": "https://codes.ohio.gov/ohio-constitution/section-2.1b",
    "quote": "Any proposed law or amendment to the constitution submitted to the electors as provided in 1a and 1b, if approved by a majority of the electors voting thereon, shall take effect thirty days after the election at which it was approved and shall be published by the secretary of state.",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "OH",
@@ -1259,7 +1318,10 @@
    "citation": "Ohio Const. art. II, sec. 1b",
    "url": "https://codes.ohio.gov/ohio-constitution/section-2.1b",
    "quote": "Any proposed law or amendment to the constitution submitted to the electors as provided in 1a and 1b, if approved by a majority of the electors voting thereon, shall take effect thirty days after the election at which it was approved and shall be published by the secretary of state.",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "OH",
@@ -1271,7 +1333,10 @@
    "citation": "Ohio Const. art. II, sec. 1c",
    "url": "https://codes.ohio.gov/ohio-constitution/section-2.1c",
    "quote": "no such law, section or item shall go into effect until and unless approved by a majority of those voting upon the same.",
-   "read_utc": "2026-11-07T06:54Z"
+   "read_utc": "2026-11-07T06:54Z",
+   "proposer": [
+    "referendum"
+   ]
   },
   {
    "state": "OH",
@@ -1308,7 +1373,10 @@
    "citation": "Okla. Const. art. XXIV, sec. 1",
    "url": "https://accessible.oksenate.gov/sites/default/files/2022-05/oc24.pdf",
    "quote": "If a majority of all the electors voting on any proposed amendment at such election shall vote in favor thereof, it shall thereby become a part of this Constitution.",
-   "read_utc": "2026-11-07T06:56Z"
+   "read_utc": "2026-11-07T06:56Z",
+   "proposer": [
+    "legislature"
+   ]
   },
   {
    "state": "OK",
@@ -1320,7 +1388,12 @@
    "citation": "Okla. Const. art. V, sec. 3",
    "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
    "quote": "Any measure referred to the people by the initiative or referendum shall take effect and be in force when it shall have been approved by a majority of the votes cast thereon and not otherwise.",
-   "read_utc": "2026-11-07T06:57Z"
+   "read_utc": "2026-11-07T06:57Z",
+   "proposer": [
+    "initiative",
+    "referendum",
+    "legislature"
+   ]
   },
   {
    "state": "OK",
@@ -1332,7 +1405,10 @@
    "citation": "Okla. Const. art. V, sec. 3",
    "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
    "quote": "Any measure referred to the people by the initiative or referendum shall take effect and be in force when it shall have been approved by a majority of the votes cast thereon and not otherwise.",
-   "read_utc": "2026-11-07T06:57Z"
+   "read_utc": "2026-11-07T06:57Z",
+   "proposer": [
+    "initiative"
+   ]
   },
   {
    "state": "OK",
@@ -1344,7 +1420,10 @@
    "citation": "Okla. Const. art. V, sec. 33(C)",
    "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
    "quote": "shall become effective and be in force when it has been approved by a majority of the votes cast on the measure at such election and not otherwise, except as otherwise provided in subsection D of this section.",
-   "read_utc": "2026-11-07T06:57Z"
+   "read_utc": "2026-11-07T06:57Z",
+   "proposer": [
+    "legislature"
+   ]
   },
   {
    "state": "OK",
@@ -1392,7 +1471,11 @@
    "citation": "Or. Const. art. IV, sec. 1(4)(d)",
    "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
    "quote": "an initiative or referendum measure becomes effective 30 days after the day on which it is enacted or approved by a majority of the votes cast thereon.",
-   "read_utc": "2026-11-07T06:53Z"
+   "read_utc": "2026-11-07T06:53Z",
+   "proposer": [
+    "initiative",
+    "referendum"
+   ]
   },
   {
    "state": "OR",
@@ -1404,7 +1487,10 @@
    "citation": "Or. Const. art. XVII, sec. 1",
    "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
    "quote": "If a majority of the electors voting on any such amendment shall vote in favor thereof, it shall thereby become a part of this Constitution.",
-   "read_utc": "2026-11-07T06:53Z"
+   "read_utc": "2026-11-07T06:53Z",
+   "proposer": [
+    "legislature"
+   ]
   },
   {
    "state": "OR",
@@ -1416,7 +1502,10 @@
    "citation": "Or. Const. art. XVII, sec. 2(1)",
    "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
    "quote": "if it appears to the Governor that the majority of the votes cast in the election on the proposed revision are in favor of the proposed revision, he shall, promptly following the canvass, declare, by his proclamation, that the proposed revision has received a majority of votes",
-   "read_utc": "2026-11-07T06:53Z"
+   "read_utc": "2026-11-07T06:53Z",
+   "proposer": [
+    "revision"
+   ]
   },
   {
    "state": "OR",
@@ -1537,6 +1626,22 @@
    "from_year": 2022,
    "to_year": 2022,
    "read_in": "step (a), with the ballot texts (data/measure/ballot-texts.json): the act that puts a question on the ballot is the law that governs it (the orchestrator, 2026-11-07 14:21)"
+  },
+  {
+   "state": "RI",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "the bond projects of the proposition the 2016 act puts to the people (its Article 5, Relating to Capital Development Program)",
+   "rule": "a majority of the people voting on the proposition, project by project",
+   "citation": "R.I. P.L. 2016, ch. 142, art. 5, §3",
+   "url": "https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm",
+   "quote": "If a majority of the people voting on the proposition provided for in section 1 hereof shall vote to approve the proposition as to any project provided for in section 1 hereof, said project shall be deemed to be approved by the people.",
+   "read_utc": "2026-11-07T14:39Z",
+   "only_if": "a project of the proposition put to the people by R.I. P.L. 2016, ch. 142",
+   "from_year": 2016,
+   "to_year": 2016,
+   "read_in": "with the state's own lists of statewide measures filed as local (data/measure/statewide-filed-local.json): the act that puts a question on the ballot is the law that governs it (the orchestrator, 2026-11-07 14:21)"
   },
   {
    "state": "RI",

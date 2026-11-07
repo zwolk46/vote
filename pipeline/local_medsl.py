@@ -97,7 +97,127 @@ def load(year):
                     continue
                 out.append(c)
     import local_nj as NJ
-    return NJ.county_gate(certified_la(certified_in(certified_nc(fix_questions(out, year), year), year), year), year)
+    return NJ.county_gate(certified_la(certified_in(certified_nc(join_statewide(fix_questions(out, year), year), year),
+                                                year), year), year)
+
+
+STATEWIDE_LISTED = os.path.join(L.REPO, "data", "measure", "statewide-filed-local.json")
+JOINED = collections.defaultdict(collections.Counter)   # year -> what join_statewide did, for the report
+
+
+def _listed():
+    if not os.path.exists(STATEWIDE_LISTED):
+        return []
+    with open(STATEWIDE_LISTED) as f:
+        return json.load(f)["questions"]
+
+
+def join_statewide(contests, year):
+    """A statewide question MEDSL files with local offices (its local dataverse), once per county (Alabama's 2020
+    amendments, 67 lines) or once for the whole state (Arkansas's 2016 issues), is a statewide question where the
+    state's own list of that year's statewide measures names it (data/measure/statewide-filed-local.json; the
+    orchestrator, 2026-11-07 13:54: 'from the state's own list of that year's statewide measures where it answers,
+    so they are marked stated'). Each one's lines are joined into one question filed with the state's offices: its
+    counties' votes added up answer by answer, its counties and precincts together. Whether it then covers the
+    state is still read from its counties and precincts (measures.scope_of): a question the source holds for part of
+    the state stays partial, and gets no p."""
+    listed = [q for q in _listed() if q["year"] == year]
+    JOINED[year] = collections.Counter()   # this load's joins (a year may be loaded more than once)
+    if not listed:
+        return contests
+    out, groups = [], collections.defaultdict(list)
+    for c in contests:
+        hit = next((i for i, q in enumerate(listed)
+                    if c["question"] and c["dataverse"] != "STATE" and c["state"] == q["state"]
+                    and c["office"] in q["offices_as_filed"] and c["date"] == q["date"]), None)
+        if hit is None:
+            out.append(c)
+        else:
+            groups[hit].append(c)
+    for i, q in enumerate(listed):
+        g = groups.get(i)
+        if not g:
+            raise SystemExit(f"join_statewide: {q['state']} {year} {q['title']!r} is listed but MEDSL holds no line of "
+                             f"it under {q['offices_as_filed']}")
+        votes, cands = collections.Counter(), {}
+        for c in g:
+            for x in c["candidates"]:
+                votes[x["name"]] += x["votes"]
+                k = cands.setdefault(x["name"], {k_: v for k_, v in x.items() if k_ != "votes"})
+                if x.get("votes_missing_in_some_precincts"):
+                    k["votes_missing_in_some_precincts"] = True
+        j = dict(g[0], dataverse="STATE", office=q["offices_as_filed"][0],
+                 counties=sorted({k for c in g for k in c["counties"]}),
+                 precincts=sum(c.get("precincts") or 0 for c in g),
+                 candidates=[dict(cands[n], votes=v) for n, v in votes.items()],
+                 filed_local={"records": len(g), "offices_as_filed": sorted({c["office"] for c in g}), "listed": q})
+        j.pop("one_answer_only", None)
+        if any(c.get("one_answer_only") for c in g):   # a piece the source gives one answer of: the whole is held
+            j["one_answer_only"] = True
+        certified_count(j, q)
+        out.append(j)
+        JOINED[year][f"{q['state']}: statewide questions filed with local offices, joined ({len(g)} lines)"] += 1
+    return out
+
+
+ONE_PLACE = collections.defaultdict(collections.Counter)   # year -> what one_place found, for the report
+
+
+def one_place(contests, year, mref, counts):
+    """A local question MEDSL holds in one county's file only is counted whole where the place its title names lies
+    wholly in that county (pipeline/places.py; the orchestrator's item 5: "count one whole only where the place it
+    names lies entirely within that county, by the Census Bureau's place-to-county relationship file. Hold the
+    rest"; reason: "a question can sit in one county's file only because another county's file is missing it").
+    Sets c["one_place"]; every other one-county question is held as before (counted by county), its reason
+    counted."""
+    import measures as MS
+    import places as PL
+    mine = [c for c in contests if c["question"] and c.get("source", "medsl") == "medsl"
+            and MS.scope_of(c, mref, year) == "local"]
+    where = collections.defaultdict(set)
+    for c in mine:
+        where[(c["state"], c["office"].upper(), (c.get("subject") or "").upper(), c.get("date"))].update(c["counties"])
+    ONE_PLACE[year] = collections.Counter()
+    for c in mine:
+        if len(where[(c["state"], c["office"].upper(), (c.get("subject") or "").upper(), c.get("date"))]) != 1:
+            ONE_PLACE[year]["in more than one county's file: held"] += 1
+            continue
+        if MS.kind_of(c) == "retention":
+            ONE_PLACE[year]["one county: a retention (a court's district, not a place): held"] += 1
+            continue
+        if len(c["counties"]) != 1:
+            ONE_PLACE[year]["one county: the line names no county: held"] += 1
+            continue
+        found, why = PL.match(c["office"], c["state"], c["counties"][0])
+        if found:
+            c["one_place"] = found
+            ONE_PLACE[year][f"one county: whole, the place [{found['mark']}]"] += 1
+        else:
+            ONE_PLACE[year][f"one county: held, {why.split(' (')[0].split(' so ')[0]}"] += 1
+    for k, v in ONE_PLACE[year].items():
+        counts[f"one-county {year}: {k}"] = v
+
+
+def certified_count(j, q):
+    """The certified count wins (the orchestrator's ruling, 2026-11-07 15:16: 'Where a state page that prints totals
+    marks them certified or official, its totals are the statewide record's counts, shown and used in every pool.
+    MEDSL's sum stays beside them with the difference. Where the page carries no such mark, MEDSL's counts stand and
+    the difference is recorded'; reason: 'a figure shown has to be the count of record, and the certifying source is
+    that count'). A joined question whose state total is marked certified (statewide-filed-local.json,
+    state_total.certified) takes the state's figures answer by answer; MEDSL's sum is kept in
+    filed_local.medsl_votes. Every answer must match by name, or the build stops."""
+    st_ = q.get("state_total") or {}
+    if not (st_.get("certified") or {}).get("marked"):
+        return
+    have = {x["name"].upper(): x for x in j["candidates"]}
+    if set(have) != set(st_["votes"]):
+        raise SystemExit(f"certified_count: {q['state']} {q['year']} {q['title']!r}: MEDSL's answers {sorted(have)} "
+                         f"are not the state's {sorted(st_['votes'])}")
+    j["filed_local"]["medsl_votes"] = {x["name"]: x["votes"] for x in j["candidates"]}
+    for k, v in st_["votes"].items():
+        have[k]["votes"] = v
+        have[k].pop("votes_missing_in_some_precincts", None)   # the certified total is the whole count
+    JOINED[q["year"]][f"{q['state']}: joined statewide questions counted from the state's certified totals"] += 1
 
 
 def held(c, bad_y):
@@ -878,7 +998,10 @@ def backtest_measures(mtest, mhalf):
                      "questions on its other dates are in data/local/backtest-ncsbe.json. near_votes: the same within "
                      "1,000 to 50,000 votes of the threshold. lean_notes_local: for each local class, the two tests of "
                      "the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give, and lean_notes_statewide "
-                     "the same for the statewide classes near 1/2 (data/local/REPORT.md section 18). Built by "
+                     "the same for the statewide classes near 1/2, the note of each statewide p taken at 1/2; "
+                     "lean_notes_statewide_own_threshold, the same for the statewide questions given a forecast at a "
+                     "threshold other than 1/2, each tested near its own t, the note of each p taken there (the "
+                     "orchestrator, 14:36; data/local/REPORT.md sections 18 and 20). Built by "
                      "pipeline/local_medsl.py build.",
             "near_half": half,
             "at_threshold": at_threshold([r_ for r_ in mtest if not r_["key"].startswith("local ")]),
@@ -936,7 +1059,7 @@ def vote_lines(tr, s_, t, total):
             for k in VOTE_LINES}
 
 
-def lean_note(rows, what, of="the threshold"):
+def lean_note(rows, what, of="the threshold", finish="near-even finishes"):
     """The two tests over a back-test's rows (each with 'near' and 'votes'), and the note they give, if any."""
     def test(e, n):
         return {"expected": round(e, 1), "seen": n, "counts": max(e, n) >= NOTE_MIN,
@@ -974,7 +1097,7 @@ def lean_note(rows, what, of="the threshold"):
     counts_ = ([f"{s['seen']} against {s['expected']:.1f} within 1 point of {of}"] if sc else []) + \
               ([f"{v['seen']} against {v['expected']:.1f} within {k:,} votes"] if vc else [])
     out["stands_on"] = "both tests" if sc and vc else "(s) only" if sc else "(v) only"
-    out["note"] = (f"this route's back-test of {what} shows {lean} near-even finishes than it forecast "
+    out["note"] = (f"this route's back-test of {what} shows {lean} {finish} than it forecast "
                    f"({', and '.join(counts_)}, {ys}), so p may be {'low' if lean == 'more' else 'high'}")
     return out
 
@@ -1766,6 +1889,8 @@ def build(out_dir, with_p=True):
     import measures as MS
     book = MS.load_thresholds()
     mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
+    for y in MEASURE_YEARS + ODD_YEARS:
+        one_place(m[y], y, mref, counts)
     mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS + ODD_YEARS}
     mdens, mtest, mhalf = {}, [], []
     import local_ncsbe as NS
@@ -1824,7 +1949,14 @@ def build(out_dir, with_p=True):
             # MEDSL's wording of a local question does not show its place; the State Board's file names it (or the
             # question is one county's own: pipeline/intake/ncsbe.py, generic), and Indiana's gives each question
             # once with its counties and its type, title and text
-            by_county = c.get("source", "medsl") == "medsl"
+            by_county = c.get("source", "medsl") == "medsl" and not c.get("one_place")
+            if c.get("one_place"):   # one county's own question: the place its title names lies wholly in it
+                op = c["one_place"]
+                rec["place_whole"] = op
+                notes.append(f"counted whole: held in one county's file only, and its title names {op['place']}, "
+                             f"which lies wholly in {op['county_name']} by the Census Bureau's 2020 place-by-county "
+                             f"file ({op['how']}; [{op['mark']}]; the place's county [measured] for 2020"
+                             + ("" if year == 2020 else ", [inferred] for " + str(year)) + ")")
             if scope == "local" and by_county:
                 notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
                              "it, so a question held across several counties appears once per county")
@@ -1837,6 +1969,42 @@ def build(out_dir, with_p=True):
             if c.get("joined_from"):
                 notes.append("the source files its yes and its no under different wordings (" +
                              " | ".join(x.title() for x in c["joined_from"]) + "); joined")
+            if c.get("filed_local"):   # a statewide question MEDSL files with local offices (join_statewide)
+                fl, q = c["filed_local"], c["filed_local"]["listed"]
+                notes.append("filed in MEDSL's local file with local offices ("
+                             + (f"{fl['records']} lines, one per county" if fl["records"] > 1 else "one line")
+                             + (", under " + " and ".join(repr(x.title()) for x in fl["offices_as_filed"])
+                                if len(fl["offices_as_filed"]) > 1 else "")
+                             + "); the state's own list of that year's statewide measures names it, so its lines "
+                               "are joined into one statewide question (data/measure/statewide-filed-local.json)")
+                rec["listed_statewide"] = {"list": q["list"], "quote": q["quote"], "mark": q["mark"],
+                                           "lines_joined": fl["records"]}
+                for k_ in ("type", "type_mark", "fact"):   # what the list shows, beside the rule it decided
+                    if q.get(k_) is not None:
+                        rec["listed_statewide"][k_] = ({x: q[k_].get(x) for x in ("applies", "quote", "why", "mark")}
+                                                       if k_ == "fact" else q[k_])
+                if q.get("proposer"):
+                    rec["listed_statewide"]["proposer"] = {"who": q["proposer"]["who"], "mark": q["proposer"]["mark"]}
+                if q.get("state_total"):   # the state's own statewide figures, where a page read prints them
+                    st_ = q["state_total"]
+                    medsl = {k.upper(): v for k, v in (fl.get("medsl_votes") or
+                                                       {x["name"]: x["votes"] for x in c["candidates"]}).items()}
+                    rec["listed_statewide"]["state_total"] = {
+                        "votes": st_["votes"], "quote": st_["quote"], "cache_file": st_["quote_file"],
+                        "certified": st_["certified"], "counts_used": "state" if fl.get("medsl_votes") else "medsl",
+                        "medsl_votes": medsl,
+                        "agrees": all(medsl.get(k) == v for k, v in st_["votes"].items()),
+                        "medsl_less_state": {k: medsl.get(k, 0) - v for k, v in st_["votes"].items()}}
+                    if fl.get("medsl_votes"):   # the certified count wins (certified_count)
+                        rec["result"]["votes_source"] = "state_certified"
+                        d_ = rec["listed_statewide"]["state_total"]["medsl_less_state"]
+                        notes.append("counted from the state's certified totals ("
+                                     + "; ".join(f"{k.title()} {v:,}" for k, v in st_["votes"].items())
+                                     + "), which the state marks certified; MEDSL's sum stands beside them ("
+                                     + "; ".join(f"{k.title()} {medsl.get(k, 0):,}" for k in st_["votes"])
+                                     + ("" if not any(d_.values()) else ", a difference of "
+                                        + "; ".join(f"{k.title()} {v:+,}" for k, v in d_.items()))
+                                     + ") (listed_statewide.state_total)")
             if notes:
                 rec["notes"] = notes
             label = f"measure {year}"
@@ -1876,7 +2044,7 @@ def build(out_dir, with_p=True):
                     bt_ = (book.get("ballot_texts") or {}).get(rec["id"])
                     if bt_:   # step (a): the words read, beside the rule they decided
                         rec["ballot_text"] = {k: bt_.get(k) for k in ("source", "source_title", "type", "type_as_read",
-                                                                      "type_quote", "type_mark", "fact")
+                                                                      "type_quote", "type_mark", "fact", "proposer")
                                               if bt_.get(k) is not None}
                 if rule is None:
                     p = {"not_computed": why}
@@ -1884,7 +2052,7 @@ def build(out_dir, with_p=True):
                 else:
                     t = rule["t"]
                     rec["threshold"] = {k: rule.get(k) for k in ("t", "rule", "citation", "url", "quote", "read_utc",
-                                                                  "read_via", "read_in", "mark") if rule.get(k) is not None}
+                                                                  "read_via", "read_in", "mark", "also_governs") if rule.get(k) is not None}
                     rec["threshold"]["matched"] = how
                     if (year, key, t) not in mdens:
                         mdens[(year, key, t)] = MS.density_at(train_q, key, t)
@@ -1915,13 +2083,32 @@ def build(out_dir, with_p=True):
                             counts[f"{label}: p = 0, no like measure near the threshold"] += 1
                         else:
                             p = MS.p_block(f, t, n, f"the model's own ({L.METHOD}), like past measures")
-                            if key in mnote:
+                            if key in mnote and t == 0.5:   # the note near 1/2 only on a p taken at 1/2 (14:36)
                                 p["note"] = mnote[key]
                             counts[f"{label}: p computed, {key}"] += 1
             rec["p"] = p
             counts[f"{label}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
+    # a statewide p taken at a threshold other than 1/2 rests on f(t) there, so its note comes only from the
+    # back-test near its own threshold: the statewide questions given a forecast at a threshold other than 1/2, each
+    # tested within 1 point and within k votes of its own t (the orchestrator, 2026-11-07 14:36: "a p taken at t !=
+    # 1/2 carries a note only from a back-test near its own threshold, under the 11:01 rule ... If neither test
+    # counts, the p gets no note. ... Reason: a note reports the back-test at the point where its p is taken.")
+    tnotes = {key: lean_note([r_ for r_ in mtest if r_["key"] == key and r_["t"] != 0.5],
+                             f"{key}s at a threshold other than ½", of="its own threshold",
+                             finish="finishes near their threshold")
+              for key in sorted({r_["key"] for r_ in mtest if r_["key"].startswith("statewide")})}
+    for (level, year, st), cs in files.items():
+        if level == "measure":
+            for rec in cs:
+                fc = [x for x in rec.get("forecasts") or [] if x.get("route") == "like past measures"]
+                if (fc and fc[-1]["class"] in tnotes and "value" in rec["p"]
+                        and (rec.get("threshold") or {}).get("t", 0.5) != 0.5):
+                    rec["p"].pop("note", None)
+                    if tnotes[fc[-1]["class"]]["note"]:
+                        rec["p"]["note"] = tnotes[fc[-1]["class"]]["note"]
+                        counts[f"measure {year}: {fc[-1]['class']} at its own threshold: lean note"] += 1
     # the lean note for each local question's class, on this build's own back-test (the orchestrator, 13:39)
     lnotes = {key: lean_note([r_ for r_ in mtest if r_["key"] == key], LOCAL_NOTE_POOL.get(key[-2:], f"{key[-2:]}'s local questions"))
               for key in sorted({r_["key"] for r_ in mtest if r_["key"].startswith("local ")})}
@@ -1936,7 +2123,8 @@ def build(out_dir, with_p=True):
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:
-            json.dump(dict(backtest_measures(mtest, mhalf), lean_notes_statewide=snotes, lean_notes_local=lnotes), f,
+            json.dump(dict(backtest_measures(mtest, mhalf), lean_notes_statewide=snotes,
+                           lean_notes_statewide_own_threshold=tnotes, lean_notes_local=lnotes), f,
                       indent=1)
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-classes.json"), "w") as f:
             json.dump(backtest_local_classes(scored), f, indent=1)
@@ -1998,6 +2186,15 @@ def build(out_dir, with_p=True):
         if "in_enr" in used:   # Indiana's own certified file (certified_in)
             import local_in as LI
             head["sources"]["in_enr"] = LI.source_block()
+        if any(x.get("place_whole") for x in cs + others):   # the Census files that place a one-county question
+            import places as PL
+            for b_ in PL.source_blocks():
+                head["sources"]["census_places" if "place_by_county" in b_["url"] else "census_cousub"] = b_
+        if any((x.get("result") or {}).get("votes_source") == "state_certified" for x in cs + others):
+            head["sources"]["state_certified"] = {   # the certified count wins (certified_count)
+                "name": "the state's own certified statewide totals of a statewide question MEDSL files with local "
+                        "offices", "file": "data/measure/statewide-filed-local.json",
+                "where": "each such record's listed_statewide.state_total: the page, its words and its certificate"}
         L.write_level_file(path, head, cs + others)
         sz = os.path.getsize(path)
         total += sz
@@ -2018,6 +2215,7 @@ def build(out_dir, with_p=True):
     print(f"wrote {sum(len(v) for v in files.values()):,} contests in {len(files):,} files, {total / 1e6:.1f} MB: "
           + ", ".join(f"{k} {v / 1e6:.1f} MB" for k, v in sorted(by_level.items())))
     counts.update({f"left out, no vote anywhere, {y}": EMPTY[y] for y in YEARS})
+    counts.update({f"joined {y}, {k}": v for y in sorted(JOINED) for k, v in JOINED[y].items()})
     print(json.dumps(dict(sorted(counts.items())), indent=1))
     return files, counts
 

@@ -1032,3 +1032,146 @@ No calibration is applied, as for every route since 09:49 (§7).
 - **The questions with p alone** now finish near their own threshold much as forecast, within 1 and 2 points. Within 5 points they still run high, 37 against 22.7. These are counts, not a test of the rule of 11:01.
 
 **Open, not changed.** Where several general rules of one type set the same share, `threshold.citation` names the first in the file. For example, Oregon's 115, referred by the legislature, cites art. IV §1(4)(d), the initiative's rule, though art. XVII §1 governs a referral. The share is the same, but the cited section is not always the governing one [measured for Oregon; not checked for every state].
+
+## 20. Two fixes from the check of #81, and the statewide questions filed as local
+
+*Added 2026-11-07 at 15:11 UTC, at the orchestrator's word of 14:36: "Two fixes go in your next PR, with the misfiled statewide questions: 1. Citations. Cite the rule that governs each question by its kind, not the first general rule in the file that sets the same share. ... Reason: a citation has to be the law that actually governs the question, even when the share is the same. 2. The notes on supermajority p. ... a p taken at t ≠ ½ carries a note only from a back-test near its own threshold, under the 11:01 rule ... If neither test counts, the p gets no note. The note near ½ stays only on p taken at ½. Reason: a note reports the back-test at the point where its p is taken. List every note that changes." The questions themselves follow the word of 13:54: identify them "from the state's own list of that year's statewide measures where it answers, so they are marked stated ... Use your title count only where the state refuses".*
+
+**Fix 1: the governing rule** (`pipeline/measures.py`, `proposer_of` and `_one`) [measured]. Where several rules of one type set the same share, the question's proposer chooses among them.
+- **Who proposed it.** It is read from the question's ballot text where step (a) read one (`ballot_text.proposer`; Oregon's 12 from the voters' pamphlets and Ohio's 2 were added), or else from its title's own words ("INITIATIVE PETITION", "LEGISLATIVE REFERENDUM", "HJR", ...). The rules in `thresholds.json` now carry `proposer` (28 rules in 10 states).
+- **One rule left.** The citation is that rule, and `matched` says "proposed by the X [mark], so C governs".
+- **Several left.** Where the source does not show who proposed it, every rule that could govern is cited, "A, or B", with the others in `threshold.also_governs`. One law read two ways (Wyoming's art. 20 §1, alone and with its statute) is cited once.
+- **What changed.** 75 records, every one in `data/measure/moves-citations-notes.json`, taken against `8b794e7`. No p figure moved.
+  - A single, right citation now: Oregon's 5 legislative referrals (art. XVII §1, was IV §1(4)(d)); Montana's 4 initiated amendments (XIV §9(3), was §8); Ohio's two Issue 1s (II §1b, was XVI §1); Oklahoma's 4 initiative petitions (V §3, was XXIV §1); DC's Initiative 83 (unchanged, now with its proposer).
+  - Every candidate cited, where the source does not show the proposer: Oklahoma 10, North Carolina 6, Alaska 5, North Dakota 5, Michigan 2, Missouri 2, Montana 2, New York 1, and Nebraska's 2022 Amendment 1 (held, compound either way).
+  - North Dakota's "art. III, sec. 8 (and sec. 9)" and "art. III, sec. 9" both stand for an initiated amendment; the file reads the same law twice there, and both are cited [measured; not merged].
+
+**Fix 2: a supermajority p's note** (`pipeline/local_medsl.py`, after the measure loop) [measured]. The near-½ note is written only on a p taken at ½. A p taken at t ≠ ½ takes its note from `lean_notes_statewide_own_threshold`: the 18 statewide questions given a forecast at a threshold other than ½, each tested within 1 point and within k votes of its own t.
+- Within 1 point, 0.9 were expected and 0 seen; under 5 are expected at every vote line. Neither test counts, so these p carry no note.
+- **The 18 notes removed**, each listed: Colorado's 2022 Amendments D, E, F and 2024 G, H, I, K, 79, 80 (55%), and Florida's 2022 Amendments 1-3 and 2024 1-6 (60%). The join below leaves this unchanged.
+
+**The statewide questions filed as local** (`pipeline/local_medsl.py`, `join_statewide`; `data/measure/statewide-filed-local.json`).
+- **What MEDSL did.** It files 35 statewide questions in its local files: 1,420 lines, once per county (Alabama's 2020 amendments, 67 each; Illinois's 2024 advisory questions, 102 each) or once for the whole state (Arkansas's 2016 issues, Florida's 2016 Amendment 1, Rhode Island's 2016 questions). Washington's 2018 Advisory Vote 19 is one line of 38 counties plus King County's own line, "King County Advisory Vote No. 19".
+- **What was read.** Two readers read each state's own list of that year's statewide measures, 14:37 to 14:58 UTC. All 35 are on their state's list. The readers checked their 213 quotes word for word against the saved pages, and I checked again the 144 the record uses (`statewide-filed-local.json`), bad: 0.
+  - Arkansas: the Secretary of State's table of initiatives and amendments. Florida: the Division of Elections' 2016 booklet. Louisiana: the Secretary of State's 2018 list. Alabama: the certified Final Canvass. Montana: the Secretary of State's 2020 ballot issues page.
+  - Arizona: the Legislative Council's results memo of 4 December 2018 (azleg.gov, ruled a true source at 14:06); azsos.gov refused (403, Cloudflare). Washington: the Secretary of State's results site. Illinois: the State Board of Elections' statewide advisory questions. Minnesota: the Secretary of State's ballot questions.
+  - Rhode Island's election sites refused earlier today and were not asked again. Its 7 rest on the General Assembly's own acts, which put each one to the state's electors at the November 2016 general election: P.L. 2016 ch. 142 art. 5 (the five bonds), ch. 5 (the Tiverton gaming question) and Resolution ch. 329 (the ethics amendment). No title count was needed.
+- **Marks.** 31 are matched to their entry [stated]. 4 are [inferred]: Arkansas's Issue 3, whose wording differs from the list's ("Concerning" against "to Encourage"), and Illinois's three, which the State Board's document lists without numbers.
+- **The join.** Each question's lines become one statewide record, its votes added answer by answer, its counties and precincts together. Whether it covers the state is still read from them (`measures.scope_of`), and all 35 do. Each record names its list in `listed_statewide`, with the type, proposer and special-rule fact the list shows (`data/README.md`).
+- **Against the state's own figures**, where a page read prints them (`listed_statewide.state_total`) [measured]. Alabama's 6, Montana's LR-130 and Arizona's 127 agree to the vote. Arkansas's 4 differ by 0 to 25 votes. Washington's run below the state's by 806 to 3,322 votes a side: 2018's Advisory Vote 19 and 2024's four initiatives. The counts shown are MEDSL's, as for every other question; none of the differing ones has a p.
+
+**What the lists settle** [as marked].
+- **Types.** As the lists print them: amendments, Montana's LR-130 a statute referred by the legislature, Rhode Island's bonds, Washington's initiatives statutes, and Illinois's and Washington's 2018 advisory votes. Rhode Island's question 1 is the referendum on the Tiverton gaming act (art. VI §22), not an amendment, though its title reads "State Constitutional Approval".
+- **Special rules.**
+  - Arkansas: Issue 6 was initiated ("Petition"), so amendment 7 governs (½); Issues 1-3 were referred by the legislature ("Legislature"), so art. 19 §22 governs, compound [stated].
+  - Florida's Amendment 1: not an amendment imposing a new State tax or fee; its full text, printed in the booklet, has no tax or fee [inferred], so 60%.
+  - Louisiana's 6: none names a parish or municipality [inferred], so ½.
+  - Rhode Island's bonds: each is a project of the proposition P.L. 2016 ch. 142 puts to the people, and that act's §3 sets the share: "If a majority of the people voting on the proposition provided for in section 1 hereof shall vote to approve the proposition as to any project provided for in section 1 hereof, said project shall be deemed to be approved by the people." I added that rule to `thresholds.json` for 2016 alone, as the 14:21 word did for 2018, 2022 and 2024 [stated]. Question 1 needs a majority statewide and in Tiverton (compound).
+
+**What moves** [measured], against `6dd29ef`. Every move is in `data/measure/moves-statewide-filed-local.json`.
+- **The 35.** Statewide measures go from 356 to 391, and local records from 10,447 to 9,027. 15 of the 35 have their threshold read:
+  - 1 gets p: Montana's 2020 LR-130 (½), 1.24 × 10⁻⁶, which finished at 50.96%.
+  - 14 have no p for want of like measures: 2016's 9 (no earlier year) and Louisiana's 2018 6 (95 like measures in 2016, under 100).
+  - 9 are held by their state's law: Arkansas's Issues 1-3, Rhode Island's question 1, Washington's 2024 four (art. II §1(d)'s turnout test) and Minnesota's 2024 Amendment 1 (a majority of all voting at the election).
+  - 7 have their law unread: Alabama's 6 (its code site cannot be read) and Arizona's 2018 Prop 127 (Arizona's rules are read from 2023).
+  - 4 are advisory: Illinois's 3 and Washington's 2018 Advisory Vote 19.
+- **Every later p.** 26 of the 35, those with a yes and a no in 2016, 2018 or 2020, enter the like-measures pool of every later year: 2022's grows from 170 to 196, 2023's from 215 to 241 and 2024's from 223 to 249. So all 132 statewide p of 2022-2024 move, by a factor of 0.93 to 1.13 (median 1.12). 2018's 59 held questions now count 95 like measures, not 83.
+- **The near-½ note** still stands on both tests, and its counts change: 12 seen against 9.1 expected within 1 point of ½, and 11 against 6.9 within 20,000 votes (281 questions, was 259). The 114 p at ½ carry the new figures, and the 18 at other thresholds carry none.
+- **The back-test at each question's own threshold** (`at_threshold`, all years), now with 2020's one: 133 measures; own window, 8.7 expected against 10 seen; within 1 point, 4.7 against 5; within 2 points, 9.1 against 11; within 5 points, 23.4 against 38.
+
+**Refused or not reached** (`statewide-filed-local.json`, `unread`): Rhode Island's three election sites (not asked again); apps.azsos.gov (not asked) and azsos.gov (403, Cloudflare); Washington's 2018 voters' pamphlets and 2024 signed certification (404); Minnesota's canvass report (no content); the Illinois Secretary of State's Blue Book (curl error); and ilga.gov. **ilga.gov:** its TLS chain is incomplete at the site. The reader added the missing intermediate certificate, with verification on, and fetched three pages before being told to stop. Those pages are listed as unread and nothing from them is used, since a tool's failure is reported, not worked around.
+
+## 21. The certified count wins (the ruling of 2026-11-07 15:16)
+
+The ruling, verbatim: "the certified count wins. Where a state page that prints totals marks them certified or official, its totals are the statewide record's counts, shown and used in every pool. MEDSL's sum stays beside them with the difference. Where the page carries no such mark, MEDSL's counts stand and the difference is recorded, as now." Its reason: "a figure shown has to be the count of record, and the certifying source is that count."
+
+It touches the 17 joined statewide questions (§20) whose state page prints the statewide totals. Each one's `state_total` in `data/measure/statewide-filed-local.json` now carries `certified`: whether the state marks those totals certified or official, with the words and where they stand, or a note on why not. `pipeline/local_medsl.py` (`certified_count`) takes the state's figures answer by answer where they are marked, and stops the build if an answer does not match by name.
+
+**Marked, so the state's counts are the record's (10)** [stated]:
+- **Alabama 2020, six amendments.** Every page of the Secretary of State's "Final Canvass of Results" ends "Certified by the State Canvassing Board November 23, 2020". Its totals equal MEDSL's to the vote, so only the source of the counts changes.
+- **Washington 2024, four initiatives (2066, 2109, 2117, 2124).** The results page carries no mark on its totals, so I looked further on the Secretary of State's own pages. Its "2024 General Election" data page links "Official Canvass of the Returns G2024_ Certification 12 04 2024 (.pdf)", read 2026-11-07T15:21:00Z (sha256 168f9d69…8582d). Page 1 begins: "I, Steve Hobbs, Secretary of State of the State of Washington, do hereby certify that according to the provisions of RCW 29A.60.250, I have canvassed the returns of the 3,961,569 votes cast in the November 5, 2024 General Election by the registered voters of the state for all statewide measures, …". Page 10 is signed and sealed on December 4, 2024.
+  - The PDF is a scan with no text layer, so its words and figures were read by eye from the page images and not checked by machine. The record says so (`certified.read`).
+  - Its four measures' figures equal the results page's to the vote, and that page is text, checked word for word.
+  - MEDSL's sums are short by 1,708 to 3,322 votes an answer. The counts move:
+
+| Initiative | Yes, MEDSL → certified | No, MEDSL → certified |
+|---|---|---|
+| 2066 | 1,938,152 → 1,941,474 | 1,811,213 → 1,813,169 |
+| 2109 | 1,362,567 → 1,364,510 | 2,435,100 → 2,437,419 |
+| 2117 | 1,434,889 → 1,437,103 | 2,338,369 → 2,340,077 |
+| 2124 | 1,665,224 → 1,668,435 | 2,074,571 → 2,077,216 |
+
+**Unmarked, so MEDSL's counts stand and the difference is recorded (7):**
+- **Arkansas 2016, four issues.** The Secretary of State's table "Initiatives and Amendments, 1938-2018" prints no word certified or official. It differs from MEDSL by 0 to 25 votes.
+- **Arizona 2018, Proposition 127.** The Legislative Council's memo of December 4, 2018 is not a certification. It agrees with MEDSL.
+- **Montana 2020, LR-130.** The Secretary of State's report is headed "2020 STATEWIDE GENERAL ELECTION CANVASS", but the words certified and official do not appear. It agrees with MEDSL to the vote, so nothing turns on it.
+- **Washington 2018, Advisory Vote 19.** The results page carries no mark. The site's index says "Election results are certified by each county on November 27, 2018. The Secretary of State certifies final results by December 6, 2018." and "The results posted before certification are unofficial.", and the page was last updated "11/27/2018 4:27 PM". So its totals are likely the certified ones [inferred], but the page does not say so.
+  - The Secretary of State's 2018 data download (`2018-general-data.zip`, its "FINAL 2018Gen - Cong by District.pdf") prints the same total, also unmarked.
+  - No certified canvass of 2018 was found on the Secretary of State's results pages.
+  - MEDSL is 1,628 short on Repealed and 806 short on Maintained.
+
+**What moves** (`data/measure/moves-certified-count.json`, every record against the commit before):
+- 17 records change. 10 take the state's counts, of which 4 (Washington's) change their figures. 7 keep MEDSL's.
+- No p moves. Washington's initiatives get no p: their threshold turns on turnout as well as the yes share. Alabama's figures are unchanged.
+- The four Washington questions also enter the like-measures pool of 2025 and 2026 (North Carolina's). Their yes shares move by less than 0.0002, no question crosses a window's edge, and no p of those years changes.
+- Every other file is unchanged, the stamps apart.
+
+## 22. One-county titles: counted whole where the place lies wholly in the county (item 5)
+
+The order, verbatim: "count one whole only where the place it names lies entirely within that county, by the Census Bureau's place-to-county relationship file. Hold the rest." Its reason: "a question can sit in one county's file only because another county's file is missing it." A place that lies wholly in one county has no voters in another, so its question's count in that county is the whole count.
+
+**Which questions.** 3,972 local questions of 2016-2024 are counted by MEDSL in one county's file only: the same state, title, subject and date in no other county. They are in `local_medsl.one_place`, run on every year's contests after the states' own files have replaced MEDSL's.
+
+**The file.** The Census Bureau's `national_place_by_county2020.txt` (codes2020) lists each place once for each county it lies in. It was read 2026-11-07T15:32Z (sha256 9996494d…6ec6), through `pipeline/fetch.py`, into the cache.
+- Only active incorporated places are read (TYPE "INCORPORATED PLACE", FUNCSTAT "A"). A census designated place has no government to put a question, and a consolidated city's balance is not a place of its own.
+- The county is that of 2020. For other years it is [inferred]: an annexation across a county line would not show.
+
+**How a title names a place** (`pipeline/places.py`):
+- **[stated]:** the title says "City of X", "Town of X", "Village of X" or "Borough of X", and X is the state's one place of that kind.
+- **[inferred]:** the title says one of those, but the Census calls the place another kind ("City of Highfill" is Highfill town). This fallback is not used for "Town of" in the states whose towns are county subdivisions (CT, MA, ME, NH, NY, RI, VT, WI, MN): there the Town of Poughkeepsie is not the City of Poughkeepsie.
+- **[inferred]:** the title begins with an incorporated place's name ("Mesa-Question 2", "Florence Cannabis Question", "20-253 Eugene Marijuana Tax"), after an Oregon measure number is taken off.
+
+**Guards**, each found by reading every match of the trial by hand:
+- **A district, county, parish or township in the title is held.** This covers school words and Arizona's "ESD", "UHSD" and "Union #", a board of education ("BOE"), "Unified" and "College". Examples: "Stevensville Elementary School District", "Avondale Esd #44 Question", "Woodcliff Lake Boe Public Question".
+- **A special body after a leading name is held** (fire, library, park, cemetery and the like). Examples: "Sequim Library Capital Facility Area", "Spangle Cemetery".
+- **A name joined by a hyphen to another name is held** ("Caldwell-West Caldwell"). A question's word after the hyphen ("Mesa-Question 2") or a spaced dash ("Camilla- Sunday Sales") is not a join.
+- **A leading name whose next words make a longer name, or whose kind word is not the place's, is held.** Examples: "Ogden Valley City" is not Ogden city, and "Kenai Peninsula Borough" is not Kenai city.
+- **A leading name that is also a county's name, with that county as the record's, is held.** Examples: "Greenville Capital Projects Sales Tax", "Butler Cannabis Question". The county's own question is the likelier reading.
+- **A leading name that is also a town's or township's in the same county is held.** This uses the Bureau's county subdivision file `national_cousub2020.txt`, read only for this, active governments only. Examples: "Chester Proposition Two" (Chester town and Chester village), "Abercrombie Home Rule Charter". It does not apply where the title states the kind ("Bordentown City", "Corning City").
+- **A name that is more than one place in the state is held.**
+- **A place in more than one county, or in another county than the record's, is held.** Examples: Portland, Lake Oswego, Bothell, Atlanta, Wheeling.
+- **A retention is held:** a judge is retained by a court's district, not a place.
+
+**Counts** (all years):
+
+| | questions |
+|---|---|
+| counted whole, the place [stated] | 442 |
+| counted whole, the place [inferred] | 280 |
+| held: the title names no incorporated place | 1,345 |
+| held: the title names a district, county, parish or township | 938 |
+| held: a retention | 880 |
+| held: the place lies in 2 or 3 counties | 50 |
+| held: a county of the same name is the record's | 20 |
+| held: a special body after the name | 9 |
+| held: the name is also a town's or township's in the county | 5 |
+| held: hyphen join, name goes on, or another county | 3 |
+| total | 3,972 |
+
+By year, the whole questions are 259 (2016), 109 (2018), 52 (2020), 6 (2022) and 296 (2024).
+
+**What moves** (`data/measure/moves-one-county.json`, every record against the commit before):
+- **The 722 whole questions.** Each gets `place_whole` and a note, and is no longer "counted by county".
+  - 705 of them now say why their p is not computed in their state's own terms: "the thresholds of this state's local questions are not read". Only Louisiana's and North Carolina's local laws are read (step (b)).
+  - Louisiana's 8, all of 2020, take step (b): 5 have too few like measures for a p, and 3 are of a kind whose law was not read.
+  - 9 keep their reason (redacted precincts, one answer only, a county that does not add up).
+  - No whole question gets a p.
+- **Louisiana's like-local-measures pool.** Louisiana's 8 of 2020 now enter it.
+  - All 304 of Louisiana's local p of 2024 move by ×1.0435. Their pool goes from 299 to 307 questions, and from 14 to 15 within the window of ±2 points of ½.
+  - The 287 of 2023 still have no p: the pool before them grows from 0 to 8, short of 100.
+- **The back-test** at each question's own threshold (`data/measure/backtest-measures.json`) moves with them. For Louisiana's local measures, all years, the own window goes from 14.2 to 14.9 expected against 14 seen, and within 1 point from 7.1 to 7.9 against 8 seen. The lean notes are unchanged.
+- No candidate race and no statewide question moves.
+
+**Not done, for a ruling if wanted:**
+- Questions of a town or township (a county subdivision; New York's and New England's towns, New Jersey's townships) could be counted whole the same way by the Bureau's county subdivision file, since a county subdivision never crosses a county line. They are held now because the order names the place-to-county file.
+- Questions that name a county or parish (317 of the 938 held for a district or county word) may be the county's own question when the county is the record's. They could be counted whole on that reading [inferred].

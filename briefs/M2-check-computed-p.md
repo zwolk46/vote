@@ -84,3 +84,9 @@ Work on a new branch from `main`, extending `checks/m2/` and adding a section to
 5. **As they land:** D3's NJ county gate (the orchestrator's ruling of 10:45: 0.5% by county, a duplicate-row scan, a precinct ceiling, 5 contests against the clerks' own results) and the Louisiana follow-up (2023, party committees). Check each gate's numbers and recompute a sample of each one's p.
 
 Report in at most fifteen lines when 1 to 4 are done, and again at the end. One pull request, updated as you go. A p wrong by more than a factor of two goes to the orchestrator at once.
+
+### Added 11:05 UTC: item 0, before 1 to 4
+
+*Reason: X1's first screen draws the back-test lean notes as arrows, and your 3.1 shows the governors' two readings of one record pointing opposite ways; a note that one reading contradicts tells the reader a direction the record does not give.*
+
+The orchestrator's rule, fixed before the remaining numbers are seen: a lean note stands only where two tests of the same back-test lean the same way: (s) seen against expected within the share line the note uses (1 point for the House, the Senate and governors; 5 points for statewide measures); (v) seen against expected within k votes, k the smallest of 1,000, 5,000, 10,000, 20,000 and 50,000 at which 5 or more are expected. A test counts only with 5 or more seen or expected; where only one counts, the note stands on it. Governors are settled by 3.1 (17 against 14.9 at 1 point; 4 against 8.8 at 10,000 votes): their note goes. Give (s) and (v) for the House, the Senate and the statewide measures over each note's own years, with the chance of a count that far off, and whether each note stands; report those lines at once.
