@@ -1,6 +1,6 @@
 #!/bin/sh
 # Runs the second pass's M2 checks in order (c8-c15) and writes checks/m2/OUTPUT.txt, so that every number in
-# checks/M2-REPORT.md sections 5-9 is reproduced by one run (about 60 minutes). From the repository root:  sh checks/m2/run_all.sh
+# checks/M2-REPORT.md sections 5-9 is reproduced by one run (about 20 minutes). From the repository root:  sh checks/m2/run_all.sh
 # The first pass's scripts (c1-c7) were written for the files of D1's #23 and D2's #24, and their run of record is the
 # OUTPUT.txt of that pass, which the history holds at d11cae2 (git show d11cae2:checks/m2/OUTPUT.txt; sections 1-4
 # cite its lines). They are kept as written and not rerun here: D2's #38 and later changed the files they read (c3 stops
