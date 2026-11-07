@@ -16,7 +16,8 @@ export const bstar = (a, C, reading) => (reading === 'person' ? (a.pop ? (C * a.
 // Which election, and why this one is named: "2024 · the highest chance of any state", "2024 · the lowest of 34"
 export const whenOf = a => `${a.when} · ${a.role}`;
 // the people a per-person figure is shared among
-export const sharedBy = a => (a.pop ? `shared by ${count(a.pop.value)} people in ${a.pop.of}` : 'no population in the data yet');
+// (nothing where the data give no population: its mark fades without words, the orchestrator 12:01, the maker 04:32)
+export const sharedBy = a => (a.pop ? `shared by ${count(a.pop.value)} people in ${a.pop.of}` : '');
 // A route's back-test, in the reader's words: the record's note, its "p" said as the chance, and what that does to
 // the figure (p.note; data/congress/REPORT.md §5)
 export const leanWords = a => {
@@ -85,7 +86,7 @@ export function ChanceRow({ a }) {
         {a.mark ? <p><span class="k">{a.mark}</span></p> : null}
         {a.lean ? <p class="lean-p"><span class={`lg lg-lean${a.lean === 'low' ? ' low' : ''}`} aria-hidden="true" /> {leanWords(a)}</p> : null}
         <p>{a.src}</p>
-        <p>{a.pop ? `Population, for the reading "to each person": ${digits(a.pop.value)}, ${a.pop.of}; ${a.pop.src}.` : `The data give no population for ${a.place} yet, so it has no figure "to each person".`}</p>
+        {a.pop ? <p>{`Population, for the reading "to each person": ${digits(a.pop.value)}, ${a.pop.of}; ${a.pop.src}.`}</p> : null}
         <p>{TIE} The chance the count without you lands within one vote is twice this: {oneIn(a.N / 2)}.</p>
       </FoldBody>
     </>

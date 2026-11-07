@@ -17,7 +17,8 @@
 //   11:05: the reader compares like with like, and the history stays in the dots). It is chosen at the default cost,
 //   $8.87, but B* = C × N is C times the same N for every contest, so the lowest B* is the highest p, at any cost.
 // - Populations for the reading "to each person" only where D1 and D2 give them: the nation for the presidency
-//   (population_nation), the contest's own population elsewhere; none is filled in.
+//   (population_nation), the contest's own population elsewhere, a state legislative district's from
+//   data/population/ (2022 and 2024); none is filled in.
 // - A route's back-test leaning one way (p.note: "so p may be high", "so p may be low") is carried as `lean`, so the
 //   page can draw it (the maker, 04:32: visuals over prose); except the governors' and the Senate's (LEAN_OUT).
 //
@@ -55,7 +56,16 @@ for (const f of files(join(DATA, 'president'))) for (const c of read(f).contests
 const LEAN_OUT = new Set(['governor', 'senate']);
 const leanOf = (level, p) => { if (LEAN_OUT.has(level)) return null; const m = /so p may be (high|low)/.exec(p.note || ''); return m ? m[1] : null; };
 const ownOf = (level, p) => (level !== 'state' ? true : /^district/.test(p.forecast_scope || ''));
-const popOf = (level, c) => (level === 'president' ? c.population_nation : c.population) || null;
+// A state legislative district's population is D2's (data/population/state-legislative-<year>.json, the Census
+// Bureau's 2020 count on each cycle's own lines, keyed by D3's contest id; nothing apportioned): 2022 and 2024. A
+// contest it gives none has none here either.
+const SLD = {};
+for (const f of files(join(DATA, 'population'))) {
+  const m = /state-legislative-(\d{4})\.json$/.exec(f); if (!m) continue;
+  const d = read(f);
+  for (const [id, r] of Object.entries(d.contests || {})) if (r.population?.value > 0) SLD[id] = { ...r.population, source: d.sources?.[r.population.source] || r.population.source, note: r.note || null };
+}
+const popOf = (level, c) => (level === 'president' ? c.population_nation : level === 'state' ? SLD[c.id] : c.population) || null;
 
 const levels = [], all = {};
 for (const L of LEVELS) {
@@ -104,6 +114,7 @@ const shortSrc = n => (n || '')
   .replace(/^MIT Election Data and Science Lab, ([^,]+),.*$/, "the MIT Election Data and Science Lab's $1")
   .replace(/^Cha, Kuriwaki and Snyder, Candidates in American General Elections.*$/, 'Cha, Kuriwaki and Snyder, Candidates in American General Elections')
   .replace(/^Carl Klarner, State Legislative Election Returns, 1967-2022.*$/, "Carl Klarner's State Legislative Election Returns, 1967–2022")
+  .replace(/^U\.S\. Census Bureau, 2020 Census (\d+)th Congressional District Summary File.*$/, "the Census Bureau's 2020 Census count on the district's lines (its $1th Congressional District Summary File)")
   .replace(/^U\.S\. Census Bureau, (.*)$/, 'the Census Bureau, $1');
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const day = iso => { const [y, m, d] = iso.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };

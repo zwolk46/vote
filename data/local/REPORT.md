@@ -142,7 +142,7 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 - Some files list every precinct of the state under an office with 0 votes; a contest is placed by the precincts that voted in it, and 35 contests with no vote anywhere are left out.
 
 **Checks** [measured]:
-- 2024: the presidential totals above. New Jersey's contests are recorded with p not computed and the reason. Indiana's are now the state's own certified counts (§10), and Louisiana's the state's own official ones (§12).
+- 2024: the presidential totals above. New Jersey's contests are released county by county, under §13's gate. Indiana's are now the state's own certified counts (§10), and Louisiana's the state's own official ones (§12).
 - 2022 state legislatures against Klarner's (`data/local/check-2022-medsl-klarner.json`), 4,130 single-member districts named alike in both: D and R votes identical in 3,426; the two-party share within 1 point in 574 more (counts scaled alike: New Hampshire's senate is exactly double in Klarner, Idaho's double in MEDSL); a major party's candidate in one source only in 94; the share more than 1 point apart in 36. The winner differs in 89. (Read again with the intake of §7, 9 Illinois districts the first reading had split now join, and Illinois falls under the line.) States where more than 10% of districts differ in share or parties (AR, IN, MI, WA, WY), and California, whose 2022 file has exactly 1,048,575 rows, a spreadsheet's limit, so it is likely cut short [inferred], are not used for last results or like races.
 - The US House totals in the same files against D2's are kept in the checks file but not used: D2's state totals include blank-ballot lines in some states and its party words vary, so they do not compare line for line.
 
@@ -547,15 +547,21 @@ The variant is adopted in a pool only where it passes there. A pool where it fai
 
 **The gate** (`data/local/check-la.json`) [measured]. On 2024-11-05, the file's Democratic and Republican votes match D1's certified presidential count and D2's six House districts exactly: president 766,870 and 1,208,505; House 650,836 and 1,248,101. The worst miss is 0. The other dates hold no federal contest to check.
 
-**Rounds** (`pipeline/local_la.py`). Louisiana fills local offices at a primary open to every candidate. Where no one is elected there, a general election between the leaders follows a few weeks later. In 2024 the primaries are 2024-03-23 and 2024-11-05, and the generals 2024-04-27 and 2024-12-07 [inferred: the source's four dates and the contests it repeats from the first of each pair to the second; La. R.S. 18:402, the schedule, is not read].
+**Rounds** (`pipeline/local_la.py`). Louisiana fills local offices at a primary open to every candidate. Where no one is elected there, a general election between the leaders follows a few weeks later. In 2024 the primaries are 2024-03-23 and 2024-11-05, and the generals 2024-04-27 and 2024-12-07 [inferred: the source's four dates and the contests it repeats from the first of each pair to the second].
+
+*The statute, added 2026-11-07 at 11:29 UTC at the orchestrator's rulings of 10:35 and 11:16 ("cite the text you read, with its code year, and say the 2024 pairing comes from the source's repeated contests, since the statute's dates have changed").* La. R.S. 18:402 sets the election dates. Its text was read on 2026-11-07 at 10:46 UTC (https://legis.la.gov/Legis/Law.aspx?d=81545), as amended through Acts 2025, No. 386 [stated]. It pairs each season's primary with a general on a later Saturday, as the source's 2024 dates do. But its dates are not 2024's: the section was amended after the 2024 elections (Acts 2024, No. 640; Acts 2025, No. 386). So the 2024 pairing comes from the source's repeated contests. The statute is cited for the pairing's form only.
 - **A contest on a primary date** is the first round of a two-round system. It is recorded with its result, and p is not computed (model section 7), as for Klarner's Louisiana legislature. Its candidates on the general's ballot are marked `"to runoff"`. Any who led them all were elected in the primary, and where no general followed, the leaders for the seats were [inferred].
 - **A contest on a general date** whose parish and title (seats aside) were on that pair's primary is its deciding round. It takes the routes' classes and is marked "deciding round after an earlier round". This applies the orchestrator's ruling of 09:53 for North Carolina, "the November count is the one that elects" [inferred: the ruling's reason holds for Louisiana's generals].
 - **Not rounds.** The same parish and title on two other dates are not read as rounds: Red River's Village of Martin aldermen, three seats on 2024-03-23 and one on 2024-11-05, with one candidate in common. Nor are questions: three were put to the voters again on a later date.
-- **Left out.**
-  - The presidency, its party primaries and Congress (9 contests), which are D1's and D2's.
-  - The parties' own committees (241 contests), the state central and parish executive committees elected at the party primaries of 2024-03-23. These are offices of the parties, not of the state [inferred: my reading of plan section 3's levels].
+- **The parties' own committees** (241 contests of 2024-03-23: DSCC 84, RSCC 83, RPEC 43, DPEC 31). *Added 2026-11-07 at 11:29 UTC, at the orchestrator's ruling of 10:35: "put the party committees in. Law 5 asks for as many real US contests as true sources allow, and these are on the public ballot, counted by the Secretary of State. Mark them as party offices whose voters are the party's own, compute them where a route fits (vote-for-N only where the model has a route), and say why where not."*
+  - **The law** [stated]. The state central committees (La. R.S. 18:443(B), https://legis.la.gov/Legis/Law.aspx?d=81577) and the parish executive committees (18:444(B), Law.aspx?d=81580) are elected "every four years at the same time as the presidential preference primary election". There, "the candidate who receives the greater number of votes cast shall be elected", seat by seat, with ties settled by lot. Read 2026-11-07 at 11:16 UTC. So each committee contest is decided in one round on 2024-03-23. It is not the first round of two.
+  - **Their voters** are the party's own [inferred]. At that primary, La. R.S. 18:1280.21(B) (Law.aspx?d=81288) lets each elector vote only for his own party's candidates.
+  - **How they are kept.** Each record carries `party_office` (the party, the committee, its law and its voters), and its `election` words say the above. Each takes the routes of its seats and ballot, like any local office. 212 have one seat and 29 have 5 to 14.
+  - **Their office type.** At first it was "council, commission or board", through the word "Member" in the title, which pooled them with councils elected at general elections. *Changed 2026-11-07 at 11:53 UTC, at the orchestrator's ruling of 11:30: "give the committees their own office type, "party committee" ... Reason: a like-race class must hold like races, and a seat chosen by one party's voters on a presidential primary's turnout is unlike a council chosen at a general."* Their office type is now "party committee" (`OFFICE_TYPES` in `pipeline/local_medsl.py`, matching only a title that begins DSCC, RSCC, DPEC or RPEC Member).
+  - **What they give** [measured]. None gets p. Under the first office type, each class had fewer than 100 like races in earlier years (28 to 70). Under their own, each has none. The reason is on each record. No p moves, and no back-test moves: the 241 records change only their office type and the count in that reason.
+- **Left out.** The presidency, its party primaries and Congress (9 contests), which are D1's and D2's.
 
-**What it gives** [measured]. 312 local contests and 325 questions.
+**What it gives** [measured]. 312 local contests and 325 questions; with the party committees above, 553 local contests.
 - **Local p.**
   - First rounds, not computed: 259 (78 of the spring, 181 of the fall).
   - Deciding rounds: 52, of which 9 get p by the like-race classes. 39 have too few like races in their class in earlier years. 4 are between a Democrat and a Republican, but their parish has no lean from the 2022 House returns.
@@ -563,7 +569,7 @@ The variant is adopted in a pool only where it passes there. A pool where it fai
 - **Questions.** 320 local questions are not computed, waiting on step (b). The five statewide amendments (one on 2024-11-05, four on 2024-12-07) are held back by La. Const. art. XIII §1(C), since the title does not show whether an amendment affects five parishes or fewer (§8). They wait on step (a).
 - **What moves elsewhere.** No p outside Louisiana moves. The amendments enter the measures' back-test, so the note on each of the 65 statewide measure p now reads "52 against 36.4" (§8). The 2024 local back-tests gain Louisiana's contests: 2,270 like-race contests, against 2,264 before (`backtest-local-classes.json`). Both calibration routes still fail the robustness test, with the same cells (`calibration-local.json`).
 
-**Still open.** The site's list of elections goes back to 1982 [measured: 319 dates, 318 of them marked official]. The workbook may not exist for the older ones [not read]. Louisiana's 2023 legislature (2023-10-14 and 2023-11-18) is after Klarner's last year and could be read the same way. It is left for the orchestrator.
+**Still open.** The site's list of elections goes back to 1982 [measured: 319 dates, 318 of them marked official]. The workbook may not exist for the older ones [not read]. Louisiana's 2023 is in §14.
 
 ## 13. New Jersey's own certified 2024 results
 
@@ -592,7 +598,94 @@ It holds no legislative contest. New Jersey elects its legislature in odd years,
 
 So the state's +14.4% presidential miss (§6) comes from five counties. Gloucester shows the error can sit in one office alone. A county's federal offices adding up therefore shows its file was read whole. It does not show that every other office's rows are sound [inferred].
 
-**What it gives.** No contest is added and no p moves, since the lists hold no office below Congress. MEDSL's New Jersey local contests (1,301) and questions (49) stay held back.
+**What it gave at first** (PR #63). No contest was added and no p moved, since the lists hold no office below Congress. The gate by county below was put to the orchestrator then.
 
-**Put to the orchestrator, not applied: a gate by county.** It would release the contests of the 16 counties that add up in all three federal offices, with their routes: 986 of the 1,301 local contests and 40 of the 49 questions. Gloucester has no local contest in MEDSL's file. Atlantic's, Bergen's, Mercer's and Union's would stay held back. The other way is the county clerks' own certified results: 21 sites, not read.
+**The gate by county, as ruled.** *Added 2026-11-07 at 11:12 UTC, at the orchestrator's ruling of 10:45: "adopt the gate by county, with two checks added on the released rows, because your Gloucester reading is right that federal offices adding up does not show the local rows sound".* The code is `pipeline/local_nj.py` (`county_gate`, `row_checks`, `spotcheck`); its results are in `data/local/check-nj.json`, under `county_gate` [measured].
+1. **By county.** A contest is released only when every county it lies in adds up in all three federal offices at the 0.5% line. Atlantic, Bergen, Gloucester, Mercer and Union stay held. Each New Jersey record carries `gate`: its counties' federal misses and what the checks found.
+2. **Repeated rows** (the same precinct, office, candidate and mode twice). There are none among the file's local rows.
+3. **A total line among the precincts.** Gloucester's doubled presidential count is a precinct line named "COUNTY TOTAL" beside its municipalities. So the check holds any contest with a precinct named TOTAL, or with a precinct equal, for every candidate, to all the contest's other precincts added up. There is none in the released counties. Bergen's rows have such a line in 160 contests, but Bergen is held already.
+4. **A precinct over its federal votes.** A contest is held when a precinct's votes in it exceed the most votes that precinct cast for one federal office, times the contest's vote-for-N. Where MEDSL gives no vote-for-N, the number of candidates named is used. This holds 3 contests:
+   - Camden's county clerk, in 6 of 429 precincts;
+   - Camden's sheriff, in 8 of 429 precincts, over by 1 to 13 votes (both Camden contests released by the correction below);
+   - Delanco Township's board of education, in 1 of 7 precincts (334 against 323).
+5. **Against the county clerks' official results.** Five released contests in five counties were compared. In each county the contest is its board of county commissioners: the one county office on every ballot there, so it runs through every precinct the county files. The sample was fixed before any count was compared. The five counties are the released ones whose clerk's site answered with its official 2024 results.
+
+| County | The clerk's file, in its own words | Largest miss |
+|---|---|---|
+| Camden | "2024 General Election Canvasser", "OFFICIAL RESULTS" | none |
+| Hunterdon | results by district, "OFFICIAL RESULTS" (its "Totals" row) | none |
+| Morris | summary report, "OFFICIAL RESULTS" | 6 votes (0.005%) |
+| Ocean | "Ocean County Board of Canvassers Report", its 33 municipalities added up | none |
+| Sussex | countywide summary, "OFFICIAL RESULTS", "Amended Summary Results" | 8 votes (0.016%) |
+
+None misses by more than 0.5%, so the clerks' check holds no county.
+
+The other released counties' clerks' sites, read after 10:45 UTC, are recorded, not routed round:
+- Middlesex, Passaic, Somerset and Warren refused (HTTP 403). Essex's results page answered, but its results host refused (403).
+- Hudson and Monmouth answered HTTP 202 with an empty body. Salem gave a bot challenge.
+- Burlington's and Cape May's pages answered, but those read did not lead to the 2024 results.
+- Cumberland's summary report heads itself "Unoffical" (sic), so it is not the official results.
+- Within the five: Hunterdon's results by municipality reset the connection; its results by district answered. Sussex's county site gave the proxy's 502; the clerk's own site answered.
+
+**What it gives** [measured].
+- **Released:** 983 local contests and 40 questions.
+- **Held:** 315 local contests and 9 questions by county, and 3 local contests by check 4 (1 after the correction below).
+- **p for the released.** 52 get p for the first time: 43 by the model's route from like past races, 9 by its transferred normal route. 246 keep p = 0: one name on the ballot for each seat. The other 685 stay without p, for the model's usual reasons. The most common is that MEDSL gives no vote-for-N (397); 70 are specials, and most of the rest have too few like races.
+- **No question gets p.** 38 are local measures, whose threshold is the one state law sets for their kind; 2 give one answer only.
+- **The 2024 back-tests take in the released contests.** The classes back-test's 2024 has 2,313 races (from 2,270): 218 finished within their window, against 289.0 expected (from 214 against 284.5). The partisan back-test's 2024 has 977 races with a lean (from 968). The calibration file's numbers move, but no verdict does: the near-tie calibration stays out.
+- **No p moves outside New Jersey.**
+
+**Check 4's bound, corrected.** *Added 2026-11-07 at 11:22 UTC, at the orchestrator's ruling of 11:16: "Bound each contest by the precinct's ballots cast (votes + overvotes + undervotes, MEDSL's CONTEST TOTAL, taking the largest of any contest in that precinct) times vote-for-N, and keep holding contests whose vote-for-N is unknown... Reason: the bound must be one no real count can break; ballots cast is that bound, and the president's votes are not."*
+
+Why the first bound was wrong [measured]. Both Camden contests that check 4 held equal the clerk's official counts to the vote:
+- county clerk: Lampitt 149,690, Exler 84,229, write-ins 166;
+- sheriff: Billingham 148,470, Williams 85,637, write-ins 217.
+
+The file shows why. In Camden Ward 3 District 1, 319 ballots were cast. For president, 22 were overvoted and 2 left blank, so the president has 295 votes; the Senate and House have 299, and the sheriff has 302. A ballot spoiled or left blank for president still counts for sheriff.
+
+How ballots cast are read (`pipeline/local_nj.py`, `medsl_rows`). For each vote-for-1 contest in a precinct (MEDSL's magnitude 1, which every federal office has), take its votes plus overvotes plus undervotes, or its "CONTEST TOTAL" row where that is larger. The precinct's ballots cast are the largest of these. Vote-for-N contests are left out, since there each ballot counts N times. Not every county's rows carry overvotes and undervotes [measured: 12,908 undervote and 6,979 overvote rows in the file]. Where they are missing, the contest's own votes are the bound, as before.
+
+Where MEDSL gives no vote-for-N, the number of candidates named is used. A contest over that bound stays held, and its reason says that its vote-for-N is not given. I read "keep holding contests whose vote-for-N is unknown" as those the check holds, since the bound cannot then clear them [inferred].
+
+What it changes [measured]. Camden's county clerk and sheriff are released and get p (6.0 in a million each). Delanco Township's board of education stays held, at 334 votes against 327 ballots, with one candidate named. So 985 local contests and 40 questions are released; 315 local contests and 9 questions are held by county, and 1 by check 4. The partisan back-test's 2024 has 979 races with a lean (from 977). No verdict moves. No p moves outside New Jersey.
+
+## 14. Louisiana's own official 2023 results
+
+*Added 2026-11-07 at 11:53 UTC, at the orchestrator's orders of 10:35 ("LA 2023 (Oct 14, Nov 18) by the same script") and 11:16: "the Secretary of State certifies these counts itself, and 2023's ballots carry no federal contest to gate against. So the gate is: (a) the date is marked official on the site's list, as in #62; (b) each contest's parts (parishes or precincts, whichever the workbook gives) add to its total; (c) the statewide offices of Oct 14 equal the Secretary of State's own posted statewide results for that date. A contest that fails (b) or (c) is held. Mark each record "gate: within the certifying source (no federal contest on the ballot)". Reason: #62 showed this publisher's files and your script read certified counts exactly; what is left to catch in a new year is the script's read, which (b) and (c) test."*
+
+**Why.** Louisiana elected its legislature, its statewide officers and most of its parishes' and towns' offices in 2023. Klarner's returns end in 2022, and MEDSL holds no 2023. The state's own file is the only source taken in.
+
+**Source** [measured]. The same site and script as §12 (`pipeline/intake/la_sos.py --year 2023`). The site's list holds seven 2023 dates, all marked official: 2023-01-14, 02-18, 03-25, 04-29, 10-14, 11-18 and 12-16. Their workbooks hold 1,024 contests: 1, 1, 62, 82, 628, 248 and 2.
+
+**The gate** (`pipeline/local_la.py`, `source_gate`; `data/local/check-la.json`, under `2023`) [measured].
+- **(a)** All seven dates are marked official on the site's list.
+- **(b)** In all 1,024 contests, the parishes' or precincts' lines add up to the total.
+- **(c)** The site posts its own results of each date for the contests on more than one parish's ballot (its `RacesCandidates_Multiparish` and `Votes_Multiparish` files, read 2026-11-07 at 11:34 and 11:46 UTC). The ruling names the statewide offices of 2023-10-14. I applied it to every multi-parish contest of every date, a wider read of the same check [inferred: within the ruling's reason]. All 149 equal the workbooks, choice by choice: 101 on 2023-10-14 (the governor, the four other statewide offices, the four amendments, BESE, the legislature, judges and one town's tax), 33 on 2023-11-18, 9 on 2023-04-29, 5 on 2023-03-25 and 1 on 2023-02-18. A parish's own contests are not in those files, so (b) is their check.
+- **Held:** none. Every record carries `gate`, whose `by` reads "within the certifying source (no federal contest on the ballot)".
+
+**Rounds** [inferred: the source's dates and the contests it repeats]. The spring pair is 2023-03-25 and 2023-04-29: all 9 contests of the general were on the primary. The fall pair is 2023-10-14 and 2023-11-18: all 130 contests of the general were on the primary. The House's 93rd district had a special election on 2023-02-18 and 2023-03-25. So 2023-03-25 is both a primary and a general; a contest on it is the deciding round only where it was on 2023-02-18. La. R.S. 18:402 is cited for the pairing's form only, as in §12.
+- **Two exact ties.** Two generals of 2023-11-18 tied: Cameron Parish's Police Jury District 5, 178 to 178, and Opelousas's Alderman District A, 224 to 224. The source holds each again on 2023-12-16, between the same two candidates (225 to 187 and 183 to 164). The general stays its contest's deciding round, with no winner marked and a note on the record. The election of 2023-12-16 is a new election [inferred: the workbooks; no law read], so it is treated as a special: recorded, p not computed. Neither tied general gets p, since each class has too few like races (below).
+- **Other dates.** 2023-01-14's one contest (Turkey Creek's mayor) is on no pair's date: a special election [inferred], recorded, p not computed.
+
+**The legislature** (`data/state-lower/2023/LA.json`, `data/state-upper/2023/LA.json`; `legislature_records`) [measured]. 98 contests: 77 House and 21 Senate.
+- The 76 contests of 2023-10-14 are first rounds: recorded, p not computed (model section 7), in the words Klarner's Louisiana first rounds carry.
+- The 20 of 2023-11-18 are deciding rounds. They take Klarner's runoff route (route (d), `pipeline/local.py`), as Klarner's Louisiana runoffs of 2019 do. Each is classed "runoff after an open or general first round", and by whether the first round's leader of the two led by 10 points or more, read from the 2023-10-14 count. The like past runoffs are Klarner's of 1967-2022: 181 within 10 points and 199 ahead by 10 or more. All 20 get p, from 1.4 to 7.1 in 10,000.
+- The 93rd district's special (2 contests) is recorded, p not computed.
+- Unopposed seats are not on Louisiana's ballot, so the source holds none [inferred].
+
+**Local races** (`data/local/2023/LA.json`) [measured]. 618 contests, 34 of them statewide or state offices.
+- First rounds, not computed: 496.
+- Specials (the two new elections after ties, and Turkey Creek): 3, not computed.
+- Deciding rounds: 119. 9 get p by the like-race classes, from 3.1 in 10,000 to 3.0 in 1,000. 93 have too few like races in earlier years. 17 are between a Democrat and a Republican, among them the runoffs for Secretary of State, Attorney General and Treasurer. Their route, the transferred route (a), gives p only in a year whose own back-test on that year's local races holds (the orchestrator, 06:16). 2023's local races in the sources are Louisiana's alone, too few for that back-test [inferred]. So those 17 are not computed, and the record says why.
+- **Left out:** the governor. It is D2's level, and `data/governor/` holds even years only. The gate's check (c) compared it, and it is equal.
+
+**Questions** (`data/measure/2023/LA.json`) [measured]. 307: 8 statewide amendments (4 on 2023-10-14, 4 on 2023-11-18) and 299 local questions. The amendments are held back, as 2024's are, by La. Const. art. XIII §1(C) (§8, §12). They join step (a)'s list. The site's posted file gives each amendment's full title, which step (a) can read. The local questions wait on step (b).
+
+**How 2023 is forecast, and what it does not feed** [inferred: the safer default, put to the orchestrator]. 2023's p come from earlier years only: Klarner's runoffs of 1967-2022, MEDSL's like local races of 2018-2022, and like measures of 2016-2022. 2023 is not added to any later year's like races, or to the back-tests or the calibration's robustness test (`ODD_YEARS` in `pipeline/local_medsl.py`). Adding it would change 2024's forecasts and the test's verdicts, which no ruling has weighed. For the same reason, 2023's records carry no `calibration_not_of_record`.
+
+**What moves elsewhere** [measured]. No p outside Louisiana's 2023 moves. The back-tests and the calibration file are unchanged. In 2024, only the 241 committees change, as §12 says.
+
+**Found, not yet changed.**
+- **Police jurors.** The office type reads "Police Juror" as "sheriff or constable", through the word POLICE. A police jury is a parish's governing body [inferred: the office's name and its districts], so it belongs with "council, commission or board". This is the same kind of error as the committees': a like-race class must hold like races (the orchestrator, 11:30). It touches 246 contests of 2023, 5 of 2024 and 3 of 2020. The 3 of 2020 are like races in 2022's and 2024's classes, so the fix can move p there. It is put to the orchestrator, with the moves to be listed.
+- **One question.** "Parishwide Criminal Justice Proposition, 3.16 Mills Renewal" is read as a judge's retention, through the word JUSTICE. It is local and gets no p either way.
 

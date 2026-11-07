@@ -228,8 +228,8 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
           return (
             <li class={`bt-line${l.level === focus ? ' on' : ''}${has ? '' : ' off'}`} key={l.level}>
               <span class="bt-name">{l.name}</span>
-              <button type="button" class="bt-fig" disabled={!has} aria-pressed={l.level === focus ? 'true' : 'false'} aria-label={has ? `${l.name}: ${money(B)}${l.a.lean ? `, which ${leanKey(l.a.lean)}` : ''}. Show in focus` : `${l.name}: no population in the data yet, so no figure to each person`} onClick={() => setFocus(l.level)}>{has ? money(B) : ''}{has && l.a.lean ? <span class={`lg lg-lean${l.a.lean === 'low' ? ' low' : ''}`} aria-hidden="true" /> : null}</button>
-              <span class="bt-ctx">{`${l.ctx} · ${oneIn(l.a.N)}${per ? ` · ${sharedBy(l.a)}` : ''}`}<span class="bt-n"><span class="sep"> · </span>{/^low-/.test(l.a.id) ? l.a.role : <><span class="num">{n}</span> contests</>}{pastWords(pastEnd(r, C, reading))}</span></span>
+              <button type="button" class="bt-fig" disabled={!has} aria-pressed={l.level === focus ? 'true' : 'false'} aria-label={has ? `${l.name}: ${money(B)}${l.a.lean ? `, which ${leanKey(l.a.lean)}` : ''}. Show in focus` : `${l.name}: no figure to each person`} onClick={() => setFocus(l.level)}>{has ? money(B) : ''}{has && l.a.lean ? <span class={`lg lg-lean${l.a.lean === 'low' ? ' low' : ''}`} aria-hidden="true" /> : null}</button>
+              <span class="bt-ctx">{`${l.ctx} · ${oneIn(l.a.N)}${per && l.a.pop ? ` · ${sharedBy(l.a)}` : ''}`}<span class="bt-n"><span class="sep"> · </span>{/^low-/.test(l.a.id) ? l.a.role : <><span class="num">{n}</span> contests</>}{pastWords(pastEnd(r, C, reading))}</span></span>
               <div class="bt-track" ref={i === 0 ? first : null}>
                 <div class="bt-layer" ref={el => { layers.current[i] = el; }}>
                   <canvas ref={el => { cvs.current[i] = el; }} class="bt-c" style={{ width: `${w}px`, height: `${H}px` }} aria-hidden="true" />

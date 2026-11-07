@@ -94,7 +94,7 @@
 - `p.value_uncalibrated`: where p is calibrated to earlier years' near-ties (`p.under` ends so), p before it: what pipeline/core.py gives from the forecast's mean and sd. `p.value`, `p.event` and `p.f_half` are that times the forecast's `calibration.multiplier`, and so is each `p.alongside` entry of the model's own.
 - `p.method` (`exact` or `density`) and `p.n` are pipeline/core.py's own outputs, and so is `p.f_half` where p is not calibrated. Where it is (`p.under` ends so), `p.f_half` is the calibrated density at ½: f(½) × `calibration.multiplier`, with f(½) the forecast's own density there. f(½) itself is `p.f_half` ÷ the multiplier. `p.sd`: for 538, the implied sd p used.
 - `near_tie_not_of_record`, on `p` and on each `p.alongside` entry of the model's own (the Senate of 2010-2024, since REPORT §0.3): round 4's near-tie factor, taken out of p by the robustness test and shown beside it. It gives `factor`, `multiplier`, `scheme`, `value` (what p would be with it: p × `multiplier`) and a `note`.
-- `note`, on `p` and on each `p.alongside` entry: the forecast's known lean near even, in the brief's words, uncorrected. Governors: on every p since REPORT §0.3, with its counts from `data/congress/history.json` (`governor_note`, within 5,000 votes, 2006-2024). House and Senate: on each p of the model's own normal forecast, standing first or beside 538's, since REPORT §0.1, with the back-test's counts within 1 point of ½ (49-51%), 2010-2024. 538's p there carry none.
+- `note`, on `p` and on each `p.alongside` entry: the forecast's known lean near even, in the brief's words, uncorrected. It stands only where two tests of the same back-test lean the same way: within 1 point of ½, and within the smallest of 1,000 to 50,000 votes at which 5 or more are expected (the orchestrator's ruling of 2026-11-07 11:01; REPORT §0.1, item 3; the tests and their counts in `data/congress/history.json`, `lean_note`). So it is on the House's p only: each p of the model's own normal forecast, standing first or beside 538's, with the back-test's counts within 1 point of ½ (49-51%), 2010-2024. 538's p there carry none. The Senate's and the governors' p carry none, since their two tests lean opposite ways.
 - `p.alongside`: p under the other forecasts: the model's own with t4 tails (same sd), the model's own normal where 538's comes first, and 538's other versions. Each has its own `event`, `f_half`, `of_forecast`, its `control`, and for 538 the implied `sd`.
 - `p.control`: p for control of the chamber, which is p × `P_decides_given_tie` (MATH §4.2), with its `event`. The chamber stage is the model's common swing and the other seats, with this seat entered under the forecast p is computed from (for 538, reading (c)); `p.control.under` says so.
 - `stage_two.inputs`: how the seat enters control.
@@ -202,7 +202,7 @@
 
 **From MEDSL's precinct returns** (`pipeline/local_medsl.py`; 2018, 2020, 2022 and 2024):
 - `result.source` is `medsl`. The votes are MEDSL's precinct counts added up to the contest. `won` is inferred from the count: the leading candidates on the ballot for the seats, and none at a tie for the last seat, since MEDSL does not mark winners. `votes_incomplete` is `true` where MEDSL redacts some precincts' counts.
-- `office` (local): the office as MEDSL names it. `office_type`: the class of office the like-race classes use (`council, commission or board`, `school board`, `judge`, `prosecutor`, `sheriff or constable`, `mayor or executive`, `special district`, `clerk, treasurer or other county officer`, `other local office`).
+- `office` (local): the office as MEDSL names it. `office_type`: the class of office the like-race classes use (`council, commission or board`, `school board`, `judge`, `prosecutor`, `sheriff or constable`, `mayor or executive`, `special district`, `clerk, treasurer or other county officer`, `party committee` (Louisiana's parties' own committees), `other local office`).
 - `office_scope` (`data/local/`): `local`, or `state` for the state's other offices (its courts, boards and statewide officers other than the governor), which plan §3 gives no level of their own; they are written in `data/local/` and classed apart from local offices.
 - `place.counties`: the county FIPS codes the contest's precincts lie in (none for a statewide office). `place.position` (state legislatures): the seat's position where a district elects members one position at a time (Washington). `place.district` is `null` where the source gives no number (Rhode Island, 2024), with a note.
 - `office_as_filed`: the office's name in the source where it differs from the level (Washington files its legislature as local offices named by district).
@@ -243,15 +243,33 @@
 - `question.subject` is the question's ballot text, as the site gives it.
 
 **From Louisiana's official results, 2024** (`pipeline/intake/la_sos.py`, `pipeline/local_la.py`; `data/local/2024/LA.json`, `data/measure/2024/LA.json`):
-- **The source.** `result.source` is `la_sos`: the Secretary of State's results site, one workbook for each of 2024's four dates, each marked official on the site's list of elections. It matches D1's and D2's certified federal counts, so it takes the place of MEDSL's Louisiana file, which counts Election Day only and is held back (`data/local/check-la.json`; REPORT §12). The presidency and Congress stay D1's and D2's. The parties' own committees are left out.
+- **The source.** `result.source` is `la_sos`: the Secretary of State's results site, one workbook for each of 2024's four dates, each marked official on the site's list of elections. It matches D1's and D2's certified federal counts, so it takes the place of MEDSL's Louisiana file, which counts Election Day only and is held back (`data/local/check-la.json`; REPORT §12). The presidency and Congress stay D1's and D2's. The parties' own committees are in (below).
 - **`election`: which round, in words** [inferred: from the four dates and the contests the source repeats]:
   - `first round: Louisiana's primary, its general election followed on <date>` or `first round: Louisiana's primary, decided in it (no general election of this contest followed)` marks a contest on a primary date (2024-03-23, 2024-11-05). Its p is not computed (model section 7). Its candidates on the general's ballot have `won` `"to runoff"`.
   - `deciding round after an earlier round on <date> (Louisiana's general election after its primary)` marks a contest on a general date (2024-04-27, 2024-12-07) whose primary held the same contest. It takes the routes' classes.
+  - `the party's own election of its committee's members, held with the presidential preference primary and decided in it: the most votes are elected (La. R.S. 18:443, 18:444) [stated]` marks a party committee's contest (2024-03-23). It takes the routes of its seats and ballot.
+- **`party_office`** (the parties' committees only: DSCC, RSCC, DPEC and RPEC members): `party` (`D` or `R`); `body` (e.g. "the Democratic Party's state central committee"); `law` and `law_url`, the section of La. R.S. that sets its election; `voters`, who may vote in it, with its mark. Their `office_type` is `party committee` (the orchestrator, 2026-11-07 11:30).
   - One contest on a general date has no primary in the source, and says so.
 - **`id`** ends with the contest's date, because one contest has a primary and a general in the same year.
 - **`party`**: the site's codes, read into the files' usual values: `D`, `R`, `libertarian`, `green`, `independent`, `no party` (its `NOPTY`) and `other`.
 - **`place.counties`**: parish FIPS codes, from the county_name and county_fips columns of MEDSL's 2024 Louisiana file (the `fips` source block).
 - **Names.** `office` and `question.title` are the source's titles in title case, with its ` -- ` read as a comma ("Mayor, Town Of Melville"). A recall's answers read `FOR RECALL` and `AGAINST RECALL`.
+
+**From Louisiana's official results, 2023** (`pipeline/local_la.py`; `data/local/2023/LA.json`, `data/measure/2023/LA.json`, `data/state-lower/2023/LA.json`, `data/state-upper/2023/LA.json`; `data/local/REPORT.md` §14): the fields above, and these.
+- **The source.** MEDSL holds no 2023, so these files are written from the state's file alone (`result.source` `la_sos`); their `about` says so. The governor is left out (D2's level).
+- **`gate`** (every record): `by` is "within the certifying source (no federal contest on the ballot)" (the orchestrator, 2026-11-07 11:16, in `ruled`); `official`, whether the date is marked official on the site's list; `parts_add_up`, whether the contest's parishes or precincts add up to its total; `posted_results`, `equal, choice by choice` where the Secretary of State's own posted results of the date hold the contest (the contests on more than one parish's ballot), or why it was not compared. A contest that fails is held, and its `p.not_computed` says so.
+- **`election`**, beside the words above: `a new election of this contest, after its general election on <date> ended in an exact tie` and `a date that is neither a primary nor a general of the year's pairs in the source: a special election`, both [inferred], both p not computed. In the legislature, the 93rd House district's special begins `special election: ` and its `id` ends `-special`.
+- **`notes`** on a tied general held again: "an exact tie: no one was elected at this count ...".
+- **The legislature's deciding round** carries Klarner's runoff route: `forecasts[].route` `runoff`, `class` "runoff after an open or general first round, first-round leader of the two ...", `p.under` "... like past runoffs".
+- These records are forecast from earlier years only, and are not in the back-tests or the calibration (no `calibration_not_of_record`).
+
+**New Jersey's 2024 contests from MEDSL, gated by county** (`pipeline/local_nj.py`; `data/local/2024/NJ.json`, `data/measure/2024/NJ.json`; `data/local/REPORT.md` §13):
+- **`gate`** (every New Jersey record of 2024): how the record passed or failed the county gate.
+  - `by` is `county` and `line` the 0.5% line. `check` names `data/local/check-nj.json`.
+  - `counties` maps each of the contest's counties (FIPS) to its worst miss against the state's certified lists, for `president`, `senate` and `house` (a share, e.g. `0.0071`).
+  - `row_checks` is `passed`, or the list of checks the contest's rows failed (a repeated row, a total line among the precincts, a precinct over its ballots cast times vote-for-N, data/local/REPORT.md §13).
+  - `released` is true when the gate lets the record's p be computed by its usual routes; those may still leave it out, and `p.not_computed` then says why. When false, `p.not_computed` gives the gate's reason.
+  - `clerk_check` (the five sampled contests only): the county clerk's official file (`file`, `sha256`) and the `worst_miss` against it.
 
 ## Fields added by D4 (the cost of voting and how ballots are cast: `data/cost/`; each state's tie and recount law, `data/law/`, below)
 
@@ -272,3 +290,46 @@
 - **A recount rule**: `kinds`, `type` (`automatic`, `requested`, `court`, `other`), `election`, `threshold` {`percent` (0.5 means one-half of one percent), `percent_of` (the statute's base), `votes`, `combine` (`or`, `and`, `lesser-of`, `greater-of`), `inclusive` (true for "or less"), `conditions`, `in_words`}, `no_margin_required` (a recount on request at any margin), `who_may_request`, `cost_bearer`, `mark`, `note`.
 - **Every rule** has `sources`: `{section, quote}` where `quote` is the statute's (or the agency guide's) own words, and `source_blocks` (url, `read_utc`, `sha256` of the page, `licence`, `via` and `origin` where a compilation was used), `quotations_verified` (true when `pipeline/intake/state_law.py` found every quotation word for word in the page it fetched). A `mark` of `measured` is the state's own text; `stated` is an agency guide or compilation (a lower grade, named in `sections.<key>.read_at`); `inferred` is a reading of what the text implies, said in `note`.
 - `data/law/src/<ST>.json` are the curated readings the two files are built from (`python3 pipeline/intake/state_law.py build`).
+
+## The population of each state legislative district (D2; `data/population/`)
+
+*Added 2026-11-07 on the orchestrator's word of 11:39 UTC. Reason: the site divides B\* among the people a seat serves, and D3's state legislative contests carry no population. A separate file keeps clear of D3's builds; D3's files are read, never written.*
+
+**Files.** `state-legislative-2024.json` and `state-legislative-2022.json`, built by `pipeline/population_sld.py` from the cache that `pipeline/intake/census_sld_population.py` writes.
+
+**The source.** The Census Bureau's 2020 Census count of each state legislative district: POP100, "Population Count (100%)", as of 1 April 2020.
+- For 2024 it is the 119th Congressional District Summary File (CD119), whose districts are "the 2024 election cycle boundaries" every state provided (its technical documentation, A-21).
+- For 2022 it is the 118th Congressional District Summary File (CD118), with "the 2022 election cycle boundaries".
+- Only each state's geographic header file is read. Each chamber's districts sum to the state's count exactly.
+- The census counts are used, not ACS 5-year totals. They are a full count with no sampling error, where ACS totals are survey estimates with a margin of error. They are the counts the plans were drawn from, and the Bureau tabulates them on each cycle's own lines.
+
+**Fields.**
+- `sources`: one source block (plan §3 shape), keyed `census_cd119` or `census_cd118`. `files.<ST>` gives each state's zip: its url, sha256, size and read time.
+- `contests.<D3 contest id>`, for every contest in `data/state-upper/<year>` and `data/state-lower/<year>`:
+  - `population`: `{value, of: "district", as_of: "2020-04-01", source}`, or null;
+  - `district`: `{chamber, code, geoid, name}`, the Bureau's district;
+  - `not_given`: where `population` is null, the reason;
+  - `note`: for a seat of a multi-member district (Idaho's seats A and B, Washington's positions), that the figure is the whole district's, since the whole district elects every seat. D3's own `seats` gives the number of members.
+- `match_rate.<ST>.<upper|lower>`: `{contests, given, share, bureau_districts, not_given: {reason: count}}`; `totals` for the year.
+- `lines_against_2022.<ST>.<chamber>` (2024 file only): whether the Bureau's 2024 districts and counts are the same as its 2022 ones.
+
+**Nothing is apportioned.** A contest gets a figure only where its district is one the Bureau tabulates, matched by name. Names are compared by their words and numbers, so "BELKNAP 001" matches "Belknap 01", and "1ST BRISTOL AND PLYMOUTH" matches "First Bristol and Plymouth". A contest gets no figure in these cases:
+- **No district in D3's record.** All of Rhode Island in 2024, and 15 contests in New York and Arizona.
+- **A floterial or other untabulated unit.** In New Hampshire, 39 of D3's district names are not among the Bureau's 164 House districts. They are the highest-numbered districts in their counties. The Bureau's districts cover each block once, so it does not tabulate districts that overlap others, as floterial districts do.
+- **A seat that may be a lettered subdistrict.** Examples are 2022's "26, position 1" in South Dakota, where the Bureau tabulates 26A and 26B. This covers all of Minnesota's House in 2022, where D3's records give positions rather than 10A and 10B, and 42 seats of Maryland's House.
+- **A state whose lines at the election are not the Bureau's** (`NOT_THE_LINES` in the script). None is known.
+  - In 2024, every district name in D3's records is among the Bureau's 2024 districts, except the cases above.
+  - Between the Bureau's 2022 and 2024 districts these changed: Georgia, Montana, North Carolina, North Dakota, Ohio, Washington and Wisconsin (both chambers), New York's Assembly and Michigan's House, and a few districts of Minnesota (both chambers) and South Carolina's House.
+
+**Match rates.** In 2024, 5,143 of 5,310 contests are given a population (96.9%), and every contest in 80 of 86 chambers. The other six:
+
+| State, chamber | Given | Why not |
+|---|---|---|
+| Arizona, lower | 28 of 29 | 1 record names no district |
+| New Hampshire, lower | 171 of 210 | 39 untabulated (floterial) districts |
+| New York, upper | 59 of 63 | 4 records name no district |
+| New York, lower | 140 of 150 | 10 records name no district |
+| Rhode Island, upper | 0 of 38 | no record names a district |
+| Rhode Island, lower | 0 of 75 | no record names a district |
+
+In 2022, 5,645 of 5,869 are given (96.2%), and every contest in 83 of 89 chambers. The others are New Hampshire's House (164 of 203), Minnesota's House (0 of 134), Maryland's House (29 of 71), North Dakota's and South Dakota's Houses (31 of 35, 33 of 37), and Massachusetts's Senate (40 of 41: "Suffolkmiddlesex 1" matches no Bureau name).
