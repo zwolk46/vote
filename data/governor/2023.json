@@ -66,13 +66,13 @@
   ],
   "cycles": 23,
   "races": 530,
-  "b_lean": 0.29812376402793933,
-  "b_inc": 0.07238334836352839,
-  "b_lag": 0.11827775199047227,
-  "s_e_fitted": 0.07898112460415624,
-  "k": 0.9360685320974704,
+  "b_lean": 0.3017976354922426,
+  "b_inc": 0.07351070102466327,
+  "b_lag": 0.11200948283688117,
+  "s_e_fitted": 0.07851719624613086,
+  "k": 0.9262132351921051,
   "calibration": {
-   "k": 0.9360685320974704,
+   "k": 0.9262132351921051,
    "years": [
     1986,
     1988,
@@ -97,12 +97,12 @@
    "races": 437,
    "note": "k = the root mean square of z = (y - mean) / sd over these earlier years' races, each year forecast from its own earlier cycles"
   },
-  "s_e": 0.07393174537161994,
-  "s_a": 0.02468660264970068,
+  "s_e": 0.07272366635334228,
+  "s_a": 0.023835499920218512,
   "c": [
-   -0.0003603117007193575,
-   -0.021466353756623292,
-   -0.00684194241572677
+   0.0001652786677041922,
+   -0.02171421741748439,
+   -0.00748443399287226
   ],
   "ZtZ_inv": [
    [
@@ -121,11 +121,11 @@
     0.09126984126984126
    ]
   ],
-  "national_forecast": -0.0003603117007193575,
-  "national_sd": 0.023607313989691788,
-  "sd": 0.07760933093064225,
-  "rho": 0.09252631669161258,
-  "commit": "b748ec42",
+  "national_forecast": 0.0001652786677041922,
+  "national_sd": 0.022553443056298608,
+  "sd": 0.07614058997385002,
+  "rho": 0.08773911064982874,
+  "commit": "ce811c7e",
   "mean_is": "1/2 + national_forecast + b_lean * lean + b_inc * incumbency + b_lag * (last governor race's Democratic share - 1/2)",
   "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = k s_a sqrt(1 + z (Z'Z)^-1 z'), s_e = k s_e_fitted, z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic president, -1 Republican; k the calibration factor; in an odd year z = (1, w P, 0), w = 1 under the midterm term and 0 under the plain route (odd_year below)",
   "odd_year": {
@@ -140,7 +140,7 @@
    "midterm_term": {
     "improves": false,
     "robust": false,
-    "mean_log_score_gain": 0.04463500686501387
+    "mean_log_score_gain": 0.05890347285443798
    },
    "lean_note_stands": true
   },

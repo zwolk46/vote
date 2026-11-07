@@ -7,7 +7,10 @@ Murphy 0, though he won in 2017 (data/congress/REPORT.md 9.6).
 
 The check (survey):
   - Every governor contest in data/governor/*.json is read, Louisiana apart (its two rounds: no p, and not in the fit).
-  - Each major nominee's code is the one the source carries:
+  - A nominee is the candidate with the most votes on a Democratic (or Republican) line, by build_congress.major,
+    as the files take it (fusion lines such as New York's "D,WF,Indep" and Minnesota's DFL count; a write-in does
+    not).
+  - Each nominee's code is the one the source carries:
       - Cha's inc, found by the nominee's exact name within Cha's own contest, so not through build_congress's
         last-name join (cha_entry); or
       - Algara and Amlani's seat status.
@@ -377,7 +380,7 @@ def survey():
     for f in sorted(glob.glob(os.path.join(REPO, "data", "governor", "*.json"))):
         for c in cc.read_json(f)["contests"]:
             rec[c["place"]["state"]].append(c)
-    side_of = {"D": "D", "DEM": "D", "R": "R", "REP": "R"}
+    from build_congress import major     # the files' own rule for a nominee's side (fusion lines, DFL, write-ins)
     out, odd = [], []
     for st, cs in rec.items():
         if st == "LA":
@@ -393,7 +396,7 @@ def survey():
             src = (c.get("forecast_inputs") or {}).get("incumbency_source")
             noms = {}
             for a in c["result"]["candidates"]:
-                s = side_of.get((a["party"] or "").upper())
+                s = major([a["party"]]) if a["party"] else None
                 if s and a["votes"] and (s not in noms or a["votes"] > noms[s][1]):
                     noms[s] = (a["name"], a["votes"])
             k3 = (c["year"], st, bool(c["special"]))
@@ -421,6 +424,43 @@ def survey():
                 elif not won and (is_inc or code in (2, 3)):
                     out.append(k3 + (s, n, code, "B", ly, lw, src))
     return sorted(out), odd
+
+
+def join_check():
+    """Whether the files' incumbency, which build_congress takes through its last-name join (cha_entry; #45), is the
+    one Cha's codes give the two nominees found by their exact names (after fix_cha): {contests, agree, differ}.
+    Reason (the orchestrator, 13:06): a disagreement could be "Cha's coding or your join"."""
+    from build_congress import major
+    cha = fix_cha(cc.read_json(os.path.join(cc.CACHE, "cha", "normalized", "contests.json"))["contests"])
+    chx = collections.defaultdict(list)
+    for c in cha:
+        if c["office"] == "governor":
+            chx[(c["year"], c["state"], bool(c["special"]))].append(c)
+    n, differ = 0, []
+    for f in sorted(glob.glob(os.path.join(REPO, "data", "governor", "*.json"))):
+        for c in cc.read_json(f)["contests"]:
+            fi = c.get("forecast_inputs") or {}
+            if fi.get("incumbency_source") != "cha":
+                continue
+            noms = {}
+            for a in c["result"]["candidates"]:
+                s = major([a["party"]]) if a["party"] else None
+                if s and a["votes"] and (s not in noms or a["votes"] > noms[s][1]):
+                    noms[s] = (a["name"], a["votes"])
+            k = (c["year"], c["place"]["state"], bool(c["special"]))
+            cs = [x for x in chx[k] if not x["runoff"]] or chx[k]
+            net = 0
+            for s, (name, _) in noms.items():
+                hit = [a["inc"] for x in cs for a in x["candidates"] if a["name"] == name]
+                if not hit:
+                    differ.append(f"{c['id']}: {name} not found by name in Cha")
+                    break
+                net += (1 if hit[0] == 1 else 0) * (1 if s == "D" else -1)
+            else:
+                n += 1
+                if net != fi["incumbency"]:
+                    differ.append(f"{c['id']}: the file {fi['incumbency']:+d}, Cha by name {net:+d}")
+    return {"contests": n, "agree": n - sum(1 for d in differ if "the file" in d), "differ": differ}
 
 
 # ----------------------------------------------------------------------------- the rosters
@@ -482,6 +522,9 @@ def check():
             raise SystemExit(f"governor_incumbency: {r[:4]} is {r[4]!r} coded {r[5]!r} in the source, not "
                              f"{x[0]!r} coded {x[1]!r}")
     rosters = gate()
+    joined = join_check()
+    if joined["differ"]:
+        raise SystemExit(f"governor_incumbency: the join and Cha's codes by name differ: {joined['differ']}")
     rows = []
     for r in found:
         y, st, sp, side, name, code, kind, ly, lw, src = r
@@ -503,6 +546,8 @@ def check():
                   "contest. The record counts Cha's 1 only (REPORT 2.2, 0.2)"),
         "contests_read": None,
         "counts": dict(collections.Counter(r["verdict"] for r in rows)),
+        "join_check": {**joined, "what": "the files' incumbency, through build_congress's last-name join "
+                                         "(cha_entry), against Cha's codes for the nominees found by exact name"},
         "checks": rows,
         "rosters": rosters,
         "rosters_not_read": ROSTERS_NOT_READ,
