@@ -27,6 +27,7 @@ import unicodedata
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import congress_common as cc  # noqa: E402
+from downballot_pres_by_cd import LEAN_INPUT  # noqa: E402
 
 ELECTION_DAY = {2006: "2006-11-07", 2008: "2008-11-04", 2010: "2010-11-02", 2012: "2012-11-06",
                 2014: "2014-11-04", 2016: "2016-11-08", 2018: "2018-11-06", 2020: "2020-11-03",
@@ -221,10 +222,15 @@ def structure(year, office, state, cands, special):
         return (NOT_COMPUTED, "Vermont's legislature chooses the governor when no candidate has a majority "
                 "(Vermont Constitution, ch. II, sec. 47); with three or more candidates that can happen")
     top2 = sorted(voted, key=lambda a: -a["votes"])[:2]
-    parties = [major(a["parties"]) for a in top2]
+    # an independent who caucuses with the Democrats (Sanders, King) stands as the Democrat, as 538 also has it
+    parties = [major(a["parties"]) or ("D" if a.get("state_caucus_D") else None) for a in top2]
+    if parties == ["D", "D"] and any(a.get("state_caucus_D") for a in top2):
+        return (NOT_COMPUTED, "a Democrat against an independent who caucuses with the Democrats (Connecticut "
+                "2006); the model's own forecast is fitted to races of a Democrat against a Republican")
     if parties[0] == parties[1] and parties[0] is not None:
-        return (NOT_COMPUTED, "the top two are of one party (a top-two or open special election); the "
-                "model's own forecast is fitted to races of a Democrat against a Republican")
+        return (NOT_COMPUTED, "the top two are of one party (a top-two or open special election, or, in "
+                "Connecticut in 2006, Lieberman on a Democratic and a third-party line against the Democratic "
+                "nominee); the model's own forecast is fitted to races of a Democrat against a Republican")
     if set(parties) != {"D", "R"}:
         return (NOT_COMPUTED, "the top two are not a Democrat and a Republican; the model's own forecast is "
                 "fitted to races of a Democrat against a Republican")
@@ -269,7 +275,7 @@ def pres_inputs():
     return share, nat, medsl_src, db, nara
 
 
-def forecast_inputs(year, office, state, district, inc, inc_via, P):
+def forecast_inputs(year, office, state, district, inc, inc_via, P, special=False):
     share, nat, medsl_src, db, nara = P
     py = year - 4 if year % 4 == 0 else year - 2
     sitting = nara[max(y for y in nara if y < year)]
@@ -279,6 +285,24 @@ def forecast_inputs(year, office, state, district, inc, inc_via, P):
            "incumbency": inc, "incumbency_source": ("cha" if "cha" in inc_via else "record" if inc_via else None),
            "midterm": year % 4 != 0, "president_party": sitting["party"],
            "president_source": f"nara_{sitting['year']}"}
+    if office == "house" and special and (year - 2) in LEAN_INPUT:
+        # a House special fills the old Congress's term and is held on the old Congress's lines (2018: Pennsylvania's
+        # 7th and 15th, on the lines of 2016 though the new map elected the new Congress the same day), so its lean
+        # is the presidential vote on the lines of the House election two years before
+        old = LEAN_INPUT[year - 2][0]
+        k = f"{state}-{district}"
+        x = db["districts"].get(old, {}).get(k, {}).get(str(py))
+        if x is None:
+            out["lean"] = None
+            out["lean_missing"] = f"no {py} presidential vote on the lines of {year - 2} (the old Congress's, on which a special is held) in The Downballot's sheets"
+            return out
+        sh = db["sheets"][old]
+        out["district_share_D"] = round(x["two_party_D"], 6)
+        out["lean"] = round(x["two_party_D"] - nat[py], 6)
+        out["lines"] = f"the old Congress's: those of {year - 2}, on which a special election is held"
+        SOURCES[f"downballot_{old}"] = {k2: sh[k2] for k2 in ("name", "url", "read_utc", "licence", "mark", "via", "note")}
+        out["lean_source"] = f"downballot_{old}"
+        return out
     if office == "house":
         li = db["lean_inputs"].get(str(year), {})
         k = f"{state}-{district}"
@@ -322,9 +346,9 @@ def contest(year, office, c, cha_c, cha_src, P):
     district = c.get("district") if office == "house" else None
     special = c["special"]
     cands = c["candidates"]
-    kind = structure(year, office, c["state"], cands, special)
     for a in cands:
         a["state_caucus_D"] = (c["state"], last_name(a["name"])) in CAUCUS_D and major(a["parties"]) is None
+    kind = structure(year, office, c["state"], cands, special)
     inc, inc_via = incumbency(cands, cha_c, year)
     real = [a for a in cands if not a["scattered"]]
     voted = sorted([a for a in real if a["votes"]], key=lambda a: -a["votes"])
@@ -377,7 +401,7 @@ def contest(year, office, c, cha_c, cha_src, P):
         rec["p"] = {"value": 0.0, "event": 0.0, "under": None, "computed_by": "pipeline/intake/build_congress.py",
                     "commit": None, "not_computed": None, "reason": kind[1]}
         return rec
-    fi = forecast_inputs(year, office, c["state"], district, inc, inc_via, P)
+    fi = forecast_inputs(year, office, c["state"], district, inc, inc_via, P, special)
     rec["forecast_inputs"] = fi
     if kind:
         rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
@@ -414,6 +438,43 @@ def governors(year, cha_src, idx, P):
 
 
 POP = {}
+# a special election the November record leaves out, held on a date one of the chambers' own pages gives
+OFF_DATE = {(2010, "senate", "MA"): ("2010-01-19", "U.S. Senate, Party Division, 111th Congress, note 4: \"Scott Brown (R) "
+                                     "of Massachusetts, elected January 19, 2010, was seated, replacing appointed "
+                                     "Senator Paul Kirk (D).\"")}
+NOT_NOVEMBER = ("a special election the November record (the FEC's Federal Elections; for 2024 the Clerk's "
+                "Statistics) leaves out, mostly because it was held on another date; the model's own forecast is "
+                "for November's general election, and no published forecast for it was read here")
+
+
+def cha_only(year, office, st, d, special, cs, cha_src, P):
+    """A contest only Cha, Kuriwaki and Snyder hold (special elections on other dates): their record stands as
+    the source of record, with no second source to check it against, and p is not computed."""
+    c = [x for x in cs if not x["runoff"]] or cs
+    runoff_only = not [x for x in cs if not x["runoff"]]
+    c = c[0]
+    cands = [{"name": a["name"], "party": a["party_formal"] or a["party"], "parties": [a["party"]],
+              "votes": a["votes"], "scattered": False} for a in c["candidates"]]
+    rec = {"office": office, "state": st, "district": d, "special": special, "candidates": cands,
+           "printed_total": None, "computed_total": sum(a["votes"] or 0 for a in cands), "runoff": None,
+           "source": cha_source(cha_src, office),
+           "notes": ["in the check source only: " + NOT_NOVEMBER]
+                    + (["the source holds only the runoff, the deciding round"] if runoff_only else [])}
+    r = contest(year, office, rec, None, cha_src, P)
+    r["result"]["certified"] = None
+    r["notes"].append("certified: the source compiles official returns and does not say, contest by contest, "
+                      "whether a count is the certified one")
+    when = OFF_DATE.get((year, office, st))
+    r["date"] = when[0] if when else None
+    if when:
+        r["notes"].append(f"date: {when[1]}")
+    else:
+        r["notes"].append("date: not given by the sources read here")
+    r["checks"] = [{"against": None, "differences": ["no second source read for this contest"]}]
+    if r["p"]["value"] is None:
+        why = r["p"]["not_computed"] or ""
+        r["p"]["not_computed"] = NOT_NOVEMBER if why.startswith("pending") or not why else f"{why}; and {NOT_NOVEMBER}"
+    return r
 
 
 def build(year):
@@ -435,11 +496,14 @@ def build(year):
         seen.add((c["office"], c["state"], c.get("district") if c["office"] == "house" else None, c["special"]))
     by_level["governor"] = governors(year, cha_src, idx, P)
     SOURCE_POOL.update(SOURCES)
-    for (y, office, st, dist, special), cs in idx.items():
+    for (y, office, st, dist, special), cs in sorted(idx.items()):
         if y == year and office in ("house", "senate") and st in cc.STATES_50:
             d = None if office == "senate" else ("AL" if (office, st, "AL", special) in seen and dist == "01" else dist)
             if (office, st, d, special) not in seen:
                 by_level[office + "_missing"] = by_level.get(office + "_missing", []) + [f"{st}-{dist}{' special' if special else ''}"]
+                if office == "senate" and any(k[0] == "senate" and k[1] == st for k in seen):
+                    continue   # Arizona 2020: the same contest, a special in one source and not in the other
+                by_level[office].append(cha_only(year, office, st, d, special, cs, cha_src, P))
     for level in ("senate", "house", "governor"):
         SOURCES.clear()
         SOURCES["cha"] = cha_source(cha_src, level)
