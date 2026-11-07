@@ -4,6 +4,8 @@
 
 ## Where things stand
 
+- **ON HOLD since 2026-11-07 02:45** at the maker's word, waiting for guidance from the midterms orchestrator. Next once lifted: fold the cold readings and B2's breaks into law draft 2 and bring it to him to ratify.
+
 - Initialized on 2026-11-06 from `handoff/vote-importance/` in zwolk46/midterms (its PR #252), by the midterms orchestrator: system files, templates, `inherited/`, the starter site with Plex. `npm run build` and `npm test` (1 pass) clean.
 - Vercel: linked. Project `vote` (prj_C78MKoz1D80kgE2Bfz9mMmET3Ndo, team zachs-projects-74dd78e7), imported by the maker. Production deployment dpl_5azt1qjLZELKy2tUsxjUHhD9Sotx of `main` 80e6705 is READY [measured 2026-11-06 17:36 UTC]. Address: https://vote-rho-pearl.vercel.app. Vercel Authentication is on ("all_except_custom_domains"), so the vercel.app addresses ask visitors to sign in to Vercel; to settle before launch (midterms lesson 20: no link previews behind a login).
 - Orchestrator: thread "Orchestrate the vote site" (cmsg_01FHkmcV6WaeZh9r5PfgnMbuGmNcLgzp1vbf5yXQkbDeFE), branch `claude/project-thread-0szt08`; this file is kept current on that branch.
@@ -39,6 +41,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 02:46: **On hold.** The maker: "We’re waiting for some guidance on the midterms orchestrator. Hold off until then." Nothing new is started or folded in until his word. B2 (already running, read-only) finishes its report and stops under `_COMMON` 14; its PR is not merged until the hold lifts. Open card: design effort (max for design work only, recommended / xhigh).
 
 - 2026-11-07 02:39: the maker: "I trust your judgment to approve the model" and asked to align broadly on the procedure from here, mostly autonomous, with the midterms build as the example (RULINGS). Model approved: `model/MODEL.md` (draft 3's text). Cold readings A and B in (`law/COLD-READING-*-draft-1.md`): both read the end as meant; common faults: half-tie rule not in Part A, "the model" in three senses, "orchestrator" undefined, the presidency's outcome (state or presidency), B for a multi-candidate race, true source vs compilations, the licence rule too blunt, 2a's unsourced forecast claim, 2b's reason leaning on the model, 7 vs 7c. To fold into law draft 2 with B2's breaks. Procedure put to the maker; design-effort card.
 

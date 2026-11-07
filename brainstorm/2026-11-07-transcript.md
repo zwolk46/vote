@@ -25,3 +25,7 @@
 > I trust your judgment to approve the model. Let's then broadly discuss what the procedure is going to be from here, because I want to leave it mostly autonomously to you, while understanding all of the kinds of design things that need to be done relative to how the midterm site was made, and to use it basically as an example, as far as is relevant. But I just want to make sure that broadly we're aligned.
 
 **Orchestrator, 02:40.** Approved the model (draft 3 as the model of record) and set out the procedure: (1) the law, cold-read and broken, then to him to ratify, "the one step that has to be yours"; (2) the plan, one short read before data work, "Tell me if you'd rather I skip it and just go"; (3) data, at most three threads at once (presidency by state, Congress, state legislatures, local races, cost inputs), every figure from its source, Fable checking every computed chance; (4) design as on midterms: a design spec from his midterms taste rulings, the central picture of chance against break-even, a motion spec, real components from 21st.dev, Details and Mobbin; (5) build in the starter, PR by PR, checked at phone widths 320 to 430, text 1× to 2×, light and dark, with real data; (6) launch: previews, then the Vercel sign-in, the domain and share cards are his calls. Decision card: "Run design workers at max effort, as on midterms?" (max for design work only, recommended / xhigh, like everything else).
+
+**Zach, 02:45.**
+
+> We’re waiting for some guidance on the midterms orchestrator. Hold off until then.
