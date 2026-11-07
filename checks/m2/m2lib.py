@@ -62,9 +62,12 @@ def p_density(n, f):
     return f / (2.0 * n)
 
 
-def p_exact(n, mean, sd, tails="normal", points=400001):
+def p_exact(n, mean, sd, tails="normal", points=400001, renormalize=False):
     """The lattice sum, a tie by lot: p = 1/2 P(X = n/2) (n even) or 1/2 P(X = (n-1)/2) (n odd), with
-    X | v ~ Binomial(n, v) and v the forecast, truncated to (0, 1); Simpson's rule on a grid of v."""
+    X | v ~ Binomial(n, v) and v the forecast, integrated over (0, 1) as MATH 1.2(a) writes it, the
+    forecast's mass outside (0, 1) left out (no count exists there); Simpson's rule on a grid of v.
+    renormalize=True divides by the forecast's mass in (0, 1) instead (a truncated forecast), which the
+    model does not do; it is offered so that the difference can be shown."""
     k = n // 2 if n % 2 == 0 else (n - 1) // 2
     if tails == "normal":
         lo, hi = mean - 15 * sd, mean + 15 * sd
@@ -75,7 +78,8 @@ def p_exact(n, mean, sd, tails="normal", points=400001):
     lo, hi = max(lo, 1e-9), min(hi, 1 - 1e-9)
     v = np.linspace(lo, hi, points)
     wv = w(v)
-    wv = wv / integrate.simpson(wv, x=v)
+    if renormalize:
+        wv = wv / integrate.simpson(wv, x=v)
     pmf = np.exp(stats.binom.logpmf(k, n, v))
     return 0.5 * float(integrate.simpson(pmf * wv, x=v))
 

@@ -20,6 +20,7 @@ bound, computed for each contest as the largest change of f(1/2) over the four c
 (mean +- 5e-7, sd +- 5e-7), plus 1e-9; the largest difference seen is printed, and so is the largest
 difference as a share of its bound.
 """
+import math
 import os
 import re
 import sys
@@ -158,7 +159,7 @@ def check_congress(level):
           "'alongside' p")
     t_p, t_event, t_fh, t_sd, t_ctl = Tally(), Tally(), Tally(), Tally(), Tally()
     n_p, n_zero, n_nop, nop_without_reason, zero_without_reason, unnamed, zero_unnamed = 0, 0, 0, [], [], [], []
-    method_wrong, exact_rows, unmatched, share_of_bound = [], [], [], []
+    method_wrong, exact_rows, unmatched, share_of_bound, all_rows = [], [], [], [], []
     rng = np.random.default_rng(7)
     for path in L.congress_files(level):
         d = L.load_json(path)
@@ -215,8 +216,10 @@ def check_congress(level):
                     w = c["stage_two"]["inputs"].get("P_decides_given_tie")
                     t_ctl.add(tag, blk["value"] * w, ctl["value"], 1e-12)
                     t_ctl.add(tag + " event", 2 * ctl["value"], ctl["event"], 0.0)
-                if blk is p and (n * sd * sd < 200 or rng.random() < 0.01):
-                    exact_rows.append((c["id"], n, mean, sd, tails, fh / (2 * n)))
+                if blk is p:
+                    all_rows.append((c["id"], n, mean, sd, tails, fh / (2 * n)))
+                    if n * sd * sd < 200 or rng.random() < 0.01:
+                        exact_rows.append((c["id"], n, mean, sd, tails, fh / (2 * n)))
     print(f"  contests: {n_p} with p > 0, {n_zero} with p = 0, {n_nop} not computed")
     print(f"  not computed without a reason: {nop_without_reason or 'none'}; p = 0 without a reason: "
           f"{zero_without_reason or 'none'}")
@@ -242,6 +245,44 @@ def check_congress(level):
         print(f"     {cid:<28} n {n:>9,} mean {mean:.4f} sd {sd:.4f} n sd^2 {n * sd * sd:8.1f} "
               f"density {pd:.6e} exact {pe:.6e} ratio {pd / pe:.6f}")
     print(f"  largest |density / exact - 1| over these: {worst:.2e}")
+    exact_every(level, all_rows)
+
+
+def exact_every(level, rows):
+    """1.3: the exact lattice sum for EVERY p of the level (a coarser grid: 40,001 points, kernel sd ~ 1/(2 sqrt n)
+    is still 50+ points wide), against the density form, by the size of p; and against MATH 1.3's convolved
+    form (a normal with variance sd^2 + 1/(4n)), which carries the mean's distance from one half."""
+    bands = [(1e-6, "p >= 1e-6"), (1e-8, "1e-8 <= p < 1e-6"), (0.0, "p < 1e-8")]
+    worst = {b[1]: (0.0, None) for b in bands}
+    least_mass = {b[1]: (1.0, None) for b in bands}
+    worst_conv = (0.0, None)
+    for cid, n, mean, sd, tails, pd in rows:
+        pe = L.p_exact(n, mean, sd, tails, points=40001)
+        d = abs(pd / pe - 1)
+        # the forecast's mass in (0, 1): a truncated (renormalized) forecast would divide p by it
+        if tails == "normal":
+            mass = stats.norm.cdf((1 - mean) / sd) - stats.norm.cdf((0 - mean) / sd)
+        else:
+            mass = stats.t.cdf((1 - mean) / (sd / L.SQRT2), 4) - stats.t.cdf((0 - mean) / (sd / L.SQRT2), 4)
+        for lo, name in bands:
+            if pd >= lo:
+                if d > worst[name][0]:
+                    worst[name] = (d, f"{cid} n sd^2 {n * sd * sd:.0f} z {(mean - 0.5) / sd:+.1f} ratio {pd / pe:.4f}")
+                if mass < least_mass[name][0]:
+                    least_mass[name] = (mass, cid)
+                break
+        if tails == "normal":
+            v = sd * sd + 1.0 / (4 * n)
+            pc = stats.norm.pdf(0.5, mean, math.sqrt(v)) / (2 * n)
+            dc = abs(pc / pe - 1)
+            if dc > worst_conv[0]:
+                worst_conv = (dc, f"{cid} n sd^2 {n * sd * sd:.0f} z {(mean - 0.5) / sd:+.1f} ratio {pc / pe:.4f}")
+    print(f"  1.3 {level}: the exact lattice sum for every p ({len(rows)} contests), largest |density / exact - 1| by the size of p:")
+    for _, name in bands:
+        print(f"     {name:<20} {worst[name][0]:.2e} ({worst[name][1]}); the forecast's smallest mass in (0, 1) "
+              f"{least_mass[name][0]:.4f} ({least_mass[name][1]}): a truncated forecast would raise that p by 1 / mass")
+    print(f"     MATH 1.3's convolved normal (variance sd^2 + 1/(4n)), normal forecasts only: largest |convolved / exact - 1| "
+          f"{worst_conv[0]:.2e} ({worst_conv[1]})")
 
 
 def main():
