@@ -33,7 +33,7 @@ export function Ruler({ C, minutes, wage, setCost, reading, setReading }) {
       </section>
       <section class="ra-field" aria-labelledby="ra-f">
         <div class="ra-fh"><h2 id="ra-f">Every contest</h2><span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests</span></div>
-        <Legend items={[['dot', `${UNIT} sample contests`], ['ring', 'a named figure'], ['line', 'your cost']]} />
+        <Legend items={[['dot', `= ${UNIT} contests (samples)`], ['ring', 'a named figure'], ['line', 'your cost']]} />
         <Boundary what="The field of contests" fallback={() => <p class="muted">The field could not be drawn.</p>}>
           <Field C={C} reading={reading} sel={sel} onSel={setSel} desk={desk} />
         </Boundary>

@@ -15,7 +15,7 @@ export const bstar = (a, C, reading) => (reading === 'person' ? (C * a.N) / a.po
 // for jargon and a bare "2008" for an error).
 export const whenOf = a => (a.when === 'stylised' ? 'An invented example, not a real race' : /^\d{4}$/.test(a.when) ? `From a study of the ${a.when} election` : `From a study of House races, ${a.when}`);
 // the people a per-person figure is shared among
-export const sharedBy = a => `shared by ${count(a.pop.value)} people${a.pop.sample ? ' (a round figure)' : ''}`;
+export const sharedBy = a => `shared by ${count(a.pop.value)} people in ${a.pop.of}${a.pop.sample ? ' (a round figure)' : ''}`;
 
 // The figure the page leads with, B*, in the display size, the unit word lighter; under it what it is, in a label
 // (every cold reader of 11-07 first took "$89 million to you" for a sum they would receive); the working as figures;

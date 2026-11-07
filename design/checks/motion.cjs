@@ -73,7 +73,10 @@ const judge = (tag, what, st, t0, phone) => {
         console.log(`${tag} A arrival (V1, nav-in 680): ${fmt(arr)}`);
         if (!reduce) judge(tag, 'A arrival', arr.slice(1), null, phone);
         if (reduce && arr.length > 3) fail(`${tag} A arrival: ${arr.length} frames drawn under reduced motion`);
-        if (!reduce && arr.length > 2 && arr[arr.length - 1] - arr[0] > 680 * 1.5) fail(`${tag} A arrival ran ${Math.round(arr[arr.length - 1] - arr[0])} ms, past 1.5 x its token`);
+        // the first frame recorded can be the page's own (Preact schedules its effects on a frame) before the arrival
+        // starts; as the gap check above leaves it out, so does the length, when a long gap parts it from the rest
+        const mv = arr.length > 2 && arr[1] - arr[0] > 50 ? arr.slice(1) : arr;
+        if (!reduce && mv.length > 2 && mv[mv.length - 1] - mv[0] > 680 * 1.5) fail(`${tag} A arrival ran ${Math.round(mv[mv.length - 1] - mv[0])} ms, past 1.5 x its token`);
         const rd = await stampsSince(page, () => page.click('.seg-body .seg-t:nth-child(2)'), 900);
         console.log(`${tag} A reading (V3, chart 450): ${fmt(rd, rd.t0)}`);
         if (!reduce) judge(tag, 'A reading', rd, rd.t0, phone);

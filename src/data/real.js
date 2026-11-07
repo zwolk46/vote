@@ -25,7 +25,7 @@ export const ANCHORS = [
   {
     id: 'town', level: 'local', N: 468,
     name: 'A town race of 2,000 voters', short: 'Town race, 2,000 voters', when: 'stylised',
-    mark: 'Stylised, not a real race.',
+    mark: 'An invented example, not a real race.',
     src: 'A forecast of 52–48 with a 4-point spread, summed exactly by the model (model/MATH.md §6.2; model/math/OUTPUT.txt).',
     pop: { value: 4000, of: 'the town', sample: true },
   },
