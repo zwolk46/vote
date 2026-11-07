@@ -305,6 +305,60 @@ def tie_note(c, r, later):
     return None
 
 
+TIES_LAW = os.path.join(L.REPO, "data", "law", "ties.json")
+
+
+def tie_record(c, r, later):
+    """For a deciding round that ended in an exact tie (the orchestrator, 2026-11-07 11:56: "mark each plainly in the
+    record (result.tie: true), with how it was settled (the new election of Dec 16) and LA's tie rule cited from
+    data/law"): how it was settled, and Louisiana's rule for a tie in a general election, as data/law/ties.json
+    records it. None if the round did not tie."""
+    if not (r and r[0] == "deciding" and _tied(c)):
+        return None
+    with open(TIES_LAW) as f:
+        law = json.load(f)
+    st = law["states"]["LA"]
+    rule = next(x for x in st["rules"] if "local" in x["kinds"])
+    out = {"settled_by": "a new election of the same contest, between the same candidates" if later else
+                         "not in the source: it holds no later election of this contest",
+           "date": later,
+           "rule": {"law": "La. R.S. 18:512(C)", "resolution": rule["resolution"], "steps": rule["steps"],
+                    "quote": rule["sources"][0]["quote"], "mark": rule["mark"],
+                    "applies_to": rule["applies_to"], "read_in": st["code"]["site"],
+                    "from": f"data/law/ties.json (written {law['written_utc']})"}}
+    if later:
+        import datetime as _dt
+        d0, d1 = _dt.date.fromisoformat(c["date"]), _dt.date.fromisoformat(later)
+        fourth = d0 + _dt.timedelta(days=(5 - d0.weekday()) % 7 or 7) + _dt.timedelta(weeks=3)
+        out["mark"] = ("measured: the source's workbook of that date holds the contest again"
+                       + ("; it is the fourth Saturday after the tied general, the day the rule sets"
+                          if d1 == fourth else f"; the rule's fourth Saturday after the tied general is {fourth}"))
+    return out
+
+
+def class_rows(year):
+    """The year's legislative deciding rounds as like races for later years, in pipeline/local.py's class_rows
+    layout: the runoff key and the two leaders' share. Gated, regular, one seat, two or more on the ballot."""
+    got = _ready(year) if year in ODD_YEARS else None
+    if got is None:
+        return []
+    cs, _ = got
+    sg, _ = source_gate(cs, year)
+    rd = rounds(cs)
+    rows = []
+    for c in cs:
+        r = rd[id(c)]
+        if (LEG_OFFICE.get(c["office"]) is None or sg[id(c)][0] or c["date"] not in LEG_DATES[year]
+                or not (r and r[0] == "deciding") or c["seats"] != 1):
+            continue
+        two = sorted(LM.ballot(c["candidates"]), key=lambda x: -x["votes"])[:2]
+        if len(two) < 2 or two[0]["votes"] + two[1]["votes"] <= 0:
+            continue
+        x1, x2 = two[0]["votes"], two[1]["votes"]
+        rows.append({"c": c, "year": year, "key": runoff_key(c, r[2]), "s": max(x1, x2) / (x1 + x2), "n": x1 + x2})
+    return rows
+
+
 # ------------------------------------------------------------------ 2023: the gate within the certifying source
 
 def _posted_name(date, what):
@@ -441,6 +495,9 @@ def medsl_shape(year=YEAR):
         tn = tie_note(c, r, again.get(id(c)))
         if tn:
             rec["notes"] = [tn]
+        tr = tie_record(c, r, again.get(id(c)))
+        if tr:
+            rec["tie"] = tr
         if r and r[0] == "party committee":
             side, body, sec = COMMITTEES[c["office"].split()[0]]
             rec["party_office"] = {"party": side, "body": body, "law": f"La. R.S. {sec}", "law_url": LAW_URL[sec],

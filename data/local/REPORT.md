@@ -681,7 +681,7 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
 - **Held:** none. Every record carries `gate`, whose `by` reads "within the certifying source (no federal contest on the ballot)".
 
 **Rounds** [inferred: the source's dates and the contests it repeats]. The spring pair is 2023-03-25 and 2023-04-29: all 9 contests of the general were on the primary. The fall pair is 2023-10-14 and 2023-11-18: all 130 contests of the general were on the primary. The House's 93rd district had a special election on 2023-02-18 and 2023-03-25. So 2023-03-25 is both a primary and a general; a contest on it is the deciding round only where it was on 2023-02-18. La. R.S. 18:402 is cited for the pairing's form only, as in §12.
-- **Two exact ties.** Two generals of 2023-11-18 tied: Cameron Parish's Police Jury District 5, 178 to 178, and Opelousas's Alderman District A, 224 to 224. The source holds each again on 2023-12-16, between the same two candidates (225 to 187 and 183 to 164). The general stays its contest's deciding round, with no winner marked and a note on the record. The election of 2023-12-16 is a new election [inferred: the workbooks; no law read], so it is treated as a special: recorded, p not computed. Neither tied general gets p, since each class has too few like races (below).
+- **Two exact ties.** Two generals of 2023-11-18 tied: Cameron Parish's Police Jury District 5, 178 to 178, and Opelousas's Alderman District A, 224 to 224. The source holds each again on 2023-12-16, between the same two candidates (225 to 187 and 183 to 164). The general stays its contest's deciding round, with no winner marked and a note on the record. The election of 2023-12-16 is a new election, so it is treated as a special: recorded, p not computed. *Since §16 each tied general carries `result.tie` and `result.tie_settled`, with La. R.S. 18:512(C) as `data/law/ties.json` records it. Since §15 Cameron's general gets p (0.0021), as police jurors are classed with councils; Opelousas's class still has too few like races (67).*
 - **Other dates.** 2023-01-14's one contest (Turkey Creek's mayor) is on no pair's date: a special election [inferred], recorded, p not computed.
 
 **The legislature** (`data/state-lower/2023/LA.json`, `data/state-upper/2023/LA.json`; `legislature_records`) [measured]. 98 contests: 77 House and 21 Senate.
@@ -694,11 +694,11 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
 - First rounds, not computed: 496.
 - Specials (the two new elections after ties, and Turkey Creek): 3, not computed.
 - Deciding rounds: 119. 9 get p by the like-race classes, from 3.1 in 10,000 to 3.0 in 1,000. 93 have too few like races in earlier years. 17 are between a Democrat and a Republican, among them the runoffs for Secretary of State, Attorney General and Treasurer. Their route, the transferred route (a), gives p only in a year whose own back-test on that year's local races holds (the orchestrator, 06:16). 2023's local races in the sources are Louisiana's alone, too few for that back-test [inferred]. So those 17 are not computed, and the record says why.
-- **Left out:** the governor. It is D2's level, and `data/governor/` holds even years only. The gate's check (c) compared it, and it is equal.
+- **Left out:** the governor. It is D2's level, now in `data/governor/2023.json` (D2's #74; this section first said `data/governor/` held even years only, true when written). The gate's check (c) compared it, and it is equal.
 
 **Questions** (`data/measure/2023/LA.json`) [measured]. 307: 8 statewide amendments (4 on 2023-10-14, 4 on 2023-11-18) and 299 local questions. The amendments are held back, as 2024's are, by La. Const. art. XIII §1(C) (§8, §12). They join step (a)'s list. The site's posted file gives each amendment's full title, which step (a) can read. The local questions wait on step (b).
 
-**How 2023 is forecast, and what it does not feed** [inferred: the safer default, put to the orchestrator]. 2023's p come from earlier years only: Klarner's runoffs of 1967-2022, MEDSL's like local races of 2018-2022, and like measures of 2016-2022. 2023 is not added to any later year's like races, or to the back-tests or the calibration's robustness test (`ODD_YEARS` in `pipeline/local_medsl.py`). Adding it would change 2024's forecasts and the test's verdicts, which no ruling has weighed. For the same reason, 2023's records carry no `calibration_not_of_record`.
+**How 2023 is forecast, and what it does not feed** [inferred: the safer default, put to the orchestrator]. *Superseded by §16: at the orchestrator's ruling of 11:56, 2023 now feeds the later years' like races and measures, the back-tests and the robustness test.* 2023's p come from earlier years only: Klarner's runoffs of 1967-2022, MEDSL's like local races of 2018-2022, and like measures of 2016-2022. 2023 is not added to any later year's like races, or to the back-tests or the calibration's robustness test (`ODD_YEARS` in `pipeline/local_medsl.py`). Adding it would change 2024's forecasts and the test's verdicts, which no ruling has weighed. For the same reason, 2023's records carry no `calibration_not_of_record`.
 
 **What moves elsewhere** [measured]. No p outside Louisiana's 2023 moves. The back-tests and the calibration file are unchanged. In 2024, only the 241 committees change, as §12 says.
 
@@ -774,4 +774,42 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
 - **Indiana's township trustee** (19, council). It is the township's executive [inferred, not read].
 - **The "Parishwide Criminal Justice Proposition"** (§14) is read as a retention, through the word JUSTICE. That is a measure's kind, not an office type. It is local and gets no p either way.
 - **100 contests remain "other local office".** Most are Rhode Island's town moderators, sergeants and directors of welfare, which have no like type, and the statewide primaries' lieutenant governors and secretaries of state.
+
+## 16. 2023 feeds the later years, and the two ties marked
+
+*Added 2026-11-07 at 12:43 UTC, at the orchestrator's ruling of 11:56: "Yes, 2023 feeds later years' like races, back-tests and the robustness test, as Klarner's and the State Board's odd years already do. Reason: earlier cycles only means every earlier contest, and leaving one year out would be an exception with no reason behind it. Make it its own PR with every move listed. If any verdict changes, report it before the PR, since the tests decide as fixed." And: "The two exact ties on Nov 18 are the very event the site is about, so mark each plainly in the record (result.tie: true), with how it was settled (the new election of Dec 16) and LA's tie rule cited from data/law."*
+
+**What changes in the code** (`pipeline/local_medsl.py`, `pipeline/local_la.py`):
+- **Like races and measures.** 2023's local races and measures are added to the like races and like measures of every later year, as every other year's are. 2023's own p still come from earlier years only, so none of them moves.
+- **The legislature.** Louisiana's 20 legislative runoffs of 2023 are added to the like past runoffs of later years (`local_la.class_rows`). No 2024 legislative contest takes the runoff route, so nothing there moves.
+- **Back-tests and the robustness test.** 2023 is now scored in `backtest-local-classes.json`, the measures' back-test and `calibration-local.json`. So 2023's records now carry `calibration_not_of_record`, the factor the test keeps out of p.
+- **The partisan route (a).** 2023 stays out of its back-test, since that route gives no forecast in 2023 to score (§14; the orchestrator, 12:42).
+
+**The ties** [measured; the rule stated, its reach to local offices inferred]. Each tied general of 2023-11-18 (Cameron Parish's Police Jury District 5, 178 to 178, and Opelousas's Alderman District A, 224 to 224) now carries `result.tie: true` and `result.tie_settled`.
+- `tie_settled` gives how the tie was settled: a new election of the same contest, between the same candidates, on 2023-12-16. That date is the fourth Saturday after the tied general, as the rule sets.
+- It also gives Louisiana's rule as `data/law/ties.json` records it: La. R.S. 18:512(C), "If, as a result of a tie vote in a general election, the number of candidates who would be elected to an office exceeds the number of persons to be elected to the office, the candidates who received the same number of votes for that office in the general election are not elected. The election for officers thus not elected shall be returned to the people on the fourth Saturday after the election date at which the tie vote occurred."
+- The law file marks the rule's reach to parish and municipal offices as inferred, and the record keeps that mark.
+
+**What moves** (rebuilt at 12:39 UTC; every move in `data/local/moves-2023-feed.json`, against `bd3ae34`) [measured]. All the moves are in 2024.
+- **141 local p rise by a factor of 1.42.** They share one class: "local council, commission or board, one major party against others, 2 candidates". Its like races go from 219 to 237, and its window around ½ narrows.
+- **62 local races are now computed.** Their class, "local council, commission or board, two or more of one major party, 2 candidates", now has 116 like races, once Louisiana's 2023 runoffs are in. By state: Washington 23, Louisiana 21, Mississippi 8, New York 5, others 5.
+- **43 statewide measures' p fall by a factor of 0.964.** Louisiana's 8 amendments of 2023 join the 215 like measures. They have no forecast of their own (§14), but their finishes are like measures. The note on these p for near-even finishes now reads 54 against 38.1, where it read 52 against 36.4.
+- **Not listed as moves.** 383 not-computed reasons change only in their count of like races. 2,208 records change their `calibration_not_of_record`, 18 of them 2023's own, new. 59 North Carolina records change only their code stamp.
+
+**Verdicts** [measured]. No route's adoption changes. One leave-one-year-out result changes, and it was reported to the orchestrator before this PR (the orchestrator's answer, 12:42: "No adoption changes, so open the PR as planned").
+
+The like-race classes (`calibration-local.json`), before and after:
+
+| | Before (2022 and 2024 scored) | After (2022, 2023 and 2024 scored) |
+|---|---|---|
+| Full test | 2,441 contests; improves; judge made worse; fails | 2,521 contests; improves; judge made worse; fails |
+| Leaving 2022 out | 2,331 contests; judge made worse; fails | 2,411 contests; judge made worse; fails |
+| Leaving 2023 out | (no such check) | 2,503 contests; judge made worse; fails |
+| Leaving 2024 out | 110 contests (2022 only); no cell made worse; passes | 128 contests (2022 and 2023); council made worse; fails |
+| Adopted | no | no |
+
+- **Leaving 2024 out.** The check now scores 2022 and 2023: 128 contests, 18 of them 2023's. That brings council to 5 seen, so the cell is tested. Its factor moves the expected count from 4.6 to 3.7, away from the 5 seen, so the cell is made worse and the check fails.
+- **The partisan route:** not adopted, as before.
+- **The State Board's routes** (`backtest-ncsbe.json`): unchanged.
+- **The measures' back-test** (`data/measure/backtest-measures.json`): no pass or fail changes; its expected counts move by 0.1.
 

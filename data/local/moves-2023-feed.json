@@ -1,0 +1,1756 @@
+{
+"about": "every record whose p changed when 2023 (Louisiana's own file) was fed into the later years' like races and measures, the back-tests and the robustness test (the orchestrator, 2026-11-07 11:56: 'earlier cycles only means every earlier contest'), and the two exact ties marked (result.tie). 'P': p moved; 'N': p now computed; 'tie': the tied general of 2023-11-18, now marked with how it was settled. p values in 'tie' rows are unchanged and left empty. Not listed: 383 records whose not-computed reason changes only in its count of like races; 2,208 whose calibration_not_of_record (the factor the robustness test keeps out of p) changes, 18 of them 2023's own, new; 22 measure records whose p note changes only in its count of near-even finishes (52 against 36.4 before, 54 against 38.1 now); and 59 North Carolina records whose code stamp alone changes. No p of 2023 or earlier moves. Columns: id, office, p before, p after, code. data/local/REPORT.md section 16. Written by worker D3 at 2026-11-07 12:42 UTC.",
+"before_commit": "bd3ae34",
+"after_code_commit": "c1e0866",
+"counts": {
+"local N: p now computed, its class reaches 100 like races with 2023": 62,
+"local P: p moved, its class now holds 2023 too": 141,
+"local tie: result.tie and result.tie_settled added": 2,
+"measure P: p moved, its class now holds 2023 too": 43
+},
+"columns": [
+"id",
+"office",
+"p_before",
+"p_after",
+"why"
+],
+"contests": [
+[
+"2023-local-LA-ALDERMAN__DISTRICT_A__CITY_OF_OPELOUSAS-county_22097-2023-11-18",
+"Alderman, District A, City Of Opelousas",
+null,
+null,
+"tie"
+],
+[
+"2023-local-LA-POLICE_JUROR__DISTRICT_5-county_22023-2023-11-18",
+"Police Juror, District 5",
+null,
+null,
+"tie"
+],
+[
+"2024-local-AL-MEMBER__CHOCTAW_COUNTY_COMMISSION-003_county_01023",
+"Member, Choctaw County Commission",
+0.000468736,
+0.000666363,
+"P"
+],
+[
+"2024-local-AL-MEMBER__COVINGTON_COUNTY_COMMISSION-002_county_01039",
+"Member, Covington County Commission",
+4.81793e-05,
+6.84925e-05,
+"P"
+],
+[
+"2024-local-AL-MEMBER__DALLAS_COUNTY_COMMISSION-004_county_01047",
+"Member, Dallas County Commission",
+0.000211882,
+0.000301214,
+"P"
+],
+[
+"2024-local-AL-MEMBER__HALE_COUNTY_COMMISSION-002_county_01065",
+"Member, Hale County Commission",
+0.000470221,
+0.000668474,
+"P"
+],
+[
+"2024-local-AL-MEMBER__JACKSON_COUNTY_COMMISSION-004_county_01071",
+"Member, Jackson County Commission",
+3.5128e-05,
+4.99386e-05,
+"P"
+],
+[
+"2024-local-AL-MEMBER__LIMESTONE_COUNTY_COMMISSION-004_county_01083",
+"Member, Limestone County Commission",
+7.38391e-05,
+0.000104971,
+"P"
+],
+[
+"2024-local-AL-MEMBER__MADISON_COUNTY_COMMISSION-001_county_01089",
+"Member, Madison County Commission",
+2.71679e-05,
+3.86223e-05,
+"P"
+],
+[
+"2024-local-AL-MEMBER__MADISON_COUNTY_COMMISSION-002_county_01089",
+"Member, Madison County Commission",
+2.8224e-05,
+4.01237e-05,
+"P"
+],
+[
+"2024-local-AL-MEMBER__MADISON_COUNTY_COMMISSION-004_county_01089",
+"Member, Madison County Commission",
+2.5146e-05,
+3.5748e-05,
+"P"
+],
+[
+"2024-local-AL-MEMBER__MADISON_COUNTY_COMMISSION-005_county_01089",
+"Member, Madison County Commission",
+3.02478e-05,
+4.30008e-05,
+"P"
+],
+[
+"2024-local-AL-MEMBER__MADISON_COUNTY_COMMISSION-006_county_01089",
+"Member, Madison County Commission",
+4.0846e-05,
+5.80674e-05,
+"P"
+],
+[
+"2024-local-AL-MEMBER__MONTGOMERY_COUNTY_COMMISSION-004_county_01101",
+"Member, Montgomery County Commission",
+6.13433e-05,
+8.72067e-05,
+"P"
+],
+[
+"2024-local-AL-MEMBER__WASHINGTON_COUNTY_COMMISSION-005_county_01129",
+"Member, Washington County Commission",
+0.000557064,
+0.000791931,
+"P"
+],
+[
+"2024-local-AL-MEMBER__WILCOX_COUNTY_COMMISSION-005_county_01131",
+"Member, Wilcox County Commission",
+0.00081564,
+0.00115729,
+"P"
+],
+[
+"2024-local-AR-CITY_OF_BALD_KNOB_CITY_COUNCIL-WARD_1_POSITION_2_county_05145",
+"City Of Bald Knob City Council",
+0.000936025,
+0.00132773,
+"P"
+],
+[
+"2024-local-AR-CITY_OF_EL_DORADO_ALDERMAN-WARD_3_POSITION_2_county_05139",
+"City Of El Dorado Alderman",
+0.000699349,
+0.000994206,
+"P"
+],
+[
+"2024-local-AR-CITY_OF_PINE_BLUFF_CITY_COUNCIL-WARD_3_POSITION_1_county_05069",
+"City Of Pine Bluff City Council",
+0.000242249,
+0.000344385,
+"P"
+],
+[
+"2024-local-AZ-GREENLEE_COUNTY_BOARD_OF_SUPERVISORS-1_county_04011",
+"Greenlee County Board Of Supervisors",
+0.000742212,
+0.00105329,
+"P"
+],
+[
+"2024-local-FL-CITRUS_COUNTY_COMMISSIONER-5_county_12017",
+"Citrus County Commissioner",
+8.0238e-06,
+1.14068e-05,
+"P"
+],
+[
+"2024-local-FL-COLLIER_COUNTY_COMMISSIONER-3_county_12021",
+"Collier County Commissioner",
+1.94733e-05,
+2.76835e-05,
+"P"
+],
+[
+"2024-local-FL-ESCAMBIA_COUNTY_COMMISSIONER-5_county_12033",
+"Escambia County Commissioner",
+2.11453e-05,
+3.00605e-05,
+"P"
+],
+[
+"2024-local-FL-GLADES_COUNTY_COMMISSIONER-5_county_12043",
+"Glades County Commissioner",
+0.000146991,
+0.000208964,
+"P"
+],
+[
+"2024-local-FL-LIBERTY_COUNTY_COMMISSIONER-5_county_12077",
+"Liberty County Commissioner",
+0.000222358,
+0.000316108,
+"P"
+],
+[
+"2024-local-FL-MANATEE_COUNTY_COMMISSIONER-5_county_12081",
+"Manatee County Commissioner",
+1.28478e-05,
+1.82646e-05,
+"P"
+],
+[
+"2024-local-FL-PASCO_COUNTY_COMMISSIONER-1_county_12101",
+"Pasco County Commissioner",
+2.49463e-06,
+3.5464e-06,
+"P"
+],
+[
+"2024-local-FL-PASCO_COUNTY_COMMISSIONER-5_county_12101",
+"Pasco County Commissioner",
+2.52569e-06,
+3.59056e-06,
+"P"
+],
+[
+"2024-local-FL-SARASOTA_COUNTY_COMMISSIONER-3_county_12115",
+"Sarasota County Commissioner",
+1.26896e-05,
+1.80397e-05,
+"P"
+],
+[
+"2024-local-FL-ST_JOHNS_COUNTY_COMMISSIONER-5_county_12109",
+"St Johns County Commissioner",
+4.30607e-06,
+6.12158e-06,
+"P"
+],
+[
+"2024-local-GA-ATKINSON_COUNTY_COMMISSION-001_county_13003",
+"Atkinson County Commission",
+0.0013047,
+0.00184908,
+"P"
+],
+[
+"2024-local-GA-FRANKLIN_COUNTY_COMMISSION-AT_LARGE_county_13119",
+"Franklin County Commission",
+null,
+0.000215185,
+"N"
+],
+[
+"2024-local-GA-JENKINS_COUNTY_COMMISSION-001_county_13165",
+"Jenkins County Commission",
+0.00115627,
+0.00163929,
+"P"
+],
+[
+"2024-local-GA-MURRAY_COUNTY_COMMISSION-county_13213",
+"Murray County Commission",
+4.51728e-05,
+6.42185e-05,
+"P"
+],
+[
+"2024-local-GA-TURNER_COUNTY_COMMISSION-003_county_13287",
+"Turner County Commission",
+0.000834915,
+0.00118459,
+"P"
+],
+[
+"2024-local-GA-TURNER_COUNTY_COMMISSION-004_county_13287",
+"Turner County Commission",
+0.0009063,
+0.00128565,
+"P"
+],
+[
+"2024-local-ID-BONNER_COUNTY_COMMISSIONER-003_county_16017",
+"Bonner County Commissioner",
+2.65982e-05,
+3.78124e-05,
+"P"
+],
+[
+"2024-local-ID-BUTTE_COUNTY_COMMISSIONER-001_county_16023",
+"Butte County Commissioner",
+0.0005058,
+0.000719054,
+"P"
+],
+[
+"2024-local-ID-CUSTER_COUNTY_COMMISSIONER-001_county_16037",
+"Custer County Commissioner",
+0.000290642,
+0.000413181,
+"P"
+],
+[
+"2024-local-ID-FRANKLIN_COUNTY_COMMISSIONER-001_county_16041",
+"Franklin County Commissioner",
+0.000108386,
+0.000154083,
+"P"
+],
+[
+"2024-local-ID-KOOTENAI_COUNTY_COMMISSIONER-003_county_16055",
+"Kootenai County Commissioner",
+8.5168e-06,
+1.21076e-05,
+"P"
+],
+[
+"2024-local-ID-LINCOLN_COUNTY_COMMISSIONER-001_county_16063",
+"Lincoln County Commissioner",
+0.000396584,
+0.000563791,
+"P"
+],
+[
+"2024-local-ID-POWER_COUNTY_COMMISSIONER-003_county_16077",
+"Power County Commissioner",
+0.000252728,
+0.000359282,
+"P"
+],
+[
+"2024-local-IN-BENTON_COUNTY_COMMISSIONER__DISTRICT_2-county_18007",
+"Benton County Commissioner, District 2",
+0.000197658,
+0.000280994,
+"P"
+],
+[
+"2024-local-IN-CHANDLER_TOWN_COUNCIL__DISTRICT_1___TOWN_OF_CHANDLER-county_18173",
+"Chandler Town Council, District 1 - Town Of Chandler",
+0.000651457,
+0.000926121,
+"P"
+],
+[
+"2024-local-IN-CHANDLER_TOWN_COUNCIL__DISTRICT_3___TOWN_OF_CHANDLER-county_18173",
+"Chandler Town Council, District 3 - Town Of Chandler",
+0.000537688,
+0.000764386,
+"P"
+],
+[
+"2024-local-IN-DEKALB_COUNTY_COMMISSIONER__DISTRICT_CENTRAL-county_18033",
+"Dekalb County Commissioner, District Central",
+4.14044e-05,
+5.88612e-05,
+"P"
+],
+[
+"2024-local-IN-MARTIN_COUNTY_COMMISSIONER__DISTRICT_3-county_18101",
+"Martin County Commissioner, District 3",
+0.000159881,
+0.00022729,
+"P"
+],
+[
+"2024-local-IN-NOBLE_COUNTY_COMMISSIONER__DISTRICT_3-county_18113",
+"Noble County Commissioner, District 3",
+4.36887e-05,
+6.21086e-05,
+"P"
+],
+[
+"2024-local-IN-POSEY_COUNTY_COMMISSIONER__DISTRICT_3-county_18129",
+"Posey County Commissioner, District 3",
+6.23537e-05,
+8.86431e-05,
+"P"
+],
+[
+"2024-local-IN-PULASKI_COUNTY_COMMISSIONER__DISTRICT_2-county_18131",
+"Pulaski County Commissioner, District 2",
+0.000139607,
+0.000198467,
+"P"
+],
+[
+"2024-local-IN-RANDOLPH_COUNTY_COMMISSIONER__DISTRICT_MIDDLE-county_18135",
+"Randolph County Commissioner, District Middle",
+7.83702e-05,
+0.000111412,
+"P"
+],
+[
+"2024-local-IN-STEUBEN_COUNTY_COMMISSIONER__DISTRICT_MIDDLE-county_18151",
+"Steuben County Commissioner, District Middle",
+5.59796e-05,
+7.95815e-05,
+"P"
+],
+[
+"2024-local-IN-ST__JOSEPH_COUNTY_COUNCIL__DISTRICT_D-county_18141",
+"St. Joseph County Council, District D",
+0.000106305,
+0.000151125,
+"P"
+],
+[
+"2024-local-IN-TIPPECANOE_COUNTY_COMMISSIONER__DISTRICT_2-county_18157",
+"Tippecanoe County Commissioner, District 2",
+1.40641e-05,
+1.99938e-05,
+"P"
+],
+[
+"2024-local-IN-TIPPECANOE_COUNTY_COMMISSIONER__DISTRICT_3-county_18157",
+"Tippecanoe County Commissioner, District 3",
+1.37211e-05,
+1.95061e-05,
+"P"
+],
+[
+"2024-local-LA-ALDERMAN__DISTRICT_2__TOWN_OF_BENTON-county_22015-2024-12-07",
+"Alderman, District 2, Town Of Benton",
+0.0361617,
+0.047984,
+"P"
+],
+[
+"2024-local-LA-ALDERMAN__DISTRICT_B__TOWN_OF_FERRIDAY-county_22029-2024-04-27",
+"Alderman, District B, Town Of Ferriday",
+0.00347196,
+0.004896,
+"P"
+],
+[
+"2024-local-LA-ALDERMAN__DISTRICT_D__TOWN_OF_FERRIDAY-county_22029-2024-04-27",
+"Alderman, District D, Town Of Ferriday",
+null,
+0.0163025,
+"N"
+],
+[
+"2024-local-LA-ALDERMEN__TOWN_OF_ABITA_SPRINGS-county_22103-2024-12-07",
+"Aldermen, Town Of Abita Springs",
+0.00132805,
+0.00188208,
+"P"
+],
+[
+"2024-local-LA-ALDERMEN__VILLAGE_OF_NEWELLTON-county_22107-2024-12-07",
+"Aldermen, Village Of Newellton",
+null,
+0.0198981,
+"N"
+],
+[
+"2024-local-LA-COUNCILMAN_AT_LARGE__CITY_OF_ALEXANDRIA-county_22079-2024-12-07",
+"Councilman At Large, City Of Alexandria",
+0.000164928,
+0.000234464,
+"P"
+],
+[
+"2024-local-LA-COUNCILMAN_AT_LARGE__CITY_OF_NATCHITOCHES-county_22069-2024-04-27",
+"Councilman At Large, City Of Natchitoches",
+null,
+0.00102383,
+"N"
+],
+[
+"2024-local-LA-COUNCILMAN__DISTRICT_1__CITY_OF_ALEXANDRIA-county_22079-2024-12-07",
+"Councilman, District 1, City Of Alexandria",
+null,
+0.00697478,
+"N"
+],
+[
+"2024-local-LA-COUNCILMAN__DISTRICT_5__CITY_OF_MONROE-county_22073-2024-04-27",
+"Councilman, District 5, City Of Monroe",
+null,
+0.00434501,
+"N"
+],
+[
+"2024-local-LA-COUNCILMEMBER__DISTRICT_4__CITY_OF_BAKER-county_22033-2024-04-27",
+"Councilmember, District 4, City Of Baker",
+null,
+0.0144646,
+"N"
+],
+[
+"2024-local-LA-COUNCILMEMBER__METRO_DISTRICT_2-county_22033-2024-12-07",
+"Councilmember, Metro District 2",
+null,
+0.000614487,
+"N"
+],
+[
+"2024-local-LA-COUNCILMEN__TOWN_OF_HENDERSON-county_22099-2024-04-27",
+"Councilmen, Town Of Henderson",
+null,
+0.0212004,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER_AT_LARGE__CITY_OF_OAKDALE-county_22003-2024-12-07",
+"Council Member At Large, City Of Oakdale",
+null,
+0.00933989,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER_S___CITY_OF_ST__GABRIEL-county_22047-2024-04-27",
+"Council Member(S), City Of St. Gabriel",
+null,
+0.00500747,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DISTRICT_2__CITY_OF_NEW_IBERIA-county_22045-2024-12-07",
+"Council Member, District 2, City Of New Iberia",
+null,
+0.0144102,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DISTRICT_2__TOWN_OF_AMITE_CITY-county_22105-2024-12-07",
+"Council Member, District 2, Town Of Amite City",
+null,
+0.0192259,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DISTRICT_3__CITY_OF_DONALDSONVILLE-county_22005-2024-12-07",
+"Council Member, District 3, City Of Donaldsonville",
+null,
+0.0167782,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DISTRICT_3__CITY_OF_OAKDALE-county_22003-2024-12-07",
+"Council Member, District 3, City Of Oakdale",
+null,
+0.0220279,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DISTRICT_5__CITY_OF_NEW_IBERIA-county_22045-2024-12-07",
+"Council Member, District 5, City Of New Iberia",
+null,
+0.0134112,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DIVISION_A__CITY_OF_GONZALES-county_22005-2024-12-07",
+"Council Member, Division A, City Of Gonzales",
+0.000314544,
+0.000447161,
+"P"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DIVISION_A__TOWN_OF_LOCKPORT-county_22057-2024-12-07",
+"Council Member, Division A, Town Of Lockport",
+null,
+0.00905191,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DIVISION_B__TOWN_OF_LOCKPORT-county_22057-2024-12-07",
+"Council Member, Division B, Town Of Lockport",
+null,
+0.00912221,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DIVISION_D__CITY_OF_YOUNGSVILLE-county_22055-2024-12-07",
+"Council Member, Division D, City Of Youngsville",
+null,
+0.00208001,
+"N"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__DIVISION_D__TOWN_OF_LOCKPORT-county_22057-2024-12-07",
+"Council Member, Division D, Town Of Lockport",
+0.00162465,
+0.00230082,
+"P"
+],
+[
+"2024-local-LA-COUNCIL_MEMBER__SEAT_A__TOWN_OF_GRAND_ISLE-county_22051-2024-04-27",
+"Council Member, Seat A, Town Of Grand Isle",
+null,
+0.0126804,
+"N"
+],
+[
+"2024-local-LA-POLICE_JUROR__DISTRICT_D-county_22079-2024-12-07",
+"Police Juror, District D",
+null,
+0.00417972,
+"N"
+],
+[
+"2024-local-LA-SELECTMAN__DISTRICT_II__CITY_OF_PLAQUEMINE-county_22047-2024-12-07",
+"Selectman, District Ii, City Of Plaquemine",
+null,
+0.0150665,
+"N"
+],
+[
+"2024-local-LA-SELECTMAN__DISTRICT_I__CITY_OF_PLAQUEMINE-county_22047-2024-12-07",
+"Selectman, District I, City Of Plaquemine",
+0.00148188,
+0.00209933,
+"P"
+],
+[
+"2024-local-MD-BALTIMORE_CITY_CITY_COUNCIL_MEMBER-014_county_24510",
+"Baltimore City City Council Member",
+4.3005e-05,
+6.11367e-05,
+"P"
+],
+[
+"2024-local-ME-FRANKLIN_COUNTY_COMMISIONER-001_county_23007",
+"Franklin County Commisioner",
+0.000229867,
+0.000326782,
+"P"
+],
+[
+"2024-local-ME-KNOX_COUNTY_COMMISIONER-003_county_23013",
+"Knox County Commisioner",
+8.57418e-05,
+0.000121892,
+"P"
+],
+[
+"2024-local-ME-OXFORD_COUNTY_COMMISIONER-002_county_23017",
+"Oxford County Commisioner",
+7.61347e-05,
+0.000108234,
+"P"
+],
+[
+"2024-local-MS-HINDS_COUNTY_ELECTION_COMMISSIONER-003_county_28049",
+"Hinds County Election Commissioner",
+null,
+0.000356656,
+"N"
+],
+[
+"2024-local-MS-HUMPHREYS_COUNTY_ELECTION_COMMISSIONER-005_county_28053",
+"Humphreys County Election Commissioner",
+null,
+0.00702567,
+"N"
+],
+[
+"2024-local-MS-LAMAR_ELECTION_COMMISSIONER-003_county_28073",
+"Lamar Election Commissioner",
+null,
+0.000877546,
+"N"
+],
+[
+"2024-local-MS-LEE_ELECTION_COMMISSIONER-003_county_28081",
+"Lee Election Commissioner",
+null,
+0.0006678,
+"N"
+],
+[
+"2024-local-MS-NESHOBA_ELECTION_COMMISSIONER-005_county_28099",
+"Neshoba Election Commissioner",
+null,
+0.00230573,
+"N"
+],
+[
+"2024-local-MS-NOXUBEE_ELECTION_COMMISSIONER-005_county_28103",
+"Noxubee Election Commissioner",
+null,
+0.00569545,
+"N"
+],
+[
+"2024-local-MS-PANOLA_ELECTION_COMMISSIONER-001_county_28107",
+"Panola Election Commissioner",
+0.00030348,
+0.000431432,
+"P"
+],
+[
+"2024-local-MS-PONTOTOC_COUNTY_ELECTION_COMMISSIONER-001_county_28115",
+"Pontotoc County Election Commissioner",
+null,
+0.00164248,
+"N"
+],
+[
+"2024-local-MS-PONTOTOC_COUNTY_ELECTION_COMMISSIONER-003_county_28115",
+"Pontotoc County Election Commissioner",
+null,
+0.00183163,
+"N"
+],
+[
+"2024-local-MS-YAZOO_ELECTION_COMMISSIONER-001_county_28163",
+"Yazoo Election Commissioner",
+0.000302367,
+0.00042985,
+"P"
+],
+[
+"2024-local-MT-COUNTY_COMMISSIONER-001_county_30091",
+"County Commissioner",
+0.000402391,
+0.000572046,
+"P"
+],
+[
+"2024-local-MT-COUNTY_COMMISSIONER-003_county_30039",
+"County Commissioner",
+0.00035725,
+0.000507873,
+"P"
+],
+[
+"2024-local-MT-COUNTY_COMMISSIONER-003_county_30041",
+"County Commissioner",
+0.000120436,
+0.000171214,
+"P"
+],
+[
+"2024-local-MT-PUBLIC_SERVICE_COMMISSIONER-004_county_30029",
+"Public Service Commissioner",
+5.80606e-06,
+8.254e-06,
+"P"
+],
+[
+"2024-local-NC-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-county_37007",
+"Anson County Board Of Commissioners District 01",
+0.000426933,
+0.000606935,
+"P"
+],
+[
+"2024-local-NC-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-county_37007",
+"Anson County Board Of Commissioners District 03",
+0.000456621,
+0.00064914,
+"P"
+],
+[
+"2024-local-NC-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-county_37007",
+"Anson County Board Of Commissioners District 06",
+0.000995017,
+0.00141121,
+"P"
+],
+[
+"2024-local-NC-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-county_37007",
+"Anson County Board Of Commissioners District 07",
+0.000564695,
+0.00080278,
+"P"
+],
+[
+"2024-local-NC-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-county_37015",
+"Bertie County Board Of Commissioners District 04",
+8.75424e-05,
+0.000124452,
+"P"
+],
+[
+"2024-local-NC-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-county_37019",
+"Brunswick County Board Of Commissioners District 03",
+7.72419e-06,
+1.09808e-05,
+"P"
+],
+[
+"2024-local-NC-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-county_37021",
+"Buncombe County Board Of Commissioners Chairman",
+5.03891e-06,
+7.16339e-06,
+"P"
+],
+[
+"2024-local-NC-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-county_37021",
+"Buncombe County Board Of Commissioners District 02",
+1.56638e-05,
+2.22679e-05,
+"P"
+],
+[
+"2024-local-NC-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-county_37065",
+"Edgecombe County Board Of Commissioners District 02",
+0.000215951,
+0.000307,
+"P"
+],
+[
+"2024-local-NC-GREENE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-county_37079",
+"Greene County Board Of Commissioners District 02",
+9.63023e-05,
+0.000136905,
+"P"
+],
+[
+"2024-local-NC-HYDE_COUNTY_BOARD_OF_COMMISSIONERS_FAIRFIELD_TWP-county_37095",
+"Hyde County Board Of Commissioners Fairfield Twp",
+0.000343046,
+0.00048768,
+"P"
+],
+[
+"2024-local-NC-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-county_37131",
+"Northampton County Board Of Commissioners District 01",
+9.01481e-05,
+0.000128156,
+"P"
+],
+[
+"2024-local-NC-PAMLICO_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-county_37137",
+"Pamlico County Board Of Commissioners District 05",
+0.000414299,
+0.000588974,
+"P"
+],
+[
+"2024-local-NC-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-county_37167",
+"Stanly County Board Of Commissioners At-Large",
+2.23625e-05,
+3.17909e-05,
+"P"
+],
+[
+"2024-local-NC-WATAUGA_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-county_37189",
+"Watauga County Board Of Commissioners District 03",
+0.000128799,
+0.000183102,
+"P"
+],
+[
+"2024-local-NY-BEMUS_POINT_VILLAGE_TRUSTEE-county_36013",
+"Bemus Point Village Trustee",
+null,
+0.0130353,
+"N"
+],
+[
+"2024-local-NY-BROOME_COUNTY_LEGISLATOR-002_county_36007",
+"Broome County Legislator",
+0.000139791,
+0.000198729,
+"P"
+],
+[
+"2024-local-NY-CELORON_VILLAGE_TRUSTEE-county_36013",
+"Celoron Village Trustee",
+null,
+0.00827342,
+"N"
+],
+[
+"2024-local-NY-CITY_COUNCIL_MEMBER-001_county_36077",
+"City Council Member",
+0.000992355,
+0.00140744,
+"P"
+],
+[
+"2024-local-NY-COHOES_CITY_COUNCIL_MEMBER_WARD_6-county_36001",
+"Cohoes City Council Member Ward 6",
+0.000734663,
+0.00104441,
+"P"
+],
+[
+"2024-local-NY-GREENE_COUNTY_LEGISLATOR-002_county_36039",
+"Greene County Legislator",
+null,
+0.0010375,
+"N"
+],
+[
+"2024-local-NY-HORSEHEADS_COUNCIL_MEMBER-county_36015",
+"Horseheads Council Member",
+0.000100096,
+0.000142298,
+"P"
+],
+[
+"2024-local-NY-MAYVILLE_VILLAGE_TRUSTEE-county_36013",
+"Mayville Village Trustee",
+null,
+0.00453205,
+"N"
+],
+[
+"2024-local-NY-ONEIDA_COUNTY_LEGISLATOR-012_county_36065",
+"Oneida County Legislator",
+0.00021164,
+0.000300871,
+"P"
+],
+[
+"2024-local-NY-RICHFIELD_COUNCIL_MEMBER__UNEXPIRED_TERM-county_36077",
+"Richfield Council Member (Unexpired Term)",
+0.000682621,
+0.000970425,
+"P"
+],
+[
+"2024-local-NY-ROME_COUNCILOR-003_county_36065",
+"Rome Councilor",
+0.000567285,
+0.000806462,
+"P"
+],
+[
+"2024-local-NY-TOWN_COUNCIL___TOWN_OF_BYRON-county_36037",
+"Town Council - Town Of Byron",
+0.000692173,
+0.000984004,
+"P"
+],
+[
+"2024-local-NY-TOWN_OF_CAMILLUS_TOWN_COUNCILOR___5TH_WARD__TO_FILL_VACANCY-county_36067",
+"Town Of Camillus Town Councilor - 5Th Ward (To Fill Vacancy)",
+0.0003813,
+0.000542062,
+"P"
+],
+[
+"2024-local-NY-TOWN_OF_FRIENDSHIP_COUNCIL_MEMBER_TFV-county_36003",
+"Town Of Friendship Council Member Tfv",
+0.0010696,
+0.00151672,
+"P"
+],
+[
+"2024-local-NY-VILLAGE_OF_FAYETTEVILLE_VILLAGE_TRUSTEE__TO_FILL_VACANCY-county_36067",
+"Village Of Fayetteville Village Trustee (To Fill Vacancy)",
+0.000335296,
+0.000476662,
+"P"
+],
+[
+"2024-local-NY-VILLAGE_OF_KENMORE_TRUSTEE-county_36029",
+"Village Of Kenmore Trustee",
+null,
+0.000418443,
+"N"
+],
+[
+"2024-local-NY-VILLAGE_TRUSTEE__2_YEAR_VACANCY____VILLAGE_PALMYRA-county_36117",
+"Village Trustee (2 Year Vacancy) - Village Palmyra",
+0.000609703,
+0.000866764,
+"P"
+],
+[
+"2024-local-NY-WHEELER_TOWN_COUNCIL_MEMBER-county_36101",
+"Wheeler Town Council Member",
+0.00147014,
+0.00208275,
+"P"
+],
+[
+"2024-local-OH-COUNTY_COMMISSIONER_TERM_COMMENCING_01_02_2025-county_39009",
+"County Commissioner Term Commencing 01/02/2025",
+3.29124e-05,
+4.67887e-05,
+"P"
+],
+[
+"2024-local-OH-COUNTY_COMMISSIONER_TERM_COMMENCING_01_02_2025-county_39033",
+"County Commissioner Term Commencing 01/02/2025",
+3.97796e-05,
+5.65513e-05,
+"P"
+],
+[
+"2024-local-OH-COUNTY_COMMISSIONER_TERM_COMMENCING_01_02_2025-county_39067",
+"County Commissioner Term Commencing 01/02/2025",
+0.000116558,
+0.000165701,
+"P"
+],
+[
+"2024-local-OH-COUNTY_COMMISSIONER_TERM_COMMENCING_01_03_2025-county_39111",
+"County Commissioner Term Commencing 01/03/2025",
+0.000114862,
+0.00016329,
+"P"
+],
+[
+"2024-local-OH-COUNTY_COMMISSIONER_TERM_COMMENCING_01_03_2025-county_39127",
+"County Commissioner Term Commencing 01/03/2025",
+4.64452e-05,
+6.60273e-05,
+"P"
+],
+[
+"2024-local-OH-COUNTY_COMMISSIONER_TERM_COMMENCING_01_03_2025-county_39171",
+"County Commissioner Term Commencing 01/03/2025",
+4.34254e-05,
+6.17342e-05,
+"P"
+],
+[
+"2024-local-OK-COUNTY_COMMISSIONER-002_county_40075",
+"County Commissioner",
+0.000664287,
+0.000944362,
+"P"
+],
+[
+"2024-local-OK-COUNTY_COMMISSIONER-002_county_40107",
+"County Commissioner",
+0.000487522,
+0.00069307,
+"P"
+],
+[
+"2024-local-OK-COUNTY_COMMISSIONER-002_county_40115",
+"County Commissioner",
+0.000200326,
+0.000284787,
+"P"
+],
+[
+"2024-local-OR-GRANTS_PASS_COUNCIL-001_county_41033",
+"Grants Pass Council",
+4.67938e-05,
+6.65228e-05,
+"P"
+],
+[
+"2024-local-OR-JOSEPHINE_COUNTY_COMMISSIONER-002_county_41033",
+"Josephine County Commissioner",
+1.72284e-05,
+2.44921e-05,
+"P"
+],
+[
+"2024-local-OR-JOSEPHINE_COUNTY_COMMISSIONER-003_county_41033",
+"Josephine County Commissioner",
+null,
+0.000111071,
+"N"
+],
+[
+"2024-local-RI-COUNCIL_PAWTUCKET-002_county_44007",
+"Council Pawtucket",
+0.000195112,
+0.000277374,
+"P"
+],
+[
+"2024-local-RI-COUNCIL_WARWICK-004_county_44003",
+"Council Warwick",
+0.000162223,
+0.000230619,
+"P"
+],
+[
+"2024-local-RI-COUNCIL_WARWICK-005_county_44003",
+"Council Warwick",
+0.000158042,
+0.000224676,
+"P"
+],
+[
+"2024-local-RI-TOWN_COUNCIL_JOHNSTON-003_county_44007",
+"Town Council Johnston",
+0.000266718,
+0.00037917,
+"P"
+],
+[
+"2024-local-RI-TOWN_COUNCIL_LINCOLN-002_county_44007",
+"Town Council Lincoln",
+0.000305228,
+0.000433917,
+"P"
+],
+[
+"2024-local-SC-CITY_COUNCIL___FLORENCE-AT_LARGE_county_45041",
+"City Council - Florence",
+null,
+0.000208715,
+"N"
+],
+[
+"2024-local-SC-DORCHESTER_COUNTY_COUNCIL-006_county_45035",
+"Dorchester County Council",
+7.65273e-05,
+0.000108793,
+"P"
+],
+[
+"2024-local-SC-GREENVILLE_COUNTY_COUNCIL-024_county_45045",
+"Greenville County Council",
+3.71469e-05,
+5.28086e-05,
+"P"
+],
+[
+"2024-local-SC-HORRY_COUNTY_COUNCIL-006_county_45051",
+"Horry County Council",
+5.16432e-05,
+7.34168e-05,
+"P"
+],
+[
+"2024-local-SC-LANCASTER_COUNTY_COUNCIL-001_county_45057",
+"Lancaster County Council",
+8.02953e-05,
+0.000114149,
+"P"
+],
+[
+"2024-local-SC-LAURENS_COUNTY_COUNCIL-006_county_45059",
+"Laurens County Council",
+0.000223429,
+0.000317631,
+"P"
+],
+[
+"2024-local-SC-SALUDA_COUNTY_COUNCIL-004_county_45081",
+"Saluda County Council",
+0.000303232,
+0.00043108,
+"P"
+],
+[
+"2024-local-SD-COUNTY_COMMISSIONER_DEWEY_DEWEY_4-county_46041",
+"County Commissioner Dewey Dewey-4",
+0.00277161,
+0.00391468,
+"P"
+],
+[
+"2024-local-SD-COUNTY_COMMISSIONER_GREGORY_GREGORY_2-county_46053",
+"County Commissioner Gregory Gregory-2",
+0.00144437,
+0.00204636,
+"P"
+],
+[
+"2024-local-SD-COUNTY_COMMISSIONER_HAAKON_HAAKON_4-county_46055",
+"County Commissioner Haakon Haakon-4",
+0.00345592,
+0.00487373,
+"P"
+],
+[
+"2024-local-SD-COUNTY_COMMISSIONER_HAAKON_HAAKON_5-county_46055",
+"County Commissioner Haakon Haakon-5",
+0.00336196,
+0.00474224,
+"P"
+],
+[
+"2024-local-SD-COUNTY_COMMISSIONER_HYDE_HYDE_4-county_46069",
+"County Commissioner Hyde Hyde-4",
+0.00527387,
+0.00740735,
+"P"
+],
+[
+"2024-local-WA-ADAMS_COUNTY_COMMISSIONER-1_county_53001",
+"Adams County Commissioner",
+null,
+0.000994625,
+"N"
+],
+[
+"2024-local-WA-ADAMS_COUNTY_COMMISSIONER-2_county_53001",
+"Adams County Commissioner",
+null,
+0.00105599,
+"N"
+],
+[
+"2024-local-WA-BENTON_COMMISSIONER_DISTRICT__1-county_53005",
+"Benton Commissioner District #1",
+null,
+5.41309e-05,
+"N"
+],
+[
+"2024-local-WA-BENTON_COMMISSIONER_DISTRICT__3-county_53005",
+"Benton Commissioner District #3",
+null,
+5.61163e-05,
+"N"
+],
+[
+"2024-local-WA-CHELAN_COMMISSIONER-3_county_53007",
+"Chelan Commissioner",
+null,
+0.000128437,
+"N"
+],
+[
+"2024-local-WA-CLALLAM_COUNTY_COMMISSIONER-NO__2_county_53009",
+"Clallam County Commissioner",
+1.66497e-05,
+2.36694e-05,
+"P"
+],
+[
+"2024-local-WA-COMMISSIONER_DISTRICT_ALL_COUNTY_COMMISSIONER-2_county_53067",
+"Commissioner District All County Commissioner,",
+5.02138e-06,
+7.13847e-06,
+"P"
+],
+[
+"2024-local-WA-COMMISSIONER_DISTRICT_ALL_COUNTY_COMMISSIONER-4_county_53067",
+"Commissioner District All County Commissioner,",
+5.08992e-06,
+7.23592e-06,
+"P"
+],
+[
+"2024-local-WA-COUNTY_COUNCIL_COUNCIL-county_53053~3",
+"County Council Council -",
+null,
+9.98521e-05,
+"N"
+],
+[
+"2024-local-WA-COWLITZ_COMMISSIONER-1_county_53015",
+"Cowlitz Commissioner",
+null,
+9.36976e-05,
+"N"
+],
+[
+"2024-local-WA-DOUGLAS_COUNTY_COMMISSIONER_2-county_53017",
+"Douglas County Commissioner 2",
+3.81672e-05,
+5.42592e-05,
+"P"
+],
+[
+"2024-local-WA-FERRY_COUNTY_COMMISSIONER__1-county_53019",
+"Ferry County Commissioner #1",
+null,
+0.00130437,
+"N"
+],
+[
+"2024-local-WA-FERRY_COUNTY_COMMISSIONER__3-county_53019",
+"Ferry County Commissioner #3",
+null,
+0.00132923,
+"N"
+],
+[
+"2024-local-WA-FRANKLIN_COUNTY_COMMISSIONER_1-1_county_53021",
+"Franklin County Commissioner 1",
+null,
+0.000456077,
+"N"
+],
+[
+"2024-local-WA-FRANKLIN_COUNTY_COMMISSIONER_2-2_county_53021",
+"Franklin County Commissioner 2",
+0.000151153,
+0.000214881,
+"P"
+],
+[
+"2024-local-WA-GRANT_COMMISSIONER_DISTRICT__1-county_53025",
+"Grant Commissioner District #1",
+null,
+0.000151569,
+"N"
+],
+[
+"2024-local-WA-GRANT_COMMISSIONER_DISTRICT__2-county_53025",
+"Grant Commissioner District #2",
+null,
+0.00015749,
+"N"
+],
+[
+"2024-local-WA-ISLAND_COUNTY_COMMISSIONER-1_county_53029",
+"Island County Commissioner",
+null,
+0.000125843,
+"N"
+],
+[
+"2024-local-WA-JEFFERSON_COMMISSIONER__DISTRICT_1-county_53031",
+"Jefferson Commissioner, District 1",
+null,
+0.000227754,
+"N"
+],
+[
+"2024-local-WA-KITSAP_COMMISSIONER-1_county_53035",
+"Kitsap Commissioner",
+5.11748e-06,
+7.27509e-06,
+"P"
+],
+[
+"2024-local-WA-KITSAP_COMMISSIONER-2_county_53035",
+"Kitsap Commissioner",
+null,
+4.09205e-05,
+"N"
+],
+[
+"2024-local-WA-KLICKITAT_KLICKITAT_COUNTY_COMMISSIONER_1-county_53039",
+"Klickitat Klickitat County Commissioner 1",
+5.76721e-05,
+8.19876e-05,
+"P"
+],
+[
+"2024-local-WA-KLICKITAT_KLICKITAT_COUNTY_COMMISSIONER_3-county_53039",
+"Klickitat Klickitat County Commissioner 3",
+null,
+0.000399846,
+"N"
+],
+[
+"2024-local-WA-LEWIS_COUNTY_COMMISSIONER-2_county_53041",
+"Lewis County Commissioner",
+null,
+0.000124918,
+"N"
+],
+[
+"2024-local-WA-MASON_COUNTY_COMMISSIONER-1_county_53045",
+"Mason County Commissioner",
+2.18611e-05,
+3.10781e-05,
+"P"
+],
+[
+"2024-local-WA-MASON_COUNTY_COMMISSIONER-2_county_53045",
+"Mason County Commissioner",
+2.22505e-05,
+3.16317e-05,
+"P"
+],
+[
+"2024-local-WA-OKANOGAN_COMMISSIONER-1_county_53047",
+"Okanogan Commissioner",
+null,
+0.000265104,
+"N"
+],
+[
+"2024-local-WA-PEND_OREILLE_COUNTY_COMMISSIONER_1-county_53051",
+"Pend Oreille County Commissioner 1",
+null,
+0.000631763,
+"N"
+],
+[
+"2024-local-WA-PEND_OREILLE_COUNTY_COMMISSIONER_3-county_53051",
+"Pend Oreille County Commissioner 3",
+null,
+0.000639,
+"N"
+],
+[
+"2024-local-WA-SKAGIT_COMMISSIONER-1_county_53057",
+"Skagit Commissioner",
+1.20632e-05,
+1.71493e-05,
+"P"
+],
+[
+"2024-local-WA-SKAGIT_COMMISSIONER-2_county_53057",
+"Skagit Commissioner",
+1.2067e-05,
+1.71546e-05,
+"P"
+],
+[
+"2024-local-WA-SKAMANIA_COMMISSIONER_NO__1-county_53059",
+"Skamania Commissioner No. 1",
+0.000109651,
+0.000155882,
+"P"
+],
+[
+"2024-local-WA-STEVENS_COMMISSIONER__1-county_53065",
+"Stevens Commissioner #1",
+null,
+0.000192919,
+"N"
+],
+[
+"2024-local-WA-STEVENS_COMMISSIONER__3-county_53065",
+"Stevens Commissioner #3",
+null,
+0.000198975,
+"N"
+],
+[
+"2024-local-WA-WAHKIAKUM_COMMISSIONER__1-county_53069",
+"Wahkiakum Commissioner #1",
+0.000256928,
+0.000365254,
+"P"
+],
+[
+"2024-local-WA-WALLA_WALLA_COUNTY_COMMISSIONER-1_county_53071",
+"Walla Walla County Commissioner",
+2.59953e-05,
+3.69553e-05,
+"P"
+],
+[
+"2024-local-WA-YAKIMA_COMMISSIONER_DISTRICT__3_COUNTY_COMMISSIONER-3_county_53077",
+"Yakima Commissioner District #3 County Commissioner",
+null,
+0.000270179,
+"N"
+],
+[
+"2024-local-WV-BARBOUR_COUNTY_COMMISSIONER-county_54001",
+"Barbour County Commissioner",
+0.000121661,
+0.000172955,
+"P"
+],
+[
+"2024-local-WV-RALEIGH_COUNTY_COMMISSIONER-county_54081",
+"Raleigh County Commissioner",
+null,
+9.41534e-05,
+"N"
+],
+[
+"2024-local-WV-RANDOLPH_COUNTY_COMMISSIONER-county_54083",
+"Randolph County Commissioner",
+7.14501e-05,
+0.000101575,
+"P"
+],
+[
+"2024-local-WV-UPSHUR_COUNTY_COMMISSIONER-county_54097",
+"Upshur County Commissioner",
+null,
+0.00027897,
+"N"
+],
+[
+"2024-measure-AK-BALLOT_MEASURE_NO__1___23AMLS",
+null,
+2.20153e-06,
+2.12255e-06,
+"P"
+],
+[
+"2024-measure-AK-BALLOT_MEASURE_NO__2___22AKHE",
+null,
+2.17355e-06,
+2.09557e-06,
+"P"
+],
+[
+"2024-measure-CO-PROPOSITION_127__STATUTORY",
+null,
+2.28464e-07,
+2.20268e-07,
+"P"
+],
+[
+"2024-measure-CO-PROPOSITION_128__STATUTORY",
+null,
+2.31823e-07,
+2.23506e-07,
+"P"
+],
+[
+"2024-measure-CO-PROPOSITION_129__STATUTORY",
+null,
+2.34091e-07,
+2.25693e-07,
+"P"
+],
+[
+"2024-measure-CO-PROPOSITION_130__STATUTORY",
+null,
+2.32663e-07,
+2.24317e-07,
+"P"
+],
+[
+"2024-measure-CO-PROPOSITION_131__STATUTORY",
+null,
+2.34094e-07,
+2.25696e-07,
+"P"
+],
+[
+"2024-measure-CO-PROPOSITION_JJ__STATUTORY",
+null,
+2.27879e-07,
+2.19704e-07,
+"P"
+],
+[
+"2024-measure-CO-PROPOSITION_KK__STATUTORY",
+null,
+2.26427e-07,
+2.18304e-07,
+"P"
+],
+[
+"2024-measure-DC-INITIATIVE_83",
+null,
+2.3951e-06,
+2.30918e-06,
+"P"
+],
+[
+"2024-measure-GA-PROPOSED_CONSTITUTIONAL_AMENDMENT_1",
+null,
+1.41866e-07,
+1.36777e-07,
+"P"
+],
+[
+"2024-measure-GA-PROPOSED_CONSTITUTIONAL_AMENDMENT_2",
+null,
+1.43348e-07,
+1.38205e-07,
+"P"
+],
+[
+"2024-measure-IA-CONSTITUTIONAL_AMENDMENT_1",
+null,
+4.67809e-07,
+4.51027e-07,
+"P"
+],
+[
+"2024-measure-IA-CONSTITUTIONAL_AMENDMENT_2",
+null,
+4.75163e-07,
+4.58117e-07,
+"P"
+],
+[
+"2024-measure-IN-PUBLIC_QUESTION__1-Shall_the_Constitution_of_the_State_of_Indiana_be_amended_to_remove_the_state_superintendent_of_public_instruction_from_the_list_of_officeholders_who_shall_discharge_the_powers_and_duties_of_the_governor_if_the_office_of_the_governor_and_lieutenant_governor_are_both_vacant",
+null,
+2.69021e-07,
+2.5937e-07,
+"P"
+],
+[
+"2024-measure-KY-CONSTITUTIONAL_AMENDMENT_1",
+null,
+3.59509e-07,
+3.46612e-07,
+"P"
+],
+[
+"2024-measure-KY-CONSTITUTIONAL_AMENDMENT_2",
+null,
+3.47053e-07,
+3.34602e-07,
+"P"
+],
+[
+"2024-measure-MO-CONSTITUTIONAL_AMENDMENT_2",
+null,
+2.36152e-07,
+2.2768e-07,
+"P"
+],
+[
+"2024-measure-MO-CONSTITUTIONAL_AMENDMENT_3",
+null,
+2.33987e-07,
+2.25593e-07,
+"P"
+],
+[
+"2024-measure-MO-CONSTITUTIONAL_AMENDMENT_5",
+null,
+2.40177e-07,
+2.31561e-07,
+"P"
+],
+[
+"2024-measure-MO-CONSTITUTIONAL_AMENDMENT_6",
+null,
+2.47086e-07,
+2.38222e-07,
+"P"
+],
+[
+"2024-measure-MO-CONSTITUTIONAL_AMENDMENT_7",
+null,
+2.42779e-07,
+2.34069e-07,
+"P"
+],
+[
+"2024-measure-MO-PROPOSITION_A",
+null,
+2.37246e-07,
+2.28735e-07,
+"P"
+],
+[
+"2024-measure-MT-CI_126_A_CONSTITUTIONAL_AMENDMENT_PROPOSED_BY_INITIATIVE_PET",
+null,
+1.18593e-06,
+1.14339e-06,
+"P"
+],
+[
+"2024-measure-MT-CI_127_A_CONSTITUTIONAL_AMENDMENT_PROPOSED_BY_INITIATIVE_PET",
+null,
+1.20789e-06,
+1.16456e-06,
+"P"
+],
+[
+"2024-measure-MT-CI_128_A_CONSTITUTIONAL_AMENDMENT_PROPOSED_BY_INITIATIVE_PET",
+null,
+1.16814e-06,
+1.12623e-06,
+"P"
+],
+[
+"2024-measure-NC-CONSTITUTIONAL_AMENDMENT___CITIZENS_ONLY_VOTING",
+null,
+1.29354e-07,
+1.24713e-07,
+"P"
+],
+[
+"2024-measure-ND-PROPOSITION_RELATED_TO_CONSTITUTIONAL_AMENDMENTS",
+null,
+2.03448e-06,
+1.9615e-06,
+"P"
+],
+[
+"2024-measure-ND-PROPOSITION_RELATED_TO_PROHIBITING_ALL_POLITICAL_SUBDIVISION",
+null,
+1.96017e-06,
+1.88985e-06,
+"P"
+],
+[
+"2024-measure-ND-PROPOSITION_RELATED_TO_SPENDING_AND_TRANSFERS_FROM_THE_LEGAC",
+null,
+2.07339e-06,
+1.99901e-06,
+"P"
+],
+[
+"2024-measure-ND-PROPOSITION_RELATED_TO_TERMINOLOGY_DESCRIBING_PUBLIC_INSTITU",
+null,
+1.95204e-06,
+1.88202e-06,
+"P"
+],
+[
+"2024-measure-ND-PROPOSITION_RELATED_TO_THE_LEGALIZATION_OF_CANNABIS_AND_RELA",
+null,
+1.92345e-06,
+1.85444e-06,
+"P"
+],
+[
+"2024-measure-NY-STATE_PROPOSAL_ONE",
+null,
+9.16814e-08,
+8.83924e-08,
+"P"
+],
+[
+"2024-measure-OK-STATE_QUESTION_NO__833_LEGISLATIVE_REFERENDUM_NO__376-FOR_THE_PROPOSAL",
+null,
+4.78348e-07,
+4.61188e-07,
+"P"
+],
+[
+"2024-measure-OK-STATE_QUESTION_NO__834_LEGISLATIVE_REFERENDUM_NO__377-FOR_THE_PROPOSAL",
+null,
+4.66427e-07,
+4.49694e-07,
+"P"
+],
+[
+"2024-measure-RI-STATE_QUESTION_1__CONSTITUTIONAL_CONVENTION",
+null,
+1.5122e-06,
+1.45795e-06,
+"P"
+],
+[
+"2024-measure-SD-CONSTITUTIONAL_AMENDMENT_E__AN_AMENDMENT_TO_THE_SOUTH_DAKOTA",
+null,
+1.64845e-06,
+1.58931e-06,
+"P"
+],
+[
+"2024-measure-SD-CONSTITUTIONAL_AMENDMENT_F__AN_AMENDMENT_TO_THE_SOUTH_DAKOTA",
+null,
+1.65625e-06,
+1.59683e-06,
+"P"
+],
+[
+"2024-measure-SD-CONSTITUTIONAL_AMENDMENT_G__AN_INITIATED_AMENDMENT_ESTABLISH",
+null,
+1.63411e-06,
+1.57549e-06,
+"P"
+],
+[
+"2024-measure-SD-CONSTITUTIONAL_AMENDMENT_H__AN_AMENDMENT_TO_THE_SOUTH_DAKOTA",
+null,
+1.69496e-06,
+1.63415e-06,
+"P"
+],
+[
+"2024-measure-UT-CONSTITUTIONAL_AMENDMENT_B",
+null,
+4.95771e-07,
+4.77986e-07,
+"P"
+],
+[
+"2024-measure-UT-CONSTITUTIONAL_AMENDMENT_C",
+null,
+4.95005e-07,
+4.77247e-07,
+"P"
+],
+[
+"2024-measure-WV-AMENDMENT_NO_1__PROTECTION_OF_PERSONS_AGAINST_MEDICALLY_ASSI",
+null,
+1.03371e-06,
+9.96626e-07,
+"P"
+]
+]
+}
