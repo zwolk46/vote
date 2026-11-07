@@ -4,7 +4,7 @@
 
 ## Where things stand
 
-- **Phase 2 (data, with design alongside) begins**, by `plan/PLAN.md` (written 03:10, told to the maker, not asked: law 7a). Briefs T1 (tracker), D1 (presidency), D2 (Congress and governors), X1 (design) written; threads asked of the coordinator. Next: gate D1's `pipeline/core.py` PR first (D2 imports it); approve each data worker's own-forecast method before it computes p; send X1's options to the maker.
+- **Phase 2 (data, with design alongside) begins**, by `plan/PLAN.md` (written 03:04, told to the maker, not asked: law 7a). Briefs T1 (tracker), D1 (presidency), D2 (Congress and governors), X1 (design) written; threads started 03:08 (#13 put law, model, plan and briefs on `main`). Next: gate D1's `pipeline/core.py` PR first (D2 imports it); approve each data worker's own-forecast method before it computes p; send X1's options to the maker.
 - **Tracker** for the maker: "Vote Work", https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH (source `tracker/vote-work.html`; db collection `tasks`, rows {s, t, o, link, linkLabel}; seeded 03:02, read back at view level). Kept current by T1.
 - Open with the maker: the design-effort card (max for design work only, recommended / xhigh; until he answers, design runs at xhigh); the batched asks of plan §5 (web.archive.org; MEDSL's guestbook).
 - Hold of 02:45 lifted at 02:54 (RULINGS). Design follows `inherited/design/` (#11, from the midterms orchestrator). Work autonomously: the plan is recorded and he is told, not asked.
@@ -40,16 +40,18 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Check the math of a deciding vote | cmsg_01FHkmcV6WaeZh9r5PfgnMbuST7d1oALJPJTFqCrnN4ZYd | `briefs/M1-math-check.md` (Fable 5.1, xhigh) | done; #7 merged 01:54 (the orchestrator re-ran run_all.sh: output identical); resolved |
 | Try to break the site's law | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCtPmSab848QZ6xppDXay7H | `briefs/B2-break-the-law.md` (Fable 5.1, xhigh) | done 02:54; PR #12 (61 breaks) open, not merged during the hold |
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
-| Keep the vote tracker current | (asked 03:12) | `briefs/T1-tracker.md` (Sonnet 5.5, xhigh) | asked of the coordinator |
-| Gather presidential data by state | (asked 03:12) | `briefs/D1-data-president.md` (Opus 5.5, xhigh) | asked of the coordinator |
-| Gather Senate, House and governor data | (asked 03:12) | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | asked of the coordinator |
-| Design the site's first screen | (asked 03:12) | `briefs/X1-design.md` (Opus 5.5, xhigh) | asked of the coordinator |
+| Keep the vote tracker current | cmsg_01FHkmcV6WaeZh9r5PfgnMbuByWBE5rw5LTK6xKGeqevgf | `briefs/T1-tracker.md` (Sonnet 5.5, xhigh) | started 03:08 |
+| Gather presidential data by state | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCWdWPRkhAafpzm5UUF9z22 | `briefs/D1-data-president.md` (Opus 5.5, xhigh) | started 03:08 |
+| Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | started 03:08 |
+| Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | started 03:08 |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
 
-- 2026-11-07 03:12: "Vote Work" published (https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH), a copy of Midterms Work with its db rule (read view, write admin), seeded with eight rows and read back at view level; the maker told, with the law in force. `plan/PLAN.md` written (phases; contests in order; one data layout; `pipeline/` in Python on `model/math/common.py`; who does what). Briefs T1, D1, D2, X1 written. This session's network still reaches only GitHub (web.archive.org, Dataverse, FEC, Census refused here; new threads run on the networked environment). PR of law, model, plan, briefs and tracker to `main`, then the four threads asked of the coordinator.
+- 2026-11-07 03:09: #13 merged (law in force, model of record, plan, briefs T1, D1, D2, X1, tracker source); main merged back. T1, D1, D2, X1 started by the coordinator on the networked environment (ids in the table). The maker told the plan, with two asks: allow web.archive.org; MEDSL's guestbook with his name and email. Tracker rows updated to match.
+
+- 2026-11-07 03:06: "Vote Work" published (https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH), a copy of Midterms Work with its db rule (read view, write admin), seeded with eight rows and read back at view level; the maker told, with the law in force. `plan/PLAN.md` written (phases; contests in order; one data layout; `pipeline/` in Python on `model/math/common.py`; who does what). Briefs T1, D1, D2, X1 written. This session's network still reaches only GitHub (web.archive.org, Dataverse, FEC, Census refused here; new threads run on the networked environment). PR of law, model, plan, briefs and tracker to `main`, then the four threads asked of the coordinator.
 
 - 2026-11-07 03:05: #12 merged (B2's breaks). `LAW.md` written: law draft 2, in force as if ratified at the maker's 02:55 word (the one time an agent writes `LAW.md`, on his instruction; CLAUDE.md's rule stands for every later change). The maker asked (02:58, project chat) for a tracker like the midterms one: an artifact task list plus a dedicated thread that keeps it current, with preview links. Midterms' tracker read ("Midterms Work", claude.ai/artifact/FVgfkAoKfKgzHGLi1KHkSf: a `db` collection `tasks`, rows {s: doing/todo/done, t, o, link, linkLabel}). Next: publish "Vote Work" the same way, brief T1 (tracker), the plan, and briefs D1, D2, X1.
 

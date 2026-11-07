@@ -1,6 +1,6 @@
 # PLAN: how the site gets built from here
 
-*Written 2026-11-07 03:10 UTC by the orchestrator, under law 7a: "Before the data work begins, the orchestrator records its plan in the repository and tells the maker; it does not wait for his approval." He is told, not asked. Changes to this plan are logged in `STATE.md` and made here by the orchestrator only. Every step carries its reason; a step without one is a fault to report.*
+*Written 2026-11-07 03:04 UTC by the orchestrator, under law 7a: "Before the data work begins, the orchestrator records its plan in the repository and tells the maker; it does not wait for his approval." He is told, not asked. Changes to this plan are logged in `STATE.md` and made here by the orchestrator only. Every step carries its reason; a step without one is a fault to report.*
 
 ## 1. Phases
 
