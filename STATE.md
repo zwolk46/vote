@@ -51,6 +51,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 04:39: the maker, 04:37: simple headings ("Senate", "House", "U.S. Senate", "U.S. House", form fitted to context) are needed text; recorded as the 04:32 ruling's example; X1 and X2 amended ("Headings stay"); X1 told. #24 merged (04:32 ruling, M2 brief).
+
 - 2026-11-07 04:37: #23 merged (D1 final: presidency 1976-2024, p for 1984-2024 in both stages; 1976 and 1980 recorded without p). D1 done. Brief M2 written (Fable: an independent recompute of every p, the second stages, the own forecasts incl. governors and leave-one-out, the published checks); asked of the coordinator. D3 told to keep files compact. D2's VP change waits for a slot.
 
 - 2026-11-07 04:36: ruling of 04:32 recorded (explanation by visuals; no text unless truly needed); X1 and X2 briefs amended (text ledger, refined lines, a third cold reading of the visuals alone); X1 told. #23 gate: 2024 forecast dated 12 September is forced (538 2024 averages end there; later ones redirect to ABC), errors fitted to 9 September of earlier cycles, marked; accepted.

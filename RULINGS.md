@@ -128,3 +128,11 @@ In the orchestrator's thread:
 *Reading.* Two rules, for every surface of the site, the first screen and the explainer above all.
 1. **The visual carries the explanation.** Wherever an idea can be shown, it is shown, not told. Prose is not counted as explaining or convincing anyone: the default assumption is that an AI-written sentence does neither on its own. A sentence that stays is refined deliberately, word by word, and tested on cold readers like the visuals, not left as drafted.
 2. **No text unless it is truly needed.** Text clutters, so a line is on the page only if a reader fails without it, and the work says what it serves. This is his midterms rule (`inherited/design/TASTE.md`, 2026-11-02 13:17:57 and 2026-11-05 14:21) made a standing rule here and made stronger: it applies to explanation, not only to subheads.
+
+## 2026-11-07 04:37 UTC: simple headings are needed text (the 04:32 ruling's example)
+
+In the orchestrator's thread, five minutes later:
+
+> For instance often simple headings (such as Senate or House or U.S. Senate or U.S. House, each as relevant to the context in which they’re presented and understood and for the purpose they serve) count as text that is necessary and proper to satisfy a bona fide purpose.
+
+*Reading.* The 04:32 cut is of explanatory prose, not of the words that tell a reader where they are. A simple heading that names what is shown, such as "Senate", "House", "U.S. Senate" or "U.S. House", serves a real purpose and stays. Its form fits its place: the short form where the context already says which country or level, the full form where it does not. Its entry in the text ledger is that purpose, in a word: it orients.
