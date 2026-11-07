@@ -41,12 +41,14 @@ first). The House of 2008-2012, with one to three earlier cycles of its own, tak
 (06:36, item 2; raw_model). CALIBRATION (06:36, item 3): both sds are then multiplied by k, the root mean square
 of z over the level's earlier years scored out of sample, once CAL_MIN = 3 such years exist (calibration). NEAR-TIE
 CALIBRATION (07:04, round 4): the model's own p is then multiplied by F / Z, F the factor that matches earlier
-years' out-of-sample near-ties (49-51%), where adopted for the level (near_tie_test). SHRINKAGE AND TAILS (07:19,
+years' out-of-sample near-ties (49-51%), where adopted for the level (near_tie_test); since 08:54 only where it
+also passes the robustness test below, which the House's does and the Senate's does not, so the Senate's is taken
+out and shown beside each p (near_tie_not_of_record; REPORT 0.1). SHRINKAGE AND TAILS (07:19,
 round 5): where the test adopts it for the level (variant_test), the mean is shrunk toward 1/2 by lambda, fitted on
 the level's earlier years (shrink_factor; the House), with k refitted on the shrunk means, or t4 tails stand first
 in place of normal (governors); the near-tie factor is refitted under the variant. A variant is adopted only if its
 gain also holds with any one scored year left out (the robustness test, 08:36, from M2's second pass); since then
-none is, at any level (REPORT 0.1). So the forecast for race i is
+none is, at any level (REPORT 0.2). So the forecast for race i is
 normal (t4 where adopted) with mean 1/2 + lambda (c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G (lag_i - 1/2))),
 lambda 1 where not shrunk, and variance k^2 (sd_nat^2 + s_e^2); the other tails, matched on the same sd, are
 computed alongside (model section 9.5). The common part sd_nat^2 is what ties races together for
@@ -55,7 +57,9 @@ control of a chamber (MATH 4.2): rho = sd_nat^2 / (sd_nat^2 + s_e^2).
 Run:  python3 pipeline/chambers.py backtest      prints the fit and the back-test, writes
                                                 data/congress/backtest.json
       python3 pipeline/chambers.py compute <year> ...   fills p and control in data/<level>/<year>.json
-      python3 pipeline/chambers.py history      the record against the forecasts, data/congress/history.json
+      python3 pipeline/chambers.py history      the record against the forecasts, data/congress/history.json,
+                                                and the governors' near-even note on each governor p (run it
+                                                after compute, which rewrites p)
 """
 import difflib
 import json
@@ -1449,14 +1453,43 @@ def _near_score(rows, level, scheme, years, variant):
                        for w, v in win.items()}}
 
 
+def _near_verdict(r, b0):
+    """Round 4's three conditions for a near-tie scheme's scores r against none's b0 on the same years."""
+    k49 = f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%"
+    better_ls = r["mean_log_score"] > b0["mean_log_score"]
+    nearer = abs(r["within"][k49]["expected"] - r["within"][k49]["seen"]) < \
+        abs(b0["within"][k49]["expected"] - b0["within"][k49]["seen"])
+    # the safe seats (the last band): a factor must not move their count further from the one seen, so that no
+    # safe seat's p is raised without support at its distance (the orchestrator, 07:04)
+    kb = f"|mean - 1/2| from {NEAR_BANDS[-1]:.2f}"
+    safe_ok = abs(r["within_49_51_by_band"][kb]["expected"] - r["within_49_51_by_band"][kb]["seen"]) <= \
+        abs(b0["within_49_51_by_band"][kb]["expected"] - b0["within_49_51_by_band"][kb]["seen"])
+    return {"raises_log_score": better_ls, "count_nearer": nearer, "safe_seats_supported": safe_ok,
+            "improves": bool(better_ls and nearer and safe_ok),
+            "mean_log_score_gain": r["mean_log_score"] - b0["mean_log_score"]}
+
+
+# THE ROBUSTNESS TEST FOR THE NEAR-TIE FACTOR (the orchestrator, 2026-11-07 08:54: "The test applies to every change
+# that stands, not only to round 5's. Retake round 4's near-tie factor for the House and the Senate. Where it fails,
+# take it out and report it beside the forecast."). A scheme is adopted for a level only if, on the years it
+# reaches, it passes round 4's test (_near_verdict) and round 5's (_variant_verdict: the safe-seat bands 10-20 and
+# 20+ points, every window, tested where the count seen or expected is VARIANT_MIN_COUNT up), and passes both
+# again with any one of those years left out of the scoring. Reason: a rule kept for new changes only would leave
+# older knife-edge changes standing on less evidence than new ones need; so the old change must meet what a new
+# one needs. A scheme that passes round 4's test on every year but fails this is taken out, and reported beside
+# the forecast (near_tie_taken_out; each p's "near_tie_not_of_record").
 def near_tie_test(rows, variant):
     """The orchestrator's test (07:04): both schemes against none, on the years either reaches, by level, for the
-    variant's forecasts (round 5: the factor refitted under each); and the rule, {level: scheme or None}."""
+    variant's forecasts (round 5: the factor refitted under each), with the robustness test (08:54); and the rule,
+    {level: scheme or None}. "adopted_round_4" is the rule of round 4's test alone."""
     ck = ("test", variant)
     if ck in _NEAR:
         return _NEAR[ck]
     out = {"variant": variant, "window": f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%",
-           "min_expected": NEAR_MIN_EXPECTED, "bands": list(NEAR_BANDS), "by_level": {}, "adopted": {}}
+           "min_expected": NEAR_MIN_EXPECTED, "bands": list(NEAR_BANDS), "by_level": {}, "adopted": {},
+           "adopted_round_4": {},
+           "adopted_if": "round 4's test and round 5's cells pass on every year the factor reaches, and again on "
+                         "every set with one of those years left out (the orchestrator, 08:54)"}
     sc = _near_scored(rows, variant)
     for L in LEVELS:
         yrs = sorted(T for (L_, T) in sc if L_ == L)
@@ -1468,27 +1501,39 @@ def near_tie_test(rows, variant):
         res["factors_by_year"] = {str(T): {"level": near_tie_factor(rows, L, T, 0.5, "level", variant),
                                            "band": [near_tie_factor(rows, L, T, 0.5 + b + 1e-9, "band", variant)
                                                     for b in NEAR_BANDS]} for T in yrs}
-        best = None
-        k49 = f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%"
+        best = best4 = None
         if reach:
             b0 = res["none"]
+            v0 = _variant_score(rows, L, variant, reach, scheme=None)
             for sch in ("level", "band"):
                 r = res[sch]
-                better_ls = r["mean_log_score"] > b0["mean_log_score"]
-                nearer = abs(r["within"][k49]["expected"] - r["within"][k49]["seen"]) < \
-                    abs(b0["within"][k49]["expected"] - b0["within"][k49]["seen"])
-                # the safe seats (the last band): a factor must not move their count further from the one seen,
-                # so that no safe seat's p is raised without support at its distance (the orchestrator, 07:04)
-                kb = f"|mean - 1/2| from {NEAR_BANDS[-1]:.2f}"
-                safe_ok = abs(r["within_49_51_by_band"][kb]["expected"] - r["within_49_51_by_band"][kb]["seen"]) <= \
-                    abs(b0["within_49_51_by_band"][kb]["expected"] - b0["within_49_51_by_band"][kb]["seen"])
-                r["raises_log_score"], r["count_nearer"], r["safe_seats_supported"] = better_ls, nearer, safe_ok
-                r["improves"] = bool(better_ls and nearer and safe_ok)
-                if r["improves"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
+                r.update(_near_verdict(r, b0))
+                r5 = _variant_verdict(_variant_score(rows, L, variant, reach, scheme=sch), v0)
+                r["round_5_cells"] = {"improves": r5["improves"], "safe_bands_tested": r5["safe_bands_tested"],
+                                      "safe_bands_further": r5["safe_bands_further"]}
+                loo = {}
+                for Y in reach:
+                    ys = [T for T in reach if T != Y]
+                    v4 = _near_verdict(_near_score(rows, L, sch, ys, variant), _near_score(rows, L, None, ys, variant))
+                    v5 = _variant_verdict(_variant_score(rows, L, variant, ys, scheme=sch),
+                                          _variant_score(rows, L, variant, ys, scheme=None))
+                    loo[str(Y)] = {"improves": v4["improves"] and v5["improves"],
+                                   "mean_log_score_gain": v4["mean_log_score_gain"],
+                                   "fails": ([] if v4["raises_log_score"] else ["the log score"]) +
+                                            ([] if v4["count_nearer"] else ["the 49-51% count"]) +
+                                            ([] if v4["safe_seats_supported"] else
+                                             [f"the safe seats' 49-51% count (|mean - 1/2| from {NEAR_BANDS[-1]:.2f})"]) +
+                                            [x for x in v5["safe_bands_further"]]}
+                r["leave_one_year_out"] = loo
+                r["robust"] = bool(r5["improves"] and all(x["improves"] for x in loo.values()))
+                if r["improves"] and (best4 is None or r["mean_log_score"] > res[best4]["mean_log_score"]):
+                    best4 = sch
+                if r["improves"] and r["robust"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
                     best = sch
-        res["adopted"] = best
+        res["adopted"], res["adopted_round_4"] = best, best4
         out["by_level"][L] = res
         out["adopted"][L] = best
+        out["adopted_round_4"][L] = best4
     _NEAR[ck] = out
     return out
 
@@ -1512,13 +1557,32 @@ def near_tie(rows, level, year, mean, sd, tails):
                     "multiplied by multiplier = factor / (1 + (factor - 1) q), q the forecast's chance of the window"}
 
 
-def _variant_score(rows, level, variant, years):
+def near_tie_taken_out(rows, level, year, mean, sd, tails):
+    """Round 4's near-tie factor where the robustness test takes it out for the level (08:54), reported beside the
+    forecast: {"factor", "multiplier", "scheme", "note"}, or None where round 4's rule stands or had none."""
+    v = variant_of_record(rows, level)
+    nt = near_tie_test(rows, v)
+    sch = nt["adopted_round_4"].get(level)
+    if not sch or nt["adopted"].get(level) == sch:
+        return None
+    f = near_tie_factor(rows, level, year, mean, sch, v)
+    if not f["of"]:
+        return None
+    F = f["factor"]
+    return {"factor": F, "multiplier": F / (1 + (F - 1) * near_q(mean, sd, tails)), "scheme": sch,
+            "note": "round 4's near-tie factor, taken out of p: it does not pass the robustness test (the "
+                    "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.1). "
+                    "value is what p would be with it, p times multiplier"}
+
+
+def _variant_score(rows, level, variant, years, scheme="of record"):
     """The level's out-of-sample forecasts of `years` under the variant, of record (the near-tie factor refitted
-    under it, where its near_tie_test adopts one for the level): log score, coverage, near-even counts overall and
-    by band of |mean - 1/2| (the bands by variant none's mean, so that each band holds the same races under every
-    variant), the log score by band, and the results beyond the forecast's 5% and 1% quantiles toward 1/2."""
+    under it, where its near_tie_test adopts one for the level; or under the near-tie `scheme` given, None for
+    none): log score, coverage, near-even counts overall and by band of |mean - 1/2| (the bands by variant none's
+    mean, so that each band holds the same races under every variant), the log score by band, and the results
+    beyond the forecast's 5% and 1% quantiles toward 1/2."""
     tails = VARIANTS[variant]["tails"]
-    sch = near_tie_test(rows, variant)["adopted"].get(level)
+    sch = near_tie_test(rows, variant)["adopted"].get(level) if scheme == "of record" else scheme
     sc, sc0 = _near_scored(rows, variant), _near_scored(rows, "none")
     nb = len(VARIANT_BANDS)
     tot = {"races": 0, "ls": 0.0, "cov": [0, 0, 0], "win": {w: [0.0, 0] for w in NEAR_WINDOWS}}
@@ -1721,6 +1785,11 @@ def compute(year):
                                                                   r_["event"] * nt["multiplier"],
                                                                   r_["f_half"] * nt["multiplier"])
                         e_["under"] += f", {NEAR_NOTE}"
+                    else:
+                        out_ = near_tie_taken_out(rows, level, year, mean, sd, t_)
+                        if out_:
+                            # round 4's factor, taken out by the robustness test (08:54): reported beside p
+                            e_["near_tie_not_of_record"] = dict(out_, value=r_["p"] * out_["multiplier"])
                     own_p.append(e_)
             fte = [fte_forecast(c, level, year, v, f) for v, f in (fte_versions(c, level, year) or [])]
             tally = None
@@ -1769,6 +1838,8 @@ def compute(year):
                 c["p"]["sd"] = head["sd"]
             if "value_uncalibrated" in head:
                 c["p"]["value_uncalibrated"] = head["value_uncalibrated"]
+            if "near_tie_not_of_record" in head:
+                c["p"]["near_tie_not_of_record"] = head["near_tie_not_of_record"]
         if any(f.get("by") == "538" for c in d["contests"] for f in c.get("forecasts") or []):
             d["sources"][f"{level}_538"] = FTE["source"][level]
         if m and level in ("house", "senate"):
@@ -1805,8 +1876,10 @@ def compute(year):
             V = variant_of_record(rows, level)
             d["model"]["variant"] = {"of_record": V, "tails_first": m["tails"], "shrink": m["shrink"],
                                      "note": VARIANT_NOTE[V]}
-            nt_rule = near_tie_test(rows, V)["adopted"].get(level)
+            ntt = near_tie_test(rows, V)
+            nt_rule = ntt["adopted"].get(level)
             nt_f = near_tie_factor(rows, level, year, 0.5, nt_rule, V) if nt_rule == "level" else None
+            nt_out = ntt["adopted_round_4"].get(level) if ntt["adopted_round_4"].get(level) != nt_rule else None
             if nt_rule == "band":
                 bands = [near_tie_factor(rows, level, year, 0.5 + b + 1e-9, "band", V) for b in NEAR_BANDS]
                 d["model"]["near_tie"] = {
@@ -1825,6 +1898,23 @@ def compute(year):
                            f"{NEAR_MIN_EXPECTED} near-ties"} if nt_f else
                   {"scheme": nt_rule, "note": "not adopted for this level: on the years it reaches it does not both "
                                               "raise the log score and bring the near-even count nearer (REPORT 2.6)"})
+            if nt_out:
+                # round 4's rule, taken out by the robustness test (the orchestrator, 08:54), reported beside it
+                r_ = ntt["by_level"][level][nt_out]
+                f_ = near_tie_factor(rows, level, year, 0.5, nt_out, V)
+                d["model"]["near_tie"] = {
+                    "scheme": nt_rule, "window": f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%",
+                    **({k_: v_ for k_, v_ in d["model"]["near_tie"].items() if k_ not in ("note",)} if nt_rule else {}),
+                    "taken_out": {"scheme": nt_out, "factor": f_["factor"] if f_["of"] else None, "of": f_["of"],
+                                  "fitted_on": f_["fitted_on"], "expected": f_["expected"], "seen": f_["seen"],
+                                  "fails_without": {Y: x["fails"] for Y, x in r_["leave_one_year_out"].items()
+                                                    if not x["improves"]},
+                                  "fails_on_every_year": r_["round_5_cells"]["safe_bands_further"]},
+                    "note": f"round 4's near-tie factor ({nt_out} scheme) is taken out of p for this level: it passes "
+                            "round 4's test on every year, but not the robustness test (the orchestrator, 2026-11-07 "
+                            "08:54; REPORT 0.1)" + (f"; the {nt_rule} scheme, which passes it, stands" if nt_rule else
+                            ". Each model's own p shows beside it, under near_tie_not_of_record, what p would be with "
+                            "the factor")}
             if m.get("national_from"):
                 d["model"]["national_from"] = dict(m["national_from"], note=(
                     "national terms from the Senate's earlier cycles: c, s_a and (Z'Z)^-1 are the Senate's fit on "
@@ -2071,10 +2161,12 @@ def history():
         exp = {k: 0.0 for k in ks}
         seen = {k: 0 for k in ks}
         n_c = 0
+        by_year = {}
         for y in file_years(level):
             d = cc.read_json(os.path.join(REPO, "data", level, f"{y}.json"))
             if not d:
                 continue
+            yb = by_year.setdefault(str(y), {"contests": 0, "expected": {k: 0.0 for k in ks}, "seen": {k: 0 for k in ks}})
             for c in d["contests"]:
                 p = c.get("p") or {}
                 if not p.get("value"):
@@ -2084,6 +2176,7 @@ def history():
                 N = sum(tp["votes"])
                 margin = abs(tp["votes"][0] - tp["votes"][1])
                 n_c += 1
+                yb["contests"] += 1
                 cal = f.get("calibration")
                 tl = f["share"].get("tails", "normal")
                 for k in ks:
@@ -2098,16 +2191,62 @@ def history():
                         e_ = (e_ + (F - 1) * (cdf(0.5 + hw, mu, sd, tl) - cdf(0.5 - hw, mu, sd, tl))) / \
                             (1 + (F - 1) * near_q(mu, sd, tl))
                     exp[k] += e_
+                    yb["expected"][k] += e_
                     if margin <= k:
                         seen[k] += 1
+                        yb["seen"][k] += 1
                         if k <= 1000:
                             out["cases"].setdefault(level, []).append([c["id"], margin]) if k == 1000 else None
-        out["by_level"][level] = {"contests": n_c, "expected": exp, "seen": seen}
+        out["by_level"][level] = {"contests": n_c, "expected": exp, "seen": seen,
+                                  "by_year": {y: v for y, v in by_year.items() if v["contests"]}}
     for level, v in out["by_level"].items():
         print(f"{level}: {v['contests']} contests with p, {file_years(level)[0]}-2024")
         for k in ks:
             print(f"   within {k:>5} votes: expected {v['expected'][k]:8.3f}, seen {v['seen'][k]}")
+    out["governor_note"] = governor_note(out)
     cc.write_json(os.path.join(REPO, "data", "congress", "history.json"), out)
+
+
+# THE GOVERNORS' NEAR-EVEN NOTE (the orchestrator, 2026-11-07 08:54: "write the note on each governor p, built from
+# your back-test with its own counts (4.5 against 0, 2006-2024)"; the brief's words of 08:36). Over 2006-2024 the
+# governors' p stood on forecasts that expected more finishes within 5,000 votes than were seen. Each governor p
+# carries the sentence below, its counts read from this history; p is not corrected. Reason: a known lean of the
+# forecast should be visible to a reader, whichever forecast stands; and a factor fitted on one empty window would
+# be noise. The counts are seen against forecast, in the sentence's own order and as D3's note on the measures
+# (#37) gives them. history writes the note, so it runs after compute.
+GOV_NOTE_YEARS = (2006, 2024)
+GOV_NOTE_K = 5000
+
+
+def governor_note(h):
+    """Write the near-even note onto each governor p, from history h; return what was written."""
+    v = h["by_level"]["governor"]["by_year"]
+    ys = [y for y in v if GOV_NOTE_YEARS[0] <= int(y) <= GOV_NOTE_YEARS[1]]
+    exp = sum(v[y]["expected"][GOV_NOTE_K] for y in ys)
+    got = sum(v[y]["seen"][GOV_NOTE_K] for y in ys)
+    note = None
+    if got < exp:
+        note = (f"this route's back-test shows fewer near-even finishes than it forecast ({got} against {exp:.1f} "
+                f"within {GOV_NOTE_K:,} votes, {GOV_NOTE_YEARS[0]} to {GOV_NOTE_YEARS[1]}), so p may be high")
+    n = 0
+    for y in file_years("governor"):
+        path = os.path.join(REPO, "data", "governor", f"{y}.json")
+        d = cc.read_json(path)
+        if not d:
+            continue
+        for c in d["contests"]:
+            p = c.get("p") or {}
+            if not p.get("value"):
+                continue        # no p, or p = 0 (one candidate): nothing for the note to qualify
+            if note:
+                p["note"] = note
+                n += 1
+            else:
+                p.pop("note", None)
+        cc.write_contest_file(path, d)
+    print(f"governor note on {n} p: {note}")
+    return {"years": list(GOV_NOTE_YEARS), "within_votes": GOV_NOTE_K, "expected": exp, "seen": got,
+            "note": note, "written_on": n}
 
 
 def main(argv):

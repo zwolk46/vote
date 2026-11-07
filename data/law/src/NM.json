@@ -2,22 +2,55 @@
  "state": "NM",
  "name": "New Mexico",
  "status": "unread",
- "code": {"name": "New Mexico Statutes Annotated 1978 (NMSA), Chapter 1 (Elections)", "edition": "not read", "site": "https://nmonesource.com/", "reached": false},
+ "code": {
+  "name": "New Mexico Statutes Annotated 1978 (NMSA), Chapter 1 (Elections)",
+  "edition": "not read",
+  "site": "https://nmonesource.com/",
+  "reached": false
+ },
  "sections": {},
  "ties": [
-  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"],
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary",
+    "measure"
+   ],
    "applies_to": "all kinds of office and measures",
    "resolution": "unread",
    "steps": "not read",
    "who": null,
    "sources": [],
    "mark": "inferred",
-   "note": "The official New Mexico code site (New Mexico OneSource, run by the Compilation Commission) serves a script shell on its navigation page and answered HTTP 403 to its home page; the one compilation allowed by the coordinator's amendment of 07:21 UTC (Justia) had already refused us (see unread). A web search, used only to find citations, returned NMSA sections in Chapter 1, Article 14 (canvass and recounts: 1-14-14, 1-14-23, 1-14-24) and Article 13 (1-13-9, 1-13-11); these are leads to citations, not readings, and no text of them was read."}
+   "note": "The official New Mexico code site (New Mexico OneSource, run by the Compilation Commission) serves a script shell on its navigation page and answered HTTP 403 to its home page; the one compilation allowed by the coordinator's amendment of 07:21 UTC (Justia) had already refused us (see unread). A web search, used only to find citations, returned NMSA sections in Chapter 1, Article 14 (canvass and recounts: 1-14-14, 1-14-23, 1-14-24) and Article 13 (1-13-9, 1-13-11); these are leads to citations, not readings, and no text of them was read."
+  }
  ],
  "recounts": [],
  "unread": [
-  {"what": "all of New Mexico's tie and recount law (NMSA 1978 Chapter 1, Article 14 and the primary articles)", "reason": "https://nmonesource.com/nmos/en/nav.do: the helper reported \"only 128 characters of text (a script shell or an empty page)\"; https://nmonesource.com/: \"HTTP 403\"; https://nmonesource.com/nmos/nmsa/en/nav.do: HTTP 404 (a guessed address). Stopped at the first refusal on that host. No plain downloadable file of the statutes was found on the sites' public pages: the New Mexico Legislature's site (nmlegis.gov) holds bills, which show the sections only as amended by each bill, not the codified statutes, and was not used.", "url": "https://nmonesource.com/", "time": "2026-11-07T07:25Z"},
-  {"what": "the same law, from a compilation allowed by the amendment of 2026-11-07 07:21 UTC", "reason": "Justia answered HTTP 403 to its first request in this task (https://law.justia.com/codes/new-hampshire/title-lxiii/, for New Hampshire at 2026-11-07T07:22Z); stopped at that refusal and made no request to Justia for New Mexico. Cornell LII was not tried for New Mexico: a search of that site for the New Jersey statutes returned only New Jersey regulations, and no search of it was made for New Mexico.", "url": "https://law.justia.com/codes/new-hampshire/title-lxiii/ (the refused request; no New Mexico URL was requested)", "time": "2026-11-07T07:22Z"}
+  {
+   "what": "all of New Mexico's tie and recount law (NMSA 1978 Chapter 1, Article 14 and the primary articles)",
+   "reason": "https://nmonesource.com/nmos/en/nav.do: the helper reported \"only 128 characters of text (a script shell or an empty page)\"; https://nmonesource.com/: \"HTTP 403\"; https://nmonesource.com/nmos/nmsa/en/nav.do: HTTP 404 (a guessed address). Stopped at the first refusal on that host. No plain downloadable file of the statutes was found on the sites' public pages: the New Mexico Legislature's site (nmlegis.gov) holds bills, which show the sections only as amended by each bill, not the codified statutes, and was not used.",
+   "url": "https://nmonesource.com/",
+   "time": "2026-11-07T07:25Z"
+  },
+  {
+   "what": "the same law, from a compilation allowed by the amendment of 2026-11-07 07:21 UTC",
+   "reason": "Justia answered HTTP 403 to its first request in this task (https://law.justia.com/codes/new-hampshire/title-lxiii/, for New Hampshire at 2026-11-07T07:22Z); stopped at that refusal and made no request to Justia for New Mexico. Cornell LII was not tried for New Mexico: a search of that site for the New Jersey statutes returned only New Jersey regulations, and no search of it was made for New Mexico.",
+   "url": "https://law.justia.com/codes/new-hampshire/title-lxiii/ (the refused request; no New Mexico URL was requested)",
+   "time": "2026-11-07T07:22Z"
+  },
+  {
+   "what": "the same law, by rendering NM OneSource's script-shell page in the session's headless Chromium (the orchestrator's ruling of 2026-11-07 08:00 UTC for script shells)",
+   "reason": "not done. The ruling covers a script shell that has not refused us; nmonesource.com refused curl with HTTP 403 on its home page (07:25Z), and reading the same host with a browser after that refusal would be reading it another way (briefs/_COMMON.md 6 and 13). When the reading was set up, the session's permission check also declined the launch of the reader for this state as bot-check circumvention. Not tried, not worked round. If the maker or the orchestrator rules that NM OneSource may be read by a browser despite its 403, the starting page is https://nmonesource.com/nmos/en/nav.do (status 200, a script shell).",
+   "url": "https://nmonesource.com/nmos/en/nav.do",
+   "time": "2026-11-07T08:12Z"
+  }
  ],
- "notes": ["New Mexico is unread. No lead from the earlier report applies (the earlier reader did not read New Mexico)."]
+ "notes": [
+  "New Mexico is unread. nmonesource.com answered HTTP 403 to curl on its home page and a script shell on its navigation page; it was not rendered in a browser afterwards, because that would get round the 403. No lead from the earlier report applies (the earlier reader did not read New Mexico)."
+ ]
 }
