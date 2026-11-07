@@ -32,6 +32,7 @@ import local as L
 HERE = os.path.dirname(os.path.abspath(__file__))
 THRESHOLDS = os.path.join(L.REPO, "data", "measure", "thresholds.json")
 LOCAL_THRESHOLDS = os.path.join(L.REPO, "data", "measure", "thresholds-local.json")   # step (b)
+BALLOT_TEXTS = os.path.join(L.REPO, "data", "measure", "ballot-texts.json")   # step (a): each held question's own words
 STATEWIDE_COVER = 0.9   # a question filed with the state's offices is statewide when it carries at least this share
                         # of the most precincts any of the state's contests carries that year; and where the source
                         # names counties, the source holds the whole state when the year's contests carry at least
@@ -135,6 +136,9 @@ def load_thresholds():
             loc = json.load(f)
         book["rules"] = book["rules"] + [dict(r, scope="local") for r in loc["rules"]]
         book["local_states"] = loc["states"]
+    if os.path.exists(BALLOT_TEXTS):   # step (a): what each held statewide question's own ballot text shows
+        with open(BALLOT_TEXTS) as f:
+            book["ballot_texts"] = json.load(f)["questions"]
     return book
 
 
@@ -142,10 +146,13 @@ def _in_year(r, year):
     return (r.get("from_year") or 0) <= year <= (r.get("to_year") or 9999)
 
 
-def rule_for(c, kind, book, year):
+def rule_for(c, kind, book, year, rid=None):
     """(rule, how, None) or (None, None, the reason p is not computed) for a statewide measure or retention. `how`
     says how the rule was matched to the question: by the type its title states, or because every rule read for the
-    state's measures sets the same threshold."""
+    state's measures sets the same threshold. Where the title leaves it open, the question's own ballot text, read in
+    step (a) (`rid`, its record's id, in data/measure/ballot-texts.json), gives its type and whether a special rule's
+    condition holds."""
+    text = (book.get("ballot_texts") or {}).get(rid) if rid else None
     st = c["state"]
     states = book.get("states", {})
     mine = [r for r in book["rules"] if r["state"] == st and _in_year(r, year) and r.get("scope") != "local"]
@@ -160,6 +167,14 @@ def rule_for(c, kind, book, year):
             return None, None, "the threshold of this state's judicial retentions is not read"
         return _one(rs, "retention")
     ty = type_of(c)
+    tty = (text or {}).get("type")
+    if tty and tty != ty:   # the ballot text's own words give the type where the title does not, or says otherwise
+        said = "states" if text.get("type_mark") == "stated" else f"shows [{text.get('type_mark')}]"
+        how_t = (f"by the type the ballot text {said} ({tty}; data/measure/ballot-texts.json)" +
+                 (f", not the title's ({ty})" if ty is not None else ""))
+        ty = tty
+    else:
+        how_t = None
     if ty == "advisory":
         return None, None, "an advisory question: the law read sets no threshold for it"
     pool = [r for r in mine if r["type"] != "retention"]
@@ -169,7 +184,7 @@ def rule_for(c, kind, book, year):
         pool = [r for r in pool if r["type"] == ty]
         if not pool:
             return None, None, f"the threshold of this state's {ty}s is not read"
-        how = f"by the type the source's title states ({ty})"
+        how = how_t or f"by the type the source's title states ({ty})"
     else:
         if not (states.get(st) or {}).get("complete"):
             return None, None, ("the source's title does not give the measure's type, and the rules read for this "
@@ -181,9 +196,17 @@ def rule_for(c, kind, book, year):
     general = [r for r in pool if not r.get("only_if")]
     special = [r for r in pool if r.get("only_if")]
     form = lambda r: (r.get("t"), r.get("compound"))
+    fact = (text or {}).get("fact") or {}
+    if special and fact.get("applies") is not None:   # the ballot text settles whether the special rule's case holds
+        pick = special if fact["applies"] else general
+        if pick and len({form(r) for r in pick}) == 1 and len({r["only_if"] for r in special}) == 1:
+            return _one(pick, f"{how}; the ballot text shows it is {'' if fact['applies'] else 'not '}"
+                              f"{special[0]['only_if']} [{fact['mark']}] (data/measure/ballot-texts.json)")
+    unshown = ("; its ballot text, read in step (a), does not show it either (data/measure/ballot-texts.json)"
+               if text else "")
     if not general:
         return None, None, (f"the general threshold is not read; {special[0]['citation']} covers only "
-                            f"{special[0]['only_if']}")
+                            f"{special[0]['only_if']}" + (unshown if special and fact.get("applies") is None else ""))
     if all(r.get("compound") or r.get("t") is None for r in general):
         return _one(general, how)
     if len({form(r) for r in general}) > 1:
@@ -192,7 +215,7 @@ def rule_for(c, kind, book, year):
     other = [r for r in special if form(r) != form(general[0])]
     if other:
         return None, None, (f"{other[0]['citation']} sets another threshold for {other[0]['only_if']}, and the "
-                            f"source does not show whether this measure is one")
+                            f"source does not show whether this measure is one" + unshown)
     return _one(general, how)
 
 
