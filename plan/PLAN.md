@@ -81,7 +81,7 @@ At most three workers at once, plus the tracker (OPERATIONS §4; the tracker run
 | `X1-design.md` | the site's design spec, then two or three whole first-screen options on a preview branch | Opus 5.5, xhigh (max if the maker says so on the open card) | now |
 | `X2-explainer.md` | how p and B\* are worked out, for a non-technical person, through visuals: a scroll-driven story, two or three versions | Opus 5.5, xhigh, in X1's thread | when X1 has sent its first-screen options (the maker, 04:06) |
 | `D3-data-local.md` | state legislatures, local races, primaries, ballot measures, by script from standardized sources | Opus 5.5, xhigh | when one of D1, D2 ends |
-| D4 | cost inputs, mail share, tie and recount laws | Sonnet 5.5, xhigh (clear directive, at source) | after D3 starts |
+| `D4-data-cost-and-ties.md` | cost inputs, mail share, tie and recount laws | Sonnet 5.5, xhigh (clear directive, at source) | after D3 starts (asked 07:09) |
 | `M2-check-computed-p.md` | Fable checks every computed p and the model's own forecasts against the model | Fable 5.1, xhigh | when D1's p are in (asked 04:37) |
 | Build workers | the pages, after the maker's pick | Opus 5.5, xhigh | phase 3 |
 

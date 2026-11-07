@@ -2,7 +2,7 @@
  "about": "Every presidential contest of 1980 by state (and by district where electoral votes split), with inputs, sources and p. Layout: plan/PLAN.md section 3, fields added in data/README.md. Written by pipeline/president.py; do not edit by hand.",
  "year": 1980,
  "computed_by": "pipeline/president.py",
- "commit": "33c6ff3",
+ "commit": "32d7f50",
  "summary": null,
  "contests": [
   {
