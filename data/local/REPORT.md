@@ -895,3 +895,35 @@ No calibration is applied, as for every route since 09:49 (§7).
 - **The 216 "other" bonds.** They could take ½ with the service-district test noted, since most county and city bonds serve no service district [inferred, not read].
 - **The 63 North Carolina questions and Louisiana's fire and hotel questions.** They could take the general law, unless a local act is found.
 - **Three of the 4 transit taxes** (Durham 2011, Orange 2012, Wake 2016). These were single-county referendums, which the multicounty test does not reach, by the reader's own reading. Mecklenburg's 2025 tax may rest on an act of 2025 that was not read.
+
+## 18. The lean note on local questions: the two tests of 11:01
+
+*Added 2026-11-07 at 13:51 UTC, at the orchestrator's word of 13:39: "The local questions' back-test leans (NC other dates within 5 points: 82 seen against 65.6 expected). Apply the 11:01 rule to each local-question route: a note only where the share test and the vote test both count and agree. Do it in the next PR." The rule of 11:01 is in `data/congress/REPORT.md` §3.*
+
+**The rule** (`pipeline/local_medsl.py`, `lean_note`).
+- **(s)** Seen against expected within 1 point of the threshold.
+- **(v)** Seen against expected within k votes of the threshold. k is the smallest of 1,000, 5,000, 10,000, 20,000 and 50,000 at which 5 or more are expected. "Within k votes" is |yes − t(yes + no)| ≤ k/2, which at t = ½ is a margin of k votes or fewer. The expected count is each question's class share of earlier questions within that many votes, taken as a share, |s − t| ≤ k / (2(yes + no)).
+- A test counts only with 5 or more seen or expected.
+- The note stands only where both tests count and lean the same way. Its words name both counts and say p may be low (more near-even finishes than forecast) or high (fewer).
+
+**The pools.** The pools were fixed before the vote test was run. Each build's own back-test is a pool, for each class:
+- Louisiana's local questions;
+- North Carolina's local questions on the even years' November general dates (`pipeline/local_medsl.py`);
+- North Carolina's local questions on the State Board's other dates (`pipeline/local_ncsbe.py`).
+
+*Reason:* each pool is the record of one build's forecasts, and no build reads another's output. North Carolina's two pools share a class, so the class pooled is given below as well.
+
+**The tests** [measured]. They are in `data/measure/backtest-measures.json` (`lean_notes_local`) and `data/local/backtest-ncsbe.json` (`questions_at_threshold.lean_note`). The vote lines are in `near_votes`.
+
+| Pool | Questions | (s) within 1 point, seen / expected | (v) k, seen / expected | Leans | The note |
+|---|---|---|---|---|---|
+| Louisiana, 2024 | 304 | 8 / 7.1, more | 1,000 votes: 244 / 240.7, more | the same way | **stands**: p may be low |
+| North Carolina, general dates, 2016-2024 | 190 | 5 / 6.5, fewer | 1,000 votes: 67 / 67.5, fewer | the same way | **stands**: p may be high |
+| North Carolina, other dates, 2012-2026 | 306 | 15 / 10.9, more | 1,000 votes: 202 / 193.1, more | the same way | **stands**: p may be low |
+| *North Carolina pooled (not of record)* | *496* | *20 / 17.4, more* | *1,000 votes: 269 / 260.6, more* | *the same way* | *would stand: p may be low* |
+
+**Two things the rule did not foresee** [measured], put to the orchestrator.
+- **The vote line is wide for local questions.** Even the smallest line, 1,000 votes, holds most of them. It holds 80% of Louisiana's and 66% of North Carolina's on other dates. So (v) here is close to a count of all the questions, and its leans rest on differences of a few questions out of hundreds (244 against 240.7; 67 against 67.5).
+- **North Carolina's two pools lean opposite ways.** So the same class's p carry opposite notes, depending on the date. Pooled, both tests lean "more".
+
+**What moves.** No p moves. Every local question with p gets the note of its pool: 304 in Louisiana and 496 in North Carolina (190 general dates, 306 other dates). The statewide questions' note is unchanged. It is the near-½ count of the ruling of 07:25, taken before the rule of 11:01.

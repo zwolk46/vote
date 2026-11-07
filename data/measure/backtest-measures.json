@@ -649,7 +649,7 @@
     "leans": "more",
     "line": "within 1,000 votes"
    },
-   "note": "this route's back-test of Louisiana's local questions shows more near-even finishes than it forecast (8 against 7.1 within 1 point of the threshold, and 244 against 240.7 within 1,000 votes, 2024 to 2024), so p may be low"
+   "note": "this route's back-test of Louisiana's local questions shows more near-even finishes than it forecast (8 against 7.1 within 1 point of the threshold, and 244 against 240.7 within 1,000 votes, in 2024), so p may be low"
   },
   "local measure, NC": {
    "questions": 190,
