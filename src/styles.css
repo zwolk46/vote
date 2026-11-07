@@ -79,8 +79,8 @@ p { margin: 0; }
 .prevbar { background: var(--warn-t); color: var(--warn); font-size: var(--t-src); }
 .prevbar-in { max-width: var(--maxw); margin: 0 auto; padding: 8px var(--gutter); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; justify-content: space-between; }
 .prevbar p { flex: 1 1 260px; min-width: 0; }
-.prevbar .seg { flex: 0 0 auto; border-color: color-mix(in srgb, var(--warn) 45%, transparent); }
-.prevbar .seg .seg-t { color: var(--warn); }
+.prevbar .seg { flex: 0 1 auto; min-width: 0; max-width: 100%; border-color: color-mix(in srgb, var(--warn) 45%, transparent); }
+.prevbar .seg .seg-t { color: var(--warn); white-space: normal; }   /* at large text a label takes two lines, never cut */
 .prevbar .seg .seg-t[aria-checked="true"] { color: var(--fg); }
 .prevbar .seg .seg-ind { background: var(--bg); }
 
@@ -122,14 +122,16 @@ p { margin: 0; }
 .cost-ed .reset { background: none; border: 1px solid var(--line-strong); border-radius: 7px; padding: 6px 10px; font-size: var(--t-src); cursor: pointer; margin-bottom: 1px; }
 
 /* ---- the lead: the figure, its key and its working (§2.1, §2.4) ---- */
-.lead-fig { font-size: var(--t-display); font-weight: 600; line-height: 1.02; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.28em; }
+.lead-fig { font-size: var(--t-display); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.28em; }
 .lead-fig .w { font-weight: 400; }
 .lead-fig .to { font-size: var(--t-sub); font-weight: 400; color: var(--muted); letter-spacing: 0; }
-.working { font-size: var(--t-src); color: var(--muted); font-variant-numeric: tabular-nums; }
+.working { font-size: var(--t-src); color: var(--muted); font-variant-numeric: tabular-nums; margin-top: 6px; }
 .key { border-top: 1px solid var(--line-strong); }
-.key-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-.key-row .l { color: var(--muted); min-width: 0; }
-.key-row .f { font-weight: 600; white-space: nowrap; text-align: right; }
+/* a label and its figure on one line; where the two cannot share it (a narrow phone at large text), the figure takes the
+   next line at the right edge rather than run over the label */
+.key-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.key-row .l { color: var(--muted); flex: 1 1 0; }
+.key-row .f { font-weight: 600; white-space: nowrap; text-align: right; margin-left: auto; }
 .key-fold { border-bottom: 1px solid var(--line); }
 .oneq { font-size: var(--t-src); color: var(--muted); line-height: 1.5; max-width: 46ch; }
 .contest .n { font-weight: 600; }
@@ -138,12 +140,12 @@ p { margin: 0; }
 /* ---- a list of contests with their figure at the right edge (R3) ---- */
 .clist { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-strong); }
 .clist li { border-bottom: 1px solid var(--line); }
-.clist button { width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: baseline; text-align: left; background: none; border: 0; padding: 10px 0 10px 12px; cursor: pointer; position: relative; }
+.clist button { width: 100%; display: flex; flex-wrap: wrap; gap: 2px 16px; align-items: baseline; text-align: left; background: none; border: 0; padding: 10px 0 10px 12px; cursor: pointer; position: relative; }
 .clist button::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 1.5px; background: transparent; }
 .clist button[aria-pressed="true"]::before { background: var(--accent); }
-.clist .n { font-weight: 600; min-width: 0; }
-.clist .w { grid-column: 1; font-size: var(--t-src); color: var(--muted); }
-.clist .f { grid-row: 1; grid-column: 2; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.clist .n { font-weight: 600; flex: 1 1 0; }
+.clist .w { order: 3; flex: 1 0 100%; font-size: var(--t-src); color: var(--muted); }
+.clist .f { font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; margin-left: auto; }
 @media (hover: hover) { .clist button:hover { background: var(--hover); } }
 
 .foot { max-width: var(--maxw); margin: 0 auto; padding: 24px var(--gutter) 40px; border-top: 1px solid var(--line); }

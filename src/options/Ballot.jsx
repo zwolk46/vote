@@ -24,7 +24,7 @@ const snap = lx => { const v = 10 ** lx, d = 10 ** (Math.floor(Math.log10(v)) - 
 // a share as the reader says it: "<1%", "24%", "140%", "9 times over", "71,000 times over"
 const share = x => (x < 10 ? pct(x * 100) : `${count(Math.round(x))} times`);
 const at = lx => ((lx - LO) / SPAN) * 100;          // percent of the track
-const shift = lc => `translateX(${(lc / SPAN) * 100}%)`;
+const shift = d => `translateX(${(d / SPAN) * 100}%)`;
 
 // The ballot, top line to bottom. A line without a figure of record says so; its contests are still behind it.
 const WHERE = [['close', 'Closest states'], ['avg', 'Average'], ['safe', 'Safest states']];
@@ -95,8 +95,8 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
   );
 }
 
-// The lines, each with its contests behind it. The dots are drawn at a cost of $1 and the layer is moved by log10(C),
-// so a new cost is one transform per line (V2); the reading redraws the dots frame by frame (V3).
+// The lines, each with its contests behind it. A new cost redraws the dots at their new places and moves each line's
+// layer from where it stood, one transform per line (V2); the reading redraws the dots frame by frame (V3).
 function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setFocus }) {
   const rows = useRows();
   const colours = useColours();
@@ -107,7 +107,8 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
     ro.observe(first.current);
     return () => ro.disconnect();
   }, []);
-  const H = desk ? 36 : 30;
+  const wide = useMedia('(min-width: 1100px)');   // the line in one row (ballot.css)
+  const H = wide ? 36 : 30;
   const cvs = useRef([]), layers = useRef([]), ticks = useRef([]);
   const m = useRef(reading === 'person' ? 1 : 0);
   const owner = useRef({});
@@ -127,14 +128,14 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
       ctx.fillStyle = colours.dot; ctx.globalAlpha = Math.min(0.3, Math.max(0.03, 5 / Math.sqrt(r.count))) * sc;   // faint: behind the line, not the line
       const { logN, logPop, yU, yP } = r, cy = H / 2, hh = H - 4;
       for (let k = 0; k < logN.length; k++) {
-        const x = (at(logN[k] - mm * logPop[k]) / 100) * w, y = cy + (yU[k] + (yP[k] - yU[k]) * mm) * hh;
+        const x = (at(lc + logN[k] - mm * logPop[k]) / 100) * w, y = cy + (yU[k] + (yP[k] - yU[k]) * mm) * hh;
         ctx.fillRect(x - s / 2, y - s / 2, s, s);
       }
       const t = ticks.current[i];
-      if (t && l.a) t.style.left = `${at(Math.log10(l.a.N) - mm * Math.log10(l.a.pop.value))}%`;
+      if (t && l.a) t.style.left = `${at(lc + Math.log10(l.a.N) - mm * Math.log10(l.a.pop.value))}%`;
     });
   };
-  useEffect(draw, [w, desk, colours, lines.map(l => l.a?.id).join()]);
+  useEffect(draw, [w, H, desk, colours, lines.map(l => l.a?.id).join()]);
 
   // V3: the reading
   const firstRun = useRef(true);
@@ -147,7 +148,9 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
   // V2: the cost moves each line's layer by one distance
   const prevLc = useRef(lc);
   useLayoutEffect(() => {
-    if (prevLc.current !== lc) layers.current.forEach(el => el && play(el, 'chart', [{ transform: shift(prevLc.current) }, { transform: shift(lc) }], { kind: 'shift' }));
+    // drawn at the new cost at once, then each layer moved from where it stood to rest (no layer is left cut by its
+    // track at rest)
+    if (prevLc.current !== lc) { draw(); layers.current.forEach(el => el && play(el, 'chart', [{ transform: shift(prevLc.current - lc) }, { transform: shift(0) }], { kind: 'shift' })); }
     prevLc.current = lc;
   }, [lc]);
 
@@ -171,9 +174,9 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
                 : <span class="bt-fig none">No figure yet</span>}
               <span class="bt-ctx">{l.a ? `${l.ctx} · ${oneIn(l.a.N)}` : 'Its figure comes with the data'}<span class="bt-n"><span class="sep"> · </span><span class="num">{r.count.toLocaleString('en-US')}</span> sample contests</span></span>
               <div class="bt-track" ref={i === 0 ? first : null}>
-                <div class="bt-layer" ref={el => { layers.current[i] = el; }} style={{ transform: shift(lc) }}>
+                <div class="bt-layer" ref={el => { layers.current[i] = el; }}>
                   <canvas ref={el => { cvs.current[i] = el; }} class="bt-c" style={{ width: `${w}px`, height: `${H}px` }} aria-hidden="true" />
-                  {l.a ? <span class="bt-bstar" ref={el => { ticks.current[i] = el; }} style={{ left: `${at(Math.log10(l.a.N) - m.current * Math.log10(l.a.pop.value))}%` }} aria-hidden="true" /> : null}
+                  {l.a ? <span class="bt-bstar" ref={el => { ticks.current[i] = el; }} style={{ left: `${at(lc + Math.log10(l.a.N) - m.current * Math.log10(l.a.pop.value))}%` }} aria-hidden="true" /> : null}
                 </div>
                 {l.a
                   ? <input type="range" class={`bt-range${v == null ? ' unset' : ''}`} min={LO} max={HI} step="0.01" value={v ?? LO}

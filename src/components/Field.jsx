@@ -159,7 +159,7 @@ export function Field({ C, reading, sel, onSel, desk }) {
   const ticks = [-2, 0, 3, 6, 9, 12];
   return (
     <div class="field" ref={wrap} style={{ height: `${g.h}px` }}>
-      <canvas ref={cvs} class="field-c" style={{ width: `${w}px`, height: `${g.h}px` }} role="img" onClick={pick}
+      <canvas ref={cvs} class="field-c" data-fit-under style={{ width: `${w}px`, height: `${g.h}px` }} role="img" onClick={pick}
         aria-label={`Every contest as a dot on one scale of dollars, from 1 cent to 1 trillion, in rows: ${rows.map(r => `${r.name}, ${r.count.toLocaleString('en-US')}`).join('; ')}. These are sample contests. The named figures are listed below.`} />
       {rows.map((r, ri) => (
         <div class="field-row" style={{ top: `${g.topH + ri * g.rowH}px`, height: `${g.labelH + g.stripH}px`, width: desk ? `${g.left - 16}px` : '100%' }} aria-hidden="true">
@@ -168,7 +168,7 @@ export function Field({ C, reading, sel, onSel, desk }) {
       ))}
       <span ref={costL} class="field-cost" aria-hidden="true">Your cost</span>
       <div class="field-axis" style={{ top: `${g.topH + LEVELS.length * g.rowH - g.gap + 8}px` }} aria-hidden="true">
-        {ticks.map(p => <span class={`field-t${p === LO ? ' first' : p === HI ? ' last' : ''}`} style={{ left: `${X(p)}px` }}>{p === -2 ? '1¢' : desk ? tick(p) : tickShort(p)}</span>)}
+        {ticks.map(p => <span class={`field-t${p === LO ? ' first' : p === HI ? ' last' : ''}`} style={{ left: `${X(p)}px` }}>{p === -2 ? '1¢' : (g.pw * 3) / (HI - LO) >= 96 ? tick(p) : tickShort(p)}</span>)}
       </div>
     </div>
   );
