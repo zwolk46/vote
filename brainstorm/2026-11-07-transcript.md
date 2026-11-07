@@ -17,3 +17,9 @@
 **Orchestrator, 02:29.** Put model draft 3 (`model/MODEL-DRAFT-3.md`), which takes in Fable's 45 breaks of draft 2 and the scope ruling, with a decision card: "Judge the trip against one race, or the whole ballot?" (each race, and the ballot summed, recommended / one race at a time / the whole ballot only). Said: "The biggest change is that one trip casts a whole ballot, and a close 2,000-voter local race on it can be 20,000 times likelier to turn on you than the presidency (break-even around $5,000 against $100 million). The card asks which the site judges. My readings for you to correct are in §9; the main one counts a tie as half a decision."
 
 **Zach, 02:32** (decision card). Chose "Each race, and the ballot summed".
+
+**Orchestrator, 02:33.** "Thanks. Each race will show its own chance and break-even, and the trip is judged by summing the whole ballot. That's now in model draft 3 and in the first draft of the site's law, which I'm having read cold and broken before I bring it to you."
+
+**Zach, 02:38.**
+
+> I trust your judgment to approve the model. Let's then broadly discuss what the procedure is going to be from here, because I want to leave it mostly autonomously to you, while understanding all of the kinds of design things that need to be done relative to how the midterm site was made, and to use it basically as an example, as far as is relevant. But I just want to make sure that broadly we're aligned.

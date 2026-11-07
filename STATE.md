@@ -7,6 +7,7 @@
 - Initialized on 2026-11-06 from `handoff/vote-importance/` in zwolk46/midterms (its PR #252), by the midterms orchestrator: system files, templates, `inherited/`, the starter site with Plex. `npm run build` and `npm test` (1 pass) clean.
 - Vercel: linked. Project `vote` (prj_C78MKoz1D80kgE2Bfz9mMmET3Ndo, team zachs-projects-74dd78e7), imported by the maker. Production deployment dpl_5azt1qjLZELKy2tUsxjUHhD9Sotx of `main` 80e6705 is READY [measured 2026-11-06 17:36 UTC]. Address: https://vote-rho-pearl.vercel.app. Vercel Authentication is on ("all_except_custom_domains"), so the vercel.app addresses ask visitors to sign in to Vercel; to settle before launch (midterms lesson 20: no link previews behind a login).
 - Orchestrator: thread "Orchestrate the vote site" (cmsg_01FHkmcV6WaeZh9r5PfgnMbuGmNcLgzp1vbf5yXQkbDeFE), branch `claude/project-thread-0szt08`; this file is kept current on that branch.
+- Model: approved 2026-11-07 02:39, `model/MODEL.md`.
 - Law: draft 1 at `law/LAW-DRAFT-1.md` (2026-11-07), being cold-read and broken; `LAW.md` untouched until ratified. Earlier: Brainstorm under way; its verbatim record is `brainstorm/2026-11-06-transcript.md`. Settled so far (his words, 19:32): importance is the chance one vote decides the outcome, all else held fixed; the site exists to show the individual vote's expected benefit against its cost. The site itself is "way later". 19:39: he asked the orchestrator to flesh out the full model itself (the site is a visual demonstration, so not too complex, perhaps two modes), to foreclose nothing, and to ask only material questions; B, in his words, is the marginal difference between the outcome voted for and the expected outcome. Under way: breadth-first research (frameworks, decisiveness models and estimates, historical close races) in `research/`. Open: whether B counts benefit to others (he called the question premature until the framework is set); how a margin of one is treated (recounts, courts); which elections.
 
 ## Project instructions
@@ -38,6 +39,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 02:39: the maker: "I trust your judgment to approve the model" and asked to align broadly on the procedure from here, mostly autonomous, with the midterms build as the example (RULINGS). Model approved: `model/MODEL.md` (draft 3's text). Cold readings A and B in (`law/COLD-READING-*-draft-1.md`): both read the end as meant; common faults: half-tie rule not in Part A, "the model" in three senses, "orchestrator" undefined, the presidency's outcome (state or presidency), B for a multi-candidate race, true source vs compilations, the licence rule too blunt, 2a's unsourced forecast claim, 2b's reason leaning on the model, 7 vs 7c. To fold into law draft 2 with B2's breaks. Procedure put to the maker; design-effort card.
 
 - 2026-11-07 02:36: #10 merged (draft 3, law draft 1, brief B2 on `main`). B2 up (Fable 5.1, xhigh) to break the law draft; B1 set aside. Two cold readings running as Sonnet 5.5 subagents at xhigh (a builder; an MBA reader), each seeing only the law's text. Next: fold the breaks and readings into law draft 2, then put it to the maker to ratify.
 

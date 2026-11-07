@@ -50,3 +50,12 @@ Decision card "Judge the trip against one race, or the whole ballot?"; options: 
 > Each race, and the ballot summed
 
 *Reading.* Each race shows its own p and B\*. Whether a trip to vote pays is judged over the whole ballot it casts: it pays when the races' shares B ÷ B\* add up to more than 100%, that is, when p₁B₁ + p₂B₂ + … > C (model draft 3, §2).
+
+## 2026-11-07 02:38 UTC: the model, and the procedure from here
+
+In the orchestrator's thread, after model draft 3:
+
+> I trust your judgment to approve the model. Let's then broadly discuss what the procedure is going to be from here, because I want to leave it mostly autonomously to you, while understanding all of the kinds of design things that need to be done relative to how the midterm site was made, and to use it basically as an example, as far as is relevant. But I just want to make sure that broadly we're aligned.
+
+*Reading.* The orchestrator approves the model in his place: `model/MODEL-DRAFT-3.md` becomes the model of record, `model/MODEL.md`. What follows is left mostly to the orchestrator, using the way the midterms site was made as the example where it is relevant, and he wants to be broadly aligned on the procedure first.
+
