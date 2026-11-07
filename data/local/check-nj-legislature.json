@@ -1,5 +1,5 @@
 {
- "about": "the gate within the certifying source of New Jersey's 2023 and 2025 legislatures (pipeline/local_nj_leg.py, docstring): (a) each list linked as official and headed 'Official List', its last page's count of candidates equal to those read; (b) each candidate's county lines adding up to its Total and each contest's Total to its candidates'; (c) each candidate's county lines within the counties its district's heading names; (d) 2025: the Governor's list equal to D2's data/governor/2025.json and the same file. Proposed by worker D3, 2026-11-07, for the orchestrator's ruling.",
+ "about": "the gate within the certifying source of New Jersey's 2023 and 2025 legislatures (pipeline/local_nj_leg.py, docstring): (a) each list linked as official and headed 'Official List', its last page's count of candidates equal to those read; (b) each candidate's county lines adding up to its Total and each contest's Total to its candidates'; (c) each candidate's county lines within the counties its district's heading names; (d) 2025: the Governor's list equal to D2's data/governor/2025.json and the same file. Proposed by worker D3; accepted as proposed by the orchestrator, 2026-11-07 18:20 UTC.",
  "years": {
   "2023": {
    "lists": {

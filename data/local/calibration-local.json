@@ -394,8 +394,8 @@
     "contests": 982,
     "seen_near_half": 54,
     "expected_before": 60.5,
-    "expected_after": 54.6,
-    "deviance_by_office_type_before": 17.57,
+    "expected_after": 54.7,
+    "deviance_by_office_type_before": 17.58,
     "deviance_after": 16.85,
     "improves": true,
     "tested_cells_made_worse": [
