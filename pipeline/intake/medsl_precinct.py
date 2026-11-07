@@ -145,6 +145,7 @@ def read_file(path):
     """Rows of one MEDSL file into {contest key: {precinct key: {candidate key: {mode: votes or None}}}}."""
     agg = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     pres = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
+    house = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     n = 0
     states = collections.Counter()
     for row in _rows(path):
@@ -163,8 +164,9 @@ def read_file(path):
         mode = (row.get("mode") or "TOTAL").upper()
         pk = (row.get("county_fips", ""), row.get("jurisdiction_fips", ""), row.get("precinct", ""))
         ckey = (cand, row.get("party_detailed", ""), row.get("party_simplified", ""), row.get("writein", ""))
-        if dv == "PRESIDENT":
-            pres[st][pk][ckey][mode] = (pres[st][pk][ckey].get(mode) or 0) + (votes or 0)
+        if dv in ("PRESIDENT", "HOUSE") and row.get("stage", "GEN") == "GEN":
+            bucket = pres if dv == "PRESIDENT" else house
+            bucket[st][pk][ckey][mode] = (bucket[st][pk][ckey].get(mode) or 0) + (votes or 0)
             continue
         if dv not in ("STATE", "LOCAL"):
             continue
@@ -180,7 +182,7 @@ def read_file(path):
             cell[mode] = None
         elif cell.get(mode, 0) is not None:
             cell[mode] = cell.get(mode, 0) + votes
-    return agg, pres, n, states
+    return agg, pres, house, n, states
 
 
 def merge_statewide(agg):
@@ -396,6 +398,33 @@ def check_president(year, totals):
     return out
 
 
+def check_house(year, house):
+    """The US House vote by state and party (D, R), MEDSL's precincts added up, against D2's certified results
+    (data/house/<year>.json, from the FEC's official results): a check of the adding up in years without a
+    presidential race."""
+    path = os.path.join(REPO, "data", "house", f"{year}.json")
+    if not os.path.exists(path) or not house:
+        return {}
+    with open(path) as f:
+        d2 = json.load(f)
+    cert = collections.defaultdict(collections.Counter)
+    for c in d2["contests"]:
+        for cand in c["result"]["candidates"]:
+            if cand.get("party") in ("D", "R"):
+                cert[c["place"]["state"]][cand["party"]] += cand.get("votes") or 0
+    out = {}
+    for st, precincts in house.items():
+        mine = collections.Counter()
+        for pk, cands in precincts.items():
+            for ck, modes in cands.items():
+                p_ = {"DEMOCRAT": "D", "REPUBLICAN": "R"}.get(ck[2])
+                if p_:
+                    mine[p_] += resolve(modes) or 0
+        out[st] = [{"party": p_, "certified": cert[st][p_], "medsl_precincts": mine[p_],
+                    "difference": mine[p_] - cert[st][p_]} for p_ in ("D", "R")]
+    return out
+
+
 # ------------------------------------------------------------------ main
 
 def run(year, only=None):
@@ -417,7 +446,7 @@ def run(year, only=None):
         url = f"{API}/access/datafile/{fi['id']}" + ("?format=original" if fi["ingested"] else "")
         path = F.fetch(url, raw, storage_sites=("amazonaws.com",))
         expected = ddi_rows(fi["id"], year) if fi["ingested"] else None
-        agg, pres, n, states = read_file(path)
+        agg, pres, house, n, states = read_file(path)
         moved = merge_statewide(agg)
         contests = []
         for k, precincts in agg.items():
@@ -437,6 +466,7 @@ def run(year, only=None):
                                        "contests": len(contests), "states": dict(states),
                                        "district_keys_joined_to_statewide": moved}
         checks["president"].update(check_president(year, president_totals(pres)))
+        checks.setdefault("house_by_party", {}).update(check_house(year, house))
         checks.setdefault("write_in_lines_alone", {}).update(dict(DROPPED))
         print(f"{fi['name']}: {n:,} rows (Dataverse records {expected}), {len(contests):,} contests", flush=True)
         with open(checks_path, "w") as f:

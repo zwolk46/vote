@@ -52,6 +52,34 @@ def checks(year):
         return json.load(f)
 
 
+QUALITY_LINE = 0.005   # a state whose federal totals, added up from MEDSL's precincts, miss the certified ones by more
+RCV_EXPLAINED = {"ME": "Maine counts its federal races by ranked choice, and MEDSL's precinct counts are first-round "
+                       "counts (its README); its state and local races are not counted that way"}
+
+
+def quality(year):
+    """{state: reason} for states whose MEDSL counts cannot be trusted to add up: the presidency's totals (2024) or the
+    US House's by party (2022), added up from the same files, against D1's and D2's certified totals."""
+    chk = checks(year)
+    rows = chk.get("president") if year % 4 == 0 else chk.get("house_by_party")
+    out = {}
+    for st, rs in (rows or {}).items():
+        worst = None
+        for r in rs:
+            if not r.get("certified"):
+                continue
+            rel = abs((r.get("medsl_precincts") or 0) - r["certified"]) / r["certified"]
+            if worst is None or rel > worst[0]:
+                worst = (rel, r)
+        if worst and worst[0] > QUALITY_LINE and st not in RCV_EXPLAINED:
+            what = "presidential" if year % 4 == 0 else "US House"
+            out[st] = (f"the source's {year} counts for this state do not add up to the certified {what} totals "
+                       f"(off by {100 * worst[0]:.1f}% for {worst[1].get('candidate') or worst[1].get('party')}, "
+                       f"pipeline/intake/medsl_precinct.py's check), so its counts for this contest may be "
+                       f"incomplete or double-counted; p not computed")
+    return out
+
+
 def _letters(s):
     return re.sub(r"[^A-Z]", "", s.upper())
 
@@ -350,6 +378,7 @@ def build(out_dir, with_p=True):
                            "https://doi.org/10.7910/DVN/FJOGJB", info["files"]["candidate"]["read_utc"], info["licence"],
                            mark="stated")
     srcs = {y: _src_medsl(y, chk[y], chk[y].get("files", {}).keys()) for y in YEARS}
+    bad = {y: quality(y) for y in YEARS}
     seen = set()
 
     def cid(base):
@@ -387,7 +416,10 @@ def build(out_dir, with_p=True):
             k = c.get("magnitude") or 1
             r_ = rows24.get(id(c))
             top = sorted(c["candidates"], key=lambda x: -x["votes"])
-            if len(b) <= k:
+            if c["state"] in bad[year]:
+                p["not_computed"] = bad[year][c["state"]]
+                counts[f"{level} {year}: not computed, the state's counts do not add up"] += 1
+            elif len(b) <= k:
                 p = {"value": 0.0, "event": 0.0, "reason": "one name on the ballot for each seat (unopposed): p is 0"}
                 counts[f"{level} {year}: p = 0"] += 1
             elif r_ is None:
@@ -451,7 +483,10 @@ def build(out_dir, with_p=True):
                               "total_votes": sum(x["votes"] for x in c["candidates"]), "source": "medsl"},
                    "forecasts": []}
             p = {}
-            if route == "zero":
+            if c["state"] in bad[year] and route != "zero":
+                p["not_computed"] = bad[year][c["state"]]
+                counts[f"local {year}: not computed, the state's counts do not add up"] += 1
+            elif route == "zero":
                 p = {"value": 0.0, "event": 0.0, "reason": key}
                 counts[f"local {year}: p = 0"] += 1
             elif route == "not computed":

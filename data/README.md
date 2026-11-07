@@ -158,3 +158,10 @@
 - `p.f_half`, `p.n`, `p.method`: f(½) of the forecast, the n p was computed at (the two candidates' votes minus one), and pipeline/core.py's method (`exact` or `density`).
 - `p.alongside.t4`: p under the same forecast with Student-t tails (4 degrees of freedom, the same sd).
 - `notes`: the source's own flags (Klarner's `dontuse`, its uncertainty marks), and where a candidate outside the two parties finished among the leading two.
+
+**From MEDSL's precinct returns** (`pipeline/local_medsl.py`; 2022 and 2024):
+- `result.source` is `medsl`. The votes are MEDSL's precinct counts added up to the contest. `won` is inferred from the count: the leading candidates on the ballot for the seats, and none at a tie for the last seat, since MEDSL does not mark winners. `votes_incomplete` is `true` where MEDSL redacts some precincts' counts.
+- `office` (local): the office as MEDSL names it. `office_type`: the class of office the like-race classes use (`council, commission or board`, `school board`, `judge`, `prosecutor`, `sheriff or constable`, `mayor or executive`, `special district`, `clerk, treasurer or other county officer`, `other local office`).
+- `place.counties`: the county FIPS codes the contest's precincts lie in.
+- `forecast_inputs.lines_unchanged_share` (2024 state legislatures): the share of the district's 2024 precincts that were also in it in 2022. At 0.8 or more the lines are taken as unchanged and the 2022 result is the last result; otherwise the class is `C`.
+- **Measures** (`data/measure/`): `question.title`, `question.subject` (a retention's judge), `question.kind` (`measure` or `retention`), `question.scope` (`statewide` or `local`); `result.candidates` are the answers (`YES`, `NO`, ...); `result.yes_share` is Yes over Yes and No. A local question is counted per county (see its note).
