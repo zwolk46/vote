@@ -583,6 +583,134 @@ def backtest_local_classes(files):
                      "pipeline/local_medsl.py build.", "years": dict(sorted(out.items()))}
 
 
+CAL_MIN_EXPECTED = 30   # the orchestrator, 07:37: an office type gets its own factor only with about 30 or more
+                         # expected near-1/2 races in the fitting years; otherwise the fitting years' races pooled
+CAL_NOTE = "calibrated to earlier years' near-ties"
+
+
+def _near_half(rec):
+    """(route group, office-type key, chance the forecast gave of finishing near 1/2, whether it did) for a local
+    record with a forecast; None otherwise. Near 1/2 is the class's window for like races, 49-51% for the
+    Democrat-against-Republican route."""
+    fc = rec.get("forecasts") or []
+    if not fc:
+        return None
+    x = fc[-1]
+    if x.get("route") in ("class", "boundary"):
+        tp = rec.get("two_party") or rec.get("boundary")
+        return ("like races", f"{x['route']}, {rec.get('office_scope', 'local')} {rec.get('office_type', '')}",
+                x["q"], x["window"][0] <= tp["share_first"] <= x["window"][1])
+    if x.get("route") == "partisan" and rec.get("two_party"):
+        m, sd = x["share"]["mean"], x["share"]["sd"]
+        e = L._ncdf(0.51, m, sd) - L._ncdf(0.49, m, sd)
+        return ("partisan", f"partisan, {rec.get('office_scope', 'local')} {rec.get('office_type', '')}", e,
+                abs(rec["two_party"]["share_first"] - 0.5) <= 0.01)
+    return None
+
+
+def _deviance(pairs):
+    """Poisson deviance of seen counts against expected ones, summed over office types: lower is closer."""
+    d = 0.0
+    for e, s_ in pairs:
+        if e <= 0:
+            continue
+        d += 2 * ((s_ * math.log(s_ / e) if s_ > 0 else 0.0) - (s_ - e))
+    return d
+
+
+def calibrate_local(files, test_year=2024):
+    """The orchestrator's ruling of 07:37 on local races given p by like races or by the transferred partisan
+    route: a factor (seen over expected near 1/2) fitted on years before the one it is applied to, by office type
+    where the fitting years expected about 30 or more such races, else pooled; adopted for a route only if it
+    brings test_year's out-of-sample count nearer what happened. Changes the records in place; returns the
+    report."""
+    recs = collections.defaultdict(list)   # (group, year) -> [(rec, key, e, seen)]
+    for (level, year, st), cs in files.items():
+        if level != "local":
+            continue
+        for rec in cs:
+            nh = _near_half(rec)
+            if nh:
+                recs[(nh[0], year)].append((rec, nh[1], nh[2], nh[3]))
+    report = {}
+    for group in ("like races", "partisan"):
+        years = sorted(y for g, y in recs if g == group)
+        factors = {}
+        for t in years:
+            fit_years = [y for y in years if y < t]
+            if not fit_years:
+                factors[t] = None
+                continue
+            by = collections.defaultdict(lambda: [0.0, 0])
+            for y in fit_years:
+                for _, key, e, seen in recs[(group, y)]:
+                    by[key][0] += e
+                    by[key][1] += seen
+            pe, ps = sum(v[0] for v in by.values()), sum(v[1] for v in by.values())
+            own = {k: v[1] / v[0] for k, v in by.items() if v[0] >= CAL_MIN_EXPECTED}
+            factors[t] = {"fitted_on": fit_years, "pooled": ps / pe if pe else 1.0, "own": own,
+                          "fit_counts": {k: [round(v[0], 1), v[1]] for k, v in by.items()}}
+        rep_g = {"factors": {str(t): (None if f is None else {
+            "fitted_on": f["fitted_on"], "pooled": round(f["pooled"], 3),
+            "own": {k: round(v, 3) for k, v in sorted(f["own"].items())},
+            "fit_counts_expected_seen": dict(sorted(f["fit_counts"].items()))}) for t, f in factors.items()}}
+        test = recs.get((group, test_year), [])
+        f_t = factors.get(test_year)
+        if test and f_t:
+            by_b = collections.defaultdict(lambda: [0.0, 0.0, 0])
+            for rec, key, e, seen in test:
+                k = f_t["own"].get(key, f_t["pooled"])
+                by_b[key][0] += e
+                by_b[key][1] += e * k
+                by_b[key][2] += seen
+            eb, ea, sn = (sum(v[i] for v in by_b.values()) for i in range(3))
+            db, da = _deviance([(v[0], v[2]) for v in by_b.values()]), _deviance([(v[1], v[2]) for v in by_b.values()])
+            adopt = abs(ea - sn) < abs(eb - sn) and da < db
+            rep_g["test"] = {"year": test_year, "contests": len(test), "seen_near_half": int(sn),
+                             "expected_before": round(eb, 1), "expected_after": round(ea, 1),
+                             "deviance_by_office_type_before": round(db, 2), "deviance_after": round(da, 2),
+                             "by_office_type": {k: {"expected_before": round(v[0], 1), "expected_after": round(v[1], 1),
+                                                    "seen": int(v[2])} for k, v in sorted(by_b.items(),
+                                                                                         key=lambda kv: -kv[1][0])}}
+        else:
+            adopt = False
+        rep_g["adopted"] = adopt
+        report[group] = rep_g
+        if not adopt:
+            continue
+        for t in years:
+            f = factors[t]
+            for rec, key, e, seen in recs[(group, t)]:
+                p = rec.get("p") or {}
+                if "value" not in p or not p.get("value"):
+                    continue
+                fc = rec["forecasts"][-1]
+                if f is None:
+                    fc["note"] = (fc.get("note", "") + "; " if fc.get("note") else "") + \
+                        f"p {CAL_NOTE}: no earlier year in the sources taken in has these forecasts to fit on"
+                    rec["p"] = {"not_computed": f"this route's p is {CAL_NOTE} (the orchestrator, 2026-11-07), and no "
+                                                f"earlier year in the sources taken in has its forecasts to fit the "
+                                                f"factor on"}
+                    continue
+                k = f["own"].get(key)
+                factor, of = (k, key) if k is not None else (f["pooled"], "pooled over the fitting years' races")
+                fc["calibration"] = {"factor": round(factor, 4), "of": of, "fitted_on": f["fitted_on"],
+                                     "what": "seen over expected near 1/2 in the fitting years' out-of-sample forecasts"}
+                if group == "like races":
+                    sd_eq = 1.0 / (math.sqrt(2 * math.pi) * p["f_half"] * factor)
+                    rec["p"] = L._compact(L._p_block(p["n"], 0.5, sd_eq, f"{p['under']}, {CAL_NOTE}", None))
+                else:
+                    q = dict(p)
+                    q["value"], q["event"], q["f_half"] = p["value"] * factor, p["event"] * factor, p["f_half"] * factor
+                    q["under"] = f"{p['under']}, {CAL_NOTE}"
+                    if p.get("alongside", {}).get("t4"):
+                        t4 = dict(p["alongside"]["t4"])
+                        t4["value"], t4["event"] = t4["value"] * factor, t4["event"] * factor
+                        q["alongside"] = {"t4": t4}
+                    rec["p"] = L._compact(q)
+    return report
+
+
 def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, counts):
     """The transferred partisan route for a local race between one Democrat and one Republican (the orchestrator,
     06:16: route (a)'s class-C terms with the county's House lean, marked "transferred, not yet checked")."""
@@ -1020,9 +1148,31 @@ def build(out_dir, with_p=True):
             counts[f"measure {year}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
-    if out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS"):
+    write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
+    if write_checks:
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-classes.json"), "w") as f:
             json.dump(backtest_local_classes(files), f, indent=1)
+    cal = calibrate_local(files)
+    for g, r in cal.items():
+        if r["adopted"]:
+            for (level, year, st), cs in files.items():
+                if level == "local":
+                    for rec in cs:
+                        nh = _near_half(rec)
+                        if nh and nh[0] == g:
+                            if "value" in rec["p"] and (rec["forecasts"][-1].get("calibration") or not rec["p"]["value"]):
+                                counts[f"local {year}: {g}: p calibrated" if rec["p"]["value"] else
+                                       f"local {year}: {g}: p = 0"] += 1
+                            elif CAL_NOTE in rec["p"].get("not_computed", ""):
+                                counts[f"local {year}: {g}: not computed, no earlier year to calibrate on"] += 1
+    if write_checks:
+        with open(os.path.join(L.REPO, "data", "local", "calibration-local.json"), "w") as f:
+            json.dump({"about": "the orchestrator's ruling of 2026-11-07 07:37: local races' p by like races, and by "
+                                "the transferred Democrat-against-Republican route, calibrated to earlier years' "
+                                "near-ties (seen over expected near 1/2), by office type where the fitting years "
+                                f"expected {CAL_MIN_EXPECTED} or more, else pooled; adopted for a route only if it "
+                                "improves the 2024 out-of-sample test (the count near 1/2 and the deviance by office "
+                                "type). Built by pipeline/local_medsl.py build.", "routes": cal}, f, indent=1)
     total = 0
     by_level = collections.Counter()
     for (level, year, st), cs in sorted(files.items()):
