@@ -329,7 +329,7 @@ def rows(contests, year, ref):
         yes, no = yes_no(c)
         if yes + no <= 0:
             continue
-        out.append({"key": f"{scope} {kind_of(c)}", "s": yes / (yes + no), "n": yes + no,
+        out.append({"key": f"{scope} {kind_of(c)}", "s": yes / (yes + no), "n": yes + no, "yes": yes,
                     "year": year, "state": c["state"],
                     # counted whole: a state's own file that shows the question's place (not MEDSL's by county),
                     # or one county's question whose place lies wholly in it (local_medsl.one_place)

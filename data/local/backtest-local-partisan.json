@@ -97,27 +97,27 @@
    "mean_forecast_minus_outcome": 0.0294,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
-     212,
-     0.665
+     203,
+     0.67
     ],
     "council, commission or board": [
-     475,
-     0.448
+     470,
+     0.445
     ],
     "judge": [
-     46,
-     0.696
+     42,
+     0.667
     ],
     "mayor or executive": [
      8,
      0.75
     ],
     "other local office": [
-     10,
-     0.5
+     4,
+     0.25
     ],
     "prosecutor": [
-     53,
+     48,
      0.604
     ],
     "school board": [
@@ -131,6 +131,14 @@
     "special district": [
      5,
      0.4
+    ],
+    "statewide judge": [
+     4,
+     1.0
+    ],
+    "statewide officer": [
+     25,
+     0.64
     ]
    },
    "fit": {

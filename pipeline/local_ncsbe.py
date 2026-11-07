@@ -278,6 +278,12 @@ def p_of(c, seats):
 FIRST_FIT_YEAR = 2014   # seats are in the files from 2014 only, so like races are counted from then
 
 
+def type_of(c, base, scope):
+    """The office type (pipeline/local_medsl.py office_type_in), with the State Board's own seat count (vote-for) and
+    the contest's counties: in all 100 counties, it is elected statewide [measured], as p_of and record read it."""
+    return LM.office_type_in(base, scope=scope, seats=seats_of(c), whole_state=len(c["counties"]) >= 100)
+
+
 def nc_key(c):
     """(route, class, seats) of a contest the like-race route can take (p_of gave it no other answer): the classes of
     REPORT section 7 (scope, office type, the kind of field, candidates; seats at once at the boundary), with two more
@@ -286,8 +292,8 @@ def nc_key(c):
     seats = seats_of(c)
     b = _ballot(c)
     base = c["_base"]
-    ot = "state legislature" if c.get("_leg") else LM.office_type(base)
     scope = "state legislature" if c.get("_leg") else "state" if STATE_OFFICE.search(base) else "local"
+    ot = "state legislature" if c.get("_leg") else type_of(c, base, scope)
     lead = (scope if scope == "state legislature" else f"{scope} {ot}")
     n = len(b)
     if c["_level"] == "primary":
@@ -374,7 +380,7 @@ def _cell(r):
     calibrate_local has them (primaries apart)."""
     c = r["c"]
     scope = "state legislature" if c.get("_leg") else "state" if STATE_OFFICE.search(c["_base"]) else "local"
-    ot = "" if c.get("_leg") else " " + LM.office_type(c["_base"])
+    ot = "" if c.get("_leg") else " " + type_of(c, c["_base"], scope)
     return f"{'primary, ' if r['level'] == 'primary' else ''}{r['route']}, {scope}{ot}"
 
 
@@ -481,7 +487,7 @@ def record(c, d, fips, commit):
             rec["place"]["district"] = str(c["_leg"][1])
         else:
             rec["office"] = base.title()
-            rec["office_type"] = LM.office_type(base)
+            rec["office_type"] = type_of(c, base, scope)
             rec["office_scope"] = scope
         rec["seats"] = seats if (seats or 1) > 1 else None
         rec["result"] = {"candidates": cands_out(c, seats), "total_votes": total, "source": SOURCE_KEY}
@@ -976,7 +982,7 @@ def measure_p(rec, c, d, q_rows, book, qtest=None):
         qtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h, "in_own": abs(s_ - t) <= h,
                       "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr), abs(s_ - t) <= hh]
                                for hh in L.WINDOWS},
-                      "votes": LM.vote_lines(tr, s_, t, yes + no)})
+                      "votes": LM.vote_lines(tr, yes, no, t)})
     if f <= 0:
         return {"value": 0.0, "event": 0.0, "reason": f"no like measure of {N} finished within {h:.0%} of the "
                                                        f"threshold"}
