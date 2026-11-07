@@ -96,13 +96,16 @@ def yes_no(c):
 
 
 def local_rows(st):
-    """The state's local questions in data/measure, counted whole (its own file's counts), with my yes/no."""
+    """The state's local questions in data/measure, counted whole (its own file's counts, or MEDSL's one county where
+    the place lies wholly in it since #85), with my yes/no."""
     out = []
     for p in sorted(glob.glob(os.path.join(L.DATA, "measure", "*", f"{st}.json"))):
         d = L.load_json(p)
         for c in d["contests"]:
             q, res = c.get("question") or {}, c.get("result") or {}
-            if res.get("source") not in ("ncsbe", "la_sos"):
+            # since #85 a MEDSL question held in one county's file whose place lies wholly in that county is counted
+            # whole too (place_whole; pipeline/places.py), and enters the state's pool of like local measures
+            if res.get("source") not in ("ncsbe", "la_sos") and not c.get("place_whole"):
                 continue
             yes, no = yes_no(c)
             out.append(dict(c=c, year=c["year"], date=c.get("date"), scope=q.get("scope"), kind=q.get("kind"),
@@ -291,9 +294,12 @@ def section_3(book, moves):
         loc = [r for r in rows if r["scope"] == "local"]
         # the pool: the state's local questions counted whole, with a yes and a no side, by year (kind measure)
         pool = collections.defaultdict(list)
+        pool77 = collections.defaultdict(list)   # the pool as #77 had it: the state's own files only (before #85)
         for r in loc:
             if r["yes"] + r["no"] > 0 and r["kind"] == "measure" and not r["c"].get("one_answer_only"):
                 pool[r["year"]].append(r["yes"] / (r["yes"] + r["no"]))
+                if (r["c"].get("result") or {}).get("source") in ("ncsbe", "la_sos"):
+                    pool77[r["year"]].append(r["yes"] / (r["yes"] + r["no"]))
         print(f"  {st}: {len(rows)} questions in its own files' counts, {len(loc)} local; the pool by year "
               f"{ {y: len(v) for y, v in sorted(pool.items())} }")
         tal = collections.Counter()
@@ -343,8 +349,17 @@ def section_3(book, moves):
             same_p = "value" in rec_p and rel(rec_p["value"], p) <= 1e-5 and rel(rec_p["f_t"], f) <= 1e-5 \
                 and rec_p["n"] == n
             same_mv = mv is not None and mv[3] == "N" and rel(mv[2], p) <= 1e-5
+            mv77 = False
+            if same_rule and same_fit and same_p and not same_mv and mv is not None and mv[3] == "N":
+                # #77's moves file holds the p of its day; since #85 MEDSL's whole questions enter the pool (c33 §33.4)
+                f77, N77, h77, k77 = density_at([s for y, ss in pool77.items() if y < r["year"] for s in ss], t)
+                p77 = (f77 / (2 * n) if t == 0.5 else max((1 - t) * f77 / n, t * f77 / n)) if f77 is not None else None
+                mv77 = p77 is not None and rel(mv[2], p77) <= 1e-5
             if same_rule and same_fit and same_p and same_mv:
                 tal["p equal (rule, N, k, h, f_t, n, p; moves row)"] += 1
+                n_p += 1
+            elif same_rule and same_fit and same_p and mv77:
+                tal["p equal (rule, N, k, h, f_t, n, p); #77's moves row equals the p from the pool as #77 had it, without MEDSL's whole questions (#85)"] += 1
                 n_p += 1
             else:
                 tal["p differs"] += 1
