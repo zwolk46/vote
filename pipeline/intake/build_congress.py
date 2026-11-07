@@ -538,7 +538,7 @@ def aa_governors(year, P):
             "special": False,
             "result": {"certified": None, "candidates": cands, "total_votes": r["total"],
                        "votes_incomplete": bool(r["counties_missing"]) or r["state"] in chambers.AA_INCOMPLETE,
-                       "source": "algara_amlani"},
+                       "source": _AA["source"]},
             "two_party": ({"candidates": [a["name"] for a in top2], "votes": [a["votes"] for a in top2],
                            "n_other_voters": sum(a["votes"] for a in top2) - 1,
                            "share_first": round(top2[0]["votes"] / sum(a["votes"] for a in top2), 6)}
