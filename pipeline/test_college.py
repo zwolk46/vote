@@ -103,6 +103,22 @@ def test_sd_rel_error():
         fl = next(c for c in d["contests"] if c["id"] == "2016-president-FL")
         f = next(f for f in fl["forecasts"] if f["by"] == "538" and f["model"] == "polls-plus")
         assert 0.09 < f["share"]["sd_rel_error"]["value"] < 0.10 and f["p"] is not None
+        # the amendment of 05:58 (M2 3.9): the rule is on p's error, |z^2 - 1| times the sd's. California 2016
+        # (z = 3.48) has a small sd error but a p error of about 50%, so the model's own stands first there
+        ca = next(c for c in d["contests"] if c["id"] == "2016-president-CA")
+        f = next(f for f in ca["forecasts"] if f["by"] == "538" and f["model"] == "polls-plus")
+        assert f["share"]["sd_rel_error"]["value"] < 0.05 and f["share"]["p_rel_error"]["value"] > 0.2
+        assert f["p"] is None and ca["p"]["under"] == "the model's own"
+
+
+def test_economist_thin_window():
+    """The amendment of 05:58 (M2 2.4): the Economist's W is marked thin under 30 weighted draws (OH, IA, CO)."""
+    path = os.path.join(ROOT, "data", "president", "2020.json")
+    if not os.path.exists(path):
+        return
+    d = json.load(open(path))
+    thin = sorted(c["place"]["state"] for c in d["contests"] if (c["p"] or {}).get("W_thin"))
+    assert thin == ["CO", "IA", "OH"], thin
 
 
 if __name__ == "__main__":
