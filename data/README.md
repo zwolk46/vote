@@ -296,6 +296,16 @@
 - **The legislature's deciding round** carries Klarner's runoff route: `forecasts[].route` `runoff`, `class` "runoff after an open or general first round, first-round leader of the two ...", `p.under` "... like past runoffs".
 - These records are forecast from earlier years only, and are not in the back-tests or the calibration (no `calibration_not_of_record`).
 
+**From New Jersey's Official Lists, 2023 and 2025** (`pipeline/intake/nj_sos.py`, `pipeline/local_nj_leg.py`; `data/state-upper/2023/NJ.json`, `data/state-lower/2023/NJ.json`, `data/state-upper/2025/NJ.json`, `data/state-lower/2025/NJ.json`; `data/local/REPORT.md` §27): the fields above, and these.
+- **The source.** `result.source` is `nj_sos`: the Division of Elections' "Official List" of each office, linked from its page of the year as "Official General Election Results: ..." (the `nj_sos` source block). MEDSL and Klarner hold neither year. The Governor of 2025 is D2's level (`data/governor/2025.json`).
+- **`gate`** (every record): `by` names the gate within the certifying source; `ruled` says it is proposed, not yet ruled; `official` (the list is linked as official and every page is headed "Official List"), `official_how`, `parts_add_up` (each candidate's county lines add up to its Total, and the contest's Total to its candidates'), `counties_named` (each candidate's county lines are in the counties its district's heading names); for 2025, `statewide_equal`: the Governor's list read here against D2's `data/governor/2025.json`. `data/local/check-nj-legislature.json` holds the whole check.
+- **`place.counties_named`**: the counties the list's heading names for the district, as it writes them ("Atlantic (part)").
+- **`result.candidates[].won`** is the list's own "(w)" mark [inferred: in every contest it marks exactly the leading candidates for the seats]; `incumbent` is true where the list marks the name "*" ("* denotes incumbent") [stated]. Names are the lists' in title case.
+- **`seats`** 2 for each Assembly district (two members at once), null for the Senate's one.
+- **`election`** `general, special` and an `id` ending `-special`: the Senate's Thirty-Fifth district of 2025, the only Senate district on that year's list [inferred: a vacancy filled]; p not computed.
+- **`forecast_inputs`** (the Senate of 2023, route `partisan`): `class` `C`, since no last result on the same lines is read; `incumbency` from the list's "*" (`incumbency_of` says so); `lean` and `lean_year`, Klarner's New Jersey Senate of 2021.
+- **2023 feeds the later years**: its Senate's Democrat-against-Republican races join route (a)'s fit for 2024 and 2025 (and the transferred local route's), and its other contests the like races of 2024 and 2025. 2025's like races are every earlier year's, MEDSL's 2024 legislatures included.
+
 **New Jersey's 2024 contests from MEDSL, gated by county** (`pipeline/local_nj.py`; `data/local/2024/NJ.json`, `data/measure/2024/NJ.json`; `data/local/REPORT.md` §13):
 - **`gate`** (every New Jersey record of 2024): how the record passed or failed the county gate.
   - `by` is `county` and `line` the 0.5% line. `check` names `data/local/check-nj.json`.

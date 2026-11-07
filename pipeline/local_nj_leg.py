@@ -1,10 +1,10 @@
 """pipeline/local_nj_leg.py: New Jersey's legislatures of 2023 and 2025, from the Division of Elections' Official Lists
 (pipeline/intake/nj_sos.py), gated within the certifying source, in the layout pipeline/local_medsl.py writes.
 
-Written 2026-11-07 by worker D3 (briefs/D3-data-local.md, step 2) at the orchestrator's orders of 10:17 ("odd-year
-legislatures after 2022 (MS, NJ, VA 2023; NJ, VA 2025)") and 16:47 ("NJ 2023 and 2025 legislatures from the Official
-Lists ... each gets a proposed gate"). Why: Klarner's record ends with 2022, and MEDSL holds no odd year, so the state's
-own lists are the only source of New Jersey's 2023 and 2025 legislatures read.
+Written 2026-11-07 by worker D3 (briefs/D3-data-local.md, step 2) at the orchestrator's order of 10:35: "queue the
+odd-year legislatures after Klarner's 2022 (MS, NJ, VA 2023; NJ, VA 2025) from each state's certified files, each with
+a gate you propose. Reason: law 5 and Zach's 03:13 word, as much data as can be found." Klarner's record ends with 2022
+and MEDSL holds no odd year, so the state's own lists are the only source of New Jersey's 2023 and 2025 legislatures.
 
 What the lists hold [stated: the files; measured: what pipeline/intake/nj_sos.py reads from them]:
   2023  "Official List: Candidates for State Senate For GENERAL ELECTION 11/07/2023 Election" (40 districts) and the

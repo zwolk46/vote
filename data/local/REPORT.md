@@ -1449,3 +1449,58 @@ The courts' seats split cleanly [measured, MEDSL's state files 2016-2024]:
 - Arizona's 2022 Attorney General reads Mayes 1,254,643 to Hamadeh 1,254,235 in MEDSL's general lines, with Cochise County's recount filed apart; the state's certified count was not read.
 - The over-ballot test reads only years with a governor; 2020's and 2024's one-seat statewide contests are not tested that way.
 - The District of Columbia's officers are typed by the officer test only where they are not one county's; the District is one county, so its Attorney General stays local (16:19, rule 4: "DC's AG and Mayor stay local").
+
+## 27. New Jersey's legislatures of 2023 and 2025, from the Official Lists
+
+*Added 2026-11-07 at 18:12 UTC, at the orchestrator's order of 10:35: "After (a), queue the odd-year legislatures after Klarner's 2022 (MS, NJ, VA 2023; NJ, VA 2025) from each state's certified files, each with a gate you propose. Reason: law 5 and Zach's 03:13 word, as much data as can be found."* With it, the ruling of 11:56: "earlier cycles only means every earlier contest". Every record that changed: `data/local/moves-nj-legislature.json`.
+
+**Why.** New Jersey elects its legislature in odd years. Klarner's returns end with 2022 and MEDSL holds no odd year, so the state's own lists are the only source read.
+
+**Source** [stated: the files; measured: what `pipeline/intake/nj_sos.py` reads]. The Division of Elections' page of each year links each office's "Official List" as a PDF: "Official General Election Results: State Senate" and "... General Assembly" for 2023, read at 15:43 UTC (dated 12/06/2023 on their pages); "... General Assembly", "... State Senate - 35th Legislative District" and "... Governor" for 2025, read at 16:08 UTC (dated 12/03/2025). They hold:
+- 2023: the Senate's 40 districts (86 candidates) and the Assembly's 40 (160);
+- 2025: the Assembly's 40 (159), the Senate in the Thirty-Fifth district only (2) and the Governor (4).
+
+Each district's heading names its counties ("First Legislative District: ATLANTIC (part) - CAPE MAY - CUMBERLAND (part) Counties"). Each candidate has a line per county and a "Total"; the heading says "* denotes incumbent"; "(w)" follows the names of those elected [inferred: in every contest of both years it marks exactly the leading candidates for the seats].
+
+**The reader** (`nj_sos.py`, fixed here). The Assembly lists break long names over two lines ("VERLINA REYNOLDS-" / "JACKSON (w) *"), put the marks on the line under the name, and let an address run into the name's column with one space ("GERARD SCHARFENBERGER 20 SEA GULL LANE"). The 2023 Senate list prints a Hudson County line for Pablo Olivera (29th district) with no count; his Total, 181, is Essex's, and the record says so.
+
+The reader now takes each of these as the list prints it, numbers the districts past the Twentieth ("Thirty-First"), and reads the counties each heading names. Re-read with it, 2024's federal lists are unchanged, except that Bonnie Watson Coleman (NJ-12) now carries her "(w) *" marks; no count changed.
+
+**Seats.** Each Senate district elects one member, each Assembly district two at once [measured: Klarner's New Jersey Assembly contests of 2017, 2019 and 2021 have 2 seats each and his Senate's 1; the lists mark 2 winners in each Assembly district and 1 in each Senate district].
+
+**The 35th's Senate seat of 2025** is taken as an election to fill a vacancy [inferred: 2025's Senate list holds that district only, while 2023's holds all 40; no law read]. Benjie E. Wimberly, elected to the Assembly from the 35th in 2023, is on it marked "*". It is recorded as a special, p not computed.
+
+**The gate within the certifying source** (proposed; `pipeline/local_nj_leg.py`; `data/local/check-nj-legislature.json`). 2023's ballot holds no federal or statewide contest; 2025's only statewide contest is the Governor's, which D2 read from the same list.
+- (a) Each list is linked as "Official General Election Results: ...", every page is headed "Official List", and its last page counts as many candidates as are read.
+- (b) Each candidate's county lines add up to its Total, and each contest's Total equals its candidates' totals added up.
+- (c) Each candidate's county lines are in the counties its district's heading names.
+- (d) 2025 only: the Governor's list read here equals D2's `data/governor/2025.json` for each of its 4 candidates, and is the same file (sha256 ef28c114c11de275).
+
+A contest that fails (b) or (c) is held; a list that fails (a), or a year that fails (d), holds all its contests. **Every list and contest passes** [measured]. Recorded beside the gate, not part of it: each district's named counties are the same in 2023's Senate and Assembly lists and in 2025's Assembly list. Each record carries its `gate` in the shape of Louisiana's 2023 (`data/README.md`).
+
+**Routes** (pipeline/local.py's, as for MEDSL's 2024 legislatures):
+- **The Senate of 2023.**
+  - 38 races of one Democrat against one Republican take route (a) in class C: no last result on the same lines is read, since the lists hold no precincts to compare lines by. MEDSL's 2024 legislatures take class C wherever the lines are not shown to be the same.
+  - Incumbency is the list's own mark [stated]: 17 Democratic incumbents, 12 Republican, 9 open seats.
+  - The chamber's lean is Klarner's New Jersey Senate of 2021, +0.0389.
+  - The fit is on Klarner's races of earlier years. p runs from 1.64e-5 (16th district) to 1.08e-4 (29th); the median of the 38 is 2.61e-5.
+  - Class C is the chamber's average district (`p.forecast_scope`, REPORT §6). So a seat won 85% to 15% (the 29th) gets the p of an average Senate district, not of its own.
+  - The 33rd (Stack against a Socialist Workers candidate) takes route (b), "general, one major party against minor parties or independents" (6,176 like races): p 6.05e-6.
+  - The 28th (Burgess alone) is unopposed: p 0.
+- **The Assembly** takes route (c), "general, 2 seats at once", by slate, at the boundary between the second and third.
+  - 2023: 39 computed, median p 7.29e-5, highest 4.03e-4 (the 29th, its second and third 7,409 to 1,419); the 35th is unopposed, p 0.
+  - 2025: 38 computed, median 4.04e-5, highest 1.21e-4 (the 29th); the 15th and 28th are unopposed, p 0.
+- **Like races are every earlier contest in the sources taken in.** For 2023: Klarner's of 1967-2022 (4,680 in the full-slate class). For 2025: those, Louisiana's 2023 deciding rounds, New Jersey's 2023 and MEDSL's 2024 legislatures (4,789).
+
+**2023 feeds the later years** (11:56):
+- **The fit.** New Jersey's 38 Democrat-against-Republican Senate races join route (a)'s fit for 2024. That moves 2024's partisan legislative p and the transferred local route's p: 702 Senate p and 2,870 lower-house p (partisan and like-race routes together), and 976 local p.
+- **Like races.** New Jersey's 2023 contests join the like races of 2024's legislative class and boundary routes.
+- **How far.** The ratios after/before run from ×0.9943 to ×1.0699 in the lower houses, median ×0.9999 (92 beyond 1%); ×0.9943 to ×1.0425 in the senates, median ×0.9998 (8 beyond 1%); ×0.9986 to ×1.0022 locally, median ×0.9994. The largest are partisan seats far from even, whose p sits in the forecast's tail (New York's 55th, ×1.0699).
+- **No p became computed or was lost.**
+- **The tests' verdicts are unchanged.** The 2024 back-test of the transferred local route holds 51.9% in its 50% interval, as before (the rule is 40% to 60%), and 81.1% in its 80% (81.0%). The calibration's 2024 test reads expected_after 54.6 (54.7), deviance by office type 17.57 (17.58) and after 16.85 (16.86). It still improves, and neither route is adopted, as before.
+- **The notes** of the fit and of the like races now name every source they take in. Before, the 2024 like races' note said "like races from Klarner's 1967-2022 returns" while Louisiana's 2023 deciding rounds were already among them, a wording slip fixed here.
+
+**For the orchestrator:**
+- The gate is proposed, not yet ruled. Every record says so (`gate.ruled`).
+- Class C for the 2023 Senate. The 2021 map's lines and 2023's are not compared, since no source with precincts or a statement of the lines was read. If a page stating whether the 2023 districts are 2021's is read, class A could replace C for those that are.
+- The 35th's Senate seat of 2025 is a special [inferred].
