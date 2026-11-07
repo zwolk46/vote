@@ -619,8 +619,7 @@ def class_p(rec, c, route, key, train, dens, cache_key, commit, with_p, counts, 
     if f <= 0:
         return {"value": 0.0, "event": 0.0, "reason": f"no like race in {N} finished within the window"}
     counts[f"{label}: p computed, {route}"] += 1
-    sd_eq = 1.0 / (math.sqrt(2 * math.pi) * f)
-    return L._p_block(n, 0.5, sd_eq, f"the model's own ({L.METHOD}), like past races", commit)
+    return L._p_like(n, f, f"the model's own ({L.METHOD}), like past races", commit)
 
 
 # ------------------------------------------------------------------ local Democrat-against-Republican races
@@ -1009,8 +1008,7 @@ def calibrate_local(files):
                 cal = {"factor": round(factor, 4), "of": of, "fitted_on": f["fitted_on"],
                        "what": "seen over expected near 1/2 in the fitting years' out-of-sample forecasts"}
                 if group == "like races":
-                    sd_eq = 1.0 / (math.sqrt(2 * math.pi) * p["f_half"] * factor)
-                    q = L._compact(L._p_block(p["n"], 0.5, sd_eq, f"{p['under']}, {CAL_NOTE}", None))
+                    q = L._compact(L._p_like(p["n"], p["f_half"] * factor, f"{p['under']}, {CAL_NOTE}", None))
                 else:
                     q = dict(p)
                     q["value"], q["event"], q["f_half"] = p["value"] * factor, p["event"] * factor, p["f_half"] * factor
