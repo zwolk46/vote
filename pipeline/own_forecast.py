@@ -1,9 +1,10 @@
 """pipeline/own_forecast.py: the model's own presidential forecast, for years with no published forecast.
 
 Written 2026-11-07 by worker D1 (briefs/D1-data-president.md step 3; model/MODEL.md section 3, "Which
-forecast"; plan/PLAN.md section 3). PROPOSED, not yet approved: the brief says the method is reported to the
-orchestrator, with a back-test, before p is computed with it. Until then this file computes forecasts and
-their back-test only; pipeline/president.py does not use it for p.
+forecast"; plan/PLAN.md section 3). Reported to the orchestrator at 03:48 with its back-test; approved
+at 03:51 in structure, with one change: the polls are the last national average before the election, not
+the one of 9 September, because the voter decides on Election Day with what was known then (law 2a). Both
+versions are back-tested below; the eve version scores better and is the one used (APPROVED below).
 
 The method, in the manner of Gelman, King and Boscardin (1998), from "variables known before the election
 such as the polls two months out" (model section 3), kept as small as the data allow:
@@ -26,6 +27,11 @@ such as the polls two months out" (model section 3), kept as small as the data a
 
 Inputs (all committed under data/president/inputs/): FEC results 1996-2024 (the count of record), MEDSL
 results 1976-1992, 538's polling averages (fte_poll_averages.json).
+
+The approved version (APPROVED): the last average, uniform swing, t4 state errors. 2024 is the exception
+the files force: 538's 2024 averages end on 12 September 2024 in every file this environment reaches (the
+later ones are at projects.fivethirtyeight.com, which redirects to ABC News), so 2024 uses the average of
+12 September with the errors fitted to the 9 September averages of earlier cycles, and is marked so.
 
 Run:  python3 pipeline/own_forecast.py   (prints the back-test; writes nothing)
 """
@@ -64,14 +70,32 @@ def shares(res):
     return v, V
 
 
-def polls_two_months_out():
+def polls(when):
+    """{year: (538's national two-party share for the Democrat, the date)} on `when`: "two_months_out"
+    (9 September) or "last" (the last date in 538's file: election day, or the eve, in every year but
+    2024, whose file ends on 12 September; see fte_poll_averages.py)."""
     doc = load("fte_poll_averages.json")["years"]
     out = {}
     for y, d in doc.items():
-        us = d["two_months_out"]["units"]["US"]
+        us = d[when]["units"]["US"]
         dem = us["dem"] if us["dem"] is not None else us["dem_trend_adjusted"]
         rep = us["rep"] if us["rep"] is not None else us["rep_trend_adjusted"]
-        out[int(y)] = dem / (dem + rep)
+        out[int(y)] = (dem / (dem + rep), d[when]["date"])
+    return out
+
+
+def polls_two_months_out():
+    return {y: v for y, (v, _) in polls("two_months_out").items()}
+
+
+def polls_eve():
+    """The last average before the election (the orchestrator's change of 03:51: the voter decides on
+    Election Day with what was known then, law 2a). 2024 has no average after 12 September in any file
+    this environment reaches, so 2024 is left out of this version and marked."""
+    out = {}
+    for y, (v, date) in polls("last").items():
+        if date[5:] >= "11-01":
+            out[y] = v
     return out
 
 
@@ -102,6 +126,31 @@ def forecast(t, v, V, N, variant="uniform"):
     swing = nat_mean - V[t - 4]
     tau = math.sqrt(f["s_nat"] ** 2 + f["s_state"] ** 2)
     return {s: (v[t - 4][s] + swing, tau) for s in v[t - 4]}, nat_mean, f
+
+
+APPROVED = {"polls": "last", "variant": "uniform", "tails": "t4",
+            "approved": "orchestrator, 2026-11-07 03:51 UTC, under the maker's word of 02:38"}
+
+
+def approved(t):
+    """The model's own forecast for year t (1984 on), in the approved version. Returns the state means,
+    the national and state error sds, the tails and the poll it rests on."""
+    res = results()
+    v, V = shares(res)
+    last = polls("last")
+    value, date = last[t]
+    eve = date[5:] >= "11-01"
+    N = polls_eve() if eve else polls_two_months_out()
+    N = dict(N)
+    N[t] = value
+    fc, nat_mean, f = forecast(t, v, V, N, APPROVED["variant"])
+    note = (f"538's national average of {date}, the last before the election" if eve else
+            f"538's national average of {date}, the last in any file reachable here (its later 2024 averages "
+            "are unreadable); errors fitted to the 9 September averages of earlier cycles; the file is 538's "
+            "uncorrected copy, whose bug 538 says overstated Harris's margin by 0.1 points")
+    return {"means": {s: m for s, (m, _) in fc.items()}, "national_mean": nat_mean, "s_nat": f["s_nat"],
+            "s_state": f["s_state"], "tails": APPROVED["tails"], "poll_date": date, "poll_value": value,
+            "last_result_year": t - 4, "fit": f, "note": note, "eve": eve}
 
 
 def Phi(x):
@@ -148,7 +197,6 @@ def college_prob(fc, ev, s_nat, s_state, tails, majority=270, total=538):
 def backtest():
     res = results()
     v, V = shares(res)
-    N = polls_two_months_out()
     fte = load("fte_president_forecasts.json")["years"]
     nara = load("nara_electoral_votes.json")["years"]
     print("Back-test of the model's own forecast: every year forecast from the years before it only.")
@@ -158,12 +206,16 @@ def backtest():
     print("P(D): the forecast's chance that the Democrat wins the College (a 269 tie counted half); won: 1 if")
     print("the Democrat won. 538 columns: 538's published forecast of election day (polls-plus where it ran")
     print("several), which had two more months of polls than this forecast.\n")
-    for variant, tails in (("uniform", "normal"), ("uniform", "t4"), ("shrunk", "t4")):
-        print(f"variant: {variant}, state errors {tails}")
+    runs = [("two_months_out", "uniform", "normal"), ("two_months_out", "uniform", "t4"),
+            ("two_months_out", "shrunk", "t4"), ("eve", "uniform", "normal"), ("eve", "uniform", "t4"),
+            ("eve", "shrunk", "t4")]
+    for when, variant, tails in runs:
+        N = polls_two_months_out() if when == "two_months_out" else polls_eve()
+        print(f"polls: {when}; variant: {variant}, state errors {tails}")
         print(f"{'year':>5} {'k':>5} {'s_nat':>6} {'s_st':>6} {'nat mean':>8} {'nat res':>8} {'Brier':>6} "
               f"{'in50':>5} {'in90':>5} {'MAE':>6} {'P(D)':>5} {'won':>3} {'538 Brier':>9} {'538 MAE':>8} {'538 P(D)':>8}")
         tot = []
-        for t in [y for y in YEARS if y >= 1984]:
+        for t in [y for y in YEARS if y >= 1984 and y in N]:
             fc, nat_mean, f = forecast(t, v, V, N, variant)
             brier, in50, in90, mae = [], 0, 0, []
             for s, (m, _) in fc.items():

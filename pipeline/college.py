@@ -86,6 +86,63 @@ def dp_stage_two(i, mu, tau, ev, s_d, total, majority, grid_n=241, pi_house=PI_H
     return out[0], out[1]
 
 
+def _t4_cdf(x):
+    """Student-t cdf, 4 degrees of freedom: 1/2 + (1/2) sin(a) (1 + cos(a)^2 / 2), a = atan(x / 2)."""
+    a = np.arctan(np.asarray(x, dtype=float) / 2.0)
+    return 0.5 + 0.5 * np.sin(a) * (1 + 0.5 * np.cos(a) ** 2)
+
+
+def _t4_pdf(x):
+    x = np.asarray(x, dtype=float)
+    return 0.375 * (1 + x * x / 4.0) ** -2.5
+
+
+def unit_cdf(x, s, tails):
+    """P(eps <= x) for a unit's own error of sd s: normal, or t4 matched on sd (scale s / sqrt 2, model 9.5)."""
+    if tails == "normal":
+        return _phi_cdf(x / s)
+    return _t4_cdf(x / (s / math.sqrt(2.0)))
+
+
+def unit_pdf(x, s, tails):
+    if tails == "normal":
+        return np.exp(-0.5 * (np.asarray(x, float) / s) ** 2) / (s * math.sqrt(2 * math.pi))
+    sc = s / math.sqrt(2.0)
+    return _t4_pdf(np.asarray(x, float) / sc) / sc
+
+
+def swing_model(i, mu, s_unit, ev, s_d, total, majority, tails="normal", grid_n=401, pi_house=PI_HOUSE):
+    """The model's own joint forecast: v_j = mu_j + delta + eps_j, delta ~ N(0, s_d^2) common to every unit
+    (the stated national swing), eps_j independent with sd s_unit[j], normal or t4. For unit i returns
+      f_half  the density of v_i at one half (stage one: p_state = f_half / (2 n) in the density form);
+      W       P(unit i's electoral votes decide | v_i = 1/2), the swing given the tie found on a grid
+              (its density is proportional to the swing's normal density times eps_i's density at
+              1/2 - mu_i - delta);
+      W_unconditional  the same without conditioning, for the record (the shortcut the brief forbids).
+    With normal errors this equals dp_stage_two (closed form); it is checked against it in test_college.py."""
+    mu, s_unit, ev = np.asarray(mu, float), np.asarray(s_unit, float), np.asarray(ev, int)
+    grid = np.linspace(-10 * s_d, 10 * s_d, grid_n)
+    prior = np.exp(-0.5 * (grid / s_d) ** 2)
+    prior /= prior.sum()
+    like = unit_pdf(0.5 - mu[i] - grid, s_unit[i], tails)
+    f_half = float((prior * like).sum())
+    post = prior * like
+    post = post / post.sum() if post.sum() > 0 else prior
+    w = window_weights(int(ev[i]), total, majority, pi_house)
+    size = total - int(ev[i]) + 1
+    dist = np.zeros((len(grid), size))
+    dist[:, 0] = 1.0
+    for j in range(len(mu)):
+        if j == i:
+            continue
+        q = (1 - unit_cdf(0.5 - mu[j] - grid, s_unit[j], tails))[:, None]
+        shifted = np.zeros_like(dist)
+        shifted[:, ev[j]:] = dist[:, :size - ev[j]]
+        dist = dist * (1 - q) + shifted * q
+    by_grid = dist @ w
+    return {"f_half": f_half, "W": float((by_grid * post).sum()), "W_unconditional": float((by_grid * prior).sum())}
+
+
 def sims_window(shares, dem_ev, ev, i, k_steps, step, total, majority, pi_house=PI_HOUSE):
     """Counts over a forecaster's joint draws for unit i. shares: (K, units) two-party shares for A, printed
     to a grid of `step` (1e-4 for the Economist); dem_ev: (K,) A's electoral votes in each draw as published
