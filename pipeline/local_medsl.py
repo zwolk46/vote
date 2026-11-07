@@ -206,6 +206,7 @@ JOINS_EXPECTED = {
     2022: {("WA", "WASHINGTON STATE - SECRETARY OF STATE", ""), ("WA", "SUPREME COURT - JUSTICE POSITION #01", ""),
            ("WA", "SUPREME COURT - JUSTICE POSITION #05", ""), ("WA", "SUPREME COURT - JUSTICE POSITION #06", "")},
     2024: {("AZ", "CORPORATION COMMISSIONER", "STATEWIDE"), ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 7")}}
+QJOINS_EXPECTED = {2022: {("WA", "WASHINGTON STATE - ADVISORY VOTE NO. 39"), ("WA", "WASHINGTON STATE - ADVISORY VOTE NO. 40")}}
 HOLDS_EXPECTED = {
     2018: {("NY", "COMPTROLLER", "", "incomplete"), ("NY", "ATTORNEY GENERAL", "", "incomplete")},
     2022: {("AZ", "STATE TREASURER", "", "incomplete"), ("AZ", "STATE MINE INSPECTOR", "", "incomplete"),
@@ -352,17 +353,17 @@ def _join(m, pieces, year):
             if k not in joined:
                 joined[k] = dict(x, votes=0)
             joined[k]["votes"] += x["votes"]
-    m["joined_from"] = [{"office": p["office"], "district": p.get("district") or None, "counties": p["counties"],
+    m["pieces_joined"] = [{"office": p["office"], "district": p.get("district") or None, "counties": p["counties"],
                          "precincts": p.get("precincts"), "seats": p.get("magnitude"),
                          "votes": {x["name"]: x["votes"] for x in p["candidates"]}} for p in parts]
     m["counties"] = sorted({k for p in parts for k in p["counties"]})
     m["precincts"] = sum(p.get("precincts") or 0 for p in parts)
     m["candidates"] = list(joined.values())
     m["notes"] = (m.get("notes") or []) + [
-        f"joined from {len(parts)} contests of MEDSL's file, the same office's candidates in counties apart: "
+        f"joined from {len(parts)} contests of MEDSL's file, one contest's lines in counties apart: "
         + "; ".join(f"'{p['office'].title()}'" + (f" ({p['district']})" if p.get("district") else "")
                     + f", {len(p['counties'])} count{'y' if len(p['counties']) == 1 else 'ies'}" for p in parts)
-        + " (joined_from; " + RULING_1647.split(": ", 1)[0] + ", (a))"]
+        + " (pieces_joined; " + RULING_1647.split(": ", 1)[0] + ", (a))"]
     PIECES[year]["joined"] += 1
 
 
@@ -483,6 +484,30 @@ def statewide_pieces(contests, year):
                      "own results were not read, so p is not computed and no winner is marked", "seats differ", year)
             m["magnitude"] = None
             held_.add((m["state"], m["office"], m.get("district") or "", "seats differ"))
+    # (a) for a statewide question, by the same reason: Washington 2022's advisory votes, King County's lines filed
+    # apart under the state's other name ("STATE OF WASHINGTON ADVISORY VOTE NO. 39" beside "WASHINGTON STATE -
+    # ADVISORY VOTE NO. 39") [measured]; the same question is the same words once the state's name is set aside, with
+    # the same answers
+    def qwords(m):
+        return re.sub(r"^(STATE OF [A-Z]+ |[A-Z]+ STATE - )", "", " ".join(m["office"].upper().split()))
+    qfound = set()
+    for m in contests:
+        if not (m["question"] and m.get("dataverse") == "STATE") or whole(m) or id(m) in taken or m.get("held_reason"):
+            continue
+        a, mine = a_[(m["state"], m["date"])], set(m.get("counties") or [])
+        if len(a) <= 1 or len(mine & a) < len(a) / 2:
+            continue
+        ps = [o for o in contests if o is not m and o["question"] and o.get("dataverse") == "STATE"
+              and o["state"] == m["state"] and o["date"] == m["date"] and o.get("counties") and qwords(o) == qwords(m)
+              and not (set(o["counties"]) & mine) and names(o) == names(m) and id(o) not in taken]
+        if ps:
+            taken.update(id(o) for o in ps)
+            _join(m, ps, year)
+            qfound.add((m["state"], m["office"]))
+            if m["state"] == "WA" and year == 2022:
+                _wa_state(m, year)
+    if qfound != QJOINS_EXPECTED.get(year, set()):
+        raise SystemExit(f"statewide_pieces: {year}: question joins {sorted(qfound)} differ from QJOINS_EXPECTED")
     contests = [c for c in contests if id(c) not in taken]
     # (c) what still misses counties
     for m in contests:
@@ -2399,8 +2424,8 @@ def build(out_dir, with_p=True):
                 rec["result"]["votes_source"] = c["state_votes"]["source"]
                 rec["result"]["medsl_votes"] = c["state_votes"]["medsl"]
                 rec["result"]["office_as_listed"] = c["state_votes"]["office_as_listed"]
-            if c.get("joined_from"):   # a contest MEDSL files in pieces, joined (statewide_pieces, ruling (a))
-                rec["joined_from"] = [{k: v for k, v in p_.items() if v is not None} for p_ in c["joined_from"]]
+            if c.get("pieces_joined"):   # a contest MEDSL files in pieces, joined (statewide_pieces, ruling (a))
+                rec["pieces_joined"] = [{k: v for k, v in p_.items() if v is not None} for p_ in c["pieces_joined"]]
             if c.get("state_total"):   # the state's own results beside MEDSL's joined counts (ruling (b))
                 rec["result"]["state_total"] = c["state_total"]
             if c.get("votes_incomplete"):   # held: the lines miss counties (ruling (c))
@@ -2577,6 +2602,11 @@ def build(out_dir, with_p=True):
                                      + ("" if not any(d_.values()) else ", a difference of "
                                         + "; ".join(f"{k.title()} {v:+,}" for k, v in d_.items()))
                                      + ") (listed_statewide.state_total)")
+            if c.get("pieces_joined"):   # a statewide question MEDSL files in pieces, joined (statewide_pieces)
+                rec["pieces_joined"] = [{k: v for k, v in p_.items() if v is not None} for p_ in c["pieces_joined"]]
+                notes += [x for x in c.get("notes") or [] if x not in notes]
+            if c.get("state_total"):   # the state's own results beside MEDSL's joined counts (ruling (b))
+                rec["result"]["state_total"] = c["state_total"]
             if notes:
                 rec["notes"] = notes
             label = f"measure {year}"

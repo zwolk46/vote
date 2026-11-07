@@ -9,8 +9,9 @@ can download precinct results from our results exports for every county except f
 Plan section 3a: data comes in by script; raw files stay in a cache outside the repository.
 
 Source: the Secretary of State's results page, https://results.vote.wa.gov/results/<date>/, whose "Export Results" page
-(Export.html) links each export as a CSV, export/<date>_StateExecutive.csv and export/<date>_Judicial.csv: one row per
-race and candidate, "Race","Candidate","Party","Votes","PercentageOfTotalVotes","JurisdictionName" [stated: the files].
+(Export.html) links each export as a CSV, export/<date>_StateExecutive.csv, export/<date>_Judicial.csv and
+export/<date>_Measures.csv: one row per race and candidate (or answer), "Race","Candidate","Party","Votes",
+"PercentageOfTotalVotes","JurisdictionName" [stated: the files].
 The page says that "Election results are certified by each county" and that "The Secretary of State certifies final
 results"; its link "Certified Election Results (PDF)" (SignedCertification.pdf) answered HTTP 404 on 2026-11-07 at 16:51
 UTC [measured], and the exports themselves carry no certified or official mark, so they are read as the state's results,
@@ -35,7 +36,7 @@ sys.path.insert(0, os.path.dirname(HERE))
 import fetch as F  # noqa: E402
 
 BASE = "https://results.vote.wa.gov/results/{date}/"
-FILES = ("StateExecutive", "Judicial")
+FILES = ("StateExecutive", "Judicial", "Measures")
 ROOT = os.path.join(F.CACHE, "wa_sos")
 NORM = os.path.join(ROOT, "normalized")
 for _d in ("raw", "normalized"):   # fetch.py makes the cache itself, not folders inside it
