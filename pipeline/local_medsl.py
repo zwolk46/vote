@@ -871,9 +871,23 @@ def backtest_measures(mtest, mhalf):
     within 1, 2 and 5 points of 1/2 added up, beside how many did. At the threshold, the same for the measures given
     a forecast, and within the forecast's own window."""
     half = _near_table(mhalf, lambda r_: (f"{r_['year']} {r_['key']} (trained on {r_['train']})", f"all years {r_['key']}"))
+    return {"about": "statewide measures and retentions, like past measures out of sample (each year's class from "
+                     "earlier years only): expected and seen counts finishing near 1/2 (every statewide question) "
+                     "and near the threshold (those given a forecast). at_threshold_local is the same for local "
+                     "questions given p by step (b) on these dates (each state's own class); North Carolina's "
+                     "questions on its other dates are in data/local/backtest-ncsbe.json. Built by "
+                     "pipeline/local_medsl.py build.",
+            "near_half": half,
+            "at_threshold": at_threshold([r_ for r_ in mtest if not r_["key"].startswith("local ")]),
+            "at_threshold_local": at_threshold([r_ for r_ in mtest if r_["key"].startswith("local ")], by_key=True)}
+
+
+def at_threshold(rows, by_key=False):
+    """Expected and seen counts of measures finishing within the forecast's own window and within 1, 2 and 5 points
+    of the threshold, by year and over all years (and by class where by_key)."""
     at_t = {}
-    for r_ in mtest:
-        for grp in (f"{r_['year']}", "all years"):
+    for r_ in rows:
+        for grp in (f"{r_['year']}", "all years") + ((f"all years {r_['key']}",) if by_key else ()):
             y = at_t.setdefault(grp, {"measures": 0, "own_window": [0.0, 0], "near_threshold": {}})
             y["measures"] += 1
             y["own_window"][0] += r_["q_own"]
@@ -886,10 +900,7 @@ def backtest_measures(mtest, mhalf):
         y["own_window"] = {"expected": round(y["own_window"][0], 1), "seen": y["own_window"][1]}
         y["near_threshold"] = {f"within {float(hh):.0%}": {"expected": round(v[0], 1), "seen": v[1]}
                                for hh, v in sorted(y["near_threshold"].items(), key=lambda kv: float(kv[0]))}
-    return {"about": "statewide measures and retentions, like past measures out of sample (each year's class from "
-                     "earlier years only): expected and seen counts finishing near 1/2 (every statewide question) "
-                     "and near the threshold (those given a forecast). Built by pipeline/local_medsl.py build.",
-            "near_half": half, "at_threshold": dict(sorted(at_t.items()))}
+    return dict(sorted(at_t.items()))
 
 
 def backtest_local_classes(files):
@@ -1659,6 +1670,18 @@ def build(out_dir, with_p=True):
     mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
     mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS + ODD_YEARS}
     mdens, mtest, mhalf = {}, [], []
+    import local_ncsbe as NS
+    nc_q = NS.question_rows()   # the State Board's local questions of every date, counted whole
+
+    def local_train(st, kind, year):
+        """Like past local questions for step (b): the same state's local questions of earlier years counted whole
+        (its own file shows each one's place; MEDSL's by-county pieces are not whole questions), of the same kind,
+        keyed by state (the thresholds and kinds of local questions are each state's own) [inferred]."""
+        rs = (nc_q if st == "NC" else
+              [r_ for y in MEASURE_YEARS + ODD_YEARS for r_ in mrows[y] if r_["state"] == st and r_.get("whole")])
+        return [dict(r_, key=f"local {kind}, {st}") for r_ in rs
+                if r_["year"] < year and r_["key"] == f"local {kind}"]
+
     for year in sorted(MEASURE_YEARS + ODD_YEARS):
         train = [r_ for y in MEASURE_YEARS + ODD_YEARS if y < year for r_ in mrows[y]]
         for r_ in mrows[year]:     # the route's calibration near 1/2: every statewide question, threshold read or not
@@ -1740,7 +1763,7 @@ def build(out_dir, with_p=True):
                 p = {"not_computed": "a statewide question, but the source holds only part of the state's counties "
                                      "this year, so its count is not the state's"}
                 counts[f"{label}: not computed, the source holds part of the state"] += 1
-            elif scope == "local":
+            elif scope == "local" and by_county:
                 p = {"not_computed": f"a local {kind}: its threshold is the one state law sets for its kind of "
                                      f"{'measure' if kind == 'measure' else 'judge'}, which the source's wording does "
                                      f"not show" + (", and the place that holds it is not shown either (it is "
@@ -1748,17 +1771,24 @@ def build(out_dir, with_p=True):
                                      + "; not inferred (the orchestrator, 2026-11-07 06:16)"}
                 counts[f"{label}: not computed, local"] += 1
             else:
-                rule, how, why = MS.rule_for(c, kind, book, year)
+                if scope == "local":   # its place shown: step (b), the state's own law for its kind (measures.py)
+                    rule, how, why = MS.local_rule_for(c, book, year)
+                    key = f"local {kind}, {c['state']}"
+                    train_q = local_train(c["state"], kind, year)
+                else:
+                    rule, how, why = MS.rule_for(c, kind, book, year)
+                    key = f"{scope} {kind}"
+                    train_q = train
                 if rule is None:
                     p = {"not_computed": why}
                     counts[f"{label}: not computed, threshold: {why.split(':')[0][:70]}"] += 1
                 else:
                     t = rule["t"]
-                    key = f"{scope} {kind}"
-                    rec["threshold"] = {k: rule.get(k) for k in ("t", "rule", "citation", "url", "quote", "read_utc")}
+                    rec["threshold"] = {k: rule.get(k) for k in ("t", "rule", "citation", "url", "quote", "read_utc",
+                                                                  "read_via", "mark") if rule.get(k) is not None}
                     rec["threshold"]["matched"] = how
                     if (year, key, t) not in mdens:
-                        mdens[(year, key, t)] = MS.density_at(train, key, t)
+                        mdens[(year, key, t)] = MS.density_at(train_q, key, t)
                     f, N, h, kin = mdens[(year, key, t)]
                     n = yes + no - 1
                     rec["two_way"] = {"votes": [yes, no], "n_other_voters": n, "share_yes": round(yes / (yes + no), 6)}
@@ -1772,7 +1802,7 @@ def build(out_dir, with_p=True):
                                                  "window": [round(t - h, 4), round(t + h, 4)], "in_window": kin,
                                                  "q": round(f * 2 * h, 5), "source": "model"})
                         s_ = yes / (yes + no)
-                        tr = [r_["s"] for r_ in train if r_["key"] == key]
+                        tr = [r_["s"] for r_ in train_q if r_["key"] == key]
                         mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
                                       "in_own": abs(s_ - t) <= h,
                                       "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),

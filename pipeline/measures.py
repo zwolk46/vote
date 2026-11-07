@@ -31,6 +31,7 @@ import local as L
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 THRESHOLDS = os.path.join(L.REPO, "data", "measure", "thresholds.json")
+LOCAL_THRESHOLDS = os.path.join(L.REPO, "data", "measure", "thresholds-local.json")   # step (b)
 STATEWIDE_COVER = 0.9   # a question filed with the state's offices is statewide when it carries at least this share
                         # of the most precincts any of the state's contests carries that year; and where the source
                         # names counties, the source holds the whole state when the year's contests carry at least
@@ -40,6 +41,9 @@ STATEWIDE_COVER = 0.9   # a question filed with the state's offices is statewide
 _RET_WORDS = re.compile(r"RETENTION|RETAIN")
 _COURT = re.compile(r"\b(JUDGE|JUSTICE|COURT|MAGISTRATE)\b")
 _RET_SUBJECT = re.compile(r"\bBE RETAINED\b")
+# a tax, bond or fee proposition that names a court or justice system ('Parishwide Criminal Justice Proposition, 3.16
+# Mills Renewal'; 'Florida Parishes Juvenile Justice Dist., 3 Mills Ext.': Louisiana 2023-2024) is a measure
+_TAX_WORDS = re.compile(r"\b(MILLS?|MILLAGE|TAX|BONDS?|PARCEL FEE)\b")
 
 
 def kind_of(c):
@@ -50,6 +54,8 @@ def kind_of(c):
     if any(x["name"] in ("RETAIN", "NOT RETAIN", "DO NOT RETAIN") for x in c["candidates"]):
         return "retention"
     if type_of(c) in ("amendment", "statute", "bond", "convention"):
+        return "measure"
+    if _TAX_WORDS.search(office) and not _RET_WORDS.search(office):
         return "measure"
     if _RET_WORDS.search(office) or _COURT.search(office):
         return "retention"
@@ -120,9 +126,16 @@ def type_of(c):
 
 def load_thresholds():
     if not os.path.exists(THRESHOLDS):
-        return {"rules": [], "states": {}}
-    with open(THRESHOLDS) as f:
-        return json.load(f)
+        book = {"rules": [], "states": {}}
+    else:
+        with open(THRESHOLDS) as f:
+            book = json.load(f)
+    if os.path.exists(LOCAL_THRESHOLDS):   # local questions' rules, kept apart (scope "local")
+        with open(LOCAL_THRESHOLDS) as f:
+            loc = json.load(f)
+        book["rules"] = book["rules"] + [dict(r, scope="local") for r in loc["rules"]]
+        book["local_states"] = loc["states"]
+    return book
 
 
 def _in_year(r, year):
@@ -135,7 +148,7 @@ def rule_for(c, kind, book, year):
     state's measures sets the same threshold."""
     st = c["state"]
     states = book.get("states", {})
-    mine = [r for r in book["rules"] if r["state"] == st and _in_year(r, year)]
+    mine = [r for r in book["rules"] if r["state"] == st and _in_year(r, year) and r.get("scope") != "local"]
     if not mine:
         why = (states.get(st) or {}).get("not_read")
         return None, None, (f"the thresholds of this state's {kind}s are not read: {why}" if why else
@@ -183,6 +196,36 @@ def rule_for(c, kind, book, year):
     return _one(general, how)
 
 
+def local_rule_for(c, book, year):
+    """(rule, how, None) or (None, None, the reason p is not computed) for a local question whose place the source
+    shows (step (b): the orchestrator, 2026-11-07 06:16, "local thresholds read from the governing state law or p not
+    computed (never inferred 1/2)"). A local rule names the kind of question it governs and how to know one by its
+    title or ballot words (`match`, a pattern on them, with `match_also` and `dates` where set); the question takes
+    the first rule in the file's order its words match (the rules for one place's own act come before the general
+    law's), and none where they match none. A rule that `hold`s p back says why: the source does not show which law
+    governs the question, or the law read leaves its threshold open."""
+    st = c["state"]
+    mine = [r for r in book["rules"] if r["state"] == st and r.get("scope") == "local" and _in_year(r, year)]
+    if not mine:
+        why = ((book.get("local_states") or {}).get(st) or {}).get("not_read")
+        return None, None, ("the thresholds of this state's local questions are not read" + (f": {why}" if why else
+                                                                                               ""))
+    words = " ".join((c["office"] + " " + (c.get("subject") or "")).upper().split())
+    for r in mine:
+        if (re.search(r["match"], words) and (not r.get("match_also") or re.search(r["match_also"], words))
+                and (not r.get("dates") or (c.get("date") or "") in r["dates"])):
+            break
+    else:
+        return None, None, ("the source's words do not show which kind of local question this is among the kinds "
+                            "whose law was read")
+    if r.get("hold"):
+        return None, None, f"{r['kind']}: {r['hold']}"
+    if r.get("advisory"):
+        return None, None, f"an advisory question: the law read sets no threshold for it ({r['citation']})"
+    return _one([r], f"by the kind the source's words show ({r['kind']})"
+                + (f"; {r['match_note']}" if r.get("match_note") else ""))
+
+
 def _one(rs, how):
     r = rs[0]
     if r.get("compound") or r.get("t") is None:
@@ -205,7 +248,9 @@ def rows(contests, year, ref):
         if yes + no <= 0:
             continue
         out.append({"key": f"{scope} {kind_of(c)}", "s": yes / (yes + no), "n": yes + no,
-                    "year": year, "state": c["state"]})
+                    "year": year, "state": c["state"],
+                    # counted whole: a state's own file that shows the question's place (not MEDSL's by county)
+                    "whole": c.get("source", "medsl") != "medsl"})
     return out
 
 
