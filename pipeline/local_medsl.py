@@ -1272,8 +1272,12 @@ OFFICE_TYPES = [
                          r"NATURAL RESOURCES DISTRICT|PUBLIC SERVICE DISTRICT|\bPSD\b|"
                          r"\b(SERVICES?|TAX|SPECIAL|FACILITIES|RECREATION|SANITATION|TELEVISION|TV|RECLAMATION|"
                          r"MANAGEMENT|POOL) DISTRICT\b"),
+    # a superintendent is one executive seat, not a board, so an officer even of schools (the orchestrator, 2026-11-07
+    # 13:54, from M2's check c24: "a type has to describe the office")
+    ("clerk, treasurer or other county officer", r"^(?=.*(SCHOOL|EDUCATION|INSTRUCTION)).*(\bSUPERINTENDENTS?\b|\bSUPT\b|"
+                                                r"\bSUPER\. OF PUBLIC INSTRUCTION\b)"),
     ("school board", r"SCHOOL|BOARD OF EDUCATION|\bCOLLEGE\b|EDUCATION|UNIVERSITY|REGENT|\bBESE\b|\bBOE\b|"
-                     r"\bLEARNING COMMUNITY\b|\bSUPER\. OF PUBLIC INSTRUCTION\b"),
+                     r"\bLEARNING COMMUNITY\b"),
     # whole words, so that a place's name is not read as the office: Courtland, Courthouse
     ("judge", r"JUDGE|JUSTICE|\bCOURTS?\b|MAGISTRATE|PROBATE|\bSURROGATE\b|\bCT\b|\bJP\b"),
     ("prosecutor", r"ATTORNEY|PROSECUTOR|SOLICITOR"),
@@ -1544,13 +1548,23 @@ def build(out_dir, with_p=True):
     kdens = {}
     pieces = collections.Counter(leg_key(c) + (c["stage"], c["special"]) for c in m[2024]
                                  if c["office"] in LEG and not c["question"])
+    # the state, year and chamber of every legislative contest Klarner's record holds
+    klarner_held = {(k_["state"], k_["year"], int(k_["sen"])) for k_ in klarner}
     for year in YEARS:
         for c in m[year]:
             if c["office"] not in LEG or c["question"]:
                 continue
             level = "state-upper" if LEG[c["office"]] else "state-lower"
+            orphan = False
             if year in KLARNER_CHECKED or year < 2024:
-                continue   # Klarner's 1967-2022 are the record; MEDSL's 2018 and 2022 are its check (check_2022)
+                # Klarner's 1967-2022 are the record; MEDSL's 2018 and 2022 are its check (check_2022). A legislature
+                # filed under its own name (LEG_NAMES) where Klarner's record holds no contest of its state, year and
+                # chamber is written from MEDSL, so that no contest drops out of the record (the orchestrator,
+                # 2026-11-07 13:54: Virginia's 2018 House of Delegates 8th district, "as a special")
+                if not (c.get("office_as_filed") in LEG_NAMES
+                        and (c["state"], year, int(bool(LEG[c["office"]]))) not in klarner_held):
+                    continue
+                orphan, c = True, dict(c, special=True)
             dist = district_no(c["district"]) or (c["district"] if c["district"] not in ("", "STATEWIDE") else None)
             lead = sorted(ballot(c["candidates"]) or c["candidates"], key=lambda x: -x["votes"])
             rec = {"id": cid(f"{year}-{level}-{c['state']}-"
@@ -1572,6 +1586,14 @@ def build(out_dir, with_p=True):
                 rec["notes"] = [c["certified_note"]]
             if c.get("office_as_filed"):
                 rec["office_as_filed"] = c["office_as_filed"].title()
+            if orphan:
+                rec["place"]["counties"] = c["counties"]
+                rec["notes"] = (rec.get("notes") or []) + [
+                    f"a special election: Klarner's record holds {L.STATE_NAMES.get(c['state'], c['state'])}'s "
+                    f"{'senate' if LEG[c['office']] else 'lower house'} in other years but none in {year}, so this "
+                    f"contest fills a vacancy [inferred; MEDSL does not mark it special]; it was filed as a local "
+                    f"office ('{c['office_as_filed'].title()}') and is read as the legislature (data/local/REPORT.md "
+                    f"section 15)"]
             if not dist:
                 rec.setdefault("notes", []).append("the source gives no district number for this contest; it is "
                                                    "pieced together from its precincts' candidates")

@@ -1,6 +1,6 @@
 {
  "about": "for each office type of the local races and primaries in data/local/ and data/primary/, the 20 office names (as filed, in capitals) it holds most often, with their counts of contests; the states' other offices (office_scope state) and the legislature's primaries left out. data/local/REPORT.md section 15.",
- "code_commit": "e46a094",
+ "code_commit": "9bce8d2",
  "types": {
   "council, commission or board": {
    "contests": 23633,
@@ -89,8 +89,8 @@
    ]
   },
   "school board": {
-   "contests": 8502,
-   "names": 3390,
+   "contests": 8330,
+   "names": 3318,
    "top": [
     [
      "MEMBER BOARD OF EDUCATION",
@@ -137,15 +137,7 @@
      40
     ],
     [
-     "COUNTY BOARD OF EDUCATION SUPERINTENDENT",
-     35
-    ],
-    [
      "BOARD OF EDUCATION DISTRICT 4",
-     32
-    ],
-    [
-     "SUPERINTENDENT OF SCHOOLS",
      32
     ],
     [
@@ -161,22 +153,30 @@
      27
     ],
     [
-     "COUNTY SUPERINTENDENT OF SCHOOLS",
-     27
-    ],
-    [
      "SCHOOL BOARD OF TRUSTEES",
      27
     ],
     [
      "SCHOOL TRUSTEE",
      26
+    ],
+    [
+     "BOARD OF EDUCATION DISTRICT 6",
+     20
+    ],
+    [
+     "LOCAL SCHOOL BOARD DISTRICT",
+     20
+    ],
+    [
+     "NEW HANOVER COUNTY BOARD OF EDUCATION",
+     17
     ]
    ]
   },
   "clerk, treasurer or other county officer": {
-   "contests": 7878,
-   "names": 2282,
+   "contests": 8050,
+   "names": 2354,
    "top": [
     [
      "COUNTY TREASURER",
