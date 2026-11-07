@@ -1,5 +1,5 @@
 {
- "about": "Each held statewide question's own ballot text, read in step (a) (the orchestrator's order of 2026-11-07 07:25: 'each statewide measure's own ballot text, for the 85 held back by an exception and the 16 untyped'; by the time it was read, 98 held by an exception and 16 untyped). For each: where its type is read (source, type_quote, type_mark) and what the text shows on the special rule's condition (fact: applies true, false, or null where the text read does not show it; quote, why, mark, source). 114 questions in 12 states, read by four readers on 2026-11-07 between 13:44 and 14:06 UTC; every quote was checked against the file saved when it was read (cache_file, under the cache, not committed), bad: 0. type_as_read and applies_as_read keep a reader's own words where D3 normalised them (type_note, fact.note say why). unread lists every page refused or not reached, none tried another way. Used by pipeline/measures.py (rule_for); data/local/REPORT.md section 19. Written by worker D3 at 2026-11-07 14:22 UTC.",
+ "about": "Each held statewide question's own ballot text, read in step (a) (the orchestrator's order of 2026-11-07 07:25: 'each statewide measure's own ballot text, for the 85 held back by an exception and the 16 untyped'; by the time it was read, 98 held by an exception and 16 untyped). For each: where its type is read (source, type_quote, type_mark) and what the text shows on the special rule's condition (fact: applies true, false, or null where the text read does not show it; quote, why, mark, source). 114 questions in 12 states, read by four readers on 2026-11-07, their pages fetched between 13:45 and 14:01 UTC, and Rhode Island's two other bond projects of the same acts (typed by their titles, held as compound), read by D3 from the pages saved: 116 in all. Every quote was checked against the file saved when it was read (cache_file, under the cache, not committed), bad: 0. type_as_read and applies_as_read keep a reader's own words where D3 normalised them (type_note, fact.note say why). unread lists every page refused or not reached, none tried another way. Used by pipeline/measures.py (rule_for); data/local/REPORT.md section 19. Written by worker D3 at 2026-11-07 14:29 UTC.",
  "questions": {
   "2016-measure-FL-AMENDMENT_NO__2__USE_OF_MARIJUANA_FOR_DEBILITATING_MEDICAL_C": {
    "state": "FL",
@@ -2228,6 +2228,42 @@
    },
    "read_by": "a reader working for worker D3, group G4"
   },
+  "2022-measure-RI-3__GREEN_ECONOMY_BONDS____50_000_000": {
+   "state": "RI",
+   "year": 2022,
+   "title": "3. Green Economy Bonds - $50,000,000",
+   "held_for": "R.I. Const. art. VI, sec. 16: share not stated in art. VI sec. 16 (typed bond by its title; not in the list of 114)",
+   "source": {
+    "name": "Rhode Island General Assembly, Office of Law Revision: Public Laws 2022 ch. 231 (2022-H 7123 Sub A as amended), Article 5 'Relating to Capital Development Program' (the act that put the November 8, 2022 bond questions on the ballot). The Secretary of State's voter handbook was refused (Cloudflare challenge).",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law22/law22231-05.htm",
+    "read_utc": "2026-11-07T13:57Z",
+    "cache_file": "ballot/G4/pages/ri_pl2022_231_05.html"
+   },
+   "listed_in": {
+    "name": "Rhode Island General Assembly, Office of Law Revision: Public Laws 2022 ch. 231 (2022-H 7123 Sub A as amended), Article 5 'Relating to Capital Development Program' (the act that put the November 8, 2022 bond questions on the ballot). The Secretary of State's voter handbook was refused (Cloudflare challenge).",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law22/law22231-05.htm",
+    "read_utc": "2026-11-07T13:57Z",
+    "cache_file": "ballot/G4/pages/ri_pl2022_231_05.html"
+   },
+   "source_title": "Article 5, Section 1, project (3): Green Economy Bonds $50,000,000",
+   "type": "bond",
+   "type_quote": "Shall the action of the general assembly, by an act passed at the January 2022 session, authorizing the issuance of bonds, refunding bonds, and temporary notes of the State of Rhode Island",
+   "type_mark": "stated",
+   "fact": {
+    "applies": true,
+    "quote": "(3) Green Economy Bonds $50,000,000 Approval of this question will allow the State of Rhode Island to issue general obligation bonds",
+    "why": "The act submits to the people a proposition authorizing the issuance of bonds, refunding bonds, and temporary notes of the State of Rhode Island and lists this as project (3), $50,000,000; its Section 3 sets the share for each project. Matched to our question by title and amount.",
+    "mark": "stated",
+    "source": {
+     "name": "Rhode Island General Assembly, Office of Law Revision: Public Laws 2022 ch. 231 (2022-H 7123 Sub A as amended), Article 5 'Relating to Capital Development Program' (the act that put the November 8, 2022 bond questions on the ballot). The Secretary of State's voter handbook was refused (Cloudflare challenge).",
+     "url": "https://webserver.rilegislature.gov/PublicLaws/law22/law22231-05.htm",
+     "read_utc": "2026-11-07T13:57Z",
+     "cache_file": "ballot/G4/pages/ri_pl2022_231_05.html"
+    },
+    "note": "the question is a project of the proposition the act puts to the people; the act's own s.3 sets the share (data/measure/thresholds.json, the act's rule)"
+   },
+   "read_by": "worker D3, from the page the reader of group G4 saved"
+  },
   "2023-measure-LA-CA_NO__1__ACT_200__2023___HB_311___PROHIBITS_THE_USE_OF_PRIV-2023-10-14": {
    "state": "LA",
    "year": 2023,
@@ -4441,6 +4477,42 @@
     "note": "the question is a project of the proposition the act puts to the people; the act's own s.3 sets the share (data/measure/thresholds.json, the act's rule)"
    },
    "read_by": "a reader working for worker D3, group G4"
+  },
+  "2024-measure-RI-STATE_QUESTION_4__GREEN_ECONOMY_BONDS____53_000_000": {
+   "state": "RI",
+   "year": 2024,
+   "title": "State Question 4. Green Economy Bonds - $53,000,000",
+   "held_for": "R.I. Const. art. VI, sec. 16: share not stated in art. VI sec. 16 (typed bond by its title; not in the list of 114)",
+   "source": {
+    "name": "Rhode Island General Assembly, Office of Law Revision: Public Laws 2024 ch. 117 (2024-H 7225 Sub A as amended), Article 5 'Relating to Capital Development Program' (the act that put the November 5, 2024 bond questions on the ballot). The Secretary of State's voter handbook was refused (Cloudflare challenge).",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law24/law24117-05.htm",
+    "read_utc": "2026-11-07T13:57Z",
+    "cache_file": "ballot/G4/pages/ri_pl2024_117_05.html"
+   },
+   "listed_in": {
+    "name": "Rhode Island General Assembly, Office of Law Revision: Public Laws 2024 ch. 117 (2024-H 7225 Sub A as amended), Article 5 'Relating to Capital Development Program' (the act that put the November 5, 2024 bond questions on the ballot). The Secretary of State's voter handbook was refused (Cloudflare challenge).",
+    "url": "https://webserver.rilegislature.gov/PublicLaws/law24/law24117-05.htm",
+    "read_utc": "2026-11-07T13:57Z",
+    "cache_file": "ballot/G4/pages/ri_pl2024_117_05.html"
+   },
+   "source_title": "Article 5, Section 1, project (3): Green Economy Bonds $53,000,000",
+   "type": "bond",
+   "type_quote": "Shall the action of the general assembly, by an act passed at the January 2024 session, authorizing the issuance of bonds, refunding bonds, and temporary notes of the State of Rhode Island",
+   "type_mark": "stated",
+   "fact": {
+    "applies": true,
+    "quote": "(3) Green Economy Bonds $53,000,000 Approval of this question will allow the State of Rhode Island to issue general obligation bonds",
+    "why": "The act submits to the people a proposition authorizing the issuance of bonds, refunding bonds, and temporary notes of the State of Rhode Island and lists this as project (3), $53,000,000; its Section 3 sets the share for each project. Matched to our question by title and amount.",
+    "mark": "stated",
+    "source": {
+     "name": "Rhode Island General Assembly, Office of Law Revision: Public Laws 2024 ch. 117 (2024-H 7225 Sub A as amended), Article 5 'Relating to Capital Development Program' (the act that put the November 5, 2024 bond questions on the ballot). The Secretary of State's voter handbook was refused (Cloudflare challenge).",
+     "url": "https://webserver.rilegislature.gov/PublicLaws/law24/law24117-05.htm",
+     "read_utc": "2026-11-07T13:57Z",
+     "cache_file": "ballot/G4/pages/ri_pl2024_117_05.html"
+    },
+    "note": "the question is a project of the proposition the act puts to the people; the act's own s.3 sets the share (data/measure/thresholds.json, the act's rule)"
+   },
+   "read_by": "worker D3, from the page the reader of group G4 saved"
   },
   "2024-measure-RI-STATE_QUESTION_5__CULTURAL_ARTS_AND_ECONOMY_GRANT_PROGRAM___": {
    "state": "RI",
