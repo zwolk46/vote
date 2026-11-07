@@ -39,18 +39,23 @@ STATEWIDE_COVER = 0.9   # a question filed with the state's offices is statewide
 
 _RET_WORDS = re.compile(r"RETENTION|RETAIN")
 _COURT = re.compile(r"\b(JUDGE|JUSTICE|COURT|MAGISTRATE)\b")
+_RET_SUBJECT = re.compile(r"\bBE RETAINED\b")
 
 
 def kind_of(c):
     """'retention' for a judge's yes-or-no question, else 'measure'. A title that reads as an amendment, a statute,
     a bond or a convention question is a measure even where it names a court ('STATEWIDE AMENDMENT NO. 2 -
     STATEWIDE BUSINESS COURT')."""
-    text = (c["office"] + " " + (c.get("subject") or "")).upper()
+    office, subject = c["office"].upper(), (c.get("subject") or "").upper()
     if any(x["name"] in ("RETAIN", "NOT RETAIN", "DO NOT RETAIN") for x in c["candidates"]):
         return "retention"
     if type_of(c) in ("amendment", "statute", "bond", "convention"):
         return "measure"
-    if _RET_WORDS.search(text) or _COURT.search(text):
+    if _RET_WORDS.search(office) or _COURT.search(office):
+        return "retention"
+    # a ballot text names the judge to be retained; "retain" alone in a text is often a school levy's purpose
+    # ("the retention and attraction of teachers", "retaining ... teachers": Indiana's 2024 school levies) [measured]
+    if _RET_SUBJECT.search(subject) or _COURT.search(subject):
         return "retention"
     return "measure"
 
@@ -75,8 +80,15 @@ def coverage(contests_by_year):
 
 def scope_of(c, ref, year):
     """'statewide', 'partial' (a statewide question in a year whose source holds only part of the state) or
-    'local'."""
-    if c["dataverse"] != "STATE" or (c.get("precincts") or 0) < STATEWIDE_COVER * ref["precincts"][(c["state"], year)]:
+    'local'. A state's own file read by county, with no precinct count (Indiana's, pipeline/local_in.py), is
+    statewide when it covers the state's counties."""
+    if c["dataverse"] != "STATE":
+        return "local"
+    if c.get("precincts") is None and c.get("source") not in (None, "medsl"):
+        known = _known(c["counties"])
+        n = ref["counties"][c["state"]]
+        return "statewide" if n and len(known) >= STATEWIDE_COVER * n else "local"
+    if (c.get("precincts") or 0) < STATEWIDE_COVER * ref["precincts"][(c["state"], year)]:
         return "local"
     known = _known(c["counties"])
     if known and ref["counties"][c["state"]] and len(known) < STATEWIDE_COVER * ref["counties"][c["state"]]:

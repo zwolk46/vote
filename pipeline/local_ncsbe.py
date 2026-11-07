@@ -356,6 +356,10 @@ def _slug(x):
     return L._slug(x)[:70]
 
 
+OWN_COUNTY_NOTE = ("one county's own contest: the State Board's file gives each county's this same name, which carries "
+                   "no place, so it is read as one contest per county (pipeline/intake/ncsbe.py, generic)")
+
+
 def record(c, d, fips, commit):
     year = int(d[:4])
     seats = seats_of(c)
@@ -389,7 +393,7 @@ def record(c, d, fips, commit):
             rec["office_scope"] = scope
         rec["seats"] = seats if (seats or 1) > 1 else None
         rec["result"] = {"candidates": cands_out(c, seats), "total_votes": total, "source": SOURCE_KEY}
-    notes = []
+    notes = [OWN_COUNTY_NOTE] if c.get("own_county") else []
     if not seats and level != "measure":
         notes.append("seats not in the source before 2014: winners not marked")
     if c.get("party_of_names") is not None and not PARTY_SUFFIX.search(c["contest"]):
@@ -499,6 +503,7 @@ def medsl_shape(year):
                     "dataverse": "STATE" if (statewide or STATE_OFFICE.search(base)) else "LOCAL",
                     "office": base, "district": "STATEWIDE" if statewide else "", "subject": None,
                     "magnitude": c.get("vote_for"), "question": c["_level"] == "measure",
+                    "own_county": c.get("own_county") or None,
                     "precincts": c["n_precincts"], "counties": sorted({fips[x] for x in c["counties"] if x in fips}),
                     "candidates": [{"name": x["name"], "votes": x["votes"], "as_named": True,
                                     "party": {"D": "DEMOCRAT", "R": "REPUBLICAN"}.get(_major(x["party"]),

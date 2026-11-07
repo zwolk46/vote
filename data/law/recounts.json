@@ -1,6 +1,6 @@
 {
- "about": "Every state's and the District of Columbia's recount rules (automatic and requested), by kind of office, each read at the state's own code (or marked otherwise). A rule's quotation was verified word for word against the fetched text by pipeline/intake/state_law.py. Written 2026-11-07T07:52Z.",
- "written_utc": "2026-11-07T07:52Z",
+ "about": "Every state's and the District of Columbia's recount rules (automatic and requested), by kind of office, each read at the state's own code (or marked otherwise). A rule's quotation was verified word for word against the fetched text by pipeline/intake/state_law.py. Written 2026-11-07T09:06Z.",
+ "written_utc": "2026-11-07T09:06Z",
  "tie_kinds": [
   "federal",
   "presidential-electors",
@@ -1118,25 +1118,35 @@
   },
   "CT": {
    "name": "Connecticut",
-   "status": "partly-read",
+   "status": "read",
    "code": {
-    "name": "Connecticut General Statutes",
-    "edition": "not read: the text read is the Secretary of the State's Recanvass Procedure Manual, 2012 (Rev. 08/12), which prints sections 9-311a, 9-311b, 9-370a, 9-445 and 9-446 as they stood in 2012; the statutes may have changed since",
-    "site": "https://www.cga.ct.gov/current/pub/chap_148.htm",
-    "reached": false
+    "name": "General Statutes of Connecticut; Constitution of the State of Connecticut",
+    "edition": "General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).",
+    "site": "https://www.cga.ct.gov/current/pub/titles.htm",
+    "reached": true
    },
    "unread": [
     {
-     "what": "the Connecticut General Statutes at the General Assembly's own site: chapter 148 (election canvass and returns, Sec. 9-311a, 9-311b), chapter 149 (contested elections), the tie rule for a general election that survives the recanvass, any recount on request, and the Connecticut Constitution",
-     "reason": "the General Assembly's site answered with a certificate failure: curl reported \"SSL certificate problem: unable to get local issuer certificate\" for https://www.cga.ct.gov/current/pub/chap_148.htm and for https://cga.ct.gov/2025/pub/chap_148.htm, the address the site itself publishes; stopped there and the certificate check was not turned off. The compilation route allowed at 07:21 was closed because Justia refused us with HTTP 403 on its first request (an Alabama page, 07:23Z), so no further request was made to that host.",
-     "url": "https://www.cga.ct.gov/current/pub/chap_148.htm",
-     "tried_at": "2026-11-07T07:28Z"
+     "what": "municipal charters, special acts and ordinances (Sec. 9-188, 9-173 and 9-332 each give way to \"charter\", \"special act\" or other law); the definitions of Sec. 9-1 (\"election\", \"referendum\"); chapters 141, 144a, 145, 145a, 147, 150, 151, 151a and 155 to 158 (not opened); Title 7 (municipalities) and Title 45a (probate courts); the Connecticut Supreme Court and Superior Court rules of procedure; Sec. 9-483 and 9-484 (delegate allocation in a presidential preference primary)",
+     "reason": "outside the sections that the tie and recount rules cite; this reading is of state general law at the General Assembly's site, and the brief names local charters and ordinances as not read. Chapters 146, 148, 149, 152, 153 and 154 were searched for tie, equal-vote, lot, recount and recanvass words and read where those words occur; no other tie or recanvass rule turned up in them. The chapters not opened were not searched."
+    },
+    {
+     "what": "acts passed after the 2026 Supplement's revision date (January 1, 2026), and any change they make to the sections cited",
+     "reason": "neither book the site prints (the General Statutes revised to January 1, 2025, and the 2026 Supplement revised to January 1, 2026) carries them; the site's own note directs readers to the Supplement for the 2025 sessions' changes. Not searched."
+    },
+    {
+     "what": "the Secretary of the State's Recanvass Procedure Manual (Rev. 08/12) and the Secretary's other handbooks",
+     "reason": "no longer used. The earlier file rested wholly on the manual because the General Assembly's site had failed a certificate check. With the certificate chain completed (the orchestrator's ruling), the statutes themselves were read at the site, and every quotation the earlier file took from the manual is found word for word in the statute pages. The manual is a procedure guide for one make of tabulator; the passages checked add no threshold, trigger or request right that the statutes lack, and the rest of it was not re-read for this file."
     }
    ],
    "notes": [
-    "Connecticut is partly read: every rule rests on the Secretary of the State's 2012 Recanvass Procedure Manual, a state agency guide that reproduces the statutes of 2012, so each rule is marked stated and may be out of date.",
-    "Surprise: Connecticut's automatic step is a recanvass of the machine returns, not a hand recount; the earlier lead (recount, then special election three weeks after a general-election tie) was not confirmed. The three-week adjourned primary is a primary tie rule (Sec. 9-446).",
-    "The manual's separate discrepancy recanvass (Sec. 9-311, moderator's call within three days) is not recorded as a recount rule."
+    "Connecticut is read at the General Assembly's own site (www.cga.ct.gov): chapters 146, 148, 149, 152, 153 and 154 of the General Statutes (revised to January 1, 2025), the 2026 Supplement's chapters 146 and 148, and the codified Constitution. The earlier file rested wholly on the Secretary of the State's 2012 Recanvass Procedure Manual [stated]; the manual rules for Sec. 9-311a, 9-311b, 9-370a, 9-445 and 9-446 are replaced by [measured] statute rules, because each manual quotation is found word for word in the statute pages, and the manual is dropped as a section.",
+    "What a tie does depends on the office, which the earlier file could not say. Every tied office is first recanvassed (Sec. 9-311b). After that: Governor, Lieutenant Governor, Secretary of the State, Treasurer, Comptroller and Attorney General go to a ballot of the General Assembly in joint convention (Constitution, Article Fourth, Sec. 4); presidential electors are chosen by lot by the Treasurer, Secretary of the State and Comptroller (Sec. 9-315); state senator, state representative and municipal offices go to an adjourned election three weeks later (Sec. 9-332); probate judge goes to the Governor's writ of election (Sec. 9-218); U.S. Representative falls under Sec. 9-332 by a plain reading of \"any office\" [inferred]; and U.S. Senator is uncertain, because Sec. 9-173 speaks of \"no plurality\" and a Governor's temporary appointment or a special election, and the text does not say whether a tie is that case [inferred]. The earlier lead (recount, then a special election three weeks after a general-election tie) is confirmed for the legislature, local offices and, by reading, U.S. Representative, and does not hold for the statewide executive offices, presidential electors or probate judge.",
+    "Connecticut has no candidate-requested recount in a general election. The automatic step is a recanvass of the returns of the voting tabulators and absentee ballots, triggered by a plurality of less than one-half of one per cent of the votes cast but not more than 2,000, or of less than 20 votes, unless the defeated candidate files a written waiver (Sec. 9-311a); a primary is the same with a 1,000-vote cap (Sec. 9-445); a question has a recanvass at the same margin as an election (Sec. 9-370a). A court may order a hand recount on a complaint (Sec. 9-323, 9-324, 9-328, 9-329a, 9-371b). A tied primary may be recanvassed on a candidate's or a party chairman's application (Sec. 9-446).",
+    "The audit's discrepancy recanvass (Sec. 9-320f(f)) is recorded as an automatic recount rule, with the trigger in words and no percentage: the Secretary of the State orders a recanvass when an audit finds a discrepancy and the margin of victory is less than the discrepancy times the number of voting districts where the race appeared on the ballot. It reaches only offices chosen for the audit [inferred]. The moderator's discrepancy recanvass (Sec. 9-311) is recorded as type other.",
+    "A primary tie is the one place the statutes name a lot after a second vote: a first-primary tie gets an adjourned primary three weeks later among the tied candidates, and a tie at that second primary is dissolved by lot, by the Secretary of the State (state and district offices) or the registrar (municipal offices) (Sec. 9-446). No lot is provided for a general-election tie except for presidential electors.",
+    "Sec. 9-311a and Sec. 9-311 have a 2026 Supplement text (P.A. 25-134, technical changes) and Sec. 9-218 has one (P.A. 25-168); the rules cite the Supplement's text for them and the 2025 revision for the rest. The Supplement's index lists no change to Sec. 9-173, 9-175a, 9-188, 9-315, 9-319, 9-320f, 9-332, 9-370a, 9-371b, 9-372, 9-444 to 9-448 or 9-476.",
+    "The Constitution is on the same site at /asp/Content/constitutions/Constitution_State_CT.pdf, found through the site's constitutions page (https://www.cga.ct.gov/asp/Content/constitutions.asp, linked from the home page). A first guess at an address, https://www.cga.ct.gov/asp/Content/constitutions/CTConstitution.htm, answered HTTP 404 at 2026-11-07T08:13Z and was corrected once from the site's own page. The site answered every other request."
    ],
    "rules": [
     {
@@ -1148,42 +1158,55 @@
       "local"
      ],
      "type": "automatic",
-     "election": "general (regular or special) for state, district and municipal offices",
+     "election": "regular or special election for municipal office; state and district offices on the Secretary of the State's tabulation of the vote",
      "threshold": {
       "percent": 0.5,
-      "percent_of": "the total number of votes cast for the office (for a multiple-opening office, the total number of electors checked as having voted in the state, district, municipality or political subdivision)",
+      "percent_of": "the total number of votes cast for the office (for an office with multiple openings, the total number of electors checked as having voted in the state, district, municipality or political subdivision)",
       "votes": 2000,
       "combine": "lesser-of",
       "inclusive": false,
-      "conditions": "the plurality of the elected candidate over the next highest defeated candidate is less than the one-half percent equivalent but not more than 2,000 votes; a separate alternative (less than twenty votes) is the next rule; the defeated candidate may waive in writing",
-      "in_words": "a plurality of less than one-half of one percent of the votes cast for the office, but not more than two thousand votes, brings a recanvass of the returns"
+      "conditions": "the plurality of the elected candidate over the defeated candidate with the next highest number of votes is less than the one-half percent equivalent AND not more than 2,000 votes (the 2,000 is inclusive); the recanvass is held unless the defeated candidate or candidates file a written waiver; a separate alternative (fewer than 20 votes) is the next rule",
+      "in_words": "a plurality of less than one-half of one per cent of the votes cast for the office, but not more than two thousand votes, brings a recanvass of the returns of the voting tabulators and absentee ballots"
      },
      "who_may_request": [],
-     "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass, with the municipal clerk for a municipal office or with the Secretary of the State for a state or district office",
-     "cost_bearer": "not stated in the text read",
+     "waiver": "the defeated candidate or candidates for the office may file a written statement waiving the recanvass, with the municipal clerk for a municipal office or with the Secretary of the State for a state or district office",
+     "cost_bearer": "not stated in Sec. 9-311a (the municipal clerk notifies the moderator, who causes the recanvass)",
      "sources": [
       {
-       "section": "ct-recanvass-manual-2012",
-       "quote": "when at any such election the plurality of an elected candidate for an office over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast for the office but not more than two thousand votes, or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office unless such defeated candidate or defeated candidates, as the case may be, for such office file a written statement waiving this right to such canvass"
+       "section": "sup-chap148",
+       "quote": "Forthwith after a regular or special election for municipal office, or forthwith upon tabulation of the vote for state and district offices by the Secretary of the State, when at any such election the plurality of an elected candidate for an office over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast for the office but not more than two thousand votes, or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office unless such defeated candidate or defeated candidates, as the case may be, for such office file a written statement waiving this right to such canvass with the municipal clerk in the case of a municipal office, or with the Secretary of the State in the case of a state or district office."
+      },
+      {
+       "section": "sup-chap148",
+       "quote": "state, district and municipal offices shall be as defined in section 9-372 except that the office of presidential elector shall be deemed a state office."
+      },
+      {
+       "section": "chap153",
+       "quote": "“State office” means any office for which all the electors of the state may vote and includes the office of Governor, Lieutenant Governor, Secretary, Treasurer, Comptroller, Attorney General and senator in Congress"
       }
      ],
-     "mark": "stated",
-     "note": "Sec. 9-311a as the 2012 manual prints it, not the current statute. It is a recanvass of the returns of the tabulators and absentee ballots, not a hand recount. The section defines state office to include presidential electors; whether U.S. Senate and House offices fall under \"state or district\" office (Sec. 9-372) was not read, so \"federal\" is [inferred].",
+     "mark": "measured",
+     "note": "Sec. 9-311a, current text (the 2026 Supplement's, P.A. 25-134, technical changes; the 2025 revision prints the same words). Replaces the earlier [stated] reading from the Secretary of the State's 2012 manual: the manual's quotation is found word for word in the statute pages. It is a recanvass of the returns of the tabulators and absentee ballots, not a new election count by hand. U.S. Senator is a \"state office\" by Sec. 9-372(14) and presidential elector by Sec. 9-311a; U.S. Representative is read as a \"district office\" (an office for which only the electors of a district crossing town lines vote, Sec. 9-372(3) and (4)) [inferred]. Arithmetic, [inferred]: the 2,000-vote cap is the lesser limit once an office has 400,000 votes or more; the 20-vote alternative is the larger limit when an office has 4,000 votes or fewer. The section does not preclude judicial proceedings under chapter 149.",
      "source_blocks": {
-      "ct-recanvass-manual-2012": {
-       "name": "Connecticut General Statutes, Connecticut Secretary of the State, Recanvass Procedure Manual (Rev. 08/12), with the text of Conn. Gen. Stat. 9-311a, 9-311b, 9-370a, 9-445, 9-446 as it printed them in 2012",
-       "url": "https://portal.ct.gov/-/media/SOTS/ElectionServices/LEAD_Communications/2020/81420---Recanvass-Procedure-Manual.pdf",
-       "read_utc": "2026-11-07T07:30Z",
+      "sup-chap148": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. 2026 Supplement, Chapter 148: Sec. 9-311 and 9-311a as amended by P.A. 25-134 (technical changes), the current text of the recanvass sections (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/2026/sup/chap_148.htm",
+       "read_utc": "2026-11-07T08:15Z",
        "licence": "state statute; no licence or terms read on the page",
-       "mark": "stated",
-       "via": "state agency guide",
-       "note": "A plain PDF on the Secretary of the State's public site (portal.ct.gov): a documented download. It is a 2012 guide reproducing the statutes of that year, a lower grade than the current statute and possibly out of date.",
-       "sha256": "2046036678c3ab479e683b07291d0088a113fe6d774135bc608df8cde47b0ad3",
-       "origin": {
-        "citation": null,
-        "url": null
-       },
-       "code_year": null
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "7d19b96a772e94cb928e569ed75496ca99debb617b5a3202489f796391179ebd"
+      },
+      "chap153": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 153 (Nominations and Political Parties), revised to January 1, 2025; read for 9-372 (definitions of state office and district office) and 9-444 to 9-448 (determination of the nominee, recanvass on close vote, tie vote, unlocking of tabulators, recount of paper ballots) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_153.htm",
+       "read_utc": "2026-11-07T08:12Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "4113780f1b1d112c803759dd2c25484597436d0f4e5fa926f89543f377724928"
       }
      },
      "quotations_verified": true
@@ -1197,42 +1220,37 @@
       "local"
      ],
      "type": "automatic",
-     "election": "general (regular or special) for state, district and municipal offices",
+     "election": "regular or special election for municipal office; state and district offices on the Secretary of the State's tabulation of the vote",
      "threshold": {
       "percent": null,
       "percent_of": null,
       "votes": 20,
       "combine": null,
       "inclusive": false,
-      "conditions": "the plurality is less than twenty votes; the second alternative of Sec. 9-311a, in addition to the percentage test above; waivable in writing",
-      "in_words": "a plurality of less than twenty votes brings a recanvass of the returns"
+      "conditions": "the plurality of the elected candidate over the defeated candidate with the next highest number of votes is less than twenty votes; the second alternative of Sec. 9-311a, in addition to the percentage test; waivable in writing",
+      "in_words": "a plurality of less than twenty votes brings a recanvass of the returns of the voting tabulators and absentee ballots"
      },
      "who_may_request": [],
-     "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass (with the municipal clerk, or with the Secretary of the State for a state or district office)",
-     "cost_bearer": "not stated in the text read",
+     "waiver": "the defeated candidate or candidates for the office may file a written statement waiving the recanvass, with the municipal clerk for a municipal office or with the Secretary of the State for a state or district office",
+     "cost_bearer": "not stated in Sec. 9-311a",
      "sources": [
       {
-       "section": "ct-recanvass-manual-2012",
-       "quote": "or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office unless such defeated candidate"
+       "section": "sup-chap148",
+       "quote": "or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office"
       }
      ],
-     "mark": "stated",
-     "note": "Sec. 9-311a(2) as printed in 2012. Either alternative triggers the recanvass.",
+     "mark": "measured",
+     "note": "Sec. 9-311a(2), current text. Either alternative brings the recanvass; the first is the previous rule.",
      "source_blocks": {
-      "ct-recanvass-manual-2012": {
-       "name": "Connecticut General Statutes, Connecticut Secretary of the State, Recanvass Procedure Manual (Rev. 08/12), with the text of Conn. Gen. Stat. 9-311a, 9-311b, 9-370a, 9-445, 9-446 as it printed them in 2012",
-       "url": "https://portal.ct.gov/-/media/SOTS/ElectionServices/LEAD_Communications/2020/81420---Recanvass-Procedure-Manual.pdf",
-       "read_utc": "2026-11-07T07:30Z",
+      "sup-chap148": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. 2026 Supplement, Chapter 148: Sec. 9-311 and 9-311a as amended by P.A. 25-134 (technical changes), the current text of the recanvass sections (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/2026/sup/chap_148.htm",
+       "read_utc": "2026-11-07T08:15Z",
        "licence": "state statute; no licence or terms read on the page",
-       "mark": "stated",
-       "via": "state agency guide",
-       "note": "A plain PDF on the Secretary of the State's public site (portal.ct.gov): a documented download. It is a 2012 guide reproducing the statutes of that year, a lower grade than the current statute and possibly out of date.",
-       "sha256": "2046036678c3ab479e683b07291d0088a113fe6d774135bc608df8cde47b0ad3",
-       "origin": {
-        "citation": null,
-        "url": null
-       },
-       "code_year": null
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "7d19b96a772e94cb928e569ed75496ca99debb617b5a3202489f796391179ebd"
       }
      },
      "quotations_verified": true
@@ -1253,35 +1271,30 @@
       "votes": 0,
       "combine": null,
       "inclusive": true,
-      "conditions": "only a tie; no recanvass if all but one of the tied candidates dies, withdraws or is disqualified before the recanvass",
-      "in_words": "only on a tie: there is a recanvass of the returns for the office"
+      "conditions": "only an equality of votes; no recanvass if all but one of the tied candidates dies, withdraws or becomes disqualified before the recanvass",
+      "in_words": "if the electors fail to elect a candidate for any office by reason of an equality of votes, there is a recanvass of the returns for the office"
      },
      "who_may_request": [],
      "waiver": null,
-     "cost_bearer": "not stated in the text read",
+     "cost_bearer": "not stated in Sec. 9-311b",
      "sources": [
       {
-       "section": "ct-recanvass-manual-2012",
-       "quote": "there shall be a recanvass of the returns for such office unless, prior to the time of such recanvass, all but one of the candidates so receiving an equal number of votes dies, withdraws his name or for any reason becomes disqualified to hold such office."
+       "section": "chap148",
+       "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office unless, prior to the time of such recanvass, all but one of the candidates so receiving an equal number of votes dies, withdraws his name or for any reason becomes disqualified to hold such office."
       }
      ],
-     "mark": "stated",
-     "note": "Sec. 9-311b as printed in 2012.",
+     "mark": "measured",
+     "note": "Sec. 9-311b, 2025 revision (not in the 2026 Supplement's index). The recanvass is the step before every tie rule above; what follows it depends on the office. Sec. 9-311a speaks of the plurality of an elected candidate over a defeated candidate, and an exact tie has no elected candidate, which is read as why Sec. 9-311b is a separate section [inferred].",
      "source_blocks": {
-      "ct-recanvass-manual-2012": {
-       "name": "Connecticut General Statutes, Connecticut Secretary of the State, Recanvass Procedure Manual (Rev. 08/12), with the text of Conn. Gen. Stat. 9-311a, 9-311b, 9-370a, 9-445, 9-446 as it printed them in 2012",
-       "url": "https://portal.ct.gov/-/media/SOTS/ElectionServices/LEAD_Communications/2020/81420---Recanvass-Procedure-Manual.pdf",
-       "read_utc": "2026-11-07T07:30Z",
+      "chap148": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 148 (Election Canvass and Returns), Sec. 9-307 to 9-322b, revised to January 1, 2025; read for 9-311 (recanvass for a discrepancy), 9-311a (recanvass on close vote), 9-311b (recanvass on tie vote), 9-315, 9-318 and 9-319 (who counts and declares the votes) and 9-320f (audit and discrepancy recanvass) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_148.htm",
+       "read_utc": "2026-11-07T08:07Z",
        "licence": "state statute; no licence or terms read on the page",
-       "mark": "stated",
-       "via": "state agency guide",
-       "note": "A plain PDF on the Secretary of the State's public site (portal.ct.gov): a documented download. It is a 2012 guide reproducing the statutes of that year, a lower grade than the current statute and possibly out of date.",
-       "sha256": "2046036678c3ab479e683b07291d0088a113fe6d774135bc608df8cde47b0ad3",
-       "origin": {
-        "citation": null,
-        "url": null
-       },
-       "code_year": null
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "ac9038b84a779ded213fc642e5171b14a4cb3fa2871ee8c531eb721e030c0ec9"
       }
      },
      "quotations_verified": true
@@ -1298,35 +1311,30 @@
       "votes": 2000,
       "combine": "lesser-of",
       "inclusive": false,
-      "conditions": "the difference between the Yes and No vote is less than the one-half percent equivalent but not more than 2,000 votes",
-      "in_words": "a Yes-No difference of less than one-half of one percent of the votes cast on the question, and not more than two thousand votes, brings a recanvass"
+      "conditions": "the difference between the Yes and No votes is less than the one-half percent equivalent AND not more than 2,000 votes; no waiver is mentioned; for a regional school district referendum with the vote tabulated as a whole, the district's moderators cause the recanvass on that tabulation",
+      "in_words": "a Yes-No difference of less than one-half of one per cent of the votes cast on the question, but not more than two thousand votes, brings a recanvass of the returns"
      },
      "who_may_request": [],
      "waiver": null,
-     "cost_bearer": "not stated in the text read",
+     "cost_bearer": "not stated in Sec. 9-370a",
      "sources": [
       {
-       "section": "ct-recanvass-manual-2012",
-       "quote": "difference between the “Yes” and “No” vote on a question was less than one-half of one per cent of the total number of votes cast for the question but not more than two thousand votes, the moderator shall proceed forthwith to cause a recanvass of such returns to be made"
+       "section": "chap152",
+       "quote": "In the case of an election or referendum wherein the difference between the \"Yes\" and \"No\" vote on a question was less than one-half of one per cent of the total number of votes cast for the question but not more than two thousand votes, the moderator shall proceed forthwith to cause a recanvass of such returns to be made"
       }
      ],
-     "mark": "stated",
-     "note": "Sec. 9-370a as printed in 2012.",
+     "mark": "measured",
+     "note": "Sec. 9-370a, 2025 revision. It speaks of \"an election or referendum\", of \"the moderator\" and of a regional school district referendum; whether it applies to a statewide question, and how the margin is then measured, is not stated in the section and Sec. 9-1 (definitions) was not read.",
      "source_blocks": {
-      "ct-recanvass-manual-2012": {
-       "name": "Connecticut General Statutes, Connecticut Secretary of the State, Recanvass Procedure Manual (Rev. 08/12), with the text of Conn. Gen. Stat. 9-311a, 9-311b, 9-370a, 9-445, 9-446 as it printed them in 2012",
-       "url": "https://portal.ct.gov/-/media/SOTS/ElectionServices/LEAD_Communications/2020/81420---Recanvass-Procedure-Manual.pdf",
-       "read_utc": "2026-11-07T07:30Z",
+      "chap152": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 152 (Referenda), Sec. 9-369 to 9-371c, revised to January 1, 2025; read for 9-370a (recanvass on close question vote) and 9-371b (complaints to the Superior Court about a referendum) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_152.htm",
+       "read_utc": "2026-11-07T08:12Z",
        "licence": "state statute; no licence or terms read on the page",
-       "mark": "stated",
-       "via": "state agency guide",
-       "note": "A plain PDF on the Secretary of the State's public site (portal.ct.gov): a documented download. It is a 2012 guide reproducing the statutes of that year, a lower grade than the current statute and possibly out of date.",
-       "sha256": "2046036678c3ab479e683b07291d0088a113fe6d774135bc608df8cde47b0ad3",
-       "origin": {
-        "citation": null,
-        "url": null
-       },
-       "code_year": null
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "f09e391691a90f91570d07eb34a94227f420ec51eb9cfb07617f5d23ff84b856"
       }
      },
      "quotations_verified": true
@@ -1336,53 +1344,517 @@
       "primary"
      ],
      "type": "automatic",
-     "election": "primary for state, district or municipal office or town committee",
+     "election": "primary for state, district or municipal office, or for members of a town committee",
      "threshold": {
       "percent": 0.5,
-      "percent_of": "the total number of votes cast at the primary for the office or position",
+      "percent_of": "the total number of votes cast at the primary for the office or position (multiple openings: the total number of electors checked as having voted in the primary in the state, district, municipality or political subdivision)",
       "votes": 1000,
       "combine": "lesser-of",
       "inclusive": false,
-      "conditions": "the plurality is less than the one-half percent equivalent but not more than 1,000 votes, or (a separate alternative) less than twenty votes; waivable in writing within one day after the primary (for a municipal office) or before the Secretary of the State notifies the town clerks (state and district offices)",
-      "in_words": "a primary plurality of less than one-half of one percent of the votes cast, but not more than one thousand votes, or of less than twenty votes, brings a recanvass"
+      "conditions": "the plurality of the elected or nominated candidate over the defeated candidate with the next highest number of votes is less than the one-half percent equivalent AND not more than 1,000 votes (the 1,000 is inclusive); the recanvass is held unless the defeated candidate or candidates file a written waiver (within one day after the primary for a municipal office or town committee; before the Secretary of the State notifies the town clerks, for a state or district office); a separate alternative (fewer than 20 votes) is the next rule",
+      "in_words": "a primary plurality of less than one-half of one per cent of the votes cast, but not more than one thousand votes, brings a recanvass of the returns of the voting tabulators"
      },
      "who_may_request": [],
-     "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass",
-     "cost_bearer": "not stated in the text read",
+     "waiver": "the defeated candidate or candidates may file a written statement waiving the right to the recanvass, with the municipal clerk (municipal office or town committee) or the Secretary of the State (state or district office)",
+     "cost_bearer": "not stated in Sec. 9-445",
      "sources": [
       {
-       "section": "ct-recanvass-manual-2012",
-       "quote": "when the plurality of an elected or nominated candidate over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast at the primary for the office or position but not more than one thousand votes, or (2)"
+       "section": "chap153",
+       "quote": "Forthwith after a primary for nomination to a municipal office or for election of members of a town committee, or forthwith upon tabulation of the vote for a state or district office by the Secretary of the State when the plurality of an elected or nominated candidate over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast at the primary for the office or position but not more than one thousand votes, or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators used in such primary for such office or position unless within one day after the primary, in the case of nomination to a municipal office or for election of members of a town committee, or prior to the time the Secretary of the State notifies the town clerk of state and district offices which qualify for an automatic recanvass, the defeated candidate or defeated candidates, as the case may be, for such office or position file a written statement waiving the right to such recanvass with the municipal clerk in the case of a municipal office or town committee, or with the Secretary of the State in the case of a state or district office."
       }
      ],
-     "mark": "stated",
-     "note": "Sec. 9-445 as printed in 2012.",
+     "mark": "measured",
+     "note": "Sec. 9-445, 2025 revision. Replaces the earlier [stated] reading from the manual; the quotation is found word for word in the statute page. Sec. 9-448 applies Sec. 9-445 to 9-447 to a primary at which paper ballots are used, and the paper ballots are then recounted wherever a recanvass would be held. In a recanvass of a primary the recanvass officials are divided equally, as nearly as may be, among the candidates. Arithmetic, [inferred]: the 1,000-vote cap is the lesser limit once an office has 200,000 votes or more.",
      "source_blocks": {
-      "ct-recanvass-manual-2012": {
-       "name": "Connecticut General Statutes, Connecticut Secretary of the State, Recanvass Procedure Manual (Rev. 08/12), with the text of Conn. Gen. Stat. 9-311a, 9-311b, 9-370a, 9-445, 9-446 as it printed them in 2012",
-       "url": "https://portal.ct.gov/-/media/SOTS/ElectionServices/LEAD_Communications/2020/81420---Recanvass-Procedure-Manual.pdf",
-       "read_utc": "2026-11-07T07:30Z",
+      "chap153": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 153 (Nominations and Political Parties), revised to January 1, 2025; read for 9-372 (definitions of state office and district office) and 9-444 to 9-448 (determination of the nominee, recanvass on close vote, tie vote, unlocking of tabulators, recount of paper ballots) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_153.htm",
+       "read_utc": "2026-11-07T08:12Z",
        "licence": "state statute; no licence or terms read on the page",
-       "mark": "stated",
-       "via": "state agency guide",
-       "note": "A plain PDF on the Secretary of the State's public site (portal.ct.gov): a documented download. It is a 2012 guide reproducing the statutes of that year, a lower grade than the current statute and possibly out of date.",
-       "sha256": "2046036678c3ab479e683b07291d0088a113fe6d774135bc608df8cde47b0ad3",
-       "origin": {
-        "citation": null,
-        "url": null
-       },
-       "code_year": null
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "4113780f1b1d112c803759dd2c25484597436d0f4e5fa926f89543f377724928"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "primary"
+     ],
+     "type": "automatic",
+     "election": "primary for state, district or municipal office, or for members of a town committee",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": 20,
+      "combine": null,
+      "inclusive": false,
+      "conditions": "the plurality is less than twenty votes; the second alternative of Sec. 9-445, in addition to the percentage test; waivable in writing",
+      "in_words": "a primary plurality of less than twenty votes brings a recanvass of the returns of the voting tabulators"
+     },
+     "who_may_request": [],
+     "waiver": "the defeated candidate or candidates may file a written statement waiving the right to the recanvass",
+     "cost_bearer": "not stated in Sec. 9-445",
+     "sources": [
+      {
+       "section": "chap153",
+       "quote": "or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators used in such primary for such office or position"
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-445(2), 2025 revision.",
+     "source_blocks": {
+      "chap153": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 153 (Nominations and Political Parties), revised to January 1, 2025; read for 9-372 (definitions of state office and district office) and 9-444 to 9-448 (determination of the nominee, recanvass on close vote, tie vote, unlocking of tabulators, recount of paper ballots) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_153.htm",
+       "read_utc": "2026-11-07T08:12Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "4113780f1b1d112c803759dd2c25484597436d0f4e5fa926f89543f377724928"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "primary"
+     ],
+     "type": "requested",
+     "election": "primary at which two or more candidates have the same and the highest number of votes",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": 0,
+      "combine": null,
+      "inclusive": true,
+      "conditions": "only a tie: for a state or district office, or the municipal office of state senator or state representative, any tied candidate or the state chairman of the political party may apply; for other municipal offices, town committee members or justice of the peace slates, any tied candidate or the town chairman of the political party may apply; the recanvass is in the manner of Sec. 9-445",
+      "in_words": "on a tie at a primary, a tied candidate or the party chairman may apply for a recanvass of the returns"
+     },
+     "who_may_request": [
+      "any of the tied candidates, or the state chairman of the political party (state or district office, or municipal office of state senator or state representative)",
+      "any of the tied candidates, or the town chairman of the political party (other municipal offices, town committee members, justice of the peace slates)"
+     ],
+     "cost_bearer": "not stated in Sec. 9-446",
+     "sources": [
+      {
+       "section": "chap153",
+       "quote": "If two or more candidates obtain the same and the highest total number of votes at a primary held to nominate candidates for a state or district office or the municipal office of state senator or state representative, and a tie vote thereby occurs, any of such candidates, or the state chairman of the political party, may apply for a recanvass of the returns"
+      },
+      {
+       "section": "chap153",
+       "quote": "any of such candidates, or the town chairman of the political party, may apply for a recanvass of the returns"
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-446(a) and (b). If no one applies, or the recanvass ties, the adjourned primary follows (see the primary tie rules).",
+     "source_blocks": {
+      "chap153": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 153 (Nominations and Political Parties), revised to January 1, 2025; read for 9-372 (definitions of state office and district office) and 9-444 to 9-448 (determination of the nominee, recanvass on close vote, tie vote, unlocking of tabulators, recount of paper ballots) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_153.htm",
+       "read_utc": "2026-11-07T08:12Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "4113780f1b1d112c803759dd2c25484597436d0f4e5fa926f89543f377724928"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "federal",
+      "presidential-electors",
+      "statewide",
+      "state-legislative",
+      "local",
+      "primary"
+     ],
+     "type": "automatic",
+     "election": "general election or primary for an office subject to the post-election audit (Sec. 9-320f(b))",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": false,
+      "conditions": "after the manual or electronic audit of at least five per cent of the voting districts, a \"discrepancy\" exists (a difference between the tabulator count and the audit count in a voting district that exceeds one-half of one per cent of the lesser of the two counts, and cannot be resolved by an accounting of improperly marked ballots) AND the margin of victory in the race is less than the amount of the discrepancy multiplied by the total number of voting districts where the race appeared on the ballot; only for the offices selected for the audit",
+      "in_words": "the Secretary of the State orders a discrepancy recanvass of an office when an audit finds a discrepancy and the margin of victory is less than the discrepancy times the number of voting districts where the race appeared"
+     },
+     "who_may_request": [],
+     "waiver": null,
+     "cost_bearer": "not stated for the recanvass; election officials who take part in the audit are paid by the municipality at its standard election rate (Sec. 9-320f(a))",
+     "sources": [
+      {
+       "section": "chap148",
+       "quote": "the Secretary of the State shall order a discrepancy recanvass of the returns of an election or primary for any office if a discrepancy, as defined in subsection (o) of this section, exists where the margin of victory in the race for such office is less than the amount of the discrepancy multiplied by the total number of voting districts where such race appeared on the ballot"
+      },
+      {
+       "section": "chap148",
+       "quote": "the State Elections Enforcement Commission shall order a discrepancy recanvass if a discrepancy, as defined by subsection (o) of this section, has occurred that could affect the outcome of the election or primary for such office."
+      },
+      {
+       "section": "chap148",
+       "quote": "\"discrepancy\" means any difference in vote totals between tabulator counts from an election or primary and manual or electronic counts from an audit described in subsection (a) of this section in a voting district that exceeds one-half of one per cent of the lesser amount of the vote totals between such tabulator counts and such manual or electronic counts where such differences cannot be resolved through an accounting of ballots that were not marked properly"
+      },
+      {
+       "section": "chap148",
+       "quote": "The offices subject to an audit pursuant to this section shall be, (1) in the case of an election where the office of presidential elector is on the ballot, all offices required to be audited by federal law, plus one additional office selected in a random drawing by the Secretary of the State, but in no case less than three offices"
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-320f(f), the audit's discrepancy recanvass: it is a recount rule in the sense that no one asks and a recanvass of the returns is ordered, but its trigger is not a margin percentage; it depends on what a sampled audit finds, so a close race with a clean audit has none. The Secretary of the State orders it; in a year in which the Secretary is a candidate for an audited office, the State Elections Enforcement Commission orders it (the discrepancy then only needs to be one that could affect the outcome). The statute says \"for any office\", but a discrepancy is defined by an audit, so it reaches only audited offices [inferred]. Which offices are audited is set by Sec. 9-320f(b): where presidential electors or the Governor are on the ballot, the offices required to be audited by federal law plus one drawn at random by the Secretary of the State, never fewer than three; at a municipal election, three offices or twenty per cent of those on the ballot, whichever is greater; at a primary, the offices required by federal law plus one, never less than twenty per cent of those on the ballot. The audit covers at least five per cent of the voting districts, drawn at random by the Secretary of the State. \"The amount of the discrepancy\" is read as the vote difference found in the audited district [inferred]. The audit report may be used as prima facie evidence of a discrepancy in a chapter 149 contest (Sec. 9-320f(h)). The section's recanvass rests on Sec. 9-311's procedure (\"Notwithstanding the provisions of section 9-311\").",
+     "source_blocks": {
+      "chap148": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 148 (Election Canvass and Returns), Sec. 9-307 to 9-322b, revised to January 1, 2025; read for 9-311 (recanvass for a discrepancy), 9-311a (recanvass on close vote), 9-311b (recanvass on tie vote), 9-315, 9-318 and 9-319 (who counts and declares the votes) and 9-320f (audit and discrepancy recanvass) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_148.htm",
+       "read_utc": "2026-11-07T08:07Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "ac9038b84a779ded213fc642e5171b14a4cb3fa2871ee8c531eb721e030c0ec9"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "federal",
+      "presidential-electors",
+      "statewide",
+      "state-legislative",
+      "local"
+     ],
+     "type": "other",
+     "election": "any election (general or municipal)",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": null,
+      "conditions": "it appears to the moderator, within three days after the election, that there is a discrepancy in the returns of any voting district; no margin is required; the recanvass officials meet not later than the fifth business day after the election",
+      "in_words": "the moderator who finds a discrepancy in a voting district's returns within three days after an election summons the recanvass officials to recanvass the returns of the tabulators, absentee ballots or write-in ballots"
+     },
+     "who_may_request": [],
+     "waiver": null,
+     "cost_bearer": "not stated in Sec. 9-311",
+     "sources": [
+      {
+       "section": "sup-chap148",
+       "quote": "If, within three days after an election, it appears to the moderator that there is a discrepancy in the returns of any voting district, such moderator shall forthwith within said period summon, by written notice delivered personally, the recanvass officials"
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-311(a), current text (the 2026 Supplement's, P.A. 25-134, technical changes). Not a margin-based recount: the moderator's finding of a discrepancy in one district's returns starts a recanvass of that district. The earlier file left it out; it is recorded as type other, since neither the candidates nor a margin set it off. Sec. 9-311 is also the procedure that Sec. 9-311a, 9-370a and 9-445 point to, and its subsection (c) says that the recanvass return is substituted for the original return and has the same force and effect.",
+     "source_blocks": {
+      "sup-chap148": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. 2026 Supplement, Chapter 148: Sec. 9-311 and 9-311a as amended by P.A. 25-134 (technical changes), the current text of the recanvass sections (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/2026/sup/chap_148.htm",
+       "read_utc": "2026-11-07T08:15Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "7d19b96a772e94cb928e569ed75496ca99debb617b5a3202489f796391179ebd"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "federal",
+      "presidential-electors"
+     ],
+     "type": "court",
+     "election": "general election for presidential electors, U.S. Senator and U.S. Representative",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": null,
+      "conditions": "an elector or candidate aggrieved by an election official's ruling, or claiming a mistake in the count of the votes cast at a voting district in the elector's or candidate's town, brings a complaint to a Supreme Court judge no later than fourteen days after the election (seven days after the close of a manual audit tabulation under Sec. 9-320f); the judge sits with two other Supreme Court judges and, if sufficient reason is shown, may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+      "in_words": "a Supreme Court judge, with two others, may order a recount of the votes, including absentee ballots, on a complaint of an aggrieved elector or candidate if sufficient reason is shown"
+     },
+     "who_may_request": [
+      "any elector or candidate who claims to be aggrieved by a ruling of an election official in connection with the election, or that there was a mistake in the count of the votes at a voting district in the elector's or candidate's town"
+     ],
+     "cost_bearer": "the complainant gives a bond for the payment of costs, and the judges order payment of costs as equitable (Sec. 9-327)",
+     "sources": [
+      {
+       "section": "chap149",
+       "quote": "If sufficient reason is shown, such judges may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+      },
+      {
+       "section": "chap149",
+       "quote": "Any elector or candidate who claims that he or she is aggrieved by any ruling of any election official in connection with any election for presidential electors and for a senator in Congress and for representative in Congress or any of them"
+      },
+      {
+       "section": "chap149",
+       "quote": "shall give a good and sufficient bond for prosecution for the payment of costs, and the judge or judges hearing such application shall make such order regarding the payment of the costs in such action as may be equitable"
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-323 (and Sec. 9-327 for the bond). The judges may also order a new election or a change in the election schedule, provided the order complies with Section 302 of the Help America Vote Act. A primary is not an \"election\" for Sec. 9-323, according to a court annotation printed with the section; that is not statute text. Sec. 9-330 lets such a judge order the examination and testing of tabulators.",
+     "source_blocks": {
+      "chap149": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 149 (Elections and Primaries: Contested), Sec. 9-323 to 9-332, revised to January 1, 2025; read for the court complaints that may order a recount (9-323, 9-324, 9-327, 9-328, 9-329a) and 9-332 (adjourned election in tie vote) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_149.htm",
+       "read_utc": "2026-11-07T08:12Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "a099c58b9e54e5ec5d9874825d465429950a91673801cb29df9ba7f003536e36"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "statewide",
+      "local"
+     ],
+     "type": "court",
+     "election": "general election for Governor, Lieutenant Governor, Secretary of the State, State Treasurer, Attorney General, State Comptroller or judge of probate",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": null,
+      "conditions": "an elector or candidate aggrieved by an election official's ruling, or claiming a mistake in the count of the votes at a voting district in the elector's or candidate's town, brings a complaint to a Superior Court judge no later than fourteen days after the election (seven days after the close of a manual audit tabulation under Sec. 9-320f); if sufficient reason is shown the judge may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+      "in_words": "a Superior Court judge may order a recount of the votes, including absentee ballots, on a complaint of an aggrieved elector or candidate if sufficient reason is shown"
+     },
+     "who_may_request": [
+      "any elector or candidate who claims to be aggrieved by a ruling of an election official in connection with the election, or that there was a mistake in the count of the votes at a voting district in the elector's or candidate's town"
+     ],
+     "cost_bearer": "the complainant gives a bond for the payment of costs, and the judge orders payment of costs as equitable (Sec. 9-327)",
+     "sources": [
+      {
+       "section": "chap149",
+       "quote": "Any elector or candidate who claims that such elector or candidate is aggrieved by any ruling of any election official in connection with any election for Governor, Lieutenant Governor, Secretary of the State, State Treasurer, Attorney General, State Comptroller or judge of probate"
+      },
+      {
+       "section": "chap149",
+       "quote": "If sufficient reason is shown, such judge may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-324. The judge certifies the finding to the Secretary of the State before the fifteenth day of the next December; a question of law may go to the Supreme Court (Sec. 9-325). A court annotation printed with the section says a Superior Court judge may not order a recount of ballots for state legislators; Sec. 9-323, 9-324 and 9-328 do not name state senators or representatives, so no court-ordered recount route for a state legislative general election was found in them [inferred]; Article Third, Sec. 7 of the Constitution makes each house the final judge of its members' returns.",
+     "source_blocks": {
+      "chap149": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 149 (Elections and Primaries: Contested), Sec. 9-323 to 9-332, revised to January 1, 2025; read for the court complaints that may order a recount (9-323, 9-324, 9-327, 9-328, 9-329a) and 9-332 (adjourned election in tie vote) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_149.htm",
+       "read_utc": "2026-11-07T08:12Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "a099c58b9e54e5ec5d9874825d465429950a91673801cb29df9ba7f003536e36"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "local",
+      "primary"
+     ],
+     "type": "court",
+     "election": "election for a municipal office, or a primary for justice of the peace",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": null,
+      "conditions": "an elector or candidate aggrieved by an election official's ruling, or claiming a mistake in the count of the votes cast for the office, brings a complaint to a Superior Court judge no later than fourteen days after the election or primary (seven days after the close of a manual audit tabulation); if sufficient reason is shown the judge may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+      "in_words": "a Superior Court judge may order a recount of the votes, including absentee ballots, on a complaint of an aggrieved elector or candidate if sufficient reason is shown"
+     },
+     "who_may_request": [
+      "any elector or candidate claiming to have been aggrieved by a ruling of an election official in connection with an election for municipal office or a primary for justice of the peace, or claiming a mistake in the count of the votes cast for the office"
+     ],
+     "cost_bearer": "the complainant gives a bond for the payment of costs, and the judge orders payment of costs as equitable (Sec. 9-327)",
+     "sources": [
+      {
+       "section": "chap149",
+       "quote": "Any elector or candidate claiming to have been aggrieved by any ruling of any election official in connection with an election for any municipal office or a primary for justice of the peace, or any elector or candidate claiming that there has been a mistake in the count of votes cast for any such office at such election or primary"
+      },
+      {
+       "section": "chap149",
+       "quote": "If sufficient reason is shown, he may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-328. The judge may order a new election or primary or a change in the election schedule. \"Municipal office\" is defined in Sec. 9-372(7); an annotation printed with the section says a state House seat is not a \"municipal office\" for it (not statute text).",
+     "source_blocks": {
+      "chap149": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 149 (Elections and Primaries: Contested), Sec. 9-323 to 9-332, revised to January 1, 2025; read for the court complaints that may order a recount (9-323, 9-324, 9-327, 9-328, 9-329a) and 9-332 (adjourned election in tie vote) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_149.htm",
+       "read_utc": "2026-11-07T08:12Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "a099c58b9e54e5ec5d9874825d465429950a91673801cb29df9ba7f003536e36"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "primary"
+     ],
+     "type": "court",
+     "election": "primary held under Sec. 9-423, 9-425 or 9-464 (Sec. 9-464 is in the presidential preference primary chapter), or under a special act",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": null,
+      "conditions": "an elector or candidate aggrieved by an election official's ruling, alleging a mistake in the count of the votes cast, or a candidate aggrieved by a violation of the absentee ballot sections, brings a complaint to a Superior Court judge no later than fourteen days after the primary (seven days after the close of a manual audit tabulation); after a hearing, if sufficient reason is shown, the judge may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+      "in_words": "a Superior Court judge may, after a hearing, order a recount of the votes cast at a primary, including absentee ballots, on a complaint of an aggrieved elector or candidate if sufficient reason is shown"
+     },
+     "who_may_request": [
+      "any elector or candidate aggrieved by a ruling of an election official in connection with the primary",
+      "any elector or candidate who alleges that there has been a mistake in the count of the votes cast at the primary"
+     ],
+     "cost_bearer": "the complainant gives a bond for the payment of costs, and the judge orders payment of costs as equitable (Sec. 9-327)",
+     "sources": [
+      {
+       "section": "chap149",
+       "quote": "(2) elector or candidate who alleges that there has been a mistake in the count of the votes cast at such primary"
+      },
+      {
+       "section": "chap149",
+       "quote": "If, after hearing, sufficient reason is shown, such judge may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-329a (formerly Sec. 9-449). The judge may determine the result of the primary, change the primary schedule, or order a new primary if the result might have been different and the judge is unable to determine it. Primaries for justice of the peace are under Sec. 9-328.",
+     "source_blocks": {
+      "chap149": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 149 (Elections and Primaries: Contested), Sec. 9-323 to 9-332, revised to January 1, 2025; read for the court complaints that may order a recount (9-323, 9-324, 9-327, 9-328, 9-329a) and 9-332 (adjourned election in tie vote) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_149.htm",
+       "read_utc": "2026-11-07T08:12Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "a099c58b9e54e5ec5d9874825d465429950a91673801cb29df9ba7f003536e36"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "measure"
+     ],
+     "type": "court",
+     "election": "referendum",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": null,
+      "conditions": "a person claiming to be aggrieved by an election official's ruling in connection with a referendum, or claiming a mistake in the count of the votes cast for it, brings a complaint to a Superior Court judge within thirty days after the referendum; if sufficient reason is shown the judge may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+      "in_words": "a Superior Court judge may order a recount of the votes on a referendum, including absentee ballots, on a complaint of an aggrieved person if sufficient reason is shown"
+     },
+     "who_may_request": [
+      "any person claiming to have been aggrieved by a ruling of an election official in connection with a referendum, or claiming a mistake in the count of the votes cast for a referendum"
+     ],
+     "cost_bearer": "not stated in Sec. 9-371b (the bond-for-costs section, Sec. 9-327, does not list it)",
+     "sources": [
+      {
+       "section": "chap152",
+       "quote": "Any person (1) claiming to have been aggrieved by any ruling of any election official in connection with a referendum, (2) claiming that there has been a mistake in the count of votes cast for a referendum"
+      },
+      {
+       "section": "chap152",
+       "quote": "If sufficient reason is shown, such judge may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+      }
+     ],
+     "mark": "measured",
+     "note": "Sec. 9-371b. The judge may order a new referendum or a change in the referendum schedule. Whether \"referendum\" reaches a statewide question is not stated in the chapter read (Sec. 9-1 was not read).",
+     "source_blocks": {
+      "chap152": {
+       "name": "General Statutes of Connecticut; Constitution of the State of Connecticut, Conn. Gen. Stat. Chapter 152 (Referenda), Sec. 9-369 to 9-371c, revised to January 1, 2025; read for 9-370a (recanvass on close question vote) and 9-371b (complaints to the Superior Court about a referendum) (General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).)",
+       "url": "https://www.cga.ct.gov/current/pub/chap_152.htm",
+       "read_utc": "2026-11-07T08:12Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": null,
+       "sha256": "f09e391691a90f91570d07eb34a94227f420ec51eb9cfb07617f5d23ff84b856"
       }
      },
      "quotations_verified": true
     }
    ],
    "sections": {
-    "ct-recanvass-manual-2012": {
-     "citation": "Connecticut Secretary of the State, Recanvass Procedure Manual (Rev. 08/12), with the text of Conn. Gen. Stat. 9-311a, 9-311b, 9-370a, 9-445, 9-446 as it printed them in 2012",
-     "url": "https://portal.ct.gov/-/media/SOTS/ElectionServices/LEAD_Communications/2020/81420---Recanvass-Procedure-Manual.pdf",
-     "read_at": "state agency guide",
-     "note": "A plain PDF on the Secretary of the State's public site (portal.ct.gov): a documented download. It is a 2012 guide reproducing the statutes of that year, a lower grade than the current statute and possibly out of date."
+    "title09": {
+     "citation": "General Statutes of Connecticut, Title 9 (Elections): the chapter index (chapters 141 to 158), read to find the chapters on canvass, contested elections, referenda, nominations and the presidential preference primary",
+     "url": "https://www.cga.ct.gov/current/pub/title_09.htm",
+     "read_at": "state"
+    },
+    "sup-title09": {
+     "citation": "2026 Supplement to the General Statutes, Title 9 index: the sections of Title 9 amended, repealed or added in the 2025 sessions",
+     "url": "https://www.cga.ct.gov/2026/sup/title_09.htm",
+     "read_at": "state"
+    },
+    "chap148": {
+     "citation": "Conn. Gen. Stat. Chapter 148 (Election Canvass and Returns), Sec. 9-307 to 9-322b, revised to January 1, 2025; read for 9-311 (recanvass for a discrepancy), 9-311a (recanvass on close vote), 9-311b (recanvass on tie vote), 9-315, 9-318 and 9-319 (who counts and declares the votes) and 9-320f (audit and discrepancy recanvass)",
+     "url": "https://www.cga.ct.gov/current/pub/chap_148.htm",
+     "read_at": "state"
+    },
+    "sup-chap148": {
+     "citation": "Conn. Gen. Stat. 2026 Supplement, Chapter 148: Sec. 9-311 and 9-311a as amended by P.A. 25-134 (technical changes), the current text of the recanvass sections",
+     "url": "https://www.cga.ct.gov/2026/sup/chap_148.htm",
+     "read_at": "state"
+    },
+    "chap149": {
+     "citation": "Conn. Gen. Stat. Chapter 149 (Elections and Primaries: Contested), Sec. 9-323 to 9-332, revised to January 1, 2025; read for the court complaints that may order a recount (9-323, 9-324, 9-327, 9-328, 9-329a) and 9-332 (adjourned election in tie vote)",
+     "url": "https://www.cga.ct.gov/current/pub/chap_149.htm",
+     "read_at": "state"
+    },
+    "chap146": {
+     "citation": "Conn. Gen. Stat. Chapter 146 (Elections), revised to January 1, 2025; read for 9-173 (plurality required for election), 9-175a (National Popular Vote agreement), 9-188 (first selectman, tie vote) and 9-218 (probate judge); the rest of the chapter was searched for tie and recanvass words",
+     "url": "https://www.cga.ct.gov/current/pub/chap_146.htm",
+     "read_at": "state"
+    },
+    "sup-chap146": {
+     "citation": "Conn. Gen. Stat. 2026 Supplement, Chapter 146: Sec. 9-218 (probate judge) as amended by P.A. 25-168, the current text",
+     "url": "https://www.cga.ct.gov/2026/sup/chap_146.htm",
+     "read_at": "state"
+    },
+    "chap152": {
+     "citation": "Conn. Gen. Stat. Chapter 152 (Referenda), Sec. 9-369 to 9-371c, revised to January 1, 2025; read for 9-370a (recanvass on close question vote) and 9-371b (complaints to the Superior Court about a referendum)",
+     "url": "https://www.cga.ct.gov/current/pub/chap_152.htm",
+     "read_at": "state"
+    },
+    "chap153": {
+     "citation": "Conn. Gen. Stat. Chapter 153 (Nominations and Political Parties), revised to January 1, 2025; read for 9-372 (definitions of state office and district office) and 9-444 to 9-448 (determination of the nominee, recanvass on close vote, tie vote, unlocking of tabulators, recount of paper ballots)",
+     "url": "https://www.cga.ct.gov/current/pub/chap_153.htm",
+     "read_at": "state"
+    },
+    "chap154": {
+     "citation": "Conn. Gen. Stat. Chapter 154 (Presidential Preference Primary), Sec. 9-463 to 9-486, revised to January 1, 2025; searched for tie and recanvass words and read for 9-476 (conduct of primary)",
+     "url": "https://www.cga.ct.gov/current/pub/chap_154.htm",
+     "read_at": "state"
+    },
+    "constitution": {
+     "citation": "Constitution of the State of Connecticut, codified text incorporating all extant amendments (through Article XXXV): Article Third, Sec. 7 (canvass of legislators' votes; ties; each house the judge of its members), Article Fourth, Sec. 4 (canvass and tie for the six state executive offices), Article Twelfth and Article Thirteenth, Sec. 2 (amendment and convention votes)",
+     "url": "https://www.cga.ct.gov/asp/Content/constitutions/Constitution_State_CT.pdf",
+     "read_at": "state"
     }
    }
   },
@@ -2786,13 +3258,13 @@
    "unread": [
     {
      "what": "Illinois Election Code, 10 ILCS 5: the sections on tie votes and on recounts. Leads from the titles of search results, not read: 5/22-12 ('Declaration of winners for city or town offices - Tie votes'), 5/23-27 ('Finding of tie vote upon recount - Decision by lot'), and 5/22-3, 5/22-4, 5/7-59 and the Article 22 and 23 recount sections",
-     "reason": "'NOT READ: curl failed for https://www.ilga.gov/legislation/ilcs/documents/001000050K22-3.htm: curl: (60) SSL certificate problem: unable to get local issuer certificate'; the same message for the same path at https://ilga.gov/ (the host without 'www', the address that the search result itself gave). Certificate verification was not bypassed. No Illinois State Board of Elections guide that states the tie or recount rules was found: the 2025 Precinct Election Manual and the 2027 Candidate's Guide (both on elections.il.gov, read whole) contain no recount or tie text. Justia, the compilation the orchestrator allowed, refused us (HTTP 403 at its first request, for Georgia) and was not tried again; Cornell LII carries no Illinois statutes text.",
+     "reason": "After the orchestrator's ruling of 2026-11-07 08:00 UTC the certificate chain was completed (`state_law.py chain www.ilga.gov`: the intermediate 'Sectigo Public Server Authentication CA OV R40' fetched from the CA Issuers address in the server's own certificate, http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR40.crt, and `openssl verify` found the server's certificate chaining to a root in the system bundle; verification was not turned off). With the chain complete the site answered HTTP 403: for https://www.ilga.gov/legislation/ilcs/documents/001000050K22-3.htm (the address the earlier reader had), at 2026-11-07T08:07Z, and the first guess, https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=170&ChapterID=3, also 403. A 403 that recurs on a corrected address is a refusal (briefs/_COMMON.md 13): stopped, not tried another way. Before that the reader found: no Illinois State Board of Elections guide that states the tie or recount rules (the 2025 Precinct Election Manual and the 2027 Candidate's Guide, both on elections.il.gov, read whole, contain no recount or tie text). Justia, the compilation the orchestrator allowed, refused us (HTTP 403 at its first request, for Georgia) and was not tried again; Cornell LII carries no Illinois statutes text.",
      "url": "https://www.ilga.gov/legislation/ilcs/documents/001000050K22-3.htm",
-     "tried_utc": "2026-11-07T07:26Z"
+     "tried_utc": "2026-11-07T08:07Z"
     }
    ],
    "notes": [
-    "Illinois is unread. When a way to read the ILGA site (a working certificate chain) or another allowed publisher is available, the sections to read are the Election Code's Articles 7 (primaries), 22 (canvass, declaration of winners, discovery recount) and 23 (recount and tie), and 65 ILCS 5 (municipal code) for city offices."
+    "Illinois is unread. The ILGA site, with its certificate chain completed, answers HTTP 403 to curl (recorded, not worked round). If the orchestrator finds another allowed publisher, the sections to read are the Election Code's Articles 7 (primaries), 22 (canvass, declaration of winners, discovery recount) and 23 (recount and tie), and 65 ILCS 5 (municipal code) for city offices."
    ],
    "rules": [],
    "sections": {}
@@ -5727,32 +6199,43 @@
    "name": "Mississippi",
    "status": "partly-read",
    "code": {
-    "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code)",
-    "edition": "the Secretary of State's PDF of Chapter 15, printed with the 2017 session laws (every page footer reads '2017 By the State of Mississippi and Matthew Bender & Company'); later amendments are not in it",
-    "site": "the state's own code site is not open to us (see unread); text read in the Secretary of State's PDF https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf",
+    "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), and sections 140 to 143 of the Mississippi Constitution of 1890",
+    "edition": "not read as a Code: the Code's own publisher (LexisNexis, linked from the Legislature's home page) was not requested. Each section is read, where possible, in the text of the Act of the Legislature that last printed it, on the Legislature's bill-status host: HB 467 of 2017 (the Election Code revision, in force 1 July 2017), SB 2144 of 2024, HB 293 and HB 291 of 2025; the Constitution only as the Legislature's proposal HC 47 of 2020. Sections for which no printing act was found are read in the Secretary of State's PDF of Chapter 15 printed with the 2017 session laws, a lower grade. Acts of 2018 to 2026 were looked through for later changes (see notes).",
+    "site": "https://billstatus.ls.state.ms.us/ (bill and resolution texts of the Mississippi Legislature); https://www.legislature.ms.gov/",
     "reached": false
    },
    "unread": [
     {
-     "what": "the Mississippi Constitution, sections 140 and 141 (the election of the Governor and statewide officers, and what happens on a tie), and section 273 (initiative) for a tie on a measure",
-     "reason": "sos.state.ms.us/ed_pubs/constitution/constitution.asp answered 'HTTP 403'; the legislature's host billstatus.ls.state.ms.us answered 'curl: (60) SSL certificate problem: unable to get local issuer certificate' (for the 2020 resolution HC 47 that changed sections 140 and 141); the Blue Book page on www.sos.ms.gov (publications-external-affairs/publications) answered 'HTTP 403'; not retried, per the stop-at-first-refusal rule",
-     "url": "https://www.sos.state.ms.us/ed_pubs/constitution/constitution.asp",
-     "tried_at": "about 2026-11-07T07:40Z"
+     "what": "the Mississippi Constitution of 1890 as it now stands: sections 140 and 141 (with 142 and 143) after the vote of 3 November 2020 on the Legislature's resolution HC 47, and section 273 (initiative and amendment) for a tie on a measure",
+     "reason": "The Legislature's hosts carry the text of HC 47, which proposes the change (read, section ms-hc47-2020), but not the Constitution nor the result of the vote: the menu of https://www.legislature.ms.gov/ (read 2026-11-07T08:12Z) and its sitemap (https://www.legislature.ms.gov/sitemap/, 2026-11-07T08:23Z) list no page of either. The Legislature's 2023 act on the runoff for state officers (HB 1276, 23-15-193) and the 2024 and 2025 acts after it say that 'the state officers shall be elected in the manner prescribed in Section 140 of the Constitution' and provide the runoff that HC 47 leaves to general law, which is consistent with the voters having adopted HC 47, but is not the result [inferred]. The earlier reader's attempts: https://www.sos.state.ms.us/ed_pubs/constitution/constitution.asp answered 'HTTP 403' and the Blue Book page on www.sos.ms.gov (publications-external-affairs/publications) answered 'HTTP 403' (about 2026-11-07T07:40Z); sos.state.ms.us was not requested again, by the orchestrator's instruction. The earlier reader's certificate failure on billstatus.ls.state.ms.us ('curl: (60) SSL certificate problem: unable to get local issuer certificate') was cured by the orchestrator's ruling (`chain`, verification left on), and HC 47 was then read. The Legislature's history page for HC 47 (read 2026-11-07T08:13Z) shows the resolution adopted and signed in 2020 but not the vote of the electors.",
+     "url": "https://www.legislature.ms.gov/",
+     "tried_at": "2026-11-07T08:12Z"
     },
     {
-     "what": "the Mississippi Code at the legislature's or the state's code site, for any amendment of Chapter 15 after the 2017 printing",
-     "reason": "no state code page was reachable (above); the Secretary of State's PDF was read instead; a Justia compilation was not used because a plain PDF from the state's site was available",
-     "url": "https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf"
+     "what": "the Mississippi Code itself, as the state publishes it, for amendments of Title 23, chapter 15 not found in the acts read, and for the sections no act reprints (23-15-781, 783, 921, 923, 927 to 941, 955)",
+     "reason": "The Legislature's home page links the Code to LexisNexis (http://www.lexisnexis.com/hottopics/mscode/), a host this reading was not told it may request, so the Code was not read as a whole. Amendments were looked for instead in the Legislature's own bill documents (see the notes for the method and its limit). The sections that no act read prints are read only in the Secretary of State's PDF of the 2017 printing, [stated].",
+     "url": "https://www.legislature.ms.gov/"
     },
     {
-     "what": "Title 23 outside Chapter 15, municipal charters and ordinances, and the rules of the political parties",
+     "what": "the Legislature's 'Text Search' and 'Locate by Code Section' pages",
+     "reason": "They are search forms (the bill-status menu's lookup.htm and the index.ls.state.ms.us text search); forms are not used by readers (reader brief, rule 2: no forms). No page of the Legislature needed a script to show its text: the bill documents and lists read here are static HTML, XML and PDF.",
+     "url": "https://billstatus.ls.state.ms.us/2025/pdf/mainmenu.htm"
+    },
+    {
+     "what": "contests of the election of the Governor and the other statewide officers, special elections to the Legislature, and Title 23 outside Chapter 15",
+     "reason": "not found in the sections read, or not read"
+    },
+    {
+     "what": "municipal charters and ordinances, and the rules of the political parties",
      "reason": "not read"
     }
    ],
    "notes": [
-    "Every quotation from the Code is read in the Secretary of State's PDF of Chapter 15 (the 2017 printing), because the state's code site could not be read; the grade is therefore 'agency publication', and the orchestrator may set it aside. The Secretary of State's 2026 county handbook (rev. 12/24/2025) repeats the county tie rule unchanged, which is some evidence that the 2017 text of 23-15-601 still holds.",
-    "Mississippi has no recount in the Election Code as printed: no automatic recount, no recount on request. A candidate may examine the ballot boxes (23-15-911) and may bring an election contest within twenty days (23-15-921, 23-15-951) or thirty days for a legislative seat (23-15-955). The straw draw is unusual: since 2017 a tie for a district office, a seat on the Supreme Court or Court of Appeals is decided by drawing straws from an opaque bag, not by lot or coin.",
-    "The governor's tie rule, changed in 2020, is the main thing not read."
+    "What a reader of the law would not expect: (1) since 1 January 2025 a runoff, and since 1 July 2025 a majority, is needed in the state general election for every office of Miss. Code 23-15-193(1), not only for state officers: House Bill 291 (2025) changed 'the state officers that receive a majority' to 'the candidate that receives a majority', and a tie after the runoff goes to the Chief Justice of the Supreme Court for a coin toss or lot (23-15-193(2)); (2) the straw draw (longer of two straws from an opaque bag, drawn under the direction of the Governor and the Secretary of State) remains for a U.S. Representative, a legislative district of two or more counties, and a Supreme Court or Court of Appeals judge; (3) Mississippi has no recount in the Election Code as far as read: a candidate may examine the ballot boxes within twelve days of the canvass (23-15-911), and may bring a contest within twenty days (thirty for a legislative seat, to the chamber itself).",
+    "The Governor's tie rule is a rule of the Code, not of the Constitution. Section 140 of the Constitution, as the Legislature's resolution HC 47 (2020) proposed it, gives the office to the person with a majority and leaves any runoff to 'procedures prescribed by the Legislature in general law'; it repeals section 141, under which the House of Representatives chose between the top two. The runoff and the Chief Justice's coin or lot are 23-15-193(2). Whether the voters adopted HC 47 was not read (see unread).",
+    "How amendments after the 2017 printing were looked for: I read the lists of all measures of the 2017 to 2026 regular sessions and the extraordinary sessions of 2017, 2018, 2022, 2024 (two), 2025 and 2026 on the Legislature's bill-status host, and the lists of measures referred to the House Apportionment and Elections and Senate Elections committees of 2018 to 2026, and kept the ones that became law and whose short titles name elections, ballots, voting, candidates, primaries, runoffs, contests or similar; I fetched the text of 24 of them (HB 467 of 2017; HB 804 and HB 937 of 2018; HB 654 and SB 2030 of 2019; HB 1521 of 2020; HB 1510 and SB 2879 of 2022; HB 1276, HB 1306, HB 1310 and SB 2358 of 2023; HB 1035, HB 1135, SB 2144 and SB 2425 of 2024; HB 291, HB 293, HB 724, HB 811 and SB 2659 of 2025; HB 859, HB 908 and SB 2588 of 2026) and read the long title and the sections of each that touch Chapter 15. The limit: a measure that amended a section read here but whose short title says nothing of elections would have been missed, and the Code's own present text (at LexisNexis) was not read; so 'no later act found' means no such act in those lists. The acts that print the sections used are HB 467 (2017), SB 2144 (2024), HB 293 and HB 291 (2025).",
+    "Before House Bill 291 (2025) the county tie rule of the Secretary of State's 2017 printing and 2026 handbook gave a tie for a county office, the board of supervisors, a justice court judge or a constable to the county election commissioners for a coin toss or lot (23-15-601). HB 291 struck those offices from that clause and moved them to the majority-and-runoff rule; the 2026 handbook's statement of the old rule predates it in substance.",
+    "Where 23-15-601 and 23-15-605 (tie clauses for legislative seats) and 23-15-193(2) (runoff, then the Chief Justice) overlap, HB 291 amended or brought forward all of them and does not say which controls. Both are recorded."
    ],
    "rules": [
     {
@@ -5769,7 +6252,7 @@
      "election": "any",
      "threshold": {
       "no_margin_required": true,
-      "in_words": "no recount of the votes, automatic or on request, with or without a margin, was found in the Election Code as printed; the only route to a new count of the ballots is an election contest or a candidate's examination of the ballot boxes (the rules that follow)"
+      "in_words": "no recount of the votes, automatic or on request, with or without a margin, was found in the Election Code or in the acts of the Legislature read; the routes to a new look at the ballots are a candidate's examination of the ballot boxes and an election contest (the rules that follow)"
      },
      "who_may_request": [],
      "cost_bearer": null,
@@ -5777,76 +6260,88 @@
       {
        "section": "ms-county-handbook",
        "quote": "the Commission does not have the authority to reassemble and alter or amend the certification of the results of the election. Any error which may be made in the canvass of the returns only may be corrected by a court of competent jurisdiction."
+      },
+      {
+       "section": "ms-hb1310-2023",
+       "quote": "No audit shall occur until after a ballot box examination has occurred and the period to contest an election has expired, or if a runoff election occurs, the audit shall occur after the runoff election."
       }
      ],
      "mark": "inferred",
-     "note": "An absence, from Chapter 15 searched for 'recount', 're-count', 'recanvass' and 'reexamin': the only hits are in the voting-equipment sections (a DRE machine must keep a paper record 'available for any recount', which sets no recount) and in case annotations. The quotation is the Secretary of State's 2026 handbook, which tells commissions they cannot reopen their certification and that a court corrects canvass errors. Other chapters of Title 23 and rules of the Secretary of State or the parties were not read.",
+     "note": "An absence, not a finding that no rule exists. Searched for 'recount', 're-count', 'recanvass' and 'reexamin' in the whole of Chapter 15 as the Secretary of State printed it in 2017. The statute text has the word only in the voting-equipment sections, where a direct recording machine must keep a paper record 'available for any recount' and be able to print the ballots 'in the event of a recount', which sets no recount; the other hits are in case notes and Attorney General opinions (a county party committee's recount of votes, a recount inside a contest, a court's mandate for 'a hand recount of ballots'), which are not the statute. Also searched for 'recount' in the text of the acts of the Legislature read, as they were sent to the Governor: HB 467 (2017; its two hits are the same voting-equipment words); HB 804, HB 937 (2018); HB 654, SB 2030 (2019); HB 1521 (2020); HB 1510, SB 2879 (2022); HB 1276, HB 1306, HB 1310, SB 2358 (2023); HB 1035, HB 1135, SB 2144, SB 2425 (2024); HB 291, HB 293, HB 724, HB 811, SB 2659 (2025); HB 859, HB 908, SB 2588 (2026): none of the others contains it. The quotation from the Secretary of State's 2026 handbook tells commissions they cannot reopen their certification and that a court corrects canvass errors. The 2023 audit (23-15-615, new) lets the Secretary of State audit election procedures in all 82 counties (in no more than a quarter of the precincts, or five, in each) after the box-examination and contest periods; it audits procedures, not the count, cannot be asked for, and is not a recount.",
      "source_blocks": {
       "ms-county-handbook": {
-       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), Mississippi Secretary of State, 2026 County Elections Handbook (the page footers read 'Rev. 12/24/2025'; the file name says 'revised 12-26-2025'), part on general and special elections",
+       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), and sections 140 to 143 of the Mississippi Constitution of 1890, Mississippi Secretary of State, 2026 County Elections Handbook (the page footers read 'Rev. 12/24/2025'; the file name says 'revised 12-26-2025'), part on general and special elections",
        "url": "https://www.sos.ms.gov/content/documents/elections/links/2026%20County%20Election%20Handbook.revised%2012-26-2025.pdf",
        "read_utc": "2026-11-07T07:38Z",
        "licence": "state statute; no licence or terms read on the page",
        "mark": "stated",
        "via": "state agency guide",
-       "note": "An agency handbook, not the statute. Used to see that the Secretary of State's current guide still gives the county tie rule as the 2017 printing does, and to see what it says of mistakes in a canvass.",
+       "note": "An agency handbook, not the statute. Used here only for what it says of mistakes in a canvass (a commission cannot reopen its certification; a court corrects it). Its statement of the county tie rule is the pre-2025 rule (23-15-601 before House Bill 291 of 2025) and is no longer used.",
        "sha256": "16739c6fe503605245259c6781973d96f56e683f3e0281c0548e1be4b93d9dc1",
        "origin": {
         "citation": null,
         "url": null
        },
        "code_year": null
+      },
+      "ms-hb1310-2023": {
+       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), and sections 140 to 143 of the Mississippi Constitution of 1890, Mississippi Legislature, 2023 Regular Session, House Bill 1310 as sent to the Governor (approved 19 April 2023): new Miss. Code 23-15-615 (audit of election procedures) (not read as a Code: the Code's own publisher (LexisNexis, linked from the Legislature's home page) was not requested. Each section is read, where possible, in the text of the Act of the Legislature that last printed it, on the Legislature's bill-status host: HB 467 of 2017 (the Election Code revision, in force 1 July 2017), SB 2144 of 2024, HB 293 and HB 291 of 2025; the Constitution only as the Legislature's proposal HC 47 of 2020. Sections for which no printing act was found are read in the Secretary of State's PDF of Chapter 15 printed with the 2017 session laws, a lower grade. Acts of 2018 to 2026 were looked through for later changes (see notes).)",
+       "url": "https://billstatus.ls.state.ms.us/documents/2023/html/HB/1300-1399/HB1310SG.htm",
+       "read_utc": "2026-11-07T08:24Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": "The HTML rendition on the Legislature's bill-status host. Read for what the procedural audit is and when it comes: the Secretary of State audits election procedures in all 82 counties, in no more than 25 percent of the precincts or five precincts in each county, whichever is less, and not if the election is challenged under 23-15-927, 23-15-951 or 23-15-955.",
+       "sha256": "5e58dab97fcdc163e5e8b34d383c92feb23d658a786380f643a3306bbc4a8e41"
       }
      },
      "quotations_verified": true
     },
     {
      "kinds": [
-      "local",
-      "statewide"
+      "local"
      ],
      "type": "court",
-     "election": "general or special election, county offices and state district offices",
+     "election": "general or special election, county offices and state district offices (district attorney and the like)",
      "threshold": {
       "no_margin_required": true,
-      "conditions": "a petition filed within twenty days after the election, in the circuit clerk's office; a circuit judge or chancellor from another district is designated to hear it; a jury finds the person with the greatest number of legal votes",
+      "conditions": "a petition filed within twenty days after the election in the office of the circuit clerk of the county; the Chief Justice (or another Justice) has a circuit judge or chancellor of another district designated to hear it; a jury is made up and decides, and the verdict finds the person having the greatest number of legal votes or, for county and county district officers, a majority of legal votes",
       "in_words": "any person who wants to contest the election of another may file a petition within twenty days; no margin is required"
      },
      "who_may_request": [
-      "a person desiring to contest the election of another person returned as elected"
+      "a person desiring to contest the election of another person returned as elected to an office within the county"
      ],
      "cost_bearer": "costs are awarded as in other cases (by the court)",
      "sources": [
       {
-       "section": "ms-sos-code",
+       "section": "ms-hb291-2025",
        "quote": "a person desiring to contest the election of another person returned as elected to any office within any county, may, within twenty (20) days after the election, file a petition in the office of the clerk of the circuit court of the county, setting forth the grounds upon which the election is contested."
       },
       {
-       "section": "ms-sos-code",
-       "quote": "the verdict of the jury shall find the person having the greatest number of legal votes at the election."
+       "section": "ms-hb291-2025",
+       "quote": "the verdict of the jury shall find the person having the greatest number of legal votes at the election or the person having a majority of legal votes at the election, for county and county district officers"
       },
       {
-       "section": "ms-sos-code",
-       "quote": "new trials shall be granted and costs awarded as in other cases."
+       "section": "ms-hb291-2025",
+       "quote": "Each party shall be allowed ten (10) peremptory challenges, and new trials shall be granted and costs awarded as in other cases."
+      },
+      {
+       "section": "ms-hb291-2025",
+       "quote": "In case the election of district attorney or other state district election be contested, the petition may be filed in any county of the district or in any county of an adjoining district within twenty (20) days after the election"
       }
      ],
-     "mark": "stated",
-     "note": "Miss. Code 23-15-951. Not called a recount in the statute: the trial finds the legal votes. For a state district office (district attorney and the like) the petition may be filed in any county of the district or an adjoining district within twenty days, as in the case of county officers. Recorded as the court route because it is the one way the ballots are counted again.",
+     "mark": "measured",
+     "note": "Miss. Code 23-15-951 as HB 291 (2025) amends it (in force 1 July 2025; the words 'or the person having a majority of legal votes at the election, for county and county district officers' came with the new majority rule). Not called a recount: the trial finds the legal votes. Recorded as the court route because it is the one way the ballots are counted again. Contests of the offices elected statewide (Governor and the other statewide officers) were not found in the sections read; 23-15-951 speaks of offices 'within any county' and state district offices.",
      "source_blocks": {
-      "ms-sos-code": {
-       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF): 23-15-171, 23-15-191, 23-15-193, 23-15-601, 23-15-605, 23-15-607, 23-15-611, 23-15-781, 23-15-783, 23-15-833, 23-15-857, 23-15-911, 23-15-921, 23-15-923, 23-15-951, 23-15-955, 23-15-1033, 23-15-1041",
-       "url": "https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf",
-       "read_utc": "2026-11-07T07:37Z",
+      "ms-hb291-2025": {
+       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), and sections 140 to 143 of the Mississippi Constitution of 1890, Mississippi Legislature, 2025 Regular Session, House Bill 291 as sent to the Governor (approved 24 March 2025; in force 1 July 2025): Miss. Code 23-15-193 and 23-15-601 as amended, 23-15-603 and 23-15-605 brought forward, 23-15-951 as amended (not read as a Code: the Code's own publisher (LexisNexis, linked from the Legislature's home page) was not requested. Each section is read, where possible, in the text of the Act of the Legislature that last printed it, on the Legislature's bill-status host: HB 467 of 2017 (the Election Code revision, in force 1 July 2017), SB 2144 of 2024, HB 293 and HB 291 of 2025; the Constitution only as the Legislature's proposal HC 47 of 2020. Sections for which no printing act was found are read in the Secretary of State's PDF of Chapter 15 printed with the 2017 session laws, a lower grade. Acts of 2018 to 2026 were looked through for later changes (see notes).)",
+       "url": "https://billstatus.ls.state.ms.us/documents/2025/html/HB/0200-0299/HB0291SG.htm",
+       "read_utc": "2026-11-07T08:15Z",
        "licence": "state statute; no licence or terms read on the page",
-       "mark": "stated",
-       "via": "state agency guide",
-       "note": "A PDF of the whole Election Code on the Secretary of State's own site, found by web search; it is the statute's own words in the 2017 printing, but not a page of the legislature's, so it is graded as an agency publication. The printing is of 2017: amendments made after July 1, 2017 are not in it. A plain Justia/Cornell compilation was not used, because this file is a plain download from the state's own site.",
-       "sha256": "1609fe6245b6bc0fa148b2c6e838ff07ba9a1b486cf55e3450b9c0684266847b",
-       "origin": {
-        "citation": null,
-        "url": null
-       },
-       "code_year": null
+       "mark": "measured",
+       "via": null,
+       "note": "The HTML rendition on the Legislature's bill-status host. It prints the words the act strikes out beside the words it adds (the PDF, ms-hb291-2025-pdf, shows a '* * *' where words are struck and leaves them out). So every quotation here is either of a passage the act leaves untouched or is cut with [...] at the place where words were struck, and the struck words in 23-15-601 are shown in ms-hb291-2025-pdf. The act prints 23-15-193 twice: as it reads 'Through December 31, 2024' and as it reads 'From and after January 1, 2025'; only the second is quoted for the present rule.",
+       "sha256": "4cfa7d3ef388b483cc6bcdb94e31725175814f004717b0edb8f8dc7ec91382d6"
       }
      },
      "quotations_verified": true
@@ -5868,6 +6363,10 @@
      "cost_bearer": "not stated in the section",
      "sources": [
       {
+       "section": "ms-hb291-2025",
+       "quote": "A person desiring to contest the election of another person returned as elected to any seat in the Mississippi Legislature shall comply with the provisions of Section 23-15-955."
+      },
+      {
        "section": "ms-sos-code",
        "quote": "the House of Representatives shall have exclusive jurisdiction over an election contest regarding the seat of any member of the House of Representatives, and the Senate shall have exclusive jurisdiction over an election contest regarding the seat of any member of the Senate."
       },
@@ -5877,16 +6376,26 @@
       }
      ],
      "mark": "stated",
-     "note": "Miss. Code 23-15-955, citing Constitution section 38. Type 'court' is the closest of the allowed types; the body that decides is the legislative chamber. 23-15-911(2) lets the ballot-box examination below be used in such a contest, with the result reported to the chamber.",
+     "note": "Miss. Code 23-15-955 (the Secretary of State's 2017 printing; no act printing it was found, so it is [stated]), citing Constitution section 38, and the pointer to it in 23-15-951 as HB 291 (2025) amends it [measured]. Type 'court' is the closest of the allowed types; the body that decides is the legislative chamber. 23-15-911(2) lets the ballot-box examination below be used in such a contest, with the result reported to the chamber.",
      "source_blocks": {
+      "ms-hb291-2025": {
+       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), and sections 140 to 143 of the Mississippi Constitution of 1890, Mississippi Legislature, 2025 Regular Session, House Bill 291 as sent to the Governor (approved 24 March 2025; in force 1 July 2025): Miss. Code 23-15-193 and 23-15-601 as amended, 23-15-603 and 23-15-605 brought forward, 23-15-951 as amended (not read as a Code: the Code's own publisher (LexisNexis, linked from the Legislature's home page) was not requested. Each section is read, where possible, in the text of the Act of the Legislature that last printed it, on the Legislature's bill-status host: HB 467 of 2017 (the Election Code revision, in force 1 July 2017), SB 2144 of 2024, HB 293 and HB 291 of 2025; the Constitution only as the Legislature's proposal HC 47 of 2020. Sections for which no printing act was found are read in the Secretary of State's PDF of Chapter 15 printed with the 2017 session laws, a lower grade. Acts of 2018 to 2026 were looked through for later changes (see notes).)",
+       "url": "https://billstatus.ls.state.ms.us/documents/2025/html/HB/0200-0299/HB0291SG.htm",
+       "read_utc": "2026-11-07T08:15Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": "The HTML rendition on the Legislature's bill-status host. It prints the words the act strikes out beside the words it adds (the PDF, ms-hb291-2025-pdf, shows a '* * *' where words are struck and leaves them out). So every quotation here is either of a passage the act leaves untouched or is cut with [...] at the place where words were struck, and the struck words in 23-15-601 are shown in ms-hb291-2025-pdf. The act prints 23-15-193 twice: as it reads 'Through December 31, 2024' and as it reads 'From and after January 1, 2025'; only the second is quoted for the present rule.",
+       "sha256": "4cfa7d3ef388b483cc6bcdb94e31725175814f004717b0edb8f8dc7ec91382d6"
+      },
       "ms-sos-code": {
-       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF): 23-15-171, 23-15-191, 23-15-193, 23-15-601, 23-15-605, 23-15-607, 23-15-611, 23-15-781, 23-15-783, 23-15-833, 23-15-857, 23-15-911, 23-15-921, 23-15-923, 23-15-951, 23-15-955, 23-15-1033, 23-15-1041",
+       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), and sections 140 to 143 of the Mississippi Constitution of 1890, Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF, the 2017 printing), read for the sections that no act of the Legislature read here prints: 23-15-781, 23-15-783, 23-15-921, 23-15-923, 23-15-927, 23-15-955",
        "url": "https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf",
        "read_utc": "2026-11-07T07:37Z",
        "licence": "state statute; no licence or terms read on the page",
        "mark": "stated",
        "via": "state agency guide",
-       "note": "A PDF of the whole Election Code on the Secretary of State's own site, found by web search; it is the statute's own words in the 2017 printing, but not a page of the legislature's, so it is graded as an agency publication. The printing is of 2017: amendments made after July 1, 2017 are not in it. A plain Justia/Cornell compilation was not used, because this file is a plain download from the state's own site.",
+       "note": "A PDF of the whole Election Code on the Secretary of State's own site; the statute's own words in the 2017 printing (every page footer reads '2017 By the State of Mississippi and Matthew Bender & Company'), but not a page of the Legislature's, so graded as an agency publication. Amendments made after July 1, 2017 are not in it. Kept as the source only where no act of the Legislature printing the section was found (see the other sections and the notes).",
        "sha256": "1609fe6245b6bc0fa148b2c6e838ff07ba9a1b486cf55e3450b9c0684266847b",
        "origin": {
         "citation": null,
@@ -5909,13 +6418,13 @@
      "election": "party primary",
      "threshold": {
       "no_margin_required": true,
-      "conditions": "a petition to the party executive committee within twenty days after the primary (county and county-district nominations, and legislative districts of one county or less); for state, congressional and judicial districts, a complaint with the chairman of the State Executive Committee; the committee declares the true result by majority vote",
-      "in_words": "any person who wants to contest a nomination may petition the party executive committee within twenty days after the primary; no margin is required; the contest then can go to the circuit court (23-15-927 and following)"
+      "conditions": "a petition to the party executive committee within twenty days after the primary (23-15-921: county and county-district nominations, and legislative districts of one county or less); for state, congressional and judicial districts and legislative districts of more than one county, a complaint by petition with the chairman of the State Executive Committee (23-15-923, which states no number of days itself); the committee declares the true result by majority vote of the members present; if the committee fails to act or unreasonably delays, the contestant may file a petition for judicial review in the circuit court within ten days after the contest was filed, on the certificate of two practicing attorneys and a $300 cost bond (23-15-927)",
+      "in_words": "any person who wants to contest a nomination may petition the party executive committee (within twenty days after the primary, for county nominations); no margin is required; the contest can then go to the circuit court"
      },
      "who_may_request": [
       "a person desiring to contest the election of another returned as the nominee"
      ],
-     "cost_bearer": "not stated in the sections read",
+     "cost_bearer": "the petitioner for judicial review gives a $300 cost bond to pay the costs if the petition is dismissed (23-15-927); the committee's own costs are not stated in the sections read",
      "sources": [
       {
        "section": "ms-sos-code",
@@ -5924,19 +6433,27 @@
       {
        "section": "ms-sos-code",
        "quote": "The State Executive Committee by majority vote of members present shall declare the true results of such primary."
+      },
+      {
+       "section": "ms-sos-code",
+       "quote": "A petition for judicial review must be filed within ten (10) days after any contest or complaint has been filed with an executive committee."
+      },
+      {
+       "section": "ms-sos-code",
+       "quote": "The petitioner shall give a cost bond in the sum of Three Hundred Dollars ($300.00), with two (2) or more sufficient sureties conditioned to pay all costs in case his petition be dismissed"
       }
      ],
      "mark": "stated",
-     "note": "Miss. Code 23-15-921 and 23-15-923. The later sections on the circuit court's review of a primary contest (23-15-927 to 23-15-941) were not read in full. Applies to the nomination, not to a recount by name.",
+     "note": "Miss. Code 23-15-921, 23-15-923 and 23-15-927 in the Secretary of State's 2017 printing (no act printing them was found). Applies to the nomination, not to a recount by name. The sections after 23-15-927 (23-15-929 to 23-15-941: the circuit judge's designation, appeal, expenses) are not recorded here.",
      "source_blocks": {
       "ms-sos-code": {
-       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF): 23-15-171, 23-15-191, 23-15-193, 23-15-601, 23-15-605, 23-15-607, 23-15-611, 23-15-781, 23-15-783, 23-15-833, 23-15-857, 23-15-911, 23-15-921, 23-15-923, 23-15-951, 23-15-955, 23-15-1033, 23-15-1041",
+       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), and sections 140 to 143 of the Mississippi Constitution of 1890, Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF, the 2017 printing), read for the sections that no act of the Legislature read here prints: 23-15-781, 23-15-783, 23-15-921, 23-15-923, 23-15-927, 23-15-955",
        "url": "https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf",
        "read_utc": "2026-11-07T07:37Z",
        "licence": "state statute; no licence or terms read on the page",
        "mark": "stated",
        "via": "state agency guide",
-       "note": "A PDF of the whole Election Code on the Secretary of State's own site, found by web search; it is the statute's own words in the 2017 printing, but not a page of the legislature's, so it is graded as an agency publication. The printing is of 2017: amendments made after July 1, 2017 are not in it. A plain Justia/Cornell compilation was not used, because this file is a plain download from the state's own site.",
+       "note": "A PDF of the whole Election Code on the Secretary of State's own site; the statute's own words in the 2017 printing (every page footer reads '2017 By the State of Mississippi and Matthew Bender & Company'), but not a page of the Legislature's, so graded as an agency publication. Amendments made after July 1, 2017 are not in it. Kept as the source only where no act of the Legislature printing the section was found (see the other sections and the notes).",
        "sha256": "1609fe6245b6bc0fa148b2c6e838ff07ba9a1b486cf55e3450b9c0684266847b",
        "origin": {
         "citation": null,
@@ -5968,27 +6485,30 @@
      "cost_bearer": "not stated in the section",
      "sources": [
       {
-       "section": "ms-sos-code",
-       "quote": "At any time within twelve (12) days after the canvass and examination of the box and its contents by the election commission or executive committee, as the case may be, any candidate or his or her representative authorized in writing by him or her shall have the right of full examination of the box and its contents upon three (3) days' notice of his or her application therefor served upon the opposing candidates."
+       "section": "ms-hb467-2017",
+       "quote": "At any time within twelve (12) days after the canvass and examination of the box and its contents by the election commission or executive committee, as the case may be"
+      },
+      {
+       "section": "ms-hb467-2017",
+       "quote": "any candidate or his or her representative authorized in writing by him or her shall have the right of full examination of [...] the box and its contents upon three (3) days' notice"
+      },
+      {
+       "section": "ms-hb467-2017",
+       "quote": "The provisions of this section allowing the examination of ballot boxes shall apply in the case of an election contest regarding the seat of a member of the state Legislature."
       }
      ],
-     "mark": "stated",
-     "note": "Miss. Code 23-15-911(1)(a), (c). It is what a candidate does before a contest. It gives a look at the ballots, not an official recount; the section sets no margin and no cost.",
+     "mark": "measured",
+     "note": "Miss. Code 23-15-911(1)(a) and (2) as the 2017 revision (HB 467) prints it; no later act amending it was found. It is what a candidate does before a contest (the 2023 audit section, 23-15-615, still assumes 'a ballot box examination has occurred' before it runs). It gives a look at the ballots, not an official recount; the section sets no margin and no cost.",
      "source_blocks": {
-      "ms-sos-code": {
-       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF): 23-15-171, 23-15-191, 23-15-193, 23-15-601, 23-15-605, 23-15-607, 23-15-611, 23-15-781, 23-15-783, 23-15-833, 23-15-857, 23-15-911, 23-15-921, 23-15-923, 23-15-951, 23-15-955, 23-15-1033, 23-15-1041",
-       "url": "https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf",
-       "read_utc": "2026-11-07T07:37Z",
+      "ms-hb467-2017": {
+       "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code), and sections 140 to 143 of the Mississippi Constitution of 1890, Mississippi Legislature, 2017 Regular Session, House Bill 467 'Election code; revise', as sent to the Governor (approved 18 April 2017; in force 1 July 2017 for the sections used here): Miss. Code 23-15-171, 23-15-607, 23-15-611, 23-15-857, 23-15-911, 23-15-1033 and 23-15-1041 as amended (not read as a Code: the Code's own publisher (LexisNexis, linked from the Legislature's home page) was not requested. Each section is read, where possible, in the text of the Act of the Legislature that last printed it, on the Legislature's bill-status host: HB 467 of 2017 (the Election Code revision, in force 1 July 2017), SB 2144 of 2024, HB 293 and HB 291 of 2025; the Constitution only as the Legislature's proposal HC 47 of 2020. Sections for which no printing act was found are read in the Secretary of State's PDF of Chapter 15 printed with the 2017 session laws, a lower grade. Acts of 2018 to 2026 were looked through for later changes (see notes).)",
+       "url": "https://billstatus.ls.state.ms.us/documents/2017/html/HB/0400-0499/HB0467SG.htm",
+       "read_utc": "2026-11-07T08:23Z",
        "licence": "state statute; no licence or terms read on the page",
-       "mark": "stated",
-       "via": "state agency guide",
-       "note": "A PDF of the whole Election Code on the Secretary of State's own site, found by web search; it is the statute's own words in the 2017 printing, but not a page of the legislature's, so it is graded as an agency publication. The printing is of 2017: amendments made after July 1, 2017 are not in it. A plain Justia/Cornell compilation was not used, because this file is a plain download from the state's own site.",
-       "sha256": "1609fe6245b6bc0fa148b2c6e838ff07ba9a1b486cf55e3450b9c0684266847b",
-       "origin": {
-        "citation": null,
-        "url": null
-       },
-       "code_year": null
+       "mark": "measured",
+       "via": null,
+       "note": "The act that revised the Election Code in 2017. The HTML rendition prints struck words beside the new ones, so quotations are cut with [...] where the act strikes words. No later act amending these sections was found (see the notes for how I looked); where one is found it is a different section here (23-15-193, 23-15-601, 23-15-605, 23-15-833, 23-15-951).",
+       "sha256": "7b4357ab5e6f5235a5f15ea734773461b969e8545f3fd21722b83be3f26018e7"
       }
      },
      "quotations_verified": true
@@ -5996,16 +6516,58 @@
    ],
    "sections": {
     "ms-sos-code": {
-     "citation": "Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF): 23-15-171, 23-15-191, 23-15-193, 23-15-601, 23-15-605, 23-15-607, 23-15-611, 23-15-781, 23-15-783, 23-15-833, 23-15-857, 23-15-911, 23-15-921, 23-15-923, 23-15-951, 23-15-955, 23-15-1033, 23-15-1041",
+     "citation": "Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF, the 2017 printing), read for the sections that no act of the Legislature read here prints: 23-15-781, 23-15-783, 23-15-921, 23-15-923, 23-15-927, 23-15-955",
      "url": "https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf",
      "read_at": "state agency guide",
-     "note": "A PDF of the whole Election Code on the Secretary of State's own site, found by web search; it is the statute's own words in the 2017 printing, but not a page of the legislature's, so it is graded as an agency publication. The printing is of 2017: amendments made after July 1, 2017 are not in it. A plain Justia/Cornell compilation was not used, because this file is a plain download from the state's own site."
+     "note": "A PDF of the whole Election Code on the Secretary of State's own site; the statute's own words in the 2017 printing (every page footer reads '2017 By the State of Mississippi and Matthew Bender & Company'), but not a page of the Legislature's, so graded as an agency publication. Amendments made after July 1, 2017 are not in it. Kept as the source only where no act of the Legislature printing the section was found (see the other sections and the notes)."
     },
     "ms-county-handbook": {
      "citation": "Mississippi Secretary of State, 2026 County Elections Handbook (the page footers read 'Rev. 12/24/2025'; the file name says 'revised 12-26-2025'), part on general and special elections",
      "url": "https://www.sos.ms.gov/content/documents/elections/links/2026%20County%20Election%20Handbook.revised%2012-26-2025.pdf",
      "read_at": "state agency guide",
-     "note": "An agency handbook, not the statute. Used to see that the Secretary of State's current guide still gives the county tie rule as the 2017 printing does, and to see what it says of mistakes in a canvass."
+     "note": "An agency handbook, not the statute. Used here only for what it says of mistakes in a canvass (a commission cannot reopen its certification; a court corrects it). Its statement of the county tie rule is the pre-2025 rule (23-15-601 before House Bill 291 of 2025) and is no longer used."
+    },
+    "ms-hc47-2020": {
+     "citation": "Mississippi Legislature, 2020 Regular Session, House Concurrent Resolution 47, as adopted by the House and Senate (proposes to amend section 140 of the Mississippi Constitution of 1890 and to repeal sections 141, 142 and 143; to go to the voters on 3 November 2020)",
+     "url": "https://billstatus.ls.state.ms.us/documents/2020/html/HC/HC0047SG.htm",
+     "read_at": "state",
+     "note": "The HTML rendition of the resolution on the Legislature's bill-status host (documents/2020/pdf/HC/HC0047SG.pdf is the same document; I read both). In the HTML the words that the resolution strikes out stay in the text beside the new words, so quotations are taken only from sentences that the resolution adds or from its title and resolving clauses. It is the proposal, not the voters' result (see unread). The Legislature's history page for HC 47 (https://billstatus.ls.state.ms.us/2020/pdf/history/HC/HC0047.xml, read 2026-11-07T08:13Z) shows the resolution adopted by both houses on conference report (28 and 29 June 2020) and the enrolled resolution signed on 1 July 2020; it shows nothing of the vote of the electors."
+    },
+    "ms-hb291-2025": {
+     "citation": "Mississippi Legislature, 2025 Regular Session, House Bill 291 as sent to the Governor (approved 24 March 2025; in force 1 July 2025): Miss. Code 23-15-193 and 23-15-601 as amended, 23-15-603 and 23-15-605 brought forward, 23-15-951 as amended",
+     "url": "https://billstatus.ls.state.ms.us/documents/2025/html/HB/0200-0299/HB0291SG.htm",
+     "read_at": "state",
+     "note": "The HTML rendition on the Legislature's bill-status host. It prints the words the act strikes out beside the words it adds (the PDF, ms-hb291-2025-pdf, shows a '* * *' where words are struck and leaves them out). So every quotation here is either of a passage the act leaves untouched or is cut with [...] at the place where words were struck, and the struck words in 23-15-601 are shown in ms-hb291-2025-pdf. The act prints 23-15-193 twice: as it reads 'Through December 31, 2024' and as it reads 'From and after January 1, 2025'; only the second is quoted for the present rule."
+    },
+    "ms-hb291-2025-pdf": {
+     "citation": "Mississippi Legislature, 2025 Regular Session, House Bill 291 as sent to the Governor, the PDF of the same act",
+     "url": "https://billstatus.ls.state.ms.us/documents/2025/pdf/HB/0200-0299/HB0291SG.pdf",
+     "read_at": "state",
+     "note": "Used only to show which words the act strikes: the PDF prints '* * *' where words are struck and omits them. Its text carries the bill's line numbers, so quotations from it are short and cut at line ends."
+    },
+    "ms-sb2144-2024": {
+     "citation": "Mississippi Legislature, 2024 Regular Session, Senate Bill 2144 as sent to the Governor (approved 13 May 2024; runoff and second-primary timing in force 1 January 2025): Miss. Code 23-15-191, 23-15-193, 23-15-833 and 23-15-981 as amended",
+     "url": "https://billstatus.ls.state.ms.us/documents/2024/html/SB/2100-2199/SB2144SG.htm",
+     "read_at": "state",
+     "note": "The HTML rendition on the Legislature's bill-status host; the struck words ('three (3)') stay in the text beside the new ones ('four (4)'), so the quotations are cut with [...] at the place of the change."
+    },
+    "ms-hb293-2025": {
+     "citation": "Mississippi Legislature, 2025 Regular Session, House Bill 293 as sent to the Governor (approved 17 April 2025; in force 1 July 2025): Miss. Code 23-15-1031 (congressional primaries) as amended",
+     "url": "https://billstatus.ls.state.ms.us/documents/2025/html/HB/0200-0299/HB0293SG.htm",
+     "read_at": "state",
+     "note": "The HTML rendition on the Legislature's bill-status host (struck words stay in the text beside the new words)."
+    },
+    "ms-hb467-2017": {
+     "citation": "Mississippi Legislature, 2017 Regular Session, House Bill 467 'Election code; revise', as sent to the Governor (approved 18 April 2017; in force 1 July 2017 for the sections used here): Miss. Code 23-15-171, 23-15-607, 23-15-611, 23-15-857, 23-15-911, 23-15-1033 and 23-15-1041 as amended",
+     "url": "https://billstatus.ls.state.ms.us/documents/2017/html/HB/0400-0499/HB0467SG.htm",
+     "read_at": "state",
+     "note": "The act that revised the Election Code in 2017. The HTML rendition prints struck words beside the new ones, so quotations are cut with [...] where the act strikes words. No later act amending these sections was found (see the notes for how I looked); where one is found it is a different section here (23-15-193, 23-15-601, 23-15-605, 23-15-833, 23-15-951)."
+    },
+    "ms-hb1310-2023": {
+     "citation": "Mississippi Legislature, 2023 Regular Session, House Bill 1310 as sent to the Governor (approved 19 April 2023): new Miss. Code 23-15-615 (audit of election procedures)",
+     "url": "https://billstatus.ls.state.ms.us/documents/2023/html/HB/1300-1399/HB1310SG.htm",
+     "read_at": "state",
+     "note": "The HTML rendition on the Legislature's bill-status host. Read for what the procedural audit is and when it comes: the Secretary of State audits election procedures in all 82 counties, in no more than 25 percent of the precincts or five precincts in each county, whichever is less, and not if the election is challenged under 23-15-927, 23-15-951 or 23-15-955."
     }
    }
   },
@@ -7469,32 +8031,341 @@
   },
   "NJ": {
    "name": "New Jersey",
-   "status": "unread",
+   "status": "partly-read",
    "code": {
     "name": "New Jersey Statutes (N.J.S.A. Title 19, Elections)",
-    "edition": "not read",
+    "edition": "the viewer's title page: NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1)",
     "site": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
-    "reached": false
+    "reached": true
    },
    "unread": [
     {
-     "what": "all of New Jersey's tie and recount law (N.J.S.A. Title 19; chapter 28 is where a search on recounts and ties pointed)",
-     "reason": "The Legislature's statute viewer https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu is linked from njleg.state.nj.us as \"Statutes\" and the helper reported \"only 132 characters of text (a script shell or an empty page)\". The Legislature's \"Downloads\" page (https://www.njleg.state.nj.us/downloads) links to https://www.njleg.state.nj.us/legislative-downloads?downloadType=Statutes, whose file list is drawn by script and is not in the page's HTML, so no plain downloadable file (PDF or Word) was found. https://www.njleg.state.nj.us/statutes answered HTTP 404.",
-     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
-     "time": "2026-11-07T07:24Z"
+     "what": "the rest of Title 19: 18 of the 1,028 section titles in its contents list were opened (3-4, 3-6, 13-14, 23-57, 28-1 to 28-4, 28-8, 29-1, 29-8 and 29-9 are cited by the rules; 19-8, 20-2, 22-1, 23-54, 23-55 and 29-10 carry no tie or recount rule)",
+     "reason": "no section title names a tie, a lot or an automatic recount, but a rule can sit in a section whose title does not say so; the definitions (19:1-1), the electors (19:13-15, 19:22-8), vacancies and special elections (19:3-26 to 19:3-29) and the contest procedure (19:29-2 to 19:29-14) were not opened"
     },
     {
-     "what": "the same law, from a compilation allowed by the amendment of 2026-11-07 07:21 UTC",
-     "reason": "Justia answered HTTP 403 to its first request in this task (https://law.justia.com/codes/new-hampshire/title-lxiii/, for New Hampshire at 2026-11-07T07:22Z); stopped at that refusal and made no request to Justia for New Jersey. Cornell LII: a search of law.cornell.edu returned New Jersey regulations (N.J. Admin. Code) but no page of the New Jersey Statutes, so none was tried.",
-     "url": "https://law.justia.com/codes/new-hampshire/title-lxiii/ (the refused request; no New Jersey URL was requested)",
-     "time": "2026-11-07T07:22Z"
+     "what": "the New Jersey Constitution (a tie for Governor and Lieutenant Governor; each house judging its members) and the statutes outside Title 19 that govern municipal and school elections (Titles 40, 40A, 18A)",
+     "reason": "outside the title the brief points to; not requested"
+    },
+    {
+     "what": "an agency's statement of the tie and recount rules, from the Division of Elections (State of New Jersey)",
+     "reason": "One request: https://www.nj.gov/state/elections/ (curl through the helper, 2026-11-07T08:12Z) returned a 346-byte page with no text: an empty body, a meta refresh to 'vote.shtml', and a script from the path '/_Incapsula_Resource' (Imperva Incapsula, a bot-protection service). That is read as a challenge page (briefs/_COMMON.md 13), so the reader stopped and tried no other nj.gov address.",
+     "url": "https://www.nj.gov/state/elections/",
+     "tried_utc": "2026-11-07T08:12Z"
+    },
+    {
+     "what": "the same law, from a compilation (Justia, Cornell LII)",
+     "reason": "Justia answered HTTP 403 to its first request in this project (New Hampshire, 2026-11-07T07:22Z, an earlier reader); no request to Justia for New Jersey was made. Cornell LII: a search found New Jersey regulations but no page of the New Jersey Statutes."
     }
    ],
    "notes": [
-    "New Jersey is unread. No lead from the earlier report applies (the earlier reader did not read New Jersey)."
+    "New Jersey is partly read. The Legislature's statute viewer (Folio NXT) serves a script shell to curl; it has not refused us (status 200 every time). It was read as a reader reads it, in the session's headless Chromium (render_tree.cjs): the contents tree was opened with the viewer's own plus signs and its 'more' nodes (25 titles at a time), 18 section titles were opened by a click on their titles, one action every 5 seconds, nothing typed, no search box, no address taken from a script. The orchestrator ruled at 2026-11-07 08:41 UTC that this is allowed. The reading ran 2026-11-07 08:44 to 09:01 UTC.",
+    "What the sections read say: the plurality takes the office (19:3-4) or the party's nomination (19:13-14, 19:23-57); a candidate (or ten voters, on a public question) may apply to a Superior Court judge within 3 days after certification for a recount, at no stated margin, with a deposit of up to $25 a district (19:28-1, 19:28-2); a tie after a recount voids the first certificate (19:28-4), and either tied party may contest the election in court (19:29-1), the judge pronouncing who was duly elected or setting the election aside (19:29-8, 19:29-9). No lot, no runoff, no automatic recount was found.",
+    "To read these again with a clean cache: python3 -I pipeline/intake/state_law.py tree NJ URL 'expand:GENERAL AND PERMANENT STATUTES' 'expand:TITLE 19\\s+ELECTIONS' 'more:TITLE 19\\s+ELECTIONS=>^19:29-9[.\\s]' --save s19-3-4='^19:3-4[.\\s]' ... (one browser session reads them all in about 15 minutes); `check` on an empty cache replays the tree for each section separately and is slower."
    ],
-   "rules": [],
-   "sections": {}
+   "rules": [
+    {
+     "kinds": [
+      "federal",
+      "statewide",
+      "state-legislative",
+      "local"
+     ],
+     "type": "court",
+     "election": "any election, for a candidate",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": null,
+      "conditions": "a candidate has reason to believe that an error has been made in counting the votes of the election; no margin is required; the application is made within 3 days after the certification of the results to a judge of the Superior Court assigned to the county where the district or districts are located, who may order a recount in any district or districts under terms he deems proper, made publicly by the county board",
+      "in_words": "a candidate who has reason to believe that an error was made in counting the votes may, within 3 days after certification, apply to a Superior Court judge for a recount in any district"
+     },
+     "who_may_request": [
+      "any candidate at the election, by application to a judge of the Superior Court assigned to the county, within 3 days after the certification of the results"
+     ],
+     "cost_bearer": "the applicant deposits security fixed by the judge, not more than $25 for any one district; the State, county or municipality pays the costs if an error changes the election or alters the difference between candidates in a district by more than ten votes or 10% of the district's total vote, whichever is greater; otherwise the costs are paid from the deposit",
+     "sources": [
+      {
+       "section": "s19-28-1",
+       "quote": "When any candidate at any election shall have reason to believe that an error has been made in counting the votes of that election, the candidate may, within a period of 3 days after the certification of the results of the election, apply to a judge of the Superior Court assigned to the county wherein such district or districts are located, for a recount of the votes cast at the election in any district or districts."
+      },
+      {
+       "section": "s19-28-3",
+       "quote": "Such judge shall be authorized to order upon such terms as he deems proper a  recount of the votes as he may determine, to be publicly made under his direction by the county board."
+      },
+      {
+       "section": "s19-28-2",
+       "quote": "such sum of money proportioned to the number of votes to be counted but not exceeding twenty-five dollars ($25.00) for any one district recount of which is asked"
+      },
+      {
+       "section": "s19-28-2",
+       "quote": "If it appears that an error or errors have occurred as a result of which the election is changed or the difference in the vote between any candidate and any other candidate for the same office or between the negative and affirmative of any such public question is altered in any district by more than ten votes or ten per centum (10%) of the total vote  cast in the district, whichever is the greater, the costs and expenses of the recount of such district shall be paid by the State, county or municipality"
+      }
+     ],
+     "mark": "measured",
+     "note": "Chapter 28 says 'any candidate at any election'; whether a primary is an 'election' for it was not read (the Title's definitions, 19:1-1, were not opened), so primary is not listed. If the recount shows an error sufficient to change the result the judge revokes the certificate and a new one issues to the person with a plurality (19:28-4). No automatic or margin-triggered recount appears in any section title of Title 19's contents list; the sections not opened were not read.",
+     "source_blocks": {
+      "s19-28-1": {
+       "name": "New Jersey Statutes (N.J.S.A. Title 19, Elections), N.J.S.A. 19:28-1 (the viewer's title page: NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1))",
+       "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+       "read_utc": "2026-11-07T08:58Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": "Rendered in the session's headless Chromium (the page is a script shell): the text is what the page shows after its scripts ran. The node was opened by a click in the viewer's contents tree (render_tree.cjs), as a reader opens it; the url is the viewer's start page.",
+       "sha256": "eba5ad17a101222e331eecbcd7a08ef9bb4872ec437359c350c46162389e53c0"
+      },
+      "s19-28-3": {
+       "name": "New Jersey Statutes (N.J.S.A. Title 19, Elections), N.J.S.A. 19:28-3 (the viewer's title page: NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1))",
+       "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+       "read_utc": "2026-11-07T08:58Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": "Rendered in the session's headless Chromium (the page is a script shell): the text is what the page shows after its scripts ran. The node was opened by a click in the viewer's contents tree (render_tree.cjs), as a reader opens it; the url is the viewer's start page.",
+       "sha256": "21974d033a81f9618f813da903ac7a622cf285a2e7e5b38f7b73aed1f6bd696c"
+      },
+      "s19-28-2": {
+       "name": "New Jersey Statutes (N.J.S.A. Title 19, Elections), N.J.S.A. 19:28-2 (the viewer's title page: NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1))",
+       "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+       "read_utc": "2026-11-07T08:58Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": "Rendered in the session's headless Chromium (the page is a script shell): the text is what the page shows after its scripts ran. The node was opened by a click in the viewer's contents tree (render_tree.cjs), as a reader opens it; the url is the viewer's start page.",
+       "sha256": "7de53847bca2f42cedc0acdd1b69fcfdd19b2cf4c45c3e7d5fead6afa24a1e06"
+      }
+     },
+     "quotations_verified": true
+    },
+    {
+     "kinds": [
+      "measure"
+     ],
+     "type": "court",
+     "election": "a public question",
+     "threshold": {
+      "percent": null,
+      "percent_of": null,
+      "votes": null,
+      "combine": null,
+      "inclusive": null,
+      "conditions": "ten voters have reason to believe that an error has been made in counting the votes on a public question; no margin is required; application within 3 days after certification to a judge of the Superior Court assigned to the county",
+      "in_words": "ten voters who believe an error was made counting the votes on a public question may, within 3 days after certification, apply to a Superior Court judge for a recount"
+     },
+     "who_may_request": [
+      "ten voters at the election, by application to a judge of the Superior Court assigned to the county, within 3 days after the certification of the results"
+     ],
+     "cost_bearer": "the applicants deposit security fixed by the judge, not more than $25 for any one district; the public body pays if the difference between the affirmative and the negative is altered in a district by more than ten votes or 10% of the district's total vote, whichever is greater; otherwise the deposit pays",
+     "sources": [
+      {
+       "section": "s19-28-1",
+       "quote": "When ten voters at any election shall have reason to believe that an error has been so made in counting the votes upon any public question at any election, such voters may, within a period of 3 days after the certification of the results of the election, apply to a judge of the Superior Court"
+      },
+      {
+       "section": "s19-28-2",
+       "quote": "If no error shall appear sufficient to produce  such change, the costs and expenses of the recount shall be paid out of the deposit made as security by the party or parties making the application."
+      }
+     ],
+     "mark": "measured",
+     "note": "On a public question the judge orders that the result be corrected (19:28-8).",
+     "source_blocks": {
+      "s19-28-1": {
+       "name": "New Jersey Statutes (N.J.S.A. Title 19, Elections), N.J.S.A. 19:28-1 (the viewer's title page: NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1))",
+       "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+       "read_utc": "2026-11-07T08:58Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": "Rendered in the session's headless Chromium (the page is a script shell): the text is what the page shows after its scripts ran. The node was opened by a click in the viewer's contents tree (render_tree.cjs), as a reader opens it; the url is the viewer's start page.",
+       "sha256": "eba5ad17a101222e331eecbcd7a08ef9bb4872ec437359c350c46162389e53c0"
+      },
+      "s19-28-2": {
+       "name": "New Jersey Statutes (N.J.S.A. Title 19, Elections), N.J.S.A. 19:28-2 (the viewer's title page: NEW JERSEY GENERAL AND PERMANENT STATUTES (UPDATED THROUGH P.L.2026, c.50, and J.R.1))",
+       "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+       "read_utc": "2026-11-07T08:58Z",
+       "licence": "state statute; no licence or terms read on the page",
+       "mark": "measured",
+       "via": null,
+       "note": "Rendered in the session's headless Chromium (the page is a script shell): the text is what the page shows after its scripts ran. The node was opened by a click in the viewer's contents tree (render_tree.cjs), as a reader opens it; the url is the viewer's start page.",
+       "sha256": "7de53847bca2f42cedc0acdd1b69fcfdd19b2cf4c45c3e7d5fead6afa24a1e06"
+      }
+     },
+     "quotations_verified": true
+    }
+   ],
+   "sections": {
+    "s19-3-4": {
+     "citation": "N.J.S.A. 19:3-4",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:3-4[.\\s]"
+      ],
+      "open": "^19:3-4[.\\s]"
+     }
+    },
+    "s19-3-6": {
+     "citation": "N.J.S.A. 19:3-6",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:3-6[.\\s]"
+      ],
+      "open": "^19:3-6[.\\s]"
+     }
+    },
+    "s19-13-14": {
+     "citation": "N.J.S.A. 19:13-14",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:13-14[.\\s]"
+      ],
+      "open": "^19:13-14[.\\s]"
+     }
+    },
+    "s19-23-57": {
+     "citation": "N.J.S.A. 19:23-57",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:23-57[.\\s]"
+      ],
+      "open": "^19:23-57[.\\s]"
+     }
+    },
+    "s19-28-1": {
+     "citation": "N.J.S.A. 19:28-1",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:28-1[.\\s]"
+      ],
+      "open": "^19:28-1[.\\s]"
+     }
+    },
+    "s19-28-2": {
+     "citation": "N.J.S.A. 19:28-2",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:28-2[.\\s]"
+      ],
+      "open": "^19:28-2[.\\s]"
+     }
+    },
+    "s19-28-3": {
+     "citation": "N.J.S.A. 19:28-3",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:28-3[.\\s]"
+      ],
+      "open": "^19:28-3[.\\s]"
+     }
+    },
+    "s19-28-4": {
+     "citation": "N.J.S.A. 19:28-4",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:28-4[.\\s]"
+      ],
+      "open": "^19:28-4[.\\s]"
+     }
+    },
+    "s19-28-8": {
+     "citation": "N.J.S.A. 19:28-8",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:28-8[.\\s]"
+      ],
+      "open": "^19:28-8[.\\s]"
+     }
+    },
+    "s19-29-1": {
+     "citation": "N.J.S.A. 19:29-1",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:29-1[.\\s]"
+      ],
+      "open": "^19:29-1[.\\s]"
+     }
+    },
+    "s19-29-8": {
+     "citation": "N.J.S.A. 19:29-8",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:29-8[.\\s]"
+      ],
+      "open": "^19:29-8[.\\s]"
+     }
+    },
+    "s19-29-9": {
+     "citation": "N.J.S.A. 19:29-9",
+     "url": "https://lis.njleg.state.nj.us/nxt/gateway.dll/statutes/1?f=templates&fn=default.htm&vid=Publish:10.1048/Enu",
+     "read_at": "state",
+     "render": true,
+     "tree": {
+      "steps": [
+       "expand:GENERAL AND PERMANENT STATUTES",
+       "expand:TITLE 19\\s+ELECTIONS",
+       "more:TITLE 19\\s+ELECTIONS=>^19:29-9[.\\s]"
+      ],
+      "open": "^19:29-9[.\\s]"
+     }
+    }
+   }
   },
   "NM": {
    "name": "New Mexico",
@@ -7517,10 +8388,16 @@
      "reason": "Justia answered HTTP 403 to its first request in this task (https://law.justia.com/codes/new-hampshire/title-lxiii/, for New Hampshire at 2026-11-07T07:22Z); stopped at that refusal and made no request to Justia for New Mexico. Cornell LII was not tried for New Mexico: a search of that site for the New Jersey statutes returned only New Jersey regulations, and no search of it was made for New Mexico.",
      "url": "https://law.justia.com/codes/new-hampshire/title-lxiii/ (the refused request; no New Mexico URL was requested)",
      "time": "2026-11-07T07:22Z"
+    },
+    {
+     "what": "the same law, by rendering NM OneSource's script-shell page in the session's headless Chromium (the orchestrator's ruling of 2026-11-07 08:00 UTC for script shells)",
+     "reason": "not done. The ruling covers a script shell that has not refused us; nmonesource.com refused curl with HTTP 403 on its home page (07:25Z), and reading the same host with a browser after that refusal would be reading it another way (briefs/_COMMON.md 6 and 13). When the reading was set up, the session's permission check also declined the launch of the reader for this state as bot-check circumvention. Not tried, not worked round. If the maker or the orchestrator rules that NM OneSource may be read by a browser despite its 403, the starting page is https://nmonesource.com/nmos/en/nav.do (status 200, a script shell).",
+     "url": "https://nmonesource.com/nmos/en/nav.do",
+     "time": "2026-11-07T08:12Z"
     }
    ],
    "notes": [
-    "New Mexico is unread. No lead from the earlier report applies (the earlier reader did not read New Mexico)."
+    "New Mexico is unread. nmonesource.com answered HTTP 403 to curl on its home page and a script shell on its navigation page; it was not rendered in a browser afterwards, because that would get round the 403. No lead from the earlier report applies (the earlier reader did not read New Mexico)."
    ],
    "rules": [],
    "sections": {}
@@ -10208,7 +11085,7 @@
   },
   "TN": {
    "name": "Tennessee",
-   "status": "unread",
+   "status": "partly-read",
    "code": {
     "name": "Tennessee Code Annotated, Title 2 (Elections); the official Tennessee Code Unannotated is published for the State by LexisNexis",
     "edition": null,
@@ -10218,29 +11095,48 @@
    "unread": [
     {
      "what": "Tennessee Code Annotated Title 2 (Elections): chapter 8 (determination of results, tie votes), the recount and election-contest provisions, and the primary chapters, for every kind of office and for measures",
-     "reason": "the official Tennessee Code Unannotated viewer (https://www.lexisnexis.com/hottopics/tncode/ redirects to https://advance.lexis.com/container?config=014CJAA5ZGVhZjA3NS02MmMzLTRlZWQtOGJjNC00YzQ1MmZlNzc2YWYKAFBvZENhdGFsb2e9zYpNUjTRaIWVfyrur9ud) serves the helper 'only 0 characters of text (a script shell or an empty page)'",
+     "reason": "Read in the session's headless Chromium (`state_law.py fetch TN home https://www.lexisnexis.com/hottopics/tncode/ --render`, the way the orchestrator's ruling of 2026-11-07 08:00 UTC allows for a script-shell page that has not refused us), the address https://www.lexisnexis.com/hottopics/tncode/ answered 'STATUS 403 https://www.lexisnexis.com/hottopics/tncode/' (the helper printed: 'NOT READ: STATUS 403 https://www.lexisnexis.com/hottopics/tncode/ for https://www.lexisnexis.com/hottopics/tncode/'), at 2026-11-07T08:11Z. The final address was the one requested (no redirect was followed to advance.lexis.com), and the helper keeps no body for a status of 400 or more, so the text of the refusal page was not seen. A 403 on the address the orchestrator gave (not a mistyped one) is a refusal (briefs/_COMMON.md 13): stopped, not retried, and no other address of the same service was tried (not the advance.lexis.com viewer address the earlier reader had, not WebFetch, not a mirror, archive or compilation). The proxy's status page shows no denial for www.lexisnexis.com among its recent failures, so the 403 is read as the site's own answer.",
+     "url": "https://www.lexisnexis.com/hottopics/tncode/",
+     "time": "2026-11-07T08:11Z"
+    },
+    {
+     "what": "Tennessee Code Annotated Title 2, at the viewer the code site redirected a plain request to",
+     "reason": "On the earlier reader's request, https://www.lexisnexis.com/hottopics/tncode/ redirected to https://advance.lexis.com/container?config=014CJAA5ZGVhZjA3NS02MmMzLTRlZWQtOGJjNC00YzQ1MmZlNzc2YWYKAFBvZENhdGFsb2e9zYpNUjTRaIWVfyrur9ud, which served the helper 'only 0 characters of text (a script shell or an empty page)' (cached as tn-lexis-adv, 3,702 bytes of HTML, at 2026-11-07T07:32Z). That page was not rendered: the later 403 on the code site's own address (above) came first, and under the rule of stopping at the first refusal on a service the viewer address was not tried in the browser.",
      "url": "https://advance.lexis.com/container?config=014CJAA5ZGVhZjA3NS02MmMzLTRlZWQtOGJjNC00YzQ1MmZlNzc2YWYKAFBvZENhdGFsb2e9zYpNUjTRaIWVfyrur9ud",
      "time": "2026-11-07T07:31Z"
     },
     {
      "what": "the Secretary of State's election pages, looked at only to find a plain downloadable file of the election laws",
-     "reason": "HTTP 403 for https://sos.tn.gov/elections on the first request; stopped, not retried",
+     "reason": "HTTP 403 for https://sos.tn.gov/elections on the first request; stopped, not retried, and not requested again (the orchestrator's instruction of 2026-11-07)",
      "url": "https://sos.tn.gov/elections",
      "time": "2026-11-07T07:30Z"
     },
     {
      "what": "the compilation route the orchestrator allowed at 07:21 UTC (Justia)",
-     "reason": "not tried for Tennessee: the same host answered HTTP 403 to the first request made for the Pennsylvania reading (https://law.justia.com/codes/pennsylvania/ at 2026-11-07T07:23Z), so under 'if the compilation host itself refuses us, stop there' it was not retried. Cornell LII was not tried because it does not carry the Tennessee Code.",
+     "reason": "not tried for Tennessee: the same host answered HTTP 403 to the first request made for the Pennsylvania reading (https://law.justia.com/codes/pennsylvania/ at 2026-11-07T07:23Z), so under 'if the compilation host itself refuses us, stop there' it was not retried; the orchestrator's instruction for this reading, 2026-11-07, is not to request justia.com. Cornell LII was not tried because it does not carry the Tennessee Code.",
      "url": "https://law.justia.com/codes/tennessee/",
      "time": "2026-11-07T07:32Z"
+    },
+    {
+     "what": "Tennessee recount and election-contest provisions, in any publisher",
+     "reason": "The only Tennessee text read is the CTAS guide on tie votes, which says nothing of recounts. The Code (Title 2) was refused (HTTP 403 at the LexisNexis code site, read in the headless Chromium at 08:11Z, and at sos.tn.gov to curl) and was not worked round.",
+     "url": "https://www.lexisnexis.com/hottopics/tncode/",
+     "time": "2026-11-07T08:12Z"
     }
    ],
    "notes": [
-    "Nothing was read at any other host. A state university agency (University of Tennessee, County Technical Assistance Service) publishes a guide page on tie votes (https://www.ctas.tennessee.edu/eli/tie-votes, found in a search result and not opened); it would be a state agency guide, a lower grade than the statute, and the orchestrator decides whether it may be read.",
-    "The earlier research report (research/historical-close-races-v2.md, sections 3a and 3b) did not read Tennessee, so there is no lead to confirm or correct."
+    "Tennessee is partly read: the tie rules rest on the University of Tennessee CTAS guide 'Tie Votes', a state agency guide (a lower grade than the statute) that cites T.C.A. 2-8-111 and 2-8-114; each is marked stated or inferred. The Code itself was not read: the LexisNexis code site answered HTTP 403 to the headless browser and sos.tn.gov answered HTTP 403 to curl; both are recorded as refusals and were not worked round. No recount rule was read.",
+    "The earlier reader's search leads (T.C.A. 2-8-110 and 2-8-111, 'Tie votes') are confirmed as the citations the CTAS guide gives (2-8-111 for general elections, 2-8-114 for primaries); they are still not readings of the Code."
    ],
    "rules": [],
-   "sections": {}
+   "sections": {
+    "ctas-tie": {
+     "citation": "University of Tennessee Institute for Public Service, County Technical Assistance Service (CTAS), e-Li, 'Tie Votes' (CTAS-865), citing T.C.A. 2-8-111 and 2-8-114",
+     "url": "https://www.ctas.tennessee.edu/eli/tie-votes",
+     "read_at": "state agency guide",
+     "note": "A plain page of a state university agency that advises counties: the agency's guide to the Code, a lower grade than the statute. Read once with curl (HTTP 200, 2026-11-07T08:12Z). It gives the rule in a sentence and cites the sections; the Code's own words were not read."
+    }
+   }
   },
   "TX": {
    "name": "Texas",

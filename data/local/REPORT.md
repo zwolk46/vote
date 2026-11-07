@@ -9,7 +9,7 @@
 | Source | Script | What it gives | Checks [measured] |
 |---|---|---|---|
 | Carl Klarner, *State Legislative Election Returns, 1967-2022*, Harvard Dataverse doi:10.7910/DVN/FJOGJB, v1.0 (2024-06-12), CC0 1.0 | `pipeline/intake/klarner_state_legislative.py` | 418,894 candidate rows into 189,103 contests: 158,537 regular generals, 27,359 primaries (first rounds and runoffs included), and 3,207 others (Louisiana's two rounds, specials, top-two primaries) | rows read: 418,894, as the record says. Democratic and Republican totals against Klarner's own contest file: 15 of 151,769 contests differ. In most, the contest file has 0 for a party to which the candidate file gives a few votes; one differs by 604 votes (Illinois House 38, 1968). All are listed in the cache's `checks.json`. Candidates against Klarner's candidate-contest file: 16 of 307,892 differ. Winners per chamber and year against Klarner's seats-up file: 7 of 2,512 differ, each with one or two winners fewer than the seats up (likely ties or unfilled seats [inferred]). Klarner's `ovote` is 0 in 9,061 contests where its candidate file lists non-major candidates with votes, so it is not used as a check |
-| MIT Election Data and Science Lab, *Precinct-Level Returns 2024 by Individual State*, Harvard Dataverse doi:10.7910/DVN/NYTPDU, v1.0, CC0 1.0 | `pipeline/intake/medsl_precinct.py`, then `pipeline/local_medsl.py` | 51 files, 18,383,653 rows, into 29,910 contests of every office below Congress | rows read match Dataverse's count in all 45 files it counts. The same files' presidential totals against D1's certified ones: 27 states exact, 47 within 0.2%; Indiana +5.2%, Louisiana −48.9%, New Jersey +14.4% (all three named in MEDSL's README), held back; Maine −1.2%, MEDSL's first-round counts (its README), kept |
+| MIT Election Data and Science Lab, *Precinct-Level Returns 2024 by Individual State*, Harvard Dataverse doi:10.7910/DVN/NYTPDU, v1.0, CC0 1.0 | `pipeline/intake/medsl_precinct.py`, then `pipeline/local_medsl.py` | 51 files, 18,383,653 rows, into 29,910 contests of every office below Congress | rows read match Dataverse's count in all 45 files it counts. The same files' presidential totals against D1's certified ones: 27 states exact, 47 within 0.2%; Indiana +5.2%, Louisiana −48.9%, New Jersey +14.4% (all three named in MEDSL's README), held back (Indiana's now replaced by the state's own file, §10); Maine −1.2%, MEDSL's first-round counts (its README), kept |
 | MEDSL, *Precinct-Level Returns 2022 by Individual State*, doi:10.7910/DVN/UYQIEP, v5.0, CC0 1.0 | the same scripts | 51 files, 12,310,863 rows, into 5,782 contests. For AR, AZ, ID, IN, MD, MI, ND and WA it holds only a local file; their state offices are in MEDSL's OAARCY set, not yet taken | rows match Dataverse's count in all 46 files it counts. State legislatures against Klarner's 2022 returns: §6 |
 | National Archives, Electoral College results 1964-2020 | `pipeline/intake/nara_electoral_college.py` (D2's) | the sitting president's party in each year | the winner's electoral votes reach the majority |
 
@@ -142,7 +142,7 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 - Some files list every precinct of the state under an office with 0 votes; a contest is placed by the precincts that voted in it, and 35 contests with no vote anywhere are left out.
 
 **Checks** [measured]:
-- 2024: the presidential totals above. Indiana's, Louisiana's and New Jersey's contests are recorded with p not computed and the reason.
+- 2024: the presidential totals above. Louisiana's and New Jersey's contests are recorded with p not computed and the reason. Indiana's are now the state's own certified counts (§10).
 - 2022 state legislatures against Klarner's (`data/local/check-2022-medsl-klarner.json`), 4,130 single-member districts named alike in both: D and R votes identical in 3,426; the two-party share within 1 point in 574 more (counts scaled alike: New Hampshire's senate is exactly double in Klarner, Idaho's double in MEDSL); a major party's candidate in one source only in 94; the share more than 1 point apart in 36. The winner differs in 89. (Read again with the intake of §7, 9 Illinois districts the first reading had split now join, and Illinois falls under the line.) States where more than 10% of districts differ in share or parties (AR, IN, MI, WA, WY), and California, whose 2022 file has exactly 1,048,575 rows, a spreadsheet's limit, so it is likely cut short [inferred], are not used for last results or like races.
 - The US House totals in the same files against D2's are kept in the checks file but not used: D2's state totals include blank-ballot lines in some states and its party words vary, so they do not compare line for line.
 
@@ -152,6 +152,8 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 - **Measures**: see §8.
 
 **The 2024 state legislative forecasts against what happened** (out of sample: fitted on 1967-2022) [measured], 3,032 partisan races: in the 50/80/95% intervals 60/86/96%; within 49-51%, 134.2 expected and 128 seen; within 100 votes, 42.7 expected and 42 seen. The forecasts leaned 2.3 points too Democratic on average, the year's swing. Class C carries 2,406 of them: precinct names change between the files, so the lines test finds unchanged lines for only 627 districts.
+
+**Class C** (added 2026-11-07 at 09:28 UTC, at the orchestrator's question of 09:22: the site will need to know which p rest on a coarse forecast) [measured]. With Indiana's (§10), 2,461 of the 2024 legislative p rest on class C, against 478 on class A and 163 on class B. Class C's forecast reads the chamber's lean (the mean Democratic share of the chamber's contested seats at its previous election, minus ½), which is the same for every district of a chamber, and incumbency; so it cannot tell a safe district from a close one, and its sd is about 0.11. Indiana's House District 2 is an example: 82% Democratic, forecast at 0.47 with sd 0.115, p 9.2e-5. Out of sample in 2024, class C's 2,461 races: within 49-51%, 112.6 expected and 106 seen; in the 50/80/95% intervals 55/84/95%; the means leaned 2.6 points Democratic. In 1972-2022 (`data/local/backtest.json`, `partisan.by_class.C`), 19,619 races: 972.8 expected and 923 seen within 49-51%. Class C is right near ½ in the count, but each of its p is that of an average district of its chamber, not of its own.
 
 **Where p is computed**, and what would compute the rest: superseded by §7, which adds 2018 and 2020.
 
@@ -246,7 +248,7 @@ Not read, because the sites refused and the readers stopped there (never routed 
 | 2024 | 215 | 112 | 3.1, 7 | 6.3, 12 | 17.7, 26 |
 | all | | 244 | 6.5, 11 | 14.1, 19 | 35.3, 49 |
 
-**It still under-forecasts near ½.** Over the three years, 35.3 measures were expected within 5 points of ½ and 49 finished there (1.4 times); within 1 point, 6.5 and 11. Most of it is 2024 (17.7 and 26 within 5 points). The 63 measures given p finished within their own window 8 times against 3.6 expected (2022: 2 and 1.3; 2024: 6 and 2.3), so their p are likely too low, perhaps by half. Earlier years do not show it steadily: fitted on 2018 and 2022 only, the factor would be 1.18 within 1 point, 0.90 within 2 and 1.31 within 5, so a calibration like §7's would not correct 2024 in any steady way, and none is applied. At the orchestrator's word (07:25), each of the 63 p carries the shortfall in `p.note`, written by the build from its own back-test: "this route's back-test shows more near-even finishes than it forecast (49 against 35.3 within 5 points, 2018 to 2024), so p may be low". *With §9's North Carolina counts, North Carolina's 2024 amendment is one statewide measure rather than 100 county questions. That makes 64 statewide p, and the note, which the build writes from its back-test, now reads "49 against 35.5".* Retentions: no earlier statewide retention finished within 5 points of ½, yet 2024 had 3 (2 within 1 point); none has p.
+**It still under-forecasts near ½.** Over the three years, 35.3 measures were expected within 5 points of ½ and 49 finished there (1.4 times); within 1 point, 6.5 and 11. Most of it is 2024 (17.7 and 26 within 5 points). The 63 measures given p finished within their own window 8 times against 3.6 expected (2022: 2 and 1.3; 2024: 6 and 2.3), so their p are likely too low, perhaps by half. Earlier years do not show it steadily: fitted on 2018 and 2022 only, the factor would be 1.18 within 1 point, 0.90 within 2 and 1.31 within 5, so a calibration like §7's would not correct 2024 in any steady way, and none is applied. At the orchestrator's word (07:25), each of the 63 p carries the shortfall in `p.note`, written by the build from its own back-test: "this route's back-test shows more near-even finishes than it forecast (49 against 35.3 within 5 points, 2018 to 2024), so p may be low". *With §9's North Carolina counts, North Carolina's 2024 amendment is one statewide measure rather than 100 county questions. That makes 64 statewide p, and the note, which the build writes from its back-test, now reads "49 against 35.5".* *With §10's Indiana file, Indiana's 2024 amendment adds a 65th, and the note reads "50 against 35.6".* Retentions: no earlier statewide retention finished within 5 points of ½, yet 2024 had 3 (2 within 1 point); none has p.
 
 **Size**: the rebuild grows the repository's pack from 27.43 to 27.83 MiB (scratch clone, `git gc --aggressive`, `git count-objects -vH`) [measured]; no file is over 20 MB.
 
@@ -267,7 +269,14 @@ Not read, because the sites refused and the readers stopped there (never routed 
 - `pipeline/intake/ncsbe.py` runs `list`, `fetch` and `read`. It handles the six layouts of the site's `layout_results_pct.txt`; three files have no header line, and their layout is read from their columns.
 - `pipeline/local_ncsbe.py` runs `check` and `build`.
 - What the files do not say, and how each is read [inferred]:
-  - **Which lines form one contest.** The State Board names each contest with its place ("CITY OF ARCHDALE MAYOR"), so lines are joined across counties by that name. The exception is 2010 to 2013, whose county contests are named without the county ("BOARD OF COMMISSIONERS"); those are joined within a county.
+  - **Which lines form one contest.** The State Board names most contests with their place ("CITY OF ARCHDALE MAYOR"), so lines are joined across counties by that name. The exceptions are a county's own contests named without the county ("BOARD OF COMMISSIONERS"). In 2010 to 2013 every county contest is one per county. From 2014, a county's own contest whose name carries no place (`generic` in `pipeline/intake/ncsbe.py`: "SHERIFF (REP)", "BOARD OF EDUCATION DISTRICT 1", "COUNTYWIDE MALT BEVERAGE ELECTION") is also one per county, and says so in its `notes`. The one exception is where the counties share a county-prefixed group id, as the Town of Davidson's 2017 bonds do in Iredell and Mecklenburg.
+  - *Corrected 2026-11-07 at 09:21 UTC* [measured]. Before this, from 2014 those names were joined across counties, so different counties' contests were summed. 88 written contests were affected, none with p. Examples are the 2014 primary's "Sheriff (REP)" across 34 counties, 2016's "Soil and Water Conservation District Supervisor" across 77, and 2018's "One Quarter Cent Sales Tax" across 11. They are now 500 contests, one per county, on five dates from 2014-05-06 to 2018-05-08; 80 old ids are gone and 495 are new.
+  - They entered the earlier years' like races, so later p moved. 497 p change:
+    - 137 are new, in classes that now reach 100 like races;
+    - 360 move, by a median of 7% and at most 10% (each class's f(½) is measured again on more races);
+    - none falls out.
+    - The changes are in the local races of 2019-2026 (67) and the primaries of 2017-2026 (430).
+    - Each p is listed, with its id, before and after, in `data/local/moves-ncsbe-own-county.json`.
   - **The number of seats.** "Vote for" is given only from 2014. Before that, a contest with several names has no seat count, so it has no winners and no p.
   - **Which round.** A party's primary carries the party in its name ("- DEM", "(REP)"). Before 2008 it is read from its candidates' party codes, and one name holding several parties is split by party. A second primary, or a first round, is the same name on another ballot that year.
   - **Winners.** The leading names for the seats are taken as won, and none at a tie.
@@ -330,43 +339,87 @@ The p of these contests are computed from the certified counts. Elsewhere, the f
   - "a Democrat against a Republican", since these dates have no county lean;
   - primaries by office type and number of candidates, with p between the top two (model section 7).
 - **The back-test.** Each year is forecast from earlier years only. For each class, the expected count is the chance its like races gave of finishing in the class's window around ½; the seen count is how many did.
-  - Local races, 2016-2026: 2,191 forecast, 270.3 expected and 281 seen.
-  - Single-seat races: 115.3 against 113. Multi-seat boundaries: 193.7 against 206.
-  - Primaries, 2019-2026: 484 forecast, 38.7 against 38.
+  - Local races, 2016-2026: 2,231 forecast, 275.9 expected and 289 seen.
+  - Single-seat races: 132.8 against 138. Multi-seat boundaries: 193.7 against 206.
+  - Primaries, 2017-2026: 613 forecast, 50.6 against 55.
+  - These are the figures after the correction of 09:21 above. Before it they were 2,191 forecast, 270.3 against 281; single-seat 115.3 against 113; and primaries 484 forecast, 38.7 against 38.
 - **A single year is rougher than the pooled figure.**
 
   | Year | Local races: expected, seen | Primaries: expected, seen |
   |---|---|---|
-  | 2017 | 29.4, 28 | |
-  | 2018 | 7.4, 15 | |
-  | 2019 | 32.7, 41 | 0.2, 0 |
-  | 2020 | 7.2, 6 | 12.3, 10 |
+  | 2016 | 0.5, 1 | |
+  | 2017 | 29.4, 28 | 0.2, 0 |
+  | 2018 | 7.4, 15 | 5.5, 11 |
+  | 2019 | 32.8, 41 | 0.1, 0 |
+  | 2020 | 12.0, 14 | 8.6, 7 |
   | 2021 | 49.4, 41 | |
-  | 2022 | 16.8, 13 | 7.6, 11 |
+  | 2022 | 17.2, 13 | 8.0, 11 |
   | 2023 | 51.1, 54 | 0.1, 0 |
-  | 2024 | 15.3, 13 | 5.8, 7 |
+  | 2024 | 15.6, 13 | 11.0, 14 |
   | 2025 | 58.5, 67 | 0.3, 1 |
-  | 2026 | 2.0, 2 | 12.4, 9 |
+  | 2026 | 2.0, 2 | 16.8, 11 |
 
   In 2018, twice as many local races finished in the window as were expected. In 2021, a sixth fewer.
-- **No calibration.** A factor fitted on earlier years only (the 06:38 rule) brings 2019-2026 to 251.6 expected against 237 seen; uncalibrated gives 233.0. It makes the later years worse, so it is not applied, and each forecast says so in its `note`. Unlike MEDSL's national classes (0.75-0.78, §7), North Carolina's own classes are about right.
+- **No calibration.** A factor fitted on earlier years only (the 06:38 rule) brings 2019-2026 to 261.7 expected against 245 seen; uncalibrated gives 238.6 (before the correction of 09:21: 251.6, 237 and 233.0). It makes the later years worse, so it is not applied, and each forecast says so in its `note`. Unlike MEDSL's national classes (0.75-0.78, §7), North Carolina's own classes are about right.
 - **What it gives, on the State Board's other dates** (the State Board's contests on MEDSL's dates take MEDSL's routes, above).
-  - p: 1,742 local races (584 single-seat, 1,158 at the boundary, marked not yet checked for M2) and 484 primaries.
-  - p = 0: 5,177.
+  - p: 1,750 local races (592 single-seat, 1,158 at the boundary, marked not yet checked for M2) and 613 primaries.
+  - p = 0: 5,263.
   - Out of reach, each with its reason:
-    - too few like races in earlier years: 1,746 local, 1,453 primaries;
-    - 2014, with no earlier year to fit on: 504;
+    - too few like races in earlier years: 1,754 local, 1,375 primaries;
+    - 2014, with no earlier year to fit on: 603;
     - no seats before 2014: 3,343;
-    - first rounds, second primaries and primaries that a second primary followed: 380;
+    - first rounds, second primaries and primaries that a second primary followed: 522;
     - after an earlier round: 171;
-    - write-ins near the winner's votes: 1,158 (the same number as the boundary races with p, by coincidence; with the 91 on MEDSL's dates, 1,249 State Board contests carry this reason) [measured];
+    - write-ins near the winner's votes: 1,162 (with the 91 on MEDSL's dates, 1,253 State Board contests carry this reason) [measured];
     - a write-in in the deciding pair: 41;
     - no votes: 1;
-    - questions, waiting on step (b): 572.
+    - questions, waiting on step (b): 583.
 
 **Size** [measured]. The repository packs to 28.48 MiB with this change, against 26.60 MiB at main's 001d3f7 (scratch clones, `git gc --aggressive`). The new files are 15.9 MB unpacked.
 
 **Still open.**
 - The 1990s PDFs (left for later, 07:30).
 - 2026-11-03, once certified.
+
+## 10. Indiana's own certified 2024 general election
+
+*Added 2026-11-07 at 09:04 UTC, at the orchestrator's order of 08:08 ("For the 2024 legislatures of IN, LA and NJ, read each state's own certified results where a file is reachable by script, with a gate against D2's federal counts on the same dates as for North Carolina") and its go-ahead of 08:32 ("Indiana's certified archive is a good source").*
+
+**Why.** MEDSL's 2024 Indiana file adds up to 5.2% more than D1's certified presidential count (§6), so its Indiana contests were held back, with no p. Where two sources hold one contest, the certified one wins (brief D3, step 2).
+
+**Source** [stated]. Indiana's election results site keeps each election in an archive: https://enr.indianavoters.in.gov/archive/2024General/.
+- Its page says "Results for the November 2024 General Election are final, subject to pending local recounts/special elections". Its `data/settings.json` says `"Certified": "T"`, version `20241213_160047`.
+- No licence for the data is printed. The page's footer reads "Copyright 1989 - <year>. Quest Information Systems, Inc. All Rights Reserved.": Quest is the site's maker.
+- The files are the ones the site's own scripts fetch. There are 119 JSON files, 5.5 MB: the settings, the office list, one file per office category (24) with each race's total and its counties, and one file per county (92) with its questions' yes and no. They were fetched at 08:40 to 08:53 UTC, 4 seconds apart.
+- `pipeline/intake/in_enr.py` reads them. A question on more than one county's ballot is joined by its type, title and ballot text. Each race's counties come from its regions; a title that does not name its place ("School Board Member, District") takes its district's name from the race's jurisdiction.
+- The site lists no write-in lines [measured: no write-in name or code in any race]. So an unopposed race's p = 0 cannot be checked against a strong write-in, as MEDSL's can.
+
+**The gate** (`pipeline/local_in.py`; `data/local/check-in.json`) [measured]. The file's Democratic and Republican votes equal D1's certified presidential count (1,163,603 and 1,720,347), D2's Senate count, and D2's House count in all 9 districts. It passes.
+
+**MEDSL's Indiana against the state's** [measured].
+- The legislature, 125 districts:
+  - 85 are equal;
+  - 39 differ: MEDSL's count is higher in 26, often by as much again, and lower in 13, by up to 76% (Senate 40: 9,378 against 38,424);
+  - MEDSL splits 5 into pieces;
+  - 1 is not in MEDSL's file.
+- Local races: of MEDSL's 1,535, 1,165 are equal, 331 differ and 39 are not found in the state's file. The attorney general reads 1,750,318 Republican votes in MEDSL's, against 1,669,586 in the state's.
+- Questions: MEDSL's file holds 33, against the state's 38. MEDSL's statewide amendment covers 42 of the 92 counties. Only 2 of MEDSL's questions equal the state's.
+
+**The certified file wins.** `pipeline/local_medsl.py` (`certified_in`) reads Indiana's legislature, local races and questions of 2024 from the state's file in place of MEDSL's, with MEDSL's routes and checks. Indiana is then no longer held back in 2024. The presidency, Congress and the governor stay D1's and D2's. `result.source` is `in_enr`, and each file carries the source block.
+
+**What is written** [measured].
+- **The legislature**, 125 contests: the State House's 100 (64 with p, 36 with p = 0) and the State Senate's 25 (13 with p, 12 with p = 0). Each takes route (a) as class C. The 2022 result is not used, because MEDSL's 2022 Indiana is held back (§6). The lean comes from Klarner's previous election of the chamber, and incumbency from the winners of 2020-2022.
+- **Local races**, 1,433: 210 with p, calibrated as §7 says, and 968 unopposed with p = 0. 255 are not computed, each with its reason:
+  - 133 races between a Democrat and a Republican, whose forecast reads the county's 2022 House lean, which MEDSL's held-back 2022 file cannot give;
+  - 122 in classes with fewer than 100 like races in earlier years.
+  - The site's code N, "Non Partisan" in its settings, marks every school board candidate, and those races take the nonpartisan classes.
+- **Questions**, 38:
+  - **The amendment.** Public Question #1 (removing the superintendent of public instruction from the governor's line of succession) is statewide, with its ballot text and p. Its threshold is "a majority of the electors voting on the amendment" (Ind. Const. art. 16, §1(c)). That was read through WebFetch, because the legislature's site gives curl a JavaScript page and Justia's copy answered 403; it is marked `read_via` in `data/measure/thresholds.json`.
+  - **The statewide retentions.** The 3 Supreme Court retentions and 1 Court of Appeals retention are statewide. They have no p: Indiana's text states no share (§8).
+  - **Local questions.** The other 33 are local: 26 judges' retentions, 6 public questions, and a Court of Appeals retention on 53 counties' ballots. They wait on step (b).
+- **Elsewhere.** No p outside Indiana moves: each year's fits and calibration come from earlier years only.
+  - The 2024 out-of-sample test of local like races now holds 2,264 contests: 214 finished within 1 point, against 210.7 expected after calibration (before: 2,054, and 195 against 191.9).
+  - The statewide measures with p go from 64 to 65. Their back-test reads 50 against 35.6 within 5 points, and so does each p's note (§8).
+
+**Still open.** Indiana's other years: the archive keeps earlier elections in the same layout [inferred from its address; not read].
 

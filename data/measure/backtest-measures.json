@@ -70,24 +70,24 @@
    }
   },
   "2024 statewide measure (trained on 215)": {
-   "measures": 113,
+   "measures": 114,
    "near": {
     "within 1%": {
      "expected": 3.2,
      "seen": 7
     },
     "within 2%": {
-     "expected": 6.3,
+     "expected": 6.4,
      "seen": 12
     },
     "within 5%": {
-     "expected": 17.9,
-     "seen": 26
+     "expected": 18.0,
+     "seen": 27
     }
    }
   },
   "2024 statewide retention (trained on 63)": {
-   "measures": 39,
+   "measures": 43,
    "near": {
     "within 1%": {
      "expected": 0.0,
@@ -104,24 +104,24 @@
    }
   },
   "all years statewide measure": {
-   "measures": 245,
+   "measures": 246,
    "near": {
     "within 1%": {
      "expected": 6.6,
      "seen": 11
     },
     "within 2%": {
-     "expected": 14.2,
+     "expected": 14.3,
      "seen": 19
     },
     "within 5%": {
-     "expected": 35.5,
-     "seen": 49
+     "expected": 35.6,
+     "seen": 50
     }
    }
   },
   "all years statewide retention": {
-   "measures": 75,
+   "measures": 79,
    "near": {
     "within 1%": {
      "expected": 0.0,
@@ -161,9 +161,9 @@
    }
   },
   "2024": {
-   "measures": 42,
+   "measures": 43,
    "own_window": {
-    "expected": 2.3,
+    "expected": 2.4,
     "seen": 6
    },
    "near_threshold": {
@@ -172,19 +172,19 @@
      "seen": 3
     },
     "within 2%": {
-     "expected": 2.3,
+     "expected": 2.4,
      "seen": 6
     },
     "within 5%": {
-     "expected": 6.6,
-     "seen": 14
+     "expected": 6.8,
+     "seen": 15
     }
    }
   },
   "all years": {
-   "measures": 64,
+   "measures": 65,
    "own_window": {
-    "expected": 3.6,
+    "expected": 3.7,
     "seen": 8
    },
    "near_threshold": {
@@ -193,12 +193,12 @@
      "seen": 4
     },
     "within 2%": {
-     "expected": 3.6,
+     "expected": 3.7,
      "seen": 8
     },
     "within 5%": {
-     "expected": 9.6,
-     "seen": 23
+     "expected": 9.8,
+     "seen": 24
     }
    }
   }

@@ -1,10 +1,149 @@
 # Senate, House and governor: sources, method and checks
 
-*Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19, 08:06 and 08:36 UTC). Written 2026-11-07 and revised six times the same day (last at 09:30 UTC): for the follow-ups from M2 (§0.6), for the orchestrator's third round (§0.5), for its fourth, the near-ties (§0.4), for its fifth, the means and the tails (§0.3), for the incumbency fix after M2's second pass (§0.2), and for the rest of that pass, with round 5 taken again under the robustness test (§0.1). It covers every Senate and House race of the even years 2006 to 2024, and every governor race of the even years 1978 to 2024, that the sources hold, with p, and control of the Senate and the House.*
+Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19, 08:06 and 08:36 UTC, and the orchestrator's words of 08:54, 09:03 and 09:08). Written 2026-11-07 and revised eight times the same day (last at 09:40 UTC):
+- for the follow-ups from M2 (§0.8);
+- for the orchestrator's third round (§0.7);
+- for its fourth, the near-ties (§0.6);
+- for its fifth, the means and the tails (§0.5);
+- for the incumbency fix after M2's second pass (§0.4);
+- for the rest of that pass, with round 5 taken again under the robustness test (§0.3);
+- for round 4's near-tie factor taken again under that test, with the governors' near-even note (§0.2);
+- and for the next round, a half-life k and Cha's incumbency codes 2 and 3, neither adopted (§0.1).
+
+It covers every Senate and House race of the even years 2006 to 2024, and every governor race of the even years 1978 to 2024, that the sources hold, with p, and control of the Senate and the House.
 
 ## 0. What each round changed
 
-### 0.1 M2's second pass: three fixes, and round 5 taken again under the robustness test (the orchestrator, 2026-11-07 08:36 UTC)
+### 0.1 A half-life k, and Cha's incumbency codes 2 and 3, under the robustness test (the orchestrator, 2026-11-07 09:03 and 09:08 UTC)
+
+**What was asked.** The orchestrator, 09:03: "run only your half-life k, since M2 has already tested last-3; then the incumbency variants (a) and (b); all under the robustness test." *Reason:* "last-3 has been tested independently, and the tokens are better spent on the untested variants." M2 found that the last one, two and three years, and a trend k, each fail the rule; its reading is that "the near-tie shortfall sits in the mean, not the spread". At 09:08 the orchestrator added: "on the D2-v3 record". Both variants were fixed before any score (`/mnt/project-files/d2/recent-k-design.md`).
+
+**The rule** is round 5's (`variant_test`) with the robustness test. Each variant is scored against the record on 2010-2024, out of sample, banded by the record's means. It is adopted only if it does all of these, on all years and again with any one year left out:
+- raises the mean log score;
+- brings the 49-51% count nearer the count seen;
+- moves no tested count in the 10-20 or 20+ point bands further from the count seen.
+
+**Nothing is adopted.** Every p, control and file stays as it was, and the variants' scores are in `backtest.json` (`variants.halflife`, `incumbency_test`).
+
+**1. The half-life k** (`calibration(..., rule="halflife")`; variant `halflife`). Each earlier scored year T′ has weight 0.5^((T − T′)/4) in the RMS of z, a half-life of two cycles. The near-tie factor and its rule are refitted under it.
+
+| Level | Log score, record | half-life | 49-51%, expected against seen | 50 / 80% coverage | Tested safe cells | One year left out |
+|---|---|---|---|---|---|---|
+| House | 1.5785 | 1.5867 (+0.0081) | 86.2 against 105 (record 87.5): further | 55.0 / 84.9 (record 56.9 / 86.9) | all three in the 10-20 point band further | fails for every year |
+| Senate | 1.2984 | 1.3193 (+0.0208) | 10.9 against 17 (record 11.1): further | 49.6 / 84.8 (record 54.3 / 91.0) | 45-55% in the 10-20 point band further | fails for every year |
+| Governors | 1.1780 | 1.1725 (−0.0055) | 12.9 against 16 (record 12.8) | 58.6 / 84.9 (record 59.1 / 86.0) | none further | fails for every year |
+
+- **k by year, record then half-life:**
+  - House 2014-2024: 0.982 and 0.950, 0.930 and 0.876, 0.903 and 0.844, 0.895 and 0.848, 0.891 and 0.855, 0.871 and 0.816.
+  - Senate 2024: 0.911 and 0.791.
+  - Governors 2024: 0.936 and 0.874.
+- **What it shows.** M2 read the same in the last-years k.
+  - A narrower spread fits the results better on the whole, so the log score rises in the House and the Senate.
+  - It also lowers the density at ½ of every race beyond about one sd from even, so the near-even counts fall further short. That happens most in the 10-20 point band, where the House's results land nearer ½ than its means (§7).
+  - The coverage moves toward nominal but stays above it (House 50%: 55.0 from 56.9; Senate 80%: 84.8 from 91.0). So the spread is better calibrated overall, and still the near-even counts fall further short.
+  - So the shortfall at ½ is not a spread that is too wide, and k stays as it is.
+
+**2. Cha's incumbency codes** (`fit_rows(inc_codes)`, `inc_test`). The two definitions were fixed before any score: (a) codes 1 and 2 count as an incumbent; (b) 1, 2 and 3. They apply to the fit rows of 2006-2024, which come from Cha. The Senate's rows of 1982-2004 and the governors' before 2006 keep their own definitions. Under each, everything is refitted on earlier years only: the coefficients, k, and the near-tie factor and its rule. The half-life k was not adopted, so there is no second setting to score.
+
+- **Rows that change** (of the Cha rows):
+  - House: 59 of 3,805 under both (a) and (b), since no House nominee is coded 3.
+  - Senate: 9 of 319 under (a), 22 under (b).
+  - Governors: 3 of 232 under (a), 14 under (b).
+
+| Level | Variant | Log score (record) | 49-51%, expected against seen (record) | Tested safe cells | One year left out | Decision |
+|---|---|---|---|---|---|---|
+| House | (a) | 1.5862 (1.5785), +0.0076 | 86.9 against 105 (87.5): further | all three in the 10-20 point band further | fails for every year | not adopted |
+| House | (b) | 1.5839, +0.0053 | 87.1 (87.5): further | all three in the 10-20 point band further | fails for every year | not adopted |
+| Senate | (a) | 1.2980 (1.2984), −0.0004 | 10.8 against 17 (11.1): further | 48-52% in the 10-20 point band further | fails for every year | not adopted |
+| Senate | (b) | 1.2977, −0.0007 | 10.3 (11.1): further | the same | fails for every year | not adopted |
+| Governors | (a) | 1.1817 (1.1780), +0.0038 | 12.7 against 16 (12.8): further | none further | passes only without 2010 | not adopted |
+| Governors | (b) | 1.1819, +0.0039 | 12.4 (12.8): further | 45-55% in the 10-20 point band further | fails for every year | not adopted |
+
+- **b_inc barely moves.** Here it is record / (a) / (b), with the record's standard error:
+  - House: 2010 0.0944 / 0.0943 / 0.0943 ± 0.0031; 2024 0.0560 / 0.0568 / 0.0568 ± 0.0013.
+  - Senate: 2010 0.1045 / 0.1045 / 0.1046 ± 0.0045; 2024 0.0908 / 0.0903 / 0.0904 ± 0.0037.
+  - Governors: 2010 0.0814 / 0.0816 / 0.0815 ± 0.0067; 2024 0.0724 / 0.0727 / 0.0717 ± 0.0053.
+  - Every year is in `incumbency_test.b_inc_by_year`.
+- **The House under (a).** Counting its 59 nominees elected in specials as incumbents raises the log score. But the near-even counts move further from the counts seen, so the rule does not adopt it.
+- **No contest's `forecast_inputs.incumbency` changes.**
+
+**Code.** These changes to `chambers.py` leave the record as it was; a recompute gives the same files, apart from the commit and the read time:
+- the variant `halflife` and `K_HALF_LIFE`;
+- `INC_CODES`, with `fit_rows(inc_codes)`;
+- `inc_test`;
+- `b_inc_se` in each fit;
+- caches keyed by the fit rows, so that two definitions of the rows can be scored in one run;
+- `_variant_score(..., band_rows)`, which bands a variant by the record's means.
+
+### 0.2 Round 4's near-tie factor taken again under the robustness test, and the governors' near-even note (the orchestrator, 2026-11-07 08:54 UTC)
+
+**What was asked** (the orchestrator, 08:54, after #51):
+- **The near-tie factor.** "The test applies to every change that stands, not only to round 5's. Retake round 4's near-tie factor for the House and the Senate. Where it fails, take it out and report it beside the forecast." *Reason, in its words:* "a rule kept for new changes only would leave older knife-edge changes standing on less evidence than new ones need."
+- **The governors' note.** "Write the note on each governor p, built from your back-test with its own counts (4.5 against 0, 2006–2024)." *Reason:* "a known lean of the forecast should be visible to a reader, whichever forecast stands."
+
+**1. The test** (`near_tie_test`; each scheme's `round_5_cells`, `leave_one_year_out` and `robust` in `backtest.json`, `near_tie`). A scheme is adopted for a level only if it passes all three of these, on 2010-2024, the years it reaches:
+- **Round 4's test, as before** (§2.6). It must raise the log score, bring the 49-51% count nearer the count seen, and not move the safe seats' 49-51% count further from it.
+- **Round 5's cells.** In the 10-20 and 20+ point bands, no near-even count (49-51, 48-52 and 45-55%) may move further from the count seen. A cell is tested where its count seen or expected is 5 or more. *Reason:* by the orchestrator's reason above, an old change must meet what a new one needs, and a new one needs these cells.
+- **Both again with any one scored year left out.**
+
+| Level | Scheme | All years: round 4's test | All years: round 5's cells | One year left out | Decision |
+|---|---|---|---|---|---|
+| House | one factor | passes (log score +0.0007) | passes (three cells tested, all 10-20 points) | passes for every year | **stands** |
+| House | by band | passes (+0.0007, a little lower) | passes | passes for every year | passes, but scores lower |
+| Senate | one factor | passes (+0.0033) | **fails**: 48-52% in the 10-20 point band, 5.8 expected against 5 seen, from 5.5 without it | fails without 2012, 2014 or 2024 (that cell), and without 2020 (the safe seats' 49-51% count) | **taken out** |
+| Senate | by band | passes (+0.0007) | passes | fails without 2024 (log score −0.0016) | not adopted |
+| Governors | either | fails (log score lower) | | | none, as before |
+
+- **The House keeps its factor.** It passes everywhere, so its p and control are unchanged.
+- **The Senate loses its factor.** Its p of record is now the model's own forecast as it stands, with no near-tie factor.
+  - Each of the model's own Senate p (the one standing first, or one beside it) carries `near_tie_not_of_record`. That gives the factor, the multiplier and what p would be with it, which is the p of before, to the digit.
+  - Each Senate file's `model.near_tie.taken_out` gives the year's factor, its fitting years, and where the test fails.
+  - The factors taken out are 0.886 in 2010, then 1.079, 1.100, 1.120, 1.128, 1.177, 1.198 and 1.229 in 2024, every one pooled over the levels.
+  - 538's p is unchanged; it was never calibrated.
+
+**2. Round 5's variants on the new Senate record.** Each variant is scored against the record, and the Senate's record no longer has the factor. No variant passes at any level (`backtest.json`, `variants`), so nothing changes:
+
+| Level | Variant | All years | One year left out | Decision |
+|---|---|---|---|---|
+| House | shrink | log score +0.0259, but 49-51% in the 10-20 point band further | fails for every year | not adopted |
+| House | t4 | log score −0.0028 | fails for every year | not adopted |
+| House | both | log score +0.0342, but three counts in the 10-20 point band further | fails for every year | not adopted |
+| Senate | shrink | log score +0.0220, but 48-52% in the 10-20 point band further (6.3 expected against 5 seen, from 5.5) | fails without 2010, 2012, 2014, 2016 or 2024 | not adopted |
+| Senate | t4 | log score −0.0043 | fails for every year | not adopted |
+| Senate | both | log score +0.0305, but 48-52% and 45-55% in the 10-20 point band further | fails for every year | not adopted |
+| Governor | shrink | log score −0.0031 | fails for every year | not adopted |
+| Governor | t4 | passes: log score +0.0265 | fails without 2010, 2018 or 2020 | not adopted |
+| Governor | both | passes: log score +0.0177 | fails without 2010, 2012, 2018, 2020 or 2024 | not adopted |
+
+The House's shrink scores differ from §0.3 (+0.0266 there). Under shrinkage the near-tie factor is refitted, and it now fails the robustness test too.
+
+**3. The governors' near-even note.** `chambers.py history` now writes a `note` onto each of the 420 governor p of 1986-2024. Its words are the brief's:
+
+> this route's back-test shows fewer near-even finishes than it forecast (0 against 4.5 within 5,000 votes, 2006 to 2024), so p may be high
+
+- **Where the counts come from.** They are read from `history.json` (`by_level.governor.by_year`, and the summary in `governor_note`): 4.52 expected against 0 seen. The expected count uses each p's own forecast, which is 538's where it stands first.
+  - By year: 0.72 in 2006, 0.19, 0.74, 0.26, 0.53, 0.27, 0.89, 0.20, 0.54 and 0.18 in 2024.
+- **The order of the counts.** Seen comes first, then forecast. That follows the sentence's own order, "fewer near-even finishes than it forecast", and D3's note on the measures (#37).
+- **p is not corrected**, as the brief says.
+- **History runs after compute.** compute rewrites p, and history writes the note.
+
+**Sums, before and after** (before is `main` at 00961e4, #51):
+
+| Level | Sum of p, before | after | Control, before | after |
+|---|---|---|---|---|
+| House, 2008-2024 | 1.0157e-2 | unchanged | 1.4159e-4 | unchanged |
+| Senate, 2006-2024 | 4.4685e-4 | 4.4426e-4 | 4.8432e-5 | 4.7655e-5 |
+| Governors, 1986-2024 | 9.8925e-4 | unchanged | | |
+
+- **The Senate by year.**
+  - 2010 rises ×1.119, since its factor was below one.
+  - 2012 falls ×0.932.
+  - 2024 falls ×0.827. Delaware is still its largest p, now 1 in 214,130 (from 1 in 177,747).
+  - 2014 is unchanged, since 538 stands first in every race. 2016-2022 move under 1%, since 538 stands first in most races.
+  - 108 Senate p change in all, from ×0.814 (Wyoming 2024) to ×1.128 (Oklahoma 2010).
+- **History.** Within 5,000 votes the Senate now expects 4.43 against 5 seen (from 4.46). Within 20,000 it expects 17.44 against 17 (from 17.54).
+
+### 0.3 M2's second pass: three fixes, and round 5 taken again under the robustness test (the orchestrator, 2026-11-07 08:36 UTC)
 
 **What was asked** (brief, amended 08:36). M2's second pass reproduced every p, fit and back-test cell, and found three faults. Fix them in one pull request, then take each of round 5's decisions again under a new test, fixed before any score:
 - a change is adopted only if it improves the out-of-sample test, as before;
@@ -70,16 +209,16 @@ The contests whose p changed state:
 - **Round 4's near-tie rule** is not round 5's decision, so it is not taken again here. It is checked under the same test and reported beside:
   - the House's scheme (`level`) passes with every year left out;
   - the Senate's `level` scheme fails without 2020, where the 49-51% count beyond 10 points from even moves further from the count seen; its `band` scheme fails without 2024, on the log score.
-  - So under the new test the Senate would take no near-tie factor. It stands as of record, for the orchestrator's word.
+  - So under the new test the Senate would take no near-tie factor. On the orchestrator's word it was taken out (§0.2).
 
-**5. The governors' near-even note** is not written. The brief asks for it if round 5's governor forecast stands, and it does not. Under the normal forecast that stands now, the governors still show the shortfall: 4.5 expected within 5,000 votes in 2006-2024 against none seen (Poisson chance 0.011); 9.9 against 5 over 1986-2024 (§5). The note can be written under the normal forecast on the orchestrator's word.
+**5. The governors' near-even note** is not written. The brief asks for it if round 5's governor forecast stands, and it does not. Under the normal forecast that stands now, the governors still show the shortfall: 4.5 expected within 5,000 votes in 2006-2024 against none seen (Poisson chance 0.011); 9.9 against 5 over 1986-2024 (§5). On the orchestrator's word it is written onto each governor p (§0.2).
 
 **Sums, before and after** (before is `main` at f22bf6b, after #45):
 
 | Level | Sum of p, before | after | Control, before | after |
 |---|---|---|---|---|
-| House, 2008-2024 | 1.0184e-2 | 1.0158e-2 | 1.4465e-4 | 1.4159e-4 |
-| Senate, 2006-2024 | 4.4200e-4 | 4.4685e-4 | 4.8468e-5 | 4.8431e-5 |
+| House, 2008-2024 | 1.0184e-2 | 1.0157e-2 | 1.4465e-4 | 1.4159e-4 |
+| Senate, 2006-2024 | 4.4200e-4 | 4.4685e-4 | 4.8468e-5 | 4.8432e-5 |
 | Governors, 1986-2024 | 1.0439e-3 | 9.8925e-4 | | |
 
 - **The House by year.**
@@ -90,7 +229,7 @@ The contests whose p changed state:
 - **The Senate** rises 1.1%, mostly with New Hampshire's race of 2010 (4.7e-6).
 - **The governors** of 1986-2024 return to round 4's p, apart from 2018 and most of 2022, where 538 stands first and nothing changed.
 
-### 0.2 The incumbency fix (M2's second pass; the orchestrator, 2026-11-07 08:06 UTC)
+### 0.4 The incumbency fix (M2's second pass; the orchestrator, 2026-11-07 08:06 UTC)
 
 **What was wrong.** M2 found p wrong by more than a factor of two in four contests, all from `forecast_inputs.incumbency`. `build_congress.py` had two faults, and it is fixed there.
 - **It looked up Cha's candidates by last name alone.** A second candidate of the same name overwrote the first. South Dakota at large, 2024, has two Johnsons, and Utah's Senate race of 2006 has Orrin and Julian Hatch. So the incumbent was read as not running.
@@ -130,9 +269,9 @@ The fit rows read Cha directly, so the fits were never affected.
 - **A source note, not changed.** Cha codes Angus King as an incumbent in 2012, when the seat was open, and as not one in 2018, when he was. The fix takes Cha's coding as it stands, as the fit does. Maine 2018 has no p (ranked choice); Maine 2012's p rests on +1. It is open (§7).
 - **A definition note, not changed.** Cha's guide codes `inc` 0 (not an incumbent), 1 (an incumbent), 2 (an incumbent elected in a special election) and 3 (a senator appointed by the governor). The fit counts only 1, so it reads 2 and 3 as not incumbents. The fix keeps that, since it takes the fit's definition. It is open (§7).
 
-### 0.3 Round 5 (the orchestrator, 2026-11-07 07:19 UTC): the means and the tails
+### 0.5 Round 5 (the orchestrator, 2026-11-07 07:19 UTC): the means and the tails
 
-*No longer of record:* neither of round 5's adoptions survives the robustness test of §0.1. This section records round 5 as it stood.
+*No longer of record:* neither of round 5's adoptions survives the robustness test of §0.3. This section records round 5 as it stood.
 
 **What was asked.** Round 4 left one point open: the House's results land about 1.5 points nearer ½ than its means in races 5 to 20 points from even. The orchestrator asked for three variants, each fitted on earlier years only and scored out of sample on 2010-2024: (i) the mean shrunk toward ½ by a factor fitted on earlier years; (ii) t4 tails standing first in place of normal; (iii) both. The near-tie factor is refitted after each. Adoption is by round 4's three conditions, with the safe-seat bands (10 to 20 points from even, and beyond 20) added where the record's counts allow a test. *Reason, in its words:* "the far seats are most of the House, and a forecast too sure of them puts their p orders of magnitude too low, which no reader would see."
 
@@ -158,7 +297,9 @@ The fit rows read Cha directly, so the fits were never affected.
 - **The largest House p.** California's 22nd of 2024, from 1 in 32,693 to 1 in 29,944.
 - **What is left.** The House's forecast sd is wider than its results in every year 2010-2024: z rms 0.75 to 0.92 after shrinkage. k is fitted on all earlier years, and the errors have shrunk since. A too-wide sd near ½ gives exactly the near-even shortfall, so this is the likely root of it. It is open (§7).
 
-### 0.4 Round 4 (the orchestrator, 2026-11-07 07:04 UTC): the near-even shortfall
+### 0.6 Round 4 (the orchestrator, 2026-11-07 07:04 UTC): the near-even shortfall
+
+*Since §0.2 the House's factor stands and the Senate's is taken out: it fails the robustness test. The figures below are round 4's as it stood.*
 
 **What was asked.** Round 3's back-test found more races finishing within 49-51% than the forecasts expected: 113 against 89.3 in the House, 30 against 21.6 in the Senate. The orchestrator asked for D3's rule of #31: a near-tie calibration fitted on earlier years only, adopted only if it improves the out-of-sample test. *Reason, in its words:* "about 20% too few near-even finishes means p near even is about 20% low. That understates exactly the races law 1a says the site must show, and k cannot reach it because it moves the spread, not the shape."
 
@@ -181,7 +322,7 @@ The fit rows read Cha directly, so the fits were never affected.
 - **Where p rises and falls.** The House of 2024 rises 26% (factor 1.295) and the Senate of 2024 21% (1.229). The House and Senate of 2010 fall 11%: the factor fitted on the years before 2010 is 0.886, since those years had fewer near-ties than expected.
 - **What it does not reach.** The counts at 48-52% and 45-55% stay short (House 166.6 against 209, and 422.6 against 521). The House's results land about 1.5 points nearer ½ than its means in races 5 to 20 points from even. That is a question for the means, and it is left open (§7).
 
-### 0.5 Round 3 (the orchestrator, 2026-11-07 06:36 UTC), each item with its reason
+### 0.7 Round 3 (the orchestrator, 2026-11-07 06:36 UTC), each item with its reason
 
 1. **Governors from 1978, from Algara and Amlani's county returns.** *Reason, in the orchestrator's words:* "the maker wants as much data as can be found, and this both adds races and restores p."
    - **The source.** Algara and Amlani's county returns for governor, 1865-2020 (Harvard Dataverse, CC0 1.0, no guestbook). They are taken by script (`algara_amlani.py`), and the file's MD5 is checked against the one Dataverse publishes. The file is R's own format, and this environment has no R, so `rdata_reader.py` reads it from R's published description of the format, with no package added.
@@ -223,7 +364,7 @@ The fit rows read Cha directly, so the fits were never affected.
 
 The sums of p by level and year are in §5.
 
-### 0.6 Round 2: the follow-ups from M2 (brief, amended 2026-11-07 05:58 UTC), each with its reason
+### 0.8 Round 2: the follow-ups from M2 (brief, amended 2026-11-07 05:58 UTC), each with its reason
 
 M2 checked every p (`checks/M2-REPORT.md`) and the orchestrator decided its readings. These stand. Where round 3 changed a figure, it says so in brackets.
 
@@ -322,7 +463,7 @@ The two "other" House cases are a 538 Democrat not on our ballot (South Carolina
 
 ### 2.2 The model's own forecast (method D2-v3)
 
-D2-v3 is D2-v2 (round 2, §0.6) with governors fitted from 1978, the House of 2008-2012 on the Senate's national terms, and each level's sd calibrated on its earlier years (round 3, §0.5). D2-v4 (round 5, §2.7) was D2-v3 with the House's mean shrunk toward ½ and the governors' t4 forecast standing first. Neither survives the robustness test (§0.1), so every level is D2-v3 again. It is used where no published forecast can be, and it is always kept beside 538's as the check. For a race in year t, with y the Democrat's share of the two-party vote:
+D2-v3 is D2-v2 (round 2, §0.8) with governors fitted from 1978, the House of 2008-2012 on the Senate's national terms, and each level's sd calibrated on its earlier years (round 3, §0.7). D2-v4 (round 5, §2.7) was D2-v3 with the House's mean shrunk toward ½ and the governors' t4 forecast standing first. Neither survives the robustness test (§0.3), so every level is D2-v3 again. It is used where no published forecast can be, and it is always kept beside 538's as the check. For a race in year t, with y the Democrat's share of the two-party vote:
 
 > y = ½ + a_t + b_lean × lean + b_inc × inc [+ b_lag × (lag − ½), governors only] + e
 
@@ -330,7 +471,7 @@ D2-v3 is D2-v2 (round 2, §0.6) with governors fitted from 1978, the House of 20
   - For the House it is taken on the lines in use in year t (The Downballot); for the Senate and governors, in the state (MEDSL).
   - A House special is held on the old Congress's lines, so its lean is taken on the lines of t − 2.
 - **inc**: +1 if a Democratic incumbent runs, −1 if a Republican one does, 0 for an open seat.
-  - From 2006 it comes from Cha, Kuriwaki and Snyder's hand coding of the Democratic and Republican nominees. Each contest's `forecast_inputs.incumbency` uses the same definition since the fix of §0.2.
+  - From 2006 it comes from Cha, Kuriwaki and Snyder's hand coding of the Democratic and Republican nominees. Each contest's `forecast_inputs.incumbency` uses the same definition since the fix of §0.4.
   - For the Senate before 2006 it is inferred from MEDSL (below).
   - For governors before 2006 it is Algara and Amlani's seat status: "Democratic Incumbent" +1, "Republican Incumbent" −1, else 0. It is recorded in `forecast_inputs.seat_status`.
 - **lag** (governors only): the Democrat's two-party share in the state's last governor race before year t that a Democrat and a Republican led. Odd years and specials are included. It comes from Cha from 2006 and from Algara and Amlani before, and is recorded in `forecast_inputs.last_governor_race`, with its `source`.
@@ -476,7 +617,9 @@ Over 1986-2024 (20 years, 448 races) the z rms is 1.29 with calibration, and 0.9
 
 ### 2.6 Near-tie calibration of p (round 4)
 
-*Reason:* the orchestrator's of 07:04, quoted in §0.4.
+*Since §0.2 a scheme must also pass round 5's cells and the robustness test, which leaves out one scored year at a time. The House's one factor does; the Senate's does not, so the Senate takes no factor and each of its p shows the factor beside it (`near_tie_not_of_record`). The test below is round 4's as it stood.*
+
+*Reason:* the orchestrator's of 07:04, quoted in §0.6.
 
 **The rule.** It is D3's of #31, for the model's own forecast (`chambers.py`, `near_tie_test` and `near_tie`).
 - **What it does to the forecast.** The density within one point of ½ (49-51%) is multiplied by a factor F, and the forecast renormalized: Z = 1 + (F − 1)·q, where q is the forecast's own chance of that window.
@@ -527,9 +670,9 @@ Over 1986-2024 (20 years, 448 races) the z rms is 1.29 with calibration, and 0.9
 
 ### 2.7 Shrinkage of the mean and t4 tails (round 5)
 
-*No longer of record.* After M2's second pass, neither variant survives the robustness test of §0.1, which leaves out one scored year at a time. The figures below are round 5's as it stood. The test's results now are in §0.1 and in `backtest.json` (`variants`, each with `leave_one_year_out` and `robust`).
+*No longer of record.* After M2's second pass, neither variant survives the robustness test of §0.3, which leaves out one scored year at a time. The figures below are round 5's as it stood. The test's results now are in §0.3 and in `backtest.json` (`variants`, each with `leave_one_year_out` and `robust`).
 
-*Reason:* the orchestrator's of 07:19, quoted in §0.3.
+*Reason:* the orchestrator's of 07:19, quoted in §0.5.
 
 **The variants** (`chambers.py`, `shrink_factor`, `variant_model` and `variant_test`). Each is fitted on earlier years only.
 - **none.** The record of round 4: the mean as fitted, normal first, k, and the near-tie factor where adopted.
@@ -670,7 +813,7 @@ What decides control:
 - Minnesota's Senate seat in January 2009, contested; Franken (D) was seated in July. We count 59 against 56 + 2 independents + 1 vacant.
 - New York's 22nd in January 2021, uncertified; Tenney (R) was seated in February. We count 213 R against 212.
 
-**The Vice President.** In midterms it is the sitting one: Cheney (R) in 2006, Biden (D) in 2010 and 2014, Pence (R) in 2018, Harris (D) in 2022. In presidential years the VP is elected the same day, and P(the VP is a Democrat) is the presidential chance (§0.6, item 1). It comes from D1's record of the year, in `chamber.vice_president`, with `by`, `as_of` and `note`:
+**The Vice President.** In midterms it is the sitting one: Cheney (R) in 2006, Biden (D) in 2010 and 2014, Pence (R) in 2018, Harris (D) in 2022. In presidential years the VP is elected the same day, and P(the VP is a Democrat) is the presidential chance (§0.8, item 1). It comes from D1's record of the year, in `chamber.vice_president`, with `by`, `as_of` and `note`:
 
 | Year | P(VP Democrat) | Whose |
 |---|---|---|
@@ -678,7 +821,7 @@ What decides control:
 | 2012 | 0.552 | the model's own, on 538's national average of 5 November |
 | 2016 | 0.7137 | 538, polls-plus, 7 November; any other ticket counts as not Democratic |
 | 2020 | 0.8932 | 538, polls-plus, 2 November |
-| 2024 | 0.5295 | the model's own, on the 12 September average (D1's horizon for 2024, M2 3.5), Maine and Nebraska by district (§0.1; 0.5286 with the states whole) |
+| 2024 | 0.5295 | the model's own, on the 12 September average (D1's horizon for 2024, M2 3.5), Maine and Nebraska by district (§0.3; 0.5286 with the states whole) |
 
 - **Whose chance.** It is 538's where 538's forecast stands first in D1's record of the year. Otherwise it is the model's own chance that the Democrat wins the College (`pipeline/own_forecast.py`, `college_prob` on the record's unit forecasts): Maine and Nebraska by district as well as statewide where the record forecasts the districts (2024; not 2008 or 2012), as the College is chosen, and a 269 tie counts half.
 - **Independence.** It is taken as independent of the Senate's common swing.
@@ -708,28 +851,28 @@ What decides control:
 | 2008 Senate | 35 | 31 | 0 | 0 | 0 | 4 | Wyoming special, 1 in 165,466 | South Dakota, 1 in 3,186,288 |
 | 2008 House | 443 | 372 | 0 | 0 | 23 | 48 | New York 13, 1 in 59,057 | Texas 27, 1 in 6,629,139 |
 | 2008 Governor | 11 | 9 | 0 | 0 | 0 | 2 | Delaware, 1 in 172,157 |  |
-| 2010 Senate | 39 | 33 | 0 | 33 | 1 | 5 | North Dakota, 1 in 132,701 | Delaware special, 1 in 10,438,990 |
+| 2010 Senate | 39 | 33 | 0 | 0 | 1 | 5 | North Dakota, 1 in 118,658 | Delaware special, 1 in 9,341,565 |
 | 2010 House | 441 | 402 | 0 | 402 | 10 | 29 | West Virginia 3, 1 in 57,259 | New York 13, 1 in 3,003,249 |
 | 2010 Governor | 36 | 32 | 0 | 0 | 0 | 4 | Wyoming, 1 in 82,327 |  |
-| 2012 Senate | 33 | 33 | 0 | 33 | 0 | 0 | North Dakota, 1 in 139,835 | North Dakota, 1 in 1,626,635 |
+| 2012 Senate | 33 | 33 | 0 | 0 | 0 | 0 | North Dakota, 1 in 149,911 | North Dakota, 1 in 1,743,852 |
 | 2012 House | 441 | 346 | 0 | 346 | 10 | 85 | Texas 34, 1 in 61,244 | Arizona 1, 1 in 13,139,317 |
 | 2012 Governor | 11 | 10 | 0 | 0 | 0 | 1 | North Dakota, 1 in 147,500 |  |
 | 2014 Senate | 36 | 32 | 32 | 0 | 1 | 3 | Alaska, 1 in 29,076 | Alaska, 1 in 119,757 |
 | 2014 House | 440 | 358 | 0 | 358 | 27 | 55 | California 31, 1 in 33,992 | California 21, 1 in 3,706,176 |
 | 2014 Governor | 35 | 33 | 0 | 0 | 0 | 2 | Rhode Island, 1 in 105,001 |  |
-| 2016 Senate | 34 | 30 | 26 | 4 | 0 | 4 | Nevada, 1 in 116,765 | Nevada, 1 in 556,042 |
+| 2016 Senate | 34 | 30 | 26 | 0 | 0 | 4 | Nevada, 1 in 116,765 | Nevada, 1 in 556,042 |
 | 2016 House | 439 | 345 | 0 | 345 | 22 | 72 | California 21, 1 in 40,292 | California 21, 1 in 4,267,878 |
 | 2016 Governor | 12 | 11 | 0 | 0 | 0 | 1 | North Dakota, 1 in 163,506 |  |
-| 2018 Senate | 35 | 32 | 30 | 2 | 0 | 3 | Montana, 1 in 95,378 | North Dakota, 1 in 596,519 |
+| 2018 Senate | 35 | 32 | 30 | 0 | 0 | 3 | Montana, 1 in 95,378 | North Dakota, 1 in 596,519 |
 | 2018 House | 442 | 383 | 273 | 110 | 15 | 44 | New Mexico 2, 1 in 33,196 | California 10, 1 in 2,009,316 |
 | 2018 Governor | 36 | 34 | 34 | 0 | 0 | 2 | South Dakota, 1 in 59,094 |  |
-| 2020 Senate | 35 | 30 | 28 | 2 | 0 | 5 | Alaska, 1 in 87,769 | Alaska, 1 in 707,427 |
+| 2020 Senate | 35 | 30 | 28 | 0 | 0 | 5 | Alaska, 1 in 87,769 | Alaska, 1 in 707,427 |
 | 2020 House | 440 | 399 | 289 | 110 | 10 | 31 | Oklahoma 5, 1 in 49,401 | California 21, 1 in 12,208,000 |
 | 2020 Governor | 11 | 11 | 0 | 0 | 0 | 0 | Vermont, 1 in 164,734 |  |
-| 2022 Senate | 36 | 32 | 31 | 1 | 0 | 4 | New Hampshire, 1 in 95,632 | Nevada, 1 in 453,746 |
+| 2022 Senate | 36 | 32 | 31 | 0 | 0 | 4 | New Hampshire, 1 in 95,632 | Nevada, 1 in 453,746 |
 | 2022 House | 444 | 391 | 293 | 98 | 14 | 39 | New Hampshire 1, 1 in 20,079 | New Hampshire 1, 1 in 1,003,563 |
 | 2022 Governor | 36 | 33 | 30 | 0 | 0 | 3 | Nevada, 1 in 134,249 |  |
-| 2024 Senate | 35 | 33 | 0 | 33 | 0 | 2 | Delaware, 1 in 177,747 | Delaware, 1 in 2,036,798 |
+| 2024 Senate | 35 | 33 | 0 | 0 | 0 | 2 | Delaware, 1 in 214,130 | Delaware, 1 in 2,453,710 |
 | 2024 House | 443 | 373 | 0 | 373 | 13 | 57 | California 22, 1 in 32,501 | California 22, 1 in 760,344 |
 | 2024 Governor | 11 | 10 | 0 | 0 | 0 | 1 | Delaware, 1 in 207,174 |  |
 
@@ -738,12 +881,13 @@ What decides control:
 - 4,106 with p computed, 1,066 of them under 538's forecast.
 - 176 with p = 0.
 - 1,042 not computed, each with its reason. 457 of them are for too few earlier cycles: the House of 2006 and the governors of 1978-1984.
-- 2,250 of the p computed are calibrated to earlier years' near-ties (§2.6): the model's own for the Senate (108) and the House (2,142) of 2010-2024, as in round 4.
-- Nothing of round 5 is of record (§0.1).
+- 2,142 of the p computed are calibrated to earlier years' near-ties (§2.6): the model's own for the House of 2010-2024. The Senate's 108 were calibrated until round 4's factor failed the robustness test (§0.2). Each now shows beside it what p would be with the factor.
+- Each of the 420 governor p carries the near-even note (§0.2).
+- Nothing of round 5 is of record (§0.3).
 
 p is under the normal forecast. The other tails and the other forecasts' figures sit beside it in `p.alongside`, each with its own `control`.
 
-**Sums of p, before and after round 5** (round 5's record; §0.1 has this round's). Before is round 4, on `main` at ab34bd0 (#35). Each cell sums p over a level and year's contests; control likewise. The Senate is unchanged (4.4438e-04, control 4.8762e-05).
+**Sums of p, before and after round 5** (round 5's record; §0.3 has this round's). Before is round 4, on `main` at ab34bd0 (#35). Each cell sums p over a level and year's contests; control likewise. The Senate is unchanged (4.4438e-04, control 4.8762e-05).
 
 | Year | House: p before | now | control before | now | Governor: p before | now |
 |---|---|---|---|---|---|---|
@@ -835,23 +979,23 @@ Over all contests with p, the expected number decided by k votes or fewer is com
 
 - **House and Senate.** The forecasts pass at every k.
   - The one House race within ten votes is Iowa's 2nd of 2020, at 6 votes.
-  - The Senate race within 1,000 is Minnesota 2008, at 312. Within 20,000 the Senate now counts 17, from 18: New Mexico's race of 2012 was 16,258 apart with Barrie's votes added to Wilson's, and is 44,457 apart without them (§0.1).
+  - The Senate race within 1,000 is Minnesota 2008, at 312. Within 20,000 the Senate now counts 17, from 18: New Mexico's race of 2012 was 16,258 apart with Barrie's votes added to Wilson's, and is 44,457 apart without them (§0.3).
 - **Governors.**
   - The race within 1,000 is Washington 2004, at 129 votes in Algara and Amlani's county sums.
   - Within 5,000 votes, 5 finished against 9.9 expected (a Poisson chance of 7% for 5 or fewer). Within 10,000, 14 against 19.7 (12%). Within 20,000, 39 against 39.3. Over 2006-2024 alone, none finished within 5,000 votes against 4.5 expected (0.011); M2 found the same under round 5's t4 (4.7, P 0.009).
   - Measured by share, the governors are not short: in the back-test, 30 finished within 49-51% against 30.9 expected (§2.3); over 2010-2024, 16 against 12.8 (§2.7).
-  - So the shortfall is at fixed vote margins, which weight the small states. It is recorded here and not written onto each p (§0.1, item 5).
+  - So the shortfall is at fixed vote margins, which weight the small states. Since §0.2 it is written onto each governor p, uncorrected.
 
 ## 6. Two sources, differences listed (plan §3a)
 
 **House and Senate.** Every contest in the record is checked against Cha, Kuriwaki and Snyder, and the differences are kept in `checks`. The source of record wins.
 - **Most differences** are small candidates (under ten votes) and blank or write-in lines, which the check source leaves out by design.
 - **Real ones**: 2024 Missouri Senate (W. C. Young 35,671 at the Clerk, 21,111 in the check), and 2012 AL-03 (Harris 98,141 at the FEC, 91,141 in the check).
-- **Matched by name within the contest** since §0.2: a candidate of the record is paired with Cha's candidate of the same last name, and among several of one name with the same votes or else the same first name. The old lookup by last name alone made nine false differences (Utah's Senate race of 2006, Pennsylvania's of 2012 and Missouri's of 2024; House 2006 AR-04, 2008 MI-02, 2010 TX-16, 2012 MS-02, 2018 WA-09 and 2024 SD-AL), and they are gone.
+- **Matched by name within the contest** since §0.4: a candidate of the record is paired with Cha's candidate of the same last name, and among several of one name with the same votes or else the same first name. The old lookup by last name alone made nine false differences (Utah's Senate race of 2006, Pennsylvania's of 2012 and Missouri's of 2024; House 2006 AR-04, 2008 MI-02, 2010 TX-16, 2012 MS-02, 2018 WA-09 and 2024 SD-AL), and they are gone.
 - **Fixed in the record's reading**:
   - A fusion candidate's lines filed under two FEC ids are one candidate's. Connecticut's Senate race of 2010 is the case: Blumenthal's Democratic and Working Families lines now sum to 636,040, as the check has. Each merge is noted in the contest.
   - FEC rows with no candidate are not contests: a "California" row in 2018, and two Ohio rows in 2006.
-  - One FEC id under two surnames is two candidates, and a party counts only from a November line (§0.1). Illinois's 3rd of 2022 (Ramirez 177,759 at the FEC) was such a joined line, and now agrees with the check (121,764).
+  - One FEC id under two surnames is two candidates, and a party counts only from a November line (§0.3). Illinois's 3rd of 2022 (Ramirez 177,759 at the FEC) was such a joined line, and now agrees with the check (121,764).
 
 **Governors, Algara and Amlani against Cha, Kuriwaki and Snyder, 2006-2020.** This is the check `algara_amlani.py` writes into its cache, nominee by nominee, on the even and odd years both hold.
 - **The count.** 203 elections, with 61 differences, of which 27 are over 0.1%. Two elections are in Algara and Amlani only: Rhode Island 2010 and New Jersey 2017.
@@ -875,17 +1019,16 @@ Over all contests with p, the expected number decided by k votes or fewer is com
 ## 7. Not yet
 
 - **The House of 2006.** It needs an earlier House cycle for stage one. The FEC's 2004 volume, with The Downballot's 2000 vote on the 2006-2010 lines, would give one, if a source states which states kept their lines from 2004 to 2006.
-- **The House's spread, out of sample.** The House's forecast sd is wider than its results in every year 2010-2024: z rms 0.92, 0.85, 0.75, 0.84, 0.95, 0.97, 0.81 and 0.80 (§0.1's forecasts). k is the RMS of z over all earlier years, and the errors have shrunk since, so k lags. A spread that wide puts too little density at ½, which is the near-even shortfall of round 4 (49-51%: 87.5 expected against 105). A k fitted on recent years only, fitted on earlier years and adopted under the robustness test, is the next round (designed before any score). The Senate shows the same (0.57 to 0.93); governors do not (0.72 to 1.36).
-- **The House's safer means.** Results in races 5-20 points from even land about 1.5 points nearer ½ than the means. Shrinkage closed part of that gap but does not survive the robustness test (§0.1). A spread that depends on the expected margin (`D2_HETERO`) is another way to test it.
+- **The House's spread, out of sample.** The House's forecast sd is wider than its results in every year 2010-2024: z rms 0.92, 0.85, 0.75, 0.84, 0.95, 0.97, 0.81 and 0.80 (§0.3's forecasts). k is the RMS of z over all earlier years, and the errors have shrunk since, so k lags. The Senate shows the same (0.57 to 0.93); governors do not (0.72 to 1.36). A k weighted toward recent years narrows the spread and raises the log score, but moves the near-even counts further from the counts seen (§0.1; M2 found the same for the last one to three years). So the near-even shortfall of round 4 (49-51%: 87.5 expected against 105) is not the spread's: as M2 reads it, it sits in the mean (the next item).
+- **The House's safer means.** Results in races 5-20 points from even land about 1.5 points nearer ½ than the means. Shrinkage closed part of that gap but does not survive the robustness test (§0.3). A spread that depends on the expected margin (`D2_HETERO`) is another way to test it.
 - **The far seats' p.** Beyond 20 points from even the record cannot test p at ½ (§2.7). Shrinkage would raise it (a median ×1.39) and t4 hundreds of times; neither is of record. If the site shows those seats, it should show that their p rests on the normal tail, untested there.
-- **The Senate's shrinkage.** It raises the log score by 0.019 and fails one tested count by half a race (48-52% in the 10-20 point band: 6.3 expected against 5 seen, from 5.8), on all years and with every year left out but 2020. It is recorded here.
-- **The Senate's near-tie factor under the robustness test.** Round 4's `level` scheme fails it without 2020, and the `band` scheme without 2024 (§0.1). It stands as of record until the orchestrator rules.
+- **The Senate's shrinkage.** On the record without the near-tie factor it raises the log score by 0.022, and fails one tested count by about a race (48-52% in the 10-20 point band: 6.3 expected against 5 seen, from 5.5). It fails on all years, and with 2010, 2012, 2014, 2016 or 2024 left out (§0.2). It is recorded here.
 - **Marks in the FEC's November column** other than votes, "Unopposed" and "n/a": "#", "##" and "??" (for example Chad Taylor, Kansas's Senate race of 2014, who withdrew). They are kept as the file prints them, so such a candidate stays on the ballot's count.
 - **The Senate's national terms for every House year.** They score better over 2014-2024 too (§2.3). This is a finding only, not adopted.
 - **Earlier still.**
   - Algara and Amlani also hold county returns for President (1872 on) and the Senate (1908 on). Their presidential returns would let governor contests reach before 1978. Their Senate returns would extend the Senate's fit, with incumbency from their seat status rather than inferred.
   - Their Missouri rows would need the missing jurisdiction found first.
-- **Cha's incumbency codes 2 and 3.** Cha's guide codes an incumbent elected in a special election 2, and a senator appointed by the governor 3. The fit (§2.2), and since §0.2 each contest's `forecast_inputs.incumbency`, count only 1. Among the fit's rows, 2006-2024, that reads as not incumbents 59 House nominees coded 2, 9 Senate nominees coded 2 and 13 coded 3, and 14 governor nominees coded 2 or 3 (Cha uses 3 for governors too; its guide does not say what it means there). Counting them would change the fits, k and every p, so it is a question for the orchestrator, not part of the fix.
+- **Cha's incumbency codes 2 and 3.** Cha's guide codes an incumbent elected in a special election 2, and a senator appointed by the governor 3. The fit (§2.2), and since §0.4 each contest's `forecast_inputs.incumbency`, count only 1. Among the fit's rows, 2006-2024, that reads as not incumbents 59 House nominees coded 2, 9 Senate nominees coded 2 and 13 coded 3, and 14 governor nominees coded 2 or 3 (Cha uses 3 for governors too; its guide does not say what it means there). Counting them, as (a) codes 1 and 2 or (b) 1 to 3, was tested in §0.1 and is not adopted: the House's log score rises, but at every level the near-even counts move further from the counts seen.
 - **Angus King's coding in Cha.** Cha codes King an incumbent (1) in Maine's Senate race of 2012, when the seat was open, and not one (0) in 2018, when he was. Maine 2012's p rests on +1. Maine 2018 has no p (ranked choice).
 - **A third source for the governor disputes** of §6: MEDSL's precinct files (2016, 2022 and 2024), or the states' canvasses.
 - **Population before 2022.** The ACS table-based files on www2.census.gov begin with 2021. The older sequence-based summary files there hold the same table and are the next step. The Census API wants a key, which needs an email, so it is not used.

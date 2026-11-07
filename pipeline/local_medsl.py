@@ -74,7 +74,7 @@ def load(year):
                     EMPTY[year] += 1
                     continue
                 out.append(c)
-    return certified_nc(fix_questions(out, year), year)
+    return certified_in(certified_nc(fix_questions(out, year), year), year)
 
 
 def certified_nc(contests, year):
@@ -163,6 +163,28 @@ def certified_legislature(contests, year):
             f"{b}: {v:,} in MEDSL's, {w:,} certified" for _, b, v, w in diff))
         CERTIFIED_LEG["replaced by the certified counts"] += 1
     print(f"{year}: North Carolina's legislature against the State Board's: {dict(CERTIFIED_LEG)}")
+
+
+CERTIFIED_STATES = collections.defaultdict(set)   # year -> states whose own certified file replaced MEDSL's
+
+
+def certified_in(contests, year):
+    """Indiana's legislature, local races and questions of 2024, from the state's own certified file
+    (pipeline/local_in.py) in place of MEDSL's, whose Indiana counts fall short of the certified presidential count
+    (quality()): the certified one wins (brief D3, step 2; the orchestrator, 08:08 and 08:32). The presidency, Congress
+    and the governor stay MEDSL's lines here (D1's and D2's are the record for them). Indiana is then no longer held
+    back in `year` (build: bad[year])."""
+    if year != 2024:
+        return contests
+    import local_in as LI
+    st = LI.medsl_shape(year)
+    if st is None:
+        print(f"{year}: Indiana's own file is missing or fails its gate; MEDSL's Indiana contests kept")
+        return contests
+    keep = [c for c in contests if not (c["state"] == "IN" and (c["question"] or c["office"] in LEG
+                                                                 or is_local_level(c)))]
+    CERTIFIED_STATES[year].add("IN")
+    return keep + st
 
 
 _POS = re.compile(r"^(YES|FOR|IN FAVOR)\b")
@@ -1020,8 +1042,11 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
         return {}
     t4 = core.p_contest(n, mean, sd, "t4")
     counts[f"{label}: p computed, partisan (transferred)"] += 1
-    return L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal; transferred, not yet checked", commit,
-                      {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+    p = L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal; transferred, not yet checked", commit,
+                   {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+    # class C's terms, but with the race's own counties' lean, not a chamber's (L.FORECAST_SCOPE)
+    p["forecast_scope"] = "the race's counties (class C's terms with the counties' US House lean)"
+    return p
 
 
 # ------------------------------------------------------------------ local races: classes of like races
@@ -1171,9 +1196,10 @@ def _src_medsl(year, chk, files):
 
 
 def _owns(r):
-    """The contests this build writes: MEDSL's, and the State Board's of MEDSL's general dates (certified_nc)."""
+    """The contests this build writes: MEDSL's, Indiana's own of 2024 (certified_in), and the State Board's of MEDSL's
+    general dates (certified_nc)."""
     src = (r.get("result") or {}).get("source")
-    return src == "medsl" or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
+    return src in ("medsl", "in_enr") or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
                               and (r.get("level") == "measure" or r.get("year") in YEARS))
 
 
@@ -1198,6 +1224,9 @@ def build(out_dir, with_p=True):
                            "https://doi.org/10.7910/DVN/FJOGJB", info["files"]["candidate"]["read_utc"], info["licence"],
                            mark="stated")
     bad = {y: quality(y) for y in MEASURE_YEARS}
+    for y, sts in CERTIFIED_STATES.items():   # a state whose own certified file replaced MEDSL's (certified_in)
+        for st in sts:
+            bad[y].pop(st, None)
     seen = set()
 
     def cid(base):
@@ -1237,7 +1266,8 @@ def build(out_dir, with_p=True):
                                + (", special" if c["special"] else ""),
                    "seats": c["magnitude"] if (c.get("magnitude") or 1) > 1 else None,
                    "result": {"candidates": _cands_out(c["candidates"], c.get("magnitude") or 1),
-                              "total_votes": sum(x["votes"] for x in c["candidates"]), "source": "medsl"},
+                              "total_votes": sum(x["votes"] for x in c["candidates"]),
+                              "source": c.get("source", "medsl")},
                    "forecasts": []}
             if c.get("votes_source"):   # North Carolina's certified counts in place of MEDSL's (certified_legislature)
                 rec["result"]["votes_source"] = "ncsbe"
@@ -1324,6 +1354,7 @@ def build(out_dir, with_p=True):
                     t4 = core.p_contest(n, mean, sd, "t4")
                     p = L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal", commit,
                                    {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+                    p["forecast_scope"] = L.FORECAST_SCOPE[r_["cls"]]
                     counts[f"{level} {year}: p computed, partisan"] += 1
             rec["p"] = p
             files[(level, year, c["state"])].append(L._compact(rec))
@@ -1438,9 +1469,16 @@ def build(out_dir, with_p=True):
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
                    "forecasts": []}
             notes = []
-            if scope == "local":
+            # MEDSL's wording of a local question does not show its place; the State Board's file names it (or the
+            # question is one county's own: pipeline/intake/ncsbe.py, generic), and Indiana's gives each question
+            # once with its counties and its type, title and text
+            by_county = c.get("source", "medsl") == "medsl"
+            if scope == "local" and by_county:
                 notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
                              "it, so a question held across several counties appears once per county")
+            if c.get("own_county"):
+                import local_ncsbe as NS
+                notes.append(NS.OWN_COUNTY_NOTE)
             if c.get("read_as_question"):
                 notes.append("filed in the source as a candidate contest; read as a question, since its two lines are "
                              "a yes and a no")
@@ -1470,8 +1508,9 @@ def build(out_dir, with_p=True):
             elif scope == "local":
                 p = {"not_computed": f"a local {kind}: its threshold is the one state law sets for its kind of "
                                      f"{'measure' if kind == 'measure' else 'judge'}, which the source's wording does "
-                                     f"not show, and the place that holds it is not shown either (it is counted by "
-                                     f"county); not inferred (the orchestrator, 2026-11-07 06:16)"}
+                                     f"not show" + (", and the place that holds it is not shown either (it is "
+                                                    "counted by county)" if by_county else "")
+                                     + "; not inferred (the orchestrator, 2026-11-07 06:16)"}
                 counts[f"{label}: not computed, local"] += 1
             else:
                 rule, how, why = MS.rule_for(c, kind, book, year)
@@ -1569,6 +1608,9 @@ def build(out_dir, with_p=True):
             head["sources"]["ncsbe"] = NS.block_for(cs + others)
             if "ncsbe" in used:
                 head["sources"]["fips"] = NS.fips_source()
+        if "in_enr" in used:   # Indiana's own certified file (certified_in)
+            import local_in as LI
+            head["sources"]["in_enr"] = LI.source_block()
         L.write_level_file(path, head, cs + others)
         sz = os.path.getsize(path)
         total += sz
