@@ -1,8 +1,8 @@
 # State legislatures, primaries, local races and measures: sources, method and checks
 
-*Worker D3, `briefs/D3-data-local.md`. First written 2026-11-07 05:10 UTC; method and figures brought to D3-v1.1 at 05:50, and the review points of 05:17 fixed at 06:10; MEDSL's 2022 and 2024 returns added at 07:10 (§6). Marks: [measured] computed here from the files; [stated] as the source says; [inferred] my reading. The inventory of every source found is `data/sources/local.md`.*
+*Worker D3, `briefs/D3-data-local.md`. First written 2026-11-07 05:10 UTC; method and figures brought to D3-v1.1 at 05:50, and the review points of 05:17 fixed at 06:10; MEDSL's 2022 and 2024 returns added at 06:14 (§6), their 2018 and 2020 returns and local p at 06:36 (§7), and measures with their thresholds and MEDSL's 2016 questions at 07:25 (§8). Marks: [measured] computed here from the files; [stated] as the source says; [inferred] my reading. The inventory of every source found is `data/sources/local.md`.*
 
-**State at this writing.** Every state legislative contest of 1967-2022 that Klarner's dataset holds is in `data/state-upper/`, `data/state-lower/` and `data/primary/`: 189,103 contests. Each has p, p = 0 with the reason, or the reason p is not computed. The forecast method is D3-v1.1: D3-v1 as proposed, approved by the orchestrator at 05:06 with one change (each year fitted on earlier years only), and with runoffs added at its word. **MEDSL's precinct returns of 2022 and 2024** add 30,410 contests (§6): the state legislatures of 2024, 3,616 of them with p; local races and the states' other offices, 20,152; and 4,944 ballot measures, recorded with p not yet computed.
+**State at this writing.** Every state legislative contest of 1967-2022 that Klarner's dataset holds is in `data/state-upper/`, `data/state-lower/` and `data/primary/`: 189,103 contests. Each has p, p = 0 with the reason, or the reason p is not computed. The forecast method is D3-v1.1: D3-v1 as proposed, approved by the orchestrator at 05:06 with one change (each year fitted on earlier years only), and with runoffs added at its word. **MEDSL's precinct returns of 2022 and 2024** add 30,410 contests (§6): the state legislatures of 2024, 3,616 of them with p; local races and the states' other offices, 20,152; and 4,944 ballot measures. §7 adds 2018 and 2020 and p for local races; §8 adds 2016's questions and p for statewide measures: 9,768 measures, 63 of them with p.
 
 ## 1. Sources taken in by script
 
@@ -149,7 +149,7 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 **Method**, D3-v1.1 unchanged:
 - **State legislatures, 2024**: route (a) fitted on Klarner's races of 1967-2022 (earlier years only). The seat's last result is MEDSL's 2022 result where at least 80% of the district's 2024 precincts were in it in 2022; otherwise class C. Incumbency is matched by name against the 2022 winners and Klarner's of 2020-2022. Other structures take Klarner's like-race classes of earlier years (routes b and c). Alaska's races are counted by ranked choice (MEDSL's 2022 README), so p is not computed there; districts the source splits into several contests are held back (21).
 - **Local races and the states' other offices** (courts, boards, statewide officers other than the governor, which plan §3 gives no level of their own: `office_scope: state`): classes by office type, partisanship, seats and candidates, from like races of earlier years in the sources taken in.
-- **Measures**: recorded, with the yes share; p waits for the thresholds and a forecast route.
+- **Measures**: see §8.
 
 **The 2024 state legislative forecasts against what happened** (out of sample: fitted on 1967-2022) [measured], 3,032 partisan races: in the 50/80/95% intervals 60/86/96%; within 49-51%, 134.2 expected and 128 seen; within 100 votes, 42.7 expected and 42 seen. The forecasts leaned 2.3 points too Democratic on average, the year's swing. Class C carries 2,406 of them: precinct names change between the files, so the lines test finds unchanged lines for only 627 districts.
 
@@ -178,29 +178,76 @@ Both years are within the line, so p is computed: 947 races in 2024 and 848 in 2
 
 | year | contests with p | expected within the window | seen | seen over expected |
 |---|---|---|---|---|
-| 2024 | 2,066 | 270.6 | 202 | 0.75 |
-| 2020 | 1,817 | 317.8 | 248 | 0.78 |
+| 2024 | 2,066 | 271.1 | 202 | 0.75 |
+| 2020 | 1,809 | 317.4 | 248 | 0.78 |
 
-So an uncalibrated like-race p for a local race is about a third too high on average [measured, these two years]. Councils and boards (961 in 2024: 141.3 expected, 107 seen) and school boards (511: 77.5, 50) carry most of it. The same direction as the legislatures' recount zone (§4).
+So an uncalibrated like-race p for a local race is about a third too high on average [measured, these two years]. Councils and boards (961 in 2024: 141.3 expected, 107 seen) and school boards (511: 77.7, 50) carry most of it. The same direction as the legislatures' recount zone (§4).
 
-**Calibrated to earlier years' near-ties** (the orchestrator, 07:37: "(b), calibrated, fitted on earlier years only... Adopt it only if it improves that test"; `data/local/calibration-local.json`) [measured]. The factor is seen over expected near ½ in the fitting years' own out-of-sample forecasts: by office type where those years expected 30 or more near-½ races, else pooled over their races. p is multiplied by it (for like races, the class density at ½ is). A year with no earlier year to fit on has these p not computed, with that reason.
+**Calibrated to earlier years' near-ties** (the orchestrator, 06:38: "(b), calibrated, fitted on earlier years only... Adopt it only if it improves that test"; `data/local/calibration-local.json`) [measured]. The factor is seen over expected near ½ in the fitting years' own out-of-sample forecasts: by office type where those years expected 30 or more near-½ races, else pooled over their races. p is multiplied by it (for like races, the class density at ½ is). A year with no earlier year to fit on has these p not computed, with that reason.
 
 | route | factor for 2024 (fitted on 2020) | 2024 near ½: expected before, after, seen | deviance by office type, before → after | adopted |
 |---|---|---|---|---|
-| like races | councils and boards 0.82, school boards 0.74, the rest pooled 0.78 | 270.6, 213.8, 202 | 38.1 → 19.2 | yes |
+| like races | councils and boards 0.82, school boards 0.75, the rest pooled 0.78 | 271.1, 214.7, 202 | 38.2 → 19.1 | yes |
 | Democrat against Republican (transferred) | pooled 0.91 (no type had 30 expected) | 58.8, 53.5, 53 | 13.2 → 12.6 | yes |
 
-Both improve the 2024 test, so both are adopted: 2024's 2,066 like-race p and 947 Democrat-against-Republican p are calibrated, with the factor and its fitting year on the forecast. 2020's have no earlier year with these forecasts (2018's races have none: no year before it is taken in), so its 1,817 like-race p and 848 Democrat-against-Republican p are now not computed, with that reason; their forecasts stay in the records, since they are what fits 2024's factor. The calibrated like-race count is still 6% above what happened (213.8 against 202), most of it in special districts (19.0 against 13).
+Both improve the 2024 test, so both are adopted: 2024's 2,066 like-race p and 947 Democrat-against-Republican p are calibrated, with the factor and its fitting year on the forecast. 2020's have no earlier year with these forecasts (2018's races have none: no year before it is taken in), so its 1,809 like-race p and 848 Democrat-against-Republican p are now not computed, with that reason; their forecasts stay in the records, since they are what fits 2024's factor. The calibrated like-race count is still 6% above what happened (214.7 against 202), most of it in special districts (19.1 against 13).
 
-**Where p is computed** [measured], 56,908 contests:
+*The figures of this section are from the rebuild of §8 (07:25), which moved 23 yes-or-no contests that MEDSL files as candidate races out of the local races (they are questions, §8) and dropped Michigan's 2022 rejected-ballot lines; against the build of 06:41 the like-race figures moved by under 1%.*
+
+**Where p is computed** [measured], 58,360 contests with §8's measures:
 - State legislatures 2024, 5,314: unchanged from §6 (p for 3,616, 0 for 1,470, not computed for 228).
-- Local races and state offices, 43,301:
-  - 2024, 19,711: p computed for 3,013, all calibrated (2,066 like-race, 947 Democrat against Republican); p = 0 for 10,158 unopposed. Not computed: 2,036 seats not given, 2,027 in states held back, 1,239 classes with fewer than 100 like races, 499 specials, 357 lean missing, 280 unopposed with strong write-ins, 84 redacted, 18 others.
-  - 2020, 8,965: p = 0 for 3,617. Not computed: 2,665 with forecasts but no earlier year to calibrate them on (1,817 like-race, 848 Democrat against Republican), 1,470 seats not given, 901 too few like races, 123 lean missing, 88 specials, 84 strong write-ins, 17 others.
+- Local races and state offices, 43,278:
+  - 2024, 19,704: p computed for 3,013, all calibrated (2,066 like-race, 947 Democrat against Republican); p = 0 for 10,158 unopposed. Not computed: 2,031 seats not given, 2,027 in states held back, 1,237 classes with fewer than 100 like races, 499 specials, 357 lean missing, 280 unopposed with strong write-ins, 84 redacted, 18 others.
+  - 2020, 8,956: p = 0 for 3,617. Not computed: 2,657 with forecasts but no earlier year to calibrate them on (1,809 like-race, 848 Democrat against Republican), 1,470 seats not given, 901 too few like races, 123 lean missing, 88 specials, 84 strong write-ins, 17 others.
   - 2022, 441: p = 0 for 135. Not computed: 192 Democrat against Republican with no lean, 74 too few like races, 24 held back, 16 others.
-  - 2018, 14,184: p = 0 for 7,180. Not computed: 4,364 too few like races (no earlier year), 1,846 Democrat against Republican with no lean, 290 specials, 218 seats not given, 172 strong write-ins, 114 others.
-- Measures, 8,293 (2018: 1,581; 2020: 1,768; 2022: 95; 2024: 4,849): p not computed yet (next).
+  - 2018, 14,177: p = 0 for 7,180. Not computed: 4,357 too few like races (no earlier year), 1,846 Democrat against Republican with no lean, 290 specials, 218 seats not given, 172 strong write-ins, 114 others.
+- Measures, 9,768 (2016: 1,513; 2018: 1,584; 2020: 1,777; 2022: 83; 2024: 4,811): p for 63 statewide measures (§8).
 
 **Size**: the data grow the repository's pack from 21.3 to 23.3 MiB (scratch clone, `git gc --aggressive`, `git count-objects -vH`); no file is over 20 MB.
 
-**Still open**: measures (thresholds from state law, the like-past-measures route, MEDSL's 2016 measures); OAARCY for the 2022 legislatures of the eight states UYQIEP holds only as local files; 2020's state offices and legislatures (Klarner covers the legislatures; the rest sit behind the guestbook).
+**Still open**: see §8 for measures. OAARCY is a check only (§8). 2020's state offices and legislatures (Klarner covers the legislatures; the rest sit behind the guestbook).
+
+## 8. Ballot measures and retentions: thresholds from state law, and p for statewide measures
+
+*Added 2026-11-07 07:25 UTC, at the orchestrator's ruling of 06:16: "Measures: approved, except local thresholds are never inferred. Read statewide thresholds from each constitution or statute, with URLs... Where it cannot be read, p is not computed, with that reason... The like-past-measures route is approved, marked as the model's own... Refit with 2016 added, report the calibration again, and say in REPORT.md if it still under-forecasts near ½."*
+
+**Sources** [measured]. MEDSL's precinct returns as in §6 and §7, and for 2016 its older sets, read for their questions only (`pipeline/intake/medsl_precinct.py 2016`): State Precinct-Level Returns 2016 (doi:10.7910/DVN/GSZG1O), 335 questions, and Local Precinct-Level Returns 2016 (doi:10.7910/DVN/Q8OHRS), 1,178. Their offices are spelled differently from county to county; spellings at least 0.95 alike (difflib) over disjoint counties are joined (4 and 13). OAARCY, the 2022 set the plan named for the eight states UYQIEP holds only as local files, holds only ID, IN, ND and WA, with the same 363 contests and votes as UYQIEP (`data/local/check-2022-oaarcy.json`), so it is a check and adds nothing.
+
+**Fixes found in the output** [measured]:
+- MEDSL files some yes-or-no questions as candidate races, with a yes and a no line ('Yes-Local Amendment No 1'): read as questions (7 in 2018, 9 in 2020, 7 in 2024; they leave the local races, §7).
+- It files some questions' yes and no under different wordings in the same counties: joined where the words agree by token Jaccard 0.5 or more (4 in 2018, 45 in 2024); the 21 left with one answer have p not computed, with that reason.
+- Michigan's 2022 local file has a 'REJECTED' line under candidate offices (rejected ballots), which made questions of them; left out (12). Michigan's 2022 legislatures now pass the Klarner line (§6), and its stale measure file is gone.
+- Alaska's files before 2024 name no county, so its statewide questions read as local. A question is now statewide when it is filed with the state's offices and carries at least 90% of the most precincts any of the state's contests carries that year; where the source names counties and the year's file holds under 90% of the state's counties (South Dakota's 2016 file holds Yankton County only), the question is `partial` and p is not computed (19).
+- Titles that name a court ('Statewide Amendment No. 2 - Statewide Business Court') were read as retentions; a title that reads as an amendment, statute, bond or convention question is now a measure. A dollar figure no longer reads as a bond (Oregon's 2016 Measure 97 is a tax).
+
+**Thresholds** (`data/measure/thresholds.json`). Four readers read the constitutions and statutes of the states with statewide questions in the sources, on 2026-11-07 between 06:53 and 07:03 UTC, by curl from the states' own official sites (legislatures, courts, secretaries of state), and returned each rule with its URL, the law's words and the time read: 131 rules in 37 states and DC. Every quote was checked here against the page saved when it was read [measured]: all are found word for word (Colorado's session law with the PDF's spacing), except Indiana's retention fragment, which came through WebFetch (marked `read_via`), and Montana's MCA 13-27-503, which was not in the saved pages and was fetched again and checked at 07:05. What each rule needs is the share of Yes among those voting on the question (`t`); a rule that turns on more (a share of all ballots cast at the election, a turnout floor, a vote of the legislature afterwards, a majority in each affected parish) is recorded as `compound`, and p is not computed for it, since the model forecasts the share only.
+
+Not read, because the sites refused and the readers stopped there (never routed around): **Alabama** (alison.legislature.state.al.us is a JavaScript page, and its robots.txt refused WebFetch), **California** (leginfo.legislature.ca.gov gave curl a Cloudflare check, HTTP 403), **New Hampshire** (nh.gov, sos.nh.gov and courts.nh.gov refused with HTTP 403; gc.nh.gov returned an empty reply) and **Illinois's** general rule (ilga.gov failed TLS verification; art. XIV §3 is read as the Illinois Supreme Court quotes it). Also not read: Colorado's retention rule and its constitution's own sections (its rules come from the 2017 session law amending C.R.S. 1-40-123, applied from 2017), and the shares South Dakota's constitution leaves unstated for initiated laws and retentions.
+
+**Matching a rule to a question.** The type is read from the source's title in the words states use (`question.type`: 'Constitutional Amendment', '(Statutory)', 'Initiated Measure', 'Bond'). Where the title does not say, a rule is used only if every rule read for the state (but its convention question, whose title names it) sets the same threshold, and the readers covered every kind of question the state puts to voters (`complete` in the file). An exception that turns on what a measure does holds p back where the source does not show whether the measure is one: Florida's new State tax (two-thirds of those voting in the election, art. XI §7), Colorado's repeal-only amendments, Arizona's tax measures, New Mexico's amendments restricting the franchise or education rights (three-fourths), Louisiana's amendments affecting five parishes or fewer, Oregon's measures that themselves require a supermajority, Maine's competing measures, Ohio's two-question amendments [the matching rules are mine; inferred]. The texts read are those in force on 2026-11-07, applied to 2016-2024 on my reading that each section was in force then [inferred]; Arizona's tax clauses are applied from 2023 only, since the reader dates them to Proposition 132 of 2022 and the page does not, and the earlier text is not read.
+
+**The forecast**, like past measures (the model's own, D3-v1.1, approved at 06:16): the density of the yes share at t among the statewide questions of the same kind (measures, retentions) of earlier years in the sources, by the like-race route's lay form (at least 100 earlier questions; the window widens 1, 2, 5 points until 10 fall in it). p is model §7's threshold form: a Yes ballot decides with chance about (1 − t) f(t) / n and a No ballot t f(t) / n, n the other voters on the question. Local questions are not computed: the state law that sets their threshold depends on the kind of measure and the place, which MEDSL's wording does not show (the orchestrator, 06:16: "local thresholds are never inferred").
+
+**Where p is computed** [measured], 9,768 questions of 2016-2024: 9,314 local, 435 statewide (333 measures, 102 retentions) and 19 partial.
+- p computed: 63 statewide measures, all at t = ½ (22 in 2022, 41 in 2024), from 9.2 × 10⁻⁸ to 2.9 × 10⁻⁶.
+- Too few like questions in earlier years: 130 (every retention whose threshold is read, since the sources hold 27, 52 and 63 earlier statewide retentions; and 2016's and 2018's measures, with 0 and 83 earlier).
+- An exception the source does not settle: 85 (Florida 24, Colorado 19, Arizona 13, Oregon 12, Louisiana 6, Maine 5, New Mexico 4, Ohio 2).
+- Not read: 78 (Alabama 19, California 11, New Hampshire 3, Illinois 2, and 43 where a state's rule for that kind or year is not read).
+- A compound rule: 34 (Washington's one-third turnout floor 9, Nebraska's 35% 4, Tennessee's majority of those voting for governor 4, Hawaii 3, and 14 more).
+- The title does not show which of the state's thresholds applies: 16. The source redacts precincts: 22. Partial source: 19. The state's counts held back (§6, §7): 6. Advisory: 1.
+- Local: 9,314, with the reason above.
+
+**The like-past-measures route out of sample, with 2016 added** (`data/measure/backtest-measures.json`) [measured]. Each year's class comes from earlier years only. Near ½, over every statewide measure (threshold read or not):
+
+| year | earlier measures | measures | within 1 point of ½: expected, seen | within 2 | within 5 |
+|---|---|---|---|---|---|
+| 2018 | 83 | 87 | 2.1, 3 | 5.2, 5 | 11.5, 12 |
+| 2022 | 170 | 45 | 1.3, 1 | 2.6, 2 | 6.1, 11 |
+| 2024 | 215 | 112 | 3.1, 7 | 6.3, 12 | 17.7, 26 |
+| all | | 244 | 6.5, 11 | 14.1, 19 | 35.3, 49 |
+
+**It still under-forecasts near ½.** Over the three years, 35.3 measures were expected within 5 points of ½ and 49 finished there (1.4 times); within 1 point, 6.5 and 11. Most of it is 2024 (17.7 and 26 within 5 points). The 63 measures given p finished within their own window 8 times against 3.6 expected (2022: 2 and 1.3; 2024: 6 and 2.3), so their p are likely too low, perhaps by half. Earlier years do not show it steadily: fitted on 2018 and 2022 only, the factor would be 1.18 within 1 point, 0.90 within 2 and 1.31 within 5, so a calibration like §7's would not correct 2024 in any steady way, and none is applied. Retentions: no earlier statewide retention finished within 5 points of ½, yet 2024 had 3 (2 within 1 point); none has p.
+
+**Size**: the rebuild grows the repository's pack from 27.43 to 27.83 MiB (scratch clone, `git gc --aggressive`, `git count-objects -vH`) [measured]; no file is over 20 MB.
+
+**Still open**: reading each measure's own ballot text (the state's official pamphlet or canvass) would settle the 85 held back by an exception and the 16 untyped; the 35 behind refused sites need another route or the orchestrator's word; local thresholds by kind and place; the near-½ shortfall above; OpenElections and North Carolina's State Board for the local races MEDSL lacks.

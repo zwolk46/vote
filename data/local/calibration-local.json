@@ -1,5 +1,5 @@
 {
- "about": "the orchestrator's ruling of 2026-11-07 07:37: local races' p by like races, and by the transferred Democrat-against-Republican route, calibrated to earlier years' near-ties (seen over expected near 1/2), by office type where the fitting years expected 30 or more, else pooled; adopted for a route only if it improves the 2024 out-of-sample test (the count near 1/2 and the deviance by office type). Built by pipeline/local_medsl.py build.",
+ "about": "the orchestrator's ruling of 2026-11-07 06:38: local races' p by like races, and by the transferred Democrat-against-Republican route, calibrated to earlier years' near-ties (seen over expected near 1/2), by office type where the fitting years expected 30 or more, else pooled; adopted for a route only if it improves the 2024 out-of-sample test (the count near 1/2 and the deviance by office type). Built by pipeline/local_medsl.py build.",
  "routes": {
   "like races": {
    "factors": {
@@ -8,10 +8,10 @@
      "fitted_on": [
       2020
      ],
-     "pooled": 0.78,
+     "pooled": 0.781,
      "own": {
       "class, local council, commission or board": 0.819,
-      "class, local school board": 0.743
+      "class, local school board": 0.749
      },
      "fit_counts_expected_seen": {
       "class, local council, commission or board": [
@@ -31,11 +31,11 @@
        7
       ],
       "class, local school board": [
-       59.2,
+       58.7,
        44
       ],
       "class, local special district": [
-       18.4,
+       18.6,
        7
       ]
      }
@@ -45,10 +45,10 @@
     "year": 2024,
     "contests": 2066,
     "seen_near_half": 202,
-    "expected_before": 270.6,
-    "expected_after": 213.8,
-    "deviance_by_office_type_before": 38.13,
-    "deviance_after": 19.16,
+    "expected_before": 271.1,
+    "expected_after": 214.7,
+    "deviance_by_office_type_before": 38.21,
+    "deviance_after": 19.12,
     "by_office_type": {
      "class, local council, commission or board": {
       "expected_before": 141.3,
@@ -56,18 +56,18 @@
       "seen": 107
      },
      "class, local school board": {
-      "expected_before": 77.5,
-      "expected_after": 57.6,
+      "expected_before": 77.7,
+      "expected_after": 58.2,
       "seen": 50
      },
      "class, local special district": {
-      "expected_before": 24.3,
-      "expected_after": 19.0,
+      "expected_before": 24.4,
+      "expected_after": 19.1,
       "seen": 13
      },
      "class, local other local office": {
-      "expected_before": 7.7,
-      "expected_after": 6.0,
+      "expected_before": 7.9,
+      "expected_after": 6.2,
       "seen": 10
      },
      "class, local mayor or executive": {
