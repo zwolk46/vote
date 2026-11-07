@@ -318,3 +318,189 @@ def hash_of(path):
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+# ------------------------------------------------------------------------------------------ the seventh pass: volume
+# The offices whose totals a second count exists for (D1's presidency, D2's Senate, House and governors, Klarner's
+# legislatures), by one spelling each; MEDSL's 2018-2024 files name them so already, 2016's in title case.
+VOLUME_OFFICES = {"US PRESIDENT": "PRESIDENT", "PRESIDENT": "PRESIDENT", "PRESIDENT AND VICE PRESIDENT": "PRESIDENT",
+                  "US SENATE": "US SENATE", "US SENATOR": "US SENATE", "UNITED STATES SENATOR": "US SENATE",
+                  "US HOUSE": "US HOUSE", "US REPRESENTATIVE": "US HOUSE", "UNITED STATES REPRESENTATIVE": "US HOUSE",
+                  "GOVERNOR": "GOVERNOR", "GOVERNOR AND LIEUTENANT GOVERNOR": "GOVERNOR", "GOVERNOR AND LT GOVERNOR": "GOVERNOR",
+                  "STATE SENATE": "STATE SENATE", "STATE SENATOR": "STATE SENATE",
+                  "STATE HOUSE": "STATE HOUSE", "STATE REPRESENTATIVE": "STATE HOUSE", "STATE ASSEMBLY": "STATE HOUSE",
+                  "HOUSE OF DELEGATES": "STATE HOUSE", "GENERAL ASSEMBLY": "STATE HOUSE"}
+_TOTAL_ROW = re.compile(r"\bTOTAL\b|^-1$|^ALL$")
+
+
+def _near(a, b, tol, slack=10):
+    """within tol of b, or within slack votes where b is at least 50 (a small place's provisional line can be filed
+    under the municipality); a row of a few votes beside rows of none is no subtotal"""
+    return a == b or abs(a - b) <= max(tol * b, slack if b >= 50 else 0)
+
+
+def _subtotal_rows(resolved):
+    """the precinct keys that are subtotals of other rows in their county (see volume_summary): a row named as a total
+    whose votes equal the county's other rows (not named as totals) added up, or a row whose name the county's other
+    rows extend (name + ' ' or '-', not themselves named as totals) and whose votes equal those rows added up"""
+    by_county = collections.defaultdict(list)
+    for pk, rv in resolved.items():
+        by_county[pk[0]].append(pk)
+    subs = set()
+
+    def equal(rv, rows):
+        if not rows or not rv:
+            return False
+        s = collections.Counter()
+        for q in rows:
+            s.update(resolved[q])
+        if not _near(sum(rv.values()), sum(s.values()), 0.005):
+            return False
+        lead = max(rv, key=rv.get)
+        return _near(rv[lead], s.get(lead, 0), 0.01) and rv[lead] > 0
+
+    for county, pks in by_county.items():
+        named = [pk for pk in pks if _TOTAL_ROW.search((pk[2] or "").upper())]
+        plain = [pk for pk in pks if pk not in named]
+        for t in named:
+            if equal(resolved[t], plain):
+                subs.add(t)
+        by_name = collections.defaultdict(list)
+        for pk in plain:
+            by_name[(pk[2] or "").strip().upper()].append(pk)
+        # each row's parent is the longest other name its own name extends; a row that is itself a parent is no child
+        parent_of = {}
+        for nm in by_name:
+            for i in range(len(nm) - 1, 0, -1):
+                if nm[i] in " -" and nm[:i] in by_name:
+                    parent_of[nm] = nm[:i]
+                    break
+        parents = set(parent_of.values())
+        kids = collections.defaultdict(list)
+        for nm, par in parent_of.items():
+            if nm not in parents:
+                kids[par].extend(by_name[nm])
+        for nm in parents:
+            if nm and kids.get(nm):
+                for pk in by_name[nm]:
+                    if equal(resolved[pk], kids[nm]):
+                        subs.add(pk)
+    return subs
+
+
+def volume_summary(path, year):
+    """the seventh pass's summary of one raw MEDSL file, made once into derived/<file>.volume.json: for every contest
+    of the offices in VOLUME_OFFICES (any dataverse, any stage marked GEN or unmarked), "ST|date|office|district" ->
+      cands      candidate -> votes over every row (a precinct's TOTAL row where it has one, else its modes summed);
+      no_total   the same with the rows whose precinct is named as a total (TOTAL, -1, ALL) left out;
+      no_sub     the same with the rows that are subtotals of other rows left out (the seventh pass's rule, made apart
+                 from the pipeline's: a row named as a total whose votes equal the county's other rows added up, or a
+                 row whose name the county's other rows extend ("Allendale" beside "Allendale 1", "Allendale 2",
+                 "Allendale Provisional": New Jersey 2024's Bergen county; a row's parent is the longest other name
+                 its own extends, and a row that is itself a parent is nobody's child) and whose votes equal those
+                 rows added up; equal = the contest's votes within 0.5% or 10 votes and the leading candidate's within
+                 1% or 10 votes);
+      counties   county FIPS -> votes over every row;
+      total_rows votes on the rows left out of no_total; sub_rows votes on the rows left out of no_sub; subtotals
+                 the names of up to twelve rows left out of no_sub;
+      precincts  the precinct keys with a positive vote; magnitudes; rows;
+      party      candidate -> party (party_simplified, else party_detailed; 2016's party), the first seen.
+    The stage: 2018-2024 files mark it (GEN); 2016's state file holds the general only. A row marked special (a special
+    Senate race beside the regular one) goes under the district with ' SPECIAL' added."""
+    os.makedirs(DERIVED, exist_ok=True)
+    out_path = os.path.join(DERIVED, os.path.basename(path) + ".volume.json")
+    if os.path.exists(out_path):
+        with open(out_path) as f:
+            return json.load(f)
+    sha = L.sha256(path)
+    cells = {}       # key -> {pk: {cand: {mode: votes}}}
+    mags = collections.defaultdict(set)
+    nrows = collections.Counter()
+    party = {}       # key -> {cand: party_simplified (else party_detailed), the first seen}
+    n = 0
+    for r in rows(path):
+        n += 1
+        office = VOLUME_OFFICES.get(office_key(r.get("office")))
+        if not office:
+            continue
+        stage = (r.get("stage") or "GEN").upper()
+        if stage != "GEN":
+            continue
+        if year == 2016:
+            st = r.get("state_postal", "")
+            date = "2016-11-08"
+            pk = (fips5(r.get("county_fips", "")), r.get("jurisdiction", ""), r.get("precinct", ""))
+        else:
+            st = r.get("state_po", "")
+            date = r.get("date", "")
+            pk = (fips5(r.get("county_fips", "")), r.get("jurisdiction_fips", ""), r.get("precinct", ""))
+        cand = (r.get("candidate") or "").strip()
+        if is_meta(cand):
+            continue
+        try:
+            votes = int(float(r.get("votes") or ""))
+        except ValueError:
+            votes = None
+        mode = (r.get("mode") or "TOTAL").upper()
+        district = (r.get("district") or "").strip()
+        if (r.get("special") or "").strip().upper() in ("TRUE", "T", "1", "YES"):
+            district += " SPECIAL"   # a special Senate race beside the regular one (GA 2020, MS 2018): kept apart
+        key = (st, date, office, district)
+        cell = cells.setdefault(key, {}).setdefault(pk, {}).setdefault(cand.upper(), {})
+        cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
+        mags[key].add((r.get("magnitude") or "").strip())
+        nrows[key] += 1
+        party.setdefault(key, {}).setdefault(cand.upper(), ((r.get("party_simplified") or r.get("party_detailed") or r.get("party") or "").strip().upper()))
+    out_c = {}
+    for key, precincts in cells.items():
+        cands, no_total, no_sub, counties = collections.Counter(), collections.Counter(), collections.Counter(), collections.Counter()
+        total_rows = sub_rows = 0
+        voted = set()
+        resolved = {}    # pk -> {cand: votes}
+        for pk, cs in precincts.items():
+            rv = {}
+            for c, modes in cs.items():
+                v = _resolve(modes)
+                if v is not None:
+                    rv[c] = v
+            resolved[pk] = rv
+        subs = _subtotal_rows(resolved)
+        for pk, rv in resolved.items():
+            is_total = bool(_TOTAL_ROW.search((pk[2] or "").upper()))
+            for c, v in rv.items():
+                cands[c] += v
+                counties[pk[0]] += v
+                if is_total:
+                    total_rows += v
+                else:
+                    no_total[c] += v
+                if pk in subs:
+                    sub_rows += v
+                else:
+                    no_sub[c] += v
+                if v > 0:
+                    voted.add(pk)
+        out_c["|".join(key)] = {"cands": dict(cands), "no_total": dict(no_total), "no_sub": dict(no_sub), "counties": dict(counties),
+                                "total_rows": total_rows, "sub_rows": sub_rows, "subtotals": sorted(pk[2] for pk in subs)[:12],
+                                "precincts": len(voted), "magnitudes": sorted(mags[key]),
+                                "rows": nrows[key], "party": party.get(key, {})}
+    out = {"file": os.path.basename(path), "sha256": sha, "rows": n, "year": year, "contests": out_c}
+    with open(out_path, "w") as f:
+        json.dump(out, f)
+    return out
+
+
+def all_raw_files():
+    """every raw MEDSL file in the caches, (year, path): fifth/medsl and fourth/medsl by name"""
+    out = []
+    for d in (os.path.join(FIFTH, "medsl"), os.path.join(L.CACHE, "fourth", "medsl")):
+        if not os.path.isdir(d):
+            continue
+        for n in sorted(os.listdir(d)):
+            if not n.lower().endswith((".csv", ".zip", ".tab")):
+                continue
+            m = re.match(r"^(20\d\d)", n)
+            year = int(m.group(1)) if m else (2022 if re.search(r"22|cleaned|final|colorado|louisiana|carolina", n) else None)
+            if year:
+                out.append((year, os.path.join(d, n)))
+    return out
