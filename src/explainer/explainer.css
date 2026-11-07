@@ -10,6 +10,9 @@
 
 /* the key's marks: the picture's own */
 .lg[class*='xk-'] { flex: none; display: inline-block; box-sizing: border-box; }
+/* a mark beside the first line of its words, not the middle of all of them, where an item wraps */
+.xp-key.legend li { align-items: flex-start; }
+.xp-key .lg { position: relative; top: 0.75em; top: 0.5lh; transform: translateY(-50%); }
 .xk-yours { width: 9px; height: 9px; border-radius: 50%; background: var(--fg); }
 .xk-theirs { width: 9px; height: 9px; border-radius: 50%; background: var(--dot); }
 .xk-tie { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(90deg, var(--fg) 50%, var(--dot) 50%); }
@@ -25,7 +28,11 @@
 .xk-pres, .xk-house, .xk-town { width: 11px; height: 11px; }
 .xk-pres { background: var(--accent); }
 .xk-house { background: var(--fg); }
-.xk-town { background: var(--muted); }
+.xk-town { background: var(--dot); }
+.xk-tripbox { width: 11px; height: 13px; border: 2px solid var(--fg); }
+.xk-ghost { width: 16px; height: 0; border-top: 1.5px solid var(--fg); }
+.xk-dash { width: 16px; height: 0; border-top: 1.5px dashed var(--muted); }
+.xk-spread { width: 16px; height: 8px; border-left: 1.5px solid var(--fg); border-right: 1.5px solid var(--fg); background: linear-gradient(var(--fg), var(--fg)) center / 100% 1.5px no-repeat; }
 .xk-arrow { width: 16px; height: 2px; background: var(--accent); position: relative; }
 .xk-arrow::after { content: ''; position: absolute; right: -1px; top: -4px; border-left: 7px solid var(--accent); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
 

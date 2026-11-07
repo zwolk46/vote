@@ -26,6 +26,8 @@ const WIDTHS = (process.env.W || (FAST ? '390,900,1280' : '320,360,390,430,900,1
 const SCALES = (process.env.S || (FAST ? '1,2' : '1,1.3,1.6,2')).split(',').map(Number);
 const SCHEMES = (process.env.SCHEMES || 'light,dark').split(',');
 const ONLY = process.env.ONLY ? new Set(process.env.ONLY.split(',')) : null;
+// the explainer's steps, counted from its source, so a step added or taken away is still checked
+const STEPS = (fs.readFileSync(path.join(__dirname, '../../src/explainer/beats.js'), 'utf8').match(/^  \{ id: '/gm) || []).length;
 const MAX = Number(process.env.MAX || 8);
 const SHOTS = process.env.SHOTS || null;
 const DESK = 900;
@@ -52,7 +54,7 @@ const VIEWS = [
     const sb = desk ? 0 : slot.offsetHeight, F = desk ? innerHeight * 0.5 : sb + (innerHeight - sb) * 0.5, r = c.getBoundingClientRect();
     scrollBy(0, r.top + r.height / 2 - F);
   }, s) },
-  { name: 'how-b', q: 'page=how&v=b', states: Array.from({ length: 22 }, (_, i) => i), to: async (page, i) => page.evaluate(i => document.querySelectorAll('.xp-dots button')[i].click(), i) },
+  { name: 'how-b', q: 'page=how&v=b', states: Array.from({ length: STEPS }, (_, i) => i), to: async (page, i) => page.evaluate(i => document.querySelectorAll('.xp-dots button')[i].click(), i) },
 ].filter(v => !ONLY || ONLY.has(v.name));
 
 const installScale = s => `(() => { const scale = ${scaleText.toString()}; const s = ${s}; if (s === 1) return;

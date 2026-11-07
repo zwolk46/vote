@@ -132,15 +132,16 @@ function Scroll() {
       for (let i = 0; i < c.length - 1; i++) if (F < c[i + 1]) return i + (F - c[i]) / (c[i + 1] - c[i]);
       return c.length - 1;
     };
-    let raf = 0;
+    let raf = 0, drawn = '';
     const frame = () => {
       raf = 0;
       let t = where();
       if (reducedMotion()) t = Math.round(t);
       const i = Math.min(BEATS.length - 2, Math.floor(t));
-      // the picture holds still while a step is read, and moves between steps
-      const f = clamp01((t - i - 0.3) / 0.4);
-      if (api.current) api.current.draw(i, i + 1, f);
+      // the picture holds still while a step is read, and moves between steps; a frame that would draw the same
+      // picture again is not drawn
+      const f = clamp01((t - i - 0.3) / 0.4), at = f === 0 ? `${i}` : f === 1 ? `${i + 1}` : `${i}:${f}`;
+      if (api.current && at !== drawn) { drawn = at; api.current.draw(i, i + 1, f); }
     };
     const on = () => { if (!raf) raf = requestAnimationFrame(frame); };
     frame();

@@ -152,3 +152,27 @@ The reader answered all five questions from the pictures. It read the chance as 
 > - Step 21: Only partly. "N" is a letter standing in for a number. The line from $1 to $1,000 to $1 million to $1 billion jumps by a thousand each time, and the two arrows (× 468 and × 10 million) sit close together. It was hard to read the dots and prices along the line.
 > - Steps 22 to 24: Only partly. Why it's now "÷ N" when it was "× N" before wasn't clear. "Repays" is never explained. The House ($2.22) and town ($2.14) shares appear only in the Source text, not in the pictures. The black, dark grey and grey blocks in step 24 look very alike.
 > - The Source links: "model §2", "law 2c", file names, "BLS" and the researchers' names meant nothing to me.
+
+### What readers 2 and 3 found, and what was changed
+
+Both readers answered every question rightly, the layperson's sixth too. Their partial misses were these, and each was met where a picture or a word could meet it:
+
+- **"By lot" read as "a lot"** (reader 3). Every mark and heading now says "a coin toss": the key "a tie: a coin toss decides", the heading "A tie goes to a coin toss". The source says "settled by lot (a coin toss, or straws drawn)".
+- **"Different winners" when one side only ties** (both). The figure now reads "Different results", and its sub "a coin toss against a loss".
+- **The axis words were hard** (both). They are now "your side's lead, not counting you". They are drawn over the dashed paths of step 4, so the paths pass behind them.
+- **The lone circle in step 4 had no link or label** (both). Dashed paths now run from the two halves down to it. It is named "= one change" beside it where it fits, and in the key ("what your ballot changes").
+- **The curve had no scale, and its height meant nothing** (both). An arrow up the left side is named "how likely", and the key names the curve "how likely each count is".
+- **"Give or take" was never shown** (both). It is now a bracket across the curve, from one give or take below the forecast's centre to one above, named in the key ("give or take: how wide the forecast is"). In the "Less sure" step the bracket doubles and the curve flattens.
+- **Why more voters, or less sureness, lowers the chance** (both). From step 6 on, the first forecast stays on the picture as a dashed curve, named in the key ("before: 2,000 voters, 52–48, give or take 4"). Each change is seen against it: the same curve spread over more counts, or wider, stands lower at 50–50.
+- **The bar was invisible at 200,000 voters** (both). Where the bar is under 5 pixels, a mark under the axis points at it.
+- **Step 12's sub, "millions of voters", made the dots read as voters** (both). It is now "the closest states, where millions vote". The key still says each dot is one run.
+- **Steps 13 and 15 looked the same size** (both). Each field is now sized by its count of runs. Step one's 1.4 million fills less than half the width of both steps' 7.5 million.
+- **"The College" was unexplained** (both). The heading and the key now say "Electoral College". Why it is 19 in 100 is left to the source: it is the share of runs where the other states leave the College close enough. A picture of it would be a third stage, which the brief does not ask for.
+- **Why count 468 trips when I vote once** (reader 3). The step's heading is now "In 468 runs, 468 trips".
+- **Step 20, the share** (both). The key now says "each dot: a million people", which matches the label "300 million × 30¢". A label over the picture says "level: they weigh the same". The sub now says what the round figure is: "(a round figure for the country)".
+- **Steps 22 to 24, the ballot** (both). The keys say "shared over 180,000 trips" in place of "÷ 180,000". The trip is now an open box and the races solid blocks. The three colours are now apart: accent, ink and light grey. Each block carries its dollars ($5.00, $2.22, $2.14) where they fit inside it.
+- **The sources' jargon** (both). The sources now say "the site's model, section 2" in place of "model §2" and name no files. "Law 2c" is gone, and "Bureau of Labor Statistics" is spelled out. "Normal curve" and "exact sums by its code" are now "a bell curve" and "worked out exactly by its own code".
+- **Left as they are.**
+  - The switch between 2008's 10 million and Pennsylvania 2024's 7.5 million. The brief asks for D1's figures in the two stages and the 2008 closest states for the comparison. Each step names its race and year.
+  - The scale of dollars in step 21. It was read rightly by both, with effort. Its marks are the figures the reader has just seen, and a second picture of the same idea would add more than it clears.
+  - The faint minus signs. They are the muted colour of the counts outside the box; −1 and 0, inside it, are in ink.

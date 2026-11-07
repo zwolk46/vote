@@ -27,7 +27,7 @@ const INIT = `(() => {
   Element.prototype.animate = function (k, o) { const a = animate.call(this, k, o); const kf = Array.isArray(k) ? k : [];
     window.__anims.push({ id: a.id || '', dur: typeof o === 'object' ? o.duration : o, props: [...new Set(kf.flatMap(f => Object.keys(f)))], cls: this.className && this.className.baseVal === undefined ? String(this.className) : '' });
     setTimeout(() => { window.__anims[window.__anims.length - 1].id = a.id || ''; }, 0); return a; };
-  const raf = window.requestAnimationFrame.bind(window);
+  const raf = window.requestAnimationFrame.bind(window); window.__raf = raf;
   window.__stamps = []; window.__t0 = null;
   for (const t of ['pointerdown', 'keydown', 'change', 'input', 'wheel']) addEventListener(t, () => { if (window.__t0 == null) window.__t0 = performance.now(); }, true);
   window.requestAnimationFrame = cb => { window.__frames++; return raf(t => { window.__stamps.push(t); cb(t); }); };
@@ -134,7 +134,8 @@ const judge = (tag, what, st, t0, phone) => {
         await page.waitForTimeout(1200);
         await page.evaluate(() => { window.__anims = []; });
         let worst = 0, worstAt = '', longRun = 0, n = 0, over = 0;
-        for (let i = 0; i < 21; i++) {
+        const steps = await page.evaluate(() => document.querySelectorAll('.xp-dots button').length);
+        for (let i = 0; i < steps - 1; i++) {
           const st = await stampsSince(page, () => page.click('.xp-next'), 800);
           if (st.length < 2) continue;
           n++;
@@ -165,9 +166,14 @@ const judge = (tag, what, st, t0, phone) => {
         await page.waitForTimeout(1200);
         const box = page.viewportSize();
         await page.mouse.move(box.width / 2, box.height * 0.75);
+        // the screen's own frames while the reader scrolls, by a loop of its own beside the page's: a frame the page's
+        // drawing holds up shows as a long gap here (the page draws only when the scroll moves, so its own frames
+        // follow the wheel's pace, not the screen's)
+        await page.evaluate(() => { window.__probe = []; window.__probeOn = true; const loop = t => { window.__probe.push(t); if (window.__probeOn) window.__raf(loop); }; window.__raf(loop); });
         const st = await stampsSince(page, async () => { for (let i = 0; i < 90; i++) { await page.mouse.wheel(0, 90); await page.waitForTimeout(16); } }, 600);
-        console.log(`${tag} explainer A scroll (no duration): ${fmt(st)}`);
-        if (st.length > 2) { const g = gaps(st.slice(1)); if (g[g.length - 1] > 50) fail(`${tag} explainer A scroll: a gap of ${g[g.length - 1].toFixed(1)} ms between frames (over 50)`); }
+        const pr = await page.evaluate(() => { window.__probeOn = false; return window.__probe.slice(2); });
+        console.log(`${tag} explainer A scroll (no duration): the page drew ${st.length} frames; the screen: ${fmt(pr)}`);
+        if (pr.length > 2) { const g = gaps(pr); if (g[g.length - 1] > 50) fail(`${tag} explainer A scroll: a gap of ${g[g.length - 1].toFixed(1)} ms between the screen's frames (over 50)`); }
         await page.waitForTimeout(1500);
         const idle = await page.evaluate(async () => { const f0 = window.__frames; await new Promise(r => setTimeout(r, 1000)); return { frames: window.__frames - f0, running: document.getAnimations().filter(a => a.playState === 'running').length }; });
         console.log(`${tag} explainer A idle: ${idle.frames} frames requested, ${idle.running} animations running in 1 s`);

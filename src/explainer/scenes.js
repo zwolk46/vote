@@ -5,7 +5,7 @@
 // reader has it (read from the page, so they grow with the reader's text), and wrapped to the room they have.
 //
 // S = { W, H, fs, ff, col, dpr }: the box, the small type's size and family, the page's colours (lib/media.js).
-import { C0, TOWN, PA, CLOSE08, HOUSE, PEOPLE, WORTH } from './beats.js';
+import { C0, TOWN, PA, CLOSE08, HOUSE, PEOPLE, WORTH, CURVE } from './beats.js';
 import { money } from '../lib/format.js';
 
 const TAU = Math.PI * 2;
@@ -98,7 +98,8 @@ function stippleTurned(ctx, S, x, y, w, h) {
 
 // ---- 1. two worlds: the town's 2,000 ballots twice; yours counted in one, not in the other -----------------------
 // k 0: a run where your side has 1,040 of 2,000 with you (52%): the same winner either way. k 1: a closer run of the
-// same race, 1,000 to 1,000 with you: counted, a tie, settled by lot; not counted, 999 to 1,000, the other side wins.
+// same race, 1,000 to 1,000 with you: counted, a tie, settled by lot (a coin toss); not counted, 999 to 1,000, the
+// other side wins.
 // Each world names its winner under its count.
 function worlds(ctx, S, st) {
   const { W, H, col, fs } = S;
@@ -107,7 +108,7 @@ function worlds(ctx, S, st) {
   const me = Math.floor((ours - 1) / cols) * cols + cols / 2;   // yours: in the middle of your side's last row
   const close = st.k >= 0.5;
   const tally = [[`${(ours).toLocaleString('en-US')}`, `to ${(2000 - ours).toLocaleString('en-US')}`], [`${(ours - 1).toLocaleString('en-US')}`, `to ${(2000 - ours).toLocaleString('en-US')}`]];
-  const who = close ? ['a tie: by lot', 'the other side wins'] : ['your side wins', 'your side wins'];
+  const who = close ? ['a tie: a coin toss', 'the other side wins'] : ['your side wins', 'your side wins'];
   // the words first, each wrapped to its block's width: the titles, and the counts and winners under the blocks
   const titles = ['Counted', 'Not counted'].map(t => lines(ctx, S, t, pw, { weight: 600 }));
   const tl = tally.map(([a, b]) => (lines(ctx, S, `${a} ${b}`, pw, { weight: 600, size: 1.15 }).length > 1 ? [a, b] : [`${a} ${b}`]));
@@ -142,7 +143,7 @@ function worlds(ctx, S, st) {
 // ---- 2 and 3. everyone else's count, and the two where your ballot changes who wins ------------------------------
 // Each column is one count of everyone else, by your side's lead among them. Each dot is who wins: your side (dark),
 // theirs (grey), or a tie (half each), settled by lot. Counted, your ballot adds one to your side's lead.
-const AXIS_M = 'your side’s lead among everyone else';
+const AXIS_M = 'your side’s lead, not counting you';
 function margins(ctx, S, st) {
   const { W, H, col, fs } = S;
   const M = [-3, -2, -1, 0, 1, 2, 3], cw = W / M.length;
@@ -187,9 +188,19 @@ function margins(ctx, S, st) {
     half(ctx, c1, y1, r, col.accent, -1);
     half(ctx, c2, y1, r, col.accent, 1);
     if (j > 0) {
+      // the halves' paths, dashed, so a still picture shows where the whole came from
+      ctx.globalAlpha = j * 0.7; ctx.strokeStyle = col.accent; ctx.lineWidth = 1.2; ctx.setLineDash([3, 4]);
+      ctx.beginPath(); ctx.moveTo(c1 - r * 0.5, y1 + r + 3); ctx.lineTo(lerp(c1, mid, j) - r * 0.5, lerp(y1, yj, j) - r - 3);
+      ctx.moveTo(c2 + r * 0.5, y1 + r + 3); ctx.lineTo(lerp(c2, mid, j) + r * 0.5, lerp(y1, yj, j) - r - 3); ctx.stroke(); ctx.setLineDash([]);
+      ctx.globalAlpha = 1; wrap(ctx, S, AXIS_M, W / 2, axisY, W - 4, { halo: true });
       ctx.globalAlpha = j;
       half(ctx, lerp(c1, mid, j), lerp(y1, yj, j), r, col.accent, -1);
       half(ctx, lerp(c2, mid, j), lerp(y1, yj, j), r, col.accent, 1);
+      ctx.globalAlpha = clamp01(j * 3 - 2);
+      const t = '= one change', lx = mid + r + 8;
+      font(ctx, S, { weight: 600 });
+      if (lx + ctx.measureText(t).width <= W) text(ctx, S, t, lx, yj, { align: 'left', base: 'middle', color: col.accent, weight: 600 });
+      else if (yj + r + 3 + fs * 1.15 <= H) text(ctx, S, t, inside(ctx, S, t, mid, { weight: 600 }), yj + r + 3, { base: 'top', color: col.accent, weight: 600, halo: true });
     }
     ctx.globalAlpha = 1;
   }
@@ -204,19 +215,42 @@ const AXIS_C = 'your side’s share of the vote, as forecast';
 function curve(ctx, S, st, beat) {
   const { W, H, col, fs } = S;
   const axisH = lines(ctx, S, AXIS_C, W - 4).length * lineH(S);
-  const lo = 0.3, hi = 0.7, top = fs * 1.5, base = H - (lineH(S) + 8 + axisH), ph = base - top;
+  const lo = 0.3, hi = 0.7, top = fs * 1.6, base = H - (lineH(S) + 13 + axisH), ph = base - top;
   const X = v => ((v - lo) / (hi - lo)) * W, Y = d => base - (Math.min(d, Y_MAX * 1.02) / Y_MAX) * ph;
   const at = v => pdf(v, st.mu, st.sd) / st.n;
-  const path = () => { for (let i = 0; i <= 240; i++) { const v = lo + ((hi - lo) * i) / 240; i ? ctx.lineTo(X(v), Y(at(v))) : ctx.moveTo(X(v), Y(at(v))); } };
+  const path = (f = at) => { for (let i = 0; i <= 240; i++) { const v = lo + ((hi - lo) * i) / 240; i ? ctx.lineTo(X(v), Y(f(v))) : ctx.moveTo(X(v), Y(f(v))); } };
+  // the first forecast, dashed, while another is shown: what changed is seen against it
+  const B0 = CURVE.base, at0 = v => pdf(v, B0.mu, B0.sd) / B0.n;
+  const away = Math.abs(Math.log(st.n / B0.n)) + Math.abs(st.mu - B0.mu) * 40 + Math.abs(st.sd - B0.sd) * 40;
+  if (away > 0.01) {
+    ctx.globalAlpha = Math.min(1, away * 3) * 0.8; ctx.strokeStyle = col.muted; ctx.lineWidth = 1.2; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); path(at0); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+  }
+  // what the height is: named at the top, over its arrow
+  ctx.strokeStyle = col.muted; ctx.fillStyle = col.muted; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(4, base - 4); ctx.lineTo(4, top - fs * 0.2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(4, top - fs * 0.6); ctx.lineTo(0.5, top); ctx.lineTo(7.5, top); ctx.closePath(); ctx.fill();
+  text(ctx, S, 'how likely', 12, top - fs * 0.15, { align: 'left', size: 0.92, halo: true });
   ctx.beginPath(); path(); ctx.lineTo(W, base); ctx.lineTo(0, base); ctx.closePath();
   ctx.fillStyle = col.dot; ctx.globalAlpha = 0.25; ctx.fill(); ctx.globalAlpha = 1;
   ctx.beginPath(); path(); ctx.strokeStyle = col.fg; ctx.lineWidth = 1.5; ctx.stroke();
   ctx.fillStyle = col.lineStrong; ctx.fillRect(0, base, W, 1);
+  // the give or take: the forecast's width, a bracket across the curve from one give or take below its centre to one
+  // above, while the curve stands high enough to hold it
+  const pk0 = at(st.mu), gA = clamp01(((base - Y(pk0)) / ph - 0.25) * 5);
+  if (gA > 0) {
+    const g1 = X(st.mu - st.sd), g2 = X(st.mu + st.sd), gy = Y(at(st.mu + st.sd));
+    ctx.globalAlpha = gA; ctx.strokeStyle = col.fg; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(g1, gy); ctx.lineTo(g2, gy); ctx.moveTo(g1, gy - 4); ctx.lineTo(g1, gy + 4); ctx.moveTo(g2, gy - 4); ctx.lineTo(g2, gy + 4); ctx.stroke();
+    ctx.globalAlpha = 1;
+  }
   // the bar at 50–50: its outline the chance of a tie or one short, its filled half the chance your ballot changes
   // who wins
   const h = at(0.5), bw = Math.max(8, fs * 0.65), x = X(0.5), yT = Y(h), yH = Y(h / 2);
   ctx.fillStyle = col.accent; ctx.fillRect(x - bw / 2, yH, bw, base - yH);
   if (base - yT > 3) { ctx.strokeStyle = col.accent; ctx.lineWidth = 1.2; ctx.strokeRect(x - bw / 2 + 0.6, yT + 0.6, bw - 1.2, base - yT - 1.2); }
+  // too small to see: a mark under the axis points to it
+  if (base - yT < 5) { ctx.fillStyle = col.accent; ctx.beginPath(); ctx.moveTo(x, base + 2); ctx.lineTo(x - 5, base + 9); ctx.lineTo(x + 5, base + 9); ctx.closePath(); ctx.fill(); }
   // the outline named at its top, where there is room beside the curve
   if (base - yT > fs * 2.4) {
     const t = 'a tie or one short';
@@ -234,8 +268,8 @@ function curve(ctx, S, st, beat) {
     else if (x - bw / 2 - 6 - lw >= 0) text(ctx, S, beat.figIn, x - bw / 2 - 6, ly, { ...o, align: 'right' });
     else text(ctx, S, beat.figIn, inside(ctx, S, beat.figIn, x, o), Math.min(ly, yT) - fs * 1.1, o);
   }
-  for (const [v, t] of [[0.4, '40%'], [0.5, '50–50'], [0.6, '60%']]) text(ctx, S, t, X(v), base + 4 + fs, { color: v === 0.5 ? col.accent : col.muted, weight: v === 0.5 ? 600 : 400 });
-  wrap(ctx, S, AXIS_C, W / 2, base + 6 + fs + lineH(S), W - 4);
+  for (const [v, t] of [[0.4, '40%'], [0.5, '50–50'], [0.6, '60%']]) text(ctx, S, t, X(v), base + 9 + fs, { color: v === 0.5 ? col.accent : col.muted, weight: v === 0.5 ? 600 : 400 });
+  wrap(ctx, S, AXIS_C, W / 2, base + 11 + fs + lineH(S), W - 4);
 }
 
 // ---- 5. a field of runs of the election, one dot for each; the ringed one is a run your ballot decides ----------
@@ -267,9 +301,9 @@ function field(ctx, S, st) {
 function stages(ctx, S, st) {
   const { W, H, col, fs } = S;
   const g = clamp01(st.k), b = clamp01(st.k - 1);
-  const D = Math.min(W * 0.56, H - 4);
+  // the field's size is the count of runs: both steps' 7.5 million fill the box; step one's 1.4 million take less
+  const n = Math.exp(lerp(Math.log(PA.state), Math.log(PA.N), b)), D = Math.min(W * 0.62, H - 4) * Math.sqrt(n / PA.N);
   const cx = lerp(lerp(W / 2, D / 2 + 2, g), W / 2, b), cy = H / 2;
-  const n = Math.exp(lerp(Math.log(PA.state), Math.log(PA.N), b));
   fieldOf(ctx, S, n, cx, cy, D, []);
   const a = g * (1 - b);
   if (a > 0) {
@@ -361,6 +395,9 @@ function trips(ctx, S, st) {
       const ly = Math.max(lx[1], rx[1]) + lineH(S) + 4;
       const wl = k > 3.5 ? `300 million × ${money(T2 / PEOPLE)}` : k > 1.5 ? money(WORTH.hi) : money(WORTH.lo);
       rowsOf(ctx, S, [{ s: k > 2.5 ? money(T2) : money(T1), x: lx[0], color: col.fg }, { s: wl, x: rx[0], color: k > 3.5 ? col.fg : col.accent }], ly, { weight: 600 });
+      // the level beam, named over its pivot: the two ends weigh the same
+      const lv = 'level: they weigh the same';
+      if (ev > 0.5) { ctx.globalAlpha = tA * clamp01(ev * 2 - 1); wrap(ctx, S, lv, W / 2, fs * 1.2, W - 8, { color: col.accent, weight: 600, halo: true }); }
     }
     ctx.globalAlpha = 1;
   }
@@ -417,17 +454,20 @@ function ballot(ctx, S, st) {
   ctx.beginPath(); ctx.moveTo(L[0], L[1]); ctx.lineTo(R[0], R[1]); ctx.stroke(); ctx.lineCap = 'butt';
   // dollars to height: the taller stack fits above the beam at its highest
   const bw = arm * 0.5, ppd = Math.max(4, (pivY - arm * Math.sin(0.24) - 14) / 9.6);
+  // the trip: an open box, its cost; the races: solid blocks, each with what it repays, its dollars on it
   ctx.save(); ctx.translate(L[0], L[1]); ctx.rotate(-a);
-  ctx.fillStyle = col.dot; ctx.fillRect(arm * 0.12, -2 - C0 * ppd, bw, C0 * ppd);
+  ctx.strokeStyle = col.fg; ctx.lineWidth = 2; ctx.strokeRect(arm * 0.12 + 1, -2 - C0 * ppd + 1, bw - 2, C0 * ppd - 2);
   ctx.restore();
   ctx.save(); ctx.translate(R[0], R[1]); ctx.rotate(-a);
-  const shades = [col.accent, col.fg, col.muted];
+  const shades = [col.accent, col.fg, col.dot], ink = [col.bg, col.bg, col.fg];
   let h = 2;
   per.forEach((v, i) => {
     if (on[i] <= 0) return;
-    const ph = v * ppd, drop = (1 - on[i]) * 36;
+    const ph = v * ppd, drop = (1 - on[i]) * 36, y = -h - ph - drop;
     ctx.globalAlpha = on[i]; ctx.fillStyle = shades[i];
-    ctx.fillRect(-arm * 0.12 - bw, -h - ph - drop, bw, ph - 1);
+    ctx.fillRect(-arm * 0.12 - bw, y, bw, ph - 1);
+    const lab = '$' + v.toFixed(2), fit = [0.92, 0.78].find(z => { font(ctx, S, { weight: 600, size: z }); return ph > fs * z * 1.3 && ctx.measureText(lab).width <= bw - 6; });
+    if (fit) text(ctx, S, lab, -arm * 0.12 - bw / 2, y + ph / 2, { base: 'middle', color: ink[i], weight: 600, size: fit });
     h += ph * on[i];
   });
   ctx.globalAlpha = 1; ctx.restore();
@@ -443,7 +483,7 @@ export const SCENES = { worlds, margins, curve, field, stages, trips, ballot };
 // What each scene shows, for a screen reader (the canvas is one image).
 export const ALT = {
   worlds: 'Two blocks of the town’s 2,000 ballots, the same in both but for yours: counted on the left, not counted on the right. In one run your side wins both, 1,040 to 960 and 1,039 to 960; in a closer run, counted is a tie, 1,000 to 1,000, and not counted the other side wins, 999 to 1,000.',
-  margins: 'A row of possible counts of everyone else, by your side’s lead, from three behind to three ahead; for each, who wins with your ballot counted and without it. They differ only at a tie and at one vote short, where a lot decides: each gives half a change, and the halves make one.',
+  margins: 'A row of possible counts of everyone else, by your side’s lead, from three behind to three ahead; for each, who wins with your ballot counted and without it. They differ only at a tie and at one vote short, where a coin toss decides: each gives half a change, and the halves make one.',
   curve: 'A forecast curve of the chance of each count of your side’s votes. At 50–50 a bar: its outline the chance of a tie or one short, its filled half the chance your ballot changes who wins.',
   field: 'A square field of dots, one for each run of the election; one, ringed, is a run your ballot decides.',
   stages: 'The presidency in two steps: a field for the chance your ballot changes Pennsylvania’s winner, then a hundred dots, nineteen lit, for the times its electoral votes then decide the College, then the larger field of both.',
