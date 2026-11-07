@@ -51,6 +51,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+- 10:17 UTC: merged #61 (D3, size bins for boundary route (c); design fixed in REPORT §11 before scoring; fails the robustness test in every pool: legislatures' 49–51% total moves from 3.4 under to 11.4 over, 8 of 33 cells further, fails with each year left out; MEDSL local has no boundary forecasts; NC worse; no p changes), assigned zwolk46. Ruled to D3: the rule stays as fixed, not reshaped after scores; on to LA 2024, NJ 2024, then (b).
 
 - 2026-11-07 10:09: #60 merged (D3: NC November deciding rounds after an earlier round: 64 of 141 get p, marked; pool effects: 98 new p, 1,572 move median x0.990, all listed; NC's old 06:38 factor put under the robustness test and fails; questions carry no rounds' words). D3 next: size bins for route (c), design fixed first; then LA, NJ, local thresholds.
 
