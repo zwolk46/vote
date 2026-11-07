@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 09:26: #55 merged (D2: half-life k and Cha inc 2/3 variants all fail the rule and the robustness test; nothing of record changes). Forecast search for Congress stopped (six variants failed alike; more would fit noise). D2 last: near-even shortfall notes on House and Senate p (House 105 seen vs 87.5 expected within 1 pt, Senate 17 vs 11.1, 2010-24), FEC 2004 for House 2006 if token-light; then stop.
+
 - 2026-11-07 09:22: #54 merged (D3 Indiana 2024 from the state's certified archive; gate exact vs D1, D2 Senate and 9 House districts; MEDSL's Indiana wrong in 39 of 125 legislative districts, 31 of 33 questions; 77 legislative, 210 local p, statewide amendment p). Next D3: split State Board county contests joined by a generic name (88 contests, no p but in like-race counts), then #31 test, exact-sum fix, LA, NJ, local thresholds. Open for the site: class-C legislative p rest on the state's lean (e.g. IN HD-2 2024, 82% D, p 9.2e-5); D3 to report how many and their back-test.
 
 - 2026-11-07 09:08: #50 merged (D4 law pass 2: 34 read, 12 partly, 5 unread; CT, MS read via verified chain completion; NJ partly via its viewer's contents tree; refusals recorded). D4 done and stopped; NH retry queued. #53 merged (D2: round 4's near-tie factor retaken under the robustness test with round 5's cells: House stands, Senate taken out (Senate p 4.4685e-4 to 4.4426e-4, control 4.8432e-5 to 4.7655e-5), kept as near_tie_not_of_record; governor shortfall note on all 420 governor p). 'Where things stand' rewritten.
