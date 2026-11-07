@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 10:09: #60 merged (D3: NC November deciding rounds after an earlier round: 64 of 141 get p, marked; pool effects: 98 new p, 1,572 move median x0.990, all listed; NC's old 06:38 factor put under the robustness test and fails; questions carry no rounds' words). D3 next: size bins for route (c), design fixed first; then LA, NJ, local thresholds.
+
 - 2026-11-07 09:53: #59 merged (D3, M2 item 4 fixes: exact-sum stand-in no longer renormalised (4,739 p carry exact_mass; worst x0.503, Cheshire 12 now equal to f/(2n)); both local calibration factors out by the robustness test (3,333 p rise median x1.235, 2,666 of 2020 computed again; old values kept as calibration_not_of_record); rows already followed the ballot (renamed on_ballot); NC pool gap = November contests after an earlier round). Ruled: a November contest after an earlier round that year is the deciding round, odd or even year; compute it, marked; earlier round stays not computed.
 
 - 2026-11-07 09:38: #58 merged (D2: near-even note on 3,369 House and 317 Senate own-forecast p (House 105 seen vs 87.5, Senate 17 vs 11.1, within 1 pt 2010-24); FEC 2004 taken in (34 Senate, 440 House, totals agree); House 2006 left not computed (no source for which lines held 2004-06). Wikipedia API refused once; not routed round). D2 done and stopped.
