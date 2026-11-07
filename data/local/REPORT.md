@@ -962,3 +962,73 @@ No calibration is applied, as for every route since 09:49 (§7).
 - **65 statewide measures' notes are reworded.** They were "54 against 38.1 within 5 points". They now read "11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes". They still say p may be low.
 - **Louisiana's and North Carolina's general-date local questions get no note.**
 - **Nothing else in any record changes.**
+
+## 19. Each held statewide question's own ballot text (step (a))
+
+*Added 2026-11-07 at 14:35 UTC, at the orchestrator's order of 07:25: "each statewide measure's own ballot text, for the 85 held back by an exception and the 16 untyped". By the time they were read, 98 were held by an exception and 16 were untyped. Two later words govern parts of this section. At 14:06: "The AZ Legislative Council's analyses on azleg.gov are that body's own publication, so they are a true source. Record maine.gov's 403 and hold ME's Q1/Q5." At 14:21 the orchestrator agreed to the three calls below. On Georgia's 2018 B it said: "read its ballot text. If the text shows it exempts property from ad valorem tax, the constitution governs it and it is stated. If the text doesn't show that, hold it. Reason: the ½ must come from the law, and only the kind of act may be read from the ballot."*
+
+**What was read** [measured]. 114 questions in 12 states. Four readers worked by group: Florida (24); Louisiana, Arkansas and Georgia (24); Colorado, Arizona and New Mexico (36); Oregon, Maine, Ohio, Idaho and Rhode Island (30). Their pages were fetched between 13:45 and 14:01 UTC.
+- **What each reader recorded.** For each question, the reader recorded where its type is read (with a quote) and what the text shows on the case of the state's special rule (`fact.applies`: true, false, or null where the text read does not show it, with a quote, a why and a mark).
+- **Two more questions.** I added Rhode Island's two other bond projects of the same acts, 2022's and 2024's Green Economy Bonds. They were typed by their titles and held as compound, so they were not in the list. I read them from the pages the readers saved.
+- **Quotes.** All 267 quotes were checked word for word against the saved pages, bad: 0.
+- **Where they are.** Everything is in `data/measure/ballot-texts.json`, with every page refused or not reached.
+
+**How a text decides** (`pipeline/measures.py`, `rule_for`).
+- **The type.** Where the title leaves the type open, or says otherwise, the type comes from the text. The `matched` line says "states" where the text states it and "shows [inferred]" where it does not. Three types are normalised to the rules' own:
+  - Florida's revisions from the Constitution Revision Commission become amendments. Art. XI §5(e) sets one rule for "the proposed amendment or revision".
+  - Georgia's referendums on general Acts become statutes.
+  - Maine's citizen initiative and its State Referendum become statutes [inferred].
+- **The special case.**
+  - Where the text shows the special rule's case holds, the special rule applies. Where it shows the case does not hold, the general rule applies. Either way the mark is carried into `matched`.
+  - Where the text does not show it, p is held. The reason then says the ballot text does not show it either.
+- **Each record** carries what decided it, in `ballot_text` (`data/README.md`).
+
+**The three calls, agreed at 14:21.**
+- **Oregon's Measure 115 (2024).** Or. Const. art. II §23(1) reaches "any proposed requirement for more than a majority of votes cast by the electorate". 115's two-thirds is of the House and the Senate, not of the electorate. So §23(1) does not apply, and the general ½ does [inferred]. The reader had marked it true and left the reading to me.
+- **Rhode Island's bonds.** The act that puts a year's bonds on the ballot sets their share in its own §3: "If a majority of the People voting on the proposition in Section 1 hereof shall vote to approve any project stated therein, said project shall be deemed to be approved by the People." That is P.L. 2022 ch. 231 and P.L. 2024 ch. 117, art. 5 [stated]. 2018's act (P.L. 2018 ch. 47, art. 5) prints its changes to the bill; with struck words dropped, it reads the same.
+  - I added one rule per act to `thresholds.json`, each for its own year (`from_year`, `to_year`), at t = ½.
+  - Each of the 10 projects is matched to its act's list by title and amount.
+  - The act numbers 2024's projects 1 to 4, where the ballot's questions are 2 to 5. Question 1 was the convention.
+- **Georgia's referendums.** I added a rule, a statute at ½, under Ga. Const. art. VII §II ¶II(a)(1): "no property shall be exempted from ad valorem taxation unless the exemption is approved by two-thirds of the members elected to each branch of the General Assembly in a roll-call vote and by a majority of the qualified electors of the state voting in a referendum thereon". It is read from the legislature's 2016 annotated edition, like Georgia's other rules. It covers only an Act exempting property from ad valorem taxation (`only_if`).
+  - 2018's Referendum A (HB 820) and 2024's (HB 808) are such Acts, each stated by its own §2, which cites the paragraph. Each Act's §3 says the same in votes cast: "If more than one-half of the votes cast on ... such question are for approval of the Act".
+  - **2018's Referendum B is held.** Neither its ballot text nor the Act's own text was read. The legislature's bill page is built by script and gives no text, and sos.ga.gov refused (403). The Legislative Counsel's summary of Act 25 says its Section 2 "expands the ad valorem tax exemption for nonprofit homes for the mentally disabled", but that summary is not the ballot text.
+
+**Refused or not reached** (recorded and not tried another way; `ballot-texts.json`, `unread`):
+- Georgia: sos.ga.gov (403, Cloudflare); Justia's copy of the constitution (403); and the legislature's bill page for HB 196 (script, no text). The legislature's own 2016 constitution was read instead.
+- Arizona: the Secretary of State's 2024 pamphlet, apps.azsos.gov (403, Cloudflare). The Legislative Council's analyses on azleg.gov were read in its place, ruled a true source at 14:06.
+- Oregon: the Secretary of State's measure search (captcha) and oregonlegislature.gov (403). The Secretary of State's own Voters' Pamphlets (county editions, each printing every statewide measure) were read.
+- Maine: maine.gov, twice (403, CloudFront). This is why Q1 and Q5 are held.
+- Ohio: ohiosos.gov (403). The Supreme Court of Ohio's pages were read.
+- Rhode Island: vote.sos.ri.gov, sos.ri.gov and elections.ri.gov (403, Cloudflare). The General Assembly's public laws were read.
+
+**What the texts show** [measured, as the readers marked them]. For all but three (Georgia's 2018 B, Maine's Q1 and Q5), the text settles which rule applies.
+- **Florida (24).** Not "an amendment that imposes a new State tax or fee" [inferred], so 60%. No sentence says so outright, and each full text was read for tax, fee, levy and the like.
+- **Colorado (19).** 2018's Amendment A and 2024's Amendment J only repeal (½); the other 17 do not (55%) [stated].
+- **New Mexico (4).** None restricts the elective franchise or the education rights of art. VII and art. XII (½) [stated].
+- **Arizona (13).** 133-140 are amendments and 311-315 statutes. None approves a tax (½) [inferred]. 311's $20 penalty is the closest call.
+- **Louisiana (19).** None directly affects five parishes or fewer (½) [inferred].
+- **Arkansas.** Issue 2 was initiated (½) [stated]. Issue 1 was referred by the General Assembly. Its rule, art. 19 §22, does not state its base, so it stays held as compound.
+- **Idaho (3).** Statute initiatives (½) [stated].
+- **Ohio (2).** Neither is an initiated amendment the ballot board found to conflict with art. II §1e(B)(1), which would be put as two questions (½) [inferred, weak for 2018].
+- **Oregon (12).** No measure sets a supermajority of the electorate (½) [inferred].
+- **Maine.** Questions 2 to 4 are bonds (½). Q1 and Q5 are held.
+- **Rhode Island (10).** Bonds, under each act's §3 (½) [stated].
+- **Georgia (2 of 3).** As above.
+
+**What moves** [measured], against main (`2827d85`). Every move is in `data/measure/moves-ballot-texts.json`.
+- **67 statewide measures get p.** Statewide measures with p go from 65 to 132, of 356. By state: AZ 13, LA 13, CO 10, FL 9, RI 7, OR 5, NM 3, ME 3, AR 1, GA 1, ID 1, OH 1.
+- **45 more have their threshold read but no p.** They are 2016's 17 (no earlier year) and 2018's 28 (83 like measures in earlier years, under 100).
+- **4 stay held by their state's law.** Arkansas's 2024 Issue 1 (compound), Georgia's 2018 B, and Maine's Q1 and Q5.
+- **No other record changes.**
+
+**The back-test** (`data/measure/backtest-measures.json`, `at_threshold`, each question at its own t, out of sample) [measured].
+
+| | Measures | Own window, expected / seen | Within 1 point | Within 2 points | Within 5 points |
+|---|---|---|---|---|---|
+| Before (2022, 2024) | 65 | 3.6 / 8 | 1.8 / 4 | 3.6 / 8 | 9.9 / 24 |
+| Now (2022-2024) | 132 | 7.8 / 9 | 4.0 / 4 | 8.3 / 10 | 22.7 / 37 |
+
+- **The statewide note is unchanged.** It is taken near ½ on every statewide question whose class has earlier years, whether or not its threshold is read. It still stands on both tests (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes). The 67 new p carry it.
+- **The questions with p alone** now finish near their own threshold much as forecast, within 1 and 2 points. Within 5 points they still run high, 37 against 22.7. These are counts, not a test of the rule of 11:01.
+
+**Open, not changed.** Where several general rules of one type set the same share, `threshold.citation` names the first in the file. For example, Oregon's 115, referred by the legislature, cites art. IV §1(4)(d), the initiative's rule, though art. XVII §1 governs a referral. The share is the same, but the cited section is not always the governing one [measured for Oregon; not checked for every state].
