@@ -1,0 +1,87 @@
+{
+ "about": "OAARCY (doi:10.7910/DVN/OAARCY, State Offices Precinct-Level Returns 2022) beside UYQIEP's 2022 files for the states OAARCY holds among AR, AZ, ID, IN, MD, MI, ND and WA. Built by pipeline/local_medsl.py check-oaarcy.",
+ "states_in_oaarcy": [
+  "ID",
+  "IN",
+  "ND",
+  "WA"
+ ],
+ "by_state": {
+  "ID": {
+   "contests_uyqiep": 112,
+   "contests_oaarcy": 112,
+   "same_contests_and_votes": true,
+   "against_klarner_uyqiep": {
+    "matched": 35,
+    "same winner": 33,
+    "two-party share within 1 point, counts differ": 23,
+    "D and R votes identical": 12,
+    "winner differs": 2
+   },
+   "against_klarner_oaarcy": {
+    "matched": 35,
+    "same winner": 33,
+    "two-party share within 1 point, counts differ": 23,
+    "D and R votes identical": 12,
+    "winner differs": 2
+   }
+  },
+  "IN": {
+   "contests_uyqiep": 76,
+   "contests_oaarcy": 76,
+   "same_contests_and_votes": true,
+   "against_klarner_uyqiep": {
+    "matched": 73,
+    "same winner": 70,
+    "D and R votes identical": 24,
+    "two-party share within 1 point, counts differ": 29,
+    "two-party share differs by more than 1 point": 20,
+    "winner differs": 3
+   },
+   "against_klarner_oaarcy": {
+    "matched": 73,
+    "same winner": 70,
+    "D and R votes identical": 24,
+    "two-party share within 1 point, counts differ": 29,
+    "two-party share differs by more than 1 point": 20,
+    "winner differs": 3
+   }
+  },
+  "ND": {
+   "contests_uyqiep": 78,
+   "contests_oaarcy": 78,
+   "same_contests_and_votes": true,
+   "against_klarner_uyqiep": {
+    "matched": 24,
+    "same winner": 24,
+    "D and R votes identical": 24
+   },
+   "against_klarner_oaarcy": {
+    "matched": 24,
+    "same winner": 24,
+    "D and R votes identical": 24
+   }
+  },
+  "WA": {
+   "contests_uyqiep": 97,
+   "contests_oaarcy": 97,
+   "same_contests_and_votes": true,
+   "against_klarner_uyqiep": {
+    "matched": 25,
+    "same winner": 23,
+    "two-party share within 1 point, counts differ": 7,
+    "winner differs": 2,
+    "a major party's candidate in one source only": 5,
+    "D and R votes identical": 13
+   },
+   "against_klarner_oaarcy": {
+    "matched": 25,
+    "same winner": 23,
+    "two-party share within 1 point, counts differ": 7,
+    "winner differs": 2,
+    "a major party's candidate in one source only": 5,
+    "D and R votes identical": 13
+   }
+  }
+ }
+}

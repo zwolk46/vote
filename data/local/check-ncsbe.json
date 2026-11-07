@@ -1,0 +1,5806 @@
+{
+ "about": "North Carolina State Board of Elections counts (pipeline/intake/ncsbe.py), compared with the sources already in data/. Built by pipeline/local_ncsbe.py check.",
+ "gate": {
+  "2000-11-07": {
+   "worst_miss": 0.008499,
+   "fails": true,
+   "counts": "president D 1,247,003 against 1,257,692; president R 1,619,742 against 1,631,163"
+  },
+  "2002-11-05": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "senate (the Clerk of the House) D 1,047,983 against 1,047,983; senate (the Clerk of the House) R 1,248,664 against 1,248,664; house (the Clerk of the House) D 970,716 against 970,716 (11 districts in both); house (the Clerk of the House) R 926,155 against 926,155 (11 districts in both)"
+  },
+  "2004-11-02": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "president D 1,525,849 against 1,525,849; president R 1,961,166 against 1,961,166"
+  },
+  "2006-11-07": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "house D 944,405 against 944,405 (12 districts in both); house R 913,893 against 913,893 (12 districts in both)"
+  },
+  "2008-11-04": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "president D 2,142,651 against 2,142,651; president R 2,128,474 against 2,128,474; senate D 2,249,311 against 2,249,311; senate R 1,887,510 against 1,887,510"
+  },
+  "2010-11-02": {
+   "worst_miss": 0.00967,
+   "fails": true,
+   "counts": "senate D 1,134,001 against 1,145,074; senate R 1,450,655 against 1,458,046"
+  },
+  "2012-11-06": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "president D 2,178,391 against 2,178,391; president R 2,270,395 against 2,270,395"
+  },
+  "2014-11-04": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "senate D 1,377,651 against 1,377,651; senate R 1,423,259 against 1,423,259"
+  },
+  "2016-11-08": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "president D 2,189,316 against 2,189,316; president R 2,362,631 against 2,362,631; senate D 2,128,165 against 2,128,165; senate R 2,395,376 against 2,395,376"
+  },
+  "2018-11-06": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "house D 1,771,061 against 1,771,061 (12 districts in both); house R 1,658,140 against 1,658,140 (12 districts in both)"
+  },
+  "2020-11-03": {
+   "worst_miss": 1e-06,
+   "fails": false,
+   "counts": "president D 2,684,292 against 2,684,292; president R 2,758,773 against 2,758,775; senate D 2,569,965 against 2,569,965; senate R 2,665,598 against 2,665,598"
+  },
+  "2022-11-08": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "senate D 1,784,049 against 1,784,049; senate R 1,905,786 against 1,905,786"
+  },
+  "2024-11-05": {
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "president D 2,715,375 against 2,715,375; president R 2,898,423 against 2,898,423"
+  }
+ },
+ "president": [
+  {
+   "date": "2000-11-07",
+   "ncsbe": {
+    "D": 1247003,
+    "R": 1619742
+   },
+   "d1": {
+    "D": 1257692,
+    "R": 1631163
+   },
+   "equal": false
+  },
+  {
+   "date": "2004-11-02",
+   "ncsbe": {
+    "D": 1525849,
+    "R": 1961166
+   },
+   "d1": {
+    "D": 1525849,
+    "R": 1961166
+   },
+   "equal": true
+  },
+  {
+   "date": "2008-11-04",
+   "ncsbe": {
+    "D": 2142651,
+    "R": 2128474
+   },
+   "d1": {
+    "D": 2142651,
+    "R": 2128474
+   },
+   "equal": true
+  },
+  {
+   "date": "2012-11-06",
+   "ncsbe": {
+    "D": 2178391,
+    "R": 2270395
+   },
+   "d1": {
+    "D": 2178391,
+    "R": 2270395
+   },
+   "equal": true
+  },
+  {
+   "date": "2016-11-08",
+   "ncsbe": {
+    "D": 2189316,
+    "R": 2362631
+   },
+   "d1": {
+    "D": 2189316,
+    "R": 2362631
+   },
+   "equal": true
+  },
+  {
+   "date": "2020-11-03",
+   "ncsbe": {
+    "D": 2684292,
+    "R": 2758773
+   },
+   "d1": {
+    "D": 2684292,
+    "R": 2758775
+   },
+   "equal": false
+  },
+  {
+   "date": "2024-11-05",
+   "ncsbe": {
+    "D": 2715375,
+    "R": 2898423
+   },
+   "d1": {
+    "D": 2715375,
+    "R": 2898423
+   },
+   "equal": true
+  }
+ ],
+ "legislature_klarner": {
+  "2000": {
+   "tally": {
+    "multi-member, not compared": 25,
+    "equal": 103,
+    "differ": 12
+   },
+   "differences": [
+    {
+     "district": "state-upper 4",
+     "ncsbe": [
+      24721,
+      46444
+     ],
+     "klarner": [
+      25258,
+      47469
+     ]
+    },
+    {
+     "district": "state-upper 3",
+     "ncsbe": [
+      28806,
+      24142
+     ],
+     "klarner": [
+      29313,
+      24836
+     ]
+    },
+    {
+     "district": "state-lower 31",
+     "ncsbe": [
+      13555,
+      16472
+     ],
+     "klarner": [
+      13608,
+      16525
+     ]
+    },
+    {
+     "district": "state-upper 42",
+     "ncsbe": [
+      0,
+      49822
+     ],
+     "klarner": [
+      0,
+      52299
+     ]
+    },
+    {
+     "district": "state-lower 92",
+     "ncsbe": [
+      16562,
+      22242
+     ],
+     "klarner": [
+      16807,
+      22465
+     ]
+    },
+    {
+     "district": "state-lower 63",
+     "ncsbe": [
+      16508,
+      13589
+     ],
+     "klarner": [
+      16742,
+      13705
+     ]
+    },
+    {
+     "district": "state-lower 84",
+     "ncsbe": [
+      9689,
+      17974
+     ],
+     "klarner": [
+      10074,
+      18708
+     ]
+    },
+    {
+     "district": "state-lower 38",
+     "ncsbe": [
+      7543,
+      17014
+     ],
+     "klarner": [
+      7763,
+      17781
+     ]
+    },
+    {
+     "district": "state-lower 29",
+     "ncsbe": [
+      0,
+      24349
+     ],
+     "klarner": [
+      0,
+      25045
+     ]
+    },
+    {
+     "district": "state-upper 31",
+     "ncsbe": [
+      34745,
+      0
+     ],
+     "klarner": [
+      35519,
+      0
+     ]
+    },
+    {
+     "district": "state-upper 29",
+     "ncsbe": [
+      31000,
+      29571
+     ],
+     "klarner": [
+      31633,
+      29991
+     ]
+    },
+    {
+     "district": "state-lower 50",
+     "ncsbe": [
+      0,
+      22089
+     ],
+     "klarner": [
+      0,
+      24716
+     ]
+    }
+   ]
+  },
+  "2002": {
+   "tally": {
+    "equal": 167,
+    "differ": 3
+   },
+   "differences": [
+    {
+     "district": "state-lower 118",
+     "ncsbe": [
+      13717,
+      11476
+     ],
+     "klarner": [
+      113717,
+      11476
+     ]
+    },
+    {
+     "district": "state-upper 15",
+     "ncsbe": [
+      25581,
+      36177
+     ],
+     "klarner": [
+      25581,
+      34177
+     ]
+    },
+    {
+     "district": "state-upper 17",
+     "ncsbe": [
+      20616,
+      37076
+     ],
+     "klarner": [
+      20646,
+      37076
+     ]
+    }
+   ]
+  },
+  "2004": {
+   "tally": {
+    "equal": 170
+   },
+   "differences": []
+  },
+  "2006": {
+   "tally": {
+    "equal": 170
+   },
+   "differences": []
+  },
+  "2008": {
+   "tally": {
+    "equal": 170
+   },
+   "differences": []
+  },
+  "2010": {
+   "tally": {
+    "differ": 170
+   },
+   "differences": [
+    {
+     "district": "state-upper 24",
+     "ncsbe": [
+      20146,
+      25462
+     ],
+     "klarner": [
+      20430,
+      25674
+     ]
+    },
+    {
+     "district": "state-lower 63",
+     "ncsbe": [
+      8792,
+      7484
+     ],
+     "klarner": [
+      8920,
+      7536
+     ]
+    },
+    {
+     "district": "state-lower 64",
+     "ncsbe": [
+      0,
+      19134
+     ],
+     "klarner": [
+      0,
+      19301
+     ]
+    },
+    {
+     "district": "state-upper 45",
+     "ncsbe": [
+      23138,
+      34644
+     ],
+     "klarner": [
+      23223,
+      34777
+     ]
+    },
+    {
+     "district": "state-lower 88",
+     "ncsbe": [
+      7496,
+      13553
+     ],
+     "klarner": [
+      7525,
+      13587
+     ]
+    },
+    {
+     "district": "state-upper 30",
+     "ncsbe": [
+      15173,
+      32039
+     ],
+     "klarner": [
+      15376,
+      32422
+     ]
+    },
+    {
+     "district": "state-lower 90",
+     "ncsbe": [
+      4901,
+      11996
+     ],
+     "klarner": [
+      4988,
+      12274
+     ]
+    },
+    {
+     "district": "state-upper 25",
+     "ncsbe": [
+      23139,
+      22037
+     ],
+     "klarner": [
+      23363,
+      22219
+     ]
+    },
+    {
+     "district": "state-lower 69",
+     "ncsbe": [
+      10201,
+      6792
+     ],
+     "klarner": [
+      10302,
+      6810
+     ]
+    },
+    {
+     "district": "state-lower 93",
+     "ncsbe": [
+      12723,
+      13497
+     ],
+     "klarner": [
+      12759,
+      13528
+     ]
+    },
+    {
+     "district": "state-upper 47",
+     "ncsbe": [
+      24573,
+      31120
+     ],
+     "klarner": [
+      25209,
+      31846
+     ]
+    },
+    {
+     "district": "state-lower 84",
+     "ncsbe": [
+      0,
+      15293
+     ],
+     "klarner": [
+      0,
+      15393
+     ]
+    },
+    {
+     "district": "state-upper 1",
+     "ncsbe": [
+      31096,
+      25028
+     ],
+     "klarner": [
+      31270,
+      25169
+     ]
+    },
+    {
+     "district": "state-lower 6",
+     "ncsbe": [
+      11126,
+      12807
+     ],
+     "klarner": [
+      11242,
+      12910
+     ]
+    },
+    {
+     "district": "state-upper 4",
+     "ncsbe": [
+      28825,
+      17359
+     ],
+     "klarner": [
+      29169,
+      17464
+     ]
+    },
+    {
+     "district": "state-lower 5",
+     "ncsbe": [
+      11749,
+      8211
+     ],
+     "klarner": [
+      11850,
+      8237
+     ]
+    },
+    {
+     "district": "state-upper 19",
+     "ncsbe": [
+      23750,
+      24902
+     ],
+     "klarner": [
+      23964,
+      25047
+     ]
+    },
+    {
+     "district": "state-lower 22",
+     "ncsbe": [
+      12605,
+      11249
+     ],
+     "klarner": [
+      12675,
+      11298
+     ]
+    },
+    {
+     "district": "state-upper 8",
+     "ncsbe": [
+      26534,
+      46117
+     ],
+     "klarner": [
+      26511,
+      46216
+     ]
+    },
+    {
+     "district": "state-lower 17",
+     "ncsbe": [
+      11104,
+      24000
+     ],
+     "klarner": [
+      11146,
+      24065
+     ]
+    },
+    {
+     "district": "state-lower 20",
+     "ncsbe": [
+      10966,
+      9646
+     ],
+     "klarner": [
+      11042,
+      9698
+     ]
+    },
+    {
+     "district": "state-upper 48",
+     "ncsbe": [
+      22339,
+      43254
+     ],
+     "klarner": [
+      22447,
+      43457
+     ]
+    },
+    {
+     "district": "state-upper 49",
+     "ncsbe": [
+      32990,
+      22604
+     ],
+     "klarner": [
+      33254,
+      22757
+     ]
+    },
+    {
+     "district": "state-lower 114",
+     "ncsbe": [
+      14435,
+      10274
+     ],
+     "klarner": [
+      14555,
+      10356
+     ]
+    },
+    {
+     "district": "state-lower 115",
+     "ncsbe": [
+      15658,
+      12203
+     ],
+     "klarner": [
+      15775,
+      12282
+     ]
+    },
+    {
+     "district": "state-lower 116",
+     "ncsbe": [
+      11530,
+      14568
+     ],
+     "klarner": [
+      11598,
+      14638
+     ]
+    },
+    {
+     "district": "state-upper 44",
+     "ncsbe": [
+      17186,
+      26090
+     ],
+     "klarner": [
+      17300,
+      26314
+     ]
+    },
+    {
+     "district": "state-lower 85",
+     "ncsbe": [
+      5532,
+      12281
+     ],
+     "klarner": [
+      5577,
+      12421
+     ]
+    },
+    {
+     "district": "state-lower 86",
+     "ncsbe": [
+      6378,
+      10364
+     ],
+     "klarner": [
+      6412,
+      10429
+     ]
+    },
+    {
+     "district": "state-upper 36",
+     "ncsbe": [
+      16635,
+      37127
+     ],
+     "klarner": [
+      16790,
+      37403
+     ]
+    },
+    {
+     "district": "state-lower 82",
+     "ncsbe": [
+      0,
+      17556
+     ],
+     "klarner": [
+      0,
+      17694
+     ]
+    },
+    {
+     "district": "state-lower 83",
+     "ncsbe": [
+      0,
+      17077
+     ],
+     "klarner": [
+      0,
+      17197
+     ]
+    },
+    {
+     "district": "state-lower 87",
+     "ncsbe": [
+      0,
+      14245
+     ],
+     "klarner": [
+      0,
+      14295
+     ]
+    },
+    {
+     "district": "state-lower 1",
+     "ncsbe": [
+      11440,
+      10274
+     ],
+     "klarner": [
+      11538,
+      10336
+     ]
+    },
+    {
+     "district": "state-upper 2",
+     "ncsbe": [
+      18792,
+      36062
+     ],
+     "klarner": [
+      18982,
+      36390
+     ]
+    },
+    {
+     "district": "state-lower 13",
+     "ncsbe": [
+      7070,
+      19373
+     ],
+     "klarner": [
+      7113,
+      19491
+     ]
+    },
+    {
+     "district": "state-lower 50",
+     "ncsbe": [
+      13754,
+      10775
+     ],
+     "klarner": [
+      13848,
+      10804
+     ]
+    },
+    {
+     "district": "state-upper 42",
+     "ncsbe": [
+      0,
+      37295
+     ],
+     "klarner": [
+      0,
+      37429
+     ]
+    },
+    {
+     "district": "state-lower 89",
+     "ncsbe": [
+      0,
+      16065
+     ],
+     "klarner": [
+      0,
+      16119
+     ]
+    },
+    {
+     "district": "state-lower 96",
+     "ncsbe": [
+      6060,
+      12163
+     ],
+     "klarner": [
+      6087,
+      12193
+     ]
+    }
+   ]
+  },
+  "2012": {
+   "tally": {
+    "equal": 170
+   },
+   "differences": []
+  },
+  "2014": {
+   "tally": {
+    "equal": 170
+   },
+   "differences": []
+  },
+  "2016": {
+   "tally": {
+    "differ": 79,
+    "equal": 91
+   },
+   "differences": [
+    {
+     "district": "state-upper 24",
+     "ncsbe": [
+      33456,
+      51833
+     ],
+     "klarner": [
+      33441,
+      51820
+     ]
+    },
+    {
+     "district": "state-lower 63",
+     "ncsbe": [
+      0,
+      26068
+     ],
+     "klarner": [
+      0,
+      26057
+     ]
+    },
+    {
+     "district": "state-lower 64",
+     "ncsbe": [
+      0,
+      23857
+     ],
+     "klarner": [
+      0,
+      23849
+     ]
+    },
+    {
+     "district": "state-upper 3",
+     "ncsbe": [
+      57507,
+      0
+     ],
+     "klarner": [
+      57506,
+      0
+     ]
+    },
+    {
+     "district": "state-lower 18",
+     "ncsbe": [
+      22006,
+      14011
+     ],
+     "klarner": [
+      22006,
+      14010
+     ]
+    },
+    {
+     "district": "state-upper 45",
+     "ncsbe": [
+      30559,
+      56758
+     ],
+     "klarner": [
+      30559,
+      56759
+     ]
+    },
+    {
+     "district": "state-lower 93",
+     "ncsbe": [
+      19433,
+      21910
+     ],
+     "klarner": [
+      19433,
+      21911
+     ]
+    },
+    {
+     "district": "state-upper 8",
+     "ncsbe": [
+      0,
+      78274
+     ],
+     "klarner": [
+      0,
+      78231
+     ]
+    },
+    {
+     "district": "state-lower 17",
+     "ncsbe": [
+      16549,
+      32757
+     ],
+     "klarner": [
+      16549,
+      32755
+     ]
+    },
+    {
+     "district": "state-lower 3",
+     "ncsbe": [
+      12638,
+      23273
+     ],
+     "klarner": [
+      12637,
+      23269
+     ]
+    },
+    {
+     "district": "state-lower 6",
+     "ncsbe": [
+      20471,
+      22022
+     ],
+     "klarner": [
+      20620,
+      22153
+     ]
+    },
+    {
+     "district": "state-lower 115",
+     "ncsbe": [
+      25257,
+      20183
+     ],
+     "klarner": [
+      25249,
+      20176
+     ]
+    },
+    {
+     "district": "state-lower 116",
+     "ncsbe": [
+      28014,
+      0
+     ],
+     "klarner": [
+      28004,
+      0
+     ]
+    },
+    {
+     "district": "state-lower 55",
+     "ncsbe": [
+      13719,
+      20901
+     ],
+     "klarner": [
+      13718,
+      20901
+     ]
+    },
+    {
+     "district": "state-upper 1",
+     "ncsbe": [
+      36759,
+      53138
+     ],
+     "klarner": [
+      36866,
+      53300
+     ]
+    },
+    {
+     "district": "state-upper 48",
+     "ncsbe": [
+      37596,
+      61455
+     ],
+     "klarner": [
+      37592,
+      61450
+     ]
+    },
+    {
+     "district": "state-upper 49",
+     "ncsbe": [
+      71828,
+      0
+     ],
+     "klarner": [
+      71802,
+      0
+     ]
+    },
+    {
+     "district": "state-lower 114",
+     "ncsbe": [
+      39243,
+      0
+     ],
+     "klarner": [
+      39227,
+      0
+     ]
+    },
+    {
+     "district": "state-lower 112",
+     "ncsbe": [
+      0,
+      22938
+     ],
+     "klarner": [
+      0,
+      22936
+     ]
+    },
+    {
+     "district": "state-upper 36",
+     "ncsbe": [
+      35664,
+      59584
+     ],
+     "klarner": [
+      35649,
+      59556
+     ]
+    },
+    {
+     "district": "state-lower 76",
+     "ncsbe": [
+      0,
+      29590
+     ],
+     "klarner": [
+      0,
+      29588
+     ]
+    },
+    {
+     "district": "state-lower 82",
+     "ncsbe": [
+      17900,
+      24636
+     ],
+     "klarner": [
+      17894,
+      24626
+     ]
+    },
+    {
+     "district": "state-lower 83",
+     "ncsbe": [
+      13407,
+      22927
+     ],
+     "klarner": [
+      13397,
+      22913
+     ]
+    },
+    {
+     "district": "state-lower 22",
+     "ncsbe": [
+      21091,
+      0
+     ],
+     "klarner": [
+      21055,
+      0
+     ]
+    },
+    {
+     "district": "state-lower 46",
+     "ncsbe": [
+      11836,
+      19607
+     ],
+     "klarner": [
+      11825,
+      19589
+     ]
+    },
+    {
+     "district": "state-upper 42",
+     "ncsbe": [
+      0,
+      69301
+     ],
+     "klarner": [
+      0,
+      69300
+     ]
+    },
+    {
+     "district": "state-upper 22",
+     "ncsbe": [
+      74693,
+      39198
+     ],
+     "klarner": [
+      74551,
+      39155
+     ]
+    },
+    {
+     "district": "state-lower 65",
+     "ncsbe": [
+      14336,
+      21857
+     ],
+     "klarner": [
+      14336,
+      21858
+     ]
+    },
+    {
+     "district": "state-upper 2",
+     "ncsbe": [
+      29505,
+      58032
+     ],
+     "klarner": [
+      29502,
+      58026
+     ]
+    },
+    {
+     "district": "state-lower 10",
+     "ncsbe": [
+      10514,
+      26440
+     ],
+     "klarner": [
+      10529,
+      26465
+     ]
+    },
+    {
+     "district": "state-lower 12",
+     "ncsbe": [
+      23689,
+      0
+     ],
+     "klarner": [
+      23757,
+      0
+     ]
+    },
+    {
+     "district": "state-lower 79",
+     "ncsbe": [
+      0,
+      31255
+     ],
+     "klarner": [
+      0,
+      31254
+     ]
+    },
+    {
+     "district": "state-upper 50",
+     "ncsbe": [
+      35476,
+      59028
+     ],
+     "klarner": [
+      35475,
+      59026
+     ]
+    },
+    {
+     "district": "state-lower 120",
+     "ncsbe": [
+      11282,
+      29047
+     ],
+     "klarner": [
+      11281,
+      29046
+     ]
+    },
+    {
+     "district": "state-upper 13",
+     "ncsbe": [
+      27940,
+      34126
+     ],
+     "klarner": [
+      27933,
+      34117
+     ]
+    },
+    {
+     "district": "state-upper 21",
+     "ncsbe": [
+      49081,
+      19338
+     ],
+     "klarner": [
+      49079,
+      19338
+     ]
+    },
+    {
+     "district": "state-upper 33",
+     "ncsbe": [
+      23809,
+      59367
+     ],
+     "klarner": [
+      23802,
+      59354
+     ]
+    },
+    {
+     "district": "state-lower 80",
+     "ncsbe": [
+      0,
+      31287
+     ],
+     "klarner": [
+      0,
+      31280
+     ]
+    },
+    {
+     "district": "state-lower 81",
+     "ncsbe": [
+      11438,
+      24379
+     ],
+     "klarner": [
+      11434,
+      24371
+     ]
+    },
+    {
+     "district": "state-upper 20",
+     "ncsbe": [
+      71865,
+      0
+     ],
+     "klarner": [
+      71831,
+      0
+     ]
+    }
+   ]
+  },
+  "2018": {
+   "tally": {
+    "equal": 148,
+    "differ": 22
+   },
+   "differences": [
+    {
+     "district": "state-upper 45",
+     "ncsbe": [
+      26293,
+      48998
+     ],
+     "klarner": [
+      26293,
+      48997
+     ]
+    },
+    {
+     "district": "state-lower 94",
+     "ncsbe": [
+      7998,
+      21278
+     ],
+     "klarner": [
+      7998,
+      21277
+     ]
+    },
+    {
+     "district": "state-upper 10",
+     "ncsbe": [
+      20057,
+      33366
+     ],
+     "klarner": [
+      20050,
+      33360
+     ]
+    },
+    {
+     "district": "state-upper 31",
+     "ncsbe": [
+      34693,
+      54267
+     ],
+     "klarner": [
+      34693,
+      54266
+     ]
+    },
+    {
+     "district": "state-upper 21",
+     "ncsbe": [
+      33238,
+      13616
+     ],
+     "klarner": [
+      33176,
+      13585
+     ]
+    },
+    {
+     "district": "state-lower 71",
+     "ncsbe": [
+      18242,
+      6861
+     ],
+     "klarner": [
+      18237,
+      6861
+     ]
+    },
+    {
+     "district": "state-lower 75",
+     "ncsbe": [
+      15599,
+      17652
+     ],
+     "klarner": [
+      15599,
+      17651
+     ]
+    },
+    {
+     "district": "state-upper 32",
+     "ncsbe": [
+      47221,
+      17572
+     ],
+     "klarner": [
+      47216,
+      17572
+     ]
+    },
+    {
+     "district": "state-lower 16",
+     "ncsbe": [
+      12443,
+      18146
+     ],
+     "klarner": [
+      12430,
+      18144
+     ]
+    },
+    {
+     "district": "state-lower 46",
+     "ncsbe": [
+      7339,
+      12687
+     ],
+     "klarner": [
+      7331,
+      12683
+     ]
+    },
+    {
+     "district": "state-upper 13",
+     "ncsbe": [
+      18661,
+      31106
+     ],
+     "klarner": [
+      18644,
+      31098
+     ]
+    },
+    {
+     "district": "state-upper 4",
+     "ncsbe": [
+      36471,
+      25391
+     ],
+     "klarner": [
+      36459,
+      25382
+     ]
+    },
+    {
+     "district": "state-lower 27",
+     "ncsbe": [
+      16783,
+      7426
+     ],
+     "klarner": [
+      16768,
+      7420
+     ]
+    },
+    {
+     "district": "state-lower 10",
+     "ncsbe": [
+      8329,
+      18838
+     ],
+     "klarner": [
+      8329,
+      18836
+     ]
+    },
+    {
+     "district": "state-lower 26",
+     "ncsbe": [
+      15283,
+      22770
+     ],
+     "klarner": [
+      15277,
+      22751
+     ]
+    },
+    {
+     "district": "state-lower 28",
+     "ncsbe": [
+      9373,
+      17237
+     ],
+     "klarner": [
+      9366,
+      17225
+     ]
+    },
+    {
+     "district": "state-upper 11",
+     "ncsbe": [
+      35258,
+      45768
+     ],
+     "klarner": [
+      35250,
+      45743
+     ]
+    },
+    {
+     "district": "state-lower 48",
+     "ncsbe": [
+      14619,
+      8641
+     ],
+     "klarner": [
+      14554,
+      8613
+     ]
+    },
+    {
+     "district": "state-upper 26",
+     "ncsbe": [
+      21217,
+      39103
+     ],
+     "klarner": [
+      21168,
+      39029
+     ]
+    },
+    {
+     "district": "state-lower 103",
+     "ncsbe": [
+      19133,
+      19065
+     ],
+     "klarner": [
+      19134,
+      19064
+     ]
+    },
+    {
+     "district": "state-lower 78",
+     "ncsbe": [
+      5612,
+      20829
+     ],
+     "klarner": [
+      5593,
+      20805
+     ]
+    },
+    {
+     "district": "state-lower 70",
+     "ncsbe": [
+      5620,
+      18717
+     ],
+     "klarner": [
+      5600,
+      18673
+     ]
+    }
+   ]
+  },
+  "2020": {
+   "tally": {
+    "equal": 170
+   },
+   "differences": []
+  },
+  "2022": {
+   "tally": {
+    "equal": 170
+   },
+   "differences": []
+  }
+ },
+ "legislature_medsl_2024": {
+  "date": "2024-11-05",
+  "tally": {
+   "equal": 124,
+   "differ": 46
+  },
+  "differences": [
+   {
+    "district": "state-upper 32",
+    "ncsbe": [
+     67131,
+     27442,
+     2758
+    ],
+    "medsl": [
+     66488,
+     27281,
+     2715
+    ],
+    "largest_difference": 643
+   },
+   {
+    "district": "state-lower 46",
+    "ncsbe": [
+     29064
+    ],
+    "medsl": [
+     29537
+    ],
+    "largest_difference": 473
+   },
+   {
+    "district": "state-upper 8",
+    "ncsbe": [
+     87026,
+     58259
+    ],
+    "medsl": [
+     87420,
+     58546
+    ],
+    "largest_difference": 394
+   },
+   {
+    "district": "state-lower 72",
+    "ncsbe": [
+     31479
+    ],
+    "medsl": [
+     31141
+    ],
+    "largest_difference": 338
+   },
+   {
+    "district": "state-upper 3",
+    "ncsbe": [
+     64025,
+     42704
+    ],
+    "medsl": [
+     63782,
+     42466
+    ],
+    "largest_difference": 243
+   },
+   {
+    "district": "state-upper 31",
+    "ncsbe": [
+     78429,
+     47035
+    ],
+    "medsl": [
+     78211,
+     46857
+    ],
+    "largest_difference": 218
+   },
+   {
+    "district": "state-lower 3",
+    "ncsbe": [
+     29825,
+     18530
+    ],
+    "medsl": [
+     29616,
+     18321
+    ],
+    "largest_difference": 209
+   },
+   {
+    "district": "state-lower 71",
+    "ncsbe": [
+     31755
+    ],
+    "medsl": [
+     31550
+    ],
+    "largest_difference": 205
+   },
+   {
+    "district": "state-lower 75",
+    "ncsbe": [
+     26118,
+     19743
+    ],
+    "medsl": [
+     26008,
+     19623
+    ],
+    "largest_difference": 120
+   },
+   {
+    "district": "state-lower 74",
+    "ncsbe": [
+     26908,
+     25015
+    ],
+    "medsl": [
+     26820,
+     24952
+    ],
+    "largest_difference": 88
+   },
+   {
+    "district": "state-lower 91",
+    "ncsbe": [
+     29819,
+     14583
+    ],
+    "medsl": [
+     29794,
+     14504
+    ],
+    "largest_difference": 79
+   },
+   {
+    "district": "state-lower 13",
+    "ncsbe": [
+     35181,
+     15158
+    ],
+    "medsl": [
+     35154,
+     15126
+    ],
+    "largest_difference": 32
+   },
+   {
+    "district": "state-upper 1",
+    "ncsbe": [
+     62805,
+     46979
+    ],
+    "medsl": [
+     62801,
+     46962
+    ],
+    "largest_difference": 17
+   },
+   {
+    "district": "state-upper 29",
+    "ncsbe": [
+     70881,
+     32519
+    ],
+    "medsl": [
+     70864,
+     32508
+    ],
+    "largest_difference": 17
+   },
+   {
+    "district": "state-lower 5",
+    "ncsbe": [
+     22357,
+     18924
+    ],
+    "medsl": [
+     22351,
+     18908
+    ],
+    "largest_difference": 16
+   },
+   {
+    "district": "state-lower 67",
+    "ncsbe": [
+     36358,
+     12099
+    ],
+    "medsl": [
+     36342,
+     12087
+    ],
+    "largest_difference": 16
+   },
+   {
+    "district": "state-upper 21",
+    "ncsbe": [
+     67494,
+     40052
+    ],
+    "medsl": [
+     67508,
+     40065
+    ],
+    "largest_difference": 14
+   },
+   {
+    "district": "state-upper 42",
+    "ncsbe": [
+     62260,
+     62051
+    ],
+    "medsl": [
+     62269,
+     62065
+    ],
+    "largest_difference": 14
+   },
+   {
+    "district": "state-lower 78",
+    "ncsbe": [
+     38928,
+     11985
+    ],
+    "medsl": [
+     38936,
+     11989
+    ],
+    "largest_difference": 8
+   },
+   {
+    "district": "state-upper 18",
+    "ncsbe": [
+     59667,
+     59539,
+     3906
+    ],
+    "medsl": [
+     59665,
+     59531,
+     3905
+    ],
+    "largest_difference": 8
+   },
+   {
+    "district": "state-lower 32",
+    "ncsbe": [
+     21215,
+     20987,
+     1140
+    ],
+    "medsl": [
+     21213,
+     20980,
+     1140
+    ],
+    "largest_difference": 7
+   },
+   {
+    "district": "state-upper 40",
+    "ncsbe": [
+     67654,
+     17569
+    ],
+    "medsl": [
+     67660,
+     17570
+    ],
+    "largest_difference": 6
+   },
+   {
+    "district": "state-lower 52",
+    "ncsbe": [
+     25835,
+     16466
+    ],
+    "medsl": [
+     25838,
+     16472
+    ],
+    "largest_difference": 6
+   },
+   {
+    "district": "state-lower 99",
+    "ncsbe": [
+     27772,
+     4373
+    ],
+    "medsl": [
+     27778,
+     4374
+    ],
+    "largest_difference": 6
+   },
+   {
+    "district": "state-lower 105",
+    "ncsbe": [
+     27299,
+     27086
+    ],
+    "medsl": [
+     27303,
+     27087
+    ],
+    "largest_difference": 4
+   },
+   {
+    "district": "state-upper 5",
+    "ncsbe": [
+     59440,
+     48469
+    ],
+    "medsl": [
+     59443,
+     48470
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-lower 51",
+    "ncsbe": [
+     25829,
+     14339
+    ],
+    "medsl": [
+     25832,
+     14342
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-upper 39",
+    "ncsbe": [
+     88183
+    ],
+    "medsl": [
+     88186
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-lower 85",
+    "ncsbe": [
+     36145,
+     12574
+    ],
+    "medsl": [
+     36147,
+     12577
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-upper 47",
+    "ncsbe": [
+     75607,
+     42247
+    ],
+    "medsl": [
+     75609,
+     42250
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-lower 103",
+    "ncsbe": [
+     25772,
+     18609
+    ],
+    "medsl": [
+     25775,
+     18612
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-upper 38",
+    "ncsbe": [
+     94162
+    ],
+    "medsl": [
+     94165
+    ],
+    "largest_difference": 3
+   },
+   {
+    "district": "state-lower 23",
+    "ncsbe": [
+     25140,
+     19390
+    ],
+    "medsl": [
+     25142,
+     19391
+    ],
+    "largest_difference": 2
+   },
+   {
+    "district": "state-upper 9",
+    "ncsbe": [
+     68632,
+     36900
+    ],
+    "medsl": [
+     68634,
+     36900
+    ],
+    "largest_difference": 2
+   },
+   {
+    "district": "state-lower 4",
+    "ncsbe": [
+     22093,
+     12961
+    ],
+    "medsl": [
+     22095,
+     12961
+    ],
+    "largest_difference": 2
+   },
+   {
+    "district": "state-lower 92",
+    "ncsbe": [
+     37214
+    ],
+    "medsl": [
+     37216
+    ],
+    "largest_difference": 2
+   },
+   {
+    "district": "state-lower 2",
+    "ncsbe": [
+     28332,
+     20874
+    ],
+    "medsl": [
+     28332,
+     20873
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-upper 37",
+    "ncsbe": [
+     82832,
+     45129
+    ],
+    "medsl": [
+     82833,
+     45129
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 25",
+    "ncsbe": [
+     23868,
+     23407,
+     1630
+    ],
+    "medsl": [
+     23869,
+     23408,
+     1631
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 104",
+    "ncsbe": [
+     27629,
+     21748
+    ],
+    "medsl": [
+     27630,
+     21748
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-upper 41",
+    "ncsbe": [
+     95805
+    ],
+    "medsl": [
+     95806
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 9",
+    "ncsbe": [
+     26888,
+     21173
+    ],
+    "medsl": [
+     26888,
+     21174
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 98",
+    "ncsbe": [
+     27083,
+     24800
+    ],
+    "medsl": [
+     27084,
+     24800
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 106",
+    "ncsbe": [
+     40633
+    ],
+    "medsl": [
+     40634
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 102",
+    "ncsbe": [
+     39811
+    ],
+    "medsl": [
+     39812
+    ],
+    "largest_difference": 1
+   },
+   {
+    "district": "state-lower 101",
+    "ncsbe": [
+     34424
+    ],
+    "medsl": [
+     34425
+    ],
+    "largest_difference": 1
+   }
+  ]
+ },
+ "medsl_local": {
+  "2016": {
+   "date": "2016-11-08",
+   "tally": {
+    "question: equal": 66,
+    "question: not found in the State Board's file": 11
+   },
+   "examples": [
+    {
+     "office": "HOUSING BONDS",
+     "district": "",
+     "medsl": [
+      [
+       "YES",
+       330441
+      ],
+      [
+       "NO",
+       144800
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "TRANSPORTATION BONDS",
+     "district": "",
+     "medsl": [
+      [
+       "YES",
+       359989
+      ],
+      [
+       "NO",
+       115651
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE ABC STORE ELECTION",
+     "district": "2",
+     "medsl": [
+      [
+       "YES",
+       10738
+      ],
+      [
+       "NO",
+       7374
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE MALT BEVERAGE ELECTION",
+     "district": "2",
+     "medsl": [
+      [
+       "YES",
+       10345
+      ],
+      [
+       "NO",
+       7729
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE MIXED BEVERAGE ELECTION",
+     "district": "2",
+     "medsl": [
+      [
+       "YES",
+       10442
+      ],
+      [
+       "NO",
+       7698
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE UNFORTIFIED WINE ELECTION",
+     "district": "2",
+     "medsl": [
+      [
+       "YES",
+       10434
+      ],
+      [
+       "NO",
+       7642
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE MIXED BEVERAGE ELECTION",
+     "district": "8",
+     "medsl": [
+      [
+       "YES",
+       5694
+      ],
+      [
+       "NO",
+       2793
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE ABC STORE ELECTION",
+     "district": "29",
+     "medsl": [
+      [
+       "YES",
+       48256
+      ],
+      [
+       "NO",
+       24831
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE MALT BEVERAGE ELECTION",
+     "district": "29",
+     "medsl": [
+      [
+       "YES",
+       46907
+      ],
+      [
+       "NO",
+       25863
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE MIXED BEVERAGE ELECTION",
+     "district": "29",
+     "medsl": [
+      [
+       "YES",
+       49785
+      ],
+      [
+       "NO",
+       23343
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COUNTYWIDE UNFORTIFIED WINE ELECTION",
+     "district": "29",
+     "medsl": [
+      [
+       "YES",
+       47388
+      ],
+      [
+       "NO",
+       25299
+      ]
+     ],
+     "ncsbe": null
+    }
+   ]
+  },
+  "2018": {
+   "date": "2018-11-06",
+   "tally": {
+    "question: equal": 62,
+    "race: equal": 810,
+    "race: not found in the State Board's file": 112,
+    "race: same names, votes differ": 73,
+    "question: not found in the State Board's file": 20
+   },
+   "examples": [
+    {
+     "office": "BOARD OF COMMISSIONERS - CHEROKEE COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "GARY \"HIPPIE\" WESTMORELAND",
+       8385
+      ],
+      [
+       "DAN EICHENBAUM",
+       7831
+      ],
+      [
+       "CAL STILES",
+       7770
+      ],
+      [
+       "GARY R JAMES",
+       2932
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - CLEVELAND COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "DOUG BRIDGES",
+       17382
+      ],
+      [
+       "DEB HARDIN",
+       15473
+      ],
+      [
+       "EDDIE HOLBROOK",
+       14463
+      ],
+      [
+       "CHRIS GASH",
+       12959
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - COLUMBUS COUNTY",
+     "district": "001",
+     "medsl": [
+      2130,
+      640
+     ],
+     "ncsbe": [
+      2133,
+      640
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - COLUMBUS COUNTY",
+     "district": "006",
+     "medsl": [
+      [
+       "RICKY BULLARD",
+       1694
+      ],
+      [
+       "DANNY BILL MEARES",
+       99
+      ],
+      [
+       "WRITEIN",
+       76
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - COLUMBUS COUNTY",
+     "district": "007",
+     "medsl": [
+      1678
+     ],
+     "ncsbe": [
+      1682
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - FORSYTH COUNTY",
+     "district": "A",
+     "medsl": [
+      25967,
+      18934
+     ],
+     "ncsbe": [
+      25971,
+      18937
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - FORSYTH COUNTY",
+     "district": "AT-LARGE",
+     "medsl": [
+      74952,
+      56022,
+      4755
+     ],
+     "ncsbe": [
+      74957,
+      56023,
+      4756
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - FORSYTH COUNTY",
+     "district": "B",
+     "medsl": [
+      67171
+     ],
+     "ncsbe": [
+      67172
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - GASTON COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "TOM KEIGHER",
+       44534
+      ],
+      [
+       "TRACY L PHILBECK",
+       44252
+      ],
+      [
+       "CHAD BROWN",
+       43154
+      ],
+      [
+       "JENNIFER GRAHAM",
+       26489
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - HALIFAX COUNTY",
+     "district": "AT-LARGE",
+     "medsl": [
+      [
+       "VERNON J BRYANT",
+       9718
+      ],
+      [
+       "J RIVES MANNING JR",
+       9315
+      ],
+      [
+       "PATRICK QUALLS",
+       8831
+      ],
+      [
+       "JOHN R WHICHARD",
+       3573
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - HOKE COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "ALLEN THOMAS JR",
+       8163
+      ],
+      [
+       "HARRY SOUTHERLAND",
+       7082
+      ],
+      [
+       "TONY HUNT",
+       7030
+      ],
+      [
+       "DAVID FRUMP",
+       5050
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - HYDE COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "MICHAEL \"SHANNON\" SWINDELL",
+       1309
+      ],
+      [
+       "JAMES \"LITTLE BROTHER\" TOPPING",
+       896
+      ],
+      [
+       "CHRIS WILLIAMS",
+       787
+      ],
+      [
+       "KEN COLLIER",
+       492
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - JOHNSTON COUNTY",
+     "district": "",
+     "medsl": [
+      47300
+     ],
+     "ncsbe": [
+      47336
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - JOHNSTON COUNTY",
+     "district": "003",
+     "medsl": [
+      47421
+     ],
+     "ncsbe": [
+      82178
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - JOHNSTON COUNTY",
+     "district": "005",
+     "medsl": [
+      46268
+     ],
+     "ncsbe": [
+      46304
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - JOHNSTON COUNTY",
+     "district": "007",
+     "medsl": [
+      [
+       "RS \"BUTCH\" LAWTER JR",
+       41202
+      ],
+      [
+       "GRACIE WELLS CHAMBLEE",
+       24174
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - PASQUOTANK COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "CECIL PERRY",
+       2194
+      ],
+      [
+       "SEAN LAVIN",
+       1717
+      ],
+      [
+       "JOSEPH S WINSLOW JR",
+       1635
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - POLK COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "TOMMY W MELTON",
+       5123
+      ],
+      [
+       "PAUL \"LITTLE\" BEILER",
+       4912
+      ],
+      [
+       "RAY GASPERSON",
+       4807
+      ],
+      [
+       "CHRELLE BOOKER",
+       3955
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - RANDOLPH COUNTY",
+     "district": "002",
+     "medsl": [
+      36117,
+      10096
+     ],
+     "ncsbe": [
+      36194,
+      10140
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - RANDOLPH COUNTY",
+     "district": "003",
+     "medsl": [
+      36584,
+      9660
+     ],
+     "ncsbe": [
+      36664,
+      9702
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - RANDOLPH COUNTY",
+     "district": "004",
+     "medsl": [
+      36310,
+      10066
+     ],
+     "ncsbe": [
+      36386,
+      10110
+     ]
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - SCOTLAND COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "CAROL MCCALL",
+       5342
+      ],
+      [
+       "BETTY BLUE GHOLSTON",
+       5337
+      ],
+      [
+       "BO FRIZZELL",
+       5091
+      ],
+      [
+       "TIM IVEY",
+       4726
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - STANLY COUNTY",
+     "district": "AT-LARGE",
+     "medsl": [
+      [
+       "LANE FURR",
+       16053
+      ],
+      [
+       "ELAINE COATS",
+       3551
+      ],
+      [
+       "WRITEIN",
+       250
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - SURRY COUNTY",
+     "district": "SOUTH",
+     "medsl": [
+      [
+       "EDDIE HARRIS",
+       16810
+      ],
+      [
+       "KAREN OSBURN-CHANDLER",
+       6544
+      ],
+      [
+       "KEITH SENTER",
+       120
+      ],
+      [
+       "WRITEIN",
+       34
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - SWAIN COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "BEN BUSHYHEAD",
+       3258
+      ],
+      [
+       "DANNY BURNS",
+       2542
+      ],
+      [
+       "KEVIN SEAGLE",
+       2390
+      ],
+      [
+       "HOLLY BOWICK",
+       2350
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - TOWN OF BOONVILLE",
+     "district": "",
+     "medsl": [
+      [
+       "WAYNE COOK",
+       318
+      ],
+      [
+       "JUSTIN S PHILLIPS",
+       201
+      ],
+      [
+       "LARRY BONAGURA",
+       128
+      ],
+      [
+       "WRITEIN",
+       42
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - TOWN OF JONESVILLE",
+     "district": "",
+     "medsl": [
+      [
+       "REGINA ADKINS",
+       302
+      ],
+      [
+       "DANNY LEWIS",
+       249
+      ],
+      [
+       "DAVID STURGILL",
+       15
+      ],
+      [
+       "WRITEIN",
+       2
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - TOWN OF RICHFIELD",
+     "district": "",
+     "medsl": [
+      [
+       "MARY SHAVER",
+       99
+      ],
+      [
+       "JASON RITTER",
+       90
+      ],
+      [
+       "JAKE LONG",
+       73
+      ],
+      [
+       "LOUIS SCHRENKEL",
+       35
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF COMMISSIONERS - WILKES COUNTY",
+     "district": "",
+     "medsl": [
+      15390,
+      14871,
+      6219
+     ],
+     "ncsbe": [
+      15391,
+      14872,
+      6219
+     ]
+    },
+    {
+     "office": "BOARD OF EDUCATION - ALEXANDER COUNTY",
+     "district": "001",
+     "medsl": [
+      [
+       "HARRY SCHRUM",
+       3458
+      ],
+      [
+       "WRITEIN",
+       108
+      ],
+      [
+       "ASHLEY DALE SHARPE",
+       11
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - ALEXANDER COUNTY",
+     "district": "002",
+     "medsl": [
+      [
+       "DAVID S ODOM",
+       2768
+      ],
+      [
+       "MATT COOKSEY",
+       2148
+      ],
+      [
+       "WRITEIN",
+       106
+      ],
+      [
+       "MATTHEW SCOGGINS",
+       5
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - ALEXANDER COUNTY",
+     "district": "004",
+     "medsl": [
+      [
+       "MATTHEW LYNN REESE",
+       2756
+      ],
+      [
+       "WRITEIN",
+       57
+      ],
+      [
+       "MARTY LOUDERMILT",
+       7
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - BERTIE COUNTY",
+     "district": "002",
+     "medsl": [
+      [
+       "RICKEY FREEMAN",
+       4522
+      ],
+      [
+       "WRITEIN",
+       66
+      ],
+      [
+       "JERRY JORDAN",
+       53
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - BUNCOMBE COUNTY, ENKA DISTRICT",
+     "district": "ENKA",
+     "medsl": [
+      [
+       "MAX QUEEN",
+       55916
+      ],
+      [
+       "WRITEIN",
+       622
+      ],
+      [
+       "PAYTON ISNER",
+       6
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - BUNCOMBE COUNTY, ERWIN DISTRICT",
+     "district": "ERWIN",
+     "medsl": [
+      [
+       "PAT BRYANT",
+       54990
+      ],
+      [
+       "WRITEIN",
+       665
+      ],
+      [
+       "JASON SUMMEY",
+       7
+      ],
+      [
+       "CHAD NESBITT",
+       6
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - BUNCOMBE COUNTY, REYNOLDS DISTRICT",
+     "district": "REYNOLDS",
+     "medsl": [
+      [
+       "CINDY MCMAHON",
+       56091
+      ],
+      [
+       "WRITEIN",
+       530
+      ],
+      [
+       "LISA BALDWIN",
+       43
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - CATAWBA COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "DONNA LUTZ CARPENTER",
+       19337
+      ],
+      [
+       "GLENN L FULBRIGHT",
+       17598
+      ],
+      [
+       "BECKY BRITTAIN",
+       17437
+      ],
+      [
+       "LESLIE H BARNETTE",
+       16010
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - COLUMBUS COUNTY",
+     "district": "002",
+     "medsl": [
+      6014,
+      3645,
+      2408,
+      66
+     ],
+     "ncsbe": [
+      6016,
+      3654,
+      2414,
+      68
+     ]
+    },
+    {
+     "office": "BOARD OF EDUCATION - COLUMBUS COUNTY",
+     "district": "004",
+     "medsl": [
+      9956,
+      171
+     ],
+     "ncsbe": [
+      9971,
+      174
+     ]
+    },
+    {
+     "office": "BOARD OF EDUCATION - CUMBERLAND COUNTY",
+     "district": "AT-LARGE",
+     "medsl": [
+      [
+       "JUDY D MUSGRAVE",
+       56764
+      ],
+      [
+       "GREG WEST",
+       45549
+      ],
+      [
+       "CHARLES MCKELLAR",
+       42623
+      ],
+      [
+       "JOSEPH \"JOE\" SORCE",
+       31244
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - DAVIDSON COUNTY",
+     "district": "",
+     "medsl": [
+      25110,
+      22299,
+      21368,
+      8509
+     ],
+     "ncsbe": [
+      25110,
+      22299,
+      21368,
+      8509
+     ]
+    },
+    {
+     "office": "BOARD OF EDUCATION - DUPLIN COUNTY",
+     "district": "003",
+     "medsl": [
+      [
+       "DAVID J JONES",
+       2769
+      ],
+      [
+       "MONTE THORNE",
+       147
+      ],
+      [
+       "WRITEIN",
+       71
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - EDENTON-CHOWAN",
+     "district": "AT-LARGE",
+     "medsl": [
+      [
+       "MAXINE MASON",
+       2378
+      ],
+      [
+       "GEORGE A NELSON",
+       2175
+      ],
+      [
+       "WRITEIN",
+       25
+      ],
+      [
+       "GIL BURROUGHS",
+       23
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - FORSYTH COUNTY",
+     "district": "001",
+     "medsl": [
+      24258,
+      23163
+     ],
+     "ncsbe": [
+      24262,
+      23166
+     ]
+    },
+    {
+     "office": "BOARD OF EDUCATION - FORSYTH COUNTY",
+     "district": "002",
+     "medsl": [
+      54591,
+      52746,
+      52461,
+      52459
+     ],
+     "ncsbe": [
+      54592,
+      52747,
+      52462,
+      52460
+     ]
+    },
+    {
+     "office": "BOARD OF EDUCATION - FORSYTH COUNTY",
+     "district": "AT-LARGE",
+     "medsl": [
+      72753,
+      69948,
+      61777,
+      57609
+     ],
+     "ncsbe": [
+      72758,
+      69952,
+      61779,
+      57611
+     ]
+    },
+    {
+     "office": "BOARD OF EDUCATION - GASTON COUNTY",
+     "district": "AT-LARGE",
+     "medsl": [
+      [
+       "DOT CHERRY",
+       48586
+      ],
+      [
+       "WRITEIN",
+       1086
+      ],
+      [
+       "JUSTIN N DAVIS",
+       58
+      ],
+      [
+       "STEVE HALL",
+       24
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - GASTON COUNTY, DALLAS TOWNSHIP",
+     "district": "",
+     "medsl": [
+      [
+       "STEVE HALL",
+       30670
+      ],
+      [
+       "HELEN R O'DALY",
+       18024
+      ],
+      [
+       "WRITEIN",
+       482
+      ],
+      [
+       "TRACY L PHILBECK",
+       5
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - GASTON COUNTY, GASTONIA TOWNSHIP",
+     "district": "",
+     "medsl": [
+      [
+       "LEE DEDMON",
+       31904
+      ],
+      [
+       "MIKE STUART",
+       22705
+      ],
+      [
+       "WRITEIN",
+       614
+      ],
+      [
+       "TOM KEIGHER",
+       39
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - GASTON COUNTY, RIVERBEND TOWNSHIP",
+     "district": "",
+     "medsl": [
+      [
+       "KEVIN L COLLIER",
+       43564
+      ],
+      [
+       "WRITEIN",
+       548
+      ],
+      [
+       "CHAD BROWN",
+       31
+      ],
+      [
+       "JENNIFER GRAHAM",
+       12
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - HENDERSON COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "AMY LYNN HOLT",
+       24712
+      ],
+      [
+       "JAY EGOLF",
+       22789
+      ],
+      [
+       "DOT R CASE",
+       20961
+      ],
+      [
+       "STACEY CASKEY",
+       17267
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - HOKE COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "BARBARA BUIE",
+       7041
+      ],
+      [
+       "IRISH PICKETT",
+       6692
+      ],
+      [
+       "DELLA MAYNOR",
+       6157
+      ],
+      [
+       "WILLIE MCCASKILL JR",
+       5264
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - JOHNSTON COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "TERRI SESSOMS",
+       30739
+      ],
+      [
+       "TODD P SUTTON",
+       26191
+      ],
+      [
+       "TRACIE N ZUKOWSKI",
+       25985
+      ],
+      [
+       "DOROTHY G JOHNSON",
+       23684
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - MARTIN COUNTY",
+     "district": "006",
+     "medsl": [
+      [
+       "KEISHA MANSON-RODGERS",
+       106
+      ],
+      [
+       "WRITEIN",
+       96
+      ],
+      [
+       "RUSS AYERS",
+       8
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - MCDOWELL COUNTY, GLENWOOD DISTRICT",
+     "district": "GLENWOOD",
+     "medsl": [
+      [
+       "TERRY FRANK",
+       10488
+      ],
+      [
+       "WRITEIN",
+       169
+      ],
+      [
+       "DAVID MORGAN",
+       3
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - MCDOWELL COUNTY, MARION DISTRICT",
+     "district": "MARION",
+     "medsl": [
+      [
+       "GREG BARKSDALE",
+       5912
+      ],
+      [
+       "STEVE CHAPMAN JR",
+       5772
+      ],
+      [
+       "WRITEIN",
+       68
+      ],
+      [
+       "JOHNATHAN SIMON",
+       1
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - MCDOWELL COUNTY, NEBO DISTRICT",
+     "district": "NEBO",
+     "medsl": [
+      [
+       "BOB BRACKETT",
+       10232
+      ],
+      [
+       "WRITEIN",
+       153
+      ],
+      [
+       "WAYNE MILLER",
+       10
+      ],
+      [
+       "DEAN BUFF",
+       9
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - MCDOWELL COUNTY, PLEASANT GARDENS DISTRICT",
+     "district": "GARDENS",
+     "medsl": [
+      [
+       "BRIAN PIERCY",
+       10092
+      ],
+      [
+       "WRITEIN",
+       122
+      ],
+      [
+       "TONY LAWS JR",
+       6
+      ],
+      [
+       "JOE MCMINN",
+       2
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - PASQUOTANK, OUTSIDE CORPORATE LIMITS",
+     "district": "",
+     "medsl": [
+      [
+       "SHARON J WARDEN",
+       8402
+      ],
+      [
+       "GEORGE ARCHULETA",
+       5400
+      ],
+      [
+       "RON PAYNE",
+       5382
+      ],
+      [
+       "WRITEIN",
+       72
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BOARD OF EDUCATION - RANDOLPH COUNTY",
+     "district": "",
+     "medsl": [
+      [
+       "BRIAN BIGGS",
+       25907
+      ],
+      [
+       "FRED BURGESS JR",
+       25647
+      ],
+      [
+       "TODD CUTLER",
+       24281
+      ],
+      [
+       "WRITEIN",
+       727
+      ]
+     ],
+     "ncsbe": null
+    }
+   ]
+  },
+  "2020": {
+   "date": "2020-11-03",
+   "tally": {
+    "race: equal": 742,
+    "race: not found in the State Board's file": 95,
+    "question: equal": 37,
+    "question: not found in the State Board's file": 2
+   },
+   "examples": [
+    {
+     "office": "ALEXANDER SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "COLBY HERMAN",
+       15767
+      ],
+      [
+       "WRITEIN",
+       238
+      ],
+      [
+       "FRANKLIN KEEVER",
+       7
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "ALLEGHANY SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "TRAVIS EVAN DALTON",
+       4654
+      ],
+      [
+       "WRITEIN",
+       73
+      ],
+      [
+       "OLIVIA FARR",
+       5
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "AVERY COUNTY CORONER",
+     "district": "",
+     "medsl": [
+      [
+       "JOHN A MILLAN",
+       5305
+      ],
+      [
+       "KAY GRUBB",
+       1938
+      ],
+      [
+       "WRITEIN",
+       241
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BRUNSWICK SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "TRAVIS POTTER",
+       56694
+      ],
+      [
+       "WRITEIN",
+       1315
+      ],
+      [
+       "DANIEL PAGE",
+       18
+      ],
+      [
+       "BRIAN BLANTON",
+       15
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BUNCOMBE COUNTY SCHOOLS BOARD OF EDUCATION",
+     "district": "",
+     "medsl": [
+      [
+       "AMANDA SIMPKINS",
+       67802
+      ],
+      [
+       "MARK WATMAN",
+       34182
+      ],
+      [
+       "WRITEIN",
+       637
+      ],
+      [
+       "KEVIN DODSON",
+       9
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BUNCOMBE COUNTY SCHOOLS BOARD OF EDUCATION NORTH BUNCOMBE",
+     "district": "",
+     "medsl": [
+      [
+       "ANN B FRANKLIN",
+       83618
+      ],
+      [
+       "WRITEIN",
+       1300
+      ],
+      [
+       "KEVIN DODSON",
+       83
+      ],
+      [
+       "ALECHIA SHINN",
+       13
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BUNCOMBE SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "GARY HIGGINS",
+       87495
+      ],
+      [
+       "ALAN DITMORE",
+       27858
+      ],
+      [
+       "WRITEIN",
+       1123
+      ],
+      [
+       "WILLIAM HAMILTON",
+       34
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "BURKE SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "EVAN CRAWLEY",
+       17525
+      ],
+      [
+       "SHANON STANBURY",
+       17061
+      ],
+      [
+       "WRITEIN",
+       526
+      ],
+      [
+       "RICHARD BROWN",
+       16
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CABARRUS COUNTY SCHOOLS BOARD OF EDUCATION",
+     "district": "",
+     "medsl": [
+      [
+       "TIM FURR",
+       45668
+      ],
+      [
+       "KESHIA SANDIDGE",
+       35390
+      ],
+      [
+       "DENISE D ADCOCK",
+       34918
+      ],
+      [
+       "ROBERT \"ROB\" WALTER",
+       34135
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CARTERET SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "ADAM B LOCKEY",
+       27750
+      ],
+      [
+       "WRITEIN",
+       597
+      ],
+      [
+       "JOHNNIE CARSWELL",
+       36
+      ],
+      [
+       "FRANK M HELD",
+       19
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CHOWAN SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "CAREY YATES PARRISH IV",
+       5667
+      ],
+      [
+       "WRITEIN",
+       72
+      ],
+      [
+       "JOAN HOGGARD",
+       2
+      ],
+      [
+       "IRGINIA O'CONNER",
+       1
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF ALBEMARLE CITY COUNCIL MEMBER",
+     "district": "AT-LARGE",
+     "medsl": [
+      [
+       "MARTHA SUE HALL",
+       3894
+      ],
+      [
+       "BENTON DRY",
+       2487
+      ],
+      [
+       "CHRIS BRAMLETT",
+       2467
+      ],
+      [
+       "TIM \"TJ\" MORGAN",
+       2110
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF ALBEMARLE MAYOR",
+     "district": "",
+     "medsl": [
+      [
+       "RONNIE MICHAEL",
+       5377
+      ],
+      [
+       "WRITEIN",
+       269
+      ],
+      [
+       "DEXTER G TOWNSEND",
+       52
+      ],
+      [
+       "MARK LOWDER",
+       5
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF ASHEVILLE CITY COUNCIL",
+     "district": "",
+     "medsl": [
+      [
+       "SANDRA KILGORE",
+       25909
+      ],
+      [
+       "SAGE TURNER",
+       24813
+      ],
+      [
+       "KIM RONEY",
+       22952
+      ],
+      [
+       "KEITH YOUNG",
+       21895
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF LOCUST CITY COUNCIL",
+     "district": "",
+     "medsl": [
+      [
+       "RUSTY EFIRD",
+       1555
+      ],
+      [
+       "LARRY M BAUCOM",
+       1548
+      ],
+      [
+       "TED MICHAEL \"MIKE\" HAIGLER",
+       1383
+      ],
+      [
+       "HARRY FLETCHER",
+       1158
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF LOCUST MAYOR",
+     "district": "",
+     "medsl": [
+      [
+       "STEVE HUBER",
+       1956
+      ],
+      [
+       "WRITEIN",
+       66
+      ],
+      [
+       "JOSH KARA",
+       1
+      ],
+      [
+       "JOSH MCMILLAN",
+       1
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF RALEIGH HOUSING BONDS REFERENDUM",
+     "district": "",
+     "medsl": [
+      [
+       "YES",
+       168168
+      ],
+      [
+       "NO",
+       66244
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF RALEIGH HOUSING BONDS REFERENDUM",
+     "district": "",
+     "medsl": [
+      [
+       "YES",
+       685
+      ],
+      [
+       "NO",
+       337
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM COUNCIL MEMBER EAST WARD",
+     "district": "EAST",
+     "medsl": [
+      [
+       "ANNETTE SCIPPIO",
+       10173
+      ],
+      [
+       "WRITEIN",
+       235
+      ],
+      [
+       "PAULA MCCOY",
+       82
+      ],
+      [
+       "MICHAEL BANNER",
+       67
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM COUNCIL MEMBER NORTH WARD",
+     "district": "NORTH",
+     "medsl": [
+      [
+       "DD ADAMS",
+       10047
+      ],
+      [
+       "WRITEIN",
+       193
+      ],
+      [
+       "PAULA MCCOY",
+       169
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM COUNCIL MEMBER NORTHEAST WARD",
+     "district": "NORTHEAST",
+     "medsl": [
+      [
+       "BARBARA HANES BURKE",
+       9139
+      ],
+      [
+       "PAULA MCCOY",
+       1162
+      ],
+      [
+       "WRITEIN",
+       533
+      ],
+      [
+       "GERALD FEDELE",
+       12
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM COUNCIL MEMBER NORTHWEST WARD",
+     "district": "NORTHWEST",
+     "medsl": [
+      [
+       "JEFF MACINTOSH",
+       13172
+      ],
+      [
+       "WRITEIN",
+       270
+      ],
+      [
+       "PAULA MCCOY",
+       41
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM COUNCIL MEMBER SOUTH WARD",
+     "district": "SOUTH",
+     "medsl": [
+      [
+       "JOHN LARSON",
+       12265
+      ],
+      [
+       "WRITEIN",
+       215
+      ],
+      [
+       "PAULA MCCOY",
+       12
+      ],
+      [
+       "JAMES TAYLOR",
+       12
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM COUNCIL MEMBER SOUTHEAST WARD",
+     "district": "SOUTHEAST",
+     "medsl": [
+      [
+       "JAMES TAYLOR",
+       8161
+      ],
+      [
+       "WESLEY LONGSDORF",
+       1468
+      ],
+      [
+       "WRITEIN",
+       44
+      ],
+      [
+       "PAULA MCCOY",
+       10
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM COUNCIL MEMBER SOUTHWEST WARD",
+     "district": "SOUTHWEST",
+     "medsl": [
+      [
+       "KEVIN MUNDY",
+       11985
+      ],
+      [
+       "WRITEIN",
+       208
+      ],
+      [
+       "PAULA MCCOY",
+       13
+      ],
+      [
+       "MICHAEL BANNER",
+       1
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM COUNCIL MEMBER WEST WARD",
+     "district": "WEST",
+     "medsl": [
+      [
+       "ROBERT C CLARK",
+       13726
+      ],
+      [
+       "WRITEIN",
+       422
+      ],
+      [
+       "PAULA MCCOY",
+       39
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CITY OF WINSTON-SALEM MAYOR",
+     "district": "",
+     "medsl": [
+      [
+       "ALLEN JOINES",
+       85705
+      ],
+      [
+       "KRIS MCCANN",
+       33317
+      ],
+      [
+       "WRITEIN",
+       457
+      ],
+      [
+       "PAULA MCCOY",
+       30
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CLEVELAND SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "MADISON RACHEL BRIDGES",
+       22892
+      ],
+      [
+       "MYRON EDWARDS",
+       12741
+      ],
+      [
+       "WRITEIN",
+       821
+      ],
+      [
+       "GUY SMITH",
+       522
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COLUMBUS - REIGELWOOD SANITARY DISTRICT BOARD",
+     "district": "",
+     "medsl": [
+      [
+       "RONALD MCPHERSON",
+       124
+      ],
+      [
+       "WRITEIN",
+       96
+      ],
+      [
+       "MIKE PORTER",
+       53
+      ],
+      [
+       "JOSH SIMMONS",
+       8
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "COLUMBUS SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "GARY SIMMONS",
+       11831
+      ],
+      [
+       "PAT LOVETT",
+       7909
+      ],
+      [
+       "WRITEIN",
+       178
+      ],
+      [
+       "KEITH WATSON",
+       13
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CRAVEN COUNTY BOARD OF EDUCATION DISTRICT 01",
+     "district": "001",
+     "medsl": [
+      [
+       "STEFANIE A KING",
+       23542
+      ],
+      [
+       "PERRY L MORRIS",
+       10863
+      ],
+      [
+       "ALAN HARROP",
+       6972
+      ],
+      [
+       "WRITEIN",
+       340
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CRAVEN COUNTY BOARD OF EDUCATION DISTRICT 03",
+     "district": "003",
+     "medsl": [
+      [
+       "CARROLL G \"CARR\" IPOCK",
+       23276
+      ],
+      [
+       "RICK HOPKINS",
+       20380
+      ],
+      [
+       "WRITEIN",
+       268
+      ],
+      [
+       "FRANCIS ALTMAN",
+       159
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CUMBERLAND COUNTY BOARD OF EDUCATION DISTRICT 03",
+     "district": "003",
+     "medsl": [
+      [
+       "CARRIE SUTTON",
+       14939
+      ],
+      [
+       "CHRISTINA ARAGUES",
+       1513
+      ],
+      [
+       "WRITEIN",
+       423
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CUMBERLAND COUNTY BOARD OF EDUCATION DISTRICT 04",
+     "district": "004",
+     "medsl": [
+      [
+       "DONNA BLACKMON VANN",
+       10142
+      ],
+      [
+       "TREVONE MCNEILL",
+       5947
+      ],
+      [
+       "TYLER STITT",
+       3563
+      ],
+      [
+       "WRITEIN",
+       340
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CUMBERLAND SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "LENA SIMMONS",
+       50616
+      ],
+      [
+       "REUBEN CASHWELL",
+       38275
+      ],
+      [
+       "ELLISON L ELLISON",
+       30531
+      ],
+      [
+       "WRITEIN",
+       1094
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CURRITUCK COUNTY BOARD OF EDUCATION MOYOCK TOWNSHIP",
+     "district": "",
+     "medsl": [
+      [
+       "DWAN GIBBS CRAFT",
+       9555
+      ],
+      [
+       "MARY SUMAN",
+       1501
+      ],
+      [
+       "WRITEIN",
+       261
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "DAVIE SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "RICHARD KARRIKER",
+       21995
+      ],
+      [
+       "WRITEIN",
+       279
+      ],
+      [
+       "TAYLOR HEDRICK",
+       18
+      ],
+      [
+       "BOB HODGES",
+       10
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "DURHAM SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "ANJALI BOYD",
+       68001
+      ],
+      [
+       "JILLIAN RILEY",
+       35415
+      ],
+      [
+       "TERENCE PRIESTER",
+       19088
+      ],
+      [
+       "JAN CROMARTIE",
+       14110
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "EDENTON-CHOWAN SCHOOL BOARD OF EDUCATION DISTRICT 01 SEAT 01",
+     "district": "001, SEAT 01",
+     "medsl": [
+      [
+       "GENE JORDAN",
+       2124
+      ],
+      [
+       "ANYONE ELSE",
+       24
+      ],
+      [
+       "SHEILA EVANS",
+       5
+      ],
+      [
+       "RALEIGH ASHLEY JR",
+       1
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "EDENTON-CHOWAN SCHOOL BOARD OF EDUCATION DISTRICT 02 SEAT 01",
+     "district": "002, SEAT 01",
+     "medsl": [
+      [
+       "PAUL CLIFTON",
+       2009
+      ],
+      [
+       "WRITEIN",
+       38
+      ],
+      [
+       "GENE JORDAN",
+       22
+      ],
+      [
+       "JOAN HOGGARD WHITE",
+       15
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "EDENTON-CHOWAN SCHOOL BOARD OF EDUCATION DISTRICT 03 SEAT 02",
+     "district": "003, SEAT 02",
+     "medsl": [
+      [
+       "JOAN HOGGARD WHITE",
+       1535
+      ],
+      [
+       "WRITEIN",
+       25
+      ],
+      [
+       "GENE JORDAN",
+       10
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "FORSYTH SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "NEAL DAGENHART",
+       114709
+      ],
+      [
+       "WRITEIN",
+       2745
+      ],
+      [
+       "PAULA MCCOY",
+       139
+      ],
+      [
+       "MICHAEL BANNER",
+       8
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "GRAHAM SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "BRIAN WOOD",
+       3111
+      ],
+      [
+       "WRITEIN",
+       95
+      ],
+      [
+       "SHAWN SATTERFIELD",
+       14
+      ],
+      [
+       "DAN TEASDALE",
+       6
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "GRANVILLE SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "RONNIE D BURNETTE",
+       20744
+      ],
+      [
+       "WRITEIN",
+       603
+      ],
+      [
+       "BRIN WILKINS",
+       76
+      ],
+      [
+       "ANTHONY RICHARDS",
+       35
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "HYDE - ENGELHARD SANITARY DISTRICT SUPERVISORS",
+     "district": "",
+     "medsl": [
+      [
+       "JO ANN SPENCER",
+       140
+      ],
+      [
+       "WRITEIN",
+       11
+      ],
+      [
+       "BRANDON MARSHALL",
+       10
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "HYDE - OCRACOKE SANITARY DISTRICT SUPERVISORS",
+     "district": "",
+     "medsl": [
+      [
+       "SCOTT BRADLEY",
+       423
+      ],
+      [
+       "REGINA ONEAL BOOR",
+       195
+      ],
+      [
+       "ROGER MEACHAM",
+       51
+      ],
+      [
+       "WRITEIN",
+       34
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "HYDE - SWAN QUARTER SANITARY DISTRICT SUPERVISORS",
+     "district": "",
+     "medsl": [
+      [
+       "WAYNE HODGES",
+       142
+      ],
+      [
+       "WRITEIN",
+       6
+      ],
+      [
+       "LARRY GILL",
+       2
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "JOHNSTON COUNTY BOARD OF EDUCATION",
+     "district": "",
+     "medsl": [
+      [
+       "RONALD JOHNSON",
+       53011
+      ],
+      [
+       "LYN ANDREWS",
+       48086
+      ],
+      [
+       "KAY CARROLL",
+       43002
+      ],
+      [
+       "MIKE WOOTEN",
+       41821
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "JOHNSTON SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "CHARLES D HILL",
+       73461
+      ],
+      [
+       "WRITEIN",
+       1141
+      ],
+      [
+       "JOE DAVID AUSTIN",
+       8
+      ],
+      [
+       "JEFF JONES",
+       7
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "LEE SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "JOHN T \"TOMMY\" DALRYMPLE",
+       19376
+      ],
+      [
+       "WRITEIN",
+       1610
+      ],
+      [
+       "GORDON ANDERSON",
+       26
+      ],
+      [
+       "MICHAEL GASTER",
+       11
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "LINCOLN SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "WILLIAM C BESS JR",
+       33645
+      ],
+      [
+       "WRITEIN",
+       787
+      ],
+      [
+       "BRAD CRANFORD",
+       30
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "MITCHELL COUNTY BOARD OF EDUCATION",
+     "district": "",
+     "medsl": [
+      [
+       "SAM BLEVINS",
+       5536
+      ],
+      [
+       "BRENDA H SPARKS",
+       4871
+      ],
+      [
+       "TABATHA DRUM DICKSON",
+       2587
+      ],
+      [
+       "WRITEIN",
+       94
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "NASH COUNTY PUBLIC SCHOOLS BOARD OF EDUCATION DIST 03",
+     "district": "003",
+     "medsl": [
+      [
+       "FRANKLIN LAMM",
+       3450
+      ],
+      [
+       "WRITEIN",
+       148
+      ],
+      [
+       "EDNA MOUNT",
+       18
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "NASH SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "ROBERT GLOVER",
+       33825
+      ],
+      [
+       "WRITEIN",
+       774
+      ],
+      [
+       "DONEVA CHAVIS",
+       67
+      ],
+      [
+       "SHARONDA BULLOCK",
+       39
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "NEW HANOVER SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "MATTHEW COLLOGAN",
+       30783
+      ],
+      [
+       "ROBERT F ALLEN SR",
+       24076
+      ],
+      [
+       "DAVID DOWDY",
+       23997
+      ],
+      [
+       "JEREMY TOMINACK",
+       12633
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "ORANGE SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "GAIL M HUGHES",
+       61627
+      ],
+      [
+       "WRITEIN",
+       1419
+      ],
+      [
+       "CAMILLA ZAPOLSKY",
+       15
+      ],
+      [
+       "HEATHER KING",
+       12
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "PASQUOTANK COUNTY BOARD OF EDUCATION",
+     "district": "",
+     "medsl": [
+      [
+       "RODNEY WALTON",
+       13445
+      ],
+      [
+       "WRITEIN",
+       376
+      ],
+      [
+       "RON PAYNE",
+       63
+      ],
+      [
+       "DANIEL SPENCE",
+       33
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "PASQUOTANK COUNTY BOARD OF EDUCATION INSIDE CORPORATE LIMIT",
+     "district": "",
+     "medsl": [
+      [
+       "SHELIA HUGHES WILLIAMS",
+       13888
+      ],
+      [
+       "WRITEIN",
+       295
+      ],
+      [
+       "PAUL MONCLA",
+       55
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "PERSON COUNTY BOARD OF EDUCATION",
+     "district": "",
+     "medsl": [
+      [
+       "MARGARET D BRADSHER",
+       12674
+      ],
+      [
+       "PHILLIP MERRITT GILLIS",
+       11507
+      ],
+      [
+       "FREDA S TILLMAN",
+       11077
+      ],
+      [
+       "HARRIETT J TILLETT",
+       10872
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "PITT SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     "district": "",
+     "medsl": [
+      [
+       "DAVID COLLIER",
+       35424
+      ],
+      [
+       "BROOKS BUNN",
+       23452
+      ],
+      [
+       "WRITEIN",
+       1112
+      ],
+      [
+       "TROY DREYFUS",
+       77
+      ]
+     ],
+     "ncsbe": null
+    }
+   ]
+  },
+  "2022": {
+   "date": "2022-11-08",
+   "tally": {
+    "race: not found in the State Board's file": 6,
+    "race: same names, votes differ": 4,
+    "race: equal": 19
+   },
+   "examples": [
+    {
+     "office": "COURT OF APPEALS JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "DONNA STROUD",
+       2028833
+      ],
+      [
+       "MICHAEL J STADING",
+       1968327
+      ],
+      [
+       "JOHN M TYSON",
+       1967004
+      ],
+      [
+       "JULEE TATE FLOOD",
+       1956359
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "SUPREME COURT ASSOCIATE JUSTICE",
+     "district": "005",
+     "medsl": [
+      1957247,
+      1792698
+     ],
+     "ncsbe": [
+      1957440,
+      1792873
+     ]
+    },
+    {
+     "office": "SUPREME COURT ASSOCIATE JUSTICE",
+     "district": "003",
+     "medsl": [
+      1965648,
+      1786474
+     ],
+     "ncsbe": [
+      1965840,
+      1786650
+     ]
+    },
+    {
+     "office": "SUPERIOR COURT JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "RICHARD S GOTTLIEB",
+       30907
+      ],
+      [
+       "AARON J BERLIN",
+       29871
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "SUPERIOR COURT JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "DAVID H STRICKLAND",
+       35492
+      ],
+      [
+       "REGGIE E MCKNIGHT",
+       35200
+      ],
+      [
+       "CARLA N ARCHIE",
+       29234
+      ],
+      [
+       "DONALD CURETON JR",
+       29139
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "SUPERIOR COURT JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "ALYSON A GRINE",
+       78027
+      ],
+      [
+       "ALLEN BADDOUR",
+       77866
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "SUPERIOR COURT JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      38858,
+      24152
+     ],
+     "ncsbe": [
+      38858,
+      24155
+     ]
+    },
+    {
+     "office": "SUPERIOR COURT JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "TOM LOCK",
+       54565
+      ],
+      [
+       "PAUL A HOLCOMBE",
+       53433
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "SUPERIOR COURT JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      12093
+     ],
+     "ncsbe": [
+      12098
+     ]
+    },
+    {
+     "office": "SUPERIOR COURT JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "STANLEY L \"STAN\" ALLEN",
+       30768
+      ],
+      [
+       "JOHN M MORRIS",
+       22374
+      ],
+      [
+       "ED WILSON",
+       18032
+      ]
+     ],
+     "ncsbe": null
+    }
+   ]
+  },
+  "2024": {
+   "date": "2024-11-05",
+   "tally": {
+    "race: equal": 685,
+    "race: not found in the State Board's file": 113,
+    "race: same names, votes differ": 165,
+    "question: not found in the State Board's file": 134,
+    "question: equal": 39
+   },
+   "examples": [
+    {
+     "office": "COURT OF APPEALS JUDGE",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "VALERIE ZACHARY",
+       2878745
+      ],
+      [
+       "CHRIS FREEMAN",
+       2844013
+      ],
+      [
+       "TOM MURRY",
+       2809213
+      ],
+      [
+       "CAROLYN JENNINGS THOMPSON",
+       2709983
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "ATTORNEY GENERAL",
+     "district": "STATEWIDE",
+     "medsl": [
+      2874059,
+      2715157
+     ],
+     "ncsbe": [
+      2874960,
+      2715411
+     ]
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       83884
+      ],
+      [
+       "NO",
+       13576
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       94637
+      ],
+      [
+       "NO",
+       19214
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       37728
+      ],
+      [
+       "NO",
+       4098
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       65703
+      ],
+      [
+       "NO",
+       21449
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       38113
+      ],
+      [
+       "NO",
+       4931
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       97904
+      ],
+      [
+       "NO",
+       49339
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       18179
+      ],
+      [
+       "NO",
+       1647
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       5499
+      ],
+      [
+       "NO",
+       421
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       37926
+      ],
+      [
+       "NO",
+       5137
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       82837
+      ],
+      [
+       "NO",
+       8851
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       19720
+      ],
+      [
+       "NO",
+       3871
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "NO",
+       91462
+      ],
+      [
+       "YES",
+       81960
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       16540
+      ],
+      [
+       "NO",
+       6477
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       132922
+      ],
+      [
+       "NO",
+       58123
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       199758
+      ],
+      [
+       "NO",
+       67371
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       23372
+      ],
+      [
+       "NO",
+       3039
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       20517
+      ],
+      [
+       "NO",
+       4874
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       54681
+      ],
+      [
+       "NO",
+       13336
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       18855
+      ],
+      [
+       "NO",
+       1827
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       1841
+      ],
+      [
+       "NO",
+       390
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       92006
+      ],
+      [
+       "NO",
+       12780
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       10391
+      ],
+      [
+       "NO",
+       2768
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       96205
+      ],
+      [
+       "NO",
+       36496
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       66737
+      ],
+      [
+       "NO",
+       13370
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       396588
+      ],
+      [
+       "NO",
+       168540
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       7075
+      ],
+      [
+       "NO",
+       1177
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       38593
+      ],
+      [
+       "NO",
+       11432
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       62804
+      ],
+      [
+       "NO",
+       7309
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       16082
+      ],
+      [
+       "NO",
+       3204
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "NO",
+       42937
+      ],
+      [
+       "YES",
+       40401
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       66539
+      ],
+      [
+       "NO",
+       5719
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       37339
+      ],
+      [
+       "NO",
+       4567
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       31997
+      ],
+      [
+       "NO",
+       2917
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       24208
+      ],
+      [
+       "NO",
+       2286
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       417369
+      ],
+      [
+       "NO",
+       211273
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       108744
+      ],
+      [
+       "NO",
+       18103
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       32603
+      ],
+      [
+       "NO",
+       3380
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       31974
+      ],
+      [
+       "NO",
+       5466
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       7685
+      ],
+      [
+       "NO",
+       2107
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       18029
+      ],
+      [
+       "NO",
+       1742
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       42603
+      ],
+      [
+       "NO",
+       8633
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       15985
+      ],
+      [
+       "NO",
+       1423
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       18830
+      ],
+      [
+       "NO",
+       2124
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       113685
+      ],
+      [
+       "NO",
+       20212
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       93024
+      ],
+      [
+       "NO",
+       18721
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       30956
+      ],
+      [
+       "NO",
+       5686
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       20417
+      ],
+      [
+       "NO",
+       2154
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       99385
+      ],
+      [
+       "NO",
+       17839
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       16954
+      ],
+      [
+       "NO",
+       4436
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       49933
+      ],
+      [
+       "NO",
+       7749
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       60719
+      ],
+      [
+       "NO",
+       10887
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       10992
+      ],
+      [
+       "NO",
+       1233
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       22904
+      ],
+      [
+       "NO",
+       2638
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       13978
+      ],
+      [
+       "NO",
+       4354
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       14732
+      ],
+      [
+       "NO",
+       1086
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       5972
+      ],
+      [
+       "NO",
+       607
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       6671
+      ],
+      [
+       "NO",
+       668
+      ]
+     ],
+     "ncsbe": null
+    },
+    {
+     "office": "CONSTITUTIONAL AMENDMENT - CITIZENS-ONLY VOTING",
+     "district": "STATEWIDE",
+     "medsl": [
+      [
+       "YES",
+       21322
+      ],
+      [
+       "NO",
+       4047
+      ]
+     ],
+     "ncsbe": null
+    }
+   ]
+  }
+ }
+}

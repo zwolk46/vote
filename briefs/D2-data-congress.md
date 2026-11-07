@@ -44,3 +44,45 @@ The maker's ruling of 03:13 (`RULINGS.md`; `plan/PLAN.md` §3a) amends this brie
 - **Intake by script.** For each standardized source, write `pipeline/intake/<source>.py` once: download to a cache outside the repository, check row counts and totals, convert into the layout of plan §3 with the source block filled. *Reason:* "an intake flow that doesn't use as many tokens"; a year or a state then costs a run, not a reading.
 - **An inventory.** List every standardized dataset you find, for your level and any other, in `data/sources/<your level>.md`: publisher, coverage, format, licence, and whether this environment reaches it. *Reason:* the next worker starts from what is known.
 - **No live data.** Everything is a published dataset taken in by script.
+
+
+## Amended 2026-11-07 05:58 UTC: follow-ups from M2 (`checks/M2-REPORT.md`, #26), and the Vice President
+
+M2 checked every p independently. Every one reproduces from its inputs, and no p is off by a factor of two. The forecasts are honest, with the points below, which the orchestrator has decided. Do them in one pull request, each with its reason in `data/congress/REPORT.md`, then report the changed totals and sums.
+1. **The Vice President's tie vote** in presidential years is the presidential chance, not one half: 538's where it stands first, else the model's own. *Reason:* the Senate's control in a presidential year turns on who becomes Vice President.
+2. **Fit on earlier cycles only**, as D1 and D3 do; never leave one cycle out. Choose the fewest earlier cycles a fit needs from your back-test. Extend the fitting data back where your sources reach (MEDSL from 1976, Cha) and the predictors exist. A year that still has too few earlier cycles gets p not computed, with that reason, unless a published forecast stands first. *Reason:* the model's own forecast is fitted to like past races, from what was known before the election (MODEL §3); a coefficient fitted partly on later years is something no voter knew. M2 measured the effect (3.4): the sum of p × 0.81 (House 2014) to × 1.04.
+3. **538 kept on p's error, not the sd's.** Keep 538's implied sd only where p's relative error, |z² − 1| × the sd's, is under 20%; otherwise the model's own stands first. *Reason:* the reader sees p, and at z = 3.94 a 7% error in the sd is a 105% error in p (M2 3.9: 164 Congress entries move).
+4. **Control under 538, reading (c):** take 538's mean and sd as the seat's marginal in the chamber stage, with s_e,i = √(sd₅₃₈² − s_a²), as the presidency already treats 538's marginals. Where sd₅₃₈ < s_a, say what you do and mark it. *Reason:* one forecast of the seat throughout its figure; the record's mix conditions what a tie tells the chamber on the model's mean while the tie's chance is 538's (M2 2.6).
+5. **Governors: add the state's last governor race** as a predictor (M2's A4: log score 1.064 → 1.143), then report the back-test's z sd and coverage. The governors' p may be shown: M2 found the 0 of 4.4 specific to the 5,000-vote line, and the forecast slightly too wide, so p is if anything a little low (3.1, 3.2).
+6. **The files reproduce themselves.** Record f(½) in each p block, and mean and sd at full precision. Give the p = 0 blocks their script and commit (M2 1.4, 1.5). *Reason:* law 4, a reader recomputing p from the file gets the file's p.
+7. **One fetch and one FEC intake:** `pipeline/fetch.py` (D1's, which refuses cross-site redirects) replaces `congress_common.fetch`, and `fec_president.py` folds into `fec_federal_elections.py`. *Reason:* one implementation of each thing.
+8. Senate 2014's chances stand as exact, as recorded: no step at any plausible run count.
+
+After it merges, the orchestrator reruns `checks/m2/c3_chambers.py`.
+
+## Amended 2026-11-07 08:36 UTC: M2's second pass (#47), and a robustness test for every change to a forecast
+
+*From M2's report after items 1 and 2 of its second pass. Everything else reproduces: every p to 1e-15, every fit on earlier years only, every back-test cell by cell, and the adoption rule as written.*
+
+**Fix now, in one pull request:**
+
+1. **House specials' lean.** For a House special, the fit rows take the presidential vote from the sheet of the special's own year, while the files take it on the lines where the special was held (t − 2). The files are right: a special is held on the old lines (PA-18 in 2018: +0.13 in the fit rows against −0.11 in the files; 17 rows). Make the fit rows read as the files do. *Reason:* the fit must be fitted on the same inputs it is applied to.
+2. **Nine House contests where the FEC's file joins both nominees into one "D/R" line.**
+   - Two carry p = 0 for "only one candidate": 2008 NC-04 (Price and Lawson, 419,698 as one) and 2022 IL-03 (Ramirez and Burau). Their p should be about 5e-7 and 1e-6.
+   - Seven have no forecast: 2008 NJ-05, 2020 TN-07, 2016 PA-09, VT-AL in 2008 and 2016, and 2012 NY-05 and NY-13.
+   - Split each line into its candidates. Take the split from the FEC's own per-candidate rows where they exist, otherwise from Cha, marked.
+3. **The Vice President's tie vote.** Use the presidential chance with Maine's and Nebraska's districts: 0.5295 in 2024, not 0.5286, which treats the states as whole. *Reason:* that is how the College is chosen.
+4. **Re-take each of round 5's decisions** after 1 to 3, with the robustness test below, and report every one.
+
+**The robustness test (from now on, for every change to a forecast, at every level).** A change is adopted only if:
+- it improves the out-of-sample test, as before; and
+- it still improves it, with no tested cell made worse, when any one scored year is left out.
+
+Otherwise the forecast stays as it was, and the change is reported beside it. *Reason:* M2 finds that three of round 5's decisions turn on a single year or a single cell.
+- The House's shrinkage passes its tightest safe cell by 0.001, and fails it under the files' lean for specials, or without 2010, 2020, 2022 or 2024.
+- The governors' t4 fails without 2010, 2018 or 2020.
+- The Senate's rejection rests on one cell at exactly the minimum count.
+
+A change adopted on a knife edge is as likely noise as signal, and the model's default is no change. The test is fixed now, before the next round's scores, and applies to the recent-years k and the incumbency variants too.
+
+**The governors' near-even shortfall.** In 2006–2024, 4.7 governor races were expected within 5,000 votes and none was seen (P 0.009). Over 1986–2024 it is 10.4 against 5. If round 5's governor forecast stands after the test above, have the build write onto each governor p, from your own back-test: "this route's back-test shows fewer near-even finishes than it forecast (… against … within 5,000 votes, 2006 to 2024), so p may be high". Do not correct it. *Reason:* as with the measures (D3, #37), a reader should see a known lean of the forecast, and a factor fitted on one empty window would be noise.

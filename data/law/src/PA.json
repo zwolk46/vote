@@ -1,0 +1,24 @@
+{
+ "state": "PA",
+ "name": "Pennsylvania",
+ "status": "unread",
+ "code": {"name": "Pennsylvania Election Code (Act of June 3, 1937, P.L. 1333, No. 320; 25 P.S. 2600 et seq.) and Title 25 of the Pennsylvania Consolidated Statutes", "edition": null, "site": "https://www.legis.state.pa.us/", "reached": false},
+ "sections": {},
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"],
+   "applies_to": "all kinds of office and measures",
+   "resolution": "unread",
+   "steps": "not read: the Pennsylvania General Assembly's statute site answered HTTP 403 to the helper's first request, and the compilation host Justia also answered HTTP 403 (see unread)",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "No provision of the Election Code was read for this state. A web search for the tie provision returned a pointer to 25 P.S. 3168 as a citation only (a FindLaw page, not opened); that citation is a lead, not a reading."}
+ ],
+ "recounts": [],
+ "unread": [
+  {"what": "the Pennsylvania Election Code (Act 320 of 1937) sections on the return of votes, ties (by lot or otherwise), automatic recounts, recount petitions and costs, for every kind of office and for measures; and the primary provisions", "reason": "HTTP 403 from the state's own statute site on the first request", "url": "https://www.legis.state.pa.us/WU01/LI/LI/US/HTM/1937/0/0320..HTM", "time": "2026-11-07T07:23Z"},
+  {"what": "the same Election Code, by the compilation route the orchestrator allowed at 07:21 UTC (Justia)", "reason": "HTTP 403 from the compilation host on the first request; stopped, not retried (Cornell LII was not tried because it does not carry the Pennsylvania Election Code)", "url": "https://law.justia.com/codes/pennsylvania/", "time": "2026-11-07T07:23Z"}
+ ],
+ "notes": ["Nothing was read at any other host. Two further routes exist that a reader should not take without the orchestrator's word: the General Assembly's PDF of the same Act on the same host (https://www.legis.state.pa.us/WU01/LI/LI/US/PDF/1937/0/0320..PDF, the host that refused) and any Pennsylvania Department of State copy or guide on a different host (a different publisher: the orchestrator decides whether it counts).",
+           "The earlier research report (research/historical-close-races-v2.md, sections 3a and 3b) did not read Pennsylvania, so there is no lead to confirm or correct."]
+}

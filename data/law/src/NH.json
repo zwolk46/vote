@@ -1,0 +1,23 @@
+{
+ "state": "NH",
+ "name": "New Hampshire",
+ "status": "unread",
+ "code": {"name": "New Hampshire Revised Statutes Annotated (RSA)", "edition": "not read", "site": "https://gc.nh.gov/rsa/html/", "reached": false},
+ "sections": {},
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"],
+   "applies_to": "all kinds of office and measures",
+   "resolution": "unread",
+   "steps": "not read",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Neither New Hampshire's code site nor the one compilation allowed by the coordinator's amendment of 07:21 UTC answered us (see unread). A web search, used only to find citations, returned section pages titled RSA 660 (recounts: 660:1, 660:3, 660:4, 660:5, 660:6, 660:7, 660:15, 660:17-b) and RSA 671:32 (\"Recount; Tie Vote\"); these are leads to citations, not readings, and no text of them was read."}
+ ],
+ "recounts": [],
+ "unread": [
+  {"what": "all of New Hampshire's tie and recount law (RSA chapter 660 recounts, RSA 671:32 \"Recount; Tie Vote\" as a search result titled it, and the canvass and primary chapters of RSA title LXIII)", "reason": "https://gc.nh.gov/rsa/html/NHTOC/NHTOC-LXIII.htm: curl error 52, \"Empty reply from server\" (one request by this reader at 2026-11-07T07:21Z; the earlier reader's report records the same host as an empty reply twice and sos.nh.gov as a 403). Stopped at the first refusal on that host, as the brief says.", "url": "https://gc.nh.gov/rsa/html/NHTOC/NHTOC-LXIII.htm", "time": "2026-11-07T07:21Z"},
+  {"what": "the same law, from the one compilation allowed by the amendment of 2026-11-07 07:21 UTC (Justia)", "reason": "https://law.justia.com/codes/new-hampshire/title-lxiii/: HTTP 403 (the helper reported \"HTTP 403\"). Stopped at the first refusal on that host. Cornell LII was not tried: a search for the New Hampshire RSA on it returned no page; no other compilation is allowed.", "url": "https://law.justia.com/codes/new-hampshire/title-lxiii/", "time": "2026-11-07T07:22Z"}
+ ],
+ "notes": ["New Hampshire is unread. The earlier reader's lead (research/historical-close-races-v2.md 3a) that a state senate tie is settled by a joint vote of both houses, and 3b's \"requested, less than 20%\", are both unconfirmed and are not recorded as rules."]
+}

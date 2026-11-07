@@ -65,3 +65,15 @@
 4. You have reported to the orchestrator in at most fifteen lines, and once earlier, for the forecast method (step 3).
 
 Then stop (`_COMMON.md` 14).
+
+## Amended 2026-11-07 08:36 UTC: a robustness test for every change to a forecast
+
+From now on, a change to a forecast (a factor, a class, a route) is adopted only if:
+- it improves the out-of-sample test; and
+- it still improves it, with no tested cell made worse, when any one scored year is left out.
+
+Otherwise the forecast stays as it was, and the change is reported beside it.
+
+*Reason:* M2's second pass (#47) finds three of D2's decisions turning on a single year or cell. A change adopted on a knife edge is as likely noise as signal, and the model's default is no change.
+
+Check the one change you have adopted, the calibration factor of #31 (local races), against this test. Report whether it holds. If it does not, take it out in a PR, with the before and after.

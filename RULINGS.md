@@ -94,3 +94,53 @@ In the project chat:
 1. **Breadth of data is a goal of its own** (law 5, Broad, made stronger): gather every contest the sources allow, at every level and as far back as standardized sources go, not a sample of years. The volume itself is part of what the site shows, so that a reader says "wow" (law 6, Beautiful, read with the midterms principle he names).
 2. **Intake by script, from standardized datasets.** Find the bulk, standardized sources first (spreadsheets, CSV releases, data repositories), and write one script per source that downloads and converts it into `data/`, so that a year, a state or a whole source costs a run, not an agent reading pages. *Reason:* his words, "an intake flow that doesn't use as many tokens".
 3. **No live data.** The site is built from static, published datasets; nothing is fed live. This does not settle the open point on an election before it is held, which is about forecasts, not live results.
+
+## 2026-11-07 04:06 UTC: the explanation of the model, for a non-technical person, through visuals
+
+In the project chat:
+
+> One thing crucial to get right is the expanded explanation of how the formula or model works, but not necessarily technically. I want to be able to show it to a non technical person and because of the beautifully crafted and well thought through visuals they are able to understand. Probably a scroll animation? but you decide
+
+*Reading.* The site has an expanded explanation of how p and B\* are worked out, and it is one of the surfaces that matter most (law 3, Plain, made stronger; law 6). Its test is a non-technical person who, from the visuals, understands it; the words are few and plain, and the technical form sits behind it, not in it. Its form is the orchestrator's to decide: a scroll-driven story, one idea per step, with one visual that changes as the reader scrolls, built as two or three whole versions for him to pick (law 9b), and tried on a cold non-technical reader before it goes to him.
+
+## 2026-11-07 04:09 UTC: option C on the phone; the midterms race-page dot charts as the model
+
+In the orchestrator's thread, after seeing X1's preview:
+
+> Keep in mind on option c as it exists currently on mobile it looks awful. Really scrutinized it to make sure it looks nice. An example of a component I love that serves its own specific purposes are the graphs with the dots that move together for each individual race from the midterms page
+
+*Reading.* Option C as built does not pass on a phone. Every option is scrutinized at phone widths by eye, as well as by the automated checks, before it goes to him (the design guidance, process step 4, read with his midterms rule "These are all things you should catch yourself"). The midterms race pages' graphs, in which the dots for each race move together, are a component he loves for its own purpose and the model for this site's dot charts, in the first screen and the explainer.
+
+## 2026-11-07 04:09 UTC: a total layperson checks it
+
+In the orchestrator's thread, a minute later:
+
+> And it should also be checked by an agent specifically instructed to lack some technical understanding and as a total layperson, who doesn't even understand the fundamental correct nature of a cost-benefit analysis
+
+*Reading.* The explainer, and with it the first-screen options, is read cold by a second agent as well: one told it has no technical understanding and does not know how a cost-benefit weighing works, so the page must teach the weighing itself. Briefs X2 and X1 carry it.
+
+## 2026-11-07 04:32 UTC: explanation by visuals; no text unless it is truly needed
+
+In the orchestrator's thread:
+
+> I want as much explanation as possible to be visual, because we must operate under the default assumption that AI-written prose will hardly at all serve the purpose of convincing or explaining by itself, at least without significant refinement. And the key idea that text should not be on the page given its cluttering nature unless truly needed to serve a purpose.
+
+*Reading.* Two rules, for every surface of the site, the first screen and the explainer above all.
+1. **The visual carries the explanation.** Wherever an idea can be shown, it is shown, not told. Prose is not counted as explaining or convincing anyone: the default assumption is that an AI-written sentence does neither on its own. A sentence that stays is refined deliberately, word by word, and tested on cold readers like the visuals, not left as drafted.
+2. **No text unless it is truly needed.** Text clutters, so a line is on the page only if a reader fails without it, and the work says what it serves. This is his midterms rule (`inherited/design/TASTE.md`, 2026-11-02 13:17:57 and 2026-11-05 14:21) made a standing rule here and made stronger: it applies to explanation, not only to subheads.
+
+## 2026-11-07 04:37 UTC: simple headings are needed text (the 04:32 ruling's example)
+
+In the orchestrator's thread, five minutes later:
+
+> For instance often simple headings (such as Senate or House or U.S. Senate or U.S. House, each as relevant to the context in which they’re presented and understood and for the purpose they serve) count as text that is necessary and proper to satisfy a bona fide purpose.
+
+*Reading.* The 04:32 cut is of explanatory prose, not of the words that tell a reader where they are. A simple heading that names what is shown, such as "Senate", "House", "U.S. Senate" or "U.S. House", serves a real purpose and stays. Its form fits its place: the short form where the context already says which country or level, the full form where it does not. Its entry in the text ledger is that purpose, in a word: it orients.
+
+## 2026-11-07 04:38 UTC: headings are judged by their purpose, and often fit (corrects the reading of 04:37)
+
+In the orchestrator's thread, after the orchestrator wrote that such headings are "text that stays":
+
+> It’s also not “text that stays”; for their purposes, OFTEN, they fit
+
+*Reading.* The 04:37 reading went too far. A heading has no standing pass: it is judged like any other text, by whether it serves a real purpose where it sits. Simple headings such as "Senate" or "U.S. House" often do, so the test usually keeps them; but where one does not serve its place, it goes. The reading of 04:37 is replaced by this one.

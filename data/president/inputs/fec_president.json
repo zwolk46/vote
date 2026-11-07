@@ -1,0 +1,2959 @@
+{
+ "about": "FEC official presidential results by state, normalised by pipeline/intake/fec_federal_elections.py president. dem and rep are the two nominees' votes summed over their party lines; total is the FEC's.",
+ "sources": {
+  "1996": {
+   "name": "Federal Election Commission, Federal Elections 1996: presidential general election results by state (Table 1)",
+   "url": "https://www.fec.gov/documents/1721/FederalElections96_PresidentialGeneralElectionResults.xlsx",
+   "read_utc": "2026-11-07T03:24Z",
+   "licence": "public record (no reuse terms printed by the FEC)",
+   "mark": "stated",
+   "via": "the FEC's compilation of results as officially reported by state election offices",
+   "note": "listed on https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/federal-elections-1996/",
+   "sha256": "f1343a29d08661037f9fcef4ec643fb786937ae83323daba802e28d8d6810fe8"
+  },
+  "2000": {
+   "name": "Federal Election Commission, Federal Elections 2000: presidential general election results by state (Master By State)",
+   "url": "https://www.fec.gov/documents/1612/2000presge.xls",
+   "read_utc": "2026-11-07T03:25Z",
+   "licence": "public record (no reuse terms printed by the FEC)",
+   "mark": "stated",
+   "via": "the FEC's compilation of results as officially reported by state election offices",
+   "note": "listed on https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/federal-elections-2000/",
+   "sha256": "f682229d9c69c80fd3bd6eb326c58e890c00a0186f7518dd0bb8e61d617d9f60"
+  },
+  "2004": {
+   "name": "Federal Election Commission, Federal Elections 2004: presidential general election results by state (Table 2. Pres Elec & Pop Vote)",
+   "url": "https://www.fec.gov/documents/1631/2004tables.xls",
+   "read_utc": "2026-11-07T03:24Z",
+   "licence": "public record (no reuse terms printed by the FEC)",
+   "mark": "stated",
+   "via": "the FEC's compilation of results as officially reported by state election offices",
+   "note": "listed on https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/federal-elections-2004/",
+   "sha256": "671b2f325204c9a67063933f004b098a17040a940e32b9eed39e7ddd33f1fa81"
+  },
+  "2008": {
+   "name": "Federal Election Commission, Federal Elections 2008: presidential general election results by state (Table 2. Electoral &  Pop Vote)",
+   "url": "https://www.fec.gov/documents/1670/tables2008.xls",
+   "read_utc": "2026-11-07T03:24Z",
+   "licence": "public record (no reuse terms printed by the FEC)",
+   "mark": "stated",
+   "via": "the FEC's compilation of results as officially reported by state election offices",
+   "note": "listed on https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/federal-elections-2008/",
+   "sha256": "5d4468107a67c9c6ebb17e2a88652b477292453686eda9eab8ba8d698288c1d2"
+  },
+  "2012": {
+   "name": "Federal Election Commission, Federal Elections 2012: presidential general election results by state (Table 2. Electoral &  Pop Vote)",
+   "url": "https://www.fec.gov/documents/1695/tables2012.xls",
+   "read_utc": "2026-11-07T03:24Z",
+   "licence": "public record (no reuse terms printed by the FEC)",
+   "mark": "stated",
+   "via": "the FEC's compilation of results as officially reported by state election offices",
+   "note": "listed on https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/federal-elections-2012/",
+   "sha256": "e77f7be9ab34d7ef794a4f9db15c0e18494252bf637799358349047c96c9ef84"
+  },
+  "2016": {
+   "name": "Federal Election Commission, Federal Elections 2016: presidential general election results by state (Table 2. Electoral &  Pop Vote)",
+   "url": "https://www.fec.gov/documents/1890/federalelections2016.xlsx",
+   "read_utc": "2026-11-07T03:24Z",
+   "licence": "public record (no reuse terms printed by the FEC)",
+   "mark": "stated",
+   "via": "the FEC's compilation of results as officially reported by state election offices",
+   "note": "listed on https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/federal-elections-2016/",
+   "sha256": "b4a1d1383602bc388cfbdf1fbea2476476d32e0b44b44236d3a3910fa9782eb6"
+  },
+  "2020": {
+   "name": "Federal Election Commission, Federal Elections 2020: presidential general election results by state (3. Table 2 Electoral & Pop Vote)",
+   "url": "https://www.fec.gov/documents/4228/federalelections2020.xlsx",
+   "read_utc": "2026-11-07T03:24Z",
+   "licence": "public record (no reuse terms printed by the FEC)",
+   "mark": "stated",
+   "via": "the FEC's compilation of results as officially reported by state election offices",
+   "note": "listed on https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/federal-elections-2020/",
+   "sha256": "5073b6d2c76c86c941508dfb1a11cc497e8529b0068c5132aceb0f385c19352e"
+  },
+  "2024": {
+   "name": "Federal Election Commission, Federal Elections 2024: presidential general election results by state (OFFICIAL 2024 PRES GE RESULTS)",
+   "url": "https://www.fec.gov/documents/5645/2024presgeresults.xlsx",
+   "read_utc": "2026-11-07T03:24Z",
+   "licence": "public record (no reuse terms printed by the FEC)",
+   "mark": "stated",
+   "via": "the FEC's compilation of results as officially reported by state election offices",
+   "note": "listed on https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/federal-elections-2024/",
+   "sha256": "68acdee2924d771b92a05cd950dec850b462c633c05563207ac7e206116e7366"
+  }
+ },
+ "years": {
+  "1996": {
+   "AL": {
+    "dem": 662165,
+    "rep": 769044,
+    "total": 1534349,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "AK": {
+    "dem": 80380,
+    "rep": 122746,
+    "total": 241620,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "AZ": {
+    "dem": 653288,
+    "rep": 622073,
+    "total": 1404405,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "AR": {
+    "dem": 475171,
+    "rep": 325416,
+    "total": 884262,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "CA": {
+    "dem": 5119835,
+    "rep": 3828380,
+    "total": 10019484,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "CO": {
+    "dem": 671152,
+    "rep": 691848,
+    "total": 1510704,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "CT": {
+    "dem": 735740,
+    "rep": 483109,
+    "total": 1392614,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "DE": {
+    "dem": 140355,
+    "rep": 99062,
+    "total": 270845,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "DC": {
+    "dem": 158220,
+    "rep": 17339,
+    "total": 185726,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "FL": {
+    "dem": 2546870,
+    "rep": 2244536,
+    "total": 5303794,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "GA": {
+    "dem": 1053849,
+    "rep": 1080843,
+    "total": 2299071,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "HI": {
+    "dem": 205012,
+    "rep": 113943,
+    "total": 360120,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "ID": {
+    "dem": 165443,
+    "rep": 256595,
+    "total": 491719,
+    "dem_name": "Clinton, Bill             D",
+    "rep_name": "Dole, Bob                 R"
+   },
+   "IL": {
+    "dem": 2341744,
+    "rep": 1587021,
+    "total": 4311391,
+    "dem_name": "Clinton, Bill             D",
+    "rep_name": "Dole, Bob                 R"
+   },
+   "IN": {
+    "dem": 887424,
+    "rep": 1006693,
+    "total": 2135842,
+    "dem_name": "Clinton, Bill             D",
+    "rep_name": "Dole, Bob                 R"
+   },
+   "IA": {
+    "dem": 620258,
+    "rep": 492644,
+    "total": 1234075,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "KS": {
+    "dem": 387659,
+    "rep": 583245,
+    "total": 1074300,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "KY": {
+    "dem": 636614,
+    "rep": 623283,
+    "total": 1388708,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "LA": {
+    "dem": 927837,
+    "rep": 712586,
+    "total": 1783959,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "ME": {
+    "dem": 312788,
+    "rep": 186378,
+    "total": 605897,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "MD": {
+    "dem": 966207,
+    "rep": 681530,
+    "total": 1780870,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "MA": {
+    "dem": 1571763,
+    "rep": 718107,
+    "total": 2556786,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "MI": {
+    "dem": 1989653,
+    "rep": 1481212,
+    "total": 3848844,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "MN": {
+    "dem": 1120438,
+    "rep": 766476,
+    "total": 2192640,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "MS": {
+    "dem": 394022,
+    "rep": 439838,
+    "total": 893857,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "MO": {
+    "dem": 1025935,
+    "rep": 890016,
+    "total": 2158065,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "MT": {
+    "dem": 167922,
+    "rep": 179652,
+    "total": 407261,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "NE": {
+    "dem": 236761,
+    "rep": 363467,
+    "total": 677415,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "NV": {
+    "dem": 203974,
+    "rep": 199244,
+    "total": 464279,
+    "dem_name": "Clinton, Bill            D",
+    "rep_name": "Dole, Bob                R"
+   },
+   "NH": {
+    "dem": 246214,
+    "rep": 196532,
+    "total": 499175,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "NJ": {
+    "dem": 1652329,
+    "rep": 1103078,
+    "total": 3075807,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "NM": {
+    "dem": 273495,
+    "rep": 232751,
+    "total": 556074,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "NY": {
+    "dem": 3756177,
+    "rep": 1933492,
+    "total": 6316129,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "NC": {
+    "dem": 1107849,
+    "rep": 1225938,
+    "total": 2515807,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "ND": {
+    "dem": 106905,
+    "rep": 125050,
+    "total": 266411,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "OH": {
+    "dem": 2148222,
+    "rep": 1859883,
+    "total": 4534434,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "OK": {
+    "dem": 488105,
+    "rep": 582315,
+    "total": 1206713,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "OR": {
+    "dem": 649641,
+    "rep": 538152,
+    "total": 1377760,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "PA": {
+    "dem": 2215819,
+    "rep": 1801169,
+    "total": 4506118,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "RI": {
+    "dem": 233050,
+    "rep": 104683,
+    "total": 390284,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "SC": {
+    "dem": 506283,
+    "rep": 573458,
+    "total": 1151689,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "SD": {
+    "dem": 139333,
+    "rep": 150543,
+    "total": 323826,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "TN": {
+    "dem": 909146,
+    "rep": 863530,
+    "total": 1894105,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "TX": {
+    "dem": 2459683,
+    "rep": 2736167,
+    "total": 5611644,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "UT": {
+    "dem": 221633,
+    "rep": 361911,
+    "total": 665629,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "VT": {
+    "dem": 137894,
+    "rep": 80352,
+    "total": 258449,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "VA": {
+    "dem": 1091060,
+    "rep": 1138350,
+    "total": 2416642,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "WA": {
+    "dem": 1123323,
+    "rep": 840712,
+    "total": 2253837,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "WV": {
+    "dem": 327812,
+    "rep": 233946,
+    "total": 636459,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "WI": {
+    "dem": 1071971,
+    "rep": 845029,
+    "total": 2196169,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   },
+   "WY": {
+    "dem": 77934,
+    "rep": 105388,
+    "total": 211571,
+    "dem_name": "Clinton, Bill",
+    "rep_name": "Dole, Bob"
+   }
+  },
+  "2000": {
+   "AL": {
+    "dem": 692611,
+    "rep": 941173,
+    "total": 1666272,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "AK": {
+    "dem": 79004,
+    "rep": 167398,
+    "total": 285560,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "AZ": {
+    "dem": 685341,
+    "rep": 781652,
+    "total": 1532016,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "AR": {
+    "dem": 422768,
+    "rep": 472940,
+    "total": 921781,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "CA": {
+    "dem": 5861203,
+    "rep": 4567429,
+    "total": 10965856,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "CO": {
+    "dem": 738227,
+    "rep": 883748,
+    "total": 1741368,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "CT": {
+    "dem": 816015,
+    "rep": 561094,
+    "total": 1459525,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "DE": {
+    "dem": 180068,
+    "rep": 137288,
+    "total": 327622,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "DC": {
+    "dem": 171923,
+    "rep": 18073,
+    "total": 201894,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "FL": {
+    "dem": 2912253,
+    "rep": 2912790,
+    "total": 5963110,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "GA": {
+    "dem": 1116230,
+    "rep": 1419720,
+    "total": 2596804,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George"
+   },
+   "HI": {
+    "dem": 205286,
+    "rep": 137845,
+    "total": 367951,
+    "dem_name": "Gore, Albert",
+    "rep_name": "Bush, George W."
+   },
+   "ID": {
+    "dem": 138637,
+    "rep": 336937,
+    "total": 501621,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "IL": {
+    "dem": 2589026,
+    "rep": 2019421,
+    "total": 4742123,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "IN": {
+    "dem": 901980,
+    "rep": 1245836,
+    "total": 2199302,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "IA": {
+    "dem": 638517,
+    "rep": 634373,
+    "total": 1315563,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush,George W."
+   },
+   "KS": {
+    "dem": 399276,
+    "rep": 622332,
+    "total": 1072218,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "KY": {
+    "dem": 638898,
+    "rep": 872492,
+    "total": 1544187,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "LA": {
+    "dem": 792344,
+    "rep": 927871,
+    "total": 1765656,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "ME": {
+    "dem": 319951,
+    "rep": 286616,
+    "total": 651817,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "MD": {
+    "dem": 1145782,
+    "rep": 813797,
+    "total": 2025480,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "MA": {
+    "dem": 1616487,
+    "rep": 878502,
+    "total": 2702984,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "MI": {
+    "dem": 2170418,
+    "rep": 1953139,
+    "total": 4232501,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George"
+   },
+   "MN": {
+    "dem": 1168266,
+    "rep": 1109659,
+    "total": 2438685,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "MS": {
+    "dem": 404614,
+    "rep": 572844,
+    "total": 994184,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "MO": {
+    "dem": 1111138,
+    "rep": 1189924,
+    "total": 2359892,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "MT": {
+    "dem": 137126,
+    "rep": 240178,
+    "total": 410997,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George"
+   },
+   "NE": {
+    "dem": 231780,
+    "rep": 433862,
+    "total": 697019,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "NV": {
+    "dem": 279978,
+    "rep": 301575,
+    "total": 605655,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "NH": {
+    "dem": 266348,
+    "rep": 273559,
+    "total": 569081,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "NJ": {
+    "dem": 1788850,
+    "rep": 1284173,
+    "total": 3187226,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "NM": {
+    "dem": 286783,
+    "rep": 286417,
+    "total": 598605,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "NY": {
+    "dem": 4107697,
+    "rep": 2403374,
+    "total": 6821999,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "NC": {
+    "dem": 1257692,
+    "rep": 1631163,
+    "total": 2911262,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "ND": {
+    "dem": 95284,
+    "rep": 174852,
+    "total": 288256,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "OH": {
+    "dem": 2186190,
+    "rep": 2351209,
+    "total": 4705457,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George"
+   },
+   "OK": {
+    "dem": 474276,
+    "rep": 744337,
+    "total": 1234229,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "OR": {
+    "dem": 720342,
+    "rep": 713577,
+    "total": 1533968,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "PA": {
+    "dem": 2485967,
+    "rep": 2281127,
+    "total": 4913119,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "RI": {
+    "dem": 249508,
+    "rep": 130555,
+    "total": 409112,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "SC": {
+    "dem": 565561,
+    "rep": 785937,
+    "total": 1382717,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "SD": {
+    "dem": 118804,
+    "rep": 190700,
+    "total": 316269,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "TN": {
+    "dem": 981720,
+    "rep": 1061949,
+    "total": 2076181,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "TX": {
+    "dem": 2433746,
+    "rep": 3799639,
+    "total": 6407637,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "UT": {
+    "dem": 203053,
+    "rep": 515096,
+    "total": 770754,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "VT": {
+    "dem": 149022,
+    "rep": 119775,
+    "total": 294308,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "VA": {
+    "dem": 1217290,
+    "rep": 1437490,
+    "total": 2739447,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "WA": {
+    "dem": 1247652,
+    "rep": 1108864,
+    "total": 2487433,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "WV": {
+    "dem": 295497,
+    "rep": 336475,
+    "total": 648124,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "WI": {
+    "dem": 1242987,
+    "rep": 1237279,
+    "total": 2598607,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   },
+   "WY": {
+    "dem": 60481,
+    "rep": 147947,
+    "total": 218351,
+    "dem_name": "Gore, Al",
+    "rep_name": "Bush, George W."
+   }
+  },
+  "2004": {
+   "AL": {
+    "dem": 693933,
+    "rep": 1176394,
+    "total": 1883449,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "AK": {
+    "dem": 111025,
+    "rep": 190889,
+    "total": 312598,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "AZ": {
+    "dem": 893524,
+    "rep": 1104294,
+    "total": 2012585,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "AR": {
+    "dem": 469953,
+    "rep": 572898,
+    "total": 1054945,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "CA": {
+    "dem": 6745485,
+    "rep": 5509826,
+    "total": 12421852,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "CO": {
+    "dem": 1001732,
+    "rep": 1101255,
+    "total": 2130330,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "CT": {
+    "dem": 857488,
+    "rep": 693826,
+    "total": 1578769,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "DE": {
+    "dem": 200152,
+    "rep": 171660,
+    "total": 375190,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "DC": {
+    "dem": 202970,
+    "rep": 21256,
+    "total": 227586,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "FL": {
+    "dem": 3583544,
+    "rep": 3964522,
+    "total": 7609810,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "GA": {
+    "dem": 1366149,
+    "rep": 1914254,
+    "total": 3301875,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "HI": {
+    "dem": 231708,
+    "rep": 194191,
+    "total": 429013,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "ID": {
+    "dem": 181098,
+    "rep": 409235,
+    "total": 598447,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "IL": {
+    "dem": 2891550,
+    "rep": 2345946,
+    "total": 5274322,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "IN": {
+    "dem": 969011,
+    "rep": 1479438,
+    "total": 2468002,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "IA": {
+    "dem": 741898,
+    "rep": 751957,
+    "total": 1506908,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "KS": {
+    "dem": 434993,
+    "rep": 736456,
+    "total": 1187756,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "KY": {
+    "dem": 712733,
+    "rep": 1069439,
+    "total": 1795882,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "LA": {
+    "dem": 820299,
+    "rep": 1102169,
+    "total": 1943106,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "ME": {
+    "dem": 396842,
+    "rep": 330201,
+    "total": 740752,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "MD": {
+    "dem": 1334493,
+    "rep": 1024703,
+    "total": 2386678,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "MA": {
+    "dem": 1803800,
+    "rep": 1071109,
+    "total": 2912388,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "MI": {
+    "dem": 2479183,
+    "rep": 2313746,
+    "total": 4839252,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "MN": {
+    "dem": 1445014,
+    "rep": 1346695,
+    "total": 2828387,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "MS": {
+    "dem": 458094,
+    "rep": 684981,
+    "total": 1152145,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "MO": {
+    "dem": 1259171,
+    "rep": 1455713,
+    "total": 2731364,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "MT": {
+    "dem": 173710,
+    "rep": 266063,
+    "total": 450445,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "NE": {
+    "dem": 254328,
+    "rep": 512814,
+    "total": 778186,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "NV": {
+    "dem": 397190,
+    "rep": 418690,
+    "total": 829587,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "NH": {
+    "dem": 340511,
+    "rep": 331237,
+    "total": 677738,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "NJ": {
+    "dem": 1911430,
+    "rep": 1670003,
+    "total": 3611691,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "NM": {
+    "dem": 370942,
+    "rep": 376930,
+    "total": 756304,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "NY": {
+    "dem": 4314280,
+    "rep": 2962567,
+    "total": 7391036,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "NC": {
+    "dem": 1525849,
+    "rep": 1961166,
+    "total": 3501007,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "ND": {
+    "dem": 111052,
+    "rep": 196651,
+    "total": 312833,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "OH": {
+    "dem": 2741167,
+    "rep": 2859768,
+    "total": 5627908,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "OK": {
+    "dem": 503966,
+    "rep": 959792,
+    "total": 1463758,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "OR": {
+    "dem": 943163,
+    "rep": 866831,
+    "total": 1836782,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "PA": {
+    "dem": 2938095,
+    "rep": 2793847,
+    "total": 5769590,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "RI": {
+    "dem": 259765,
+    "rep": 169046,
+    "total": 437134,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "SC": {
+    "dem": 661699,
+    "rep": 937974,
+    "total": 1617730,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "SD": {
+    "dem": 149244,
+    "rep": 232584,
+    "total": 388215,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "TN": {
+    "dem": 1036477,
+    "rep": 1384375,
+    "total": 2437319,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "TX": {
+    "dem": 2832704,
+    "rep": 4526917,
+    "total": 7410765,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "UT": {
+    "dem": 241199,
+    "rep": 663742,
+    "total": 927844,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "VT": {
+    "dem": 184067,
+    "rep": 121180,
+    "total": 312309,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "VA": {
+    "dem": 1454742,
+    "rep": 1716959,
+    "total": 3198367,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "WA": {
+    "dem": 1510201,
+    "rep": 1304894,
+    "total": 2859084,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "WV": {
+    "dem": 326541,
+    "rep": 423778,
+    "total": 755887,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "WI": {
+    "dem": 1489504,
+    "rep": 1478120,
+    "total": 2997007,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   },
+   "WY": {
+    "dem": 70776,
+    "rep": 167629,
+    "total": 243428,
+    "dem_name": "Kerry",
+    "rep_name": "Bush"
+   }
+  },
+  "2008": {
+   "AL": {
+    "dem": 813479,
+    "rep": 1266546,
+    "total": 2099819,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "AK": {
+    "dem": 123594,
+    "rep": 193841,
+    "total": 326197,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "AZ": {
+    "dem": 1034707,
+    "rep": 1230111,
+    "total": 2293475,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "AR": {
+    "dem": 422310,
+    "rep": 638017,
+    "total": 1086617,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "CA": {
+    "dem": 8274473,
+    "rep": 5011781,
+    "total": 13561900,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "CO": {
+    "dem": 1288633,
+    "rep": 1073629,
+    "total": 2401462,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "CT": {
+    "dem": 997772,
+    "rep": 629428,
+    "total": 1646797,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "DE": {
+    "dem": 255459,
+    "rep": 152374,
+    "total": 412412,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "DC": {
+    "dem": 245800,
+    "rep": 17367,
+    "total": 265853,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "FL": {
+    "dem": 4282074,
+    "rep": 4045624,
+    "total": 8390744,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "GA": {
+    "dem": 1844123,
+    "rep": 2048759,
+    "total": 3924486,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "HI": {
+    "dem": 325871,
+    "rep": 120566,
+    "total": 453568,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "ID": {
+    "dem": 236440,
+    "rep": 403012,
+    "total": 655122,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "IL": {
+    "dem": 3419348,
+    "rep": 2031179,
+    "total": 5522371,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "IN": {
+    "dem": 1374039,
+    "rep": 1345648,
+    "total": 2751054,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "IA": {
+    "dem": 828940,
+    "rep": 682379,
+    "total": 1537123,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "KS": {
+    "dem": 514765,
+    "rep": 699655,
+    "total": 1235872,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "KY": {
+    "dem": 751985,
+    "rep": 1048462,
+    "total": 1826620,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "LA": {
+    "dem": 782989,
+    "rep": 1148275,
+    "total": 1960761,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "ME": {
+    "dem": 421923,
+    "rep": 295273,
+    "total": 731163,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "MD": {
+    "dem": 1629467,
+    "rep": 959862,
+    "total": 2631596,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "MA": {
+    "dem": 1904097,
+    "rep": 1108854,
+    "total": 3080985,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "MI": {
+    "dem": 2872579,
+    "rep": 2048639,
+    "total": 5001766,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "MN": {
+    "dem": 1573354,
+    "rep": 1275409,
+    "total": 2910369,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "MS": {
+    "dem": 554662,
+    "rep": 724597,
+    "total": 1289865,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "MO": {
+    "dem": 1441911,
+    "rep": 1445814,
+    "total": 2925205,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "MT": {
+    "dem": 231667,
+    "rep": 242763,
+    "total": 490302,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "NE": {
+    "dem": 333319,
+    "rep": 452979,
+    "total": 801281,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "NV": {
+    "dem": 533736,
+    "rep": 412827,
+    "total": 967848,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "NH": {
+    "dem": 384826,
+    "rep": 316534,
+    "total": 710970,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "NJ": {
+    "dem": 2215422,
+    "rep": 1613207,
+    "total": 3868237,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "NM": {
+    "dem": 472422,
+    "rep": 346832,
+    "total": 830158,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "NY": {
+    "dem": 4804945,
+    "rep": 2752771,
+    "total": 7640931,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "NC": {
+    "dem": 2142651,
+    "rep": 2128474,
+    "total": 4310789,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "ND": {
+    "dem": 141278,
+    "rep": 168601,
+    "total": 316621,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "OH": {
+    "dem": 2940044,
+    "rep": 2677820,
+    "total": 5708350,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "OK": {
+    "dem": 502496,
+    "rep": 960165,
+    "total": 1462661,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "OR": {
+    "dem": 1037291,
+    "rep": 738475,
+    "total": 1827864,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "PA": {
+    "dem": 3276363,
+    "rep": 2655885,
+    "total": 6013272,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "RI": {
+    "dem": 296571,
+    "rep": 165391,
+    "total": 471766,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "SC": {
+    "dem": 862449,
+    "rep": 1034896,
+    "total": 1920969,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "SD": {
+    "dem": 170924,
+    "rep": 203054,
+    "total": 381975,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "TN": {
+    "dem": 1087437,
+    "rep": 1479178,
+    "total": 2599749,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "TX": {
+    "dem": 3528633,
+    "rep": 4479328,
+    "total": 8077795,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "UT": {
+    "dem": 327670,
+    "rep": 596030,
+    "total": 952370,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "VT": {
+    "dem": 219262,
+    "rep": 98974,
+    "total": 325046,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "VA": {
+    "dem": 1959532,
+    "rep": 1725005,
+    "total": 3723260,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "WA": {
+    "dem": 1750848,
+    "rep": 1229216,
+    "total": 3036878,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "WV": {
+    "dem": 303857,
+    "rep": 397466,
+    "total": 713451,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "WI": {
+    "dem": 1677211,
+    "rep": 1262393,
+    "total": 2983417,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   },
+   "WY": {
+    "dem": 82868,
+    "rep": 164958,
+    "total": 254658,
+    "dem_name": "Obama",
+    "rep_name": "McCain"
+   }
+  },
+  "2012": {
+   "AL": {
+    "dem": 795696,
+    "rep": 1255925,
+    "total": 2074338,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "AK": {
+    "dem": 122640,
+    "rep": 164676,
+    "total": 300495,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "AZ": {
+    "dem": 1025232,
+    "rep": 1233654,
+    "total": 2299254,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "AR": {
+    "dem": 394409,
+    "rep": 647744,
+    "total": 1069468,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "CA": {
+    "dem": 7854285,
+    "rep": 4839958,
+    "total": 13038547,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "CO": {
+    "dem": 1323102,
+    "rep": 1185243,
+    "total": 2569522,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "CT": {
+    "dem": 905083,
+    "rep": 634892,
+    "total": 1558960,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "DE": {
+    "dem": 242584,
+    "rep": 165484,
+    "total": 413921,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "DC": {
+    "dem": 267070,
+    "rep": 21381,
+    "total": 293764,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "FL": {
+    "dem": 4237756,
+    "rep": 4163447,
+    "total": 8474179,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "GA": {
+    "dem": 1773827,
+    "rep": 2078688,
+    "total": 3900050,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "HI": {
+    "dem": 306658,
+    "rep": 121015,
+    "total": 434697,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "ID": {
+    "dem": 212787,
+    "rep": 420911,
+    "total": 652274,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "IL": {
+    "dem": 3019512,
+    "rep": 2135216,
+    "total": 5242014,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "IN": {
+    "dem": 1152887,
+    "rep": 1420543,
+    "total": 2624534,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "IA": {
+    "dem": 822544,
+    "rep": 730617,
+    "total": 1582180,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "KS": {
+    "dem": 440726,
+    "rep": 692634,
+    "total": 1159971,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "KY": {
+    "dem": 679370,
+    "rep": 1087190,
+    "total": 1797212,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "LA": {
+    "dem": 809141,
+    "rep": 1152262,
+    "total": 1994065,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "ME": {
+    "dem": 401306,
+    "rep": 292276,
+    "total": 713180,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "MD": {
+    "dem": 1677844,
+    "rep": 971869,
+    "total": 2707327,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "MA": {
+    "dem": 1921290,
+    "rep": 1188314,
+    "total": 3167767,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "MI": {
+    "dem": 2564569,
+    "rep": 2115256,
+    "total": 4730961,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "MN": {
+    "dem": 1546167,
+    "rep": 1320225,
+    "total": 2936561,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "MS": {
+    "dem": 562949,
+    "rep": 710746,
+    "total": 1285584,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "MO": {
+    "dem": 1223796,
+    "rep": 1482440,
+    "total": 2757323,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "MT": {
+    "dem": 201839,
+    "rep": 267928,
+    "total": 484048,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "NE": {
+    "dem": 302081,
+    "rep": 475064,
+    "total": 794379,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "NV": {
+    "dem": 531373,
+    "rep": 463567,
+    "total": 1014918,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "NH": {
+    "dem": 369561,
+    "rep": 329918,
+    "total": 710972,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "NJ": {
+    "dem": 2125101,
+    "rep": 1477568,
+    "total": 3640292,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "NM": {
+    "dem": 415335,
+    "rep": 335788,
+    "total": 783758,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "NY": {
+    "dem": 4485741,
+    "rep": 2490431,
+    "total": 7081159,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "NC": {
+    "dem": 2178391,
+    "rep": 2270395,
+    "total": 4505372,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "ND": {
+    "dem": 124827,
+    "rep": 188163,
+    "total": 322627,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "OH": {
+    "dem": 2827709,
+    "rep": 2661437,
+    "total": 5580847,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "OK": {
+    "dem": 443547,
+    "rep": 891325,
+    "total": 1334872,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "OR": {
+    "dem": 970488,
+    "rep": 754175,
+    "total": 1789270,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "PA": {
+    "dem": 2990274,
+    "rep": 2680434,
+    "total": 5753670,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "RI": {
+    "dem": 279677,
+    "rep": 157204,
+    "total": 446049,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "SC": {
+    "dem": 865941,
+    "rep": 1071645,
+    "total": 1964118,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "SD": {
+    "dem": 145039,
+    "rep": 210610,
+    "total": 363815,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "TN": {
+    "dem": 960709,
+    "rep": 1462330,
+    "total": 2458577,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "TX": {
+    "dem": 3308124,
+    "rep": 4569843,
+    "total": 7993851,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "UT": {
+    "dem": 251813,
+    "rep": 740600,
+    "total": 1017440,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "VT": {
+    "dem": 199239,
+    "rep": 92698,
+    "total": 299290,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "VA": {
+    "dem": 1971820,
+    "rep": 1822522,
+    "total": 3854489,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "WA": {
+    "dem": 1755396,
+    "rep": 1290670,
+    "total": 3125516,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "WV": {
+    "dem": 238269,
+    "rep": 417655,
+    "total": 670438,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "WI": {
+    "dem": 1620985,
+    "rep": 1407966,
+    "total": 3068434,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   },
+   "WY": {
+    "dem": 69286,
+    "rep": 170962,
+    "total": 249061,
+    "dem_name": "Obama",
+    "rep_name": "Romney"
+   }
+  },
+  "2016": {
+   "AL": {
+    "dem": 729547,
+    "rep": 1318255,
+    "total": 2123372,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "AK": {
+    "dem": 116454,
+    "rep": 163387,
+    "total": 318608,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "AZ": {
+    "dem": 1161167,
+    "rep": 1252401,
+    "total": 2573165,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "AR": {
+    "dem": 380494,
+    "rep": 684872,
+    "total": 1130676,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "CA": {
+    "dem": 8753792,
+    "rep": 4483814,
+    "total": 14181604,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "CO": {
+    "dem": 1338870,
+    "rep": 1202484,
+    "total": 2780247,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "CT": {
+    "dem": 897572,
+    "rep": 673215,
+    "total": 1644920,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "DE": {
+    "dem": 235603,
+    "rep": 185127,
+    "total": 443814,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "DC": {
+    "dem": 282830,
+    "rep": 12723,
+    "total": 311268,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "FL": {
+    "dem": 4504975,
+    "rep": 4617886,
+    "total": 9420039,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "GA": {
+    "dem": 1877963,
+    "rep": 2089104,
+    "total": 4114732,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "HI": {
+    "dem": 266891,
+    "rep": 128847,
+    "total": 428937,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "ID": {
+    "dem": 189765,
+    "rep": 409055,
+    "total": 690255,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "IL": {
+    "dem": 3090729,
+    "rep": 2146015,
+    "total": 5536424,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "IN": {
+    "dem": 1033126,
+    "rep": 1557286,
+    "total": 2734958,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "IA": {
+    "dem": 653669,
+    "rep": 800983,
+    "total": 1566031,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "KS": {
+    "dem": 427005,
+    "rep": 671018,
+    "total": 1184402,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "KY": {
+    "dem": 628854,
+    "rep": 1202971,
+    "total": 1924149,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "LA": {
+    "dem": 780154,
+    "rep": 1178638,
+    "total": 2029032,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "ME": {
+    "dem": 357735,
+    "rep": 335593,
+    "total": 747927,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "MD": {
+    "dem": 1677928,
+    "rep": 943169,
+    "total": 2781446,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "MA": {
+    "dem": 1995196,
+    "rep": 1090893,
+    "total": 3325046,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "MI": {
+    "dem": 2268839,
+    "rep": 2279543,
+    "total": 4799284,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "MN": {
+    "dem": 1367716,
+    "rep": 1322951,
+    "total": 2944813,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "MS": {
+    "dem": 485131,
+    "rep": 700714,
+    "total": 1209357,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "MO": {
+    "dem": 1071068,
+    "rep": 1594511,
+    "total": 2808605,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "MT": {
+    "dem": 177709,
+    "rep": 279240,
+    "total": 497147,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "NE": {
+    "dem": 284494,
+    "rep": 495961,
+    "total": 844227,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "NV": {
+    "dem": 539260,
+    "rep": 512058,
+    "total": 1125385,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "NH": {
+    "dem": 348526,
+    "rep": 345790,
+    "total": 744296,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "NJ": {
+    "dem": 2148278,
+    "rep": 1601933,
+    "total": 3874046,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "NM": {
+    "dem": 385234,
+    "rep": 319667,
+    "total": 798319,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "NY": {
+    "dem": 4556118,
+    "rep": 2819533,
+    "total": 7721442,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "NC": {
+    "dem": 2189316,
+    "rep": 2362631,
+    "total": 4741564,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "ND": {
+    "dem": 93758,
+    "rep": 216794,
+    "total": 344360,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "OH": {
+    "dem": 2394164,
+    "rep": 2841005,
+    "total": 5496487,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "OK": {
+    "dem": 420375,
+    "rep": 949136,
+    "total": 1452992,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "OR": {
+    "dem": 1002106,
+    "rep": 782403,
+    "total": 2001336,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "PA": {
+    "dem": 2926441,
+    "rep": 2970733,
+    "total": 6165478,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "RI": {
+    "dem": 252525,
+    "rep": 180543,
+    "total": 464144,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "SC": {
+    "dem": 855373,
+    "rep": 1155389,
+    "total": 2103027,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "SD": {
+    "dem": 117458,
+    "rep": 227721,
+    "total": 370093,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "TN": {
+    "dem": 870695,
+    "rep": 1522925,
+    "total": 2508027,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "TX": {
+    "dem": 3877868,
+    "rep": 4685047,
+    "total": 8969226,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "UT": {
+    "dem": 310676,
+    "rep": 515231,
+    "total": 1131430,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "VT": {
+    "dem": 178573,
+    "rep": 95369,
+    "total": 315067,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "VA": {
+    "dem": 1981473,
+    "rep": 1769443,
+    "total": 3984631,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "WA": {
+    "dem": 1742718,
+    "rep": 1221747,
+    "total": 3317019,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "WV": {
+    "dem": 188794,
+    "rep": 489371,
+    "total": 714423,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "WI": {
+    "dem": 1382536,
+    "rep": 1405284,
+    "total": 2976150,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   },
+   "WY": {
+    "dem": 55973,
+    "rep": 174419,
+    "total": 255849,
+    "dem_name": "Clinton",
+    "rep_name": "Trump"
+   }
+  },
+  "2020": {
+   "AL": {
+    "dem": 849624,
+    "rep": 1441170,
+    "total": 2323282,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "AK": {
+    "dem": 153778,
+    "rep": 189951,
+    "total": 359530,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "AZ": {
+    "dem": 1672143,
+    "rep": 1661686,
+    "total": 3387326,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "AR": {
+    "dem": 423932,
+    "rep": 760647,
+    "total": 1219069,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "CA": {
+    "dem": 11110639,
+    "rep": 6006518,
+    "total": 17501380,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "CO": {
+    "dem": 1804352,
+    "rep": 1364607,
+    "total": 3256980,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "CT": {
+    "dem": 1080831,
+    "rep": 714717,
+    "total": 1823857,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "DE": {
+    "dem": 296268,
+    "rep": 200603,
+    "total": 504346,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "DC": {
+    "dem": 317323,
+    "rep": 18586,
+    "total": 344356,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "FL": {
+    "dem": 5297045,
+    "rep": 5668731,
+    "total": 11067456,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "GA": {
+    "dem": 2473633,
+    "rep": 2461854,
+    "total": 4999960,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "HI": {
+    "dem": 366130,
+    "rep": 196864,
+    "total": 574469,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "ID": {
+    "dem": 287021,
+    "rep": 554119,
+    "total": 867934,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "IL": {
+    "dem": 3471915,
+    "rep": 2446891,
+    "total": 6033744,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "IN": {
+    "dem": 1242498,
+    "rep": 1729857,
+    "total": 3033210,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "IA": {
+    "dem": 759061,
+    "rep": 897672,
+    "total": 1690871,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "KS": {
+    "dem": 570323,
+    "rep": 771406,
+    "total": 1373986,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "KY": {
+    "dem": 772474,
+    "rep": 1326646,
+    "total": 2136768,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "LA": {
+    "dem": 856034,
+    "rep": 1255776,
+    "total": 2148062,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "ME": {
+    "dem": 435072,
+    "rep": 360737,
+    "total": 819461,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "MD": {
+    "dem": 1985023,
+    "rep": 976414,
+    "total": 3037030,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "MA": {
+    "dem": 2382202,
+    "rep": 1167202,
+    "total": 3631402,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "MI": {
+    "dem": 2804040,
+    "rep": 2649852,
+    "total": 5539302,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "MN": {
+    "dem": 1717077,
+    "rep": 1484065,
+    "total": 3277171,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "MS": {
+    "dem": 539398,
+    "rep": 756764,
+    "total": 1313759,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "MO": {
+    "dem": 1253014,
+    "rep": 1718736,
+    "total": 3025962,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "MT": {
+    "dem": 244786,
+    "rep": 343602,
+    "total": 603674,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "NE": {
+    "dem": 374583,
+    "rep": 556846,
+    "total": 956383,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "NV": {
+    "dem": 703486,
+    "rep": 669890,
+    "total": 1405376,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "NH": {
+    "dem": 424937,
+    "rep": 365660,
+    "total": 806205,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "NJ": {
+    "dem": 2608400,
+    "rep": 1883313,
+    "total": 4549457,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "NM": {
+    "dem": 501614,
+    "rep": 401894,
+    "total": 923965,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "NY": {
+    "dem": 5244886,
+    "rep": 3251997,
+    "total": 8616861,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "NC": {
+    "dem": 2684292,
+    "rep": 2758775,
+    "total": 5524804,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "ND": {
+    "dem": 115042,
+    "rep": 235751,
+    "total": 362024,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "OH": {
+    "dem": 2679165,
+    "rep": 3154834,
+    "total": 5922202,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "OK": {
+    "dem": 503890,
+    "rep": 1020280,
+    "total": 1560699,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "OR": {
+    "dem": 1340383,
+    "rep": 958448,
+    "total": 2374321,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "PA": {
+    "dem": 3458229,
+    "rep": 3377674,
+    "total": 6936976,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "RI": {
+    "dem": 307486,
+    "rep": 199922,
+    "total": 517757,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "SC": {
+    "dem": 1091541,
+    "rep": 1385103,
+    "total": 2513329,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "SD": {
+    "dem": 150471,
+    "rep": 261043,
+    "total": 422609,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "TN": {
+    "dem": 1143711,
+    "rep": 1852475,
+    "total": 3053851,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "TX": {
+    "dem": 5259126,
+    "rep": 5890347,
+    "total": 11315056,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "UT": {
+    "dem": 560282,
+    "rep": 865140,
+    "total": 1488289,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "VT": {
+    "dem": 242820,
+    "rep": 112704,
+    "total": 367428,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "VA": {
+    "dem": 2413568,
+    "rep": 1962430,
+    "total": 4460524,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "WA": {
+    "dem": 2369612,
+    "rep": 1584651,
+    "total": 4087631,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "WV": {
+    "dem": 235984,
+    "rep": 545382,
+    "total": 794731,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "WI": {
+    "dem": 1630866,
+    "rep": 1610184,
+    "total": 3298041,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   },
+   "WY": {
+    "dem": 73491,
+    "rep": 193559,
+    "total": 276765,
+    "dem_name": "Biden",
+    "rep_name": "Trump"
+   }
+  },
+  "2024": {
+   "AL": {
+    "dem": 772412,
+    "rep": 1462616,
+    "total": 2265090,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "AK": {
+    "dem": 140026,
+    "rep": 184458,
+    "total": 338177,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "AZ": {
+    "dem": 1582860,
+    "rep": 1770242,
+    "total": 3390161,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "AR": {
+    "dem": 396905,
+    "rep": 759241,
+    "total": 1182676,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "CA": {
+    "dem": 9276179,
+    "rep": 6081697,
+    "total": 15865475,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "CO": {
+    "dem": 1728159,
+    "rep": 1377441,
+    "total": 3192745,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "CT": {
+    "dem": 992053,
+    "rep": 736918,
+    "total": 1759010,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "DE": {
+    "dem": 289758,
+    "rep": 214351,
+    "total": 512912,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "DC": {
+    "dem": 294185,
+    "rep": 21076,
+    "total": 325869,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "FL": {
+    "dem": 4683038,
+    "rep": 6110125,
+    "total": 10893752,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "GA": {
+    "dem": 2548017,
+    "rep": 2663117,
+    "total": 5250905,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "HI": {
+    "dem": 313044,
+    "rep": 193661,
+    "total": 516701,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "ID": {
+    "dem": 274972,
+    "rep": 605246,
+    "total": 905057,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "IL": {
+    "dem": 3062863,
+    "rep": 2449079,
+    "total": 5633310,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "IN": {
+    "dem": 1163603,
+    "rep": 1720347,
+    "total": 2936677,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "IA": {
+    "dem": 707278,
+    "rep": 927019,
+    "total": 1663506,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "KS": {
+    "dem": 544853,
+    "rep": 758802,
+    "total": 1327591,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "KY": {
+    "dem": 704043,
+    "rep": 1337494,
+    "total": 2074530,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "LA": {
+    "dem": 766870,
+    "rep": 1208505,
+    "total": 2006975,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "ME": {
+    "dem": 435652,
+    "rep": 377977,
+    "total": 831375,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "MD": {
+    "dem": 1902577,
+    "rep": 1035550,
+    "total": 3038334,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "MA": {
+    "dem": 2126518,
+    "rep": 1251303,
+    "total": 3473668,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "MI": {
+    "dem": 2736533,
+    "rep": 2816636,
+    "total": 5664186,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "MN": {
+    "dem": 1656979,
+    "rep": 1519032,
+    "total": 3253920,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "MS": {
+    "dem": 466668,
+    "rep": 747744,
+    "total": 1228008,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "MO": {
+    "dem": 1200599,
+    "rep": 1751986,
+    "total": 2995327,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "MT": {
+    "dem": 231906,
+    "rep": 352079,
+    "total": 602990,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "NE": {
+    "dem": 369995,
+    "rep": 564816,
+    "total": 952182,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "NV": {
+    "dem": 705197,
+    "rep": 751205,
+    "total": 1484840,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "NH": {
+    "dem": 418488,
+    "rep": 395523,
+    "total": 826189,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "NJ": {
+    "dem": 2220713,
+    "rep": 1968215,
+    "total": 4272725,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "NM": {
+    "dem": 478802,
+    "rep": 423391,
+    "total": 923403,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "NY": {
+    "dem": 4619195,
+    "rep": 3578899,
+    "total": 8262495,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "NC": {
+    "dem": 2715375,
+    "rep": 2898423,
+    "total": 5699141,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "ND": {
+    "dem": 112327,
+    "rep": 246505,
+    "total": 368155,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "OH": {
+    "dem": 2533699,
+    "rep": 3180116,
+    "total": 5767788,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "OK": {
+    "dem": 499599,
+    "rep": 1036213,
+    "total": 1566173,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "OR": {
+    "dem": 1240600,
+    "rep": 919480,
+    "total": 2244493,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "PA": {
+    "dem": 3423042,
+    "rep": 3543308,
+    "total": 7058732,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "RI": {
+    "dem": 285156,
+    "rep": 214406,
+    "total": 513386,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "SC": {
+    "dem": 1028452,
+    "rep": 1483747,
+    "total": 2548140,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "SD": {
+    "dem": 146859,
+    "rep": 272081,
+    "total": 428922,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "TN": {
+    "dem": 1056265,
+    "rep": 1966865,
+    "total": 3063942,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "TX": {
+    "dem": 4835250,
+    "rep": 6393597,
+    "total": 11388674,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "UT": {
+    "dem": 562566,
+    "rep": 883818,
+    "total": 1488494,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "VT": {
+    "dem": 235791,
+    "rep": 119395,
+    "total": 369422,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "VA": {
+    "dem": 2333778,
+    "rep": 2074097,
+    "total": 4503288,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "WA": {
+    "dem": 2245849,
+    "rep": 1530923,
+    "total": 3924243,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "WV": {
+    "dem": 214309,
+    "rep": 533556,
+    "total": 762582,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "WI": {
+    "dem": 1668229,
+    "rep": 1697626,
+    "total": 3422918,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   },
+   "WY": {
+    "dem": 69527,
+    "rep": 192633,
+    "total": 269048,
+    "dem_name": "Harris",
+    "rep_name": "Trump"
+   }
+  }
+ }
+}
