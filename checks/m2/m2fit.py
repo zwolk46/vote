@@ -53,6 +53,12 @@ SITTING = {1978: "D", 1980: "D", 1982: "R", 1984: "R", 1986: "R", 1988: "R", 199
            2018: "R", 2020: "R", 2022: "D", 2024: "D"}
 NEAR_W, NEAR_MIN_EXPECTED, NEAR_BANDS, NEAR_WINDOWS = 0.01, 30, (0.0, 0.05, 0.10), (0.01, 0.02, 0.05)
 VARIANTS = {"none": (False, "normal"), "shrink": (True, "normal"), "t4": (False, "t4"), "both": (True, "t4")}
+# a third element names how k is fitted (c11, item 3): "all" = D2's, the RMS of z over every earlier scored year;
+# "lastN" = over the last N scored years; "trend" = a line through the years' RMS z, read at the forecast year
+K_MODES = ("all", "last1", "last2", "last3", "trend")
+for _v, _t in list(VARIANTS.items()):
+    for _k in K_MODES[1:]:
+        VARIANTS[f"{_v}|{_k}"] = (_t[0], _t[1], _k)
 VARIANT_YEARS = list(range(2010, 2025, 2))
 VARIANT_BANDS, VARIANT_SAFE, VARIANT_MIN_COUNT, TAIL_LEVELS = (0.0, 0.05, 0.10, 0.20), (2, 3), 5, (0.05, 0.01)
 SQRT2 = math.sqrt(2.0)
@@ -555,12 +561,28 @@ def raw_scored(rows, level):
     return _SC[level]
 
 
-def calibration(rows, level, year, shrink=None):
+def calibration(rows, level, year, shrink=None, kmode="all"):
     sc = raw_scored(rows, level)
     yrs = [t for t in sorted(sc) if t < year]
     if len(yrs) < CAL_MIN:
         return {"k": 1.0, "years": yrs, "races": sum(len(sc[t]) for t in yrs)}
     lam = shrink["factor"] if shrink else None
+    if kmode != "all":
+        def rms(t):
+            z = [((y - mu) if lam is None else (y - 0.5 - lam * (mu - 0.5))) / sd for mu, sd, y in sc[t]]
+            return math.sqrt(sum(x * x for x in z) / len(z)), len(z)
+        if kmode.startswith("last"):
+            use = yrs[-int(kmode[4:]):]
+            z2 = sum(rms(t)[0] ** 2 * rms(t)[1] for t in use)
+            n = sum(rms(t)[1] for t in use)
+            return {"k": math.sqrt(z2 / n), "years": use, "races": n, "kmode": kmode}
+        if kmode == "trend":
+            xs = np.array(yrs, float)
+            ys = np.array([rms(t)[0] for t in yrs])
+            b1, b0 = np.polyfit(xs, ys, 1)
+            k = float(min(1.5, max(0.5, b0 + b1 * year)))
+            return {"k": k, "years": yrs, "races": sum(len(sc[t]) for t in yrs), "kmode": kmode, "slope_per_cycle": float(2 * b1)}
+        raise ValueError(kmode)
     zs = [((y - mu) if lam is None else (y - 0.5 - lam * (mu - 0.5))) / sd for t in yrs for mu, sd, y in sc[t]]
     return {"k": math.sqrt(sum(z * z for z in zs) / len(zs)), "years": yrs, "races": len(zs)}
 
@@ -579,9 +601,10 @@ def variant_model(rows, level, year, variant):
     m, fy = raw_model(rows, level, year)
     if m is None:
         return None, fy
-    shrink, tails = VARIANTS[variant]
+    shrink, tails = VARIANTS[variant][:2]
+    kmode = VARIANTS[variant][2] if len(VARIANTS[variant]) > 2 else "all"
     sh = shrink_factor(rows, level, year) if shrink else None
-    cal = calibration(rows, level, year, sh)
+    cal = calibration(rows, level, year, sh, kmode)
     return dict(m, k=cal["k"], calibration=cal, shrink=sh, tails=tails, variant=variant), fy
 
 
@@ -837,7 +860,7 @@ def variant_test(rows, years=None, min_count=None, strict_further=True, bands_by
     min_count = VARIANT_MIN_COUNT if min_count is None else min_count
     out = {"by_level": {}, "adopted": {}, "shrink_by_year": {}, "k_by_year": {}}
     for Lv in LEVELS:
-        res = {v: variant_score(rows, Lv, v, years, bands_by_none=bands_by_none) for v in VARIANTS}
+        res = {v: variant_score(rows, Lv, v, years, bands_by_none=bands_by_none) for v in ("none", "shrink", "t4", "both")}
         b0 = res["none"]
         best = None
         for v in ("shrink", "t4", "both"):
