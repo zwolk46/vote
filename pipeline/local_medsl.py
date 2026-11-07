@@ -40,9 +40,9 @@ YEARS = (2018, 2020, 2022, 2024)
 MEASURE_YEARS = (2016,) + YEARS   # 2016: MEDSL's older sets, read for their questions only
 # Years MEDSL holds none of, written from a state's own certified file alone (Louisiana's 2023, pipeline/local_la.py;
 # the orchestrator, 2026-11-07 10:35 and 11:16). They are forecast from the like races and measures of the earlier
-# years above, but are not added to any later year's like races, nor to the back-tests or the calibration's
-# robustness test, pending the orchestrator's word. Why: adding a year changes the 2024 forecasts and the test's
-# verdicts, a change the robustness rule (brief D3, amended 08:36) has not been asked to weigh.
+# years, and, like every other year, feed the later years' like races and measures, the back-tests and the
+# robustness test (the orchestrator, 11:56: "earlier cycles only means every earlier contest, and leaving one year
+# out would be an exception with no reason behind it"); data/local/REPORT.md section 16.
 ODD_YEARS = (2023,)
 ODD_PARTISAN = ("a race between a Democrat and a Republican: the transferred route (a) gives p only in a year whose own "
                 "back-test on that year's local races holds its 50% interval within 40-60% (the orchestrator, "
@@ -57,9 +57,21 @@ GITHUB_YEARS = {2018: "MEDSL/2018-elections-official", 2020: "MEDSL/2020-electio
 _WA_LEG = re.compile(r"^LEGISLATIVE DISTRICT (\d+) - STATE (SENATOR|REPRESENTATIVE)(?: POS\.? ?(\d+))?")
 
 
+# A state's legislature filed under its own name, not MEDSL's STATE HOUSE or STATE SENATE (the audit of 11:56, data/local/
+# REPORT.md section 15): Rhode Island's 2022 file ("REPRESENTATIVE IN GENERAL ASSEMBLY", R.I. Const. art. VI),
+# Virginia's House of Delegates (2018) and one Arizona district's representatives (2022)
+LEG_NAMES = {"REPRESENTATIVE IN GENERAL ASSEMBLY": "STATE HOUSE", "SENATOR IN GENERAL ASSEMBLY": "STATE SENATE",
+             "HOUSE OF DELEGATES": "STATE HOUSE", "STATE REPRESENTATIVE": "STATE HOUSE", "STATE SENATOR": "STATE SENATE"}
+
+
 def relabel(m):
     """Washington files its legislature as local offices named by district ('LEGISLATIVE DISTRICT 9 - STATE
-    REPRESENTATIVE POS. 1'): read as the state house or senate, the district and the position."""
+    REPRESENTATIVE POS. 1'): read as the state house or senate, the district and the position. A legislature filed
+    under another name of its own (LEG_NAMES) is read as the state house or senate too."""
+    if m.get("office") in LEG_NAMES and not m.get("question"):
+        m["office_as_filed"] = m["office"]
+        m["office"] = LEG_NAMES[m["office"]]
+        return m
     x = _WA_LEG.match(m["office"])
     if x:
         m["office_as_filed"] = m["office"]
@@ -258,6 +270,10 @@ def _qtokens(c):
     return set(re.findall(r"[A-Z0-9]+", (c["office"] + " " + (c.get("subject") or "")).upper())) - _QSTOP
 
 
+STRAIGHT_PARTY = re.compile(r"\bSTRAIGHT PARTY\b")
+NAMED_QUESTION = re.compile(r"\bPUBLIC QUESTION\b|\bADVISORY VOTE\b|\bFORM OF GOVERNMENT\b|\bOFFICIAL NEWSPAPER\b")
+
+
 def fix_questions(contests, year):
     """Three faults of MEDSL's question lines, found in the output [measured]:
     1. a question filed as a candidate contest, its answers worded as candidates ('FOR BONDS' and 'AGAINST BONDS',
@@ -267,11 +283,24 @@ def fix_questions(contests, year):
     3. a question split in two, its yes line and its no line under offices or subjects worded apart (Oklahoma's
        2024 '... FOR THE PROPOSAL' and '... AGAINST THE PROPOSAL', a judge's name spelled two ways): a yes-only and
        a no-only piece over the same counties whose words, answer words aside, overlap by half or more are joined.
-    A one-sided piece left over is kept, and its p is not computed (the source gives one answer only)."""
+    A one-sided piece left over is kept, and its p is not computed (the source gives one answer only).
+    Two more, found by the office-type audit of 2026-11-07 (data/local/REPORT.md section 15):
+    4. a straight-party tally filed as a contest (South Carolina's 2024 'STRAIGHT PARTY 1'): no office's contest;
+       left out;
+    5. a question filed as a candidate contest under a question's name (Washington's advisory votes, New Jersey's
+       public questions, Utah's form of government, North Dakota's county newspaper), its answers not worded yes
+       and no ('Repealed', 'Maintained'): read as a question."""
     fx = QFIX[year]
     cand_offices = {(c["state"], c["office"]) for c in contests if not c["question"]}
     out, pieces = [], collections.defaultdict(lambda: {"yes": [], "no": []})
     for c in contests:
+        if not c["question"] and STRAIGHT_PARTY.search(c["office"].upper()):
+            fx["straight-party tally filed as a contest, left out"] += 1
+            continue
+        if not c["question"] and NAMED_QUESTION.search(c["office"].upper()):
+            c["question"] = True
+            c["read_as_question"] = "its name is a question's"
+            fx["candidate contest read as a question by its name"] += 1
         if not c["question"]:
             b = [x for x in c["candidates"] if not x.get("writein") and not _is_generic(x["name"])]
             sides = sorted(side(x["name"]) or "" for x in b)
@@ -776,7 +805,7 @@ def _backtest_one(M, k, rows, bad, pres):
         e100 += nd.cdf(0.5 + h) - nd.cdf(0.5 - h)
         s100 += abs(r_["d"]["votes"] - r_["r"]["votes"]) <= 100
         bias += m - y
-        t = office_type(r_["m"]["office"])
+        t = office_type(r_["m"]["office"], r_["m"].get("state"), r_["m"].get("district"))
         by_type[t][0] += 1
         by_type[t][1] += abs(y - m) <= z["50"] * sd
     n = max(len(used), 1)
@@ -1127,30 +1156,117 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
 
 # ------------------------------------------------------------------ local races: classes of like races
 
+# The office types the like-race classes use. A keyword reads words, not offices (the orchestrator, 2026-11-07 11:56:
+# "one misread word moved 254 contests"), so the audit of 11:56 (data/local/REPORT.md section 15, every type's
+# commonest names) fixed each misreading found: the first match wins, so the readings that a later, broader word
+# would take wrongly come first, and a place's own name is taken off before the words are read (PLACE_NAME).
 OFFICE_TYPES = [
     # Louisiana's parties' own committees (pipeline/local_la.py): a seat one party's voters fill at the presidential
     # preference primary is unlike a council chosen at a general (the orchestrator, 2026-11-07 11:30)
     ("party committee", r"^(DSCC|RSCC|DPEC|RPEC) MEMBER\b"),
-    ("school board", r"SCHOOL|BOARD OF EDUCATION|COLLEGE|EDUCATION|TRUSTEE|UNIVERSITY|REGENT"),
-    ("judge", r"JUDGE|JUSTICE|COURT|MAGISTRATE|PROBATE"),
+    # governing bodies whose names carry another type's word: Louisiana's police juries (a parish's governing body;
+    # the orchestrator, 11:56), New Hampshire's Executive Council, Arkansas's city directors, Delaware's levy courts
+    # (a county's governing body), New Jersey's township committees
+    ("council, commission or board", r"\bPOLICE JUR|\bEXECUTIVE COUNCIL\b|\bCITY DIRECTORS?\b|\bLEVY COURT\b|"
+                                     r"\bTOWNSHIP COMMITTEE"),
+    # a court's clerk or register is an officer, not a judge; Georgia's tax commissioner and Alabama's revenue
+    # commissioner are officers, not a commission
+    ("clerk, treasurer or other county officer", r"\bCLERK\b|\bREGISTER OF (PROBATE|WILLS|DEEDS)\b|"
+                                                r"\bTAX COMMISSION(ER)?\b|\bREVENUE COMMISSIONER\b"),
+    # Kentucky's county judge/executive heads the county and its fiscal court (Ky. Const. section 144)
+    ("mayor or executive", r"\bJUDGE[ /-]*EXECUTIVE\b|\bPARISH PRESIDENT\b|\bVILLAGE PRESIDENT\b|"
+                           r"\bBOROUGH PRESIDENT\b"),
+    # Louisiana's "Constable, Justice of the Peace Ward 3" is the constable of a justice of the peace's court
+    ("sheriff or constable", r"^CONSTABLE\b"),
+    # a district named for what it serves, whatever place's name it carries ("University Place Community
+    # Development District", Nebraska's natural resources districts, South Carolina's public service districts)
+    ("special district", r"(?<!OF )\bCOMMUNITY DEVELOPMENT\b|\bCDD\b|IMPROVEMENT DISTRICT|POWER DISTRICT|"
+                         r"\bUTILIT(Y|IES) (DISTRICT|AUTHORITY)\b|STEWARDSHIP DISTRICT|\bSEWER\b|"
+                         r"NATURAL RESOURCES DISTRICT|PUBLIC SERVICE DISTRICT|\bPSD\b|"
+                         r"\b(SERVICES?|TAX|SPECIAL|FACILITIES|RECREATION|SANITATION|TELEVISION|TV|RECLAMATION|"
+                         r"MANAGEMENT|POOL) DISTRICT\b"),
+    ("school board", r"SCHOOL|BOARD OF EDUCATION|\bCOLLEGE\b|EDUCATION|UNIVERSITY|REGENT|\bBESE\b|\bBOE\b|"
+                     r"\bLEARNING COMMUNITY\b|\bSUPER\. OF PUBLIC INSTRUCTION\b"),
+    # whole words, so that a place's name is not read as the office: Courtland, Courthouse
+    ("judge", r"JUDGE|JUSTICE|\bCOURTS?\b|MAGISTRATE|PROBATE|\bSURROGATE\b|\bCT\b|\bJP\b"),
     ("prosecutor", r"ATTORNEY|PROSECUTOR|SOLICITOR"),
-    ("sheriff or constable", r"SHERIFF|CONSTABLE|MARSHAL|POLICE"),
-    ("mayor or executive", r"MAYOR|EXECUTIVE|JUDGE EXECUTIVE|FIRST SELECTMAN"),
-    ("special district", r"DISTRICT DIRECTOR|WATER|FIRE|HOSPITAL|HEALTH|PARK|SANITARY|UTILITY|IRRIGATION|TRANSIT|"
-                         r"AIRPORT|PORT|LIBRARY|CEMETERY|SOIL|CONSERVATION|DRAINAGE|LEVEE|MOSQUITO|TRANSPORTATION"),
+    ("sheriff or constable", r"SHERIFF|CONSTABLE|\bMARSHALS?\b|\bPOLICE\b|\bJAILER\b|\bBAILIFF\b|"
+                             r"\bLAW ENFORCEMENT\b"),
+    ("mayor or executive", r"MAYOR|EXECUTIVE|FIRST SELECTMAN|\bTOWN ADMINISTRATOR\b"),
+    # whole words, and a park or a port only with its body's word, so that a place's name is not read as the
+    # district: Waterloo, Bridgewater, Foxfire, Hanover Park, Port Royal
+    ("special district", r"DISTRICT DIRECTOR|\bWATER(SHED|WORKS|WAYS?)?\b|\bFIRE\b|HOSPITAL|\bHEALTH(CARE)?\b|"
+                         r"\bPARKS?( AND RECREATION)? (DISTRICT|DIST|COMMISSION(ER)?S?|AUTHORITY)\b|"
+                         r"\bAND PARKS? DISTRICT\b|\bPARKS? AND RECREATION\b|SANITARY|UTILITY|IRRIGATION|"
+                         r"TRANSIT|AIRPORT|\bPORT (OF|AUTHORITY|COMMISSION(ER)?S?|DISTRICT|DIRECTOR)\b|\bPORT(,? WATERWAY|$)|"
+                         r"LIBRARY|CEMETERY|\bSOIL\b|CONSERVATION|CONSERVANCY|DRAINAGE|LEVEE|MOSQUITO|TRANSPORTATION|"
+                         r"DEVELOPMENT DISTRICT|\bPUD\b|\bAUTHORITY\b"),
     ("clerk, treasurer or other county officer", r"CLERK|TREASURER|ASSESSOR|RECORDER|REGISTRAR|REGISTER|COLLECTOR|"
                                                 r"AUDITOR|CORONER|SURVEYOR|APPRAISER|SUPERVISOR OF ELECTIONS|"
-                                                r"COMPTROLLER|CONTROLLER|ENGINEER|SUPERINTENDENT"),
-    ("council, commission or board", r"COUNCIL|ALDERM|COMMISSION|SUPERVISOR|SELECT|LEVY COURT|BOARD|TRUSTEE|"
-                                     r"FREEHOLDER|LEGISLAT|REPRESENTATIVE|DELEGATE|ASSEMBLY|WARD|MEMBER"),
+                                                r"COMPTROLLER|CONTROLLER|ENGINEER|SUPERINTENDENT|"
+                                                r"PROPERTY VALUATION|\bPVA\b|PUBLIC ADMINISTRATOR|\bTREAS\b|\bCLRK\b|"
+                                                r"\bFISCAL OFFICER\b|\bHIGHWAY SUPER"),
+    # COM+IS+I[O0]N: the source's misspellings too ("COMMISIONER", "COMMMISSION", "COMMISSI0NER")
+    ("council, commission or board", r"COUNCIL|ALDERM|COM+IS+I[O0]N|SUPERVISOR|\bSUPV\b|SELECT|BOARD|T?R?USTEE|"
+                                     r"FREEHOLDER|LEGISLAT|REPRESENTATIVE|DELEGATE|ASSEMBLY|\bWARDS?\b|\bWARDEN\b|"
+                                     r"MEMBER|\bCOMMITTEE|\bCHAIR(MAN|PERSON|WOMAN)?$"),
 ]
+# A place's own name, taken off before the office's words are read: Louisiana's "MAYOR, TOWN OF MELVILLE" (the
+# place after a comma), the State Board's "TOWN OF ELK PARK COUNCIL MEMBER" and New Jersey's "EDGEWATER PARK
+# TOWNSHIP - TOWNSHIP COMMITTEE" (the place before the office's first word) and "PARK COUNTY COMMISSIONER" (a
+# county's name). Why: "Southport", "Newport", "Elk Park", "Marshall" and "Port Allen" read as a port, a park or a
+# marshal [measured: data/local/REPORT.md section 15].
+_OFFICE_WORD = (r"MAYOR|COUNCIL|ALDERM|COMMISSIONERS?|BOARD|TRUSTEES?|MEMBER|CLERK|TREASURER|MARSHAL|CHIEF|POLICE|"
+                r"SELECT|JUDGE|ATTORNEY|TAX|WARD|DISTRICT|AT[- ]LARGE|SEAT|FIRE|WATER|SANITARY|SEWER|HOSPITAL|LIBRARY|"
+                r"RECORDER|ASSESSOR|COLLECTOR|CONSTABLE|SHERIFF|AUDITOR|CONTROLLER|COMPTROLLER|TOWNSHIP COMMITTEE|"
+                r"COMMITTEE")
+PLACE_NAME = [re.compile(r",\s*(CITY|TOWN|VILLAGE|PARISH|BOROUGH) OF [^,]*"),
+              re.compile(r"^(CITY|TOWN|VILLAGE|BOROUGH) OF .+? (?=(" + _OFFICE_WORD + r"))"),   # a word's start: COUNCILMAN
+              re.compile(r"^((?!(" + _OFFICE_WORD + r"))[A-Z.'-]+ ){1,3}(CITY|TOWN|TOWNSHIP|VILLAGE|BOROUGH)( -)? "
+                         r"(?=(" + _OFFICE_WORD + r"))"),   # a place's words hold no office's word
+              re.compile(r"^((?!(" + _OFFICE_WORD + r"|SCHOOL|EDUCATION))[A-Z.']+ ){1,3}COUNTY (?=\S)")]
+# Kentucky's justices of the peace, called magistrates on its ballots, sit on the county's fiscal court, its
+# governing body: "Counties shall have a Fiscal Court, which may consist of the Judge of the County Court and the
+# Justices of the Peace" (Ky. Const. section 144, read 2026-11-07 at 12:06 UTC from the Legislative Research
+# Commission, https://apps.legislature.ky.gov/law/constitution/constitution/viewconstitution?rsn=164) [stated; the
+# ballot's "Magistrate" for the justice of the peace: inferred]
+#
+# A state's own short forms, read in that state only, since elsewhere they mean another thing (Texas's "ESD" is an
+# emergency services district): Arizona's school districts ("CHANDLER USD #80", "BALSZ ESD #31", "MCCCD", "EVIT"),
+# Texas's justices of the peace, criminal district courts, district attorneys, county commissioners and tax
+# assessor-collectors ("BEXAR JP 3 PL 1", "DALLAS CDC 7", "TARRANT CRIMINAL DA", "HARRIS CO COMM 2", "TARRANT TAX
+# A-C"), New Jersey's boards of education and regional school districts ("MEM OF THE BD OF ED", "HOPEWELL VALLEY
+# REGIONAL - PENNINGTON BOROUGH") and its councils and township committees ("B.H. TOWN COUN.", "ELK TOWNSHIP COMM."),
+# Indiana's metropolitan school districts and school boards ("MSD", "SB"), Kentucky's independent school districts
+# ("PAINTSVILLE INDEPENDENT"), Arkansas's city directors (a city manager's board: "HOT SPRINGS DIRECTOR", "CITY OF
+# FORT SMITH DIRECTOR") and its college ("NWACC"). [inferred: each from the names and the districts the source gives]
+STATE_OFFICE_TYPES = {
+    "KY": [("council, commission or board", r"^MAGISTRATE\b|JUSTICE OF (THE )?PEACE"),
+           ("school board", r"\bINDEPENDENT$")],
+    "AZ": [("school board", r"\b(USD|ESD|UHSD|HSD|ELEMENTARY SD|ELEM DIST|MCCCD|EVIT)\b")],
+    "TX": [("judge", r"\bJP\b|\bCDC\b"), ("prosecutor", r"\bDA\b"), ("council, commission or board", r"\bCO COMM\b"),
+           ("clerk, treasurer or other county officer", r"\bTAX A-C\b")],
+    "NJ": [("school board", r"\bBD OF ED\b|\bREGIONAL( -|$)"), ("council, commission or board", r"\bCOUN\.|\bCOMM\.")],
+    "IN": [("school board", r"\bMSD\b|\bSB\b")],
+    "AR": [("school board", r"\bNWACC\b"), ("council, commission or board", r"^(?!.*DISTRICT).*\bDIRECTOR\b")],
+}
+# An office named by its place alone, the seat in its district ("CITY OF BENTONVILLE", district "WARD 1, POS 2"):
+# Arkansas's city councils are elected by ward and position [inferred: from the districts the source gives]
+SEAT_DISTRICT = re.compile(r"^(WARD \d+,? )?POS(ITION)?\.? ?\d+$")
 
 
-def office_type(office):
-    o = office.upper()
+def office_type(office, state=None, district=None):
+    o = " ".join(office.upper().split())
+    for name, pat in STATE_OFFICE_TYPES.get(state, []):
+        if re.search(pat, o):
+            return name
+    for rx in PLACE_NAME:
+        o = rx.sub(" ", o).strip() if rx.pattern.startswith(",") else rx.sub("", o)
     for name, pat in OFFICE_TYPES:
         if re.search(pat, o):
             return name
+    if district and SEAT_DISTRICT.match(" ".join(str(district).upper().split())):
+        return "council, commission or board"
     return "other local office"
 
 
@@ -1174,7 +1290,7 @@ def local_structure(m):
         return ("not computed", "the source redacts some precincts' counts for this contest")
     nd = sum(1 for x in b if major(x) == "D")
     nr = sum(1 for x in b if major(x) == "R")
-    ot = office_type(m["office"])
+    ot = office_type(m["office"], m.get("state"), m.get("district"))
     scope = "state" if m["dataverse"] == "STATE" else "local"
     if k > 1:
         slate = ("both major parties on the ballot" if nd and nr else "one major party or none")
@@ -1336,6 +1452,8 @@ def build(out_dir, with_p=True):
     m22_sound = [c for c in m[2022] if c["state"] not in bad[2022]]   # last results and like races: sound states only
     rows24 = {id(r_["m"]): r_ for r_ in leg_rows_2024(m[2024], m22_sound, klarner)}
     ktrain = [r_ for r_ in L.class_rows(klarner) if r_["year"] < 2024]   # like races of earlier years only
+    for y in ODD_YEARS:   # Louisiana's 2023 legislature: its deciding rounds join the later years' like races
+        ktrain += LA.class_rows(y)
     kdens = {}
     pieces = collections.Counter(leg_key(c) + (c["stage"], c["special"]) for c in m[2024]
                                  if c["office"] in LEG and not c["question"])
@@ -1458,7 +1576,7 @@ def build(out_dir, with_p=True):
             files[k_] += [L._compact(r_) for r_ in recs]
 
     # -- local races: routes (b) and (c), from like races of earlier years
-    lrows = {y: local_rows([c for c in m[y] if not held(c, bad[y])]) for y in YEARS}
+    lrows = {y: local_rows([c for c in m[y] if not held(c, bad[y])]) for y in YEARS + ODD_YEARS}
     dens = {}
     bt = backtest_local_partisan(write=True, prow=prow, pres=pres)
     lp = {}
@@ -1467,7 +1585,7 @@ def build(out_dir, with_p=True):
         lp[y] = None if rows_y is None else {id(r_["m"]): r_ for r_ in rows_y}
     fits = {y: L.fit_before(prow, pres, y) if lp[y] is not None else (None, 0) for y in YEARS}
     for year in sorted(YEARS + ODD_YEARS):
-        train = [r_ for y in YEARS if y < year for r_ in lrows[y]]
+        train = [r_ for y in YEARS + ODD_YEARS if y < year for r_ in lrows[y]]
         for c in m[year]:
             if not is_local_level(c):
                 continue
@@ -1481,7 +1599,7 @@ def build(out_dir, with_p=True):
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
-                   "office": c["office"].title(), "office_type": office_type(c["office"]), "office_scope": scope,
+                   "office": c["office"].title(), "office_type": office_type(c["office"], c["state"], c["district"]), "office_scope": scope,
                    "election": c.get("election_words") or ((("general" if c["stage"] == "GEN" else
                                                                c["stage"].lower())
                                                               + (", special" if c["special"] else ""))
@@ -1498,6 +1616,9 @@ def build(out_dir, with_p=True):
                 rec["party_office"] = c["party_office"]
             if c.get("notes"):   # Louisiana's tied generals held again (local_la.py tie_note)
                 rec["notes"] = list(c["notes"])
+            if c.get("tie"):   # an exact tie, and how it was settled (local_la.py tie_record)
+                rec["result"]["tie"] = True
+                rec["result"]["tie_settled"] = c["tie"]
             p = {}
             if held(c, bad[year]) and route != "zero":
                 p["not_computed"] = held(c, bad[year])
@@ -1536,10 +1657,10 @@ def build(out_dir, with_p=True):
     import measures as MS
     book = MS.load_thresholds()
     mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
-    mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS}
+    mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS + ODD_YEARS}
     mdens, mtest, mhalf = {}, [], []
-    for year in MEASURE_YEARS:
-        train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
+    for year in sorted(MEASURE_YEARS + ODD_YEARS):
+        train = [r_ for y in MEASURE_YEARS + ODD_YEARS if y < year for r_ in mrows[y]]
         for r_ in mrows[year]:     # the route's calibration near 1/2: every statewide question, threshold read or not
             if r_["key"].startswith("statewide"):
                 tr = [x["s"] for x in train if x["key"] == r_["key"]]
@@ -1558,7 +1679,7 @@ def build(out_dir, with_p=True):
                           f"{exp:.1f} within {L.WINDOWS[-1] * 100:.0f} points, {min(r_['year'] for r_ in rs)} to "
                           f"{max(r_['year'] for r_ in rs)}), so p may be low")
     for year in sorted(MEASURE_YEARS + ODD_YEARS):
-        train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
+        train = [r_ for y in MEASURE_YEARS + ODD_YEARS if y < year for r_ in mrows[y]]
         for c in m[year]:
             if not c["question"]:
                 continue
@@ -1594,8 +1715,8 @@ def build(out_dir, with_p=True):
                 import local_ncsbe as NS
                 notes.append(NS.OWN_COUNTY_NOTE)
             if c.get("read_as_question"):
-                notes.append("filed in the source as a candidate contest; read as a question, since its two lines are "
-                             "a yes and a no")
+                notes.append("filed in the source as a candidate contest; read as a question, since "
+                             + c["read_as_question"])
             if c.get("joined_from"):
                 notes.append("the source files its yes and its no under different wordings (" +
                              " | ".join(x.title() for x in c["joined_from"]) + "); joined")
@@ -1652,11 +1773,10 @@ def build(out_dir, with_p=True):
                                                  "q": round(f * 2 * h, 5), "source": "model"})
                         s_ = yes / (yes + no)
                         tr = [r_["s"] for r_ in train if r_["key"] == key]
-                        if year not in ODD_YEARS:   # not in the back-test (ODD_YEARS)
-                            mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
-                                          "in_own": abs(s_ - t) <= h,
-                                          "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
-                                                             abs(s_ - t) <= hh] for hh in L.WINDOWS}})
+                        mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
+                                      "in_own": abs(s_ - t) <= h,
+                                      "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
+                                                         abs(s_ - t) <= hh] for hh in L.WINDOWS}})
                         if not with_p:
                             p = {}
                         elif f <= 0:
@@ -1672,7 +1792,7 @@ def build(out_dir, with_p=True):
             counts[f"{label}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
-    scored = {k_: v for k_, v in files.items() if k_[1] not in ODD_YEARS}   # the back-tests' and test's years
+    scored = files   # every year written, ODD_YEARS too (the orchestrator, 11:56)
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:

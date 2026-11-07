@@ -9,7 +9,10 @@ Written 2026-11-07 by worker D2. Reads only the cache (CACHE); run the source sc
   medsl_dataverse.py senate president  the check on Senate results; state presidential vote
   downballot_pres_by_cd.py             district presidential vote
   nara_electoral_college.py            president's party
-  algara_amlani.py governors           governors of 1978-2004 (the source of record before Cha's 2006)
+  algara_amlani.py governors           governors of 1978-2004 (the source of record before Cha's 2006), and of the
+                                       odd years 1977-2005 (and a contest Cha does not hold, or holds only its winner)
+  la_sos_governor.py 2023              Louisiana's governor of 2023, from the Secretary of State (D3's reader)
+  ms_governor_rule.py                  Mississippi's rule for electing its governor before 2020 (HC 47 of 2020)
 
 What it writes for each contest (plan section 3, with the fields data/README.md adds):
   result     from the source of record, every candidate and line it prints;
@@ -59,6 +62,51 @@ def general_election_day(year):
 
 for _y in range(chambers.GOV_FROM, 2006, 2):
     ELECTION_DAY[_y] = general_election_day(_y)
+# the odd years (the orchestrator, 2026-11-07 12:01): Kentucky, Mississippi, New Jersey and Virginia hold the governor's
+# election on the same Tuesday of November (inferred; for Mississippi section 140 of its Constitution says so, as HC 47
+# of 2020 prints it). Louisiana's rounds are on Saturdays of October and November, a date each record gives or lacks
+for _y in chambers.ODD_YEARS:
+    ELECTION_DAY[_y] = general_election_day(_y)
+ODD_STATES = chambers.ODD_STATES
+LA_GOV = ("Louisiana elects its governor in an open primary: a candidate with a majority is elected, else the two "
+          "leaders meet in a runoff weeks later; the record is the deciding round, a first round or a runoff, and p is "
+          "not computed for either (model section 7: two-round systems and runoffs are not yet computed; as for the "
+          "state's congressional elections)")
+OFF_CYCLE = ("a governor election in an odd year in a state that elects its governor in even years (a special election, "
+             "or the later round of an even year's election) [inferred: every other governor election of the state in "
+             "the sources is in an even year]; the sources read here give no date for it, and the model's forecasts are "
+             "fitted to the regular general elections")
+MS_RULE_URL = "https://billstatus.ls.state.ms.us/documents/2020/html/HC/HC0047SG.htm"
+MS_BEFORE_2020 = (
+    "Mississippi's governor needed two majorities until the amendment of 2020: the candidate with the most votes in "
+    "each county or House district was \"holden to have received as many votes as such county or district is "
+    "entitled to members in the House of Representatives, which last named votes are hereby designated 'electoral "
+    "votes'\", and \"The person found to have received a majority of all the electoral votes, and also a majority of "
+    "the popular vote, shall be declared elected\"; else \"the House of Representatives shall proceed to choose a "
+    "Governor from the two persons who shall have received the highest number of popular votes\" (Constitution of "
+    "1890, sections 140 and 141, as the Legislature's House Concurrent Resolution 47 of 2020 prints them, struck and "
+    "repealed; source ms_hc47_2020). So one vote can decide by crossing the popular majority line or by changing a "
+    "district's electoral vote, which the tie form does not measure, and p is not computed (the orchestrator, "
+    "2026-11-07 12:11)")
+MS_FROM_2023 = ("Mississippi's governor needs a majority since the amendment of 2020, else a runoff (section 140 as HC 47 "
+                "of 2020 proposed it: \"If no person receives a majority of the votes, then a runoff election shall be "
+                "held\"); with three or more candidates with votes this is a first round (model section 7; the "
+                "orchestrator, 2026-11-07 12:11)")
+
+
+def governor_structure(year, state, n_voted, special):
+    """The reason p is not computed for a governor contest of a structure the model does not compute, else None:
+    Louisiana's two rounds, Mississippi's two majorities before 2020 (and a first round after), and an odd-year
+    contest outside the five states that elect their governors in odd years."""
+    if year % 2 and (state not in ODD_STATES or special):
+        return OFF_CYCLE
+    if state == "LA":
+        return LA_GOV
+    if state == "MS" and year <= 2019:
+        return MS_BEFORE_2020
+    if state == "MS" and n_voted >= 3:
+        return MS_FROM_2023
+    return None
 SOURCE_POOL = {}
 SOURCES = {}      # the file's top-level "sources": blocks that fields of this script's own name by key
 
@@ -264,6 +312,10 @@ def structure(year, office, state, cands, special):
     if len(real) == 1 or len(voted) <= 1:
         return ("uncontested", "only one candidate was on the ballot") if len(real) == 1 else \
             ("uncontested", "only one candidate received votes")
+    if office == "governor":
+        why = governor_structure(year, state, len(voted), special)
+        if why:
+            return (NOT_COMPUTED, why)
     if state == "LA" and office in ("house", "senate"):
         return (NOT_COMPUTED, "Louisiana's congressional election in November is an open primary: a "
                 "majority wins outright, else the top two meet in a December runoff (model section 7)")
@@ -332,14 +384,17 @@ def pres_inputs():
 
 def forecast_inputs(year, office, state, district, inc, inc_via, P, special=False):
     share, nat, medsl_src, db, nara = P
-    py = year - 4 if year % 4 == 0 else year - 2
+    py = chambers.last_pres_year(year)     # in an odd year, the presidential election before it
     sitting = nara[max(y for y in nara if y < year)]
     SOURCES["medsl_president"] = medsl_src
     SOURCES[f"nara_{sitting['year']}"] = sitting["source"]
     out = {"pres_year": py, "national_share_D": round(nat[py], 6), "national_source": "medsl_president",
            "incumbency": inc, "incumbency_source": ("cha" if "cha" in inc_via else "record" if inc_via else None),
-           "midterm": year % 4 != 0, "president_party": sitting["party"],
+           "midterm": year % 4 != 0 if year % 2 == 0 else None, "president_party": sitting["party"],
            "president_source": f"nara_{sitting['year']}"}
+    if year % 2:
+        # neither a midterm nor a presidential year (chambers.ODD_TERMS: the route's term of record for odd years)
+        out["odd_year"] = True
     if office == "house" and special and (year - 2) in LEAN_INPUT:
         # a House special fills the old Congress's term and is held on the old Congress's lines (2018: Pennsylvania's
         # 7th and 15th, on the lines of 2016 though the new map elected the new Congress the same day), so its lean
@@ -528,6 +583,9 @@ def aa_structure(r):
         return (NOT_COMPUTED, "the source's county totals sum to less than the two nominees' votes")
     if (D == 0) != (R == 0) and o == 0:
         return ("uncontested", "only one candidate received votes")
+    why = governor_structure(r["year"], r["state"], (D > 0) + (R > 0) + (o > 0), False)
+    if why:
+        return (NOT_COMPUTED, why)
     if D == 0 or R == 0:
         return (NOT_COMPUTED, "no Democrat or no Republican received votes; the source names no other candidate, so "
                 "who the top two were is not known")
@@ -669,7 +727,145 @@ def build_early_governors(year):
           f"{len(contests) - n_p0 - n_pend}")
 
 
+# ----------------------------------------------------------------------------- the odd-year governors
+LA_SOS_LICENCE = "no licence printed; the Louisiana Secretary of State's official election returns, public records"
+DATE_NOTE = ("date: the general election day (the Tuesday after the first Monday in November), inferred; the source "
+             "gives the year")
+
+
+def ms_rule_source():
+    """The source block of Mississippi's rule before 2020 (pipeline/intake/ms_governor_rule.py's file)."""
+    m = cc.read_json(os.path.join(cc.CACHE, "law", "MS", "hc47-2020-html.raw.meta.json"))
+    if m is None:
+        raise SystemExit("run pipeline/intake/ms_governor_rule.py first")
+    return cc.source_block("Mississippi Legislature, 2020 Regular Session, House Concurrent Resolution 47 (as adopted "
+                           "by the House and Senate): sections 140 to 143 of the Constitution of 1890 as they read, "
+                           "the words it strikes from section 140 marked", m["url"], m["read_utc"],
+                           "a public record of the Mississippi Legislature; no licence printed", mark="stated",
+                           note=f"sha256 {m['sha256'][:16]}; read by pipeline/intake/ms_governor_rule.py through D4's "
+                                f"state_law.py, the host's certificate chain completed from its own CA Issuers address "
+                                f"with verification on (the orchestrator, 2026-11-07 08:00); the text as it read when "
+                                f"the amendment was proposed in 2020, no earlier text read")
+
+
+def la_sos_governors(year, P):
+    """Louisiana's governor contest of `year` from the Secretary of State (pipeline/intake/la_sos_governor.py), gated
+    within the certifying source as D3 gates that year's other contests."""
+    d = cc.read_json(os.path.join(cc.CACHE, "la_sos", "normalized", f"governor-{year}.json"))
+    if d is None:
+        raise SystemExit(f"run pipeline/intake/la_sos_governor.py {year} first")
+    out = []
+    for c in d["contests"]:
+        wb = c["workbook"]
+        src = cc.source_block(d["source"]["name"], wb["url"], wb["read_utc"], LA_SOS_LICENCE, mark="stated",
+                              via=d["source"]["url"],
+                              note=f"the workbook of {c['date']} (sha256 {wb['sha256'][:16]}), its sheet "
+                                   f"'Multi-Parish(Parish)', read by D3's pipeline/intake/la_sos.py; the date marked "
+                                   f"official on the site's list of elections ({d['dates_list']['url']}, read "
+                                   f"{d['dates_list']['read_utc']})")
+        SOURCES["la_sos"] = src
+        cands = [{"name": x["name"], "party": x["party"], "parties": [x["party"]], "votes": x["votes"],
+                  "scattered": False} for x in c["candidates"]]
+        rec = {"office": "governor", "state": "LA", "district": None, "special": False, "candidates": cands,
+               "printed_total": None, "computed_total": c["total_votes"], "runoff": None, "source": src,
+               "notes": [f"the Secretary of State's count over the {c['parishes']} parishes, the parties as the source "
+                         f"prints them (REP, DEM, IND, NOPTY: no party)"]}
+        r = contest(year, "governor", rec, None, None, P)
+        r["date"] = c["date"]
+        r["result"]["certified"] = True
+        r["notes"].append(f"date: {c['date']}, stated (the source's date of the workbook); a candidate had a majority, "
+                          f"so no later round was held for this contest (the site's posted results of the year's later "
+                          f"dates hold no contest titled Governor)")
+        g = c["gate"]
+        r["gate"] = {k: g[k] for k in ("by", "ruled", "official", "parts_add_up", "posted_results")}
+        r["checks"] = [{"against": "the Secretary of State's posted results of its date (" +
+                                   g["posted_files"]["Votes"]["url"] + f", read {g['posted_files']['Votes']['read_utc']}, "
+                                   f"sha256 {g['posted_files']['Votes']['sha256'][:16]}; the same file D3's "
+                                   f"data/local/check-la.json compared)",
+                        "differences": [] if g["posted_results"].startswith("equal") else [c["held"]]}]
+        if c["held"]:
+            r["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
+                      "not_computed": "held by the gate within the certifying source: " + c["held"], "reason": None}
+        out.append(r)
+    return out
+
+
+def _off_round(r, why):
+    """A contest whose date the sources do not give (Louisiana's rounds before 2023; a special or later round)."""
+    r["date"] = None
+    r["notes"] = [n for n in r["notes"] if not n.startswith("date:")] + [f"date: not given by the sources read here; {why}"]
+
+
+def build_odd_governors(year):
+    """An odd year: the governors of Kentucky, Louisiana, Mississippi, New Jersey and Virginia, and any other governor
+    contest the sources hold for the year (the orchestrator, 2026-11-07 12:01). The record is Cha, Kuriwaki and Snyder
+    where they hold the contest (2007-2021), as for the even years; Algara and Amlani's county sums before (1977-2005),
+    and where Cha does not hold it or holds only its winner; Louisiana's 2023 from the Secretary of State."""
+    P = pres_inputs()
+    SOURCES.clear()
+    cha_src, idx = cha_index()
+    AA_SOURCE()
+    aa = {r["state"]: r for r in _AA["elections"] if r["year"] == year}
+    by_state = {}
+    for r in governors(year, cha_src, idx, P):
+        st = r["place"]["state"]
+        voted = [a for a in r["result"]["candidates"] if a["votes"]]
+        a = aa.get(st)
+        if len(voted) <= 1 and a and sum(1 for v in (a["D"], a["R"], a["others"]) if v) > 1:
+            # Louisiana 2007: Cha holds only the winner of the open primary
+            continue
+        SOURCES["cha"] = cha_source(cha_src, "governor")
+        r["notes"].append(DATE_NOTE)
+        by_state[st] = r
+    for r in aa_governors(year, P):
+        st = r["place"]["state"]
+        if st in by_state:
+            continue
+        if year >= 2006:
+            held = [x for k, cs in idx.items() if k[0] == year and k[1] == "governor" and k[2] == st for x in cs]
+            r["notes"].append("Cha, Kuriwaki and Snyder hold only this contest's winner (" + ", ".join(
+                f"{a['name']} {a['votes']:,}" for x in held for a in x["candidates"]) + "), so Algara and Amlani's "
+                "county sums, which hold the other candidates, stand as the record" if held else
+                "Cha, Kuriwaki and Snyder do not hold this contest, so Algara and Amlani's county sums stand as the "
+                "record")
+        by_state[st] = r
+    la = os.path.join(cc.CACHE, "la_sos", "normalized", f"governor-{year}.json")
+    if os.path.exists(la):
+        for r in la_sos_governors(year, P):
+            by_state["LA"] = r
+    for st, r in by_state.items():
+        if r["date"] is None or st == "LA" and r["result"]["source"].get("name", "").startswith("Louisiana"):
+            continue
+        if st == "LA":
+            _off_round(r, "Louisiana's rounds are held on Saturdays of October and November, not on the general "
+                          "election day")
+        elif st not in ODD_STATES or r["special"]:
+            _off_round(r, "an odd-year election in a state that elects its governor in even years")
+    contests = sorted(by_state.values(), key=lambda r: r["id"])
+    srcs = dict(SOURCES)
+    if any(r["place"]["state"] == "MS" for r in contests):
+        srcs["ms_hc47_2020"] = ms_rule_source()
+    missing = [f"{st}: not in the sources read here (Cha, Kuriwaki and Snyder end in 2021, Algara and Amlani in 2019"
+               + ("; Louisiana's own file is read for 2023 only" if st == "LA" else "") + ")"
+               for st in ODD_STATES if st not in by_state and (year % 4 == 3) == (st in ("KY", "LA", "MS"))]
+    out = {"level": "governor", "year": year,
+           "about": f"Governor contests of {year}, an odd year, in the layout of plan/PLAN.md section 3 with the fields "
+                    f"data/README.md adds. Built by pipeline/intake/build_congress.py from Cha, Kuriwaki and Snyder "
+                    f"(2007-2021), Algara and Amlani's county returns (before, and where Cha lacks a contest) and "
+                    f"Louisiana's Secretary of State (2023), as each contest's source block says. The forecast is the "
+                    f"governors' route fitted on the even years before it (data/congress/REPORT.md section 8).",
+           "missing_from_record": [], "not_in_sources": missing, "sources": srcs, "contests": contests}
+    cc.write_contest_file(os.path.join(cc.DATA, "governor", f"{year}.json"), out)
+    n_p0 = sum(1 for r in contests if r["p"]["value"] == 0.0)
+    n_pend = sum(1 for r in contests if (r["p"]["not_computed"] or "").startswith("pending"))
+    print(f"{year} governor: {len(contests)} contests ({', '.join(r['place']['state'] for r in contests)}); uncontested "
+          f"{n_p0}; awaiting the forecast {n_pend}; not computed {len(contests) - n_p0 - n_pend}"
+          + (f"; not in the sources: {missing}" if missing else ""))
+
+
 def build(year):
+    if year % 2:
+        return build_odd_governors(year)
     if year < 2006:
         return build_early_governors(year)
     pop = cc.read_json(os.path.join(cc.CACHE, "census", "normalized", f"population_{year}.json"))

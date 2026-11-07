@@ -26,24 +26,24 @@
    "mean_forecast_minus_outcome": 0.0283,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
-     205,
-     0.605
+     232,
+     0.621
     ],
     "council, commission or board": [
-     372,
-     0.468
+     384,
+     0.471
     ],
     "judge": [
-     72,
-     0.569
+     39,
+     0.564
     ],
     "mayor or executive": [
      10,
      0.4
     ],
     "other local office": [
-     19,
-     0.632
+     2,
+     0.5
     ],
     "prosecutor": [
      38,
@@ -54,12 +54,12 @@
      0.516
     ],
     "sheriff or constable": [
-     103,
-     0.417
+     115,
+     0.4
     ],
     "special district": [
-     12,
-     0.667
+     11,
+     0.727
     ]
    },
    "fit": {
@@ -73,12 +73,12 @@
    "computed": true
   },
   "2024": {
-   "races": 1503,
+   "races": 1501,
    "with_lean": 979,
    "held_back_state": 16,
    "lean_missing": {
     "the previous general's returns for this state are held back (see the state's check)": 249,
-    "a county's US House race was not contested by both parties throughout": 248,
+    "a county's US House race was not contested by both parties throughout": 246,
     "no US House vote for a county in the previous general's returns": 11
    },
    "in_intervals_50_80_95": {
@@ -97,40 +97,40 @@
    "mean_forecast_minus_outcome": 0.0294,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
-     147,
-     0.667
+     202,
+     0.678
     ],
     "council, commission or board": [
-     465,
-     0.443
+     475,
+     0.448
     ],
     "judge": [
-     89,
-     0.719
+     46,
+     0.696
     ],
     "mayor or executive": [
-     13,
-     0.769
+     8,
+     0.75
     ],
     "other local office": [
-     24,
-     0.583
+     10,
+     0.5
     ],
     "prosecutor": [
      53,
      0.604
     ],
     "school board": [
-     85,
-     0.424
+     84,
+     0.417
     ],
     "sheriff or constable": [
-     97,
-     0.474
+     96,
+     0.479
     ],
     "special district": [
-     6,
-     0.333
+     5,
+     0.4
     ]
    },
    "fit": {

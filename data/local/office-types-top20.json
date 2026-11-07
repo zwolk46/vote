@@ -1,0 +1,866 @@
+{
+ "about": "for each office type of the local races and primaries in data/local/ and data/primary/, the 20 office names (as filed, in capitals) it holds most often, with their counts of contests; the states' other offices (office_scope state) and the legislature's primaries left out. data/local/REPORT.md section 15.",
+ "code_commit": "e46a094",
+ "types": {
+  "council, commission or board": {
+   "contests": 23633,
+   "names": 9003,
+   "top": [
+    [
+     "COUNTY COMMISSIONER",
+     1651
+    ],
+    [
+     "ADVISORY NEIGHBORHOOD COMMISSION",
+     568
+    ],
+    [
+     "MAGISTRATE",
+     481
+    ],
+    [
+     "COUNTY COMMISSION",
+     426
+    ],
+    [
+     "COUNTY COMMISSION MEMBER",
+     317
+    ],
+    [
+     "COUNTY COUNCIL",
+     274
+    ],
+    [
+     "SINGLE MEMBER DISTRICT",
+     271
+    ],
+    [
+     "CITY COUNCIL",
+     262
+    ],
+    [
+     "COUNTY BOARD OF SUPERVISORS",
+     154
+    ],
+    [
+     "COUNTY AGRICULTURAL EXTENSION COUNCIL",
+     116
+    ],
+    [
+     "COUNTY COMMISSIONER TERM COMMENCING 01/02/2025",
+     86
+    ],
+    [
+     "COUNTY COMMISSIONER TERM COMMENCING 01/03/2025",
+     86
+    ],
+    [
+     "COUNTY COMMISSIONER: TERM COMMENCING 01/02/2021",
+     85
+    ],
+    [
+     "COUNTY COMMISSIONER: TERM COMMENCING 01/03/2021",
+     85
+    ],
+    [
+     "MEMBER CITY COUNCIL",
+     85
+    ],
+    [
+     "BOARD OF COMMISSIONERS",
+     77
+    ],
+    [
+     "COUNTY COMMISSIONER DISTRICT 1",
+     46
+    ],
+    [
+     "MEMBER TOWN COUNCIL",
+     45
+    ],
+    [
+     "BOARD OF COMMISSIONERS DISTRICT 2",
+     44
+    ],
+    [
+     "BOARD OF COMMISSIONERS DISTRICT 3",
+     42
+    ]
+   ]
+  },
+  "school board": {
+   "contests": 8502,
+   "names": 3390,
+   "top": [
+    [
+     "MEMBER BOARD OF EDUCATION",
+     944
+    ],
+    [
+     "BOARD OF EDUCATION",
+     578
+    ],
+    [
+     "SCHOOL BOARD",
+     366
+    ],
+    [
+     "SCHOOL BOARD MEMBER",
+     270
+    ],
+    [
+     "COUNTY BOARD OF EDUCATION MEMBER",
+     235
+    ],
+    [
+     "COMMUNITY COLLEGE DISTRICT TRUSTEE",
+     65
+    ],
+    [
+     "MEMBER OF BOARD OF EDUCATION",
+     55
+    ],
+    [
+     "MEMBER SCHOOL BOARD",
+     51
+    ],
+    [
+     "BOARD OF EDUCATION DISTRICT 1",
+     50
+    ],
+    [
+     "BOARD OF EDUCATION DISTRICT 2",
+     49
+    ],
+    [
+     "BOARD OF EDUCATION DISTRICT 3",
+     40
+    ],
+    [
+     "COUNTY BOARD OF EDUCATION SUPERINTENDENT",
+     35
+    ],
+    [
+     "BOARD OF EDUCATION DISTRICT 4",
+     32
+    ],
+    [
+     "SUPERINTENDENT OF SCHOOLS",
+     32
+    ],
+    [
+     "BOARD OF EDUCATION DISTRICT 5",
+     31
+    ],
+    [
+     "SCHOOL BOARD TRUSTEE",
+     28
+    ],
+    [
+     "BOARD OF EDUCATION AT-LARGE",
+     27
+    ],
+    [
+     "COUNTY SUPERINTENDENT OF SCHOOLS",
+     27
+    ],
+    [
+     "SCHOOL BOARD OF TRUSTEES",
+     27
+    ],
+    [
+     "SCHOOL TRUSTEE",
+     26
+    ]
+   ]
+  },
+  "clerk, treasurer or other county officer": {
+   "contests": 7878,
+   "names": 2282,
+   "top": [
+    [
+     "COUNTY TREASURER",
+     412
+    ],
+    [
+     "CORONER",
+     403
+    ],
+    [
+     "REGISTRAR OF VOTERS",
+     369
+    ],
+    [
+     "COUNTY RECORDER",
+     349
+    ],
+    [
+     "CLERK OF SUPERIOR COURT",
+     323
+    ],
+    [
+     "COUNTY CLERK",
+     175
+    ],
+    [
+     "COUNTY ENGINEER",
+     173
+    ],
+    [
+     "REGISTER OF DEEDS",
+     173
+    ],
+    [
+     "TAX COMMISSION",
+     157
+    ],
+    [
+     "SUPERIOR COURT CLERK",
+     155
+    ],
+    [
+     "COUNTY CORONER",
+     144
+    ],
+    [
+     "ASSESSOR",
+     131
+    ],
+    [
+     "CIRCUIT COURT CLERK",
+     120
+    ],
+    [
+     "CLERK OF COURT",
+     118
+    ],
+    [
+     "COUNTY AUDITOR",
+     112
+    ],
+    [
+     "SURVEYOR",
+     99
+    ],
+    [
+     "PROPERTY VALUATION ADMINISTRATOR",
+     90
+    ],
+    [
+     "CLERK OF THE COURT OF COMMON PLEAS",
+     87
+    ],
+    [
+     "CIRCUIT CLERK",
+     75
+    ],
+    [
+     "COUNTY SURVEYOR",
+     59
+    ]
+   ]
+  },
+  "special district": {
+   "contests": 4182,
+   "names": 1319,
+   "top": [
+    [
+     "SOIL AND WATER SUPERVISOR",
+     427
+    ],
+    [
+     "SOIL AND WATER CONSERVATION DISTRICT SUPERVISOR",
+     277
+    ],
+    [
+     "COUNTY SOIL AND WATER CONSERVATION DISTRICT COMMISSIONER",
+     118
+    ],
+    [
+     "SOIL AND WATER CONSERVATION DISTRICT COMMISSIONER",
+     98
+    ],
+    [
+     "WATER DISTRICT DIRECTOR",
+     67
+    ],
+    [
+     "SOIL AND WATER",
+     65
+    ],
+    [
+     "SOIL AND WATER DISTRICT SUPERVISOR",
+     55
+    ],
+    [
+     "SOIL AND WATER CONSERVATION DISTRICT SUPERVISORS",
+     52
+    ],
+    [
+     "SOIL CONSERVATION DISTRICT SUPERVISOR",
+     51
+    ],
+    [
+     "COUNTY PUBLIC HOSPITAL TRUSTEE",
+     44
+    ],
+    [
+     "HEALTHCARE DISTRICT DIRECTOR",
+     32
+    ],
+    [
+     "SOIL AND WATER DISTRICT COMMISSION",
+     31
+    ],
+    [
+     "RECREATION AND PARK DISTRICT DIRECTOR",
+     28
+    ],
+    [
+     "COMMUNITY SERVICES DISTRICT DIRECTOR",
+     25
+    ],
+    [
+     "FIRE PROTECTION DISTRICT DIRECTOR",
+     22
+    ],
+    [
+     "PUBLIC UTILITY DISTRICT DIRECTOR",
+     22
+    ],
+    [
+     "IRRIGATION DISTRICT DIRECTOR",
+     17
+    ],
+    [
+     "GARRISON DIVERSION CONSERVANCY DIRECTOR",
+     15
+    ],
+    [
+     "NATURAL RESOURCES DISTRICT BOARD OF DIRECTORS - CENTRAL PLATTE",
+     11
+    ],
+    [
+     "NATURAL RESOURCES DISTRICT BOARD OF DIRECTORS - NEMAHA",
+     11
+    ]
+   ]
+  },
+  "mayor or executive": {
+   "contests": 3981,
+   "names": 1542,
+   "top": [
+    [
+     "MAYOR",
+     165
+    ],
+    [
+     "COUNTY JUDGE EXECUTIVE",
+     108
+    ],
+    [
+     "CITY OF CHARLOTTE MAYOR",
+     19
+    ],
+    [
+     "PARISH PRESIDENT",
+     19
+    ],
+    [
+     "CITY OF FAYETTEVILLE MAYOR",
+     15
+    ],
+    [
+     "CITY OF DURHAM MAYOR",
+     14
+    ],
+    [
+     "COUNTY EXECUTIVE",
+     13
+    ],
+    [
+     "CITY OF GREENSBORO MAYOR",
+     11
+    ],
+    [
+     "CITY OF BURLINGTON MAYOR",
+     10
+    ],
+    [
+     "CITY OF HIGH POINT MAYOR",
+     9
+    ],
+    [
+     "TOWN OF MOORESVILLE MAYOR",
+     9
+    ],
+    [
+     "CITY OF ARCHDALE MAYOR",
+     8
+    ],
+    [
+     "CITY OF CLINTON MAYOR",
+     8
+    ],
+    [
+     "CITY OF ELIZABETH CITY MAYOR",
+     8
+    ],
+    [
+     "CITY OF MONROE MAYOR",
+     8
+    ],
+    [
+     "CITY OF RALEIGH MAYOR",
+     8
+    ],
+    [
+     "TOWN OF ATLANTIC BEACH MAYOR",
+     8
+    ],
+    [
+     "TOWN OF HARRELLSVILLE MAYOR",
+     8
+    ],
+    [
+     "TOWN OF JAMESTOWN MAYOR",
+     8
+    ],
+    [
+     "TOWN OF MATTHEWS MAYOR",
+     8
+    ]
+   ]
+  },
+  "sheriff or constable": {
+   "contests": 3449,
+   "names": 634,
+   "top": [
+    [
+     "SHERIFF",
+     977
+    ],
+    [
+     "CONSTABLE",
+     503
+    ],
+    [
+     "COUNTY SHERIFF",
+     281
+    ],
+    [
+     "COUNTY CONSTABLE",
+     189
+    ],
+    [
+     "JAILER",
+     107
+    ],
+    [
+     "CONSTABLE, JUSTICE OF THE PEACE",
+     89
+    ],
+    [
+     "SHERIFF/CORONER",
+     38
+    ],
+    [
+     "MOBILE COUNTY CONSTABLE",
+     25
+    ],
+    [
+     "JEFFERSON COUNTY CONSTABLE",
+     16
+    ],
+    [
+     "WALKER COUNTY CONSTABLE",
+     14
+    ],
+    [
+     "CONECUH COUNTY CONSTABLE",
+     11
+    ],
+    [
+     "JACKSON COUNTY SHERIFF",
+     10
+    ],
+    [
+     "MARICOPA COUNTY CONSTABLE",
+     10
+    ],
+    [
+     "BLADEN COUNTY SHERIFF",
+     9
+    ],
+    [
+     "CLAY COUNTY SHERIFF",
+     9
+    ],
+    [
+     "GRAHAM COUNTY SHERIFF",
+     9
+    ],
+    [
+     "POLK COUNTY SHERIFF",
+     9
+    ],
+    [
+     "RANDOLPH COUNTY SHERIFF",
+     9
+    ],
+    [
+     "UNION COUNTY SHERIFF",
+     9
+    ],
+    [
+     "WILCOX COUNTY CONSTABLE",
+     9
+    ]
+   ]
+  },
+  "judge": {
+   "contests": 3107,
+   "names": 1342,
+   "top": [
+    [
+     "JUSTICE OF THE PEACE",
+     309
+    ],
+    [
+     "DISTRICT JUDGE",
+     146
+    ],
+    [
+     "JUDGE OF PROBATE",
+     143
+    ],
+    [
+     "PROBATE JUDGE",
+     140
+    ],
+    [
+     "JUSTICE OF PEACE",
+     127
+    ],
+    [
+     "DISTRICT COURT JUDGE",
+     93
+    ],
+    [
+     "CHANCERY COURT",
+     55
+    ],
+    [
+     "CIRCUIT JUDGE",
+     53
+    ],
+    [
+     "COOK CIRCUIT COURT JUDGE",
+     46
+    ],
+    [
+     "JUDGE OF DISTRICT COURT INCUMBENT",
+     42
+    ],
+    [
+     "CHIEF MAGISTRATE",
+     41
+    ],
+    [
+     "MAGISTRATE JUDGE",
+     41
+    ],
+    [
+     "CIRCUIT COURT JUDGE",
+     27
+    ],
+    [
+     "JUDGE OF CIRCUIT COURT INCUMBENT",
+     27
+    ],
+    [
+     "COURT OF APPEALS",
+     26
+    ],
+    [
+     "JUDGE OF THE COURT OF COMMON PLEAS - TERM COMMENCING 01/01/2019",
+     24
+    ],
+    [
+     "COUNTY COURT",
+     23
+    ],
+    [
+     "JUDGE - ORPHANS COURT",
+     23
+    ],
+    [
+     "JUDGE OF THE COUNTY COURT - TERM COMMENCING 01/01/2019",
+     20
+    ],
+    [
+     "JUDGE OF THE COURT OF COMMON PLEAS TERM COMMENCING 01/01/2025",
+     20
+    ]
+   ]
+  },
+  "prosecutor": {
+   "contests": 1351,
+   "names": 406,
+   "top": [
+    [
+     "COUNTY ATTORNEY",
+     363
+    ],
+    [
+     "PROSECUTING ATTORNEY",
+     285
+    ],
+    [
+     "DISTRICT ATTORNEY",
+     135
+    ],
+    [
+     "COMMONWEALTH'S ATTORNEY",
+     67
+    ],
+    [
+     "SOLICITOR GENERAL",
+     31
+    ],
+    [
+     "ATTORNEY",
+     18
+    ],
+    [
+     "SOLICITOR",
+     10
+    ],
+    [
+     "COUNTY ATTORNEY/PUBLIC ADMINISTRATOR",
+     9
+    ],
+    [
+     "STATE ATTORNEY",
+     7
+    ],
+    [
+     "ATTORNEY GENERAL",
+     5
+    ],
+    [
+     "CITY ATTORNEY",
+     4
+    ],
+    [
+     "COUNTYWIDE PROSECUTING ATTORNEY",
+     4
+    ],
+    [
+     "PROSECUTING ATTORNEY TER",
+     3
+    ],
+    [
+     "SANTA CRUZ COUNTY ATTORNEY",
+     3
+    ],
+    [
+     "COLUMBIA COUNTY DISTRICT ATTORNEY",
+     2
+    ],
+    [
+     "COUNTY DISTRICT ATTORNEY",
+     2
+    ],
+    [
+     "COUNTY PROSECUTING ATTORNEY",
+     2
+    ],
+    [
+     "CRAWFORD COUNTY DISTRICT ATTORNEY",
+     2
+    ],
+    [
+     "DODGE COUNTY DISTRICT ATTORNEY",
+     2
+    ],
+    [
+     "DOUGLAS COUNTY DISTRICT ATTORNEY",
+     2
+    ]
+   ]
+  },
+  "party committee": {
+   "contests": 241,
+   "names": 205,
+   "top": [
+    [
+     "RPEC MEMBER(S), AT LARGE",
+     12
+    ],
+    [
+     "DPEC MEMBER(S), AT LARGE",
+     7
+    ],
+    [
+     "RPEC MEMBER, DISTRICT 4",
+     4
+    ],
+    [
+     "RPEC MEMBER, DISTRICT 5",
+     4
+    ],
+    [
+     "DPEC MEMBER, DISTRICT 2",
+     3
+    ],
+    [
+     "RPEC MEMBER, DISTRICT 3",
+     3
+    ],
+    [
+     "RPEC MEMBER, DISTRICT 7",
+     3
+    ],
+    [
+     "DPEC MEMBER, DISTRICT 1",
+     2
+    ],
+    [
+     "DPEC MEMBER, DISTRICT 10",
+     2
+    ],
+    [
+     "DPEC MEMBER, DISTRICT 3",
+     2
+    ],
+    [
+     "DPEC MEMBER, DISTRICT 5",
+     2
+    ],
+    [
+     "RPEC MEMBER, DISTRICT 1",
+     2
+    ],
+    [
+     "RPEC MEMBER, DISTRICT 8",
+     2
+    ],
+    [
+     "RPEC MEMBER, DISTRICT 9",
+     2
+    ],
+    [
+     "DPEC MEMBER AT LARGE, DISTRICT 11",
+     1
+    ],
+    [
+     "DPEC MEMBER AT LARGE, DIVISION A",
+     1
+    ],
+    [
+     "DPEC MEMBER(S), DISTRICT A",
+     1
+    ],
+    [
+     "DPEC MEMBER(S), DISTRICT B",
+     1
+    ],
+    [
+     "DPEC MEMBER(S), DISTRICT C",
+     1
+    ],
+    [
+     "DPEC MEMBER(S), DISTRICT D",
+     1
+    ]
+   ]
+  },
+  "other local office": {
+   "contests": 100,
+   "names": 71,
+   "top": [
+    [
+     "LIEUTENANT GOVERNOR",
+     6
+    ],
+    [
+     "SECRETARY OF STATE",
+     5
+    ],
+    [
+     "DIRECTOR OF HUMAN SERVICES - GLOCESTER",
+     2
+    ],
+    [
+     "DIRECTOR OF PUBLIC WELFARE - HOPKINTON",
+     2
+    ],
+    [
+     "DIRECTOR OF PUBLIC WELFARE - SCITUATE",
+     2
+    ],
+    [
+     "DIRECTOR OF SOCIAL SERVICES - EXETER",
+     2
+    ],
+    [
+     "MODERATOR - BARRINGTON",
+     2
+    ],
+    [
+     "TOWN MODERATOR - CHARLESTOWN",
+     2
+    ],
+    [
+     "TOWN MODERATOR - EXETER",
+     2
+    ],
+    [
+     "TOWN MODERATOR - FOSTER",
+     2
+    ],
+    [
+     "TOWN MODERATOR - JAMESTOWN",
+     2
+    ],
+    [
+     "TOWN MODERATOR - LITTLE COMPTON",
+     2
+    ],
+    [
+     "TOWN MODERATOR - SCITUATE",
+     2
+    ],
+    [
+     "TOWN MODERATOR - WEST GREENWICH",
+     2
+    ],
+    [
+     "TOWN SERGEANT - EXETER",
+     2
+    ],
+    [
+     "TOWN SERGEANT - FOSTER",
+     2
+    ],
+    [
+     "TOWN SERGEANT - GLOCESTER",
+     2
+    ],
+    [
+     "TOWN SERGEANT - HOPKINTON",
+     2
+    ],
+    [
+     "TOWN SERGEANT - NEW SHOREHAM",
+     2
+    ],
+    [
+     "TOWN SERGEANT - SCITUATE",
+     2
+    ]
+   ]
+  }
+ }
+}

@@ -2,51 +2,46 @@
  "about": "local races given p by like past races (routes (b) and (c), method D3-v1.1): the chance each class gives of finishing within its window around one half, added up over the year's contests, beside how many did. Classes come from earlier years only. Built by pipeline/local_medsl.py build.",
  "years": {
   "2020": {
-   "contests": 1812,
-   "expected_in_window": 316.8,
-   "seen_in_window": 249,
+   "contests": 1765,
+   "expected_in_window": 313.0,
+   "seen_in_window": 247,
    "by_office_type": {
     "class, local council, commission or board": {
-     "contests": 989,
-     "expected": 218.8,
-     "seen": 179
+     "contests": 1018,
+     "expected": 221.8,
+     "seen": 181
     },
     "class, local school board": {
-     "contests": 356,
-     "expected": 59.6,
-     "seen": 44
-    },
-    "class, local other local office": {
-     "contests": 155,
-     "expected": 11.1,
-     "seen": 7
-    },
-    "class, local judge": {
-     "contests": 134,
-     "expected": 8.0,
-     "seen": 5
+     "contests": 289,
+     "expected": 45.3,
+     "seen": 36
     },
     "class, local special district": {
+     "contests": 279,
+     "expected": 26.5,
+     "seen": 17
+    },
+    "class, local judge": {
      "contests": 130,
-     "expected": 15.5,
-     "seen": 7
+     "expected": 16.4,
+     "seen": 9
     },
     "class, local mayor or executive": {
-     "contests": 48,
-     "expected": 3.8,
-     "seen": 7
+     "contests": 49,
+     "expected": 3.0,
+     "seen": 4
     }
    },
-   "seen_over_expected": 0.786
+   "seen_over_expected": 0.789
   },
   "2022": {
    "contests": 110,
-   "expected_in_window": 15.5,
+   "expected_in_window": 15.7,
    "seen_in_window": 3,
    "by_office_type": {
     "class, local school board": {
      "contests": 74,
-     "expected": 11.6,
+     "expected": 11.8,
      "seen": 2
     },
     "class, local council, commission or board": {
@@ -60,46 +55,54 @@
      "seen": 0
     }
    },
-   "seen_over_expected": 0.194
+   "seen_over_expected": 0.191
   },
-  "2024": {
-   "contests": 2313,
-   "expected_in_window": 289.0,
-   "seen_in_window": 218,
+  "2023": {
+   "contests": 18,
+   "expected_in_window": 1.1,
+   "seen_in_window": 4,
    "by_office_type": {
     "class, local council, commission or board": {
-     "contests": 978,
-     "expected": 134.8,
-     "seen": 101
+     "contests": 18,
+     "expected": 1.1,
+     "seen": 4
+    }
+   },
+   "seen_over_expected": 3.636
+  },
+  "2024": {
+   "contests": 2393,
+   "expected_in_window": 292.9,
+   "seen_in_window": 207,
+   "by_office_type": {
+    "class, local council, commission or board": {
+     "contests": 1000,
+     "expected": 135.2,
+     "seen": 87
     },
     "class, local school board": {
-     "contests": 721,
-     "expected": 105.0,
-     "seen": 70
+     "contests": 757,
+     "expected": 106.9,
+     "seen": 78
     },
     "class, local special district": {
-     "contests": 197,
-     "expected": 20.6,
-     "seen": 13
-    },
-    "class, local other local office": {
-     "contests": 147,
-     "expected": 8.6,
-     "seen": 12
+     "contests": 365,
+     "expected": 32.1,
+     "seen": 25
     },
     "class, local mayor or executive": {
-     "contests": 107,
-     "expected": 6.2,
-     "seen": 4
+     "contests": 108,
+     "expected": 6.9,
+     "seen": 5
     },
     "class, local judge": {
-     "contests": 96,
-     "expected": 5.0,
+     "contests": 94,
+     "expected": 4.2,
      "seen": 8
     },
     "class, local clerk, treasurer or other county officer": {
-     "contests": 31,
-     "expected": 3.0,
+     "contests": 35,
+     "expected": 4.2,
      "seen": 0
     },
     "class, state judge": {
@@ -108,12 +111,12 @@
      "seen": 3
     },
     "class, local sheriff or constable": {
-     "contests": 17,
-     "expected": 3.8,
-     "seen": 7
+     "contests": 15,
+     "expected": 1.3,
+     "seen": 1
     }
    },
-   "seen_over_expected": 0.754
+   "seen_over_expected": 0.707
   }
  }
 }
