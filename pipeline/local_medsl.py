@@ -875,7 +875,10 @@ def backtest_measures(mtest, mhalf):
                      "earlier years only): expected and seen counts finishing near 1/2 (every statewide question) "
                      "and near the threshold (those given a forecast). at_threshold_local is the same for local "
                      "questions given p by step (b) on these dates (each state's own class); North Carolina's "
-                     "questions on its other dates are in data/local/backtest-ncsbe.json. Built by "
+                     "questions on its other dates are in data/local/backtest-ncsbe.json. near_votes: the same within "
+                     "1,000 to 50,000 votes of the threshold. lean_notes_local: for each local class, the two tests of "
+                     "the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give, and lean_notes_statewide "
+                     "the same for the statewide classes near 1/2 (data/local/REPORT.md section 18). Built by "
                      "pipeline/local_medsl.py build.",
             "near_half": half,
             "at_threshold": at_threshold([r_ for r_ in mtest if not r_["key"].startswith("local ")]),
@@ -896,11 +899,84 @@ def at_threshold(rows, by_key=False):
                 z = y["near_threshold"].setdefault(hh, [0.0, 0])
                 z[0] += q
                 z[1] += seen
+            for k, (q, seen) in (r_.get("votes") or {}).items():
+                z = y.setdefault("near_votes", {}).setdefault(k, [0.0, 0])
+                z[0] += q
+                z[1] += seen
     for y in at_t.values():
         y["own_window"] = {"expected": round(y["own_window"][0], 1), "seen": y["own_window"][1]}
         y["near_threshold"] = {f"within {float(hh):.0%}": {"expected": round(v[0], 1), "seen": v[1]}
                                for hh, v in sorted(y["near_threshold"].items(), key=lambda kv: float(kv[0]))}
+        if "near_votes" in y:
+            y["near_votes"] = {f"within {int(k):,} votes": {"expected": round(v[0], 1), "seen": v[1]}
+                               for k, v in sorted(y["near_votes"].items(), key=lambda kv: int(kv[0]))}
     return dict(sorted(at_t.items()))
+
+
+# The lean note's two tests (the orchestrator's ruling of 11:01, fixed before the numbers were seen; data/congress/
+# REPORT.md section 3 has the wording; relayed for the local questions' routes at 13:39, amended at 13:52). (s): seen
+# against expected within 1 point of the threshold. (v): within k votes of it, k the smallest of these lines at which 5
+# or more are expected. A test counts only with 5 or more seen or expected, and (v) does not count where its line
+# holds more than half the pool's contests. The note stands where both count and lean the same way, and on the one
+# that counts where only one does. Reasons: (11:16) "a note that one reading of the record contradicts tells the
+# reader a direction the record doesn't give"; (13:52) "a test that counts almost every contest measures the whole
+# forecast, not the near-tie density that p depends on".
+VOTE_LINES = (10, 100, 1000, 5000, 10000, 20000, 50000)
+LOCAL_NOTE_POOL = {"NC": "North Carolina's local questions on the even years' November general dates",
+                   "LA": "Louisiana's local questions"}   # each build's own back-test: the State Board's other dates
+                                                          # are pipeline/local_ncsbe.py's
+NOTE_LINE, NOTE_MIN = 0.01, 5
+
+
+def vote_lines(tr, s_, t, total):
+    """For one question of the back-test: the class's chance (the share of its earlier questions) of finishing within
+    k votes of the threshold, and whether this one did, at each line. Within k votes is |yes - t (yes + no)| <= k/2,
+    the margin |yes - no| <= k at t = 1/2: as a share, |s - t| <= k / (2 (yes + no))."""
+    return {str(k): [sum(1 for x in tr if abs(x - t) <= k / (2 * total)) / len(tr), abs(s_ - t) * total <= k / 2]
+            for k in VOTE_LINES}
+
+
+def lean_note(rows, what, of="the threshold"):
+    """The two tests over a back-test's rows (each with 'near' and 'votes'), and the note they give, if any."""
+    def test(e, n):
+        return {"expected": round(e, 1), "seen": n, "counts": max(e, n) >= NOTE_MIN,
+                "leans": "more" if n > e else "fewer" if n < e else "neither"}
+    s = test(sum(r_["near"][str(NOTE_LINE)][0] for r_ in rows), sum(r_["near"][str(NOTE_LINE)][1] for r_ in rows))
+    s["line"] = f"within {NOTE_LINE:.0%} of {of}"
+    v, k = None, None
+    for k_ in VOTE_LINES:
+        e = sum(r_["votes"][str(k_)][0] for r_ in rows)
+        if e >= NOTE_MIN:
+            v, k = test(e, sum(r_["votes"][str(k_)][1] for r_ in rows)), k_
+            v["line"] = f"within {k:,} votes"
+            if v["seen"] > len(rows) / 2:
+                v["counts"] = False
+                v["why"] = f"the line holds more than half the pool ({v['seen']} of {len(rows)})"
+            break
+    if v is None:
+        v = {"counts": False, "why": f"under {NOTE_MIN} expected at every line up to {VOTE_LINES[-1]:,} votes"}
+    out = {"questions": len(rows), "share_test": s, "vote_test": v, "note": None}
+    if not rows:
+        return out
+    y0, y1 = min(r_["year"] for r_ in rows), max(r_["year"] for r_ in rows)
+    ys = f"in {y0}" if y0 == y1 else f"{y0} to {y1}"
+    sc, vc = s["counts"], v["counts"]
+    if sc and vc and s["leans"] != v["leans"]:
+        out["why_none"] = "the two tests lean opposite ways"
+        return out
+    if not (sc or vc):
+        out["why_none"] = "neither test counts"
+        return out
+    lean = s["leans"] if sc else v["leans"]
+    if lean == "neither":
+        out["why_none"] = "the test that counts does not lean"
+        return out
+    counts_ = ([f"{s['seen']} against {s['expected']:.1f} within 1 point of {of}"] if sc else []) + \
+              ([f"{v['seen']} against {v['expected']:.1f} within {k:,} votes"] if vc else [])
+    out["stands_on"] = "both tests" if sc and vc else "(s) only" if sc else "(v) only"
+    out["note"] = (f"this route's back-test of {what} shows {lean} near-even finishes than it forecast "
+                   f"({', and '.join(counts_)}, {ys}), so p may be {'low' if lean == 'more' else 'high'}")
+    return out
 
 
 def backtest_local_classes(files):
@@ -1196,8 +1272,12 @@ OFFICE_TYPES = [
                          r"NATURAL RESOURCES DISTRICT|PUBLIC SERVICE DISTRICT|\bPSD\b|"
                          r"\b(SERVICES?|TAX|SPECIAL|FACILITIES|RECREATION|SANITATION|TELEVISION|TV|RECLAMATION|"
                          r"MANAGEMENT|POOL) DISTRICT\b"),
+    # a superintendent is one executive seat, not a board, so an officer even of schools (the orchestrator, 2026-11-07
+    # 13:54, from M2's check c24: "a type has to describe the office")
+    ("clerk, treasurer or other county officer", r"^(?=.*(SCHOOL|EDUCATION|INSTRUCTION)).*(\bSUPERINTENDENTS?\b|\bSUPT\b|"
+                                                r"\bSUPER\. OF PUBLIC INSTRUCTION\b)"),
     ("school board", r"SCHOOL|BOARD OF EDUCATION|\bCOLLEGE\b|EDUCATION|UNIVERSITY|REGENT|\bBESE\b|\bBOE\b|"
-                     r"\bLEARNING COMMUNITY\b|\bSUPER\. OF PUBLIC INSTRUCTION\b"),
+                     r"\bLEARNING COMMUNITY\b"),
     # whole words, so that a place's name is not read as the office: Courtland, Courthouse
     ("judge", r"JUDGE|JUSTICE|\bCOURTS?\b|MAGISTRATE|PROBATE|\bSURROGATE\b|\bCT\b|\bJP\b"),
     ("prosecutor", r"ATTORNEY|PROSECUTOR|SOLICITOR"),
@@ -1468,13 +1548,23 @@ def build(out_dir, with_p=True):
     kdens = {}
     pieces = collections.Counter(leg_key(c) + (c["stage"], c["special"]) for c in m[2024]
                                  if c["office"] in LEG and not c["question"])
+    # the state, year and chamber of every legislative contest Klarner's record holds
+    klarner_held = {(k_["state"], k_["year"], int(k_["sen"])) for k_ in klarner}
     for year in YEARS:
         for c in m[year]:
             if c["office"] not in LEG or c["question"]:
                 continue
             level = "state-upper" if LEG[c["office"]] else "state-lower"
+            orphan = False
             if year in KLARNER_CHECKED or year < 2024:
-                continue   # Klarner's 1967-2022 are the record; MEDSL's 2018 and 2022 are its check (check_2022)
+                # Klarner's 1967-2022 are the record; MEDSL's 2018 and 2022 are its check (check_2022). A legislature
+                # filed under its own name (LEG_NAMES) where Klarner's record holds no contest of its state, year and
+                # chamber is written from MEDSL, so that no contest drops out of the record (the orchestrator,
+                # 2026-11-07 13:54: Virginia's 2018 House of Delegates 8th district, "as a special")
+                if not (c.get("office_as_filed") in LEG_NAMES
+                        and (c["state"], year, int(bool(LEG[c["office"]]))) not in klarner_held):
+                    continue
+                orphan, c = True, dict(c, special=True)
             dist = district_no(c["district"]) or (c["district"] if c["district"] not in ("", "STATEWIDE") else None)
             lead = sorted(ballot(c["candidates"]) or c["candidates"], key=lambda x: -x["votes"])
             rec = {"id": cid(f"{year}-{level}-{c['state']}-"
@@ -1496,6 +1586,14 @@ def build(out_dir, with_p=True):
                 rec["notes"] = [c["certified_note"]]
             if c.get("office_as_filed"):
                 rec["office_as_filed"] = c["office_as_filed"].title()
+            if orphan:
+                rec["place"]["counties"] = c["counties"]
+                rec["notes"] = (rec.get("notes") or []) + [
+                    f"a special election: Klarner's record holds {L.STATE_NAMES.get(c['state'], c['state'])}'s "
+                    f"{'senate' if LEG[c['office']] else 'lower house'} in other years but none in {year}, so this "
+                    f"contest fills a vacancy [inferred; MEDSL does not mark it special]; it was filed as a local "
+                    f"office ('{c['office_as_filed'].title()}') and is read as the legislature (data/local/REPORT.md "
+                    f"section 15)"]
             if not dist:
                 rec.setdefault("notes", []).append("the source gives no district number for this contest; it is "
                                                    "pieced together from its precincts' candidates")
@@ -1690,17 +1788,13 @@ def build(out_dir, with_p=True):
                 if tr:
                     mhalf.append({"year": year, "key": r_["key"], "train": len(tr),
                                   "near": {str(hh): [sum(1 for x in tr if abs(x - 0.5) <= hh) / len(tr),
-                                                     abs(r_["s"] - 0.5) <= hh] for hh in L.WINDOWS}})
-    # the orchestrator, 2026-11-07 07:25: write the route's near-1/2 shortfall onto each p it gives, in these words
-    hw = str(L.WINDOWS[-1])
-    mnote = {}
-    for key in {r_["key"] for r_ in mhalf}:
-        rs = [r_ for r_ in mhalf if r_["key"] == key]
-        exp, got = sum(r_["near"][hw][0] for r_ in rs), sum(r_["near"][hw][1] for r_ in rs)
-        if got > exp:
-            mnote[key] = (f"this route's back-test shows more near-even finishes than it forecast ({got} against "
-                          f"{exp:.1f} within {L.WINDOWS[-1] * 100:.0f} points, {min(r_['year'] for r_ in rs)} to "
-                          f"{max(r_['year'] for r_ in rs)}), so p may be low")
+                                                     abs(r_["s"] - 0.5) <= hh] for hh in L.WINDOWS},
+                                  "votes": vote_lines(tr, r_["s"], 0.5, r_["n"])})
+    # the orchestrator, 2026-11-07 07:25: write the route's near-1/2 lean onto each p it gives; retaken at 13:52 under
+    # the two tests of the ruling of 11:01 as amended (lean_note), on the same pool: every statewide question whose
+    # class has earlier years, near 1/2, the point every statewide p of record is taken at
+    snotes = {key: lean_note([r_ for r_ in mhalf if r_["key"] == key], key + "s", of="½") for key in sorted({r_["key"] for r_ in mhalf})}
+    mnote = {key: x["note"] for key, x in snotes.items() if x["note"]}
     for year in sorted(MEASURE_YEARS + ODD_YEARS):
         train = [r_ for y in MEASURE_YEARS + ODD_YEARS if y < year for r_ in mrows[y]]
         for c in m[year]:
@@ -1806,7 +1900,8 @@ def build(out_dir, with_p=True):
                         mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
                                       "in_own": abs(s_ - t) <= h,
                                       "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
-                                                         abs(s_ - t) <= hh] for hh in L.WINDOWS}})
+                                                         abs(s_ - t) <= hh] for hh in L.WINDOWS},
+                                      "votes": vote_lines(tr, s_, t, yes + no)})
                         if not with_p:
                             p = {}
                         elif f <= 0:
@@ -1822,11 +1917,22 @@ def build(out_dir, with_p=True):
             counts[f"{label}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
+    # the lean note for each local question's class, on this build's own back-test (the orchestrator, 13:39)
+    lnotes = {key: lean_note([r_ for r_ in mtest if r_["key"] == key], LOCAL_NOTE_POOL.get(key[-2:], f"{key[-2:]}'s local questions"))
+              for key in sorted({r_["key"] for r_ in mtest if r_["key"].startswith("local ")})}
+    for (level, year, st), cs in files.items():
+        if level == "measure":
+            for rec in cs:
+                fc = [x for x in rec.get("forecasts") or [] if x.get("route") == "like past measures"]
+                if fc and fc[-1]["class"] in lnotes and lnotes[fc[-1]["class"]]["note"] and "value" in rec["p"]:
+                    rec["p"]["note"] = lnotes[fc[-1]["class"]]["note"]
+                    counts[f"measure {year}: {fc[-1]['class']}: lean note"] += 1
     scored = files   # every year written, ODD_YEARS too (the orchestrator, 11:56)
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:
-            json.dump(backtest_measures(mtest, mhalf), f, indent=1)
+            json.dump(dict(backtest_measures(mtest, mhalf), lean_notes_statewide=snotes, lean_notes_local=lnotes), f,
+                      indent=1)
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-classes.json"), "w") as f:
             json.dump(backtest_local_classes(scored), f, indent=1)
     cal = calibrate_local(scored)

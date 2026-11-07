@@ -731,7 +731,7 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
   - Straight-party tallies are left out: 6, North Carolina's four towns of 2011 and South Carolina's two of 2024.
   - Questions filed as offices under a question's name are read as questions, in `data/measure/`: 10 (Washington's advisory votes, New Jersey's public questions, Utah's form of government, North Dakota's county newspaper). 9 records are added, and Hoboken's 2024 yes is joined to its no, already there.
   - None gets p as a question. The advisory votes' answers are "Repealed" and "Maintained", not a yes and a no, and the rest are local.
-- **Legislatures filed as local offices.** These are now read as the legislature (`LEG_NAMES`): Rhode Island's 2022 house and senate (113, "Representative/Senator in General Assembly"), Virginia's 2018 House of Delegates 8th district (1) and one Arizona district's 2022 representatives (1).
+- **Legislatures filed as local offices.** These are now read as the legislature (`LEG_NAMES`): Rhode Island's 2022 house and senate (113, "Representative/Senator in General Assembly"), Virginia's 2018 House of Delegates 8th district (1) and one Arizona district's 2022 representatives (1). Virginia's is a special and now sits in `data/state-lower/2018/VA.json` (see the fixes below).
   - Klarner's 2022 check now holds Rhode Island's 113 districts: all 113 have identical D and R votes, and 1 winner differs. No state's hold changes.
   - Rewriting 2018's check also shows 22 North Carolina districts as "within 1 point, counts differ". The file last written at 62123d0 read them as identical. The hold counts only differences over 1 point, so it does not change [measured].
 
@@ -746,7 +746,7 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
   - sheriff to council: 279;
   - "other" to school board: 266.
 - **p.** 5,976 p move (5,628 local, 346 primary, 2 state senate), as the classes' like races change. The median move is by a factor of 1.12, and 90% are within 1.26. The largest is 2.46, and 8 move by more than 2.
-- **Computed or not.** 136 are now computed (98 local, 38 primary). 103 are no longer computed, because their class now has fewer than 100 like races in earlier years; 69 of these are North Carolina's 2023 school boards, whose class lost the sanitary district trustees.
+- **Computed or not.** 136 are now computed (98 local, 38 primary). 103 are no longer computed, because their class now has fewer than 100 like races in earlier years. 72 of these are school boards: 66 of 2020 (South Carolina 24, Kentucky 19, North Carolina 16, Virginia 4, and one each in DC, Nebraska and West Virginia) and 6 of North Carolina's later years (3 of 2024, 2 of 2026, 1 of 2023). Their classes now hold 90 to 99 like races: "local school board, nonpartisan, 3 candidates" (70) and one of three seats at once (2) [measured]. *Corrected 2026-11-07 at the orchestrator's word of 13:54, from M2's count (check c24): this line said 69 of North Carolina's 2023 school boards, whose class lost the sanitary district trustees, which the moves file does not bear out.*
 - **Removed and added.** 131 records leave `data/local/`. 9 are added to `data/measure/`.
 - **The state senate.** Rhode Island's 2 computed state senate p of 2024 move, now that its 2022 legislature is read as the legislature.
 
@@ -756,11 +756,17 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
 - **The State Board's** (`backtest-ncsbe.json`): local and primary are not adopted, and no test's pass changes. One part moves: leaving out 2024, local's fit now improves (it did not before), but it still does not pass.
 - **Measures** (`data/measure/backtest-measures.json`): unchanged.
 
-**The twenty names each type catches most often** (as filed; counts of contests) [measured]:
+**Fixed after M2's check of #73 (check c24)** [measured]. *Added 2026-11-07 at 14:16 UTC, at the orchestrator's order of 13:54: "1. VA 2018 HoD-8, a special, left the local file in #73 and is now in no file, because there is no VA 2018 state file. Put it back in data/state-lower/2018/VA.json, as a special, with its old fields. No contest should drop out of the record. 2. 167 school superintendents are typed 'school board'. A superintendent is one executive seat, not a board. Type them as officers and list the moves. 3. REPORT §15 says 69 of the 103 newly uncomputed are NC's 2023 school boards ... Correct the text. Reason: the record keeps every contest it has read, and a type has to describe the office."* Every move is listed in `data/local/moves-fixes-c24.json`, against `1a6d752`.
+- **Virginia's 2018 House of Delegates, 8th district.** It is back in the record, in `data/state-lower/2018/VA.json`, as a special ("general, special"), with its old fields: the candidates and votes, the total, the four counties (51045, 51121, 51161, 51775), and the office as filed ("House Of Delegates"). Klarner's record holds Virginia's lower house in other years but none in 2018, so the contest fills a vacancy [inferred; MEDSL does not mark it special]. Its p is not computed, as for every special: the model's forecasts are fitted to regular elections. In `pipeline/local_medsl.py`, a legislature contest filed as a local office is now kept, as a special, wherever Klarner holds no regular race of that state, year and chamber.
+- **School superintendents.** 176 contests, not M2's 167, were typed "school board" and are now "clerk, treasurer or other county officer": an office whose words name a superintendent (SUPERINTENDENT, SUPT or SUPER. OF PUBLIC INSTRUCTION) with SCHOOL, EDUCATION or INSTRUCTION. They are Alabama 61, Montana 47, Florida 30, Arizona 17, Illinois 16, Georgia 2, South Carolina 2 and North Carolina 1; 64 of 2018, 47 of 2020, 2 of 2022, 62 of 2024 and 1 of 2000. Four of them are statewide offices filed in the local files (Georgia's State School Superintendent of 2018 and 2022, South Carolina's State Superintendent of Education of 2018 and 2022), which the twenty-names list leaves out, so that list moves 172. A water superintendent stays a special district. No p becomes computed or uncomputed: the 134 computed keep their p but one, Montana's 2024 Superintendent of Schools in county 30093, which leaves the school boards' own fit and falls by a factor of 2.0 (0.000181 to 0.0000907). 1,720 other p move, as the like races of their class or of the fit's pool change: by a median factor of 1.003, 90% within 1.007, the largest 1.017. 165 uncomputed contests keep their reason with a changed count of like races.
+- **The count above** is corrected in place.
+- **Verdicts.** None changes. In `calibration-local.json` and the two local back-tests only numbers move: the like-race route's test deviance after calibration goes from 17.35 to 17.42, and 2024's seen over expected from 0.707 to 0.706. Nothing else in `data/` moves but stamps.
+
+**The twenty names each type catches most often** (as filed; counts of contests; school board and the officers as rewritten after M2's check below) [measured]:
 
 - **council, commission or board** (23,633 contests, 9,003 names): County Commissioner (1,651); Advisory Neighborhood Commission (568); Magistrate (481); County Commission (426); County Commission Member (317); County Council (274); Single Member District (271); City Council (262); County Board Of Supervisors (154); County Agricultural Extension Council (116); County Commissioner Term Commencing 01/02/2025 (86); County Commissioner Term Commencing 01/03/2025 (86); County Commissioner: Term Commencing 01/02/2021 (85); County Commissioner: Term Commencing 01/03/2021 (85); Member City Council (85); Board Of Commissioners (77); County Commissioner District 1 (46); Member Town Council (45); Board Of Commissioners District 2 (44); Board Of Commissioners District 3 (42)
-- **school board** (8,502 contests, 3,390 names): Member Board Of Education (944); Board Of Education (578); School Board (366); School Board Member (270); County Board Of Education Member (235); Community College District Trustee (65); Member Of Board Of Education (55); Member School Board (51); Board Of Education District 1 (50); Board Of Education District 2 (49); Board Of Education District 3 (40); County Board Of Education Superintendent (35); Board Of Education District 4 (32); Superintendent Of Schools (32); Board Of Education District 5 (31); School Board Trustee (28); Board Of Education At-Large (27); County Superintendent Of Schools (27); School Board Of Trustees (27); School Trustee (26)
-- **clerk, treasurer or other county officer** (7,878 contests, 2,282 names): County Treasurer (412); Coroner (403); Registrar Of Voters (369); County Recorder (349); Clerk Of Superior Court (323); County Clerk (175); County Engineer (173); Register Of Deeds (173); Tax Commission (157); Superior Court Clerk (155); County Coroner (144); Assessor (131); Circuit Court Clerk (120); Clerk Of Court (118); County Auditor (112); Surveyor (99); Property Valuation Administrator (90); Clerk Of The Court Of Common Pleas (87); Circuit Clerk (75); County Surveyor (59)
+- **school board** (8,330 contests, 3,318 names): Member Board Of Education (944); Board Of Education (578); School Board (366); School Board Member (270); County Board Of Education Member (235); Community College District Trustee (65); Member Of Board Of Education (55); Member School Board (51); Board Of Education District 1 (50); Board Of Education District 2 (49); Board Of Education District 3 (40); Board Of Education District 4 (32); Board Of Education District 5 (31); School Board Trustee (28); Board Of Education At-Large (27); School Board Of Trustees (27); School Trustee (26); Board Of Education District 6 (20); Local School Board District (20); New Hanover County Board Of Education (17)
+- **clerk, treasurer or other county officer** (8,050 contests, 2,354 names): County Treasurer (412); Coroner (403); Registrar Of Voters (369); County Recorder (349); Clerk Of Superior Court (323); County Clerk (175); County Engineer (173); Register Of Deeds (173); Tax Commission (157); Superior Court Clerk (155); County Coroner (144); Assessor (131); Circuit Court Clerk (120); Clerk Of Court (118); County Auditor (112); Surveyor (99); Property Valuation Administrator (90); Clerk Of The Court Of Common Pleas (87); Circuit Clerk (75); County Surveyor (59)
 - **special district** (4,182 contests, 1,319 names): Soil And Water Supervisor (427); Soil And Water Conservation District Supervisor (277); County Soil And Water Conservation District Commissioner (118); Soil And Water Conservation District Commissioner (98); Water District Director (67); Soil And Water (65); Soil And Water District Supervisor (55); Soil And Water Conservation District Supervisors (52); Soil Conservation District Supervisor (51); County Public Hospital Trustee (44); Healthcare District Director (32); Soil And Water District Commission (31); Recreation And Park District Director (28); Community Services District Director (25); Fire Protection District Director (22); Public Utility District Director (22); Irrigation District Director (17); Garrison Diversion Conservancy Director (15); Natural Resources District Board Of Directors - Central Platte (11); Natural Resources District Board Of Directors - Nemaha (11)
 - **mayor or executive** (3,981 contests, 1,542 names): Mayor (165); County Judge Executive (108); City Of Charlotte Mayor (19); Parish President (19); City Of Fayetteville Mayor (15); City Of Durham Mayor (14); County Executive (13); City Of Greensboro Mayor (11); City Of Burlington Mayor (10); City Of High Point Mayor (9); Town Of Mooresville Mayor (9); City Of Archdale Mayor (8); City Of Clinton Mayor (8); City Of Elizabeth City Mayor (8); City Of Monroe Mayor (8); City Of Raleigh Mayor (8); Town Of Atlantic Beach Mayor (8); Town Of Harrellsville Mayor (8); Town Of Jamestown Mayor (8); Town Of Matthews Mayor (8)
 - **sheriff or constable** (3,449 contests, 634 names): Sheriff (977); Constable (503); County Sheriff (281); County Constable (189); Jailer (107); Constable, Justice Of The Peace (89); Sheriff/Coroner (38); Mobile County Constable (25); Jefferson County Constable (16); Walker County Constable (14); Conecuh County Constable (11); Jackson County Sheriff (10); Maricopa County Constable (10); Bladen County Sheriff (9); Clay County Sheriff (9); Graham County Sheriff (9); Polk County Sheriff (9); Randolph County Sheriff (9); Union County Sheriff (9); Wilcox County Constable (9)
@@ -832,7 +838,7 @@ The like-race classes (`calibration-local.json`), before and after:
 
 - **Stated** means the law's words name the kind of question. **Inferred** means the reader joined a general rule to the question, and the rule's `match_note` says how.
 - **Every threshold read is ½ of those voting on the question** [measured over the rules]. No supermajority was found for any local question in these two states.
-- **Indiana is not read.** Indiana's code site (iga.in.gov) returns the same script shell for every address (4 addresses, 12:46 to 12:47 UTC). Cornell LII holds no Indiana code; it links to iga.in.gov. Justia answered 403 with a challenge page (13:32 UTC). That part stopped there, and Indiana's 33 questions carry this reason.
+- **Indiana is not read.** Indiana's code site (iga.in.gov) returns the same script shell for every address (4 addresses, 12:46 to 12:47 UTC). Cornell LII holds no Indiana code; it links to iga.in.gov. Justia answered 403 with a challenge page (13:32 UTC). That part stopped there, and Indiana's 33 questions carry this reason. Read or not, they would take no p yet: Indiana's own file is of 2024 only, so its class has no earlier year.
 
 **How a rule is matched** (`pipeline/measures.py`, `local_rule_for`).
 - A question takes the first rule, in the file's order, whose pattern its title matches (with `match_also` and `dates` where they are set). So one place's own act comes before the general law.
@@ -895,3 +901,64 @@ No calibration is applied, as for every route since 09:49 (§7).
 - **The 216 "other" bonds.** They could take ½ with the service-district test noted, since most county and city bonds serve no service district [inferred, not read].
 - **The 63 North Carolina questions and Louisiana's fire and hotel questions.** They could take the general law, unless a local act is found.
 - **Three of the 4 transit taxes** (Durham 2011, Orange 2012, Wake 2016). These were single-county referendums, which the multicounty test does not reach, by the reader's own reading. Mecklenburg's 2025 tax may rest on an act of 2025 that was not read.
+
+## 18. The lean note: the two tests of 11:01, as amended at 13:52
+
+*Added 2026-11-07 at 14:01 UTC, at the orchestrator's word of 13:39: "The local questions' back-test leans (NC other dates within 5 points: 82 seen against 65.6 expected). Apply the 11:01 rule to each local-question route: a note only where the share test and the vote test both count and agree. Do it in the next PR." The rule of 11:01 is in `data/congress/REPORT.md` §3.*
+
+*The ruling of 13:52 came after a first run, which this section also reports. It was fixed before any new count was taken:*
+1. *"the ladder starts lower (10, 100, 1,000, 5,000, 10,000, 20,000, 50,000 votes; still the smallest rung with 5 or more expected), and (v) doesn't count where its line holds more than half the pool's contests. Where only (s) counts, the note stands on it, as before."*
+2. *"By pool, as now. A note reports the back-test of the forecasts that made that p, and each pool is its own back-test."*
+3. *"retake the statewide measures' note under the amended rule with today's counts."*
+
+*Reason for 1:* "a test that counts almost every contest measures the whole forecast, not the near-tie density that p depends on."
+
+**The rule** (`pipeline/local_medsl.py`, `lean_note`).
+- **(s)** Seen against expected within 1 point of the threshold. The statewide classes use 1 point of ½, the point every statewide p of record is taken at.
+- **(v)** Seen against expected within k votes of the threshold. k is the smallest of 10, 100, 1,000, 5,000, 10,000, 20,000 and 50,000 votes at which 5 or more are expected.
+  - "Within k votes" is |yes − t(yes + no)| ≤ k/2. At t = ½ that is a margin of k votes or fewer.
+  - Each question's expected chance is its class's share of earlier questions within that many votes, taken as a share: |s − t| ≤ k / (2(yes + no)).
+- **When a test counts.** A test counts only with 5 or more seen or expected. (v) does not count where its line holds more than half the pool. "Holds" is read here as the questions that finished within the line.
+- **When the note stands.**
+  - Where both tests count, the note stands only if they lean the same way.
+  - Where only one counts, the note stands on that one.
+  - Where neither counts, there is no note.
+- **What the note says.** It names the counts it stands on, and says p may be low (more near-even finishes than forecast) or high (fewer).
+
+**The pools.** Each pool is one build's own back-test of one class: the forecasts that made its p.
+- **Louisiana's local questions.**
+- **North Carolina's local questions on the even years' November general dates** (`pipeline/local_medsl.py`).
+- **North Carolina's local questions on the State Board's other dates** (`pipeline/local_ncsbe.py`).
+- **The statewide classes near ½.** This is the pool the note of 07:25 was taken on: every statewide question whose class has earlier years.
+
+**The tests under the amended rule** [measured]. They are in `data/measure/backtest-measures.json` (`lean_notes_statewide`, `lean_notes_local`) and `data/local/backtest-ncsbe.json` (`questions_at_threshold.lean_note`). The vote lines are in `near_votes`.
+
+| Pool | Questions | (s) within 1 point, seen / expected | (v) k, seen / expected | The note |
+|---|---|---|---|---|
+| Statewide measures, 2018-2024 | 259 | 11 / 6.8, more | 20,000 votes: 10 / 6.2, more | **stands**, both tests: p may be low |
+| Statewide retentions, 2018-2024 | 79 | 2 / 0.0 (does not count) | under 5 expected at every line | none; no retention has p |
+| Louisiana's local questions, 2024 | 304 | 8 / 7.1, more | 10 votes: 9 / 17.6, fewer | **none**: opposite ways |
+| North Carolina, general dates, 2016-2024 | 190 | 5 / 6.5, fewer | 100 votes: 19 / 17.4, more | **none**: opposite ways |
+| North Carolina, other dates, 2012-2026 | 306 | 15 / 10.9, more | 10 votes: 23 / 21.9, more | **stands**, both tests: p may be low |
+
+**The first run, under the rule of 11:01 as written.** In the first run the ladder started at 1,000 votes. That line held most of each local pool: 244 of Louisiana's 304, 67 of North Carolina's 190 general-date questions and 202 of its 306 other-date questions. So each pool's (v) was close to a count of all its questions. Every local note stood, and North Carolina's two pools leaned opposite ways. That was put to the orchestrator, and the ruling of 13:52 answered it.
+
+**The other levels under the amendment** [measured: my own implementation after M2's `checks/m2/c16_notes.py`, on the files' forecasts of record (M2's set B)]. The amendment changes a verdict only where a new rung (10 or 100 votes) reaches 5 expected, or where the chosen line holds more than half the pool. Neither happens at any level:
+
+| Level, years | Contests | Expected / seen within 10, 100, 1,000 votes | k before and after | k's line holds |
+|---|---|---|---|---|
+| House, 2010-2024 | 2,997 | 0.16 / 1; 1.6 / 1; 16.0 / 24 | 1,000; 1,000 | 24 of 2,997 |
+| Senate, 2010-2024 | 255 | 0.01 / 0; 0.05 / 0; 0.5 / 0 | 10,000; 10,000 | 4 of 255 |
+| Governors, 2006-2024 | 216 | 0.01 / 0; 0.08 / 0; 0.85 / 0 | 10,000; 10,000 | 4 of 216 |
+| Governors, odd years, 1985-2021 | 29 | 0.0 / 0; 0.01 / 0; 0.08 / 0 | none of the rungs reaches 5 in these 29 | |
+
+- So no House, Senate or governor verdict changes under the amendment.
+- The odd years' note rests on D2's own back-test, of more races than the 29 with p [inferred]. Its line, 50,000 votes, holds 9 races, under half of that pool's 29 or more, and the new rungs are below 1,000 votes, where its 29 races expect 0.08.
+- **The statewide measures' verdict is unchanged.** The note stood under the rule of 07:25 (54 against 38.1 within 5 points), and it stands now on both tests.
+
+**What moves** [measured], against main (`e41dca5`).
+- **No p moves.**
+- **306 notes are added**, on North Carolina's local questions on the State Board's other dates.
+- **65 statewide measures' notes are reworded.** They were "54 against 38.1 within 5 points". They now read "11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes". They still say p may be low.
+- **Louisiana's and North Carolina's general-date local questions get no note.**
+- **Nothing else in any record changes.**
