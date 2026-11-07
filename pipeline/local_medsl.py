@@ -154,9 +154,32 @@ def join_statewide(contests, year):
         j.pop("one_answer_only", None)
         if any(c.get("one_answer_only") for c in g):   # a piece the source gives one answer of: the whole is held
             j["one_answer_only"] = True
+        certified_count(j, q)
         out.append(j)
         JOINED[year][f"{q['state']}: statewide questions filed with local offices, joined ({len(g)} lines)"] += 1
     return out
+
+
+def certified_count(j, q):
+    """The certified count wins (the orchestrator's ruling, 2026-11-07 15:16: 'Where a state page that prints totals
+    marks them certified or official, its totals are the statewide record's counts, shown and used in every pool.
+    MEDSL's sum stays beside them with the difference. Where the page carries no such mark, MEDSL's counts stand and
+    the difference is recorded'; reason: 'a figure shown has to be the count of record, and the certifying source is
+    that count'). A joined question whose state total is marked certified (statewide-filed-local.json,
+    state_total.certified) takes the state's figures answer by answer; MEDSL's sum is kept in
+    filed_local.medsl_votes. Every answer must match by name, or the build stops."""
+    st_ = q.get("state_total") or {}
+    if not (st_.get("certified") or {}).get("marked"):
+        return
+    have = {x["name"].upper(): x for x in j["candidates"]}
+    if set(have) != set(st_["votes"]):
+        raise SystemExit(f"certified_count: {q['state']} {q['year']} {q['title']!r}: MEDSL's answers {sorted(have)} "
+                         f"are not the state's {sorted(st_['votes'])}")
+    j["filed_local"]["medsl_votes"] = {x["name"]: x["votes"] for x in j["candidates"]}
+    for k, v in st_["votes"].items():
+        have[k]["votes"] = v
+        have[k].pop("votes_missing_in_some_precincts", None)   # the certified total is the whole count
+    JOINED[q["year"]][f"{q['state']}: joined statewide questions counted from the state's certified totals"] += 1
 
 
 def held(c, bad_y):
@@ -1917,11 +1940,24 @@ def build(out_dir, with_p=True):
                     rec["listed_statewide"]["proposer"] = {"who": q["proposer"]["who"], "mark": q["proposer"]["mark"]}
                 if q.get("state_total"):   # the state's own statewide figures, where a page read prints them
                     st_ = q["state_total"]
-                    ours = {x["name"].upper(): x["votes"] for x in c["candidates"]}
+                    medsl = {k.upper(): v for k, v in (fl.get("medsl_votes") or
+                                                       {x["name"]: x["votes"] for x in c["candidates"]}).items()}
                     rec["listed_statewide"]["state_total"] = {
                         "votes": st_["votes"], "quote": st_["quote"], "cache_file": st_["quote_file"],
-                        "agrees": all(ours.get(k) == v for k, v in st_["votes"].items()),
-                        "medsl_less_state": {k: ours.get(k, 0) - v for k, v in st_["votes"].items()}}
+                        "certified": st_["certified"], "counts_used": "state" if fl.get("medsl_votes") else "medsl",
+                        "medsl_votes": medsl,
+                        "agrees": all(medsl.get(k) == v for k, v in st_["votes"].items()),
+                        "medsl_less_state": {k: medsl.get(k, 0) - v for k, v in st_["votes"].items()}}
+                    if fl.get("medsl_votes"):   # the certified count wins (certified_count)
+                        rec["result"]["votes_source"] = "state_certified"
+                        d_ = rec["listed_statewide"]["state_total"]["medsl_less_state"]
+                        notes.append("counted from the state's certified totals ("
+                                     + "; ".join(f"{k.title()} {v:,}" for k, v in st_["votes"].items())
+                                     + "), which the state marks certified; MEDSL's sum stands beside them ("
+                                     + "; ".join(f"{k.title()} {medsl.get(k, 0):,}" for k in st_["votes"])
+                                     + ("" if not any(d_.values()) else ", a difference of "
+                                        + "; ".join(f"{k.title()} {v:+,}" for k, v in d_.items()))
+                                     + ") (listed_statewide.state_total)")
             if notes:
                 rec["notes"] = notes
             label = f"measure {year}"
@@ -2103,6 +2139,11 @@ def build(out_dir, with_p=True):
         if "in_enr" in used:   # Indiana's own certified file (certified_in)
             import local_in as LI
             head["sources"]["in_enr"] = LI.source_block()
+        if any((x.get("result") or {}).get("votes_source") == "state_certified" for x in cs + others):
+            head["sources"]["state_certified"] = {   # the certified count wins (certified_count)
+                "name": "the state's own certified statewide totals of a statewide question MEDSL files with local "
+                        "offices", "file": "data/measure/statewide-filed-local.json",
+                "where": "each such record's listed_statewide.state_total: the page, its words and its certificate"}
         L.write_level_file(path, head, cs + others)
         sz = os.path.getsize(path)
         total += sz
