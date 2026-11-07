@@ -55,11 +55,19 @@ def relabel(m):
     return m
 
 
+EMPTY = collections.Counter()   # contests with no vote anywhere: lines a file lists for every precinct, left out
+
+
 def load(year):
     out = []
     for path in sorted(glob.glob(os.path.join(NORM, str(year), "*.jsonl"))):
         with open(path) as f:
-            out.extend(relabel(json.loads(line)) for line in f)
+            for line in f:
+                c = relabel(json.loads(line))
+                if not any(x["votes"] for x in c["candidates"]):
+                    EMPTY[year] += 1
+                    continue
+                out.append(c)
     return out
 
 
@@ -554,7 +562,6 @@ def build(out_dir, with_p=True):
                            f"{info['doi']}, {info['version']} (the races route (a) is fitted on)",
                            "https://doi.org/10.7910/DVN/FJOGJB", info["files"]["candidate"]["read_utc"], info["licence"],
                            mark="stated")
-    srcs = {y: _src_medsl(y, chk[y], chk[y].get("files", {}).keys()) for y in YEARS}
     bad = {y: quality(y) for y in YEARS}
     seen = set()
 
@@ -693,8 +700,10 @@ def build(out_dir, with_p=True):
                 continue
             route, key = local_structure(c)
             scope = "state" if c["dataverse"] == "STATE" else "local"
-            rec = {"id": cid(f"{year}-local-{c['state']}-{L._slug(c['office'])[:60]}-{L._slug(c['district'] or '')}"
-                             .rstrip("-")),
+            where = "-".join(x for x in (c["district"] if c["district"] not in ("", "STATEWIDE") else "",
+                                         ("county-" + c["counties"][0]) if c["counties"] and scope == "local" else "")
+                             if x)
+            rec = {"id": cid(f"{year}-local-{c['state']}-{L._slug(c['office'])[:60]}-{L._slug(where)}".rstrip("-")),
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
@@ -773,7 +782,9 @@ def build(out_dir, with_p=True):
                          f"section 3 with the fields data/README.md adds (D3). Built by pipeline/local_medsl.py from "
                          f"pipeline/intake/medsl_precinct.py's cache.",
                 "p_computed_by": "pipeline/local_medsl.py", "p_commit": commit,
-                "sources": {"medsl": srcs[year], "model": src_model, "nara": src_nara, "klarner": src_klarner}}
+                "sources": {"medsl": _src_medsl(year, chk[year], [n for n, f in chk[year].get("files", {}).items()
+                                                                  if st in f.get("states", {})]),
+                            "model": src_model, "nara": src_nara, "klarner": src_klarner}}
         path = os.path.join(out_dir, level, str(year), f"{st}.json")
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w") as f:
@@ -786,6 +797,7 @@ def build(out_dir, with_p=True):
         by_level[level] += sz
     print(f"wrote {sum(len(v) for v in files.values()):,} contests in {len(files):,} files, {total / 1e6:.1f} MB: "
           + ", ".join(f"{k} {v / 1e6:.1f} MB" for k, v in sorted(by_level.items())))
+    counts.update({f"left out, no vote anywhere, {y}": EMPTY[y] for y in YEARS})
     print(json.dumps(dict(sorted(counts.items())), indent=1))
     return files, counts
 
