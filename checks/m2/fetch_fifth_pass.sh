@@ -16,8 +16,9 @@ import json, os, re, sys
 D = sys.argv[1]
 out = []
 # Dataverse's file lists of the 2024 and 2022 sets (fetched 2026-11-07 16:58 UTC into dv_<DOI>.json; kept)
-need = {"NYTPDU": ["al", "az", "ga", "ia", "ky", "mi", "mn", "mt", "nd", "nm", "nv", "ny", "oh", "or", "sc", "sd", "tx", "ut", "wa", "wv", "id", "ar", "ms"],
-        "UYQIEP": ["2022-ar-local", "mn22", "mt22", "2022-nd-local", "nm22", "NV-", "oh22", "ok22", "sd22", "ky22", "2022-wa-local"]}
+need = {"NYTPDU": ["al", "az", "ga", "ia", "ky", "mi", "mn", "mt", "nd", "nm", "nv", "ny", "oh", "or", "sc", "sd", "tx", "ut", "wa", "wv", "id", "ar", "ms", "co", "hi"],
+        "UYQIEP": ["2022-ar-local", "mn22", "mt22", "2022-nd-local", "nm22", "NV-", "oh22", "ok22", "sd22", "ky22", "2022-wa-local",
+                   "2022-az-local", "2022-id-local", "2022-mi-local", "ny22", "or22", "ga22", "HI-", "il22", "colorado"]}   # the last nine: the sixth pass (#90)
 for doi, states in need.items():
     d = json.load(open(os.path.join(D, f"dv_{doi}.json")))
     for f in d["data"]["latestVersion"]["files"]:
@@ -67,5 +68,5 @@ one() {   # repo commit path
   git -C "$d" show "$2:$3" > "$D/medsl/$(basename "$3")" && echo "medsl	$(date -u +%H:%M:%S)	https://github.com/$1/blob/$2/$3	$D/medsl/$(basename "$3")	$(sha256sum "$D/medsl/$(basename "$3")" | cut -c1-64)" >> "$D/index.txt"
   sleep 5
 }
-for st in al ar ga ia il mi mn mt nd nm nv oh ok sd tx wv; do one MEDSL/2018-elections-official 42055b11dcd5477bc125cdec5a18fbcc60fb6bed "individual_states/2018-$st-precinct-general.zip"; done
+for st in al ar ga ia il mi mn mt nd nm nv oh ok sd tx wv ny co hi; do one MEDSL/2018-elections-official 42055b11dcd5477bc125cdec5a18fbcc60fb6bed "individual_states/2018-$st-precinct-general.zip"; done
 echo "### done $(date -u +%H:%M:%S)" >> "$D/index.txt"
