@@ -1418,8 +1418,8 @@ def backtest_local_partisan(write=True, years=None, prow=None, pres=None):
     if write:
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-partisan.json"), "w") as f:
             json.dump({"about": "route (a)'s class-C terms (fitted on the state legislative races of earlier years "
-                                "only: Klarner's, and New Jersey's 2023 Senate from its Official List) applied to "
-                                "local races between one Democrat and one Republican, the "
+                                "only: Klarner's, and for 2024 on New Jersey's 2023 Senate from its Official List) "
+                                "applied to local races between one Democrat and one Republican, the "
                                 "place's lean read from the US House vote of the previous general in the race's "
                                 "counties (MEDSL's precinct returns): the forecast against what happened. Built by "
                                 "pipeline/local_medsl.py backtest-local-partisan.",
@@ -1875,8 +1875,9 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
                              "share": {"of": "Democrat, two-party", "mean": round(mean, 4), "sd": round(sd, 4),
                                        "tails": "normal"},
                              "note": "transferred, not yet checked: route (a)'s class-C terms, fitted on the state "
-                                     "legislative races of earlier years (Klarner's, and New Jersey's 2023 Senate), "
-                                     "applied with the county's US House "
+                                     "legislative races of earlier years ("
+                                     + ("Klarner's, and New Jersey's 2023 Senate" if year > 2023 else "Klarner's")
+                                     + "), applied with the county's US House "
                                      "lean; incumbency not matched (taken as 0); back-test in "
                                      "data/local/backtest-local-partisan.json",
                              "source": "model"})
