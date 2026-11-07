@@ -178,7 +178,8 @@ def main():
                     pu = L.p_density(n, fh)
                     cal = f.get("calibration")
                     cid = f"{c['id']} [{f['by']}{' ' + str(f.get('version')) if f.get('version') else ''} {tails}]"
-                    T["f_half"].add(cid, b["f_half"], fh)
+                    # p.f_half is the calibrated density, f(1/2) x the multiplier (data/README after #45)
+                    T["f_half"].add(cid, b["f_half"], fh * (cal["multiplier"] if cal and cal.get("multiplier") else 1.0))
                     if f["by"] == "538":
                         counts["538 blocks"] += 1
                         T["value_uncal"].add(cid, b["value"], pu)
@@ -250,7 +251,7 @@ def main():
         print("  counts:", ", ".join(f"{k} {v}" for k, v in counts.items()))
         print("  8.1 p from the forecast's mean, sd, tails and the near-tie factor (every block of p and p.alongside):")
         for k in ("f_half", "value_uncal", "multiplier", "value", "event", "ctl_value"):
-            T[k].report({"f_half": "f(1/2)", "value_uncal": "value_uncalibrated (or value where no factor) = f(1/2)/(2n)",
+            T[k].report({"f_half": "f_half = f(1/2) x the multiplier (the calibrated density, as documented)", "value_uncal": "value_uncalibrated (or value where no factor) = f(1/2)/(2n)",
                          "multiplier": "multiplier = F / (1 + (F - 1) q)", "value": "value (= value_uncalibrated x multiplier)",
                          "event": "event = 2 value", "ctl_value": "control value = value x P(decides | tie)"}[k])
         print("  8.2 the forecast rebuilt from the model block and forecast_inputs (mean_is, sd_is):")

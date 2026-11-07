@@ -33,8 +33,14 @@ MEDSL = ("https://dataverse.harvard.edu/api/access/datafile/13887039?format=orig
 DOWNBALLOT = {  # the lines sheets for the three House rows (2008 MA-05, NC-04; 2022 IL-03) whose lean the files lack
     2008: ("https://docs.google.com/spreadsheets/d/1l7W130tPRF6dQ4JoqlQJSJexnEg4rZct-7kwDXqgoLE/export?format=csv&gid=429358610",
            "downballot_sheet_2006.csv", "cabd4860a9e7d8ace7d0991b8460af535b8870ca1ab3e08ce17b532a758acb95", 5, 2004),
+    2018: ("https://docs.google.com/spreadsheets/d/1zLNAuRqPauss00HDz4XbTH2HqsCzMe0pR8QmD1K8jk8/export?format=csv",
+           "downballot_sheet_2018.csv", "1ac29ca1575210f62470732cacd2b8d0203b6219ef5223bf12ae309f54f7a23e", 3, 2016),
     2022: ("https://docs.google.com/spreadsheets/d/1CKngqOp8fzU22JOlypoxNsxL6KSAH920Whc-rd7ebuM/export?format=csv",
            "downballot_sheet_2022.csv", "40a174a694dc147cdb3fc423b09f4293b3ed191a0053dcd6f5b9a1d3f80f52a2", 3, 2020)}
+# A House special held for the old seat: the files give it the district presidential vote on the lines of t-2 (the
+# lines it was held on); D2's fit rows (chambers.py, fit_rows) give it the sheet of its own year t. "own" reproduces
+# D2's fits; "t-2" is the files' reading. Each special row carries both (lean_own, lean_t2).
+SPECIAL_LINES = "own"
 STATES_50 = ("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND "
              "OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY").split()
 LEVELS = ("house", "senate", "governor")
@@ -228,6 +234,7 @@ def cha_rows(cha, ps, finputs, gov):
             continue
         D, R = dr
         py = last_pres_year(t)
+        lean_own = None
         if Lv == "house":
             key = None
             for d_ in (c["district"], "AL" if c["district"] == "01" else None):
@@ -243,6 +250,12 @@ def cha_rows(cha, ps, finputs, gov):
             if lean is None:
                 skip("no district presidential vote from before the election (file inputs)")
                 continue
+            lean_own = None
+            if c["special"] and Lv == "house":
+                reg = finputs.get((Lv, t, c["state"], c["district"], False))
+                lean_own = reg[0].get("lean") if reg else None
+                if lean_own is None:
+                    lean_own = downballot_lean(t, c["state"], c["district"], ps)
         else:
             if c["state"] not in ps.get(py, {}):
                 skip("no state presidential vote")
@@ -255,6 +268,7 @@ def cha_rows(cha, ps, finputs, gov):
         row = {"year": t, "level": Lv, "state": c["state"], "district": c["district"], "special": c["special"],
                "y": D["votes"] / n2, "n2": n2, "lean": lean, "inc": inc, "P": P_of(t), "M": M_of(t),
                "source": src if Lv == "house" else "cha", "id": finputs[key][2] if key in finputs else None,
+               "lean_t2": lean if c["special"] and Lv == "house" else None, "lean_own": lean_own,
                "file_lean": fi.get("lean"), "file_inc": fi.get("incumbency")}
         if Lv == "governor":
             lg = last_governor_race(gov, c["state"], t)
@@ -409,10 +423,29 @@ def aa_governor_rows(finputs):
     return rows, skipped
 
 
+def set_special_lines(rows, mode):
+    """Point every House special row's lean at the chosen convention ("own": D2's, the sheet of its own year;
+    "t-2": the files', the lines it was held on); rows without the other reading keep the files'."""
+    n = 0
+    for r in rows:
+        if r["level"] == "house" and r["special"]:
+            want = r.get("lean_own") if mode == "own" else r.get("lean_t2")
+            if want is None:
+                want = r.get("lean_t2") if r.get("lean_t2") is not None else r["lean"]
+            if abs(want - r["lean"]) > 1e-12:
+                n += 1
+            r["lean"] = want
+    reset()
+    return n
+
+
 def all_rows(refresh=False):
     """Every fit row, with the counts skipped and the checks of the inputs against the files; cached."""
     if not refresh and os.path.exists(ROWS_CACHE):
-        return L.load_json(ROWS_CACHE)
+        out = L.load_json(ROWS_CACHE)
+        if all("lean_own" in r or r["level"] != "house" for r in out["rows"]):
+            set_special_lines(out["rows"], SPECIAL_LINES)
+            return out
     ps = pres_shares()
     finputs = file_inputs()
     cha = cha_contests()
@@ -427,6 +460,7 @@ def all_rows(refresh=False):
     os.makedirs(L.CACHE, exist_ok=True)
     with open(ROWS_CACHE, "w") as f:
         json.dump(out, f)
+    set_special_lines(out["rows"], SPECIAL_LINES)
     return out
 
 
@@ -744,7 +778,7 @@ def near_tie_test(rows, variant):
 
 
 # ------------------------------------------------------------------------------------------- variants
-def variant_score(rows, level, variant, years, sch=None, use_sch=True):
+def variant_score(rows, level, variant, years, sch=None, use_sch=True, bands_by_none=True):
     """The level's out-of-sample forecasts of `years` under the variant with its adopted near-tie scheme (or the one
     given): log score, coverage, near-even counts overall and by band of none's mean, the tails toward 1/2, z rms."""
     tails = VARIANTS[variant][1]
@@ -761,7 +795,7 @@ def variant_score(rows, level, variant, years, sch=None, use_sch=True):
         F = factors_for(rows, level, T, a, sch, variant)
         l_, u, w_, _, _ = _scored_block(a, F, tails)
         z2 = ((a["y"] - a["mu"]) / a["sd"]) ** 2
-        b = np.array([max(i for i, x in enumerate(VARIANT_BANDS) if abs(m0 - 0.5) >= x) for m0 in a0["mu"]])
+        b = np.array([max(i for i, x in enumerate(VARIANT_BANDS) if abs(m0 - 0.5) >= x) for m0 in (a0["mu"] if bands_by_none else a["mu"])])
         tot["races"] += len(l_)
         tot["ls"] += l_.sum()
         tot["z2"] += z2.sum()
@@ -795,10 +829,15 @@ def variant_score(rows, level, variant, years, sch=None, use_sch=True):
                          "tail": {t_: {"expected": float(v[0]), "seen": v[1]} for t_, v in g["tail"].items()}} for g in band]}
 
 
-def variant_test(rows):
+def variant_test(rows, years=None, min_count=None, strict_further=True, bands_by_none=True, with_years=True):
+    """D2's variants test (REPORT 2.7): adopt the best-scoring variant that raises the log score, brings the 49-51%
+    count nearer, and moves no tested safe-band count further (strictly, as written) than none's. The parameters
+    vary the rule for the flip analysis (c10)."""
+    years = list(VARIANT_YEARS) if years is None else list(years)
+    min_count = VARIANT_MIN_COUNT if min_count is None else min_count
     out = {"by_level": {}, "adopted": {}, "shrink_by_year": {}, "k_by_year": {}}
     for Lv in LEVELS:
-        res = {v: variant_score(rows, Lv, v, VARIANT_YEARS) for v in VARIANTS}
+        res = {v: variant_score(rows, Lv, v, years, bands_by_none=bands_by_none) for v in VARIANTS}
         b0 = res["none"]
         best = None
         for v in ("shrink", "t4", "both"):
@@ -810,11 +849,12 @@ def variant_test(rows):
             tested, failed = [], []
             for b in VARIANT_SAFE:
                 for w, x0 in b0["by_band"][b]["within"].items():
-                    if x0["seen"] < VARIANT_MIN_COUNT and x0["expected"] < VARIANT_MIN_COUNT:
+                    if x0["seen"] < min_count and x0["expected"] < min_count:
                         continue
                     x = r["by_band"][b]["within"][w]
                     tested.append((b, w))
-                    if abs(x["expected"] - x["seen"]) > abs(x0["expected"] - x0["seen"]):
+                    d, d0 = abs(x["expected"] - x["seen"]), abs(x0["expected"] - x0["seen"])
+                    if (d > d0) if strict_further else (d >= d0):
                         failed.append((b, w))
             r["safe_bands_tested"], r["safe_bands_further"] = tested, failed
             r["safe_seats_supported"] = not failed
@@ -824,8 +864,9 @@ def variant_test(rows):
         res["adopted"] = best or "none"
         out["by_level"][Lv] = res
         out["adopted"][Lv] = best or "none"
-        out["shrink_by_year"][Lv] = {T: shrink_factor(rows, Lv, T) for T in VARIANT_YEARS}
-        out["k_by_year"][Lv] = {T: {"none": calibration(rows, Lv, T)["k"], "shrunk": calibration(rows, Lv, T, shrink_factor(rows, Lv, T))["k"]} for T in VARIANT_YEARS}
+        if with_years:
+            out["shrink_by_year"][Lv] = {T: shrink_factor(rows, Lv, T) for T in years}
+            out["k_by_year"][Lv] = {T: {"none": calibration(rows, Lv, T)["k"], "shrunk": calibration(rows, Lv, T, shrink_factor(rows, Lv, T))["k"]} for T in years}
     return out
 
 

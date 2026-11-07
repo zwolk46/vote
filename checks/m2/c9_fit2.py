@@ -97,6 +97,26 @@ def main():
                     worst[(level, k)] = (v, year)
     for level in F.LEVELS:
         print(f"  {level}, largest over the years: " + ", ".join(f"{k} {v:.1e} ({y})" for (l_, k), (v, y) in sorted(worst.items()) if l_ == level))
+    print("  (the House specials here take D2's lines convention, m2fit.SPECIAL_LINES 'own': a special's district presidential vote from the")
+    print("   sheet of its own year, as chambers.py fit_rows reads it; the files give a special the lines of t-2, the lines it was held on)")
+
+    print("\n9.2b THE HOUSE AGAIN WITH THE SPECIALS ON THE FILES' LINES (t-2): the same relative differences")
+    moved = F.set_special_lines(rows, "t-2")
+    sp = [r for r in rows if r["level"] == "house" and r["special"] and r.get("lean_own") is not None and abs(r["lean_own"] - r["lean_t2"]) > 1e-4]
+    print(f"  {moved} special rows move; {len(sp)} by more than 1e-4: " + ", ".join(f"{r['id'][:-8]} {r['lean_t2']:+.3f} (file) vs {r['lean_own']:+.3f} (D2's rows)" for r in sp))
+    for path in sorted(os.listdir(os.path.join(L.DATA, "house"))):
+        doc = L.load_json(os.path.join(L.DATA, "house", path))
+        year, m = doc["year"], doc.get("model") or {}
+        if "c" not in m or m.get("national_from"):
+            continue
+        mm, fy = F.variant_model(rows, "house", year, RECORD_VARIANT["house"])
+        nat, nat_sd = F.national(mm, year)
+        lam_rec = (m.get("variant") or {}).get("shrink")
+        lam_rec = lam_rec["factor"] if lam_rec else None
+        lam = mm["shrink"]["factor"] if mm.get("shrink") else None
+        print(f"  house {year}: b_lean {rel(m['b_lean'], mm['b_lean']):.1e} b_inc {rel(m['b_inc'], mm['b_inc']):.1e} s_e_fit {rel(m['s_e_fitted'], mm['s_e']):.1e} "
+              f"s_a {rel(m['s_a'], mm['s_a']):.1e} nat sd {rel(m['national_sd'], nat_sd):.1e} k {rel(m['k'], mm['k']):.1e} lambda {rel(lam_rec, lam) if lam_rec and lam else float('nan'):.1e}")
+    F.set_special_lines(rows, "own")
 
     print("\n9.3-9.4 k AND lambda BY YEAR AGAINST backtest.json (variants.k_by_year, shrink_by_year), every level, 2010-2024")
     vt = b["variants"]
@@ -167,7 +187,7 @@ def main():
                     wm, ex = dm, (c["id"], own["share"]["mean"], mu, r["inc"], (c.get("forecast_inputs") or {}).get("incumbency"))
                 ws = max(ws, ds)
         print(f"  {level}: {n} contests; largest |mean difference| {wm:.2e} ({ex}); largest relative sd difference {ws:.1e}")
-        print(f"     (a mean difference beyond 1e-6 is an input that differs: the incumbency cases of 9.1, or the three House rows whose lean is not in the files)")
+        print(f"     (a mean difference beyond 1e-6 is an input that differs from the file's: the incumbency cases of 9.1, or a special's lines (9.2b))")
 
 
 if __name__ == "__main__":

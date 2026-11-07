@@ -48,7 +48,9 @@ def chamber_inputs(doc, level):
         PD_rec.append(inp.get("P_decides_given_tie_if_VP_D"))
         PR_rec.append(inp.get("P_decides_given_tie_if_VP_R"))
         marked.append(bool(inp.get("marginal_note")))
-    ch = doc["chamber"]
+    ch = doc.get("chamber") or {}
+    if not ids or "common_swing_sd" not in ch:
+        return None
     sd_a = ch["common_swing_sd"]
     n_entries = len(ids) + fixed_D + fixed_other
     if level == "house":
@@ -206,6 +208,9 @@ def main():
                 print(f"  {level} {y}: no control computed")
                 continue
             ci = chamber_inputs(doc, level)
+            if ci is None:
+                print(f"  {level} {y}: control not computed in the file ({(doc.get('contests') or [{}])[0].get('stage_two', {}).get('note', '')[:90]}...)")
+                continue
             U = len(ci["ids"])
             nm = sum(ci["marked"])
             print(f"  {level} {y}: {U} seats with a mean ({ci['kinds'].count('model')} modelled, {ci['kinds'].count('inferred')} inferred; "
@@ -222,6 +227,9 @@ def main():
                 mix = ci["pi"] * W["D"][0] + (1 - ci["pi"]) * W["R"][0]
                 compare(f"{level} {y} pi P(VP D branch) + (1 - pi) P(VP R branch) vs P(decides | tie)", ci["ids"], ci["P_rec"], mix, 1e-12)
                 pD, how = presidential_chance(y)
+                if not how.startswith("538"):
+                    pW, howW = presidential_chance(y, whole=True)
+                    print(f"    the same with the states whole ({howW.split('(')[1]}: {pW:.6f}; difference from the record {abs(pW - ci['pi']):.2e}")
                 print(f"    the VP's chance: chamber.vice_president.P_democrat {ci['pi']:.6f} ({ci['vp'].get('by')}); {how}: {pD:.6f}; "
                       f"difference {abs(pD - ci['pi']):.2e}")
             if nm:
