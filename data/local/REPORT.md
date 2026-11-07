@@ -142,7 +142,7 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 - Some files list every precinct of the state under an office with 0 votes; a contest is placed by the precincts that voted in it, and 35 contests with no vote anywhere are left out.
 
 **Checks** [measured]:
-- 2024: the presidential totals above. New Jersey's contests are recorded with p not computed and the reason. Indiana's are now the state's own certified counts (§10), and Louisiana's the state's own official ones (§12).
+- 2024: the presidential totals above. New Jersey's contests are released county by county, under §13's gate. Indiana's are now the state's own certified counts (§10), and Louisiana's the state's own official ones (§12).
 - 2022 state legislatures against Klarner's (`data/local/check-2022-medsl-klarner.json`), 4,130 single-member districts named alike in both: D and R votes identical in 3,426; the two-party share within 1 point in 574 more (counts scaled alike: New Hampshire's senate is exactly double in Klarner, Idaho's double in MEDSL); a major party's candidate in one source only in 94; the share more than 1 point apart in 36. The winner differs in 89. (Read again with the intake of §7, 9 Illinois districts the first reading had split now join, and Illinois falls under the line.) States where more than 10% of districts differ in share or parties (AR, IN, MI, WA, WY), and California, whose 2022 file has exactly 1,048,575 rows, a spreadsheet's limit, so it is likely cut short [inferred], are not used for last results or like races.
 - The US House totals in the same files against D2's are kept in the checks file but not used: D2's state totals include blank-ballot lines in some states and its party words vary, so they do not compare line for line.
 
@@ -592,7 +592,48 @@ It holds no legislative contest. New Jersey elects its legislature in odd years,
 
 So the state's +14.4% presidential miss (§6) comes from five counties. Gloucester shows the error can sit in one office alone. A county's federal offices adding up therefore shows its file was read whole. It does not show that every other office's rows are sound [inferred].
 
-**What it gives.** No contest is added and no p moves, since the lists hold no office below Congress. MEDSL's New Jersey local contests (1,301) and questions (49) stay held back.
+**What it gave at first** (PR #63). No contest was added and no p moved, since the lists hold no office below Congress. The gate by county below was put to the orchestrator then.
 
-**Put to the orchestrator, not applied: a gate by county.** It would release the contests of the 16 counties that add up in all three federal offices, with their routes: 986 of the 1,301 local contests and 40 of the 49 questions. Gloucester has no local contest in MEDSL's file. Atlantic's, Bergen's, Mercer's and Union's would stay held back. The other way is the county clerks' own certified results: 21 sites, not read.
+**The gate by county, as ruled.** *Added 2026-11-07 at 11:12 UTC, at the orchestrator's ruling of 10:45: "adopt the gate by county, with two checks added on the released rows, because your Gloucester reading is right that federal offices adding up does not show the local rows sound".* The code is `pipeline/local_nj.py` (`county_gate`, `row_checks`, `spotcheck`); its results are in `data/local/check-nj.json`, under `county_gate` [measured].
+1. **By county.** A contest is released only when every county it lies in adds up in all three federal offices at the 0.5% line. Atlantic, Bergen, Gloucester, Mercer and Union stay held. Each New Jersey record carries `gate`: its counties' federal misses and what the checks found.
+2. **Repeated rows** (the same precinct, office, candidate and mode twice). There are none among the file's local rows.
+3. **A total line among the precincts.** Gloucester's doubled presidential count is a precinct line named "COUNTY TOTAL" beside its municipalities. So the check holds any contest with a precinct named TOTAL, or with a precinct equal, for every candidate, to all the contest's other precincts added up. There is none in the released counties. Bergen's rows have such a line in 160 contests, but Bergen is held already.
+4. **A precinct over its federal votes.** A contest is held when a precinct's votes in it exceed the most votes that precinct cast for one federal office, times the contest's vote-for-N. Where MEDSL gives no vote-for-N, the number of candidates named is used. This holds 3 contests:
+   - Camden's county clerk, in 6 of 429 precincts;
+   - Camden's sheriff, in 8 of 429 precincts, over by 1 to 13 votes;
+   - Delanco Township's board of education, in 1 of 7 precincts (334 against 323).
+5. **Against the county clerks' official results.** Five released contests in five counties were compared. In each county the contest is its board of county commissioners: the one county office on every ballot there, so it runs through every precinct the county files. The sample was fixed before any count was compared. The five counties are the released ones whose clerk's site answered with its official 2024 results.
+
+| County | The clerk's file, in its own words | Largest miss |
+|---|---|---|
+| Camden | "2024 General Election Canvasser", "OFFICIAL RESULTS" | none |
+| Hunterdon | results by district, "OFFICIAL RESULTS" (its "Totals" row) | none |
+| Morris | summary report, "OFFICIAL RESULTS" | 6 votes (0.005%) |
+| Ocean | "Ocean County Board of Canvassers Report", its 33 municipalities added up | none |
+| Sussex | countywide summary, "OFFICIAL RESULTS", "Amended Summary Results" | 8 votes (0.016%) |
+
+None misses by more than 0.5%, so the clerks' check holds no county.
+
+The other released counties' clerks' sites, read after 10:45 UTC, are recorded, not routed round:
+- Middlesex, Passaic, Somerset and Warren refused (HTTP 403). Essex's results page answered, but its results host refused (403).
+- Hudson and Monmouth answered HTTP 202 with an empty body. Salem gave a bot challenge.
+- Burlington's and Cape May's pages answered, but those read did not lead to the 2024 results.
+- Cumberland's summary report heads itself "Unoffical" (sic), so it is not the official results.
+- Within the five: Hunterdon's results by municipality reset the connection; its results by district answered. Sussex's county site gave the proxy's 502; the clerk's own site answered.
+
+**What it gives** [measured].
+- **Released:** 983 local contests and 40 questions.
+- **Held:** 315 local contests and 9 questions by county, and 3 local contests by check 4.
+- **p for the released.** 52 get p for the first time: 43 by the model's route from like past races, 9 by its transferred normal route. 246 keep p = 0: one name on the ballot for each seat. The other 685 stay without p, for the model's usual reasons. The most common is that MEDSL gives no vote-for-N (397); 70 are specials, and most of the rest have too few like races.
+- **No question gets p.** 38 are local measures, whose threshold is the one state law sets for their kind; 2 give one answer only.
+- **The 2024 back-tests take in the released contests.** The classes back-test's 2024 has 2,313 races (from 2,270): 218 finished within their window, against 289.0 expected (from 214 against 284.5). The partisan back-test's 2024 has 977 races with a lean (from 968). The calibration file's numbers move, but no verdict does: the near-tie calibration stays out.
+- **No p moves outside New Jersey.**
+
+**Put to the orchestrator, not applied: check 4's bound.** Both Camden contests that check 4 holds equal the clerk's official counts to the vote [measured: Camden's file, against the built records]:
+- county clerk: Lampitt 149,690, Exler 84,229, write-ins 166;
+- sheriff: Billingham 148,470, Williams 85,637, write-ins 217.
+
+So the premise "no real count can do that" fails, and the file shows why. In Camden Ward 3 District 1, 319 ballots were cast. For president, 22 were overvoted and 2 left blank, so the president has 295 votes; the Senate and House have 299. The sheriff has 302 [measured]. A voter who spoils or skips the federal offices can still vote for sheriff.
+
+A precinct's ballots are its votes plus overvotes plus undervotes for any vote-for-1 office. Camden's rows in MEDSL's file carry all three, and a "CONTEST TOTAL" row equal to their sum; not every county's rows do [measured: 12,908 undervote and 6,979 overvote rows in the file]. Bounding by ballots instead would release both Camden contests. It would still hold Delanco's, at 334 against 327 ballots, because its vote-for-N is taken as 1.
 

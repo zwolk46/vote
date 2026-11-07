@@ -74,7 +74,18 @@ def load(year):
                     EMPTY[year] += 1
                     continue
                 out.append(c)
-    return certified_la(certified_in(certified_nc(fix_questions(out, year), year), year), year)
+    import local_nj as NJ
+    return NJ.county_gate(certified_la(certified_in(certified_nc(fix_questions(out, year), year), year), year), year)
+
+
+def held(c, bad_y):
+    """Why a contest's counts are held back (no p, and out of the back-tests), or None. A state in `bad_y` (quality) is
+    held whole, except where a finer gate has read the contest itself: New Jersey's of 2024, county by county
+    (pipeline/local_nj.py county_gate, the orchestrator's ruling of 2026-11-07 10:45)."""
+    g = c.get("county_gate")
+    if g is not None:
+        return g["held"]
+    return bad_y.get(c["state"])
 
 
 def certified_nc(contests, year):
@@ -731,10 +742,10 @@ def backtest_local_partisan(write=True, years=None, prow=None, pres=None):
 
 def _backtest_one(M, k, rows, bad, pres):
     from statistics import NormalDist
-    used = [r_ for r_ in rows if r_["lean_missing"] is None and r_["m"]["state"] not in bad]
+    used = [r_ for r_ in rows if r_["lean_missing"] is None and not held(r_["m"], bad)]
     z = {"50": 0.6744897501960817, "80": 1.2815515655446004, "95": 1.959963984540054}
     out = {"races": len(rows), "with_lean": len(used),
-           "held_back_state": sum(1 for r_ in rows if r_["lean_missing"] is None and r_["m"]["state"] in bad),
+           "held_back_state": sum(1 for r_ in rows if r_["lean_missing"] is None and held(r_["m"], bad)),
            "lean_missing": dict(collections.Counter(_lean_reason(r_["lean_missing"]) for r_ in rows
                                                     if r_["lean_missing"]).most_common())}
     if M is None:
@@ -1350,8 +1361,8 @@ def build(out_dir, with_p=True):
             route, key = leg_structure(c)
             label = f"{level} {year}"
             swi = strong_write_in(c["candidates"], k) if route == "zero" else None
-            if c["state"] in bad[year]:
-                p["not_computed"] = bad[year][c["state"]]
+            if held(c, bad[year]):
+                p["not_computed"] = held(c, bad[year])
                 counts[f"{label}: not computed, the state's counts do not add up"] += 1
             elif c["state"] in RANKED and route != "zero":
                 p["not_computed"] = RANKED[c["state"]]
@@ -1425,7 +1436,7 @@ def build(out_dir, with_p=True):
             files[(level, year, c["state"])].append(L._compact(rec))
 
     # -- local races: routes (b) and (c), from like races of earlier years
-    lrows = {y: local_rows([c for c in m[y] if c["state"] not in bad[y]]) for y in YEARS}
+    lrows = {y: local_rows([c for c in m[y] if not held(c, bad[y])]) for y in YEARS}
     dens = {}
     bt = backtest_local_partisan(write=True, prow=prow, pres=pres)
     lp = {}
@@ -1459,9 +1470,11 @@ def build(out_dir, with_p=True):
                               "total_votes": sum(x["votes"] for x in c["candidates"]),
                               "source": c.get("source", "medsl")},
                    "forecasts": []}
+            if c.get("county_gate"):
+                rec["gate"] = c["county_gate"]["record"]
             p = {}
-            if c["state"] in bad[year] and route != "zero":
-                p["not_computed"] = bad[year][c["state"]]
+            if held(c, bad[year]) and route != "zero":
+                p["not_computed"] = held(c, bad[year])
                 counts[f"local {year}: not computed, the state's counts do not add up"] += 1
             elif scope == "state" and c["state"] in RANKED and route != "zero":
                 p["not_computed"] = RANKED[c["state"]]
@@ -1494,7 +1507,7 @@ def build(out_dir, with_p=True):
     import measures as MS
     book = MS.load_thresholds()
     mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
-    mrows = {y: MS.rows([c for c in m[y] if c["state"] not in bad[y]], y, mref) for y in MEASURE_YEARS}
+    mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS}
     mdens, mtest, mhalf = {}, [], []
     for year in MEASURE_YEARS:
         train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
@@ -1538,6 +1551,8 @@ def build(out_dir, with_p=True):
                               "source": c.get("source", "medsl"),
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
                    "forecasts": []}
+            if c.get("county_gate"):
+                rec["gate"] = c["county_gate"]["record"]
             notes = []
             # MEDSL's wording of a local question does not show its place; the State Board's file names it (or the
             # question is one county's own: pipeline/intake/ncsbe.py, generic), and Indiana's gives each question
@@ -1565,8 +1580,8 @@ def build(out_dir, with_p=True):
             elif yes + no <= 0:
                 p = {"not_computed": "no yes or no votes"}
                 counts[f"{label}: not computed, no votes"] += 1
-            elif c["state"] in bad[year]:
-                p = {"not_computed": bad[year][c["state"]]}
+            elif held(c, bad[year]):
+                p = {"not_computed": held(c, bad[year])}
                 counts[f"{label}: not computed, the state's counts do not add up"] += 1
             elif any(x.get("votes_missing_in_some_precincts") for x in c["candidates"]):
                 p = {"not_computed": "the source redacts some precincts' counts for this question"}
