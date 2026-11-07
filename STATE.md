@@ -4,7 +4,7 @@
 
 ## Where things stand
 
-- **Phase 2 (data, with design alongside).** Data on `main`: the presidency by state 1976–2024 with both stages (D1, #14, #23) and Senate, House and governors 2006–2024 with chamber control (D2, #18, #22). Working: X1 (first-screen options, then X2 the explainer), D3 (state legislatures, local, primaries, measures), M2 (Fable: checks every computed p and the own forecasts; asked 04:37), and T1 (tracker). Queued for a free slot: D2 once more (the VP tie vote at the presidential chance, not one half; and one fetch and one FEC intake, on D1's redirect-refusing `pipeline/fetch.py`), then D4 (cost inputs). No governor p is shown until M2 has examined the calibration flag. Design rulings standing: 04:06 explainer, 04:09 phone and dots, 04:09 layperson reader, 04:32 visuals over prose.
+- **Phase 2 (data, with design alongside).** Data on `main`: the presidency by state 1976–2024 with both stages (D1, #14, #23) and Senate, House and governors 2006–2024 with chamber control (D2, #18, #22). Working: X1 (first-screen options, then X2 the explainer), D3 (state legislatures, local, primaries, measures), M2 (Fable: checks every computed p and the own forecasts; started 04:38), and T1 (tracker). Queued for a free slot: D2 once more (the VP tie vote at the presidential chance, not one half; and one fetch and one FEC intake, on D1's redirect-refusing `pipeline/fetch.py`), then D4 (cost inputs). No governor p is shown until M2 has examined the calibration flag. Design rulings standing: 04:06 explainer, 04:09 phone and dots, 04:09 layperson reader, 04:32 visuals over prose.
 - **Tracker** for the maker: "Vote Work", https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH (source `tracker/vote-work.html`; db collection `tasks`, rows {s, t, o, link, linkLabel}; seeded 03:02, read back at view level). Kept current by T1.
 - Open with the maker: the design-effort card (max for design work only, recommended / xhigh; until he answers, design runs at xhigh); the batched asks of plan §5 (web.archive.org; MEDSL's guestbook).
 - Hold of 02:45 lifted at 02:54 (RULINGS). Design follows `inherited/design/` (#11, from the midterms orchestrator). Work autonomously: the plan is recorded and he is told, not asked.
@@ -45,11 +45,13 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | done; #18, #22 merged; stopped (to wake once for the VP follow-up) |
 | Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | started 03:08; #16 (spec) merged; options on its preview branch; X2 next in this thread |
 | Gather local, legislative, primary and measure data | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVThyXDPxVFHnA4YqgssTSs | `briefs/D3-data-local.md` (Opus 5.5, xhigh) | started ~04:30 |
-| Check every computed p | (asked of the coordinator 04:37) | `briefs/M2-check-computed-p.md` (Fable 5.1, xhigh) | asked |
+| Check every computed vote chance | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCEUo7XmYgNjtfLdxDRBTML | `briefs/M2-check-computed-p.md` (Fable 5.1, xhigh) | started 04:38 |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 04:40: M2 started 04:38 (cmsg_01FHkmcV6WaeZh9r5PfgnMbuCEUo7XmYgNjtfLdxDRBTML). D3 told: compact JSON, a sources table per file, size reported before a full commit, stop at ~100 MB; D1's fetch.py the one fetch. D1 told it is done, with the decisions on its open items. Workers now: X1, D3, M2 (+T1).
 
 - 2026-11-07 04:39: the maker, 04:37: simple headings ("Senate", "House", "U.S. Senate", "U.S. House", form fitted to context) are needed text; recorded as the 04:32 ruling's example; X1 and X2 amended ("Headings stay"); X1 told. #24 merged (04:32 ruling, M2 brief).
 
