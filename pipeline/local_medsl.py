@@ -99,9 +99,9 @@ def load(year):
                 out.append(c)
     import local_nj as NJ
     import local_volume as V
-    return V.volume_gate(mark_whole_state(statewide_pieces(known_contests(
+    return V.volume_gate(listed_rows(mark_whole_state(statewide_pieces(known_contests(
         NJ.county_gate(certified_la(certified_in(certified_nc(join_statewide(fix_questions(out, year), year), year),
-                                                 year), year), year), year), year)), year)
+                                                 year), year), year), year), year)), year), year)
 
 
 def mark_whole_state(contests):
@@ -215,8 +215,7 @@ HOLDS_EXPECTED = {
            ("MI", "SECRETARY OF STATE", "", "incomplete"), ("NY", "COMPTROLLER", "", "incomplete"),
            ("OR", "COMMISSIONER OF THE BUREAU OF LABOR AND INDUSTRIES", "", "incomplete")},
     2024: {("ND", "STATE AUDITOR", "", "state total"), ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 1", "incomplete"),
-           ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 7", "incomplete"),
-           ("AZ", "CORPORATION COMMISSIONER", "STATEWIDE", "seats differ")}}
+           ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 7", "state total")}}
 # Michigan's Supreme Court: the orchestrator, 16:53: "If neither answers, do not leave MI 2018 as it is. Hold it: no p,
 # out of every pool, and marked 'seat count unread' ... Do the same for any other MI year whose count can't be read.
 # Reason: a record kept in the pools as one seat when it may be two would bias every later statewide-judge p"; and
@@ -366,6 +365,37 @@ def _join(m, pieces, year):
     PIECES[year]["joined"] += 1
 
 
+AZ_CC_SEATS = ("3: the seat count MEDSL's file gives the rows of 13 of the state's 15 counties (12 counties, and "
+               "Santa Cruz's filed under districts 001 to 003); Maricopa's and Pima's rows give 1, but in each of the "
+               "two counties the contest's votes, overvotes and undervotes come to 2.99 times the president's "
+               "(Maricopa 6,213,612 against 2,078,930; Pima 1,550,565 against 518,466), three votes a ballot "
+               "[measured: MEDSL's 2024 Arizona file; data/local/REPORT.md section 31]")
+
+
+def _az_cc_2024(m, year, whole_):
+    """Arizona 2024, Corporation Commissioner: MEDSL's file gives the contest in two pieces, the rows of 12 counties at
+    three seats and those of Maricopa, Pima and Santa Cruz (whose rows are filed under districts 001-003 at three seats,
+    44,060 votes) at one. The orchestrator's order of 2026-11-07 20:30 on M2's sixth pass: "the pieces may all be the
+    one three-seat contest, with Santa Cruz split by district. If so, join them as a single three-seat contest. It
+    keeps the board type, since it elects more than one. Check whether together they cover every county, then apply
+    the 16:47 rule. If they don't fit together, it stays held, with the reason restated." Reason: "a hold has to state
+    its cause correctly, or it will be lifted or kept for the wrong one." The pieces have the same candidates
+    (statewide_pieces' join test) and, joined, cover every county with votes that day (whole_); the seat count is
+    AZ_CC_SEATS. True where it is joined so; False (held as seats differ) otherwise."""
+    if (m["state"], m["office"], m.get("district"), year) != ("AZ", "CORPORATION COMMISSIONER", "STATEWIDE", 2024):
+        return False
+    seats = sorted({p_["seats"] for p_ in m["pieces_joined"]})
+    if seats != [1, 3] or not whole_:
+        return False
+    m["magnitude"] = 3
+    m["seats_note"] = AZ_CC_SEATS
+    m["notes"] = (m.get("notes") or []) + [
+        "one contest of three seats: its pieces have the same candidates and together cover every county of the "
+        "state, so they are joined at three seats (the orchestrator, 20:30, on M2's sixth pass; seats_note)"]
+    PIECES[year]["AZ: the Corporation Commission's pieces joined as one contest of three seats"] += 1
+    return True
+
+
 def _wa_state(m, year):
     """Washington 2022: the state's own results for a joined contest (pipeline/intake/wa_sos.py), set beside MEDSL's
     sum (ruling (b)); the export carries no certified mark, so MEDSL's counts stand and the difference is recorded
@@ -435,6 +465,72 @@ def _nd_state(m, year, a):
     return True
 
 
+OR_SOS = os.path.join(F.CACHE, "or_sos", "normalized")
+
+
+def _or_state(m, year, a):
+    """Oregon 2024: the Secretary of State's abstract of votes for a statewide contest MEDSL's lines leave incomplete
+    (pipeline/intake/or_sos.py; the orchestrator's orders of 17:44, 19:49 item 4 and 20:28). True where its total is
+    taken; a reason (str) where the abstract holds the contest and fails its gate, so the contest stays held with that
+    reason; None where the abstract read holds no such contest."""
+    path = os.path.join(OR_SOS, f"{year}-general.json")
+    if not os.path.exists(path):
+        raise SystemExit(f"{path} is not in the cache: run pipeline/intake/or_sos.py read first")
+    with open(path) as f:
+        off = json.load(f)
+    c = next((c for c in off["contests"] if (c["office"], c["district"]) == (m["office"], m.get("district"))), None)
+    if c is None:
+        return None
+    if not c["adds_up"]:
+        return ("the Secretary of State's abstract of votes was read (pipeline/intake/or_sos.py) and fails its own "
+                "gate: " + "; ".join(c["differences"]) + ", so its total is not taken either")
+    st = {("WRITE-IN" if x["misc"] else name_key(x["name"])): x for x in c["candidates"]}
+    mine = {_ckey(x): x for x in m["candidates"]}
+    if set(st) != set(mine):
+        raise SystemExit(f"_or_state: {m['office']} {m.get('district')}: the abstract's names {sorted(st)} differ from "
+                         f"MEDSL's {sorted(mine)}")
+    medsl = {x["name"]: x["votes"] for x in m["candidates"]}
+    missing = sorted(a - set(m["counties"]))
+    for k, x in mine.items():
+        x["votes"] = st[k]["votes"]
+        x["won_marked"] = True if st[k]["elected"] else None
+    m["counties"] = sorted(a)
+    m["state_votes"] = {"source": "or_sos", "medsl": medsl,
+                        "office_as_listed": f"{c['title']}, {c['position']}"}
+    m["notes"] = (m.get("notes") or []) + [
+        f"votes: the Oregon Secretary of State's abstract of votes of the {year} general election ('{c['title']}, "
+        f"{c['position']}'; the records system titles it {off['source']['title']!r}, which the orchestrator's ruling of "
+        f"2026-11-07 19:49 counts as its mark; each candidate's 36 county lines add up to its Total line; "
+        f"pipeline/intake/or_sos.py), the state's total in place of MEDSL's (the ruling of 16:47); MEDSL's lines for "
+        f"this contest miss {', '.join(missing)} and add up to {sum(medsl.values()):,} (result.medsl_votes)"]
+    return True
+
+
+AZ_RECOUNT = "count before the recount, certified count unread"
+
+
+def az_recount(contests):
+    """Arizona 2022, Attorney General: MEDSL's general lines are the count before the statewide recount, so the
+    contest is marked so (result.count_stage). The orchestrator's order of 2026-11-07 (the held-totals PR): the count
+    of record is the certified count after the recount, read from a body that answers (the court's recount order);
+    until then the record says it shows the count before the recount. Reason: a record must not pass off a superseded
+    count as the count of record. Unread [stated: data/local/REPORT.md section 31]: the Secretary of State (azsos.gov,
+    403) and the Maricopa County Clerk of the Superior Court (403 at 21:02:40 UTC) refused; the court's order is found
+    only as a copy on a third party's host, not read."""
+    ms = [m for m in contests if m.get("state") == "AZ" and m.get("office") == "ATTORNEY GENERAL"
+          and m.get("dataverse") == "STATE" and "RECOUNT" not in (m.get("stage") or "")]
+    if len(ms) != 1:
+        raise SystemExit(f"az_recount: {len(ms)} general contests for Arizona's 2022 Attorney General, not 1")
+    m = ms[0]
+    m["count_stage"] = AZ_RECOUNT
+    m["notes"] = (m.get("notes") or []) + [
+        "votes: MEDSL's general lines, the count before the statewide recount the margin set off; the count of record "
+        "is the certified count after the recount, which was not read (the Secretary of State's and the Superior "
+        "Court Clerk's hosts refused; data/local/REPORT.md section 31). Cochise County's recount lines are recorded "
+        "apart, as the recount they are"]
+    PIECES[2022]["AZ: the Attorney General marked as the count before the recount"] += 1
+
+
 ID_SOS = os.path.join(F.CACHE, "id_sos", "normalized")
 ID_NOTE = ("votes: the Idaho Secretary of State's official 2022 results (the results page its election page links as "
            "'Statewide Results', headed 'OFFICIAL ELECTION RESULTS', all 44 counties fully reporting; each total equal "
@@ -502,6 +598,8 @@ def statewide_pieces(contests, year):
         contests = nd_judgeships(contests, year)
     a_ = _state_counties(contests)
     id_statewide(contests, year, a_)
+    if year == 2022:
+        az_recount(contests)
     def whole(m):
         a = a_[(m.get("state"), m.get("date"))]
         return len(a) > 1 and a <= set(m.get("counties") or [])
@@ -537,6 +635,8 @@ def statewide_pieces(contests, year):
         _join(m, ps, year)
         if m["state"] == "WA" and year == 2022:
             _wa_state(m, year)
+        elif len(seats) > 1 and _az_cc_2024(m, year, whole(m)):
+            continue
         elif len(seats) > 1:
             _hold(m, "seat count unread: the contest's pieces in MEDSL's file give it different numbers of seats ("
                      + " and ".join(str(s) for s in sorted(seats, key=lambda s: (s is None, s))) + "), and the state's "
@@ -598,11 +698,16 @@ def statewide_pieces(contests, year):
                 PIECES[year]["ND: the state's official total for a contest MEDSL leaves incomplete"] += 1
                 held_.add(key + ("state total",))
                 continue
+            orx = _or_state(m, year, a) if m["state"] == "OR" and year == 2024 else None
+            if orx is True:
+                PIECES[year]["OR: the state's abstract of votes for a contest MEDSL leaves incomplete"] += 1
+                held_.add(key + ("state total",))
+                continue
             miss = sorted(a - mine)
             _hold(m, f"incomplete: MEDSL's lines for this contest miss {len(miss)} of the {len(a)} counties the "
                      f"state's contests have votes in that day ({', '.join(miss)}), no other piece of it is in the "
-                     f"file, and the state's own total was not read, so p is not computed and no winner is drawn from "
-                     f"a partial count", "incomplete", year)
+                     f"file, and " + (orx if orx else "the state's own total was not read") + ", so p is not "
+                     f"computed and no winner is drawn from a partial count", "incomplete", year)
             m["votes_incomplete"] = {"counties_missing": miss, "counties_of_state": len(a)}
             held_.add(key + ("incomplete",))
     if held_ != HOLDS_EXPECTED.get(year, set()):
@@ -620,34 +725,198 @@ def statewide_pieces(contests, year):
     return contests
 
 
-OVER_BALLOT = 1.05   # a one-seat contest's votes above this many times the governor's on the same ballot
+LISTED_NOTE = "a possible total row in the source, not dropped"
+LISTED = collections.defaultdict(list)   # year -> each listed row with its record's figures, for the check file
+LISTED_CHECK = os.path.join(L.REPO, "data", "local", "check-listed-rows.json")
+
+
+def listed_rows(contests, year):
+    """The orchestrator's order of 2026-11-07 20:28 (pipeline/local_volume.py listed_rows_summary): each row part 3
+    lists and does not drop, against the contest it falls in, with and without it; where the difference is more than
+    0.5% of the contest's total, the note LISTED_NOTE, with the row and the figures. A row falls in the contest of the
+    same state, office, district, stage and dataverse whose counties hold the row's county; its votes are those of the
+    contest's candidates it names (by name; a question's answer by its subject and answer). Every row is written to
+    data/local/check-listed-rows.json with what it falls in."""
+    import local_volume as V
+    import medsl_precinct as MP
+    lr = V._load_check().get("listed_rows")
+    if lr is None:
+        raise SystemExit("listed_rows: data/local/check-volume.json has no listed_rows: run local_volume.py check")
+    line = lr["line"]
+    LISTED[year] = []
+    for row in lr["years"].get(str(year), {}).get("rows", []):
+        st, office, district, stage, special, dv = row["contest"]
+        hits = [m for m in contests if m.get("state") == st and (m.get("office_as_filed") or m["office"]).upper() == office
+                and (m.get("office_as_filed") or (m.get("district") or "") == district)   # relabel moves the district
+                and (m.get("stage") or "").upper() == stage
+                and _special(m.get("special")) == (special == "TRUE") and (m.get("dataverse") or "") == dv
+                and row["county"] in (m.get("counties") or [])
+                and m.get("source", "medsl") == "medsl" and not m.get("state_votes")]   # MEDSL's counts only
+        rec = {"state": st, "office": office, "district": district or None, "county": row["county"],
+               "precinct": row["precinct"], "kind": row["kind"], "file": row["file"],
+               "row_votes": sum(v for *_, v in row["votes"])}
+        found = []
+        for m in hits:
+            if m["question"]:
+                names = {(m.get("subject") or "").upper(): None}
+                take = sum(v for c, _, _, v in row["votes"]
+                           if (sa := MP.split_answer(c)) and sa[0] in names and
+                           any(x["name"].upper() == sa[1] for x in m["candidates"]))
+            else:
+                mine = {" ".join(x["name"].upper().split()) for x in m["candidates"]}
+                take = sum(v for c, _, _, v in row["votes"] if " ".join(c.upper().split()) in mine)
+            if take:
+                found.append((m, take))
+        if len(found) != 1:
+            rec["falls_in"] = None if not found else f"{len(found)} contests"
+            LISTED[year].append(rec)
+            continue
+        m, take = found[0]
+        tot = sum(x["votes"] for x in m["candidates"])
+        share = take / tot if tot else 1.0
+        rec.update({"falls_in": {"office": m["office"], "district": m.get("district") or None,
+                                 "counties": len(m.get("counties") or []), "question": m["question"]},
+                    "total_with": tot, "total_without": tot - take, "difference_share": round(share, 6),
+                    "noted": share > line})
+        LISTED[year].append(rec)
+        m.setdefault("listed_rows_recs", []).append(rec)
+        if share > line:
+            m.setdefault("listed_rows_notes", []).append(
+                f"{LISTED_NOTE}: MEDSL's precinct line {row['precinct']!r} in county {row['county']} ({row['kind']}) "
+                f"carries {take:,} of the contest's {tot:,} votes ({100 * share:.1f}%); part 3 of the volume test lists "
+                f"it and does not drop it (the orchestrator, 20:28; data/local/check-listed-rows.json)")
+    write_listed(year)
+    return contests
+
+
+def write_listed(year):
+    """data/local/check-listed-rows.json for `year` (listed_rows; again after the build, with each row's record)."""
+    try:
+        with open(LISTED_CHECK) as f:
+            chk = json.load(f)
+    except (OSError, ValueError):
+        chk = {}
+    chk["about"] = ("each row part 3 of the volume test lists and does not drop (pipeline/local_volume.py "
+                    "listed_rows_summary), against the contest of MEDSL's counts it falls in, with and without it; "
+                    "noted on the record where the difference is more than 0.5% of the contest's total (the "
+                    "orchestrator, 2026-11-07 20:28). falls_in null: no contest of MEDSL's counts the build reads "
+                    "takes the row (a state's own count read in its place, a year read for its questions only, or "
+                    "a contest left out); record: the record the contest became, null where it became none (as the "
+                    "state legislatures of years Klarner's data covers, which are Klarner's)")
+    chk[str(year)] = LISTED[year]
+    with open(LISTED_CHECK, "w") as f:
+        json.dump(chk, f, indent=1, ensure_ascii=False, sort_keys=True)
+        f.write("\n")
+
+
+OVER_TOP = 1.10   # where the file gives no ballots cast: above this many times the day's highest-vote statewide contest
 OVER_EXPECTED = {2018: {("MI", "JUSTICE OF THE SUPREME COURT"), ("OH", "JUSTICE OF THE SUPREME COURT")},
-                 2022: {("HI", "AT-LARGE TRUSTEE"), ("MI", "ATTORNEY GENERAL")}}
+                 2022: {("HI", "AT-LARGE TRUSTEE"), ("MI", "ATTORNEY GENERAL")},
+                 2024: {("TX", "STATE SUPREME COURT JUSTICE")}}
+OVER_CHECK = os.path.join(L.REPO, "data", "local", "check-over-ballot.json")
+
+
+def _special(x):
+    return x is True or str(x).upper() == "TRUE"
 
 
 def over_ballot(contests, year, whole):
-    """A statewide contest of one seat, by MEDSL's count, with more votes than the ballots allow: more than
-    OVER_BALLOT times the votes for Governor on the same date and ballot in the same file [measured]. A one-seat
-    contest has at most one vote a ballot, so the contest either elected more than one seat or its lines are counted
-    more than once. Neither is read here, so it is held like Michigan's Supreme Court (the orchestrator, 16:53: "a
-    record kept in the pools as one seat when it may be two would bias every later statewide-judge p"; 16:47: "a
-    shown figure has to be the whole contest's count of record"). Read only where the state elects a governor that
-    day; a contest already held keeps its reason, with this fact added."""
-    gov = {}
-    for m in contests:
-        if GOVERNOR.match(m["office"]) and m.get("dataverse") == "STATE" and whole(m) and m.get("stage") == "GEN":
-            gov[(m["state"], m["date"])] = max(gov.get((m["state"], m["date"]), 0), sum(x["votes"] for x in m["candidates"]))
+    """The over-ballot test, in every year MEDSL's files give contests of one seat (2018, 2022, 2024; 2016's are read
+    for their questions only and 2020's file is local offices only). The orchestrator's order of 2026-11-07 17:44 (3):
+    "The over-ballot test runs in every year. Hold a one-seat contest whose votes exceed ballots cast, where the source
+    gives them. Where it doesn't, hold one that exceeds the day's highest-vote statewide contest by more than 10%, and
+    list for me any between 1.0x and 1.1x. Reason: one seat can't draw more votes than there were ballots, while a
+    small excess over the top contest can be real." It replaces the test of #90 (more than 1.05 times the Governor's
+    votes, read only where the state elected a governor that day).
+    Read for a statewide contest of one seat by MEDSL's count (magnitude 1, dataverse STATE, votes in every county of
+    the day, the general) that the local files take, with MEDSL's counts (not a state's own count read in their place).
+    Ballots cast: pipeline/local_volume.py part 4 (data/local/check-volume.json "ballots"), given where every precinct
+    of the contest has a figure from another contest (its votes, overvotes and undervotes, or its contest total) or a
+    line the file names as the ballots cast. The day's highest-vote statewide contest: the most votes among the
+    state's other whole one-seat candidate contests that day, as the build reads them, its whole statewide questions
+    not held (a question put to every voter of the state is a statewide contest of the day; read so by worker D3,
+    since Montana's 2022 Supreme Court seat 2, 440,378 votes, is 1.11 times seat 1 but 0.98 times Legislative
+    Referendum 131), and MEDSL's president and US Senate lines (part 4's "tops", which the normalizer does not read);
+    a contest this test holds is not anyone's top.
+    A contest held is held like Michigan's Supreme Court (the orchestrator, 16:53: "a record kept in the pools as one
+    seat when it may be two would bias every later statewide-judge p"); one already held keeps its reason, with this
+    fact added. Every contest read is written to data/local/check-over-ballot.json with its figures."""
+    import local_volume as V
+    yb = V._load_check().get("ballots", {}).get(str(year))
+    if yb is None:
+        if OVER_EXPECTED.get(year):
+            raise SystemExit(f"over_ballot: {year}: no ballots in check-volume.json")
+        return
+    tested = collections.defaultdict(list)
+    for t in yb["tested"]:
+        tested[(t["state"], t["date"], t["office"], t["district"])].append(t)
+
+    def rows(m):
+        keys = [(p_["office"], p_.get("district") or "") for p_ in m.get("pieces_joined") or []] or \
+            [(m["office"], m.get("district") or "")]
+        out = []
+        for o, d in keys:
+            hit = [t for t in tested.get((m["state"], m["date"], o, d), []) if _special(t["special"]) == _special(m.get("special"))]
+            out.append(hit[0] if len(hit) == 1 else None)
+        return out
+
+    def votes(m):
+        return sum(x["votes"] for x in m["candidates"])
+    one = [m for m in contests if not m["question"] and m.get("magnitude") == 1 and m.get("dataverse") == "STATE"
+           and whole(m) and m.get("stage") == "GEN" and "RECOUNT" not in (m.get("stage") or "")]
+    read = [m for m in one if is_local_level(m) and not m.get("state_votes") and m.get("source", "medsl") == "medsl"]
+    asked = [m for m in contests if m["question"] and m.get("dataverse") == "STATE" and whole(m)
+             and m.get("stage") == "GEN" and not m.get("held_reason")]
+    federal = {sd: [t for t in tl if t["dataverse"] in ("PRESIDENT", "SENATE")] for sd, tl in yb["tops"].items()}
+    over, rows_out = set(), []
+    for _ in range(3):   # a contest held is no one's top: read again until nothing new is held
+        res = {}
+        for m in read:
+            v, rs = votes(m), rows(m)
+            if rs and all(r is not None and r["ballots_cast"] is not None for r in rs):
+                b = sum(r["ballots_cast"] for r in rs)
+                res[id(m)] = ("ballots cast", b, "the ballots cast in its precincts as MEDSL's file gives them", v / b)
+                continue
+            tops = [(votes(o), f"{o['office'].title()}" + (f" ({o['district']})" if o.get("district") else ""))
+                    for o in one if o is not m and id(o) not in over and o["state"] == m["state"]
+                    and o["date"] == m["date"]]
+            tops += [(votes(o), f"{o['office'].title()} (a question)") for o in asked
+                     if o["state"] == m["state"] and o["date"] == m["date"]]
+            tops += [(t["votes"], f"{t['office'].title()} (MEDSL's {t['dataverse'].lower()} lines)")
+                     for t in federal.get(f"{m['state']} {m['date']}", [])]
+            if not tops:
+                res[id(m)] = ("untested", None, "no other statewide contest of one seat that day", None)
+                continue
+            t_, name = max(tops)
+            res[id(m)] = ("top", t_, name, v / t_)
+        new = {id(m) for m in read if (res[id(m)][0] == "ballots cast" and res[id(m)][3] > 1)
+               or (res[id(m)][0] == "top" and res[id(m)][3] > OVER_TOP)}
+        if new == over:
+            break
+        over = new
     found = set()
-    for m in contests:
-        t = gov.get((m.get("state"), m.get("date")))
-        if not t or m["question"] or m.get("magnitude") != 1 or m.get("dataverse") != "STATE" or not whole(m) \
-                or not is_local_level(m) or m.get("stage") != "GEN":
+    for m in read:
+        kind, b, name, r = res[id(m)]
+        v = votes(m)
+        verdict = "held" if id(m) in over else ("listed" if kind == "top" and r > 1 else "passes")
+        rows_out.append({"state": m["state"], "office": m["office"], "district": m.get("district") or None, "votes": v,
+                         "against": kind, "figure": b, "of": name, "ratio": None if r is None else round(r, 4),
+                         "verdict": verdict})
+        if verdict == "listed":
+            m["notes"] = (m.get("notes") or []) + [
+                f"the over-ballot test: the contest's {v:,} votes in MEDSL's file are {r:.3f} times the {b:,} of "
+                f"{name}, the day's highest-vote statewide contest; between 1.0 and 1.1 times, which can be real, so "
+                f"kept and listed (the orchestrator, 17:44) [measured]"]
+        if verdict != "held":
             continue
-        v = sum(x["votes"] for x in m["candidates"])
-        if v <= OVER_BALLOT * t:
-            continue
-        fact = (f"the contest's {v:,} votes in MEDSL's file are {v / t:.2f} times the {t:,} for Governor on the same "
-                f"ballot, more than one vote a ballot, which a contest of one seat cannot have [measured]")
+        if kind == "ballots cast":
+            fact = (f"the contest's {v:,} votes in MEDSL's file exceed the {b:,} ballots cast in its precincts as the "
+                    f"file gives them ({r:.2f} times), more than one vote a ballot, which a contest of one seat cannot "
+                    f"have [measured]")
+        else:
+            fact = (f"the contest's {v:,} votes in MEDSL's file are {r:.2f} times the {b:,} of {name}, the day's "
+                    f"highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the "
+                    f"file gives no ballots cast for it) [measured]")
         if m.get("held_reason"):
             m["held_reason"] += "; and " + fact
         else:
@@ -656,6 +925,21 @@ def over_ballot(contests, year, whole):
                      f"computed, no winner is marked, and it is kept out of every pool", "votes over the ballots", year)
             m["seats_note"] = "unread: MEDSL's file gives one seat, which its own counts contradict (held_reason)"
         found.add((m["state"], m["office"]))
+    try:
+        with open(OVER_CHECK) as f:
+            chk = json.load(f)
+    except (OSError, ValueError):
+        chk = {}
+    chk["about"] = ("the over-ballot test (pipeline/local_medsl.py over_ballot; the orchestrator's order of "
+                    "2026-11-07 17:44 (3)): every statewide contest of one seat in MEDSL's files the local files take, "
+                    "its votes against the ballots cast where the file gives them, else against the day's "
+                    "highest-vote statewide contest; held above 1, or above 1.1 against the top contest; listed "
+                    "between 1.0 and 1.1")
+    chk["untested_years"] = yb and V._load_check()["ballots"].get("untested")
+    chk[str(year)] = sorted(rows_out, key=lambda x: (x["state"], x["office"], x["district"] or ""))
+    with open(OVER_CHECK, "w") as f:
+        json.dump(chk, f, indent=1, ensure_ascii=False, sort_keys=True)
+        f.write("\n")
     if found != OVER_EXPECTED.get(year, set()):
         raise SystemExit(f"over_ballot: {year}: {sorted(found)} differ from OVER_EXPECTED")
 
@@ -828,6 +1112,15 @@ def volume_note(rec, c):
     rec["volume_check"] = v["record"]
     if v.get("note") and v["note"] not in (rec.get("notes") or []):
         rec["notes"] = (rec.get("notes") or []) + [v["note"]]
+
+
+def listed_note(rec, c):
+    """The listed rows' notes (listed_rows) on the record a row falls in, and the record's id beside each row."""
+    for r in c.get("listed_rows_recs") or []:
+        r["record"] = rec.get("id")
+    for n in c.get("listed_rows_notes") or []:
+        if n not in (rec.get("notes") or []):
+            rec["notes"] = (rec.get("notes") or []) + [n]
 
 
 def certified_nc(contests, year):
@@ -1009,8 +1302,16 @@ def fix_questions(contests, year):
        left out;
     5. a question filed as a candidate contest under a question's name (Washington's advisory votes, New Jersey's
        public questions, Utah's form of government, North Dakota's county newspaper), its answers not worded yes
-       and no ('Repealed', 'Maintained'): read as a question."""
+       and no ('Repealed', 'Maintained'): read as a question.
+    And one found by M2's sixth pass (checks/M2-REPORT.md §12.4 (b); the orchestrator's ruling of 2026-11-07 18:13,
+    "Latah's recall with both answers joined"):
+    6. a recall's answer filed as a candidate's line, '<subject> - FOR RECALLING ...' (Latah County's 2024 recall of
+       Judi Fuller: 'JUDI FULLER - FOR RECALLING JUDI FULLER WHO HOLDS OFFICE OF COUNCILMEMBER', 202 votes, beside
+       the question 'JUDI FULLER - AGAINST', 81, in the same precinct): read as that question's FOR answer, under the
+       same office, subject, date and counties. Reason: the two lines are the two answers of one question, so held
+       apart the question shows one answer only and the recall's FOR side as a candidate's win."""
     fx = QFIX[year]
+    contests = _recall_answers(contests, fx)
     cand_offices = {(c["state"], c["office"]) for c in contests if not c["question"]}
     out, pieces = [], collections.defaultdict(lambda: {"yes": [], "no": []})
     for c in contests:
@@ -1067,6 +1368,39 @@ def fix_questions(contests, year):
             cn["one_answer_only"] = True
             fx["one-sided piece left (no only)"] += 1
             out.append(cn)
+    return out
+
+
+RECALL_ANSWER = re.compile(r"^(?P<subject>.+?)\s+-\s+(?P<side>FOR|AGAINST)\s+RECALLING\b")
+
+
+def _recall_answers(contests, fx):
+    """fix_questions rule 6: a candidate contest whose one line is a recall's answer worded '<subject> - FOR
+    RECALLING ...' (or AGAINST), beside a question of the same state, date, stage, office and counties whose subject
+    is that subject and which carries the other answer only, joins that question as its answer FOR (AGAINST)."""
+    qs = {}
+    for c in contests:
+        if c["question"]:
+            qs.setdefault((c["state"], c["date"], c["stage"], c["special"], c["office"], (c.get("subject") or "").upper(),
+                           tuple(sorted(c["counties"]))), []).append(c)
+    out = []
+    for c in contests:
+        m = None if c["question"] or len(c["candidates"]) != 1 else RECALL_ANSWER.match(c["candidates"][0]["name"].upper())
+        if m:
+            k = (c["state"], c["date"], c["stage"], c["special"], c["office"], m.group("subject").strip(),
+                 tuple(sorted(c["counties"])))
+            other = "no" if m.group("side") == "FOR" else "yes"
+            hit = [q for q in qs.get(k, []) if {side(x["name"]) for x in q["candidates"]} == {other}]
+            if len(hit) == 1:
+                q = hit[0]
+                q["candidates"] = q["candidates"] + [{"name": m.group("side"), "votes": c["candidates"][0]["votes"],
+                                                      "worded": c["candidates"][0]["name"]}]
+                q["joined_from"] = [f"{q['office']} / {q.get('subject')}: {x['name']}" for x in q["candidates"][:-1]] + [
+                    f"{c['office']}: {c['candidates'][0]['name']} (a candidate's line in MEDSL's file)"]
+                q["precincts"] = max(q.get("precincts") or 0, c.get("precincts") or 0)
+                fx["a recall's answer filed as a candidate's line, joined to its question"] += 1
+                continue
+        out.append(c)
     return out
 
 
@@ -2515,6 +2849,7 @@ def build(out_dir, with_p=True):
                     counts[f"{level} {year}: p computed, partisan"] += 1
             rec["p"] = p
             volume_note(rec, c)
+            listed_note(rec, c)
             files[(level, year, c["state"])].append(L._compact(rec))
 
     # -- state legislatures of ODD_YEARS: Louisiana's 2023 (pipeline/local_la.py), Klarner's runoff route
@@ -2584,6 +2919,8 @@ def build(out_dir, with_p=True):
                 rec["result"]["state_total"] = c["state_total"]
             if c.get("votes_incomplete"):   # held: the lines miss counties (ruling (c))
                 rec["result"]["votes_incomplete"] = c["votes_incomplete"]
+            if c.get("count_stage"):   # Arizona's 2022 Attorney General: the count before the recount (az_recount)
+                rec["result"]["count_stage"] = c["count_stage"]
             if c.get("seats_note"):   # where the seat count comes from, or that it is unread (statewide_pieces)
                 rec["seats_note"] = c["seats_note"]
             if c.get("tie"):   # an exact tie, and how it was settled (local_la.py tie_record)
@@ -2622,6 +2959,7 @@ def build(out_dir, with_p=True):
                             c["magnitude"] if route == "boundary" else 1)
             rec["p"] = p
             volume_note(rec, c)
+            listed_note(rec, c)
             files[("local", year, c["state"])].append(L._compact(rec))
 
     # -- measures and retentions: the threshold from the state's law, the forecast from like past measures
@@ -2846,6 +3184,7 @@ def build(out_dir, with_p=True):
             rec["p"] = p
             counts[f"{label}: {scope} {kind}"] += 1
             volume_note(rec, c)
+            listed_note(rec, c)
             files[("measure", year, c["state"])].append(L._compact(rec))
 
     # a statewide p taken at a threshold other than 1/2 rests on f(t) there, so its note comes only from the
@@ -2879,6 +3218,10 @@ def build(out_dir, with_p=True):
                     counts[f"measure {year}: {fc[-1]['class']}: lean note"] += 1
     scored = files   # every year written, ODD_YEARS too (the orchestrator, 11:56)
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
+    for y in MEASURE_YEARS:
+        for r in LISTED[y]:
+            r.setdefault("record", None)
+        write_listed(y)
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:
             json.dump(dict(backtest_measures(mtest, mhalf), lean_notes_statewide=snotes,
@@ -2990,6 +3333,17 @@ def build(out_dir, with_p=True):
                      "applied, in result.medsl_votes); checked: " + id_["check"] + f" (the canvass, "
                      f"{id_['canvass']['url']}, sha256 {id_['canvass']['sha256'][:16]})",
                 sha256=id_["results"]["sha256"])
+        if any((x.get("result") or {}).get("votes_source") == "or_sos" for x in cs + others):
+            with open(os.path.join(OR_SOS, f"{year}-general.json")) as f:   # Oregon's abstract of votes
+                or_ = json.load(f)["source"]
+            head["sources"]["or_sos"] = F.source(
+                f"Oregon Secretary of State, November 5, {year}, General Election Abstract of Votes",
+                or_["abstract"]["url"], or_["abstract"]["read_utc"], or_["licence"], mark="stated",
+                via=f"pipeline/intake/or_sos.py; the state's records system, whose Record Viewer "
+                    f"({or_['viewer']['final_url']}, sha256 {or_['viewer']['sha256'][:16]}) titles the record "
+                    f"{or_['title']!r} (the orchestrator's ruling of 19:49: the records system's title counts)",
+                note="the votes of each contest whose result.votes_source is 'or_sos' (MEDSL's in result.medsl_votes); "
+                     "checked: " + or_["check"], sha256=or_["abstract"]["sha256"])
         if any((x.get("result") or {}).get("state_total", {}).get("source") == "wa_sos" for x in cs + others):
             with open(os.path.join(WA_SOS, "20221108-statewide.json")) as f:   # Washington's own results
                 wa = json.load(f)

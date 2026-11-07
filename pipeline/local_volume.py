@@ -520,8 +520,16 @@ def raw_files(year):
     return out
 
 
+def _listed(out, contest, county, p, kind, votes):
+    """A row part 3 lists and does not drop, in full, where scan_file was asked to collect them (out["listed_rows"])."""
+    if "listed_rows" in out:
+        out["listed_rows"].append({"contest": list(contest), "county": county, "precinct": p[2], "kind": kind,
+                                   "votes": [[c[0], c[1], c[2], v] for c, v in votes.items() if v]})
+
+
 def _scan_groups(groups, out):
     """One state's {(contest, county): {precinct: {candidate: votes}}} into the file's tallies (scan_file)."""
+    import medsl_precinct as P
     for (contest, county), pp in groups.items():
         if len(pp) < 2:
             continue
@@ -534,9 +542,12 @@ def _scan_groups(groups, out):
             t = out["named"].setdefault(nm, collections.Counter())
             if not any(any(pp[q].values()) for q in plain):
                 t["alone"] += 1
+                _listed(out, contest, county, p, "named, alone", pp[p])
                 continue
             eq = all(pp[p].get(c, 0) == plain_tot[c] for c in cands)
             t["equal" if eq else "unequal"] += 1
+            if not (eq and P.COUNTY_TOTAL.search(nm)):   # what the county-total rule does not drop
+                _listed(out, contest, county, p, "named, equal" if eq else "named, unequal", pp[p])
             if eq and len(out["examples_named"]) < 40:
                 out["examples_named"].append({"contest": list(contest), "county": county, "precinct": p[2]})
         # a row that is not named as a total but equals the sum of the others, for every candidate of the contest
@@ -548,12 +559,14 @@ def _scan_groups(groups, out):
             if all(2 * pp[p].get(c, 0) == tot[c] for c in cands):
                 others = [q for q in live if q != p]
                 out["unnamed_equal"] += 1
+                if sum(1 for c in cands if pp[p].get(c, 0)) < 2:   # the guard of drop_sum_rows keeps it
+                    _listed(out, contest, county, p, "equal to the rest, one candidate with votes", pp[p])
                 if len(out["examples_unnamed"]) < 40:
                     out["examples_unnamed"].append({"contest": list(contest), "county": county, "precinct": p[2],
                                                     "candidates": len(cands), "others": len(others)})
 
 
-def scan_file(path, keep=frozenset()):
+def scan_file(path, keep=frozenset(), collect=False):
     """Part 3 for one raw file: every row read, precincts resolved as the normalizer does (a TOTAL mode where there
     is one, else the modes added up), grouped by contest (state, office, district, stage, special, dataverse) and
     county. Counts the rows named as totals (AGG_NAME) beside other precincts, whether each equals the others' sum for
@@ -564,6 +577,8 @@ def scan_file(path, keep=frozenset()):
     import medsl_precinct as P
     out = {"named": {}, "examples_named": [], "unnamed_equal": 0, "examples_unnamed": [], "rows": 0,
            "states_seen_twice": []}
+    if collect:
+        out["listed_rows"] = []
     groups = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     cur, done = None, set()
 
@@ -602,26 +617,227 @@ def scan_file(path, keep=frozenset()):
     return out
 
 
-def scan(year):
-    """Part 3 for every file of a year, cached in $VOTE_CACHE/volume/normalized/scan-<year>.json."""
+def scan(year, collect=False):
+    """Part 3 for every file of a year, cached in $VOTE_CACHE/volume/normalized/scan-<year>.json; with collect, every
+    row it lists and does not drop, in full, in rows-<year>.json instead (for listed_rows_check)."""
     res = {}
     for name, path in raw_files(year):
         if path is None:
             res[name] = {"read": False, "why": "not in the cache"}
             continue
-        r = scan_file(path)
+        r = scan_file(path, collect=collect)
         if r["states_seen_twice"]:
             again = sorted(set(r["states_seen_twice"]))
-            r = scan_file(path, keep=frozenset(again))
+            r = scan_file(path, keep=frozenset(again), collect=collect)
             r["held_whole"] = again
         r["raw"] = os.path.basename(path)
         res[name] = r
         print(year, name, r["rows"], {k: v for k, v in r["named"].items()}, "unnamed equal", r["unnamed_equal"],
               flush=True)
     os.makedirs(VNORM, exist_ok=True)
-    with open(os.path.join(VNORM, f"scan-{year}.json"), "w") as f:
+    if collect:
+        res = {n: {"raw": r.get("raw"), "listed_rows": r.get("listed_rows", [])} for n, r in res.items()}
+    with open(os.path.join(VNORM, f"{'rows' if collect else 'scan'}-{year}.json"), "w") as f:
         json.dump(res, f, indent=1)
     return res
+
+
+LISTED_LINE = 0.005   # the orchestrator, 20:28: a listed row that moves its record by more than 0.5% gets a note
+
+
+def listed_rows_summary():
+    """Every row part 3 lists and does not drop (scan with collect: rows-<year>.json in the cache), for the build's
+    with-and-without test (local_medsl.listed_rows). The orchestrator, 2026-11-07 20:28: "The listed rows, (a) and
+    (b): leave them listed and not dropped. For each one, compute the record it falls in with and without the row.
+    Where the difference is more than 0.5% of the record's total, add a note on the record ("a possible total row in
+    the source, not dropped"). Otherwise the list in REPORT is enough. Reason: the state-year tests pass, so the only
+    question left is whether any one shown count is visibly off." Rows of the federal dataverses (PRESIDENT, SENATE,
+    HOUSE) are counted only: they fall in no record of these files, whose federal counts are D1's and D2's."""
+    out = {"line": LISTED_LINE, "years": {}}
+    for year in (2016, 2018, 2020, 2022, 2024):
+        p = os.path.join(VNORM, f"rows-{year}.json")
+        if not os.path.exists(p):
+            raise SystemExit(f"{p} is missing: run pipeline/local_volume.py rows --year {year} first")
+        with open(p) as f:
+            r = json.load(f)
+        rows, federal = [], collections.Counter()
+        for name, x in r.items():
+            for row in x.get("listed_rows") or []:
+                if row["contest"][5] in ("PRESIDENT", "SENATE", "HOUSE"):
+                    federal[f"{row['contest'][0]} {row['contest'][5]}: {row['kind']}"] += 1
+                else:
+                    rows.append(dict(row, file=name))
+        out["years"][str(year)] = {"rows": rows, "federal_counted_only": dict(sorted(federal.items()))}
+    return out
+
+
+# ------------------------------------------------------------------ part 4: ballots cast, for the over-ballot test
+
+# The orchestrator's order of 2026-11-07 17:44 (3): "The over-ballot test runs in every year. Hold a one-seat contest
+# whose votes exceed ballots cast, where the source gives them. Where it doesn't, hold one that exceeds the day's
+# highest-vote statewide contest by more than 10%, and list for me any between 1.0x and 1.1x. Reason: one seat can't
+# draw more votes than there were ballots, while a small excess over the top contest can be real." Ballots cast are
+# read as the ruling of 11:16 read them for New Jersey (pipeline/local_nj.py medsl_rows): in a precinct, a vote-for-1
+# contest's votes plus its overvotes plus its undervotes, or its "CONTEST TOTAL" line, or a line the file names as the
+# ballots cast there; the largest of these. A contest is bounded by the other contests' figures only, never its own,
+# since a contest whose lines are counted twice counts its over- and undervotes twice too [the reading].
+OVER_NAMES = {"OVERVOTES", "OVER VOTES", "OVERVOTE", "OVER VOTE"}
+UNDER_NAMES = {"UNDERVOTES", "UNDER VOTES", "UNDERVOTE", "UNDER VOTE"}
+BALLOTS_NAMES = {"BALLOTS CAST", "BALLOTS CAST-TOTAL", "BALLOTS CAST - TOTAL", "TOTAL BALLOTS CAST",
+                 "NUMBER OF BALLOTS CAST"}
+CONTEST_TOTAL = "CONTEST TOTAL"
+TOP_DATAVERSES = ("PRESIDENT", "SENATE", "STATE")   # a statewide contest's dataverse in MEDSL's files (not HOUSE)
+BALLOTS_YEARS = (2018, 2022, 2024)   # 2016 is read for its questions only, 2020's file is local offices only
+
+
+def _one(m):
+    """A line's votes from its modes, as the normalizer resolves them: its TOTAL mode where it has one."""
+    return m["TOTAL"] if "TOTAL" in m else sum(m.values())
+
+
+def ballots_file(path):
+    """Part 4 for one raw file: for each GEN contest of one seat (MEDSL's magnitude 1), by state and date, its votes by
+    precinct; each precinct's ballots cast as the file gives them (OVER_NAMES and UNDER_NAMES beside a contest's votes,
+    its CONTEST TOTAL, or a line in BALLOTS_NAMES). Returns the statewide contests of dataverse STATE (the ones the
+    local files take) with their votes and the bound, and each state-date's statewide candidate contests (TOP_DATAVERSES)
+    with their votes and counties, for the day's highest-vote statewide contest."""
+    import medsl_precinct as P
+    lines = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
+    named = collections.defaultdict(lambda: collections.defaultdict(dict))   # (st, date) -> pk -> {line: modes}
+    counties = collections.defaultdict(set)
+    rows = 0
+    for r in P._rows(path):
+        rows += 1
+        if (r.get("stage") or "").upper() != "GEN":
+            continue
+        st, date = r.get("state_po") or "", r.get("date") or ""
+        cand = " ".join((r.get("candidate") or "").upper().split())
+        county = P.fips5(r.get("county_fips") or "")
+        pk = (county, r.get("jurisdiction_fips") or "", r.get("precinct") or "")
+        mode = (r.get("mode") or "TOTAL").upper()
+        try:
+            v = int(float(r.get("votes") or 0))
+        except ValueError:
+            v = 0
+        if cand in BALLOTS_NAMES:
+            m = named[(st, date)][pk].setdefault((r.get("office") or "", cand), {})
+            m[mode] = m.get(mode, 0) + v
+            continue
+        if (r.get("magnitude") or "") not in ("1", "1.0"):
+            continue
+        dv = (r.get("dataverse") or "").upper()
+        k = (st, date, r.get("office") or "", r.get("district") or "", (r.get("special") or "").upper(), dv)
+        if cand in OVER_NAMES:
+            part = "over"
+        elif cand in UNDER_NAMES:
+            part = "under"
+        elif cand == CONTEST_TOTAL:
+            part = "total"
+        elif P.is_meta(cand):
+            continue
+        else:
+            part = "votes"
+            if v:
+                counties[(st, date)].add(county)
+        m = lines[k][pk].setdefault((part, cand), {})
+        m[mode] = m.get(mode, 0) + v
+    # each contest's figures by precinct
+    per = {}
+    for k, pp in lines.items():
+        per[k] = {pk: {"votes": sum(_one(m) for (part, _), m in c.items() if part == "votes"),
+                       "has_over": any(part == "over" for part, _ in c), "has_under": any(part == "under" for part, _ in c),
+                       "over_under": sum(_one(m) for (part, _), m in c.items() if part in ("over", "under")),
+                       "total": max([_one(m) for (part, _), m in c.items() if part == "total"] or [None],
+                                    key=lambda x: -1 if x is None else x)}
+                  for pk, c in pp.items()}
+    # each precinct's two best figures from contests, and the named lines
+    best = collections.defaultdict(list)   # (st, date, pk) -> [(figure, contest key)]
+    for k, pp in per.items():
+        for pk, f in pp.items():
+            fig = []
+            if f["has_over"] and f["has_under"]:
+                fig.append(f["votes"] + f["over_under"])
+            if f["total"] is not None:
+                fig.append(f["total"])
+            if fig:
+                best[(k[0], k[1], pk)].append((max(fig), k))
+    for key in best:
+        best[key] = sorted(best[key], key=lambda x: -x[0])[:2]
+    namedmax = {(sd[0], sd[1], pk): max(_one(m) for m in ls.values()) for sd, pp in named.items() for pk, ls in pp.items()}
+    tested, tops = [], collections.defaultdict(list)
+    for k, pp in per.items():
+        st, date, office, district, special, dv = k
+        votes = sum(f["votes"] for f in pp.values())
+        cs = {pk[0] for pk, f in pp.items() if f["votes"]}
+        if dv in TOP_DATAVERSES and votes and counties[(st, date)] <= cs and \
+                not all(P.split_answer(c) for (part, c) in {x for c in lines[k].values() for x in c} if part == "votes"):
+            tops[f"{st} {date}"].append({"dataverse": dv, "office": office, "district": district, "special": special,
+                                         "votes": votes})
+        if dv != "STATE" or not votes:
+            continue
+        bound, bounded, used = 0, 0, collections.Counter()
+        live = [pk for pk, f in pp.items() if f["votes"]]
+        for pk in live:
+            o = [b for b in best.get((st, date, pk), []) if b[1] != k]
+            nm = namedmax.get((st, date, pk))
+            cand = ([(o[0][0], "another contest's votes, overvotes and undervotes or its contest total")] if o else []) \
+                + ([(nm, "a line the file names as the ballots cast")] if nm is not None else [])
+            if cand:
+                b = max(cand)
+                bound += b[0]
+                bounded += 1
+                used[b[1]] += 1
+        tested.append({"state": st, "date": date, "office": office, "district": district, "special": special,
+                       "votes": votes, "precincts": len(live), "precincts_bounded": bounded,
+                       "ballots_cast": bound if bounded == len(live) else None,
+                       "ballots_cast_in_bounded_precincts": bound, "bound_from": dict(used),
+                       "counties": len(cs), "counties_of_day": len(counties[(st, date)])})
+    return {"rows": rows, "tested": tested, "tops": {sd: sorted(t, key=lambda x: -x["votes"]) for sd, t in tops.items()},
+            "counties_of_day": {f"{st} {date}": sorted(c) for (st, date), c in counties.items()}}
+
+
+def ballots(year):
+    """Part 4 for every file of a year, cached in $VOTE_CACHE/volume/normalized/ballots-<year>.json."""
+    res = {}
+    for name, path in raw_files(year):
+        if path is None:
+            res[name] = {"read": False, "why": "not in the cache"}
+            continue
+        r = ballots_file(path)
+        r["raw"] = os.path.basename(path)
+        res[name] = r
+        given = sum(1 for t in r["tested"] if t["ballots_cast"] is not None)
+        print(year, name, r["rows"], "tested", len(r["tested"]), "with ballots cast", given, flush=True)
+    os.makedirs(VNORM, exist_ok=True)
+    with open(os.path.join(VNORM, f"ballots-{year}.json"), "w") as f:
+        json.dump(res, f, indent=1)
+    return res
+
+
+def ballots_summary():
+    """Part 4 from the cache, for check-volume.json: by year, the statewide contests of one seat in MEDSL's files with
+    their votes and the ballots cast where the file gives them in every precinct, and each state-date's statewide
+    candidate contests (the day's highest-vote statewide contest is the first that is not the contest itself)."""
+    out = {"rule": "the orchestrator's order of 2026-11-07 17:44 (3); pipeline/local_volume.py part 4",
+           "untested": {"2016": "MEDSL's 2016 files are read for their questions only (no seat counts)",
+                        "2020": "MEDSL's 2020 file holds local offices only"}}
+    for year in BALLOTS_YEARS:
+        p = os.path.join(VNORM, f"ballots-{year}.json")
+        if not os.path.exists(p):
+            raise SystemExit(f"{p} is missing: run pipeline/local_volume.py ballots --year {year} first")
+        with open(p) as f:
+            b = json.load(f)
+        tested, tops = [], {}
+        for name, r in b.items():
+            if not r.get("rows"):
+                continue
+            for t in r["tested"]:
+                tested.append(dict(t, file=name))
+            for sd, t in r["tops"].items():
+                tops.setdefault(sd, []).extend(t)
+        out[str(year)] = {"tested": sorted(tested, key=lambda t: (t["state"], t["date"], t["office"], t["district"])),
+                          "tops": {sd: sorted(t, key=lambda x: -x["votes"]) for sd, t in sorted(tops.items())}}
+    return out
 
 
 # ------------------------------------------------------------------ the check
@@ -677,6 +893,8 @@ def check():
               {st: (f["verdict"], p1.get(st, {}).get("worst"), p2.get(st, {}).get("median")) for st, f in y["flags"].items()})
     out["coverage"] = coverage(out)
     out["part3"] = part3_summary()
+    out["ballots"] = ballots_summary()
+    out["listed_rows"] = listed_rows_summary()
     with open(CHECK, "w") as f:
         json.dump(out, f, indent=1, ensure_ascii=False)
         f.write("\n")
@@ -826,11 +1044,15 @@ def volume_gate(contests, year):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["check", "scan2016", "scan"])
+    ap.add_argument("cmd", choices=["check", "scan2016", "scan", "rows", "ballots"])
     ap.add_argument("--year", type=int)
     a = ap.parse_args()
     if a.cmd == "scan":
         scan(a.year)
+    elif a.cmd == "rows":
+        scan(a.year, collect=True)
+    elif a.cmd == "ballots":
+        ballots(a.year)
     elif a.cmd == "scan2016":
         d = scan_2016()
         print("2016 state file: governors in", sorted(d["gov"]), "; legislatures in", len(d["leg"]), "states")

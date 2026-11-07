@@ -88,6 +88,13 @@ _COUNTY_GOV = re.compile(r"\b(COUNTY|PARISH) OF\b|COUNTY COMMISSION|COMMISSIONER
 _SPECIAL = re.compile(r"\b(FIRE|HOSPITAL|LIBRARY|PORT|TRANSIT|WATER|SEWER|SANITARY|SANITATION|IRRIGATION|CEMETERY|"
                       r"AUTHORITY|AREA|REGIONAL|JOINT|CONSOLIDATED|PARK|RECREATION|UTILITY|UTILITIES|AMBULANCE|EMS|"
                       r"DRAINAGE|LEVEE|CONSERVANCY|AIRPORT|HEALTH|MOSQUITO)\b")
+# words of another body than the town, after "TOWN OF X" (the orchestrator's ruling of 2026-11-07 18:13 on M2's sixth
+# pass, checks/M2-REPORT.md section 12.4 (d): "a body's word after 'Town of' means another body, so held"): the county
+# guard's words for a special body (_COUNTY_BODY), less its place words, which the town rule reads itself, and less a
+# board or commission, which a town has of its own (a pension board, the conservation commission) [the reading]
+_TOWN_BODY = re.compile(r"\b(FIRE|HOSPITAL|LIBRARY|AUTHORITY|PORT|TRANSIT|WATER|SEWER|SANITARY|SANITATION|IRRIGATION|"
+                        r"CEMETERY|DRAINAGE|LEVEE|CONSERVANCY|CONSERVATION(?! COMMISSION)|AIRPORT|MOSQUITO|HEALTH|"
+                        r"EDUCATION|EDUCATIONAL)\b")
 _OREGON_NO = re.compile(r"^\d+-\d+\s*:?\s*")
 _AFTER_HYPHEN = re.compile(r"(QUESTION|PROP|PROPOSITION|MEASURE|ISSUE|BOND|REFERENDUM|SPECIAL|\d)")
 
@@ -242,6 +249,9 @@ def _sub(t, state, county):
             name = " ".join(words[:n]).strip(" .,-:;()")
             if name in mine:
                 hit = ("stated", f"the title says '{m.group(1)} OF {name}'", name, _SUB_KIND[m.group(1)])
+                body = _TOWN_BODY.search(" ".join(words[n:]))
+                if body:
+                    return None, f"the title names another body than the town after its name ('{body.group(0)}')"
                 break
         if hit:
             break
@@ -250,6 +260,9 @@ def _sub(t, state, county):
         if m and m.group(1).strip(" .,-:;()") in mine:
             name = m.group(1).strip(" .,-:;()")
             hit = ("stated", f"the title says '{name} {m.group(2)}'", name, _SUB_KIND[m.group(2)])
+            body = _TOWN_BODY.search(t[m.end():])
+            if body:
+                return None, f"the title names another body than the town after its name ('{body.group(0)}')"
     if hit is None and not _TOWNSHIP_WORD.search(t):   # the title begins with a subdivision's name, its kind unsaid
         for n in sorted(mine, key=len, reverse=True):
             if any(cf == county for cf, *_ in mine[n]) and (t == n or t.startswith(n + " ") or t.startswith(n + ",")
