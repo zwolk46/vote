@@ -1,0 +1,179 @@
+{
+ "level": "governor",
+ "year": 2025,
+ "about": "Governor contests of 2025, an odd year, in the layout of plan/PLAN.md section 3 with the fields data/README.md adds. Built by pipeline/intake/build_congress.py from Cha, Kuriwaki and Snyder (2007-2021), Algara and Amlani's county returns (before, and where Cha lacks a contest), Louisiana's Secretary of State (2023) and New Jersey's and Virginia's certified results (2025), as each contest's source block says. The forecast is the governors' route fitted on the even years before it (data/congress/REPORT.md section 8).",
+ "missing_from_record": [],
+ "not_in_sources": [],
+ "sources": {
+  "nj_doe": {
+   "name": "New Jersey Division of Elections, Official List: Candidates for Governor, General Election 11/04/2025 (\"Official General Election Results: Governor\")",
+   "url": "https://www.nj.gov/state/elections/assets/pdf/election-results/2025/2025-official-general-results-governor.pdf",
+   "read_utc": "2026-11-07T12:38Z",
+   "licence": "no licence printed; the New Jersey Division of Elections' official election returns, public records",
+   "mark": "stated",
+   "via": "https://www.nj.gov/state/elections/election-information-2025.shtml",
+   "note": "sha256 ef28c114c11de275; read by pipeline/intake/state_governors.py; the Official List, dated 12/03/2025 on its pages, linked as \"Official General Election Results: Governor\""
+  },
+  "medsl_president": {
+   "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z",
+   "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+   "read_utc": "2026-11-07T07:27Z",
+   "licence": "CC0 1.0",
+   "mark": "stated",
+   "via": "https://doi.org/10.7910/DVN/42MVDX",
+   "note": null
+  },
+  "nara_2024": {
+   "name": "National Archives, 2024 Electoral College Results",
+   "url": "https://www.archives.gov/electoral-college/2024",
+   "read_utc": "2026-11-07T07:27Z",
+   "licence": "US federal public record (National Archives); no licence printed",
+   "mark": "stated",
+   "via": null,
+   "note": null
+  },
+  "cha": {
+   "name": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:10.7910/DVN/DGDRDT, v4.1, released 2026-02-15T14:24:27Z",
+   "url": "https://doi.org/10.7910/DVN/DGDRDT",
+   "read_utc": "2026-11-07T07:27Z",
+   "licence": "CC0 1.0",
+   "mark": "stated",
+   "via": "https://doi.org/10.7910/DVN/DGDRDT",
+   "note": "governors' votes from each state's statement of votes (the dataset's guide)"
+  },
+  "va_elect": {
+   "name": "Virginia Department of Elections, election results: 2025 November General, Governor (the results site's statewide count)",
+   "url": "https://enr.elections.virginia.gov/results/public/api/elections/Virginia/2025-November-General/data",
+   "read_utc": "2026-11-07T12:46Z",
+   "licence": "no licence printed; the Virginia Department of Elections' official election results, public records",
+   "mark": "stated",
+   "via": "https://www.elections.virginia.gov/resultsreports/election-results/",
+   "note": "sha256 9d3a34146f76ef39; read by pipeline/intake/state_governors.py; the election is marked \"isOfficialResults\": true on the results site (published 2025-12-01T18:15Z; 133 of 133 localities reporting)"
+  }
+ },
+ "model": {
+  "method": "D2-v3 (with the last governor race)",
+  "what": "the model's own forecast (data/congress/REPORT.md section 2), fitted on earlier cycles only, from what was known before the election (the orchestrator, 2026-11-07 05:58); no polls are used, so it carries less than forecasters then knew",
+  "fit_years": [
+   1978,
+   1980,
+   1982,
+   1984,
+   1986,
+   1988,
+   1990,
+   1992,
+   1994,
+   1996,
+   1998,
+   2000,
+   2002,
+   2004,
+   2006,
+   2008,
+   2010,
+   2012,
+   2014,
+   2016,
+   2018,
+   2020,
+   2022,
+   2024
+  ],
+  "cycles": 24,
+  "races": 541,
+  "b_lean": 0.29210903919721026,
+  "b_inc": 0.07173529184931095,
+  "b_lag": 0.1355262617715833,
+  "s_e_fitted": 0.07906339159098916,
+  "k": 0.9386669991481872,
+  "calibration": {
+   "k": 0.9386669991481872,
+   "years": [
+    1986,
+    1988,
+    1990,
+    1992,
+    1994,
+    1996,
+    1998,
+    2000,
+    2002,
+    2004,
+    2006,
+    2008,
+    2010,
+    2012,
+    2014,
+    2016,
+    2018,
+    2020,
+    2022,
+    2024
+   ],
+   "races": 448,
+   "note": "k = the root mean square of z = (y - mean) / sd over these earlier years' races, each year forecast from its own earlier cycles"
+  },
+  "s_e": 0.07421419652719181,
+  "s_a": 0.02476609289213934,
+  "c": [
+   -0.0018594217201605829,
+   -0.021628010718548068,
+   -0.00947114652094221
+  ],
+  "ZtZ_inv": [
+   [
+    0.041666666666666664,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.08333333333333333,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.08333333333333333
+   ]
+  ],
+  "national_forecast": -0.0018594217201605829,
+  "national_sd": 0.023726486469459216,
+  "sd": 0.07791465283476581,
+  "rho": 0.09273177682805751,
+  "commit": "b748ec42",
+  "mean_is": "1/2 + national_forecast + b_lean * lean + b_inc * incumbency + b_lag * (last governor race's Democratic share - 1/2)",
+  "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = k s_a sqrt(1 + z (Z'Z)^-1 z'), s_e = k s_e_fitted, z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic president, -1 Republican; k the calibration factor; in an odd year z = (1, w P, 0), w = 1 under the midterm term and 0 under the plain route (odd_year below)",
+  "odd_year": {
+   "term": "plain",
+   "z": [
+    1.0,
+    -0.0,
+    0.0
+   ],
+   "note": "an odd year: neither the midterm nor the presidential-year term, z = (1, 0, 0) (the plain route; the midterm's term failed the robustness test for odd years, REPORT 8); fitted on the even years before it, never on odd years",
+   "test": "data/congress/backtest-governor-odd.json",
+   "midterm_term": {
+    "improves": false,
+    "robust": false,
+    "mean_log_score_gain": 0.04463500686501387
+   },
+   "lean_note_stands": true
+  },
+  "variant": {
+   "of_record": "none",
+   "tails_first": "normal",
+   "shrink": null,
+   "note": "the mean as fitted, normal tails first (no variant of round 5 passed its test for this level; REPORT 2.7)"
+  },
+  "near_tie": {
+   "scheme": null,
+   "note": "not adopted for this level: on the years it reaches it does not both raise the log score and bring the near-even count nearer (REPORT 2.6)"
+  }
+ },
+ "contests": [
+  {"id":"2025-governor-NJ","year":2025,"date":"2025-11-04","level":"governor","place":{"state":"NJ","district":null,"name":"New Jersey"},"special":false,"result":{"certified":true,"candidates":[{"name":"MIKIE SHERRILL","party":"Democratic","votes":1896610},{"name":"JACK CIATTARELLI","party":"Republican","votes":1417705},{"name":"VIC KAPLAN","party":"Libertarian Party","votes":11880},{"name":"JOANNE S. KUNIANSKY","party":"SOCIALIST WORKERS PARTY","votes":8164}],"total_votes":3334359,"source":{"name":"New Jersey Division of Elections, Official List: Candidates for Governor, General Election 11/04/2025 (\"Official General Election Results: Governor\")","url":"https://www.nj.gov/state/elections/assets/pdf/election-results/2025/2025-official-general-results-governor.pdf","read_utc":"2026-11-07T12:38Z","licence":"no licence printed; the New Jersey Division of Elections' official election returns, public records","mark":"stated","via":"https://www.nj.gov/state/elections/election-information-2025.shtml","note":"sha256 ef28c114c11de275; read by pipeline/intake/state_governors.py; the Official List, dated 12/03/2025 on its pages, linked as \"Official General Election Results: Governor\""}},"two_party":{"candidates":["MIKIE SHERRILL","JACK CIATTARELLI"],"votes":[1896610,1417705],"n_other_voters":3314314,"share_first":0.572248},"forecasts":[{"by":"the model's own","published":false,"method":"D2-v3 (with the last governor race)","share":{"mean":0.5113365191458388,"sd":0.07791465283476581,"tails":"normal","of":"Democrat, two-party"},"p_published":null,"convention":null,"as_of":"2025-11-04","source":{"name":"the model's own forecast, method D2-v3 (with the last governor race), fitted to the governor races of the even years 1978-2024 (24 cycles, all before 2025); an odd year: neither the midterm nor the presidential-year term, z = (1, 0, 0) (the plain route; the midterm's term failed the robustness test for odd years, REPORT 8)","url":"https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md","read_utc":"2026-11-07T12:55Z","licence":null,"mark":"inferred","via":null,"note":"the file's top-level \"model\" holds the fitted terms; no polls are used"}},{"by":"the model's own","published":false,"method":"D2-v3 (with the last governor race)","share":{"mean":0.5113365191458388,"sd":0.07791465283476581,"tails":"t4","of":"Democrat, two-party"},"p_published":null,"convention":null,"as_of":"2025-11-04","source":{"name":"the model's own forecast, method D2-v3 (with the last governor race), fitted to the governor races of the even years 1978-2024 (24 cycles, all before 2025); an odd year: neither the midterm nor the presidential-year term, z = (1, 0, 0) (the plain route; the midterm's term failed the robustness test for odd years, REPORT 8)","url":"https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md","read_utc":"2026-11-07T12:55Z","licence":null,"mark":"inferred","via":null,"note":"the file's top-level \"model\" holds the fitted terms; no polls are used"}}],"population":null,"stage_two":null,"p":{"value":7.643112788916788e-07,"event":1.5286225577833575e-06,"under":"the model's own (D2-v3 (with the last governor race)), normal","computed_by":"pipeline/chambers.py","commit":"b748ec42","not_computed":null,"reason":null,"method":"density","f_half":5.066335143977191,"n":3314314,"of_forecast":0,"alongside":[{"under":"the model's own (D2-v3 (with the last governor race)), t4 with the same sd","value":1.0001643052634836e-06,"event":2.000328610526967e-06,"method":"density","f_half":6.629717118470074,"of_forecast":1}],"note":"this route's back-test of the odd-year governor races shows more near-even finishes than it forecast (6 against 3.3 within 1 point, 1985 to 2025), so p may be low"},"forecast_inputs":{"pres_year":2024,"national_share_D":0.492499,"national_source":"medsl_president","incumbency":0,"incumbency_source":"inferred","midterm":null,"president_party":"R","president_source":"nara_2024","odd_year":true,"state_share_D":0.530139,"lean":0.037639,"lean_source":"medsl_president","last_governor_race":{"year":2021,"share_D":0.5162422301838856,"special":false,"source":"cha"},"incumbency_how":"inferred: the winner of the state's last governor contest in Cha, Kuriwaki and Snyder (2021, Murphy) is neither nominee"},"checks":[{"against":"the 21 county copies on the Division's 2025 page","differences":[]}],"notes":["the state's own count over its 21 counties, the parties as the source prints them","the Official List gives no write-in (personal choice) votes; the total is the listed candidates'","date: 2025-11-04, stated (the source's date of the election)"],"ballot":{"D":1,"R":1,"caucus_D":[],"others":2},"gate":{"by":"within the certifying source (no federal contest on the ballot)","ruled":"the orchestrator, 2026-11-07 11:16 UTC (set for Louisiana 2023), applied to these on 12:35 UTC","official":true,"official_how":"the Official List, dated 12/03/2025 on its pages, linked as \"Official General Election Results: Governor\"","parts_add_up":true,"parts_how":"each candidate's 21 county lines add up to its Total line","statewide_equal":"equal: the record is the statewide list's own Total lines"}},
+  {"id":"2025-governor-VA","year":2025,"date":"2025-11-04","level":"governor","place":{"state":"VA","district":null,"name":"Virginia"},"special":false,"result":{"certified":true,"candidates":[{"name":"Abigail D. Spanberger","party":"Democratic","votes":1976857},{"name":"Winsome Earle-Sears","party":"Republican","votes":1449586},{"name":"Write-In","party":null,"votes":6897}],"total_votes":3433340,"source":{"name":"Virginia Department of Elections, election results: 2025 November General, Governor (the results site's statewide count)","url":"https://enr.elections.virginia.gov/results/public/api/elections/Virginia/2025-November-General/data","read_utc":"2026-11-07T12:46Z","licence":"no licence printed; the Virginia Department of Elections' official election results, public records","mark":"stated","via":"https://www.elections.virginia.gov/resultsreports/election-results/","note":"sha256 9d3a34146f76ef39; read by pipeline/intake/state_governors.py; the election is marked \"isOfficialResults\": true on the results site (published 2025-12-01T18:15Z; 133 of 133 localities reporting)"}},"two_party":{"candidates":["Abigail D. Spanberger","Winsome Earle-Sears"],"votes":[1976857,1449586],"n_other_voters":3426442,"share_first":0.576941},"forecasts":[{"by":"the model's own","published":false,"method":"D2-v3 (with the last governor race)","share":{"mean":0.5076132845424118,"sd":0.07791465283476581,"tails":"normal","of":"Democrat, two-party"},"p_published":null,"convention":null,"as_of":"2025-11-04","source":{"name":"the model's own forecast, method D2-v3 (with the last governor race), fitted to the governor races of the even years 1978-2024 (24 cycles, all before 2025); an odd year: neither the midterm nor the presidential-year term, z = (1, 0, 0) (the plain route; the midterm's term failed the robustness test for odd years, REPORT 8)","url":"https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md","read_utc":"2026-11-07T12:55Z","licence":null,"mark":"inferred","via":null,"note":"the file's top-level \"model\" holds the fitted terms; no polls are used"}},{"by":"the model's own","published":false,"method":"D2-v3 (with the last governor race)","share":{"mean":0.5076132845424118,"sd":0.07791465283476581,"tails":"t4","of":"Democrat, two-party"},"p_published":null,"convention":null,"as_of":"2025-11-04","source":{"name":"the model's own forecast, method D2-v3 (with the last governor race), fitted to the governor races of the even years 1978-2024 (24 cycles, all before 2025); an odd year: neither the midterm nor the presidential-year term, z = (1, 0, 0) (the plain route; the midterm's term failed the robustness test for odd years, REPORT 8)","url":"https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md","read_utc":"2026-11-07T12:55Z","licence":null,"mark":"inferred","via":null,"note":"the file's top-level \"model\" holds the fitted terms; no polls are used"}}],"population":null,"stage_two":null,"p":{"value":7.436083449760078e-07,"event":1.4872166899520157e-06,"under":"the model's own (D2-v3 (with the last governor race)), normal","computed_by":"pipeline/chambers.py","commit":"b748ec42","not_computed":null,"reason":null,"method":"density","f_half":5.095861729552564,"n":3426442,"of_forecast":0,"alongside":[{"under":"the model's own (D2-v3 (with the last governor race)), t4 with the same sd","value":9.814831584489837e-07,"event":1.9629663168979675e-06,"method":"density","f_half":6.725990232804506,"of_forecast":1}],"note":"this route's back-test of the odd-year governor races shows more near-even finishes than it forecast (6 against 3.3 within 1 point, 1985 to 2025), so p may be low"},"forecast_inputs":{"pres_year":2024,"national_share_D":0.492499,"national_source":"medsl_president","incumbency":0,"incumbency_source":"inferred","midterm":null,"president_party":"R","president_source":"nara_2024","odd_year":true,"state_share_D":0.529456,"lean":0.036957,"lean_source":"medsl_president","last_governor_race":{"year":2021,"share_D":0.49023976990328044,"special":false,"source":"cha"},"incumbency_how":"inferred: the winner of the state's last governor contest in Cha, Kuriwaki and Snyder (2021, Youngkin) is neither nominee"},"checks":[{"against":"the site's Election Results report, precinct by precinct (https://enr.elections.virginia.gov/cdn/results/d2c804ee-4ec2-46bb-91d7-5b41526eab03/Election%20Results_9b503992-5765-47e2-989d-5ed01f31621e.csv, read 2026-11-07T12:42Z, sha256 f50748cacb3bbc04): the named candidates; its write-in cells are empty","differences":[]}],"notes":["the state's own count over its 133 localities (counties and independent cities), the parties as the source prints them","date: 2025-11-04, stated (the source's date of the election)"],"ballot":{"D":1,"R":1,"caucus_D":[],"others":0},"gate":{"by":"within the certifying source (no federal contest on the ballot)","ruled":"the orchestrator, 2026-11-07 11:16 UTC (set for Louisiana 2023), applied to these on 12:35 UTC","official":true,"official_how":"the election is marked \"isOfficialResults\": true on the results site (published 2025-12-01T18:15Z; 133 of 133 localities reporting)","parts_add_up":true,"parts_how":"the contest's 133 localities (https://enr.elections.virginia.gov/results/public/api/elections/Virginia/2025-November-General/data/ballot-item/01000000-1238-16ac-ab58-08ddfb9ff9ea, read 2026-11-07T12:46Z, sha256 148961dd609bda88) add up, option by option, write-ins included, to the statewide count","statewide_equal":"equal: the record is the site's own statewide count"}}
+ ]
+}

@@ -2101,7 +2101,7 @@ def lean_tests(raw):
 
 def odd_test(rows):
     """The odd-year term under the robustness test of 08:36, against the plain route, on every odd year the route
-    forecasts (from 1985, the first with K_MIN even cycles before it, to 2021); and the lean note's two tests on the
+    forecasts (from 1985, the first with K_MIN even cycles before it, to 2025); and the lean note's two tests on the
     term of record. Cached."""
     if id(rows) in _ODD:
         return _ODD[id(rows)]
