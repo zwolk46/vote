@@ -15,6 +15,9 @@ Written 2026-11-07 by worker D2. Reads only the cache (CACHE); run the source sc
   ms_governor_rule.py                  Mississippi's rule for electing its governor before 2020 (HC 47 of 2020)
   state_governors.py 2023 2025         New Jersey's and Virginia's governors of 2025 from the states' certified
                                        results, and the refusals of Kentucky's and Mississippi's 2023 results
+Governors' incumbency codes pass through pipeline/governor_incumbency.py (fix_cha, fix_aa): the codes the record
+or a state's roster of governors proves wrong are fixed there, and the contests it checked carry
+forecast_inputs.incumbency_check.
 
 What it writes for each contest (plan section 3, with the fields data/README.md adds):
   result     from the source of record, every candidate and line it prints;
@@ -36,6 +39,7 @@ sys.path.insert(1, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import congress_common as cc  # noqa: E402
 from downballot_pres_by_cd import LEAN_INPUT  # noqa: E402
 import chambers  # noqa: E402  (pipeline/chambers.py: the governors' last race, read the same way as the fit's)
+import governor_incumbency as GI  # noqa: E402  (pipeline/governor_incumbency.py: the governors' codes it fixes)
 
 COMMIT = chambers.git_head()   # the commit of the code that writes a p = 0 block (M2 1.5)
 GOV_INDEX = None
@@ -195,6 +199,7 @@ def cha_index():
     d = cc.read_json(os.path.join(cc.CACHE, "cha", "normalized", "contests.json"))
     if d is None:
         raise SystemExit("run pipeline/intake/candidates_american_general_elections.py first")
+    GI.fix_cha(d["contests"])     # the governors' codes the record or a state's roster proves wrong
     idx = {}
     for c in d["contests"]:
         k = (c["year"], c["office"], c["state"], c["district"], c["special"])
@@ -531,6 +536,8 @@ def contest(year, office, c, cha_c, cha_src, P):
                     "commit": COMMIT, "not_computed": None, "reason": kind[1]}
         return rec
     fi = forecast_inputs(year, office, c["state"], district, inc, inc_via, P, special)
+    if office == "governor" and GI.note(year, c["state"], special):
+        fi["incumbency_check"] = GI.note(year, c["state"], special)
     rec["forecast_inputs"] = fi
     if kind:
         rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
@@ -571,7 +578,7 @@ _AA = {}
 def AA_SOURCE():
     if "source" not in _AA:
         d = cc.read_json(os.path.join(cc.CACHE, "algara_amlani", "normalized", "governors.json"))
-        _AA["source"], _AA["elections"] = d["source"], d["elections"]
+        _AA["source"], _AA["elections"] = d["source"], GI.fix_aa(d["elections"])
     return _AA["source"]
 
 
@@ -655,6 +662,10 @@ def aa_governors(year, P):
         fi = forecast_inputs(year, "governor", r["state"], None, r["incumbency"], {"algara_amlani"}, P)
         fi["incumbency_source"] = "algara_amlani"
         fi["seat_status"] = r["seat_status"]
+        if r.get("seat_status_source"):
+            fi["seat_status_in_source"] = r["seat_status_source"]
+        if GI.note(year, r["state"], False):
+            fi["incumbency_check"] = GI.note(year, r["state"], False)
         rec["forecast_inputs"] = fi
         if kind:
             rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
