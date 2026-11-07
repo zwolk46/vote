@@ -48,6 +48,10 @@
 
 > And also, just like the midterm site, I want to be able to watch what's going on as it happens in at least some detail. So basically, I want an equivalent of just the simple artifact that's like a task tracker. I just want to see maybe what pages are being worked on, what features are being worked on, anything like that. And it'll be the place where I can open previews, where links will be put, and there should be probably a dedicated thread analogous to the thread run in the midterms project. Just run the same thing. I basically want to be able to just watch that until I have a comment that I need to make.
 
+**Orchestrator, 03:02.** "The tracker is up as Vote Work (https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH). It's the same page as Midterms Work, with the model and the law done, the plan in progress, and the first data and design work queued. A dedicated thread will keep it current and add preview links as they appear. The law is now in force as if ratified, in LAW.md, whenever you want to read it. Next I'll write the plan and start the first workers."
+
+**Orchestrator, 03:08.** "The plan is on main, along with the law. Three workers are starting: the presidency's data by state, Congress and governors, and the site's design. Design will bring you two or three first-screen versions to pick from. The tracker thread is starting too. Two things only you can unlock, whenever suits: 1. Allowing web.archive.org in Project settings, under the environment's allowed domains, gives us 538's forecasts for past years. 2. MEDSL's election data asks for a name and email before download. Should we give yours?"
+
 **Zach, 03:11 UTC (project chat, relayed):** Let me know when the tracker's up and give me the artifact link.
 
 **Orchestrator, 03:11:** It's up: Vote Work (https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH). The tracker thread has started and will keep it current, adding preview links as they appear.
