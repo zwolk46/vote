@@ -1,8 +1,8 @@
-M2 checks: 2026-11-07T17:38Z, repository HEAD 1310783, python3 3.13.18
+M2 checks: 2026-11-07T18:39Z, repository HEAD 58bc395, python3 3.13.18
 
 ##### c1_recompute
 C1. EVERY p RECOMPUTED FROM ITS OWN INPUTS (M2's code; no pipeline import)
-repository HEAD 1310783
+repository HEAD 58bc395
 1.1 The presidency: p_state = f(1/2) / (2 n) from the forecast p.under names, every contest
   contests: 573 with p, 115 without; without p and without a 'No p' note: none; p lacking under/computed_by/commit: none
   the model's own: f(1/2) by quadrature vs the record (tolerance 1e-4): 566 compared, largest relative difference 2.63e-11 (1984-president-AK [the model's own]); 0 beyond tolerance
@@ -104,7 +104,7 @@ repository HEAD 1310783
 
 ##### c2_college
 C2. THE ELECTORAL COLLEGE: W GIVEN THE TIE, BY METHODS OTHER THAN THE PIPELINE'S
-repository HEAD 1310783
+repository HEAD 58bc395
 2.1 The model's own forecast, every year: Fourier count on a 1,201-point Simpson grid (+-12 s_d), and importance-sampling Monte Carlo (1,000,000 draws, seed 12345)
   1976: no own forecast in the record
   1980: no own forecast in the record
@@ -450,7 +450,7 @@ repository HEAD 1310783
 
 ##### c3_chambers
 C3. CHAMBER CONTROL: P(decides | tie) BY METHODS OTHER THAN THE PIPELINE'S, AND 538 x OWN COHERENCE
-repository HEAD 1310783
+repository HEAD 58bc395
 3.1 Every chamber-year, every modelled seat: Fourier count on a 1,201-point Simpson grid (tolerance 1e-6), and importance-sampling Monte Carlo where run
   senate 2006: 32 seats with a mean (31 modelled, 1 inferred), fixed D 0, fixed other 1, not-up D 27, pivots over all seats {23: 1.0}, sd_a 0.02520, s_e 0.08298
     senate 2006 P(decides | tie) by Fourier vs the record: 31 seats; largest relative difference 6.22e-15 (2006-senate-UT: record 0.05649, here 0.05649); 0 beyond 1e-06
@@ -826,7 +826,7 @@ repository HEAD 1310783
 
 ##### c4_congress
 C4. CONGRESS AND GOVERNOR FORECASTS: THE GOVERNORS' MISS, AND LEAVE-ONE-CYCLE-OUT VS EARLIER CYCLES ONLY
-repository HEAD 1310783
+repository HEAD 58bc395
   governor: 232 rows rebuilt from the record (skipped: {'top two not a D and an R': 4}); the record's fit used 541. Full fit here: b_lean 0.4081 (record 0.2949), b_inc 0.0786 (0.0724), s_e 0.0753 (0.0793), s_a 0.0294 (0.0248)
   senate: 322 rows rebuilt from the record (skipped: {'top two not a D and an R': 22, 'another D or R with 2% or more': 6, 'one candidate': 1}); the record's fit used 699. Full fit here: b_lean 0.7497 (record 0.5817), b_inc 0.0552 (0.0888), s_e 0.0575 (0.0735), s_a 0.0182 (0.0216)
   house: 3805 rows rebuilt from the record (skipped: {'top two not a D and an R': 397, 'one candidate': 96, 'another D or R with 2% or more': 30, 'no lean or incumbency recorded': 83}); the record's fit used 3805. Full fit here: b_lean 0.8141 (record 0.8154), b_inc 0.0529 (0.0528), s_e 0.0487 (0.0489), s_a 0.0155 (0.0154)
@@ -900,7 +900,7 @@ repository HEAD 1310783
 
 ##### c4b_president_538
 C4b. THE PRESIDENCY'S OWN FORECAST (HORIZON, t4 SCALE) AND 538'S IMPLIED-SD RULE
-repository HEAD 1310783
+repository HEAD 58bc395
 4.3 The model's own presidential forecast, refitted from the record's inputs
     538's national averages in the record: year, 9 September (date), eve (date), two-party Democratic share; the result
       1976: 0.5724 (1976-09-09), 0.5032 (1976-11-01); result 0.5105
@@ -1044,7 +1044,7 @@ repository HEAD 1310783
 
 ##### c5_published
 C5. PUBLISHED FIGURES: THE ECONOMIST 2020, GKB 1992, GSE 2008
-repository HEAD 1310783
+repository HEAD 58bc395
 5.1 The Economist, 2020: GSE's method on the Economist's own draws (P(necessary) x t4 density at 0 of the vote margin among the necessary draws), against its published p_decisive_vote and the record's window count
     state  ev   P(nec) p_tipping  draws    M/S  p GSE-t4 published  ratio  p record rec/pub GSE-normal/pub t4 scale S/sqrt2 /pub
     PA     20   0.0561    0.4089   4706   0.53 1.110e-07 1.143e-07  0.972 1.129e-07   0.988          1.064                 1.174
@@ -1147,7 +1147,7 @@ repository HEAD 1310783
 
 ##### c6_record
 C6. THE RECORD AGAINST THE FORECASTS: PRESIDENTIAL CONTESTS DECIDED BY k VOTES OR FEWER
-repository HEAD 1310783
+repository HEAD 58bc395
     year contests            k=1           k=10          k=100         k=1000         k=5000        k=10000        k=20000        k=50000       k=100000   (expected / seen)
     1976: no p
     1980: no p
@@ -1210,7 +1210,7 @@ repository HEAD 1310783
 
 ##### c7_first_screen
 C7. THE FIRST-SCREEN FIGURES, BY HAND
-repository HEAD 1310783
+repository HEAD 58bc395
 7.1 The presidency: each year's average voter (vote-weighted mean of the states' p) and the closest states, against the files and data/president/REPORT.md
     year avg p by hand           1 in           file         REPORT   closest states by hand (REPORT in brackets)
     1984    8.5200e-10 1 in 1,173,707,241 1 in 1,173,707,241 1 in 1,173,707,241   VT 1 in 298,251,585, DE 1 in 455,041,412, ME 1 in 647,793,472  [VT 298M, DE 455M, ME 648M]
@@ -1259,7 +1259,7 @@ repository HEAD 1310783
 
 ##### c17_first_pass_diff
 C17. THE FIRST PASS'S SCRIPTS ON TODAY'S FILES AGAINST THEIR RUN OF RECORD
-repository HEAD 1310783; the run of record: d11cae2 (the first pass, repository HEAD 503657b)
+repository HEAD 58bc395; the run of record: d11cae2 (the first pass, repository HEAD 503657b)
   today's OUTPUT.txt so far holds ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C4b']; the record holds ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C4b']
 
   C1 (C1. EVERY p RECOMPUTED FROM ITS OWN INPUTS (M2's code; no pipeline imp): record 97 lines, today 100; identical 13; differing: record 84, today 87
@@ -1437,7 +1437,7 @@ repository HEAD 1310783; the run of record: d11cae2 (the first pass, repository 
 
 ##### c8_recompute2
 C8. CONGRESS AND GOVERNORS AFTER #38: EVERY p FROM ITS RECORDED INPUTS, THE FORECASTS REBUILT, F, lambda, 538, STAGE TWO
-repository HEAD 1310783
+repository HEAD 58bc395
 
 == senate
   counts: files 10, contests 351, p>0 317, p=0 2, not computed 32, blocks 992, own blocks 634, 538 blocks 358, calibrated 0, shrunk 0, no factor (band 0.10 up or none) 634, 538 entries 500, 538 first 147, 538 unusable 134, 538 rule disagrees 0, st2 model 314, st2 marked 17, t4 first 0
@@ -1548,7 +1548,7 @@ repository HEAD 1310783
 
 ##### c9_fit2
 C9. THE FITS REDONE: ROWS, COEFFICIENTS, k, lambda AND F AGAINST THE FILES' MODEL BLOCKS
-repository HEAD 1310783
+repository HEAD 58bc395
   cha_candidates_2006-2024.dta: sha256 64580af7dbe9b4ca12bd908bab5f98ef723374280794eb5e3617038fd758f4b4 [measured; matches the one recorded in m2fit.py]
   medsl_1976-2024-senate-state.csv: sha256 6f745db1b4a0026ad837e74428f9ed6f3f77fa51eb6f858b58ebdbc186fdb3bd [measured; matches the one recorded in m2fit.py]
 
@@ -1650,7 +1650,7 @@ repository HEAD 1310783
 
 ##### c10_backtest2
 C10. D2'S ADOPTION BACK-TESTS REDONE: THE NEAR-TIE SCHEME, THE VARIANTS, AND WHERE A DECISION WOULD FLIP
-repository HEAD 1310783
+repository HEAD 58bc395
   rows 5047 (backtest.json: 5047); the House specials on the files' lines (t-2), D2's convention since #51
 
 10.1 THE NEAR-TIE SCHEME TEST UNDER none (REPORT 2.6; backtest.json near_tie): mine against D2's
@@ -1848,7 +1848,7 @@ repository HEAD 1310783
 
 ##### c11_k_reading
 C11. THE SPREAD FACTOR k: A READING (chosen: nothing)
-repository HEAD 1310783
+repository HEAD 58bc395
 
 == house (variant of record: none, near-tie scheme level)
 11.1 OUT-OF-SAMPLE z = (result - mean)/sd BY YEAR UNDER THE RECORD: rms over the year's races, k of record, and k x rms (the k that would have given rms 1)
@@ -1915,7 +1915,7 @@ repository HEAD 1310783
 
 ##### c12_control2
 C12. CHAMBER CONTROL AFTER #38: P(decides | tie) WITH EACH SEAT'S OWN sd AND SWING LOADING, THE VP AT THE PRESIDENTIAL CHANCE
-repository HEAD 1310783
+repository HEAD 58bc395
   senate 2006: 32 seats with a mean (31 modelled, 1 inferred; 0 marked, loading -), fixed D 0, other 1, not-up D 27, pi 0.0000, pivots {22: 0.0, 23: 1.0}, sd_a 0.02520, own_sd 0.0830-0.0830
     senate 2006 P(decides | tie) Fourier vs record: 31 seats; largest relative difference 6.22e-15 (2006-senate-UT: record 0.05649, here 0.05649); 0 beyond 1e-06
     senate 2006 P(decides) unconditional Fourier vs record: 31 seats; largest relative difference 3.96e-14 (2006-senate-TX: record 0.0262804, here 0.0262804); 0 beyond 1e-06
@@ -2043,7 +2043,7 @@ repository HEAD 1310783
 
 ##### c13_governors2
 C13. THE GOVERNOR TEST AGAIN AFTER #38: CONTESTS DECIDED BY k VOTES OR FEWER, EXPECTED AGAINST SEEN
-repository HEAD 1310783
+repository HEAD 58bc395
   every governor with p, 1986-2024: 420 contests with p (356 under the model's own, 64 under 538)
      k votes  expected  seen  P(X<=seen)  P(X>=seen)   expected, normal first
            1      0.00     0       0.998       1.000                     0.00
@@ -2085,7 +2085,7 @@ repository HEAD 1310783
   the first pass (M2-REPORT 3.1, D2 #24, 2006-2024, normal first, no last race): within 5,000 votes 4.38 expected, 0 seen (P 0.013)
 
 ##### c14_d3_recompute
-c14: D3's levels recomputed from the recorded inputs; repository HEAD 1310783
+c14: D3's levels recomputed from the recorded inputs; repository HEAD 58bc395
 
 ====================================================================================================
 14.1 The inventory of D3's levels [measured]
@@ -2147,10 +2147,10 @@ state-lower: 131,265 contests, years 1968-2024 (57 years); p with a value 114,38
           15  the source splits this district'...'s whole count
           11  fewer than 100 like races in earlier years in the sources taken in (N) for the class '...'
 
-local: 58,607 contests, years 2000-2026 (22 years); p with a value 35,545, not computed 23,062, no p block 0
-  result source / p computed by: medsl/pipeline/local_medsl.py 38,787; ncsbe/pipeline/local_ncsbe.py 12,879; ncsbe/pipeline/local_medsl.py 4,337; in_enr/pipeline/local_medsl.py 1,433; la_sos/pipeline/local_medsl.py 1,171
+local: 58,615 contests, years 2000-2026 (22 years); p with a value 35,564, not computed 23,051, no p block 0
+  result source / p computed by: medsl/pipeline/local_medsl.py 38,795; ncsbe/pipeline/local_ncsbe.py 12,879; ncsbe/pipeline/local_medsl.py 4,337; in_enr/pipeline/local_medsl.py 1,433; la_sos/pipeline/local_medsl.py 1,171
   p with a value, by route / method:
-    None                   None                                                        27,517
+    None                   None                                                        27,536
     boundary               density                                                        134
     boundary               exact                                                        1,060
     class                  density                                                      2,756
@@ -2158,25 +2158,25 @@ local: 58,607 contests, years 2000-2026 (22 years); p with a value 35,545, not c
     partisan               density                                               t4     1,768
     partisan               exact                                                 t4        62
   p with a value and no forecast:
-    value 0: True    27,517  one name on the ballot for each seat (unopposed)
-  not computed, the reasons (37 kinds), the largest:
-       9,007  fewer than 100 like races in earlier years in the sources taken in (N) for the class '...'
+    value 0: True    27,536  one name on the ballot for each seat (unopposed)
+  not computed, the reasons (40 kinds), the largest:
+       8,994  fewer than 100 like races in earlier years in the sources taken in (N) for the class '...'
        4,114  the number of seats is not verified in the source (MEDSL's magnitude is empty)
        2,368  the number of seats is not in the source (its files give it from 2014 only)
-       2,166  a race between a Democrat and a Republican
+       2,156  a race between a Democrat and a Republican
        1,162  one name on the ballot for each seat, but write-ins received votes near the last winner's
-         885  a special election
+         884  a special election
          755  the first round of Louisiana's two-round system
          465  no earlier year to fit on (2014 is the first year counted)
          382  one name on the ballot for each seat, but write-ins received N% of the last winner's votes (counted together, 
          376  a race between a Democrat and a Republican, whose forecast reads the place'...'s US House race was not contest
          281  a first round or a second primary
          249  a race between a Democrat and a Republican, whose forecast reads the place'...'s returns for this state are he
-         173  a write-in line is in the pair that decided this contest; the like-race classes are of candidates on the ballo
+         172  a write-in line is in the pair that decided this contest; the like-race classes are of candidates on the ballo
          163  the source's 2024 counts for Bergen County do not add up to the certified federal counts there (president, Sen
 
-measure: 9,543 contests, years 2004-2026 (19 years); p with a value 933, not computed 8,610, no p block 0
-  result source / p computed by: medsl/pipeline/local_medsl.py 7,989; la_sos/pipeline/local_medsl.py 632; ncsbe/pipeline/local_ncsbe.py 478; ncsbe/pipeline/local_medsl.py 406; in_enr/pipeline/local_medsl.py 38
+measure: 9,541 contests, years 2004-2026 (19 years); p with a value 933, not computed 8,608, no p block 0
+  result source / p computed by: medsl/pipeline/local_medsl.py 7,987; la_sos/pipeline/local_medsl.py 632; ncsbe/pipeline/local_ncsbe.py 478; ncsbe/pipeline/local_medsl.py 406; in_enr/pipeline/local_medsl.py 38
   p with a value, by route / method:
     like past measures     density, threshold form (model section 7)                      933
   p with a value and no forecast:
@@ -2195,11 +2195,11 @@ measure: 9,543 contests, years 2004-2026 (19 years); p with a value 933, not com
           18  the source gives one answer only for this question (its other answer is filed apart under other words and coul
           16  fire district / township fire tax election
           13  Wash. Const. art. II, §1(d) (Amend. 72)
-  questions by scope and kind: local measure 5,217; local retention 3,810; statewide measure 391; statewide retention 106; partial measure 19
+  questions by scope and kind: local measure 5,215; local retention 3,810; statewide measure 391; statewide retention 106; partial measure 19
 
 REPORT section 4 counts the Klarner-built levels together with data/primary (189,103 contests; p computed 93,285: (a) 72,273, (b) 10,993, (c) 8,875, (d) 1,144; p = 0: 66,534). Here, state-upper and state-lower from Klarner only (no primaries): 161,744 contests; p computed by route: boundary 8,875, class 7,114, partisan 72,273, runoff 167, None 51,469; p = 0: 51,469.
-local 2024 (MEDSL, with Indiana): 19,182 contests; p computed: like races 2,255 (class 2,255, boundary 0), partisan 852; p = 0: 10,026 (REPORT section 7: 2024 19,704 contests, p for 3,013 = 2,066 like-race + 947 partisan, p = 0 for 10,158; 2020 8,956, p = 0 for 3,617; 2022 441; 2018 14,177).
-local 2022 (MEDSL): 294 contests; p computed: like races 0 (class 0, boundary 0), partisan 0; p = 0: 80 (REPORT section 7: 2024 19,704 contests, p for 3,013 = 2,066 like-race + 947 partisan, p = 0 for 10,158; 2020 8,956, p = 0 for 3,617; 2022 441; 2018 14,177).
+local 2024 (MEDSL, with Indiana): 19,180 contests; p computed: like races 2,255 (class 2,255, boundary 0), partisan 852; p = 0: 10,023 (REPORT section 7: 2024 19,704 contests, p for 3,013 = 2,066 like-race + 947 partisan, p = 0 for 10,158; 2020 8,956, p = 0 for 3,617; 2022 441; 2018 14,177).
+local 2022 (MEDSL): 304 contests; p computed: like races 0 (class 0, boundary 0), partisan 0; p = 0: 102 (REPORT section 7: 2024 19,704 contests, p for 3,013 = 2,066 like-race + 947 partisan, p = 0 for 10,158; 2020 8,956, p = 0 for 3,617; 2022 441; 2018 14,177).
 local 2020 (MEDSL): 8,119 contests; p computed: like races 1,692 (class 1,692, boundary 0), partisan 760; p = 0: 3,114 (REPORT section 7: 2024 19,704 contests, p for 3,013 = 2,066 like-race + 947 partisan, p = 0 for 10,158; 2020 8,956, p = 0 for 3,617; 2022 441; 2018 14,177).
 local 2018 (MEDSL): 13,178 contests; p computed: like races 0 (class 0, boundary 0), partisan 0; p = 0: 6,684 (REPORT section 7: 2024 19,704 contests, p for 3,013 = 2,066 like-race + 947 partisan, p = 0 for 10,158; 2020 8,956, p = 0 for 3,617; 2022 441; 2018 14,177).
 measure: p computed by year: 2012 52, 2013 1, 2014 67, 2015 32, 2016 88, 2017 26, 2018 70, 2019 22, 2020 42, 2021 14, 2022 66, 2023 12, 2024 429, 2025 7, 2026 5 (REPORT section 8: 64, 22 in 2022 and 42 in 2024).
@@ -2292,7 +2292,7 @@ measure: p computed by year: 2012 52, 2013 1, 2014 67, 2015 32, 2016 88, 2017 26
     like races: p = the exact lattice sum at sd_eq                   3308 /      0
     like races: q = k / N to 5 decimals                              6198 /      0
     like races: the window is 1, 2 or 5 points about the centre      6198 /      0
-    p = 0: value and event 0, reason says unopposed                 27517 /      0
+    p = 0: value and event 0, reason says unopposed                 27536 /      0
     p.n = the pair's n                                               8028 /      0
     pair: n = the two's votes less one                               8028 /      0
     pair: the first's share = votes[0] / (n + 1)                     8028 /      0
@@ -2366,7 +2366,7 @@ measure: p computed by year: 2012 52, 2013 1, 2014 67, 2015 32, 2016 88, 2017 26
     state-upper  partisan: t4 density     0.00288
 
 ##### c15_d3_refit
-c15: D3's forecasts refitted from the sources; repository HEAD 1310783
+c15: D3's forecasts refitted from the sources; repository HEAD 58bc395
 
 ====================================================================================================
 15.1 Like past races, state legislative levels: classes rebuilt and like races counted again [measured]
@@ -2382,7 +2382,7 @@ c15: D3's forecasts refitted from the sources; repository HEAD 1310783
 ====================================================================================================
 15.2 Like past races, local: like races counted again from the files [measured]
 ====================================================================================================
-  MEDSL pool 11,681 rows, years [2018, 2020, 2022, 2023, 2024]; North Carolina State Board pool 5,627 rows, years 2014-2026
+  MEDSL pool 11,667 rows, years [2018, 2020, 2022, 2023, 2024]; North Carolina State Board pool 5,627 rows, years 2014-2026
   contests left out of the pools: none
 
   MEDSL's route (MEDSL years 2018-2024, all states, North Carolina's November contests from the State Board), like races from earlier MEDSL years: 4,267 contests with a like-race forecast; (N, k, h, q) all equal in 4,267
@@ -2488,13 +2488,13 @@ c15: D3's forecasts refitted from the sources; repository HEAD 1310783
 
   partisan: forecasts by year 2020 862 (expected 54.3, seen 49), 2024 982 (expected 60.5, seen 54)
     factor for 2024, fitted on [2020]: pooled 0.903 (record 0.903); own  (record {})
-    the 2024 test: 982 contests, seen 54, expected before 60.5 after 54.7; deviance 17.55 -> 16.83; adopt True (the record's test is over every scored year since #59: below)
-    cells (office types) the factor moves further from what was seen: 6 of 16: local council, commission or board: 28.2 -> 25.5 vs 30; local prosecutor: 2.6 -> 2.3 vs 4; state school board: 0.7 -> 0.7 vs 1; state statewide officer: 1.6 -> 1.5 vs 2; state prosecutor: 0.3 -> 0.3 vs 1; state statewide judge: 0.3 -> 0.2 vs 2
+    the 2024 test: 982 contests, seen 54, expected before 60.5 after 54.7; deviance 17.58 -> 16.86; adopt True (the record's test is over every scored year since #59: below)
+    cells (office types) the factor moves further from what was seen: 6 of 16: local council, commission or board: 28.2 -> 25.5 vs 30; local prosecutor: 2.6 -> 2.3 vs 4; state school board: 0.7 -> 0.6 vs 1; state statewide officer: 1.7 -> 1.5 vs 2; state prosecutor: 0.3 -> 0.3 vs 1; state statewide judge: 0.3 -> 0.2 vs 2
     leave-one-year-out (the orchestrator's robustness test of 08:35):
       leave out 2020: no fitting year remains ([2020]); the factor cannot be fitted
       leave out 2024: no earlier year has both a fitting year and a test year (years [2020, 2024]); the test cannot run
     the robustness test (#59; every scored year with its own factor; a tested cell has 5 or more seen or expected): years [2024] (record [2024]);
-      982 contests (record 982), seen 54 (54), expected 60.5 -> 54.7 (60.5 -> 54.7), deviance 17.55 -> 16.83 (17.55 -> 16.83); improves True (True); tested cells made worse ['local council, commission or board'] (['local council, commission or board']); passes False (False)
+      982 contests (record 982), seen 54 (54), expected 60.5 -> 54.7 (60.5 -> 54.7), deviance 17.58 -> 16.86 (17.58 -> 16.86); improves True (True); tested cells made worse ['local council, commission or board'] (['local council, commission or board']); passes False (False)
       without 2024: no scored year is left, so it fails (record: passes False; no scored year is left: this route's only scored year is 2024)
       adopted under the rule: mine False; the record: no factor of record for this route (each p the factor would move carries calibration_not_of_record)
     the fitting counts (expected, seen) by office type behind 2024's factor: 11 types, 0 differ from the record's fit_counts_expected_seen
@@ -2577,7 +2577,7 @@ c15: D3's forecasts refitted from the sources; repository HEAD 1310783
 
 ##### c16_notes
 C16. THE NEAR-EVEN NOTES' TWO TESTS: THE SHARE LINE AND THE VOTES LINE, OVER EACH NOTE'S OWN YEARS
-repository HEAD 1310783
+repository HEAD 58bc395
   a test counts with 5 or more seen or expected; a note stands where the two tests that count lean the same way; the chance is one-sided, at or beyond the count seen on the side it fell (exact: the sum of the contests' own chances; Poisson beside)
   A. the back-test's own rows (the record the notes cite):
   house, 2010-2024, the back-test's own rows, each year forecast from earlier years only (set A): 3,047 contests; tails {'normal': 3047}; 3,047 carry a near-tie factor (the recorded multiplier against F / (1 + (F - 1) q0) with my window mass: largest relative difference 0.0e+00)
@@ -2645,7 +2645,7 @@ repository HEAD 1310783
 
 ##### c18_louisiana
 C18. LOUISIANA'S OWN 2024 RESULTS: THE GATE, THE ROUNDS, THE FILES AND THE NINE p
-repository HEAD 1310783
+repository HEAD 58bc395
   parsed 887 contests from the four workbooks by my own reader: 2024-03-23 343; 2024-04-27 128; 2024-11-05 249; 2024-12-07 167; blocks I could not read: none
 18.1 The gate: the state's file on 2024-11-05 against D1's and D2's certified federal counts
   president D: the state's file 766,870 (1 contest, 64 parish lines, adds up True), D1 766,870: equal
@@ -2731,7 +2731,7 @@ repository HEAD 1310783
 
 ##### c19_deciding_rounds
 C19. #60: NORTH CAROLINA'S NOVEMBER DECIDING ROUNDS, BOTH ROUTES, THE MOVED p, THE POOL AND THE CALIBRATION TEST
-repository HEAD 1310783
+repository HEAD 58bc395
 19.1 The contests marked deciding rounds, by route, status and words
     MEDSL's route            even  not_computed  route boundary  11
     MEDSL's route            even  not_computed  route class     1
@@ -2786,7 +2786,7 @@ repository HEAD 1310783
 
 ##### c20_sizebins
 C20. #61: ROUTE (c)'S SIZE BINS UNDER THE ROBUSTNESS TEST, REPRODUCED ON MY OWN POOLS
-repository HEAD 1310783
+repository HEAD 58bc395
   the record: written 2026-11-07T10:13Z, commit 3544a68, bins ['0-3,000', '3,000-10,000', '10,000-30,000', '30,000 or more'], cell_min 5
   legislatures: 9,855 Klarner route-(c) rows 1968-2022 (my reading of the ballot), 191 MEDSL 2024 rows at the boundary
 
@@ -2821,7 +2821,7 @@ repository HEAD 1310783
     10,000-30,000   49_51 3.2/3.2 vs 4 (3.2/3.2 vs 4); within_10_votes 0.1/0.1 vs 2 (0.1/0.1 vs 2); margin_0_or_1 0.0/0.0 vs 0 (0.0/0.0 vs 0)
     30,000 or more  49_51 2.0/2.0 vs 1 (2.0/2.0 vs 1); within_10_votes 0.0/0.0 vs 0 (0.0/0.0 vs 0); margin_0_or_1 0.0/0.0 vs 0 (0.0/0.0 vs 0)
     leave one scored year out: fails without 11 of 11 years (11 of 11); adopted False (False); years where mine and the record differ: ['2016: mine 195.9/189.3 vs 207 passes False; record 196.2/187.8 vs 208 passes False', '2017: mine 166.8/160.8 vs 179 passes False; record 167.2/160.2 vs 180 passes False', '2018: mine 195.4/188.8 vs 207 passes False; record 195.6/187.3 vs 208 passes False', '2019: mine 164.1/158.5 vs 167 passes False; record 164.3/157.3 vs 168 passes False', '2020: mine 194.2/187.6 vs 205 passes False; record 194.4/186.1 vs 206 passes False', '2021: mine 155.9/151.1 vs 170 passes False; record 156.5/150.1 vs 173 passes False']
-  medsl local: 1,713 route-(c) rows; classes with 100 or more earlier rows for some year: 0
+  medsl local: 1,712 route-(c) rows; classes with 100 or more earlier rows for some year: 0
 
   medsl local:
     no contest has a forecast (no class with 100 or more earlier like races); the record: 0 contests, adopted False
@@ -2830,7 +2830,7 @@ repository HEAD 1310783
 
 ##### c21_new_jersey
 C21. #65 AND #66: NEW JERSEY 2024 BY COUNTY, FROM THE STATE'S LISTS, MEDSL'S ROWS AND THE CLERKS' FILES
-repository HEAD 1310783
+repository HEAD 58bc395
 21.1 The state's three Official Lists against D1 and D2
   president: 9 candidates read; county lines add up to the candidate's total in 9
   us-senate: 6 candidates read; county lines add up to the candidate's total in 6
@@ -2889,7 +2889,7 @@ repository HEAD 1310783
 
 ##### c22_louisiana_2023
 C22. #70: LOUISIANA'S OWN 2023 RESULTS: THE GATE WITHIN THE SOURCE, THE ROUNDS, THE FOUR FILES AND THE 29 p
-repository HEAD 1310783
+repository HEAD 58bc395
   parsed 1,024 contests from the seven workbooks by c18's reader; blocks I could not read: none
 22.1 The gate within the certifying source: official dates, lines that add up, the posted multi-parish results
   the site's list: 2023-01-14 official, 2023-02-18 official, 2023-03-25 official, 2023-04-29 official, 2023-10-14 official, 2023-11-18 official, 2023-12-16 official; the record's 'official': {'2023-01-14': True, '2023-02-18': True, '2023-03-25': True, '2023-04-29': True, '2023-10-14': True, '2023-11-18': True, '2023-12-16': True}; equal True
@@ -2966,7 +2966,7 @@ repository HEAD 1310783
 
 ##### c23_nc_rounds_by_place
 C23. #72: NORTH CAROLINA'S ROUNDS KEYED BY PLACE: EVERY MARK REGENERATED, THE MOVES FILE, THE MOVED AND NEW p
-repository HEAD 1310783
+repository HEAD 58bc395
   State Board contests in the files: local 17,216, primary 3,313, measure 884
 23.1 Every State Board contest's round words regenerated by the overlap rule from the files' own fields
   by level, my words equal to the file's: local 17,216 of 17,216; primary 3,313 of 3,313; measure 583 of 583; questions with no words in the file (local_medsl.py's November builds, not compared) 301; contests with no counties in the file (statewide: taken to overlap every contest of the name) 200
@@ -3018,7 +3018,7 @@ repository HEAD 1310783
 
 ##### c24_office_types
 C24. D3's #73: OFFICE TYPES READ BY THE OFFICE: THE MOVES FILE, THE 141 GONE, THE LARGEST MOVES RECOMPUTED, THE 115 LEGISLATIVE CONTESTS, THE TWENTY NAMES
-repository HEAD 1310783
+repository HEAD 58bc395
 
 24.1 The moves file against my own diff of every contest between main before #73 and #73
   the file: before ce8e7d5, after code ['857aa31', 'e46a094']; columns ['id', 'office', 'office_type_before', 'office_type_after', 'p_before', 'p_after', 'why']; counts {"local N: p now computed": 98, "local P: p moved, its class's like races changed": 5179, "local T: office type corrected, p unchanged": 6906, "local T+P: office type corrected and p moved": 449, "local X: p no longer computed (its class now has too few like races in earlier years)": 103, "local removed": 131, "measure added": 9, "primary N: p now computed": 38, "primary P: p moved, its class's like races changed": 346, "primary T: office type corrected, p unchanged": 129, "state-upper P: p moved, Rhode Island's 2022 legislature (filed as local offices) now read as the legislature": 2}
@@ -3029,7 +3029,7 @@ repository HEAD 1310783
   p moved (P and T+P): 5976; ratio after/before min 0.411, median 0.991, 90% within 1.192 and 1.377, max 2.463; by more than x2 or under x1/2: 8 (record: median 1.12, 90% within 1.26, largest 2.46, 8 over 2)
   p gone by id: 103 X (p no longer computed) + 38 removed records that had p = 141 (the orchestrator counted 141 against the file's 103); the removed with p: 2022 RI legislature 37, 2024 NJ question 1
   removed records 131: 2011 NC straight party 4, 2018 NJ question 1, 2018 VA legislature 1, 2018 WA question 2, 2022 AZ legislature 1, 2022 RI legislature 113, 2022 WA question 4, 2024 ND question 1, 2024 NJ question 1, 2024 SC straight party 2, 2024 UT question 1; added 9 ({'measure': 9})
-  the 103 no longer computed, by reason: {'fewer than 100 like races in earlier years in the sources ta': 103}; by year, state and type after: 2020 SC school board 24, 2020 KY school board 19, 2024 NE special district 17, 2020 NC school board 16, 2020 VA school board 4, 2020 NE special district 3, 2024 NC school board 3, 2020 MT clerk, treasurer or other county officer 3, 2026 NC school board 2; school boards among them 72, North Carolina's 2023 school boards 1 (D3's REPORT 15: '69 of these are North Carolina's 2023 school boards')
+  the 103 no longer computed, by reason: {'fewer than 100 like races in earlier years in the sources ta': 103}; by year, state and type after: 2020 SC school board 24, 2020 KY school board 19, 2024 NE special district 17, 2020 NC school board 16, 2020 VA school board 4, 2024 NC school board 3, 2020 MT clerk, treasurer or other county officer 3, 2020 NE special district 3, 2026 NC school board 2; school boards among them 72, North Carolina's 2023 school boards 1 (D3's REPORT 15: '69 of these are North Carolina's 2023 school boards')
   type changes, the eight largest: school board -> council, commission or board: 2,455; judge -> clerk, treasurer or other county officer: 1,493; other local office -> special district: 547; judge -> council, commission or board: 521; council, commission or board -> special district: 323; other local office -> council, commission or board: 303; sheriff or constable -> council, commission or board: 279; other local office -> school board: 266; records whose type changed 7,638 (record 7,638)
 
 24.2 The largest moves, the 136 newly computed and the 103 no longer computed, from my own pools (2023 left out, as the record stood at #73)
@@ -3059,7 +3059,7 @@ repository HEAD 1310783
   the two Rhode Island 2024 state senate p that moved
     2024-state-upper-RI-district-not-given-JESSICA_DE_LA_CRUZ: p 0.000100104 -> 8.58533e-05 (x0.858); inputs before {'class': 'C', 'incumbency': 0, 'lean': 0.0969, 'lean_year': 2022, 'swing': 0.0032} after {'class': 'C', 'incumbency': -1, 'lean': 0.0969, 'lean_year': 2022, 'swing': 0.0032}; mean 0.5415 -> 0.4239 (sd 0.1151); p from the recorded mean and sd 8.5852e-05 (density, rel 1.6e-05); the winner ['Jessica De La Cruz'] is a 2022 senate winner in MEDSL's file: [True], named so in Klarner's 2022 file: [False]
     2024-state-upper-RI-district-not-given-VIRGINIA_S_SOSNOWSKI: p 0.000126164 -> 5.1817e-05 (x0.411); inputs before {'class': 'C', 'incumbency': 0, 'lean': 0.0969, 'lean_year': 2022, 'swing': 0.0032} after {'class': 'C', 'incumbency': 1, 'lean': 0.0969, 'lean_year': 2022, 'swing': 0.0032}; mean 0.5415 -> 0.6591 (sd 0.1151); p from the recorded mean and sd 5.17915e-05 (density, rel 4.9e-04); the winner ['Virginia S Sosnowski'] is a 2022 senate winner in MEDSL's file: [True], named so in Klarner's 2022 file: [False]
-    contests whose p moved 2; the 2022 senate names in Klarner's file for these: SOSNOWSKI, V SUSAN, DELACRUZ, JESSICA
+    contests whose p moved 2; the 2022 senate names in Klarner's file for these: DELACRUZ, JESSICA, SOSNOWSKI, V SUSAN
 
 24.4 The twenty most common names of each type (office-types-top20.json), recounted and read for misfiled offices
   types 10; my recount over data/local and data/primary equal in contests, names and the twenty (name and count) for 10
@@ -3072,7 +3072,7 @@ repository HEAD 1310783
 
 ##### c25_odd_governors
 C25. D2's #74: THE ODD-YEAR GOVERNORS, 1977-2023 (KY, LA, MS, NJ, VA): SOURCES, THE FIT ON EVEN YEARS ONLY, EVERY p, THE ODD YEARS' BACK-TEST AND THE LEAN NOTE
-repository HEAD 1310783
+repository HEAD 58bc395
 
 25.1 The odd years' files and their sources
   25 files 1977-2025, 62 contests: AZ 1, KY 11, LA 12, MS 11, NJ 13, VA 13, WV 1; p computed 31 (KY 9, NJ 11, VA 11)
@@ -3118,7 +3118,7 @@ repository HEAD 1310783
 
 ##### c26_feed_2023
 C26. D3's #75: 2023 FEEDS THE LATER YEARS: THE MOVES, THE x1.42 CLASS AND ITS WINDOW, THE 62 NEW p, THE MEASURES AND THEIR NOTE, THE TWO TIES
-repository HEAD 1310783
+repository HEAD 58bc395
 
 26.1 The moves file against my own diff of every contest between main before #75 and #75
   the file: before bd3ae34, after code c1e0866; counts {'local N: p now computed, its class reaches 100 like races with 2023': 62, 'local P: p moved, its class now holds 2023 too': 141, 'local tie: result.tie and result.tie_settled added': 2, 'measure P: p moved, its class now holds 2023 too': 43}; columns ['id', 'office', 'p_before', 'p_after', 'why']
@@ -3200,7 +3200,7 @@ repository HEAD 1310783
     without 2024: years None, contests None, seen None, expected None -> None, worse None, passes False
 
 ##### c27_local_thresholds
-c27: #77 local thresholds; HEAD 1310783; before de31d9b, after e41dca5
+c27: #77 local thresholds; HEAD 58bc395; before de31d9b, after e41dca5
 ### 27.1 the rules file and the moves file
   55 rules: {'NC': 39, 'LA': 16}; t: {'0.5': 54, 'None': 1}; hold 17, advisory 1, compound 2; mark: {('NC', 'stated'): 22, ('NC', 'inferred'): 17, ('LA', 'stated'): 8, ('LA', 'inferred'): 8}
   scope: {'local': 55}; with dates 4, with match_also 5; every rule has match: True; every rule compiles: True
@@ -3341,7 +3341,7 @@ c27: #77 local thresholds; HEAD 1310783; before de31d9b, after e41dca5
     p blocks of this pool by note: {'note': 306, 'no note': 494}
 
 ##### c28_governor_codes
-c28: #78 (governor incumbency codes) and #76; HEAD 1310783; before a33c065, after b782117
+c28: #78 (governor incumbency codes) and #76; HEAD 58bc395; before a33c065, after b782117
 ### 28.1 the 37 disagreements re-derived from the files, and the 17 fixes' inputs
   table: 37 checks ({'fixed': 17, 'inferred': 6, 'kept': 14}; kinds {'B': 32, 'A': 4, 'C': 1}); contests read 613 (mine: 613 apart from Louisiana's 12)
   nominee, last race and kind re-derived: {'agree': 37} (the state's first contest in the files takes the table's Algara and Amlani last race: 4)
@@ -3417,7 +3417,7 @@ c28: #78 (governor incumbency codes) and #76; HEAD 1310783; before a33c065, afte
   NJ 2021: last race 2017 share_D 0.5721757764923363; incumbency 1; p 4.4977351245045103e-07
 
 ##### c29_fixes_c24
-c29: #80 (D3's fixes from c24); HEAD 1310783; before 1a6d752, after 2827d85
+c29: #80 (D3's fixes from c24); HEAD 58bc395; before 1a6d752, after 2827d85
 ### 29.1 the moves file against my diff of the contest files
   moves file: 2062 rows, columns ['id', 'office', 'office_type_before', 'office_type_after', 'p_before', 'p_after', 'why']; counts {"local P: p moved, the type unchanged, the like races of its class or of the fit's pool changed": 866, "local C: p unchanged, the type unchanged, only the p block's not-of-record factor moved (calibration_not_of_record, 0.7951 to 0.791)": 854, 'local R: p not computed before or after, the count of like races its reason gives changed': 165, 'local T+P: a superintendent typed as an officer, p moved': 1, 'local T: a superintendent typed as an officer, p unchanged': 175, "state-lower added: Virginia's 2018 House of Delegates district 8, a special, back in the record": 1}
   rows by why: {'T': 175, 'added': 1, 'R': 165, 'P': 866, 'C': 854, 'T+P': 1}
@@ -3451,7 +3451,7 @@ c29: #80 (D3's fixes from c24); HEAD 1310783; before 1a6d752, after 2827d85
   the 30 largest P moves: CITY_OF_HASKELL_RECORDER_TRE x0.9830; CITY_OF_FAYETTEVILLE_CLERK_T x0.9830; PIMA_COUNTY_TREASURER-county x0.9830; TOWN_TREASURER-county_06061 x0.9830; CITY_CLERK-county_06083 x0.9830; PIERCE_ASSESSOR___TREASURER- x0.9830; CITY_OF_TRUMANN_CITY_CLERK-c x0.9831; PIMA_COUNTY_RECORDER-county_ x0.9831 ...
 
 ##### c30_ballot_texts
-c30: #81 (step (a): each held statewide question's own ballot text); HEAD 1310783; before 2827d85, after 8b794e7
+c30: #81 (step (a): each held statewide question's own ballot text); HEAD 58bc395; before 2827d85, after 8b794e7
 ### 30.1 the moves file against my diff of the measure files
   moves file: 116 rows, columns ['id', 'title', 't_before', 't_after', 'p_before', 'p_after', 'citation', 'not_computed', 'code']; counts {"N: p now computed, its rule matched by its ballot text": 67, "T: its threshold now read, p not computed (too few like measures in earlier years: 2016 has none, 2018 has 83)": 45, "H: still held by its state's law, the reason now saying the ballot text does not show it either, or a compound rule": ; before 2827d85
   rows by code: {'T': 45, 'H': 4, 'N': 67}
@@ -3496,7 +3496,7 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
   at the threshold, all years (133 measures): mine own window 8.7/10, within 1% 4.7/5, within 2% 9.1/11, within 5% 23.4/38 | record own window 8.7/10, within within 1% 4.7/5, within within 2% 9.1/11, within within 5% 23.4/38 (133)
 
 ##### c31_statewide_filed_local
-##### c31 statewide questions filed local, citations by proposer, notes (#82): HEAD 1310783
+##### c31 statewide questions filed local, citations by proposer, notes (#82): HEAD 58bc395
 ### 31.1 the moves files against my own diff of the records, 8b794e7 to cbc4469
   files changed under data/measure: 73; record files 67; others: backtest-measures.json, ballot-texts.json, moves-citations-notes.json, moves-statewide-filed-local.json, statewide-filed-local.json, thresholds.json
   my diff: 35 new records, 1420 gone, 236 changed; the moves file: 35 joined (replacing 1420), 191 other changes; the citations file: 75 records (taken against 8b794e7; the joins against 6dd29ef)
@@ -3510,15 +3510,15 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
        7  threshold.also_governs, threshold.citation, threshold.matched
        4  ballot_text.proposer
        3  forecasts, p.event, p.f_t, p.no, p.note, p.value, p.yes, threshold.citation, threshold.matched, threshold.quote, threshold.rule, threshold.url
-       3  ballot_text.proposer, threshold.citation, threshold.matched, threshold.quote, threshold.rule
-       3  threshold.citation, threshold.matched, threshold.quote, threshold.read_utc, threshold.rule, threshold.url
        3  ballot_text.proposer, forecasts, p.event, p.f_t, p.no, p.note, p.value, p.yes
+       3  threshold.citation, threshold.matched, threshold.quote, threshold.read_utc, threshold.rule, threshold.url
+       3  ballot_text.proposer, threshold.citation, threshold.matched, threshold.quote, threshold.rule
        2  ballot_text.proposer, forecasts, p.event, p.f_t, p.no, p.note, p.value, p.yes, threshold.citation, threshold.matched, threshold.quote, threshold.rule
+       1  forecasts, p.event, p.f_t, p.no, p.note, p.value, p.yes, threshold.matched
+       1  ballot_text.proposer, p.not_computed, threshold.citation, threshold.matched, threshold.quote, threshold.rule, threshold.url
        1  threshold.citation, threshold.matched, threshold.quote, threshold.rule, threshold.url
        1  ballot_text.proposer, forecasts, p.event, p.f_t, p.no, p.note, p.value, p.yes, threshold.citation, threshold.matched, threshold.quote, threshold.rule, threshold.url
-       1  ballot_text.proposer, p.not_computed, threshold.citation, threshold.matched, threshold.quote, threshold.rule, threshold.url
        1  p.not_computed, threshold.citation, threshold.matched, threshold.quote, threshold.read_utc, threshold.rule, threshold.url
-       1  forecasts, p.event, p.f_t, p.no, p.note, p.value, p.yes, threshold.matched
   records whose p block changed: 218; in other_changes 191, in the citations file 57, in both 56, in neither 26
   other_changes: p [before, after] equals the records' on the keys it gives in 191 of 191; ids not in my diff: 0
   the citations file's 75 against the records: {'equal to the records': 75}
@@ -3596,7 +3596,7 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
   LR-130: p 1.24252e-06 at t 0.5, N 189, in window 11, window [0.48, 0.52], n 585516; yes share 0.509615
 
 ##### c32_certified_count
-##### c32 the certified count wins (#84): HEAD 1310783
+##### c32 the certified count wins (#84): HEAD 58bc395
 ### 32.1 the moves file against my own diff of the records, cbc4469 to f5a4ac4
   files changed: 13; record files 6 (2016/AR.json, 2018/AZ.json, 2018/WA.json, 2020/AL.json, 2020/MT.json, 2024/WA.json); others: STATE.md, briefs/M2-check-computed-p.md, data/README.md, data/local/REPORT.md, data/measure/moves-certified-count.json, data/measure/statewide-filed-local.json, pipeline/local_medsl.py
   records new 0, gone 0, changed 17
@@ -3633,7 +3633,7 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
   the moved shares are of [2024]; measure files of later years: [2025, 2026], holding 12 p (every one among the equal blocks above): no p reads the moved shares
 
 ##### c33_one_county
-##### c33 one-county titles counted whole (#85): HEAD 1310783
+##### c33 one-county titles counted whole (#85): HEAD 58bc395
 ### 33.1 the moves file against my own diff of the records, f5a4ac4 to a7eb84b
   files changed: 53; record files 46; others: data/README.md, data/local/REPORT.md, data/measure/backtest-measures.json, data/measure/moves-one-county.json, pipeline/local_medsl.py, pipeline/measures.py, pipeline/places.py
   records new 0, gone 0, changed 1313 (p.commit stamp alone 0)
@@ -4037,7 +4037,7 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
   the back-test at the questions' own thresholds, all years with p (304 measures): own window 14.9/14 (record {'expected': 14.9, 'seen': 14}); within 1% 7.9/8; within 2% 14.9/14; within 5% 39.6/41 (record {'within 1%': {'expected': 7.9, 'seen': 8}, 'within 2%': {'expected': 14.9, 'seen': 14}, 'within 5%': {'expected': 39.6, 'seen': 41}})
 
 ##### c34_towns_counties
-##### c34 towns, townships and counties' own questions (#86): HEAD 1310783
+##### c34 towns, townships and counties' own questions (#86): HEAD 58bc395
 ### 34.1 the moves file against my own diff of the records, bdac161 to e524840
   files changed: 98; record files 86 ({'local': 18, 'measure': 64, 'primary': 4}); others: data/README.md, data/local/REPORT.md, data/local/backtest-local-partisan.json, data/local/backtest-ncsbe.json, data/local/calibration-local.json, data/local/moves-fixes-c24.json, data/measure/moves-towns-counties.json, pipeline/intake/medsl_county_precincts.py, pipeline/local_medsl.py, pipeline/local_ncsbe.py, pipeline/measures.py, pipeline/places.py
   records new 0, gone 0, changed 1492 (p.commit stamp alone 133)
@@ -4134,7 +4134,7 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
         2 |     2  held: a part of the county
         4 |     4  held: a hyphen join, a name that goes on, or another county
     other labels of mine: none; my total over D3's rows 3972 (D3: 3,972)
-  newly whole (no place_whole at bdac161): 299 (D3: 299); by unit and mark {('county subdivision', 'stated'): 136, ('county', 'inferred'): 126, ('county subdivision', 'inferred'): 29, ('county', 'stated'): 8}
+  newly whole (no place_whole at bdac161): 299 (D3: 299); by unit and mark {('county subdivision', 'inferred'): 29, ('county', 'inferred'): 126, ('county subdivision', 'stated'): 136, ('county', 'stated'): 8}
   by year, all whole: {2016: 303, 2018: 123, 2020: 70, 2022: 6, 2024: 519} (D3: 303, 123, 70, 6, 519)
   the counties' own questions, my precinct counts (from MEDSL's own files) against the records':
     {"precincts and county_precincts equal to the record's, and equal to each other": 134}
@@ -4173,7 +4173,7 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
     the 25 by year: {2012: 4, 2014: 2, 2015: 6, 2016: 3, 2017: 3, 2019: 3, 2021: 3, 2025: 1} (D3: 2016 2 to 3, 2021 2 to 3)
 
 ##### c35_statewide_officers
-##### c35 single-seat statewide executive offices typed statewide officer (#87): HEAD 1310783
+##### c35 single-seat statewide executive offices typed statewide officer (#87): HEAD 58bc395
 ### 35.1 the moves file against my own diff of the records, e524840 to afbb7bd
   files changed: 99; record files 93 ({'local': 86, 'primary': 7}); others: data/README.md, data/local/REPORT.md, data/local/backtest-local-partisan.json, data/local/calibration-local.json, data/local/moves-statewide-officers.json, pipeline/local_medsl.py
   records new 0, gone 0, changed 513 (p.commit stamp alone 104)
@@ -4229,7 +4229,7 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
   data/local/calibration-local.json: changed True; top-level keys that differ: ['routes'] (no verdict read)
 
 ##### c36_courts_commissions
-##### c36 statewide judges, commission seats, the lost p and New Mexico's PEC (#88): HEAD 1310783
+##### c36 statewide judges, commission seats, the lost p and New Mexico's PEC (#88): HEAD 58bc395
 ### 36.1 the moves file against my own diff of the records, afbb7bd to 8406745
   files changed: 62; record files 53 ({'local': 50, 'primary': 3}); others: data/README.md, data/local/REPORT.md, data/local/backtest-local-classes.json, data/local/backtest-local-partisan.json, data/local/calibration-local.json, data/local/moves-courts-commissions.json, pipeline/intake/nm_sos.py, pipeline/local_medsl.py, pipeline/local_ncsbe.py
   records new 5, gone 5, changed 641 (p.commit stamp alone 402)
@@ -4334,4 +4334,403 @@ c30: #81 (step (a): each held statewide question's own ballot text); HEAD 131078
     district 6: page [('STEWART ALAN INGHAM', 'Republican', 50990)], total 50990 (adds up True), precincts [236, 236] (all reported True); record names equal True, votes equal True, votes_source nm_sos, medsl_votes {'STEWART ALAN INGHAM': 50990} == MEDSL's own count True; counties 11; p 0.0
     district 7: page [('PATRICIA E GIPSON', 'Democrat', 35567)], total 35567 (adds up True), precincts [178, 178] (all reported True); record names equal True, votes equal True, votes_source nm_sos, medsl_votes {'PATRICIA E GIPSON': 35565} == MEDSL's own count True; counties 2; p 0.0
   {'page and record agree': 5}
+
+##### c37_statewide_pieces
+### c37: D3's #90 (6119f98) against a2a4b0a: statewide pieces, holds, North Dakota's judgeships, over-ballot holds, one-seat boards, quote URLs; HEAD 58bc395
+### 37.1 the moves file against my own diff of the record files
+  data/local/moves-pieces.json at 6119f98: 123 records, against 679f0d5; codes ['A', 'B', 'G', 'I', 'L', 'N', 'O', 'P', 'Q', 'R', 'T']; summary {"local A: new record": 22, "local G: record gone": 14, "local L: p no longer computed": 2, "local N: new p": 3, "local Q: a note's words changed": 7, "local R: not computed before or after, the reason changed": 49, "local T: typed statewide judge": 3, "local T: typed statewide officer": 17, "measure G: record gone": 2, "measure O: other fields: listed_statewide": 17, "measure Q: a note's words changed": 2}
+  record files changed between a2a4b0a and 6119f98 (local, primary, measure): 36: local/2018/CO.json, local/2018/HI.json, local/2018/MI.json, local/2018/NY.json, local/2018/OH.json, local/2022/AZ.json, local/2022/CO.json, local/2022/GA.json, local/2022/HI.json, local/2022/ID.json, local/2022/IL.json, local/2022/MI.json, local/2022/ND.json, local/2022/NY.json, local/2022/OR.json, local/2022/VT.json, local/2022/WA.json, local/2024/AR.json, local/2024/AZ.json, local/2024/CO.json, local/2024/FL.json, local/2024/HI.json, local/2024/IN.json, local/2024/MI.json, local/2024/MS.json, local/2024/ND.json, local/2024/OR.json, local/2024/VT.json, local/2024/WA.json, measure/2016/AR.json, measure/2018/AZ.json, measure/2018/WA.json, measure/2020/AL.json, measure/2020/MT.json, measure/2022/WA.json, measure/2024/WA.json
+  records in them: before 5503, after 5509
+  new ids 22, gone ids 16, changed records 85
+  my codes equal D3's: 123 of 123 records of mine; D3's rows without a record of mine: 0; mine not in D3's: 0
+  my code sets with the top-level keys that differ (count):
+      24  R      p
+      17  O      listed_statewide
+      10  R      p, result
+      10  T      office_type
+       6  RT     office_type, p
+       3  NQT    notes, office_type, p, pieces_joined, place, result, seats, seats_note
+       3  R      p, result, seats_note, two_party
+       2  Q      notes, pieces_joined, result
+       2  R      p, result, seats_note
+       2  R      p, result, two_party
+       1  L      p, result
+       1  LQ     notes, p, pieces_joined, place, result
+       1  Q      notes, pieces_joined, place, result
+       1  Q      notes, place, result
+       1  QR     boundary, notes, p, pieces_joined, result, seats
+       1  RT     office_type, p, result, seats_note, two_party
+  my counts by level and code: {'local A': 22, 'local G': 14, 'local L': 2, 'local N': 3, 'local Q': 7, 'local R': 49, 'local T': 20, 'measure G': 2, 'measure O': 17, 'measure Q': 2}
+  D3's: {"local A: new record": 22, "local G: record gone": 14, "local L: p no longer computed": 2, "local N: new p": 3, "local Q: a note's words changed": 7, "local R: not computed before or after, the reason changed": 49, "local T: typed statewide judge": 3, "local T: typed statewide officer": 17, "measure G: record gone": 2, "measure O: other fields: listed_statewide": 17, "measure Q: a note's words changed": 2}
+  N (new p): 3
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__01: one name on the ballot for each seat, but write-ins received votes (co -> 0.0
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__05: one name on the ballot for each seat, but write-ins received votes (co -> 0.0
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__06: one name on the ballot for each seat, but write-ins received votes (co -> 0.0
+  L (p no longer computed): 2
+    2024-local-OR-JUDGE_OF_THE_SUPREME_COURT-POSITION_1: 0.0 -> incomplete: MEDSL's lines for this contest miss 8 of the 36 counties t
+    2024-local-OR-JUDGE_OF_THE_SUPREME_COURT-POSITION_7: 0.0 -> incomplete: MEDSL's lines for this contest miss 9 of the 36 counties t
+  P (p moved): 0
+  B (p unchanged, its block changed): 0
+### 37.2 the 8 joins: the pieces from MEDSL's raw rows, apart and together
+  records at 6119f98 with pieces_joined: 8 (D3: 8 = 6 local + 2 measure)
+    piece 'SUPREME COURT - JUSTICE POSITION #01': 38 counties, precincts 4984 (mine 4984), seats 3 (my magnitude ['3']), votes 1,405,332 (mine 1,405,332): equal
+    piece 'STATE SUPREME COURT JUSTICE POSITION NO. 1': 1 counties, precincts 2738 (mine 2738), seats 3 (my magnitude ['3']), votes 608,267 (mine 608,267): equal
+    together: every county; the record's counts == the pieces' sums: True; total_votes 2,013,599 == 2,013,599: True
+    piece 'SUPREME COURT - JUSTICE POSITION #05': 38 counties, precincts 4984 (mine 4984), seats 3 (my magnitude ['3']), votes 1,399,492 (mine 1,399,492): equal
+    piece 'STATE SUPREME COURT JUSTICE POSITION NO. 5': 1 counties, precincts 2738 (mine 2738), seats 3 (my magnitude ['3']), votes 581,595 (mine 581,595): equal
+    together: every county; the record's counts == the pieces' sums: True; total_votes 1,981,087 == 1,981,087: True
+    piece 'SUPREME COURT - JUSTICE POSITION #06': 38 counties, precincts 4983 (mine 4983), seats 3 (my magnitude ['3']), votes 1,393,442 (mine 1,393,442): equal
+    piece 'STATE SUPREME COURT JUSTICE POSITION NO. 6': 1 counties, precincts 2738 (mine 2738), seats 3 (my magnitude ['3']), votes 567,378 (mine 567,378): equal
+    together: every county; the record's counts == the pieces' sums: True; total_votes 1,960,820 == 1,960,820: True
+    piece 'WASHINGTON STATE - SECRETARY OF STATE': 38 counties, precincts 4898 (mine 4898), seats 1 (my magnitude ['1']), votes 2,080,979 (mine 2,080,979): equal
+    piece 'STATE OF WASHINGTON SECRETARY OF STATE': 1 counties, precincts 2738 (mine 2738), seats 1 (my magnitude ['1']), votes 864,590 (mine 864,590): equal
+    together: every county; the record's counts == the pieces' sums: True; total_votes 2,945,569 == 2,945,569: True
+    piece 'WASHINGTON STATE - ADVISORY VOTE NO. 39': 38 counties, precincts 4995 (mine 4995), seats 1 (my magnitude ['1']), votes 2,049,584 (mine 2,049,584): equal
+    piece 'STATE OF WASHINGTON ADVISORY VOTE NO. 39': 1 counties, precincts 2738 (mine 2738), seats 1 (my magnitude ['1']), votes 844,755 (mine 844,755): equal
+    together: every county; the record's counts == the pieces' sums: True; total_votes 2,894,339 == 2,894,339: True
+    piece 'WASHINGTON STATE - ADVISORY VOTE NO. 40': 38 counties, precincts 4995 (mine 4995), seats 1 (my magnitude ['1']), votes 2,034,212 (mine 2,034,212): equal
+    piece 'STATE OF WASHINGTON ADVISORY VOTE NO. 40': 1 counties, precincts 2738 (mine 2738), seats 1 (my magnitude ['1']), votes 838,730 (mine 838,730): equal
+    together: every county; the record's counts == the pieces' sums: True; total_votes 2,872,942 == 2,872,942: True
+  2024-local-AZ-CORPORATION_COMMISSIONER: the office's rows under other district codes: district '003': counties ['04023'], magnitude ['3.0'], votes 21,077; district '002': counties ['04023'], magnitude ['3.0'], votes 12,256; district '001': counties ['04023'], magnitude ['3.0'], votes 10,727
+  2024-local-AZ-CORPORATION_COMMISSIONER: one office name ['CORPORATION COMMISSIONER'] district '': 14 counties in the raw rows; groups by (magnitude, names with votes):
+      magnitude ['3.0'], 9 counties : 9 names, votes 1,445,930: {'RACHEL WALDEN': 302166, 'RENE LOPEZ': 288722, 'LEA MARQUEZ PETERSON': 278492, 'JONATHON HILL': 186477}
+      magnitude ['3.0'], 3 counties ['04011', '04025', '04027']: 8 names, votes 558,975: {'RACHEL WALDEN': 123034, 'RENE LOPEZ': 119731, 'LEA MARQUEZ PETERSON': 116322, 'YLENIA AGUILAR': 65413}
+      magnitude ['1.0'], 1 counties ['04019']: 9 names, votes 1,291,730: {'YLENIA AGUILAR': 251810, 'JONATHON HILL': 239166, 'JOSHUA POLACHECK': 229070, 'RACHEL WALDEN': 182483}
+      magnitude ['1.0'], 1 counties ['04013']: 13 names, votes 5,193,513: {'RACHEL WALDEN': 911918, 'RENE LOPEZ': 888869, 'LEA MARQUEZ PETERSON': 865101, 'YLENIA AGUILAR': 824856}
+    the record's counts == my sums over the office's rows in every county (15 counties, the other district codes above counted in): True
+    piece 'CORPORATION COMMISSIONER': 12 counties, precincts 499 (mine 499), seats 3 (my magnitude ['3.0']), votes 2,004,905 (mine 2,004,905): equal
+    piece 'CORPORATION COMMISSIONER': 3 counties, precincts 1201 (mine 1171), seats 1 (my magnitude ['1.0']), votes 6,529,303 (mine 6,485,243): equal once the office's rows under the other district codes are counted in (magnitude then ['1.0', '3.0'], precincts 1201)
+    together: every county; the record's counts == the pieces' sums: True; total_votes 8,534,208 == 8,534,208: True
+  2024-local-OR-JUDGE_OF_THE_SUPREME_COURT-POSITION_7: one office name ['JUDGE OF THE SUPREME COURT'] district 'POSITION 7': 27 counties in the raw rows; groups by (magnitude, names with votes):
+      magnitude ['1'], 24 counties : 2 names, votes 995,740: {'BRONSON D JAMES': 976195, 'WRITE-IN': 19545}
+      magnitude ['1'], 2 counties ['41021', '41047']: 1 names, votes 84,486: {'BRONSON D JAMES': 84486, 'WRITE-IN': 0}
+      magnitude ['1'], 1 counties ['41015']: 2 names, votes 6,701: {'BRONSON JAMES': 6547, 'WRITE-IN': 154}
+    the record's counts == my sums over the office's rows in every county (27 counties, the other district codes above counted in): equal, a middle initial aside
+    piece 'JUDGE OF THE SUPREME COURT': 26 counties, precincts 1079 (mine 1079), seats 1 (my magnitude ['1']), votes 1,080,226 (mine 1,080,226): equal
+    piece 'JUDGE OF THE SUPREME COURT': 1 counties, precincts 27 (mine 27), seats 1 (my magnitude ['1']), votes 6,701 (mine 6,701): equal
+    together: 27 of 36 counties (missing ['41017', '41031', '41045', '41053', '41055', '41059', '41061', '41063', '41069']); the record's counts == the pieces' sums: equal once a middle initial is set aside (the pipeline's name key joins the two spellings); total_votes 1,086,927 == 1,086,927: True; the record's votes_incomplete: 9 of 36 missing
+  the joins: {"pieces' votes equal: True; record == sums: True; every county": 7, "pieces' votes equal: True; record == sums: True (a middle initial aside); not every county": 1}
+  files read: 2022-wa-local-precinct-general.csv (439,224 rows, sha256 27195c46a690); 2024-az-precinct-general.csv (1,171,069 rows, sha256 9edb9c9a63d8); 2024-or-precinct-general.csv (116,411 rows, sha256 39bab52063a0)
+### 37.3 Washington's 2022 export against the records' state_total and MEDSL counts
+  export files: Judicial (wa_20221108_Judicial.csv, sha256 159ee7faa79b); Measures (wa_20221108_Measures.csv, sha256 1cb45ac76693); StateExecutive (wa_20221108_StateExecutive.csv, sha256 851258099c0e); races 18
+    the results page: says 'certified by each county': '...county reports new tabulation results. Election results are certified by each county on November 29, 2022. The Secretary of ...'
+    the results page: says 'certifies final results': '...by each county on November 29, 2022. The Secretary of State certifies final results by December 8, 2022. The results posted...'
+    the results page: says 'before certification are unofficial': '...ifies final results by December 8, 2022. The results posted before certification are unofficial. Using a phone or tablet? Use the elect...'
+    the results page: says 'except for King County': '... precinct results from our results exports for every county except for King County. Visit King County's results page for m...'
+    the Export page links the three files: True
+    SignedCertification.pdf: HTTP 404 (D3: 404 at 16:51 UTC)
+  records at 6119f98 with result.state_total: 6 (D3: 6: the Secretary of State, positions 1, 5 and 6, advisory votes 39 and 40)
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__01: export {'Mary I. Yu': 1961152, 'WRITE-IN': 52447}; state_total.votes == export: True; medsl_less_state {'MARY I YU': 0, 'WRITE IN': 0} == record - export: True; counts_used medsl; certified.marked False; export names 2 (one name + WRITE-IN: True)
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__05: export {'Barbara Madsen': 1937634, 'WRITE-IN': 43453}; state_total.votes == export: True; medsl_less_state {'BARBARA MADSEN': 0, 'WRITE IN': 0} == record - export: True; counts_used medsl; certified.marked False; export names 2 (one name + WRITE-IN: True)
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__06: export {'G. Helen Whitener': 1918080, 'WRITE-IN': 42740}; state_total.votes == export: True; medsl_less_state {'G HELEN WHITENER': 0, 'WRITE IN': 0} == record - export: True; counts_used medsl; certified.marked False; export names 2 (one name + WRITE-IN: True)
+    2022-local-WA-WASHINGTON_STATE___SECRETARY_OF_STATE: export {'Steve Hobbs': 1468521, 'Julie Anderson': 1351926, 'WRITE-IN': 129933}; state_total.votes == export: True; medsl_less_state {'STEVE HOBBS': -1659, 'JULIE ANDERSON': -2801, 'WRITE IN': -351} == record - export: True; counts_used medsl; certified.marked False; export names 3 (one name + WRITE-IN: False)
+    2022-measure-WA-WASHINGTON_STATE___ADVISORY_VOTE_NO__39: export {'Repealed': 1704666, 'Maintained': 1189673}; state_total.votes == export: True; medsl_less_state {'REPEALED': 0, 'MAINTAINED': 0} == record - export: True; counts_used medsl; certified.marked False; export names 2 (one name + WRITE-IN: False)
+    2022-measure-WA-WASHINGTON_STATE___ADVISORY_VOTE_NO__40: export {'Repealed': 1494471, 'Maintained': 1378471}; state_total.votes == export: True; medsl_less_state {'REPEALED': 0, 'MAINTAINED': 0} == record - export: True; counts_used medsl; certified.marked False; export names 2 (one name + WRITE-IN: False)
+  {'state_total == export True, medsl_less_state right True': 6}
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__01: type statewide judge, p 0.0, seats_note "one seat, from the state's results: its export lists 'SUPREME COURT - Justice Position #01' as a race of its own, with o"
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__05: type statewide judge, p 0.0, seats_note "one seat, from the state's results: its export lists 'SUPREME COURT - Justice Position #05' as a race of its own, with o"
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__06: type statewide judge, p 0.0, seats_note "one seat, from the state's results: its export lists 'SUPREME COURT - Justice Position #06' as a race of its own, with o"
+### 37.4 the 15 held contests, by my own county coverage
+  records at 6119f98 with result.votes_incomplete: 14 (D3: 14 held 'incomplete'; the 15th is Arizona's 2024 Corporation Commission, 'seats differ')
+    2018-local-NY-ATTORNEY_GENERAL: mine 61 of 62 counties, missing ['36021']; the record's 1 of 62: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 1 of the 62 "; winner marked: False
+    2018-local-NY-COMPTROLLER: mine 59 of 62 counties, missing ['36021', '36081', '36113']; the record's 3 of 62: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 3 of the 62 "; winner marked: False
+    2022-local-AZ-STATE_MINE_INSPECTOR: mine 13 of 15 counties, missing ['04003', '04025']; the record's 2 of 15: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 2 of the 15 "; winner marked: False
+    2022-local-AZ-STATE_TREASURER: mine 13 of 15 counties, missing ['04003', '04025']; the record's 2 of 15: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 2 of the 15 "; winner marked: False
+    2022-local-ID-LIEUTENANT_GOVERNOR: mine 43 of 44 counties, missing ['16077']; the record's 1 of 44: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 1 of the 44 "; winner marked: False
+    2022-local-ID-SECRETARY_OF_STATE: mine 43 of 44 counties, missing ['16077']; the record's 1 of 44: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 1 of the 44 "; winner marked: False
+    2022-local-ID-STATE_CONTROLLER: mine 43 of 44 counties, missing ['16077']; the record's 1 of 44: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 1 of the 44 "; winner marked: False
+    2022-local-ID-STATE_TREASURER: mine 43 of 44 counties, missing ['16077']; the record's 1 of 44: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 1 of the 44 "; winner marked: False
+    2022-local-ID-SUPERINTENDENT_OF_PUBLIC_INSTRUCTION: mine 41 of 44 counties, missing ['16071', '16077', '16079']; the record's 3 of 44: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 3 of the 44 "; winner marked: False
+    2022-local-MI-SECRETARY_OF_STATE: mine 82 of 83 counties, missing ['26097']; the record's 1 of 83: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 1 of the 83 "; winner marked: False
+    2022-local-NY-COMPTROLLER: mine 61 of 62 counties, missing ['36111']; the record's 1 of 62: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 1 of the 62 "; winner marked: False
+    2022-local-OR-COMMISSIONER_OF_THE_BUREAU_OF_LABOR_AND_INDUSTRIES: mine 34 of 36 counties, missing ['41009', '41045']; the record's 2 of 36: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 2 of the 36 "; winner marked: False
+    2024-local-OR-JUDGE_OF_THE_SUPREME_COURT-POSITION_1: mine 28 of 36 counties, missing ['41017', '41031', '41053', '41055', '41059', '41061', '41063', '41069']; the record's 8 of 36: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 8 of the 36 "; winner marked: False
+    2024-local-OR-JUDGE_OF_THE_SUPREME_COURT-POSITION_7: mine 27 of 36 counties, missing ['41017', '41031', '41045', '41053', '41055', '41059', '41061', '41063', '41069']; the record's 9 of 36: equal; contests matched 1 (office and district); p: "incomplete: MEDSL's lines for this contest miss 9 of the 36 "; winner marked: False
+  the 14: {'equal True': 14}
+  Arizona 2024 Corporation Commissioner: magnitudes by county in the raw rows {('3.0',): 12, ('1.0',): 2}; the record: type council, commission or board, p seat count unread: the contest's pieces in MEDSL's file give it different numbers of seats (1 and 3), and the state's ow; winner marked: False
+  Georgia 2022 Secretary of State (ga22_cleaned.csv): counties with a code 159 of the state's 159; rows with no county code: 1 name(s), votes {'BRENDA LYNN NELSON-PORTER': 154}
+    2022-local-GA-SECRETARY_OF_STATE: type statewide officer, candidates [('Brad Raffensperger', 2081241), ('Bee Nguyen', 1719922), ('Ted Metz', 108884)], p a race between a Democrat and a Republican: the model's forecast for these reads the place's lean fr; winner marked: True
+    2022-local-GA-SECRETARY_OF_STATE~2: type other local office, candidates [('Brenda Lynn Nelson-Porter', 154)], p a line with no county: MEDSL's file holds this contest whole and, apart from it, 1 name with 154 vot; winner marked: False
+  North Dakota 2024 State Auditor: MEDSL's lines in 52 of 53 counties, missing ['38027']; MEDSL's votes {'JOSHUA C GALLION': 240424, 'TIMOTHY C LAMB': 108635, 'WRITE-IN': 761} == result.medsl_votes: True; the record's votes [('Joshua C Gallion', 241270), ('Timothy C Lamb', 108962), ('WRITE-IN', 761)] (votes_source nd_sos), p a race between a Democrat and a Republican, whose forecast reads the place's lea
+### 37.5 North Dakota's pages: the 22 judgeships, MEDSL's 8 district contests, the 2024 State Auditor
+  the archive links 'General Election - November 8, 2022' to https://results.sos.nd.gov/Default.aspx?map=Cty&eid=vxUYQ0lrpP4.: True
+  the archive links 'General Election - November 5, 2024' to https://results.sos.nd.gov/Default.aspx?map=Cty: True
+  the 2022 front page carries '<h1><span>Official</span> 2022 General Election Results</h1>': True; links the statewide page: True; the judicial page: True
+    the 2022 statewide page carries the heading: True (sha256 1270329c26ff)
+    the 2022 judicial page carries the heading: True (sha256 412d70b9cd22)
+  the 2024 front page carries '<h1><span>Official</span> 2024 General Election Results</h1>': True; links the statewide page: True; the judicial page: True
+    the 2024 statewide page carries the heading: True (sha256 89ac045a22db)
+  records at 6119f98 'Judge Of The District Court' 2022: 22 (D3: 22)
+  the judicial page: 22 contests, 22 'Judge of the District Court ...'; Vote For {1: 22}; every precinct reported 22 of 22; candidates add to the total 22 of 22
+  the 22 against the page: {'names, votes, winners and total equal: True; Vote For 1': 22}; the page's judgeships not in the records: []
+  MEDSL's 2022 file (2022-nd-local-precinct-general.csv, sha256 95b98ce89004): 'JUSTICE OF THE SUPREME COURT' contests 9 (one statewide, 8 by district)
+    EAST CENTRAL JUDICIAL DISTRICT: 3 judgeships; MEDSL 4 names, magnitude ['1'], 3 counties; the page's 4 names: MEDSL's votes equal the page's for the names it holds: True; names on the page not in MEDSL: []; write-ins: page 1,211, MEDSL 1,211
+    NORTH CENTRAL JUDICIAL DISTRICT: 2 judgeships; MEDSL 2 names, magnitude ['1'], 3 counties; the page's 2 names: MEDSL's votes equal the page's for the names it holds: True; names on the page not in MEDSL: []; write-ins: page 505, MEDSL 505
+    NORTHEAST CENTRAL JUDICIAL DISTRICT: 2 judgeships; MEDSL 2 names, magnitude ['1'], 2 counties; the page's 2 names: MEDSL's votes equal the page's for the names it holds: True; names on the page not in MEDSL: []; write-ins: page 245, MEDSL 245
+    NORTHEAST JUDICIAL DISTRICT: 1 judgeships; MEDSL 1 names, magnitude ['1'], 11 counties; the page's 1 names: MEDSL's votes equal the page's for the names it holds: True; names on the page not in MEDSL: []; write-ins: page 147, MEDSL 147
+    NORTHWEST JUDICIAL DISTRICT: 3 judgeships; MEDSL 3 names, magnitude ['1'], 3 counties; the page's 3 names: MEDSL's votes equal the page's for the names it holds: True; names on the page not in MEDSL: []; write-ins: page 247, MEDSL 247
+    SOUTH CENTRAL JUDICIAL DISTRICT: 4 judgeships; MEDSL 4 names, magnitude ['1'], 9 counties; the page's 4 names: MEDSL's votes equal the page's for the names it holds: True; names on the page not in MEDSL: []; write-ins: page 1,649, MEDSL 1,649
+    SOUTHEAST JUDICIAL DISTRICT: 5 judgeships; MEDSL 6 names, magnitude ['1'], 14 counties; the page's 6 names: MEDSL's votes equal the page's for the names it holds: True; names on the page not in MEDSL: []; write-ins: page 611, MEDSL 611
+    SOUTHWEST JUDICIAL DISTRICT: 2 judgeships; MEDSL 2 names, magnitude ['1'], 8 counties; the page's 2 names: MEDSL's votes equal the page's for the names it holds: True; names on the page not in MEDSL: []; write-ins: page 176, MEDSL 176
+  2022 statewide page 'Justice of the Supreme Court': Vote For 1, precincts [398, 398], {'DANIEL J CROTHERS': 187946, 'WRITE IN': 1843}, total 189,789; the record's {'DANIEL J CROTHERS': 187946, 'WRITE IN': 1843} (votes_source medsl): equal; winners on the page ['Daniel J Crothers'], in the record ['Daniel J Crothers']
+  2024 statewide page 'State Auditor': Vote For 1, precincts [385, 385], {'JOSHUA C GALLION': 241270, 'TIMOTHY C LAMB': 108962, 'WRITE IN': 761}, total 350,993; the record's {'JOSHUA C GALLION': 241270, 'TIMOTHY C LAMB': 108962, 'WRITE IN': 761} (votes_source nd_sos): equal; winners on the page ['Joshua C Gallion'], in the record ['Joshua C Gallion']
+### 37.6 the over-ballot rule re-applied from my summaries: every whole one-seat state contest against the Governor's votes
+    over: 2018 MI 'JUSTICE OF THE SUPREME COURT' district 'STATEWIDE': 6,262,391 votes, 1.47 times the Governor's 4,250,585
+    over: 2018 OH 'JUSTICE OF THE SUPREME COURT' district 'STATEWIDE': 7,086,019 votes, 1.60 times the Governor's 4,435,462
+    over: 2022 MI 'ATTORNEY GENERAL' district '': 6,153,106 votes, 1.39 times the Governor's 4,432,378
+    over: 2022 HI 'AT-LARGE TRUSTEE' district '': 747,716 votes, 1.81 times the Governor's 413,262
+  files read 67; states and dates with a whole Governor contest 35; whole one-seat state contests (not the Governor, the legislature or a question) under them 215
+  2018: over 1.05 by my ratios [('MI', 'JUSTICE OF THE SUPREME COURT'), ('OH', 'JUSTICE OF THE SUPREME COURT')]; D3's OVER_EXPECTED [('MI', 'JUSTICE OF THE SUPREME COURT'), ('OH', 'JUSTICE OF THE SUPREME COURT')]: equal
+  2022: over 1.05 by my ratios [('HI', 'AT-LARGE TRUSTEE'), ('MI', 'ATTORNEY GENERAL')]; D3's OVER_EXPECTED [('HI', 'AT-LARGE TRUSTEE'), ('MI', 'ATTORNEY GENERAL')]: equal
+  within 5% below the Governor's votes but not over (not held): 150
+    2018 AL 'ATTORNEY GENERAL': 1,706,740 = 0.994 x 1,717,817
+    2018 AL 'CHIEF JUSTICE OF THE SUPREME COURT': 1,698,111 = 0.989 x 1,717,817
+    2018 AL 'LIEUTENANT GOVERNOR': 1,704,291 = 0.992 x 1,717,817
+    2018 AL 'PUBLIC SERVICE COMMISSION': 1,674,711 = 0.975 x 1,717,817
+    2018 AL 'PUBLIC SERVICE COMMISSION': 1,674,943 = 0.975 x 1,717,817
+    2018 AL 'SECRETARY OF STATE': 1,690,361 = 0.984 x 1,717,817
+    2018 AL 'STATE AUDITOR': 1,683,847 = 0.980 x 1,717,817
+    2018 AL 'SUPREME COURT ASSOCIATE JUSTICE': 1,675,441 = 0.975 x 1,717,817
+    2018 AR 'ATTORNEY GENERAL': 889,419 = 0.998 x 891,509
+    2018 AR 'AUDITOR OF STATE': 859,374 = 0.964 x 891,509
+    2018 AR 'COMMISSIONER OF STATE LANDS': 883,035 = 0.990 x 891,509
+    2018 AR 'LIEUTENANT GOVERNOR': 888,735 = 0.997 x 891,509
+    2018 AR 'SECRETARY OF STATE': 886,545 = 0.994 x 891,509
+    2018 AR 'STATE TREASURER': 862,132 = 0.967 x 891,509
+    2018 AZ 'ATTORNEY GENERAL': 2,326,367 = 0.978 x 2,379,369
+    2018 AZ 'SECRETARY OF STATE': 2,335,469 = 0.982 x 2,379,369
+    2018 AZ 'STATE MINE INSPECTOR': 2,262,588 = 0.951 x 2,379,369
+    2018 AZ 'STATE TREASURER': 2,303,834 = 0.968 x 2,379,369
+    2018 AZ 'SUPERINTENDENT OF PUBLIC INSTRUCTION': 2,302,876 = 0.968 x 2,379,369
+    2018 CO 'ATTORNEY GENERAL': 2,491,954 = 0.987 x 2,525,062
+    2018 CO 'REGENT OF THE UNIVERSITY OF COLORADO': 2,399,025 = 0.950 x 2,525,062
+    2018 CO 'SECRETARY OF STATE': 2,492,635 = 0.987 x 2,525,062
+    2018 CO 'TREASURER': 2,474,397 = 0.980 x 2,525,062
+    2018 GA 'ATTORNEY GENERAL': 3,862,370 = 0.980 x 3,939,328
+    2018 GA 'COMMISSIONER OF AGRICULTURE': 3,843,480 = 0.976 x 3,939,328
+    2018 GA 'COMMISSIONER OF INSURANCE': 3,861,625 = 0.980 x 3,939,328
+    2018 GA 'COMMISSIONER OF LABOR': 3,849,450 = 0.977 x 3,939,328
+    2018 GA 'LIEUTENANT GOVERNOR': 3,780,304 = 0.960 x 3,939,328
+    2018 GA 'PUBLIC SERVICE COMMISSION': 3,855,670 = 0.979 x 3,939,328
+    2018 GA 'PUBLIC SERVICE COMMISSION': 3,858,554 = 0.979 x 3,939,328
+    2018 GA 'SECRETARY OF STATE': 3,883,594 = 0.986 x 3,939,328
+    2018 GA 'STATE SCHOOL SUPERINTENDENT': 3,862,464 = 0.980 x 3,939,328
+    2018 IA 'AUDITOR OF STATE': 1,295,368 = 0.976 x 1,327,638
+    2018 IA 'SECRETARY OF AGRICULTURE': 1,294,030 = 0.975 x 1,327,638
+    2018 IA 'SECRETARY OF STATE': 1,300,917 = 0.980 x 1,327,638
+    2018 IA 'TREASURER OF STATE': 1,295,850 = 0.976 x 1,327,638
+    2018 IL 'ATTORNEY GENERAL': 4,548,409 = 0.997 x 4,560,012
+    2018 IL 'COMPTROLLER': 4,537,297 = 0.995 x 4,560,012
+    2018 IL 'SECRETARY OF STATE': 4,570,842 = 1.002 x 4,560,012
+    2018 IL 'TREASURER': 4,501,138 = 0.987 x 4,560,012
+    2018 MI 'SECRETARY OF STATE': 4,184,026 = 0.984 x 4,250,585
+    2018 MN 'ATTORNEY GENERAL': 2,551,772 = 0.986 x 2,587,287
+    2018 MN 'SECRETARY OF STATE': 2,542,522 = 0.983 x 2,587,287
+    2018 MN 'STATE AUDITOR': 2,533,940 = 0.979 x 2,587,287
+    2018 NM 'ATTORNEY GENERAL': 691,810 = 0.993 x 696,459
+    2018 NM 'COMMISSIONER OF PUBLIC LANDS': 689,505 = 0.990 x 696,459
+    2018 NM 'JUDGE OF COURT OF APPEALS': 674,336 = 0.968 x 696,459
+    2018 NM 'JUDGE OF COURT OF APPEALS': 676,525 = 0.971 x 696,459
+    2018 NM 'JUDGE OF COURT OF APPEALS': 677,110 = 0.972 x 696,459
+    2018 NM 'JUDGE OF COURT OF APPEALS': 678,460 = 0.974 x 696,459
+    2018 NM 'JUSTICE OF SUPREME COURT': 682,075 = 0.979 x 696,459
+    2018 NM 'SECRETARY OF STATE': 690,967 = 0.992 x 696,459
+    2018 NM 'STATE AUDITOR': 687,428 = 0.987 x 696,459
+    2018 NM 'STATE TREASURER': 681,602 = 0.979 x 696,459
+    2018 NV 'ATTORNEY GENERAL': 940,176 = 0.987 x 952,934
+    2018 NV 'LIEUTENANT GOVERNOR': 942,406 = 0.989 x 952,934
+    2018 NV 'SECRETARY OF STATE': 929,431 = 0.975 x 952,934
+    2018 NV 'STATE CONTROLLER': 932,167 = 0.978 x 952,934
+    2018 NV 'STATE TREASURER': 936,768 = 0.983 x 952,934
+    2018 OH 'ATTORNEY GENERAL': 4,363,129 = 0.984 x 4,435,462
+    2018 OH 'AUDITOR OF STATE': 4,340,920 = 0.979 x 4,435,462
+    2018 OH 'SECRETARY OF STATE': 4,369,877 = 0.985 x 4,435,462
+    2018 OH 'STATE TREASURER': 4,332,619 = 0.977 x 4,435,462
+    2018 OK 'ATTORNEY GENERAL': 1,172,468 = 0.988 x 1,186,385
+    2018 OK 'COMMISSIONER OF LABOR': 1,162,837 = 0.980 x 1,186,385
+    2018 OK 'CORPORATION COMMISSIONER': 1,168,195 = 0.985 x 1,186,385
+    2018 OK 'INSURANCE COMMISSIONER': 1,162,002 = 0.979 x 1,186,385
+    2018 OK 'LIEUTENANT GOVERNOR': 1,178,190 = 0.993 x 1,186,385
+    2018 OK 'SUPERINTENDENT OF PUBLIC INSTRUCTION': 1,174,879 = 0.990 x 1,186,385
+    2018 SD 'ATTORNEY GENERAL': 324,160 = 0.957 x 338,715
+    2018 SD 'SECRETARY OF STATE': 323,399 = 0.955 x 338,715
+    2018 TX 'AGRICULTURE COMMISSIONER': 8,233,491 = 0.987 x 8,341,613
+    2018 TX 'ATTORNEY GENERAL': 8,289,113 = 0.994 x 8,341,613
+    2018 TX 'COMPTROLLER': 8,226,756 = 0.986 x 8,341,613
+    2018 TX 'CRIMINAL COURT OF APPEALS': 8,177,467 = 0.980 x 8,341,613
+    2018 TX 'CRIMINAL COURT OF APPEALS - PRESIDING JUDGE': 8,208,619 = 0.984 x 8,341,613
+    2018 TX 'LIEUTENANT GOVERNOR': 8,303,519 = 0.995 x 8,341,613
+    2018 TX 'PUBLIC LANDS COMMISSIONER': 8,259,773 = 0.990 x 8,341,613
+    2018 TX 'RAILROAD COMMISSIONER': 8,225,034 = 0.986 x 8,341,613
+    2018 TX 'SUPREME COURT': 8,190,231 = 0.982 x 8,341,613
+    2018 TX 'SUPREME COURT': 8,198,794 = 0.983 x 8,341,613
+    2018 TX 'SUPREME COURT': 8,205,787 = 0.984 x 8,341,613
+    2022 AR 'AUDITOR OF STATE': 887,014 = 0.983 x 902,671
+    2022 AR 'COMMISSIONER OF STATE LANDS': 885,360 = 0.981 x 902,671
+    2022 AR 'LIEUTENANT GOVERNOR': 894,898 = 0.991 x 902,671
+    2022 AR 'SECRETARY OF STATE': 890,946 = 0.987 x 902,671
+    2022 AR 'STATE TREASURER': 890,062 = 0.986 x 902,671
+    2022 AZ 'ATTORNEY GENERAL': 2,513,510 = 0.978 x 2,570,916
+    2022 AZ 'SECRETARY OF STATE': 2,523,222 = 0.981 x 2,570,916
+    2022 CO 'ATTORNEY GENERAL': 2,466,328 = 0.983 x 2,508,830
+    2022 CO 'SECRETARY OF STATE': 2,484,758 = 0.990 x 2,508,830
+    2022 CO 'STATE BOARD OF EDUCATION MEMBER (AT LARGE)': 2,426,129 = 0.967 x 2,508,830
+    2022 CO 'STATE TREASURER': 2,445,812 = 0.975 x 2,508,830
+    2022 GA 'ATTORNEY GENERAL': 3,919,044 = 0.991 x 3,953,433
+    2022 GA 'COMMISSIONER OF AGRICULTURE': 3,905,762 = 0.988 x 3,953,433
+    2022 GA 'COMMISSIONER OF INSURANCE': 3,895,524 = 0.985 x 3,953,433
+    2022 GA 'COMMISSIONER OF LABOR': 3,898,024 = 0.986 x 3,953,433
+    2022 GA 'LIEUTENANT GOVERNOR': 3,910,348 = 0.989 x 3,953,433
+    2022 GA 'SECRETARY OF STATE': 3,910,201 = 0.989 x 3,953,433
+    2022 GA 'STATE SCHOOL SUPERINTENDENT': 3,904,399 = 0.988 x 3,953,433
+    2022 IL 'ATTORNEY GENERAL': 4,083,552 = 0.994 x 4,106,208
+    2022 IL 'COMPTROLLER': 4,085,642 = 0.995 x 4,106,208
+    2022 IL 'SECRETARY OF STATE': 4,091,478 = 0.996 x 4,106,208
+    2022 IL 'TREASURER': 4,065,082 = 0.990 x 4,106,208
+    2022 MN 'ATTORNEY GENERAL': 2,490,301 = 0.992 x 2,510,661
+    2022 MN 'SECRETARY OF STATE': 2,467,729 = 0.983 x 2,510,661
+    2022 MN 'STATE AUDITOR': 2,460,932 = 0.980 x 2,510,661
+    2022 NM 'ATTORNEY GENERAL': 702,541 = 0.990 x 709,514
+    2022 NM 'COMMISSIONER OF PUBLIC LANDS': 692,766 = 0.976 x 709,514
+    2022 NM 'JUDGE OF THE COURT OF APPEALS POSITION 1': 692,786 = 0.976 x 709,514
+    2022 NM 'JUDGE OF THE COURT OF APPEALS POSITION 2': 690,438 = 0.973 x 709,514
+    2022 NM 'JUSTICE OF THE SUPREME COURT': 694,774 = 0.979 x 709,514
+    2022 NM 'JUSTICE OF THE SUPREME COURT POSITION 2': 693,969 = 0.978 x 709,514
+    2022 NM 'SECRETARY OF STATE': 703,412 = 0.991 x 709,514
+    2022 NM 'STATE TREASURER': 696,247 = 0.981 x 709,514
+    2022 NV 'LIEUTENANT GOVERNOR': 992,307 = 0.989 x 1,003,842
+    2022 NV 'SECRETARY OF STATE': 995,966 = 0.992 x 1,003,842
+    2022 NV 'STATE CONTROLLER': 982,813 = 0.979 x 1,003,842
+    2022 NV 'STATE TREASURER': 983,620 = 0.980 x 1,003,842
+    2022 NY 'ATTORNEY GENERAL': 5,844,801 = 0.975 x 5,995,941
+    2022 OH 'ATTORNEY GENERAL': 4,132,397 = 0.999 x 4,134,877
+    2022 OH 'AUDITOR OF STATE': 4,080,423 = 0.987 x 4,134,877
+    2022 OH 'CHIEF JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/01/2023': 4,114,548 = 0.995 x 4,134,877
+    2022 OH 'JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/01/2023': 4,095,420 = 0.990 x 4,134,877
+    2022 OH 'JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/02/2023': 4,095,812 = 0.991 x 4,134,877
+    2022 OH 'SECRETARY OF STATE': 4,122,959 = 0.997 x 4,134,877
+    2022 OH 'TREASURER OF STATE': 4,082,702 = 0.987 x 4,134,877
+    2022 OK 'COMMISSIONER OF LABOR': 1,137,784 = 0.987 x 1,153,284
+    2022 OK 'CORPORATION COMMISSIONER': 1,137,207 = 0.986 x 1,153,284
+    2022 OK 'LIEUTENANT GOVERNOR': 1,146,992 = 0.995 x 1,153,284
+    2022 OK 'STATE TREASURER': 1,140,279 = 0.989 x 1,153,284
+    2022 OK 'SUPERINTENDENT OF PUBLIC INSTRUCTION': 1,145,341 = 0.993 x 1,153,284
+    2024 MT 'ATTORNEY GENERAL': 590,494 = 0.980 x 602,283
+    2024 MT 'CLERK OF THE SUPREME COURT': 581,135 = 0.965 x 602,283
+    2024 MT 'SECRETARY OF STATE': 593,359 = 0.985 x 602,283
+    2024 MT 'STATE AUDITOR': 583,778 = 0.969 x 602,283
+    2024 UT 'ATTORNEY GENERAL': 1,448,962 = 0.981 x 1,476,927
+    2024 UT 'STATE AUDITOR': 1,426,356 = 0.966 x 1,476,927
+    2024 UT 'STATE TREASURER': 1,417,336 = 0.960 x 1,476,927
+    2024 WA 'ATTORNEY GENERAL': 3,763,422 = 0.976 x 3,854,672
+    2024 WA 'COMMISSIONER OF PUBLIC LANDS': 3,738,877 = 0.970 x 3,854,672
+    2024 WA 'INSURANCE COMMISSIONER': 3,691,232 = 0.958 x 3,854,672
+    2024 WA 'LIEUTENANT GOVERNOR': 3,784,920 = 0.982 x 3,854,672
+    2024 WA 'SECRETARY OF STATE': 3,772,160 = 0.979 x 3,854,672
+    2024 WA 'STATE AUDITOR': 3,740,476 = 0.970 x 3,854,672
+    2024 WA 'STATE TREASURER': 3,747,241 = 0.972 x 3,854,672
+    2024 WV 'ATTORNEY GENERAL': 716,106 = 0.966 x 740,928
+    2024 WV 'AUDITOR': 711,228 = 0.960 x 740,928
+    2024 WV 'COMMISSIONER OF AGRICULTURE': 710,095 = 0.958 x 740,928
+    2024 WV 'SECRETARY OF STATE': 718,230 = 0.969 x 740,928
+  files read: 2018-al-precinct-general.zip (409,690 rows, 99ce070a2272); 2018-ar-precinct-general.zip (326,760 rows, 70b5e75ca557); 2018-co-precinct-general.zip (246,653 rows, 9d83bd381cfc); 2018-ga-precinct-general.zip (523,803 rows, 08b13552a148); 2018-hi-precinct-general.zip (24,090 rows, 59f4da56c5aa); 2018-ia-precinct-general.zip (228,567 rows, 7cefd2132b3d); 2018-il-precinct-general.zip (1,357,954 rows, a9db8c40e22a); 2018-mi-precinct-general.zip (658,031 rows, 16afe76cc872); 2018-mn-precinct-general.zip (352,082 rows, 0424aed6a603); 2018-mt-precinct-general.zip (14,495 rows, 6ddf8fbcd666); 2018-nd-precinct-general.zip (9,752 rows, b05f14163a2c); 2018-nm-precinct-general.zip (47,258 rows, 13ecb46f0e72); 2018-nv-precinct-general.zip (143,408 rows, 8f71ff209aef); 2018-ny-precinct-general.zip (916,156 rows, 1c19c149ee58); 2018-oh-precinct-general.zip (383,988 rows, 4a59f9b5c0d8); 2018-ok-precinct-general.zip (397,419 rows, a7e77f57fa2f); 2018-sd-precinct-general.zip (17,525 rows, 806f30022301); 2018-tx-precinct-general.zip (709,708 rows, 4dbd2fc4245b); 2018-wv-precinct-general.zip (72,620 rows, d08bf388b586); 2022-ar-local-precinct-general.zip (383,637 rows, 62b30f0e13eb); 2022-az-local-precinct-general.csv (482,175 rows, a76e331c45a0); 2022-id-local-precinct-general.csv (62,311 rows, ca11cdb18124); 2022-mi-local-precinct-general.zip (368,499 rows, 70e10f3a9558); 2022-nd-local-precinct-general.csv (20,333 rows, 95b98ce89004); 2022-wa-local-precinct-general.csv (439,224 rows, 27195c46a690); 2024-al-precinct-general.csv (236,649 rows, f8891f40f034); 2024-ar-precinct-general.csv (214,708 rows, 6a139a73d7a0); 2024-az-precinct-general.csv (1,171,069 rows, 9edb9c9a63d8); 2024-co-precinct-general.csv (283,724 rows, acf85f93e25f); 2024-ga-precinct-general.csv (71,773 rows, c3cd2385777a); 2024-hi-precinct-general.csv (16,124 rows, 332bac7dacda); 2024-ia-precinct-general.csv (210,726 rows, 344fd9250591); 2024-id-precinct-general.csv (79,624 rows, 5d10bf838edc); 2024-ky-precinct-general.csv (113,536 rows, b24a5eb67355); 2024-mi-precinct-general.csv (321,778 rows, 5492595ff239); 2024-mn-precinct-general.csv (290,393 rows, 778e1014ab62); 2024-ms-precinct-general.csv (34,024 rows, 5f98b8050e5d); 2024-mt-precinct-general.csv (38,743 rows, c9d46efcd8a6); 2024-nd-precinct-general.csv (18,909 rows, 4adab499dc70); 2024-nm-precinct-general.csv (134,822 rows, e8f45707787c); 2024-nv-precinct-general.csv (66,010 rows, 11539fe105d3); 2024-ny-precinct-general.csv (1,041,437 rows, 9ac160215ed8); 2024-oh-precinct-general.csv (3,062,813 rows, 43377544c304); 2024-or-precinct-general.csv (116,411 rows, 39bab52063a0); 2024-sc-precinct-general.csv (338,046 rows, 5b3364022e4d); 2024-sd-precinct-general.csv (21,230 rows, 3bae2af6a35d); 2024-tx-precinct-general.csv (459,086 rows, a2db25227df0); 2024-ut-precinct-general.csv (416,583 rows, 67e5d1c5cb04); 2024-wa-precinct-general.csv (438,719 rows, a24f19fbd372); 2024-wv-precinct-general.csv (65,230 rows, 39ebd4353a89); HI-cleaned.csv (16,555 rows, 3c2130d62a2e); NV-cleaned-final.csv (146,677 rows, f9e274206ec8); colorado_cleaned.csv (313,132 rows, efe9a0733e86); ga22_cleaned.csv (620,967 rows, 1edfbb730ad6); il22_cleaned.csv (1,574,368 rows, 3b46ca5a7f23); ky22_cleaned.csv (197,236 rows, 1236dd76b669); mn22_cleaned.csv (333,277 rows, 56257cff59a6); mt22.csv (18,617 rows, 4f93880c49c7); nm22_cleaned.csv (143,823 rows, 6d654a383e15); ny22_cleaned.csv (573,017 rows, a5220801b103); oh22_cleaned.csv (349,848 rows, 9080d217b1b2); ok22_cleaned.csv (319,389 rows, 55adcb12ce86); or22_clean.csv (40,169 rows, 8b3d4e1e07e7); sd22_cleaned.csv (27,565 rows, fdf4a9267898); 2018-az-precinct-general.zip (530,806 rows, 51495c513401); 2018-la-precinct-general.zip (107,066 rows, 38fb9ba5ba42); 2018-wa-precinct-general.zip (454,568 rows, 5f141e97c9c7)
+### 37.7 the 20 T rows and the one-seat board rule re-applied
+  T rows: 20 (D3: 17 typed statewide officer, 3 statewide judge); before -> after: {('school board', 'statewide officer'): 3, ('council, commission or board', 'statewide officer'): 7, ('other local office', 'statewide officer'): 2, ('clerk, treasurer or other county officer', 'statewide officer'): 3, ('prosecutor', 'statewide officer'): 2, ('judge', 'statewide judge'): 3}
+    2018-local-CO-REGENT_OF_THE_UNIVERSITY_OF_COLORADO-AT_LARGE: school board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1.0'], district 'AT-LARGE', 4 names; p a race between a Democrat and a Republican: the mo
+    2018-local-HI-RESIDENT_TRUSTEE___MAUI: council, commission or board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1.0'], district '', 2 names; p fewer than 100 like races in earlier years in the 
+    2018-local-HI-RESIDENT_TRUSTEE___OAHU: council, commission or board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1.0'], district '', 2 names; p fewer than 100 like races in earlier years in the 
+    2022-local-CO-ATTORNEY_GENERAL-000: prosecutor -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '000', 4 names; p a race between a Democrat and a Republican: the mo
+    2022-local-CO-SECRETARY_OF_STATE-000: other local office -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '000', 6 names; p a race between a Democrat and a Republican: the mo
+    2022-local-CO-STATE_BOARD_OF_EDUCATION_MEMBER__AT_LARGE-000: school board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '000', 4 names; p a race between a Democrat and a Republican: the mo
+    2022-local-CO-STATE_TREASURER-000: clerk, treasurer or other county officer -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '000', 3 names; p a race between a Democrat and a Republican: the mo
+    2022-local-HI-AT_LARGE_TRUSTEE: council, commission or board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '', 6 names; p seat count unread: MEDSL's file gives this contest
+    2022-local-HI-HAWAII_RESIDENT_TRUSTEE_VACANCY: council, commission or board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '', 2 names; p fewer than 100 like races in earlier years in the 
+    2022-local-IL-ATTORNEY_GENERAL-000: prosecutor -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '000', 3 names; p a race between a Democrat and a Republican: the mo
+    2022-local-IL-COMPTROLLER-000: clerk, treasurer or other county officer -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '000', 3 names; p a race between a Democrat and a Republican: the mo
+    2022-local-IL-SECRETARY_OF_STATE-000: other local office -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '000', 3 names; p a race between a Democrat and a Republican: the mo
+    2022-local-IL-TREASURER-000: clerk, treasurer or other county officer -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '000', 3 names; p a race between a Democrat and a Republican: the mo
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__01: judge -> statewide judge; mine statewide judge (equal); every county, magnitude ['1'], district '', 1 names; joined from 2 pieces (MEDSL's magnitude ['3']), the state's export lists 'SUPREME COURT - Justice Position #01' as a race of its own with 1 name: one seat; p 0.0
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__05: judge -> statewide judge; mine statewide judge (equal); every county, magnitude ['1'], district '', 1 names; joined from 2 pieces (MEDSL's magnitude ['3']), the state's export lists 'SUPREME COURT - Justice Position #05' as a race of its own with 1 name: one seat; p 0.0
+    2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__06: judge -> statewide judge; mine statewide judge (equal); every county, magnitude ['1'], district '', 1 names; joined from 2 pieces (MEDSL's magnitude ['3']), the state's export lists 'SUPREME COURT - Justice Position #06' as a race of its own with 1 name: one seat; p 0.0
+    2024-local-CO-REGENT_OF_THE_UNIVERSITY_OF_COLORADO-AT_LARGE: school board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district 'AT-LARGE', 4 names; p 5.88684e-07
+    2024-local-HI-AT_LARGE_TRUSTEE: council, commission or board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '', 2 names; p fewer than 100 like races in earlier years in the 
+    2024-local-HI-KAUAI_RESIDENT_TRUSTEE: council, commission or board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '', 2 names; p fewer than 100 like races in earlier years in the 
+    2024-local-HI-MOLOKAI_RESIDENT_TRUSTEE: council, commission or board -> statewide officer; mine statewide officer (equal); every county, magnitude ['1'], district '', 2 names; p fewer than 100 like races in earlier years in the 
+  {"mine == the record's: True": 20}
+  state-scope board or school-board records (by their type before) in the changed files and the T rows' files, MEDSL's: 40:
+      18  school board -> school board: mine school board (equal); not every county, seats 1
+       8  school board -> school board: mine school board (equal); every county, seats 2
+       7  council, commission or board -> statewide officer: mine statewide officer (equal); every county, seats 1
+       3  school board -> statewide officer: mine statewide officer (equal); every county, seats 1
+       2  school board -> school board: mine school board (equal); not every county, seats 2
+       1  council, commission or board -> council, commission or board: mine council, commission or board (equal); every county, seats 3
+       1  council, commission or board -> council, commission or board: mine council, commission or board (equal); not every county, seats None
+### 37.8 the 163 quote URLs: each quote on the page its URL answers; the three proposer quotes
+  quote_url fields in data/measure/statewide-filed-local.json at 6119f98: 163 (D3: 163), by field {'quote_url': 128, 'type_quote_url': 35}; distinct URLs 20; fetched (HTTP 200) 20 of 20
+  HTTP codes of the 20 quote fetches: {'200': 20}
+  {'quote_url: found': 128, 'type_quote_url: found': 35}
+  how found: {'word for word': 157, 'word for word, punctuation and case aside': 1, 'word for word, spaces aside': 5}
+  by URL (found, not found):
+      4   0  https://azleg.gov/alisPDFs/council/2018_election_results_memo.pdf
+      2   0  https://electionresults.sos.mn.gov/Select/BallotQuestions/Index?ersElectionId=170
+      5   0  https://files.floridados.gov/media/696216/constitutional-amendments-2016-general-english-booklet.pdf
+      1   0  https://results.vote.wa.gov/results/20181106/Advisory-Votes-Advisory-Vote-No-19-Engrossed-Second-Substitute-Senate-Bill-6269.html
+      3   0  https://results.vote.wa.gov/results/20181106/Measures.html
+      4   0  https://results.vote.wa.gov/results/20241105/Measures-All.html
+      4   0  https://results.vote.wa.gov/results/20241105/Measures.html
+      3   0  https://sosmt.gov/elections/ballot_issues/2020-2/
+      2   0  https://sosmt.gov/wp-content/uploads/State_Canvass_Report.pdf
+      9   0  https://votersguide.elections.il.gov/questionsDocs/Election66/2024gestatewideadvisorydraft_638652868326621637.pdf
+      4   0  https://webserver.rilegislature.gov/PublicLaws/law16/law16005.htm
+     20   0  https://webserver.rilegislature.gov/PublicLaws/law16/law16142-05.htm
+      3   0  https://webserver.rilegislature.gov/PublicLaws/law16/res16/res16329.htm
+      1   0  https://www.revisor.mn.gov/laws/2023/0/67/
+     30   0  https://www.sos.alabama.gov/sites/default/files/election-2020/Final%20Canvass%20of%20Results-Merged.pdf
+      6   0  https://www.sos.alabama.gov/sites/default/files/voter-pdfs/2020-sample-ballots/Montgomery-Sample.pdf
+     24   0  https://www.sos.arkansas.gov/uploads/elections/Initiatives_and_Amendments_1938-2018_1.pdf
+      6   0  https://www.sos.la.gov/elections-voting/types-of-elections
+     24   0  https://www.sos.la.gov/media/mwefjd3m/proposed-constitutional-amendments-2018.pdf
+      8   0  https://www.sos.wa.gov/about-office/news/2024/office-secretary-state-certifies-candidates-measures-november-general-election-ballot
+    rules[59] MO 'Mo. Const. art. III, §52(a)': proposer_quote found (word for word) on https://revisor.mo.gov/main/OneSection.aspx?section=III%20%2: 'A referendum may be ordered (except as to laws necessary for the immediate prese'
+    rules[95] OK 'Okla. Const. art. V, sec. 3 and sec. 2': proposer_quote found (word for word) on https://accessible.oksenate.gov/sites/default/files/2019-12/: 'Any measure referred to the people by the initiative or referendum'
+    rules[95] OK 'Okla. Const. art. V, sec. 3 and sec. 2': proposer_quote found (word for word) on https://accessible.oksenate.gov/sites/default/files/2019-12/: 'The first power reserved by the people is the initiative, and eight per centum o'
+    rules[95] OK 'Okla. Const. art. V, sec. 3 and sec. 2': proposer_quote found (word for word) on https://accessible.oksenate.gov/sites/default/files/2019-12/: 'The second power is the referendum, and it may be ordered (except as to laws nec'
+    rules[96] OK 'Okla. Const. art. V, sec. 3 and sec. 2': proposer_quote found (word for word) on https://accessible.oksenate.gov/sites/default/files/2019-12/: 'Any measure referred to the people by the initiative or referendum'
+    rules[96] OK 'Okla. Const. art. V, sec. 3 and sec. 2': proposer_quote found (word for word) on https://accessible.oksenate.gov/sites/default/files/2019-12/: 'The first power reserved by the people is the initiative, and eight per centum o'
+    rules[97] OK 'Okla. Const. art. V, sec. 33(C)': proposer_quote found (word for word) on https://accessible.oksenate.gov/sites/default/files/2019-12/: 'Any revenue bill originating in the House of Representatives shall not become ef'
+  rules with a proposer_quote: 4 (D3: rules[59], [95], [96], [97])
+### 37.9 the 49 R rows: each reason's count of like races against my own pool counts
+  rows with R: 49 (D3: 49: 41 R alone, 7 T and R, 1 R and Q)
+    2018-local-MI-JUSTICE_OF_THE_SUPREME_COURT: 'fewer than 100 like races in earlier years in the sources ta' -> "seat count unread: MEDSL's file gives this contest one seat;"
+    2018-local-NY-ATTORNEY_GENERAL: 'fewer than 100 like races in earlier years in the sources ta' -> "incomplete: MEDSL's lines for this contest miss 1 of the 62 "
+    2018-local-NY-COMPTROLLER: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 3 of the 62 "
+    2018-local-OH-JUSTICE_OF_THE_SUPREME_COURT: 'fewer than 100 like races in earlier years in the sources ta' -> "seat count unread: MEDSL's file gives this contest one seat,"
+    2022-local-AZ-STATE_MINE_INSPECTOR: 'a write-in line is in the pair that decided this contest; th' -> "incomplete: MEDSL's lines for this contest miss 2 of the 15 "
+    2022-local-AZ-STATE_TREASURER: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 2 of the 15 "
+    2022-local-GA-SECRETARY_OF_STATE~2: 'one name on the ballot for each seat, but write-ins received' -> "a line with no county: MEDSL's file holds this contest whole"
+    2022-local-HI-AT_LARGE_TRUSTEE: 'fewer than 100 like races in earlier years in the sources ta' -> "seat count unread: MEDSL's file gives this contest one seat,"
+    2022-local-ID-LIEUTENANT_GOVERNOR: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 1 of the 44 "
+    2022-local-ID-SECRETARY_OF_STATE: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 1 of the 44 "
+    2022-local-ID-STATE_CONTROLLER: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 1 of the 44 "
+    2022-local-ID-STATE_TREASURER: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 1 of the 44 "
+    2022-local-ID-SUPERINTENDENT_OF_PUBLIC_INSTRUCTION: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 3 of the 44 "
+    2022-local-MI-ATTORNEY_GENERAL: "a race between a Democrat and a Republican: the model's fore" -> "seat count unread: MEDSL's file gives this contest one seat,"
+    2022-local-MI-SECRETARY_OF_STATE: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 1 of the 83 "
+    2022-local-NY-COMPTROLLER: "a race between a Democrat and a Republican: the model's fore" -> "incomplete: MEDSL's lines for this contest miss 1 of the 62 "
+    2022-local-OR-COMMISSIONER_OF_THE_BUREAU_OF_LABOR_AND_INDUSTRIES: 'fewer than 100 like races in earlier years in the sources ta' -> "incomplete: MEDSL's lines for this contest miss 2 of the 36 "
+    2024-local-AZ-CORPORATION_COMMISSIONER: 'fewer than 100 like races in earlier years in the sources ta' -> "seat count unread: the contest's pieces in MEDSL's file give"
+    2024-local-MI-JUSTICE_OF_THE_SUPREME_COURT: 'fewer than 100 like races in earlier years in the sources ta' -> "seat count unread: MEDSL's file gives Michigan's two 2024 Su"
+    2024-local-MI-JUSTICE_OF_THE_SUPREME_COURT~2: "a special election: the model's own forecasts are fitted to " -> "seat count unread: MEDSL's file gives Michigan's two 2024 Su"
+      20  not of the 'fewer than 100 like races' shape
+      12  2024 'state judge, nonpartisan, 2 candidates': after 93 (mine 93, equal); before 'state judge, nonpartisan, 2 candidates' 94 (mine 94, equal)
+       4  2022 'state statewide officer, two or more of one major party, 4+ candidates': after 1 (mine 1, equal); before 'state statewide officer, two or more of one major party, 4+ candidates' 2 (mine 2, equal)
+       3  2024 'state statewide officer, nonpartisan, 2 candidates': after 4 (mine 4, equal); before 'state council, commission or board, nonpartisan, 2 candidates' 3 (mine 3, equal)
+       2  2018 'state statewide officer, nonpartisan, 2 candidates': after 0 (mine 0, equal); before 'state council, commission or board, nonpartisan, 2 candidates' 0 (mine 0, equal)
+       2  2024 'state judge, nonpartisan, 4+ candidates': after 5 (mine 5, equal); before 'state judge, nonpartisan, 4+ candidates' 8 (mine 8, equal)
+       2  2024 'state statewide officer, nonpartisan, 2 candidates': after 4 (mine 4, equal); before 'state statewide officer, nonpartisan, 2 candidates' 2 (mine 2, equal)
+       1  2022 'state statewide officer, nonpartisan, 2 candidates': after 3 (mine 3, equal); before 'state council, commission or board, nonpartisan, 2 candidates' 2 (mine 2, equal)
+       1  2024 'state judge, nonpartisan, 3 candidates': after 7 (mine 7, equal); before 'state judge, nonpartisan, 3 candidates' 8 (mine 8, equal)
+       1  2024 'state statewide officer, two or more of one major party, 4+ candidates': after 6 (mine 6, equal); before 'state statewide officer, two or more of one major party, 4+ candidates' 7 (mine 7, equal)
+       1  2024 'state statewide officer, one major party against others, 2 candidates': after 15 (mine 15, equal); before 'state statewide officer, one major party against others, 2 candidates' 16 (mine 16, equal)
+### c37 done
 
