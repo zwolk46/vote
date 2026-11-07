@@ -52,10 +52,15 @@ csv.field_size_limit(1 << 24)
 # answers on a yes-or-no question, and the separators states put between a question's subject and its answer
 ANSWERS = {"YES", "NO", "FOR", "AGAINST", "APPROVE", "REJECT", "APPROVED", "REJECTED", "ACCEPT", "RETAIN",
            "NOT RETAIN", "DO NOT RETAIN", "BONDS YES", "BONDS NO", "YES ON", "NO ON", "FOR THE MEASURE",
-           "AGAINST THE MEASURE", "IN FAVOR", "OPPOSED"}
+           "AGAINST THE MEASURE", "IN FAVOR", "OPPOSED", "IN FAVOR OF", "YES FOR APPROVAL", "NO FOR REJECTION"}
 NOT_CANDIDATES = {"", "OVERVOTES", "UNDERVOTES", "OVER VOTES", "UNDER VOTES", "BLANK", "BLANK VOTES", "SPOILED",
-                  "TOTAL VOTES", "BALLOTS CAST", "REGISTERED VOTERS", "OVERVOTE", "UNDERVOTE", "NONE OF THE ABOVE"}
-GENERIC = {"WRITE-IN", "WRITEIN", "WRITE IN", "SCATTERING", "WRITE-INS", "UNCERTIFIED WRITE-IN", "UNQUALIFIED WRITE-IN"}
+                  "TOTAL VOTES", "BALLOTS CAST", "REGISTERED VOTERS", "OVERVOTE", "UNDERVOTE", "NONE OF THE ABOVE",
+                  # seen in the 2024 files as candidates' names: totals, void and blank ballots, empty lines
+                  "CONTEST TOTAL", "CAST VOTES", "VOID", "BLANKS", "BLANK BALLOTS", "INVALID VOTES", "INVALID",
+                  "NO CANDIDATE FILED", "NO PETITION FILED"}
+GENERIC = {"WRITE-IN", "WRITEIN", "WRITE IN", "SCATTERING", "WRITE-INS", "UNCERTIFIED WRITE-IN", "UNQUALIFIED WRITE-IN",
+           "ALL OTHERS", "SCATTER", "SCATTERED", "MISC"}
+SUFFIXES = {"JR", "SR", "II", "III", "IV", "V"}
 _META = re.compile(r"^(TOTAL\b|VOTE FOR \d|TIMES (BLANK|OVER|UNDER)|.*\b(VOTES CAST|BALLOTS CAST|REGISTERED VOTERS|OVER ?VOTES?|"
                    r"UNDER ?VOTES?|BLANK VOTES?)\b)")
 
@@ -70,6 +75,29 @@ def is_generic(name):
     """Write-in totals and lines that name no one ('*NOT QUALIFIED 1*'): never used to join precincts."""
     n = name.strip().upper()
     return n in GENERIC or n.startswith("*") or "WRITE-IN" in n or "WRITE IN" in n or "WRITEIN" in n
+
+
+def name_tokens(name):
+    """A name's words, letters only, without nicknames in quotes or brackets and without Jr or III."""
+    n = re.sub(r'"[^"]*"|\([^)]*\)', " ", name.upper()).replace(".", " ").replace(",", " ")
+    toks = [re.sub(r"[^A-Z]", "", t) for t in n.split()]
+    return [t for t in toks if t and t not in SUFFIXES]
+
+
+def same_person(a, b):
+    """Two spellings of one candidate's name in one contest: the same words in any order ('LATHROP WILL',
+    'WILL LATHROP'), or the same surname with the same or a missing first initial ('G BORRELLO', 'BORRELLO',
+    'GEORGE M BORRELLO'). Used only inside one contest, where two candidates rarely share a surname."""
+    ta, tb = name_tokens(a), name_tokens(b)
+    if not ta or not tb:
+        return False
+    if len(ta) > 1 and sorted(ta) == sorted(tb):
+        return True
+    if ta[-1] != tb[-1]:
+        return False
+    ia = ta[0][0] if len(ta) > 1 else ""
+    ib = tb[0][0] if len(tb) > 1 else ""
+    return not ia or not ib or ia == ib
 
 
 def split_answer(cand):
@@ -275,22 +303,34 @@ def _contests(k, precincts, yn, is_question):
     else:
         uf = _UF()
         first_by_cand = {}
+        # a legislative district with its number given is one contest: its counties' spellings of a name differ
+        # ('T O'MARA', 'THOMAS FELLERS O'MARA'), so precincts also join on the surname and party there; anywhere,
+        # on the same words in another order ('LATHROP WILL')
+        numbered = office in LEGISLATIVE and district not in ("", "STATEWIDE")
         for pk, cands in precincts.items():
             uf.find(pk)
             for ck in cands:
                 name = ck[0].upper()
                 if is_generic(name) or ck in yn:
                     continue
-                if name in first_by_cand:
-                    uf.union(first_by_cand[name], pk)
-                else:
-                    first_by_cand[name] = pk
+                toks = name_tokens(name)
+                keys = [name]
+                if len(toks) > 1:
+                    keys.append(("words",) + tuple(sorted(toks)))
+                if numbered and toks:
+                    keys.append(("surname", toks[-1], ck[2]))
+                for key in keys:
+                    if key in first_by_cand:
+                        uf.union(first_by_cand[key], pk)
+                    else:
+                        first_by_cand[key] = pk
         comp = collections.defaultdict(list)
         for pk in precincts:
             comp[uf.find(pk)].append(pk)
         # precincts with only write-in totals join their county's one component, if it has exactly one
+        # and so do precincts whose only names are write-ins, where every county they lie in has one such component
         named_comp = {r: ps for r, ps in comp.items()
-                      if any(not is_generic(ck[0]) for p in ps for ck in precincts[p])}
+                      if any(not is_generic(ck[0]) and ck[3] != "TRUE" for p in ps for ck in precincts[p])}
         by_county = collections.defaultdict(set)
         for r, ps in named_comp.items():
             for p in ps:
@@ -299,8 +339,8 @@ def _contests(k, precincts, yn, is_question):
             if r in named_comp:
                 groups[("", r)].extend(ps)
                 continue
-            cs = {p[0] for p in ps}
-            target = next(iter(by_county[next(iter(cs))])) if len(cs) == 1 and len(by_county[next(iter(cs))]) == 1 else None
+            near = set().union(*(by_county[p[0]] for p in ps))
+            target = next(iter(near)) if len(near) == 1 else None
             groups[("", target if target is not None else r)].extend(ps)
     out = []
     for (subject, _), pks in groups.items():
@@ -337,6 +377,8 @@ def _contests(k, precincts, yn, is_question):
                 if c.get("votes_missing_in_some_precincts"):
                     m["votes_missing_in_some_precincts"] = True
             cands = list(merged.values())
+        else:
+            cands = merge_lines(cands, magnitude == "1")
         cands.sort(key=lambda c: -c["votes"])
         counties = sorted({pk[0] for pk in pks})
         extra = {}
@@ -347,6 +389,63 @@ def _contests(k, precincts, yn, is_question):
                     "magnitude": int(magnitude) if magnitude.isdigit() else None,
                     "question": is_question, "precincts": len(pks), "counties": counties,
                     "candidates": cands})
+    return out
+
+
+MAJOR = ("DEMOCRAT", "REPUBLICAN")
+
+
+def merge_lines(cands, single_seat):
+    """One candidate per person: a candidate on several parties' lines (New York's and Oregon's fusion) and a name
+    spelled differently in different counties are one candidate with the votes of all their lines, which are kept
+    under "lines". Names merge on the same words in any order; in a race for one seat, also on the same surname and
+    first initial (same_person). Write-in lines merge only on the same name."""
+    groups = []
+    for c in sorted(cands, key=lambda c: -c["votes"]):
+        wi = bool(c.get("writein")) or is_generic(c["name"])
+        for g in groups:
+            h = g[0]
+            hw = bool(h.get("writein")) or is_generic(h["name"])
+            if wi or hw:
+                if wi and hw and h["name"] == c["name"]:
+                    g.append(c)
+                    break
+                continue
+            # by surname only between lines that are not two different major parties (a Democrat Smith and a
+            # Republican Smith are two people; one person on both lines has the same name on both)
+            clash = {h.get("party"), c.get("party")} >= set(MAJOR)
+            if h["name"] == c["name"] or (single_seat and not clash and same_person(h["name"], c["name"])) or \
+                    (len(name_tokens(h["name"])) > 1 and sorted(name_tokens(h["name"])) == sorted(name_tokens(c["name"]))):
+                g.append(c)
+                break
+        else:
+            groups.append([c])
+    out = []
+    for g in groups:
+        if len(g) == 1:
+            out.append(g[0])
+            continue
+        parties = {x.get("party") for x in g}
+        majors = [p_ for p_ in MAJOR if p_ in parties]
+        m = {"name": max((x["name"] for x in g), key=lambda n: (len(name_tokens(n)), len(n))),
+             "votes": sum(x["votes"] for x in g)}
+        if len(majors) == 2:
+            m["party"] = "DEMOCRAT AND REPUBLICAN"
+        elif majors:
+            m["party"] = majors[0]
+        else:
+            top = max(g, key=lambda x: (bool(x.get("party")), x["votes"]))
+            m["party"] = top.get("party")
+            if top.get("party_detailed"):
+                m["party_detailed"] = top["party_detailed"]
+        if any(x.get("writein") for x in g):
+            m["writein"] = True
+        if any(x.get("votes_missing_in_some_precincts") for x in g):
+            m["votes_missing_in_some_precincts"] = True
+        m["lines"] = [{k: v for k, v in (("name", x["name"] if x["name"] != m["name"] else None),
+                                         ("party", x.get("party")), ("party_detailed", x.get("party_detailed")),
+                                         ("votes", x["votes"])) if v is not None} for x in g]
+        out.append(m)
     return out
 
 
