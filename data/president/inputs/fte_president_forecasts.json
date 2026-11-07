@@ -1,0 +1,7535 @@
+{
+ "about": "FiveThirtyEight's published presidential forecasts on election day, by unit and model, normalised by pipeline/intake/fte_president_forecasts.py. projected_voteshare is percent of the whole vote as 538 published it; probwin is 538's chance that the candidate wins the unit.",
+ "source": {
+  "name": "FiveThirtyEight, checking-our-work-data, presidential_elections.csv (commit f6d5b2e, 2023-02-02)",
+  "url": "https://raw.githubusercontent.com/fivethirtyeight/checking-our-work-data/f6d5b2e1d6da2889345d381c41431f9a4ee208dd/presidential_elections.csv",
+  "read_utc": "2026-11-07T03:42Z",
+  "licence": "CC BY 4.0",
+  "mark": "stated",
+  "via": null,
+  "note": "538's published forecasts as kept by 538 for its calibration page; the forecast pages themselves now redirect to ABC News",
+  "sha256": "d99482b55c46c12b008af15671c4495569f5dfe949e392907d76d993136c6da3"
+ },
+ "years": {
+  "2008": {
+   "published": {
+    "forecast_date": "2008-11-04",
+    "units": {
+     "AK": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "AL": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "AR": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "AZ": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.06,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.94,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "CA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CO": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.98,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.02,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CT": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DC": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DE": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "FL": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.73,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.27,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "GA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.1,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "HI": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ID": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "IL": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IN": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.3,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.7,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KS": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "KY": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "LA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.01,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.99,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MD": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MI": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MN": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MO": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.47,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.53,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MS": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MT": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.19,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.81,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NC": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.63,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.37,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ND": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.24,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.76,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NE": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NH": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NJ": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NM": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NV": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.95,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.05,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NY": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OH": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.88,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.12,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OK": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "OR": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "PA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "RI": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SC": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "SD": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.01,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.99,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "TN": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "TX": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "US": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.989,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.011,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "UT": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "VA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.97,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.03,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VT": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WI": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WV": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "WY": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "2012": {
+   "published": {
+    "forecast_date": "2012-11-06",
+    "units": {
+     "AK": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0009,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9991,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "AL": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "AR": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "AZ": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0198,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9802,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "CA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CO": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.7965,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.2035,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CT": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9998,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0002,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DC": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DE": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9989,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0011,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "FL": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.5027,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.4973,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "GA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0017,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9983,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "HI": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.8429,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.1571,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ID": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "IL": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IN": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0039,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9961,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "KS": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0006,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9994,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "KY": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "LA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MD": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9993,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0008,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME-1": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME-2": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9499,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0501,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MI": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9927,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0073,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MN": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9971,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0029,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MO": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0037,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9963,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MS": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0005,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9996,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MT": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0206,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9794,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NC": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.2557,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.7443,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "ND": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0004,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9996,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NE": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NE-1": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0036,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9964,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NE-2": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.1275,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.8725,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NE-3": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NH": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.8455,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.1545,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NJ": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9997,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0004,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NM": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9942,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0058,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NV": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9343,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0657,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NY": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OH": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9065,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0935,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OK": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "OR": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9947,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0053,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "PA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9858,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0142,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "RI": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SC": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0049,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9951,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "SD": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0014,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9987,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "TN": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0002,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9998,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "TX": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "US": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9088,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0912,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "UT": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "VA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.794,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.206,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VT": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WA": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9997,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0003,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WI": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9668,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0332,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WV": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "WY": [
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0001,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.9999,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ]
+    }
+   }
+  },
+  "2016": {
+   "now-cast": {
+    "forecast_date": "2016-11-08",
+    "units": {
+     "AK": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 48.32084,
+       "probwin": 0.764,
+       "actual_voteshare": 51.28,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 40.87356,
+       "probwin": 0.2354,
+       "actual_voteshare": 36.55,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 9.214349,
+       "probwin": 0.0006,
+       "actual_voteshare": 5.88,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 58.17918,
+       "probwin": 0.9993,
+       "actual_voteshare": 62.08,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 35.83019,
+       "probwin": 0.0007,
+       "actual_voteshare": 34.36,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.241461,
+       "probwin": 0.0,
+       "actual_voteshare": 2.09,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AR": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 56.96626,
+       "probwin": 0.99625,
+       "actual_voteshare": 60.57,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 36.29233,
+       "probwin": 0.0037,
+       "actual_voteshare": 33.65,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.974614,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.64,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AZ": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.60696,
+       "probwin": 0.6658,
+       "actual_voteshare": 48.08,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.38638,
+       "probwin": 0.3341,
+       "actual_voteshare": 44.58,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.641778,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.08,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 35.52779,
+       "probwin": 0.00045,
+       "actual_voteshare": 31.49,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 58.45205,
+       "probwin": 0.99955,
+       "actual_voteshare": 61.48,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.428134,
+       "probwin": 0.0,
+       "actual_voteshare": 3.36,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CO": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.62856,
+       "probwin": 0.22445,
+       "actual_voteshare": 43.25,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.67816,
+       "probwin": 0.7753,
+       "actual_voteshare": 48.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.475657,
+       "probwin": 0.00025,
+       "actual_voteshare": 5.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.16638,
+       "probwin": 0.0271,
+       "actual_voteshare": 40.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 52.83242,
+       "probwin": 0.9728,
+       "actual_voteshare": 54.57,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.518439,
+       "probwin": 0.0001,
+       "actual_voteshare": 2.96,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 12.36141,
+       "probwin": 0.0002,
+       "actual_voteshare": 4.09,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 82.85683,
+       "probwin": 0.9998,
+       "actual_voteshare": 90.86,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 1.812639,
+       "probwin": 0.0,
+       "actual_voteshare": 1.58,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DE": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.38113,
+       "probwin": 0.08535,
+       "actual_voteshare": 41.71,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 52.85846,
+       "probwin": 0.9146,
+       "actual_voteshare": 53.09,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.284608,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.33,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "FL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.46051,
+       "probwin": 0.44915,
+       "actual_voteshare": 48.6,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.11794,
+       "probwin": 0.5508,
+       "actual_voteshare": 47.41,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.166387,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "GA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 49.53388,
+       "probwin": 0.7908,
+       "actual_voteshare": 50.44,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.51072,
+       "probwin": 0.20915,
+       "actual_voteshare": 45.35,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.955398,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.03,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "HI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.10622,
+       "probwin": 0.0113,
+       "actual_voteshare": 30.04,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 57.85536,
+       "probwin": 0.98865,
+       "actual_voteshare": 62.22,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.019369,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.72,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.97918,
+       "probwin": 0.69765,
+       "actual_voteshare": 51.15,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.07723,
+       "probwin": 0.30215,
+       "actual_voteshare": 41.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.715005,
+       "probwin": 0.0002,
+       "actual_voteshare": 3.78,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ID": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.5005,
+       "probwin": 0.99045,
+       "actual_voteshare": 59.25,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 35.92774,
+       "probwin": 0.00935,
+       "actual_voteshare": 27.48,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.660254,
+       "probwin": 0.0002,
+       "actual_voteshare": 4.1,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.67696,
+       "probwin": 0.0171,
+       "actual_voteshare": 38.36,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.62693,
+       "probwin": 0.9829,
+       "actual_voteshare": 55.24,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.354182,
+       "probwin": 0.0,
+       "actual_voteshare": 3.75,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.97892,
+       "probwin": 0.97465,
+       "actual_voteshare": 56.47,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 40.4108,
+       "probwin": 0.0252,
+       "actual_voteshare": 37.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.610278,
+       "probwin": 0.00015,
+       "actual_voteshare": 4.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KS": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.53914,
+       "probwin": 0.9729,
+       "actual_voteshare": 56.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 39.00532,
+       "probwin": 0.02685,
+       "actual_voteshare": 35.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.745092,
+       "probwin": 0.00025,
+       "actual_voteshare": 4.64,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 56.08235,
+       "probwin": 0.99605,
+       "actual_voteshare": 62.52,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.88644,
+       "probwin": 0.0039,
+       "actual_voteshare": 32.68,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.303538,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.79,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "LA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.54961,
+       "probwin": 0.9946,
+       "actual_voteshare": 58.09,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 39.402,
+       "probwin": 0.0054,
+       "actual_voteshare": 38.45,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.395501,
+       "probwin": 0.0,
+       "actual_voteshare": 1.87,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.60018,
+       "probwin": 0.00085,
+       "actual_voteshare": 32.81,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 57.98075,
+       "probwin": 0.9991,
+       "actual_voteshare": 60.01,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.782996,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MD": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.14972,
+       "probwin": 0.00035,
+       "actual_voteshare": 33.91,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 59.83384,
+       "probwin": 0.9996,
+       "actual_voteshare": 60.33,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.370524,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 42.04337,
+       "probwin": 0.17345,
+       "actual_voteshare": 44.87,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.47904,
+       "probwin": 0.8263,
+       "actual_voteshare": 47.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.045449,
+       "probwin": 0.00025,
+       "actual_voteshare": 5.09,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME-1": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.09728,
+       "probwin": 0.0845,
+       "actual_voteshare": 39.15,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 52.95895,
+       "probwin": 0.91535,
+       "actual_voteshare": 53.96,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.376682,
+       "probwin": 0.00015,
+       "actual_voteshare": 4.71,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME-2": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.28049,
+       "probwin": 0.4903,
+       "actual_voteshare": 51.26,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.64745,
+       "probwin": 0.50935,
+       "actual_voteshare": 40.98,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.790185,
+       "probwin": 0.00035,
+       "actual_voteshare": 5.52,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.19136,
+       "probwin": 0.21095,
+       "actual_voteshare": 47.25,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.3777,
+       "probwin": 0.78895,
+       "actual_voteshare": 47.03,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.108387,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.57,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.14677,
+       "probwin": 0.1495,
+       "actual_voteshare": 44.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.93555,
+       "probwin": 0.8504,
+       "actual_voteshare": 46.44,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.655869,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.84,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MO": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.44466,
+       "probwin": 0.9612,
+       "actual_voteshare": 56.38,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 41.3788,
+       "probwin": 0.03875,
+       "actual_voteshare": 37.87,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.740618,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.44,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MS": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 54.45816,
+       "probwin": 0.9781,
+       "actual_voteshare": 57.86,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 41.39882,
+       "probwin": 0.02185,
+       "actual_voteshare": 40.06,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 2.608942,
+       "probwin": 5e-05,
+       "actual_voteshare": 1.19,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 52.0724,
+       "probwin": 0.9586,
+       "actual_voteshare": 55.65,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.08315,
+       "probwin": 0.041,
+       "actual_voteshare": 35.41,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 9.328375,
+       "probwin": 0.0004,
+       "actual_voteshare": 5.59,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.50283,
+       "probwin": 0.4448,
+       "actual_voteshare": 49.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.18854,
+       "probwin": 0.55515,
+       "actual_voteshare": 46.17,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.308634,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.74,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ND": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 57.16013,
+       "probwin": 0.9769,
+       "actual_voteshare": 62.96,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 34.07969,
+       "probwin": 0.023,
+       "actual_voteshare": 27.23,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.118752,
+       "probwin": 0.0001,
+       "actual_voteshare": 6.22,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 54.35692,
+       "probwin": 0.97675,
+       "actual_voteshare": 58.75,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 36.53121,
+       "probwin": 0.02315,
+       "actual_voteshare": 33.7,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.384104,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.61,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-1": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 52.95132,
+       "probwin": 0.8932,
+       "actual_voteshare": 56.18,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.46636,
+       "probwin": 0.10655,
+       "actual_voteshare": 35.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.984377,
+       "probwin": 0.00025,
+       "actual_voteshare": 4.97,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-2": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.25186,
+       "probwin": 0.55795,
+       "actual_voteshare": 47.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.48741,
+       "probwin": 0.4419,
+       "actual_voteshare": 44.92,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.837864,
+       "probwin": 0.00015,
+       "actual_voteshare": 4.54,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-3": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 62.79039,
+       "probwin": 0.9917,
+       "actual_voteshare": 73.92,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 26.67341,
+       "probwin": 0.0081,
+       "actual_voteshare": 19.73,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 8.36212,
+       "probwin": 0.0002,
+       "actual_voteshare": 4.32,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NH": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.92591,
+       "probwin": 0.3024,
+       "actual_voteshare": 46.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.50506,
+       "probwin": 0.6975,
+       "actual_voteshare": 46.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.342215,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.14,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NJ": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 41.98124,
+       "probwin": 0.0311,
+       "actual_voteshare": 41.0,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.50215,
+       "probwin": 0.96885,
+       "actual_voteshare": 54.99,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.066396,
+       "probwin": 5e-05,
+       "actual_voteshare": 1.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NM": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.87109,
+       "probwin": 0.172,
+       "actual_voteshare": 40.04,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.65428,
+       "probwin": 0.8257,
+       "actual_voteshare": 48.26,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 13.1402,
+       "probwin": 0.0023,
+       "actual_voteshare": 9.34,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NV": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.88834,
+       "probwin": 0.41725,
+       "actual_voteshare": 45.5,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.06956,
+       "probwin": 0.58265,
+       "actual_voteshare": 47.92,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.779621,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.32,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 37.7613,
+       "probwin": 0.0022,
+       "actual_voteshare": 36.51,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 56.77995,
+       "probwin": 0.9978,
+       "actual_voteshare": 59.0,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.776454,
+       "probwin": 0.0,
+       "actual_voteshare": 2.29,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OH": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.65876,
+       "probwin": 0.64595,
+       "actual_voteshare": 51.31,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.78414,
+       "probwin": 0.35395,
+       "actual_voteshare": 43.24,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.344651,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OK": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.16284,
+       "probwin": 0.9995,
+       "actual_voteshare": 65.32,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 33.20357,
+       "probwin": 0.00045,
+       "actual_voteshare": 28.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.633591,
+       "probwin": 5e-05,
+       "actual_voteshare": 5.75,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OR": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 41.77312,
+       "probwin": 0.06295,
+       "actual_voteshare": 39.09,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 50.92733,
+       "probwin": 0.93695,
+       "actual_voteshare": 50.07,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.932388,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.71,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "PA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.23409,
+       "probwin": 0.2295,
+       "actual_voteshare": 48.17,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.93459,
+       "probwin": 0.77045,
+       "actual_voteshare": 47.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.602487,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.38,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "RI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.56375,
+       "probwin": 0.0679,
+       "actual_voteshare": 38.9,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.97367,
+       "probwin": 0.93205,
+       "actual_voteshare": 54.41,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.786934,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 50.7925,
+       "probwin": 0.89745,
+       "actual_voteshare": 54.94,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 43.83046,
+       "probwin": 0.1025,
+       "actual_voteshare": 40.67,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.88097,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.34,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SD": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 52.9892,
+       "probwin": 0.93865,
+       "actual_voteshare": 61.53,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.48422,
+       "probwin": 0.06105,
+       "actual_voteshare": 31.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.909329,
+       "probwin": 0.0003,
+       "actual_voteshare": 5.63,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "TN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 53.09438,
+       "probwin": 0.9734,
+       "actual_voteshare": 60.72,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 41.13668,
+       "probwin": 0.02655,
+       "actual_voteshare": 34.72,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.083893,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.81,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "TX": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.03875,
+       "probwin": 0.93955,
+       "actual_voteshare": 52.1,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 42.47507,
+       "probwin": 0.06045,
+       "actual_voteshare": 43.12,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.889338,
+       "probwin": 0.0,
+       "actual_voteshare": 3.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "US": [
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.286,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.71365,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 5e-05,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "I",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0003,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "UT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 37.28674,
+       "probwin": 0.83175,
+       "actual_voteshare": 45.05,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 26.7441,
+       "probwin": 0.03305,
+       "actual_voteshare": 27.17,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.838157,
+       "probwin": 0.00025,
+       "actual_voteshare": 3.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "I",
+       "candidate": "Mcmullin",
+       "projected_voteshare": 27.92174,
+       "probwin": 0.13495,
+       "actual_voteshare": 21.31,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.2818,
+       "probwin": 0.14495,
+       "actual_voteshare": 44.43,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.84831,
+       "probwin": 0.855,
+       "actual_voteshare": 49.75,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.67985,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.97,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 32.76051,
+       "probwin": 0.01935,
+       "actual_voteshare": 30.27,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 60.21048,
+       "probwin": 0.98065,
+       "actual_voteshare": 56.68,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.173418,
+       "probwin": 0.0,
+       "actual_voteshare": 3.2,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.92418,
+       "probwin": 0.0164,
+       "actual_voteshare": 36.83,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.21793,
+       "probwin": 0.98355,
+       "actual_voteshare": 52.54,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.442072,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.85,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.2656,
+       "probwin": 0.1646,
+       "actual_voteshare": 47.22,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.59468,
+       "probwin": 0.83535,
+       "actual_voteshare": 46.45,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.858817,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.58,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WV": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.83099,
+       "probwin": 0.99725,
+       "actual_voteshare": 67.85,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 33.30486,
+       "probwin": 0.0027,
+       "actual_voteshare": 26.18,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.083587,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.19,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 62.35849,
+       "probwin": 0.98925,
+       "actual_voteshare": 68.17,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 27.40339,
+       "probwin": 0.0106,
+       "actual_voteshare": 21.88,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 8.131375,
+       "probwin": 0.00015,
+       "actual_voteshare": 5.19,
+       "probwin_outcome": 0.0
+      }
+     ]
+    }
+   },
+   "polls-only": {
+    "forecast_date": "2016-11-08",
+    "units": {
+     "AK": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 48.32084,
+       "probwin": 0.764,
+       "actual_voteshare": 51.28,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 40.87356,
+       "probwin": 0.2354,
+       "actual_voteshare": 36.55,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 9.214349,
+       "probwin": 0.0006,
+       "actual_voteshare": 5.88,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 58.17918,
+       "probwin": 0.9993,
+       "actual_voteshare": 62.08,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 35.83019,
+       "probwin": 0.0007,
+       "actual_voteshare": 34.36,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.241461,
+       "probwin": 0.0,
+       "actual_voteshare": 2.09,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AR": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 56.96626,
+       "probwin": 0.99625,
+       "actual_voteshare": 60.57,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 36.29233,
+       "probwin": 0.0037,
+       "actual_voteshare": 33.65,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.974614,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.64,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AZ": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.60696,
+       "probwin": 0.6658,
+       "actual_voteshare": 48.08,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.38638,
+       "probwin": 0.3341,
+       "actual_voteshare": 44.58,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.641778,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.08,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 35.52779,
+       "probwin": 0.00045,
+       "actual_voteshare": 31.49,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 58.45205,
+       "probwin": 0.99955,
+       "actual_voteshare": 61.48,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.428134,
+       "probwin": 0.0,
+       "actual_voteshare": 3.36,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CO": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.62856,
+       "probwin": 0.22445,
+       "actual_voteshare": 43.25,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.67816,
+       "probwin": 0.7753,
+       "actual_voteshare": 48.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.475657,
+       "probwin": 0.00025,
+       "actual_voteshare": 5.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.16638,
+       "probwin": 0.0271,
+       "actual_voteshare": 40.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 52.83242,
+       "probwin": 0.9728,
+       "actual_voteshare": 54.57,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.518439,
+       "probwin": 0.0001,
+       "actual_voteshare": 2.96,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 12.36141,
+       "probwin": 0.0002,
+       "actual_voteshare": 4.09,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 82.85683,
+       "probwin": 0.9998,
+       "actual_voteshare": 90.86,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 1.812639,
+       "probwin": 0.0,
+       "actual_voteshare": 1.58,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DE": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.38113,
+       "probwin": 0.08535,
+       "actual_voteshare": 41.71,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 52.85846,
+       "probwin": 0.9146,
+       "actual_voteshare": 53.09,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.284608,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.33,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "FL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.46051,
+       "probwin": 0.44915,
+       "actual_voteshare": 48.6,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.11794,
+       "probwin": 0.5508,
+       "actual_voteshare": 47.41,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.166387,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "GA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 49.53388,
+       "probwin": 0.7908,
+       "actual_voteshare": 50.44,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.51072,
+       "probwin": 0.20915,
+       "actual_voteshare": 45.35,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.955398,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.03,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "HI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.10622,
+       "probwin": 0.0113,
+       "actual_voteshare": 30.04,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 57.85536,
+       "probwin": 0.98865,
+       "actual_voteshare": 62.22,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.019369,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.72,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.97918,
+       "probwin": 0.69765,
+       "actual_voteshare": 51.15,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.07723,
+       "probwin": 0.30215,
+       "actual_voteshare": 41.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.715005,
+       "probwin": 0.0002,
+       "actual_voteshare": 3.78,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ID": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.5005,
+       "probwin": 0.99045,
+       "actual_voteshare": 59.25,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 35.92774,
+       "probwin": 0.00935,
+       "actual_voteshare": 27.48,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.660254,
+       "probwin": 0.0002,
+       "actual_voteshare": 4.1,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.67696,
+       "probwin": 0.0171,
+       "actual_voteshare": 38.36,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.62693,
+       "probwin": 0.9829,
+       "actual_voteshare": 55.24,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.354182,
+       "probwin": 0.0,
+       "actual_voteshare": 3.75,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.97892,
+       "probwin": 0.97465,
+       "actual_voteshare": 56.47,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 40.4108,
+       "probwin": 0.0252,
+       "actual_voteshare": 37.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.610278,
+       "probwin": 0.00015,
+       "actual_voteshare": 4.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KS": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.53914,
+       "probwin": 0.9729,
+       "actual_voteshare": 56.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 39.00532,
+       "probwin": 0.02685,
+       "actual_voteshare": 35.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.745092,
+       "probwin": 0.00025,
+       "actual_voteshare": 4.64,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 56.08235,
+       "probwin": 0.99605,
+       "actual_voteshare": 62.52,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.88644,
+       "probwin": 0.0039,
+       "actual_voteshare": 32.68,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.303538,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.79,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "LA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.54961,
+       "probwin": 0.9946,
+       "actual_voteshare": 58.09,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 39.402,
+       "probwin": 0.0054,
+       "actual_voteshare": 38.45,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.395501,
+       "probwin": 0.0,
+       "actual_voteshare": 1.87,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.60018,
+       "probwin": 0.00085,
+       "actual_voteshare": 32.81,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 57.98075,
+       "probwin": 0.9991,
+       "actual_voteshare": 60.01,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.782996,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MD": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.14972,
+       "probwin": 0.00035,
+       "actual_voteshare": 33.91,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 59.83384,
+       "probwin": 0.9996,
+       "actual_voteshare": 60.33,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.370524,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 42.04337,
+       "probwin": 0.17345,
+       "actual_voteshare": 44.87,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.47904,
+       "probwin": 0.8263,
+       "actual_voteshare": 47.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.045449,
+       "probwin": 0.00025,
+       "actual_voteshare": 5.09,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME-1": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.09728,
+       "probwin": 0.0845,
+       "actual_voteshare": 39.15,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 52.95895,
+       "probwin": 0.91535,
+       "actual_voteshare": 53.96,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.376682,
+       "probwin": 0.00015,
+       "actual_voteshare": 4.71,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME-2": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.28049,
+       "probwin": 0.4903,
+       "actual_voteshare": 51.26,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.64745,
+       "probwin": 0.50935,
+       "actual_voteshare": 40.98,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.790185,
+       "probwin": 0.00035,
+       "actual_voteshare": 5.52,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.19136,
+       "probwin": 0.21095,
+       "actual_voteshare": 47.25,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.3777,
+       "probwin": 0.78895,
+       "actual_voteshare": 47.03,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.108387,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.57,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.14677,
+       "probwin": 0.1495,
+       "actual_voteshare": 44.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.93555,
+       "probwin": 0.8504,
+       "actual_voteshare": 46.44,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.655869,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.84,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MO": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.44466,
+       "probwin": 0.9612,
+       "actual_voteshare": 56.38,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 41.3788,
+       "probwin": 0.03875,
+       "actual_voteshare": 37.87,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.740618,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.44,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MS": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 54.45816,
+       "probwin": 0.9781,
+       "actual_voteshare": 57.86,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 41.39882,
+       "probwin": 0.02185,
+       "actual_voteshare": 40.06,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 2.608942,
+       "probwin": 5e-05,
+       "actual_voteshare": 1.19,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 52.0724,
+       "probwin": 0.9586,
+       "actual_voteshare": 55.65,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.08315,
+       "probwin": 0.041,
+       "actual_voteshare": 35.41,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 9.328375,
+       "probwin": 0.0004,
+       "actual_voteshare": 5.59,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.50283,
+       "probwin": 0.4448,
+       "actual_voteshare": 49.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.18854,
+       "probwin": 0.55515,
+       "actual_voteshare": 46.17,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.308634,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.74,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ND": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 57.16013,
+       "probwin": 0.9769,
+       "actual_voteshare": 62.96,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 34.07969,
+       "probwin": 0.023,
+       "actual_voteshare": 27.23,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.118752,
+       "probwin": 0.0001,
+       "actual_voteshare": 6.22,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 54.35692,
+       "probwin": 0.97675,
+       "actual_voteshare": 58.75,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 36.53121,
+       "probwin": 0.02315,
+       "actual_voteshare": 33.7,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.384104,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.61,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-1": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 52.95132,
+       "probwin": 0.8932,
+       "actual_voteshare": 56.18,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.46636,
+       "probwin": 0.10655,
+       "actual_voteshare": 35.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.984377,
+       "probwin": 0.00025,
+       "actual_voteshare": 4.97,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-2": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.25186,
+       "probwin": 0.55795,
+       "actual_voteshare": 47.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.48741,
+       "probwin": 0.4419,
+       "actual_voteshare": 44.92,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.837864,
+       "probwin": 0.00015,
+       "actual_voteshare": 4.54,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-3": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 62.79039,
+       "probwin": 0.9917,
+       "actual_voteshare": 73.92,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 26.67341,
+       "probwin": 0.0081,
+       "actual_voteshare": 19.73,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 8.36212,
+       "probwin": 0.0002,
+       "actual_voteshare": 4.32,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NH": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.92591,
+       "probwin": 0.3024,
+       "actual_voteshare": 46.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.50506,
+       "probwin": 0.6975,
+       "actual_voteshare": 46.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.342215,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.14,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NJ": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 41.98124,
+       "probwin": 0.0311,
+       "actual_voteshare": 41.0,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.50215,
+       "probwin": 0.96885,
+       "actual_voteshare": 54.99,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.066396,
+       "probwin": 5e-05,
+       "actual_voteshare": 1.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NM": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.87109,
+       "probwin": 0.172,
+       "actual_voteshare": 40.04,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.65428,
+       "probwin": 0.8257,
+       "actual_voteshare": 48.26,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 13.1402,
+       "probwin": 0.0023,
+       "actual_voteshare": 9.34,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NV": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.88834,
+       "probwin": 0.41725,
+       "actual_voteshare": 45.5,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.06956,
+       "probwin": 0.58265,
+       "actual_voteshare": 47.92,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.779621,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.32,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 37.7613,
+       "probwin": 0.0022,
+       "actual_voteshare": 36.51,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 56.77995,
+       "probwin": 0.9978,
+       "actual_voteshare": 59.0,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.776454,
+       "probwin": 0.0,
+       "actual_voteshare": 2.29,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OH": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.65876,
+       "probwin": 0.64595,
+       "actual_voteshare": 51.31,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.78414,
+       "probwin": 0.35395,
+       "actual_voteshare": 43.24,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.344651,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OK": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.16284,
+       "probwin": 0.9995,
+       "actual_voteshare": 65.32,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 33.20357,
+       "probwin": 0.00045,
+       "actual_voteshare": 28.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.633591,
+       "probwin": 5e-05,
+       "actual_voteshare": 5.75,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OR": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 41.77312,
+       "probwin": 0.06295,
+       "actual_voteshare": 39.09,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 50.92733,
+       "probwin": 0.93695,
+       "actual_voteshare": 50.07,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.932388,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.71,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "PA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.23409,
+       "probwin": 0.2295,
+       "actual_voteshare": 48.17,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.93459,
+       "probwin": 0.77045,
+       "actual_voteshare": 47.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.602487,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.38,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "RI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.56375,
+       "probwin": 0.0679,
+       "actual_voteshare": 38.9,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.97367,
+       "probwin": 0.93205,
+       "actual_voteshare": 54.41,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.786934,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 50.7925,
+       "probwin": 0.89745,
+       "actual_voteshare": 54.94,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 43.83046,
+       "probwin": 0.1025,
+       "actual_voteshare": 40.67,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.88097,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.34,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SD": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 52.9892,
+       "probwin": 0.93865,
+       "actual_voteshare": 61.53,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.48422,
+       "probwin": 0.06105,
+       "actual_voteshare": 31.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.909329,
+       "probwin": 0.0003,
+       "actual_voteshare": 5.63,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "TN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 53.09438,
+       "probwin": 0.9734,
+       "actual_voteshare": 60.72,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 41.13668,
+       "probwin": 0.02655,
+       "actual_voteshare": 34.72,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.083893,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.81,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "TX": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.03875,
+       "probwin": 0.93955,
+       "actual_voteshare": 52.1,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 42.47507,
+       "probwin": 0.06045,
+       "actual_voteshare": 43.12,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.889338,
+       "probwin": 0.0,
+       "actual_voteshare": 3.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "US": [
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.286,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.71365,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 5e-05,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "I",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.0003,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "UT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 37.28674,
+       "probwin": 0.83175,
+       "actual_voteshare": 45.05,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 26.7441,
+       "probwin": 0.03305,
+       "actual_voteshare": 27.17,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.838157,
+       "probwin": 0.00025,
+       "actual_voteshare": 3.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "I",
+       "candidate": "Mcmullin",
+       "projected_voteshare": 27.92174,
+       "probwin": 0.13495,
+       "actual_voteshare": 21.31,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.2818,
+       "probwin": 0.14495,
+       "actual_voteshare": 44.43,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.84831,
+       "probwin": 0.855,
+       "actual_voteshare": 49.75,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.67985,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.97,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 32.76051,
+       "probwin": 0.01935,
+       "actual_voteshare": 30.27,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 60.21048,
+       "probwin": 0.98065,
+       "actual_voteshare": 56.68,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.173418,
+       "probwin": 0.0,
+       "actual_voteshare": 3.2,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.92418,
+       "probwin": 0.0164,
+       "actual_voteshare": 36.83,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.21793,
+       "probwin": 0.98355,
+       "actual_voteshare": 52.54,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.442072,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.85,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.2656,
+       "probwin": 0.1646,
+       "actual_voteshare": 47.22,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.59468,
+       "probwin": 0.83535,
+       "actual_voteshare": 46.45,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.858817,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.58,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WV": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.83099,
+       "probwin": 0.99725,
+       "actual_voteshare": 67.85,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 33.30486,
+       "probwin": 0.0027,
+       "actual_voteshare": 26.18,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.083587,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.19,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 62.35849,
+       "probwin": 0.98925,
+       "actual_voteshare": 68.17,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 27.40339,
+       "probwin": 0.0106,
+       "actual_voteshare": 21.88,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 8.131375,
+       "probwin": 0.00015,
+       "actual_voteshare": 5.19,
+       "probwin_outcome": 0.0
+      }
+     ]
+    }
+   },
+   "polls-plus": {
+    "forecast_date": "2016-11-08",
+    "units": {
+     "AK": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 48.4472,
+       "probwin": 0.78535,
+       "actual_voteshare": 51.28,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 40.6525,
+       "probwin": 0.21435,
+       "actual_voteshare": 36.55,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 9.308822,
+       "probwin": 0.0003,
+       "actual_voteshare": 5.88,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 58.19371,
+       "probwin": 0.99915,
+       "actual_voteshare": 62.08,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 35.84185,
+       "probwin": 0.00085,
+       "actual_voteshare": 34.36,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.215338,
+       "probwin": 0.0,
+       "actual_voteshare": 2.09,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AR": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 57.03221,
+       "probwin": 0.99785,
+       "actual_voteshare": 60.57,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 36.22161,
+       "probwin": 0.0021,
+       "actual_voteshare": 33.65,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.979443,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.64,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AZ": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.64981,
+       "probwin": 0.6739,
+       "actual_voteshare": 48.08,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.33986,
+       "probwin": 0.326,
+       "actual_voteshare": 44.58,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.645415,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.08,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 35.57384,
+       "probwin": 0.0008,
+       "actual_voteshare": 31.49,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 58.40885,
+       "probwin": 0.9992,
+       "actual_voteshare": 61.48,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.425359,
+       "probwin": 0.0,
+       "actual_voteshare": 3.36,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CO": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.66629,
+       "probwin": 0.2239,
+       "actual_voteshare": 43.25,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.66613,
+       "probwin": 0.77595,
+       "actual_voteshare": 48.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.449914,
+       "probwin": 0.00015,
+       "actual_voteshare": 5.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "CT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.0848,
+       "probwin": 0.02225,
+       "actual_voteshare": 40.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 52.95231,
+       "probwin": 0.9777,
+       "actual_voteshare": 54.57,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.480214,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.96,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 11.87218,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.09,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 83.22202,
+       "probwin": 0.99995,
+       "actual_voteshare": 90.86,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 1.93649,
+       "probwin": 0.0,
+       "actual_voteshare": 1.58,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "DE": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.29821,
+       "probwin": 0.0752,
+       "actual_voteshare": 41.71,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 52.97614,
+       "probwin": 0.92475,
+       "actual_voteshare": 53.09,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.249956,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.33,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "FL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.4998,
+       "probwin": 0.4542,
+       "actual_voteshare": 48.6,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.06421,
+       "probwin": 0.5458,
+       "actual_voteshare": 47.41,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.180786,
+       "probwin": 0.0,
+       "actual_voteshare": 2.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "GA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 49.62794,
+       "probwin": 0.80825,
+       "actual_voteshare": 50.44,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.42421,
+       "probwin": 0.1917,
+       "actual_voteshare": 45.35,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.947854,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.03,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "HI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 33.60037,
+       "probwin": 0.007,
+       "actual_voteshare": 30.04,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 58.46861,
+       "probwin": 0.99295,
+       "actual_voteshare": 62.22,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.912213,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.72,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.87696,
+       "probwin": 0.69145,
+       "actual_voteshare": 51.15,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.18518,
+       "probwin": 0.3084,
+       "actual_voteshare": 41.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.709339,
+       "probwin": 0.00015,
+       "actual_voteshare": 3.78,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ID": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.75104,
+       "probwin": 0.99395,
+       "actual_voteshare": 59.25,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 35.67863,
+       "probwin": 0.006,
+       "actual_voteshare": 27.48,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.658808,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.1,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.72755,
+       "probwin": 0.01455,
+       "actual_voteshare": 38.36,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.52927,
+       "probwin": 0.9854,
+       "actual_voteshare": 55.24,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.401188,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.75,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.97605,
+       "probwin": 0.9805,
+       "actual_voteshare": 56.47,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 40.42557,
+       "probwin": 0.01935,
+       "actual_voteshare": 37.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.598381,
+       "probwin": 0.00015,
+       "actual_voteshare": 4.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KS": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.74974,
+       "probwin": 0.97695,
+       "actual_voteshare": 56.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 38.80333,
+       "probwin": 0.0228,
+       "actual_voteshare": 35.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.736514,
+       "probwin": 0.00025,
+       "actual_voteshare": 4.64,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 56.2454,
+       "probwin": 0.99755,
+       "actual_voteshare": 62.52,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.64022,
+       "probwin": 0.0024,
+       "actual_voteshare": 32.68,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.385891,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.79,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "LA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.58212,
+       "probwin": 0.99505,
+       "actual_voteshare": 58.09,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 39.27367,
+       "probwin": 0.00495,
+       "actual_voteshare": 38.45,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.49114,
+       "probwin": 0.0,
+       "actual_voteshare": 1.87,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.61364,
+       "probwin": 0.001,
+       "actual_voteshare": 32.81,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 57.96048,
+       "probwin": 0.99895,
+       "actual_voteshare": 60.01,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.78969,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MD": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.20962,
+       "probwin": 0.0003,
+       "actual_voteshare": 33.91,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 59.74766,
+       "probwin": 0.9997,
+       "actual_voteshare": 60.33,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.396791,
+       "probwin": 0.0,
+       "actual_voteshare": 2.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 41.85257,
+       "probwin": 0.1582,
+       "actual_voteshare": 44.87,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.68332,
+       "probwin": 0.84175,
+       "actual_voteshare": 47.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.031981,
+       "probwin": 5e-05,
+       "actual_voteshare": 5.09,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME-1": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 38.91933,
+       "probwin": 0.07415,
+       "actual_voteshare": 39.15,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.13088,
+       "probwin": 0.92585,
+       "actual_voteshare": 53.96,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.382666,
+       "probwin": 0.0,
+       "actual_voteshare": 4.71,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ME-2": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.07792,
+       "probwin": 0.463,
+       "actual_voteshare": 51.26,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.88522,
+       "probwin": 0.53675,
+       "actual_voteshare": 40.98,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.755054,
+       "probwin": 0.00025,
+       "actual_voteshare": 5.52,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.15045,
+       "probwin": 0.19725,
+       "actual_voteshare": 47.25,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.46272,
+       "probwin": 0.80265,
+       "actual_voteshare": 47.03,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.064378,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.57,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.18398,
+       "probwin": 0.1469,
+       "actual_voteshare": 44.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.9179,
+       "probwin": 0.853,
+       "actual_voteshare": 46.44,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 6.636393,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.84,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MO": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.38393,
+       "probwin": 0.9663,
+       "actual_voteshare": 56.38,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 41.38502,
+       "probwin": 0.0336,
+       "actual_voteshare": 37.87,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.795048,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.44,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MS": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 54.4251,
+       "probwin": 0.98195,
+       "actual_voteshare": 57.86,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 41.36647,
+       "probwin": 0.01805,
+       "actual_voteshare": 40.06,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 2.674253,
+       "probwin": 0.0,
+       "actual_voteshare": 1.19,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.89268,
+       "probwin": 0.96435,
+       "actual_voteshare": 55.65,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.03648,
+       "probwin": 0.0351,
+       "actual_voteshare": 35.41,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 9.554145,
+       "probwin": 0.00055,
+       "actual_voteshare": 5.59,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.54924,
+       "probwin": 0.4508,
+       "actual_voteshare": 49.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.11918,
+       "probwin": 0.5492,
+       "actual_voteshare": 46.17,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.331574,
+       "probwin": 0.0,
+       "actual_voteshare": 2.74,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ND": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 56.95552,
+       "probwin": 0.98035,
+       "actual_voteshare": 62.96,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 34.27702,
+       "probwin": 0.01945,
+       "actual_voteshare": 27.23,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.126046,
+       "probwin": 0.0002,
+       "actual_voteshare": 6.22,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 54.61821,
+       "probwin": 0.9823,
+       "actual_voteshare": 58.75,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 36.55268,
+       "probwin": 0.01765,
+       "actual_voteshare": 33.7,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.103124,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.61,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-1": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 53.12688,
+       "probwin": 0.9023,
+       "actual_voteshare": 56.18,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.7336,
+       "probwin": 0.09735,
+       "actual_voteshare": 35.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.543936,
+       "probwin": 0.00035,
+       "actual_voteshare": 4.97,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-2": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.51839,
+       "probwin": 0.5836,
+       "actual_voteshare": 47.16,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.20407,
+       "probwin": 0.4163,
+       "actual_voteshare": 44.92,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.85534,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.54,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-3": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 63.1806,
+       "probwin": 0.9931,
+       "actual_voteshare": 73.92,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 26.71077,
+       "probwin": 0.0068,
+       "actual_voteshare": 19.73,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.936882,
+       "probwin": 0.0001,
+       "actual_voteshare": 4.32,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NH": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.95409,
+       "probwin": 0.2962,
+       "actual_voteshare": 46.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.52546,
+       "probwin": 0.7036,
+       "actual_voteshare": 46.83,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.293709,
+       "probwin": 0.0002,
+       "actual_voteshare": 4.14,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NJ": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 41.89762,
+       "probwin": 0.02685,
+       "actual_voteshare": 41.0,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.53021,
+       "probwin": 0.97315,
+       "actual_voteshare": 54.99,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.121938,
+       "probwin": 0.0,
+       "actual_voteshare": 1.86,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NM": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.85126,
+       "probwin": 0.15935,
+       "actual_voteshare": 40.04,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.73098,
+       "probwin": 0.83835,
+       "actual_voteshare": 48.26,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 13.08337,
+       "probwin": 0.0023,
+       "actual_voteshare": 9.34,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NV": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.86007,
+       "probwin": 0.41095,
+       "actual_voteshare": 45.5,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 47.11689,
+       "probwin": 0.589,
+       "actual_voteshare": 47.92,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.760575,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.32,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 37.67248,
+       "probwin": 0.00185,
+       "actual_voteshare": 36.51,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 56.88475,
+       "probwin": 0.99815,
+       "actual_voteshare": 59.0,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.760484,
+       "probwin": 0.0,
+       "actual_voteshare": 2.29,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OH": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.63148,
+       "probwin": 0.64285,
+       "actual_voteshare": 51.31,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 45.81833,
+       "probwin": 0.3571,
+       "actual_voteshare": 43.24,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.337712,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OK": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.38721,
+       "probwin": 0.99965,
+       "actual_voteshare": 65.32,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 33.05524,
+       "probwin": 0.00025,
+       "actual_voteshare": 28.93,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.557553,
+       "probwin": 0.0001,
+       "actual_voteshare": 5.75,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OR": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 41.77658,
+       "probwin": 0.06185,
+       "actual_voteshare": 39.09,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 50.90629,
+       "probwin": 0.9381,
+       "actual_voteshare": 50.07,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.949836,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.71,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "PA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.23991,
+       "probwin": 0.2259,
+       "actual_voteshare": 48.17,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 48.94205,
+       "probwin": 0.77405,
+       "actual_voteshare": 47.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.589243,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.38,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "RI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.15941,
+       "probwin": 0.05165,
+       "actual_voteshare": 38.9,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 54.32302,
+       "probwin": 0.9483,
+       "actual_voteshare": 54.41,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.841898,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.18,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 50.88193,
+       "probwin": 0.90965,
+       "actual_voteshare": 54.94,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 43.73303,
+       "probwin": 0.0903,
+       "actual_voteshare": 40.67,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 3.889008,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.34,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SD": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 53.0364,
+       "probwin": 0.94795,
+       "actual_voteshare": 61.53,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 37.4609,
+       "probwin": 0.05175,
+       "actual_voteshare": 31.74,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 7.885479,
+       "probwin": 0.0003,
+       "actual_voteshare": 5.63,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "TN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 53.30716,
+       "probwin": 0.98035,
+       "actual_voteshare": 60.72,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 40.90825,
+       "probwin": 0.0196,
+       "actual_voteshare": 34.72,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.099533,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.81,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "TX": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 51.16583,
+       "probwin": 0.9495,
+       "actual_voteshare": 52.1,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 42.34614,
+       "probwin": 0.0504,
+       "actual_voteshare": 43.12,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.891098,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.15,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "US": [
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.2818,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.7177,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 5e-05,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "I",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.00045,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "UT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 37.58141,
+       "probwin": 0.8433,
+       "actual_voteshare": 45.05,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 26.39847,
+       "probwin": 0.02685,
+       "actual_voteshare": 27.17,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.888923,
+       "probwin": 0.00015,
+       "actual_voteshare": 3.46,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "I",
+       "candidate": "Mcmullin",
+       "projected_voteshare": 27.92174,
+       "probwin": 0.1297,
+       "actual_voteshare": 21.31,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.30508,
+       "probwin": 0.1417,
+       "actual_voteshare": 44.43,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.81879,
+       "probwin": 0.85825,
+       "actual_voteshare": 49.75,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.686071,
+       "probwin": 5e-05,
+       "actual_voteshare": 2.97,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 32.59337,
+       "probwin": 0.01475,
+       "actual_voteshare": 30.27,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 60.33149,
+       "probwin": 0.98525,
+       "actual_voteshare": 56.68,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.219448,
+       "probwin": 0.0,
+       "actual_voteshare": 3.2,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.92086,
+       "probwin": 0.0159,
+       "actual_voteshare": 36.83,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 53.1858,
+       "probwin": 0.98405,
+       "actual_voteshare": 52.54,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.477711,
+       "probwin": 5e-05,
+       "actual_voteshare": 4.85,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.25539,
+       "probwin": 0.15885,
+       "actual_voteshare": 47.22,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 49.60307,
+       "probwin": 0.8411,
+       "actual_voteshare": 46.45,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 4.860643,
+       "probwin": 5e-05,
+       "actual_voteshare": 3.58,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WV": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.74635,
+       "probwin": 0.9982,
+       "actual_voteshare": 67.85,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 33.3923,
+       "probwin": 0.0017,
+       "actual_voteshare": 26.18,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 5.080784,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.19,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 62.37175,
+       "probwin": 0.99145,
+       "actual_voteshare": 68.17,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Clinton",
+       "projected_voteshare": 27.30926,
+       "probwin": 0.0083,
+       "actual_voteshare": 21.88,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "L",
+       "candidate": "Johnson",
+       "projected_voteshare": 8.212148,
+       "probwin": 0.00025,
+       "actual_voteshare": 5.19,
+       "probwin_outcome": 0.0
+      }
+     ]
+    }
+   }
+  },
+  "2020": {
+   "polls-plus": {
+    "forecast_date": "2020-11-03",
+    "units": {
+     "AK": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 52.94961,
+       "probwin": 0.8505,
+       "actual_voteshare": 52.83314327038078,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 44.49561,
+       "probwin": 0.1495,
+       "actual_voteshare": 42.771952271020496,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.61611,
+       "probwin": 0.98355,
+       "actual_voteshare": 62.031643166864804,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 39.61551,
+       "probwin": 0.01645,
+       "actual_voteshare": 36.569990212122335,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AR": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 60.45607,
+       "probwin": 0.9898,
+       "actual_voteshare": 62.39572985614432,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 37.77481,
+       "probwin": 0.0102,
+       "actual_voteshare": 34.77506195301496,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "AZ": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 48.08638,
+       "probwin": 0.319775,
+       "actual_voteshare": 49.05598103046474,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 50.67472,
+       "probwin": 0.680225,
+       "actual_voteshare": 49.364690614366616,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "CA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.11211,
+       "probwin": 0.001425,
+       "actual_voteshare": 34.32072362528492,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 64.0617,
+       "probwin": 0.998575,
+       "actual_voteshare": 63.48394689387351,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "CO": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 42.82203,
+       "probwin": 0.03165,
+       "actual_voteshare": 41.8979238435606,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 54.53553,
+       "probwin": 0.96835,
+       "actual_voteshare": 55.3995419069199,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "CT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 37.54163,
+       "probwin": 0.0008,
+       "actual_voteshare": 39.18759098273693,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 61.57642,
+       "probwin": 0.9992,
+       "actual_voteshare": 59.26144634794266,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "DC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 5.411063,
+       "probwin": 0.0,
+       "actual_voteshare": 5.397321376714795,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 91.27472,
+       "probwin": 1.0,
+       "actual_voteshare": 92.14969392140692,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "DE": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 36.64574,
+       "probwin": 5e-05,
+       "actual_voteshare": 39.77653298963962,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 62.27551,
+       "probwin": 0.99995,
+       "actual_voteshare": 58.745451841570414,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "FL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 48.41641,
+       "probwin": 0.309,
+       "actual_voteshare": 51.21981962250403,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 50.88105,
+       "probwin": 0.691,
+       "actual_voteshare": 47.86145072544223,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "GA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 49.15166,
+       "probwin": 0.418475,
+       "actual_voteshare": 49.2374738997912,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 50.1039,
+       "probwin": 0.581525,
+       "actual_voteshare": 49.473055784446274,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "HI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 30.90714,
+       "probwin": 0.006275,
+       "actual_voteshare": 34.26886394217965,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 67.53033,
+       "probwin": 0.993725,
+       "actual_voteshare": 63.73363923901899,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "IA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 49.96206,
+       "probwin": 0.6013,
+       "actual_voteshare": 53.089324969202266,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 48.49138,
+       "probwin": 0.3987,
+       "actual_voteshare": 44.89171557144218,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ID": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.47557,
+       "probwin": 0.994375,
+       "actual_voteshare": 63.837564831903634,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 37.50751,
+       "probwin": 0.005625,
+       "actual_voteshare": 33.06640215480395,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "IL": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 40.38817,
+       "probwin": 0.0007,
+       "actual_voteshare": 40.55344409706477,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 58.27946,
+       "probwin": 0.9993,
+       "actual_voteshare": 57.541635840035646,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "IN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 54.7612,
+       "probwin": 0.96445,
+       "actual_voteshare": 57.021101367205596,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 43.98542,
+       "probwin": 0.03555,
+       "actual_voteshare": 40.9616365453274,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KS": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.71799,
+       "probwin": 0.985525,
+       "actual_voteshare": 56.212512834264736,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 42.49542,
+       "probwin": 0.014475,
+       "actual_voteshare": 41.55955353883217,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "KY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 58.40049,
+       "probwin": 0.9858,
+       "actual_voteshare": 62.08657186929044,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 40.39526,
+       "probwin": 0.0142,
+       "actual_voteshare": 36.15151481115404,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "LA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 58.77507,
+       "probwin": 0.97115,
+       "actual_voteshare": 58.46088241400853,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 40.21692,
+       "probwin": 0.02885,
+       "actual_voteshare": 39.85145680152621,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 31.83414,
+       "probwin": 0.000525,
+       "actual_voteshare": 32.14191103050557,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 66.6557,
+       "probwin": 0.999475,
+       "actual_voteshare": 65.6000630059685,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MD": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 33.63115,
+       "probwin": 0.00045,
+       "actual_voteshare": 32.15029156774876,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 64.98491,
+       "probwin": 0.99955,
+       "actual_voteshare": 65.36066486007711,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "ME": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.36839,
+       "probwin": 0.098825,
+       "actual_voteshare": 44.021252994346284,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 55.16259,
+       "probwin": 0.901175,
+       "actual_voteshare": 53.09245955573236,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "ME-1": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 38.81877,
+       "probwin": 0.027225,
+       "actual_voteshare": 37.02111430067342,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 59.8029,
+       "probwin": 0.972775,
+       "actual_voteshare": 60.114824243080754,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "ME-2": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 48.40912,
+       "probwin": 0.42745,
+       "actual_voteshare": 52.263191877751765,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 50.02139,
+       "probwin": 0.57255,
+       "actual_voteshare": 44.82435186489136,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.51814,
+       "probwin": 0.053175,
+       "actual_voteshare": 47.83729069113762,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 53.50359,
+       "probwin": 0.946825,
+       "actual_voteshare": 50.62081829082437,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.63279,
+       "probwin": 0.0419,
+       "actual_voteshare": 45.28494240916937,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 53.70286,
+       "probwin": 0.9581,
+       "actual_voteshare": 52.39509930974001,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "MO": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 54.06274,
+       "probwin": 0.93635,
+       "actual_voteshare": 56.79965577888949,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 44.63382,
+       "probwin": 0.06365,
+       "actual_voteshare": 41.40878173618836,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MS": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 56.7873,
+       "probwin": 0.91515,
+       "actual_voteshare": 57.60295457538255,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 42.47904,
+       "probwin": 0.08485,
+       "actual_voteshare": 41.05760645597861,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "MT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 52.21243,
+       "probwin": 0.8197,
+       "actual_voteshare": 56.91865781417723,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 45.86065,
+       "probwin": 0.1803,
+       "actual_voteshare": 40.5495037039982,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 48.76913,
+       "probwin": 0.360675,
+       "actual_voteshare": 49.93435061225701,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 50.53209,
+       "probwin": 0.639325,
+       "actual_voteshare": 48.586194188970325,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "ND": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 59.62574,
+       "probwin": 0.975925,
+       "actual_voteshare": 65.11404873707572,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 37.92917,
+       "probwin": 0.024075,
+       "actual_voteshare": 31.756762359080092,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 58.17965,
+       "probwin": 0.994375,
+       "actual_voteshare": 58.22416333205421,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 40.18031,
+       "probwin": 0.005625,
+       "actual_voteshare": 39.166630941787965,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-1": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.27732,
+       "probwin": 0.96075,
+       "actual_voteshare": 56.010513038777695,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 43.10801,
+       "probwin": 0.03925,
+       "actual_voteshare": 41.089391896509945,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NE-2": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.76451,
+       "probwin": 0.283125,
+       "actual_voteshare": 45.449647594990374,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 51.00265,
+       "probwin": 0.716875,
+       "actual_voteshare": 51.95338950616194,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NE-3": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 72.46109,
+       "probwin": 0.99975,
+       "actual_voteshare": 75.35808649701015,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 25.43194,
+       "probwin": 0.00025,
+       "actual_voteshare": 22.336185814924484,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "NH": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 44.21028,
+       "probwin": 0.10915,
+       "actual_voteshare": 45.355709776049515,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 54.83103,
+       "probwin": 0.89085,
+       "actual_voteshare": 52.70830620003597,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NJ": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.4347,
+       "probwin": 0.007975,
+       "actual_voteshare": 41.396523857348505,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 59.74265,
+       "probwin": 0.992025,
+       "actual_voteshare": 57.334196752812986,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NM": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 42.57364,
+       "probwin": 0.02245,
+       "actual_voteshare": 43.49666924612946,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 55.60472,
+       "probwin": 0.97755,
+       "actual_voteshare": 54.289285849572224,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NV": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 46.2142,
+       "probwin": 0.1219,
+       "actual_voteshare": 47.66624732455941,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 52.33038,
+       "probwin": 0.8781,
+       "actual_voteshare": 50.056781957284024,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "NY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 34.95478,
+       "probwin": 0.0001,
+       "actual_voteshare": 3.439941657923034,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 64.0599,
+       "probwin": 0.9999,
+       "actual_voteshare": 56.37083287084579,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "OH": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 49.79167,
+       "probwin": 0.546725,
+       "actual_voteshare": 53.27130010087464,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 49.20341,
+       "probwin": 0.453275,
+       "actual_voteshare": 45.239338340705025,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OK": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 62.08282,
+       "probwin": 0.994275,
+       "actual_voteshare": 65.37327184806296,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 36.85556,
+       "probwin": 0.005725,
+       "actual_voteshare": 32.28617433598664,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "OR": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 39.26668,
+       "probwin": 0.01845,
+       "actual_voteshare": 40.367246046343354,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 58.69598,
+       "probwin": 0.98155,
+       "actual_voteshare": 56.45331865404888,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "PA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 47.32639,
+       "probwin": 0.1569,
+       "actual_voteshare": 48.84361204017247,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 51.97831,
+       "probwin": 0.8431,
+       "actual_voteshare": 50.00849567544814,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "RI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 35.66851,
+       "probwin": 0.00085,
+       "actual_voteshare": 38.61309455980315,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 62.93514,
+       "probwin": 0.99915,
+       "actual_voteshare": 59.38809132469479,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "SC": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 53.37519,
+       "probwin": 0.899975,
+       "actual_voteshare": 55.11029395674024,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 45.88095,
+       "probwin": 0.100025,
+       "actual_voteshare": 43.430088142061784,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "SD": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 57.79984,
+       "probwin": 0.948125,
+       "actual_voteshare": 61.76938967225024,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 40.80887,
+       "probwin": 0.051875,
+       "actual_voteshare": 35.60525213613529,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "TN": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 57.25942,
+       "probwin": 0.967525,
+       "actual_voteshare": 60.66029416628381,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 41.55495,
+       "probwin": 0.032475,
+       "actual_voteshare": 37.4514342710237,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "TX": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 50.30484,
+       "probwin": 0.617525,
+       "actual_voteshare": 52.05760360355265,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 48.78954,
+       "probwin": 0.382475,
+       "actual_voteshare": 46.47900991387051,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "US": [
+      {
+       "party": "R",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.1039,
+       "actual_voteshare": null,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": null,
+       "projected_voteshare": null,
+       "probwin": 0.8916,
+       "actual_voteshare": null,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "UT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 55.45525,
+       "probwin": 0.9544,
+       "actual_voteshare": 58.129839029919594,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 41.69538,
+       "probwin": 0.0456,
+       "actual_voteshare": 37.64604858330606,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "VA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 43.28946,
+       "probwin": 0.009775,
+       "actual_voteshare": 43.99550366728214,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 55.77469,
+       "probwin": 0.990225,
+       "actual_voteshare": 54.109517177802424,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "VT": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 29.07018,
+       "probwin": 0.004025,
+       "actual_voteshare": 30.67376465593259,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 67.17892,
+       "probwin": 0.995975,
+       "actual_voteshare": 66.08641693066397,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "WA": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 37.00352,
+       "probwin": 0.00845,
+       "actual_voteshare": 38.766977743343276,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 60.76666,
+       "probwin": 0.99155,
+       "actual_voteshare": 57.97030113530306,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "WI": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 45.37802,
+       "probwin": 0.056425,
+       "actual_voteshare": 48.822437319608824,
+       "probwin_outcome": 0.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 53.68898,
+       "probwin": 0.943575,
+       "actual_voteshare": 49.44953686142774,
+       "probwin_outcome": 1.0
+      }
+     ],
+     "WV": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 64.48556,
+       "probwin": 0.992825,
+       "actual_voteshare": 68.62827014307466,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 33.77089,
+       "probwin": 0.007175,
+       "actual_voteshare": 29.695101234443623,
+       "probwin_outcome": 0.0
+      }
+     ],
+     "WY": [
+      {
+       "party": "R",
+       "candidate": "Trump",
+       "projected_voteshare": 65.7776,
+       "probwin": 0.998375,
+       "actual_voteshare": 69.9362274854118,
+       "probwin_outcome": 1.0
+      },
+      {
+       "party": "D",
+       "candidate": "Biden",
+       "projected_voteshare": 31.04658,
+       "probwin": 0.001625,
+       "actual_voteshare": 26.553574332014524,
+       "probwin_outcome": 0.0
+      }
+     ]
+    }
+   }
+  }
+ }
+}
