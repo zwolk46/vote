@@ -8,12 +8,12 @@
 // finger with no easing; V4 a figure changes at once. Under reduced motion each is at its end at once.
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { anchor } from '../data/real.js';
-import { sampleTotal } from '../data/sample.js';
+import { sampleTotal, UNIT } from '../data/sample.js';
 import { money, oneIn, pct, count, tick, tickShort } from '../lib/format.js';
 import { useMedia, DESKTOP, useColours } from '../lib/media.js';
-import { tween, play } from '../lib/motion.js';
+import { play, reducedMotion, springValue, TOKENS } from '../lib/motion.js';
 import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar } from '../components/Lead.jsx';
-import { useRows, LO, HI } from '../components/Field.jsx';
+import { useGroups, stacks, pitchFor, orderOf, STAGGER, LO, HI } from '../components/Field.jsx';
 import { Seg } from '../components/Seg.jsx';
 import { Boundary } from '../components/Boundary.jsx';
 import './ballot.css';
@@ -81,7 +81,7 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
         <section class="bt-ballot" aria-labelledby="bt-b">
           <div class="bt-bh">
             <h2 id="bt-b">Your ballot</h2>
-            <span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests behind its lines</span>
+            <span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests behind its lines, a dot for each {UNIT}</span>
           </div>
           <div class="bt-where"><span class="src">Where you vote for president</span><Seg label="Where you vote for president" options={WHERE} value={where} onChange={setWhere} /></div>
           <Boundary what="The ballot" fallback={() => <p class="muted">The ballot could not be drawn.</p>}>
@@ -95,10 +95,12 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
   );
 }
 
-// The lines, each with its contests behind it. A new cost redraws the dots at their new places and moves each line's
-// layer from where it stood, one transform per line (V2); the reading redraws the dots frame by frame (V3).
+// The lines, each with its contests behind it, drawn as the first screen's field draws them (components/Field.jsx,
+// after the midterms swarms): whole dots, one for 100 sample contests, stacked up from the line's base. A new cost
+// redraws the dots at their new places and moves each line's layer from where it stood, one transform per line (V2);
+// the reading moves each dot to its new place, the nearest the cost first (V3).
 function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setFocus }) {
-  const rows = useRows();
+  const rows = useGroups();
   const colours = useColours();
   const first = useRef(null);
   const [w, setW] = useState(0);
@@ -108,41 +110,68 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
     return () => ro.disconnect();
   }, []);
   const wide = useMedia('(min-width: 1100px)');   // the line in one row (ballot.css)
-  const H = wide ? 36 : 30;
+  const H = wide ? 32 : 28, r = wide ? 2 : 1.6;
   const cvs = useRef([]), layers = useRef([]), ticks = useRef([]);
-  const m = useRef(reading === 'person' ? 1 : 0);
-  const owner = useRef({});
+  const lay = useMemo(() => {
+    if (!w) return null;
+    return lines.map(l => {
+      const R = rows.find(x => x.id === l.level);
+      const you = stacks(R.you, w, r), person = stacks(R.person, w, r);
+      return { you: you.at, person: person.at, pitch: pitchFor(Math.max(you.rows, person.rows), r, H - 2), order: orderOf(R.you) };
+    });
+  }, [rows, w, r, H]);
+  const cur = useRef({ m: null, mm: reading === 'person' ? 1 : 0 });
+  const owner = useRef({ raf: 0 });
   const lc = Math.log10(C);
+  const ensure = () => { if (lay && (!cur.current.m || cur.current.m.length !== lay.length)) cur.current.m = lay.map(L => new Float32Array(L.you.length).fill(cur.current.mm)); };
 
   const draw = () => {
-    if (!w || !colours) return;
+    if (!w || !colours || !lay) return;
+    ensure();
     const dpr = Math.min(2, window.devicePixelRatio || 1);
-    const s = desk ? 1.8 : 1.5, sc = colours.dotA / 0.32, mm = m.current;
+    const x0 = (at(lc) / 100) * w;
+    let mix = 0, n = 0;
     lines.forEach((l, i) => {
       const el = cvs.current[i]; if (!el) return;
       if (el.width !== Math.round(w * dpr) || el.height !== Math.round(H * dpr)) { el.width = Math.round(w * dpr); el.height = Math.round(H * dpr); }
       const ctx = el.getContext('2d');
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, H);
-      const r = rows.find(x => x.id === l.level);
-      ctx.fillStyle = colours.dot; ctx.globalAlpha = Math.min(0.3, Math.max(0.03, 5 / Math.sqrt(r.count))) * sc;   // faint: behind the line, not the line
-      const { logN, logPop, yU, yP } = r, cy = H / 2, hh = H - 4;
-      for (let k = 0; k < logN.length; k++) {
-        const x = (at(lc + logN[k] - mm * logPop[k]) / 100) * w, y = cy + (yU[k] + (yP[k] - yU[k]) * mm) * hh;
-        ctx.fillRect(x - s / 2, y - s / 2, s, s);
+      const L = lay[i], M = cur.current.m[i];
+      ctx.fillStyle = colours.dot;
+      for (let k = 0; k < L.you.length; k++) {
+        const a = L.you[k], b = L.person[k], m = M[k];
+        mix += m; n++;
+        const x = x0 + a.dx + (b.dx - a.dx) * m, y = H - r - 1 - (a.k + (b.k - a.k) * m) * L.pitch;
+        if (x < -r || x > w + r) continue;
+        ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill();
       }
-      const t = ticks.current[i];
-      if (t && l.a) t.style.left = `${at(lc + Math.log10(l.a.N) - mm * Math.log10(l.a.pop.value))}%`;
     });
+    const mm = n ? mix / n : 0;
+    cur.current.mm = mm;
+    lines.forEach((l, i) => { const t = ticks.current[i]; if (t && l.a) t.style.left = `${at(lc + Math.max(LO, Math.min(HI, Math.log10(l.a.N) - mm * Math.log10(l.a.pop.value))))}%`; });
   };
-  useEffect(draw, [w, H, desk, colours, lines.map(l => l.a?.id).join()]);
+  useEffect(() => { if (!owner.current.raf) draw(); }, [w, H, desk, colours, lay, lines.map(l => l.a?.id).join()]);
+  useEffect(() => () => cancelAnimationFrame(owner.current.raf), []);
 
-  // V3: the reading
+  // V3: the reading, every dot on the spring, the nearest the cost first (Field.jsx's loop)
   const firstRun = useRef(true);
   useEffect(() => {
     if (firstRun.current) { firstRun.current = false; return; }
-    const from = m.current, to = reading === 'person' ? 1 : 0;
-    tween(owner.current, 'chart', f => { m.current = from + (to - from) * f; draw(); });
+    if (!lay) return;
+    ensure();
+    cancelAnimationFrame(owner.current.raf); owner.current.raf = 0;
+    const to = reading === 'person' ? 1 : 0, from = cur.current.m.map(M => Float32Array.from(M));
+    const set = (i, k, v) => { cur.current.m[i][k] = from[i][k] + (to - from[i][k]) * v; };
+    if (reducedMotion()) { lay.forEach((L, i) => { for (let k = 0; k < L.you.length; k++) set(i, k, 1); }); draw(); return; }
+    const total = TOKENS.chart.duration, st = STAGGER.chart, slide = total - st, t0 = performance.now();
+    const step = t => {
+      const e = t - t0; let live = false;
+      lay.forEach((L, i) => { for (let k = 0; k < L.you.length; k++) { const q = (e - L.order[k] * st) / slide; if (q < 1) live = true; set(i, k, springValue(Math.max(0, Math.min(1, q)))); } });
+      draw();
+      owner.current.raf = live ? requestAnimationFrame(step) : 0;
+    };
+    owner.current.raf = requestAnimationFrame(step);
   }, [reading]);
 
   // V2: the cost moves each line's layer by one distance
@@ -176,7 +205,8 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
               <div class="bt-track" ref={i === 0 ? first : null}>
                 <div class="bt-layer" ref={el => { layers.current[i] = el; }}>
                   <canvas ref={el => { cvs.current[i] = el; }} class="bt-c" style={{ width: `${w}px`, height: `${H}px` }} aria-hidden="true" />
-                  {l.a ? <span class="bt-bstar" ref={el => { ticks.current[i] = el; }} style={{ left: `${at(lc + Math.log10(l.a.N) - m.current * Math.log10(l.a.pop.value))}%` }} aria-hidden="true" /> : null}
+                  <span class="bt-base" style={{ top: `${H}px` }} aria-hidden="true" />
+                  {l.a ? <span class="bt-bstar" ref={el => { ticks.current[i] = el; }} style={{ left: `${at(lc + Math.max(LO, Math.min(HI, Math.log10(l.a.N) - cur.current.mm * Math.log10(l.a.pop.value))))}%`, height: `${H}px` }} aria-hidden="true" /> : null}
                 </div>
                 {l.a
                   ? <input type="range" class={`bt-range${v == null ? ' unset' : ''}`} min={LO} max={HI} step="0.01" value={v ?? LO}
@@ -192,7 +222,7 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
           );
         })}
       </ol>
-      <p class="src bt-srcs">Gelman, Silver and Edlin, Economic Inquiry, 2012 (the presidency, 2008). Mulligan and Hunter, Public Choice, 2003 (the House). The town race is the model’s stylised example. The faint dots behind each line are sample contests, invented until the data lands; the mark on each track is its figure. Read 7 November 2026.</p>
+      <p class="src bt-srcs">Gelman, Silver and Edlin, Economic Inquiry, 2012 (the presidency, 2008). Mulligan and Hunter, Public Choice, 2003 (the House). The town race is the model’s stylised example. The grey dots on each line are sample contests, a dot for each 100, invented until the data lands; the upright mark on each line is its figure. Read 7 November 2026.</p>
     </>
   );
 }

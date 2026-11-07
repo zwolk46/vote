@@ -18,7 +18,7 @@
 .field { position: relative; width: 100%; }
 .field-c { position: absolute; left: 0; top: 0; display: block; touch-action: pan-y; }
 .field-row { position: absolute; left: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: var(--t-src); pointer-events: none; }
-.field-n { color: var(--fg); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; background: var(--bg); padding-right: 6px; }
+.field-n { color: var(--fg); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex-shrink: 0; background: var(--bg); padding-right: 6px; }
 .field-k { background: var(--bg); padding-left: 6px; }
 .field-k { color: var(--faint); white-space: nowrap; }
 @media (min-width: 900px) {

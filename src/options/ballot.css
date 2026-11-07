@@ -29,21 +29,22 @@
 .bt-fig[aria-pressed="true"] { text-decoration: none; }
 .bt-fig.none { font-weight: 400; color: var(--faint); font-size: var(--t-src); text-decoration: none; cursor: default; }
 .bt-ctx { grid-area: ctx; font-size: var(--t-src); color: var(--muted); }
-.bt-track { grid-area: track; position: relative; height: 30px; margin: 6px 0 2px; overflow: hidden; border-radius: 2px; }
-.bt-track::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--line); }
+.bt-track { grid-area: track; position: relative; height: 44px; margin: 6px 0 0; overflow: hidden; }
+.bt-base { position: absolute; left: 0; right: 0; height: 1px; background: var(--line-strong); }
 .bt-layer { position: absolute; inset: 0; will-change: transform; }
 .bt-c { position: absolute; left: 0; top: 0; display: block; }
-.bt-bstar { position: absolute; top: 2px; bottom: 2px; width: 2px; margin-left: -1px; background: var(--fg); border-radius: 1px; outline: 1.5px solid var(--bg); }
+.bt-bstar { position: absolute; top: 0; width: 2px; margin-left: -1px; background: var(--fg); border-radius: 1px; outline: 1.5px solid var(--bg); }
 .bt-worth { grid-area: worth; font-size: var(--t-src); }
 .bt-worth b { font-weight: 600; }
 .bt-share { grid-area: share; font-size: var(--t-src); font-weight: 600; text-align: right; }
 .bt-srcs { margin-top: 12px; }
 
 /* the stake: a native range over the whole track, its thumb the reader's own mark (the accent means "you") */
-.bt-range { -webkit-appearance: none; appearance: none; position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; background: transparent; cursor: pointer; touch-action: pan-y; }
+/* over the line's base, its thumb on the base line, so the stake is set on the same ruler as the dots and the figure */
+.bt-range { -webkit-appearance: none; appearance: none; position: absolute; left: 0; right: 0; top: 12px; width: 100%; height: 32px; margin: 0; background: transparent; cursor: pointer; touch-action: pan-y; }
 .bt-range::-webkit-slider-runnable-track { height: 100%; background: transparent; border: 0; }
 .bt-range::-moz-range-track { height: 100%; background: transparent; border: 0; }
-.bt-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; margin-top: 7px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+.bt-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; margin-top: 8px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
 .bt-range::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
 .bt-range.unset::-webkit-slider-thumb { background: var(--bg); border: 1.5px solid var(--accent); }
 .bt-range.unset::-moz-range-thumb { background: var(--bg); border: 1.5px solid var(--accent); }
@@ -77,7 +78,7 @@
   .bt-n { display: block; color: var(--faint); }
   .bt-n .sep { display: none; }
   .bt-line { display: grid; grid-template-columns: 210px minmax(0, 1fr) 120px; grid-template-areas: "name track fig" "ctx worth share"; column-gap: 12px; row-gap: 0; align-items: center; }
-  .bt-track { height: 36px; margin: 0; }
-  .bt-range::-webkit-slider-thumb { margin-top: 10px; }
+  .bt-track { height: 48px; margin: 0; }
+  .bt-range { top: 16px; }
   .bt-ctx, .bt-worth, .bt-share { align-self: start; padding-top: 2px; }
 }

@@ -5,7 +5,7 @@
 // a contest is chosen without aiming at a dot.
 import { useState } from 'preact/hooks';
 import { ANCHORS, anchor } from '../data/real.js';
-import { sampleTotal } from '../data/sample.js';
+import { sampleTotal, UNIT } from '../data/sample.js';
 import { money } from '../lib/format.js';
 import { useMedia, DESKTOP } from '../lib/media.js';
 import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar } from '../components/Lead.jsx';
@@ -31,7 +31,7 @@ export function Ruler({ C, minutes, wage, setCost, reading, setReading }) {
         <p class="oneq">{ONE_Q}</p>
       </section>
       <section class="ra-field" aria-labelledby="ra-f">
-        <div class="ra-fh"><h2 id="ra-f">Every contest</h2><span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests</span></div>
+        <div class="ra-fh"><h2 id="ra-f">Every contest</h2><span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests, a dot for each {UNIT}</span></div>
         <Boundary what="The field of contests" fallback={() => <p class="muted">The field could not be drawn.</p>}>
           <Field C={C} reading={reading} sel={sel} onSel={setSel} desk={desk} />
         </Boundary>

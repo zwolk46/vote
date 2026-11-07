@@ -54,3 +54,29 @@ export function sampleField() {
   return out;
 }
 export const sampleTotal = () => Object.values(sampleField()).reduce((s, l) => s + l.count, 0);
+
+// The sample field as the page draws it: one dot for every UNIT contests of a level, so each dot can be seen and
+// counted (the midterms price and swing swarms, zwolk46/midterms src/components/Prices.jsx and Swing.jsx: every mark
+// a whole dot, stacked in its bin, never a texture). The contests of a level are put in order of N and taken UNIT at a
+// time; a dot stands at the middle (median) contest of its group, in each reading.
+export const UNIT = 100;
+let gcache = null;
+export function sampleGroups() {
+  if (gcache) return gcache;
+  const out = {};
+  for (const [level, d] of Object.entries(sampleField())) {
+    const idx = Array.from({ length: d.count }, (_, i) => i).sort((a, b) => d.logN[a] - d.logN[b]);
+    const G = Math.ceil(d.count / UNIT);
+    const you = new Float32Array(G), person = new Float32Array(G), size = new Uint16Array(G);
+    for (let g = 0; g < G; g++) {
+      const m = idx.slice(g * UNIT, Math.min(d.count, (g + 1) * UNIT));
+      const med = a => { a.sort((x, y) => x - y); const k = a.length >> 1; return a.length % 2 ? a[k] : (a[k - 1] + a[k]) / 2; };
+      you[g] = med(m.map(i => d.logN[i]));
+      person[g] = med(m.map(i => d.logN[i] - d.logPop[i]));
+      size[g] = m.length;
+    }
+    out[level] = { count: d.count, you, person, size };
+  }
+  gcache = out;
+  return out;
+}

@@ -22,7 +22,7 @@
   --panel: #f2f1ed; --hover: #ebe9e4; --track: #eae8e3; --band: #faf2d8;
   --warn: #8a5a00; --warn-t: #fbf1dc;
   --accent: #1f3a6e;            /* "you": the reader's own cost and the contest in focus, nothing else (§2.10) */
-  --dot: #16181b; --dot-a: 0.32;  /* a contest; its alpha so that density reads as darkness (§2.2) */
+  --dot: #8a8e95; --dot-a: 1;  /* a dot of sample contests: a whole grey dot, 3:1 on the page (the midterms swarms' whole dots) */
   --logo-red: #c2433a; --logo-navy: #1f3a6e; --logo-white: #ffffff; --logo-edge: rgba(0, 0, 0, 0.08);
   --gutter: 16px; --maxw: 1240px;
   --fs: 15px;
@@ -34,7 +34,7 @@
     --panel: #1a1b1e; --hover: #222428; --track: #26282c; --band: #2c2716;
     --warn: #e2b259; --warn-t: #2d2412;
     --accent: #8fb0ea;
-    --dot: #ecebe7; --dot-a: 0.36;
+    --dot: #80858d; --dot-a: 1;
     --logo-edge: rgba(255, 255, 255, 0.08);
     color-scheme: dark;
   }
@@ -44,7 +44,7 @@
   --panel: #1a1b1e; --hover: #222428; --track: #26282c; --band: #2c2716;
   --warn: #e2b259; --warn-t: #2d2412;
   --accent: #8fb0ea;
-  --dot: #ecebe7; --dot-a: 0.36;
+  --dot: #80858d; --dot-a: 1;
   --logo-edge: rgba(255, 255, 255, 0.08);
   color-scheme: dark;
 }

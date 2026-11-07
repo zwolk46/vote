@@ -11,6 +11,7 @@
 //   W=320,360,390,430,900,1000,1100,1280,1440   widths      S=1,1.3,1.6,2   phone text scales (a desktop is checked at 1)
 //   SCHEMES=light,dark      FAST=1 (390 and 900 and 1280; 1x and 2x)      ONLY=a,b-set   views by name
 //   SHOTS=dir               a screenshot of each failing view               MAX=8   findings printed per view
+// The short screens 390 x 664, 360 x 640 and 1280 x 720 are run too, unless W is given.
 // Playwright is the machine's (the cloud sessions have it); nothing is added to package.json.
 const path = require('node:path');
 const fs = require('node:fs');
@@ -27,6 +28,7 @@ const ONLY = process.env.ONLY ? new Set(process.env.ONLY.split(',')) : null;
 const MAX = Number(process.env.MAX || 8);
 const SHOTS = process.env.SHOTS || null;
 const DESK = 900;
+const SHORT = [[390, 664], [360, 640], [1280, 720]];
 
 // The views: each candidate as it arrives, and in the state where it shows the most (the other reading; stakes set and
 // the trip filled; the field scrolled to a stop), since what a state shows is only measured when it is shown.
@@ -58,10 +60,14 @@ const installScale = s => `(() => { const scale = ${scaleText.toString()}; const
   let fails = 0, views = 0;
   const t0 = Date.now();
   for (const scheme of SCHEMES) {
-    for (const w of WIDTHS) {
-      const scales = w >= DESK ? [1] : SCALES;
-      for (const s of scales) {
-        const ctx = await browser.newContext({ viewport: { width: w, height: w >= DESK ? 900 : 760 }, colorScheme: scheme, deviceScaleFactor: 1, hasTouch: w < DESK });
+    // each width at each of its text sizes, then the short screens (M-spec s.23) at 1x, where what is held in view (the
+    // ballot's trip, the field of runs) takes the largest share of the screen
+    const combos = [];
+    for (const w of WIDTHS) for (const s of (w >= DESK ? [1] : SCALES)) combos.push([w, w >= DESK ? 900 : 760, s]);
+    if (!process.env.W) combos.push(...SHORT.map(([w, h]) => [w, h, 1]));
+    for (const [w, h, s] of combos) {
+      {
+        const ctx = await browser.newContext({ viewport: { width: w, height: h }, colorScheme: scheme, deviceScaleFactor: 1, hasTouch: w < DESK });
         await ctx.addInitScript(installScale(s));
         for (const v of VIEWS) {
           const page = await ctx.newPage();
@@ -81,7 +87,7 @@ const installScale = s => `(() => { const scale = ${scaleText.toString()}; const
           }
           for (const e of errs) res.out.push({ kind: 'error', what: e.slice(0, 160) });
           views++;
-          const label = `${v.name} ${w}px ${s}x ${scheme}`;
+          const label = `${v.name} ${w}x${h} ${s}x ${scheme}`;
           if (res.out.length) {
             fails++;
             console.log(`FAIL ${label}: ${res.out.length} finding${res.out.length > 1 ? 's' : ''}`);

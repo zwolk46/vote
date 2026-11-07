@@ -28,13 +28,22 @@ const INIT = `(() => {
     window.__anims.push({ id: a.id || '', dur: typeof o === 'object' ? o.duration : o, props: [...new Set(kf.flatMap(f => Object.keys(f)))], cls: this.className && this.className.baseVal === undefined ? String(this.className) : '' });
     setTimeout(() => { window.__anims[window.__anims.length - 1].id = a.id || ''; }, 0); return a; };
   const raf = window.requestAnimationFrame.bind(window);
-  window.__stamps = [];
+  window.__stamps = []; window.__t0 = null;
+  for (const t of ['pointerdown', 'keydown', 'change', 'input', 'wheel']) addEventListener(t, () => { if (window.__t0 == null) window.__t0 = performance.now(); }, true);
   window.requestAnimationFrame = cb => { window.__frames++; return raf(t => { window.__stamps.push(t); cb(t); }); };
 })();`;
 
 const gaps = st => { const g = []; for (let i = 1; i < st.length; i++) g.push(st[i] - st[i - 1]); g.sort((a, b) => a - b); return g; };
 const p95 = g => (g.length ? g[Math.min(g.length - 1, Math.floor(g.length * 0.95))] : 0);
-const fmt = st => { const g = gaps(st); return st.length < 2 ? 'no frames' : `${st.length} frames over ${Math.round(st[st.length - 1] - st[0])} ms, gaps p95 ${p95(g).toFixed(1)} ms, longest ${g[g.length - 1].toFixed(1)} ms`; };
+const fmt = (st, t0) => { const g = gaps(st); return st.length < 2 ? 'no frames' : `${t0 != null ? `first frame ${Math.round(st[0] - t0)} ms after the press, ` : ''}${st.length} frames over ${Math.round(st[st.length - 1] - st[0])} ms, gaps p95 ${p95(g).toFixed(1)} ms, longest ${g[g.length - 1].toFixed(1)} ms`; };
+// M-motion s.4.11 and 12, as DESIGN-SPEC §6 reads them: the first moved frame within 150 ms of the press on the phone
+// profile (100 on the desktop), and no gap between frames over 50 ms
+const judge = (tag, what, st, t0, phone) => {
+  if (st.length < 2) return;
+  const g = gaps(st), longest = g[g.length - 1], lim = phone ? 150 : 100;
+  if (longest > 50) fail(`${tag} ${what}: a gap of ${longest.toFixed(1)} ms between frames (over 50)`);
+  if (t0 != null && st[0] - t0 > lim) fail(`${tag} ${what}: first frame ${Math.round(st[0] - t0)} ms after the press (over ${lim})`);
+};
 
 (async () => {
   const { preview } = await import('vite');
@@ -53,7 +62,8 @@ const fmt = st => { const g = gaps(st); return st.length < 2 ? 'no frames' : `${
         await page.goto(`${base}/?v=${v}`, { waitUntil: 'load' });
         return page;
       };
-      const stampsSince = async (page, fn, ms) => { await page.evaluate(() => { window.__stamps = []; }); await fn(); await page.waitForTimeout(ms); return page.evaluate(() => window.__stamps.slice()); };
+      const stampsSince = async (page, fn, ms) => { await page.evaluate(() => { window.__stamps = []; window.__t0 = null; }); await fn(); await page.waitForTimeout(ms); const r = await page.evaluate(() => ({ st: window.__stamps.slice(), t0: window.__t0 })); const st = r.t0 == null ? r.st : r.st.filter(x => x >= r.t0 - 17); st.t0 = r.t0; return st; };
+      const phone = w < 900;
 
       // A: the arrival (V1), the reading (V3), the cost (V2), the segment (V8), a fold (V7)
       {
@@ -61,16 +71,19 @@ const fmt = st => { const g = gaps(st); return st.length < 2 ? 'no frames' : `${
         await page.waitForTimeout(1500);
         const arr = await page.evaluate(() => window.__stamps.slice());
         console.log(`${tag} A arrival (V1, nav-in 680): ${fmt(arr)}`);
+        if (!reduce) judge(tag, 'A arrival', arr.slice(1), null, phone);
         if (reduce && arr.length > 3) fail(`${tag} A arrival: ${arr.length} frames drawn under reduced motion`);
         if (!reduce && arr.length > 2 && arr[arr.length - 1] - arr[0] > 680 * 1.5) fail(`${tag} A arrival ran ${Math.round(arr[arr.length - 1] - arr[0])} ms, past 1.5 x its token`);
         const rd = await stampsSince(page, () => page.click('.seg-body .seg-t:nth-child(2)'), 900);
-        console.log(`${tag} A reading (V3, chart 450): ${fmt(rd)}`);
+        console.log(`${tag} A reading (V3, chart 450): ${fmt(rd, rd.t0)}`);
+        if (!reduce) judge(tag, 'A reading', rd, rd.t0, phone);
         if (reduce && rd.length > 3) fail(`${tag} A reading: ${rd.length} frames under reduced motion`);
         await page.click('.seg-body .seg-t:nth-child(1)'); await page.waitForTimeout(700);
         await page.click('.key-row .fig-btn');
         await page.waitForTimeout(300);
         const cv = await stampsSince(page, async () => { await page.fill('.cost-ed input', '30'); await page.press('.cost-ed input', 'Tab'); }, 900);
-        console.log(`${tag} A cost (V2, chart 450): ${fmt(cv)}`);
+        console.log(`${tag} A cost (V2, chart 450): ${fmt(cv, cv.t0)}`);
+        if (!reduce) judge(tag, 'A cost', cv, null, phone);
         await page.waitForTimeout(3000);
         const idle = await page.evaluate(async () => { const f0 = window.__frames; await new Promise(r => setTimeout(r, 1000)); return { frames: window.__frames - f0, running: document.getAnimations().filter(a => a.playState === 'running').length }; });
         console.log(`${tag} A idle: ${idle.frames} frames requested, ${idle.running} animations running in 1 s`);
@@ -106,7 +119,8 @@ const fmt = st => { const g = gaps(st); return st.length < 2 ? 'no frames' : `${
         if (!reduce && sh.length < 3) fail(`${tag} B the cost moved ${sh.length} line layers, not 3`);
         if (reduce && sh.length) fail(`${tag} B the cost moved line layers under reduced motion`);
         const rd = await stampsSince(page, () => page.click('.seg-body .seg-t:nth-child(2)'), 900);
-        console.log(`${tag} B reading (V3, chart 450): ${fmt(rd)}`);
+        console.log(`${tag} B reading (V3, chart 450): ${fmt(rd, rd.t0)}`);
+        if (!reduce) judge(tag, 'B reading', rd, rd.t0, phone);
         await page.close();
       }
       // C: the scroll (V6): frames while scrolling, and still at a stop under reduced motion
@@ -114,7 +128,8 @@ const fmt = st => { const g = gaps(st); return st.length < 2 ? 'no frames' : `${
         const page = await open('c');
         await page.waitForTimeout(1200);
         const st = await stampsSince(page, async () => { for (let i = 0; i < 30; i++) { await page.mouse.wheel(0, 60); await page.waitForTimeout(16); } }, 300);
-        console.log(`${tag} C scroll (V6, scroll-linked): ${fmt(st)}`);
+        console.log(`${tag} C scroll (V6, scroll-linked): ${fmt(st, st.t0)}`);
+        judge(tag, 'C scroll', st, st.t0, phone);
         await page.waitForTimeout(1500);
         const idle = await page.evaluate(async () => { const f0 = window.__frames; await new Promise(r => setTimeout(r, 1000)); return window.__frames - f0; });
         console.log(`${tag} C idle: ${idle} frames requested in 1 s`);
