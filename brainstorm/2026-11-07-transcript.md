@@ -37,3 +37,9 @@
 > All right, I've asked the midterms orchestrator to update the repo a little bit regarding design. I want you to employ all of the anything that you see there that's changed about design. We're going to follow the new design guidance. Some of it's new, some of it's not new. And then work autonomously.
 
 **Orchestrator, 02:55.** "The hold is lifted. I'm reading the midterms design update now, then I'll fold it into the law and carry on."
+
+**Zach, 02:55** (project chat, relayed).
+
+> Well, I guess maybe I should take a look at the law, but assume it ratified and start building until you hear otherwise, if you hear otherwise at all.
+
+**Orchestrator, 02:56.** "Will do. I'm folding Fable's breaks and the design guidance into the law now. Then I'll put it in force as if ratified, send it to you to look over, and start building."

@@ -67,3 +67,11 @@ In the project chat, after the midterms orchestrator merged #11 (`inherited/desi
 
 *Reading.* The hold of 02:45 is lifted. Design work here follows `inherited/design/` (its README's rule and process, `TASTE.md` as his defaults, with his 02:45 correction that components are his picks or designed within the principles, not found-only); this project's law and rulings govern where they differ. "Work autonomously" answers the orchestrator's 02:40 offer ("Tell me if you'd rather I skip it and just go"): the plan is recorded in the repository and he is told, not asked, before the data work. Ratifying the law stays his (general law 2).
 
+## 2026-11-07 02:55 UTC: assume the law ratified
+
+In the project chat:
+
+> Well, I guess maybe I should take a look at the law, but assume it ratified and start building until you hear otherwise, if you hear otherwise at all.
+
+*Reading.* The law is in force as if ratified, and building starts. The text put in force is law draft 2: draft 1 with the two cold readings, B2's 61 breaks and the 02:54 design guidance folded in, since draft 1's faults would mislead every worker that reads it. It goes into `LAW.md` at his word, with a status line saying it is in force by assumption and not yet ratified by him; he will look it over, and anything he says otherwise is a ruling on it.
+
