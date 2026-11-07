@@ -37,6 +37,7 @@ NORM = os.path.join(F.CACHE, "medsl", "normalized")
 SAME_LINES = 0.8          # share of a district's 2024 precincts also in its 2022 precincts for "lines unchanged"
 LEG = {"STATE HOUSE": 0, "STATE SENATE": 1}
 YEARS = (2018, 2020, 2022, 2024)
+MEASURE_YEARS = (2016,) + YEARS   # 2016: MEDSL's older sets, read for their questions only
 KLARNER_CHECKED = (2018, 2022)   # years whose MEDSL legislative returns are checked against Klarner's, the record
 GITHUB_YEARS = {2018: "MEDSL/2018-elections-official", 2020: "MEDSL/2020-elections-official"}
 
@@ -60,6 +61,7 @@ def relabel(m):
 
 
 EMPTY = collections.Counter()   # contests with no vote anywhere: lines a file lists for every precinct, left out
+QFIX = collections.defaultdict(collections.Counter)   # year -> what fix_questions did, for the report
 
 
 def load(year):
@@ -72,6 +74,101 @@ def load(year):
                     EMPTY[year] += 1
                     continue
                 out.append(c)
+    return fix_questions(out, year)
+
+
+_POS = re.compile(r"^(YES|FOR|IN FAVOR)\b")
+_NEG = re.compile(r"^(NO|AGAINST|OPPOSED)\b(?! (NAME|CANDIDATE))")
+
+
+def side(name):
+    """'yes', 'no' or None for an answer line: the answer words, or a line that begins with one ('FOR BONDS',
+    'AGAINST PROPOSED TAXATION', 'YES-LOCAL AMENDMENT NO 1', 'NO TO REJECT')."""
+    n = (name or "").upper().strip()
+    if n in YES_WORDS:
+        return "yes"
+    if n in NO_WORDS:
+        return "no"
+    if _POS.match(n):
+        return "yes"
+    if _NEG.match(n):
+        return "no"
+    return None
+
+
+def yes_no(c):
+    return (sum(x["votes"] for x in c["candidates"] if side(x["name"]) == "yes"),
+            sum(x["votes"] for x in c["candidates"] if side(x["name"]) == "no"))
+
+
+_QSTOP = {"FOR", "AGAINST", "THE", "PROPOSAL", "BONDS", "BOND", "APPROVAL", "YES", "NO", "QUESTION", "OF", "A", "AN",
+          "AND", "TO", "ON", "IN", "MEASURE"}
+
+
+def _qtokens(c):
+    return set(re.findall(r"[A-Z0-9]+", (c["office"] + " " + (c.get("subject") or "")).upper())) - _QSTOP
+
+
+def fix_questions(contests, year):
+    """Three faults of MEDSL's question lines, found in the output [measured]:
+    1. a question filed as a candidate contest, its answers worded as candidates ('FOR BONDS' and 'AGAINST BONDS',
+       Alabama's 'YES-LOCAL AMENDMENT NO 1'): two lines on the ballot, one a yes and one a no; read as a question;
+    2. 'REJECTED' alone under a candidate office (Michigan's 2022 rejected ballots in Ottawa County): not a
+       question; left out;
+    3. a question split in two, its yes line and its no line under offices or subjects worded apart (Oklahoma's
+       2024 '... FOR THE PROPOSAL' and '... AGAINST THE PROPOSAL', a judge's name spelled two ways): a yes-only and
+       a no-only piece over the same counties whose words, answer words aside, overlap by half or more are joined.
+    A one-sided piece left over is kept, and its p is not computed (the source gives one answer only)."""
+    fx = QFIX[year]
+    cand_offices = {(c["state"], c["office"]) for c in contests if not c["question"]}
+    out, pieces = [], collections.defaultdict(lambda: {"yes": [], "no": []})
+    for c in contests:
+        if not c["question"]:
+            b = [x for x in c["candidates"] if not x.get("writein") and not _is_generic(x["name"])]
+            sides = sorted(side(x["name"]) or "" for x in b)
+            if len(b) == 2 and sides == ["no", "yes"]:
+                c["question"] = True
+                c["read_as_question"] = "its two lines are a yes and a no"
+                fx["candidate contest read as a question"] += 1
+            else:
+                out.append(c)
+                continue
+        names = {x["name"] for x in c["candidates"]}
+        if names == {"REJECTED"} and (c["state"], c["office"]) in cand_offices:
+            fx["rejected-ballot line under a candidate office, left out"] += 1
+            continue
+        y, n = yes_no(c)
+        has_y = any(side(x["name"]) == "yes" for x in c["candidates"])
+        has_n = any(side(x["name"]) == "no" for x in c["candidates"])
+        if has_y != has_n:
+            pieces[(c["state"], c["date"], c["stage"], c["special"], tuple(sorted(c["counties"])))][
+                "yes" if has_y else "no"].append(c)
+            continue
+        out.append(c)
+    for key, g in pieces.items():
+        left_no = list(g["no"])
+        for cy in g["yes"]:
+            ty = _qtokens(cy)
+            best, bj = None, 0.0
+            for cn in left_no:
+                tn = _qtokens(cn)
+                j = len(ty & tn) / len(ty | tn) if ty | tn else 0.0
+                if j > bj:
+                    best, bj = cn, j
+            if best is not None and bj >= 0.5:
+                left_no.remove(best)
+                cy["candidates"] = cy["candidates"] + best["candidates"]
+                cy["joined_from"] = [cy["office"] + (" / " + cy["subject"] if cy.get("subject") else ""),
+                                     best["office"] + (" / " + best["subject"] if best.get("subject") else "")]
+                fx["one-sided pieces joined into one question"] += 1
+            else:
+                cy["one_answer_only"] = True
+                fx["one-sided piece left (yes only)"] += 1
+            out.append(cy)
+        for cn in left_no:
+            cn["one_answer_only"] = True
+            fx["one-sided piece left (no only)"] += 1
+            out.append(cn)
     return out
 
 
@@ -547,6 +644,77 @@ def _backtest_one(M, k, rows, bad, pres):
     return out
 
 
+def check_oaarcy():
+    """MEDSL's 2022 state offices set (OAARCY, read by `medsl_precinct.py 2022 --oaarcy`) beside UYQIEP's files for the
+    same states: the contests each holds and how each compares with Klarner's 2022 legislatures."""
+    oa = []
+    for path in sorted(glob.glob(os.path.join(NORM, "oaarcy-2022", "*.jsonl"))):
+        with open(path) as f:
+            oa += [relabel(json.loads(line)) for line in f]
+    oa = fix_questions([c for c in oa if any(x["votes"] for x in c["candidates"])], 2022)
+    states = sorted({c["state"] for c in oa})
+    base = load(2022)
+    a = check_2022(medsl=base)
+    b = check_2022(medsl=[c for c in base if c["state"] not in states] + oa)
+
+    def keyset(cs):
+        return sorted((c["office"], c["district"], c.get("subject") or "", tuple(sorted(
+            (x["name"], x["votes"]) for x in c["candidates"]))) for c in cs)
+    return {"about": "OAARCY (doi:10.7910/DVN/OAARCY, State Offices Precinct-Level Returns 2022) beside UYQIEP's 2022 "
+                     "files for the states OAARCY holds among AR, AZ, ID, IN, MD, MI, ND and WA. Built by "
+                     "pipeline/local_medsl.py check-oaarcy.",
+            "states_in_oaarcy": states,
+            "by_state": {st: {"contests_uyqiep": sum(1 for c in base if c["state"] == st),
+                              "contests_oaarcy": sum(1 for c in oa if c["state"] == st),
+                              "same_contests_and_votes": keyset([c for c in base if c["state"] == st]) ==
+                              keyset([c for c in oa if c["state"] == st]),
+                              "against_klarner_uyqiep": a["by_state"].get(st),
+                              "against_klarner_oaarcy": b["by_state"].get(st)} for st in states}}
+
+
+def _near_table(rows_, groups):
+    out = {}
+    for r_ in rows_:
+        for grp in groups(r_):
+            y = out.setdefault(grp, {"measures": 0, "near": {}})
+            y["measures"] += 1
+            for hh, (q, seen) in r_["near"].items():
+                z = y["near"].setdefault(hh, [0.0, 0])
+                z[0] += q
+                z[1] += seen
+    for y in out.values():
+        y["near"] = {f"within {float(hh):.0%}": {"expected": round(v[0], 1), "seen": v[1]}
+                     for hh, v in sorted(y.pop("near").items(), key=lambda kv: float(kv[0]))}
+    return dict(sorted(out.items()))
+
+
+def backtest_measures(mtest, mhalf):
+    """Like past measures out of sample: each year's classes come from earlier years only. Near 1/2, for every
+    statewide question whose class has earlier years (its threshold read or not): the class's chance of finishing
+    within 1, 2 and 5 points of 1/2 added up, beside how many did. At the threshold, the same for the measures given
+    a forecast, and within the forecast's own window."""
+    half = _near_table(mhalf, lambda r_: (f"{r_['year']} {r_['key']} (trained on {r_['train']})", f"all years {r_['key']}"))
+    at_t = {}
+    for r_ in mtest:
+        for grp in (f"{r_['year']}", "all years"):
+            y = at_t.setdefault(grp, {"measures": 0, "own_window": [0.0, 0], "near_threshold": {}})
+            y["measures"] += 1
+            y["own_window"][0] += r_["q_own"]
+            y["own_window"][1] += r_["in_own"]
+            for hh, (q, seen) in r_["near"].items():
+                z = y["near_threshold"].setdefault(hh, [0.0, 0])
+                z[0] += q
+                z[1] += seen
+    for y in at_t.values():
+        y["own_window"] = {"expected": round(y["own_window"][0], 1), "seen": y["own_window"][1]}
+        y["near_threshold"] = {f"within {float(hh):.0%}": {"expected": round(v[0], 1), "seen": v[1]}
+                               for hh, v in sorted(y["near_threshold"].items(), key=lambda kv: float(kv[0]))}
+    return {"about": "statewide measures and retentions, like past measures out of sample (each year's class from "
+                     "earlier years only): expected and seen counts finishing near 1/2 (every statewide question) "
+                     "and near the threshold (those given a forecast). Built by pipeline/local_medsl.py build.",
+            "near_half": half, "at_threshold": dict(sorted(at_t.items()))}
+
+
 def backtest_local_classes(files):
     """Routes (b) and (c) for local races, out of sample: each year's like-race classes come from earlier years
     only, so the year's own outcomes test them. For each contest given p, the class's chance of finishing within
@@ -583,7 +751,7 @@ def backtest_local_classes(files):
                      "pipeline/local_medsl.py build.", "years": dict(sorted(out.items()))}
 
 
-CAL_MIN_EXPECTED = 30   # the orchestrator, 07:37: an office type gets its own factor only with about 30 or more
+CAL_MIN_EXPECTED = 30   # the orchestrator, 06:38: an office type gets its own factor only with about 30 or more
                          # expected near-1/2 races in the fitting years; otherwise the fitting years' races pooled
 CAL_NOTE = "calibrated to earlier years' near-ties"
 
@@ -619,7 +787,7 @@ def _deviance(pairs):
 
 
 def calibrate_local(files, test_year=2024):
-    """The orchestrator's ruling of 07:37 on local races given p by like races or by the transferred partisan
+    """The orchestrator's ruling of 06:38 on local races given p by like races or by the transferred partisan
     route: a factor (seen over expected near 1/2) fitted on years before the one it is applied to, by office type
     where the fitting years expected about 30 or more such races, else pooled; adopted for a route only if it
     brings test_year's out-of-sample count nearer what happened. Changes the records in place; returns the
@@ -888,6 +1056,13 @@ def _cands_out(cands, seats=1):
 
 def _src_medsl(year, chk, files):
     rec = chk.get("record", {})
+    if year == 2016:
+        sets = rec.get("sets", [])
+        return F.source("MIT Election Data and Science Lab, " + " and ".join(
+                            f"{x['title']} (Harvard Dataverse {x['doi']})" for x in sets),
+                        sets[0]["url"] if sets else None, sets[0]["read_utc"] if sets else None, "CC0 1.0",
+                        mark="stated", note="MEDSL's older layout, read for its questions only by "
+                                            "pipeline/intake/medsl_precinct.py 2016; files " + ", ".join(sorted(files)))
     if year in GITHUB_YEARS:
         return F.source(f"MIT Election Data and Science Lab, {year} precinct-level returns, GitHub "
                         f"{GITHUB_YEARS[year]} at commit {rec.get('commit', '')[:12]}", rec.get("url"),
@@ -910,8 +1085,8 @@ def build(out_dir, with_p=True):
     commit = L.git_commit()
     klarner = L.load_klarner()
     pres, nara_rows = L.president_party()
-    m = {y: load(y) for y in YEARS}
-    chk = {y: checks(y) for y in YEARS}
+    m = {y: load(y) for y in MEASURE_YEARS}
+    chk = {y: checks(y) for y in MEASURE_YEARS}
     files = collections.defaultdict(list)
     counts = collections.Counter()
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
@@ -926,7 +1101,7 @@ def build(out_dir, with_p=True):
                            f"{info['doi']}, {info['version']} (the races route (a) is fitted on)",
                            "https://doi.org/10.7910/DVN/FJOGJB", info["files"]["candidate"]["read_utc"], info["licence"],
                            mark="stated")
-    bad = {y: quality(y) for y in YEARS}
+    bad = {y: quality(y) for y in MEASURE_YEARS}
     seen = set()
 
     def cid(base):
@@ -1115,41 +1290,123 @@ def build(out_dir, with_p=True):
             rec["p"] = p
             files[("local", year, c["state"])].append(L._compact(rec))
 
-    # -- measures and retentions: recorded, p not yet computed
-    for year in YEARS:
+    # -- measures and retentions: the threshold from the state's law, the forecast from like past measures
+    import measures as MS
+    book = MS.load_thresholds()
+    mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
+    mrows = {y: MS.rows([c for c in m[y] if c["state"] not in bad[y]], y, mref) for y in MEASURE_YEARS}
+    mdens, mtest, mhalf = {}, [], []
+    for year in MEASURE_YEARS:
+        train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
+        for r_ in mrows[year]:     # the route's calibration near 1/2: every statewide question, threshold read or not
+            if r_["key"].startswith("statewide"):
+                tr = [x["s"] for x in train if x["key"] == r_["key"]]
+                if tr:
+                    mhalf.append({"year": year, "key": r_["key"], "train": len(tr),
+                                  "near": {str(hh): [sum(1 for x in tr if abs(x - 0.5) <= hh) / len(tr),
+                                                     abs(r_["s"] - 0.5) <= hh] for hh in L.WINDOWS}})
         for c in m[year]:
             if not c["question"]:
                 continue
-            kind = "retention" if "RETENTION" in c["office"].upper() or "RETAIN" in " ".join(
-                x["name"] for x in c["candidates"]) else "measure"
-            scope = "statewide" if c["dataverse"] == "STATE" else "local"
-            yes = sum(x["votes"] for x in c["candidates"] if x["name"] in YES_WORDS)
-            no = sum(x["votes"] for x in c["candidates"] if x["name"] in NO_WORDS)
+            kind, scope = MS.kind_of(c), MS.scope_of(c, mref, year)
+            yes, no = yes_no(c)
             rec = {"id": cid(f"{year}-measure-{c['state']}-{L._slug(c['office'])[:60]}"
                              + (f"-{L._slug(c['subject'])}" if c.get("subject") else "")
-                             + ("" if scope == "statewide" else f"-{c['counties'][0]}")),
+                             + ("" if scope == "statewide" else f"-{c['counties'][0] if c['counties'] else 'none'}")),
                    "year": year, "date": c["date"] or None, "level": "measure",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "statewide" else c["counties"]},
                    "question": {"title": c["office"].title(), "subject": (c.get("subject") or "").title() or None,
-                                "kind": kind, "scope": scope},
+                                "kind": kind, "scope": scope, "type": MS.type_of(c) if kind == "measure" else None},
                    "result": {"candidates": [{"name": x["name"], "votes": x["votes"],
                                               "votes_incomplete": True if x.get("votes_missing_in_some_precincts")
                                               else None} for x in c["candidates"]],
                               "total_votes": sum(x["votes"] for x in c["candidates"]), "source": "medsl",
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
-                   "forecasts": [],
-                   "p": {"not_computed": "the threshold the measure's law sets, and a forecast route for measures, "
-                                         "are not yet settled (brief step 4; proposed to the orchestrator)"}}
+                   "forecasts": []}
+            notes = []
             if scope == "local":
-                rec.setdefault("notes", []).append(
-                    "counted by county: MEDSL's wording of a local question does not show which place holds it, so a "
-                    "question held across several counties appears once per county")
-            counts[f"measure {year}: {scope} {kind}"] += 1
+                notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
+                             "it, so a question held across several counties appears once per county")
+            if c.get("read_as_question"):
+                notes.append("filed in the source as a candidate contest; read as a question, since its two lines are "
+                             "a yes and a no")
+            if c.get("joined_from"):
+                notes.append("the source files its yes and its no under different wordings (" +
+                             " | ".join(x.title() for x in c["joined_from"]) + "); joined")
+            if notes:
+                rec["notes"] = notes
+            label = f"measure {year}"
+            if c.get("one_answer_only"):
+                p = {"not_computed": "the source gives one answer only for this question (its other answer is filed "
+                                     "apart under other words and could not be matched)"}
+                counts[f"{label}: not computed, one answer only"] += 1
+            elif yes + no <= 0:
+                p = {"not_computed": "no yes or no votes"}
+                counts[f"{label}: not computed, no votes"] += 1
+            elif c["state"] in bad[year]:
+                p = {"not_computed": bad[year][c["state"]]}
+                counts[f"{label}: not computed, the state's counts do not add up"] += 1
+            elif any(x.get("votes_missing_in_some_precincts") for x in c["candidates"]):
+                p = {"not_computed": "the source redacts some precincts' counts for this question"}
+                counts[f"{label}: not computed, redacted"] += 1
+            elif scope == "partial":
+                p = {"not_computed": "a statewide question, but the source holds only part of the state's counties "
+                                     "this year, so its count is not the state's"}
+                counts[f"{label}: not computed, the source holds part of the state"] += 1
+            elif scope == "local":
+                p = {"not_computed": f"a local {kind}: its threshold is the one state law sets for its kind of "
+                                     f"{'measure' if kind == 'measure' else 'judge'}, which the source's wording does "
+                                     f"not show, and the place that holds it is not shown either (it is counted by "
+                                     f"county); not inferred (the orchestrator, 2026-11-07 06:16)"}
+                counts[f"{label}: not computed, local"] += 1
+            else:
+                rule, how, why = MS.rule_for(c, kind, book, year)
+                if rule is None:
+                    p = {"not_computed": why}
+                    counts[f"{label}: not computed, threshold: {why.split(':')[0][:70]}"] += 1
+                else:
+                    t = rule["t"]
+                    key = f"{scope} {kind}"
+                    rec["threshold"] = {k: rule.get(k) for k in ("t", "rule", "citation", "url", "quote", "read_utc")}
+                    rec["threshold"]["matched"] = how
+                    if (year, key, t) not in mdens:
+                        mdens[(year, key, t)] = MS.density_at(train, key, t)
+                    f, N, h, kin = mdens[(year, key, t)]
+                    n = yes + no - 1
+                    rec["two_way"] = {"votes": [yes, no], "n_other_voters": n, "share_yes": round(yes / (yes + no), 6)}
+                    if f is None:
+                        p = {"not_computed": f"fewer than {L.MIN_CLASS} like measures in earlier years in the sources "
+                                             f"taken in ({N}) for the class '{key}'"}
+                        counts[f"{label}: not computed, too few like measures"] += 1
+                    else:
+                        rec["forecasts"].append({"by": "the model's own", "method": L.METHOD, "route": "like past measures",
+                                                 "class": key, "like_measures": N,
+                                                 "window": [round(t - h, 4), round(t + h, 4)], "in_window": kin,
+                                                 "q": round(f * 2 * h, 5), "source": "model"})
+                        s_ = yes / (yes + no)
+                        tr = [r_["s"] for r_ in train if r_["key"] == key]
+                        mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
+                                      "in_own": abs(s_ - t) <= h,
+                                      "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
+                                                         abs(s_ - t) <= hh] for hh in L.WINDOWS}})
+                        if not with_p:
+                            p = {}
+                        elif f <= 0:
+                            p = {"value": 0.0, "event": 0.0, "reason": f"no like measure of {N} finished within "
+                                                                      f"{h:.0%} of the threshold"}
+                            counts[f"{label}: p = 0, no like measure near the threshold"] += 1
+                        else:
+                            p = MS.p_block(f, t, n, f"the model's own ({L.METHOD}), like past measures")
+                            counts[f"{label}: p computed, {key}"] += 1
+            rec["p"] = p
+            counts[f"{label}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     if write_checks:
+        with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:
+            json.dump(backtest_measures(mtest, mhalf), f, indent=1)
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-classes.json"), "w") as f:
             json.dump(backtest_local_classes(files), f, indent=1)
     cal = calibrate_local(files)
@@ -1167,7 +1424,7 @@ def build(out_dir, with_p=True):
                                 counts[f"local {year}: {g}: not computed, no earlier year to calibrate on"] += 1
     if write_checks:
         with open(os.path.join(L.REPO, "data", "local", "calibration-local.json"), "w") as f:
-            json.dump({"about": "the orchestrator's ruling of 2026-11-07 07:37: local races' p by like races, and by "
+            json.dump({"about": "the orchestrator's ruling of 2026-11-07 06:38: local races' p by like races, and by "
                                 "the transferred Democrat-against-Republican route, calibrated to earlier years' "
                                 "near-ties (seen over expected near 1/2), by office type where the fitting years "
                                 f"expected {CAL_MIN_EXPECTED} or more, else pooled; adopted for a route only if it "
@@ -1194,6 +1451,14 @@ def build(out_dir, with_p=True):
         sz = os.path.getsize(path)
         total += sz
         by_level[level] += sz
+    # a state's file from an earlier build that this build no longer writes would stand stale beside the rest
+    # (Michigan's 2022 measures, which were rejected-ballot lines until the fix of 2026-11-07): remove it
+    for level, year in {(lv, y) for lv, y, _ in files}:
+        for path in glob.glob(os.path.join(out_dir, level, str(year), "*.json")):
+            st = os.path.basename(path)[:-5]
+            if (level, year, st) not in files and len(st) == 2:
+                os.remove(path)
+                print(f"removed {os.path.relpath(path, out_dir)}: this build has no {level} contests there")
     print(f"wrote {sum(len(v) for v in files.values()):,} contests in {len(files):,} files, {total / 1e6:.1f} MB: "
           + ", ".join(f"{k} {v / 1e6:.1f} MB" for k, v in sorted(by_level.items())))
     counts.update({f"left out, no vote anywhere, {y}": EMPTY[y] for y in YEARS})
@@ -1203,7 +1468,7 @@ def build(out_dir, with_p=True):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=["check2018", "check2022", "build", "backtest-local-partisan"])
+    ap.add_argument("what", choices=["check2018", "check2022", "check-oaarcy", "build", "backtest-local-partisan"])
     ap.add_argument("--out", default=os.path.join(L.REPO, "data"))
     a = ap.parse_args()
     if a.what in ("check2018", "check2022"):
@@ -1213,6 +1478,12 @@ def main():
         with open(path, "w") as f:
             json.dump(out, f, indent=1)
         print(json.dumps(out["tallies"], indent=1))
+    elif a.what == "check-oaarcy":
+        out = check_oaarcy()
+        with open(os.path.join(L.REPO, "data", "local", "check-2022-oaarcy.json"), "w") as f:
+            json.dump(out, f, indent=1)
+        print(json.dumps({st: {k: v for k, v in x.items() if not k.startswith("against")} for st, x in
+                          out["by_state"].items()}, indent=1))
     elif a.what == "backtest-local-partisan":
         print(json.dumps(backtest_local_partisan(), indent=1))
     else:
