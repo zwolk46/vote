@@ -32,6 +32,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 00:10: the maker set the project's default environment to env_01AQ9y8ebdzAowmcGvGwaJv2 (coordinator, 00:08); this thread still on the built-in one (curl refused, measured 00:09). Asked the coordinator to start R1-R4 (Sonnet 5.5, xhigh) on it. Card on B's welfare still open.
+
 - 2026-11-06 20:26: model draft 1 (`model/MODEL-DRAFT.md`, copy in project files) put to the maker, figures unverified; two questions: whose welfare is in B (decision card), and whether "everything else fixed" excludes evidential correlation.
 
 - 2026-11-06 20:24: wave-2 briefs R1-R4 written (Sonnet, xhigh; re-read each first-pass report at source); the record merged to `main` in #1 so workers can read it. Waiting on the maker's network access to start them. The seven-day usage limit shows a warning (session metadata, 20:45).
