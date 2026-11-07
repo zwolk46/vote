@@ -98,9 +98,9 @@ def load(year):
                     continue
                 out.append(c)
     import local_nj as NJ
-    return mark_whole_state(known_contests(
+    return mark_whole_state(statewide_pieces(known_contests(
         NJ.county_gate(certified_la(certified_in(certified_nc(join_statewide(fix_questions(out, year), year), year),
-                                                 year), year), year), year))
+                                                 year), year), year), year), year))
 
 
 def mark_whole_state(contests):
@@ -188,6 +188,349 @@ def known_contests(contests, year):
                 KNOWN[year]["IL: a stray line held"] += 1
         if hits != 2:
             raise SystemExit(f"known_contests: IL 2018: {hits} stray lines found, not 2")
+    return contests
+
+
+WA_SOS = os.path.join(F.CACHE, "wa_sos", "normalized")
+ND_SOS = os.path.join(F.CACHE, "nd_sos", "normalized")
+PIECES = collections.defaultdict(collections.Counter)   # year -> what statewide_pieces did, for the report
+RULING_1647 = ("the orchestrator's ruling of 2026-11-07 16:47: '(a) Where a contest's lines miss counties that voted "
+               "that day, find its other pieces: the same office and candidates, in counties the first piece lacks. "
+               "Join them into one record where together they cover every county. (b) Check each joined total "
+               "against the state's certified total where one is read. The certified count wins (15:16). (c) If it "
+               "still misses counties: use the state's marked total, if one is read, as the record's count. "
+               "Otherwise hold it: no p, marked incomplete, and no winner drawn from a partial count'")
+# What the rules below find in MEDSL's files, written out so that a change in the files stops the build instead of
+# joining or holding something new unseen (data/local/REPORT.md section 26 lists each one).
+JOINS_EXPECTED = {
+    2022: {("WA", "WASHINGTON STATE - SECRETARY OF STATE", ""), ("WA", "SUPREME COURT - JUSTICE POSITION #01", ""),
+           ("WA", "SUPREME COURT - JUSTICE POSITION #05", ""), ("WA", "SUPREME COURT - JUSTICE POSITION #06", "")},
+    2024: {("AZ", "CORPORATION COMMISSIONER", "STATEWIDE"), ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 7")}}
+HOLDS_EXPECTED = {
+    2018: {("NY", "COMPTROLLER", "", "incomplete"), ("NY", "ATTORNEY GENERAL", "", "incomplete")},
+    2022: {("AZ", "STATE TREASURER", "", "incomplete"), ("AZ", "STATE MINE INSPECTOR", "", "incomplete"),
+           ("AZ", "ATTORNEY GENERAL", "", "second count"), ("GA", "SECRETARY OF STATE", "", "no county"),
+           ("ID", "LIEUTENANT GOVERNOR", "", "incomplete"), ("ID", "SECRETARY OF STATE", "", "incomplete"),
+           ("ID", "STATE CONTROLLER", "", "incomplete"), ("ID", "STATE TREASURER", "", "incomplete"),
+           ("ID", "SUPERINTENDENT OF PUBLIC INSTRUCTION", "", "incomplete"),
+           ("MI", "SECRETARY OF STATE", "", "incomplete"), ("NY", "COMPTROLLER", "", "incomplete"),
+           ("OR", "COMMISSIONER OF THE BUREAU OF LABOR AND INDUSTRIES", "", "incomplete")},
+    2024: {("ND", "STATE AUDITOR", "", "state total"), ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 1", "incomplete"),
+           ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 7", "incomplete"),
+           ("AZ", "CORPORATION COMMISSIONER", "STATEWIDE", "seats differ")}}
+# Michigan's Supreme Court: the orchestrator, 16:53: "If neither answers, do not leave MI 2018 as it is. Hold it: no p,
+# out of every pool, and marked 'seat count unread' ... Do the same for any other MI year whose count can't be read.
+# Reason: a record kept in the pools as one seat when it may be two would bias every later statewide-judge p"; and
+# 16:55: render the Court's justices page "and quote the words that state who was elected and when ... If it does not
+# [settle the counts], the holds stand". The Secretary of State's results refused (data/local/REPORT.md section 26);
+# the Court's pages (courts.michigan.gov, rendered in headless Chromium at 16:56 UTC under the ruling of 08:00) say:
+MI_COURT = "https://www.courts.michigan.gov/courts/supreme-court/justices/"
+MI_SC_UNREAD = {
+    2018: ("seat count unread: MEDSL's file gives this contest one seat; the Michigan Supreme Court's own page on "
+           "Chief Justice Megan K. Cavanagh, second in this count (" + MI_COURT + "justice-megan-k.-cavanagh, rendered "
+           "2026-11-07 16:56 UTC), says 'Before joining the Michigan Supreme Court in January of 2019' and 'Prior to "
+           "her election to the Court', so the contest elected more than its leader [inferred], but no page read "
+           "states how many seats it filled (the Secretary of State's results refused; the Michigan Manual answered "
+           "403), so p is not computed, no winner is marked, and the contest is kept out of every pool"),
+    2024: ("seat count unread: MEDSL's file gives Michigan's two 2024 Supreme Court contests one seat each; the Court's "
+           "own pages say that Justice Kimberly A. Thomas 'was elected to a full term on the Michigan Supreme Court in "
+           "November 2024 and took office on January 1, 2025' (" + MI_COURT + "justice-kimberly-a.-thomas) and give "
+           "Justice Kyra H. Bolden's appointment only (" + MI_COURT + "justice-kyra-h.-bolden), both rendered "
+           "2026-11-07 16:56 UTC; neither states how many seats each contest filled (the Secretary of State's results "
+           "refused; the Michigan Manual answered 403), so p is not computed, no winner is marked, and the contests "
+           "are kept out of every pool")}
+
+
+def _sw_kind(m):
+    """'officer' (a statewide executive office by its name), 'seat' (a court's, commission's or board's seat whose
+    district is none, STATEWIDE or a seat's label), or None: the state offices the ruling of 16:47 reads as statewide
+    contests ("for statewide officers and statewide judges"; its same-PR items add the statewide boards)."""
+    if m["question"] or m.get("dataverse") != "STATE" or not is_local_level(m):
+        return None
+    o = " ".join(m["office"].upper().split())
+    d = " ".join((m.get("district") or "").upper().split())
+    if d in ("", "STATEWIDE") and (STATE_SUPT.search(o) or STATE_EXEC.match(o)):
+        return "officer"
+    if (STATE_COURT.search(o) or STATE_COMMISSION.search(o) or re.search(r"\bTRUSTEE|\bBOARD\b|\bREGENT", o)) \
+            and "CLERK" not in o and (d in ("", "STATEWIDE") or SEAT_DISTRICT.match(d)):
+        return "seat"
+    return None
+
+
+def _state_counties(contests):
+    allc = collections.defaultdict(set)
+    for m in contests:
+        allc[(m.get("state"), m.get("date"))].update(x for x in (m.get("counties") or []) if re.fullmatch(r"\d{5}", x or ""))
+    return allc
+
+
+def _ckey(x):
+    """A candidate's key across a contest's pieces: its name_key; the write-ins one line; another generic line
+    ('SCATTERING', '*NOT QUALIFIED 1*') its own words."""
+    n = " ".join(x["name"].upper().split())
+    if x.get("writein") or n in ("WRITE-IN", "WRITEIN", "WRITE IN", "WRITE-INS"):
+        return "WRITE-IN"
+    return ("*", n) if _is_generic(n) else name_key(x["name"])
+
+
+def _hold(m, reason, kind, year):
+    m["held_reason"] = reason
+    for x in m["candidates"]:
+        x["won_marked"] = None   # no winner drawn from a count that is not the contest's whole
+    PIECES[year][f"held, {kind}"] += 1
+
+
+def nd_judgeships(contests, year):
+    """North Dakota's 2022 district court judgeships, from the state's official results (pipeline/intake/nd_sos.py):
+    MEDSL's file names them 'JUSTICE OF THE SUPREME COURT' with the judicial district in the district column, and
+    adds each district's judgeships up into one contest of one seat [measured: eight contests; the state's page holds
+    22 judgeships, each 'Vote For 1']. The ruling of 16:47: "ND's 8: retype them from the state's results if they are
+    district court seats". Each of MEDSL's eight is replaced by its district's judgeships as the state lists them,
+    with the state's official votes (15:16, "the certified count wins"); every name and count must match MEDSL's."""
+    path = os.path.join(ND_SOS, "2022-general.json")
+    if not os.path.exists(path):
+        raise SystemExit(f"{path} is not in the cache: run pipeline/intake/nd_sos.py read --year 2022 first")
+    with open(path) as f:
+        off = json.load(f)
+    by_dist = collections.defaultdict(list)
+    for c in off["contests"]["judicial"]:
+        t = re.fullmatch(r"Judge of the District Court No\. (\d+)( Unexpired \d-Year Term)? (.+)", c["office"])
+        if not t:
+            raise SystemExit(f"nd_judgeships: a judicial contest of another form: {c['office']!r}")
+        by_dist[t.group(3).upper() + " JUDICIAL DISTRICT"].append((t.group(1), (t.group(2) or "").strip().upper(), c))
+    out, hits = [], 0
+    for m in contests:
+        if not (m.get("state") == "ND" and m["office"] == "JUSTICE OF THE SUPREME COURT"
+                and (m.get("district") or "").endswith(" JUDICIAL DISTRICT")):
+            out.append(m)
+            continue
+        g = by_dist.pop(m["district"], None)
+        if not g:
+            raise SystemExit(f"nd_judgeships: no judgeship of the state's for {m['district']}")
+        med = {_ckey(x): x for x in m["candidates"]}
+        mine = {name_key(x["name"]) for _, _, c in g for x in c["candidates"] if not x["writein"]}
+        if mine != set(med) - {"WRITE-IN"}:
+            raise SystemExit(f"nd_judgeships: {m['district']}: the state's names differ from MEDSL's")
+        wi = sum(x["votes"] for _, _, c in g for x in c["candidates"] if x["writein"])
+        for n, unexp, c in g:
+            cands, medsl = [], {}
+            for x in c["candidates"]:
+                k = "WRITE-IN" if x["writein"] else name_key(x["name"])
+                if k != "WRITE-IN":
+                    medsl[med[k]["name"]] = med[k]["votes"]
+                cands.append({"name": "WRITE-IN" if x["writein"] else x["name"].upper(), "votes": x["votes"],
+                              "party": None if x["writein"] else "NONPARTISAN", "writein": x["writein"],
+                              "won_marked": True if x["won"] else None})
+            diff = [f"{k.title()} {v:,} in MEDSL's line" for k, v in medsl.items()
+                    if v != next(x["votes"] for x in cands if name_key(x["name"]) == name_key(k))]
+            j = dict(m, office="JUDGE OF THE DISTRICT COURT",
+                     district=f"{m['district']}, JUDGESHIP NO. {n}" + (f" {unexp}" if unexp else ""),
+                     magnitude=c["vote_for"], precincts=c["precincts"][1], candidates=cands,
+                     state_votes={"source": "nd_sos", "medsl": medsl, "office_as_listed": c["office"]},
+                     notes=(m.get("notes") or []) + [
+                         f"the judgeship, its seat and its votes: the North Dakota Secretary of State's official 2022 "
+                         f"results ('{c['office']}', Vote For {c['vote_for']}; pipeline/intake/nd_sos.py); MEDSL's "
+                         f"file names this contest 'Justice of the Supreme Court' and adds the {m['district'].title()}'s "
+                         f"{len(g)} judgeships up into one contest of one seat, with {len(med) - ('WRITE-IN' in med)} "
+                         f"names and {med['WRITE-IN']['votes'] if 'WRITE-IN' in med else 0:,} write-in votes (the "
+                         f"state's {wi:,} in all)" + ("; " + "; ".join(diff) if diff else "")])
+            out.append(j)
+            PIECES[year]["ND: a district court judgeship from the state's official results"] += 1
+        hits += 1
+    if hits != 8 or by_dist:
+        raise SystemExit(f"nd_judgeships: {hits} of MEDSL's pooled contests, {sorted(by_dist)} of the state's unmatched")
+    return out
+
+
+def _join(m, pieces, year):
+    """m with its pieces' lines added in: votes by candidate, counties and precincts together (ruling (a))."""
+    parts = [m] + pieces
+    joined = {}
+    for p in parts:
+        for x in p["candidates"]:
+            k = _ckey(x)
+            if k not in joined:
+                joined[k] = dict(x, votes=0)
+            joined[k]["votes"] += x["votes"]
+    m["joined_from"] = [{"office": p["office"], "district": p.get("district") or None, "counties": p["counties"],
+                         "precincts": p.get("precincts"), "seats": p.get("magnitude"),
+                         "votes": {x["name"]: x["votes"] for x in p["candidates"]}} for p in parts]
+    m["counties"] = sorted({k for p in parts for k in p["counties"]})
+    m["precincts"] = sum(p.get("precincts") or 0 for p in parts)
+    m["candidates"] = list(joined.values())
+    m["notes"] = (m.get("notes") or []) + [
+        f"joined from {len(parts)} contests of MEDSL's file, the same office's candidates in counties apart: "
+        + "; ".join(f"'{p['office'].title()}'" + (f" ({p['district']})" if p.get("district") else "")
+                    + f", {len(p['counties'])} count{'y' if len(p['counties']) == 1 else 'ies'}" for p in parts)
+        + " (joined_from; " + RULING_1647.split(": ", 1)[0] + ", (a))"]
+    PIECES[year]["joined"] += 1
+
+
+def _wa_state(m, year):
+    """Washington 2022: the state's own results for a joined contest (pipeline/intake/wa_sos.py), set beside MEDSL's
+    sum (ruling (b)); the export carries no certified mark, so MEDSL's counts stand and the difference is recorded
+    (15:16; the orchestrator, 16:53: 'the joined counts standing at 4,811 under the state's, with the difference
+    recorded, is right under 15:16'). A Supreme Court position takes its seat count from the state's results (ruling
+    (d)): each position is a race of its own, with one name."""
+    path = os.path.join(WA_SOS, "20221108-statewide.json")
+    if not os.path.exists(path):
+        raise SystemExit(f"{path} is not in the cache: run pipeline/intake/wa_sos.py read --date 20221108 first")
+    with open(path) as f:
+        wa = json.load(f)
+    race = next((r for r in wa["races"] if r.upper() == m["office"]), None)
+    if race is None:
+        raise SystemExit(f"_wa_state: no race of the state's named {m['office']!r}")
+    st = {("WRITE-IN" if x["candidate"].upper() == "WRITE-IN" else name_key(x["candidate"])): x for x in wa["races"][race]}
+    mine = {_ckey(x): x for x in m["candidates"]}
+    if set(st) != set(mine):
+        raise SystemExit(f"_wa_state: {race}: the state's names differ from MEDSL's joined ones")
+    less = {mine[k]["name"]: mine[k]["votes"] - st[k]["votes"] for k in st}
+    m["state_total"] = {"source": "wa_sos", "race": race, "votes": {mine[k]["name"]: st[k]["votes"] for k in st},
+                        "certified": wa["certified"], "counts_used": "medsl", "medsl_less_state": less}
+    if STATE_COURT.search(m["office"]):
+        if len([x for x in wa["races"][race] if x["candidate"].upper() != "WRITE-IN"]) != 1:
+            raise SystemExit(f"_wa_state: {race}: not one name")
+        m["seats_note"] = (f"one seat, from the state's results: its export lists '{race}' as a race of its own, with "
+                           f"one name and the write-ins (pipeline/intake/wa_sos.py); MEDSL's file gives each position "
+                           f"{m['magnitude']} seats")
+        m["magnitude"] = 1
+        PIECES[year]["WA: a Supreme Court position's seat count from the state's results"] += 1
+    total = sum(less.values())
+    m["notes"].append(f"the state's own results ('{race}', pipeline/intake/wa_sos.py) "
+                      + ("equal MEDSL's joined counts" if not any(less.values()) else
+                         f"differ from MEDSL's joined counts by {total:+,} ("
+                         + "; ".join(f"{n.title()} {v:+,}" for n, v in less.items() if v) + ")")
+                      + "; the state's export carries no certified or official mark, so MEDSL's counts stand "
+                        "(result.state_total)")
+
+
+def _nd_state(m, year, a):
+    """North Dakota 2024: the state's official total for a contest MEDSL's lines leave incomplete (ruling (c)), or
+    None where the state's page lists no contest of that name."""
+    path = os.path.join(ND_SOS, f"{year}-general.json")
+    if not os.path.exists(path):
+        raise SystemExit(f"{path} is not in the cache: run pipeline/intake/nd_sos.py read --year {year} first")
+    with open(path) as f:
+        off = json.load(f)
+    c = next((c for c in off["contests"]["statewide"] if c["office"].upper() == m["office"]), None)
+    if c is None:
+        return None
+    st = {("WRITE-IN" if x["writein"] else name_key(x["name"])): x for x in c["candidates"]}
+    mine = {_ckey(x): x for x in m["candidates"]}
+    if set(st) != set(mine):
+        raise SystemExit(f"_nd_state: {m['office']}: the state's names differ from MEDSL's")
+    medsl = {x["name"]: x["votes"] for x in m["candidates"]}
+    missing = sorted(a - set(m["counties"]))
+    for k, x in mine.items():
+        x["votes"] = st[k]["votes"]
+        x["won_marked"] = True if st[k]["won"] else None
+    m["counties"] = sorted(a)
+    m["precincts"] = c["precincts"][1]
+    m["state_votes"] = {"source": "nd_sos", "medsl": medsl, "office_as_listed": c["office"]}
+    m["notes"] = (m.get("notes") or []) + [
+        f"votes: the North Dakota Secretary of State's official {year} results ('{c['office']}', every precinct "
+        f"reported: {c['precincts'][0]} of {c['precincts'][1]}; pipeline/intake/nd_sos.py), the state's marked total "
+        f"(ruling (c) of 16:47); MEDSL's lines for this contest miss {', '.join(missing)} and add up to "
+        f"{sum(medsl.values()):,} (result.medsl_votes)"]
+    return True
+
+
+def statewide_pieces(contests, year):
+    """The ruling of 16:47 (RULING_1647) on statewide contests whose lines miss counties that voted that day, and its
+    same-PR items: North Dakota's 2022 judgeships (nd_judgeships), Michigan's Supreme Court (MI_SC_UNREAD). A contest
+    is statewide by _sw_kind; it misses counties where its votes are not in every county the state's contests have
+    votes in on its date (as mark_whole_state reads it)."""
+    PIECES[year] = collections.Counter()   # this load's moves (a year may be loaded more than once)
+    if year == 2022:
+        contests = nd_judgeships(contests, year)
+    a_ = _state_counties(contests)
+    def whole(m):
+        a = a_[(m.get("state"), m.get("date"))]
+        return len(a) > 1 and a <= set(m.get("counties") or [])
+    def names(m):
+        return {name_key(x["name"]) for x in ballot(m["candidates"])}
+    # (a) join the pieces
+    mains = [m for m in contests if _sw_kind(m) and not m.get("held_reason") and len(a_[(m["state"], m["date"])]) > 1
+             and not whole(m)
+             and (_sw_kind(m) == "officer" or len(set(m["counties"]) & a_[(m["state"], m["date"])])
+                  >= len(a_[(m["state"], m["date"])]) / 2)]
+    taken, joins = set(), {}
+    for m in mains:
+        a, mine = a_[(m["state"], m["date"])], set(m["counties"])
+        ps = [o for o in contests if o is not m and not o["question"] and o.get("dataverse") == "STATE"
+              and o["state"] == m["state"] and o["date"] == m["date"] and o.get("counties")
+              and not (set(o["counties"]) & mine) and set(o["counties"]) <= a and names(o)
+              and (names(o) <= names(m) or (o["office"] == m["office"] and (o.get("district") or "") ==
+                                            (m.get("district") or "") and names(m) <= names(o)))
+              and not whole(o)]   # the same candidates: within the first piece's, or (the same office) taking them in
+        if ps:
+            if any(id(o) in taken for o in ps) or id(m) in taken:
+                raise SystemExit(f"statewide_pieces: {year} {m['state']} {m['office']}: a piece fits two contests")
+            taken.update(id(o) for o in ps)
+            joins[id(m)] = (m, ps)
+    found = {(m["state"], m["office"], m.get("district") or "") for m, _ in joins.values()}
+    if found != JOINS_EXPECTED.get(year, set()):
+        raise SystemExit(f"statewide_pieces: {year}: joins {sorted(found)} differ from JOINS_EXPECTED")
+    held_ = set()
+    for m, ps in joins.values():
+        seats = {p.get("magnitude") for p in [m] + ps}
+        _join(m, ps, year)
+        if m["state"] == "WA" and year == 2022:
+            _wa_state(m, year)
+        elif len(seats) > 1:
+            _hold(m, "seat count unread: the contest's pieces in MEDSL's file give it different numbers of seats ("
+                     + " and ".join(str(s) for s in sorted(seats, key=lambda s: (s is None, s))) + "), and the state's "
+                     "own results were not read, so p is not computed and no winner is marked", "seats differ", year)
+            m["magnitude"] = None
+            held_.add((m["state"], m["office"], m.get("district") or "", "seats differ"))
+    contests = [c for c in contests if id(c) not in taken]
+    # (c) what still misses counties
+    for m in contests:
+        k = _sw_kind(m)
+        a = a_[(m.get("state"), m.get("date"))]
+        if not k or len(a) <= 1 or whole(m) or m.get("held_reason"):
+            continue
+        mine = set(m.get("counties") or []) & a
+        key = (m["state"], m["office"], m.get("district") or "")
+        twin = next((w for w in contests if w is not m and whole(w) and w["state"] == m["state"]
+                     and w["date"] == m["date"] and w["office"] == m["office"]
+                     and (w.get("district") or "") == (m.get("district") or "") and names(m) <= names(w)), None)
+        if not mine:
+            _hold(m, "a line with no county: MEDSL's file " + ("holds this contest whole and, apart from it, "
+                                                                 if twin is not None else "holds ")
+                     + f"{len(m['candidates'])} name{'s' if len(m['candidates']) > 1 else ''} with "
+                     f"{sum(x['votes'] for x in m['candidates']):,} votes and no county code; what the line counts is "
+                     f"not read, so it is held: no p, and no winner", "no county", year)
+            held_.add(key + ("no county",))
+        elif twin is not None:
+            _hold(m, f"a second count: MEDSL's file holds this contest whole and, apart from it, these lines of the "
+                     f"same office and names in {len(mine)} of its counties ({', '.join(sorted(mine))}, "
+                     f"{m.get('precincts')} precincts, {sum(x['votes'] for x in m['candidates']):,} votes); what they "
+                     f"count is not read, so they are held: no p, and no winner", "second count", year)
+            held_.add(key + ("second count",))
+        elif k == "officer" or len(mine) >= len(a) / 2:
+            if m["state"] == "ND" and _nd_state(m, year, a):
+                PIECES[year]["ND: the state's official total for a contest MEDSL leaves incomplete"] += 1
+                held_.add(key + ("state total",))
+                continue
+            miss = sorted(a - mine)
+            _hold(m, f"incomplete: MEDSL's lines for this contest miss {len(miss)} of the {len(a)} counties the "
+                     f"state's contests have votes in that day ({', '.join(miss)}), no other piece of it is in the "
+                     f"file, and the state's own total was not read, so p is not computed and no winner is drawn from "
+                     f"a partial count", "incomplete", year)
+            m["votes_incomplete"] = {"counties_missing": miss, "counties_of_state": len(a)}
+            held_.add(key + ("incomplete",))
+    if held_ != HOLDS_EXPECTED.get(year, set()):
+        raise SystemExit(f"statewide_pieces: {year}: holds {sorted(held_ - HOLDS_EXPECTED.get(year, set()))} new, "
+                         f"{sorted(HOLDS_EXPECTED.get(year, set()) - held_)} not found")
+    # Michigan's Supreme Court
+    if year in MI_SC_UNREAD:
+        hits = [m for m in contests if m.get("state") == "MI" and m["office"] == "JUSTICE OF THE SUPREME COURT"]
+        if len(hits) != {2018: 1, 2024: 2}[year]:
+            raise SystemExit(f"statewide_pieces: MI {year}: {len(hits)} Supreme Court contests")
+        for m in hits:   # MEDSL's count stays for the type (a statewide contest for a supreme court seat); unread
+            _hold(m, MI_SC_UNREAD[year], "MI Supreme Court, seat count unread", year)
+            m["seats_note"] = "unread: MEDSL's file gives one seat, which no page read confirms (held_reason)"
     return contests
 
 
@@ -1634,6 +1977,13 @@ STATE_EXEC = re.compile(
 STATE_COMMISSION = re.compile(r"\bCOM+IS+I[O0]N(ERS?)?\b")
 STATE_COURT = re.compile(r"\bSUPREME\b|\bAPPEALS\b|\bAPPELLATE\b|\bCOMMONWEALTH COURT\b|\bCT OF APP\b")
 RETENTION = re.compile(r"RETENTION|RETAIN")
+# The orchestrator, 2026-11-07 16:47: "One-seat statewide board seats (CO's at-large seat, HI's resident trustees)
+# become statewide officer, by the 16:19 reason" ("a race's class is set by what the contest elects"): a board's or a
+# school board's seat in a state office's contest that elects one seat, by the source's own count, with votes in every
+# county of the state's files that day (Colorado's at-large member of the State Board of Education and at-large regent
+# of the University of Colorado, Hawaii's Office of Hawaiian Affairs trustees of one seat). A board's seat of several
+# seats at once keeps the board type (16:19, ruling 1).
+STATE_BOARD_TYPES = ("council, commission or board", "school board")
 
 
 def office_type_in(office, state=None, district=None, scope="local", counties=None, seats=None, whole_state=False):
@@ -1641,14 +1991,16 @@ def office_type_in(office, state=None, district=None, scope="local", counties=No
     office's one-seat contest elected statewide typed by the rulings of 16:19: a commission seat "statewide officer", a
     supreme court or appellate seat "statewide judge"."""
     o = " ".join(office.upper().split())
-    if scope == "state" and district in (None, "", "STATEWIDE") and (counties is None or len(counties) != 1) \
-            and (STATE_SUPT.search(o) or STATE_EXEC.match(o)):
-        return "statewide officer"
+    if scope == "state" and (district in (None, "", "STATEWIDE") or whole_state) \
+            and (counties is None or len(counties) != 1) and (STATE_SUPT.search(o) or STATE_EXEC.match(o)):
+        return "statewide officer"   # whole_state: Colorado's statewide offices carry district "000" [measured]
     if scope == "state" and whole_state and seats == 1 and (counties is None or len(counties) != 1) \
             and not RETENTION.search(o) and "CLERK" not in o:
         if STATE_COURT.search(o):
             return "statewide judge"
         if STATE_COMMISSION.search(o) and office_type(office, state, district) == "council, commission or board":
+            return "statewide officer"
+        if office_type(office, state, district) in STATE_BOARD_TYPES:   # the orchestrator, 16:47 (STATE_BOARD_TYPES)
             return "statewide officer"
     return office_type(office, state, district)
 
@@ -2043,6 +2395,18 @@ def build(out_dir, with_p=True):
             if c.get("nm_sos"):   # New Mexico's official PEC results in place of MEDSL's (known_contests)
                 rec["result"]["votes_source"] = "nm_sos"
                 rec["result"]["medsl_votes"] = c["nm_sos"]["medsl"]
+            if c.get("state_votes"):   # North Dakota's official results in place of MEDSL's (statewide_pieces)
+                rec["result"]["votes_source"] = c["state_votes"]["source"]
+                rec["result"]["medsl_votes"] = c["state_votes"]["medsl"]
+                rec["result"]["office_as_listed"] = c["state_votes"]["office_as_listed"]
+            if c.get("joined_from"):   # a contest MEDSL files in pieces, joined (statewide_pieces, ruling (a))
+                rec["joined_from"] = [{k: v for k, v in p_.items() if v is not None} for p_ in c["joined_from"]]
+            if c.get("state_total"):   # the state's own results beside MEDSL's joined counts (ruling (b))
+                rec["result"]["state_total"] = c["state_total"]
+            if c.get("votes_incomplete"):   # held: the lines miss counties (ruling (c))
+                rec["result"]["votes_incomplete"] = c["votes_incomplete"]
+            if c.get("seats_note"):   # where the seat count comes from, or that it is unread (statewide_pieces)
+                rec["seats_note"] = c["seats_note"]
             if c.get("tie"):   # an exact tie, and how it was settled (local_la.py tie_record)
                 rec["result"]["tie"] = True
                 rec["result"]["tie_settled"] = c["tie"]
@@ -2199,7 +2563,7 @@ def build(out_dir, with_p=True):
                                                        {x["name"]: x["votes"] for x in c["candidates"]}).items()}
                     rec["listed_statewide"]["state_total"] = {
                         "votes": st_["votes"], "quote": st_["quote"], "cache_file": st_["quote_file"],
-                        "certified": st_["certified"], "counts_used": "state" if fl.get("medsl_votes") else "medsl",
+                        "url": st_["quote_url"], "certified": st_["certified"], "counts_used": "state" if fl.get("medsl_votes") else "medsl",
                         "medsl_votes": medsl,
                         "agrees": all(medsl.get(k) == v for k, v in st_["votes"].items()),
                         "medsl_less_state": {k: medsl.get(k, 0) - v for k, v in st_["votes"].items()}}
@@ -2400,6 +2764,35 @@ def build(out_dir, with_p=True):
                 via=f"pipeline/intake/nm_sos.py; linked from {nm['archive']['url']}",
                 note="each Public Education Commissioner's district and votes (result.votes_source 'nm_sos'); MEDSL's "
                      "counts in result.medsl_votes", sha256=nm["page"]["sha256"])
+        if any((x.get("result") or {}).get("votes_source") == "nd_sos" for x in cs + others):
+            with open(os.path.join(ND_SOS, f"{year}-general.json")) as f:   # North Dakota's official results
+                nd = json.load(f)
+            pages = [k for k in ("judicial", "statewide")
+                     if any((x.get("result") or {}).get("votes_source") == "nd_sos" and
+                            any(c_["office"] == (x["result"].get("office_as_listed")) for c_ in nd["contests"][k])
+                            for x in cs + others)]
+            head["sources"]["nd_sos"] = F.source(
+                f"North Dakota Secretary of State, Official {year} General Election Results: "
+                + " and ".join(f"{k} contests" for k in pages), nd["pages"][pages[0]]["url"],
+                nd["pages"][pages[0]]["read_utc"], nd["licence"], mark="stated",
+                via=f"pipeline/intake/nd_sos.py; front page {nd['front']['url']}, linked from {nd['archive']['url']} "
+                    f"as {nd['archive']['link_text']!r}",
+                note="the votes of each contest whose result.votes_source is 'nd_sos' (MEDSL's in result.medsl_votes), "
+                     "and North Dakota's 2022 district court judgeships, each as the state lists it "
+                     "(result.office_as_listed); the front page heads them " + repr(nd["front"]["official"])
+                     + "; pages " + ", ".join(f"{nd['pages'][k]['url']} (sha256 {nd['pages'][k]['sha256'][:16]})"
+                                              for k in pages), sha256=nd["pages"][pages[0]]["sha256"])
+        if any((x.get("result") or {}).get("state_total", {}).get("source") == "wa_sos" for x in cs + others):
+            with open(os.path.join(WA_SOS, "20221108-statewide.json")) as f:   # Washington's own results
+                wa = json.load(f)
+            head["sources"]["wa_sos"] = F.source(
+                "Washington Secretary of State, results of the 8 November 2022 general election: its exports "
+                + " and ".join(f"{k}.csv" for k in wa["files"]), wa["page"]["url"], wa["page"]["read_utc"],
+                wa["licence"], mark="stated", via="pipeline/intake/wa_sos.py; the page's Export page "
+                + wa["export_page"]["url"],
+                note="each joined contest's result.state_total, beside MEDSL's counts, which stand ("
+                     + wa["certified"]["note"] + "); a Supreme Court position's one seat (seats_note); files "
+                     + ", ".join(f"{v['url']} (sha256 {v['sha256'][:16]})" for v in wa["files"].values()))
         if "in_enr" in used:   # Indiana's own certified file (certified_in)
             import local_in as LI
             head["sources"]["in_enr"] = LI.source_block()
@@ -2441,6 +2834,7 @@ def build(out_dir, with_p=True):
     counts.update({f"left out, no vote anywhere, {y}": EMPTY[y] for y in YEARS})
     counts.update({f"joined {y}, {k}": v for y in sorted(JOINED) for k, v in JOINED[y].items()})
     counts.update({f"known {y}, {k}": v for y in sorted(KNOWN) for k, v in KNOWN[y].items()})
+    counts.update({f"pieces {y}, {k}": v for y in sorted(PIECES) for k, v in PIECES[y].items()})
     print(json.dumps(dict(sorted(counts.items())), indent=1))
     return files, counts
 
