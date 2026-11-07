@@ -1,7 +1,7 @@
 {
 "about": "Every record that changed in the held-totals step (data/local/REPORT.md section 31; the orchestrator's orders of 2026-11-07 17:44, 18:49, 20:28, 20:30, 20:55, 21:03 and 21:21), against bcd1ce9 (main 9118755 merged), the code of this step aside. Each group, with its reason:",
 "groups": {
-"OR 2024 Supreme Court": "Position 7 takes the Secretary of State's abstract total (gate passed; mark: the records system's title '... Official Results'), so p is computed (0: one name, write-ins against) and it is typed a statewide judge; Position 1 stays held, its reason now naming the abstract's failed gate (Misc.: county lines 26,078, Total line 26,077)",
+"OR 2024 Supreme Court": "both positions stay held: the Secretary of State's abstract carries no mark (the records system's title is the uploaded file's name; the orchestrator, 21:55); its figures are quoted in each record's notes, unmarked and not taken, and each hold's reason says why (Position 1's also names its failed gate: Misc.: county lines 26,078, Total line 26,077)",
 "AZ 2022 Attorney General": "marked 'count before the recount, certified count unread' (result.count_stage, a note); the Clerk's copy refused and a third party's copy ruled out (21:03)",
 "AZ 2024 Corporation Commissioner": "one contest of 3 seats (M2's sixth pass (a)); still not computed, now for too few like races of its class",
 "the over-ballot test (17:44)": "MI 2018 and OH 2018 Supreme Court, HI 2022 trustee and MI 2022 Attorney General stay held, their reasons restated against the day's top contest; TX 2024 Supreme Court is held (32,783,005 votes, 2.87 times the president's: three seats filed as one; it had no p); IL 2018 Secretary of State and DE 2022 Attorney General are listed between 1.0 and 1.1 times, with a note",
@@ -15,11 +15,9 @@
 "against": "bcd1ce9",
 "summary": {
 "local G: record gone": 2,
-"local N: new p": 1,
-"local Q: a note's words changed": 32,
-"local R: not computed before or after, the reason changed": 7,
+"local Q: a note's words changed": 33,
+"local R: not computed before or after, the reason changed": 8,
 "local T: typed judge": 2,
-"local T: typed statewide judge": 1,
 "measure Q: a note's words changed": 7,
 "measure R: not computed before or after, the reason changed": 7,
 "measure W-: no longer counted whole": 5,
@@ -570,10 +568,11 @@ null,
 "judge",
 "judge",
 "incomplete: MEDSL's lines for this contest miss 8 of the 36 counties the state's contests have votes in that day (41017, 41031, 41053, 41055, 41059, 41061, 41063, 41069), no other piece of it is in the file, and the state's own total was not read, so p is not computed and no winner is drawn from a partial count",
-"incomplete: MEDSL's lines for this contest miss 8 of the 36 counties the state's contests have votes in that day (41017, 41031, 41053, 41055, 41059, 41061, 41063, 41069), no other piece of it is in the file, and the Secretary of State's abstract of votes was read (pipeline/intake/or_sos.py) and fails its own gate: Misc.: its county lines add up to 26,078, its Total line 26,077, so its total is not taken either, so p is not computed and no winner is drawn from a partial count",
+"incomplete: MEDSL's lines for this contest miss 8 of the 36 counties the state's contests have votes in that day (41017, 41031, 41053, 41055, 41059, 41061, 41063, 41069), no other piece of it is in the file, and the Secretary of State's abstract of votes was read (pipeline/intake/or_sos.py) but carries no mark of an official or certified count: the document prints none, and the records system's title, '2024 November General Election Official Results(2).PDF', is the uploaded file's name (the orchestrator, 2026-11-07 21:55), and it fails its own gate: Misc.: its county lines add up to 26,078, its Total line 26,077; so its total is not taken either, so p is not computed and no winner is drawn from a partial count",
 null,
 [
-"R"
+"R",
+"Q"
 ]
 ],
 [
@@ -581,13 +580,12 @@ null,
 "data/local/2024/OR.json",
 "Judge Of The Supreme Court",
 "judge",
-"statewide judge",
+"judge",
 "incomplete: MEDSL's lines for this contest miss 9 of the 36 counties the state's contests have votes in that day (41017, 41031, 41045, 41053, 41055, 41059, 41061, 41063, 41069), no other piece of it is in the file, and the state's own total was not read, so p is not computed and no winner is drawn from a partial count",
-0.0,
+"incomplete: MEDSL's lines for this contest miss 9 of the 36 counties the state's contests have votes in that day (41017, 41031, 41045, 41053, 41055, 41059, 41061, 41063, 41069), no other piece of it is in the file, and the Secretary of State's abstract of votes was read (pipeline/intake/or_sos.py) but carries no mark of an official or certified count: the document prints none, and the records system's title, '2024 November General Election Official Results(2).PDF', is the uploaded file's name (the orchestrator, 2026-11-07 21:55); so its total is not taken either, so p is not computed and no winner is drawn from a partial count",
 null,
 [
-"T",
-"N",
+"R",
 "Q"
 ]
 ],
