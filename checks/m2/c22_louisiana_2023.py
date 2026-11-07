@@ -326,7 +326,7 @@ def files_check(cs, rd):
 
 def p_check(cs, rd, files):
     print("22.4 The 29 p from my own pools and my reading of the first rounds; the rounds not computed; 2023 in 2024's pool")
-    medsl, nc, miss = C15.local_pools(odd_la=True)   # 2023's rows in (they are earlier years for no 2023 p; c15 keeps them out for 2024's)
+    medsl, nc, miss = C15.local_pools(odd_la=True)   # 2023's rows in: they are earlier years for no 2023 p, and #75 feeds them into 2024's
     by_key = collections.defaultdict(list)
     for y, k, s in medsl:
         by_key[k].append((y, s))
@@ -361,8 +361,8 @@ def p_check(cs, rd, files):
     print(f"  Democrat-against-Republican deciding rounds not computed: {len(dr)} (the record: 17); among them " + ", ".join(sorted({r['office'][:28] for r in dr if r['office_scope'] != 'local'})))
     # 2024's p with and without 2023's rows
     la24 = [r for r in D.rows("local") if r["state"] == "LA" and r["year"] == 2024 and r["status"] == "value" and r["route"] in ("class", "boundary")]
-    C15.compare_like(la24, medsl, "2024's Louisiana p, with 2023's rows in my pool (the record's rule keeps them out)")
-    C15.compare_like(la24, C15.local_pools()[0], "2024's Louisiana p, 2023's rows left out (c15's pool as run)")
+    C15.compare_like(la24, medsl, "2024's Louisiana p, with 2023's rows in my pool (the record's rule since #75)")
+    C15.compare_like(la24, C15.local_pools(odd_la=False)[0], "2024's Louisiana p, 2023's rows left out (the rule between #70 and #75: expected to differ now)")
     # the legislature
     pool, _, _ = C15.state_like_pool()
     bk = collections.defaultdict(list)
@@ -413,9 +413,9 @@ def p_check(cs, rd, files):
     print(f"  questions {len(mea)}: status " + ", ".join(f"{k} {v}" for k, v in collections.Counter(r['status'] for r in mea).items())
           + "; by reason: " + "; ".join(f"'{k}' {v}" for k, v in collections.Counter((r['reason'] or '')[:60] for r in mea).most_common()))
     pool_m = C15.measure_pool(odd_la=True)
-    print(f"  Louisiana's 2023 questions in my measure pool: {sum(1 for y, k, s, rid in pool_m if '-LA-' in rid and y == YEAR)} (the record: 2023 feeds no later year)")
+    print(f"  Louisiana's 2023 questions in my measure pool: {sum(1 for y, k, s, rid in pool_m if '-LA-' in rid and y == YEAR)} (#75: 2023 feeds the later years)")
     ms = [r for r in D.rows("measure") if r["year"] == 2024 and r["route"] == "like past measures" and r["status"] == "value"]
-    for label, pool_rows in (("with 2023's questions in my pool", pool_m), ("2023's questions left out (c15's pool as run)", C15.measure_pool())):
+    for label, pool_rows in (("with 2023's questions in my pool", pool_m), ("2023's questions left out (the rule between #70 and #75: expected to differ now)", C15.measure_pool(odd_la=False))):
         by_k = collections.defaultdict(list)
         for y, k, s, rid in pool_rows:
             by_k[k].append((y, s))

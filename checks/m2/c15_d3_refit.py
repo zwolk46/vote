@@ -214,10 +214,10 @@ def measure_route(r):
     return r["state"] == "NC" and r["src"] == "ncsbe" and (r["date"] or "")[5:7] == "11" and r["year"] in MEASURE_YEARS
 
 
-ODD_LA_YEARS = (2023,)   # Louisiana's odd year (#70): the record keeps it out of every later year's like races (local_medsl.py ODD_YEARS)
+ODD_LA_YEARS = (2023,)   # Louisiana's odd year (#70). #75 feeds it into every later year's like races and measures (the default here); odd_la=False gives the rule between #70 and #75
 
 
-def local_pools(odd_la=False):
+def local_pools(odd_la=True):
     """(MEDSL pool, North Carolina pool): (year, key, s) rows from the local files. odd_la=True takes Louisiana's 2023
     rows (#70) into the MEDSL pool too; the record keeps them out of later years' like races (c22 measures both).
     MEDSL (pipeline/local_medsl.py local_rows): every contest of MEDSL's route (medsl_route) that local_structure
@@ -325,7 +325,7 @@ def side(name):
 _STATE_FAULT = re.compile(r"^the source's \d{4} .*this state")
 
 
-def measure_pool(odd_la=False):
+def measure_pool(odd_la=True):
     """(year, key, yes share) rows of the measure files on MEDSL's route (measure_route): every question of the measure
     years with yes or no votes, statewide or local (partial left out; a question the source gives one answer of, and a
     state whose counts do not add up that year, left out), as pipeline/measures.py rows counts them. Louisiana's 2023
@@ -879,8 +879,9 @@ def calibration():
         e_cal += k * sum(q for q, _ in nc[y])
     got = json.load(open(os.path.join(M.DATA, "local", "backtest-ncsbe.json")))["calibration"]["local"]
     print(f"\n  North Carolina (local_ncsbe.py), the factor pooled over earlier years, each year with 30 or more expected: seen {seen:.0f}, "
-          f"expected uncalibrated {e_raw:.1f}, calibrated {e_cal:.1f} (record: seen {got['seen']}, {got['expected_uncalibrated']}, {got['expected_calibrated']}, "
-          f"adopted {got['adopted']})")
+          f"expected uncalibrated {e_raw:.1f}, calibrated {e_cal:.1f} (record: seen {got.get('seen', got.get('seen_near_half'))}, "
+          f"{got.get('expected_uncalibrated', got.get('expected_before'))}, {got.get('expected_calibrated', got.get('expected_after'))}, "
+          f"adopted {got.get('adopted', got.get('passes'))}; the record's keys {sorted(got)[:8]})")
 
 
 # ------------------------------------------------------------------------------------------ the boundary route's first check

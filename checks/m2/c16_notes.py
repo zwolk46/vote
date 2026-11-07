@@ -20,6 +20,7 @@ on the side it fell) of the sum of the contests' own Bernoulli chances, exact by
 [measured] throughout; the note's own figures are quoted from the files [stated].
 """
 import collections
+import re
 import glob
 import os
 import sys
@@ -212,8 +213,9 @@ def measures():
         if not len(tr):
             continue
         rows.append({"id": rid, "year": y, "s": s, "n": n_of[rid], "tr": tr})
+    rec_n = ((L.load_json(os.path.join(L.DATA, "measure", "backtest-measures.json")).get("near_half") or {}).get("all years statewide measure") or {}).get("measures")
     print(f"  statewide measures, {MEASURE_YEARS[0]}-{MEASURE_YEARS[1]}: {len(rows)} measures whose class has earlier years "
-          f"(backtest-measures.json near_half 'all years statewide measure': {len(rows)} expected to match 251); by year "
+          f"(backtest-measures.json near_half 'all years statewide measure': {rec_n}); by year "
           + ", ".join(f"{y} {c}" for y, c in sorted(collections.Counter(r['year'] for r in rows).items())))
     emp = lambda r, x: float(np.mean(np.abs(r["tr"] - 0.5) <= x + 1e-12))  # noqa: E731
     ps_s = [emp(r, 0.05) for r in rows]
@@ -223,7 +225,8 @@ def measures():
         years[r["year"]][0] += p
         years[r["year"]][1] += s
     ladder = {k: ([emp(r, k / (2.0 * r["n"])) for r in rows], [int(abs(2 * r["s"] - 1) * r["n"] <= k + 0.5) for r in rows]) for k in KS}
-    out = two_tests("measures", ps_s, seen_s, 0.05, ladder, {y: tuple(v) for y, v in years.items()}, "52 against 36.4")
+    note_fig = next((m.group(0) for r in D.rows("measure") for m in [re.search(r"\d+ against [\d.]+", ((r.get("p") or {}).get("note") or ""))] if m), "none")
+    out = two_tests("measures", ps_s, seen_s, 0.05, ladder, {y: tuple(v) for y, v in years.items()}, note_fig)
     # the same (v) in the p's own form: the class density at 1/2 by the D3-v1.1 window rule (100 or more like measures),
     # f x k / n inside the window, the empirical share beyond it
     parts = []
