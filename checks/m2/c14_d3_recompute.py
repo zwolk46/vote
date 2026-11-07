@@ -114,7 +114,7 @@ def inventory():
           + f"; p = 0: {sum(1 for r in kl if r['status'] == 'value' and r['route'] is None):,}.")
     loc = D.rows("local")
     for y in (2024, 2022, 2020, 2018):
-        ry = [r for r in loc if r["year"] == y and r["src"] in ("medsl", "in_enr")]   # Indiana's own 2024 file stands in MEDSL's place (#54)
+        ry = [r for r in loc if r["year"] == y and r["src"] in ("medsl", "in_enr", "la_sos")]   # Indiana's own 2024 file stands in MEDSL's place (#54)
         v = collections.Counter(r["route"] for r in ry if r["status"] == "value")
         print(f"local {y} (MEDSL{', with Indiana' if y == 2024 else ''}): {len(ry):,} contests; p computed: like races {v['class'] + v['boundary']:,} "
               f"(class {v['class']:,}, boundary {v['boundary']:,}), partisan {v['partisan']:,}; p = 0: {v[None]:,} "
@@ -350,7 +350,7 @@ def recompute():
 def _medsl_route(r):
     """pipeline/local_medsl.py's route: MEDSL's contests, Indiana's own of 2024 (#54), and the State Board's North
     Carolina contests of MEDSL's general dates (certified_nc); the rest of North Carolina is local_ncsbe.py's."""
-    if r["src"] in ("medsl", "in_enr"):
+    if r["src"] in ("medsl", "in_enr", "la_sos"):
         return True
     return r["state"] == "NC" and r["src"] == "ncsbe" and (r["date"] or "")[5:7] == "11" and r["year"] in (2018, 2020, 2022, 2024)
 

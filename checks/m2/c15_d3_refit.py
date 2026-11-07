@@ -149,7 +149,7 @@ def like_state():
     contests = [r for level in ("state-upper", "state-lower") for r in D.rows(level)
                 if r["route"] in ("class", "boundary", "runoff") and r["N"] is not None]
     kl = [r for r in contests if r["src"] == "klarner"]
-    md = [r for r in contests if r["src"] in ("medsl", "in_enr")]
+    md = [r for r in contests if r["src"] in ("medsl", "in_enr", "la_sos")]
     compare_like(kl, pool, "Klarner-built years (1968-2023), like races from earlier years of the same pool")
     compare_like(md, pool, "2024 (MEDSL-built, with Indiana's own file), like races from Klarner's years before 2024")
     # the window's widening as written: k < 10 at every narrower window
@@ -202,20 +202,24 @@ def medsl_route(r):
     """Whether a local contest is one pipeline/local_medsl.py's routes forecast: MEDSL's own contests, and the State
     Board's North Carolina contests of MEDSL's general dates, which stand in place of MEDSL's (certified_nc). North
     Carolina's other dates are local_ncsbe.py's, whatever file holds them."""
-    if r["src"] in ("medsl", "in_enr"):   # Indiana's own certified 2024 file stands in place of MEDSL's (#54, certified_in)
+    if r["src"] in ("medsl", "in_enr", "la_sos"):   # Indiana's own certified 2024 file stands in place of MEDSL's (#54, certified_in)
         return True
     return r["state"] == "NC" and r["src"] == "ncsbe" and (r["date"] or "")[5:7] == "11" and r["year"] in MEDSL_YEARS
 
 
 def measure_route(r):
     """The same for a question: MEDSL's, or the State Board's of MEDSL's general dates in the measure years."""
-    if r["src"] in ("medsl", "in_enr"):
+    if r["src"] in ("medsl", "in_enr", "la_sos"):
         return True
     return r["state"] == "NC" and r["src"] == "ncsbe" and (r["date"] or "")[5:7] == "11" and r["year"] in MEASURE_YEARS
 
 
-def local_pools():
-    """(MEDSL pool, North Carolina pool): (year, key, s) rows from the local files.
+ODD_LA_YEARS = (2023,)   # Louisiana's odd year (#70). #75 feeds it into every later year's like races and measures (the default here); odd_la=False gives the rule between #70 and #75
+
+
+def local_pools(odd_la=True):
+    """(MEDSL pool, North Carolina pool): (year, key, s) rows from the local files. odd_la=True takes Louisiana's 2023
+    rows (#70) into the MEDSL pool too; the record keeps them out of later years' like races (c22 measures both).
     MEDSL (pipeline/local_medsl.py local_rows): every contest of MEDSL's route (medsl_route) that local_structure
     sends to routes (b) or (c), with the recorded class and deciding pair, or both rebuilt from the ballot where the
     file records neither (a write-in in the deciding pair: the contest's own p is not computed, but it is a like race).
@@ -225,13 +229,11 @@ def local_pools():
     Board contest of May 2018 sits in a file local_medsl.py wrote: the route is read from the source and the date."""
     medsl, nc = [], []
     miss = collections.Counter()
-    # the State Board's route leaves out of its pool a November contest that follows a first round the same year (the
-    # year's 'first round: the same contest is on the ballot again on <date>' row; D3's REPORT section 7 since #59)
+    # since #60 (the orchestrator's ruling of 09:53) a November contest that follows an earlier round the same year is
+    # that contest's deciding round: it takes the route's classes and enters the pool of like races; the earlier round
+    # (its election 'first round: the same contest is on the ballot again on <date>') is not computed and, its reason
+    # not being a pool reason, is not a pool row. Before #60 the State Board's route left the November contest out too.
     after_first = set()
-    for r in D.rows("local"):
-        el = r["election"] or ""
-        if r["state"] == "NC" and el.startswith("first round: the same contest is on the ballot again on "):
-            after_first.add((r["year"], el.split(" on the ballot again on ")[1][:10], r["office"], tuple(r["counties"] or [])))
     for r in D.rows("local"):
         if r["status"] == "value" and r["route"] is None:
             continue
@@ -252,6 +254,9 @@ def local_pools():
             continue
         s = max(v0, v1) / (v0 + v1)
         if medsl_route(r):
+            if r["src"] == "la_sos" and r["year"] in ODD_LA_YEARS and not odd_la:
+                miss["Louisiana's odd year, kept out of later years' like races (#70)"] += 1
+                continue
             if r["route"] in ("class", "boundary") or (r["cls"] and not r["route"]):
                 medsl.append((r["year"], r["cls"], s))
             elif reason.startswith("a write-in line is in the pair"):
@@ -261,9 +266,6 @@ def local_pools():
                 else:
                     miss[("write-in pair contest, my structure", st[0])] += 1
         if r["state"] == "NC" and r["year"] >= NC_FIRST:
-            if (r["year"], r["date"], r["office"], tuple(r["counties"] or [])) in after_first:
-                miss["North Carolina: a November contest after a first round this year (the State Board's route leaves it out of its pool)"] += 1
-                continue
             top = sorted([a for a in r["cands"] if a[1] is not None], key=lambda a: -a[1])
             if any(_generic(a[2]) for a in top[k - 1:k + 1]):
                 continue
@@ -323,13 +325,16 @@ def side(name):
 _STATE_FAULT = re.compile(r"^the source's \d{4} .*this state")
 
 
-def measure_pool():
+def measure_pool(odd_la=True):
     """(year, key, yes share) rows of the measure files on MEDSL's route (measure_route): every question of the measure
     years with yes or no votes, statewide or local (partial left out; a question the source gives one answer of, and a
-    state whose counts do not add up that year, left out), as pipeline/measures.py rows counts them."""
+    state whose counts do not add up that year, left out), as pipeline/measures.py rows counts them. Louisiana's 2023
+    questions (#70) only with odd_la=True: the record keeps them out of later years' like measures."""
     pool = []
     for r in D.rows("measure"):
         if not measure_route(r) or not r["question"]:
+            continue
+        if r["src"] == "la_sos" and r["year"] in ODD_LA_YEARS and not odd_la:
             continue
         q = r["question"]
         reason = r["reason"] or ""
@@ -355,6 +360,9 @@ def measures():
     tal, bad = collections.Counter(), []
     for r in ms:
         t, key = r["year"], r["cls"]
+        if key.startswith("local "):   # #77's local classes (local measure, NC / LA): their pools and p are c27's
+            tal["local class (c27's)"] += 1
+            continue
         sh = [s for y, s in by_key[key] if y < t]
         f, N, h, k = D.density_at(sh, r["t"])
         if f is None:
@@ -392,7 +400,11 @@ def measures():
     at = {}
     for r in ms:
         y, key, t = r["year"], r["cls"], r["t"]
+        if key.startswith("local "):   # c27's
+            continue
         tr = [x for yy, x in by_key[key] if yy < y]
+        if not tr:
+            continue
         v0, v1 = r["pair"]["votes"]
         s = v0 / (v0 + v1)
         h = D.window_h(r["win"])
@@ -874,8 +886,9 @@ def calibration():
         e_cal += k * sum(q for q, _ in nc[y])
     got = json.load(open(os.path.join(M.DATA, "local", "backtest-ncsbe.json")))["calibration"]["local"]
     print(f"\n  North Carolina (local_ncsbe.py), the factor pooled over earlier years, each year with 30 or more expected: seen {seen:.0f}, "
-          f"expected uncalibrated {e_raw:.1f}, calibrated {e_cal:.1f} (record: seen {got['seen']}, {got['expected_uncalibrated']}, {got['expected_calibrated']}, "
-          f"adopted {got['adopted']})")
+          f"expected uncalibrated {e_raw:.1f}, calibrated {e_cal:.1f} (record: seen {got.get('seen', got.get('seen_near_half'))}, "
+          f"{got.get('expected_uncalibrated', got.get('expected_before'))}, {got.get('expected_calibrated', got.get('expected_after'))}, "
+          f"adopted {got.get('adopted', got.get('passes'))}; the record's keys {sorted(got)[:8]})")
 
 
 # ------------------------------------------------------------------------------------------ the boundary route's first check
