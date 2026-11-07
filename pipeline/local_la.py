@@ -227,7 +227,8 @@ def medsl_shape(year=YEAR):
             out.append(dict(base, dataverse="STATE" if statewide else "LOCAL", office=title,
                             district="STATEWIDE" if statewide else "", magnitude=None, question=True,
                             question_type="Constitutional Amendment" if amendment and statewide else None,
-                            candidates=[{"name": x["name"].upper(), "votes": x["votes"]} for x in c["candidates"]]))
+                            candidates=[{"name": re.sub(r"^(FOR|AGAINST)\s*RECALL$", r"\1 RECALL", x["name"].upper()),
+                                         "votes": x["votes"]} for x in c["candidates"]]))   # "ForRecall": a recall
             continue
         won = _won(c, r)
         cands = [{"name": x["name"], "votes": x["votes"], "as_named": True, "won_marked": won[x["name"]],
