@@ -1,6 +1,6 @@
 # DESIGN-SPEC: how the vote-importance site looks, reads and moves
 
-*X1, version 1, 2026-11-07. A proposal for the orchestrator: nothing here is decided by X1 (`briefs/_COMMON.md` 3). Every rule carries its reason. Read with `LAW.md`, `model/MODEL.md`, `plan/PLAN.md` and the design guidance it builds on, `inherited/design/` (README, `TASTE.md`, `specs/DESIGN-SPEC.md` written "M-spec s.N" here, `specs/MOTION-SPEC.md` written "M-motion s.N"). Where this spec and the law differ, the law governs (law 6).*
+*X1, version 2, 2026-11-07. Version 1 was merged in #16; version 2 records the orchestrator's answers to §7 (03:53 UTC) and corrects §2.5 on The Economist's and 538's data (model §4, corrected in #17). A proposal for the orchestrator: nothing here is decided by X1 (`briefs/_COMMON.md` 3). Every rule carries its reason. Read with `LAW.md`, `model/MODEL.md`, `plan/PLAN.md` and the design guidance it builds on, `inherited/design/` (README, `TASTE.md`, `specs/DESIGN-SPEC.md` written "M-spec s.N" here, `specs/MOTION-SPEC.md` written "M-motion s.N"). Where this spec and the law differ, the law governs (law 6).*
 
 *The first screen's two or three candidates are built on the preview branch and described in §5; the maker picks one (law 9b).*
 
@@ -85,7 +85,7 @@ The site sets **no B by default** (law 2c: "the site chooses no B"); a row with 
 
 - **One source line per section** (R7), 12 px, `--faint`, naming the sources of the figures in it and their dates.
 - **Every figure's own source** in its fold (§2.4): who counted or computed it, where it is published, the period it covers, and a mark when it is any of these, in words: **"stylised, not a real race"**, **"an average over 16,577 races"**, **"the model's own forecast"**, **"read at second hand, in …"**, **"sample"**. *Reason:* law 8 (the page says when a figure is second-hand, and where); the brief (stylised and sample figures marked plainly).
-- **Copyright** (law 9): a published figure is quoted with its source, as a study's findings are; a publisher's tables are not reproduced. The Economist's 2020 figures are not shown until the maker rules (model §4). The candidates on the preview use none of them.
+- **Copyright and licences** (law 9): a published figure is quoted with its source, as a study's findings are; a publisher's tables and pages are not reproduced. *Corrected in version 2:* **The Economist's** p for 2020 may be shown, taken from the model-output data in its public repository (TheEconomist/us-potus-model, the `p_decisive_vote` field), which its README licenses under CC BY 4.0, and never from its forecast page, whose figures are its content and not covered (model §4, corrected 03:52 UTC). **538's** published state forecasts for 2008 to 2020 (fivethirtyeight/checking-our-work-data) are CC BY 4.0 too. Each is shown with its attribution in the figure's fold and in the section's source line: the publisher, the dataset, the licence, the date read. *Reason:* the licence asks for attribution, and law 8 asks for the source of every figure. The candidates on the preview use neither yet; they come with D1's data.
 
 ### 2.6 The tie counted as half, and the event at twice p
 
@@ -176,11 +176,16 @@ The orchestrator sends the links; the maker picks; the chosen one goes to `main`
 
 ---
 
-## 7. Open, for the orchestrator (and the maker where it bears on the end)
+## 7. Settled, and still open
 
-1. **The default cost**: the median (14 minutes, $8.87, the cautious choice) or the mean (19 minutes, $12.03). Every B\* scales with it.
-2. **The lead contest** of the first screen: the candidates lead with the presidency in the closest states of 2008 (Gelman, Silver and Edlin), the case most readers bring and the strongest real figure; the alternative is to lead with the lowest B\* (law 1a).
-3. **`--t-display`** and **`--accent`**: two tokens beyond the midterms set (§2.1, §2.10).
-4. **The name and the mark** (§2.11): the maker's to name.
-5. **Populations** for the per-person reading come with D1 and D2; until then that reading is a sample on the preview.
+**Settled by the orchestrator** (03:53 UTC 11-07, on version 1's list):
+1. **The default cost** is the median, 14 minutes, $8.87, with the mean (19 minutes, $12.03) in the cost's fold. *Reason:* the lower cost makes every B\* lower, the cautious side against the maker's own claim.
+2. **The lead contest** is the presidency in the closest states, with the lowest-B\* cases on the same screen at the same weight (law 1a). Once D1's data lands, the lead becomes the closest state of the latest cycle, 2024, in place of 2008.
+3. **`--t-display`** and **`--accent`** are approved.
+4. **The name and the mark** (§2.11) go to the maker with the candidates; his to name.
+5. **Populations** for the per-person reading come with D1 and D2; until then that reading is marked as a sample.
 6. **Dependencies**: none added for the candidates. The menu, the search and the drawer, when built, bring the midterms set (Base UI, cmdk, Cupertino Pane, Phosphor), each already measured there (M-spec s.16, s.17, s.9, s.19).
+
+The pages of §3 are approved as proposed.
+
+**Still open:** the maker's pick among the candidates of §5. Whichever he picks carries point 2: the lowest-B\* cases at the same weight as the lead on the first screen. Of the three as built, B comes nearest (the town race is a line of the same ballot, its figure at the same size as the presidency's); A shows them in its list and as ringed dots, at a smaller weight than the lead figure; C reaches them first in its scroll, in the steps' size, below the lead. The chosen one is brought to point 2 in its own PR.
