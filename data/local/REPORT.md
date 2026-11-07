@@ -172,7 +172,7 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 | 2024 (2022 House) | 953 of 1,401 | 51 / 81 / 96% | 58.8, 53 | 50.7, 43 | +3.0 points D |
 | 2020 (2018 House) | 856 of 979 | 52 / 83 / 96% | 53.8, 49 | 46.1, 43 | +2.8 points D |
 
-Both years are within the line, so p is computed: 947 races in 2024 and 848 in 2020. The intervals hold, but the forecasts lean about 3 points too Democratic, and slightly fewer races finished near ½ than forecast (about 10% fewer within 49-51%, 15% fewer within 100 votes in 2024), so these p are, if anything, a little high. By office, the 50% interval holds 44% for councils and boards (454 races in 2024) and 66-68% for clerks and judges. 2018 and 2022 have no previous House vote by county in the sources taken in (2016 is not read; 2020's file is local only), so their 2,038 such races are not computed, with that reason.
+Both years are within the line, so p is computed: 947 races in 2024 and 848 in 2020 (2020's then fall to the calibration rule below). The intervals hold, but the forecasts lean about 3 points too Democratic, and slightly fewer races finished near ½ than forecast (about 10% fewer within 49-51%, 15% fewer within 100 votes in 2024), so these p are, if anything, a little high. By office, the 50% interval holds 44% for councils and boards (454 races in 2024) and 66-68% for clerks and judges. 2018 and 2022 have no previous House vote by county in the sources taken in (2016 is not read; 2020's file is local only), so their 2,038 such races are not computed, with that reason.
 
 **Local like-race classes, now with earlier years** (`data/local/backtest-local-classes.json`) [measured]. Each year's classes come from the local races of earlier years only (2018 from none, 2020 from 2018, 2022 from 2018 and 2020, 2024 from 2018 to 2022). Out of sample, the classes forecast more close races than happened:
 
@@ -181,13 +181,22 @@ Both years are within the line, so p is computed: 947 races in 2024 and 848 in 2
 | 2024 | 2,066 | 270.6 | 202 | 0.75 |
 | 2020 | 1,817 | 317.8 | 248 | 0.78 |
 
-So a like-race p for a local race is about a third too high on average [measured, these two years]. Councils and boards (961 in 2024: 141.3 expected, 107 seen) and school boards (511: 77.5, 50) carry most of it. The same direction as the legislatures' recount zone (§4). Not corrected: a correction is a change of method, which is the orchestrator's to approve.
+So an uncalibrated like-race p for a local race is about a third too high on average [measured, these two years]. Councils and boards (961 in 2024: 141.3 expected, 107 seen) and school boards (511: 77.5, 50) carry most of it. The same direction as the legislatures' recount zone (§4).
+
+**Calibrated to earlier years' near-ties** (the orchestrator, 07:37: "(b), calibrated, fitted on earlier years only... Adopt it only if it improves that test"; `data/local/calibration-local.json`) [measured]. The factor is seen over expected near ½ in the fitting years' own out-of-sample forecasts: by office type where those years expected 30 or more near-½ races, else pooled over their races. p is multiplied by it (for like races, the class density at ½ is). A year with no earlier year to fit on has these p not computed, with that reason.
+
+| route | factor for 2024 (fitted on 2020) | 2024 near ½: expected before, after, seen | deviance by office type, before → after | adopted |
+|---|---|---|---|---|
+| like races | councils and boards 0.82, school boards 0.74, the rest pooled 0.78 | 270.6, 213.8, 202 | 38.1 → 19.2 | yes |
+| Democrat against Republican (transferred) | pooled 0.91 (no type had 30 expected) | 58.8, 53.5, 53 | 13.2 → 12.6 | yes |
+
+Both improve the 2024 test, so both are adopted: 2024's 2,066 like-race p and 947 Democrat-against-Republican p are calibrated, with the factor and its fitting year on the forecast. 2020's have no earlier year with these forecasts (2018's races have none: no year before it is taken in), so its 1,817 like-race p and 848 Democrat-against-Republican p are now not computed, with that reason; their forecasts stay in the records, since they are what fits 2024's factor. The calibrated like-race count is still 6% above what happened (213.8 against 202), most of it in special districts (19.0 against 13).
 
 **Where p is computed** [measured], 56,908 contests:
 - State legislatures 2024, 5,314: unchanged from §6 (p for 3,616, 0 for 1,470, not computed for 228).
 - Local races and state offices, 43,301:
-  - 2024, 19,711: p computed for 3,013 (2,066 like-race, 947 Democrat against Republican); p = 0 for 10,158 unopposed. Not computed: 2,036 seats not given, 2,027 in states held back, 1,239 classes with fewer than 100 like races, 499 specials, 357 lean missing, 280 unopposed with strong write-ins, 84 redacted, 18 others.
-  - 2020, 8,965: p computed for 2,665 (1,817 like-race, 848 Democrat against Republican); p = 0 for 3,617. Not computed: 1,470 seats not given, 901 too few like races, 123 lean missing, 88 specials, 84 strong write-ins, 17 others.
+  - 2024, 19,711: p computed for 3,013, all calibrated (2,066 like-race, 947 Democrat against Republican); p = 0 for 10,158 unopposed. Not computed: 2,036 seats not given, 2,027 in states held back, 1,239 classes with fewer than 100 like races, 499 specials, 357 lean missing, 280 unopposed with strong write-ins, 84 redacted, 18 others.
+  - 2020, 8,965: p = 0 for 3,617. Not computed: 2,665 with forecasts but no earlier year to calibrate them on (1,817 like-race, 848 Democrat against Republican), 1,470 seats not given, 901 too few like races, 123 lean missing, 88 specials, 84 strong write-ins, 17 others.
   - 2022, 441: p = 0 for 135. Not computed: 192 Democrat against Republican with no lean, 74 too few like races, 24 held back, 16 others.
   - 2018, 14,184: p = 0 for 7,180. Not computed: 4,364 too few like races (no earlier year), 1,846 Democrat against Republican with no lean, 290 specials, 218 seats not given, 172 strong write-ins, 114 others.
 - Measures, 8,293 (2018: 1,581; 2020: 1,768; 2022: 95; 2024: 4,849): p not computed yet (next).
