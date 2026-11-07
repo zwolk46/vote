@@ -7,8 +7,9 @@
    "counts": "president D 1,247,003 against 1,257,692; president R 1,619,742 against 1,631,163"
   },
   "2002-11-05": {
-   "checked": false,
-   "why": "no certified federal file for this year in data/"
+   "worst_miss": 0.0,
+   "fails": false,
+   "counts": "senate (the Clerk of the House) D 1,047,983 against 1,047,983; senate (the Clerk of the House) R 1,248,664 against 1,248,664; house (the Clerk of the House) D 970,716 against 970,716 (11 districts in both); house (the Clerk of the House) R 926,155 against 926,155 (11 districts in both)"
   },
   "2004-11-02": {
    "worst_miss": 0.0,

@@ -11,12 +11,12 @@
     "no US House vote for a county in the previous general's returns": 8
    },
    "in_intervals_50_80_95": {
-    "50": 0.521,
+    "50": 0.522,
     "80": 0.833,
     "95": 0.956
    },
    "within_49_51": {
-    "expected": 54.2,
+    "expected": 54.3,
     "seen": 49
    },
    "within_100_votes": {
@@ -35,7 +35,7 @@
     ],
     "judge": [
      72,
-     0.556
+     0.569
     ],
     "mayor or executive": [
      10,
@@ -86,7 +86,7 @@
     "95": 0.964
    },
    "within_49_51": {
-    "expected": 59.7,
+    "expected": 59.8,
     "seen": 54
    },
    "within_100_votes": {
