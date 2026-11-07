@@ -493,6 +493,18 @@ def class_density(train_rows, key):
             return k / N / (2.0 * h), N, h, k
 
 
+def class_density_by_size(train_rows, key, n):
+    """Route (c)'s variant by size (data/local/REPORT.md section 11, fixed 2026-11-07 10:10 UTC before any score):
+    class_density read off the class's like races whose two deciding candidates' votes fall in the same size bin
+    (BINS) as n, the count p is computed at; the class as a whole where that bin holds fewer than MIN_CLASS. Returns
+    class_density's four values, the bin, and whether the bin's own races were used."""
+    b = size_bin(n)
+    sub = [r_ for r_ in train_rows if r_["key"] == key and size_bin(r_["n"]) == b]
+    if len(sub) >= MIN_CLASS:
+        return class_density(sub, key) + (b, True)
+    return class_density(train_rows, key) + (b, False)
+
+
 # ------------------------------------------------------------------ the structure of each contest
 
 PRIMARY_PLURALITY = ("dp", "rp", "indepp", "workp", "conservativep", "liberp", "greenp", "constp", "amerp",
