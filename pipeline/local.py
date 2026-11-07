@@ -97,6 +97,30 @@ STATE_NAMES = {
     "UT": "Utah", "VT": "Vermont", "VA": "Virginia", "WA": "Washington", "WV": "West Virginia",
     "WI": "Wisconsin", "WY": "Wyoming", "DC": "District of Columbia"}
 PARTY = {"d": "D", "r": "R", "nm": "other", "np": "nonpartisan", "w": "write-in", "m": None, "b": "D and R"}
+# Klarner's numeric party codes (codebook_candidate.docx, "Appendix C: Party Codes"), for candidates outside the two
+# parties whose party line is a code, not a name: (the party in words, the codebook's own words).
+_MINOR = "minor party or independent, party not named"
+KLARNER_CODES = {
+    "4001": ("unknown", "no party identified in the data"),
+    "4005": (_MINOR, "some type of non-major party candidate: not listed in either the Democratic or Republican primary"),
+    "4006": (_MINOR, "combination of 4005 and 99997"),
+    "4007": ("no party", "returns explicitly say that the candidate isn't affiliated with a party"),
+    "4008": (_MINOR, "assumed non-major party because no party was listed next to the name in the returns, where "
+                     "parties were generally listed"),
+    "4009": (_MINOR, "assumed non-major party: not listed among candidates filing for the Democratic and Republican "
+                     "primaries"),
+    "4010": (_MINOR, "assumed non-major party because the candidate wasn't listed in the returns"),
+    "4011": (_MINOR, "coded 908 in the earlier SLERs, which could indicate a non-partisan election, but in a state "
+                     "and year with partisan elections; judged non-major party"),
+    "5000": (_MINOR, "non-major party candidate of some type"),
+    "99993": (_MINOR, "known to be non-major party from returns, but party not specified"),
+    "99994": (_MINOR, "combination of codes 99995 and 99997"),
+    "99995": (_MINOR, "assumed non-major party: a party code with no value in the ICPSR codebook, which other "
+                      "candidates with the same code were found to be"),
+    "99997": (_MINOR, "assumed non-major party because the election is fully contested and no party was given in "
+                      "the prior database"),
+    "99998": (_MINOR, "non-major party candidate, but party not specified"),
+}
 
 
 # ------------------------------------------------------------------ inputs
@@ -629,10 +653,14 @@ def _cands(c):
     for a in sorted(c["cands"], key=lambda a: (a["scattering"], -(a["votes"] or 0))):
         won = {"w": True, "l": False, "r": "to runoff", "t": "tied"}.get(a["outcome"], None)
         party = PARTY.get(a["party"], a["party"])
+        code = None
         if party == "other" and a["lines"]:
             party = a["lines"][0]
+            if str(party).isdigit():
+                code = str(party)
+                party = KLARNER_CODES.get(code, ("unknown",))[0]
         x = {"name": a["name"], "party": party, "votes": None if a["vote_missing"] else a["votes"],
-             "won": won if won else None}
+             "won": won if won else None, "party_code": code}
         if a.get("exper") == "inc":
             x["incumbent"] = True
         out.append(x)
@@ -764,10 +792,7 @@ def build(out_dir, with_p=False, sample=False):
             lead = two_leading(c["cands"])
             d = next(x for x in lead if x["party"] == "d")
             rr = next(x for x in lead if x["party"] == "r")
-            if {lead[0]["party"], lead[1]["party"]} != {"d", "r"}:
-                notes.append("a candidate outside the two major parties finished among the leading two; the "
-                             "forecast, made before the election, is of the race between the Democrat and the "
-                             "Republican")
+            off_pair = {lead[0]["party"], lead[1]["party"]} != {"d", "r"}
             n = d["votes"] + rr["votes"] - 1
             rec["two_party"] = {"votes": [d["votes"], rr["votes"]], "n_other_voters": n,
                                 "share_first": round(d["votes"] / (n + 1), 6)}
@@ -781,7 +806,12 @@ def build(out_dir, with_p=False, sample=False):
             rec["forecasts"].append({"by": "the model's own", "method": METHOD, "route": "partisan",
                                      "share": {"of": "Democrat, two-party", "mean": round(mean, 4), "sd": round(sd, 4),
                                                "tails": "normal"}, "source": "model"})
-            if with_p:
+            if off_pair:   # the orchestrator, 05:17: p is between the top two (model section 7)
+                p["not_computed"] = ("the two leading candidates were not the Democrat and the Republican, so the "
+                                     "model's own forecast of the Democrat against the Republican is not of the pair "
+                                     "that decided this contest (model section 7: p is between the top two)")
+                counts["not computed: D and R not the top two"] += 1
+            elif with_p:
                 t4 = core.p_contest(n, mean, sd, "t4")
                 p = _p_block(n, mean, sd, f"the model's own ({METHOD}), normal", commit,
                              {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
@@ -848,12 +878,15 @@ def build(out_dir, with_p=False, sample=False):
                "chamber": {"state-upper": f"{STATE_NAMES.get(st, st)} {chamber_name(st, 1)}",
                            "state-lower": f"{STATE_NAMES.get(st, st)} {chamber_name(st, 0)}"},
                "p_computed_by": "pipeline/local.py", "p_commit": commit,
+               "party_codes": {k: f"Klarner's codebook (Appendix C): {KLARNER_CODES[k][1]}" if k in KLARNER_CODES
+                               else "not in Klarner's codebook" for k in sorted({a["party_code"] for x in cs
+                               for a in x["result"]["candidates"] if a.get("party_code")})} or None,
                "sources": {"klarner": src_klarner, "nara": src_nara, "model": src_model},
                "contests": cs}
         path = os.path.join(out_dir, level, str(t), f"{st}.json")
         os.makedirs(os.path.dirname(path), exist_ok=True)
         with open(path, "w") as f:
-            head = {k: v for k, v in obj.items() if k != "contests"}
+            head = {k: v for k, v in obj.items() if k != "contests" and v is not None}
             body = json.dumps(head, ensure_ascii=False, separators=(",", ":"))
             f.write(body[:-1] + ',"contests":[\n')
             f.write(",\n".join(json.dumps(x, ensure_ascii=False, separators=(",", ":")) for x in cs))
