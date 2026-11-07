@@ -1,0 +1,789 @@
+{
+ "written_by": "pipeline/governor_incumbency.py check",
+ "asked": "the orchestrator, 2026-11-07 13:06 UTC",
+ "what": "every governor nominee's incumbency code set against the seat's last race in the record (data/governor/*.json, Louisiana apart); kind A: won the last race and not coded 1; kind B: coded 1 (or Cha's 2 or 3) and did not win it",
+ "codes": "Cha, Kuriwaki and Snyder's inc, found by the nominee's exact name within Cha's contest (not build_congress's join); Algara and Amlani's seat status before 2006 and where Cha lacks the contest. The record counts Cha's 1 only (REPORT 2.2, 0.2)",
+ "contests_read": 613,
+ "counts": {
+  "confirmed": 11,
+  "inferred": 6,
+  "fixed": 5,
+  "kept": 14
+ },
+ "checks": [
+  {
+   "contest": "1978-governor-AZ",
+   "side": "D",
+   "nominee": "Babbitt, Bruce",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1974,
+    "winner": "Castro, Raul H."
+   },
+   "verdict": "confirmed",
+   "why": "the roster has Bolin 1977 to 1978 and Babbitt from 1978 (Castro won the seat's last race in the record, 1974); it gives years only, so that Babbitt sat before the election in November is inferred",
+   "roster": "AZ",
+   "fix": null
+  },
+  {
+   "contest": "1978-governor-ID",
+   "side": "D",
+   "nominee": "Evans, John V.",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1974,
+    "winner": "Andrus, Cecil D."
+   },
+   "verdict": "inferred",
+   "why": "Andrus won the seat's last race in the record (1974) and was not a nominee; Idaho's Blue Book was not found (HTTP 404), so the code is kept, unproven",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "1978-governor-MN",
+   "side": "D",
+   "nominee": "Perpich, Rudy",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1974,
+    "winner": "Anderson, Wendell R."
+   },
+   "verdict": "confirmed",
+   "why": "assumed office 12/29/1976 (Anderson won the seat's last race in the record, 1974)",
+   "roster": "MN",
+   "fix": null
+  },
+  {
+   "contest": "1978-governor-WI",
+   "side": "D",
+   "nominee": "Schreiber, Martin J.",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1974,
+    "winner": "Lucey, Patrick J."
+   },
+   "verdict": "inferred",
+   "why": "Lucey won the seat's last race in the record (1974) and was not a nominee; the Blue Book's list did not answer (the connection was reset twice), so the code is kept, unproven",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "1982-governor-CT",
+   "side": "D",
+   "nominee": "O'Neill, William A.",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1978,
+    "winner": "Grasso, Ella T."
+   },
+   "verdict": "confirmed",
+   "why": "served from 1980 (Grasso won the seat's last race in the record, 1978); the roster gives years only",
+   "roster": "CT",
+   "fix": null
+  },
+  {
+   "contest": "1982-governor-MN",
+   "side": "D",
+   "nominee": "Perpich, Rudy",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1978,
+    "winner": "Quie, Albert H."
+   },
+   "verdict": "fixed",
+   "why": "Algara and Amlani code an incumbent's bid, but Minnesota's roster has Al Quie in office from 1/4/1979 and Perpich from 1/3/1983 (his first time, 12/29/1976): in November 1982 the governor was Quie, who was not a nominee. An open seat, held by the Independent-Republicans",
+   "roster": "MN",
+   "fix": {
+    "from": "Democratic Incumbent",
+    "to": "Republican Open Seat"
+   }
+  },
+  {
+   "contest": "1988-governor-NH",
+   "side": "D",
+   "nominee": "McEachern, Paul",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1986,
+    "winner": "Sununu, John H."
+   },
+   "verdict": "inferred",
+   "why": "Sununu won the seat's last race in the record (1986) and was not a nominee; New Hampshire's roster refused (HTTP 403), so the code is kept, unproven",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "1990-governor-NV",
+   "side": "D",
+   "nominee": "Miller, Robert J.",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1986,
+    "winner": "Bryan, Richard H."
+   },
+   "verdict": "confirmed",
+   "why": "in office from Jan 3, 1989 (Bryan won the seat's last race in the record, 1986)",
+   "roster": "NV",
+   "fix": null
+  },
+  {
+   "contest": "1992-governor-VT",
+   "side": "D",
+   "nominee": "Dean, Howard B.",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1990,
+    "winner": "Snelling, Richard A."
+   },
+   "verdict": "confirmed",
+   "why": "governor from 1991 by reason of the death of Snelling (the seat's last race in the record, 1990)",
+   "roster": "VT",
+   "fix": null
+  },
+  {
+   "contest": "1994-governor-AL",
+   "side": "D",
+   "nominee": "Folsom, James E. Jr.",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1990,
+    "winner": "Hunt, Guy"
+   },
+   "verdict": "confirmed",
+   "why": "succeeded Hunt (the seat's last race in the record, 1990) on April 22, 1993",
+   "roster": "AL",
+   "fix": null
+  },
+  {
+   "contest": "1994-governor-AR",
+   "side": "D",
+   "nominee": "Tucker, Jim Guy",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1990,
+    "winner": "Clinton, Bill"
+   },
+   "verdict": "confirmed",
+   "why": "served from 1991 (Clinton won the seat's last race in the record, 1990); the roster gives years only",
+   "roster": "AR",
+   "fix": null
+  },
+  {
+   "contest": "1998-governor-AR",
+   "side": "R",
+   "nominee": "Huckabee, Mike",
+   "code_in_source": "Republican Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1994,
+    "winner": "Tucker, Jim Guy"
+   },
+   "verdict": "confirmed",
+   "why": "served from 1996 (Tucker won the seat's last race in the record, 1994)",
+   "roster": "AR",
+   "fix": null
+  },
+  {
+   "contest": "1998-governor-AZ",
+   "side": "R",
+   "nominee": "Hull, Jane Dee",
+   "code_in_source": "Republican Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1994,
+    "winner": "Symington, Fife"
+   },
+   "verdict": "confirmed",
+   "why": "served from 1997 (Symington won the seat's last race in the record, 1994)",
+   "roster": "AZ",
+   "fix": null
+  },
+  {
+   "contest": "1998-governor-FL",
+   "side": "D",
+   "nominee": "MacKay, Kenneth H.",
+   "code_in_source": "Democratic Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1994,
+    "winner": "Chiles, Lawton"
+   },
+   "verdict": "inferred",
+   "why": "Chiles won the seat's last race in the record (1994) and was not a nominee; Florida's roster refused (HTTP 403), so the code is kept, unproven",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "1998-governor-MA",
+   "side": "R",
+   "nominee": "Cellucci, Argeo Paul",
+   "code_in_source": "Republican Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1994,
+    "winner": "Weld, William F."
+   },
+   "verdict": "inferred",
+   "why": "Weld won the seat's last race in the record (1994) and was not a nominee; no roster of the Commonwealth's own was found, so the code is kept, unproven",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2002-governor-TX",
+   "side": "R",
+   "nominee": "Perry, Rick",
+   "code_in_source": "Republican Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1998,
+    "winner": "Bush, George W."
+   },
+   "verdict": "confirmed",
+   "why": "sworn in December 21, 2000, after Bush (the seat's last race in the record, 1998) resigned",
+   "roster": "TX",
+   "fix": null
+  },
+  {
+   "contest": "2002-governor-WI",
+   "side": "R",
+   "nominee": "McCallum, Scott",
+   "code_in_source": "Republican Incumbent",
+   "source": "algara_amlani",
+   "kind": "B",
+   "last_race": {
+    "year": 1998,
+    "winner": "Thompson, Tommy G."
+   },
+   "verdict": "inferred",
+   "why": "Thompson won the seat's last race in the record (1998) and was not a nominee; the Blue Book's list did not answer (the connection was reset twice), so the code is kept, unproven",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2006-governor-CA",
+   "side": "R",
+   "nominee": "SCHWARZENEGGER, ARNOLD",
+   "code_in_source": 2,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2002,
+    "winner": "Davis, Gray"
+   },
+   "verdict": "kept",
+   "why": "Cha codes him 2 (elected in the recall of 2003, which the record does not hold; Davis won the seat's last race in the record, 2002); the roster: governor 2003-2011; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": "CA",
+   "fix": null
+  },
+  {
+   "contest": "2006-governor-CT",
+   "side": "R",
+   "nominee": "RELL, M. JODI",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2002,
+    "winner": "Rowland, John G."
+   },
+   "verdict": "kept",
+   "why": "Cha codes her 3; the roster: governor 2004-2011 (Rowland won the seat's last race in the record, 2002); the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": "CT",
+   "fix": null
+  },
+  {
+   "contest": "2006-governor-MA",
+   "side": "R",
+   "nominee": "HEALEY, KERRY MURPHY",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2002,
+    "winner": "Romney, W. Mitt"
+   },
+   "verdict": "kept",
+   "why": "Cha codes her 3 (Romney won the seat's last race in the record, 2002, and was not a nominee); no roster of the Commonwealth's own was found; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2010-governor-AK",
+   "side": "R",
+   "nominee": "PARNELL, SEAN R.",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2006,
+    "winner": "PALIN, SARAH H."
+   },
+   "verdict": "kept",
+   "why": "Cha codes him 3 (Palin won the seat's last race in the record, 2006); no roster read, since no roster could move a p; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2010-governor-AZ",
+   "side": "R",
+   "nominee": "BREWER, JANICE (JAN)",
+   "code_in_source": 1,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2006,
+    "winner": "NAPOLITANO, JANET"
+   },
+   "verdict": "confirmed",
+   "why": "served from 2009 (Napolitano won the seat's last race in the record, 2006)",
+   "roster": "AZ",
+   "fix": null
+  },
+  {
+   "contest": "2010-governor-IL",
+   "side": "D",
+   "nominee": "QUINN, PATRICK G. (PAT)",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2006,
+    "winner": "BLAGOJEVICH, ROD R."
+   },
+   "verdict": "kept",
+   "why": "Cha codes him 3 (Blagojevich won the seat's last race in the record, 2006); no roster read, since no roster could move a p; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2010-governor-UT-special",
+   "side": "R",
+   "nominee": "HERBERT, GARY RICHARD",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2008,
+    "winner": "HUNTSMAN, JON M., JR."
+   },
+   "verdict": "kept",
+   "why": "Cha codes him 3 (Huntsman won the seat's last race in the record, 2008); no roster read, since no roster could move a p; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2012-governor-UT",
+   "side": "R",
+   "nominee": "HERBERT, GARY RICHARD",
+   "code_in_source": 2,
+   "source": "cha",
+   "kind": "A",
+   "last_race": {
+    "year": 2010,
+    "winner": "HERBERT, GARY RICHARD"
+   },
+   "verdict": "kept",
+   "why": "Cha codes him 2, an incumbent elected in a special election; he won the seat's last race in the record, the special of 2010 (data/governor/2010.json); the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2016-governor-OR-special",
+   "side": "D",
+   "nominee": "BROWN, KATE",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2014,
+    "winner": "KITZHABER, JOHN A."
+   },
+   "verdict": "kept",
+   "why": "Cha codes her 3 (Kitzhaber won the seat's last race in the record, 2014); no roster read, since no roster could move a p; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2018-governor-AL",
+   "side": "R",
+   "nominee": "IVEY, KAY E.",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2014,
+    "winner": "BENTLEY, ROBERT J."
+   },
+   "verdict": "kept",
+   "why": "Cha codes her 3; the roster: she became governor in 2017 when Bentley (the seat's last race in the record, 2014) resigned; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": "AL",
+   "fix": null
+  },
+  {
+   "contest": "2018-governor-AR",
+   "side": "R",
+   "nominee": "HUTCHINSON, WILLIAM (ASA)",
+   "code_in_source": 0,
+   "source": "cha",
+   "kind": "A",
+   "last_race": {
+    "year": 2014,
+    "winner": "HUTCHINSON, WILLIAM (ASA)"
+   },
+   "verdict": "fixed",
+   "why": "Cha codes him 0, but he won the seat's last race in the record (2014, data/governor/2014.json) and is the nominee: the incumbent; Arkansas's roster agrees (served 2015-2023)",
+   "roster": "AR",
+   "fix": {
+    "from": 0,
+    "to": 1
+   }
+  },
+  {
+   "contest": "2018-governor-IA",
+   "side": "R",
+   "nominee": "REYNOLDS, KIM",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2014,
+    "winner": "BRANSTAD, TERRY EDWARD"
+   },
+   "verdict": "kept",
+   "why": "Cha codes her 3 (Branstad won the seat's last race in the record, 2014); no roster read, since no roster could move a p; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2018-governor-OR",
+   "side": "D",
+   "nominee": "BROWN, KATE",
+   "code_in_source": 2,
+   "source": "cha",
+   "kind": "A",
+   "last_race": {
+    "year": 2016,
+    "winner": "BROWN, KATE"
+   },
+   "verdict": "kept",
+   "why": "Cha codes her 2, an incumbent elected in a special election; she won the seat's last race in the record, the special of 2016 (data/governor/2016.json); the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2018-governor-SC",
+   "side": "R",
+   "nominee": "MCMASTER, HENRY D.",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2014,
+    "winner": "HALEY, NIKKI R."
+   },
+   "verdict": "kept",
+   "why": "Cha codes him 3; the Legislative Manual: assumed office January 24, 2017 (Haley won the seat's last race in the record, 2014); the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": "SC",
+   "fix": null
+  },
+  {
+   "contest": "2019-governor-KY",
+   "side": "D",
+   "nominee": "BESHEAR, ANDY",
+   "code_in_source": 1,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2015,
+    "winner": "BEVIN, MATTHEW G. (MATT)"
+   },
+   "verdict": "fixed",
+   "why": "Cha codes both nominees 1; the Republican, Bevin, won the seat's last race in the record (2015, data/governor/2015.json), so Beshear is not the incumbent",
+   "roster": null,
+   "fix": {
+    "from": 1,
+    "to": 0
+   }
+  },
+  {
+   "contest": "2020-governor-MO",
+   "side": "R",
+   "nominee": "PARSON, MIKE",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2016,
+    "winner": "GREITENS, ERIC"
+   },
+   "verdict": "kept",
+   "why": "Cha codes him 3 (Greitens won the seat's last race in the record, 2016); Missouri's roster refused (HTTP 403), so not checked; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  },
+  {
+   "contest": "2020-governor-VT",
+   "side": "D",
+   "nominee": "ZUCKERMAN, DAVID E. (DAVE)",
+   "code_in_source": 1,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2018,
+    "winner": "SCOTT, PHILLIP B. (PHIL)"
+   },
+   "verdict": "fixed",
+   "why": "Cha codes both nominees 1; the Republican, Scott, won the seat's last race in the record (2018, data/governor/2018.json), so Zuckerman is not the incumbent",
+   "roster": null,
+   "fix": {
+    "from": 1,
+    "to": 0
+   }
+  },
+  {
+   "contest": "2021-governor-NJ",
+   "side": "D",
+   "nominee": "MURPHY, PHILIP",
+   "code_in_source": 0,
+   "source": "cha",
+   "kind": "A",
+   "last_race": {
+    "year": 2017,
+    "winner": "Murphy, Philip"
+   },
+   "verdict": "fixed",
+   "why": "Cha codes him 0, but he won the seat's last race in the record (2017, data/governor/2017.json, from Algara and Amlani) and is the nominee: the incumbent",
+   "roster": null,
+   "fix": {
+    "from": 0,
+    "to": 1
+   }
+  },
+  {
+   "contest": "2022-governor-NY",
+   "side": "D",
+   "nominee": "HOCHUL, KATHLEEN COURTNEY (KATHY)",
+   "code_in_source": 3,
+   "source": "cha",
+   "kind": "B",
+   "last_race": {
+    "year": 2018,
+    "winner": "CUOMO, ANDREW M."
+   },
+   "verdict": "kept",
+   "why": "Cha codes her 3 (Cuomo won the seat's last race in the record, 2018); no roster read, since no roster could move a p; the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
+   "roster": null,
+   "fix": null
+  }
+ ],
+ "rosters": {
+  "AL": {
+   "name": "Alabama Department of Archives and History, Alabama Governors",
+   "url": "https://archives.alabama.gov/research/guidance/fast-facts/officials/governor.aspx",
+   "read_utc": "2026-11-07T13:11Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "fe9025de7e4fe5fc075d0e0c8c885e304fbde374c5cbdca3dadb42bc74ccba1b",
+   "quotes": [
+    "James E. Folsom Jr. Cullman April 22, 1993 - 1995 Democrat Lieutenant Governor Folsom became governor when Governor Hunt was convicted for ethics violations.",
+    "Lieutenant Governor Ivey became governor when Governor Robert Bentley resigned"
+   ]
+  },
+  "AR": {
+   "name": "Arkansas Secretary of State, State Governors (1975 - Present)",
+   "url": "https://sos.arkansas.gov/education/educational-media/governors-of-arkansas-portrait-gallery/state-governors-1975-present",
+   "read_utc": "2026-11-07T13:11Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "c5f861c90183a01624a995e4a20c3e0183349d30bf199bf27a9ac861161bb553",
+   "quotes": [
+    "Asa Hutchinson Born: December 3, 1950, at Bentonville, Arkansas. Died: n/a Buried: n/a Served: 2015-2023",
+    "James Guy Tucker Jr. Born: June 13, 1943, at Oklahoma City, Oklahoma Died: n/a Buried: n/a Served: 1991-1996",
+    "Mike Huckabee Born: August 24, 1955, at Hope, Arkansas Died: n/a Buried: n/a Served: 1996-2007"
+   ]
+  },
+  "AZ": {
+   "name": "Office of the Arizona Governor, Arizona Governors",
+   "url": "https://azgovernor.gov/governor/arizona-governors",
+   "read_utc": "2026-11-07T13:11Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "35b41c8c57efc2be75e307bf0739860a422fdf8b7b33424e5e2712d8a2941009",
+   "quotes": [
+    "Harvey Wesley Bolin 1977 to 1978",
+    "Bruce Babbitt 1978 to 1987",
+    "Jane Dee Hull 1997 to 2003",
+    "Janice K. Brewer 2009 to 2015"
+   ]
+  },
+  "CA": {
+   "name": "California State Library, Governors' Gallery: Arnold Schwarzenegger",
+   "url": "https://governors.library.ca.gov/38-schwarzenegger.html",
+   "read_utc": "2026-11-07T13:11Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "e4a4c32cf386e93e148670ccde20827446b1897d7282a1482d8b15740369f652",
+   "quotes": [
+    "Arnold Schwarzenegger 2003–2011"
+   ]
+  },
+  "CT": {
+   "name": "Connecticut State Library, Roster of Connecticut Governors - Finding Aids",
+   "url": "https://portal.ct.gov/csl/research/governors-of-connecticut/finding-aids",
+   "read_utc": "2026-11-07T13:16Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "8ef4b69de3696c9a488d1e2909dba059b092eca1006c9c06b59822936e7b8a00",
+   "quotes": [
+    "William A. O’Neill 1980-91",
+    "M. Jodi Rell 2004-2011"
+   ]
+  },
+  "MN": {
+   "name": "Minnesota Legislative Reference Library, Minnesota Governors, 1849-Present",
+   "url": "https://www.lrl.mn.gov/mngov/gov.aspx",
+   "read_utc": "2026-11-07T13:11Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "01845342a4fda3137c47159012bc7618a3bfefba59266403b971badffc1118ac",
+   "quotes": [
+    "Rudy Perpich 1/3/1983 36th",
+    "Al Quie 1/4/1979 35th",
+    "Rudy Perpich 12/29/1976 34th",
+    "Rudy Perpich 12/29/1976 34th"
+   ]
+  },
+  "NV": {
+   "name": "Nevada State Library, Archives and Public Records, Governors",
+   "url": "https://nsla.nv.gov/archives-governor",
+   "read_utc": "2026-11-07T13:11Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "602a78f3a55653f67d986d0439d9f3fae94c3cbe80ef9ff8ec554df20d59780f",
+   "quotes": [
+    "Bob Miller Jan 3, 1989 - Jan 4, 1999"
+   ]
+  },
+  "SC": {
+   "name": "South Carolina Legislative Manual, 2026, The Governor",
+   "url": "https://www.scstatehouse.gov/man26/04_Gov.pdf",
+   "read_utc": "2026-11-07T13:16Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "0522ac86c416e105ab9081d12c759dc6d443bf370eabb86f8bb544a9694756c1",
+   "quotes": [
+    "assumed office of Gov. on Jan. 24, 2017; elected Gov. Nov. 6, 2018"
+   ]
+  },
+  "TX": {
+   "name": "Legislative Reference Library of Texas, Texas Governors",
+   "url": "https://lrl.texas.gov/legeleaders/governors/govBrowse.cfm",
+   "read_utc": "2026-11-07T13:11Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "9e9b1aa615b57b013beff007a9d20f132e62818bfb22fd573fb5b305312d9924",
+   "quotes": [
+    "Rick Perry R December 21, 2000–January 20, 2015; 76th–84th Legislatures Sworn in after Bush resignation."
+   ]
+  },
+  "VT": {
+   "name": "Vermont Legislature, Governors of Vermont (2018)",
+   "url": "https://legislature.vermont.gov/assets/All-House-Documents/Governors2018.pdf",
+   "read_utc": "2026-11-07T13:11Z",
+   "licence": "not stated (a state's own public page)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "34e9c4c2aa8fa9a1d9b72dd8b4af4581a24254cbdeba4832ea34b316a03eb069",
+   "quotes": [
+    "^^^Howard Dean, Burlington ....................... 1991-2003",
+    "Lieutenant Governor, Governor by reason of the death of Gov. Snelling"
+   ]
+  }
+ },
+ "rosters_not_read": {
+  "FL": {
+   "url": "https://dos.fl.gov/florida-facts/florida-history/florida-governors/kenneth-hood-mackay-jr/",
+   "answer": "HTTP 403",
+   "utc": "2026-11-07 13:11"
+  },
+  "MO": {
+   "url": "https://sos.mo.gov/archives/history/historicallistings/governors",
+   "answer": "HTTP 403",
+   "utc": "2026-11-07 13:11"
+  },
+  "NH": {
+   "url": "https://www.nh.gov/almanac/governors.htm",
+   "answer": "HTTP 403",
+   "utc": "2026-11-07 13:11"
+  },
+  "WI": {
+   "url": "https://docs.legis.wisconsin.gov/misc/lrb/blue_book/2025_2026/180_historical_lists.pdf",
+   "answer": "the connection was reset (curl 35), at 13:11 and again at 13:16 (one retry, as a network error)",
+   "utc": "2026-11-07 13:16"
+  },
+  "ID": {
+   "url": [
+    "https://sos.idaho.gov/blue_book/2018/2017-2018_Bluebook_Complete.pdf",
+    "https://sos.idaho.gov/blue_book/2021/03_Executive.pdf",
+    "https://sos.idaho.gov/blue_book/blue_book_2025-2026.pdf"
+   ],
+   "answer": "HTTP 404 at each address (found by a search engine); the Blue Book was not found",
+   "utc": "2026-11-07 13:17-13:18"
+  },
+  "MA": {
+   "url": null,
+   "answer": "no roster of the Commonwealth's own was found by search",
+   "utc": null
+  }
+ },
+ "limits": [
+  "a successor the source codes as not an incumbent cannot be found without every state's roster (the last race shows only who won it)",
+  "a roster that gives years only (AZ 1978, AR 1994, CT 1982) does not show the day the governor took office"
+ ]
+}

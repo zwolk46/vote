@@ -76,6 +76,7 @@ REPO = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(HERE, "intake"))
 sys.path.insert(0, HERE)
 import congress_common as cc  # noqa: E402
+import governor_incumbency as GI  # noqa: E402  (the governors' codes the record or a state's roster proves wrong)
 from downballot_pres_by_cd import LEAN_INPUT  # noqa: E402  (the House year -> (lines sheet, presidential year))
 
 YEARS = list(range(2006, 2025, 2))
@@ -163,8 +164,9 @@ AA_INCOMPLETE = {"MO": "Algara and Amlani's Missouri rows fall short of Cha, Kur
 
 
 def aa_governors():
-    """Algara and Amlani's governor elections, summed from county returns (pipeline/intake/algara_amlani.py)."""
-    return _load("algara_amlani/normalized/governors.json")["elections"]
+    """Algara and Amlani's governor elections, summed from county returns (pipeline/intake/algara_amlani.py), with
+    the seat statuses governor_incumbency fixes (Minnesota 1982)."""
+    return GI.fix_aa(_load("algara_amlani/normalized/governors.json")["elections"])
 
 
 def aa_led_by_DR(r):
@@ -359,8 +361,8 @@ def fit_rows(inc_codes=INC_CODES):
     """One row per race both major parties contested in November: 2006-2024 from Cha, Kuriwaki and Snyder,
     every level; the Senate also 1982-2004 from MEDSL (medsl_senate_rows). A governor's row carries the state's
     last governor race (last_governor_race). A nominee of 2006-2024 is an incumbent where Cha's code is one of
-    inc_codes (of record: 1 only; inc_test tries the others)."""
-    cha = _load("cha/normalized/contests.json")["contests"]
+    inc_codes (of record: 1 only; inc_test tries the others), with the governors' codes governor_incumbency fixes."""
+    cha = GI.fix_cha(_load("cha/normalized/contests.json")["contests"])
     dbx = _load("downballot/normalized/pres_by_cd.json")
     db = dbx["lean_inputs"]
     ps = presidential_shares()
@@ -1924,8 +1926,9 @@ def odd_governor_rows(inc_codes=INC_CODES):
     regular cycle), and Missouri's counts before 2006 (AA_INCOMPLETE; none is odd). Mississippi stays in: its p is not
     computed (its rule before 2020 asked for two majorities), but its share is a forecast like the others. From the
     states' own files (state_gov_contests: New Jersey and Virginia 2025, the orchestrator, 12:35), by the same rules,
-    incumbency inferred (state_gov_incumbency)."""
-    cha = _load("cha/normalized/contests.json")["contests"]
+    incumbency inferred (state_gov_incumbency). Cha's codes and Algara and Amlani's seat statuses carry the fixes of
+    governor_incumbency."""
+    cha = GI.fix_cha(_load("cha/normalized/contests.json")["contests"])
     ps, pres, gov = presidential_shares(), presidents(), last_governor_index()
     rows, skipped, in_cha = [], {}, set()
 
