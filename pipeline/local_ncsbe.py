@@ -25,6 +25,10 @@ What the files cannot show, and how it is handled (each said in the contest's ow
     contest whose names all carry one party code is that party's primary, and one carrying several is split by party.
     A nonpartisan contest whose name is on a later ballot that year is a first round (a primary or an election that
     went to a runoff); one whose name was on an earlier ballot is a second round. All of these are [inferred].
+    A November contest whose name was on an earlier ballot that year is that contest's deciding round, after a
+    nonpartisan primary or a first round, in odd and even years alike: the November count is the one that elects, so
+    p is computed by the route's classes, and the contest is marked so (the orchestrator, 2026-11-07 09:53 UTC; added
+    09:55 UTC). The earlier round stays not computed (model section 7), and so does a second round on another date.
   - Winners: the files do not mark them; the leading names for the seats are taken as won [inferred], and none at a
     tie for the last seat, as for MEDSL.
 p: 0 for one name on the ballot for each seat. Otherwise, from 2014, the like-race route (D3-v1.1) fitted on North
@@ -175,6 +179,17 @@ def classify(dates):
     return dates
 
 
+DECIDING = "deciding round after an earlier round"
+
+
+def deciding_words(earlier):
+    """A November contest whose name was on an earlier ballot that year: its deciding round (the orchestrator,
+    2026-11-07 09:53 UTC: "the November count is the one that elects")."""
+    on = ", ".join(_iso(x) for x in earlier)
+    return (f"{DECIDING} on {on} (a nonpartisan primary or a first round that went to a runoff; the source does not "
+            f"say which) [inferred]")
+
+
 def election_words(c, d):
     kind, other = c["_round"]
     on = ", ".join(_iso(x) for x in other)
@@ -186,8 +201,7 @@ def election_words(c, d):
     if kind == "general":
         return "general" if d[:4] and int(d[:4]) % 2 == 0 else "general (odd year: municipal)"
     if kind == "after an earlier round":
-        return (f"general, after an earlier round on {on} (a runoff or the election after a nonpartisan primary; the "
-                f"source does not say which) [inferred]")
+        return deciding_words(other)
     if kind == "first round":
         return (f"first round: the same contest is on the ballot again on {on} (a nonpartisan primary or a first "
                 f"round that went to a runoff; the source does not say which) [inferred]")
@@ -235,9 +249,9 @@ def p_of(c, seats):
         return {"value": 0.0, "event": 0.0, "reason": "one name on the ballot for each seat (unopposed): p is 0"}
     if not seats:
         return {"not_computed": "the number of seats is not in the source (its files give it from 2014 only)"}
-    if kind in ("after an earlier round", "second round"):
-        return {"not_computed": "a contest after an earlier round this year (perhaps a runoff): model section 7 does "
-                                "not compute p for runoffs, and the source does not say which this is"}
+    if kind == "second round":   # a deciding round in November is computed (DECIDING); on another date it is not
+        return {"not_computed": "a second round on a date other than November's (perhaps a runoff): model section 7 "
+                                "does not compute p for runoffs, and the source does not say which this is"}
     if c["_party"] and c["_round"][1]:
         return {"not_computed": "a second primary followed, so this primary was a first round: model section 7 records "
                                 "runoff systems' rounds with their results and does not compute p for them"}
@@ -504,6 +518,7 @@ def medsl_shape(year):
                     "office": base, "district": "STATEWIDE" if statewide else "", "subject": None,
                     "magnitude": c.get("vote_for"), "question": c["_level"] == "measure",
                     "own_county": c.get("own_county") or None,
+                    "earlier_round": c["_round"][1] if c["_round"][0] == "after an earlier round" else None,
                     "precincts": c["n_precincts"], "counties": sorted({fips[x] for x in c["counties"] if x in fips}),
                     "candidates": [{"name": x["name"], "votes": x["votes"], "as_named": True,
                                     "party": {"D": "DEMOCRAT", "R": "REPUBLICAN"}.get(_major(x["party"]),
