@@ -1080,3 +1080,38 @@ No calibration is applied, as for every route since 09:49 (§7).
 - **The back-test at each question's own threshold** (`at_threshold`, all years), now with 2020's one: 133 measures; own window, 8.7 expected against 10 seen; within 1 point, 4.7 against 5; within 2 points, 9.1 against 11; within 5 points, 23.4 against 38.
 
 **Refused or not reached** (`statewide-filed-local.json`, `unread`): Rhode Island's three election sites (not asked again); apps.azsos.gov (not asked) and azsos.gov (403, Cloudflare); Washington's 2018 voters' pamphlets and 2024 signed certification (404); Minnesota's canvass report (no content); the Illinois Secretary of State's Blue Book (curl error); and ilga.gov. **ilga.gov:** its TLS chain is incomplete at the site. The reader added the missing intermediate certificate, with verification on, and fetched three pages before being told to stop. Those pages are listed as unread and nothing from them is used, since a tool's failure is reported, not worked around.
+
+## 21. The certified count wins (the ruling of 2026-11-07 15:16)
+
+The ruling, verbatim: "the certified count wins. Where a state page that prints totals marks them certified or official, its totals are the statewide record's counts, shown and used in every pool. MEDSL's sum stays beside them with the difference. Where the page carries no such mark, MEDSL's counts stand and the difference is recorded, as now." Its reason: "a figure shown has to be the count of record, and the certifying source is that count."
+
+It touches the 17 joined statewide questions (§20) whose state page prints the statewide totals. Each one's `state_total` in `data/measure/statewide-filed-local.json` now carries `certified`: whether the state marks those totals certified or official, with the words and where they stand, or a note on why not. `pipeline/local_medsl.py` (`certified_count`) takes the state's figures answer by answer where they are marked, and stops the build if an answer does not match by name.
+
+**Marked, so the state's counts are the record's (10)** [stated]:
+- **Alabama 2020, six amendments.** Every page of the Secretary of State's "Final Canvass of Results" ends "Certified by the State Canvassing Board November 23, 2020". Its totals equal MEDSL's to the vote, so only the source of the counts changes.
+- **Washington 2024, four initiatives (2066, 2109, 2117, 2124).** The results page carries no mark on its totals, so I looked further on the Secretary of State's own pages. Its "2024 General Election" data page links "Official Canvass of the Returns G2024_ Certification 12 04 2024 (.pdf)", read 2026-11-07T15:21:00Z (sha256 168f9d69…8582d). Page 1 begins: "I, Steve Hobbs, Secretary of State of the State of Washington, do hereby certify that according to the provisions of RCW 29A.60.250, I have canvassed the returns of the 3,961,569 votes cast in the November 5, 2024 General Election by the registered voters of the state for all statewide measures, …". Page 10 is signed and sealed on December 4, 2024.
+  - The PDF is a scan with no text layer, so its words and figures were read by eye from the page images and not checked by machine. The record says so (`certified.read`).
+  - Its four measures' figures equal the results page's to the vote, and that page is text, checked word for word.
+  - MEDSL's sums are short by 1,708 to 3,322 votes an answer. The counts move:
+
+| Initiative | Yes, MEDSL → certified | No, MEDSL → certified |
+|---|---|---|
+| 2066 | 1,938,152 → 1,941,474 | 1,811,213 → 1,813,169 |
+| 2109 | 1,362,567 → 1,364,510 | 2,435,100 → 2,437,419 |
+| 2117 | 1,434,889 → 1,437,103 | 2,338,369 → 2,340,077 |
+| 2124 | 1,665,224 → 1,668,435 | 2,074,571 → 2,077,216 |
+
+**Unmarked, so MEDSL's counts stand and the difference is recorded (7):**
+- **Arkansas 2016, four issues.** The Secretary of State's table "Initiatives and Amendments, 1938-2018" prints no word certified or official. It differs from MEDSL by 0 to 25 votes.
+- **Arizona 2018, Proposition 127.** The Legislative Council's memo of December 4, 2018 is not a certification. It agrees with MEDSL.
+- **Montana 2020, LR-130.** The Secretary of State's report is headed "2020 STATEWIDE GENERAL ELECTION CANVASS", but the words certified and official do not appear. It agrees with MEDSL to the vote, so nothing turns on it.
+- **Washington 2018, Advisory Vote 19.** The results page carries no mark. The site's index says "Election results are certified by each county on November 27, 2018. The Secretary of State certifies final results by December 6, 2018." and "The results posted before certification are unofficial.", and the page was last updated "11/27/2018 4:27 PM". So its totals are likely the certified ones [inferred], but the page does not say so.
+  - The Secretary of State's 2018 data download (`2018-general-data.zip`, its "FINAL 2018Gen - Cong by District.pdf") prints the same total, also unmarked.
+  - No certified canvass of 2018 was found on the Secretary of State's results pages.
+  - MEDSL is 1,628 short on Repealed and 806 short on Maintained.
+
+**What moves** (`data/measure/moves-certified-count.json`, every record against the commit before):
+- 17 records change. 10 take the state's counts, of which 4 (Washington's) change their figures. 7 keep MEDSL's.
+- No p moves. Washington's initiatives get no p: their threshold turns on turnout as well as the yes share. Alabama's figures are unchanged.
+- The four Washington questions also enter the like-measures pool of 2025 and 2026 (North Carolina's). Their yes shares move by less than 0.0002, no question crosses a window's edge, and no p of those years changes.
+- Every other file is unchanged, the stamps apart.
