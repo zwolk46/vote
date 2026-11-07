@@ -1,0 +1,68 @@
+/* How the figure is worked out (brief X2). Phone first: the picture at the top of the screen, its key under it, the
+   step's words below. A: the picture held in view while the steps scroll beneath it. B: one step at a time. Desktop:
+   the words in a column at the left, the picture at the right. */
+.xp-title { margin-bottom: 4px; }
+.xp-stage { background: var(--bg); }
+.xp-box { position: relative; width: 100%; height: clamp(240px, 44vh, 420px); }
+.xp-c { display: block; width: 100%; height: 100%; }
+.xp-fs { position: absolute; left: 0; top: 0; visibility: hidden; pointer-events: none; font-size: 13px; line-height: 1; }
+.xp-key { margin: 8px 0 0; min-height: 1.4em; }
+
+/* the key's marks: the picture's own */
+.lg[class*='xk-'] { flex: none; display: inline-block; box-sizing: border-box; }
+.xk-yours { width: 9px; height: 9px; border-radius: 50%; background: var(--fg); }
+.xk-theirs { width: 9px; height: 9px; border-radius: 50%; background: var(--dot); }
+.xk-tie { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(90deg, var(--fg) 50%, var(--dot) 50%); }
+.xk-change { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(90deg, var(--accent) 50%, transparent 50%); border: 1px solid var(--accent); }
+.xk-you { width: 13px; height: 13px; border-radius: 50%; border: 2px solid var(--accent); background: radial-gradient(circle, var(--accent) 0 2.5px, transparent 3px); }
+.xk-youdot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+.xk-run, .xk-trip { width: 6px; height: 6px; border-radius: 50%; background: var(--dot); }
+.xk-person { width: 7px; height: 7px; border-radius: 50%; background: var(--fg); }
+.xk-square { width: 12px; height: 12px; border: 1.2px solid var(--fg); }
+.xk-bar { width: 8px; height: 14px; border: 1.2px solid var(--accent); }
+.xk-barfill { width: 8px; height: 14px; background: linear-gradient(0deg, var(--accent) 50%, transparent 50%); border: 1.2px solid var(--accent); }
+.xk-fig { width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--fg); background: var(--bg); }
+.xk-arrow { width: 16px; height: 2px; background: var(--accent); position: relative; }
+.xk-arrow::after { content: ''; position: absolute; right: -1px; top: -4px; border-left: 7px solid var(--accent); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+
+/* a step's words */
+.xp-h { font-size: var(--t-sub); line-height: 1.25; text-wrap: balance; }
+.xp-fig { font-size: var(--t-fig); font-weight: 600; line-height: 1.15; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; text-wrap: balance; }
+.xp-sub { color: var(--muted); text-wrap: pretty; }
+.xp-srcb { display: block; margin-top: 8px; background: none; border: 0; padding: 4px 0; font: inherit; font-size: var(--t-src); color: var(--faint); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.xp-srcb[aria-expanded='true'] { color: var(--muted); }
+.xp .fold { max-width: 60ch; }
+.xp-h + .xp-fig, .xp-fig + .xp-sub, .xp-h + .xp-sub { margin-top: 6px; }
+.xp-oneq { margin-top: 24px; }
+
+/* A · Scroll */
+.xp-list { list-style: none; margin: 0; padding: 0 0 24vh; }
+.xp-card { min-height: 46vh; padding: 28px 0; display: flex; flex-direction: column; justify-content: center; border-bottom: 1px solid var(--line); }
+.xp-card:last-child { border-bottom: 0; }
+
+/* B · Steps */
+.xp-b .xp-words { margin-top: 16px; min-height: 8.5em; }
+.xp-nav { margin-top: 16px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; }
+.xp-go { font: inherit; font-size: var(--t-body); color: var(--fg); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+.xp-next { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600; }
+.xp-go:disabled { opacity: 0.4; cursor: default; }
+.xp-dots { list-style: none; margin: 0; padding: 0; display: flex; min-width: 0; }
+.xp-dots li { flex: 1 1 0; min-width: 0; }
+.xp-dots button { display: block; width: 100%; height: 28px; padding: 0; border: 0; background: none; cursor: pointer; position: relative; }
+.xp-dots button::after { content: ''; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--line-strong); }
+.xp-dots button.past::after { background: var(--dot); }
+.xp-dots button.on::after { background: var(--accent); width: 8px; height: 8px; margin: -4px 0 0 -4px; }
+
+@media (max-width: 899px) {
+  .xp-slot { margin: 12px calc(-1 * var(--gutter)) 0; padding: 8px var(--gutter) 8px; background: var(--bg); }
+  .xp-a .xp-slot { position: sticky; top: 0; z-index: 2; border-bottom: 1px solid var(--line); }
+}
+@media (min-width: 900px) {
+  .xp { display: grid; grid-template-columns: minmax(320px, 420px) minmax(0, 1fr); column-gap: 56px; align-items: start; }
+  .xp-title { grid-column: 1; }
+  .xp-slot { grid-column: 2; grid-row: 1 / span 3; position: sticky; top: 24px; }
+  .xp-box { height: min(68vh, 560px); }
+  .xp-list, .xp-oneq, .xp-side { grid-column: 1; }
+  .xp-card { min-height: 64vh; }
+  .xp-b .xp-slot { position: static; }
+}

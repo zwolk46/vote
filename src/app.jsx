@@ -1,4 +1,5 @@
-// The first screen, in the candidate the address names (?v=a, ?v=b; design/DESIGN-SPEC.md §5). The reader's
+// The first screen, in the candidate the address names (?v=a, ?v=b; design/DESIGN-SPEC.md §5); and, at ?page=how, the
+// page that shows how the figure is worked out, in its own candidates (brief X2). The reader's
 // cost and reading are held here, so they carry from one candidate to the next on the preview and each candidate is
 // judged on the same inputs. Each candidate stands inside a Boundary: one broken part never blanks the page
 // (inherited/design/code/Boundary.jsx; midterms #241).
@@ -9,8 +10,11 @@ import { Boundary } from './components/Boundary.jsx';
 import { COST } from './data/real.js';
 import { Ruler } from './options/Ruler.jsx';
 import { Ballot } from './options/Ballot.jsx';
+import { Explainer, XOPTIONS } from './explainer/Explainer.jsx';
 
-const readV = () => { const v = new URLSearchParams(location.search).get('v'); return OPTIONS.some(([k]) => k === v) ? v : 'a'; };
+const HOW = typeof location !== 'undefined' && new URLSearchParams(location.search).get('page') === 'how';
+const OPTS = HOW ? XOPTIONS : OPTIONS;
+const readV = () => { const v = new URLSearchParams(location.search).get('v'); return OPTS.some(([k]) => k === v) ? v : 'a'; };
 const VIEWS = { a: Ruler, b: Ballot };
 
 export function App() {
@@ -25,6 +29,17 @@ export function App() {
     window.scrollTo(0, 0);
   };
   useEffect(() => { const f = () => setVState(readV()); addEventListener('popstate', f); return () => removeEventListener('popstate', f); }, []);
+  if (HOW) {
+    return (
+      <>
+        <PreviewBar v={v} setV={setV} options={XOPTIONS} note={false} />
+        <Header />
+        <Boundary what={`Explainer ${v.toUpperCase()}`} resetOn={[v]} fallback={() => <main class="page"><p class="muted">This part of the page could not be drawn.</p></main>}>
+          <Explainer key={v} v={v} />
+        </Boundary>
+      </>
+    );
+  }
   const View = VIEWS[v];
   const props = { minutes, wage, C: (minutes / 60) * wage, setCost: (m, w) => { setMinutes(m); setWage(w); }, reading, setReading };
   return (

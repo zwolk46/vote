@@ -11,12 +11,14 @@ export const OPTIONS = [['a', 'A · Ruler'], ['b', 'B · Ballot']];
 // address is the second guard, so the picker cannot show on the production address whatever the build says.
 export const isPreview = (import.meta.env.VITE_VERCEL_ENV || '') !== 'production' && (typeof location === 'undefined' || location.hostname !== 'vote-rho-pearl.vercel.app');
 
-export function PreviewBar({ v, setV }) {
+// The explainer's page has no sample dots, so its bar has no note, and shows only on previews.
+export function PreviewBar({ v, setV, options = OPTIONS, note = true }) {
+  if (!note && !isPreview) return null;
   return (
     <div class="prevbar" role="note">
       <div class="prevbar-in">
-        <p data-sentence>{isPreview ? 'Preview. ' : ''}The grey dots are invented samples until the data lands.</p>
-        {isPreview ? <Seg label="Candidate" options={OPTIONS} value={v} onChange={setV} /> : null}
+        {note ? <p data-sentence>{isPreview ? 'Preview. ' : ''}The grey dots are invented samples until the data lands.</p> : <p>Preview</p>}
+        {isPreview ? <Seg label="Candidate" options={options} value={v} onChange={setV} /> : null}
       </div>
     </div>
   );
