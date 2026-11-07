@@ -42,12 +42,14 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
 | Keep the vote tracker current | cmsg_01FHkmcV6WaeZh9r5PfgnMbuByWBE5rw5LTK6xKGeqevgf | `briefs/T1-tracker.md` (Sonnet 5.5, xhigh) | started 03:08 |
 | Gather presidential data by state | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCWdWPRkhAafpzm5UUF9z22 | `briefs/D1-data-president.md` (Opus 5.5, xhigh) | started 03:08 |
-| Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | started 03:08 |
+| Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | done; #18, #22 merged; stopped (to wake once for the VP follow-up) |
 | Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | started 03:08 |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 04:31: #22 merged (D2 final: 2006-2024 Senate, House, governor; 4,997 contests, p for 4,264 (1,228 under 538, Lite first, marked), 178 p=0, 555 not computed with reasons; 538 fell back in 688; 18 of 20 chamber-years match opening divisions; history checks House within 1,000 votes 27.3 vs 30, within 100 2.7 vs 2, Senate within 5,000 4.7 vs 5; **governors within 5,000 4.4 expected vs 0 seen (1.3%): governor p likely too high, for M2 before any is shown**). Gate: tests, build pass; FL, AZ, MO 2018 recomputed by hand. data/ is now 22 MB. Reason given for the eve rule: a forecast dated Election Day may carry the day's information. Control under 538 = 538 seat p × our P(decides|tie), approved. Follow-ups: VP 0.5 to be replaced by presidential chance after D1 lands (wake D2); population before 2022, a second governor source, odd-year governors, pre-2006 queued. D2 stopped; D3 asked of the coordinator.
 
 - 2026-11-07 04:24: D1 applied the error rule: FL 2016 9.6%, NC 8.6%, ME-2 10.5% keep 538; only UT 2016 (third candidates 12.4%) and DC 2020 (chance exactly 1) fall back; 538 runs inferred from the step (2016 20,000; 2020 40,000), error taken one standard error either side. Average voter's p: 2016 1 in 15.9M, 2020 1 in 64.7M. Passed the method to D2. D1's data PR next.
 
