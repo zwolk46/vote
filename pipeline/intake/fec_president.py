@@ -12,7 +12,7 @@ LibreOffice (headless) in the cache; the converted copy is never committed.
 Why both this and MEDSL: plan section 3a says where two sources cover a contest both are read, the
 differences listed, and the certified source wins. The FEC's compilation is the federal government's
 record of each state's official count, so it is taken as the count of record for 1996-2024, and MEDSL
-(pipeline/intake/medsl_president.py) as the check; pipeline/president.py lists every difference.
+(pipeline/intake/medsl_dataverse.py president_detail) as the check; pipeline/president.py lists every difference.
 
 What it writes: data/president/inputs/fec_president.json, for every year and state, the Democratic and
 Republican nominees' votes (summed over the party lines they ran on), the FEC's total votes, and the

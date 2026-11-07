@@ -14,8 +14,12 @@ Datasets this script knows (DOI, file):
 Files behind a Dataverse "guestbook" (a form asking a name and email) are NOT fetched: giving those to an
 outside party is the maker's word (law 10). The House file (IG0UN2) is one of them.
 
-Run:  python3 pipeline/intake/medsl_dataverse.py senate [president]
+Run:  python3 pipeline/intake/medsl_dataverse.py senate [president] [president_detail]
 Writes CACHE/medsl/<key>/... and CACHE/medsl/normalized/senate.json (contests by year).
+`president_detail` (added by D1 for the presidency, 2026-11-07) writes data/president/inputs/
+medsl_president.json, committed: every candidate of every state-year summed over the party lines the
+candidate ran on, the two nominees, the leading two, and the rows that are not candidates. It also checks
+the file against the MD5 Dataverse publishes for it.
 Checks: row counts; every contest's candidate votes are summed and compared with MEDSL's own
 `totalvotes` column; contests per year are counted.
 """
@@ -136,6 +140,106 @@ def president():
     return info, out
 
 
+# ------------------------------------------------------------------------------------------------------------
+# The presidency in detail (D1, 2026-11-07; moved here from D1's medsl_president.py so that MEDSL has one
+# script, plan section 3a). Reason for the detail: the presidential contests list every candidate, and the
+# check against the FEC needs each nominee's votes summed over the lines the nominee ran on.
+PRES_OUT = os.path.join(cc.DATA, "president", "inputs", "medsl_president.json")
+NOT_CANDIDATES = {"", "SCATTERING", "OTHER", "OTHERS", "BLANK VOTE/SCATTERING", "NONE OF THE ABOVE",
+                  "BLANK VOTE", "NONE OF THESE CANDIDATES", "OVER VOTE", "BLANK VOTE/VOID VOTE/SCATTERING",
+                  "VOID VOTE", "BLANK VOTES", "OVERVOTES", "UNDERVOTES", "VOID", "WRITE-IN", "SPOILED"}
+# state-years where the rows do not sum to totalvotes, measured 2026-11-07 (rows minus totalvotes)
+KNOWN_TOTAL_GAPS = {("2024", "DC"): 2535, ("2024", "NY"): -874}
+PRES_YEARS = [str(y) for y in range(1976, 2025, 4)]
+
+
+def _md5(path):
+    import hashlib
+    h = hashlib.md5()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def president_detail():
+    import collections
+    info = fetch_file("president")
+    path = os.path.join(cc.CACHE, info["file"]["path"])
+    _, meta = record("president")
+    df = next(f["dataFile"] for f in meta["latestVersion"]["files"] if f["dataFile"]["id"] == info["file_id"])
+    want = (df.get("checksum") or {}).get("value") or df.get("md5")
+    got = _md5(path)
+    assert want and got == want, f"MD5 {got} is not Dataverse's {want} for datafile {info['file_id']}"
+    rs = rows(path)
+    by = collections.defaultdict(list)
+    for r in rs:
+        by[(r["year"], r["state_po"])].append(r)
+    years = sorted({y for y, _ in by})
+    assert years == PRES_YEARS, years
+    for y in years:
+        assert len([1 for (yy, _) in by if yy == y]) == 51, y
+    out = {}
+    for (y, st), group in sorted(by.items()):
+        total = int(group[0]["totalvotes"])
+        assert all(int(r["totalvotes"]) == total for r in group), (y, st)
+        gap = sum(int(r["candidatevotes"]) for r in group) - total
+        assert gap == KNOWN_TOTAL_GAPS.get((y, st), 0), (y, st, gap)
+        cands = collections.OrderedDict()
+        others = collections.Counter()
+        for r in group:
+            name = r["candidate"].strip()
+            v = int(r["candidatevotes"])
+            if name.upper() in NOT_CANDIDATES:
+                others[name or "(blank name)"] += v
+                continue
+            c = cands.setdefault(name, {"name": name, "votes": 0, "lines": [], "parties": set(), "writein": True})
+            c["votes"] += v
+            c["lines"].append({"party_detailed": r["party_detailed"], "votes": v})
+            c["parties"].add(r["party_simplified"])
+            c["writein"] = c["writein"] and str(r["writein"]).upper() == "TRUE"   # write-in only if every line is
+        ranked = sorted(cands.values(), key=lambda c: -c["votes"])
+        for c in ranked:
+            c["parties"] = sorted(p for p in c["parties"] if p)
+
+        def nominee(party):
+            # the party's leading candidate (MEDSL marks every 2020 DC row a write-in, so the flag is not used)
+            m = [c for c in ranked if party in c["parties"]]
+            return {"name": m[0]["name"], "votes": m[0]["votes"]} if m else None
+
+        out.setdefault(y, {})[st] = {
+            "state": group[0]["state"].title(), "totalvotes": total,
+            "dem": nominee("DEMOCRAT"), "rep": nominee("REPUBLICAN"),
+            "top_two": [{"name": c["name"], "votes": c["votes"], "parties": c["parties"]} for c in ranked[:2]],
+            # the party lines are kept only where a candidate ran on more than one (fusion), to keep the file small
+            "candidates": [dict({"name": c["name"], "votes": c["votes"], "parties": c["parties"],
+                                 "writein": c["writein"]}, **({"lines": c["lines"]} if len(c["lines"]) > 1 else {}))
+                           for c in ranked],
+            "not_candidates": dict(others), "medsl_version": group[0]["version"]}
+    url = f"{API}/access/datafile/{info['file_id']}?format=original"
+    doc = {"about": "MEDSL state presidential returns, normalised by pipeline/intake/medsl_dataverse.py "
+                    "(president_detail). Votes per candidate are summed over the party lines the candidate ran on.",
+           "source": dict(cc.source_block(f"MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard "
+                                          f"Dataverse {info['doi']}, {info['version']}, file {info['filename']}",
+                                          url, info["file"]["read_utc"], "CC0 1.0", "stated",
+                                          via="MEDSL's compilation of state election offices' returns",
+                                          note=f"checked against Dataverse's MD5 {want}"),
+                          sha256=info["file"]["sha256"]),
+           "known_total_gaps": {f"{y} {s}": g for (y, s), g in KNOWN_TOTAL_GAPS.items()},
+           "years": out}
+    cc.write_json(PRES_OUT, doc)
+    for y in years:
+        d = sum(out[y][s]["dem"]["votes"] for s in out[y])
+        r = sum(out[y][s]["rep"]["votes"] for s in out[y])
+        t = sum(out[y][s]["totalvotes"] for s in out[y])
+        odd = [s for s in out[y] if {c["name"] for c in out[y][s]["top_two"]}
+               != {out[y][s]["dem"]["name"], out[y][s]["rep"]["name"]}]
+        print(f"{y}: 51 jurisdictions; Democratic {d:,}, Republican {r:,}, totalvotes {t:,};"
+              f" leading two not the two nominees in: {', '.join(odd) or 'none'}")
+    print(f"wrote {os.path.relpath(PRES_OUT, cc.REPO)}")
+    return doc
+
+
 if __name__ == "__main__":
     for key in (sys.argv[1:] or ["senate"]):
-        {"senate": senate, "president": president}[key]()
+        {"senate": senate, "president": president, "president_detail": president_detail}[key]()

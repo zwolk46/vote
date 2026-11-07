@@ -19,7 +19,10 @@ Sources, both from github.com/fivethirtyeight/data at the commit 4c1ff5e3aef1816
 
 What it writes: data/president/inputs/fte_poll_averages.json, for each cycle 1976-2024, the averages on
 9 September (about eight weeks before the election, the first date the 1968-2016 file has in every
-cycle, and a date the 2024 file covers) and on the last date in the file (election day, except 2024):
+cycle, and a date the 2024 file covers) and on the last date before Election Day ("eve": the day before in
+every cycle but 2024, whose file ends on 12 September; the same rule as for 538's forecasts, the
+orchestrator's of 2026-11-07 04:12, reason law 2a: the voter decides with what was published before the
+vote; Election Day is the Tuesday after the first Monday in November, 3 U.S.C. 1):
 for the nation and each state 538 averaged, the Democratic and Republican nominees' percent, from the
 column pct_estimate, and pct_trend_adjusted beside it where the file has it (2020 has only the latter).
 
@@ -31,6 +34,7 @@ Run from the repository root:  python3 pipeline/intake/fte_poll_averages.py
 """
 import collections
 import csv
+import datetime
 import json
 import os
 import sys
@@ -72,6 +76,13 @@ def surname(name):
     return parts[-1].lower()
 
 
+def election_day(year):
+    """The Tuesday after the first Monday in November (3 U.S.C. 1)."""
+    d = datetime.date(int(year), 11, 1)
+    first_monday = d + datetime.timedelta(days=(0 - d.weekday()) % 7)
+    return (first_monday + datetime.timedelta(days=1)).isoformat()
+
+
 def num(s):
     return float(s) if s not in ("", None) else None
 
@@ -107,7 +118,8 @@ def main():
         ref = f"{y}-09-09"
         assert ref in dates, (y, min(dates))
         snaps = {}
-        for label, date in (("two_months_out", ref), ("last", max(dates))):
+        eve = max(d for d in dates if d < election_day(y))
+        for label, date in (("two_months_out", ref), ("eve", eve)):
             units = {}
             for r in rs:
                 if r["date"] != date or r["candidate"] not in (dm[0], rm[0]):
@@ -125,7 +137,7 @@ def main():
         d, r_ = us["dem"] if us["dem"] is not None else us["dem_trend_adjusted"], \
             us["rep"] if us["rep"] is not None else us["rep_trend_adjusted"]
         print(f"{y}: {dm[0]} {d:.1f}, {rm[0]} {r_:.1f} nationally on {ref};"
-              f" {len(snaps['two_months_out']['units']) - 1} states averaged then; last date {snaps['last']['date']}")
+              f" {len(snaps['two_months_out']['units']) - 1} states averaged then; last date before Election Day {snaps['eve']['date']}")
     sources = {}
     for key, rel in FILES.items():
         m = fetch.meta(f"fte_data_{COMMIT[:7]}_{rel.split('/')[-1]}")
@@ -134,7 +146,8 @@ def main():
                 "23 August to 12 September 2024; the corrected file is not reachable")
         sources[key] = fetch.source(f"FiveThirtyEight, data repository, {rel} (commit {COMMIT[:7]})", m["url"],
                                     m["read_utc"], "CC BY 4.0", "stated", note=note, sha256=m["sha256"])
-    doc = {"about": "538's presidential polling averages on 9 September and on the last date, normalised by "
+    doc = {"about": "538's presidential polling averages on 9 September and on the last date before Election Day "
+                    "(eve), normalised by "
                     "pipeline/intake/fte_poll_averages.py. dem and rep are percent of the whole vote "
                     "(pct_estimate); the _trend_adjusted columns are 538's trend-adjusted estimates.",
            "sources": sources, "years": out}

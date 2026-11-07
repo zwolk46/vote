@@ -28,7 +28,8 @@ such as the polls two months out" (model section 3), kept as small as the data a
 Inputs (all committed under data/president/inputs/): FEC results 1996-2024 (the count of record), MEDSL
 results 1976-1992, 538's polling averages (fte_poll_averages.json).
 
-The approved version (APPROVED): the last average, uniform swing, t4 state errors. 2024 is the exception
+The approved version (APPROVED): the last average before Election Day (the day before; the orchestrator's
+rule of 04:12 for every forecast, so that the presidency and Congress match), uniform swing, t4 state errors. 2024 is the exception
 the files force: 538's 2024 averages end on 12 September 2024 in every file this environment reaches (the
 later ones are at projects.fivethirtyeight.com, which redirects to ABC News), so 2024 uses the average of
 12 September with the errors fitted to the 9 September averages of earlier cycles, and is marked so.
@@ -72,8 +73,8 @@ def shares(res):
 
 def polls(when):
     """{year: (538's national two-party share for the Democrat, the date)} on `when`: "two_months_out"
-    (9 September) or "last" (the last date in 538's file: election day, or the eve, in every year but
-    2024, whose file ends on 12 September; see fte_poll_averages.py)."""
+    (9 September) or "eve" (the last date before Election Day: the day before in every year but 2024, whose
+    file ends on 12 September; the orchestrator's rule of 04:12 for every forecast; see fte_poll_averages.py)."""
     doc = load("fte_poll_averages.json")["years"]
     out = {}
     for y, d in doc.items():
@@ -93,7 +94,7 @@ def polls_eve():
     Election Day with what was known then, law 2a). 2024 has no average after 12 September in any file
     this environment reaches, so 2024 is left out of this version and marked."""
     out = {}
-    for y, (v, date) in polls("last").items():
+    for y, (v, date) in polls("eve").items():
         if date[5:] >= "11-01":
             out[y] = v
     return out
@@ -128,7 +129,7 @@ def forecast(t, v, V, N, variant="uniform"):
     return {s: (v[t - 4][s] + swing, tau) for s in v[t - 4]}, nat_mean, f
 
 
-APPROVED = {"polls": "last", "variant": "uniform", "tails": "t4",
+APPROVED = {"polls": "eve", "variant": "uniform", "tails": "t4",
             "approved": "orchestrator, 2026-11-07 03:51 UTC, under the maker's word of 02:38"}
 
 
@@ -137,14 +138,14 @@ def approved(t):
     the national and state error sds, the tails and the poll it rests on."""
     res = results()
     v, V = shares(res)
-    last = polls("last")
+    last = polls("eve")
     value, date = last[t]
     eve = date[5:] >= "11-01"
     N = polls_eve() if eve else polls_two_months_out()
     N = dict(N)
     N[t] = value
     fc, nat_mean, f = forecast(t, v, V, N, APPROVED["variant"])
-    note = (f"538's national average of {date}, the last before the election" if eve else
+    note = (f"538's national average of {date}, the last before Election Day" if eve else
             f"538's national average of {date}, the last in any file reachable here (its later 2024 averages "
             "are unreadable); errors fitted to the 9 September averages of earlier cycles; the file is 538's "
             "uncorrected copy, whose bug 538 says overstated Harris's margin by 0.1 points")
@@ -204,8 +205,11 @@ def backtest():
     print("in50, in90: the share of states whose result fell inside the forecast's central 50% and 90%")
     print("intervals (a calibrated forecast: 0.50 and 0.90). MAE: mean absolute error of the state means.")
     print("P(D): the forecast's chance that the Democrat wins the College (a 269 tie counted half); won: 1 if")
-    print("the Democrat won. 538 columns: 538's published forecast of election day (polls-plus where it ran")
-    print("several), which had two more months of polls than this forecast.\n")
+    print("the Democrat won. 538 columns: 538's published forecast, the last dated before Election Day")
+    print("(polls-plus where it ran several; 2008's file has Election Day only). polls: two_months_out uses")
+    print("538's national average of 9 September; eve its last average before Election Day (2024: 12 September,")
+    print("the last in the files, so 2024 is not in the eve runs). The shrunk variant's 1984 forecast rests on a")
+    print("shrink factor fitted to two cycles (1976, 1980), which is why its 1984 row is degenerate.\n")
     runs = [("two_months_out", "uniform", "normal"), ("two_months_out", "uniform", "t4"),
             ("two_months_out", "shrunk", "t4"), ("eve", "uniform", "normal"), ("eve", "uniform", "t4"),
             ("eve", "shrunk", "t4")]

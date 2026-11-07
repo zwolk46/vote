@@ -1,5 +1,5 @@
 {
- "about": "538's presidential polling averages on 9 September and on the last date, normalised by pipeline/intake/fte_poll_averages.py. dem and rep are percent of the whole vote (pct_estimate); the _trend_adjusted columns are 538's trend-adjusted estimates.",
+ "about": "538's presidential polling averages on 9 September and on the last date before Election Day (eve), normalised by pipeline/intake/fte_poll_averages.py. dem and rep are percent of the whole vote (pct_estimate); the _trend_adjusted columns are 538's trend-adjusted estimates.",
  "sources": {
   "old": {
    "name": "FiveThirtyEight, data repository, polls/pres_pollaverages_1968-2016.csv (commit 4c1ff5e)",
@@ -86,8 +86,8 @@
      }
     }
    },
-   "last": {
-    "date": "1976-11-02",
+   "eve": {
+    "date": "1976-11-01",
     "units": {
      "CA": {
       "rep": 46.068216,
@@ -395,8 +395,8 @@
      }
     }
    },
-   "last": {
-    "date": "1980-11-04",
+   "eve": {
+    "date": "1980-11-03",
     "units": {
      "AL": {
       "dem": 40.321613,
@@ -794,8 +794,8 @@
      }
     }
    },
-   "last": {
-    "date": "1984-11-06",
+   "eve": {
+    "date": "1984-11-05",
     "units": {
      "AL": {
       "rep": 57.058659,
@@ -1199,8 +1199,8 @@
      }
     }
    },
-   "last": {
-    "date": "1988-11-08",
+   "eve": {
+    "date": "1988-11-07",
     "units": {
      "AK": {
       "dem": 41.120967,
@@ -1778,8 +1778,8 @@
      }
     }
    },
-   "last": {
-    "date": "1992-11-03",
+   "eve": {
+    "date": "1992-11-02",
     "units": {
      "AK": {
       "dem": 33.656677,
@@ -2411,320 +2411,320 @@
      }
     }
    },
-   "last": {
-    "date": "1996-11-05",
+   "eve": {
+    "date": "1996-11-04",
     "units": {
      "AK": {
-      "dem": 34.288314,
-      "dem_trend_adjusted": 34.341285,
-      "rep": 43.760162,
-      "rep_trend_adjusted": 44.279998
+      "dem": 34.289702,
+      "dem_trend_adjusted": 34.347722,
+      "rep": 43.755008,
+      "rep_trend_adjusted": 44.230729
      },
      "AL": {
-      "dem": 40.952817,
-      "dem_trend_adjusted": 40.833396,
-      "rep": 46.892719,
-      "rep_trend_adjusted": 46.966434
+      "dem": 40.954365,
+      "dem_trend_adjusted": 40.835988,
+      "rep": 46.887302,
+      "rep_trend_adjusted": 46.939999
      },
      "AR": {
-      "dem": 52.939159,
-      "dem_trend_adjusted": 53.13727,
-      "rep": 34.854596,
-      "rep_trend_adjusted": 35.002401
+      "dem": 52.940717,
+      "dem_trend_adjusted": 53.14512,
+      "rep": 34.849529,
+      "rep_trend_adjusted": 34.964002
      },
      "AZ": {
-      "dem": 45.013949,
-      "dem_trend_adjusted": 44.865206,
-      "rep": 38.127452,
-      "rep_trend_adjusted": 38.240848
+      "dem": 45.01553,
+      "dem_trend_adjusted": 44.868625,
+      "rep": 38.122204,
+      "rep_trend_adjusted": 38.201876
      },
      "CA": {
-      "dem": 48.713991,
-      "dem_trend_adjusted": 48.631541,
-      "rep": 34.899393,
-      "rep_trend_adjusted": 34.993368
+      "dem": 48.715519,
+      "dem_trend_adjusted": 48.630349,
+      "rep": 34.893989,
+      "rep_trend_adjusted": 34.973129
      },
      "CO": {
-      "dem": 43.749865,
-      "dem_trend_adjusted": 43.541283,
-      "rep": 40.309325,
-      "rep_trend_adjusted": 40.500349
+      "dem": 43.751432,
+      "dem_trend_adjusted": 43.54866,
+      "rep": 40.304068,
+      "rep_trend_adjusted": 40.447691
      },
      "CT": {
-      "dem": 49.016396,
-      "dem_trend_adjusted": 48.82753,
-      "rep": 29.085105,
-      "rep_trend_adjusted": 29.252756
+      "dem": 49.017974,
+      "dem_trend_adjusted": 48.834674,
+      "rep": 29.080299,
+      "rep_trend_adjusted": 29.214712
      },
      "DC": {
-      "dem": 81.327814,
-      "dem_trend_adjusted": 81.871869,
-      "rep": 4.7541757,
-      "rep_trend_adjusted": 5.120955
+      "dem": 81.328909,
+      "dem_trend_adjusted": 81.873466,
+      "rep": 4.7520084,
+      "rep_trend_adjusted": 5.1077126
      },
      "DE": {
-      "dem": 46.301404,
-      "dem_trend_adjusted": 46.820345,
-      "rep": 36.616601,
-      "rep_trend_adjusted": 36.485388
+      "dem": 46.302974,
+      "dem_trend_adjusted": 46.827881,
+      "rep": 36.611428,
+      "rep_trend_adjusted": 36.425623
      },
      "FL": {
-      "dem": 46.23713,
-      "dem_trend_adjusted": 46.318313,
-      "rep": 41.37611,
-      "rep_trend_adjusted": 41.387186
+      "dem": 46.238689,
+      "dem_trend_adjusted": 46.322444,
+      "rep": 41.37082,
+      "rep_trend_adjusted": 41.331899
      },
      "GA": {
-      "dem": 44.767056,
-      "dem_trend_adjusted": 44.703896,
-      "rep": 41.930165,
-      "rep_trend_adjusted": 41.980941
+      "dem": 44.76862,
+      "dem_trend_adjusted": 44.706472,
+      "rep": 41.924839,
+      "rep_trend_adjusted": 41.960076
      },
      "HI": {
-      "dem": 53.388279,
-      "dem_trend_adjusted": 53.332468,
-      "rep": 31.062128,
-      "rep_trend_adjusted": 31.238276
+      "dem": 53.389757,
+      "dem_trend_adjusted": 53.342872,
+      "rep": 31.057406,
+      "rep_trend_adjusted": 31.186208
      },
      "IA": {
-      "dem": 47.453958,
-      "dem_trend_adjusted": 47.250415,
-      "rep": 35.083164,
-      "rep_trend_adjusted": 35.207621
+      "dem": 47.45553,
+      "dem_trend_adjusted": 47.256043,
+      "rep": 35.078056,
+      "rep_trend_adjusted": 35.168185
      },
      "ID": {
-      "dem": 30.727659,
-      "dem_trend_adjusted": 30.664702,
-      "rep": 48.392292,
-      "rep_trend_adjusted": 48.729553
+      "dem": 30.729058,
+      "dem_trend_adjusted": 30.668865,
+      "rep": 48.386945,
+      "rep_trend_adjusted": 48.69371
      },
      "IL": {
-      "dem": 50.610869,
-      "dem_trend_adjusted": 50.348405,
-      "rep": 34.334141,
-      "rep_trend_adjusted": 34.744513
+      "dem": 50.612441,
+      "dem_trend_adjusted": 50.355303,
+      "rep": 34.329073,
+      "rep_trend_adjusted": 34.692285
      },
      "IN": {
-      "dem": 38.665799,
-      "dem_trend_adjusted": 38.644679,
-      "rep": 40.676349,
-      "rep_trend_adjusted": 41.202928
+      "dem": 38.667307,
+      "dem_trend_adjusted": 38.646736,
+      "rep": 40.67109,
+      "rep_trend_adjusted": 41.157052
      },
      "KS": {
-      "dem": 37.789317,
-      "dem_trend_adjusted": 37.956127,
-      "rep": 49.524387,
-      "rep_trend_adjusted": 49.880528
+      "dem": 37.790815,
+      "dem_trend_adjusted": 37.96269,
+      "rep": 49.519011,
+      "rep_trend_adjusted": 49.836458
      },
      "KY": {
-      "dem": 45.657298,
-      "dem_trend_adjusted": 45.748847,
-      "rep": 41.734423,
-      "rep_trend_adjusted": 41.937637
+      "dem": 45.658839,
+      "dem_trend_adjusted": 45.745216,
+      "rep": 41.729195,
+      "rep_trend_adjusted": 41.91817
      },
      "LA": {
-      "dem": 46.771096,
-      "dem_trend_adjusted": 46.494967,
-      "rep": 35.770933,
-      "rep_trend_adjusted": 35.905209
+      "dem": 46.772674,
+      "dem_trend_adjusted": 46.498862,
+      "rep": 35.765785,
+      "rep_trend_adjusted": 35.866298
      },
      "MA": {
-      "dem": 57.458991,
-      "dem_trend_adjusted": 57.336585,
-      "rep": 27.18631,
-      "rep_trend_adjusted": 27.256162
+      "dem": 57.460549,
+      "dem_trend_adjusted": 57.336386,
+      "rep": 27.18162,
+      "rep_trend_adjusted": 27.21536
      },
      "MD": {
-      "dem": 51.392215,
-      "dem_trend_adjusted": 51.839155,
-      "rep": 36.927099,
-      "rep_trend_adjusted": 36.776916
+      "dem": 51.393697,
+      "dem_trend_adjusted": 51.844598,
+      "rep": 36.922121,
+      "rep_trend_adjusted": 36.726222
      },
      "ME": {
-      "dem": 47.893072,
-      "dem_trend_adjusted": 48.06038,
-      "rep": 36.179531,
-      "rep_trend_adjusted": 36.899063
+      "dem": 47.894622,
+      "dem_trend_adjusted": 48.063791,
+      "rep": 36.174429,
+      "rep_trend_adjusted": 36.854258
      },
      "MI": {
-      "dem": 47.323879,
-      "dem_trend_adjusted": 47.250834,
-      "rep": 34.651579,
-      "rep_trend_adjusted": 34.79204
+      "dem": 47.325458,
+      "dem_trend_adjusted": 47.256268,
+      "rep": 34.645814,
+      "rep_trend_adjusted": 34.743018
      },
      "MN": {
-      "dem": 52.188213,
-      "dem_trend_adjusted": 52.083346,
-      "rep": 31.648225,
-      "rep_trend_adjusted": 32.125033
+      "dem": 52.189758,
+      "dem_trend_adjusted": 52.088705,
+      "rep": 31.643337,
+      "rep_trend_adjusted": 32.076473
      },
      "MO": {
-      "dem": 47.004037,
-      "dem_trend_adjusted": 46.743619,
-      "rep": 37.184206,
-      "rep_trend_adjusted": 37.582868
+      "dem": 47.005592,
+      "dem_trend_adjusted": 46.751565,
+      "rep": 37.179054,
+      "rep_trend_adjusted": 37.527962
      },
      "MS": {
-      "dem": 39.189574,
-      "dem_trend_adjusted": 39.136274,
-      "rep": 46.790798,
-      "rep_trend_adjusted": 46.833947
+      "dem": 39.191013,
+      "dem_trend_adjusted": 39.141038,
+      "rep": 46.785609,
+      "rep_trend_adjusted": 46.805373
      },
      "MT": {
-      "dem": 40.633789,
-      "dem_trend_adjusted": 41.107325,
-      "rep": 40.319806,
-      "rep_trend_adjusted": 40.452818
+      "dem": 40.635296,
+      "dem_trend_adjusted": 41.111151,
+      "rep": 40.314602,
+      "rep_trend_adjusted": 40.400413
      },
      "NC": {
-      "dem": 43.845678,
-      "dem_trend_adjusted": 43.687755,
-      "rep": 45.747181,
-      "rep_trend_adjusted": 46.010499
+      "dem": 43.84733,
+      "dem_trend_adjusted": 43.690373,
+      "rep": 45.741608,
+      "rep_trend_adjusted": 45.959988
      },
      "ND": {
-      "dem": 36.061334,
-      "dem_trend_adjusted": 36.081568,
-      "rep": 41.205485,
-      "rep_trend_adjusted": 41.605147
+      "dem": 36.062813,
+      "dem_trend_adjusted": 36.083568,
+      "rep": 41.200216,
+      "rep_trend_adjusted": 41.569279
      },
      "NE": {
-      "dem": 36.553417,
-      "dem_trend_adjusted": 36.457293,
-      "rep": 47.248021,
-      "rep_trend_adjusted": 47.389599
+      "dem": 36.554924,
+      "dem_trend_adjusted": 36.459979,
+      "rep": 47.242603,
+      "rep_trend_adjusted": 47.358986
      },
      "NH": {
-      "dem": 50.101426,
-      "dem_trend_adjusted": 49.88747,
-      "rep": 35.135896,
-      "rep_trend_adjusted": 35.130707
+      "dem": 50.102993,
+      "dem_trend_adjusted": 49.8898,
+      "rep": 35.130809,
+      "rep_trend_adjusted": 35.091508
      },
      "NJ": {
-      "dem": 48.820304,
-      "dem_trend_adjusted": 48.613568,
-      "rep": 31.61794,
-      "rep_trend_adjusted": 31.585639
+      "dem": 48.821882,
+      "dem_trend_adjusted": 48.612488,
+      "rep": 31.612037,
+      "rep_trend_adjusted": 31.537258
      },
      "NM": {
-      "dem": 47.593024,
-      "dem_trend_adjusted": 47.446848,
-      "rep": 33.699388,
-      "rep_trend_adjusted": 33.975005
+      "dem": 47.594582,
+      "dem_trend_adjusted": 47.452323,
+      "rep": 33.694374,
+      "rep_trend_adjusted": 33.921427
      },
      "NV": {
-      "dem": 42.691043,
-      "dem_trend_adjusted": 42.808764,
-      "rep": 42.539617,
-      "rep_trend_adjusted": 42.897468
+      "dem": 42.692556,
+      "dem_trend_adjusted": 42.803853,
+      "rep": 42.53437,
+      "rep_trend_adjusted": 42.87598
      },
      "NY": {
-      "dem": 54.758489,
-      "dem_trend_adjusted": 54.673865,
-      "rep": 28.864572,
-      "rep_trend_adjusted": 28.878868
+      "dem": 54.760059,
+      "dem_trend_adjusted": 54.679687,
+      "rep": 28.859234,
+      "rep_trend_adjusted": 28.834726
      },
      "OH": {
-      "dem": 47.250076,
-      "dem_trend_adjusted": 47.241716,
-      "rep": 41.174896,
-      "rep_trend_adjusted": 41.331734
+      "dem": 47.251672,
+      "dem_trend_adjusted": 47.241593,
+      "rep": 41.169533,
+      "rep_trend_adjusted": 41.3105
      },
      "OK": {
-      "dem": 39.532809,
-      "dem_trend_adjusted": 39.521811,
-      "rep": 46.478596,
-      "rep_trend_adjusted": 46.83337
+      "dem": 39.537403,
+      "dem_trend_adjusted": 39.529847,
+      "rep": 46.48048,
+      "rep_trend_adjusted": 46.806761
      },
      "OR": {
-      "dem": 48.096447,
-      "dem_trend_adjusted": 47.937174,
-      "rep": 35.442553,
-      "rep_trend_adjusted": 35.810702
+      "dem": 48.097984,
+      "dem_trend_adjusted": 47.94843,
+      "rep": 35.437512,
+      "rep_trend_adjusted": 35.759584
      },
      "PA": {
-      "dem": 49.045393,
-      "dem_trend_adjusted": 48.815723,
-      "rep": 36.014836,
-      "rep_trend_adjusted": 36.230251
+      "dem": 49.046977,
+      "dem_trend_adjusted": 48.822696,
+      "rep": 36.009641,
+      "rep_trend_adjusted": 36.18688
      },
      "RI": {
-      "dem": 54.644628,
-      "dem_trend_adjusted": 54.859525,
-      "rep": 24.749343,
-      "rep_trend_adjusted": 25.281066
+      "dem": 54.646193,
+      "dem_trend_adjusted": 54.868099,
+      "rep": 24.744836,
+      "rep_trend_adjusted": 25.241512
      },
      "SC": {
-      "dem": 40.93399,
-      "dem_trend_adjusted": 40.918615,
-      "rep": 49.274688,
-      "rep_trend_adjusted": 49.414469
+      "dem": 40.935441,
+      "dem_trend_adjusted": 40.923596,
+      "rep": 49.269484,
+      "rep_trend_adjusted": 49.380591
      },
      "SD": {
-      "dem": 41.031583,
-      "dem_trend_adjusted": 41.159229,
-      "rep": 45.196836,
-      "rep_trend_adjusted": 46.079001
+      "dem": 41.033035,
+      "dem_trend_adjusted": 41.166263,
+      "rep": 45.191661,
+      "rep_trend_adjusted": 46.038464
      },
      "TN": {
-      "dem": 44.996317,
-      "dem_trend_adjusted": 44.878904,
-      "rep": 42.038365,
-      "rep_trend_adjusted": 42.28414
+      "dem": 44.997873,
+      "dem_trend_adjusted": 44.880848,
+      "rep": 42.03306,
+      "rep_trend_adjusted": 42.258628
      },
      "TX": {
-      "dem": 40.749962,
-      "dem_trend_adjusted": 40.400781,
-      "rep": 46.217357,
-      "rep_trend_adjusted": 46.469763
+      "dem": 40.751517,
+      "dem_trend_adjusted": 40.411678,
+      "rep": 46.211926,
+      "rep_trend_adjusted": 46.418316
      },
      "US": {
-      "dem": 49.616052,
-      "dem_trend_adjusted": 49.59073,
-      "rep": 36.763277,
-      "rep_trend_adjusted": 36.783656
+      "dem": 49.651302,
+      "dem_trend_adjusted": 49.609978,
+      "rep": 36.633899,
+      "rep_trend_adjusted": 36.658731
      },
      "UT": {
-      "dem": 33.763817,
-      "dem_trend_adjusted": 33.499678,
-      "rep": 47.14627,
-      "rep_trend_adjusted": 47.567294
+      "dem": 33.765267,
+      "dem_trend_adjusted": 33.504314,
+      "rep": 47.14091,
+      "rep_trend_adjusted": 47.518153
      },
      "VA": {
-      "dem": 42.826149,
-      "dem_trend_adjusted": 42.851997,
-      "rep": 41.753454,
-      "rep_trend_adjusted": 42.049004
+      "dem": 42.827699,
+      "dem_trend_adjusted": 42.862297,
+      "rep": 41.748142,
+      "rep_trend_adjusted": 41.994026
      },
      "VT": {
-      "dem": 52.366977,
-      "dem_trend_adjusted": 51.873258,
-      "rep": 35.519814,
-      "rep_trend_adjusted": 35.750764
+      "dem": 52.368458,
+      "dem_trend_adjusted": 51.879018,
+      "rep": 35.514889,
+      "rep_trend_adjusted": 35.705706
      },
      "WA": {
-      "dem": 47.449865,
-      "dem_trend_adjusted": 47.173079,
-      "rep": 35.024938,
-      "rep_trend_adjusted": 35.500916
+      "dem": 47.451435,
+      "dem_trend_adjusted": 47.181084,
+      "rep": 35.019839,
+      "rep_trend_adjusted": 35.448362
      },
      "WI": {
-      "dem": 49.536554,
-      "dem_trend_adjusted": 49.640474,
-      "rep": 34.940681,
-      "rep_trend_adjusted": 35.127321
+      "dem": 49.538124,
+      "dem_trend_adjusted": 49.649653,
+      "rep": 34.935593,
+      "rep_trend_adjusted": 35.078992
      },
      "WV": {
-      "dem": 50.536458,
-      "dem_trend_adjusted": 50.591327,
-      "rep": 34.296113,
-      "rep_trend_adjusted": 34.60822
+      "dem": 50.538015,
+      "dem_trend_adjusted": 50.597401,
+      "rep": 34.291079,
+      "rep_trend_adjusted": 34.572939
      },
      "WY": {
-      "dem": 37.603149,
-      "dem_trend_adjusted": 37.658798,
-      "rep": 44.841788,
-      "rep_trend_adjusted": 45.415521
+      "dem": 37.604626,
+      "dem_trend_adjusted": 37.666322,
+      "rep": 44.836493,
+      "rep_trend_adjusted": 45.375074
      }
     }
    }
@@ -3008,8 +3008,8 @@
      }
     }
    },
-   "last": {
-    "date": "2000-11-07",
+   "eve": {
+    "date": "2000-11-06",
     "units": {
      "AK": {
       "rep": 50.99731,
@@ -3605,308 +3605,308 @@
      }
     }
    },
-   "last": {
-    "date": "2004-11-02",
+   "eve": {
+    "date": "2004-11-01",
     "units": {
      "AK": {
-      "rep": 57.311515,
-      "rep_trend_adjusted": 57.769726,
-      "dem": 31.118299,
-      "dem_trend_adjusted": 32.018118
+      "rep": 57.314668,
+      "rep_trend_adjusted": 57.757999,
+      "dem": 31.115622,
+      "dem_trend_adjusted": 32.014179
      },
      "AL": {
-      "rep": 56.778493,
-      "rep_trend_adjusted": 56.894754,
-      "dem": 35.153022,
-      "dem_trend_adjusted": 35.459606
+      "rep": 56.781719,
+      "rep_trend_adjusted": 56.891215,
+      "dem": 35.150294,
+      "dem_trend_adjusted": 35.456692
      },
      "AR": {
-      "rep": 49.875212,
-      "rep_trend_adjusted": 49.849195,
-      "dem": 46.05477,
-      "dem_trend_adjusted": 46.140723
+      "rep": 49.879967,
+      "rep_trend_adjusted": 49.849582,
+      "dem": 46.053337,
+      "dem_trend_adjusted": 46.141552
      },
      "AZ": {
-      "rep": 51.647917,
-      "rep_trend_adjusted": 51.744227,
-      "dem": 42.353901,
-      "dem_trend_adjusted": 42.514326
+      "rep": 51.65112,
+      "rep_trend_adjusted": 51.735217,
+      "dem": 42.350988,
+      "dem_trend_adjusted": 42.514028
      },
      "CA": {
-      "rep": 41.651258,
-      "rep_trend_adjusted": 41.729842,
-      "dem": 52.385393,
-      "dem_trend_adjusted": 52.412224
+      "rep": 41.654444,
+      "rep_trend_adjusted": 41.721313,
+      "dem": 52.382524,
+      "dem_trend_adjusted": 52.405835
      },
      "CO": {
-      "rep": 49.588063,
-      "rep_trend_adjusted": 49.633177,
-      "dem": 45.309328,
-      "dem_trend_adjusted": 45.407688
+      "rep": 49.59353,
+      "rep_trend_adjusted": 49.627118,
+      "dem": 45.307561,
+      "dem_trend_adjusted": 45.410874
      },
      "CT": {
-      "rep": 39.587914,
-      "rep_trend_adjusted": 40.035675,
-      "dem": 50.968638,
-      "dem_trend_adjusted": 52.27379
+      "rep": 39.591027,
+      "rep_trend_adjusted": 40.022002,
+      "dem": 50.965704,
+      "dem_trend_adjusted": 52.269144
      },
      "DE": {
-      "rep": 40.418493,
-      "rep_trend_adjusted": 39.627884,
-      "dem": 47.686023,
-      "dem_trend_adjusted": 49.441044
+      "rep": 40.421616,
+      "rep_trend_adjusted": 39.61387,
+      "dem": 47.683083,
+      "dem_trend_adjusted": 49.436607
      },
      "FL": {
-      "rep": 47.942048,
-      "rep_trend_adjusted": 47.977726,
-      "dem": 47.364931,
-      "dem_trend_adjusted": 47.412537
+      "rep": 47.945616,
+      "rep_trend_adjusted": 47.971097,
+      "dem": 47.36253,
+      "dem_trend_adjusted": 47.413512
      },
      "GA": {
-      "rep": 54.186477,
-      "rep_trend_adjusted": 54.195597,
-      "dem": 41.540177,
-      "dem_trend_adjusted": 41.782847
+      "rep": 54.193346,
+      "rep_trend_adjusted": 54.193486,
+      "dem": 41.540597,
+      "dem_trend_adjusted": 41.787047
      },
      "HI": {
-      "rep": 43.339587,
-      "rep_trend_adjusted": 43.684677,
-      "dem": 45.794949,
-      "dem_trend_adjusted": 46.175552
+      "rep": 43.342739,
+      "rep_trend_adjusted": 43.670256,
+      "dem": 45.792042,
+      "dem_trend_adjusted": 46.169738
      },
      "IA": {
-      "rep": 47.417262,
-      "rep_trend_adjusted": 47.446857,
-      "dem": 46.264535,
-      "dem_trend_adjusted": 46.318087
+      "rep": 47.421727,
+      "rep_trend_adjusted": 47.445049,
+      "dem": 46.262815,
+      "dem_trend_adjusted": 46.319829
      },
      "ID": {
-      "rep": 57.587887,
-      "rep_trend_adjusted": 58.14842,
-      "dem": 27.835825,
-      "dem_trend_adjusted": 28.771634
+      "rep": 57.591038,
+      "rep_trend_adjusted": 58.141399,
+      "dem": 27.83325,
+      "dem_trend_adjusted": 28.768195
      },
      "IL": {
-      "rep": 42.901402,
-      "rep_trend_adjusted": 42.793199,
-      "dem": 51.746566,
-      "dem_trend_adjusted": 52.137212
+      "rep": 42.904593,
+      "rep_trend_adjusted": 42.784373,
+      "dem": 51.743676,
+      "dem_trend_adjusted": 52.138712
      },
      "IN": {
-      "rep": 57.262583,
-      "rep_trend_adjusted": 57.381911,
-      "dem": 36.95455,
-      "dem_trend_adjusted": 37.148427
+      "rep": 57.265789,
+      "rep_trend_adjusted": 57.378913,
+      "dem": 36.951785,
+      "dem_trend_adjusted": 37.14784
      },
      "KS": {
-      "rep": 58.554502,
-      "rep_trend_adjusted": 58.568203,
-      "dem": 34.482297,
-      "dem_trend_adjusted": 34.882771
+      "rep": 58.55771,
+      "rep_trend_adjusted": 58.562347,
+      "dem": 34.479587,
+      "dem_trend_adjusted": 34.878121
      },
      "KY": {
-      "rep": 57.102233,
-      "rep_trend_adjusted": 57.327184,
-      "dem": 38.181241,
-      "dem_trend_adjusted": 38.416318
+      "rep": 57.105447,
+      "rep_trend_adjusted": 57.323355,
+      "dem": 38.178455,
+      "dem_trend_adjusted": 38.413757
      },
      "LA": {
-      "rep": 52.1351,
-      "rep_trend_adjusted": 52.31806,
-      "dem": 35.99788,
-      "dem_trend_adjusted": 36.225809
+      "rep": 52.138281,
+      "rep_trend_adjusted": 52.310345,
+      "dem": 35.995115,
+      "dem_trend_adjusted": 36.221052
      },
      "MA": {
-      "rep": 31.493788,
-      "rep_trend_adjusted": 31.722628,
-      "dem": 57.661592,
-      "dem_trend_adjusted": 59.064466
+      "rep": 31.496697,
+      "rep_trend_adjusted": 31.71127,
+      "dem": 57.658707,
+      "dem_trend_adjusted": 59.060053
      },
      "MD": {
-      "rep": 41.272267,
-      "rep_trend_adjusted": 41.223521,
-      "dem": 53.865381,
-      "dem_trend_adjusted": 54.146
+      "rep": 41.275519,
+      "rep_trend_adjusted": 41.217112,
+      "dem": 53.862548,
+      "dem_trend_adjusted": 54.143395
      },
      "ME": {
-      "rep": 42.705837,
-      "rep_trend_adjusted": 42.87005,
-      "dem": 50.048318,
-      "dem_trend_adjusted": 50.424383
+      "rep": 42.710942,
+      "rep_trend_adjusted": 42.867898,
+      "dem": 50.047517,
+      "dem_trend_adjusted": 50.424345
      },
      "MI": {
-      "rep": 45.029846,
-      "rep_trend_adjusted": 45.05222,
-      "dem": 48.691046,
-      "dem_trend_adjusted": 48.7171
+      "rep": 45.034592,
+      "rep_trend_adjusted": 45.051158,
+      "dem": 48.68994,
+      "dem_trend_adjusted": 48.719682
      },
      "MN": {
-      "rep": 45.162146,
-      "rep_trend_adjusted": 45.232289,
-      "dem": 48.248413,
-      "dem_trend_adjusted": 48.195101
+      "rep": 45.166604,
+      "rep_trend_adjusted": 45.231981,
+      "dem": 48.247025,
+      "dem_trend_adjusted": 48.197313
      },
      "MO": {
-      "rep": 51.235948,
-      "rep_trend_adjusted": 51.334822,
-      "dem": 45.337555,
-      "dem_trend_adjusted": 45.377668
+      "rep": 51.241122,
+      "rep_trend_adjusted": 51.332147,
+      "dem": 45.33677,
+      "dem_trend_adjusted": 45.378214
      },
      "MS": {
-      "rep": 54.250916,
-      "rep_trend_adjusted": 54.680803,
-      "dem": 37.824067,
-      "dem_trend_adjusted": 38.887568
+      "rep": 54.254101,
+      "rep_trend_adjusted": 54.674283,
+      "dem": 37.821224,
+      "dem_trend_adjusted": 38.883809
      },
      "MT": {
-      "rep": 56.754379,
-      "rep_trend_adjusted": 56.512588,
-      "dem": 33.714633,
-      "dem_trend_adjusted": 34.820147
+      "rep": 56.757596,
+      "rep_trend_adjusted": 56.507211,
+      "dem": 33.711944,
+      "dem_trend_adjusted": 34.816116
      },
      "NC": {
-      "rep": 51.6375,
-      "rep_trend_adjusted": 51.701374,
-      "dem": 43.381614,
-      "dem_trend_adjusted": 43.470409
+      "rep": 51.640775,
+      "rep_trend_adjusted": 51.696327,
+      "dem": 43.378774,
+      "dem_trend_adjusted": 43.468122
      },
      "ND": {
-      "rep": 58.542749,
-      "rep_trend_adjusted": 58.222483,
-      "dem": 33.772825,
-      "dem_trend_adjusted": 34.659097
+      "rep": 58.545884,
+      "rep_trend_adjusted": 58.218583,
+      "dem": 33.770082,
+      "dem_trend_adjusted": 34.655464
      },
      "NE": {
-      "rep": 61.015127,
-      "rep_trend_adjusted": 61.052361,
-      "dem": 31.525627,
-      "dem_trend_adjusted": 31.940128
+      "rep": 61.018216,
+      "rep_trend_adjusted": 61.047158,
+      "dem": 31.522962,
+      "dem_trend_adjusted": 31.936184
      },
      "NH": {
-      "rep": 46.451957,
-      "rep_trend_adjusted": 46.463353,
-      "dem": 48.624872,
-      "dem_trend_adjusted": 48.66531
+      "rep": 46.456339,
+      "rep_trend_adjusted": 46.462152,
+      "dem": 48.623164,
+      "dem_trend_adjusted": 48.667193
      },
      "NJ": {
-      "rep": 41.803173,
-      "rep_trend_adjusted": 41.850887,
-      "dem": 48.995247,
-      "dem_trend_adjusted": 49.083477
+      "rep": 41.806336,
+      "rep_trend_adjusted": 41.845889,
+      "dem": 48.992331,
+      "dem_trend_adjusted": 49.081314
      },
      "NM": {
-      "rep": 48.429972,
-      "rep_trend_adjusted": 48.481365,
-      "dem": 44.911481,
-      "dem_trend_adjusted": 44.962775
+      "rep": 48.434356,
+      "rep_trend_adjusted": 48.475657,
+      "dem": 44.910795,
+      "dem_trend_adjusted": 44.968488
      },
      "NV": {
-      "rep": 50.325923,
-      "rep_trend_adjusted": 50.371008,
-      "dem": 45.188758,
-      "dem_trend_adjusted": 45.214341
+      "rep": 50.330854,
+      "rep_trend_adjusted": 50.366053,
+      "dem": 45.188072,
+      "dem_trend_adjusted": 45.218045
      },
      "NY": {
-      "rep": 38.15427,
-      "rep_trend_adjusted": 37.961894,
-      "dem": 54.340684,
-      "dem_trend_adjusted": 54.861737
+      "rep": 38.157286,
+      "rep_trend_adjusted": 37.953167,
+      "dem": 54.337672,
+      "dem_trend_adjusted": 54.862178
      },
      "OH": {
-      "rep": 47.935848,
-      "rep_trend_adjusted": 47.983387,
-      "dem": 47.973979,
-      "dem_trend_adjusted": 47.994305
+      "rep": 47.939756,
+      "rep_trend_adjusted": 47.979444,
+      "dem": 47.972312,
+      "dem_trend_adjusted": 47.994248
      },
      "OK": {
-      "rep": 62.178045,
-      "rep_trend_adjusted": 62.30947,
-      "dem": 32.688553,
-      "dem_trend_adjusted": 32.774849
+      "rep": 62.181169,
+      "rep_trend_adjusted": 62.306137,
+      "dem": 32.68589,
+      "dem_trend_adjusted": 32.772665
      },
      "OR": {
-      "rep": 45.281829,
-      "rep_trend_adjusted": 45.426341,
-      "dem": 50.530961,
-      "dem_trend_adjusted": 50.594512
+      "rep": 45.287002,
+      "rep_trend_adjusted": 45.422059,
+      "dem": 50.529,
+      "dem_trend_adjusted": 50.594253
      },
      "PA": {
-      "rep": 47.365677,
-      "rep_trend_adjusted": 47.389234,
-      "dem": 48.729059,
-      "dem_trend_adjusted": 48.735587
+      "rep": 47.369588,
+      "rep_trend_adjusted": 47.385526,
+      "dem": 48.72686,
+      "dem_trend_adjusted": 48.734429
      },
      "RI": {
-      "rep": 36.35829,
-      "rep_trend_adjusted": 36.408938,
-      "dem": 54.849934,
-      "dem_trend_adjusted": 55.526681
+      "rep": 36.361438,
+      "rep_trend_adjusted": 36.398872,
+      "dem": 54.847071,
+      "dem_trend_adjusted": 55.522799
      },
      "SC": {
-      "rep": 54.899186,
-      "rep_trend_adjusted": 54.931063,
-      "dem": 39.155158,
-      "dem_trend_adjusted": 39.641524
+      "rep": 54.902464,
+      "rep_trend_adjusted": 54.926529,
+      "dem": 39.152378,
+      "dem_trend_adjusted": 39.635972
      },
      "SD": {
-      "rep": 54.363716,
-      "rep_trend_adjusted": 54.392721,
-      "dem": 37.609466,
-      "dem_trend_adjusted": 38.166272
+      "rep": 54.366913,
+      "rep_trend_adjusted": 54.389039,
+      "dem": 37.606634,
+      "dem_trend_adjusted": 38.16147
      },
      "TN": {
-      "rep": 54.39388,
-      "rep_trend_adjusted": 54.50578,
-      "dem": 42.342747,
-      "dem_trend_adjusted": 42.413311
+      "rep": 54.401234,
+      "rep_trend_adjusted": 54.506274,
+      "dem": 42.341571,
+      "dem_trend_adjusted": 42.414391
      },
      "TX": {
-      "rep": 58.493298,
-      "rep_trend_adjusted": 58.691891,
-      "dem": 35.652891,
-      "dem_trend_adjusted": 36.233942
+      "rep": 58.49654,
+      "rep_trend_adjusted": 58.680715,
+      "dem": 35.650162,
+      "dem_trend_adjusted": 36.232344
      },
      "US": {
-      "rep": 48.604056,
-      "rep_trend_adjusted": 48.637731,
-      "dem": 46.982615,
-      "dem_trend_adjusted": 47.020248
+      "rep": 48.567558,
+      "rep_trend_adjusted": 48.623048,
+      "dem": 46.968035,
+      "dem_trend_adjusted": 46.983212
      },
      "UT": {
-      "rep": 68.299947,
-      "rep_trend_adjusted": 68.217806,
-      "dem": 24.109276,
-      "dem_trend_adjusted": 24.555144
+      "rep": 68.302859,
+      "rep_trend_adjusted": 68.210566,
+      "dem": 24.10687,
+      "dem_trend_adjusted": 24.548187
      },
      "VA": {
-      "rep": 49.767129,
-      "rep_trend_adjusted": 49.819568,
-      "dem": 43.916727,
-      "dem_trend_adjusted": 44.237407
+      "rep": 49.770403,
+      "rep_trend_adjusted": 49.812134,
+      "dem": 43.913875,
+      "dem_trend_adjusted": 44.230856
      },
      "VT": {
-      "rep": 40.149375,
-      "rep_trend_adjusted": 39.433057,
-      "dem": 49.357665,
-      "dem_trend_adjusted": 51.632978
+      "rep": 40.152506,
+      "rep_trend_adjusted": 39.426021,
+      "dem": 49.354677,
+      "dem_trend_adjusted": 51.62916
      },
      "WA": {
-      "rep": 45.356803,
-      "rep_trend_adjusted": 45.440929,
-      "dem": 51.681792,
-      "dem_trend_adjusted": 51.776329
+      "rep": 45.362949,
+      "rep_trend_adjusted": 45.436793,
+      "dem": 51.681142,
+      "dem_trend_adjusted": 51.778416
      },
      "WI": {
-      "rep": 48.105038,
-      "rep_trend_adjusted": 48.181068,
-      "dem": 46.387916,
-      "dem_trend_adjusted": 46.410325
+      "rep": 48.109987,
+      "rep_trend_adjusted": 48.17845,
+      "dem": 46.385918,
+      "dem_trend_adjusted": 46.410837
      },
      "WV": {
-      "rep": 50.819612,
-      "rep_trend_adjusted": 50.964525,
-      "dem": 44.495975,
-      "dem_trend_adjusted": 44.581016
+      "rep": 50.826893,
+      "rep_trend_adjusted": 50.967089,
+      "dem": 44.497402,
+      "dem_trend_adjusted": 44.584473
      }
     }
    }
@@ -4226,8 +4226,8 @@
      }
     }
    },
-   "last": {
-    "date": "2008-11-04",
+   "eve": {
+    "date": "2008-11-03",
     "units": {
      "AK": {
       "rep": 55.604341,
@@ -4817,8 +4817,8 @@
      }
     }
    },
-   "last": {
-    "date": "2012-11-06",
+   "eve": {
+    "date": "2012-11-05",
     "units": {
      "AL": {
       "dem": 35.623535,
@@ -5468,8 +5468,8 @@
      }
     }
    },
-   "last": {
-    "date": "2016-11-08",
+   "eve": {
+    "date": "2016-11-07",
     "units": {
      "AK": {
       "rep": 45.18066,
@@ -6107,8 +6107,8 @@
      }
     }
    },
-   "last": {
-    "date": "2020-11-03",
+   "eve": {
+    "date": "2020-11-02",
     "units": {
      "AK": {
       "dem": null,
@@ -6536,7 +6536,7 @@
      }
     }
    },
-   "last": {
+   "eve": {
     "date": "2024-09-12",
     "units": {
      "AZ": {

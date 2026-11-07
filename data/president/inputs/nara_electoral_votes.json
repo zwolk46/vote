@@ -1,5 +1,4 @@
 {
- "about": "National Archives electoral-vote tables, normalised by pipeline/intake/nara_electoral_votes.py. ev is the state's electoral votes; pres is how its electors voted for President.",
  "years": {
   "1900": {
    "total_ev": 447,
@@ -2815,6 +2814,1047 @@
      "pres": {
       "Herbert C. Hoover, of California": 3,
       "Alfred E. Smith, of New York": 0
+     }
+    }
+   }
+  },
+  "1932": {
+   "total_ev": 531,
+   "majority": 266,
+   "candidates": [
+    "Franklin D. Roosevelt, of New York",
+    "Herbert C. Hoover, of California"
+   ],
+   "notes": "Socialist Party candidate Norman Thomas received 884,781 popular votes for President, but no electoral votes.",
+   "states": {
+    "AL": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "AZ": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "AR": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 9,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "CA": {
+     "ev": 22,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 22,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "CO": {
+     "ev": 6,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 6,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "CT": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Herbert C. Hoover, of California": 8
+     }
+    },
+    "DE": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Herbert C. Hoover, of California": 3
+     }
+    },
+    "FL": {
+     "ev": 7,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 7,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "GA": {
+     "ev": 12,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 12,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "ID": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "IL": {
+     "ev": 29,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 29,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "IN": {
+     "ev": 14,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 14,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "IA": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "KS": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 9,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "KY": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "LA": {
+     "ev": 10,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 10,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "ME": {
+     "ev": 5,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Herbert C. Hoover, of California": 5
+     }
+    },
+    "MD": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "MA": {
+     "ev": 17,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 17,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "MI": {
+     "ev": 19,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 19,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "MN": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "MS": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 9,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "MO": {
+     "ev": 15,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 15,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "MT": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "NE": {
+     "ev": 7,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 7,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "NV": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "NH": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Herbert C. Hoover, of California": 4
+     }
+    },
+    "NJ": {
+     "ev": 16,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 16,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "NM": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "NY": {
+     "ev": 47,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 47,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "NC": {
+     "ev": 13,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 13,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "ND": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "OH": {
+     "ev": 26,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 26,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "OK": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "OR": {
+     "ev": 5,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 5,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "PA": {
+     "ev": 36,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Herbert C. Hoover, of California": 36
+     }
+    },
+    "RI": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "SC": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "SD": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "TN": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "TX": {
+     "ev": 23,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 23,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "UT": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "VT": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Herbert C. Hoover, of California": 3
+     }
+    },
+    "VA": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "WA": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "WV": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "WI": {
+     "ev": 12,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 12,
+      "Herbert C. Hoover, of California": 0
+     }
+    },
+    "WY": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Herbert C. Hoover, of California": 0
+     }
+    }
+   }
+  },
+  "1936": {
+   "total_ev": 531,
+   "majority": 266,
+   "candidates": [
+    "Franklin D. Roosevelt, of New York",
+    "Alfred M. Landon, of Kansas"
+   ],
+   "notes": "",
+   "states": {
+    "AL": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "AZ": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "AR": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 9,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "CA": {
+     "ev": 22,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 22,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "CO": {
+     "ev": 6,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 6,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "CT": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "DE": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "FL": {
+     "ev": 7,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 7,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "GA": {
+     "ev": 12,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 12,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "ID": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "IL": {
+     "ev": 29,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 29,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "IN": {
+     "ev": 14,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 14,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "IA": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "KS": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 9,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "KY": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "LA": {
+     "ev": 10,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 10,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "ME": {
+     "ev": 5,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Alfred M. Landon, of Kansas": 5
+     }
+    },
+    "MD": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "MA": {
+     "ev": 17,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 17,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "MI": {
+     "ev": 19,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 19,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "MN": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "MS": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 9,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "MO": {
+     "ev": 15,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 15,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "MT": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "NE": {
+     "ev": 7,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 7,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "NV": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "NH": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "NJ": {
+     "ev": 16,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 16,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "NM": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "NY": {
+     "ev": 47,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 47,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "NC": {
+     "ev": 13,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 13,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "ND": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "OH": {
+     "ev": 26,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 26,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "OK": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "OR": {
+     "ev": 5,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 5,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "PA": {
+     "ev": 36,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 36,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "RI": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "SC": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "SD": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "TN": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "TX": {
+     "ev": 23,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 23,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "UT": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "VT": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Alfred M. Landon, of Kansas": 3
+     }
+    },
+    "VA": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "WA": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "WV": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "WI": {
+     "ev": 12,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 12,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    },
+    "WY": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Alfred M. Landon, of Kansas": 0
+     }
+    }
+   }
+  },
+  "1940": {
+   "total_ev": 531,
+   "majority": 266,
+   "candidates": [
+    "Franklin D. Roosevelt, of New York",
+    "Wendell L. Willkie, of New York"
+   ],
+   "notes": "",
+   "states": {
+    "AL": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "AZ": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "AR": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 9,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "CA": {
+     "ev": 22,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 22,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "CO": {
+     "ev": 6,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 6
+     }
+    },
+    "CT": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "DE": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "FL": {
+     "ev": 7,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 7,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "GA": {
+     "ev": 12,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 12,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "ID": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "IL": {
+     "ev": 29,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 29,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "IN": {
+     "ev": 14,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 14
+     }
+    },
+    "IA": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 11
+     }
+    },
+    "KS": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 9
+     }
+    },
+    "KY": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "LA": {
+     "ev": 10,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 10,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "ME": {
+     "ev": 5,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 5
+     }
+    },
+    "MD": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "MA": {
+     "ev": 17,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 17,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "MI": {
+     "ev": 19,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 19
+     }
+    },
+    "MN": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "MS": {
+     "ev": 9,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 9,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "MO": {
+     "ev": 15,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 15,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "MT": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "NE": {
+     "ev": 7,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 7
+     }
+    },
+    "NV": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "NH": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "NJ": {
+     "ev": 16,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 16,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "NM": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "NY": {
+     "ev": 47,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 47,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "NC": {
+     "ev": 13,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 13,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "ND": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 4
+     }
+    },
+    "OH": {
+     "ev": 26,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 26,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "OK": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "OR": {
+     "ev": 5,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 5,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "PA": {
+     "ev": 36,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 36,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "RI": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "SC": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "SD": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 4
+     }
+    },
+    "TN": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "TX": {
+     "ev": 23,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 23,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "UT": {
+     "ev": 4,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 4,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "VT": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 0,
+      "Wendell L. Willkie, of New York": 3
+     }
+    },
+    "VA": {
+     "ev": 11,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 11,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "WA": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "WV": {
+     "ev": 8,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 8,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "WI": {
+     "ev": 12,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 12,
+      "Wendell L. Willkie, of New York": 0
+     }
+    },
+    "WY": {
+     "ev": 3,
+     "pres": {
+      "Franklin D. Roosevelt, of New York": 3,
+      "Wendell L. Willkie, of New York": 0
      }
     }
    }
@@ -10870,7 +11910,7 @@
   "1900": {
    "name": "National Archives, Electoral College results, 1900",
    "url": "https://www.archives.gov/electoral-college/1900",
-   "read_utc": "2026-11-07T03:34Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10880,7 +11920,7 @@
   "1904": {
    "name": "National Archives, Electoral College results, 1904",
    "url": "https://www.archives.gov/electoral-college/1904",
-   "read_utc": "2026-11-07T03:34Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10890,7 +11930,7 @@
   "1908": {
    "name": "National Archives, Electoral College results, 1908",
    "url": "https://www.archives.gov/electoral-college/1908",
-   "read_utc": "2026-11-07T03:34Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10900,7 +11940,7 @@
   "1912": {
    "name": "National Archives, Electoral College results, 1912",
    "url": "https://www.archives.gov/electoral-college/1912",
-   "read_utc": "2026-11-07T03:34Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10910,7 +11950,7 @@
   "1916": {
    "name": "National Archives, Electoral College results, 1916",
    "url": "https://www.archives.gov/electoral-college/1916",
-   "read_utc": "2026-11-07T03:34Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10920,7 +11960,7 @@
   "1920": {
    "name": "National Archives, Electoral College results, 1920",
    "url": "https://www.archives.gov/electoral-college/1920",
-   "read_utc": "2026-11-07T03:34Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10930,7 +11970,7 @@
   "1924": {
    "name": "National Archives, Electoral College results, 1924",
    "url": "https://www.archives.gov/electoral-college/1924",
-   "read_utc": "2026-11-07T03:34Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10940,17 +11980,47 @@
   "1928": {
    "name": "National Archives, Electoral College results, 1928",
    "url": "https://www.archives.gov/electoral-college/1928",
-   "read_utc": "2026-11-07T03:34Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
    "note": null,
    "sha256": "4ff0e7c011ff0a1eddace07a4611ebd67e19ca053481c3cca7c980a81f1df097"
   },
+  "1932": {
+   "name": "National Archives, Electoral College results, 1932",
+   "url": "https://www.archives.gov/electoral-college/1932",
+   "read_utc": "2026-11-07T04:06Z",
+   "licence": "CC0 1.0 (NARA's own works)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "ff307676f41fb4d2498b9648be1853acd304f2ddae70d9675a70d32481beac11"
+  },
+  "1936": {
+   "name": "National Archives, Electoral College results, 1936",
+   "url": "https://www.archives.gov/electoral-college/1936",
+   "read_utc": "2026-11-07T04:06Z",
+   "licence": "CC0 1.0 (NARA's own works)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "07f39a369cc1c0112d3853478616df28459778d2f91df8ad4a3035e83bea496b"
+  },
+  "1940": {
+   "name": "National Archives, Electoral College results, 1940",
+   "url": "https://www.archives.gov/electoral-college/1940",
+   "read_utc": "2026-11-07T04:06Z",
+   "licence": "CC0 1.0 (NARA's own works)",
+   "mark": "stated",
+   "via": null,
+   "note": null,
+   "sha256": "62e907370e7dd6839d13d81bd9fcfd965f652424127c1e77a57ac174e84acbd9"
+  },
   "1944": {
    "name": "National Archives, Electoral College results, 1944",
    "url": "https://www.archives.gov/electoral-college/1944",
-   "read_utc": "2026-11-07T03:33Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10960,7 +12030,7 @@
   "1948": {
    "name": "National Archives, Electoral College results, 1948",
    "url": "https://www.archives.gov/electoral-college/1948",
-   "read_utc": "2026-11-07T03:33Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10970,7 +12040,7 @@
   "1952": {
    "name": "National Archives, Electoral College results, 1952",
    "url": "https://www.archives.gov/electoral-college/1952",
-   "read_utc": "2026-11-07T03:33Z",
+   "read_utc": "2026-11-07T04:06Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10980,7 +12050,7 @@
   "1956": {
    "name": "National Archives, Electoral College results, 1956",
    "url": "https://www.archives.gov/electoral-college/1956",
-   "read_utc": "2026-11-07T03:33Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -10990,7 +12060,7 @@
   "1960": {
    "name": "National Archives, Electoral College results, 1960",
    "url": "https://www.archives.gov/electoral-college/1960",
-   "read_utc": "2026-11-07T03:33Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11000,7 +12070,7 @@
   "1964": {
    "name": "National Archives, Electoral College results, 1964",
    "url": "https://www.archives.gov/electoral-college/1964",
-   "read_utc": "2026-11-07T03:33Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11010,7 +12080,7 @@
   "1968": {
    "name": "National Archives, Electoral College results, 1968",
    "url": "https://www.archives.gov/electoral-college/1968",
-   "read_utc": "2026-11-07T03:33Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11020,7 +12090,7 @@
   "1972": {
    "name": "National Archives, Electoral College results, 1972",
    "url": "https://www.archives.gov/electoral-college/1972",
-   "read_utc": "2026-11-07T03:33Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11030,7 +12100,7 @@
   "1976": {
    "name": "National Archives, Electoral College results, 1976",
    "url": "https://www.archives.gov/electoral-college/1976",
-   "read_utc": "2026-11-07T03:28Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11040,7 +12110,7 @@
   "1980": {
    "name": "National Archives, Electoral College results, 1980",
    "url": "https://www.archives.gov/electoral-college/1980",
-   "read_utc": "2026-11-07T03:28Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11050,7 +12120,7 @@
   "1984": {
    "name": "National Archives, Electoral College results, 1984",
    "url": "https://www.archives.gov/electoral-college/1984",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11060,7 +12130,7 @@
   "1988": {
    "name": "National Archives, Electoral College results, 1988",
    "url": "https://www.archives.gov/electoral-college/1988",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11070,7 +12140,7 @@
   "1992": {
    "name": "National Archives, Electoral College results, 1992",
    "url": "https://www.archives.gov/electoral-college/1992",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11080,7 +12150,7 @@
   "1996": {
    "name": "National Archives, Electoral College results, 1996",
    "url": "https://www.archives.gov/electoral-college/1996",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11090,7 +12160,7 @@
   "2000": {
    "name": "National Archives, Electoral College results, 2000",
    "url": "https://www.archives.gov/electoral-college/2000",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11100,17 +12170,17 @@
   "2004": {
    "name": "National Archives, Electoral College results, 2004",
    "url": "https://www.archives.gov/electoral-college/2004",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
    "note": null,
-   "sha256": "256db2f9e00b2337937434a838eb3017b8f327bb952b93226e6d3707b57aaadb"
+   "sha256": "b5c1c066cc13f36a257a6ecdb6c7c31ef31d1d840d772f5174e1153200157459"
   },
   "2008": {
    "name": "National Archives, Electoral College results, 2008",
    "url": "https://www.archives.gov/electoral-college/2008",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11120,7 +12190,7 @@
   "2012": {
    "name": "National Archives, Electoral College results, 2012",
    "url": "https://www.archives.gov/electoral-college/2012",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:07Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11130,7 +12200,7 @@
   "2016": {
    "name": "National Archives, Electoral College results, 2016",
    "url": "https://www.archives.gov/electoral-college/2016",
-   "read_utc": "2026-11-07T03:29Z",
+   "read_utc": "2026-11-07T04:08Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11140,7 +12210,7 @@
   "2020": {
    "name": "National Archives, Electoral College results, 2020",
    "url": "https://www.archives.gov/electoral-college/2020",
-   "read_utc": "2026-11-07T03:32Z",
+   "read_utc": "2026-11-07T04:08Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
@@ -11150,12 +12220,13 @@
   "2024": {
    "name": "National Archives, Electoral College results, 2024",
    "url": "https://www.archives.gov/electoral-college/2024",
-   "read_utc": "2026-11-07T03:32Z",
+   "read_utc": "2026-11-07T04:08Z",
    "licence": "CC0 1.0 (NARA's own works)",
    "mark": "stated",
    "via": null,
    "note": null,
    "sha256": "fa5e8f70de695c674f68285532f447cc9919cf15837bf36dfb813f40751f9719"
   }
- }
+ },
+ "about": "National Archives electoral-vote tables, normalised by pipeline/intake/nara_electoral_college.py (states). ev is the state's electoral votes; pres is how its electors voted for President."
 }

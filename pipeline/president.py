@@ -25,6 +25,17 @@ Which forecast, by year (the orchestrator's ruling of 2026-11-07 03:51, under th
                 model's own national swing for the College stage, stated.
     2008, 2012  the model's own forecast; 538's published chances of winning shown beside as the check (a
                 chance alone does not fix f(1/2), so no p is computed under 538 in those years).
+    538, every year (the orchestrator's rule of 04:12, the same for the presidency and Congress): the last
+                forecast dated before Election Day (2008's file has Election Day only; kept as the check,
+                marked); the model 538 showed by default where a source says which (none read does: polls-plus
+                first); and where the implied sd breaks down, the unit's p falls back to the model's own
+                forecast, marked, with the reason. It breaks down (the orchestrator's rule of 04:20): where
+                other candidates hold 1% or more of 538's chance of winning (Utah 2016); where the chance is
+                exactly 0 or 1; and where the implied sd's estimated relative error is 20% or more, from two
+                sources: the chance's sampling error (538 printed chances as counts of runs, 20,000 in 2016
+                and 40,000 in 2020, inferred from their steps), evaluated at the chance one standard error
+                either side, and the rounding of the printed shares. The error is recorded on every unit.
+                In the College stage under 538 the units that fall back take the model's own sd.
     1984-2004,  the model's own forecast (pipeline/own_forecast.py, approved version).
     2024
     1976, 1980  no forecast: the model's own needs the results of the two elections before, and no
@@ -71,6 +82,8 @@ SPLIT_FROM = {"ME": 1972, "NE": 1992}       # the first year each state gave ele
 WINDOW_INDEX = 2                            # the Economist draws: the window of +-100 steps (+-0.01)
 MIN_WINDOW_WEIGHT_VALUE = 10   # decisive draws in the window below which the Economist's draws give a bound only
 MVN_DRAWS = 100000
+THIRD_CHANCE = 0.01   # other candidates' combined chance of winning from which 538's two-way spread is not read
+SD_REL_ERROR_MAX = 0.20   # 538's implied sd is kept where its estimated relative error is under this (rule of 04:20)
 EX_POST = "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
 
 
@@ -186,40 +199,96 @@ def unit_ev(I, y, u, with_districts):
 
 
 def fte_unit(I, y, model, u):
-    cs = {c["party"]: c for c in I.fte["years"][str(y)][model]["units"][u]}
+    rows = I.fte["years"][str(y)][model]["units"][u]
+    cs = {c["party"]: c for c in rows}
     pD, pR = cs["D"]["probwin"], cs["R"]["probwin"]
     win = pD / (pD + pR)
+    other = sum(c["probwin"] or 0 for c in rows if c["party"] not in ("D", "R"))
     if cs["D"]["projected_voteshare"] is None:
-        return {"win_prob": win, "mean": None}
+        return {"win_prob": win, "mean": None, "probwin_other": other}
     m = cs["D"]["projected_voteshare"] / (cs["D"]["projected_voteshare"] + cs["R"]["projected_voteshare"])
-    return {"win_prob": win, "mean": m, "probwin_D": pD, "probwin_R": pR,
-            "share_D": cs["D"]["projected_voteshare"], "share_R": cs["R"]["projected_voteshare"]}
+    return {"win_prob": win, "mean": m, "probwin_D": pD, "probwin_R": pR, "probwin_other": other,
+            "share_D": cs["D"]["projected_voteshare"], "share_R": cs["R"]["projected_voteshare"],
+            "half_step_D": half_step(cs["D"]["projected_voteshare_printed"]),
+            "half_step_R": half_step(cs["R"]["projected_voteshare_printed"])}
 
 
-def fte_forecast(I, y, model, units, s_nat_own):
-    """538's marginals with the model's swing. Returns {unit: forecast dict} and the College parameters."""
+def half_step(printed):
+    """Half a unit in the last printed digit of a share in percent ('48.11232' -> 0.000005). Where 538's printer
+    dropped trailing zeros this overstates the rounding, which errs toward falling back."""
+    decimals = len(printed.split(".")[1]) if "." in printed else 0
+    return 0.5 * 10 ** (-decimals)
+
+
+def sd_rel_error(r, runs, step):
+    """The estimated relative error of the sd that 538's mean m and chance P imply, sd = (m - 1/2) / z with
+    z = Phi^-1(P) (the rule of 04:20). Two sources, combined in quadrature:
+      the chance's sampling error: P is a count out of `runs` simulation runs (inferred from the step its
+        printed chances take), so its standard error is sqrt(P (1 - P) / runs); the error in z is taken at P
+        one standard error either side, not linearised, so a chance of one or two runs counts as unreadable;
+      the rounding of the mean: each printed share is exact to half its last digit, which moves the two-party
+        mean m = D / (D + R) by at most (R hD + D hR) / (D + R)^2."""
+    P, m = r["win_prob"], r["mean"]
+    se = math.sqrt(P * (1 - P) / runs)
+    z = Phi_inv(P)
+    lo, hi = P - se, P + se
+    if z == 0 or lo <= 0 or hi >= 1:
+        from_chance = math.inf
+    else:
+        from_chance = max(abs(Phi_inv(lo) - z), abs(Phi_inv(hi) - z)) / abs(z)
+    D, R_ = r["share_D"], r["share_R"]
+    dm = (R_ * r["half_step_D"] + D * r["half_step_R"]) / (D + R_) ** 2
+    from_mean = dm / abs(m - 0.5) if m != 0.5 else math.inf
+    value = math.hypot(from_chance, from_mean)
+    fin = lambda x: (x if math.isfinite(x) else None)  # noqa: E731
+    return {"value": fin(value), "from_chance": fin(from_chance), "from_mean_rounding": fin(from_mean),
+            "runs": runs, "runs_mark": f"inferred: every chance 538 printed for this model and year is a whole "
+                                       f"multiple of {step:g}",
+            "chance_se": se, "mean_rounding": dm}
+
+
+def implied_sd_breaks(r, runs, step):
+    """Why the sd that 538's mean and chance imply is not kept here, or None; and its estimated error (the
+    orchestrator's rules of 04:12 and 04:20)."""
+    P, m = r["win_prob"], r["mean"]
+    if P in (0.0, 1.0):
+        return f"538's chance here is exactly {P:g}, which fixes no spread", None
+    err = sd_rel_error(r, runs, step)
+    if r["probwin_other"] >= THIRD_CHANCE:
+        return (f"other candidates hold {r['probwin_other']:.1%} of 538's chance of winning here, so its two-party "
+                "chance does not fix a two-way spread"), err
+    if err["value"] is None or err["value"] >= SD_REL_ERROR_MAX:
+        v = "unbounded" if err["value"] is None else f"{err['value']:.0%}"
+        return (f"the implied sd's estimated relative error is {v}, not under {SD_REL_ERROR_MAX:.0%} (538's chance "
+                f"{P:.5f} out of {runs:,} runs, its two-party mean {m:.4f})"), err
+    if (m - 0.5) / Phi_inv(P) <= 0:
+        return "538's mean and chance point to different winners", err
+    return None, err
+
+
+def fte_forecast(I, y, model, units, own):
+    """538's marginals with the model's swing. Returns {unit: forecast dict} and the College parameters.
+    Where the implied sd breaks down, the unit takes the model's own sd in the College stage, and has no p
+    under 538 (the rules of 04:12 and 04:20)."""
     raw = {u: fte_unit(I, y, model, u) for u in units}
-    implied = {}
+    tau_own = math.sqrt(own["s_nat"] ** 2 + own["s_state"] ** 2)
+    m = I.fte["years"][str(y)][model]
     for u, r in raw.items():
-        P, m = r["win_prob"], r["mean"]
-        if 0.001 <= P <= 0.999 and abs(m - 0.5) >= 0.005:
-            sd = (m - 0.5) / Phi_inv(P)
-            if sd > 0:
-                implied[u] = sd
-    fallback = statistics.median(implied.values())
-    for u, r in raw.items():
-        if u in implied:
-            r["sd"], r["sd_how"] = implied[u], "implied by 538's projected share and chance of winning (normal)"
+        why, err = implied_sd_breaks(r, m["runs_inferred"], m["probwin_step"])
+        r["fallback"], r["sd_rel_error"] = why, err
+        if why is None:
+            r["sd"] = (r["mean"] - 0.5) / Phi_inv(r["win_prob"])
+            r["sd_how"] = "implied by 538's projected share and chance of winning (normal)"
         else:
-            r["sd"] = fallback
-            r["sd_how"] = (f"538's chance ({r['win_prob']:.4f}) is too near 0 or 1, or its share too near one half, to "
-                           f"imply a spread; the median of the spreads it implies elsewhere that year ({fallback:.4f})")
+            r["sd"] = tau_own
+            r["sd_how"] = (f"not read from 538: {why}; the College stage under 538 takes the model's own sd for {y} "
+                           f"here ({tau_own:.4f}, inferred)")
     tau = np.array([raw[u]["sd"] for u in units])
-    s_d = s_nat_own
+    s_d = own["s_nat"]
     capped = False
     if s_d > 0.95 * tau.min():
         s_d, capped = 0.95 * tau.min(), True
-    return raw, {"s_d": s_d, "capped": capped, "s_nat_own": s_nat_own, "fallback_sd": fallback}
+    return raw, {"s_d": s_d, "capped": capped, "s_nat_own": own["s_nat"], "tau_own": tau_own}
 
 
 def own_means(I, y, a, with_districts):
@@ -286,6 +355,23 @@ def build(I, y, commit):
         r = contests[u]["result"]
         return r["two_party"] - 1 if r else None
 
+    own_stage = {}      # the model's own stage-two inputs per unit, for the years it is primary or a fallback
+    own_whole_note = {}
+
+    def use_own(u, why):
+        """The rules of 04:12 and 04:20: where the published forecast's sd breaks down, the model's own p, marked."""
+        own = next((f for f in contests[u]["forecasts"] if f["by"] == "the model's own"), None)
+        if own is None or own.get("p") is None or u not in own_stage:
+            contests[u]["notes"].append(f"No p: {why}, and the model's own forecast does not model this unit in {y}.")
+            return
+        contests[u]["p"] = own["p"]
+        contests[u]["stage_two"]["inputs"].update(own_stage[u])
+        contests[u]["notes"].append(f"p is the model's own forecast's: {why} (the orchestrator's rules of 2026-11-07 "
+                                    "04:12 and 04:20: where a published forecast's implied sd breaks down, fall back to the "
+                                    "model's own forecast, marked).")
+        if u in own_whole_note:
+            contests[u]["notes"].append(own_whole_note[u])
+
     # ------------------------------------------------------------------ the model's own forecast
     if y >= 1984:
         a = own_forecast.approved(y)
@@ -319,22 +405,24 @@ def build(I, y, commit):
                                "W by the swing model given the tie", n, commit,
                                {"W_unconditional": r["W_unconditional"], "f_half": r["f_half"]})}
             contests[u]["forecasts"].append(fc)
+            own_stage[u] = {"W": r["W"], "W_unconditional": r["W_unconditional"], "unit_ev": int(ev[i]),
+                            "method": "the model's own joint forecast: a common national error (normal, sd "
+                                      f"{a['s_nat']:.4f}) and independent state errors (t4, sd {a['s_state']:.4f}); "
+                                      "W given the tie, by dynamic programming over the other units",
+                            "national_swing_sd": a["s_nat"],
+                            "districts_modelled": with_d}
             if primary:
                 contests[u]["p"] = fc["p"]
-                contests[u]["stage_two"]["inputs"].update(
-                    {"W": r["W"], "W_unconditional": r["W_unconditional"], "unit_ev": int(ev[i]),
-                     "method": "the model's own joint forecast: a common national error (normal, sd "
-                               f"{a['s_nat']:.4f}) and independent state errors (t4, sd {a['s_state']:.4f}); "
-                               "W given the tie, by dynamic programming over the other units",
-                     "national_swing_sd": a["s_nat"],
-                     "districts_modelled": with_d})
+                contests[u]["stage_two"]["inputs"].update(own_stage[u])
         if not with_d:
             for st in DISTRICTS:
-                if y >= SPLIT_FROM[st] and st in contests and primary:
-                    contests[st]["notes"].append(
+                if y >= SPLIT_FROM[st] and st in contests:
+                    own_whole_note[st] = (
                         f"In the model's own forecast for {y} the districts are not modelled (no district count of "
                         f"{y - 4} was read), so {NAMES[st]} is one unit with all {nara['states'][st]['ev']} electoral "
                         "votes; this p is for the state's whole vote.")
+                    if primary:
+                        contests[st]["notes"].append(own_whole_note[st])
             for d in district_units:
                 if d in contests and primary:
                     contests[d]["notes"].append("No p: the model's own forecast does not model the districts this year.")
@@ -344,9 +432,11 @@ def build(I, y, commit):
         models = I.fte["years"][str(y)]
         order = [m for m in ("polls-plus", "polls-only", "now-cast", "published") if m in models]
         fte_src = I.fte["source"]
-        s_nat_own = own_forecast.approved(y)["s_nat"]
+        own_a = own_forecast.approved(y)
         for model in order:
             first = model == order[0]
+            fdate = models[model]["forecast_date"]
+            dated_note = models[model].get("note")
             units = units_for(y, y >= 2012)
             have_mean = fte_unit(I, y, model, "PA")["mean"] is not None
             if not have_mean:
@@ -356,11 +446,12 @@ def build(I, y, commit):
                     r = fte_unit(I, y, model, u)
                     contests[u]["forecasts"].append({
                         "by": "538", "model": None, "published": True, "share": None, "win_prob": r["win_prob"],
-                        "p_published": None, "convention": None, "as_of": ELECTION_DAY[y], "source": fte_src,
+                        "p_published": None, "convention": None, "as_of": fdate, "source": fte_src,
                         "p": None, "note": "538's chance of winning only (no projected share in the file): a chance "
-                                           "alone does not fix f(1/2), so no p is computed under 538 this year"})
+                                           "alone does not fix f(1/2), so no p is computed under 538 this year"
+                                           + (f". Dated Election Day: {dated_note}" if dated_note else "")})
                 continue
-            raw, par = fte_forecast(I, y, model, units, s_nat_own)
+            raw, par = fte_forecast(I, y, model, units, own_a)
             mu = np.array([raw[u]["mean"] for u in units])
             tau = np.array([raw[u]["sd"] for u in units])
             ev = np.array([unit_ev(I, y, u, True) for u in units])
@@ -369,20 +460,32 @@ def build(I, y, commit):
             for i, u in enumerate(units):
                 if u not in contests:
                     continue
-                r = college.swing_model(i, mu, s_unit, ev, par["s_d"], total_ev, majority, tails="normal")
+                why = raw[u]["fallback"]
                 n = n_of(u)
-                p_state = core.p_contest(n, float(mu[i]), float(tau[i]), "normal")["p"] if n else None
+                if why is None:
+                    r = college.swing_model(i, mu, s_unit, ev, par["s_d"], total_ev, majority, tails="normal")
+                    p_state = core.p_contest(n, float(mu[i]), float(tau[i]), "normal")["p"] if n else None
+                    pb = p_block(p_state, r["W"], f"538 ({model})",
+                                 "core.p_contest at 538's mean and implied sd; W by the model's swing model "
+                                 f"(national swing sd {par['s_d']:.4f}{', capped at 0.95 of the smallest sd' if par['capped'] else ''}) "
+                                 "given the tie", n, commit, {"W_unconditional": r["W_unconditional"]})
+                else:
+                    pb = None
                 fc = {"by": "538", "model": model, "published": True,
-                      "share": {"mean": float(mu[i]), "sd": float(tau[i]), "tails": "normal",
+                      "share": {"mean": float(mu[i]), "sd": (float(tau[i]) if why is None else None), "tails": "normal",
                                 "mean_mark": "stated (538's projected shares, made two-party here)",
-                                "sd_mark": "inferred", "sd_how": raw[u]["sd_how"]},
+                                "sd_mark": ("inferred" if why is None else None), "sd_how": raw[u]["sd_how"],
+                                "sd_rel_error": raw[u]["sd_rel_error"]},
                       "win_prob": raw[u]["win_prob"], "p_published": None, "convention": None,
-                      "as_of": ELECTION_DAY[y], "source": fte_src, "unit_ev": int(ev[i]),
-                      "p": p_block(p_state, r["W"], f"538 ({model})",
-                                   "core.p_contest at 538's mean and implied sd; W by the model's swing model "
-                                   f"(national swing sd {par['s_d']:.4f}{', capped at 0.95 of the smallest sd' if par['capped'] else ''}) "
-                                   "given the tie", n, commit, {"W_unconditional": r["W_unconditional"]})}
+                      "as_of": fdate, "source": fte_src, "unit_ev": int(ev[i]), "p": pb}
+                if why is not None:
+                    fc["note"] = (f"No p under 538 here: {why}. The orchestrator's rules of 2026-11-07 04:12 and 04:20: "
+                                  "where the implied sd breaks down, the contest's p falls back to the model's own forecast.")
                 contests[u]["forecasts"].append(fc)
+                primary_538 = first and (y == 2016 or (y == 2020 and "-" in u))
+                if primary_538 and why is not None:
+                    use_own(u, f"538's implied sd breaks down here ({why})")
+                    continue
                 if y == 2016 and first:
                     contests[u]["p"] = fc["p"]
                     contests[u]["stage_two"]["inputs"].update(
@@ -453,7 +556,10 @@ def build(I, y, commit):
                 contests[s]["p"] = pb
                 contests[s]["stage_two"]["inputs"].update(
                     {"W": pb["W"], "unit_ev": int(ev[i]), "method": method, "districts_modelled": False})
-            elif fte is not None:
+            elif fte is None:
+                use_own(s, "the Economist's draws cannot fix p here (see its forecast's p_bound), and 538's implied "
+                           "sd breaks down here (see its forecast's note)")
+            else:
                 contests[s]["p"] = fte["p"]
                 contests[s]["notes"].append(
                     "The Economist's draws cannot fix p here (see its forecast's p_bound), so p is 538's, the other "

@@ -1,24 +1,14 @@
 {
- "about": "MEDSL state presidential returns, normalised by pipeline/intake/medsl_president.py. Votes per candidate are summed over the party lines the candidate ran on.",
+ "about": "MEDSL state presidential returns, normalised by pipeline/intake/medsl_dataverse.py (president_detail). Votes per candidate are summed over the party lines the candidate ran on.",
  "source": {
-  "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, file 1976-2024-president.csv",
-  "url": "https://dataverse.harvard.edu/api/access/datafile/13887042",
-  "read_utc": "2026-11-07T03:22Z",
+  "name": "MIT Election Data and Science Lab, U.S. President 1976-2024, Harvard Dataverse doi:10.7910/DVN/42MVDX, v10.1, released 2026-09-04T16:15:49Z, file 1976-2024-president.csv",
+  "url": "https://dataverse.harvard.edu/api/access/datafile/13887042?format=original",
+  "read_utc": "2026-11-07T04:05Z",
   "licence": "CC0 1.0",
   "mark": "stated",
   "via": "MEDSL's compilation of state election offices' returns",
   "note": "checked against Dataverse's MD5 405af83db7625cb35d8c19a5ebe029ff",
   "sha256": "9936410a6dd4ecc8be7fe202c6dff5b5f8fee59d88f35ab542ed12879941dcb7"
- },
- "state_sources": {
-  "name": "MEDSL, sources-president.tab: where MEDSL took each state's figures",
-  "url": "https://dataverse.harvard.edu/api/access/datafile/4304791?format=original",
-  "read_utc": "2026-11-07T03:22Z",
-  "licence": "CC0 1.0",
-  "mark": "stated",
-  "via": null,
-  "note": null,
-  "sha256": "427a44a3c35eb63536780ff31a9abfaef87cd11b9c8d0adff444c34adaed8e94"
  },
  "known_total_gaps": {
   "2024 DC": 2535,
@@ -52160,7 +52150,7 @@
       "writein": true
      },
      {
-      "name": "ANDR\u00c9 RAMON MCNEIL SR",
+      "name": "ANDRÉ RAMON MCNEIL SR",
       "votes": 9,
       "parties": [
        "OTHER"
@@ -52864,7 +52854,7 @@
       "writein": true
      },
      {
-      "name": "ANDR\u00c9 RAMON MCNEIL SR.",
+      "name": "ANDRÉ RAMON MCNEIL SR.",
       "votes": 4,
       "parties": [
        "OTHER"
@@ -53571,7 +53561,7 @@
       "writein": true
      },
      {
-      "name": "ANDR\u00c8 RAMON MCNEIL, SR.",
+      "name": "ANDRÈ RAMON MCNEIL, SR.",
       "votes": 2,
       "parties": [
        "OTHER"
@@ -56318,7 +56308,7 @@
       "writein": true
      },
      {
-      "name": "ANDR\u00c9 RAMONE MCNEIL, SR.",
+      "name": "ANDRÉ RAMONE MCNEIL, SR.",
       "votes": 0,
       "parties": [
        "OTHER"
