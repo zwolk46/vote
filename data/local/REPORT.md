@@ -564,3 +564,35 @@ The variant is adopted in a pool only where it passes there. A pool where it fai
 - **What moves elsewhere.** No p outside Louisiana moves. The amendments enter the measures' back-test, so the note on each of the 65 statewide measure p now reads "52 against 36.4" (§8). The 2024 local back-tests gain Louisiana's contests: 2,270 like-race contests, against 2,264 before (`backtest-local-classes.json`). Both calibration routes still fail the robustness test, with the same cells (`calibration-local.json`).
 
 **Still open.** The site's list of elections goes back to 1982 [measured: 319 dates, 318 of them marked official]. The workbook may not exist for the older ones [not read]. Louisiana's 2023 legislature (2023-10-14 and 2023-11-18) is after Klarner's last year and could be read the same way. It is left for the orchestrator.
+
+## 13. New Jersey's own certified 2024 results
+
+*Added 2026-11-07 at 10:43 UTC, at the orchestrator's orders of 08:08 ("For the 2024 legislatures of IN, LA and NJ, read each state's own certified results where a file is reachable by script, with a gate against D2's federal counts on the same dates as for North Carolina") and 10:35 ("NJ 2024 as ordered ... its 2024 file holds local contests and any legislative specials; read what is there").*
+
+**What the state's page holds** [measured]. The Division of Elections' 2024 page is https://www.nj.gov/state/elections/election-information-2024.shtml. Outside its HTML comments, it links:
+- the official general results for president, US Senate and US House, each an "Official List" PDF by county;
+- NJ-10's special primary and special general;
+- the party primaries' federal offices and delegates.
+
+It holds no legislative contest. New Jersey elects its legislature in odd years, and the page lists no legislative special. It holds no county, municipal or school board contest either. Those are not on the page; the county clerks publish them [inferred].
+
+**The lists against D1's and D2's counts** (`pipeline/intake/nj_sos.py`, `pipeline/local_nj.py`; `data/local/check-nj.json`) [measured].
+- **What was read.** 14 contests and 69 candidates (president 9, Senate 6, House 54). Each list's count matches its own last page ("Total Candidates"). Every candidate's county lines add up to the candidate's total.
+- **The match.** Every candidate's votes equal D1's (president) and D2's (Senate, and all 12 House districts).
+- **One quirk.** NJ-12's list repeats its last candidate's name with the contest's total. That line is read as the total.
+
+**MEDSL's New Jersey file against the lists, county by county** [measured]. Candidates are matched by surname: MEDSL leaves the party empty in some counties' rows, and in others it files summary lines such as "CONTEST TOTAL" as candidates. The line is the state check's 0.5%.
+- **16 counties add up in all three federal offices,** 12 of them to the vote: Burlington, Camden, Cape May, Cumberland, Essex, Hudson, Hunterdon, Middlesex, Monmouth, Morris, Ocean, Passaic, Salem, Somerset, Sussex, Warren.
+- **Gloucester** adds up for the Senate and the House. Its presidential count is exactly double.
+- **Four counties fail in all three offices:**
+  - Atlantic, 0.3% to 0.8% short;
+  - Union, 1.9% to 6.1% short;
+  - Mercer, 23% to 32% short;
+  - Bergen, three times the count.
+
+So the state's +14.4% presidential miss (§6) comes from five counties. Gloucester shows the error can sit in one office alone. A county's federal offices adding up therefore shows its file was read whole. It does not show that every other office's rows are sound [inferred].
+
+**What it gives.** No contest is added and no p moves, since the lists hold no office below Congress. MEDSL's New Jersey local contests (1,301) and questions (49) stay held back.
+
+**Put to the orchestrator, not applied: a gate by county.** It would release the contests of the 16 counties that add up in all three federal offices, with their routes: 986 of the 1,301 local contests and 40 of the 49 questions. Gloucester has no local contest in MEDSL's file. Atlantic's, Bergen's, Mercer's and Union's would stay held back. The other way is the county clerks' own certified results: 21 sites, not read.
+
