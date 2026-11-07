@@ -1305,6 +1305,18 @@ def build(out_dir, with_p=True):
                     mhalf.append({"year": year, "key": r_["key"], "train": len(tr),
                                   "near": {str(hh): [sum(1 for x in tr if abs(x - 0.5) <= hh) / len(tr),
                                                      abs(r_["s"] - 0.5) <= hh] for hh in L.WINDOWS}})
+    # the orchestrator, 2026-11-07 07:25: write the route's near-1/2 shortfall onto each p it gives, in these words
+    hw = str(L.WINDOWS[-1])
+    mnote = {}
+    for key in {r_["key"] for r_ in mhalf}:
+        rs = [r_ for r_ in mhalf if r_["key"] == key]
+        exp, got = sum(r_["near"][hw][0] for r_ in rs), sum(r_["near"][hw][1] for r_ in rs)
+        if got > exp:
+            mnote[key] = (f"this route's back-test shows more near-even finishes than it forecast ({got} against "
+                          f"{exp:.1f} within {L.WINDOWS[-1] * 100:.0f} points, {min(r_['year'] for r_ in rs)} to "
+                          f"{max(r_['year'] for r_ in rs)}), so p may be low")
+    for year in MEASURE_YEARS:
+        train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
         for c in m[year]:
             if not c["question"]:
                 continue
@@ -1398,6 +1410,8 @@ def build(out_dir, with_p=True):
                             counts[f"{label}: p = 0, no like measure near the threshold"] += 1
                         else:
                             p = MS.p_block(f, t, n, f"the model's own ({L.METHOD}), like past measures")
+                            if key in mnote:
+                                p["note"] = mnote[key]
                             counts[f"{label}: p computed, {key}"] += 1
             rec["p"] = p
             counts[f"{label}: {scope} {kind}"] += 1
