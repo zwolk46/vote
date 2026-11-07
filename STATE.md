@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 08:20: #45 merged (D2 incumbency fix: Cha matched within the contest by name, votes, first name; incumbency = Cha's coding of the D and R nominees; 13 contests changed, 4 with p (UT 2006 x0.150, MI-11 2014 x4.75, NY-14 2018 x2,071, SD-AL 2024 x0.0353), reproduced; 1,135 seats' control moved, Senate 2006 sum 1.155e-6 to 8.613e-7; fits, lambda, F unchanged; f_half documented as calibrated). Next D2 round, after M2: recent-years k and Cha inc 2/3 variants ((a) 1+2, (b) 1+2+3), each fixed before scoring, same adoption rule.
+
 - 2026-11-07 08:13: D3: the 1,158 write-in count is right (equal to the boundary count by coincidence; 1,249 includes 91 on MEDSL dates). Klarner NC replaced only for 2016 and 2018 (2002 has no certified federal file in data/ to gate on).
 
 - 2026-11-07 08:12: #44 merged (D3: p for the State Board's other dates, 1,742 local (584 single-seat, 1,158 boundary, marked for M2) and 484 primaries, no calibration; OpenElections skip recorded; pack 26.60 to 28.48 MiB). Asked D3 to fix REPORT's write-in count (1,158 equals the boundary count; files show 1,249).
