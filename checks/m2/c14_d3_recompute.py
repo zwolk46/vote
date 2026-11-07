@@ -323,8 +323,10 @@ def recompute():
                     # its rounding, so the tolerance is the rounding's half-ulp over the factor, plus the sum's own
                     tol = 5e-5 / k_ + 2e-5
                     if r["route"] in ("class", "boundary"):
-                        if p.get("method") == "exact":
-                            s2 = D.sd_eq(p["f_half"] * k_)
+                        # the method rule is applied again at the factored density: a block that is exact at f can be
+                        # density at f x factor (sd_eq wider, n sd^2 over 6.25), and the record's value is then f x factor / (2n)
+                        s2 = D.sd_eq(p["f_half"] * k_)
+                        if p.get("method") == "exact" and D.method_rule(n, s2) == "exact":
                             would = M.p_exact(n, 0.5, s2)
                             elo2, ehi2 = max(1e-9, 0.5 - 12 * s2), min(1 - 1e-9, 0.5 + 12 * s2)
                             would_r = M.p_exact(n, 0.5, s2, renormalize=True) * (stats.norm.cdf(ehi2, 0.5, s2) - stats.norm.cdf(elo2, 0.5, s2))
@@ -332,10 +334,12 @@ def recompute():
                         else:
                             would = p["f_half"] * k_ / (2 * n)
                             ok = D.rel(co["value"], would) <= tol
+                            if p.get("method") == "exact":
+                                T.add("calibration: an exact block whose factored density falls under the rule's density side carries the density form f x factor / (2n)", ok, rid, f"{co['value']} vs {would:.6g}")
                     else:
                         would = p["value"] * k_
                         ok = D.rel(co["value"], would) <= tol or (p.get("method") == "exact")
-                    T.add("calibration: calibration_not_of_record.value = p with the factor (density f x factor; exact at sd_eq(f x factor); within the factor's 4-decimal rounding)",
+                    T.add("calibration: calibration_not_of_record.value = p with the factor (density f x factor; exact at sd_eq(f x factor), the method rule applied again; within the factor's 4-decimal rounding)",
                           ok, rid, f"{co['value']} vs {would:.6g} (factor {k_}, {p.get('method')})")
         T.report(f"{level} ({n_exact:,} exact sums recomputed)")
     print("\n  largest relative differences, record against my own figure:")
