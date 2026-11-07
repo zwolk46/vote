@@ -1,11 +1,11 @@
 {
  "level": "governor",
  "year": 2023,
- "about": "Governor contests of 2023, an odd year, in the layout of plan/PLAN.md section 3 with the fields data/README.md adds. Built by pipeline/intake/build_congress.py from Cha, Kuriwaki and Snyder (2007-2021), Algara and Amlani's county returns (before, and where Cha lacks a contest) and Louisiana's Secretary of State (2023), as each contest's source block says. The forecast is the governors' route fitted on the even years before it (data/congress/REPORT.md section 8).",
+ "about": "Governor contests of 2023, an odd year, in the layout of plan/PLAN.md section 3 with the fields data/README.md adds. Built by pipeline/intake/build_congress.py from Cha, Kuriwaki and Snyder (2007-2021), Algara and Amlani's county returns (before, and where Cha lacks a contest), Louisiana's Secretary of State (2023) and New Jersey's and Virginia's certified results (2025), as each contest's source block says. The forecast is the governors' route fitted on the even years before it (data/congress/REPORT.md section 8).",
  "missing_from_record": [],
  "not_in_sources": [
-  "KY: not in the sources read here (Cha, Kuriwaki and Snyder end in 2021, Algara and Amlani in 2019)",
-  "MS: not in the sources read here (Cha, Kuriwaki and Snyder end in 2021, Algara and Amlani in 2019)"
+  "KY: not in the sources read here (Cha, Kuriwaki and Snyder end in 2021, Algara and Amlani in 2019); the state's own results were refused: Kentucky State Board of Elections, https://elect.ky.gov/results/2020-2029/Pages/2023.aspx, 2026-11-07T12:39Z: HTTP 403, \"The request is blocked.\" (the site's own firewall); curl once; nothing else (no WebFetch, no other host) (the orchestrator, 2026-11-07 12:40: \"record them and try nothing else\")",
+  "MS: not in the sources read here (Cha, Kuriwaki and Snyder end in 2021, Algara and Amlani in 2019); the state's own results were refused: Mississippi Secretary of State, https://sos.ms.gov/elections/electionresults_aspx/elections_results_2023_generalG.aspx, 2026-11-07T12:39Z: HTTP 403, Cloudflare's \"Attention Required!\" challenge; the page is the frame that https://www.sos.ms.gov/elections-voting/election-results/2023/2023-general-election-results (which loads) shows the results in; curl once; nothing else (no WebFetch, no other host) (the orchestrator, 2026-11-07 12:40: \"record them and try nothing else\")"
  ],
  "sources": {
   "la_sos": {
@@ -125,7 +125,7 @@
   "national_sd": 0.023607313989691788,
   "sd": 0.07760933093064225,
   "rho": 0.09252631669161258,
-  "commit": "208b810c",
+  "commit": "b748ec42",
   "mean_is": "1/2 + national_forecast + b_lean * lean + b_inc * incumbency + b_lag * (last governor race's Democratic share - 1/2)",
   "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = k s_a sqrt(1 + z (Z'Z)^-1 z'), s_e = k s_e_fitted, z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic president, -1 Republican; k the calibration factor; in an odd year z = (1, w P, 0), w = 1 under the midterm term and 0 under the plain route (odd_year below)",
   "odd_year": {
@@ -140,7 +140,7 @@
    "midterm_term": {
     "improves": false,
     "robust": false,
-    "mean_log_score_gain": 0.035141438381625756
+    "mean_log_score_gain": 0.04463500686501387
    },
    "lean_note_stands": true
   },

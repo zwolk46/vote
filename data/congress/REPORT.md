@@ -1,6 +1,6 @@
 # Senate, House and governor: sources, method and checks
 
-Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19, 08:06 and 08:36 UTC, and the orchestrator's words of 08:54, 09:03, 09:08, 09:26, 11:16, 12:01 and 12:11). Written 2026-11-07 and revised eleven times the same day (last at 12:28 UTC):
+Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19, 08:06 and 08:36 UTC, and the orchestrator's words of 08:54, 09:03, 09:08, 09:26, 11:16, 12:01, 12:11, 12:35 and 12:40). Written 2026-11-07 and revised twelve times the same day (last at 13:05 UTC):
 - for the follow-ups from M2 (§0.9);
 - for the orchestrator's third round (§0.8);
 - for its fourth, the near-ties (§0.7);
@@ -11,9 +11,10 @@ Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36,
 - for the next round, a half-life k and Cha's incumbency codes 2 and 3, neither adopted (§0.2);
 - for the near-even note on the House's and the Senate's p, with the FEC's 2004 file (§0.1);
 - for the note's two tests, which take it off the Senate's and the governors' p (§0.1, item 3);
-- and for the odd-year governors of Kentucky, Louisiana, Mississippi, New Jersey and Virginia (§8).
+- for the odd-year governors of Kentucky, Louisiana, Mississippi, New Jersey and Virginia (§8);
+- and for New Jersey's and Virginia's governors of 2025 from the states' own certified results, Kentucky's and Mississippi's 2023 refused, and Rhode Island 2010 (§9).
 
-It covers every Senate and House race of the even years 2006 to 2024, every governor race of the even years 1978 to 2024 and of the odd years 1977 to 2023, that the sources hold, with p, and control of the Senate and the House.
+It covers every Senate and House race of the even years 2006 to 2024, every governor race of the even years 1978 to 2024 and of the odd years 1977 to 2025, that the sources hold, with p, and control of the Senate and the House.
 
 ## 0. What each round changed
 
@@ -470,6 +471,7 @@ Each source is read by one script in `pipeline/intake/`.
 | `fivethirtyeight_checking_our_work.py` | FiveThirtyEight, `checking-our-work-data` (raw.githubusercontent.com, commit f6d5b2e) | 538's published forecasts by race and day: Senate 2008-2022, House 2010 and 2018-2022, governors 2010, 2018, 2022 | CC BY 4.0 | 2026-11-07 |
 | `la_sos_governor.py` (with D3's `la_sos.py` and `local_la.py`, unchanged) | Louisiana Secretary of State, official election results: the workbook of 2023-10-14 and the posted multi-parish results of each 2023 date | **Louisiana's governor of 2023** (the record), gated as D3 gates that year (§8.1) | none printed; public records | 2026-11-07 |
 | `ms_governor_rule.py` (with D4's `state_law.py`, unchanged) | Mississippi Legislature, House Concurrent Resolution 47 of 2020 (billstatus.ls.state.ms.us) | Mississippi's rule for electing its governor before 2020 (§8.2) | none printed; a public record | 2026-11-07 |
+| `state_governors.py` (with D3's `nj_sos.py`, unchanged) | New Jersey Division of Elections, the Official List for governor, 2025, and its 21 county copies; Virginia Department of Elections, its results site's statewide count, locality breakdown and precinct report, 2025 | **New Jersey's and Virginia's governors of 2025** (the record), gated within the certifying source (§9.1); Kentucky's and Mississippi's 2023 results refused (§9.2) | none printed; public records | 2026-11-07 |
 | `build_congress.py` | the caches above | builds `data/senate|house|governor/<year>.json` | | |
 
 **Source of record and check.**
@@ -1116,9 +1118,7 @@ The ask, in the orchestrator's words: "data/governor holds even years only, so K
 - **Louisiana 2023 is the SoS count.** Landry has 547,827 of 1,062,498 votes over 15 candidates. The posted files it was compared with are byte for byte the ones D3's `data/local/check-la.json` compared (sha256 `099dee9c…` and `5e4134f0…`). No later date of 2023 holds a contest titled Governor, since a candidate had a majority.
 - **The cross-check.** On the odd years both sources hold (2007-2019), Algara and Amlani agree with Cha within 0.1% for every nominee, with two exceptions. One is Louisiana 2007 above. The other is Louisiana 2011's open primary, where several Democrats ran (§6).
 - **Where the record starts.** Algara and Amlani reach back to 1865. The odd years here begin in 1977, the first odd year whose last presidential vote (1976) and sitting president are in the sources the inputs come from. That is the rule that makes 1978 the governors' first even year (§0.8, item 1).
-- **Not in any source read here:**
-  - Kentucky and Mississippi 2023 (each file's `not_in_sources`);
-  - New Jersey and Virginia 2025. Cha ends in 2021 and Algara and Amlani in 2019. The states' own certified files are the lead, as D3 reads Louisiana's.
+- **Not in any source read here:** Kentucky and Mississippi 2023 (the file's `not_in_sources`). Cha ends in 2021 and Algara and Amlani in 2019, and both states' own results refused (§9.2). New Jersey and Virginia 2025 are now read from the states' own files (§9.1).
 - **Dates.**
   - Kentucky, Mississippi, New Jersey and Virginia vote on the general election day, inferred. The source gives the year.
   - Louisiana's dates before 2023, Arizona 1991's and West Virginia 2011's are not given by the sources, so `date` is null with a note.
@@ -1182,8 +1182,86 @@ No file of an even year is rewritten.
 
 ### 8.6 Open
 
+*Since 12:35 (§9): Rhode Island 2010 is added; New Jersey and Virginia 2025 are read from the states' own files; Kentucky and Mississippi 2023 were refused. The test above and the note are taken again with 2025's two races (§9.3).*
+
 - **Kentucky 2019.** Cha codes both nominees incumbents (Bevin, and Andy Beshear, whose father was governor until 2015), so `incumbency` is 0 there. Algara and Amlani's seat status says a Republican incumbent. The fit's rule takes Cha's code, and Kentucky 2019's p rests on 0.
-- **Rhode Island 2010** is in Algara and Amlani only, and is not in `data/governor/2010.json`. It is the even-year counterpart of New Jersey 2017, and the same rule would add it.
+- ~~**Rhode Island 2010** is in Algara and Amlani only, and is not in `data/governor/2010.json`.~~ Added (§9.4).
 - **Arizona's 1990 cycle.** It is under 1991 in Algara and Amlani, so `data/governor/1990.json` has no Arizona.
 - **Louisiana's dates before 2023**, and its rounds before 2023 against the Secretary of State, would come from the site's own list of elections, which D3's reader takes.
-- **Kentucky and Mississippi 2023, and New Jersey and Virginia 2025**, would come from the states' certified files.
+- ~~**Kentucky and Mississippi 2023, and New Jersey and Virginia 2025**, would come from the states' certified files.~~ New Jersey and Virginia 2025 are read (§9.1); Kentucky's and Mississippi's sites refused (§9.2).
+
+## 9. The most recent governors, and Rhode Island 2010 (the orchestrator, 2026-11-07 12:35 and 12:40 UTC)
+
+The ask, in the orchestrator's words: "add the governors no source you read reaches: KY and MS 2023, and NJ and VA 2025. Take each from the state's own certified results (KY State Board of Elections, MS Secretary of State, NJ Division of Elections, VA Department of Elections), by script." The gate is "the one I set for LA 2023, within the certifying source: the result is marked official or certified, its parts (counties or cities) add to its total, and it equals the state's own posted statewide result." And: "Yes to RI 2010." *Reason:* "these are the most recent governor races on the record, and law 5 asks for every one true sources allow."
+
+### 9.1 New Jersey and Virginia 2025: read, and the gate passes
+
+Both are read by `pipeline/intake/state_governors.py` into the cache, and `data/governor/2025.json` is built from it. Each contest carries `gate` and `checks`.
+
+| | New Jersey | Virginia |
+|---|---|---|
+| The record | The Division of Elections' Official List, "Candidates for Governor For GENERAL ELECTION 11/04/2025", linked from its 2025 page as "Official General Election Results: Governor"; read with D3's `nj_sos.py`, unchanged | The Department of Elections' results site, enr.elections.virginia.gov, which the Department's own results page names for "November 4, 2025 General and Special Elections"; its statewide count for Governor |
+| (a) Official | The Official List, dated 12/03/2025 on every page | The election is marked `"isOfficialResults": true` (published 2025-12-01 18:15 UTC; 133 of 133 localities reporting) |
+| (b) Parts add up | Each candidate's 21 county lines add up to its Total line | The contest's 133 localities (its counties and independent cities) add up, option by option and write-ins included, to the statewide count |
+| (c) The statewide result | The record is the list's own Total lines | The record is the site's own statewide count |
+| A further check | The 21 county copies on the same page: each one's lines (its municipalities, and a "Federal Overseas" line in some) add up to its Total line, and that line equals the list's four figures for the county. All 21 agree. | The site's "Election Results" report, precinct by precinct (2,533 precincts): each named candidate's rows add up to the statewide count. They do; the report's write-in cells are empty, so the write-ins are checked on (b) only. |
+| Result | Sherrill (Democratic) 1,896,610, Ciattarelli (Republican) 1,417,705, Kaplan 11,880, Kuniansky 8,164; 3,334,359 in all. The list gives no write-in votes. | Spanberger (Democratic) 1,976,857, Earle-Sears (Republican) 1,449,586, write-ins 6,897; 3,433,340 in all |
+
+- **How the Virginia site's files were found.** The site is a script-driven page. Its own scripts (`main-*.js` and the chunks it loads) name the API (`/results/public/api/elections/<jurisdiction>/<election>/data`, and `/data/ballot-item/<id>` for one contest's breakdown) and the reports' address (`/cdn/results/<jurisdiction id>/<file>`) [stated: the site's scripts, read 2026-11-07]. Nothing was guessed, and every file is on the state's own host.
+- **Incumbency.** No source read here codes it for 2025. Both seats were open by the rule `chambers.state_gov_incumbency` applies: the winner of each state's last governor contest in Cha (2021: Murphy in New Jersey, Youngkin in Virginia) is neither nominee [inferred: it assumes the 2021 winner still held the office on election day]. So `incumbency` is 0, with `incumbency_source` "inferred" and the rule's words in `incumbency_how`.
+- **p.**
+  - New Jersey: 1 in 1,308,367 (7.64 × 10⁻⁷). The model's mean is 0.511 for Sherrill and the sd 0.078; she had 57.2% of the two-party vote.
+  - Virginia: 1 in 1,344,794 (7.44 × 10⁻⁷). The mean is 0.508 for Spanberger; she had 57.7%.
+  - Both carry the lean note (§9.3).
+
+### 9.2 Kentucky and Mississippi 2023: refused, recorded, nothing else tried
+
+- **Kentucky.** The State Board of Elections' 2023 results page, `https://elect.ky.gov/results/2020-2029/Pages/2023.aspx`, answered curl with HTTP 403 and "The request is blocked." at 12:39 UTC. That is the site's own firewall, not this system's proxy.
+- **Mississippi.** The Secretary of State's page for the 2023 general election loads. Its results, though, sit in a frame on sos.ms.gov itself (`elections_results_2023_generalG.aspx`), and that page answered curl with HTTP 403 (Cloudflare's "Attention Required!") at 12:39 UTC.
+- The orchestrator was told at 12:39, and answered at 12:40: "Right on both: record them and try nothing else." It also said: "MS's frame sits on sos.ms.gov itself, so it stays refused."
+  - Neither page was tried again, by WebFetch or another host. A WebFetch would give a summary, not the file, so it could not meet "by script" anyway.
+  - On a vendor's host, the orchestrator's rule (12:40): it counts as the state's own result only where a state page that answers names it as where the official results are published, and the vendor's page marks the count official or certified.
+- **In the file.** `data/governor/2023.json`'s `not_in_sources` gives each refusal: the page, the time, the answer, and what was tried. `state_governors.py` keeps them as `REFUSED` and does not request them again.
+
+### 9.3 The forecast and the lean note, as in §8
+
+The route is §8.3's, unchanged: the governors' D2-v3 fitted on the even years before the odd year, the plain route z = (1, 0, 0), and the midterm term tested under the robustness test of 08:36.
+- New Jersey's and Virginia's 2025 races enter the odd years' back-test by `odd_governor_rows`' rules: one Democrat and one Republican, the two leading. That makes **40 races in 20 years (1985-2025)**, from 38 in 19.
+- **New Jersey 2021's last race is now 2017**, not 2013. The index of last races (`last_governor_index`) took Algara and Amlani before 2006 only, so New Jersey 2017, which is in the record from Algara and Amlani (§8.1), was skipped. That was a slip of §8, fixed here. The index now takes Algara and Amlani wherever Cha does not hold a contest. No even year moves: Rhode Island 2010, the only other such contest, was not led by a Democrat and a Republican.
+  - New Jersey 2021's p moves from 1 in 1,032,625 to 1 in 1,075,208.
+  - Its forecast mean moves from 0.503 to 0.523 for Murphy, who had 51.6%.
+
+| | Plain route | The midterm term |
+|---|---|---|
+| Mean log score | 1.1356 | 1.1802 (+0.0446) |
+| z rms (mean) | 0.926 (+0.113) | 0.869 (+0.104) |
+| 50 / 80 / 95% coverage | 55 / 82.5 / 97.5% | 60 / 82.5 / 95% |
+| 49-51%, all races: expected against 6 seen | 3.32 | 3.23: further |
+| 48-52%: expected against 11 | 6.60 | 6.42: further |
+| 45-55%: expected against 18 | 15.90 | 15.49: further |
+| Verdict | | **fails**: 5 of 7 tested cells further, on every year and with each year left out |
+
+- **The plain route stands**, as in §8 (`data/congress/backtest-governor-odd.json`).
+- **The lean note stands.** Under the ruling of 11:01, both tests count and agree:
+  - (s) 6 seen against 3.3 expected within 1 point;
+  - (v) 9 against 6.4 within 50,000 votes.
+
+  So each of the 31 odd-year p now carries: "this route's back-test of the odd-year governor races shows more near-even finishes than it forecast (6 against 3.3 within 1 point, 1985 to 2025), so p may be low." The 29 p of §8 are otherwise unchanged, save New Jersey 2021's above.
+- **Control.** None: a governor is one seat.
+- **A wording fix.** The odd years' forecast source said "an odd year, an odd year: …"; it now says it once.
+
+### 9.4 Rhode Island 2010
+
+- Cha does not hold it, so Algara and Amlani's county sums stand as the record, as for New Jersey 2017. That gives Caprio (D) 78,872, Robitaille (R) 114,879, and the others 148,450 (not named in the source).
+- p is not computed. The others' total is above both nominees', so one of the others may be among the top two (`aa_structure`).
+- `data/governor/2010.json` gains this contest and the Algara and Amlani source block. Its other 36 contests are unchanged, save `commit`.
+
+### 9.5 What else changed, and what did not
+
+- **A source block now in the 2006 and 2008 files.** `data/governor/2006.json` and `2008.json` name Algara and Amlani as the source of 35 and 8 races' `last_governor_race`, but the files' `sources` left out its block, since the builder rebuilt `sources` level by level from the forecast inputs' other fields. The builder now keeps it. The two files gain the block and nothing else: compared with the record without `commit` and the time of the run, every contest is equal.
+- **The Senate and House files of 2006, 2008 and 2010** were rebuilt and recomputed as a by-product. They were equal to the record once `commit` and the time of the run were set aside, and were put back.
+
+### 9.6 Open
+
+- **Kentucky and Mississippi 2023** stay out unless the orchestrator finds a source by the rule of §9.2.
+- **New Jersey 2021 in Cha.** Cha codes Murphy as not an incumbent (0), though he won the state's 2017 contest (`data/governor/2017.json`, from Algara and Amlani). It is a slip like the one in Kentucky 2019, where Cha codes both nominees as incumbents (§8.6). The fit's rule takes Cha's code, so New Jersey 2021's `incumbency` is 0. By the record's own 2017 winner it would be +1.
