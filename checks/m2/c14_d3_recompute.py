@@ -75,7 +75,7 @@ class Tally:
 
 def inventory():
     h1("14.1 The inventory of D3's levels [measured]")
-    for level in D.LEVELS:
+    for level in LEVELS:
         rs = D.rows(level)
         st = collections.Counter(r["status"] for r in rs)
         years = sorted({r["year"] for r in rs})
@@ -135,7 +135,7 @@ def recompute():
             if f:
                 cal_tab[(group, int(y))] = f
     maxrel = collections.defaultdict(float)
-    for level in D.LEVELS:
+    for level in LEVELS:
         T = Tally()
         rs = D.rows(level)
         n_exact = 0
@@ -319,20 +319,23 @@ def recompute():
                           abs(co["factor"] - want) <= 6e-4 and co["of"] == of and co["fitted_on"] == f["fitted_on"], rid,
                           f"{co} vs {want} ({of}), fitted on {f['fitted_on']}")
                     k_ = co["factor"]
+                    # the block carries the factor rounded to 4 decimals and the value computed with the factor before
+                    # its rounding, so the tolerance is the rounding's half-ulp over the factor, plus the sum's own
+                    tol = 5e-5 / k_ + 2e-5
                     if r["route"] in ("class", "boundary"):
                         if p.get("method") == "exact":
                             s2 = D.sd_eq(p["f_half"] * k_)
                             would = M.p_exact(n, 0.5, s2)
                             elo2, ehi2 = max(1e-9, 0.5 - 12 * s2), min(1 - 1e-9, 0.5 + 12 * s2)
                             would_r = M.p_exact(n, 0.5, s2, renormalize=True) * (stats.norm.cdf(ehi2, 0.5, s2) - stats.norm.cdf(elo2, 0.5, s2))
-                            ok = D.rel(co["value"], would) <= 2e-5 or D.rel(co["value"], would_r) <= 2e-5
+                            ok = D.rel(co["value"], would) <= tol or D.rel(co["value"], would_r) <= tol
                         else:
                             would = p["f_half"] * k_ / (2 * n)
-                            ok = D.rel(co["value"], would) <= 1e-5
+                            ok = D.rel(co["value"], would) <= tol
                     else:
                         would = p["value"] * k_
-                        ok = D.rel(co["value"], would) <= 1e-5 or (p.get("method") == "exact")
-                    T.add("calibration: calibration_not_of_record.value = p with the factor (density f x factor; exact at sd_eq(f x factor))",
+                        ok = D.rel(co["value"], would) <= tol or (p.get("method") == "exact")
+                    T.add("calibration: calibration_not_of_record.value = p with the factor (density f x factor; exact at sd_eq(f x factor); within the factor's 4-decimal rounding)",
                           ok, rid, f"{co['value']} vs {would:.6g} (factor {k_}, {p.get('method')})")
         T.report(f"{level} ({n_exact:,} exact sums recomputed)")
     print("\n  largest relative differences, record against my own figure:")
@@ -349,6 +352,8 @@ def _medsl_route(r):
 
 
 if __name__ == "__main__":
+    # a level named on the command line runs that level alone (a rerun of one level); all four otherwise
+    LEVELS = tuple(sys.argv[1:]) or D.LEVELS
     print(f"c14: D3's levels recomputed from the recorded inputs; repository HEAD {M.git_head()}")
     inventory()
     recompute()
