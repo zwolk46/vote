@@ -57,15 +57,28 @@
    },
    "seen_over_expected": 0.191
   },
-  "2024": {
-   "contests": 2331,
-   "expected_in_window": 283.6,
-   "seen_in_window": 205,
+  "2023": {
+   "contests": 18,
+   "expected_in_window": 1.1,
+   "seen_in_window": 4,
    "by_office_type": {
     "class, local council, commission or board": {
-     "contests": 938,
-     "expected": 125.9,
-     "seen": 85
+     "contests": 18,
+     "expected": 1.1,
+     "seen": 4
+    }
+   },
+   "seen_over_expected": 3.636
+  },
+  "2024": {
+   "contests": 2393,
+   "expected_in_window": 292.9,
+   "seen_in_window": 207,
+   "by_office_type": {
+    "class, local council, commission or board": {
+     "contests": 1000,
+     "expected": 135.2,
+     "seen": 87
     },
     "class, local school board": {
      "contests": 757,
@@ -103,7 +116,7 @@
      "seen": 1
     }
    },
-   "seen_over_expected": 0.723
+   "seen_over_expected": 0.707
   }
  }
 }
