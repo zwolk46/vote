@@ -144,3 +144,11 @@ In the orchestrator's thread, after the orchestrator wrote that such headings ar
 > It’s also not “text that stays”; for their purposes, OFTEN, they fit
 
 *Reading.* The 04:37 reading went too far. A heading has no standing pass: it is judged like any other text, by whether it serves a real purpose where it sits. Simple headings such as "Senate" or "U.S. House" often do, so the test usually keeps them; but where one does not serve its place, it goes. The reading of 04:37 is replaced by this one.
+
+## 2026-11-07 22:09 UTC: the repository must carry the project alone, ready for an abrupt stop
+
+In the project chat:
+
+> We’re also approaching the weekly usage limit, so I want all of my comments saved such that if maybe I purchase another account I can continue this project there by just pointing at the repo. That might mean opening another analogous project there with blank memory and instructions and no standing instructions yet. I want as little as I have to do as possible to be able to set that up, and I want this repo prepared for the abrupt stop.
+
+*Reading.* Everything a new project needs lives in this repository and is pushed as it happens. That covers his words, the project instructions, the state, the memory, the tracker's rows and each worker's resume note. A new project in another account must be able to resume from it, with blank memory and no instructions. Its first step is `RESTART.md`, and his part is the least it can be: connect GitHub, make the project with a Full-network environment, and paste one message. Every message of his is kept verbatim in `handoff/MAKER-WORDS.md`, and every later one is added as it comes.
