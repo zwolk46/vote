@@ -15686,5 +15686,3690 @@
     }
    }
   }
+ },
+ "near_tie": {
+  "window": "49-51%",
+  "min_expected": 30,
+  "bands": [
+   0.0,
+   0.05,
+   0.1
+  ],
+  "by_level": {
+   "house": {
+    "years": [
+     2010,
+     2012,
+     2014,
+     2016,
+     2018,
+     2020,
+     2022,
+     2024
+    ],
+    "none": {
+     "races": 3047,
+     "mean_log_score": 1.573641434430009,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 35.70221724402113,
+       "seen": 51
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 29.615116716803936,
+       "seen": 37
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 13.411999397102512,
+       "seen": 17
+      }
+     },
+     "coverage": {
+      "0.5": 0.5680997702658352,
+      "0.8": 0.8664259927797834,
+      "0.95": 0.9753856252051198
+     },
+     "within": {
+      "49-51%": {
+       "expected": 78.7293333579277,
+       "seen": 105
+      },
+      "48-52%": {
+       "expected": 158.7039229322151,
+       "seen": 209
+      },
+      "45-55%": {
+       "expected": 417.11239167485184,
+       "seen": 521
+      }
+     }
+    },
+    "level": {
+     "races": 3047,
+     "mean_log_score": 1.574324289167571,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 39.719887591120134,
+       "seen": 51
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 33.28531884738868,
+       "seen": 37
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 14.529279331332505,
+       "seen": 17
+      }
+     },
+     "coverage": {
+      "0.5": 0.5700689202494257,
+      "0.8": 0.8687233344273055,
+      "0.95": 0.9753856252051198
+     },
+     "within": {
+      "49-51%": {
+       "expected": 87.53448576984115,
+       "seen": 105
+      },
+      "48-52%": {
+       "expected": 166.64079805231532,
+       "seen": 209
+      },
+      "45-55%": {
+       "expected": 422.5832909275583,
+       "seen": 521
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": true,
+     "safe_seats_supported": true,
+     "improves": true
+    },
+    "band": {
+     "races": 3047,
+     "mean_log_score": 1.5742663335112563,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 39.502973973715,
+       "seen": 51
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 32.372054176921026,
+       "seen": 37
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 13.411999397102512,
+       "seen": 17
+      }
+     },
+     "coverage": {
+      "0.5": 0.5694125369215622,
+      "0.8": 0.8677387594355104,
+      "0.95": 0.9753856252051198
+     },
+     "within": {
+      "49-51%": {
+       "expected": 85.28702754773877,
+       "seen": 105
+      },
+      "48-52%": {
+       "expected": 164.5111967123739,
+       "seen": 209
+      },
+      "45-55%": {
+       "expected": 420.83197189894935,
+       "seen": 521
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": true,
+     "safe_seats_supported": true,
+     "improves": true
+    },
+    "factors_by_year": {
+     "2008": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2010": {
+      "level": {
+       "factor": 0.8861403361364588,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008
+        ],
+        "house": [
+         2008
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008
+        ]
+       },
+       "expected": 39.17897736179576,
+       "seen": 35
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2012": {
+      "level": {
+       "factor": 1.0792927777409171,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010
+        ],
+        "house": [
+         2008,
+         2010
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010
+        ]
+       },
+       "expected": 55.90575976812492,
+       "seen": 60
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2014": {
+      "level": {
+       "factor": 1.1281745827089207,
+       "of": "the house's own earlier years",
+       "fitted_on": {
+        "house": [
+         2008,
+         2010,
+         2012
+        ]
+       },
+       "expected": 33.09860200740319,
+       "seen": 37
+      },
+      "band": [
+       {
+        "factor": 1.1493455575812024,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ],
+         "house": [
+          2008,
+          2010,
+          2012
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ]
+        },
+        "expected": 30.894707096452294,
+        "seen": 35
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2016": {
+      "level": {
+       "factor": 1.1261209464105546,
+       "of": "the house's own earlier years",
+       "fitted_on": {
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014
+        ]
+       },
+       "expected": 41.206881010205116,
+       "seen": 46
+      },
+      "band": [
+       {
+        "factor": 1.1207748550135577,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ]
+        },
+        "expected": 34.30530312767714,
+        "seen": 38
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2018": {
+      "level": {
+       "factor": 1.1202838789307763,
+       "of": "the house's own earlier years",
+       "fitted_on": {
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016
+        ]
+       },
+       "expected": 48.61069341235429,
+       "seen": 54
+      },
+      "band": [
+       {
+        "factor": 1.084861978840872,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 38.11269861598768,
+        "seen": 41
+       },
+       {
+        "factor": 1.198553862370058,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 32.1061914065645,
+        "seen": 38
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2020": {
+      "level": {
+       "factor": 1.2204513958292509,
+       "of": "the house's own earlier years",
+       "fitted_on": {
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018
+        ]
+       },
+       "expected": 62.500745275056495,
+       "seen": 75
+      },
+      "band": [
+       {
+        "factor": 1.1972417574786558,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 49.446562207957996,
+        "seen": 58
+       },
+       {
+        "factor": 1.1560463416485187,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 37.567497536931846,
+        "seen": 43
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2022": {
+      "level": {
+       "factor": 1.25316727728466,
+       "of": "the house's own earlier years",
+       "fitted_on": {
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020
+        ]
+       },
+       "expected": 70.79156933437233,
+       "seen": 87
+      },
+      "band": [
+       {
+        "factor": 1.179624192131965,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 53.56343588472925,
+        "seen": 62
+       },
+       {
+        "factor": 1.181625268552795,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 41.9470890211905,
+        "seen": 49
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2024": {
+      "level": {
+       "factor": 1.2950309543082574,
+       "of": "the house's own earlier years",
+       "fitted_on": {
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020,
+         2022
+        ]
+       },
+       "expected": 81.43865520236214,
+       "seen": 103
+      },
+      "band": [
+       {
+        "factor": 1.3693649629863578,
+        "of": "the house's own earlier years, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 35.88893952610311,
+        "seen": 47
+       },
+       {
+        "factor": 1.212618929213181,
+        "of": "the house's own earlier years, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 30.08825942354595,
+        "seen": 36
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     }
+    },
+    "adopted": "level"
+   },
+   "senate": {
+    "years": [
+     2010,
+     2012,
+     2014,
+     2016,
+     2018,
+     2020,
+     2022,
+     2024
+    ],
+    "none": {
+     "races": 256,
+     "mean_log_score": 1.2984359790218547,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 4.645798429414272,
+       "seen": 5
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 3.6931360637601762,
+       "seen": 8
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 2.7570807322348143,
+       "seen": 4
+      }
+     },
+     "coverage": {
+      "0.5": 0.54296875,
+      "0.8": 0.91015625,
+      "0.95": 0.98828125
+     },
+     "within": {
+      "49-51%": {
+       "expected": 11.096015225409264,
+       "seen": 17
+      },
+      "48-52%": {
+       "expected": 22.21507394033375,
+       "seen": 34
+      },
+      "45-55%": {
+       "expected": 55.88411774895773,
+       "seen": 69
+      }
+     }
+    },
+    "level": {
+     "races": 256,
+     "mean_log_score": 1.3016917173623186,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 4.95991829530877,
+       "seen": 5
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 4.131162143356441,
+       "seen": 8
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 3.0505989518850147,
+       "seen": 4
+      }
+     },
+     "coverage": {
+      "0.5": 0.54296875,
+      "0.8": 0.90234375,
+      "0.95": 0.98828125
+     },
+     "within": {
+      "49-51%": {
+       "expected": 12.141679390550234,
+       "seen": 17
+      },
+      "48-52%": {
+       "expected": 23.187585231257884,
+       "seen": 34
+      },
+      "45-55%": {
+       "expected": 56.642748000857374,
+       "seen": 69
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": true,
+     "safe_seats_supported": true,
+     "improves": true
+    },
+    "band": {
+     "races": 256,
+     "mean_log_score": 1.2991897482729071,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 5.01763025549641,
+       "seen": 5
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 4.002751410176523,
+       "seen": 8
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 2.7570807322348143,
+       "seen": 4
+      }
+     },
+     "coverage": {
+      "0.5": 0.5390625,
+      "0.8": 0.90625,
+      "0.95": 0.98828125
+     },
+     "within": {
+      "49-51%": {
+       "expected": 11.777462397907748,
+       "seen": 17
+      },
+      "48-52%": {
+       "expected": 22.834197967498415,
+       "seen": 34
+      },
+      "45-55%": {
+       "expected": 56.32623326015882,
+       "seen": 69
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": true,
+     "safe_seats_supported": true,
+     "improves": true
+    },
+    "factors_by_year": {
+     "1996": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "1998": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2000": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2002": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2004": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2006": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2008": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2010": {
+      "level": {
+       "factor": 0.8861403361364588,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008
+        ],
+        "house": [
+         2008
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008
+        ]
+       },
+       "expected": 39.17897736179576,
+       "seen": 35
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2012": {
+      "level": {
+       "factor": 1.0792927777409171,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010
+        ],
+        "house": [
+         2008,
+         2010
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010
+        ]
+       },
+       "expected": 55.90575976812492,
+       "seen": 60
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2014": {
+      "level": {
+       "factor": 1.0999388666333787,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012
+        ],
+        "house": [
+         2008,
+         2010,
+         2012
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012
+        ]
+       },
+       "expected": 68.67386101192467,
+       "seen": 75
+      },
+      "band": [
+       {
+        "factor": 1.1493455575812024,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ],
+         "house": [
+          2008,
+          2010,
+          2012
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ]
+        },
+        "expected": 30.894707096452294,
+        "seen": 35
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2016": {
+      "level": {
+       "factor": 1.119513737713767,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014
+        ]
+       },
+       "expected": 80.16590864163706,
+       "seen": 89
+      },
+      "band": [
+       {
+        "factor": 1.1207748550135577,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ]
+        },
+        "expected": 34.30530312767714,
+        "seen": 38
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2018": {
+      "level": {
+       "factor": 1.127257636262943,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016
+        ]
+       },
+       "expected": 89.50779911755643,
+       "seen": 100
+      },
+      "band": [
+       {
+        "factor": 1.084861978840872,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 38.11269861598768,
+        "seen": 41
+       },
+       {
+        "factor": 1.198553862370058,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 32.1061914065645,
+        "seen": 38
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2020": {
+      "level": {
+       "factor": 1.177538155938525,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018
+        ]
+       },
+       "expected": 107.56865797827999,
+       "seen": 125
+      },
+      "band": [
+       {
+        "factor": 1.1972417574786558,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 49.446562207957996,
+        "seen": 58
+       },
+       {
+        "factor": 1.1560463416485187,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 37.567497536931846,
+        "seen": 43
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2022": {
+      "level": {
+       "factor": 1.1986975229153205,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020
+        ]
+       },
+       "expected": 117.69659823440155,
+       "seen": 139
+      },
+      "band": [
+       {
+        "factor": 1.179624192131965,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 53.56343588472925,
+        "seen": 62
+       },
+       {
+        "factor": 1.181625268552795,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 41.9470890211905,
+        "seen": 49
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2024": {
+      "level": {
+       "factor": 1.228886672004427,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020,
+         2022
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020,
+         2022
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020,
+         2022
+        ]
+       },
+       "expected": 131.6824696625932,
+       "seen": 159
+      },
+      "band": [
+       {
+        "factor": 1.224018822817519,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 61.10398903301514,
+        "seen": 73
+       },
+       {
+        "factor": 1.2108727493130989,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 46.86871936565506,
+        "seen": 56
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     }
+    },
+    "adopted": "level"
+   },
+   "governor": {
+    "years": [
+     2010,
+     2012,
+     2014,
+     2016,
+     2018,
+     2020,
+     2022,
+     2024
+    ],
+    "none": {
+     "races": 186,
+     "mean_log_score": 1.1779508111609214,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 8.113877476471787,
+       "seen": 12
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 3.467959551058519,
+       "seen": 2
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 1.2026103385122369,
+       "seen": 2
+      }
+     },
+     "coverage": {
+      "0.5": 0.5913978494623656,
+      "0.8": 0.8602150537634409,
+      "0.95": 0.967741935483871
+     },
+     "within": {
+      "49-51%": {
+       "expected": 12.784447366042548,
+       "seen": 16
+      },
+      "48-52%": {
+       "expected": 25.47805298335808,
+       "seen": 31
+      },
+      "45-55%": {
+       "expected": 62.144375983576595,
+       "seen": 70
+      }
+     }
+    },
+    "level": {
+     "races": 186,
+     "mean_log_score": 1.1752395400951479,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 8.571920608628627,
+       "seen": 12
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 3.772958939045575,
+       "seen": 2
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 1.3323074800592365,
+       "seen": 2
+      }
+     },
+     "coverage": {
+      "0.5": 0.5913978494623656,
+      "0.8": 0.8602150537634409,
+      "0.95": 0.967741935483871
+     },
+     "within": {
+      "49-51%": {
+       "expected": 13.67718702773344,
+       "seen": 16
+      },
+      "48-52%": {
+       "expected": 26.297098001710143,
+       "seen": 31
+      },
+      "45-55%": {
+       "expected": 62.75287876409268,
+       "seen": 70
+      }
+     },
+     "raises_log_score": false,
+     "count_nearer": true,
+     "safe_seats_supported": true,
+     "improves": false
+    },
+    "band": {
+     "races": 186,
+     "mean_log_score": 1.176787087535971,
+     "within_49_51_by_band": {
+      "|mean - 1/2| from 0.00": {
+       "expected": 8.762458136228082,
+       "seen": 12
+      },
+      "|mean - 1/2| from 0.05": {
+       "expected": 3.754188953302319,
+       "seen": 2
+      },
+      "|mean - 1/2| from 0.10": {
+       "expected": 1.2026103385122369,
+       "seen": 2
+      }
+     },
+     "coverage": {
+      "0.5": 0.5913978494623656,
+      "0.8": 0.8602150537634409,
+      "0.95": 0.967741935483871
+     },
+     "within": {
+      "49-51%": {
+       "expected": 13.719257428042638,
+       "seen": 16
+      },
+      "48-52%": {
+       "expected": 26.325693862635166,
+       "seen": 31
+      },
+      "45-55%": {
+       "expected": 62.745970848822466,
+       "seen": 70
+      }
+     },
+     "raises_log_score": false,
+     "count_nearer": true,
+     "safe_seats_supported": true,
+     "improves": false
+    },
+    "factors_by_year": {
+     "1986": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "1988": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "1990": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "1992": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "1994": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "1996": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "1998": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2000": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2002": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2004": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2006": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2008": {
+      "level": {
+       "factor": 1.0,
+       "of": null,
+       "fitted_on": {},
+       "expected": null,
+       "seen": null
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2010": {
+      "level": {
+       "factor": 0.8861403361364588,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008
+        ],
+        "house": [
+         2008
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008
+        ]
+       },
+       "expected": 39.17897736179576,
+       "seen": 35
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2012": {
+      "level": {
+       "factor": 1.0792927777409171,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010
+        ],
+        "house": [
+         2008,
+         2010
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010
+        ]
+       },
+       "expected": 55.90575976812492,
+       "seen": 60
+      },
+      "band": [
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2014": {
+      "level": {
+       "factor": 1.0999388666333787,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012
+        ],
+        "house": [
+         2008,
+         2010,
+         2012
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012
+        ]
+       },
+       "expected": 68.67386101192467,
+       "seen": 75
+      },
+      "band": [
+       {
+        "factor": 1.1493455575812024,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ],
+         "house": [
+          2008,
+          2010,
+          2012
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ]
+        },
+        "expected": 30.894707096452294,
+        "seen": 35
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2016": {
+      "level": {
+       "factor": 1.119513737713767,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014
+        ]
+       },
+       "expected": 80.16590864163706,
+       "seen": 89
+      },
+      "band": [
+       {
+        "factor": 1.1207748550135577,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ]
+        },
+        "expected": 34.30530312767714,
+        "seen": 38
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2018": {
+      "level": {
+       "factor": 1.127257636262943,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016
+        ]
+       },
+       "expected": 89.50779911755643,
+       "seen": 100
+      },
+      "band": [
+       {
+        "factor": 1.084861978840872,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 38.11269861598768,
+        "seen": 41
+       },
+       {
+        "factor": 1.198553862370058,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 32.1061914065645,
+        "seen": 38
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2020": {
+      "level": {
+       "factor": 1.177538155938525,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018
+        ]
+       },
+       "expected": 107.56865797827999,
+       "seen": 125
+      },
+      "band": [
+       {
+        "factor": 1.1972417574786558,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 49.446562207957996,
+        "seen": 58
+       },
+       {
+        "factor": 1.1560463416485187,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 37.567497536931846,
+        "seen": 43
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2022": {
+      "level": {
+       "factor": 1.1986975229153205,
+       "of": "every level's earlier years pooled",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020
+        ],
+        "house": [
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020
+        ],
+        "senate": [
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020
+        ]
+       },
+       "expected": 117.69659823440155,
+       "seen": 139
+      },
+      "band": [
+       {
+        "factor": 1.179624192131965,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 53.56343588472925,
+        "seen": 62
+       },
+       {
+        "factor": 1.181625268552795,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 41.9470890211905,
+        "seen": 49
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     },
+     "2024": {
+      "level": {
+       "factor": 0.9963448971624289,
+       "of": "the governor's own earlier years",
+       "fitted_on": {
+        "governor": [
+         1986,
+         1988,
+         1990,
+         1992,
+         1994,
+         1996,
+         1998,
+         2000,
+         2002,
+         2004,
+         2006,
+         2008,
+         2010,
+         2012,
+         2014,
+         2016,
+         2018,
+         2020,
+         2022
+        ]
+       },
+       "expected": 30.101660673192708,
+       "seen": 30
+      },
+      "band": [
+       {
+        "factor": 1.224018822817519,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 61.10398903301514,
+        "seen": 73
+       },
+       {
+        "factor": 1.2108727493130989,
+        "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 46.86871936565506,
+        "seen": 56
+       },
+       {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       }
+      ]
+     }
+    },
+    "adopted": null
+   }
+  },
+  "adopted": {
+   "house": "level",
+   "senate": "level",
+   "governor": null
+  }
  }
 }

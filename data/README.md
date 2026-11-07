@@ -42,6 +42,7 @@
   - `calibration`: how k was found: `k`, the earlier `years` scored out of sample, their `races`, and a `note` (k = 1, "not calibrated", where fewer than three such years exist).
   - `s_a` (the national swing's spread about its terms), `c` (the terms c₀, c_mid, c_on) and `ZtZ_inv`.
   - `national_forecast` and `national_sd`: the year's swing and its prediction sd, k·s_a·√(1 + z(Z′Z)⁻¹z′).
+  - `near_tie`: the year's near-tie calibration of p (round 4, REPORT §2.6): its `scheme` (`level`, or null where not adopted for the level, with a `note` why), `window`, `factor`, `of` (whose earlier years it is fitted on), `fitted_on` (`{level: [years]}`), and the `expected` and `seen` near-ties it rests on.
   - `national_from` (the House of 2008-2012 only): `level` (`senate`), the Senate's `years` whose fit gives `c`, `s_a` and `ZtZ_inv`, and a `note`: national terms from the Senate's earlier cycles, since the House has fewer than four of its own.
   - `sd` and `rho`.
   - `mean_is` and `sd_is`: the formulas that rebuild each forecast from the contest's `forecast_inputs`.
@@ -83,10 +84,12 @@
   - `simulations` and `simulations_mark`: the run count the chances step by (inferred), which both errors rest on.
   - `unusable` and `unusable_kind`: why 538's forecast does not come first in this race (a sentence and a short class, such as `p's error 20% or more`); null when it does.
   - `source`: a key into the file's `sources` (`senate_538`, `house_538`, `governor_538`).
+- `forecasts[].calibration` (the model's own, House and Senate, 2010-2024): the near-tie calibration of p (round 4, REPORT §2.6). `factor` multiplies the forecast's density within the `window` of ½ (49-51%), and the forecast is renormalized. So p is multiplied by `multiplier` = factor ÷ (1 + (factor − 1)·q), where q is the forecast's own chance of the window. Also `scheme`, `of`, `fitted_on` (`{level: [years]}`, all before the race's year), `expected` and `seen` (the fitting years' near-ties) and `what`. `share.mean` and `share.sd` are the forecast before calibration.
 - The first forecast with a usable share is the one `p.value` uses; `p.under` names it.
 - `p.of_forecast`: the index in `forecasts` of the forecast p is computed from. `p.computed_by` and `p.commit`: the script and commit that set the block, whether it holds a value, p = 0 (`pipeline/intake/build_congress.py`) or a reason it is not computed (`pipeline/chambers.py`).
 - `p.not_computed`: why p is not computed: a structure the model does not compute yet, a missing input, or too few earlier cycles for the model's own fit with no published forecast reachable. It is `null` when p is computed.
 - `p.reason`: why p is 0 (one candidate).
+- `p.value_uncalibrated`: where p is calibrated to earlier years' near-ties (`p.under` ends so), p before it: what pipeline/core.py gives from the forecast's mean and sd. `p.value`, `p.event` and `p.f_half` are that times the forecast's `calibration.multiplier`, and so is each `p.alongside` entry of the model's own.
 - `p.method` (`exact` or `density`), `p.f_half` and `p.n` are pipeline/core.py's own outputs. `p.sd`: for 538, the implied sd p used.
 - `p.alongside`: p under the other forecasts: the model's own with t4 tails (same sd), the model's own normal where 538's comes first, and 538's other versions. Each has its own `event`, `f_half`, `of_forecast`, its `control`, and for 538 the implied `sd`.
 - `p.control`: p for control of the chamber, which is p × `P_decides_given_tie` (MATH §4.2), with its `event`. The chamber stage is the model's common swing and the other seats, with this seat entered under the forecast p is computed from (for 538, reading (c)); `p.control.under` says so.

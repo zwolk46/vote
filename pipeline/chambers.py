@@ -39,7 +39,9 @@ parties among them; a year with fewer gets no forecast of its own (p not compute
 first). The House of 2008-2012, with one to three earlier cycles of its own, takes the national terms (c, s_a,
 (Z'Z)^-1) from the Senate's fit on the Senate's earlier cycles and fits b_lean, b_inc and s_e on its own
 (06:36, item 2; raw_model). CALIBRATION (06:36, item 3): both sds are then multiplied by k, the root mean square
-of z over the level's earlier years scored out of sample, once CAL_MIN = 3 such years exist (calibration). So the forecast for race i is normal with mean 1/2 + c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G
+of z over the level's earlier years scored out of sample, once CAL_MIN = 3 such years exist (calibration). NEAR-TIE
+CALIBRATION (07:04, round 4): the model's own p is then multiplied by F / Z, F the factor that matches earlier
+years' out-of-sample near-ties (49-51%), where adopted for the level (near_tie_test). So the forecast for race i is normal with mean 1/2 + c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G
 (lag_i - 1/2)) and variance k^2 (sd_nat^2 + s_e^2); a Student-t with 4 degrees of freedom matched on the same sd
 is computed alongside (model section 9.5). The common part sd_nat^2 is what ties races together for
 control of a chamber (MATH 4.2): rho = sd_nat^2 / (sd_nat^2 + s_e^2).
@@ -1192,6 +1194,209 @@ def year_model(rows, level, year):
     return m, fy
 
 
+# NEAR-TIE CALIBRATION (the orchestrator, 2026-11-07 07:04, round 4; D3's rule of #31). The back-test found more
+# races finishing within 49-51% than the forecasts expected (House 113 against 89.3, Senate 30 against 21.6), which
+# k cannot reach: it moves the spread, not the shape. So the forecast's density within NEAR_W of 1/2 is multiplied
+# by a factor F and the forecast renormalized, f_cal(y) = f(y) h(y) / Z with h = F within the window, 1 outside,
+# and Z = 1 + (F - 1) q, q the forecast's own chance of the window. p, the density at 1/2, is then multiplied by
+# F / Z. F is fitted on earlier years only: seen over expected within the window in the level's earlier years'
+# out-of-sample forecasts (year_model), solved exactly (the sum of F q / Z equals the count seen). A level takes its
+# own F when those years expected NEAR_MIN_EXPECTED or more near-ties, else the F of every level's earlier years
+# pooled, else none (D3's rule, the orchestrator 07:37). The second scheme the orchestrator named, a factor by band
+# of |mean - 1/2|, takes the band's own F (by level, else pooled over levels) and none where the band has too few
+# expected, so that no safe seat's p is raised without support at its distance. A scheme is adopted for a level only
+# if, on the years it reaches, it raises the mean log score, brings the count within 49-51% nearer the count seen,
+# and does not move the safe seats' count (|mean - 1/2| of 0.10 or more) further from theirs (near_tie_test,
+# backtest.json "near_tie"); of two that do, the better log score.
+# Reason: about 20% too few near-even finishes means p near even is about 20% low, which understates exactly the
+# races law 1a says the site must show.
+NEAR_W = 0.01
+NEAR_MIN_EXPECTED = 30
+NEAR_BANDS = (0.0, 0.05, 0.10)
+NEAR_NOTE = "calibrated to earlier years' near-ties"
+NEAR_WINDOWS = (0.01, 0.02, 0.05)
+_NEAR = {}
+
+
+def near_q(mean, sd, tails="normal", w=NEAR_W):
+    """The forecast's chance of finishing within w of one half."""
+    return cdf(0.5 + w, mean, sd, tails) - cdf(0.5 - w, mean, sd, tails)
+
+
+def near_band(mean):
+    d = abs(mean - 0.5)
+    return max(i for i, b in enumerate(NEAR_BANDS) if d >= b)
+
+
+def _near_scored(rows):
+    """{(level, year): [(mean, sd, y)]}: every year's out-of-sample forecasts of record (year_model), cached."""
+    if "scored" not in _NEAR:
+        out = {}
+        for L in LEVELS:
+            for T in range(FIT_FROM[L], 2025, 2):
+                test = _test_rows(rows, L, T)
+                m, _ = year_model(rows, L, T)
+                if m is None or not test:
+                    continue
+                out[(L, T)] = [(mu, sd, r["y"]) for r in test for mu, sd, _ in [predict(m, r)]]
+        _NEAR["scored"] = out
+    return _NEAR["scored"]
+
+
+def _solve_factor(qs, seen):
+    """F with sum(F q / (1 + (F - 1) q)) = seen: the factor that makes the window's expected count the seen one."""
+    lo, hi = 1e-3, 50.0
+    for _ in range(200):
+        F = (lo + hi) / 2
+        lo, hi = (F, hi) if sum(F * q / (1 + (F - 1) * q) for q in qs) < seen else (lo, F)
+    return (lo + hi) / 2
+
+
+def _near_counts(rows, year, key):
+    """{group: [window chances, seen, {level: years}]} over every level's scored years before `year`."""
+    g = {}
+    for (L, T), rs in _near_scored(rows).items():
+        if T >= year:
+            continue
+        for mu, sd, y in rs:
+            k = key(L, mu)
+            if k is None:
+                continue
+            e = g.setdefault(k, [[], 0, {}])
+            e[0].append(near_q(mu, sd))
+            e[1] += abs(y - 0.5) < NEAR_W
+            e[2].setdefault(L, set()).add(T)
+    return g
+
+
+def near_tie_factor(rows, level, year, mean, scheme):
+    """The near-tie factor for a forecast of `level` in `year` with this mean, under scheme "level" or "band":
+    {"factor", "of", "fitted_on", "expected", "seen"}; factor 1 with "of" null where the fitting years have too
+    few expected near-ties."""
+    b = near_band(mean) if scheme == "band" else None
+    ck = ("factor", scheme, year, level, b)
+    if ck in _NEAR:
+        return _NEAR[ck]
+    cc_ = ("counts", scheme, year)
+    if cc_ not in _NEAR:
+        if scheme == "level":
+            _NEAR[cc_] = (_near_counts(rows, year, lambda L, mu: L), _near_counts(rows, year, lambda L, mu: "all"))
+        else:
+            _NEAR[cc_] = (_near_counts(rows, year, lambda L, mu: (L, near_band(mu))),
+                          _near_counts(rows, year, lambda L, mu: near_band(mu)))
+    own, pool = _NEAR[cc_]
+    band_txt = ""
+    if scheme == "band":
+        band_txt = f", |mean - 1/2| from {NEAR_BANDS[b]:.2f}" + (f" to {NEAR_BANDS[b + 1]:.2f}"
+                                                                  if b + 1 < len(NEAR_BANDS) else " up")
+    out = {"factor": 1.0, "of": None, "fitted_on": {}, "expected": None, "seen": None}
+    for groups, k, of in ((own, level if scheme == "level" else (level, b), f"the {level}'s own earlier years{band_txt}"),
+                          (pool, "all" if scheme == "level" else b, f"every level's earlier years pooled{band_txt}")):
+        e = groups.get(k)
+        if e and sum(e[0]) >= NEAR_MIN_EXPECTED:
+            out = {"factor": _solve_factor(e[0], e[1]), "of": of,
+                   "fitted_on": {L_: sorted(ys) for L_, ys in sorted(e[2].items())}, "expected": sum(e[0]),
+                   "seen": e[1]}
+            break
+    _NEAR[ck] = out
+    return out
+
+
+def _near_score(rows, level, scheme, years):
+    """The level's out-of-sample forecasts of `years`, scored with the near-tie scheme (or none): mean log score,
+    coverage, and expected against seen within 1, 2 and 5 points of one half."""
+    n, ls, cov = 0, 0.0, [0, 0, 0]
+    win = {w: [0.0, 0] for w in NEAR_WINDOWS}
+    by_band = {b: [0.0, 0] for b in range(len(NEAR_BANDS))}
+    for (L, T), rs in sorted(_near_scored(rows).items()):
+        if L != level or T not in years:
+            continue
+        for mu, sd, y in rs:
+            F = 1.0 if scheme is None else near_tie_factor(rows, L, T, mu, scheme)["factor"]
+            q1 = near_q(mu, sd)
+            Z = 1 + (F - 1) * q1
+            inside = abs(y - 0.5) < NEAR_W
+            n += 1
+            ls += logpdf(y, mu, sd, "normal") + (math.log(F) if inside else 0.0) - math.log(Z)
+            base = Phi((y - mu) / sd)
+            extra = (F - 1) * max(0.0, Phi((min(y, 0.5 + NEAR_W) - mu) / sd) - Phi((0.5 - NEAR_W - mu) / sd))
+            u = (base + extra) / Z
+            for i, c_ in enumerate((0.5, 0.8, 0.95)):
+                cov[i] += abs(u - 0.5) <= c_ / 2
+            for w in NEAR_WINDOWS:
+                win[w][0] += (near_q(mu, sd, w=w) + (F - 1) * q1) / Z
+                win[w][1] += abs(y - 0.5) < w
+            bb = by_band[near_band(mu)]
+            bb[0] += F * q1 / Z
+            bb[1] += inside
+    return {"races": n, "mean_log_score": ls / n if n else None,
+            "within_49_51_by_band": {f"|mean - 1/2| from {NEAR_BANDS[b]:.2f}": {"expected": v[0], "seen": v[1]}
+                                     for b, v in by_band.items()},
+            "coverage": {q: c_ / n for q, c_ in zip(("0.5", "0.8", "0.95"), cov)} if n else None,
+            "within": {f"{50 - round(w * 100)}-{50 + round(w * 100)}%": {"expected": v[0], "seen": v[1]}
+                       for w, v in win.items()}}
+
+
+def near_tie_test(rows):
+    """The orchestrator's test (07:04): both schemes against none, on the years either reaches, by level; and the
+    rule of record, {level: scheme or None}."""
+    if "test" in _NEAR:
+        return _NEAR["test"]
+    out = {"window": f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%", "min_expected": NEAR_MIN_EXPECTED,
+           "bands": list(NEAR_BANDS), "by_level": {}, "adopted": {}}
+    for L in LEVELS:
+        yrs = sorted(T for (L_, T) in _near_scored(rows) if L_ == L)
+        reach = [T for T in yrs if any(near_tie_factor(rows, L, T, mu, sch)["of"]
+                                       for sch in ("level", "band") for mu, _, _ in _near_scored(rows)[(L, T)])]
+        res = {"years": reach, "none": _near_score(rows, L, None, reach)}
+        for sch in ("level", "band"):
+            res[sch] = _near_score(rows, L, sch, reach)
+        res["factors_by_year"] = {str(T): {"level": near_tie_factor(rows, L, T, 0.5, "level"),
+                                           "band": [near_tie_factor(rows, L, T, 0.5 + b + 1e-9, "band")
+                                                    for b in NEAR_BANDS]} for T in yrs}
+        best = None
+        k49 = f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%"
+        if reach:
+            b0 = res["none"]
+            for sch in ("level", "band"):
+                r = res[sch]
+                better_ls = r["mean_log_score"] > b0["mean_log_score"]
+                nearer = abs(r["within"][k49]["expected"] - r["within"][k49]["seen"]) < \
+                    abs(b0["within"][k49]["expected"] - b0["within"][k49]["seen"])
+                # the safe seats (the last band): a factor must not move their count further from the one seen,
+                # so that no safe seat's p is raised without support at its distance (the orchestrator, 07:04)
+                kb = f"|mean - 1/2| from {NEAR_BANDS[-1]:.2f}"
+                safe_ok = abs(r["within_49_51_by_band"][kb]["expected"] - r["within_49_51_by_band"][kb]["seen"]) <= \
+                    abs(b0["within_49_51_by_band"][kb]["expected"] - b0["within_49_51_by_band"][kb]["seen"])
+                r["raises_log_score"], r["count_nearer"], r["safe_seats_supported"] = better_ls, nearer, safe_ok
+                r["improves"] = bool(better_ls and nearer and safe_ok)
+                if r["improves"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
+                    best = sch
+        res["adopted"] = best
+        out["by_level"][L] = res
+        out["adopted"][L] = best
+    _NEAR["test"] = out
+    return out
+
+
+def near_tie(rows, level, year, mean, sd, tails):
+    """The near-tie calibration of record for one forecast: None where the level has none adopted, or its factor
+    is 1; else {"factor", "multiplier" (F / Z, what p is multiplied by), "window", "of", "fitted_on", "what"}."""
+    sch = near_tie_test(rows)["adopted"].get(level)
+    if not sch:
+        return None
+    f = near_tie_factor(rows, level, year, mean, sch)
+    if not f["of"]:
+        return None
+    F = f["factor"]
+    return {"factor": F, "multiplier": F / (1 + (F - 1) * near_q(mean, sd, tails)),
+            "window": f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%", "scheme": sch, "of": f["of"],
+            "fitted_on": f["fitted_on"], "expected": f["expected"], "seen": f["seen"],
+            "what": "seen over expected within the window in the fitting years' out-of-sample forecasts: the "
+                    "forecast's density there is multiplied by factor and the forecast renormalized, so p is "
+                    "multiplied by multiplier = factor / (1 + (factor - 1) q), q the forecast's chance of the window"}
+
+
 def too_few(level, year, fy):
     if len(fy) >= K_MIN:
         return (f"the model's own forecast is fitted on earlier cycles only; its sources hold {len(fy)} {level} cycles "
@@ -1250,10 +1455,20 @@ def compute(year):
                        for t in ("normal", "t4")]
                 for t_, f in zip(("normal", "t4"), own):
                     r_ = p_contest(n, mean, sd, tails=t_)
-                    own_p.append({"under": f"the model's own ({METHOD[level]}), " +
-                                  ("normal" if t_ == "normal" else "t4 with the same sd"),
-                                  "value": r_["p"], "event": r_["event"], "method": r_["method"], "f_half": r_["f_half"],
-                                  "_f": f})
+                    e_ = {"under": f"the model's own ({METHOD[level]}), " +
+                          ("normal" if t_ == "normal" else "t4 with the same sd"),
+                          "value": r_["p"], "event": r_["event"], "method": r_["method"], "f_half": r_["f_half"],
+                          "_f": f}
+                    nt = near_tie(rows, level, year, mean, sd, t_)
+                    if nt:
+                        # the near-tie calibration (round 4): p, its event and f(1/2) times the multiplier
+                        f["calibration"] = nt
+                        e_["value_uncalibrated"] = r_["p"]
+                        e_["value"], e_["event"], e_["f_half"] = (r_["p"] * nt["multiplier"],
+                                                                  r_["event"] * nt["multiplier"],
+                                                                  r_["f_half"] * nt["multiplier"])
+                        e_["under"] += f", {NEAR_NOTE}"
+                    own_p.append(e_)
             fte = [fte_forecast(c, level, year, v, f) for v, f in (fte_versions(c, level, year) or [])]
             tally = None
             if fte:
@@ -1299,6 +1514,8 @@ def compute(year):
                       "of_forecast": head["of_forecast"], "alongside": rest}
             if "sd" in head:
                 c["p"]["sd"] = head["sd"]
+            if "value_uncalibrated" in head:
+                c["p"]["value_uncalibrated"] = head["value_uncalibrated"]
         if any(f.get("by") == "538" for c in d["contests"] for f in c.get("forecasts") or []):
             d["sources"][f"{level}_538"] = FTE["source"][level]
         if m and level in ("house", "senate"):
@@ -1332,6 +1549,17 @@ def compute(year):
                           "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = k s_a sqrt(1 + z (Z'Z)^-1 z'), "
                                    "s_e = k s_e_fitted, z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic "
                                    "president, -1 Republican; k the calibration factor"}
+            nt_rule = near_tie_test(rows)["adopted"].get(level)
+            nt_f = near_tie_factor(rows, level, year, 0.5, nt_rule) if nt_rule == "level" else None
+            d["model"]["near_tie"] = (
+                {"scheme": nt_rule, "window": f"{50 - round(NEAR_W * 100)}-{50 + round(NEAR_W * 100)}%",
+                 "factor": nt_f["factor"], "of": nt_f["of"], "fitted_on": nt_f["fitted_on"],
+                 "expected": nt_f["expected"], "seen": nt_f["seen"],
+                 "note": "each forecast's own calibration gives its multiplier of p (REPORT 2.6)" if nt_f["of"] else
+                         "no factor: the fitting years expected fewer than "
+                         f"{NEAR_MIN_EXPECTED} near-ties"} if nt_f else
+                {"scheme": nt_rule, "note": "not adopted for this level: on the years it reaches it does not both "
+                                            "raise the log score and bring the near-even count nearer (REPORT 2.6)"})
             if m.get("national_from"):
                 d["model"]["national_from"] = dict(m["national_from"], note=(
                     "national terms from the Senate's earlier cycles: c, s_a and (Z'Z)^-1 are the Senate's fit on "
@@ -1573,10 +1801,19 @@ def history():
                 N = sum(tp["votes"])
                 margin = abs(tp["votes"][0] - tp["votes"][1])
                 n_c += 1
+                cal = f.get("calibration")
                 for k in ks:
                     h = k / (2 * N)
                     mu, sd = f["share"]["mean"], f["share"]["sd"]
-                    exp[k] += Phi((0.5 + h - mu) / sd) - Phi((0.5 - h - mu) / sd)
+                    e_ = Phi((0.5 + h - mu) / sd) - Phi((0.5 - h - mu) / sd)
+                    if cal:
+                        # under the near-tie calibration (round 4): the density within NEAR_W of 1/2 times the
+                        # factor, renormalized
+                        F = cal["factor"]
+                        hw = min(h, NEAR_W)
+                        e_ = (e_ + (F - 1) * (Phi((0.5 + hw - mu) / sd) - Phi((0.5 - hw - mu) / sd))) / \
+                            (1 + (F - 1) * near_q(mu, sd))
+                    exp[k] += e_
                     if margin <= k:
                         seen[k] += 1
                         if k <= 1000:
@@ -1667,6 +1904,16 @@ def main(argv):
                                         "folds": bt[L]["folds"], "by_cycles": by_cycles(bt, L),
                                         "pooled_2006_2024": pooled(bt, L, YEARS),
                                         "pooled_all": pooled(bt, L)} for L in LEVELS}
+        nt = near_tie_test(rows)
+        out["near_tie"] = nt
+        print("\nNear-tie calibration (round 4): adopted", nt["adopted"])
+        for L, v in nt["by_level"].items():
+            for sch in ("none", "level", "band"):
+                x = v[sch]
+                if x["races"]:
+                    print(f"  {L} {v['years'][0]}-{v['years'][-1]} {sch:5s}: {x['races']} races, log score "
+                          f"{x['mean_log_score']:.4f}, coverage " + "/".join(f"{c_:.3f}" for c_ in x["coverage"].values())
+                          + "; " + ", ".join(f"{k} {w['expected']:.1f} vs {w['seen']}" for k, w in x["within"].items()))
         os.makedirs(os.path.join(REPO, "data", "congress"), exist_ok=True)
         cc.write_json(os.path.join(REPO, "data", "congress", "backtest.json"), out)
 
