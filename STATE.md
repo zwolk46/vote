@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 07:21: D4 asked three calls. Decided: state wages via FRED (marked, origin BLS; five states checked against BLS when its 25-a-day limit resets); SPAE 2024 gated, look for an ungated copy first, else it waits for the maker with any other sign-up asks; statutes via Justia or Cornell LII where a state's code refuses, marked via compilation with the code year and the official citation as origin.
+
 - 2026-11-07 07:19: #35 merged (D2 round 4: near-tie factor F, D3's rule; adopted for House and Senate (log score up, 49-51 nearer seen, safe seats not worse), not governors; 2,246 contests; House sum 9.903e-3 to 1.0158e-2; 2024 House +26%, Senate +21%; 2010 -11% by its pre-2010 factor 0.886, kept). D2's last round asked: mean shrinkage toward 1/2 (results land ~1.5 pt nearer 1/2 in 5-20 pt races) and t4 tails first (a 2024 seat at 0.266: normal 8.7e-11 vs t4 4.3e-8), scored out of sample incl. safe-seat bands. Then M2's second pass.
 
 - 2026-11-07 07:10: D4 started (cmsg_01FHkmcV6WaeZh9r5PfgnMbuGA4pBoUJj1By51aSAkx3E9). Workers: D2, D3, D4, + T1; X1 waits on two picks.
