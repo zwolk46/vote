@@ -1,0 +1,368 @@
+{
+ "state": "VT",
+ "name": "Vermont",
+ "status": "read",
+ "code": {
+  "name": "Vermont Statutes Annotated, Title 17 (Elections)",
+  "edition": "Vermont Laws, the General Assembly's statutes site, 2025-2026 session (it shows amendments effective as late as April 30, 2026)",
+  "site": "https://legislature.vermont.gov/statutes/",
+  "reached": true
+ },
+ "sections": {
+  "17-051": {
+   "citation": "17 V.S.A. chapter 51 (Conduct of Elections): section 2592 (canvass; tie vote), subchapter 9 sections 2601 to 2602k (recounts; recount ties; costs)",
+   "url": "https://legislature.vermont.gov/statutes/fullchapter/17/051",
+   "read_at": "state"
+  },
+  "17-049": {
+   "citation": "17 V.S.A. chapter 49 (Nominations): section 2369 (primary: determining winner; tie votes)",
+   "url": "https://legislature.vermont.gov/statutes/fullchapter/17/049",
+   "read_at": "state"
+  },
+  "17-055": {
+   "citation": "17 V.S.A. chapter 55 (Local Elections): sections 2682b (tie votes for local office), 2683 (recount; candidates), 2688 (recount on question submitted)",
+   "url": "https://legislature.vermont.gov/statutes/fullchapter/17/055",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative"
+   ],
+   "applies_to": "a tie vote in a general or special election for a State or national office, county office, State Senator or State Representative (the canvassing committees of section 2592(a) to (d))",
+   "resolution": "recount-then-new-election",
+   "steps": "(1) the canvassing committee must at once petition the Superior Court for a recount (2592(l)(1)); (2) either tied candidate may instead notify the court that he or she is withdrawing, and the court then certifies the other candidate as winner (2592(l)(2)); (3) if the recount of a general election results in a tie, the court orders a runoff election within three weeks of the recount, on a date the court sets, with only the tied candidates on the ballot (2602k(a)(3), (b)); the statute's own word is 'runoff election' but it is a fresh election between the tied candidates, not a second round after a first with a majority rule",
+   "who": "the canvassing committee petitions; the Superior Court (Civil Division, Washington County, for State and congressional offices) recounts and orders the runoff",
+   "sources": [
+    {
+     "section": "17-051",
+     "quote": "In the case of a tie vote, the canvassing committee shall forthwith petition the appropriate Superior Court for a recount pursuant to section 2602 of this title."
+    },
+    {
+     "section": "17-051",
+     "quote": "either of the candidates that is involved in a tie may notify the appropriate Superior Court that he or she is withdrawing, in which case the court shall certify the other candidate as the winner."
+    },
+    {
+     "section": "17-051",
+     "quote": "If a recount of a general election results in a tie, the provisions of this section shall apply, and the court shall order a runoff election to be held, within three weeks of the recount, on a date set by the court."
+    }
+   ],
+   "mark": "measured",
+   "note": "Section 2592(l) says 'a tie vote' without limiting the office; the canvassing committees it works through are listed in 2592(a) to (d) for State and national offices, county offices, State Senator and State Representative, so those kinds are explicit. 'Federal' is read from 'national offices' in 2592(a) [inferred]."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "the presidential election, whose electors are voted for through the party's presidential nominees (17 V.S.A. 2473)",
+   "resolution": "recount-then-new-election",
+   "steps": "no rule names the presidential vote; the general tie sections (2592(l), 2602k(a)(3)) speak of 'a tie vote' and 'a general election' and, read so, send a presidential tie to a recount and then a runoff election between the tied candidates",
+   "who": "the canvassing committee for State and national offices; the Superior Court",
+   "sources": [
+    {
+     "section": "17-051",
+     "quote": "In the case of a tie vote, the canvassing committee shall forthwith petition the appropriate Superior Court for a recount pursuant to section 2602 of this title."
+    }
+   ],
+   "mark": "inferred",
+   "note": "Inferred: chapter 51 mentions the presidential election only to say where a recount petition is filed (2602(b)(2)(A), 'for a presidential election') and in 2473 (the electors are voted for through the presidential ticket); no tie rule specific to electors was found. I did not read the other chapters of Title 17 for one."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "a tie vote for any local (municipal) office",
+   "resolution": "runoff",
+   "steps": "the legislative body, or in its stead the municipal clerk, within seven days warns a runoff election to be held not less than 15 nor more than 22 days after the warning; only the tied candidates are on the ballot; if one of the tied candidates withdraws within five days after the election, the town clerk certifies the other as winner and there is no runoff",
+   "who": "the legislative body or the municipal clerk",
+   "sources": [
+    {
+     "section": "17-055",
+     "quote": "If there is a tie vote for any office, the legislative body or, in its stead, the municipal clerk shall within seven days warn a runoff election to be held not less than 15 days nor more than 22 days after the warning. The only candidates in the runoff election shall be those who were tied in the original election."
+    }
+   ],
+   "mark": "measured",
+   "note": "State general law (chapter 55, local elections). Under 2631(a) a municipal charter that provides different procedures prevails unless the law says otherwise; charters were not read."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie in a major party's primary between candidates of the same party for the same office, whether found at the count (no recount requested in time) or after a recount",
+   "resolution": "party-committee",
+   "steps": "the choice among those tied is made, on five days' notice and not later than 10 days after the primary, by a meeting of the party's committee, which nominates one of the tied candidates; the committee is the State committee for a State or congressional office, the senatorial district committee for State Senate, the county committee for a county office, the representative district committee for State Representative; the chair certifies the nomination to the Secretary of State within 48 hours",
+   "who": "the party committee named for the office",
+   "sources": [
+    {
+     "section": "17-049",
+     "quote": "If, after the period for requesting a recount under section 2602 of this title has expired, no candidate has requested a recount and two or more candidates of the same party are tied for the same office, or if the results of any recount result in a tie, the choice among those tied shall be determined upon five days' notice and not later than 10 days following the primary election by the committee of that party"
+    },
+    {
+     "section": "17-051",
+     "quote": "If a recount of a primary election results in a tie, the provisions of subsection 2369(b) of this title shall apply."
+    }
+   ],
+   "mark": "measured",
+   "note": "A primary tie is settled by the party, not by lot or a new election."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a public question whose recount results in a tie",
+   "resolution": "other",
+   "steps": "no runoff is held and the question is certified not to have passed",
+   "who": "the court (section 2602k is in the recount subchapter)",
+   "sources": [
+    {
+     "section": "17-051",
+     "quote": "If a recount of a public question results in a tie, a runoff election shall not be held, and the question shall be certified not to have passed."
+    }
+   ],
+   "mark": "measured",
+   "note": "Stated for a recount that results in a tie. Who may demand a recount of a statewide public question was not found in chapter 51 (2601 names offices only); a local question recount is 2688 in chapter 55."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative"
+   ],
+   "type": "automatic",
+   "election": "general or special",
+   "applies_to": "a tie vote in a general or special election canvassed by the committees of 2592(a) to (d)",
+   "threshold": {
+    "votes": 0,
+    "inclusive": true,
+    "combine": null,
+    "in_words": "on a tie vote the canvassing committee itself must petition the Superior Court for a recount; no candidate's request is needed"
+   },
+   "who_may_request": [],
+   "cost_bearer": "the State (the Secretary of State bears the costs of recounts conducted under 17 V.S.A. chapter 51 subchapter 9, and reimburses the Court Administrator's Office); no deposit or waiver appears in the sections read",
+   "sources": [
+    {
+     "section": "17-051",
+     "quote": "In the case of a tie vote, the canvassing committee shall forthwith petition the appropriate Superior Court for a recount pursuant to section 2602 of this title."
+    },
+    {
+     "section": "17-051",
+     "quote": "The Secretary of State shall bear the costs of recounts conducted under this subchapter and shall reimburse the Court Administrator's Office."
+    }
+   ],
+   "mark": "measured",
+   "note": "A recount that happens only on a tie, in a general or special election. In a primary a recount is by a candidate's request (2369(b)(1) speaks of 'no candidate has requested a recount'); a local tie goes straight to a runoff (17 V.S.A. 2682b). After a recount that still ties, see ties."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "federal office and statewide office",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the total votes cast for all the candidates for an office, divided by the number of persons to be elected",
+    "inclusive": true,
+    "combine": null,
+    "conditions": "the petition must be filed within seven calendar days after the election; the Civil Division of the Superior Court, Washington County, takes petitions for State, congressional and presidential contests",
+    "in_words": "a margin of two percent or less of all votes cast for all candidates for the office, divided by the number of seats: the losing candidate has the right to a recount"
+   },
+   "who_may_request": [
+    "the losing candidate, by a petition filed with the Superior Court within seven calendar days after the election"
+   ],
+   "cost_bearer": "the State (the Secretary of State bears the costs of recounts conducted under 17 V.S.A. chapter 51 subchapter 9, and reimburses the Court Administrator's Office); no deposit or waiver appears in the sections read",
+   "sources": [
+    {
+     "section": "17-051",
+     "quote": "In an election for federal office, statewide office, county office, or State Senator, if the difference between the number of votes cast for a winning candidate and the number of votes cast for a losing candidate is two percent or less of the total votes cast for all the candidates for an office, divided by the number of persons to be elected, that losing candidate shall have the right to have the votes for that office recounted."
+    },
+    {
+     "section": "17-051",
+     "quote": "A petition for a recount shall be filed within seven calendar days after the election."
+    },
+    {
+     "section": "17-051",
+     "quote": "The Secretary of State shall bear the costs of recounts conducted under this subchapter and shall reimburse the Court Administrator's Office."
+    }
+   ],
+   "mark": "measured",
+   "note": "Section 2601(a)(1) does not separate primary from general elections, and 2602(c)(1)(A)(i) sets a date for 'a primary recount', so the same threshold is read as applying to primaries as well [inferred]. 'Federal office' is the statute's word; whether presidential electors count is not stated."
+  },
+  {
+   "kinds": [
+    "state-legislative"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "State Senator",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the total votes cast for all the candidates for an office, divided by the number of persons to be elected",
+    "inclusive": true,
+    "combine": null,
+    "conditions": "petition within seven calendar days after the election",
+    "in_words": "a margin of two percent or less of all votes cast for all candidates for the office, divided by the number of seats: the losing candidate has the right to a recount"
+   },
+   "who_may_request": [
+    "the losing candidate, by a petition filed with the Superior Court within seven calendar days after the election"
+   ],
+   "cost_bearer": "the State (the Secretary of State bears the costs of recounts conducted under 17 V.S.A. chapter 51 subchapter 9, and reimburses the Court Administrator's Office); no deposit or waiver appears in the sections read",
+   "sources": [
+    {
+     "section": "17-051",
+     "quote": "In an election for federal office, statewide office, county office, or State Senator, if the difference between the number of votes cast for a winning candidate and the number of votes cast for a losing candidate is two percent or less of the total votes cast for all the candidates for an office, divided by the number of persons to be elected, that losing candidate shall have the right to have the votes for that office recounted."
+    },
+    {
+     "section": "17-051",
+     "quote": "A petition for a recount shall be filed within seven calendar days after the election."
+    }
+   ],
+   "mark": "measured",
+   "note": "State Senator is named in the same sentence as federal, statewide and county office."
+  },
+  {
+   "kinds": [
+    "state-legislative"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "State Representative",
+   "threshold": {
+    "percent": 5,
+    "percent_of": "the total votes cast for all the candidates for an office, divided by the number of persons to be elected",
+    "inclusive": true,
+    "combine": null,
+    "conditions": "petition within seven calendar days after the election",
+    "in_words": "a margin of five percent or less of all votes cast for all candidates for the office, divided by the number of seats: the losing candidate has the right to a recount"
+   },
+   "who_may_request": [
+    "the losing candidate, by a petition filed with the Superior Court within seven calendar days after the election"
+   ],
+   "cost_bearer": "the State (the Secretary of State bears the costs of recounts conducted under 17 V.S.A. chapter 51 subchapter 9, and reimburses the Court Administrator's Office); no deposit or waiver appears in the sections read",
+   "sources": [
+    {
+     "section": "17-051",
+     "quote": "In an election for State Representative, if the difference between the number of votes cast for a winning candidate and the number of votes cast for a losing candidate is five percent or less of the total votes cast for all the candidates for an office, divided by the number of persons to be elected, that losing candidate shall have the right to have the votes for that office recounted."
+    },
+    {
+     "section": "17-051",
+     "quote": "A petition for a recount shall be filed within seven calendar days after the election."
+    }
+   ],
+   "mark": "measured",
+   "note": "The widest margin of any office in the section."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "county office",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the total votes cast for all the candidates for an office, divided by the number of persons to be elected",
+    "inclusive": true,
+    "combine": null,
+    "conditions": "petition within seven calendar days after the election, to the Superior Court of a county in which votes were cast",
+    "in_words": "a margin of two percent or less of all votes cast for all candidates for the office, divided by the number of seats: the losing candidate has the right to a recount"
+   },
+   "who_may_request": [
+    "the losing candidate, by a petition filed with the Superior Court within seven calendar days after the election"
+   ],
+   "cost_bearer": "the State (the Secretary of State bears the costs of recounts conducted under 17 V.S.A. chapter 51 subchapter 9, and reimburses the Court Administrator's Office); no deposit or waiver appears in the sections read",
+   "sources": [
+    {
+     "section": "17-051",
+     "quote": "In an election for federal office, statewide office, county office, or State Senator, if the difference between the number of votes cast for a winning candidate and the number of votes cast for a losing candidate is two percent or less of the total votes cast for all the candidates for an office, divided by the number of persons to be elected, that losing candidate shall have the right to have the votes for that office recounted."
+    },
+    {
+     "section": "17-051",
+     "quote": "A petition for a recount shall be filed within seven calendar days after the election."
+    }
+   ],
+   "mark": "measured",
+   "note": "County office is named in the same sentence as federal and statewide office; a county is read as 'local' in the project's kinds."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "a local (municipal) election",
+   "threshold": {
+    "percent": 5,
+    "percent_of": "the total votes cast for all the candidates for an office, divided by the number of persons to be elected",
+    "inclusive": true,
+    "combine": null,
+    "conditions": "the request must be filed in writing with the municipal clerk within 10 days after the election",
+    "in_words": "a margin of five percent or less of all votes cast for all candidates for the office, divided by the number of seats: the losing candidate has the right to a recount"
+   },
+   "who_may_request": [
+    "a candidate for local office, in writing to the municipal clerk within 10 days after the election"
+   ],
+   "cost_bearer": "not stated in the sections read (2683 to 2688 of chapter 55 do not say who pays a local recount; 2687 taxes costs of an appeal 'as in other civil actions')",
+   "sources": [
+    {
+     "section": "17-055",
+     "quote": "A candidate for local office may request a recount by filing a request in writing with the municipal clerk within 10 days after the election."
+    },
+    {
+     "section": "17-055",
+     "quote": "If the difference between the number of votes cast for a winning candidate and the number of votes cast for a losing candidate is five percent or less of the total votes cast for all the candidates for an office, divided by the number of persons to be elected, that losing candidate shall have the right to have the votes for that office recounted."
+    },
+    {
+     "section": "17-051",
+     "quote": "In the case of a recount for a local election, the threshold and procedures for conducting the recount shall be as provided in chapter 55, subchapter 3 of this title."
+    }
+   ],
+   "mark": "measured",
+   "note": "State general law; municipal charters prevail where they provide other procedures (2631) and were not read."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "a question submitted to the vote of a municipality by Australian ballot",
+   "threshold": {
+    "percent": 5,
+    "percent_of": "the total votes cast on the question",
+    "inclusive": false,
+    "combine": null,
+    "conditions": "the request must be filed with the municipal clerk within 10 days after the vote",
+    "in_words": "the margin by which the question passed or failed is less than five percent of the total votes cast on the question"
+   },
+   "who_may_request": [
+    "a registered voter, or for a union school district at least one registered voter from each member of the union district"
+   ],
+   "cost_bearer": "not stated in the sections read",
+   "sources": [
+    {
+     "section": "17-055",
+     "quote": "A registered voter or, in the case of a union school district, at least one registered voter from each member of the union district may demand a recount of ballots on any question submitted to the vote of the municipality using the Australian ballot system, if the margin by which the question passed or failed is less than five percent of the total votes cast on the question."
+    }
+   ],
+   "mark": "measured",
+   "note": "Local questions only. A recount of a statewide public question is not provided for in the sections read (2601 names offices)."
+  }
+ ],
+ "unread": [
+  {
+   "what": "who pays a local recount (chapter 55) and a statewide public question recount",
+   "reason": "not found in sections 2683 to 2688 and subchapter 9 of chapter 51; not a refusal"
+  }
+ ],
+ "notes": [
+  "Read in full as printed: 17 V.S.A. chapter 51 (conduct of elections, including subchapter 9 recounts), chapter 49 (nominations, primary section 2369) and chapter 55 (local elections). The three chapter pages are the General Assembly's own full-text pages.",
+  "Vermont's rule is a recount by right to a losing candidate at 2 percent (5 for State Representative and local office); the State pays the recounts under chapter 51 subchapter 9; a tie leads to a recount and then a runoff election, except in a primary (party committee) and for a public question (certified not passed)."
+ ]
+}

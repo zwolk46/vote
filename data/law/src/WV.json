@@ -1,0 +1,171 @@
+{
+ "state": "WV",
+ "name": "West Virginia",
+ "status": "read",
+ "code": {
+  "name": "West Virginia Code, Chapter 3 (Elections), Articles 5 and 6",
+  "edition": "the West Virginia Legislature's code site (code.wvlegislature.gov), pages dated Saturday, November 7, 2026, which print the current text of each section",
+  "site": "https://code.wvlegislature.gov/",
+  "reached": true
+ },
+ "sections": {
+  "3-6-12": {
+   "citation": "W. Va. Code 3-6-12 (Tie vote procedures)",
+   "url": "https://code.wvlegislature.gov/3-6-12/",
+   "read_at": "state"
+  },
+  "3-6-9": {
+   "citation": "W. Va. Code 3-6-9 (Canvass of returns; declaration of results; recounts; recordkeeping)",
+   "url": "https://code.wvlegislature.gov/3-6-9/",
+   "read_at": "state"
+  },
+  "3-5-17": {
+   "citation": "W. Va. Code 3-5-17 (primary: canvassing and certifying returns; recount procedures)",
+   "url": "https://code.wvlegislature.gov/3-5-17/",
+   "read_at": "state"
+  },
+  "3-6-1": {
+   "citation": "W. Va. Code 3-6-1 (provisions of article 6 govern general elections; applicability to primary and special elections)",
+   "url": "https://code.wvlegislature.gov/3-6-1/",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "applies_to": "any election in which two or more persons voted for the same office receive the highest and equal number of votes, so that the election is not decided by the returns",
+   "resolution": "other",
+   "steps": "the Governor or the county board of canvassers, whichever is to declare the result, decides the tie 'by the election of one of such persons'; if the county board has not decided the tie within thirty days after finding it, any one of the tied persons may apply to the Governor, who breaks the tie by selecting one of them, certifies his choice to the board of canvassers and declares that person duly elected. No lot, no recount first and no new election is mentioned: the choice is the declaring body's (or the Governor's) own selection",
+   "who": "the board of canvassers of the county (the county commissioners), or the Governor where he is to declare the result or on a tied person's application after thirty days",
+   "sources": [
+    {
+     "section": "3-6-12",
+     "quote": "Whenever the Governor or the board of canvassers of a county is to declare the result of an election, and it appears to him or them that two or more of the persons voted for have received the highest and equal number of votes for the same office, so that the election to the office is not decided by the returns, he, or they, being required to declare the result, shall decide the tie by the election of one of such persons"
+    },
+    {
+     "section": "3-6-12",
+     "quote": "upon application to the Governor by any one of such persons so voted for, he shall break the tie by the selection of one of such persons and shall certify his choice to such board of canvassers and declare such person duly elected for the office for which such person was a candidate."
+    }
+   ],
+   "mark": "measured",
+   "note": "The section says 'an election' and 'the same office' without limiting the office, so all offices are read to be covered; which offices the Governor himself declares (rather than the county boards) is not stated in this section and was not traced through other sections [inferred]. The selection is by a person or board, not by a chance device, so it is recorded as 'other', not 'lot'. Municipal charters were not read."
+  },
+  {
+   "kinds": [
+    "primary",
+    "presidential-electors"
+   ],
+   "applies_to": "a primary election tie, and a tie in the presidential vote",
+   "resolution": "other",
+   "steps": "the same section is read to apply: article 6 governs primary and special elections 'where applicable and not inconsistent with other positive provisions of law', and 3-5-17 makes the article 6 recount sections operative in primaries; no tie provision specific to a primary or to presidential electors was found in the sections read",
+   "who": "the board of canvassers or the Governor, as above",
+   "sources": [
+    {
+     "section": "3-6-1",
+     "quote": "Where applicable and not inconsistent with other positive provisions of law, the provisions of this article shall govern the conduct of and procedures in primary and special elections."
+    }
+   ],
+   "mark": "inferred",
+   "note": "Inferred. Only the applicability section is quoted because the tie section does not mention primaries or electors. I did not read the rest of article 5 (primaries) or the presidential elector sections for a tie rule, only the article 5 index and 3-5-15 and 3-5-17."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a ballot measure with equal votes for and against",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie on a measure",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "An absence, marked inferred. I read 3-6-9, 3-6-10, 3-6-12 (all of article 6's canvass and tie sections that the article 6 index lists after 3-6-5) and found tie language only in 3-6-12, which speaks of persons voted for and an office. Chapter 3 article 8 on measures and article 6's other sections were not read."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "a candidate on the ballot in entirely one county (the county board of canvassers)",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "the demand must be made within the 48-hour period after the board's public declaration of the results (Saturdays, Sundays and legal holidays excluded); the candidate furnishes a bond of reasonable amount, never more than $300",
+    "in_words": "no margin is required: a candidate may demand that the board open any of the sealed packages of ballots and recount them, within 48 hours of the declaration"
+   },
+   "who_may_request": [
+    "a candidate on the ballot in entirely one county, by demand to the county board of canvassers within the 48-hour period"
+   ],
+   "cost_bearer": "the candidate who demanded it, if the recount does not change the result of the election (secured by a bond of up to $300); who pays if the result does change is not stated in the section",
+   "sources": [
+    {
+     "section": "3-6-9",
+     "quote": "Within the 48-hour period, a candidate on the ballot in entirely one county may demand the board to open and examine any of the sealed packages of ballots and recount them."
+    },
+    {
+     "section": "3-6-9",
+     "quote": "If the result of the election is not changed by the recount, the costs and expenses of the recount shall be paid by the party at whose instance the recount was made."
+    },
+    {
+     "section": "3-6-9",
+     "quote": "Every candidate who demands a recount shall be required to furnish bond in a reasonable amount with good sufficient surety to guarantee payment of the costs and the expenses of the recount in the event the result of the election is not changed by the recount; but the amount of the bond shall in no case exceed $300."
+    },
+    {
+     "section": "3-5-17",
+     "quote": "The provisions of article six of this chapter, relating to the recount of votes in general elections, shall, to the extent applicable, be operative in primary and other elections conducted under provisions of this article."
+    }
+   ],
+   "mark": "measured",
+   "note": "The text says 'a candidate' and 'the election' without limit as to office; it reads as covering all offices run in a county or counties [inferred as to kind labels]. There is no automatic recount in 3-6-9 and no margin condition: a recount is a candidate's demand. Who may demand a recount of a ballot measure was not found."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "a candidate on the ballot in more than one county (each county board)",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "within the 48-hour period after the final county's board has made its public declaration; the candidate may demand a recount in any county in which he or she is on the ballot until the final county has certified; same bond and cost rule",
+    "in_words": "no margin is required: a candidate on the ballot in several counties may demand a recount in the 48 hours after the last county declares"
+   },
+   "who_may_request": [
+    "a candidate on the ballot in more than one county, by demand to each county board in which the candidate is on the ballot"
+   ],
+   "cost_bearer": "the candidate who demanded it, if the recount does not change the result (as above); not stated otherwise",
+   "sources": [
+    {
+     "section": "3-6-9",
+     "quote": "If a candidate is on the ballot in more than one county, then within the 48-hour period after the final county's board has made a public declaration of the results, such candidate may demand the board to open and examine any of the sealed packages of ballots and recount them."
+    }
+   ],
+   "mark": "measured",
+   "note": "Covers offices on the ballot in several counties (statewide, federal, multi-county districts)."
+  }
+ ],
+ "unread": [
+  {
+   "what": "a statewide or other state-level recount route, and a recount of a ballot measure",
+   "reason": "not found in article 6 sections 9, 10, 12 or article 5 section 17; not a refusal of the site. Only the county boards' recount (3-6-9) was found, and it is a candidate's demand."
+  }
+ ],
+ "notes": [
+  "Read in full: W. Va. Code 3-6-9, 3-6-10, 3-6-12, 3-6-1, 3-5-17, and the article 5 and 6 section lists. 3-5-15 (primary results) was searched for a tie rule and holds none.",
+  "West Virginia's tie rule is the only one among my states with neither a lot nor a new election: the canvassing board, or the Governor after thirty days on a tied person's application, simply selects one of the tied persons. Its recount is a candidate's demand with no margin condition, at the candidate's cost unless the result changes."
+ ]
+}

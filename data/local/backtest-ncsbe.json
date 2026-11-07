@@ -1,0 +1,322 @@
+{
+ "about": "the like-race route (D3-v1.1) on North Carolina's State Board contests: each year forecast from North Carolina's earlier years only (from 2014, when the files begin to give seats); for each contest, the chance its class gave of finishing in the class's window around 1/2, against whether it did. Built by pipeline/local_ncsbe.py build.",
+ "by_year": {
+  "2014": {},
+  "2015": {},
+  "2016": {
+   "all": {
+    "forecast": 4,
+    "expected_in_window": 0.5,
+    "seen_in_window": 1
+   },
+   "boundary": {
+    "forecast": 4,
+    "expected_in_window": 0.5,
+    "seen_in_window": 1
+   },
+   "local": {
+    "forecast": 4,
+    "expected_in_window": 0.5,
+    "seen_in_window": 1
+   }
+  },
+  "2017": {
+   "all": {
+    "forecast": 208,
+    "expected_in_window": 29.4,
+    "seen_in_window": 28
+   },
+   "boundary": {
+    "forecast": 205,
+    "expected_in_window": 29.1,
+    "seen_in_window": 28
+   },
+   "class": {
+    "forecast": 3,
+    "expected_in_window": 0.2,
+    "seen_in_window": 0
+   },
+   "local": {
+    "forecast": 208,
+    "expected_in_window": 29.4,
+    "seen_in_window": 28
+   }
+  },
+  "2018": {
+   "all": {
+    "forecast": 87,
+    "expected_in_window": 7.4,
+    "seen_in_window": 15
+   },
+   "boundary": {
+    "forecast": 9,
+    "expected_in_window": 1.0,
+    "seen_in_window": 1
+   },
+   "class": {
+    "forecast": 78,
+    "expected_in_window": 6.4,
+    "seen_in_window": 14
+   },
+   "local": {
+    "forecast": 87,
+    "expected_in_window": 7.4,
+    "seen_in_window": 15
+   }
+  },
+  "2019": {
+   "all": {
+    "forecast": 226,
+    "expected_in_window": 32.9,
+    "seen_in_window": 41
+   },
+   "boundary": {
+    "forecast": 217,
+    "expected_in_window": 32.2,
+    "seen_in_window": 40
+   },
+   "class": {
+    "forecast": 9,
+    "expected_in_window": 0.7,
+    "seen_in_window": 1
+   },
+   "local": {
+    "forecast": 224,
+    "expected_in_window": 32.7,
+    "seen_in_window": 41
+   },
+   "primary": {
+    "forecast": 2,
+    "expected_in_window": 0.2,
+    "seen_in_window": 0
+   }
+  },
+  "2020": {
+   "all": {
+    "forecast": 201,
+    "expected_in_window": 19.5,
+    "seen_in_window": 16
+   },
+   "boundary": {
+    "forecast": 13,
+    "expected_in_window": 2.0,
+    "seen_in_window": 3
+   },
+   "class": {
+    "forecast": 188,
+    "expected_in_window": 17.5,
+    "seen_in_window": 13
+   },
+   "local": {
+    "forecast": 85,
+    "expected_in_window": 7.2,
+    "seen_in_window": 6
+   },
+   "primary": {
+    "forecast": 116,
+    "expected_in_window": 12.3,
+    "seen_in_window": 10
+   }
+  },
+  "2021": {
+   "all": {
+    "forecast": 357,
+    "expected_in_window": 49.4,
+    "seen_in_window": 41
+   },
+   "boundary": {
+    "forecast": 233,
+    "expected_in_window": 39.8,
+    "seen_in_window": 36
+   },
+   "class": {
+    "forecast": 124,
+    "expected_in_window": 9.6,
+    "seen_in_window": 5
+   },
+   "local": {
+    "forecast": 357,
+    "expected_in_window": 49.4,
+    "seen_in_window": 41
+   }
+  },
+  "2022": {
+   "all": {
+    "forecast": 308,
+    "expected_in_window": 24.4,
+    "seen_in_window": 24
+   },
+   "boundary": {
+    "forecast": 22,
+    "expected_in_window": 3.1,
+    "seen_in_window": 2
+   },
+   "class": {
+    "forecast": 286,
+    "expected_in_window": 21.3,
+    "seen_in_window": 22
+   },
+   "local": {
+    "forecast": 196,
+    "expected_in_window": 16.8,
+    "seen_in_window": 13
+   },
+   "primary": {
+    "forecast": 112,
+    "expected_in_window": 7.6,
+    "seen_in_window": 11
+   }
+  },
+  "2023": {
+   "all": {
+    "forecast": 400,
+    "expected_in_window": 51.2,
+    "seen_in_window": 54
+   },
+   "boundary": {
+    "forecast": 241,
+    "expected_in_window": 40.0,
+    "seen_in_window": 44
+   },
+   "class": {
+    "forecast": 159,
+    "expected_in_window": 11.3,
+    "seen_in_window": 10
+   },
+   "local": {
+    "forecast": 398,
+    "expected_in_window": 51.1,
+    "seen_in_window": 54
+   },
+   "primary": {
+    "forecast": 2,
+    "expected_in_window": 0.1,
+    "seen_in_window": 0
+   }
+  },
+  "2024": {
+   "all": {
+    "forecast": 261,
+    "expected_in_window": 21.1,
+    "seen_in_window": 20
+   },
+   "boundary": {
+    "forecast": 38,
+    "expected_in_window": 6.0,
+    "seen_in_window": 3
+   },
+   "class": {
+    "forecast": 223,
+    "expected_in_window": 15.1,
+    "seen_in_window": 17
+   },
+   "local": {
+    "forecast": 162,
+    "expected_in_window": 15.3,
+    "seen_in_window": 13
+   },
+   "primary": {
+    "forecast": 99,
+    "expected_in_window": 5.8,
+    "seen_in_window": 7
+   }
+  },
+  "2025": {
+   "all": {
+    "forecast": 451,
+    "expected_in_window": 58.8,
+    "seen_in_window": 68
+   },
+   "boundary": {
+    "forecast": 250,
+    "expected_in_window": 39.7,
+    "seen_in_window": 48
+   },
+   "class": {
+    "forecast": 201,
+    "expected_in_window": 19.1,
+    "seen_in_window": 20
+   },
+   "local": {
+    "forecast": 446,
+    "expected_in_window": 58.5,
+    "seen_in_window": 67
+   },
+   "primary": {
+    "forecast": 5,
+    "expected_in_window": 0.3,
+    "seen_in_window": 1
+   }
+  },
+  "2026": {
+   "all": {
+    "forecast": 172,
+    "expected_in_window": 14.5,
+    "seen_in_window": 11
+   },
+   "boundary": {
+    "forecast": 2,
+    "expected_in_window": 0.3,
+    "seen_in_window": 0
+   },
+   "class": {
+    "forecast": 170,
+    "expected_in_window": 14.1,
+    "seen_in_window": 11
+   },
+   "local": {
+    "forecast": 24,
+    "expected_in_window": 2.0,
+    "seen_in_window": 2
+   },
+   "primary": {
+    "forecast": 148,
+    "expected_in_window": 12.4,
+    "seen_in_window": 9
+   }
+  }
+ },
+ "pooled": {
+  "all": {
+   "forecast": 2675,
+   "expected_in_window": 309.1,
+   "seen_in_window": 319
+  },
+  "boundary": {
+   "forecast": 1234,
+   "expected_in_window": 193.7,
+   "seen_in_window": 206
+  },
+  "class": {
+   "forecast": 1441,
+   "expected_in_window": 115.3,
+   "seen_in_window": 113
+  },
+  "local": {
+   "forecast": 2191,
+   "expected_in_window": 270.3,
+   "seen_in_window": 281
+  },
+  "primary": {
+   "forecast": 484,
+   "expected_in_window": 38.7,
+   "seen_in_window": 38
+  }
+ },
+ "calibration": {
+  "local": {
+   "years_testable": "each year with 30 or more expected in earlier years",
+   "seen": 237.0,
+   "expected_uncalibrated": 233.0,
+   "expected_calibrated": 251.6,
+   "adopted": false
+  },
+  "primary": {
+   "years_testable": "each year with 30 or more expected in earlier years",
+   "seen": 0.0,
+   "expected_uncalibrated": 0.0,
+   "expected_calibrated": 0.0,
+   "adopted": false
+  }
+ }
+}

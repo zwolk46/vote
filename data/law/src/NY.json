@@ -1,0 +1,297 @@
+{
+ "state": "NY",
+ "name": "New York",
+ "status": "partly-read",
+ "code": {
+  "name": "Consolidated Laws of New York (Election Law, chapter 17; Public Officers Law)",
+  "edition": "as the New York State Senate's Open Legislation site prints them; each section shows its own revision date (9-208: 2023-09-22; 6-148: 2025-05-16; 15-126 and 9-204 to 9-216: 2014-09-22); Public Officers Law 30: 2026-07-03",
+  "site": "https://www.nysenate.gov/legislation/laws/",
+  "reached": true
+ },
+ "sections": {
+  "ny-eln-6-114": {
+   "citation": "N.Y. Election Law 6-114 (party nominations; special election) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/6-114",
+   "read_at": "state"
+  },
+  "ny-eln-6-116": {
+   "citation": "N.Y. Election Law 6-116 (party nominations; election to fill vacancy) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/6-116",
+   "read_at": "state"
+  },
+  "ny-eln-6-148": {
+   "citation": "N.Y. Election Law 6-148 (nomination and designation; filling vacancies) (NYS Open Legislation, revision of 2025-05-16)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/6-148",
+   "read_at": "state"
+  },
+  "ny-eln-6-160": {
+   "citation": "N.Y. Election Law 6-160 (primaries) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/6-160",
+   "read_at": "state"
+  },
+  "ny-eln-9-200": {
+   "citation": "N.Y. Election Law 9-200 (canvass of primary returns by board of elections) (NYS Open Legislation, revision of 2019-01-25)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-200",
+   "read_at": "state"
+  },
+  "ny-eln-9-202": {
+   "citation": "N.Y. Election Law 9-202 (canvass of primary returns by state board) (NYS Open Legislation, revision of 2016-06-03)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-202",
+   "read_at": "state"
+  },
+  "ny-eln-9-204": {
+   "citation": "N.Y. Election Law 9-204 (county boards of canvassers) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-204",
+   "read_at": "state"
+  },
+  "ny-eln-9-206": {
+   "citation": "N.Y. Election Law 9-206 (canvass of election district returns of general and special elections) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-206",
+   "read_at": "state"
+  },
+  "ny-eln-9-208": {
+   "citation": "N.Y. Election Law 9-208 (recanvass of vote; manual recount) (NYS Open Legislation, revision of 2023-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-208",
+   "read_at": "state"
+  },
+  "ny-eln-9-209": {
+   "citation": "N.Y. Election Law 9-209 (canvass of early mail, absentee, military and special ballots) (NYS Open Legislation, revision of 2024-09-06)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-209",
+   "read_at": "state"
+  },
+  "ny-eln-9-210": {
+   "citation": "N.Y. Election Law 9-210 (statements of canvass by canvassing boards) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-210",
+   "read_at": "state"
+  },
+  "ny-eln-9-212": {
+   "citation": "N.Y. Election Law 9-212 (determinations by county canvassing boards) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-212",
+   "read_at": "state"
+  },
+  "ny-eln-9-214": {
+   "citation": "N.Y. Election Law 9-214 (transmission of statements to the state board) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-214",
+   "read_at": "state"
+  },
+  "ny-eln-9-216": {
+   "citation": "N.Y. Election Law 9-216 (canvass by the state board of canvassers) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/9-216",
+   "read_at": "state"
+  },
+  "ny-eln-15-126": {
+   "citation": "N.Y. Election Law 15-126 (village elections; canvass of election) (NYS Open Legislation, revision of 2014-09-22)",
+   "url": "https://www.nysenate.gov/legislation/laws/ELN/15-126",
+   "read_at": "state"
+  },
+  "ny-pbo-30": {
+   "citation": "N.Y. Public Officers Law 30 (vacancy in office) (NYS Open Legislation, revision of 2026-07-03)",
+   "url": "https://www.nysenate.gov/legislation/laws/PBO/30",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie vote at a primary election (any party nomination)",
+   "resolution": "party-committee",
+   "steps": "the nomination is vacant; the vacancy in the nomination may be filled by a majority of the members of the party committee or committees last elected in the political subdivision in which the vacancy occurs, present at a meeting at which there is a quorum, or by a majority of such other committee as the party rules provide; the committee files a certificate with the new candidate's consent",
+   "who": "the party committee of the political subdivision (or the committee the party rules name)",
+   "sources": [
+    {
+     "section": "ny-eln-6-148",
+     "quote": "A vacancy in a designation or nomination caused by declination, where a declination is permitted by this article, or by the death or disqualification of the candidate, or by a tie vote at a primary, may be filled by the making and filing of a certificate"
+    },
+    {
+     "section": "ny-eln-6-148",
+     "quote": "A vacancy in a nomination made at a primary, or by a tie vote thereat, may be filled by a majority of the members, of the party committee or committees last elected in the political subdivision in which the vacancy occurs, present at a meeting at which there is a quorum, or by a majority of such other committee as the rules of the party may provide"
+    }
+   ],
+   "mark": "measured",
+   "note": "The text calls a tie at a primary a vacancy that \"may be filled\" by the committee; it does not say what happens if the committee does not fill it. The section is in the article on designation and nomination and covers any primary nomination (joint governor and lieutenant governor nominations are named in the same subdivision). Party positions at a primary: 9-200(2) says only that \"Tie votes shall be indicated in a manner prescribed by the state board of elections\" in listing delegates [not a resolution]."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "village elections (annual or biennial) conducted under Article 15: more eligible persons than the number remaining to be elected receive an equal number of votes",
+   "resolution": "runoff",
+   "steps": "the board of trustees conducts a run-off election on the first Tuesday at least ten days after the final certification of the tie, between the tied persons only; the run-off may be waived and the selection made by lot if every tied person files a written consent with the village clerk within two days of the certification; the village clerk then certifies the facts to a supreme court justice, who summons the candidates and determines by lot which is elected",
+   "who": "the board of trustees (run-off); a supreme court justice (lot, if the candidates consent)",
+   "sources": [
+    {
+     "section": "ny-eln-15-126",
+     "quote": "In the event that more eligible persons than the number remaining to be elected receive for the same office or offices an equal number of votes, the board of trustees shall conduct a run-off election."
+    },
+    {
+     "section": "ny-eln-15-126",
+     "quote": "Such run-off election may be waived and the selection made by lot as otherwise provided by this section if each person who shall have received such equal number of votes shall file with the village clerk, no later than two days after such final certification of such tie result, a written notice of consent that such selection be made by lot."
+    }
+   ],
+   "mark": "measured",
+   "note": "Villages only. Other local offices (county, city, town) are the next rule."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "applies_to": "a tie in a general or special election for federal, statewide, legislative, county, city or town office, or for presidential electors",
+   "resolution": "none-found",
+   "steps": "no provision found in Election Law Article 9 for a tie in a general election; the canvassing boards determine each person \"elected by the greatest number of votes\"",
+   "who": null,
+   "sources": [
+    {
+     "section": "ny-eln-9-212",
+     "quote": "The canvassing board shall determine each person elected by the greatest number of votes to each county office, and each person elected by the greatest number of votes to each city, town or village office of a city, town or village of which it is the board of canvassers."
+    }
+   ],
+   "mark": "inferred",
+   "note": "An absence, from a limited reading: Election Law 9-200 to 9-216 (canvass), 9-209, 6-114, 6-116, 6-148, 6-160 and Public Officers Law 30 were read; none sets a method for a tie in a general election. The Election Law's table of contents (chapter 17) lists no section titled for ties. The New York Constitution (each house judges its own members' elections; the Governor), the Town Law, the City laws and the Public Officers Law outside section 30 were not read, nor was Article 16 (judicial proceedings). The earlier reader reached the same result on 9-200 to 9-212 and called it unread. Treat this as 'none found in the Election Law', not as 'none exists'."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a tie on a ballot proposal",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie on a ballot proposal",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "9-212(1) has the canvassing board determine whether a proposal \"has by the greater number of votes been adopted or rejected\"; a tie is not addressed in the sections read (same sections as the previous rule)."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "general, special and primary",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "margin of victory: the margin between all votes cast in the entire contest following the recanvass of votes",
+    "votes": 20,
+    "combine": "or",
+    "inclusive": true,
+    "conditions": "after the recanvass of 9-208(1) is completed and announced; a contest in portions of two or more counties is measured by the state board of elections; the margin of victory is the margin between all votes cast in the entire contest",
+    "in_words": "a full manual recount of all ballots for the contest where the margin of victory is twenty votes or less, or is 0.5% or less"
+   },
+   "who_may_request": [],
+   "cost_bearer": "not stated in 9-208 (the board of elections conducts the recount)",
+   "sources": [
+    {
+     "section": "ny-eln-9-208",
+     "quote": "The board of elections or a bipartisan committee appointed by the board shall conduct a full manual recount of all ballots for a particular contest: i. Where the margin of victory is twenty votes or less; or ii. Where the margin of victory is 0.5% or less;"
+    },
+    {
+     "section": "ny-eln-9-208",
+     "quote": "For the purposes of this section, the term margin of victory shall mean the margin between all votes cast in the entire contest following the recanvass of votes."
+    }
+   ],
+   "mark": "measured",
+   "note": "Subdivision 4 says \"a particular contest\" and does not list offices; it is read as every contest on a primary, general or special ballot, including presidential electors [inferred]. The earlier report's \"less than 20 votes\" was wrong at the boundary: twenty votes is included. Subdivision 1 also requires a recanvass of the tapes in every election district within 15 days of a general election and 20 days of a primary; that is a recanvass, not a recount."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "general, special and primary",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": 5000,
+    "combine": null,
+    "inclusive": false,
+    "conditions": "only in a contest where one million or more ballots have been cast",
+    "in_words": "a full manual recount where one million or more ballots were cast in the contest and the margin of victory is less than 5,000 votes"
+   },
+   "who_may_request": [],
+   "cost_bearer": "not stated in 9-208 (the board of elections conducts the recount)",
+   "sources": [
+    {
+     "section": "ny-eln-9-208",
+     "quote": "iii. In a contest where one million or more ballots have been cast and the margin of victory is less than 5,000 votes."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "type": "requested",
+   "election": "village general",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "written request of any candidate received within two days of the date of the village election",
+    "in_words": "any candidate in a village election may require a recanvass of the vote, whatever the margin, by written request within two days of the election; the village clerk may also order one"
+   },
+   "no_margin_required": true,
+   "who_may_request": [
+    "any candidate in the village election, in writing within two days of the election (the village clerk may also order it)"
+   ],
+   "cost_bearer": "not stated",
+   "sources": [
+    {
+     "section": "ny-eln-15-126",
+     "quote": "The village clerk may, and upon written request of any candidate received within two days of the date of the village election, shall cause a recanvass of the vote cast in any village election to be made."
+    }
+   ],
+   "mark": "measured",
+   "note": "A recanvass by the county board of elections, not a recount of ballots as such; the text does not say it re-reads ballots."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "other",
+   "election": "general",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "not addressed",
+    "in_words": "no recount rule for a ballot proposal found by name; the manual recount of 9-208(4) speaks of a 'particular contest' and of a 'margin of victory'"
+   },
+   "who_may_request": [],
+   "cost_bearer": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Whether a ballot proposal is a 'contest' under 9-208(4) was not settled by the sections read [unread as to that point]."
+  }
+ ],
+ "unread": [
+  {
+   "what": "court-ordered recounts and election contests (Article 16, esp. 16-106), the New York Constitution's provisions on the Governor and on each house judging its members, the Town Law and city laws on town and city offices, Public Officers Law outside section 30",
+   "reason": "outside the brief (litigation) or not read; New York's Open Legislation site answered every request made (no refusal)."
+  }
+ ],
+ "notes": [
+  "New York: no tie method found for a general election; a tied primary is a vacancy in the nomination for the party committee to fill; a tied village election is a run-off, or a lot by consent. The automatic manual recount is at 20 votes or 0.5% (the earlier report's 'less than 20 votes' was wrong at the boundary, and it omitted the third trigger)."
+ ]
+}

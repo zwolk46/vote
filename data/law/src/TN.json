@@ -1,0 +1,26 @@
+{
+ "state": "TN",
+ "name": "Tennessee",
+ "status": "unread",
+ "code": {"name": "Tennessee Code Annotated, Title 2 (Elections); the official Tennessee Code Unannotated is published for the State by LexisNexis", "edition": null, "site": "https://www.lexisnexis.com/hottopics/tncode/", "reached": false},
+ "sections": {},
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"],
+   "applies_to": "all kinds of office and measures",
+   "resolution": "unread",
+   "steps": "not read: the Tennessee Code could not be read at the State's official code site (a script shell) and the Secretary of State's site refused the helper",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "No provision of Title 2 was read for this state. Web searches for the tie and recount provisions returned pointers to Tennessee Code Annotated sections 2-8-110 and 2-8-111 ('Tie votes') as citations only; those are leads, not readings, and no text from the search results was used."
+  }
+ ],
+ "recounts": [],
+ "unread": [
+  {"what": "Tennessee Code Annotated Title 2 (Elections): chapter 8 (determination of results, tie votes), the recount and election-contest provisions, and the primary chapters, for every kind of office and for measures", "reason": "the official Tennessee Code Unannotated viewer (https://www.lexisnexis.com/hottopics/tncode/ redirects to https://advance.lexis.com/container?config=014CJAA5ZGVhZjA3NS02MmMzLTRlZWQtOGJjNC00YzQ1MmZlNzc2YWYKAFBvZENhdGFsb2e9zYpNUjTRaIWVfyrur9ud) serves the helper 'only 0 characters of text (a script shell or an empty page)'", "url": "https://advance.lexis.com/container?config=014CJAA5ZGVhZjA3NS02MmMzLTRlZWQtOGJjNC00YzQ1MmZlNzc2YWYKAFBvZENhdGFsb2e9zYpNUjTRaIWVfyrur9ud", "time": "2026-11-07T07:31Z"},
+  {"what": "the Secretary of State's election pages, looked at only to find a plain downloadable file of the election laws", "reason": "HTTP 403 for https://sos.tn.gov/elections on the first request; stopped, not retried", "url": "https://sos.tn.gov/elections", "time": "2026-11-07T07:30Z"},
+  {"what": "the compilation route the orchestrator allowed at 07:21 UTC (Justia)", "reason": "not tried for Tennessee: the same host answered HTTP 403 to the first request made for the Pennsylvania reading (https://law.justia.com/codes/pennsylvania/ at 2026-11-07T07:23Z), so under 'if the compilation host itself refuses us, stop there' it was not retried. Cornell LII was not tried because it does not carry the Tennessee Code.", "url": "https://law.justia.com/codes/tennessee/", "time": "2026-11-07T07:32Z"}
+ ],
+ "notes": ["Nothing was read at any other host. A state university agency (University of Tennessee, County Technical Assistance Service) publishes a guide page on tie votes (https://www.ctas.tennessee.edu/eli/tie-votes, found in a search result and not opened); it would be a state agency guide, a lower grade than the statute, and the orchestrator decides whether it may be read.",
+           "The earlier research report (research/historical-close-races-v2.md, sections 3a and 3b) did not read Tennessee, so there is no lead to confirm or correct."]
+}

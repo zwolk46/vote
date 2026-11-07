@@ -1,0 +1,292 @@
+{
+ "state": "NC",
+ "name": "North Carolina",
+ "status": "read",
+ "code": {
+  "name": "North Carolina General Statutes",
+  "edition": "as the General Assembly's site prints them (Article 15A sections carry session-law histories through 2023-140; 163-111 through 2023-140)",
+  "site": "https://www.ncleg.gov/Laws/GeneralStatutes",
+  "reached": true
+ },
+ "sections": {
+  "art15a": {
+   "citation": "N.C. Gen. Stat. Chapter 163, Article 15A (163-182 to 163-182.17: counting ballots, canvassing votes, certifying results), read for 163-182.4 (jurisdiction), 163-182.7 and 163-182.7A (recounts) and 163-182.8 (ties)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_163/Article_15A.html",
+   "read_at": "state"
+  },
+  "gs-163-111": {
+   "citation": "N.C. Gen. Stat. 163-111 (determination of primary results; second primaries)",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_163/GS_163-111.html",
+   "read_at": "state"
+  },
+  "gs-163-114": {
+   "citation": "N.C. Gen. Stat. 163-114 (filling vacancies among party nominees), read for what the party committee does",
+   "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_163/GS_163-114.html",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "measure"
+   ],
+   "applies_to": "a tie vote in a ballot item (a candidate contest, or positions) other than a primary, where more than 5,000 voters cast official ballots in the ballot item",
+   "resolution": "new-election",
+   "steps": "after the proper board of elections completes the canvass and finds a tie, the State Board of Elections orders a new election in which only the candidates or positions tied are on the official ballot; the State Board sets the schedule; voters' eligibility is that at the time of the new election",
+   "who": "the State Board of Elections",
+   "sources": [
+    {
+     "section": "art15a",
+     "quote": "If the count, upon completion of canvass by the proper board of elections, shows a tie vote other than in a primary, the tie shall be resolved as follows: (1) If more than 5,000 voters cast official ballots in the ballot item, the State Board of Elections shall order a new election in which only the candidates or positions tied will be on the official ballot."
+    }
+   ],
+   "mark": "measured",
+   "note": "The section speaks of a \"ballot item\" and does not list offices, so it is read as covering federal, presidential-elector, statewide, legislative and local contests and measures (\"candidates or positions\") [inferred]. A candidate can demand a recount before this (163-182.7), but 163-182.8 does not make the recount a condition. The 5,000 is the number of voters casting official ballots in the ballot item. Municipal charters were not read."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "measure"
+   ],
+   "applies_to": "a tie vote in a ballot item other than a primary, where 5,000 or fewer voters cast official ballots in the ballot item",
+   "resolution": "lot",
+   "steps": "the board of elections with jurisdiction to certify the election breaks the tie by a method of random selection determined by the State Board of Elections",
+   "who": "the board of elections with jurisdiction to certify the election (county or State Board)",
+   "sources": [
+    {
+     "section": "art15a",
+     "quote": "If 5,000 or fewer voters cast official ballots in the ballot item, the board of elections with jurisdiction to certify the election shall break the tie by a method of random selection to be determined by the State Board of Elections."
+    }
+   ],
+   "mark": "measured",
+   "note": "\"Random selection\" is read as a chance device (a lot) [inferred]; the method is set by the State Board, not by the statute. Same reading of \"ballot item\" as the previous rule."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie for the highest number of votes in a first primary (party nomination), single-county or single-county legislative district office with two candidates; or a State office, United States Senator, or a district office with two candidates",
+   "resolution": "runoff",
+   "steps": "a tie in a first primary between two candidates for a single-county or single-county legislative office: the county board conducts a recount; if it shows a tie, a second primary is held 10 weeks after the first between the two, unless one withdraws in writing within three days (then the other is nominee). For a State office, U.S. Senator or other district office: no recount solely because of the tie; the two are entered in a second primary unless one withdraws within three days. A tie among more than two: all the tied candidates enter the second primary",
+   "who": "the county board of elections (single-county offices) or the State Board of Elections",
+   "sources": [
+    {
+     "section": "gs-163-111",
+     "quote": "In the event of a tie for the highest number of votes in a first primary between two candidates for party nomination for a single county, or single-county legislative district office, the board of elections of the county in which the two candidates were voted for shall conduct a recount and declare the results. If the recount shows a tie vote, a second primary shall be held on the date prescribed in subsection (e) of this section between the two candidates having an equal vote"
+    },
+    {
+     "section": "gs-163-111",
+     "quote": "In the event of a tie for the highest number of votes in a first primary between two candidates for a State office, for United States Senator, or for any district office (including State Senator in a multi-county senatorial district and member of the State House of Representatives in a multi-county representative district), no recount shall be held solely by reason of the tie, but the two candidates having an equal vote shall be entered in a second primary"
+    }
+   ],
+   "mark": "measured",
+   "note": "Party primaries only. Nonpartisan municipal primaries are in other articles and were not read. The second-primary date is 10 weeks after the first (163-111(e))."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie for the highest number of votes between two candidates in a second primary",
+   "resolution": "party-committee",
+   "steps": "there is no third primary; the proper party executive committee selects the party nominee for the office in accordance with 163-114",
+   "who": "the proper party executive committee",
+   "sources": [
+    {
+     "section": "gs-163-111",
+     "quote": "In no case shall there be a third primary. The candidates receiving the highest number of votes in the second primary shall be nominated. If in a second primary there is a tie for the highest number of votes between two candidates, the proper party executive committee shall select the party nominee for the office in accordance with the provisions of G.S. 163-114."
+    }
+   ],
+   "mark": "measured",
+   "note": "163-114 (read) fills vacancies among party nominees by appointment of the national, State, district or county executive committee of the party, according to the office."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "general and primary",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the total votes cast in the ballot item (a multiseat ballot item: the votes cast for those two candidates)",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "ballot items within the jurisdiction of the county board of elections: county offices, General Assembly seats in a district lying entirely within one county, municipal offices, single-county referenda; demand in writing received by 5:00 P.M. on the first business day after the canvass",
+    "in_words": "a candidate may demand a recount where the difference from a prevailing candidate is not more than one percent of the total votes cast in the ballot item"
+   },
+   "who_may_request": [
+    "a candidate, in writing to the county board of elections by 5:00 P.M. on the first business day after the canvass"
+   ],
+   "cost_bearer": "not stated in 163-182.7 (the county board conducts it)",
+   "sources": [
+    {
+     "section": "art15a",
+     "quote": "In a ballot item within the jurisdiction of the county board of elections, a candidate shall have the right to demand a recount of the votes if the difference between the votes for that candidate and the votes for a prevailing candidate is not more than one percent (1%) of the total votes cast in the ballot item, or in the case of a multiseat ballot item not more than one percent (1%) of the votes cast for those two candidates."
+    },
+    {
+     "section": "art15a",
+     "quote": "Membership in either house of the General Assembly from a district lying entirely within that county."
+    }
+   ],
+   "mark": "measured",
+   "note": "The statute calls this a \"mandatory recount\" because the board must conduct it when demanded; it happens only on the candidate's demand, so it is recorded as requested. Primaries come within the Article's \"ballot item\" and canvass [inferred]."
+  },
+  {
+   "kinds": [
+    "federal",
+    "state-legislative",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "general and primary",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the total votes cast in the ballot item (a multiseat ballot item: the votes cast for those two candidates)",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "nonstatewide ballot items within the jurisdiction of the State Board of Elections: U.S. House seats, General Assembly districts lying in more than one county, superior and district court judges and district attorneys; demand in writing received by the State Board by noon on the second business day after the county canvass",
+    "in_words": "a candidate may demand a recount where the difference from a prevailing candidate is not more than one percent of the total votes cast in the nonstatewide ballot item"
+   },
+   "who_may_request": [
+    "a candidate, in writing to the State Board of Elections by noon on the second business day after the county canvass (or within 48 hours of notice if the Executive Director later finds the margin within the threshold)"
+   ],
+   "cost_bearer": "not stated in 163-182.7 (the State Board supervises it)",
+   "sources": [
+    {
+     "section": "art15a",
+     "quote": "In a ballot item within the jurisdiction of the State Board of Elections, a candidate shall have the right to demand a recount of the votes if the difference between the votes for that candidate and the votes for a prevailing candidate are not more than the following: (1) For a nonstatewide ballot item, one percent (1%) of the total votes cast in the ballot item, or in the case of a multiseat ballot item, one percent (1%) of the votes cast for those two candidates."
+    },
+    {
+     "section": "art15a",
+     "quote": "Jurisdiction of State Board of Elections. - As used in this Article, the State Board of Elections shall have jurisdiction over the following: (1) National offices. (2) State offices. (3) District offices (including General Assembly seats) in which the district lies in more than one county."
+    }
+   ],
+   "mark": "measured",
+   "note": "U.S. House seats are placed here as \"national offices\" that are not statewide [inferred]."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "presidential-electors",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "general and primary",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the votes cast in the ballot item",
+    "votes": 10000,
+    "combine": "lesser-of",
+    "inclusive": true,
+    "conditions": "statewide ballot items; demand in writing received by the State Board by noon on the second business day after the county canvass",
+    "in_words": "a candidate may demand a recount where the difference from a prevailing candidate is not more than one-half of one percent of the votes cast in the statewide ballot item, or 10,000 votes, whichever is less"
+   },
+   "who_may_request": [
+    "a candidate, in writing to the State Board of Elections by noon on the second business day after the county canvass (or within 48 hours of notice if the Executive Director later finds the margin within the threshold)"
+   ],
+   "cost_bearer": "not stated in 163-182.7 (the State Board supervises it)",
+   "sources": [
+    {
+     "section": "art15a",
+     "quote": "(2) For a statewide ballot item, one-half of one percent (0.5%) of the votes cast in the ballot item, or 10,000 votes, whichever is less."
+    },
+    {
+     "section": "art15a",
+     "quote": "The demand for a recount must be in writing and must be received by the State Board of Elections by noon on the second business day after the county canvass."
+    }
+   ],
+   "mark": "measured",
+   "note": "The percentage is of \"the votes cast in the ballot item\", not of the two candidates' votes. The U.S. Senate and the presidency are within the State Board's jurisdiction as \"national offices\" (163-182.4(b)); presidential electors are read as part of the presidential ballot item [inferred]."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "presidential-electors",
+    "state-legislative",
+    "local",
+    "primary",
+    "measure"
+   ],
+   "type": "other",
+   "election": "general and primary",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "when necessary to complete the canvass; no margin stated",
+    "in_words": "the county board or the State Board may order a recount when necessary to complete the canvass in an election"
+   },
+   "who_may_request": [],
+   "cost_bearer": "not stated",
+   "sources": [
+    {
+     "section": "art15a",
+     "quote": "The county board of elections or the State Board of Elections may order a recount when necessary to complete the canvass in an election."
+    }
+   ],
+   "mark": "measured",
+   "note": "A discretionary recount ordered by the board, not by a candidate; the county board may not order one where the State Board has already denied a recount to the petitioner. The mandatory rules above speak of a \"candidate\"; the section read gives a ballot measure no demand right [inferred from its words]."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "presidential-electors",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "general and primary",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "after an initial recount that was not hand-to-eye: if it does not reverse the results, the candidate originally entitled to a recount may demand a second, hand-to-eye recount in a sample of precincts within 24 hours of the first recount's completion (the winner has the same right if the first recount reversed the results)",
+    "in_words": "a second recount on a hand-to-eye basis in 3% of the precincts in each county, expanding to the whole jurisdiction at no cost to the candidate if extrapolation would reverse the result"
+   },
+   "who_may_request": [
+    "the candidate who was originally entitled to a recount (or, if the first recount reversed the results, the initial winner), within 24 hours of the first recount's completion"
+   ],
+   "cost_bearer": "no cost to the candidate for the full-jurisdiction hand-to-eye recount; the sample recount's cost is not stated",
+   "sources": [
+    {
+     "section": "art15a",
+     "quote": "if the initial recount is not hand-to-eye, and if the recount does not reverse the results, the candidate who had originally been entitled to a recount may, within 24 hours of the completion of the first recount, demand a second recount on a hand-to-eye basis in a sample of precincts."
+    }
+   ],
+   "mark": "measured",
+   "note": "Follows a first recount; included because it is the way a near-tie is settled by hand."
+  }
+ ],
+ "unread": [
+  {
+   "what": "nonpartisan municipal primaries and municipal charters; election protests and new elections (163-182.9 to 163-182.14, read only for 163-182.13(f): a protest-corrected tie falls under 163-182.8); candidate-pays recounts, if any, in the State Board's rules",
+   "reason": "outside the brief (protests) or not in the statutes read"
+  }
+ ],
+ "notes": [
+  "A general-election tie in North Carolina goes to a new election when more than 5,000 voters cast official ballots in the ballot item, and to random selection at 5,000 or fewer (163-182.8).",
+  "A first-primary tie leads to a second primary, and a second-primary tie goes to the party executive committee (a vacancy-style fill), not to a lot."
+ ]
+}
