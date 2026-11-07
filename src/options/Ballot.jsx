@@ -186,7 +186,7 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
 
   // the dollar marks, and between them the step itself ("×1,000") where it fits (the round-1 readers: the steps
   // looked uneven and unexplained)
-  const step = (w * 3) / SPAN - 3.2 * afs * 0.6;
+  const step = (w * 3) / SPAN - (desk ? 10 : 3.2) * afs * 0.6;   // room between two dollar marks, less a mark's label
   const axis = [0, 3, 6, 9, ...(step >= 6 * afs * 0.5 + 10 ? [1.5, 4.5, 7.5] : [])];
   return (
     <>
