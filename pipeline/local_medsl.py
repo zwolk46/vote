@@ -362,7 +362,8 @@ def _join(m, pieces, year):
     m["notes"] = (m.get("notes") or []) + [
         f"joined from {len(parts)} contests of MEDSL's file, one contest's lines in counties apart: "
         + "; ".join(f"'{p['office'].title()}'" + (f" ({p['district']})" if p.get("district") else "")
-                    + f", {len(p['counties'])} count{'y' if len(p['counties']) == 1 else 'ies'}" for p in parts)
+                    + f", {len(p['counties'])} count{'y' if len(p['counties']) == 1 else 'ies'}"
+                    for p in m["pieces_joined"])
         + " (pieces_joined; " + RULING_1647.split(": ", 1)[0] + ", (a))"]
     PIECES[year]["joined"] += 1
 
@@ -559,7 +560,48 @@ def statewide_pieces(contests, year):
         for m in hits:   # MEDSL's count stays for the type (a statewide contest for a supreme court seat); unread
             _hold(m, MI_SC_UNREAD[year], "MI Supreme Court, seat count unread", year)
             m["seats_note"] = "unread: MEDSL's file gives one seat, which no page read confirms (held_reason)"
+    over_ballot(contests, year, whole)
     return contests
+
+
+OVER_BALLOT = 1.05   # a one-seat contest's votes above this many times the governor's on the same ballot
+OVER_EXPECTED = {2018: {("MI", "JUSTICE OF THE SUPREME COURT"), ("OH", "JUSTICE OF THE SUPREME COURT")},
+                 2022: {("HI", "AT-LARGE TRUSTEE"), ("MI", "ATTORNEY GENERAL")}}
+
+
+def over_ballot(contests, year, whole):
+    """A statewide contest of one seat, by MEDSL's count, with more votes than the ballots allow: more than
+    OVER_BALLOT times the votes for Governor on the same date and ballot in the same file [measured]. A one-seat
+    contest has at most one vote a ballot, so the contest either elected more than one seat or its lines are counted
+    more than once. Neither is read here, so it is held like Michigan's Supreme Court (the orchestrator, 16:53: "a
+    record kept in the pools as one seat when it may be two would bias every later statewide-judge p"; 16:47: "a
+    shown figure has to be the whole contest's count of record"). Read only where the state elects a governor that
+    day; a contest already held keeps its reason, with this fact added."""
+    gov = {}
+    for m in contests:
+        if GOVERNOR.match(m["office"]) and m.get("dataverse") == "STATE" and whole(m) and m.get("stage") == "GEN":
+            gov[(m["state"], m["date"])] = max(gov.get((m["state"], m["date"]), 0), sum(x["votes"] for x in m["candidates"]))
+    found = set()
+    for m in contests:
+        t = gov.get((m.get("state"), m.get("date")))
+        if not t or m["question"] or m.get("magnitude") != 1 or m.get("dataverse") != "STATE" or not whole(m) \
+                or not is_local_level(m) or m.get("stage") != "GEN":
+            continue
+        v = sum(x["votes"] for x in m["candidates"])
+        if v <= OVER_BALLOT * t:
+            continue
+        fact = (f"the contest's {v:,} votes in MEDSL's file are {v / t:.2f} times the {t:,} for Governor on the same "
+                f"ballot, more than one vote a ballot, which a contest of one seat cannot have [measured]")
+        if m.get("held_reason"):
+            m["held_reason"] += "; and " + fact
+        else:
+            _hold(m, f"seat count unread: MEDSL's file gives this contest one seat, but {fact}; so it either elected "
+                     f"more than one seat or its lines are counted more than once, and neither is read here: p is not "
+                     f"computed, no winner is marked, and it is kept out of every pool", "votes over the ballots", year)
+            m["seats_note"] = "unread: MEDSL's file gives one seat, which its own counts contradict (held_reason)"
+        found.add((m["state"], m["office"]))
+    if found != OVER_EXPECTED.get(year, set()):
+        raise SystemExit(f"over_ballot: {year}: {sorted(found)} differ from OVER_EXPECTED")
 
 
 STATEWIDE_LISTED = os.path.join(L.REPO, "data", "measure", "statewide-filed-local.json")
