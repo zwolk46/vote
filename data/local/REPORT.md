@@ -1616,7 +1616,7 @@ The record is the locality lines, which add up to the statewide count the page s
 - The record now has 131,719, total 390,843 and n 376,653, with the summary as its source and a note. Each of its five p rises ×1.0159 (538 lite 6.463e-7 to 6.566e-7).
 - **Not refit here.** D2's caches are not in this container, so two things still use 137,719:
   - the governor fits of 2020 onward, which take Hawaii 2018 as a training row;
-  - Hawaii 2022's last-governor-race input, which reads 0.640094 and should be 0.650298.
+  - Hawaii 2022's last-governor-race input, which reads 0.640094 and should be 0.650291 (first written here as 0.650298 in error; section 30).
   The orchestrator (19:49) orders a refit as its own PR, next.
 
 **The volume test** (`pipeline/local_volume.py`).
@@ -1720,3 +1720,63 @@ The record is the locality lines, which add up to the statewide count the page s
 - The rows part 3 lists and does not drop (above): one-candidate rows equal to the rest, and named rows unequal to their parts.
 - Hawaii's refit of D2's governors (the 2020+ fits and Hawaii 2022's input) is the next step, as its own PR.
 - Oregon 2024's mark: the records system's title for the abstract, in the held-totals step.
+
+## 30. Hawaii 2018's governor refit through D2's build, and section 29's counts reconciled
+
+*Added 2026-11-07 at 20:53 UTC, at the orchestrator's order of 19:49 (item 2).* Every move is listed in `data/local/moves-governor-hi-refit.json`.
+
+**Why.** The orchestrator, 19:49: "The two leftovers should not stay wrong if they can be refit. After the volume PR, refetch D2's governor sources from the documented downloads D2 already used, with no new hosts. Rerun its governor build so the 2020+ fits and HI 2022's input take 131,719. Do it as its own small PR and list every move. If a source refuses, keep the notes as you have them."
+
+**What was fetched** (20:31 to 20:33 UTC, into the cache outside the repository; D2's own intake scripts, unchanged).
+- From Harvard Dataverse:
+  - Cha, Kuriwaki and Snyder v4.1;
+  - Algara and Amlani's county returns;
+  - MEDSL's Senate v8.0 and President v10.1.
+- From the other hosts D2 used:
+  - The Downballot's sheets (Google Sheets export);
+  - 538's checking-our-work data (GitHub);
+  - the party divisions (senate.gov, history.house.gov);
+  - New Jersey's 2025 governor county copies (nj.gov).
+- The National Archives' pages were already in the cache. Nothing refused.
+- **Virginia 2025.** The Department refused at 18:27, and a refusal binds the whole agency, so D2's reader of its API was not run. `state_governors.va_cached` reads the governor from the election's Media Export instead. That file was read at 18:24, before the refusal, and the ruling of 18:30 allows such files. It uses D2's gate: the page is headed "OFFICIAL RESULTS", the 133 localities add up, and the page shows the count. Its four figures equal D2's record to the vote.
+- **The test of the refetch** [measured]. D2's code from before this change was run on these files. It writes `data/congress/backtest.json` and `backtest-governor-odd.json` byte for byte as committed. Every contest of every governor, House and Senate file comes out as committed, stamps aside. Only `history.json` differs: it had not been rewritten since #95 changed Hawaii 2018's five p.
+
+**The change** (`pipeline/governor_hi2018.py`).
+- `fix_cha` sets Hawaii 2018's governor in Cha's contests, as D2's build reads them, to the certified summary: Tupola 131,719 and the total 390,843.
+  - `chambers._load` and `build_congress.cha_index` apply it, so every fit, back-test and last-race index takes it.
+  - It stops if the dataset's figures are not the ones expected.
+- `last_race` reads Hawaii 2022's input again. The last governor race's Democratic share moves from 0.640094 to 0.650291.
+- Then `chambers.py odd`, `backtest`, `compute` for 1977 to 2025, and `history` were run.
+- Hawaii 2018's note now says the fits and the input follow the certified count. Hawaii 2022 gets a note on its input.
+
+**What moves** [measured: against d94468b, main with this change's code; stamps aside].
+- **Governor p of record: 29, all the model's own.**
+  - By year: 2019, 1 (Kentucky); 2020, 11; 2021, 2 (New Jersey, Virginia); 2022, 3 (Ohio, Wisconsin, Wyoming); 2024, 10; 2025, 2 (New Jersey, Virginia).
+  - The range is ×0.9950 (Wyoming 2022) to ×1.0003 (Vermont 2020).
+- **The p beside.** Those 29 move, and so do 30 more of 2022 whose p of record is 538's and stays. Among them is Hawaii 2022's own model, ×0.9948 (normal) and ×0.9878 (t4), from its input.
+- **No House or Senate p moves.** The near-tie factor shown beside them, not of record, is fitted on a pool that takes the governors in. It moves by less than 0.002% on 107 House records of 2022 and 65 Senate records of 2022 and 2024.
+- **The files' own blocks:**
+  - each governor file of 2019 to 2025: the fit's terms, k and sd;
+  - each odd-year file of 1985 to 2017: the odd-year test's gain for the midterm term (0.05676 to 0.05681), printed in each;
+  - the House files: the near-tie switch test, shown beside.
+- **The back-tests.**
+  - The governors' pooled log score moves from 1.14362 to 1.14380 (calibrated, 2006 to 2024).
+  - Their k for 2020, 2022 and 2024 move in the fifth place.
+  - The odd-year plain route moves from 1.09708 to 1.09701.
+  - No verdict changes:
+    - no variant is adopted;
+    - the House's near-tie factor stands alone;
+    - Cha's codes of record stay;
+    - the plain route stays for odd years;
+    - the lean note stands.
+- **`history.json`** now carries Hawaii 2018's p from #95 and these moves.
+
+**Section 29's counts, reconciled** (the orchestrator, 20:28: "Your note says 4,859. If REPORT says the same, reconcile it with 4,860 + 24") [measured: every record of `data/`, d7eea96 against 6b24927].
+- 4,860 records' p moved. They are the 4,859 records listed in `moves-volume.json`, plus Hawaii 2018's governor record. That record's five p (its own and the four beside it) are listed in the file's `governor` section.
+- 22 p were lost, all in New Hampshire 2022 House contests:
+  - 21 had a p above 0;
+  - Strafford 15's p was 0.
+- None was gained. The files show 22 lost, not 24.
+
+**For the orchestrator:**
+- D2's report (`data/congress/REPORT.md`) is not changed here. Its figures for the governors' back-test now differ by the amounts above.

@@ -39,6 +39,13 @@ up, option by option, to its statewide count; (c) the statewide count is the sit
 checked: the site's "Election Results" report (a CSV, precinct by precinct), whose rows for each named candidate must
 add up to the same count; its write-in cells are empty, so the write-ins are checked on (b) only.
 
+Virginia since 18:27 UTC (worker D3, 2026-11-07, for the refit of the governors): the Department refused D3 at
+18:27:48 UTC, and a refusal binds the whole agency (the orchestrator, 18:30), so the API files above are not requested
+again. va_cached() reads the same contest from the election's "Media Export", which D3's pipeline/intake/va_elect.py
+read at 18:24 UTC, before the refusal (the orchestrator, 18:30: Virginia's 2023 and 2025 counts come only from files
+read before it), by the same gate: (a) the election's page is headed "OFFICIAL RESULTS"; (b) its 133 localities add up
+to its statewide count; (c) the page shows that count. Its four figures equal those va() read at 12:46 UTC.
+
 Run from the repository root:  python3 -I pipeline/intake/state_governors.py [2023 2025]
 Writes $VOTE_CACHE/state_gov/normalized/governor-<year>.json: {"year", "contests": [{"state", "date", "title",
 "candidates": [{"name", "party", "votes", "write_in"}], "total_votes", "parts", "source", "gate", "checks", "held"}],
@@ -280,7 +287,70 @@ def va(year):
     }
 
 
-READERS = {2025: [nj, va]}
+VA_REFUSED_UTC = "2026-11-07T18:27:48Z"
+
+
+def va_cached(year):
+    """Virginia's governor from the Department's own files as read before it refused us (D3's
+    pipeline/intake/va_elect.py cache: the "Media Export" of the election, read 18:24 UTC, with the page that heads it
+    "OFFICIAL RESULTS"), by the same gate as va(). Written 2026-11-07 by worker D3 for the refit of the governors (the
+    orchestrator, 19:49, item 2: "refetch D2's governor sources from the documented downloads D2 already used, with no
+    new hosts"). Reason: the Department refused D3 at 18:27:48 UTC (apps.elections.virginia.gov, 403), and a refusal
+    binds the whole agency (the orchestrator, 18:30), so va() is not run again; the orchestrator's standing rule of
+    18:30 lets Virginia's 2023 and 2025 counts come from files read before the refusal. No request is made."""
+    p = os.path.join(F.CACHE, "va_elect", "normalized", f"{year}-general.json")
+    if not os.path.exists(p):
+        raise SystemExit(f"VA {year}: {p} is missing: run pipeline/intake/va_elect.py {year} (it reads its cache only)")
+    with open(p) as f:
+        d = json.load(f)
+    gov = [c for c in d["contests"] if c["title"] == "Governor"]
+    if len(gov) != 1:
+        raise SystemExit(f"VA {year}: {len(gov)} contests named Governor in the export")
+    g, ex = gov[0], d["files"]["export"]
+    if not ex["finished_utc"] < VA_REFUSED_UTC:
+        raise SystemExit(f"VA {year}: the export was read at {ex['finished_utc']}, not before the refusal")
+    official = d["official"] is True
+    parts_add_up = bool(g["parts_add_up"]) and not g["extra_in_localities"] and g["localities"] == 133
+    page_equal = bool(g["page"]["shown"] and g["page"]["equal"])
+    held = []
+    if not official:
+        held.append("the election is not headed OFFICIAL RESULTS")
+    if not parts_add_up:
+        held.append("its localities do not add up to its statewide count")
+    if not page_equal:
+        held.append("the results page does not show the export's statewide count")
+    if g["statewide_total"] != sum(o["votes"] for o in g["options"]):
+        held.append("the statewide total is not its options' sum")
+    cands = [{"name": o["name"], "party": o["party"], "votes": o["votes"], "write_in": bool(o["write_in"])}
+             for o in g["options"]]
+    return {
+        "state": "VA", "date": d["date"], "title": "Governor", "candidates": cands,
+        "total_votes": g["statewide_total"],
+        "parts": {"kind": "localities (counties and independent cities)", "n": g["localities"]},
+        "source": {"name": f"Virginia Department of Elections, election results: {d['name']}, Governor (the results "
+                           f"site's Media Export, read before the Department refused us)",
+                   "url": ex["url"], "read_utc": ex["read_utc"], "sha256": ex["sha256"], "bytes": ex["bytes"],
+                   "via": VA_PAGE, "licence": VA_LICENCE, "export_created_utc": d.get("export_created_utc"),
+                   "cache": "va_elect/normalized (pipeline/intake/va_elect.py)"},
+        "gate": {"by": GATE_BY, "ruled": GATE_RULED,
+                 "official": official,
+                 "official_how": f"the election's page is headed \"{d['official_text']}\" (rendered "
+                                 f"{d['files']['election']['finished_utc']})",
+                 "parts_add_up": parts_add_up,
+                 "parts_how": f"the contest's {g['localities']} localities in the export add up, option by option, "
+                              f"write-ins included, to its statewide count",
+                 "statewide_equal": "equal: the export's statewide count, which the results page shows "
+                                    f"(localities reporting {g['page']['localities_reporting']})"},
+        "checks": [{"against": "the results page's own statewide count for the contest", "differences":
+                    [] if page_equal else ["the page's count differs or is not shown"]}],
+        "notes": ["read from the Media Export cached before the Department's refusal of 18:27:48 UTC; the API files "
+                  "va() reads were not requested again"],
+        "held": "; ".join(held) or None,
+    }
+
+
+# Virginia from the cached export (va_cached), not the API (va): the Department refused at 18:27:48 UTC (above)
+READERS = {2025: [nj, va_cached]}
 
 
 def governors(year):

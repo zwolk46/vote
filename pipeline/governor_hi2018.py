@@ -20,11 +20,23 @@ What it does: checks that the page links the summary as a certified text file of
 summary's four governor lines are as above; sets the record's candidates' votes to the summary's, its total, its
 two-party votes, n and share, and its source to the summary; scales each p of the record (method "density": event =
 f_half / n, value = event / 2, f_half the forecast's density at an even split, which does not depend on the count) to
-the new n; adds a note. Run again it changes nothing. It does not refit D2's model: the fits of 2020 onward take
-Hawaii 2018 as a training row and Hawaii 2022's forecast takes its share as the last governor race; D2's caches are not
-in this container, so those are left as they are and listed in data/local/REPORT.md section 29.
+the new n; adds a note. Run again it changes nothing.
 
-Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/governor_hi2018.py
+The refit (the orchestrator's ruling of 19:49, item 2: "refetch D2's governor sources from the documented downloads D2
+already used, with no new hosts. Rerun its governor build so the 2020+ fits and HI 2022's input take 131,719. Do it
+as its own small PR and list every move"). Reason (19:49): "The two leftovers should not stay wrong if they can be
+refit." Two more steps:
+  fix_cha(contests)   the same count in Cha, Kuriwaki and Snyder's contests as D2's build reads them (pipeline/chambers.py
+                      _load, pipeline/intake/build_congress.py cha_index): Tupola's votes and the total, so that every
+                      fit, back-test and last-race index the build makes takes Hawaii 2018 at 131,719. The dataset's
+                      other figures stand.
+  last_race()         Hawaii 2022's forecast input "last_governor_race" (data/governor/2022.json), the Democrat's
+                      two-party share of Hawaii 2018, read again from chambers.last_governor_index() with the fix, as
+                      build_congress.forecast_inputs writes it.
+Then pipeline/chambers.py is run (odd, backtest, compute, history), and data/local/REPORT.md section 30 lists every
+move.
+
+Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/governor_hi2018.py        (the record, then Hawaii 2022's input)
 """
 import json
 import os
@@ -50,8 +62,12 @@ EXPECT = {"(D) IGE / GREEN": 244934, "(R) TUPOLA / KERNS": 131719, "(G) BREWER /
 WAS = 137719
 NOTE = ("TUPOLA, ANDRIA's votes are the Office of Elections' certified count, 131,719 (its Statewide Summary, a "
         "certified text file); the dataset reads 137,719, which differs in one digit (the orchestrator's ruling of "
-        "2026-11-07 19:13; data/local/REPORT.md section 29). n and each p follow the certified count; D2's later fits "
-        "and Hawaii 2022's last-governor-race input still use the dataset's figure")
+        "2026-11-07 19:13; data/local/REPORT.md section 29). n and each p follow the certified count, and so do D2's "
+        "fits of later years and Hawaii 2022's last-governor-race input (the ruling of 19:49; section 30)")
+OLD_NOTE = "TUPOLA, ANDRIA's votes are the Office of Elections' certified count, 131,719"   # an earlier wording
+NOTE_LAST = ("the last governor race's Democratic share (Hawaii 2018) reads Tupola at the Office of Elections' "
+             "certified 131,719 in place of the dataset's 137,719 (pipeline/governor_hi2018.py; the orchestrator, "
+             "2026-11-07 19:49; data/local/REPORT.md section 30)")
 
 
 def _meta(name):
@@ -85,6 +101,71 @@ def summary():
                  "licence": "no licence printed; the State of Hawaii's public election returns",
                  "mark": "certified (the Office of Elections' page lists the file under 'Certified Text Files')",
                  "via": page_meta["url"], "note": "sha256 " + meta["sha256"][:16]}
+
+
+def fix_cha(contests):
+    """Cha, Kuriwaki and Snyder's normalized contests (pipeline/intake/candidates_american_general_elections.py), with
+    Hawaii 2018's governor at the certified count: each candidate's votes from the summary, and the contest's total.
+    In place; returns the list. Stops where the contest is not found once, or where it differs from the dataset's
+    figures other than Tupola's 137,719 (so a new version of the dataset is read again, not overwritten)."""
+    got, _ = summary()
+    hit = [c for c in contests if c["year"] == 2018 and c["office"] == "governor" and c["state"] == "HI"
+           and not c["special"]]
+    if len(hit) != 1:
+        raise SystemExit(f"governor_hi2018.fix_cha: {len(hit)} Hawaii 2018 governor contests in Cha's file")
+    c = hit[0]
+    old = {a["name"]: a["votes"] for a in c["candidates"]}
+    if set(old) != set(NAMES):
+        raise SystemExit(f"governor_hi2018.fix_cha: Cha's contest names {sorted(old)}")
+    want = {n: got[NAMES[n]] for n in NAMES}
+    if old != want and old != {**want, "TUPOLA, ANDRIA": WAS}:
+        raise SystemExit(f"governor_hi2018.fix_cha: Cha's votes are not the dataset's as expected: {old}")
+    for a in c["candidates"]:
+        a["votes"] = want[a["name"]]
+    c["totalvotes"] = sum(want.values())
+    c["certified_count"] = ("TUPOLA, ANDRIA's votes set to 131,719 from the dataset's 137,719: the State of Hawaii "
+                            "Office of Elections' certified Statewide Summary (pipeline/governor_hi2018.py)")
+    return contests
+
+
+def last_race():
+    """Every governor record of 2019-2025 whose forecast input "last_governor_race" is Hawaii's 2018 race, read again
+    from chambers.last_governor_index() (with fix_cha); returns [(id, was, now)]."""
+    import chambers as CH
+    idx = CH.last_governor_index()
+    moves = []
+    for year in range(2019, 2026):
+        path = os.path.join(os.path.dirname(HERE), "data", "governor", f"{year}.json")
+        if not os.path.exists(path):
+            continue
+        with open(path) as f:
+            lines = f.read().split("\n")
+        hit = False
+        for i, l in enumerate(lines):
+            if not l.startswith('  {"id":"') or '"last_governor_race":{"year":2018' not in l:
+                continue
+            comma = l.endswith(",")
+            rec = json.loads(l.strip().rstrip(","))
+            st = rec["place"]["state"]
+            lg = rec["forecast_inputs"]["last_governor_race"]
+            if st != "HI" or lg["year"] != 2018:
+                continue
+            now = CH.last_governor_race(idx, st, year)
+            if now is None or now[0] != 2018:
+                raise SystemExit(f"governor_hi2018.last_race: {rec['id']}'s last race now reads {now}")
+            new = {"year": now[0], "share_D": now[1], "special": now[2], "source": now[3]}
+            if new != lg or NOTE_LAST not in rec["notes"]:
+                if new != lg:
+                    moves.append((rec["id"], lg["share_D"], now[1]))
+                rec["forecast_inputs"]["last_governor_race"] = new
+                if NOTE_LAST not in rec["notes"]:
+                    rec["notes"].append(NOTE_LAST)
+                lines[i] = "  " + json.dumps(rec, separators=(",", ":"), ensure_ascii=False) + ("," if comma else "")
+                hit = True
+        if hit:
+            with open(path, "w") as f:
+                f.write("\n".join(lines))
+    return moves
 
 
 def main():
@@ -126,7 +207,7 @@ def main():
         moves.append((x["under"], was, x["value"]))
     p["n"] = n
     if NOTE not in rec["notes"]:
-        rec["notes"].append(NOTE)
+        rec["notes"] = [x for x in rec["notes"] if not x.startswith(OLD_NOTE)] + [NOTE]
     lines[at[0]] = "  " + json.dumps(rec, separators=(",", ":"), ensure_ascii=False) + ("," if comma else "")
     text = "\n".join(lines)
     if '"hi_oe": {' not in text:
@@ -143,6 +224,8 @@ def main():
     print(f"{ID}: n {n_old:,} -> {n:,}; total {sum(old.values()):,} -> {rec['result']['total_votes']:,}")
     for under, a, b in moves:
         print(f"  p under {under}: {a:.6g} -> {b:.6g} ({b / a:.5f}x)")
+    for rid, a, b in last_race():
+        print(f"{rid}: last governor race (Hawaii 2018), the Democrat's two-party share {a:.6f} -> {b:.6f}")
 
 
 if __name__ == "__main__":
