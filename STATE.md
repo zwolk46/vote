@@ -37,6 +37,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 02:08: #8 merged (draft 2, B1 on `main`); asked the coordinator to start B1 (Fable 5.1, xhigh). Decision card to the maker: which elections the site covers.
+
 - 2026-11-07 02:05: M1 done, #7 merged (`model/MATH.md`: p = f(1/2)/(2n) ex ante under every tie rule; lay form p ~ 25 q/n, q = chance of finishing 49-51%, within 1.22x for n >= 1,000; two-stage product safe within 2 points of even; recounts leave p unchanged while the recount zone << forecast spread; published conventions differ by 2x). Wrote `model/MODEL-DRAFT-2.md` and `briefs/B1-break-the-model.md` (Fable 5.1, xhigh). Next: B1 breaks draft 2; meanwhile the maker is asked which elections the site covers.
 
 - 2026-11-07 01:08: M1 up (Fable 5.1, xhigh); R1-R4 set aside. Draft 2 waits on M1, because the simple-mode formula and the constants are the heart of the page and draft 2 would otherwise be rewritten.
