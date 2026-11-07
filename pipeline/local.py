@@ -13,8 +13,9 @@ version of it), and writes one compact file per level, year and state:
 Each file is {level, year, state, about, sources: {key: source block}, model: {...}, contests: [...]}, one contest
 per line, in the layout of plan/PLAN.md section 3; the fields added are in data/README.md ("Fields added by D3").
 
-THE MODEL'S OWN FORECAST, method D3-v1 (proposed to the orchestrator with its back-test before any p is computed,
-brief step 3). Three routes, by what is known before the election:
+THE MODEL'S OWN FORECAST, method D3-v1.1: D3-v1 as proposed to the orchestrator with its back-test (brief step 3),
+approved 05:06 with one change, that each year is fitted on earlier years only, and with runoffs added at its word.
+Routes by what is known before the election:
 
   (a) "partisan": a single-seat general election whose two leading candidates are a Democrat and a Republican.
       The Democrat's share of the two-party vote is
@@ -29,12 +30,13 @@ brief step 3). Three routes, by what is known before the election:
       a presidential year, a midterm or an odd year, and the sitting president's party (National Archives), as
       D2-v1 does for Congress. g is the state-and-chamber's own swing that year, e the race's own error; the
       forecast is normal with sd = sqrt(s_a^2 + s_g^2 + s_e^2), s_e by class and size, and a Student-t with 4
-      degrees of freedom on the same sd beside it. Like D2-v1 (approved 03:46), every cycle is forecast from a fit
-      on the other cycles: the inputs are all from before the election, the coefficients borrow other cycles.
+      degrees of freedom on the same sd beside it. Each year is forecast from a fit on earlier years only (the
+      orchestrator, 05:06: "a coefficient fitted partly on later years is something no voter knew"), and only
+      when the fit has at least MIN_EARLIER earlier years of the same kind, the fewest the back-test supports.
       This is Gelman & King's and Gelman, King & Boscardin's route (the last result and incumbency).
   (b) "class": every other contest the model can count: primaries, nonpartisan races, a major party against a
       minor one. The forecast is the spread of like past races' results (Mulligan & Hunter's route, model
-      section 3), read through the model's own lay form: q, the share of the class's races in other years whose
+      section 3), read through the model's own lay form: q, the share of the class's races in earlier years whose
       two leading candidates finished between 49% and 51% of their combined vote, gives f(1/2) = 50 q and p =
       25 q / n (model section 3, "the form a person can say aloud"). The same f(1/2) for every race of the
       class; p through pipeline/core.py with a normal of that height at 1/2. The class is named in each forecast.
@@ -42,10 +44,16 @@ brief step 3). Three routes, by what is known before the election:
       candidates either side of the boundary between the last winner and the first loser (model section 7), for a
       ballot that marks one of them and not the other. Marked the model's own and not yet checked; M2 checks it.
 
-Not computed, with the reason recorded (model section 7): runoffs and two-round systems (Louisiana, primaries in
-runoff states, Georgia's general runoffs), top-two primaries (a boundary between second and third), special
-elections (the forecasts are fitted to regular elections), contests whose votes are not reported. A race with
-one name on the ballot has p = 0, said so; write-in votes against it are recorded.
+  (d) "runoff": the second round of a runoff (party primaries in runoff states, Louisiana's second round,
+      Georgia's general runoffs) is its own two-way race (the orchestrator, 05:06): route (b) on like past
+      runoffs, classed by kind and by how far ahead the first round's leader of the two finished, known before
+      the second round. Marked.
+
+Not computed, with the reason recorded (model section 7): first rounds of two-round systems (a vote there works
+through who advances), top-two primaries (a boundary between second and third), special elections (the
+forecasts are fitted to regular elections), contests whose votes are not reported, and years or classes with too
+few earlier races to fit on. A race with one name on the ballot has p = 0, said so; write-in votes against it are
+recorded.
 
 Run:
   VOTE_CACHE=/tmp/vote-cache python3 pipeline/local.py backtest          writes data/local/backtest.json
@@ -68,12 +76,13 @@ sys.path.insert(0, HERE)
 import core  # noqa: E402  (p_contest: the one implementation of the model's formula)
 import fetch as F  # noqa: E402
 
-METHOD = "D3-v1"
+METHOD = "D3-v1.1"
 KLARNER = os.path.join(F.CACHE, "klarner", "normalized")
 NARA = os.path.join(F.CACHE, "nara", "normalized", "electoral_college.json")
 BINS = (0, 3000, 10000, 30000, float("inf"))     # two-party votes: the race's own error is fitted by size
 SMALL_COUNT = {"general": 0.05, "primary": 0.02}   # a count this far under its chamber's median is held back
-MIN_CLASS = 100          # route (b) needs at least this many like races in other years
+MIN_CLASS = 100          # route (b) needs at least this many like races in earlier years
+MIN_EARLIER = 3          # route (a): earlier years of the same kind (presidential, midterm, odd) a fit needs, read off the back-test
 MIN_IN_WINDOW = 10       # and at least this many of them in the window, or the window widens
 WINDOWS = (0.01, 0.02, 0.05)
 STATE_NAMES = {
@@ -210,15 +219,22 @@ def fit_partisan(rows, pres):
     res = y - X @ b
     coef = {c: float(b[j[c]]) for c in COLS}
     year_effect = {t: float(b[yi[t]]) for t in ys}
-    swing, resid = {}, []
+    swing, resid, df, n_kind = {}, [], 0, {}
     for cy in ("presidential", "midterm", "odd"):
         ts = [t for t in ys if cycle(t) == cy and t in pres]
-        A = np.array([[1.0, pres[t]] for t in ts])
+        n_kind[cy] = len(ts)
+        if not ts:
+            continue
         v = np.array([year_effect[t] for t in ts])
+        if len(ts) >= 2 and len({pres[t] for t in ts}) > 1:
+            A, npar = np.array([[1.0, pres[t]] for t in ts]), 2
+        else:   # one party in the White House in every earlier year of this kind: the mean swing only
+            A, npar = np.ones((len(ts), 1)), 1
         s, *_ = np.linalg.lstsq(A, v, rcond=None)
-        swing[cy] = [float(s[0]), float(s[1])]
+        swing[cy] = [float(s[0]), float(s[1]) if npar == 2 else 0.0]
         resid += list(v - A @ s)
-    s_a = math.sqrt(sum(e * e for e in resid) / (len(resid) - 6))
+        df += len(ts) - npar
+    s_a = math.sqrt(sum(e * e for e in resid) / df) if df > 0 else None
     groups = collections.defaultdict(list)
     for i, r_ in enumerate(rows):
         groups[(r_["state"], r_["sen"], r_["year"])].append(i)
@@ -236,7 +252,20 @@ def fit_partisan(rows, pres):
             w[(rows[i]["cls"], size_bin(rows[i]["N"]))].append((res[i] - mu) ** 2 * f)
     s_e = {f"{c}{b_}": math.sqrt(float(np.mean(v))) for (c, b_), v in w.items()}
     return {"years_fitted": ys, "races_fitted": len(rows), "coef": coef, "swing": swing, "s_a": s_a, "s_g": s_g,
-            "s_e": s_e, "year_effect": year_effect}
+            "s_e": s_e, "year_effect": year_effect, "earlier_years_of_kind": n_kind}
+
+
+def fit_before(rows, pres, t):
+    """The fit for year t, on earlier years only (the orchestrator, 05:06: a coefficient fitted partly on later
+    years is something no voter knew). Returns (fit or None, earlier years of t's kind)."""
+    train = [r_ for r_ in rows if r_["year"] < t]
+    if not train:
+        return None, 0
+    M = fit_partisan(train, pres)
+    k = M["earlier_years_of_kind"].get(cycle(t), 0)
+    if M["s_a"] is None or cycle(t) not in M["swing"]:
+        return None, k
+    return M, k
 
 
 def predict_partisan(M, r_, pres):
@@ -263,16 +292,55 @@ def class_key_primary(c, lead):
     return f"primary, {k if k < 4 else '4+'} candidates, {'an incumbent running' if inc else 'open seat'}"
 
 
+# a runoff's second round and the first rounds it can follow (Klarner's election types)
+RUNOFF_FIRST = {"dprunoff": ("dpfunsettled", "dpfpartunsettled"), "rprunoff": ("rpfunsettled",),
+                "larunoff": ("lafunsettled",), "grunoff": ("gfunsettled", "gfpartunsettled")}
+RUNOFF_KIND = {"dprunoff": "after a party primary", "rprunoff": "after a party primary",
+               "larunoff": "after an open or general first round", "grunoff": "after an open or general first round"}
+
+
+def _seat(c):
+    return (c["year"], c["state"], c["sen"], c["dname"], c["dno"], c["geopost"], c["mmdpost"])
+
+
+def first_round_index(contests):
+    idx = collections.defaultdict(list)
+    for c in contests:
+        if any(c["etype"] in v for v in RUNOFF_FIRST.values()):
+            idx[_seat(c)].append(c)
+    return idx
+
+
+def runoff_key(c, idx):
+    """The class of a runoff's second round, from what was known before it: its kind, and how far ahead the
+    first round's leader of the two finished in the first round (their share of the two's first-round votes)."""
+    named = two_leading(c["cands"])[:2]
+    fr = [x for x in idx.get(_seat(c), []) if x["etype"] in RUNOFF_FIRST[c["etype"]]]
+    kind = RUNOFF_KIND[c["etype"]]
+    if fr:
+        v = {a["candid"]: a["votes"] for a in fr[0]["cands"] if not a["scattering"]}
+        got = [v.get(a["candid"]) for a in named]
+        if all(g is not None for g in got) and sum(got) > 0:
+            s = max(got) / sum(got)
+            return (f"runoff {kind}, first-round leader of the two within 10 points" if s < 0.55 else
+                    f"runoff {kind}, first-round leader of the two ahead by 10 points or more")
+    return f"runoff {kind}, first round not found in the source"
+
+
 def class_rows(contests):
-    """Rows for route (b): plurality contests decided by their own count that route (a) does not cover."""
+    """Rows for route (b): plurality contests decided by their own count that route (a) does not cover, and the
+    second rounds of runoffs, each a two-way race (the orchestrator, 05:06)."""
     rows = []
+    idx = first_round_index(contests)
     for c in contests:
         lead = two_leading(c["cands"])
         if len(lead) < 2 or any(a["vote_missing"] for a in c["cands"] if not a["scattering"]):
             continue
         kind = structure(c)
-        if kind[0] not in ("class", "boundary"):
+        if kind[0] not in ("class", "boundary", "runoff"):
             continue
+        if kind[0] == "runoff":
+            kind = ("runoff", runoff_key(c, idx))
         if kind[0] == "boundary":
             k = c["eseats"]
             if len(lead) <= k:
@@ -319,15 +387,23 @@ def structure(c):
         return ("zero", "one name on the ballot for each seat (unopposed): p is 0; write-in votes against it are "
                         "recorded" if any(a["party"] == "w" or a["scattering"] for a in c["cands"]) else
                         "one name on the ballot for each seat (unopposed): p is 0")
+    if et in RUNOFF_FIRST:
+        if (c["eseats"] or 1) > 1:
+            return ("not computed", f"a runoff for several seats at once: not computed in {METHOD}")
+        return ("runoff", "the second round of a runoff, its own two-way race")
     if et.startswith("la") or "runoff" in et or "funset" in et or "fsettled" in et or "fpartunset" in et \
-            or et in ("gfunsettled", "grunoff"):
-        return ("not computed", "a two-round system or runoff (model section 7: recorded, p not computed)")
+            or et in ("gfunsettled",):
+        if "runoff" in et:
+            return ("not computed", "a runoff in a special election: the model's own forecasts are fitted to "
+                                    "regular elections")
+        return ("not computed", "the first round of a two-round system: a vote there works through who advances "
+                                "(model section 7); recorded, p not computed")
     if et == "ttp":
         return ("not computed", "a top-two primary: the first two advance, so it is decided at the boundary "
-                                "between second and third; not computed in D3-v1")
+                                f"between second and third; not computed in {METHOD}")
     if et in PRIMARY_PLURALITY or (et.endswith("p") and not et.startswith("s")):
         if (c["eseats"] or 1) > 1:
-            return ("not computed", "a primary that nominates several candidates at once: not computed in D3-v1")
+            return ("not computed", f"a primary that nominates several candidates at once: not computed in {METHOD}")
         return ("class", class_key_primary(c, named))
     if et in ("g", "gs", "ssg"):
         k = c["eseats"] or 1
@@ -349,7 +425,7 @@ def structure(c):
         return ("class", "general, two candidates of one major party")
     if et.startswith("s") or et.startswith("nps") or et == "appointed":
         return ("not computed", "a special election: the model's own forecasts are fitted to regular elections")
-    return ("not computed", f"election type {et!r} not handled by D3-v1")
+    return ("not computed", f"election type {et!r} not handled by {METHOD}")
 
 
 # ------------------------------------------------------------------ normal and t4, numpy only
@@ -407,34 +483,59 @@ def _finish(e):
 
 # ------------------------------------------------------------------ back-test
 
+def _class_tally(e, f, r_):
+    n = r_["n"]
+    margin = round((2 * r_["s"] - 1) * n)
+    e["races"] += 1
+    e["expected_49_51"] += min(1.0, f * 0.02)
+    e["seen_49_51"] += r_["s"] <= 0.51
+    e["expected_within_10_votes"] += min(1.0, f * 10.5 / n)
+    e["seen_within_10_votes"] += margin <= 10
+    e["expected_margin_0_or_1"] += min(1.0, 1.5 * f / n)
+    e["seen_margin_0_or_1"] += margin <= 1
+
+
+def _bucket(k):
+    return str(k) if k < 6 else "6-9" if k < 10 else "10 or more"
+
+
 def backtest(contests=None, write=True):
+    """Each year forecast from a fit on earlier years only (the orchestrator, 05:06). Route (a) is tallied by how
+    many earlier years of the same kind (presidential, midterm, odd) its fit had, so MIN_EARLIER can be read off;
+    the headline tallies are for the years with at least MIN_EARLIER."""
     contests = contests or load_klarner()
     pres, _ = president_party()
     rows = [r_ for r_ in partisan_rows(contests) if r_["year"] in pres]
     years = sorted({r_["year"] for r_ in rows})
-    allp, per_year, by_size, by_cls, fits = collections.Counter(), {}, collections.defaultdict(collections.Counter), \
-        collections.defaultdict(collections.Counter), {}
+    by_k = collections.defaultdict(collections.Counter)
+    allp, per_year, by_size, by_cls = collections.Counter(), {}, collections.defaultdict(collections.Counter), \
+        collections.defaultdict(collections.Counter)
+    unfit = {}
     for t in years:
-        M = fit_partisan([r_ for r_ in rows if r_["year"] != t], pres)
-        fits[t] = {k: M[k] for k in ("coef", "swing", "s_a", "s_g", "s_e")}
+        M, k = fit_before(rows, pres, t)
+        tr = [r_ for r_ in rows if r_["year"] == t]
+        if M is None:
+            unfit[t] = {"races": len(tr), "earlier_years_of_kind": k}
+            continue
         e = collections.Counter()
-        for r_ in rows:
-            if r_["year"] != t:
-                continue
+        for r_ in tr:
             m, sd, _ = predict_partisan(M, r_, pres)
             sdn = math.sqrt(sd * sd + 0.25 / r_["N"])
             _tally(e, r_["y"], r_["N"], m, sdn)
-            _tally(by_size[size_bin(r_["N"])], r_["y"], r_["N"], m, sdn)
-            _tally(by_cls[r_["cls"]], r_["y"], r_["N"], m, sdn)
-        per_year[t] = _finish(e)
-        allp.update(e)
+            _tally(by_k[_bucket(k)], r_["y"], r_["N"], m, sdn)
+            if MIN_EARLIER is not None and k >= MIN_EARLIER:
+                _tally(by_size[size_bin(r_["N"])], r_["y"], r_["N"], m, sdn)
+                _tally(by_cls[r_["cls"]], r_["y"], r_["N"], m, sdn)
+                _tally(allp, r_["y"], r_["N"], m, sdn)
+        per_year[t] = dict(_finish(e), earlier_years_of_kind=k)
     full = fit_partisan(rows, pres)
-    # route (b): primaries and other classes, each year from the other years
+    # routes (b), (c) and runoffs: each year from the like races of earlier years only
     crow = class_rows(contests)
     cyears = sorted({r_["year"] for r_ in crow})
     cls_all = collections.defaultdict(collections.Counter)
+    cls_unfit = collections.Counter()
     for t in cyears:
-        tr = [r_ for r_ in crow if r_["year"] != t]
+        tr = [r_ for r_ in crow if r_["year"] < t]
         dens = {}
         for r_ in crow:
             if r_["year"] != t:
@@ -442,31 +543,33 @@ def backtest(contests=None, write=True):
             if r_["key"] not in dens:
                 dens[r_["key"]] = class_density(tr, r_["key"])
             f = dens[r_["key"]][0]
-            if not f:
+            if f is None:
+                cls_unfit[r_["key"]] += 1
                 continue
-            e = cls_all[r_["key"]]
-            n = r_["n"]
-            margin = round((2 * r_["s"] - 1) * n)
-            e["races"] += 1
-            e["expected_49_51"] += min(1.0, f * 0.02)
-            e["seen_49_51"] += r_["s"] <= 0.51
-            e["expected_within_10_votes"] += min(1.0, f * 10.5 / n)
-            e["seen_within_10_votes"] += margin <= 10
-            e["expected_margin_0_or_1"] += min(1.0, 1.5 * f / n)
-            e["seen_margin_0_or_1"] += margin <= 1
+            _class_tally(cls_all[r_["key"]], f, r_)
+    cls_sum = collections.Counter()
+    for v in cls_all.values():
+        cls_sum.update(v)
     out = {
         "method": METHOD, "written_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
-        "about": "Leave-one-year-out back-test of the model's own forecast for state legislative races (route a: "
-                 "single-seat general elections with a Democrat and a Republican leading), and of route b (like "
-                 "past races) for the other classes. Each year is forecast from a fit on the other years. "
-                 "'in_50' is the share of races inside their 50% interval; 'expected' counts sum the forecast's "
-                 "probabilities, 'seen' counts what happened. A margin of 0 or 1 is the check of brief step 5.",
-        "partisan": {"all": _finish(allp), "by_year": per_year,
+        "about": "Back-test of the model's own forecast for state legislative races, each year forecast from a fit "
+                 "on earlier years only. Route a: single-seat general elections with one Democrat and one "
+                 "Republican on the ballot; the headline tallies are for years whose fit had at least "
+                 f"{MIN_EARLIER} earlier years of the same kind (presidential, midterm, odd), the fewest the "
+                 "back-test by earlier years supports ('partisan.by_earlier_years_of_kind'). Routes b and c and "
+                 "runoffs: like past races, from earlier years only. 'in_50' is the share of races inside their "
+                 "50% interval; 'expected' counts sum the forecast's probabilities, 'seen' counts what happened. "
+                 "A margin of 0 or 1 is the check of brief step 5.",
+        "partisan": {"min_earlier_years_of_kind": MIN_EARLIER, "all": _finish(allp),
+                     "by_earlier_years_of_kind": {k: _finish(v) for k, v in sorted(by_k.items(), key=lambda x: _ord(x[0]))},
+                     "by_year": per_year, "years_without_a_fit": unfit,
                      "by_size_two_party_votes": {f"{BINS[i]}-{BINS[i + 1]}": _finish(v) for i, v in sorted(by_size.items())},
                      "by_class": {k: _finish(v) for k, v in sorted(by_cls.items())},
                      "fit_on_all_years": {k: full[k] for k in ("races_fitted", "coef", "swing", "s_a", "s_g", "s_e")}},
-        "class": {k: {kk: (round(vv, 2) if isinstance(vv, float) else vv) for kk, vv in v.items()}
-                  for k, v in sorted(cls_all.items())},
+        "class": {"all": {kk: (round(vv, 2) if isinstance(vv, float) else vv) for kk, vv in cls_sum.items()},
+                  "by_class": {k: {kk: (round(vv, 2) if isinstance(vv, float) else vv) for kk, vv in v.items()}
+                               for k, v in sorted(cls_all.items())},
+                  "races_without_enough_earlier_like_races": dict(sorted(cls_unfit.items()))},
     }
     if write:
         path = os.path.join(REPO, "data", "local", "backtest.json")
@@ -475,6 +578,10 @@ def backtest(contests=None, write=True):
             json.dump(out, f, indent=1)
             f.write("\n")
     return out
+
+
+def _ord(k):
+    return {"6-9": 6, "10 or more": 10}.get(k, int(k) if k.isdigit() else 99)
 
 
 # ------------------------------------------------------------------ build data/
@@ -571,7 +678,7 @@ def build(out_dir, with_p=False, sample=False):
                         "US federal public record; no licence printed", mark="stated")
     src_model = F.source(f"the model's own forecast, method {METHOD}", "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
                          datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"), None,
-                         mark="inferred", note="each year forecast from a fit on the other years; no polls are used")
+                         mark="inferred", note="each year forecast from a fit on earlier years only; no polls are used")
     rows = [r_ for r_ in partisan_rows(contests) if r_["year"] in pres]
     by_contest = {id(r_["c"]): r_ for r_ in rows}
     crow = class_rows(contests)
@@ -581,9 +688,10 @@ def build(out_dir, with_p=False, sample=False):
     files = collections.defaultdict(list)
     counts = collections.Counter()
     seen_ids = set()
+    fit_k = {}
     for t in years:
         if t in pres and any(r_["year"] == t for r_ in rows):
-            fits[t] = fit_partisan([r_ for r_ in rows if r_["year"] != t], pres)
+            fits[t], fit_k[t] = fit_before(rows, pres, t)
     totals = collections.defaultdict(list)
     for c in contests:
         tv = sum(a["votes"] for a in c["cands"] if not a["vote_missing"])
@@ -595,8 +703,9 @@ def build(out_dir, with_p=False, sample=False):
         route, why = structure(c)
         tv = sum(a["votes"] for a in c["cands"] if not a["vote_missing"])
         med = median_total.get((c["state"], c["sen"], t, c["etype"]))
-        kind = "primary" if route == "class" and why and why.startswith("primary") else "general"
-        if route in ("partisan", "class", "boundary") and med and tv < SMALL_COUNT[kind] * med:
+        kind = "primary" if (route == "class" and why and why.startswith("primary")) or \
+            c["etype"] in ("dprunoff", "rprunoff") else "general"
+        if route in ("partisan", "class", "boundary", "runoff") and med and tv < SMALL_COUNT[kind] * med:
             route, why = ("not computed", f"the count, {tv:,} votes, is under {round(100 * SMALL_COUNT[kind])}% of the "
                                           f"median of the chamber's {c['etype']} contests that year ({med:,.0f}): "
                                           f"likely incomplete in the source; to be checked at a second source")
@@ -644,6 +753,10 @@ def build(out_dir, with_p=False, sample=False):
         elif route == "not computed":
             p["not_computed"] = why
             counts["not computed: " + why.split(":")[0].split(",")[0]] += 1
+        elif route == "partisan" and id(c) in by_contest and (fits.get(t) is None or fit_k.get(t, 0) < MIN_EARLIER):
+            p["not_computed"] = (f"fewer than {MIN_EARLIER} earlier {cycle(t)} years to fit the forecast on "
+                                 f"({fit_k.get(t, 0)}): {METHOD} fits each year on earlier years only")
+            counts["not computed: too few earlier years"] += 1
         elif route == "partisan" and id(c) in by_contest and t in fits:
             r_ = by_contest[id(c)]
             M = fits[t]
@@ -676,11 +789,11 @@ def build(out_dir, with_p=False, sample=False):
             else:
                 p["not_computed"] = "awaiting the orchestrator's approval of the forecast method (brief step 3)"
                 counts["forecast built: partisan"] += 1
-        elif route in ("class", "boundary") and id(c) in by_crow:
+        elif route in ("class", "boundary", "runoff") and id(c) in by_crow:
             r_ = by_crow[id(c)]
             key = r_["key"]
             if (t, key) not in dens_cache:
-                dens_cache[(t, key)] = class_density([x for x in crow if x["year"] != t], key)
+                dens_cache[(t, key)] = class_density([x for x in crow if x["year"] < t], key)
             f, N, h, kin = dens_cache[(t, key)]
             lead = two_leading(c["cands"])
             kk = (c["eseats"] or 1) if route == "boundary" else 1
@@ -690,7 +803,7 @@ def build(out_dir, with_p=False, sample=False):
             rec[fld] = {"votes": [pair[0]["votes"], pair[1]["votes"]], "n_other_voters": n,
                         "share_first": round(pair[0]["votes"] / (n + 1), 6)}
             if f is None:
-                p["not_computed"] = f"fewer than {MIN_CLASS} like races in other years ({N}) for the class '{key}'"
+                p["not_computed"] = f"fewer than {MIN_CLASS} like races in earlier years ({N}) for the class '{key}'"
                 counts["not computed: too few like races"] += 1
             else:
                 q = f * 2 * h
@@ -699,11 +812,14 @@ def build(out_dir, with_p=False, sample=False):
                       "q": round(q, 5), "source": "model"}
                 if route == "boundary":
                     fc["note"] = "not yet checked"
+                if route == "runoff":
+                    fc["note"] = "the second round of a runoff, its own two-way race, from like past runoffs"
                 rec["forecasts"].append(fc)
                 if with_p and n >= 1:
                     if f > 0:
                         sd_eq = 1.0 / (math.sqrt(2 * math.pi) * f)
-                        p = _p_block(n, 0.5, sd_eq, f"the model's own ({METHOD}), like past races", commit)
+                        p = _p_block(n, 0.5, sd_eq, f"the model's own ({METHOD}), like past "
+                                                     f"{'runoffs' if route == 'runoff' else 'races'}", commit)
                     else:
                         p.update({"value": 0.0, "event": 0.0,
                                   "reason": f"no like race in {N} finished within {round(50 - 100 * h)}-{round(50 + 100 * h)}%"})
@@ -712,7 +828,7 @@ def build(out_dir, with_p=False, sample=False):
                     p["not_computed"] = "awaiting the orchestrator's approval of the forecast method (brief step 3)"
                     counts[f"forecast built: {route}"] += 1
         else:
-            p["not_computed"] = "no forecast route applies (a structure D3-v1 does not cover)"
+            p["not_computed"] = f"no forecast route applies (a structure {METHOD} does not cover)"
             counts["not computed: no route"] += 1
         rec["p"] = p or None
         if notes:
