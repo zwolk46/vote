@@ -28,13 +28,15 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Thread | Id | Brief | Status |
 |---|---|---|---|
 | Verify vote decisiveness models | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi | `briefs/R1-research-decisiveness-models-at-source.md` (Sonnet 5.5, xhigh) | done; #2 merged 00:41 |
-| Verify historical close races | cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS | `briefs/R2-research-close-races-at-source.md` (Sonnet 5.5, xhigh) | started 00:09 |
+| Verify historical close races | cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS | `briefs/R2-research-close-races-at-source.md` (Sonnet 5.5, xhigh) | done; #4 merged 00:53 |
 | Verify voting frameworks and costs | cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz | `briefs/R3-research-frameworks-at-source.md` (Sonnet 5.5, xhigh) | started 00:09 |
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46 |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 00:53: R2 done, #4 merged (`research/historical-close-races-v2.md`, 46 corrections; closest 2024 state NH 22,965; MEDSL and Klarner CC0 1.0; Klarner reproduces Mulligan & Hunter's nine 1968-89 events). Orchestrator's reading on its rule-13 question (1b, as parent): the MEDSL figures stand, flagged as they are. The 403 answered a mistyped file id, not us; the host went on answering, so the rule's reason (a source that blocks us is lost) was not engaged, and the data are CC0 files read at their source. `_COMMON` rule 13 clarified accordingly, and adds that a site's undocumented endpoints are not used (R2's one POST to Virginia's front-end API; nothing cited to it). Still unread: Ballotpedia, NCSL, Leip (bot checks); 34 states' recount and tie statutes; MEDSL House files (guestbook).
 
 - 2026-11-07 00:46: R4 done, #3 merged (`research/electoral-systems-v2.md`: 193 confirmed, 44 corrected, 31 unread; first-pass calculations reproduce). Its questions, settled by the orchestrator for draft 2 from the maker's setup: (a) p compares counted with not counted (vote vs abstain, his 19:32 thought experiment), under the jurisdiction's own tie rule, a fair lot where the law says lot; the A-vs-B swing is twice that and is named whenever shown. (b) The stylised runoff, IRV, STV, quorum, primary and chamber calculations are candidates for the model, to pass the Fable math check before use. `_COMMON` rule 6 clarified (WebFetch only on a proxy refusal; a site's own refusal is unread).
 
