@@ -13,5 +13,6 @@ This repository holds the site and the record of the system of agents that build
 - **If GitHub or Vercel fails**, stop that work and tell the orchestrator at once.
 - **Code goes through PRs.** Merge `main` into a branch; never rebase or force-push a pushed branch.
 - `inherited/` holds `LESSONS.md` and `DESIGN.md` from the midterms system (zwolk46/midterms). Evidence, not law.
+- **Design follows `inherited/design/`.** Any work that decides how the site looks, moves, reads or is laid out reads `inherited/design/README.md` first and follows it. The maker's midterms design rulings (`inherited/design/TASTE.md`) stand here as his defaults unless he rules otherwise in this project. *Reason:* his words of 2026-11-07 02:39 UTC (`inherited/design/ASK.md`): the corrections he made on midterms are to apply here automatically.
 
 Roles, routing, models and usage are in `OPERATIONS.md`.
