@@ -1,5 +1,5 @@
 {
- "about": "Statewide questions that MEDSL's precinct files put with local offices (its local dataverse), once per county or once for the whole state, each found on the state's own list of that year's statewide measures (the orchestrator, 2026-11-07 13:54: 'from the state's own list of that year's statewide measures where it answers, so they are marked stated'). pipeline/local_medsl.py joins each one's lines into one statewide question (join_statewide). 'offices_as_filed' are MEDSL's offices joined; 'list' is the state's page read, its 'cache_file' under the cache (not committed); 'quote' is the list's own words for the question, 'mark' how the match to our title was read; 'statewide' the words that make the list a statewide one; 'type' and 'proposer' in this repository's words (pipeline/measures.py), read from the list ('type_as_listed', 'type_quote'); 'state_total', where a state page read prints the question's statewide yes and no, those figures and their words, set against MEDSL's sum in each record (listed_statewide.state_total). Read by D3's readers; every quote checked word for word against its saved file (whitespace and quote marks normalized).",
+ "about": "Statewide questions that MEDSL's precinct files put with local offices (its local dataverse), once per county or once for the whole state, each found on the state's own list of that year's statewide measures (the orchestrator, 2026-11-07 13:54: 'from the state's own list of that year's statewide measures where it answers, so they are marked stated'). pipeline/local_medsl.py joins each one's lines into one statewide question (join_statewide). 'offices_as_filed' are MEDSL's offices joined; 'list' is the state's page read, its 'cache_file' under the cache (not committed); 'quote' is the list's own words for the question, 'mark' how the match to our title was read; 'statewide' the words that make the list a statewide one; 'type' and 'proposer' in this repository's words (pipeline/measures.py), read from the list ('type_as_listed', 'type_quote'); 'state_total', where a state page read prints the question's statewide yes and no, those figures and their words, set against MEDSL's sum in each record (listed_statewide.state_total); its 'certified' says whether the state marks those totals certified or official ('marked', with the words and where they are, or a 'note' on why not). Where it does, the state's totals are the record's counts and MEDSL's sum stands beside them (the orchestrator's ruling, 2026-11-07 15:16: 'Where a state page that prints totals marks them certified or official, its totals are the statewide record's counts, shown and used in every pool. MEDSL's sum stays beside them with the difference. Where the page carries no such mark, MEDSL's counts stand and the difference is recorded'). Read by D3's readers and by D3; every quote checked word for word against its saved file (whitespace and quote marks normalized), except a certificate read from a scanned page's image, which says so ('read').",
  "questions": [
   {
    "state": "AR",
@@ -51,7 +51,11 @@
      "NO": 317093
     },
     "quote": "747,856 (70.22%) 317,093 (29.78%)",
-    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt"
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "certified": {
+     "marked": false,
+     "note": "the Secretary of State's table 'Initiatives and Amendments, 1938-2018' prints each issue's statewide yes and no with no word certified or official"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -105,7 +109,11 @@
      "NO": 296291
     },
     "quote": "777,973 (72.42%) 296,291 (27.58%)",
-    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt"
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "certified": {
+     "marked": false,
+     "note": "the Secretary of State's table 'Initiatives and Amendments, 1938-2018' prints each issue's statewide yes and no with no word certified or official"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -159,7 +167,11 @@
      "NO": 366020
     },
     "quote": "689,980 (65.34%) 366,020 (34.66%)",
-    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt"
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "certified": {
+     "marked": false,
+     "note": "the Secretary of State's table 'Initiatives and Amendments, 1938-2018' prints each issue's statewide yes and no with no word certified or official"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -213,7 +225,11 @@
      "NO": 516525
     },
     "quote": "585,030 (53.11%) 516,525 (46.89%)",
-    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt"
+    "quote_file": "swlists/S1/pages/AR_Initiatives_and_Amendments_1938-2018_1.raw.txt",
+    "certified": {
+     "marked": false,
+     "note": "the Secretary of State's table 'Initiatives and Amendments, 1938-2018' prints each issue's statewide yes and no with no word certified or official"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -582,7 +598,14 @@
      "NO": 458487
     },
     "quote": "Total 1,535,862 458,487 881,145 919,380",
-    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "quote": "Certified by the State Canvassing Board November 23, 2020",
+     "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+     "note": "the foot of every page of the Secretary of State's 'Final Canvass of Results', the amendments' pages among them"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -629,7 +652,14 @@
      "NO": 919380
     },
     "quote": "Total 1,535,862 458,487 881,145 919,380",
-    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "quote": "Certified by the State Canvassing Board November 23, 2020",
+     "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+     "note": "the foot of every page of the Secretary of State's 'Final Canvass of Results', the amendments' pages among them"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -676,7 +706,14 @@
      "NO": 647305
     },
     "quote": "Total 1,193,532 647,305 1,222,682 607,090",
-    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "quote": "Certified by the State Canvassing Board November 23, 2020",
+     "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+     "note": "the foot of every page of the Secretary of State's 'Final Canvass of Results', the amendments' pages among them"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -723,7 +760,14 @@
      "NO": 607090
     },
     "quote": "Total 1,193,532 647,305 1,222,682 607,090",
-    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "quote": "Certified by the State Canvassing Board November 23, 2020",
+     "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+     "note": "the foot of every page of the Secretary of State's 'Final Canvass of Results', the amendments' pages among them"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -770,7 +814,14 @@
      "NO": 481088
     },
     "quote": "Total 1,213,544 481,088 1,216,008 482,189",
-    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "quote": "Certified by the State Canvassing Board November 23, 2020",
+     "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+     "note": "the foot of every page of the Secretary of State's 'Final Canvass of Results', the amendments' pages among them"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -817,7 +868,14 @@
      "NO": 482189
     },
     "quote": "Total 1,213,544 481,088 1,216,008 482,189",
-    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt"
+    "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "quote": "Certified by the State Canvassing Board November 23, 2020",
+     "quote_file": "swlists/S1/pages/AL_Final_Canvass_of_Results-Merged_2020.txt",
+     "note": "the foot of every page of the Secretary of State's 'Final Canvass of Results', the amendments' pages among them"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -864,7 +922,11 @@
      "NO": 287129
     },
     "quote": "Total 298388 287129",
-    "quote_file": "swlists/S1/pages/MT_State_Canvass_Report.txt"
+    "quote_file": "swlists/S1/pages/MT_State_Canvass_Report.txt",
+    "certified": {
+     "marked": false,
+     "note": "the Secretary of State's report is headed '2020 STATEWIDE GENERAL ELECTION CANVASS'; the words certified and official do not appear in it, so it is read as unmarked; its totals equal MEDSL's to the vote, so nothing turns on it"
+    }
    },
    "read_by": "reader S1 for D3, 2026-11-07"
   },
@@ -1186,7 +1248,11 @@
      "NO": 1580101
     },
     "quote": "amendment (Prop. 127) X 723,138 1,580,101",
-    "quote_file": "swlists/S2/pages/az/az-lc-2018-election-results-memo.txt"
+    "quote_file": "swlists/S2/pages/az/az-lc-2018-election-results-memo.txt",
+    "certified": {
+     "marked": false,
+     "note": "a memo of the Arizona Legislative Council (December 4, 2018) of ballot measure results; it is not a certification and prints no word certified or official on the totals"
+    }
    },
    "read_by": "reader S2 for D3, 2026-11-07"
   },
@@ -1228,7 +1294,11 @@
      "MAINTAINED": 1360769
     },
     "quote": "Repealed 1,567,62953.53% Maintained 1,360,76946.47%",
-    "quote_file": "swlists/S2/pages/wa/wa-results-20181106-AV19.txt"
+    "quote_file": "swlists/S2/pages/wa/wa-results-20181106-AV19.txt",
+    "certified": {
+     "marked": false,
+     "note": "the results page prints no mark on its totals. The site's index page says 'Election results are certified by each county on November 27, 2018. The Secretary of State certifies final results by December 6, 2018.' and 'The results posted before certification are unofficial.', and the measure's page was last updated '11/27/2018 4:27 PM', so its totals are likely the certified ones [inferred]. The Secretary of State's 2018 general election data download (2018-general-data.zip, its 'FINAL 2018Gen - Cong by District.pdf') prints the same statewide total, also unmarked; no certified canvass of 2018 was found on the Secretary of State's results pages. Under the ruling MEDSL's counts stand."
+    }
    },
    "read_by": "reader S2 for D3, 2026-11-07"
   },
@@ -1269,7 +1339,21 @@
      "NO": 1813169
     },
     "quote": "Initiative Measure No. 2066 County Results & Map MeasureVoteVote % Yes 1,941,47451.71% No 1,813,16948.29%",
-    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt"
+    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "source": {
+      "name": "Washington Secretary of State: 'Canvass of the Returns of the General Election Held on November 5, 2024', signed and sealed by the Secretary of State on December 4, 2024 (PDF, 10 pages), linked as 'Official Canvass of the Returns G2024_ Certification 12 04 2024 (.pdf)' from the Secretary of State's '2024 General Election' data page",
+      "url": "https://www.sos.wa.gov/sites/default/files/2024-12/Official%20Canvass%20of%20the%20Returns%20G2024_%20Certification%2012%2004%202024.pdf",
+      "page_linking_it": "https://www.sos.wa.gov/elections/data-research/election-data-and-maps/election-results-and-voters-pamphlets/2024-general-election",
+      "read_utc": "2026-11-07T15:21:00Z",
+      "cache_file": "wa-cert/canvass2024.pdf",
+      "sha256": "168f9d69eee0244129ae79565ff2a04f8a18275ae9dbed5c3e75a0207368582d"
+     },
+     "quote": "I, Steve Hobbs, Secretary of State of the State of Washington, do hereby certify that according to the provisions of RCW 29A.60.250, I have canvassed the returns of the 3,961,569 votes cast in the November 5, 2024 General Election by the registered voters of the state for all statewide measures, statewide offices, those legislative and judicial offices whose jurisdiction encompasses more than one county, as received from the County Auditors.",
+     "read": "from the page images: the PDF is a scan with no text layer, so its words and figures were read by eye (page 1 for the four measures, page 10 for the signature and seal) and not checked by machine; its figures for the four measures equal, to the vote, the results page's (quote above), which is text"
+    }
    },
    "read_by": "reader S2 for D3, 2026-11-07"
   },
@@ -1310,7 +1394,21 @@
      "NO": 2437419
     },
     "quote": "Initiative Measure No. 2109 County Results & Map MeasureVoteVote % Yes 1,364,51035.89% No 2,437,41964.11%",
-    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt"
+    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "source": {
+      "name": "Washington Secretary of State: 'Canvass of the Returns of the General Election Held on November 5, 2024', signed and sealed by the Secretary of State on December 4, 2024 (PDF, 10 pages), linked as 'Official Canvass of the Returns G2024_ Certification 12 04 2024 (.pdf)' from the Secretary of State's '2024 General Election' data page",
+      "url": "https://www.sos.wa.gov/sites/default/files/2024-12/Official%20Canvass%20of%20the%20Returns%20G2024_%20Certification%2012%2004%202024.pdf",
+      "page_linking_it": "https://www.sos.wa.gov/elections/data-research/election-data-and-maps/election-results-and-voters-pamphlets/2024-general-election",
+      "read_utc": "2026-11-07T15:21:00Z",
+      "cache_file": "wa-cert/canvass2024.pdf",
+      "sha256": "168f9d69eee0244129ae79565ff2a04f8a18275ae9dbed5c3e75a0207368582d"
+     },
+     "quote": "I, Steve Hobbs, Secretary of State of the State of Washington, do hereby certify that according to the provisions of RCW 29A.60.250, I have canvassed the returns of the 3,961,569 votes cast in the November 5, 2024 General Election by the registered voters of the state for all statewide measures, statewide offices, those legislative and judicial offices whose jurisdiction encompasses more than one county, as received from the County Auditors.",
+     "read": "from the page images: the PDF is a scan with no text layer, so its words and figures were read by eye (page 1 for the four measures, page 10 for the signature and seal) and not checked by machine; its figures for the four measures equal, to the vote, the results page's (quote above), which is text"
+    }
    },
    "read_by": "reader S2 for D3, 2026-11-07"
   },
@@ -1351,7 +1449,21 @@
      "NO": 2340077
     },
     "quote": "Initiative Measure No. 2117 County Results & Map MeasureVoteVote % Yes 1,437,10338.05% No 2,340,07761.95%",
-    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt"
+    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "source": {
+      "name": "Washington Secretary of State: 'Canvass of the Returns of the General Election Held on November 5, 2024', signed and sealed by the Secretary of State on December 4, 2024 (PDF, 10 pages), linked as 'Official Canvass of the Returns G2024_ Certification 12 04 2024 (.pdf)' from the Secretary of State's '2024 General Election' data page",
+      "url": "https://www.sos.wa.gov/sites/default/files/2024-12/Official%20Canvass%20of%20the%20Returns%20G2024_%20Certification%2012%2004%202024.pdf",
+      "page_linking_it": "https://www.sos.wa.gov/elections/data-research/election-data-and-maps/election-results-and-voters-pamphlets/2024-general-election",
+      "read_utc": "2026-11-07T15:21:00Z",
+      "cache_file": "wa-cert/canvass2024.pdf",
+      "sha256": "168f9d69eee0244129ae79565ff2a04f8a18275ae9dbed5c3e75a0207368582d"
+     },
+     "quote": "I, Steve Hobbs, Secretary of State of the State of Washington, do hereby certify that according to the provisions of RCW 29A.60.250, I have canvassed the returns of the 3,961,569 votes cast in the November 5, 2024 General Election by the registered voters of the state for all statewide measures, statewide offices, those legislative and judicial offices whose jurisdiction encompasses more than one county, as received from the County Auditors.",
+     "read": "from the page images: the PDF is a scan with no text layer, so its words and figures were read by eye (page 1 for the four measures, page 10 for the signature and seal) and not checked by machine; its figures for the four measures equal, to the vote, the results page's (quote above), which is text"
+    }
    },
    "read_by": "reader S2 for D3, 2026-11-07"
   },
@@ -1392,7 +1504,21 @@
      "NO": 2077216
     },
     "quote": "Initiative Measure No. 2124 County Results & Map MeasureVoteVote % Yes 1,668,43544.54% No 2,077,21655.46%",
-    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt"
+    "quote_file": "swlists/S2/pages/wa/wa-results-20241105-Measures-All.txt",
+    "certified": {
+     "marked": true,
+     "mark": "stated",
+     "source": {
+      "name": "Washington Secretary of State: 'Canvass of the Returns of the General Election Held on November 5, 2024', signed and sealed by the Secretary of State on December 4, 2024 (PDF, 10 pages), linked as 'Official Canvass of the Returns G2024_ Certification 12 04 2024 (.pdf)' from the Secretary of State's '2024 General Election' data page",
+      "url": "https://www.sos.wa.gov/sites/default/files/2024-12/Official%20Canvass%20of%20the%20Returns%20G2024_%20Certification%2012%2004%202024.pdf",
+      "page_linking_it": "https://www.sos.wa.gov/elections/data-research/election-data-and-maps/election-results-and-voters-pamphlets/2024-general-election",
+      "read_utc": "2026-11-07T15:21:00Z",
+      "cache_file": "wa-cert/canvass2024.pdf",
+      "sha256": "168f9d69eee0244129ae79565ff2a04f8a18275ae9dbed5c3e75a0207368582d"
+     },
+     "quote": "I, Steve Hobbs, Secretary of State of the State of Washington, do hereby certify that according to the provisions of RCW 29A.60.250, I have canvassed the returns of the 3,961,569 votes cast in the November 5, 2024 General Election by the registered voters of the state for all statewide measures, statewide offices, those legislative and judicial offices whose jurisdiction encompasses more than one county, as received from the County Auditors.",
+     "read": "from the page images: the PDF is a scan with no text layer, so its words and figures were read by eye (page 1 for the four measures, page 10 for the signature and seal) and not checked by machine; its figures for the four measures equal, to the vote, the results page's (quote above), which is text"
+    }
    },
    "read_by": "reader S2 for D3, 2026-11-07"
   },
