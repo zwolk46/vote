@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 08:13: D3: the 1,158 write-in count is right (equal to the boundary count by coincidence; 1,249 includes 91 on MEDSL dates). Klarner NC replaced only for 2016 and 2018 (2002 has no certified federal file in data/ to gate on).
+
 - 2026-11-07 08:12: #44 merged (D3: p for the State Board's other dates, 1,742 local (584 single-seat, 1,158 boundary, marked for M2) and 484 primaries, no calibration; OpenElections skip recorded; pack 26.60 to 28.48 MiB). Asked D3 to fix REPORT's write-in count (1,158 equals the boundary count; files show 1,249).
 
 - 2026-11-07 08:08: OpenElections skipped for now (no licence, 'All rights reserved', mostly duplicates Klarner and MEDSL); D3 to fill IN, LA, NJ 2024 legislatures from each state's own certified results, gated, then local thresholds. Klarner NC replaced by certified for 2002, 2016, 2018 (2000, 2010 fail the gate, Klarner kept).
