@@ -327,12 +327,12 @@
     "years": [
      2024
     ],
-    "contests": 980,
+    "contests": 982,
     "seen_near_half": 54,
-    "expected_before": 60.4,
-    "expected_after": 54.6,
-    "deviance_by_office_type_before": 11.85,
-    "deviance_after": 11.15,
+    "expected_before": 60.5,
+    "expected_after": 54.7,
+    "deviance_by_office_type_before": 11.92,
+    "deviance_after": 11.2,
     "improves": true,
     "tested_cells_made_worse": [
      "partisan, local council, commission or board"
@@ -353,7 +353,7 @@
      },
      "partisan, local sheriff or constable": {
       "expected_before": 5.9,
-      "expected_after": 5.3,
+      "expected_after": 5.4,
       "seen": 3,
       "tested": true
      },
