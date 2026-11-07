@@ -51,7 +51,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
-- 2026-11-07 05:20: D3 v1.1 done (earlier years only, from 3 earlier years by back-test; 93,579 p, 66,716 p=0; near-ties 22.4 vs 22). Gated #25 (d0f87a1): clean, tests and build pass, 137 MB checkout, pack +15 MiB measured; WI 2010 p recomputed to 4 figures. Held for two fixes: route (a) used where D and R were not the top two (281 contests, 39 won by neither party), and Klarner's numeric party codes untranslated (~1,300 candidates). D3 to push both to #25.
+- 2026-11-07 05:17: D3 v1.1 done (earlier years only, from 3 earlier years by back-test; 93,579 p, 66,716 p=0; near-ties 22.4 vs 22). Gated #25 (d0f87a1): clean, tests and build pass, 137 MB checkout, pack +15 MiB measured; WI 2010 p recomputed to 4 figures. Held for two fixes: route (a) used where D and R were not the top two (281 contests, 39 won by neither party), and Klarner's numeric party codes untranslated (~1,300 candidates). D3 to push both to #25.
 
 - 2026-11-07 05:06: D3 report 1: PR #25 (Klarner state legislatures 1967-2022 by script, 189,103 contests; the record's 52 of 109,093 reproduced exactly). Method D3-v1 approved with earlier-years-only fits (MODEL §3 "like past races"), the minimum cycles chosen by back-test; (b) 25q/n by class approved; (c) multi-seat boundary marked unchecked for M2. Size: plain compact JSON, not .json.gz; go if pack growth is under ~50 MB and no file is over 20 MB, measured first (replaces the 100 MB line). Runoff second rounds: computed as two-way, marked; first rounds not. #25 gated when D3 finishes its p.
 
