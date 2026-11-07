@@ -253,6 +253,14 @@
 - **`place.counties`**: parish FIPS codes, from the county_name and county_fips columns of MEDSL's 2024 Louisiana file (the `fips` source block).
 - **Names.** `office` and `question.title` are the source's titles in title case, with its ` -- ` read as a comma ("Mayor, Town Of Melville"). A recall's answers read `FOR RECALL` and `AGAINST RECALL`.
 
+**New Jersey's 2024 contests from MEDSL, gated by county** (`pipeline/local_nj.py`; `data/local/2024/NJ.json`, `data/measure/2024/NJ.json`; `data/local/REPORT.md` §13):
+- **`gate`** (every New Jersey record of 2024): how the record passed or failed the county gate.
+  - `by` is `county` and `line` the 0.5% line. `check` names `data/local/check-nj.json`.
+  - `counties` maps each of the contest's counties (FIPS) to its worst miss against the state's certified lists, for `president`, `senate` and `house` (a share, e.g. `0.0071`).
+  - `row_checks` is `passed`, or the list of checks the contest's rows failed (a repeated row, a total line among the precincts, a precinct over its federal votes times vote-for-N).
+  - `released` is true when the gate lets the record's p be computed by its usual routes; those may still leave it out, and `p.not_computed` then says why. When false, `p.not_computed` gives the gate's reason.
+  - `clerk_check` (the five sampled contests only): the county clerk's official file (`file`, `sha256`) and the `worst_miss` against it.
+
 ## Fields added by D4 (the cost of voting and how ballots are cast: `data/cost/`; each state's tie and recount law, `data/law/`, below)
 
 **Marks.** Every number is [measured] (read here from the source's own file), [stated] (as a compilation or an agency guide says), [inferred] (my arithmetic or reading, said in the field's note) or [vendor claim]. **A `source` block** is as D2's: `name`, `url`, `read_utc`, `licence`, `mark`, `via`, `note` (bytes and sha256). Intake scripts, one per source, are in `pipeline/intake/`; `data/cost/REPORT.md` says what each gives and does not.
