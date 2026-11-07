@@ -185,14 +185,14 @@ DECIDING = "deciding round after an earlier round"
 def deciding_words(earlier):
     """A November contest whose name was on an earlier ballot that year: its deciding round (the orchestrator,
     2026-11-07 09:53 UTC: "the November count is the one that elects")."""
-    on = ", ".join(_iso(x) for x in earlier)
+    on = ", ".join(_iso(x) for x in sorted(set(earlier)))
     return (f"{DECIDING} on {on} (a nonpartisan primary or a first round that went to a runoff; the source does not "
             f"say which) [inferred]")
 
 
 def election_words(c, d):
     kind, other = c["_round"]
-    on = ", ".join(_iso(x) for x in other)
+    on = ", ".join(_iso(x) for x in sorted(set(other)))   # a date once, though two contests of the name are on it
     if c["_level"] == "measure":   # a question has no rounds: one of the same title on another date is another question
         w = (("general" if int(d[:4]) % 2 == 0 else "general (odd year: municipal)") if is_general_date(d) else
              f"election on {_iso(d)}, not a November general (the source does not say its kind)")
