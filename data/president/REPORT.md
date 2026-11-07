@@ -40,7 +40,7 @@ The full inventory is in `data/sources/president.md`, which lists every standard
 
 | What | Source | Licence | Intake |
 |---|---|---|---|
-| Certified counts, 1996–2024 (the count of record) | FEC, *Federal Elections* compilations | public record | `pipeline/intake/fec_president.py` |
+| Certified counts, 1996–2024 (the count of record) | FEC, *Federal Elections* compilations | public record | `pipeline/intake/fec_federal_elections.py president` (D1's `fec_president.py`, folded in) |
 | Certified counts, 1976–1992, and the check for 1996–2024 | MIT Election Data and Science Lab, U.S. President 1976–2024, doi:10.7910/DVN/42MVDX v10.1 | CC0 1.0 | `pipeline/intake/medsl_dataverse.py president_detail` |
 | Electoral votes and how electors voted, 1900–2024 | National Archives, archives.gov/electoral-college | CC0 1.0 (NARA's own works) | `pipeline/intake/nara_electoral_college.py states` |
 | District counts, Maine and Nebraska | the states' Certificates of Ascertainment, published by NARA | public record | `pipeline/intake/nara_district_certificates.py` |

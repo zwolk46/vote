@@ -1,5 +1,5 @@
 {
- "about": "FEC official presidential results by state, normalised by pipeline/intake/fec_president.py. dem and rep are the two nominees' votes summed over their party lines; total is the FEC's.",
+ "about": "FEC official presidential results by state, normalised by pipeline/intake/fec_federal_elections.py president. dem and rep are the two nominees' votes summed over their party lines; total is the FEC's.",
  "sources": {
   "1996": {
    "name": "Federal Election Commission, Federal Elections 1996: presidential general election results by state (Table 1)",
