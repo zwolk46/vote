@@ -261,6 +261,12 @@ class _UF:
 
 
 LEGISLATIVE = {"STATE HOUSE", "STATE SENATE"}
+# Washington files its legislature as local offices named by district ("LEGISLATIVE DISTRICT 9 - STATE SENATOR")
+_LEGISLATIVE_NAMED = re.compile(r"^LEGISLATIVE DISTRICT \d+ - STATE (SENATOR|REPRESENTATIVE)")
+
+
+def is_legislative(office):
+    return office in LEGISLATIVE or bool(_LEGISLATIVE_NAMED.match(office))
 DROPPED = collections.Counter()   # lines that form no contest: write-in totals alone, with no candidate named
 
 
@@ -306,7 +312,7 @@ def _contests(k, precincts, yn, is_question):
         # a legislative district with its number given is one contest: its counties' spellings of a name differ
         # ('T O'MARA', 'THOMAS FELLERS O'MARA'), so precincts also join on the surname and party there; anywhere,
         # on the same words in another order ('LATHROP WILL')
-        numbered = office in LEGISLATIVE and district not in ("", "STATEWIDE")
+        numbered = (office in LEGISLATIVE and district not in ("", "STATEWIDE")) or bool(_LEGISLATIVE_NAMED.match(office))
         for pk, cands in precincts.items():
             uf.find(pk)
             for ck in cands:
@@ -382,7 +388,7 @@ def _contests(k, precincts, yn, is_question):
         cands.sort(key=lambda c: -c["votes"])
         counties = sorted({pk[0] for pk in pks})
         extra = {}
-        if office in LEGISLATIVE:   # kept so that a district's lines can be compared across years (pipeline/local.py)
+        if is_legislative(office):   # kept so that a district's lines can be compared across years (pipeline/local.py)
             extra["precinct_ids"] = sorted({"|".join(pk[:3]) for pk in pks})
         out.append({**extra, "state": st, "date": date, "stage": stage, "special": special == "TRUE", "dataverse": dv,
                     "office": office, "district": district, "subject": subject or None,
@@ -447,6 +453,56 @@ def merge_lines(cands, single_seat):
                                          ("votes", x["votes"])) if v is not None} for x in g]
         out.append(m)
     return out
+
+
+def _flat(cands):
+    out = []
+    for x in cands:
+        if not x.get("lines"):
+            out.append(x)
+            continue
+        for ln in x["lines"]:
+            y = {"name": ln.get("name", x["name"]), "votes": ln["votes"]}
+            for k in ("party", "party_detailed"):
+                if ln.get(k):
+                    y[k] = ln[k]
+            for k in ("writein", "votes_missing_in_some_precincts"):
+                if x.get(k):
+                    y[k] = True
+            out.append(y)
+    return out
+
+
+def join_unnumbered(contests):
+    """Some counties leave a legislative contest's district out (New York, 2024): each such piece joins the one
+    numbered district of the same office whose candidate it names (same_person, same party), so that the district's
+    count is whole. Returns the contests left and the number of pieces joined."""
+    numbered = collections.defaultdict(list)
+    for c in contests:
+        if is_legislative(c["office"]) and c["district"] not in ("", "STATEWIDE") and not c["question"]:
+            numbered[(c["state"], c["date"], c["stage"], c["special"], c["office"])].append(c)
+    keep, joined = [], 0
+    for c in contests:
+        if not (is_legislative(c["office"]) and c["district"] == "" and not c["question"]):
+            keep.append(c)
+            continue
+        named = [x for x in c["candidates"] if not x.get("writein") and not is_generic(x["name"])]
+        targets = [t for t in numbered[(c["state"], c["date"], c["stage"], c["special"], c["office"])]
+                   if any(x.get("party") == y.get("party") and same_person(x["name"], y["name"])
+                          for x in named for y in t["candidates"] if not y.get("writein") and not is_generic(y["name"]))]
+        if len(targets) != 1:
+            keep.append(c)
+            continue
+        t = targets[0]
+        t["candidates"] = sorted(merge_lines(_flat(t["candidates"]) + _flat(c["candidates"]), t["magnitude"] == 1),
+                                 key=lambda x: -x["votes"])
+        t["precincts"] += c["precincts"]
+        t["counties"] = sorted(set(t["counties"]) | set(c["counties"]))
+        if "precinct_ids" in t or "precinct_ids" in c:
+            t["precinct_ids"] = sorted(set(t.get("precinct_ids", [])) | set(c.get("precinct_ids", [])))
+        t["pieces_without_district_joined"] = t.get("pieces_without_district_joined", 0) + 1
+        joined += 1
+    return keep, joined
 
 
 def president_totals(pres):
@@ -550,6 +606,7 @@ def run(year, only=None):
         contests = []
         for k, precincts in agg.items():
             contests.extend(contests_of(k, precincts))
+        contests, joined = join_unnumbered(contests)
         by_state = collections.defaultdict(list)
         for c in contests:
             by_state[c["state"]].append(c)
@@ -563,7 +620,8 @@ def run(year, only=None):
         checks["files"][fi["name"]] = {"rows_read": n, "rows_recorded_by_dataverse": expected,
                                        "rows_ok": (expected is None) or (expected == n),
                                        "contests": len(contests), "states": dict(states),
-                                       "district_keys_joined_to_statewide": moved}
+                                       "district_keys_joined_to_statewide": moved,
+                                       "legislative_pieces_without_district_joined": joined}
         checks["president"].update(check_president(year, president_totals(pres)))
         checks.setdefault("house_by_party", {}).update(check_house(year, house))
         checks.setdefault("write_in_lines_alone", {}).update(dict(DROPPED))
