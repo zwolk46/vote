@@ -118,6 +118,9 @@ function stippleTurned(ctx, S, x, y, w, h) {
 // screen's pixels exactly as when it was drawn dot by dot.
 const GRIDS = [];
 function grids(S, p, x, y, cols, rows, pitch, r) {
+  // none where the picture has no room for the ballots (a canvas of no size cannot be copied), or where the dots are
+  // packed so close that they cross into their neighbours' places (a cut between two would then cut a dot)
+  if (!(pitch > 0) || 2 * r > pitch || cols * pitch * S.dpr < 1 || rows * pitch * S.dpr < 1) return null;
   const dx = x * S.dpr, dy = y * S.dpr, fx = dx - Math.floor(dx), fy = dy - Math.floor(dy);
   const key = [S.dpr, fx, fy, cols, rows, pitch, r, S.col.fg, S.col.dot].join();
   const c = GRIDS[p] || (GRIDS[p] = {});
@@ -159,11 +162,20 @@ function worlds(ctx, S, st) {
     // the ballots: your side's, the first `ours`, from the dark grid, and the rest from the grey, each cut at the
     // boundary between two dots (yours is drawn over its place below)
     const gx = x0, gy = y0 + top, full = Math.floor(ours / cols), part = ours % cols;
-    const [ga, gb, cx0, cy0] = grids(S, p, gx, gy, cols, rows, pitch, r);
-    ctx.save(); ctx.beginPath(); ctx.rect(gx - 1, gy - 1, gw + 2, full * pitch + 1); ctx.rect(gx - 1, gy + full * pitch, part * pitch + 1, pitch);
-    ctx.clip(); ctx.globalAlpha = 0.9; ctx.drawImage(ga, cx0, cy0, ga.width / S.dpr, ga.height / S.dpr); ctx.restore();
-    ctx.save(); ctx.beginPath(); ctx.rect(gx + part * pitch, gy + full * pitch, (cols - part) * pitch + 1, pitch); ctx.rect(gx - 1, gy + (full + 1) * pitch, gw + 2, (rows - full - 1) * pitch + 1);
-    ctx.clip(); ctx.globalAlpha = 0.75; ctx.drawImage(gb, cx0, cy0, gb.width / S.dpr, gb.height / S.dpr); ctx.restore();
+    const G = grids(S, p, gx, gy, cols, rows, pitch, r);
+    if (G) {
+      const [ga, gb, cx0, cy0] = G;
+      ctx.save(); ctx.beginPath(); ctx.rect(gx - 1, gy - 1, gw + 2, full * pitch + 1); ctx.rect(gx - 1, gy + full * pitch, part * pitch + 1, pitch);
+      ctx.clip(); ctx.globalAlpha = 0.9; ctx.drawImage(ga, cx0, cy0, ga.width / S.dpr, ga.height / S.dpr); ctx.restore();
+      ctx.save(); ctx.beginPath(); ctx.rect(gx + part * pitch, gy + full * pitch, (cols - part) * pitch + 1, pitch); ctx.rect(gx - 1, gy + (full + 1) * pitch, gw + 2, (rows - full - 1) * pitch + 1);
+      ctx.clip(); ctx.globalAlpha = 0.75; ctx.drawImage(gb, cx0, cy0, gb.width / S.dpr, gb.height / S.dpr); ctx.restore();
+    } else {
+      // no room for a grid (a short screen at a large text size leaves the picture none): dot by dot, as before
+      const a = [], b = [];
+      for (let k = 0; k < 2000; k++) if (k !== me) (k < ours ? a : b).push(x0 + ((k % cols) + 0.5) * pitch, y0 + top + (Math.floor(k / cols) + 0.5) * pitch);
+      ctx.globalAlpha = 0.9; dots(ctx, a, r, col.fg);
+      ctx.globalAlpha = 0.75; dots(ctx, b, r, col.dot);
+    }
     ctx.globalAlpha = 1;
     const mx = x0 + ((me % cols) + 0.5) * pitch, my = y0 + top + (Math.floor(me / cols) + 0.5) * pitch, rr = Math.max(7, r * 3.6);
     if (p === 0) dot(ctx, mx, my, Math.max(2.5, r * 1.5), col.accent);
