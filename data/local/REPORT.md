@@ -1575,3 +1575,148 @@ The record is the locality lines, which add up to the statewide count the page s
 - **The 9th Senate district of 2023 is held** for 76 locality votes its statewide count lacks.
 - **Incumbency** misses every member elected in a special since the last general read.
 - The same 2023 file also holds Virginia's 2023 local contests (clerks, Commonwealth's attorneys, sheriffs, boards of supervisors, school boards, town councils), already in the cache from before the refusal. They are not taken in here. They could be, with nothing requested.
+
+## 29. Doubled and missing counts: Idaho's county totals, New Hampshire's doubled legislature, Hawaii's governor, and the volume test of every MEDSL state-year
+
+*Added 2026-11-07 at 20:25 UTC, at the orchestrator's orders of 18:54, 19:04, 19:13 and 19:49.* Every record that changed is listed in `data/local/moves-volume.json`. The whole test is in `data/local/check-volume.json`.
+
+**Why.** The orchestrator, 18:54: "n enters p directly, so a doubled count halves a figure we show." A share test cannot see a doubled count, or a missing county, because the shares stay the same. So every MEDSL state-year we take in is now tested on its volume (parts 1 and 2), and every MEDSL file is scanned for its structure (part 3).
+
+**Idaho 2022: what doubled it** [measured: `pipeline/intake/medsl_precinct.py`, `checks-2022.json`].
+- MEDSL's 2022 Idaho file lists a precinct named "COUNTY TOTAL" in each county, beside that county's precincts. It equals their sum, so every county is counted twice.
+- Power County (16077) is missing from most offices.
+- The rule (19:04, "Apply the COUNTY TOTAL rule"): drop a county-total line, candidate by candidate, where the county's other precincts add up to it exactly; keep it where they do not, or where it stands alone (`drop_county_totals`). In Idaho it drops 1,137 lines of state and local contests and 107 of the federal checks, and keeps none. (Part 3 finds 2 unequal and 3 lone county-total rows in the file; they are in contests the normalizer does not read.)
+- Idaho's US House then adds up to 581,696 against D2's certified 583,628. The 1,932 short is Power County's.
+- **The six statewide offices** take the Secretary of State's official results (`pipeline/intake/id_sos.py`; `local_medsl.id_statewide`).
+  - The state's results page links "Statewide Results" and "Canvass Files" under "General Election - November 8, 2022".
+  - The results site is headed "OFFICIAL ELECTION RESULTS", all 44 counties fully reporting. A vendor host that a state page names, and that marks its count official, counts (12:40).
+  - Every candidate's total there equals the canvass workbook's TOTAL row, to the vote, in all six offices. That is the gate.
+  - The canvass's one write-in line (Secretary of State, Garth G Gaylord, 2,778) is not on the results page. MEDSL's count for it equals the canvass's, so it is kept, with a note.
+  - `result.medsl_votes` keeps MEDSL's counts. They fall short of the state's by Power County, by up to 5,809 votes (Superintendent: Critchfield 398,740 against 404,549).
+  - None of the six has a p: Idaho's 2020 House vote by county, the lean these read, is not in the sources.
+- **Power County.** "Any other ID 2022 MEDSL record whose area includes Power County is held" (19:04). The six statewide offices are the only Idaho 2022 records MEDSL gives. Its local rows carry no dataverse and are not read. So the rule holds none, though it stands in `local_volume.COUNTY_HOLDS`.
+- Idaho 2022 now passes part 1: the governor is −0.39% (Little 357,187 against 358,598), Power County again. Part 2's median ratio is now 1.00.
+
+**Other files with county-total lines** (a grep of every raw file before part 3; part 3 below scans every file and finds the rest).
+- Illinois 2024: 9 lines in state and local contests, and 1,062 in the federal checks. Each carries a candidate (chiefly a write-in) with no precinct line, or a county's own adjustment; none is a copy of its precincts. So the rule drops none and no record changes.
+- New Jersey 2024: Gloucester's county-total line for president equals its precincts. The rule drops it, so 9 lines leave the federal check. The statewide president check stays over the line (MEDSL +9.1% after, +12.6% before). The county gate (`local_nj.py`) reads the raw file itself, so no record changes.
+- New Jersey 2022: four lines in two legislative contests. The file gives no record, so it was not re-read.
+- MEDSL's 2022 `STATE_precinct_general.csv` holds Idaho's county totals too, but the normalizer does not read that file.
+
+**New Hampshire 2022** (`pipeline/local.py` nh_2022; the ruling of 19:04: "Use MEDSL's counts where every candidate matches by name, marked 'Klarner's figures are doubled; MEDSL's counts'. Hold the rest.").
+- Klarner's New Hampshire 2022 legislature is doubled. Its Senate is doubled whole. Its House is doubled in part. MEDSL's counts add up to the day's governor vote. The Secretary of State refused at 19:02:32 UTC (403), so the state could not settle it.
+- Each Klarner contest is matched to MEDSL's, one to one, by surname. In the House the district number and the county must match too; MEDSL's House names are often a surname alone ("PLOSZAJ") or a surname and initials ("SOUCY T"). Where a recount contest exists, it is preferred.
+- Of Klarner's 227 contests, 205 take MEDSL's counts: 181 House and 24 Senate (`result.votes_source` "medsl").
+- 22 House contests are held: 21 where the candidates do not all match, and Strafford 15, where one of MEDSL's counts is 63% above Klarner's rather than near 1× or ½×.
+- **What moves:** 116 p, House 94 and Senate 22. They rise ×1.97 to ×2.38 (median ×2.00); one House race moves ×1.007. 22 House p are no longer computed. The other matched contests' counts were not doubled, or their p is 0.
+- The 2024 fits take New Hampshire's 2022 rows from these counts and leave out the unmatched ones (19:04).
+
+**Hawaii 2018's governor** (`pipeline/governor_hi2018.py`; `data/governor/2018.json`; the ruling of 19:13).
+- D2's 137,719 for Tupola is the figure in its source, Cha, Kuriwaki and Snyder v4.1. The Office of Elections' certified summary has 131,719. Its page lists the summary under "Certified Text Files", read 19:07 UTC. The other three candidates are equal to the vote.
+- The record now has 131,719, total 390,843 and n 376,653, with the summary as its source and a note. Each of its five p rises ×1.0159 (538 lite 6.463e-7 to 6.566e-7).
+- **Not refit here.** D2's caches are not in this container, so two things still use 137,719:
+  - the governor fits of 2020 onward, which take Hawaii 2018 as a training row;
+  - Hawaii 2022's last-governor-race input, which reads 0.640094 and should be 0.650298.
+  The orchestrator (19:49) orders a refit as its own PR, next.
+
+**The volume test** (`pipeline/local_volume.py`).
+- **Part 1** (18:54 (b)): the precinct sum of the year's top contest against our independent count, bounded at 0.5%.
+  - The top contest is the governor where the state elected one (D2's `data/governor`, not a special). Otherwise it is the US House (D2's `data/house`, every line's votes together).
+  - Governors are matched by surname, D2's two leading candidates against MEDSL's lines.
+  - Fusion (19:04): the party lines are summed. Where D2's source reports each candidate's own line alone, that line is compared (Connecticut 2018: Lamont 676,649 and Stefanowski 624,750, equal to the vote).
+- **Part 2** (18:54 (b)): MEDSL's legislative candidates against Klarner's, matched by district and name. A state-year is flagged where more than 5% of matched candidates sit at a ratio of 2 or ½ (±1%), or where the median ratio is off 1 by more than 3%.
+- **Part 3** (19:49, item 5): the structural scan, below.
+- **Settling** (19:04): from the state where it answers. An unsettled flag of 5% or more holds the state-year's MEDSL records. Under 5%, they are kept with a note that gives the difference and why it is unsettled.
+
+**What each part could test** (the orchestrator, 19:49) [measured: `check-volume.json` `coverage`].
+- 2016: MEDSL records in 28 states.
+  - Part 1 tests 4 (Missouri, Montana, North Carolina and Washington, their governors). MEDSL's 2016 files hold no president or House contest, so 19:13's top contest for a year without a governor cannot be read.
+  - Part 2 tests 23 (the four above among them).
+  - Neither tests 5: Alabama, the District of Columbia, Louisiana, Mississippi and New Jersey. Part 3 scans their rows.
+- 2018: all 50 state-years. Part 1 tests 35 by governor, 14 by House and DC by its mayor. Part 2 tests 40.
+- 2022: all 48. Part 1 tests 35 by governor and 13 by House. Part 2 tests 42.
+- 2020: none of 31. MEDSL's 2020 file holds local offices only, with no top contest and no legislature. Part 3 scans it.
+- 2024: all 51, by its own gate: the president against D1's certified count (`local_medsl.quality`). Part 3 scans it too.
+
+**The flags and what was done with each.**
+
+| year | state | part | test | result | settled | done |
+|---|---|---|---|---|---|---|
+| 2016 | ME | 2 | legislature vs Klarner | median 0.934 (67 candidates) | no: no federal contest in MEDSL's 2016 files; the state refused (19:12:38, 403) | 53 records held (questions; none had p) |
+| 2018 | NY | 1 | governor | −4.03% lines summed, −15.76% on own lines; votes in 57 of 62 counties | no: the State Board refused (18:49) | 2 records held (19:13, "NY 2018 held") |
+| 2018 | NJ | 1 | House | −1.45% | yes: the Official List equals D2; MEDSL short in Middlesex (−18.04%) and Hunterdon (−0.78%), within 0.5% in every other county | records whose area includes either held (19:13, 19:49): none does; 528 kept with a note |
+| 2018 | OR | 1 | governor | was +0.81% | yes: part 3's county-total rule ("TOTAL" rows); the governor then equals D2 to the vote | none held; its note removed |
+| 2018 | IN | 1 | House | −0.70% | no: the state's 2018 results were not found | 232 records kept with a note |
+| 2018 | HI | 1 | governor | was −4.36% | yes: D2's figure, fixed (above) | none held; it now passes |
+| 2018 | CT | 1 | governor | +4.06% lines summed | yes: on own lines, equal | none |
+| 2018 | DC | 1 | mayor | 0 | the Board's certified page (19:12) equals MEDSL | none |
+| 2022 | NY | 1 | governor | +0.93% lines summed | no: the State Board refused | 2 records kept with a note |
+| 2022 | MI | 1 | governor | −1.23% lines summed (−1.10% on own lines), after the county-total rule | no: the state refused earlier today | 4 records kept with a note |
+| 2022 | AR | 1 | governor | −0.76% | already held by the share check | 6 noted |
+| 2022 | IN | 1, 2 | House; median 0.78 | −57.4% | already held by the share check | 3 noted |
+| 2022 | ID | 1, 2 | governor; median 1.73 | was doubled; now −0.39%, median 1.00 | yes: the county-total rule | the six statewide offices from the state |
+| 2022 | NH | 2 | legislature | median 0.50 (74% at ½) | Klarner's doubled (19:04) | above |
+| 2022 | NJ | 1 | House | 3× | the file gives no record | none |
+
+**Part 3: a structural scan of every MEDSL file** (19:49, item 5: "Look for aggregate rows beside precinct rows ... and any row equal to the sum of the other rows for the same contest, county and candidate. Apply the ID rule where it reproduces the parts exactly; list the rest for me. Reason: Idaho's fault was structural, and a scan can find it where no second count exists.") [measured: `local_volume.py scan`; `check-volume.json` `part3`].
+- **What it reads.** Every MEDSL precinct file in the cache for the five years: 156 files, 56,176,755 rows (2016: 2 files; 2018: 51; 2020: 1; 2022: 51; 2024: 51). Precincts are resolved as the normalizer resolves them (a TOTAL mode where there is one, else the modes added up), and grouped by contest and county.
+- **What it looks for**, in each contest and county:
+  - a row whose precinct is named as an aggregate (a word TOTAL or TOTALS, CUMULATIVE, or "ALL PRECINCTS"), and whether it equals the sum of the county's other precincts for every candidate ("equal"), does not ("unequal"), or has no precinct with votes beside it ("alone");
+  - a row not so named that equals the sum of all the others for every candidate, with at least two others with votes beside it.
+- Two 2016 files give some states' rows in more than one block: the state-office file Massachusetts, Michigan, Missouri and West Virginia; the local file New Jersey, Washington and West Virginia. The scan holds those states' groups to the end of the file, so a total row in one block and its precincts in another are seen together (`held_whole`). The findings are the same as block by block.
+- **The ID rule, applied where it reproduces the parts exactly.**
+  - Named rows: the county-total rule now reads a precinct name ending in the word TOTAL or TOTALS ("COUNTY TOTAL", "TOTAL", "Burlington Totals", "Mackinac County Michigan - Total"), not "COUNTY TOTAL" alone (`medsl_precinct.COUNTY_TOTAL`). As before, it drops such a line only where the county's other precincts add up to it, candidate by candidate.
+  - Unnamed rows: a new step, `medsl_precinct.drop_sum_rows`, run after the county-total rule. In a contest and county with at least 3 precincts with votes, it drops a precinct that equals all the others together for every candidate. It needs at least 2 candidates with votes there, and drops at most one row per contest and county. *Reason for the guard:* where one candidate alone has votes, one precinct equal to the rest is one number matching another, which can happen by chance; where two or more candidates each match, the row is a copy of the sum.
+- **What the rule drops, and what changes.**
+
+| year | state | rows | lines dropped | records that change |
+|---|---|---|---|---|
+| 2018 | OR | precincts named "TOTAL", in 5 county groups, each equal to its county | 17, and 5 in the federal checks | the governor then equals D2's certified count to the vote (Brown 934,498, Buehler 814,988), and the House too; part 1 passes, so the note it gave 1 record is removed |
+| 2022 | ID | "COUNTY TOTAL", 1,033 groups equal | 1,137, and 107 federal | above |
+| 2022 | MI | "TOTALS" in 6 groups and "MACKINAC COUNTY MICHIGAN - TOTAL" in 8, equal | 44, and 9 federal | no p: the Attorney General's hold reason now counts 6,146,375 votes (6,153,017 before); 4 notes |
+| 2022 | MS | "TOTAL", 7 groups equal | none read | the file gives no record |
+| 2022 | NJ | county "TOTALS", "COUNTY TOTAL" and "DISTRICT TOTAL", 45 groups equal | none read | the file gives no record |
+| 2024 | NJ | Gloucester's "COUNTY TOTAL" for president, equal | 9 federal | none: the county gate reads the raw file |
+| 2024 | AZ | unnamed, all in Yavapai (04025): "SPURS (317.00)" in the 30th district's House and Senate contests, "AZURE (335.00)" in Camp Verde's council, "GHOST (338.00)" in Proposition 480 | 4 rows, 13 lines | the 30th district's p ×1.0137 (House) and ×1.0125 (Senate); Camp Verde's council and Proposition 480 have none |
+| 2024 | MS | unnamed: Lafayette's (28071) "Yocona Community Center", Justice Court Judge, Southern district | 1 row, 7 lines | its counts; it has no p |
+| 2024 | NY | unnamed: Broome's (36007) "Village of Endicott", Endicott Village Trustee | 1 row, 5 lines | its counts; it has no p |
+| 2024 | NJ | unnamed: 140 rows, each a municipality's own row equal to its precincts (Bergen's "Allendale" in Allendale's council, and so on) | 140 rows, 436 lines | 138 local records' and 3 measures' counts; no p moves by it: they were held already by the county gate (Bergen, Mercer) or an unread seat count, and the 3 with p 0 keep it |
+| 2024 | IN | unnamed: Hendricks's (18063) "1229-Washington 29", in 7 contests | 7 rows, 19 lines | none |
+
+- **Listed for the orchestrator, not dropped** (the ruling: "list the rest for me").
+  - *Rows equal to the rest where one candidate alone has votes* (the guard keeps them): 2016 Kentucky 1; 2018 Illinois 1 and Kentucky 1; 2020 Nebraska 2 and South Carolina 1; 2022 Kentucky 2 and Vermont 1; 2024 Alabama 1, Arizona 2 (Yavapai), Indiana 7, Mississippi 1, North Dakota 1, New Jersey 21 and South Carolina 1. `check-volume.json` gives the first 40 of each file.
+  - *Named rows that do not equal their parts*, so the rule keeps them:
+    - 2016, MEDSL's state-office file: "TOTAL" in 34 (unequal) groups, "CUMULATIVE" in 11 (unequal), "CUMULATIVE:" in 21 (unequal) and 4 (alone). Its local file: "TOTAL" in 4 (unequal), and "CUMULATIVE:" in 107 (alone).
+    - New Jersey 2018: 433 precinct names that end in TOTAL, all in Camden County ("AUDUBON BORO DIST 1 TOTAL", "AUDUBON BORO MAIL-IN BALLOT TOTAL", "AUDUBON BORO PROVISIONAL TOTAL"): 856 groups unequal and 141 alone. They are Camden's precincts, each named as its own total. Camden's House count in MEDSL is within 0.08% of the Official List (part 1's settlement), and no row is equal, so the rule drops none.
+    - New York 2018 and 2022: small rows named "Cumulative", in 13 and 16 groups, not the county's sum (Wyoming County's 2022 governor rows of that name carry 114 votes in all).
+    - Michigan 2022: one "TOTAL" row, unequal.
+    - New Jersey 2022: "DISTRICT n TOTALS" (12 names, 14 groups), unequal; the file gives no record.
+    - Illinois 2024: "COUNTY TOTALS" in 204 groups, unequal: they carry candidates with no precinct line (above), and the normalizer keeps those lines.
+    - Missouri 2024: "26_CUMULATIVE" in 16 groups, unequal.
+    - Oregon 2024: "TOTAL (RESTORED)" in 3 groups, unequal.
+
+**What moves** (against this branch's base, the merge of main at eb5948b; `data/local/moves-volume.json`). 6,168 records change, and the p of 4,859 of them moves; Hawaii's governor's 5 p move besides.
+- **By a count of its own:**
+  - New Hampshire 2022's legislature (MEDSL's counts): 116 p, ×1.97 to ×2.38 (median ×2.00; one ×1.007); 22 House p no longer computed; 205 notes.
+  - Hawaii 2018's governor: its 5 p, ×1.0159 (the file's `governor` section).
+  - Arizona's 30th district, 2024 (the sum-row rule): ×1.0137 (House) and ×1.0125 (Senate).
+- **Through the fits and like-race pools**, which take New Hampshire's and Idaho's 2022 rows:
+  - legislatures: 2023, 102 House and 74 Senate; 2024, 2,771 House and 701 Senate besides Arizona's 30th; 2025, 117 House. All lie within ×0.9929 and ×1.0092 save one: Idaho's 23rd Senate district of 2024, ×0.8628, whose last race (Idaho 2022's, from MEDSL) now reads a Democratic share of 0.1843 in place of 0.1887.
+  - local 2024: 976 p, ×0.9994 to ×1.0014.
+  - Outside New Hampshire 2022, 70 of the 4,743 moves are 0.5% or more.
+- **The checks:** the partisan back-test's 80% interval covers 0.809 of outcomes (0.81 before; `backtest-local-partisan.json`). Nothing else in `data/local` moves.
+- **Without a p move:** the volume test's notes (528 records in New Jersey 2018, 232 in Indiana 2018, 6 in Arkansas 2022, 4 in Michigan 2022, 3 in Indiana 2022, 2 in New York 2022) and holds (53 Maine 2016 measures, 2 New York 2018 records); the Idaho statewide offices' 5 reasons and 6 notes; counts changed by part 3 (above). 79 records' p blocks change in their inputs with the p unchanged to 6 places (78 House, 1 Senate). 134 records of 2024 (85 in New Jersey, 47 in New York, and one each in Arizona and Mississippi) only list tied candidates in another order, a side effect of the files' re-normalizing; 3 local forecasts' sd moves in the fourth place (0.1176 to 0.1174) with their p unchanged.
+
+**Refusals and failures in this step.**
+- New York's State Board refused at 18:49 UTC.
+- New Hampshire's Secretary of State refused at 19:02:32 (403).
+- Maine's Secretary of State refused at 19:12:38 (403, CloudFront).
+- Oregon's records host failed with HTTP 500 at 19:08:00, 19:08:25 and 19:38:31 on "2018 General Election Official Results", each time cutting the file short. It is recorded as unread (19:13: "one more request per file"). Part 3 settled Oregon 2018 without it.
+  - At 19:38:46 the same host gave the 2024 abstract whole. It is cached for the held-totals step. The orchestrator (19:49): a file name is not a mark; the agency's title for it on the page that links it would be. That check needs a request to the records system's page for the file, and is left to the held-totals step.
+  - No 2022 file was found by search, so none was requested.
+- Indiana's results archive answered 404 at two addresses. Those were wrong addresses, not refusals.
+
+**For the orchestrator:**
+- The rows part 3 lists and does not drop (above): one-candidate rows equal to the rest, and named rows unequal to their parts.
+- Hawaii's refit of D2's governors (the 2020+ fits and Hawaii 2022's input) is the next step, as its own PR.
+- Oregon 2024's mark: the records system's title for the abstract, in the held-totals step.

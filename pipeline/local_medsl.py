@@ -98,9 +98,10 @@ def load(year):
                     continue
                 out.append(c)
     import local_nj as NJ
-    return mark_whole_state(statewide_pieces(known_contests(
+    import local_volume as V
+    return V.volume_gate(mark_whole_state(statewide_pieces(known_contests(
         NJ.county_gate(certified_la(certified_in(certified_nc(join_statewide(fix_questions(out, year), year), year),
-                                                 year), year), year), year), year))
+                                                 year), year), year), year), year)), year)
 
 
 def mark_whole_state(contests):
@@ -211,9 +212,6 @@ HOLDS_EXPECTED = {
     2018: {("NY", "COMPTROLLER", "", "incomplete"), ("NY", "ATTORNEY GENERAL", "", "incomplete")},
     2022: {("AZ", "STATE TREASURER", "", "incomplete"), ("AZ", "STATE MINE INSPECTOR", "", "incomplete"),
            ("GA", "SECRETARY OF STATE", "", "no county"),
-           ("ID", "LIEUTENANT GOVERNOR", "", "incomplete"), ("ID", "SECRETARY OF STATE", "", "incomplete"),
-           ("ID", "STATE CONTROLLER", "", "incomplete"), ("ID", "STATE TREASURER", "", "incomplete"),
-           ("ID", "SUPERINTENDENT OF PUBLIC INSTRUCTION", "", "incomplete"),
            ("MI", "SECRETARY OF STATE", "", "incomplete"), ("NY", "COMPTROLLER", "", "incomplete"),
            ("OR", "COMMISSIONER OF THE BUREAU OF LABOR AND INDUSTRIES", "", "incomplete")},
     2024: {("ND", "STATE AUDITOR", "", "state total"), ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 1", "incomplete"),
@@ -437,6 +435,63 @@ def _nd_state(m, year, a):
     return True
 
 
+ID_SOS = os.path.join(F.CACHE, "id_sos", "normalized")
+ID_NOTE = ("votes: the Idaho Secretary of State's official 2022 results (the results page its election page links as "
+           "'Statewide Results', headed 'OFFICIAL ELECTION RESULTS', all 44 counties fully reporting; each total equal "
+           "to the Secretary of State's canvass to the vote; pipeline/intake/id_sos.py), the orchestrator's rulings of "
+           "2026-11-07 18:54 and 19:04: MEDSL's 2022 Idaho file counts each county twice (a 'COUNTY TOTAL' precinct "
+           "beside its precincts, dropped by pipeline/intake/medsl_precinct.py's rule) and {miss}; MEDSL's lines, the "
+           "rule applied, add up to {medsl:,} (result.medsl_votes)")
+
+
+def id_statewide(contests, year, a_):
+    """Idaho 2022's six statewide offices: the state's marked totals in place of MEDSL's (ID_NOTE). A write-in line the
+    results page does not list keeps MEDSL's count where it equals the canvass's to the vote. Each contest must be
+    found once, with the state's candidates and MEDSL's the same names."""
+    if year != 2022:
+        return
+    path = os.path.join(ID_SOS, "2022-general.json")
+    if not os.path.exists(path):
+        raise SystemExit(f"{path} is not in the cache: run pipeline/intake/id_sos.py read first")
+    with open(path) as f:
+        off = {c["office"]: c for c in json.load(f)["contests"]}
+    hits = collections.Counter()
+    for m in contests:
+        if m.get("state") != "ID" or m["question"] or m.get("dataverse") != "STATE" or m.get("stage") != "GEN" \
+                or m["office"] not in off:
+            continue
+        c = off[m["office"]]
+        a = a_[(m["state"], m["date"])]
+        st = {name_key(x["name"]): x for x in c["candidates"]}
+        wi = {name_key(w["name"].replace("(W/I)", "")): w for w in c["canvass_writeins"]}
+        mine = {name_key(x["name"]): x for x in m["candidates"]}
+        if set(mine) != set(st) | set(wi):
+            raise SystemExit(f"id_statewide: {m['office']}: the state's names {sorted(set(st) | set(wi))} differ "
+                             f"from MEDSL's {sorted(mine)}")
+        medsl = {x["name"]: x["votes"] for x in m["candidates"]}
+        missing = sorted(a - set(m["counties"]))
+        for k, x in mine.items():
+            if k in st:
+                x["votes"] = st[k]["votes"]
+                x["won_marked"] = True if st[k]["winner"] else None
+            elif x["votes"] != wi[k]["votes"]:
+                raise SystemExit(f"id_statewide: {m['office']}: the write-in {x['name']}'s {x['votes']:,} in MEDSL's "
+                                 f"file is not the canvass's {wi[k]['votes']:,}")
+            else:
+                x["won_marked"] = None
+                x["votes_note"] = ("a write-in the results page does not list: MEDSL's count, equal to the Secretary of "
+                                   "State's canvass to the vote")
+        m["counties"] = sorted(a)
+        m["state_votes"] = {"source": "id_sos", "medsl": medsl, "office_as_listed": c["title"]}
+        miss = (f"its lines for this contest miss {', '.join(missing)}" if missing else
+                "its lines for this contest carry every county once the rule is applied")
+        m["notes"] = (m.get("notes") or []) + [ID_NOTE.format(miss=miss, medsl=sum(medsl.values()))]
+        hits[m["office"]] += 1
+        PIECES[year]["ID: the state's official total for a statewide office (doubled and incomplete in MEDSL's file)"] += 1
+    if dict(hits) != {o: 1 for o in off}:
+        raise SystemExit(f"id_statewide: found {dict(hits)}, not each of {sorted(off)} once")
+
+
 def statewide_pieces(contests, year):
     """The ruling of 16:47 (RULING_1647) on statewide contests whose lines miss counties that voted that day, and its
     same-PR items: North Dakota's 2022 judgeships (nd_judgeships), Michigan's Supreme Court (MI_SC_UNREAD). A contest
@@ -446,6 +501,7 @@ def statewide_pieces(contests, year):
     if year == 2022:
         contests = nd_judgeships(contests, year)
     a_ = _state_counties(contests)
+    id_statewide(contests, year, a_)
     def whole(m):
         a = a_[(m.get("state"), m.get("date"))]
         return len(a) > 1 and a <= set(m.get("counties") or [])
@@ -752,11 +808,26 @@ def certified_count(j, q):
 def held(c, bad_y):
     """Why a contest's counts are held back (no p, and out of the back-tests), or None. A state in `bad_y` (quality) is
     held whole, except where a finer gate has read the contest itself: New Jersey's of 2024, county by county
-    (pipeline/local_nj.py county_gate, the orchestrator's ruling of 2026-11-07 10:45)."""
+    (pipeline/local_nj.py county_gate, the orchestrator's ruling of 2026-11-07 10:45). A contest the volume test holds
+    (pipeline/local_volume.py volume_gate) is held whatever the other gates say."""
+    v = (c.get("volume_gate") or {}).get("held")   # the volume test (pipeline/local_volume.py; rulings 19:04, 19:13)
+    if v:
+        return v
     g = c.get("county_gate") or c.get("source_gate")   # Louisiana's 2023: the gate within the certifying source
     if g is not None:
         return g["held"]
     return bad_y.get(c["state"])
+
+
+def volume_note(rec, c):
+    """The volume test's verdict on a record of a state-year it flags (pipeline/local_volume.py volume_gate): the
+    note where the record is kept, and the record's volume_check field either way."""
+    v = c.get("volume_gate")
+    if not v:
+        return
+    rec["volume_check"] = v["record"]
+    if v.get("note") and v["note"] not in (rec.get("notes") or []):
+        rec["notes"] = (rec.get("notes") or []) + [v["note"]]
 
 
 def certified_nc(contests, year):
@@ -2443,6 +2514,7 @@ def build(out_dir, with_p=True):
                     p["forecast_scope"] = L.FORECAST_SCOPE[r_["cls"]]
                     counts[f"{level} {year}: p computed, partisan"] += 1
             rec["p"] = p
+            volume_note(rec, c)
             files[(level, year, c["state"])].append(L._compact(rec))
 
     # -- state legislatures of ODD_YEARS: Louisiana's 2023 (pipeline/local_la.py), Klarner's runoff route
@@ -2549,6 +2621,7 @@ def build(out_dir, with_p=True):
                 p = class_p(rec, c, route, key, train, dens, (year, key), commit, with_p, counts, f"local {year}",
                             c["magnitude"] if route == "boundary" else 1)
             rec["p"] = p
+            volume_note(rec, c)
             files[("local", year, c["state"])].append(L._compact(rec))
 
     # -- measures and retentions: the threshold from the state's law, the forecast from like past measures
@@ -2772,6 +2845,7 @@ def build(out_dir, with_p=True):
                             counts[f"{label}: p computed, {key}"] += 1
             rec["p"] = p
             counts[f"{label}: {scope} {kind}"] += 1
+            volume_note(rec, c)
             files[("measure", year, c["state"])].append(L._compact(rec))
 
     # a statewide p taken at a threshold other than 1/2 rests on f(t) there, so its note comes only from the
@@ -2903,6 +2977,19 @@ def build(out_dir, with_p=True):
                      "(result.office_as_listed); the front page heads them " + repr(nd["front"]["official"])
                      + "; pages " + ", ".join(f"{nd['pages'][k]['url']} (sha256 {nd['pages'][k]['sha256'][:16]})"
                                               for k in pages), sha256=nd["pages"][pages[0]]["sha256"])
+        if any((x.get("result") or {}).get("votes_source") == "id_sos" for x in cs + others):
+            with open(os.path.join(ID_SOS, f"{year}-general.json")) as f:   # Idaho's official results
+                id_ = json.load(f)["source"]
+            head["sources"]["id_sos"] = F.source(
+                f"Idaho Secretary of State, {year} General Election official results: statewide offices",
+                id_["results"]["url"], id_["results"]["read_utc"], id_["licence"], mark="stated",
+                via=f"pipeline/intake/id_sos.py; linked as 'Statewide Results' from {id_['page']['url']} (served from "
+                    f"{id_['page']['served_from']}); a vendor's host the state names, marked "
+                    f"{id_['mark']!r} (the orchestrator's ruling of 12:40)",
+                note="the votes of each contest whose result.votes_source is 'id_sos' (MEDSL's, the COUNTY TOTAL rule "
+                     "applied, in result.medsl_votes); checked: " + id_["check"] + f" (the canvass, "
+                     f"{id_['canvass']['url']}, sha256 {id_['canvass']['sha256'][:16]})",
+                sha256=id_["results"]["sha256"])
         if any((x.get("result") or {}).get("state_total", {}).get("source") == "wa_sos" for x in cs + others):
             with open(os.path.join(WA_SOS, "20221108-statewide.json")) as f:   # Washington's own results
                 wa = json.load(f)
