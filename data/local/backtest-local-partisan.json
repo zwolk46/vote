@@ -26,8 +26,8 @@
    "mean_forecast_minus_outcome": 0.0283,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
-     232,
-     0.621
+     244,
+     0.615
     ],
     "council, commission or board": [
      384,
@@ -50,8 +50,8 @@
      0.737
     ],
     "school board": [
-     31,
-     0.516
+     19,
+     0.526
     ],
     "sheriff or constable": [
      115,
@@ -97,8 +97,8 @@
    "mean_forecast_minus_outcome": 0.0294,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
-     202,
-     0.678
+     212,
+     0.665
     ],
     "council, commission or board": [
      475,
@@ -121,8 +121,8 @@
      0.604
     ],
     "school board": [
-     84,
-     0.417
+     74,
+     0.419
     ],
     "sheriff or constable": [
      96,
