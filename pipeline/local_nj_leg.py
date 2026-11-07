@@ -181,6 +181,20 @@ def _held(g, c, year):
     return None
 
 
+def _gate_field(g, c, year):
+    """The record's `gate`, in the shape of Louisiana's 2023 (data/README.md)."""
+    k = next(k for k in LISTS[year] if c["office"] in OFFICES_OF_LIST[k])
+    why = g["contests"][(c["office"], c["district"])] or ""
+    out = {"by": GATE_BY[year], "ruled": "proposed by worker D3, 2026-11-07, for the orchestrator's ruling",
+           "official": g["lists"][k][0], "official_how": "linked from the Division's page as 'Official General "
+                                                          "Election Results', every page headed 'Official List'",
+           "parts_add_up": "add up to its Total" not in why and "Total is not" not in why,
+           "counties_named": "outside the counties" not in why}
+    if year == 2025:
+        out["statewide_equal"] = g["year"][1]
+    return out
+
+
 def _cands(c):
     """The contest's candidates in local_medsl's shape (party DEMOCRAT and REPUBLICAN as MEDSL writes them)."""
     return [{"name": x["name"], "votes": x["total"], "won_marked": True if x["w"] else None,
@@ -278,7 +292,7 @@ def records(year, prow, pres, ktrain, kdens, cid, commit, with_p, counts, LM):
                "seats": k if k > 1 else None,
                "result": {"candidates": LM._cands_out(cands, k), "total_votes": sum(x["votes"] for x in cands),
                           "source": SOURCE_KEY},
-               "forecasts": [], "gate": GATE_BY[year]}
+               "forecasts": [], "gate": _gate_field(g, c, year)}
         for x, y in zip(sorted(cands, key=lambda x: -x["votes"]), rec["result"]["candidates"]):
             if x["incumbent"]:
                 y["incumbent"] = True
