@@ -42,7 +42,8 @@ Routes (pipeline/local.py's, as for MEDSL's 2024 legislatures in pipeline/local_
   like races of 2024 and after (class_rows).
 
 The gate within the certifying source (2023 has no federal or statewide contest on its ballot; 2025's only statewide
-contest is the Governor's, which D2 read from the same list) [proposed, for the orchestrator's ruling]:
+contest is the Governor's, which D2 read from the same list) [proposed by D3; accepted as proposed by the orchestrator,
+2026-11-07 18:20 UTC: "it can be checked by anyone from the lists alone"]:
   (a) each list is linked from the Division's page of its year as "Official General Election Results: ..." and its
       pages are headed "Official List";
   (b) each candidate's county lines add up to its "Total", each contest's own "Total" equals its candidates' totals,
@@ -83,6 +84,8 @@ REGULAR = {2023: {"State Senate", "General Assembly"}, 2025: {"General Assembly"
 PARTY = {"DEMOCRATIC": "DEMOCRAT", "REPUBLICAN": "REPUBLICAN"}
 GOVERNOR_D2 = os.path.join(L.REPO, "data", "governor", "2025.json")
 CHECK = os.path.join(L.REPO, "data", "local", "check-nj-legislature.json")
+RULED = ("proposed by worker D3; the orchestrator, 2026-11-07 18:20 UTC: accepted as proposed (\"it can be checked by "
+         "anyone from the lists alone\")")
 GATE_BY = {2023: "within the certifying source (no federal or statewide contest on the ballot)",
            2025: "within the certifying source, and its Governor's list equal to D2's data/governor/2025.json"}
 
@@ -185,7 +188,7 @@ def _gate_field(g, c, year):
     """The record's `gate`, in the shape of Louisiana's 2023 (data/README.md)."""
     k = next(k for k in LISTS[year] if c["office"] in OFFICES_OF_LIST[k])
     why = g["contests"][(c["office"], c["district"])] or ""
-    out = {"by": GATE_BY[year], "ruled": "proposed by worker D3, 2026-11-07, for the orchestrator's ruling",
+    out = {"by": GATE_BY[year], "ruled": RULED,
            "official": g["lists"][k][0], "official_how": "linked from the Division's page as 'Official General "
                                                           "Election Results', every page headed 'Official List'",
            "parts_add_up": "add up to its Total" not in why and "Total is not" not in why,
@@ -394,8 +397,8 @@ def check():
                     "page's count of candidates equal to those read; (b) each candidate's county lines adding up to "
                     "its Total and each contest's Total to its candidates'; (c) each candidate's county lines within "
                     "the counties its district's heading names; (d) 2025: the Governor's list equal to D2's "
-                    "data/governor/2025.json and the same file. Proposed by worker D3, 2026-11-07, for the "
-                    "orchestrator's ruling.", "years": {}}
+                    "data/governor/2025.json and the same file. Proposed by worker D3; accepted as proposed by the "
+                    "orchestrator, 2026-11-07 18:20 UTC.", "years": {}}
     for year in YEARS:
         if load(year) is None:
             out["years"][str(year)] = "not read"
