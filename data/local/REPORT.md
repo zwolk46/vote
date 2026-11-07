@@ -1261,3 +1261,69 @@ Whole questions now total 1,021: 722 places, 165 towns and townships, and 134 co
 - commissioners of agriculture, insurance and labor: council, commission or board.
 
 Typing them all `statewide officer` would put them in one pool. It would move more classes than item 2, so I have not done it.
+
+## 24. Every single-seat statewide executive office typed "statewide officer" (the ruling of 16:08)
+
+*Added 2026-11-07 at 16:18 UTC.* The ruling, verbatim: "A single-seat statewide executive office in a state office's contest is typed "statewide officer", read the way you read the superintendents. That covers treasurer, auditor or comptroller, secretary of state, lieutenant governor, attorney general, and the single commissioners (agriculture, insurance, labour, public service where one seat is elected statewide)." Reason: "the class decides a race's pool and back-test. A state treasurer's race belongs with other statewide races, not with county treasurers." Every record that changed: `data/local/moves-statewide-officers.json`, against main after #86.
+
+**How it is read** (`pipeline/local_medsl.py`, `STATE_EXEC` and `office_type_in`):
+- **The contest.** It must be a state office's contest: MEDSL's STATE files, or the State Board's state offices. It must have no district and not be one county's. A county's treasurer, auditor or superintendent has the same words, so the words alone are not read.
+- **The office's whole name** must be one of these, with "State", "NC" or "Washington State -" allowed in front:
+  - treasurer (State Treasurer, Treasurer of State, General Treasurer, Chief Financial Officer);
+  - auditor (Auditor of State, of Accounts, of Public Accounts, Auditor General, State Auditor and Inspector);
+  - comptroller or controller (Comptroller General);
+  - secretary of state (of the State, of the Commonwealth);
+  - lieutenant governor;
+  - attorney general;
+  - superintendent of public instruction (§23);
+  - the single commissioners: agriculture (and Secretary of Agriculture), insurance, labor (Oregon's Commissioner of the Bureau of Labor and Industries), and public, state, or school and public lands;
+  - Arizona's State Mine Inspector.
+
+**What moves:**
+- **359 records are typed `statewide officer`:** 316 local and 43 North Carolina primaries. With §23's 26 superintendents, the type holds 385. By office:
+
+  | Office | Records |
+  |---|---|
+  | attorney general | 71 |
+  | secretary of state | 66 |
+  | treasurer or chief financial officer | 66 |
+  | auditor | 43 |
+  | lieutenant governor | 37 |
+  | commissioners of agriculture | 19 |
+  | insurance | 19 |
+  | comptroller or controller | 14 |
+  | labor | 14 |
+  | lands | 8 |
+  | mine inspector | 2 |
+
+  Their types before were:
+
+  | Type before | Records |
+  |---|---|
+  | clerk, treasurer or other county officer | 121 |
+  | other local office | 108 |
+  | prosecutor | 71 |
+  | council, commission or board | 57 |
+  | school board (South Dakota's Commissioner of School and Public Lands) | 2 |
+
+- **No p moves.** None becomes computed or uncomputed [measured: p before and after in every row].
+  - 40 of the 359 have a p, and keep it: unopposed races (p 0), and races between a Democrat and a Republican, whose partisan route does not read the type.
+  - The other 319 have none before or after. 69 of them (40 local, 29 primaries) are nonpartisan or one-party races whose reasons now name the class "state statewide officer, …" (or "primary, state statewide officer, …"), too few for a p. The rest keep their reason (no county lean for the year, seats not in the source, a gated state).
+- **50 records of other types** (36 prosecutors, 8 boards and 6 of §23's statewide officers) keep their type. Their reasons give a changed count of like races, since the offices that left or joined their classes count there no more or now.
+- **The back-tests.** `backtest-local-partisan.json` (2024) and `calibration-local.json` show the officers' and prosecutors' rows shrinking and the statewide officers' growing. No verdict is read from these rows.
+
+**Left as they were, counted for a ruling** (state offices with no district and not one county's):
+- **Statewide boards and commissions of several seats:**
+  - 13 commissioners of a commission named as such: Arizona's and Oklahoma's corporation commissioners (5), Texas's railroad commissioners (2), public service commissioners (2, and Alabama's president of the Public Service Commission, 1), and South Dakota's public utilities commissioners (3). The ruling's "public service where one seat is elected statewide" is not read for these: the size of each commission is not in the sources taken in. Each keeps "council, commission or board" [inferred: a member of a commission by its own name].
+  - 10 seats on Michigan's State Board of Education and its three universities' boards, 2 seats at once.
+  - 8 seats of Hawaii's Office of Hawaiian Affairs trustees.
+  - New Mexico's 3 Public Education Commissioners.
+  - The District of Columbia's council chairman, council member at large and State Board of Education member at large (1 each).
+- **Judges:** 3,174 judge records in state offices. 145 of them name a supreme court or a court of appeals and carry no district or single county, the statewide courts by their names [inferred].
+- **Others, for a reading:**
+  - Montana's Clerk of the Supreme Court (2): a single statewide seat, but a court's clerk.
+  - The District of Columbia's Attorney General (1) and Mayor (1): their contest is one county's, since the District is one.
+  - Illinois's 2018 one-candidate "Comptroller" and "Treasurer" contests of 17 and 2 votes. Each is one name beside the statewide race, a stray write-in line filed as its own contest [inferred].
+
+**Lieutenant governors on a joint ticket.** None is filed as its own contest [measured]. Each of the 29 general-election lieutenant governor records was set beside the same state's governor contest in `data/governor/`, party by party. 27 have a governor's contest to compare. No Democratic or Republican count equals the governor's: where both have the party's candidate, the ratios run from 0.74 to 1.35, apart from Idaho's 2022. A joint ticket's votes would be the governor's own.
+- Idaho's 2022 record reads 2.96 and 2.09 times the governor's. MEDSL's 2022 Idaho file is about double: its US House count is 1,163,392 against the certified 583,628 in `checks-2022.json`. The file's own quality gate already holds those records. California's 2022 and Louisiana's 2023 had no governor's contest to compare.
