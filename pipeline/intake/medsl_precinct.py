@@ -64,6 +64,8 @@ NOT_CANDIDATES = {"", "OVERVOTES", "UNDERVOTES", "OVER VOTES", "UNDER VOTES", "B
 GENERIC = {"WRITE-IN", "WRITEIN", "WRITE IN", "SCATTERING", "WRITE-INS", "UNCERTIFIED WRITE-IN", "UNQUALIFIED WRITE-IN",
            "ALL OTHERS", "SCATTER", "SCATTERED", "MISC", "OTHERS", "UNRESOLVED", "UNKNOWN", "FICTIONAL"}
 SUFFIXES = {"JR", "SR", "II", "III", "IV", "V"}
+# the Democratic Party's state parties under their own names (MEDSL's 2024 files simplify them to DEMOCRAT)
+DEMOCRATIC_AFFILIATES = {"DEMOCRATIC-FARMER-LABOR", "DEMOCRATIC-NPL", "DEMOCRATIC-NONPARTISAN LEAGUE", "DFL"}
 _META = re.compile(r"^(TOTAL\b|VOTE FOR \d|TIMES (BLANK|OVER|UNDER)|.*\b(VOTES CAST|BALLOTS CAST|REGISTERED VOTERS|OVER ?VOTES?|"
                    r"UNDER ?VOTES?|BLANK VOTES?)\b)")
 
@@ -194,7 +196,10 @@ def read_file(path):
             votes = None          # "*": redacted (MEDSL's README)
         mode = (row.get("mode") or "TOTAL").upper()
         pk = (row.get("county_fips", ""), row.get("jurisdiction_fips", ""), row.get("precinct", ""))
-        ckey = (cand, row.get("party_detailed", ""), row.get("party_simplified", ""), row.get("writein", ""))
+        psim, pdet = row.get("party_simplified", ""), row.get("party_detailed", "")
+        if psim == "OTHER" and pdet.upper() in DEMOCRATIC_AFFILIATES:
+            psim = "DEMOCRAT"   # the 2022 files file Minnesota's DFL and North Dakota's Democratic-NPL as other
+        ckey = (cand, pdet, psim, row.get("writein", ""))
         if dv in ("PRESIDENT", "HOUSE") and row.get("stage", "GEN") == "GEN":
             bucket = pres if dv == "PRESIDENT" else house
             bucket[st][pk][ckey][mode] = (bucket[st][pk][ckey].get(mode) or 0) + (votes or 0)
@@ -389,14 +394,18 @@ def _contests(k, precincts, yn, is_question):
         else:
             cands = merge_lines(cands, magnitude == "1")
         cands.sort(key=lambda c: -c["votes"])
-        counties = sorted({pk[0] for pk in pks})
+        # some files list every precinct of the state under an office, with 0 votes where it is not on the ballot:
+        # the contest's place is its precincts with a vote in it
+        voted = [pk for pk in pks if any((resolve(m_) or 0) > 0 for ck, m_ in precincts[pk].items()
+                                         if not is_question or (ck in yn and yn[ck][0] == subject))]
+        counties = sorted({pk[0] for pk in voted})
         extra = {}
         if is_legislative(office):   # kept so that a district's lines can be compared across years (pipeline/local.py)
-            extra["precinct_ids"] = sorted({"|".join(pk[:3]) for pk in pks})
+            extra["precinct_ids"] = sorted({"|".join(pk[:3]) for pk in voted})
         out.append({**extra, "state": st, "date": date, "stage": stage, "special": special == "TRUE", "dataverse": dv,
                     "office": office, "district": district, "subject": subject or None,
                     "magnitude": int(magnitude) if magnitude.isdigit() else None,
-                    "question": is_question, "precincts": len(pks), "counties": counties,
+                    "question": is_question, "precincts": len(voted), "counties": counties,
                     "candidates": cands})
     return out
 

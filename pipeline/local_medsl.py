@@ -90,9 +90,16 @@ RANKED = {"AK": "counted by ranked choice (Alaska's state offices from 2022; MED
                 "(model section 7); recorded with its first-choice counts"}
 
 
+KLARNER_LINE = 0.10   # 2022: a state where more than this share of districts differ from Klarner's (share or parties) is unsound
+
+
 def quality(year):
-    """{state: reason} for states whose MEDSL counts cannot be trusted to add up: the same files' presidential totals
-    (2024) and US House totals (every year), added up from the precincts, against D1's and D2's certified totals."""
+    """{state: reason} for states whose MEDSL counts cannot be trusted to add up. 2024: the same files' presidential
+    totals, added up from the precincts, against D1's certified totals (by candidate). 2022: the same files' state
+    legislative districts against Klarner's 2022 returns (check_2022), the record for them. A file of exactly a
+    spreadsheet's row limit, in any year. (The US House check in the intake's checks is kept as a diagnostic, not used
+    here: D2's totals include blank-ballot lines in some states and name parties in words that vary, so they do not
+    compare line for line.)"""
     chk = checks(year)
     out = {}
     for name, f in chk.get("files", {}).items():
@@ -100,8 +107,8 @@ def quality(year):
             for st in f.get("states", {}):
                 out[st] = (f"the source's {year} file for this state ({name}) has {SPREADSHEET_ROWS:,} rows, the most a "
                            f"spreadsheet holds, so it is likely cut short [inferred]; p not computed")
-    for what, rows in (("presidential", chk.get("president") or {}), ("US House", chk.get("house_by_party") or {})):
-        for st, rs in rows.items():
+    if year % 4 == 0:
+        for st, rs in (chk.get("president") or {}).items():
             if st in out or not isinstance(rs, list):
                 continue
             worst = None
@@ -112,11 +119,25 @@ def quality(year):
                 if worst is None or rel > worst[0]:
                     worst = (rel, r)
             if worst and worst[0] > QUALITY_LINE and st not in RCV_EXPLAINED:
-                who = worst[1].get("candidate") or {"all": "all candidates", "D": "the Democrats",
-                                                     "R": "the Republicans"}.get(worst[1].get("party"))
-                out[st] = (f"the source's {year} counts for this state do not add up to the certified {what} totals "
-                           f"(off by {100 * worst[0]:.1f}% for {who}, pipeline/intake/medsl_precinct.py's check), so "
-                           f"its counts for this contest may be incomplete or double-counted; p not computed")
+                out[st] = (f"the source's {year} counts for this state do not add up to the certified presidential "
+                           f"totals (off by {100 * worst[0]:.1f}% for {worst[1].get('candidate')}, "
+                           f"pipeline/intake/medsl_precinct.py's check), so its counts for this contest may be "
+                           f"incomplete or double-counted; p not computed")
+    elif year == 2022:
+        path = os.path.join(L.REPO, "data", "local", "check-2022-medsl-klarner.json")
+        if os.path.exists(path):
+            with open(path) as f:
+                kc = json.load(f)
+            for st, t in kc.get("by_state", {}).items():
+                if st in out or not t.get("matched"):
+                    continue
+                off = (t.get("two-party share differs by more than 1 point", 0)
+                       + t.get("a major party's candidate in one source only", 0)) / t["matched"]
+                if off > KLARNER_LINE:
+                    out[st] = (f"the source's {year} state legislative returns for this state differ from Klarner's "
+                               f"in the two-party share by more than 1 point, or in which major parties ran, in "
+                               f"{100 * off:.0f}% of its {t['matched']} districts compared "
+                               f"(data/local/check-2022-medsl-klarner.json), so its counts are not relied on")
     return out
 
 
@@ -186,6 +207,7 @@ def check_2022(klarner=None, medsl=None):
                 and not c["mmdpost"] and c["dno"]:
             kl[(c["state"], c["sen"], c["dno"])] = c
     out = collections.Counter()
+    by_state = collections.defaultdict(collections.Counter)
     diffs = []
     for m in medsl:
         if m["office"] not in LEG or m["stage"] != "GEN" or m["special"] or m.get("magnitude") not in (1, None):
@@ -196,6 +218,7 @@ def check_2022(klarner=None, medsl=None):
             out["medsl contest without a like-named Klarner contest"] += 1
             continue
         out["matched"] += 1
+        by_state[k[0]]["matched"] += 1
         c = kl[k]
         kd = sum(a["votes"] or 0 for a in c["cands"] if a["party"] == "d")
         kr = sum(a["votes"] or 0 for a in c["cands"] if a["party"] == "r")
@@ -205,17 +228,27 @@ def check_2022(klarner=None, medsl=None):
         mw = max(ballot(m["candidates"]) or m["candidates"], key=lambda x: x["votes"], default=None)
         same_winner = bool(kw and mw and name_key(kw["name"])[0] in {k[0] for k in name_keys(mw["name"])})
         out["same winner" if same_winner else "winner differs"] += 1
+        by_state[k[0]]["same winner" if same_winner else "winner differs"] += 1
+        # the two-party share is what the forecast reads; a count scaled the same for both (one source doubling a
+        # district) leaves it whole, so the share is compared, and the scale is listed
         if kd == md and kr == mr:
-            out["D and R votes identical"] += 1
+            word = "D and R votes identical"
+        elif (kd > 0) != (md > 0) or (kr > 0) != (mr > 0):
+            word = "a major party's candidate in one source only"
+        elif abs(kd / (kd + kr) - md / (md + mr)) <= 0.01:
+            word = "two-party share within 1 point, counts differ"
         else:
+            word = "two-party share differs by more than 1 point"
+        out[word] += 1
+        by_state[k[0]][word] += 1
+        if word != "D and R votes identical":
             tot = max(kd + kr, 1)
-            rel = (abs(kd - md) + abs(kr - mr)) / tot
-            out["D and R votes within 1%" if rel <= 0.01 else "D and R votes differ by more than 1%"] += 1
             diffs.append({"state": k[0], "chamber": "state-upper" if k[1] else "state-lower", "district": dn,
-                          "klarner": [kd, kr], "medsl": [md, mr], "relative": round(rel, 4),
-                          "same_winner": same_winner})
+                          "klarner": [kd, kr], "medsl": [md, mr], "relative": round((abs(kd - md) + abs(kr - mr)) / tot, 4),
+                          "medsl_over_klarner": round((md + mr) / tot, 3), "what": word, "same_winner": same_winner})
     diffs.sort(key=lambda d: -d["relative"])
-    return {"tallies": dict(out), "differences": diffs}
+    return {"tallies": dict(out), "by_state": {s_: dict(v) for s_, v in sorted(by_state.items())},
+            "differences": diffs}
 
 
 # ------------------------------------------------------------------ 2024 state legislatures, route (a)
@@ -663,7 +696,7 @@ def build(out_dir, with_p=True):
             rec = {"id": cid(f"{year}-local-{c['state']}-{L._slug(c['office'])[:60]}-{L._slug(c['district'] or '')}"
                              .rstrip("-")),
                    "year": year, "date": c["date"] or None, "level": "local",
-                   "place": {"state": c["state"], "district": c["district"] or None,
+                   "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
                    "office": c["office"].title(), "office_type": office_type(c["office"]), "office_scope": scope,
                    "election": ("general" if c["stage"] == "GEN" else c["stage"].lower())
@@ -713,7 +746,7 @@ def build(out_dir, with_p=True):
                              + (f"-{L._slug(c['subject'])}" if c.get("subject") else "")
                              + ("" if scope == "statewide" else f"-{c['counties'][0]}")),
                    "year": year, "date": c["date"] or None, "level": "measure",
-                   "place": {"state": c["state"], "district": c["district"] or None,
+                   "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "statewide" else c["counties"]},
                    "question": {"title": c["office"].title(), "subject": (c.get("subject") or "").title() or None,
                                 "kind": kind, "scope": scope},
