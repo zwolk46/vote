@@ -75,3 +75,11 @@ In the project chat:
 
 *Reading.* The law is in force as if ratified, and building starts. The text put in force is law draft 2: draft 1 with the two cold readings, B2's 61 breaks and the 02:54 design guidance folded in, since draft 1's faults would mislead every worker that reads it. It goes into `LAW.md` at his word, with a status line saying it is in force by assumption and not yet ratified by him; he will look it over, and anything he says otherwise is a ruling on it.
 
+## 2026-11-07 02:58 UTC: a tracker to watch the work
+
+In the project chat:
+
+> And also, just like the midterm site, I want to be able to watch what's going on as it happens in at least some detail. So basically, I want an equivalent of just the simple artifact that's like a task tracker. I just want to see maybe what pages are being worked on, what features are being worked on, anything like that. And it'll be the place where I can open previews, where links will be put, and there should be probably a dedicated thread analogous to the thread run in the midterms project. Just run the same thing. I basically want to be able to just watch that until I have a comment that I need to make.
+
+*Reading.* An artifact task list like the midterms one ("Midterms Work"), showing what pages and features are being worked on, with links to previews, kept current by a dedicated thread. It is his ask, so it runs beside the three-worker limit, not within it.
+

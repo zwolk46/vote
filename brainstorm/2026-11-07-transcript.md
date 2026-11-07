@@ -43,3 +43,7 @@
 > Well, I guess maybe I should take a look at the law, but assume it ratified and start building until you hear otherwise, if you hear otherwise at all.
 
 **Orchestrator, 02:56.** "Will do. I'm folding Fable's breaks and the design guidance into the law now. Then I'll put it in force as if ratified, send it to you to look over, and start building."
+
+**Zach, 02:58** (project chat, relayed).
+
+> And also, just like the midterm site, I want to be able to watch what's going on as it happens in at least some detail. So basically, I want an equivalent of just the simple artifact that's like a task tracker. I just want to see maybe what pages are being worked on, what features are being worked on, anything like that. And it'll be the place where I can open previews, where links will be put, and there should be probably a dedicated thread analogous to the thread run in the midterms project. Just run the same thing. I basically want to be able to just watch that until I have a comment that I need to make.
