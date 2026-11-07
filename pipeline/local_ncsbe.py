@@ -25,6 +25,9 @@ What the files cannot show, and how it is handled (each said in the contest's ow
     contest whose names all carry one party code is that party's primary, and one carrying several is split by party.
     A nonpartisan contest whose name is on a later ballot that year is a first round (a primary or an election that
     went to a runoff); one whose name was on an earlier ballot is a second round. All of these are [inferred].
+    "The same name" is the same name in the same place: on another date, a contest of the name whose counties
+    overlap this one's (keyed on the name alone until 2026-11-07 11:57 UTC, when M2's check c19 found same-named
+    contests of different counties read as rounds of one; the orchestrator, 11:44).
     A November contest whose name was on an earlier ballot that year is that contest's deciding round, after a
     nonpartisan primary or a first round, in odd and even years alike: the November count is the one that elects, so
     p is computed by the route's classes, and the contest is marked so (the orchestrator, 2026-11-07 09:53 UTC; added
@@ -144,7 +147,13 @@ def classify(dates):
     by_year = collections.defaultdict(list)
     for d in sorted(dates):
         by_year[d[:4]].append(d)
-    seen = collections.defaultdict(list)   # (year, name, party) -> dates it is on
+    # (year, name, party) -> [(date, its counties)]: a round is the same contest only in the same place, so another
+    # date's contest of the name is a round of this one only where their counties overlap (M2's check c19, #69; the
+    # orchestrator, 2026-11-07 11:44: "a round is the same contest only in the same place"). The files give no
+    # district id (every contest's district is empty [measured]), so the place is the counties. Overlap, not
+    # equality: a city across two counties can show only one in a round its other county's voters did not vote in
+    # (Hickory's aldermen, 2019) [measured].
+    seen = collections.defaultdict(list)
     for d in sorted(dates):
         for c in dates[d]:
             m = PARTY_SUFFIX.search(c["contest"])
@@ -153,11 +162,12 @@ def classify(dates):
                 party = None
             base = PARTY_SUFFIX.sub("", c["contest"]).strip()
             c["_base"], c["_party"] = base, party or None
-            seen[(d[:4], base, party or None)].append(d)
+            seen[(d[:4], base, party or None)].append((d, frozenset(c["counties"])))
     for d in sorted(dates):
         for c in dates[d]:
             base, party = c["_base"], c["_party"]
-            ds = seen[(d[:4], base, party)]
+            here = set(c["counties"])
+            ds = [x for x, where in seen[(d[:4], base, party)] if where & here]
             earlier, later = [x for x in ds if x < d], [x for x in ds if x > d]
             leg = LEG.match(base)
             if FEDERAL.match(base) or GOVERNOR.match(base):
