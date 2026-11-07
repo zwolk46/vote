@@ -564,6 +564,37 @@ def check(dates):
                               "klarner": [k["dvote"], k["rvote"]]})
         if t:
             out["legislature_klarner"][str(year)] = {"tally": dict(t), "differences": diffs[:40]}
+    # 2b. the legislature's 2024 generals: MEDSL's own counts (before certified_legislature), by named candidates
+    d24 = next((x for x in dates if x.startswith("2024") and is_general_date(x)), None)
+    paths = glob.glob(os.path.join(LM.NORM, "2024", "NC-*.jsonl"))
+    if d24 and paths:
+        mine = collections.defaultdict(list)
+        for c in dates[d24]:
+            if c.get("_level") == "legislature":
+                mine[c["_leg"]].append(c)
+        t = collections.Counter()
+        diffs = []
+        for p in paths:
+            with open(p) as f:
+                for m in (json.loads(ln) for ln in f):
+                    if m.get("office") not in LM.LEG or m.get("question") or m.get("stage") != "GEN" or m.get("special"):
+                        continue
+                    key = ("state-upper" if LM.LEG[m["office"]] else "state-lower", int(LM.district_no(m["district"]) or 0))
+                    hit = mine.get(key)
+                    if not hit:
+                        t["not in the State Board's file"] += 1
+                        continue
+                    a = sorted((x["votes"] for x in m["candidates"] if not x.get("writein") and not LM._is_generic(x["name"])),
+                               reverse=True)
+                    b = sorted((x["votes"] for x in hit[0]["choices"] if not LM._is_generic(x["name"])), reverse=True)
+                    if a == b:
+                        t["equal"] += 1
+                    else:
+                        t["differ"] += 1
+                        diffs.append({"district": f"{key[0]} {key[1]}", "ncsbe": b, "medsl": a,
+                                      "largest_difference": max((abs(x - y) for x, y in zip(a, b)), default=None)})
+        out["legislature_medsl_2024"] = {"date": _iso(d24), "tally": dict(t),
+                                         "differences": sorted(diffs, key=lambda x: -(x["largest_difference"] or 0))}
     # 3. MEDSL's NC contests (its general dates): the same contests, by their candidates' names and votes
     for year in LM.MEASURE_YEARS:
         d = next((x for x in dates if x.startswith(str(year)) and is_general_date(x)), None)
@@ -630,8 +661,10 @@ def source_block(year_dates, files_meta):
 
 
 def block_for(records):
-    """The State Board's source block for a file: every results file its State Board contests come from."""
-    ds = sorted({r["date"].replace("-", "_") for r in records if (r.get("result") or {}).get("source") == SOURCE_KEY})
+    """The State Board's source block for a file: every results file its State Board contests, or its contests with
+    the State Board's counts (result.votes_source), come from."""
+    ds = sorted({r["date"].replace("-", "_") for r in records if SOURCE_KEY in ((r.get("result") or {}).get("source"),
+                                                                              (r.get("result") or {}).get("votes_source"))})
     return source_block(ds, [(d, checks_of(d)["source"]) for d in ds]) if ds else None
 
 
