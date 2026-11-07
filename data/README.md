@@ -143,12 +143,13 @@
 - `chamber`: the chambers' names in that state (`state-upper`, `state-lower`).
 - `sources`: source blocks by key, as D2's; `result.source` and `forecasts[].source` hold a key.
 - `p_computed_by`, `p_commit`: the script and commit that computed every `p` in the file (in place of each contest's `p.computed_by` and `p.commit`).
+- `party_codes`: for each source party code used in the file, the source codebook's own words (for Klarner, its codebook's Appendix C).
 
 **In each contest**
 - `election`: the kind of election in words (`general`, `general, for the rest of a term`, `Democratic primary`, or the source's own code where it has no words, such as `lafsettled`, Louisiana's first round).
 - `seats`: the seats the contest fills, when more than one ("vote for k").
 - `office` (primaries): the office the primary nominates for (`state-upper`, `state-lower`).
-- `result.candidates[]`: `won` is `true`, `"to runoff"` or `"tied"` (absent for a loss); `incumbent` is `true` when the source marks the candidate as the sitting member; `party` is `D`, `R`, `write-in`, `nonpartisan`, or a minor party's own name.
+- `result.candidates[]`: `won` is `true`, `"to runoff"` or `"tied"` (absent for a loss); `incumbent` is `true` when the source marks the candidate as the sitting member; `party` is `D`, `R`, `write-in`, `nonpartisan`, a minor party's own name, or, where the source gives only a code, the code in words (`minor party or independent, party not named`, `no party`, `unknown`), with the code itself in `party_code`.
 - `two_party`: as D2's, without the names: the votes of the two leading candidates (route b) or of the Democrat and the Republican (route a), `n_other_voters` (their votes minus one) and `share_first`.
 - `boundary`: for a race that fills several seats, the same for the last winner and the first loser (model section 7).
 - `forecasts[].route`: how the model's own forecast was built: `partisan` (the seat's last result, incumbency, the chamber's lean and the year's swing), `class` (like past races), `boundary`, or `runoff` (a runoff's second round, from like past runoffs). For `class`, `boundary` and `runoff`: `class` names the class, `like_races` how many races of the class in other years, `window` the share window and `in_window` how many of them finished in it, `q` their share; `note` says when the route is not yet checked.

@@ -1,6 +1,6 @@
 # State legislatures, primaries, local races and measures: sources, method and checks
 
-*Worker D3, `briefs/D3-data-local.md`. First written 2026-11-07 05:10 UTC; method and figures brought to D3-v1.1 at 05:50. Marks: [measured] computed here from the files; [stated] as the source says; [inferred] my reading. The inventory of every source found is `data/sources/local.md`.*
+*Worker D3, `briefs/D3-data-local.md`. First written 2026-11-07 05:10 UTC; method and figures brought to D3-v1.1 at 05:50, and the review points of 05:17 fixed at 06:10. Marks: [measured] computed here from the files; [stated] as the source says; [inferred] my reading. The inventory of every source found is `data/sources/local.md`.*
 
 **State at this writing.** Every state legislative contest of 1967-2022 that Klarner's dataset holds is in `data/state-upper/`, `data/state-lower/` and `data/primary/`: 189,103 contests. Each has p, p = 0 with the reason, or the reason p is not computed. The forecast method is D3-v1.1: D3-v1 as proposed, approved by the orchestrator at 05:06 with one change (each year fitted on earlier years only), and with runoffs added at its word. Local races and ballot measures come next, from the precinct sources.
 
@@ -56,6 +56,8 @@ Swing [measured], as a change in the president's party's share: −2.4 points in
 
 The first round stays not computed, since a vote there works through who advances (model §7).
 
+**p is computed only between the pair that decided** (model §7; the orchestrator's review of 05:17). Where the two leading candidates of a route-(a) race are not the Democrat and the Republican, the forecast is not of the deciding pair, so p is not computed there, with that reason. The same holds where a write-in candidate, or the source's "scattering" (write-in votes counted together), is in the deciding pair of any route. A race with one name on the ballot for each seat has p = 0, unless a write-in candidate received at least 10% of the last winner's votes; then p is not computed, since no route covers write-in contests.
+
 ## 3. Back-test (`data/local/backtest.json`): each year forecast from earlier years only [measured]
 
 **Route (a), by the number of earlier years of the same kind the fit had.** The minimum of 3 is chosen from this table.
@@ -92,32 +94,38 @@ The first round stays not computed, since a vote there works through who advance
 **Points for M2.**
 1. The race's own sd is chosen by the size bin of the count itself. The count is not known before the election, though the bins are coarse.
 2. The boundary route (c) is not yet checked.
-3. In route (b), very small primaries reach the largest p, for example about 1 in 25 in a 2014 New Hampshire House primary whose two leading candidates had 21 votes between them. This is the exact sum of pipeline/core.py at a density read off races of every size.
+3. The back-test of route (a) includes the 278 races whose deciding pair was not D and R: it tests the forecast of the Democrat's two-party share, which they have too.
+4. In route (b), very small primaries reach the largest p, for example about 1 in 25 in a 2014 New Hampshire House primary whose two leading candidates had 21 votes between them. This is the exact sum of pipeline/core.py at a density read off races of every size.
 
 ## 4. Where p is computed and where it is not [measured]
 
 Of 189,103 contests:
 
-- **p computed: 93,579**, in four routes:
-  - (a) 72,554
-  - (b) 11,004
-  - (c) 8,877
+- **p computed: 93,285**, in four routes:
+  - (a) 72,273
+  - (b) 10,993
+  - (c) 8,875
   - (d) 1,144
-- **p = 0: 66,716** unopposed, said so.
+- **p = 0: 66,534** with one name on the ballot for each seat, said so.
 - **p not computed, with the reason in each contest:**
   - 18,395 partisan races in years with fewer than 3 earlier years of their kind;
   - 6,480 first rounds of two-round systems;
-  - 2,595 races in classes with fewer than 100 like races in earlier years;
+  - 2,594 races in classes with fewer than 100 like races in earlier years;
   - 816 primaries that nominate several at once;
+  - 278 partisan races where the Democrat and the Republican were not the top two;
+  - 182 unopposed races where a write-in candidate received at least 10% of the last winner's votes;
   - 173 specials and 47 special runoffs;
   - 121 races where the source does not report every candidate's votes;
   - 91 top-two primaries;
+  - 12 races with a write-in candidate in the deciding pair, and 5 with the source's scattering there;
   - 10 runoffs for several seats;
   - 10 counts held back (§1);
   - 68 structures no route covers, and 2 election types not handled.
 
+**Party codes.** Where Klarner gives a candidate's party only as a code, the code is put in words from its codebook (Appendix C): 1,282 candidates, 792 of them under 99997, "assumed non-major party because the election is fully contested". The code is kept in `party_code`, and each file lists the codebook's words for the codes it uses. Two codes, 1776 and 50005, are not in the codebook; those two candidates show `unknown`.
+
 ## 5. Size
 
-The full build is 137.2 MB as plain compact JSON in 2,821 files [measured]: state-lower 94.3 MB, state-upper 27.5 MB, primary 15.4 MB. The largest file is 0.35 MB (New York's 2014 primaries).
+The full build is 137.3 MB as plain compact JSON in 2,821 files [measured]: state-lower 94.4 MB, state-upper 27.5 MB, primary 15.4 MB. The largest file is 0.35 MB (New York's 2014 primaries).
 
 The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about 50 MB and no file is over 20 MB. Its reason: git compresses objects and stores a rerun as a delta. Measured in a scratch clone with `git gc` before and after committing the full build, `git count-objects -vH` showed size-pack going from 6.99 MiB to 21.94 MiB. The pack grows by 15.0 MiB, so the build is committed.
