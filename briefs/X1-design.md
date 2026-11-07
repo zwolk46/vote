@@ -38,3 +38,7 @@
 ## Done when
 
 The spec is in a PR, two or three options are on one preview branch with the checks passed, and you have reported to the orchestrator in at most fifteen lines. Then wait for the maker's pick through the orchestrator; when he has picked, the brief continues with step 2's merge, then stops (`_COMMON.md` 14).
+
+## Amended 2026-11-07 03:13 UTC: the amount of data is part of the design
+
+The maker's ruling of 03:13 (`RULINGS.md`): "one of the really cool aspects of the website or the presentation of data could be the amount of data that's available [...] I want the site to be really special for someone to say, wow". The data workers now gather every contest the standardized sources allow, at every level and as far back as they go: tens of thousands of contests, perhaps more. Design the spec and the first-screen options so that a reader feels that breadth, as well as the closest cases (law 1a). Until the data lands, any count of contests shown is marked as a sample. Nothing is fed live; everything ships from the repository.

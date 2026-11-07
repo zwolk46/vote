@@ -36,3 +36,11 @@
 ## Done when
 
 Every state and every year from 2024 to 2000 has its contest with inputs, sources and p (or a marked reason it has none), your checks against the published estimates are written, the PRs are open, and you have reported to the orchestrator in at most fifteen lines. Report earlier, once, when `pipeline/core.py` is up, and once for the model's own forecast method (step 3). Then stop (`_COMMON.md` 14).
+
+## Amended 2026-11-07 03:13 UTC: as much data as can be found, by script
+
+The maker's ruling of 03:13 (`RULINGS.md`; `plan/PLAN.md` §3a) amends this brief:
+- **Breadth is a goal of its own.** Go back as far as standardized sources go, not only to the years named above. *Reason:* "aggregating absolutely as much data as we can find".
+- **Intake by script.** For each standardized source, write `pipeline/intake/<source>.py` once: download to a cache outside the repository, check row counts and totals, convert into the layout of plan §3 with the source block filled. *Reason:* "an intake flow that doesn't use as many tokens"; a year or a state then costs a run, not a reading.
+- **An inventory.** List every standardized dataset you find, for your level and any other, in `data/sources/<your level>.md`: publisher, coverage, format, licence, and whether this environment reaches it. *Reason:* the next worker starts from what is known.
+- **No live data.** Everything is a published dataset taken in by script.
