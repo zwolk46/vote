@@ -713,7 +713,7 @@
   }
  },
  "questions_at_threshold": {
-  "about": "North Carolina's local questions given p by step (b) on the State Board's other dates: the chance the class (its local questions of earlier years, counted whole) gave of finishing within the forecast's own window and within 1, 2 and 5 points of the threshold, added up, beside how many did. Those on MEDSL's general dates are in data/measure/backtest-measures.json (at_threshold_local). near_votes: the same within 1,000 to 50,000 votes of the threshold. lean_note: the two tests of the orchestrator's ruling of 11:01 and the note they give (data/local/REPORT.md section 18).",
+  "about": "North Carolina's local questions given p by step (b) on the State Board's other dates: the chance the class (its local questions of earlier years, counted whole) gave of finishing within the forecast's own window and within 1, 2 and 5 points of the threshold, added up, beside how many did. Those on MEDSL's general dates are in data/measure/backtest-measures.json (at_threshold_local). near_votes: the same within 1,000 to 50,000 votes of the threshold. lean_note: the two tests of the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give (data/local/REPORT.md section 18).",
   "years": {
    "2012": {
     "measures": 52,
@@ -736,6 +736,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 0.4,
+      "seen": 4
+     },
+     "within 100 votes": {
+      "expected": 7.2,
+      "seen": 14
+     },
      "within 1,000 votes": {
       "expected": 27.3,
       "seen": 27
@@ -779,6 +787,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 0.0,
+      "seen": 0
+     },
+     "within 100 votes": {
+      "expected": 0.0,
+      "seen": 0
+     },
      "within 1,000 votes": {
       "expected": 0.0,
       "seen": 0
@@ -822,6 +838,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 2.2,
+      "seen": 2
+     },
+     "within 100 votes": {
+      "expected": 8.7,
+      "seen": 15
+     },
      "within 1,000 votes": {
       "expected": 28.3,
       "seen": 31
@@ -865,6 +889,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 5.8,
+      "seen": 6
+     },
+     "within 100 votes": {
+      "expected": 23.4,
+      "seen": 20
+     },
      "within 1,000 votes": {
       "expected": 31.7,
       "seen": 31
@@ -908,6 +940,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 2.0,
+      "seen": 2
+     },
+     "within 100 votes": {
+      "expected": 10.8,
+      "seen": 12
+     },
      "within 1,000 votes": {
       "expected": 18.3,
       "seen": 22
@@ -951,6 +991,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 3.9,
+      "seen": 3
+     },
+     "within 100 votes": {
+      "expected": 16.4,
+      "seen": 18
+     },
      "within 1,000 votes": {
       "expected": 22.4,
       "seen": 21
@@ -994,6 +1042,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 0.2,
+      "seen": 0
+     },
+     "within 100 votes": {
+      "expected": 1.6,
+      "seen": 2
+     },
      "within 1,000 votes": {
       "expected": 7.6,
       "seen": 11
@@ -1037,6 +1093,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 2.8,
+      "seen": 3
+     },
+     "within 100 votes": {
+      "expected": 14.1,
+      "seen": 15
+     },
      "within 1,000 votes": {
       "expected": 19.2,
       "seen": 19
@@ -1080,6 +1144,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 0.1,
+      "seen": 0
+     },
+     "within 100 votes": {
+      "expected": 0.8,
+      "seen": 0
+     },
      "within 1,000 votes": {
       "expected": 6.3,
       "seen": 9
@@ -1123,6 +1195,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 2.1,
+      "seen": 2
+     },
+     "within 100 votes": {
+      "expected": 12.9,
+      "seen": 14
+     },
      "within 1,000 votes": {
       "expected": 14.0,
       "seen": 14
@@ -1166,6 +1246,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 0.5,
+      "seen": 0
+     },
+     "within 100 votes": {
+      "expected": 2.9,
+      "seen": 3
+     },
      "within 1,000 votes": {
       "expected": 4.4,
       "seen": 4
@@ -1209,6 +1297,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 0.6,
+      "seen": 0
+     },
+     "within 100 votes": {
+      "expected": 3.0,
+      "seen": 3
+     },
      "within 1,000 votes": {
       "expected": 3.0,
       "seen": 3
@@ -1252,6 +1348,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 0.0,
+      "seen": 0
+     },
+     "within 100 votes": {
+      "expected": 0.1,
+      "seen": 0
+     },
      "within 1,000 votes": {
       "expected": 0.8,
       "seen": 1
@@ -1295,6 +1399,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 1.1,
+      "seen": 1
+     },
+     "within 100 votes": {
+      "expected": 5.2,
+      "seen": 5
+     },
      "within 1,000 votes": {
       "expected": 6.7,
       "seen": 7
@@ -1338,6 +1450,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 0.2,
+      "seen": 0
+     },
+     "within 100 votes": {
+      "expected": 1.3,
+      "seen": 1
+     },
      "within 1,000 votes": {
       "expected": 3.1,
       "seen": 2
@@ -1381,6 +1501,14 @@
      }
     },
     "near_votes": {
+     "within 10 votes": {
+      "expected": 21.9,
+      "seen": 23
+     },
+     "within 100 votes": {
+      "expected": 108.4,
+      "seen": 122
+     },
      "within 1,000 votes": {
       "expected": 193.1,
       "seen": 202
@@ -1414,13 +1542,14 @@
     "line": "within 1% of the threshold"
    },
    "vote_test": {
-    "expected": 193.1,
-    "seen": 202,
+    "expected": 21.9,
+    "seen": 23,
     "counts": true,
     "leans": "more",
-    "line": "within 1,000 votes"
+    "line": "within 10 votes"
    },
-   "note": "this route's back-test of North Carolina's local questions on the State Board's other dates shows more near-even finishes than it forecast (15 against 10.9 within 1 point of the threshold, and 202 against 193.1 within 1,000 votes, 2012 to 2026), so p may be low"
+   "note": "this route's back-test of North Carolina's local questions on the State Board's other dates shows more near-even finishes than it forecast (15 against 10.9 within 1 point of the threshold, and 23 against 21.9 within 10 votes, 2012 to 2026), so p may be low",
+   "stands_on": "both tests"
   }
  }
 }

@@ -1,5 +1,5 @@
 {
- "about": "statewide measures and retentions, like past measures out of sample (each year's class from earlier years only): expected and seen counts finishing near 1/2 (every statewide question) and near the threshold (those given a forecast). at_threshold_local is the same for local questions given p by step (b) on these dates (each state's own class); North Carolina's questions on its other dates are in data/local/backtest-ncsbe.json. near_votes: the same within 1,000 to 50,000 votes of the threshold. lean_notes_local: for each local class, the two tests of the orchestrator's ruling of 11:01 and the note they give (data/local/REPORT.md section 18). Built by pipeline/local_medsl.py build.",
+ "about": "statewide measures and retentions, like past measures out of sample (each year's class from earlier years only): expected and seen counts finishing near 1/2 (every statewide question) and near the threshold (those given a forecast). at_threshold_local is the same for local questions given p by step (b) on these dates (each state's own class); North Carolina's questions on its other dates are in data/local/backtest-ncsbe.json. near_votes: the same within 1,000 to 50,000 votes of the threshold. lean_notes_local: for each local class, the two tests of the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give, and lean_notes_statewide the same for the statewide classes near 1/2 (data/local/REPORT.md section 18). Built by pipeline/local_medsl.py build.",
  "near_half": {
   "2018 statewide measure (trained on 83)": {
    "measures": 87,
@@ -177,6 +177,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
     "within 1,000 votes": {
      "expected": 0.0,
      "seen": 0
@@ -220,6 +228,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
     "within 1,000 votes": {
      "expected": 0.0,
      "seen": 1
@@ -263,6 +279,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
     "within 1,000 votes": {
      "expected": 0.0,
      "seen": 1
@@ -308,6 +332,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 1.1,
+     "seen": 2
+    },
+    "within 100 votes": {
+     "expected": 7.0,
+     "seen": 6
+    },
     "within 1,000 votes": {
      "expected": 19.2,
      "seen": 16
@@ -351,6 +383,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 0.4,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 3.6,
+     "seen": 8
+    },
     "within 1,000 votes": {
      "expected": 19.2,
      "seen": 21
@@ -394,6 +434,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 0.1,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 1.7,
+     "seen": 1
+    },
     "within 1,000 votes": {
      "expected": 11.0,
      "seen": 14
@@ -437,6 +485,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 0.5,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 3.2,
+     "seen": 3
+    },
     "within 1,000 votes": {
      "expected": 8.5,
      "seen": 7
@@ -480,6 +536,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 17.8,
+     "seen": 9
+    },
+    "within 100 votes": {
+     "expected": 112.1,
+     "seen": 98
+    },
     "within 1,000 votes": {
      "expected": 250.3,
      "seen": 253
@@ -523,6 +587,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 19.9,
+     "seen": 11
+    },
+    "within 100 votes": {
+     "expected": 127.7,
+     "seen": 116
+    },
     "within 1,000 votes": {
      "expected": 308.2,
      "seen": 311
@@ -566,6 +638,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 17.6,
+     "seen": 9
+    },
+    "within 100 votes": {
+     "expected": 110.4,
+     "seen": 97
+    },
     "within 1,000 votes": {
      "expected": 240.7,
      "seen": 244
@@ -609,6 +689,14 @@
     }
    },
    "near_votes": {
+    "within 10 votes": {
+     "expected": 2.3,
+     "seen": 2
+    },
+    "within 100 votes": {
+     "expected": 17.4,
+     "seen": 19
+    },
     "within 1,000 votes": {
      "expected": 67.5,
      "seen": 67
@@ -632,6 +720,43 @@
    }
   }
  },
+ "lean_notes_statewide": {
+  "statewide measure": {
+   "questions": 259,
+   "share_test": {
+    "expected": 6.8,
+    "seen": 11,
+    "counts": true,
+    "leans": "more",
+    "line": "within 1% of \u00bd"
+   },
+   "vote_test": {
+    "expected": 6.2,
+    "seen": 10,
+    "counts": true,
+    "leans": "more",
+    "line": "within 20,000 votes"
+   },
+   "note": "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of \u00bd, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+   "stands_on": "both tests"
+  },
+  "statewide retention": {
+   "questions": 79,
+   "share_test": {
+    "expected": 0.0,
+    "seen": 2,
+    "counts": false,
+    "leans": "more",
+    "line": "within 1% of \u00bd"
+   },
+   "vote_test": {
+    "counts": false,
+    "why": "under 5 expected at every line up to 50,000 votes"
+   },
+   "note": null,
+   "why_none": "neither test counts"
+  }
+ },
  "lean_notes_local": {
   "local measure, LA": {
    "questions": 304,
@@ -643,13 +768,14 @@
     "line": "within 1% of the threshold"
    },
    "vote_test": {
-    "expected": 240.7,
-    "seen": 244,
+    "expected": 17.6,
+    "seen": 9,
     "counts": true,
-    "leans": "more",
-    "line": "within 1,000 votes"
+    "leans": "fewer",
+    "line": "within 10 votes"
    },
-   "note": "this route's back-test of Louisiana's local questions shows more near-even finishes than it forecast (8 against 7.1 within 1 point of the threshold, and 244 against 240.7 within 1,000 votes, in 2024), so p may be low"
+   "note": null,
+   "why_none": "the two tests lean opposite ways"
   },
   "local measure, NC": {
    "questions": 190,
@@ -661,13 +787,14 @@
     "line": "within 1% of the threshold"
    },
    "vote_test": {
-    "expected": 67.5,
-    "seen": 67,
+    "expected": 17.4,
+    "seen": 19,
     "counts": true,
-    "leans": "fewer",
-    "line": "within 1,000 votes"
+    "leans": "more",
+    "line": "within 100 votes"
    },
-   "note": "this route's back-test of North Carolina's local questions on the even years' November general dates shows fewer near-even finishes than it forecast (5 against 6.5 within 1 point of the threshold, and 67 against 67.5 within 1,000 votes, 2016 to 2024), so p may be high"
+   "note": null,
+   "why_none": "the two tests lean opposite ways"
   }
  }
 }

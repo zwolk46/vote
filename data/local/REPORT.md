@@ -896,34 +896,63 @@ No calibration is applied, as for every route since 09:49 (§7).
 - **The 63 North Carolina questions and Louisiana's fire and hotel questions.** They could take the general law, unless a local act is found.
 - **Three of the 4 transit taxes** (Durham 2011, Orange 2012, Wake 2016). These were single-county referendums, which the multicounty test does not reach, by the reader's own reading. Mecklenburg's 2025 tax may rest on an act of 2025 that was not read.
 
-## 18. The lean note on local questions: the two tests of 11:01
+## 18. The lean note: the two tests of 11:01, as amended at 13:52
 
-*Added 2026-11-07 at 13:51 UTC, at the orchestrator's word of 13:39: "The local questions' back-test leans (NC other dates within 5 points: 82 seen against 65.6 expected). Apply the 11:01 rule to each local-question route: a note only where the share test and the vote test both count and agree. Do it in the next PR." The rule of 11:01 is in `data/congress/REPORT.md` §3.*
+*Added 2026-11-07 at 14:01 UTC, at the orchestrator's word of 13:39: "The local questions' back-test leans (NC other dates within 5 points: 82 seen against 65.6 expected). Apply the 11:01 rule to each local-question route: a note only where the share test and the vote test both count and agree. Do it in the next PR." The rule of 11:01 is in `data/congress/REPORT.md` §3.*
+
+*The ruling of 13:52 came after a first run, which this section also reports. It was fixed before any new count was taken:*
+1. *"the ladder starts lower (10, 100, 1,000, 5,000, 10,000, 20,000, 50,000 votes; still the smallest rung with 5 or more expected), and (v) doesn't count where its line holds more than half the pool's contests. Where only (s) counts, the note stands on it, as before."*
+2. *"By pool, as now. A note reports the back-test of the forecasts that made that p, and each pool is its own back-test."*
+3. *"retake the statewide measures' note under the amended rule with today's counts."*
+
+*Reason for 1:* "a test that counts almost every contest measures the whole forecast, not the near-tie density that p depends on."
 
 **The rule** (`pipeline/local_medsl.py`, `lean_note`).
-- **(s)** Seen against expected within 1 point of the threshold.
-- **(v)** Seen against expected within k votes of the threshold. k is the smallest of 1,000, 5,000, 10,000, 20,000 and 50,000 at which 5 or more are expected. "Within k votes" is |yes − t(yes + no)| ≤ k/2, which at t = ½ is a margin of k votes or fewer. The expected count is each question's class share of earlier questions within that many votes, taken as a share, |s − t| ≤ k / (2(yes + no)).
-- A test counts only with 5 or more seen or expected.
-- The note stands only where both tests count and lean the same way. Its words name both counts and say p may be low (more near-even finishes than forecast) or high (fewer).
+- **(s)** Seen against expected within 1 point of the threshold. The statewide classes use 1 point of ½, the point every statewide p of record is taken at.
+- **(v)** Seen against expected within k votes of the threshold. k is the smallest of 10, 100, 1,000, 5,000, 10,000, 20,000 and 50,000 votes at which 5 or more are expected.
+  - "Within k votes" is |yes − t(yes + no)| ≤ k/2. At t = ½ that is a margin of k votes or fewer.
+  - Each question's expected chance is its class's share of earlier questions within that many votes, taken as a share: |s − t| ≤ k / (2(yes + no)).
+- **When a test counts.** A test counts only with 5 or more seen or expected. (v) does not count where its line holds more than half the pool. "Holds" is read here as the questions that finished within the line.
+- **When the note stands.**
+  - Where both tests count, the note stands only if they lean the same way.
+  - Where only one counts, the note stands on that one.
+  - Where neither counts, there is no note.
+- **What the note says.** It names the counts it stands on, and says p may be low (more near-even finishes than forecast) or high (fewer).
 
-**The pools.** The pools were fixed before the vote test was run. Each build's own back-test is a pool, for each class:
-- Louisiana's local questions;
-- North Carolina's local questions on the even years' November general dates (`pipeline/local_medsl.py`);
-- North Carolina's local questions on the State Board's other dates (`pipeline/local_ncsbe.py`).
+**The pools.** Each pool is one build's own back-test of one class: the forecasts that made its p.
+- **Louisiana's local questions.**
+- **North Carolina's local questions on the even years' November general dates** (`pipeline/local_medsl.py`).
+- **North Carolina's local questions on the State Board's other dates** (`pipeline/local_ncsbe.py`).
+- **The statewide classes near ½.** This is the pool the note of 07:25 was taken on: every statewide question whose class has earlier years.
 
-*Reason:* each pool is the record of one build's forecasts, and no build reads another's output. North Carolina's two pools share a class, so the class pooled is given below as well.
+**The tests under the amended rule** [measured]. They are in `data/measure/backtest-measures.json` (`lean_notes_statewide`, `lean_notes_local`) and `data/local/backtest-ncsbe.json` (`questions_at_threshold.lean_note`). The vote lines are in `near_votes`.
 
-**The tests** [measured]. They are in `data/measure/backtest-measures.json` (`lean_notes_local`) and `data/local/backtest-ncsbe.json` (`questions_at_threshold.lean_note`). The vote lines are in `near_votes`.
+| Pool | Questions | (s) within 1 point, seen / expected | (v) k, seen / expected | The note |
+|---|---|---|---|---|
+| Statewide measures, 2018-2024 | 259 | 11 / 6.8, more | 20,000 votes: 10 / 6.2, more | **stands**, both tests: p may be low |
+| Statewide retentions, 2018-2024 | 79 | 2 / 0.0 (does not count) | under 5 expected at every line | none; no retention has p |
+| Louisiana's local questions, 2024 | 304 | 8 / 7.1, more | 10 votes: 9 / 17.6, fewer | **none**: opposite ways |
+| North Carolina, general dates, 2016-2024 | 190 | 5 / 6.5, fewer | 100 votes: 19 / 17.4, more | **none**: opposite ways |
+| North Carolina, other dates, 2012-2026 | 306 | 15 / 10.9, more | 10 votes: 23 / 21.9, more | **stands**, both tests: p may be low |
 
-| Pool | Questions | (s) within 1 point, seen / expected | (v) k, seen / expected | Leans | The note |
-|---|---|---|---|---|---|
-| Louisiana, 2024 | 304 | 8 / 7.1, more | 1,000 votes: 244 / 240.7, more | the same way | **stands**: p may be low |
-| North Carolina, general dates, 2016-2024 | 190 | 5 / 6.5, fewer | 1,000 votes: 67 / 67.5, fewer | the same way | **stands**: p may be high |
-| North Carolina, other dates, 2012-2026 | 306 | 15 / 10.9, more | 1,000 votes: 202 / 193.1, more | the same way | **stands**: p may be low |
-| *North Carolina pooled (not of record)* | *496* | *20 / 17.4, more* | *1,000 votes: 269 / 260.6, more* | *the same way* | *would stand: p may be low* |
+**The first run, under the rule of 11:01 as written.** In the first run the ladder started at 1,000 votes. That line held most of each local pool: 244 of Louisiana's 304, 67 of North Carolina's 190 general-date questions and 202 of its 306 other-date questions. So each pool's (v) was close to a count of all its questions. Every local note stood, and North Carolina's two pools leaned opposite ways. That was put to the orchestrator, and the ruling of 13:52 answered it.
 
-**Two things the rule did not foresee** [measured], put to the orchestrator.
-- **The vote line is wide for local questions.** Even the smallest line, 1,000 votes, holds most of them. It holds 80% of Louisiana's and 66% of North Carolina's on other dates. So (v) here is close to a count of all the questions, and its leans rest on differences of a few questions out of hundreds (244 against 240.7; 67 against 67.5).
-- **North Carolina's two pools lean opposite ways.** So the same class's p carry opposite notes, depending on the date. Pooled, both tests lean "more".
+**The other levels under the amendment** [measured: my own implementation after M2's `checks/m2/c16_notes.py`, on the files' forecasts of record (M2's set B)]. The amendment changes a verdict only where a new rung (10 or 100 votes) reaches 5 expected, or where the chosen line holds more than half the pool. Neither happens at any level:
 
-**What moves.** No p moves. Every local question with p gets the note of its pool: 304 in Louisiana and 496 in North Carolina (190 general dates, 306 other dates). The statewide questions' note is unchanged. It is the near-½ count of the ruling of 07:25, taken before the rule of 11:01.
+| Level, years | Contests | Expected / seen within 10, 100, 1,000 votes | k before and after | k's line holds |
+|---|---|---|---|---|
+| House, 2010-2024 | 2,997 | 0.16 / 1; 1.6 / 1; 16.0 / 24 | 1,000; 1,000 | 24 of 2,997 |
+| Senate, 2010-2024 | 255 | 0.01 / 0; 0.05 / 0; 0.5 / 0 | 10,000; 10,000 | 4 of 255 |
+| Governors, 2006-2024 | 216 | 0.01 / 0; 0.08 / 0; 0.85 / 0 | 10,000; 10,000 | 4 of 216 |
+| Governors, odd years, 1985-2021 | 29 | 0.0 / 0; 0.01 / 0; 0.08 / 0 | none of the rungs reaches 5 in these 29 | |
+
+- So no House, Senate or governor verdict changes under the amendment.
+- The odd years' note rests on D2's own back-test, of more races than the 29 with p [inferred]. Its line, 50,000 votes, holds 9 races, under half of that pool's 29 or more, and the new rungs are below 1,000 votes, where its 29 races expect 0.08.
+- **The statewide measures' verdict is unchanged.** The note stood under the rule of 07:25 (54 against 38.1 within 5 points), and it stands now on both tests.
+
+**What moves** [measured], against main (`e41dca5`).
+- **No p moves.**
+- **306 notes are added**, on North Carolina's local questions on the State Board's other dates.
+- **65 statewide measures' notes are reworded.** They were "54 against 38.1 within 5 points". They now read "11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes". They still say p may be low.
+- **Louisiana's and North Carolina's general-date local questions get no note.**
+- **Nothing else in any record changes.**

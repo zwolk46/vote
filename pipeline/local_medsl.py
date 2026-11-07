@@ -1848,11 +1848,7 @@ def build(out_dir, with_p=True):
                     key = f"local {kind}, {c['state']}"
                     train_q = local_train(c["state"], kind, year)
                 else:
-                    rule, how, why = MS.rule_for(c, kind, book, year, rec["id"])
-                    bt_ = (book.get("ballot_texts") or {}).get(rec["id"])
-                    if bt_:   # step (a): the words read, beside the rule they decided
-                        rec["ballot_text"] = {k: bt_.get(k) for k in ("source", "source_title", "type", "type_quote",
-                                                                      "type_mark", "fact")}
+                    rule, how, why = MS.rule_for(c, kind, book, year)
                     key = f"{scope} {kind}"
                     train_q = train
                 if rule is None:
