@@ -1504,3 +1504,74 @@ A contest that fails (b) or (c) is held; a list that fails (a), or a year that f
 - The gate is proposed, not yet ruled. Every record says so (`gate.ruled`).
 - Class C for the 2023 Senate. The 2021 map's lines and 2023's are not compared, since no source with precincts or a statement of the lines was read. If a page stating whether the 2023 districts are 2021's is read, class A could replace C for those that are.
 - The 35th's Senate seat of 2025 is a special [inferred].
+
+## 28. Virginia's legislatures of 2023 and 2025, from the Department of Elections, as read before it refused us
+
+*Added 2026-11-07 at 18:50 UTC, at the orchestrator's order of 10:35 (§27); with the ruling of 11:56, "earlier cycles only means every earlier contest", and the orchestrator's words of 18:30 and 18:32 on the refusal and the gate.* Every record that changed: `data/local/moves-va-legislature.json`.
+
+**Why.** Virginia elects its legislature in odd years. Klarner's Virginia ends with the House of Delegates of 2021, and MEDSL holds no odd year, so the Department's own results are the only source.
+
+**The refusal, told whole.**
+- The Department's "Election Results" page links a directory of CSV files on apps.elections.virginia.gov. Its listing of 2005-2023 results answered at 18:21 UTC. That listing ends in April 2023, so it holds neither general.
+- At 18:27:48 the same host answered HTTP 403 "Access Denied" to its "Winners List" directory. I took that for a bar on directory listings, and at 18:28:44 I asked the same host for one results file ("2023 January Senate Special.csv"). It refused too. That second request should not have been made: the rule is to stop at the first refusal. I reported both at once.
+- The orchestrator (18:30): the refusal binds the whole Department, so none of its hosts is read again, rendered or not. What was read before 18:27:48 stands, and anything fetched after it is deleted. The two refusal pages are deleted; nothing else came after it.
+
+**Source** [stated: the files; measured: what `pipeline/intake/va_elect.py` reads]. Everything below was read before the refusal. It sits in the cache with each file's url, finishing time and sha256, and the script requests nothing.
+- The Department's results page (18:20:42). It links the 2025 general to its results site, enr.elections.virginia.gov. It sends results "starting with the June 2023 Primaries" to the site's directory, which, rendered at 18:22:18, lists "2023 November General and Special Elections".
+- Each general's page on that site, rendered in headless Chromium, which the 08:00 ruling allows for a script shell.
+  - 2023 was scrolled to its end until its contests stopped growing (183, 18:26:19).
+  - 2025 was rendered once, not scrolled (18:23:53), so it shows its first 50 contests: the three statewide, then House districts 1 to 47.
+  - Each page is headed "<election> <date> OFFICIAL RESULTS Last Updated ..." (2023: "Last Updated Thursday, January 2, 2025"; 2025: "Monday, December 1, 2025"). Each contest shows its candidates, with "Winner" beside the winner, their parties and votes, and "Localities reporting n/n".
+- The file each page's "Media Export" link gives (18:23:02 and 18:24:08). It holds every contest's statewide count and each locality's line, option by option, with its precincts. Virginia's localities are its counties and independent cities.
+- 2023: the Senate's 40 districts and the House's 100, each "Vote for only one". 2025: the House's 100, and the Governor, Lieutenant Governor and Attorney General.
+
+**The gate within the certifying source** (proposed, from the orchestrator's list of 18:32; `pipeline/local_va_leg.py`; `data/local/check-va-legislature.json`).
+- (a) The election's page is headed "OFFICIAL RESULTS". The Department's page links it, directly or through its directory. Its "Media Export" link is the file read. Where the page shows a contest, its candidates and votes are the file's.
+- (b) Each contest's locality lines add up, option by option, write-ins included, to its statewide count, and name no option the statewide count lacks.
+- (c) The localities are the district's own. There are as many locality lines as the page's "Localities reporting n/n", all reporting. For 2025's districts the page as read did not show, the localities are the same as the district's 2023 contest, whose count the 2023 page prints [measured: all 100 House districts have the same localities in both years].
+- (d) 2025: the file's Governor equals D2's `data/governor/2025.json` to the vote, line by line (Spanberger 1,976,857, Earle-Sears 1,449,586, write-ins 6,897). D2's count is the same site's, of the same election, read at 12:46.
+
+A contest that fails (a)'s last part, (b) or (c) is held; a year that fails the rest of (a), or (d), holds all its contests. The years pass, and every contest passes but one [measured]:
+- **The 9th Senate district of 2023 is held.** Its locality lines count 76 votes for Trudy Berry, in Lunenburg County, whom its statewide count does not hold. It was Frank M. Ruff Jr. alone, with 3,354 write-ins.
+
+Recorded beside the gate, not part of it: each locality line's precincts add up to it. They do in every locality but two, in 2023:
+- In Culpeper County, every contest's precincts add up to fewer votes than the county's line. Three legislative contests are affected: the 28th Senate district (Reeves 10,176 against 10,195) and House districts 61 and 62.
+- In Henrico County, the 16th Senate district's write-ins are 156 against 157.
+
+The record is the locality lines, which add up to the statewide count the page shows, and each of those four records says so in a note. Why the precincts fall short is not read [the 2023 page was last updated in January 2025 and its file made then; nothing says what changed].
+
+**Winners.** `won` is the page's "Winner" mark where the page showed the contest (`won_mark` `stated`): all 140 of 2023 and districts 1 to 47 of 2025. In districts 48 to 100 of 2025 it is the leading candidate for the one seat (`won_mark` `inferred`, 53 records), each with a note. Where the page showed it, the mark is always the leading candidate [measured]. The orchestrator (18:32): "a figure resting on a page we saw and one resting on a rule we applied must look different in the record."
+
+**Routes** (pipeline/local.py's, as for MEDSL's 2024 legislatures).
+- **One Democrat against one Republican: route (a).**
+  - 2023 is class C. No result on 2023's lines before 2023 is in the sources: Klarner's Virginia races of 2019 and 2021 carry his district regimes of 2011 and 2019 [measured]. That makes 34 Senate races (p 8.43e-6 to 3.14e-5, median 2.47e-5) and 65 House races (2.67e-5 to 1.18e-4, median 5.04e-5).
+  - 2025 takes the 2024 rule of lines: a district's 2023 contest is its last result on the same lines where at least 80% of its 2025 precincts were among its 2023 precincts. That holds in 98 of 100 districts; the 65th (68%) and 72nd (58%) stay class C. Of the 84 races, 58 are class A, 24 class B and 2 class C, with p from 3.95e-7 (51st) to 7.72e-5 (41st), median 2.55e-5.
+  - **Incumbency** is matched by name, as for 2024, to the winners of the chamber's last general: Klarner's Senate of 2019 and House of Delegates of 2021 for 2023, and the House of 2023 read here for 2025. In 2023 that is 9 Democratic and 7 Republican incumbents in the Senate's 34 races, and 16 and 19 in the House's 65; in 2025, 33 and 39 in 84. No race matched both of its candidates. No special election since those generals is read (the Department refused us before any was), so a member elected in one counts as not sitting [a measured gap; `incumbency_of` says so].
+  - **The lean** is the chamber's last general before: Senate 2019 −0.0491, House 2021 +0.0091, House 2023 +0.0069.
+  - **The fit**, as 11:56 asks, takes every earlier race of route (a) in the sources: Klarner's for 2023. For 2025 it also takes New Jersey's and Virginia's of 2023 and MEDSL's 2024 legislatures, so 2024's own races now enter a later year's fit for the first time.
+  - **The president's party in 2025** is from the National Archives' 2024 page (Trump, R). D1's `pipeline/intake/nara_electoral_college.py` was run for 1964-2024 at 18:30 UTC, since this cache had read only to 2020; no earlier year's figure changed.
+- **One major party against minor parties or independents: route (b)**, like past races: the 21st Senate district and House districts 3, 13 and 43 of 2023 (6,176 like races), and the 38th of 2025 (6,515, 2024's among them).
+- **One name on the ballot: p 0**, unless write-ins drew 10% of the winner's votes, in which case p is not computed:
+  - 2023: Senate 3 at p 0 and 1 not computed (the 23rd); House 24 at p 0 and 8 not computed.
+  - 2025: House 14 at p 0 and 1 not computed (the 25th).
+
+**2023 feeds the later years** (11:56).
+- **The fit.** Virginia's 99 Democrat-against-Republican races of 2023 join route (a)'s fit for 2024 and the transferred local route's.
+- **Like races.** Its four route (b) contests join the like races of 2024 and 2025.
+- **What moves, against main (67431a4):**
+  - 2,736 lower-house p, ×0.9406 to ×1.0023, median ×0.9994, 83 beyond 1%;
+  - 699 senate p, ×0.9629 to ×1.0018, median ×0.9994, 8 beyond 1%;
+  - 976 local p, ×0.9987 to ×1.0012, median ×1.0008.
+  - The largest are partisan seats far from even: New York's 55th, ×0.9406.
+  - No p became computed or was lost outside Virginia.
+- **The tests' verdicts are unchanged.**
+  - The 2024 back-test of the transferred local route holds 51.9% in its 50% interval, as before (the rule is 40% to 60%), and 81.0% in its 80% (81.1%).
+  - The calibration's 2024 test reads expected_after 54.7 (54.6) and deviance by office type 17.58 (17.57). It still improves, and neither route is adopted.
+- **The notes** of the fit, the like races and the back-test now name Virginia's 2023 among their sources.
+- **New Jersey's records:** `gate.ruled` now gives the orchestrator's ruling of 18:20 ("accepted as proposed").
+
+**For the orchestrator:**
+- The gate is proposed, not yet ruled. Every record says so (`gate.ruled`).
+- **The 9th Senate district of 2023 is held** for 76 locality votes its statewide count lacks.
+- **Incumbency** misses every member elected in a special since the last general read.
+- The same 2023 file also holds Virginia's 2023 local contests (clerks, Commonwealth's attorneys, sheriffs, boards of supervisors, school boards, town councils), already in the cache from before the refusal. They are not taken in here. They could be, with nothing requested.

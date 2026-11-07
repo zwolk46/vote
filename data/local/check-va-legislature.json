@@ -1,0 +1,139 @@
+{
+ "about": "the gate within the certifying source of Virginia's 2023 and 2025 legislatures (pipeline/local_va_leg.py, docstring): (a) the election's page headed 'OFFICIAL RESULTS', linked from the Department's results page, its Media Export link the file read, and the figures it shows the file's; (b) each contest's locality lines adding up to its statewide count, naming no option it lacks; (c) its localities the district's own (as many as the page prints; in 2025's contests the page as read did not show, its district's 2023 localities); (d) 2025: the Governor equal to D2's data/governor/2025.json. Proposed by worker D3, 2026-11-07, for the orchestrator's ruling. Beside it, not a gate: each locality line's precincts adding up to it.",
+ "years": {
+  "2023": {
+   "year": [
+    true,
+    "the page is headed '2023 November General and Special Elections November 7, 2023 OFFICIAL RESULTS Last Updated Thursday, January 2, 2025 at 7:14:51 PM'; the Department's results page says results from the June 2023 primaries on are at its 'Election Results Directory', which lists it as 'November 7, 2023 2023 November General and Special Elections 11/07/2023'; its 'Media Export' link is the file read"
+   ],
+   "contests": 140,
+   "shown_on_the_page": 140,
+   "winners_inferred": 0,
+   "contests_held": {
+    "Member, Senate of Virginia (9th District)": "its locality lines count 76 votes for Trudy Berry (in Lunenburg County), whom its statewide count does not hold"
+   },
+   "precincts_short_of_their_locality_line": {
+    "Member, Senate of Virginia (16th District)": [
+     {
+      "locality": "Henrico County",
+      "option": "Write-In",
+      "locality_line": 157,
+      "precincts": 156
+     }
+    ],
+    "Member, Senate of Virginia (28th District)": [
+     {
+      "locality": "Culpeper County",
+      "option": "Bryce E. Reeves",
+      "locality_line": 10195,
+      "precincts": 10176
+     },
+     {
+      "locality": "Culpeper County",
+      "option": "Jason A. Ford",
+      "locality_line": 5790,
+      "precincts": 5752
+     },
+     {
+      "locality": "Culpeper County",
+      "option": "Elizabeth G. Melson",
+      "locality_line": 557,
+      "precincts": 554
+     }
+    ],
+    "Member, House of Delegates (61st District)": [
+     {
+      "locality": "Culpeper County",
+      "option": "Michael J. Webert",
+      "locality_line": 4124,
+      "precincts": 4119
+     },
+     {
+      "locality": "Culpeper County",
+      "option": "Larry J. Jackson",
+      "locality_line": 1732,
+      "precincts": 1717
+     }
+    ],
+    "Member, House of Delegates (62nd District)": [
+     {
+      "locality": "Culpeper County",
+      "option": "Nick J. Freitas",
+      "locality_line": 6391,
+      "precincts": 6378
+     },
+     {
+      "locality": "Culpeper County",
+      "option": "Sara H. Ratcliffe",
+      "locality_line": 4261,
+      "precincts": 4233
+     }
+    ]
+   },
+   "files": {
+    "page": {
+     "url": "https://www.elections.virginia.gov/resultsreports/election-results/",
+     "finished_utc": "2026-11-07T18:20:42Z",
+     "sha256": "86988ddd5fda324ff02ffff77f889f79caa107634b9ccf628918a1635f4e390b",
+     "how": "curl"
+    },
+    "directory": {
+     "url": "https://enr.elections.virginia.gov/results/public/virginia",
+     "finished_utc": "2026-11-07T18:22:18Z",
+     "sha256": "104dade2993442d34b35bf11faad14223bde349a6daafa186b96f8351fcd50cb",
+     "how": "rendered in headless Chromium (pipeline/intake/render_page.cjs)"
+    },
+    "election": {
+     "url": "https://enr.elections.virginia.gov/results/public/virginia/2023-Nov-Gen",
+     "finished_utc": "2026-11-07T18:26:19Z",
+     "sha256": "d311fa7b5528307096f8b269f567093d889b1ab45647e6d386de39703ad87722",
+     "how": "rendered in headless Chromium and scrolled to its end until its contests stopped growing (183), no click (the steps of pipeline/intake/render_scroll.cjs)"
+    },
+    "export": {
+     "url": "https://enr.elections.virginia.gov/cdn/results/Virginia/export-2023-Nov-Gen.json",
+     "finished_utc": "2026-11-07T18:23:02Z",
+     "sha256": "95f9426e376766a0b7bfad4a076eceed86a5a3bdcd720ff49f789171c06495e8",
+     "how": "curl, the page's 'Media Export' link"
+    }
+   }
+  },
+  "2025": {
+   "year": [
+    true,
+    "the file's Governor equals D2's data/governor/2025.json to the vote for each of its 3 lines, and D2's is the same site's count of the same election (https://enr.elections.virginia.gov/results/public/api/elections/Virginia/2025-November-General/data, read 2026-11-07T12:46Z)"
+   ],
+   "contests": 100,
+   "shown_on_the_page": 47,
+   "winners_inferred": 53,
+   "contests_held": {},
+   "precincts_short_of_their_locality_line": {},
+   "files": {
+    "page": {
+     "url": "https://www.elections.virginia.gov/resultsreports/election-results/",
+     "finished_utc": "2026-11-07T18:20:42Z",
+     "sha256": "86988ddd5fda324ff02ffff77f889f79caa107634b9ccf628918a1635f4e390b",
+     "how": "curl"
+    },
+    "directory": {
+     "url": "https://enr.elections.virginia.gov/results/public/virginia",
+     "finished_utc": "2026-11-07T18:22:18Z",
+     "sha256": "104dade2993442d34b35bf11faad14223bde349a6daafa186b96f8351fcd50cb",
+     "how": "rendered in headless Chromium (pipeline/intake/render_page.cjs)"
+    },
+    "election": {
+     "url": "https://enr.elections.virginia.gov/results/public/virginia/2025-November-General",
+     "finished_utc": "2026-11-07T18:23:53Z",
+     "sha256": "52ccac276f924ff98c6dc1a86c4b4996876ffdcd99bf74413db1780f04db0b2f",
+     "how": "rendered in headless Chromium (pipeline/intake/render_page.cjs), not scrolled: its first 50 contests"
+    },
+    "export": {
+     "url": "https://enr.elections.virginia.gov/cdn/results/virginia/export-2025-November-General.json",
+     "finished_utc": "2026-11-07T18:24:08Z",
+     "sha256": "f04f13b12babdb2c7d5639a7d45d6d6a77102cfc139354eb8b9fd2d52e97b1a7",
+     "how": "curl, the page's 'Media Export' link"
+    }
+   },
+   "house_districts_with_2023_localities": 100
+  }
+ }
+}
