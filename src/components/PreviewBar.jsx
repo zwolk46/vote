@@ -1,6 +1,6 @@
-// The preview bar: the note that the fields of dots are samples (M-spec R1 keeps it: without it invented figures are
-// taken for real ones), and, on previews only, the picker between the candidates (the design guidance, process step 2:
-// switched by ?v=a, ?v=b, ?v=c, with a picker shown only on previews and never in production).
+// The preview bar, on previews only: the picker between the candidates (the design guidance, process step 2: switched
+// by ?v=a, ?v=b, with a picker shown only on previews and never in production). Every dot is now a real contest
+// (src/data/build-field.mjs), so the bar no longer carries the samples' note (M-spec R1's reason for it is gone).
 import { Seg } from './Seg.jsx';
 
 // C, "one in N", was dropped from the first screen on 11-07: its field of millions of dots can only be a grey square
@@ -12,11 +12,12 @@ export const OPTIONS = [['a', 'A · Ruler'], ['b', 'B · Ballot']];
 export const isPreview = (import.meta.env.VITE_VERCEL_ENV || '') !== 'production' && (typeof location === 'undefined' || location.hostname !== 'vote-rho-pearl.vercel.app');
 
 export function PreviewBar({ v, setV }) {
+  if (!isPreview) return null;
   return (
     <div class="prevbar" role="note">
       <div class="prevbar-in">
-        <p data-sentence>{isPreview ? 'Preview. ' : ''}The grey dots are invented samples until the data lands.</p>
-        {isPreview ? <Seg label="Candidate" options={OPTIONS} value={v} onChange={setV} /> : null}
+        <p>Preview</p>
+        <Seg label="Candidate" options={OPTIONS} value={v} onChange={setV} />
       </div>
     </div>
   );

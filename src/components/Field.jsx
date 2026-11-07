@@ -2,8 +2,17 @@
 // midterms site draws its races: whole dots, stacked in their bin, moving together (the maker, 04:09 UTC 11-07, holding
 // up the midterms graphs "with the dots that move together for each individual race"; zwolk46/midterms
 // src/components/Prices.jsx and Swing.jsx, the binned beeswarm of lib/markets.js `swarm`, and Closest.jsx, the ruler of
-// the closest races, whose marks are ringed dots). One dot is a group of 100 sample contests (data/sample.js
-// sampleGroups), so each can be seen and counted; the named figures are ringed marks in a lane under their row.
+// the closest races, whose marks are ringed dots). One dot is a group of UNIT contests at its group's middle N
+// (src/data/build-field.mjs), so the federal rows are dots that can be seen and counted and the state legislatures'
+// 92,000 contests a pile whose height is their density (DESIGN-SPEC §2.2); the named figures are ringed marks in a
+// lane under their row.
+//
+// Two marks carry what the record says of a chance, without a sentence (the maker, 04:32): a dot whose p is an average
+// race's, not its own (a state legislature's class C, a chamber's average district, or like past races; the
+// orchestrator, 09:31: "mark it visually as a chamber average") is the same dot, lighter, stacked above the contests'
+// own; and where a route's back-test leans one way (p.note, "so p may be high"), a dashed arrow points the way the
+// figure may lie, on the row's name and on its named figure. In the reading "to each person", a contest the data give
+// no population for has no place, so its dot fades where it stands and the row counts those that remain.
 //
 // Where a dot stands is the formula, not a layout: x = log10(B*) = log10(C) + log10(N), so the distance from the
 // reader's cost to a dot is the size of N (§2.1). The stacks are binned from the reader's cost, so a new cost moves
@@ -12,8 +21,7 @@
 // each dot to its own new place, staggered the same way. Every frame is drawn on one canvas (Prices.jsx: a canvas is
 // what stays under 50 ms a frame at 4x CPU). Under reduced motion each is drawn at its end at once (MOTION-SPEC s.5).
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
-import { sampleGroups, UNIT } from '../data/sample.js';
-import { ANCHORS, LEVELS } from '../data/real.js';
+import { ANCHORS, LEVELS, FIELD, UNIT } from '../data/real.js';
 import { TOKENS, springValue, reducedMotion } from '../lib/motion.js';
 import { tick, tickShort } from '../lib/format.js';
 import { useColours } from '../lib/media.js';
@@ -30,6 +38,7 @@ export function stacks(rel, pw, r) {
   const bw = 2 * r, at = new Array(rel.length), bins = new Map();
   let rows = 0;
   for (let i = 0; i < rel.length; i++) {
+    if (!Number.isFinite(rel[i])) { at[i] = null; continue; }   // no place in this reading
     const dx = (Math.max(LO, Math.min(HI, rel[i])) / SPAN) * pw;
     const b = Math.floor(dx / bw);
     const k = bins.get(b) || 0; bins.set(b, k + 1);
@@ -41,14 +50,45 @@ export function stacks(rel, pw, r) {
 // The stacks' pitch: a dot's width, closer when the tallest stack would pass the strip (lib/markets.js pitchFor)
 export const pitchFor = (rows, r, h) => (rows <= 1 ? 2 * r : Math.min(2 * r, (h - 2 * r) / (rows - 1)));
 // The order the dots set off in: nearest the cost first, a ripple from the line outward (Closest.jsx)
+// How light a dot whose p is an average race's is drawn (styles.css .lg-avg)
+export const AVG_A = 0.38;
+// The arrow of a route's back-test: dashed, from x toward where the figure may lie (dir +1 right, higher; -1 left)
+export function leanArrow(ctx, x, y, dir, len, colour, lw = 1.25) {
+  ctx.save(); ctx.strokeStyle = colour; ctx.lineWidth = lw; ctx.lineCap = 'round';
+  ctx.setLineDash([2.2, 2.3]); ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + dir * (len - 1), y); ctx.stroke();
+  ctx.setLineDash([]); ctx.beginPath(); ctx.moveTo(x + dir * (len - 3.6), y - 3.2); ctx.lineTo(x + dir * len, y); ctx.lineTo(x + dir * (len - 3.6), y + 3.2); ctx.stroke();
+  ctx.restore();
+}
+export const leanDir = l => (l === 'high' ? 1 : l === 'low' ? -1 : 0);
+// How many of a row's contests stand past the ruler's end at this cost and reading: counted beside the row's count,
+// not dropped (a safe seat's 1 in 10^19 is a true figure, $10^20, a long way past $1 trillion)
+export function pastEnd(R, C, reading) {
+  const lim = HI - Math.log10(C), src = reading === 'person' ? R.person : R.you;
+  let s = 0;
+  for (let i = 0; i < src.length; i++) if (src[i] > lim) s += R.size[i];
+  return s;
+}
+export const pastWords = n => (n ? ` · ${n.toLocaleString('en-US')} past $1T \u203a` : '');
+// The key's items for the record's two marks, only where the data carry them
+const LEAN = LEVELS.find(l => l.lean)?.lean.dir;
+export const RECORD_KEY = [
+  ...(LEVELS.some(l => l.avgCount) ? [['avg', 'an average race’s chance, not its own']] : []),
+  ...(LEAN ? [[LEAN === 'low' ? 'lean low' : 'lean', LEAN === 'low' ? 'may be lower' : 'may be higher']] : []),
+];
 export function orderOf(rel) {
   const o = new Float32Array(rel.length), idx = Array.from(rel, (_, i) => i).sort((a, b) => rel[a] - rel[b]);
   idx.forEach((i, k) => { o[i] = idx.length > 1 ? k / (idx.length - 1) : 0; });
   return o;
 }
 
+// Each level's dots as typed arrays: `you` log10 N, `person` log10 (N ÷ population) or NaN where there is none,
+// `avg` 1 where the p is an average race's, `size` the contests in the dot
 export function useGroups() {
-  return useMemo(() => { const g = sampleGroups(); return LEVELS.map(L => ({ ...L, ...g[L.id] })); }, []);
+  return useMemo(() => FIELD.levels.map(l => ({
+    ...LEVELS.find(L => L.id === l.id),
+    you: Float32Array.from(l.g.you), person: Float32Array.from(l.g.per, x => (x == null ? NaN : x)),
+    avg: Uint8Array.from(l.g.avg), size: Uint16Array.from(l.g.size),
+  })), []);
 }
 
 // Row geometry: on the phone the row's name sits on its own line above its stacks; on the desktop in a column at the
@@ -136,38 +176,54 @@ export function Field({ C, reading, sel, onSel, desk }) {
       ctx.strokeStyle = (p % 3 === 0) ? colours.lineStrong : colours.line; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(x, plotTop); ctx.lineTo(x, plotBot + 6); ctx.stroke();
     }
-    const r = g.r;
+    const r = g.r, right = g.left + g.pw;
+    // how far the dots are toward the reading "to each person", on average: a dot with no population fades by it
     let mix = 0, n = 0;
-    lay.forEach((L, ri) => {
-      const base = L.base;
-      ctx.strokeStyle = colours.lineStrong; ctx.lineWidth = 1;
-      ctx.beginPath(); ctx.moveTo(g.left, Math.round(base) + 0.5); ctx.lineTo(g.left + g.pw, Math.round(base) + 0.5); ctx.stroke();
-      ctx.fillStyle = colours.dot;
-      const M = cur.current.m[ri], K = cur.current.k[ri];
-      for (let i = 0; i < L.you.length; i++) {
-        const a = L.you[i], b = L.person[i], m = M[i], k = K[i];
-        mix += m; n++;
-        const x = cx0 + (a.dx + (b.dx - a.dx) * m) * k;
-        const y = base - r - 1.5 - (a.k + (b.k - a.k) * m) * L.pitch * k;
-        if (x < g.left - r || x > g.left + g.pw + r) continue;
-        ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill();
-      }
-    });
+    for (const M of cur.current.m) for (let i = 0; i < M.length; i++) { mix += M[i]; n++; }
     const mm = n ? mix / n : 0;
     cur.current.mm = mm;
+    lay.forEach((L, ri) => {
+      const base = L.base, R = rows[ri];
+      ctx.strokeStyle = colours.lineStrong; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(g.left, Math.round(base) + 0.5); ctx.lineTo(right, Math.round(base) + 0.5); ctx.stroke();
+      ctx.fillStyle = colours.dot;
+      const M = cur.current.m[ri], K = cur.current.k[ri];
+      // the contests' own p first, then the averages, lighter; each with a place "to each person", then without (one
+      // path and one fill a pass, so the 9,000 dots of the state legislatures stay inside a frame)
+      for (const avg of [0, 1]) for (const has of [true, false]) {
+        const al = (avg ? AVG_A : 1) * (has ? 1 : 1 - mm);
+        if (al < 0.02) continue;
+        ctx.globalAlpha = al; ctx.beginPath();
+        for (let i = 0; i < L.you.length; i++) {
+          if (R.avg[i] !== avg || (L.person[i] !== null) !== has) continue;
+          const a = L.you[i], b = L.person[i] || a, m = has ? M[i] : 0, k = K[i];
+          const x = cx0 + (a.dx + (b.dx - a.dx) * m) * k;
+          const y = base - r - 1.5 - (a.k + (b.k - a.k) * m) * L.pitch * k;
+          if (x > right + r || x < g.left - r) continue;
+          ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, 6.2832);
+        }
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    });
     // the named figures: a ringed mark each in the lane under its row (Closest.jsx's marks: a ring round a dot); the one
     // in focus in the accent (R4: the accent means "you")
     const kA = cur.current.k[0]?.length ? cur.current.k[0].reduce((s, x) => s + x, 0) / cur.current.k[0].length : 1;
-    for (const a of ANCHORS) {
+    // the one in focus drawn last, over a neighbour it touches
+    for (const a of [...ANCHORS].sort((p, q) => (p.id === sel) - (q.id === sel))) {
       const ri = LEVELS.findIndex(L => L.id === a.level);
-      const rel = Math.max(LO, Math.min(HI, Math.log10(a.N) - mm * Math.log10(a.pop.value)));
+      const rel = Math.max(LO, Math.min(HI, Math.log10(a.N) - (a.pop ? mm * Math.log10(a.pop.value) : 0)));
       const x = cx0 + (rel / SPAN) * g.pw * kA;
       const y = lay[ri].lane;
-      const on = a.id === sel, R1 = desk ? 6.5 : 6, R0 = on ? (desk ? 3.5 : 3.2) : 2.4;
+      const on = a.id === sel, R1 = desk ? 6.5 : 6, R0 = on ? (desk ? 3.5 : 3.2) : 2.4, col = on ? colours.accent : colours.fg;
+      ctx.globalAlpha = a.pop ? 1 : Math.max(0, 1 - mm);
+      if (ctx.globalAlpha < 0.02) continue;
       ctx.beginPath(); ctx.arc(x, y, R1, 0, 6.2832); ctx.fillStyle = colours.bg; ctx.fill();
-      ctx.lineWidth = on ? 2 : 1.25; ctx.strokeStyle = on ? colours.accent : colours.fg; ctx.stroke();
-      ctx.beginPath(); ctx.arc(x, y, R0, 0, 6.2832); ctx.fillStyle = on ? colours.accent : colours.fg; ctx.fill();
+      ctx.lineWidth = on ? 2 : 1.25; ctx.strokeStyle = col; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, R0, 0, 6.2832); ctx.fillStyle = col; ctx.fill();
+      if (a.lean) leanArrow(ctx, x + leanDir(a.lean) * (R1 + 2.5), y, leanDir(a.lean), 13, col);
     }
+    ctx.globalAlpha = 1;
     // the reader's cost: a line through every row, in the accent; on the reading "to each person" it has no place (the
     // cost is the voter's, the stakes are each person's), so it fades as the dots move (opacity, kept under reduce)
     const cx = Math.round(cx0) + 0.5;
@@ -243,6 +299,7 @@ export function Field({ C, reading, sel, onSel, desk }) {
     const r = cvs.current.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top;
     let best = null, bd = 22;
     for (const a of ANCHORS) {
+      if (reading === 'person' && !a.pop) continue;
       const ri = LEVELS.findIndex(L => L.id === a.level);
       const x = X(Math.log10(C) + Math.max(LO, Math.min(HI, Math.log10(a.N) - (reading === 'person' ? Math.log10(a.pop.value) : 0)))), y = lay[ri].lane;
       const d = Math.hypot(px - x, py - y); if (d < bd) { bd = d; best = a.id; }
@@ -265,10 +322,11 @@ export function Field({ C, reading, sel, onSel, desk }) {
   return (
     <div class="field" ref={wrap} style={{ height: `${lay ? lay.h : 400}px` }}>
       <canvas ref={cvs} class="field-c" data-fit-under style={{ width: `${w}px`, height: `${lay ? lay.h : 400}px` }} role="img" onClick={pick}
-        aria-label={`Every contest on one scale of dollars, from 1 cent to 1 trillion, in rows: ${rows.map(r => `${r.name}, ${r.count.toLocaleString('en-US')}`).join('; ')}. Each dot is ${UNIT} sample contests. The named figures are ringed, and listed below.`} />
+        aria-label={`Every contest with a chance from ${FIELD.years[0]} to ${FIELD.years[1]}, on one scale of dollars from 1 cent to 1 trillion, in rows: ${rows.map(r => `${r.name}, ${r.count.toLocaleString('en-US')} from ${r.years[0]}`).join('; ')}. Each dot is ${UNIT} contests; a lighter dot's chance is an average race's, not its own. The named figures are ringed, and listed below.`} />
       {lay && rows.map((r, ri) => (
         <div class="field-row" ref={el => { labs.current[ri] = el; }} style={{ top: `${lay[ri].top}px`, height: desk ? `${lay[ri].base + g.lane - lay[ri].top}px` : 'auto', width: desk ? `${g.left - 16}px` : '100%' }} aria-hidden="true">
-          <span class="field-n">{r.name}</span><span class="field-k num">{r.count.toLocaleString('en-US')}</span>
+          <span class="field-n">{r.name}{r.lean ? <span class={`lg lg-lean${r.lean.dir === 'low' ? ' low' : ''}`} /> : null}</span>
+          <span class="field-k num">{reading === 'person' && r.withPop < r.count ? `${r.withPop.toLocaleString('en-US')} of ${r.count.toLocaleString('en-US')}` : r.count.toLocaleString('en-US')}{pastWords(pastEnd(r, C, reading))}</span>
         </div>
       ))}
       <span ref={costL} class="field-cost" aria-hidden="true">Your cost</span>

@@ -4,15 +4,17 @@
 // figures ringed; and the named figures as a list in order of their stakes, lowest first (law 1a), which is also how
 // a contest is chosen without aiming at a dot.
 import { useState } from 'preact/hooks';
-import { ANCHORS, anchor } from '../data/real.js';
-import { sampleTotal, UNIT } from '../data/sample.js';
+import { ANCHORS, anchor, TOTAL, YEARS, UNIT } from '../data/real.js';
 import { money } from '../lib/format.js';
 import { useMedia, DESKTOP } from '../lib/media.js';
-import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar, whenOf, sharedBy } from '../components/Lead.jsx';
-import { Field } from '../components/Field.jsx';
+import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar, whenOf, sharedBy, SOURCES } from '../components/Lead.jsx';
+import { Field, RECORD_KEY } from '../components/Field.jsx';
 import { Boundary } from '../components/Boundary.jsx';
 import { Legend } from '../components/Legend.jsx';
 import './ruler.css';
+
+// The field's key: each mark as the field draws it (Legend.jsx)
+const FIELD_KEY = [['dot', `= ${UNIT} contests`], ...RECORD_KEY, ['ring', 'a named figure'], ['line', 'your cost']];
 
 export function Ruler({ C, minutes, wage, setCost, reading, setReading }) {
   const [sel, setSel] = useState('close');
@@ -32,8 +34,8 @@ export function Ruler({ C, minutes, wage, setCost, reading, setReading }) {
         <p class="oneq" data-sentence>{ONE_Q}</p>
       </section>
       <section class="ra-field" aria-labelledby="ra-f">
-        <div class="ra-fh"><h2 id="ra-f">Every contest</h2><span class="src num">{sampleTotal().toLocaleString('en-US')} sample contests</span></div>
-        <Legend items={[['dot', `= ${UNIT} contests (samples)`], ['ring', 'a named figure'], ['line', 'your cost']]} />
+        <div class="ra-fh"><h2 id="ra-f">Every contest</h2><span class="src num">{TOTAL.toLocaleString('en-US')} contests, {YEARS[0]}–{YEARS[1]}</span></div>
+        <Legend items={FIELD_KEY} />
         <Boundary what="The field of contests" fallback={() => <p class="muted">The field could not be drawn.</p>}>
           <Field C={C} reading={reading} sel={sel} onSel={setSel} desk={desk} />
         </Boundary>
@@ -44,12 +46,12 @@ export function Ruler({ C, minutes, wage, setCost, reading, setReading }) {
           {ANCHORS.map(x => (
             <li key={x.id}><button type="button" aria-pressed={x.id === sel ? 'true' : 'false'} onClick={() => setSel(x.id)}>
               <span class="n">{x.short}</span>
-              <span class="f">{money(bstar(x, C, reading))}</span>
+              <span class={`f${bstar(x, C, reading) == null ? ' none' : ''}`}>{bstar(x, C, reading) == null ? 'No figure yet' : money(bstar(x, C, reading))}{x.lean ? <span class={`lg lg-lean${x.lean === 'low' ? ' low' : ''}`} role="img" aria-label={x.lean === 'low' ? 'may be lower' : 'may be higher'} /> : null}</span>
               <span class="w">{whenOf(x)}{reading === 'person' ? `; ${sharedBy(x)}` : ''}</span>
             </button></li>
           ))}
         </ul>
-        <p class="src" data-sentence>Gelman, Silver and Edlin, Economic Inquiry, 2012 (the presidency, 2008). Mulligan and Hunter, Public Choice, 2003 (the House). Read 7 November 2026.</p>
+        <p class="src" data-sentence>{SOURCES}</p>
       </section>
     </main>
   );

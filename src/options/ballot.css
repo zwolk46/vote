@@ -26,13 +26,19 @@
 .bt-name { grid-area: name; font-weight: 600; }
 .bt-fig { grid-area: fig; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline dotted var(--line-strong); text-decoration-thickness: 1.5px; text-underline-offset: 5px; }
 .bt-fig[aria-pressed="true"] { text-decoration: none; }
-.bt-fig.none { font-weight: 400; color: var(--faint); font-size: var(--t-src); text-decoration: none; cursor: default; }
+.bt-fig.none { font-weight: 400; color: var(--faint); font-size: var(--t-src); text-decoration: none; }
+.bt-fig .lg-lean { display: inline-block; vertical-align: middle; margin-left: 6px; }
 .bt-ctx { grid-area: ctx; font-size: var(--t-src); color: var(--muted); }
 .bt-track { grid-area: track; position: relative; height: 44px; margin: 6px 0 0; overflow: hidden; }
 .bt-base { position: absolute; left: 0; right: 0; height: 1px; background: var(--line-strong); }
 .bt-layer { position: absolute; inset: 0; will-change: transform; }
 .bt-c { position: absolute; left: 0; top: 0; display: block; }
 .bt-bstar { position: absolute; top: 0; width: 2px; margin-left: -1px; background: var(--fg); border-radius: 1px; outline: 1.5px solid var(--bg); }
+/* the route's back-test leans (Field.jsx leanArrow): a dashed arrow from the figure toward where it may lie */
+.bt-bstar.lean::before { content: ''; position: absolute; left: 5px; top: 5px; width: 12px; height: 1.25px; margin-top: -0.6px; background: linear-gradient(to right, var(--fg) 55%, transparent 0) 0 0 / 4.5px 100% repeat-x; }
+.bt-bstar.lean::after { content: ''; position: absolute; left: 12.5px; top: 5px; width: 4.5px; height: 4.5px; border-top: 1.25px solid var(--fg); border-right: 1.25px solid var(--fg); transform: translateY(-50%) rotate(45deg); }
+.bt-bstar.lean.low::before { left: auto; right: 5px; }
+.bt-bstar.lean.low::after { left: auto; right: 12.5px; transform: translateY(-50%) rotate(-135deg); }
 .bt-worth { grid-area: worth; font-size: var(--t-src); }
 .bt-worth b { font-weight: 600; }
 .bt-share { grid-area: share; font-size: var(--t-src); font-weight: 600; text-align: right; }
