@@ -33,8 +33,8 @@ def chamber_inputs(doc, level):
     fixed_D = fixed_other = 0
     for c in doc["contests"]:
         st2 = c.get("stage_two") or {}
-        if not st2.get("of"):
-            continue
+        if not st2.get("of") or not (st2.get("inputs") or {}).get("entered_as"):
+            continue   # since D2's #29 a chamber-year without control carries an empty inputs block and a note (read only)
         inp = st2["inputs"]
         k = inp["entered_as"]
         if k == "fixed":
@@ -93,6 +93,9 @@ def main():
         for path in L.congress_files(level):
             doc = L.load_json(path)
             y = doc["year"]
+            if not any(((c.get("stage_two") or {}).get("inputs") or {}).get("entered_as") for c in doc["contests"]):
+                print(f"  {level} {y}: control not computed in the file ({(doc['contests'][0].get('stage_two') or {}).get('note', '')[:90]}...)")
+                continue   # the read only: the first pass's files all carried control (D2's #29 fits on earlier cycles only)
             ci = chamber_inputs(doc, level)
             U = len(ci["ids"])
             print(f"  {level} {y}: {U} seats with a mean ({ci['kinds'].count('model')} modelled, {ci['kinds'].count('inferred')} inferred), "

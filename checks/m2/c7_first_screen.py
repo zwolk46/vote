@@ -96,7 +96,11 @@ def main():
         for path in L.congress_files(level):
             doc = L.load_json(path)
             y = doc["year"]
-            best = max((c for c in doc["contests"] if c["p"]["value"]), key=lambda c: c["p"]["value"])
+            with_p = [c for c in doc["contests"] if (c.get("p") or {}).get("value")]
+            if not with_p:   # since D2's #29 House 2006 carries no p (no lagged inputs); read only
+                print(f"    {y} {level}: no contest with p in the file")
+                continue
+            best = max(with_p, key=lambda c: c["p"]["value"])
             under = best["p"]["under"]
             if under.startswith("538"):
                 ver = under.split("(")[1].split(")")[0]
