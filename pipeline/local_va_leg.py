@@ -85,7 +85,9 @@ GOVERNOR_D2 = os.path.join(L.REPO, "data", "governor", "2025.json")
 CHECK = os.path.join(L.REPO, "data", "local", "check-va-legislature.json")
 GATE_BY = {2023: "within the certifying source (no federal or statewide contest on the ballot)",
            2025: "within the certifying source, and its Governor equal to D2's data/governor/2025.json"}
-RULED = "proposed by worker D3, 2026-11-07, for the orchestrator's ruling"
+RULED = ("proposed by worker D3; the orchestrator, 2026-11-07 18:49 UTC: accepted as proposed, with the 9th Senate "
+         "district of 2023 held (\"like NJ's, it can be checked from the read files alone, and the Governor match ties "
+         "them to a count already gated\")")
 
 
 _LOADED = {}
@@ -368,7 +370,9 @@ def records(year, prow, pres, ktrain, kdens, cid, commit, with_p, counts, LM):
                 "the source's precinct lines add up to fewer votes than its locality line: " + "; ".join(
                     f"{s['option']} in {s['locality']}, {s['precincts']:,} against {s['locality_line']:,}"
                     for s in c["precincts_short"])
-                + "; the record is the locality lines, which add up to the statewide count the page shows")
+                + "; not explained (no source read says why); the record is the locality lines, which add up to the "
+                  "statewide count the page shows (the orchestrator, 18:49: \"say that in the note only if a source "
+                  "states it; otherwise say 'not explained'\")")
         if not c["page"]["shown"]:
             rec.setdefault("notes", []).append(
                 "the winner is the leading candidate for the one seat [inferred]: the results page as read showed its "

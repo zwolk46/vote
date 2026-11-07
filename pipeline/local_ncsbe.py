@@ -278,10 +278,25 @@ def p_of(c, seats):
 FIRST_FIT_YEAR = 2014   # seats are in the files from 2014 only, so like races are counted from then
 
 
+TITLE_ONE_SEAT = re.compile(r"\bVOTE FOR (1|ONE)\b|\bONE SEAT\b|\(1 SEAT\)")
+
+
+def type_seats(c, base):
+    """The seat count a type may read: the State Board's own vote-for, or one where the contest's title states a count
+    of one; never the one name on the ballot. The orchestrator's ruling of 2026-11-07 18:13 on M2's sixth pass
+    (checks/M2-REPORT.md §12.4 (c)): North Carolina's 2008 and 2010 Court of Appeals, "one seat only where the
+    contest's own title or the State Board names one seat, otherwise typed judge". Reason (16:19): "a race's class is
+    set by what the contest elects", read from the source's own count, "never inferred". A seat named for its holder
+    ('Court Of Appeals Judge (Martin Seat)') is read as the seat's name, not as a count [inferred: my reading; the
+    State Board's files of those years give no vote-for]. seats_of still reads one name as one seat for p and the
+    winner, since a lone name wins whatever the count."""
+    return c.get("vote_for") or (1 if TITLE_ONE_SEAT.search(" ".join(base.upper().split())) else None)
+
+
 def type_of(c, base, scope):
-    """The office type (pipeline/local_medsl.py office_type_in), with the State Board's own seat count (vote-for) and
-    the contest's counties: in all 100 counties, it is elected statewide [measured], as p_of and record read it."""
-    return LM.office_type_in(base, scope=scope, seats=seats_of(c), whole_state=len(c["counties"]) >= 100)
+    """The office type (pipeline/local_medsl.py office_type_in), with the seat count type_seats reads and the
+    contest's counties: in all 100 counties, it is elected statewide [measured], as p_of and record read it."""
+    return LM.office_type_in(base, scope=scope, seats=type_seats(c, base), whole_state=len(c["counties"]) >= 100)
 
 
 def nc_key(c):
