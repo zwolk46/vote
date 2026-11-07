@@ -1,0 +1,12 @@
+---
+name: m2-seventh-pass-brief
+description: The orchestrator's brief for M2's seventh pass (18:20, 18:54, 20:28, 20:30, 21:22, 22:03 UTC, 2026-11-07): #92 NJ, #93 VA, #95 volume, fixed end 46825da, an input-volume check built apart from D3's; done as PR #NNN; #96/#97 go to an eighth pass
+metadata:
+  type: project
+---
+
+Seventh pass (2026-11-07, fixed end main 46825da = 6b24927 + #94): #92 (67431a4, NJ 2023/2025 legislatures, 121 records, 2023 feeds 2024's fits, 4,548 p), #93 (d7eea96, VA 2023/2025, 240 records, 4,411 p), #95 (6b24927, D3's volume PR: ID 2022 total rows, NH 2022 from MEDSL, NJ 2018 Middlesex/Hunterdon, NY 2018 and ME 2016 held, HI 2018 Tupola, 4,860 p). The orchestrator's words (18:20): "Check: the gate (official marks, county lines adding to Totals, lines only in the named counties, the Governor list's sha256 against D2's file); the 120 new p from your own fit; class C for the 2023 Senate; every one of the 4,548 moves from your own refit with 2023 in. Same report form as before." (18:54): an independent VOLUME check of the inputs, "for every state-year with p, compare n (or the contest's total) against a count that doesn't come from the same file ... List every state-year off by more than 0.5% ... built separately, so the two can be compared." (20:28): "Build your input-volume check without reading D3's local_volume.py or §29 first. Then compare your list of state-years with his. Each difference between the two lists is a reading for me." (21:22): "For each item, say whether it touches a p and by about what factor, so the order of fixes can follow what is shown." (22:03): D3's #97 (2ea7c2e, held totals: VT Chittenden x3.49 to MEDSL, ID SD-1 to not computed) acts on c38; "#96 and #97 go to an eighth pass"; D3's district-level checks (ratio off >3%, uncontested vs MEDSL) are next in its queue, "compare your list against those once they land".
+
+Done: c38 (volume), c39 (comparison), c40 (PR checks), REPORT §14, PR #NNN (2026-11-07 ~22:30 UTC). Findings and factors: [[m2-input-volume-check]].
+
+**Why:** the orchestrator's words are the brief; a later M2 thread must start from them, not from a summary. **How to apply:** the eighth pass starts after 46825da (#96, #97 and whatever else merges; its fixed end is the main commit it starts from); compare c38-districts.json with D3's district-level checks; same form (c41+, REPORT §15, one run of record, PR, word to the orchestrator). See [[m2-check-computed-p]], [[m2-fifth-pass-tools]].
