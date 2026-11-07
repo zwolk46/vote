@@ -1465,12 +1465,16 @@ def build(out_dir, with_p=True):
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
                    "forecasts": []}
             notes = []
-            # Indiana's file gives each question once, with its counties and its type, title and text; MEDSL's and
-            # the State Board's keep the note
-            by_county = c.get("source", "medsl") != "in_enr"   # local_in.SOURCE_KEY
+            # MEDSL's wording of a local question does not show its place; the State Board's file names it (or the
+            # question is one county's own: pipeline/intake/ncsbe.py, generic), and Indiana's gives each question
+            # once with its counties and its type, title and text
+            by_county = c.get("source", "medsl") == "medsl"
             if scope == "local" and by_county:
                 notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
                              "it, so a question held across several counties appears once per county")
+            if c.get("own_county"):
+                import local_ncsbe as NS
+                notes.append(NS.OWN_COUNTY_NOTE)
             if c.get("read_as_question"):
                 notes.append("filed in the source as a candidate contest; read as a question, since its two lines are "
                              "a yes and a no")

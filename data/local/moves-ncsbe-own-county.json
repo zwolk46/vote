@@ -1,0 +1,3491 @@
+{
+"about": "every p that moved when the State Board intake read a county's own contest whose name carries no place as one contest per county (pipeline/intake/ncsbe.py, generic; data/local/REPORT.md section 9, the correction of 2026-11-07 09:21 UTC). Written by worker D3 at 2026-11-07 09:29 UTC.",
+"before_commit": "73b9568",
+"after_code_commit": "c39d329",
+"counts": {
+"moved": 360,
+"new": 137,
+"gone": 0
+},
+"p": [
+{
+"file": "data/local/2019/NC.json",
+"id": "2019-local-NC-ncsbe-2019-11-05-HICKORY_PUBLIC_SCHOOLS_BOARD_OF_EDUCATION_WARD_06-CATAWBA",
+"before": null,
+"after": 0.00210219,
+"ratio": null
+},
+{
+"file": "data/local/2020/NC.json",
+"id": "2020-local-NC-ncsbe-2020-03-03-CASWELL_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-CASWELL",
+"before": null,
+"after": 0.00141537,
+"ratio": null
+},
+{
+"file": "data/local/2020/NC.json",
+"id": "2020-local-NC-ncsbe-2020-03-03-EDGECOMBE_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_06-EDGECOMBE",
+"before": null,
+"after": 0.00133336,
+"ratio": null
+},
+{
+"file": "data/local/2020/NC.json",
+"id": "2020-local-NC-ncsbe-2020-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-GATES",
+"before": null,
+"after": 0.000877349,
+"ratio": null
+},
+{
+"file": "data/local/2020/NC.json",
+"id": "2020-local-NC-ncsbe-2020-03-03-JACKSON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-JACKSON",
+"before": null,
+"after": 0.000180132,
+"ratio": null
+},
+{
+"file": "data/local/2020/NC.json",
+"id": "2020-local-NC-ncsbe-2020-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-WARREN",
+"before": null,
+"after": 0.000336589,
+"ratio": null
+},
+{
+"file": "data/local/2020/NC.json",
+"id": "2020-local-NC-ncsbe-2020-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-WARREN",
+"before": null,
+"after": 0.000333193,
+"ratio": null
+},
+{
+"file": "data/local/2020/NC.json",
+"id": "2020-local-NC-ncsbe-2020-03-03-YADKIN_COUNTY_BOARD_OF_EDUCATION__UNEXPIRED-YADKIN",
+"before": null,
+"after": 0.000191706,
+"ratio": null
+},
+{
+"file": "data/local/2021/NC.json",
+"id": "2021-local-NC-ncsbe-2021-11-02-BURKE_COUNTY_BOARD_OF_EDUCATION_CENTRAL_DISTRICT-BURKE",
+"before": 0.000229421,
+"after": 0.000249325,
+"ratio": 1.0868
+},
+{
+"file": "data/local/2021/NC.json",
+"id": "2021-local-NC-ncsbe-2021-11-02-BURKE_COUNTY_BOARD_OF_EDUCATION_EASTERN_DISTRICT-BURKE",
+"before": 0.000238242,
+"after": 0.000258911,
+"ratio": 1.0868
+},
+{
+"file": "data/local/2021/NC.json",
+"id": "2021-local-NC-ncsbe-2021-11-02-HICKORY_PUBLIC_SCHOOLS_BOARD_OF_EDUCATION_WARD_01-CATAWBA",
+"before": 0.00901248,
+"after": 0.00969223,
+"ratio": 1.0754
+},
+{
+"file": "data/local/2021/NC.json",
+"id": "2021-local-NC-ncsbe-2021-11-02-HICKORY_PUBLIC_SCHOOLS_BOARD_OF_EDUCATION_WARD_05-CATAWBA",
+"before": 0.0317286,
+"after": 0.033428,
+"ratio": 1.0536
+},
+{
+"file": "data/local/2021/NC.json",
+"id": "2021-local-NC-ncsbe-2021-11-02-NEWTON_CONOVER_SCHOOLS_BOARD_OF_EDUCATION_CONOVER_DISTRICT-CATAWBA",
+"before": 0.00219242,
+"after": 0.00237621,
+"ratio": 1.0838
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-CASWELL_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-CASWELL",
+"before": 0.00294264,
+"after": 0.00319427,
+"ratio": 1.0855
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-DURHAM",
+"before": 0.000127428,
+"after": 0.00013882,
+"ratio": 1.0894
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-EDGECOMBE_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_07-EDGECOMBE",
+"before": 0.00318022,
+"after": 0.00345119,
+"ratio": 1.0852
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-GATES",
+"before": 0.00129735,
+"after": 0.00141334,
+"ratio": 1.0894
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-GATES",
+"before": 0.00128404,
+"after": 0.00139884,
+"ratio": 1.0894
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-GATES",
+"before": 0.00129577,
+"after": 0.00141162,
+"ratio": 1.0894
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-GRANVILLE",
+"before": 0.00168194,
+"after": 0.00183232,
+"ratio": 1.0894
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07-GRANVILLE",
+"before": 0.00231747,
+"after": 0.0025175,
+"ratio": 1.0863
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_05-DAVIDSON",
+"before": 0.00631648,
+"after": 0.00683001,
+"ratio": 1.0813
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-NORTHAMPTON_COUNTY_BOARD_OF_EDUCATION__UNEXPIRED-NORTHAMPTON",
+"before": 0.000534319,
+"after": 0.00058209,
+"ratio": 1.0894
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-PAMLICO_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-PAMLICO",
+"before": 0.00492562,
+"after": 0.00533439,
+"ratio": 1.083
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-ROBESON",
+"before": 0.00130212,
+"after": 0.00141853,
+"ratio": 1.0894
+},
+{
+"file": "data/local/2022/NC.json",
+"id": "2022-local-NC-ncsbe-2022-05-17-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-ROBESON",
+"before": 0.00229997,
+"after": 0.00249855,
+"ratio": 1.0863
+},
+{
+"file": "data/local/2023/NC.json",
+"id": "2023-local-NC-ncsbe-2023-11-07-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_02-DAVIDSON",
+"before": 0.00811202,
+"after": 0.00883057,
+"ratio": 1.0886
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-CASWELL_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-CASWELL",
+"before": 0.00205334,
+"after": 0.0022493,
+"ratio": 1.0954
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-DURHAM_COUNTY_BOARD_OF_EDUCATION_AT_LARGE-DURHAM",
+"before": 3.01665e-05,
+"after": 3.31178e-05,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-GATES",
+"before": 0.000744238,
+"after": 0.00081705,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-GATES",
+"before": 0.00075474,
+"after": 0.000828579,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02__UNEXPIRED-GRANVILLE",
+"before": 0.00106021,
+"after": 0.00116393,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-GRANVILLE",
+"before": 0.00134373,
+"after": 0.00147519,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-GRANVILLE",
+"before": 0.00136812,
+"after": 0.00150197,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07__UNEXPIRED-GRANVILLE",
+"before": 0.00165156,
+"after": 0.00181314,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-JACKSON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-JACKSON",
+"before": 0.00022447,
+"after": 0.000246431,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-JACKSON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-JACKSON",
+"before": 0.000227239,
+"after": 0.000249471,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-ROBESON",
+"before": 0.000830743,
+"after": 0.000912018,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06__UNEXPIRED-ROBESON",
+"before": 0.00104418,
+"after": 0.00114634,
+"ratio": 1.0978
+},
+{
+"file": "data/local/2024/NC.json",
+"id": "2024-local-NC-ncsbe-2024-03-05-TYRRELL_COUNTY_BOARD_OF_EDUCATION-TYRRELL",
+"before": 0.00323524,
+"after": 0.00353966,
+"ratio": 1.0941
+},
+{
+"file": "data/local/2025/NC.json",
+"id": "2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_01-MECKLENBURG",
+"before": 8.66616e-05,
+"after": 8.36733e-05,
+"ratio": 0.9655
+},
+{
+"file": "data/local/2025/NC.json",
+"id": "2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_02-MECKLENBURG",
+"before": 8.28379e-05,
+"after": 8.95381e-05,
+"ratio": 1.0809
+},
+{
+"file": "data/local/2025/NC.json",
+"id": "2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_04-MECKLENBURG",
+"before": 0.000116016,
+"after": 0.000112015,
+"ratio": 0.9655
+},
+{
+"file": "data/local/2025/NC.json",
+"id": "2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_05-MECKLENBURG",
+"before": 4.16961e-05,
+"after": 4.50686e-05,
+"ratio": 1.0809
+},
+{
+"file": "data/local/2025/NC.json",
+"id": "2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_06-MECKLENBURG",
+"before": 0.000116476,
+"after": 0.000112459,
+"ratio": 0.9655
+},
+{
+"file": "data/local/2025/NC.json",
+"id": "2025-local-NC-ncsbe-2025-11-04-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_04-DAVIDSON",
+"before": 0.00916555,
+"after": 0.00983291,
+"ratio": 1.0728
+},
+{
+"file": "data/local/2025/NC.json",
+"id": "2025-local-NC-ncsbe-2025-11-04-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_06-DAVIDSON",
+"before": 0.00688448,
+"after": 0.00739906,
+"ratio": 1.0747
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-CLINTON_CITY_SCHOOLS_BOARD_OF_EDUCATION-SAMPSON",
+"before": 0.00112057,
+"after": 0.00108291,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-DURHAM",
+"before": 0.000217326,
+"after": 0.000210021,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-DURHAM",
+"before": 0.000160047,
+"after": 0.000154667,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-DURHAM",
+"before": 0.00013359,
+"after": 0.0001291,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-DURHAM",
+"before": 0.000158472,
+"after": 0.000153145,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-EDGECOMBE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-EDGECOMBE",
+"before": 0.0013189,
+"after": 0.00142648,
+"ratio": 1.0816
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-EDGECOMBE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07-EDGECOMBE",
+"before": 0.00222806,
+"after": 0.00240516,
+"ratio": 1.0795
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-FRANKLIN_COUNTY_BOARD_OF_EDUCATION_AT_LARGE_SEAT_07-FRANKLIN",
+"before": 0.000273483,
+"after": 0.00026429,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-FRANKLIN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-FRANKLIN",
+"before": 0.00112872,
+"after": 0.00109078,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-FRANKLIN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-FRANKLIN",
+"before": 0.00150236,
+"after": 0.00145186,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-GATES",
+"before": 0.000721989,
+"after": 0.000780877,
+"ratio": 1.0816
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02__UNEXPIRED-GATES",
+"before": 0.00112405,
+"after": 0.00108627,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-GATES",
+"before": 0.000697233,
+"after": 0.000754102,
+"ratio": 1.0816
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-GATES",
+"before": 0.000720693,
+"after": 0.000779476,
+"ratio": 1.0816
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06-GRANVILLE",
+"before": 0.00125209,
+"after": 0.00135421,
+"ratio": 1.0816
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-PERQUIMANS_COUNTY_BOARD_OF_EDUCATION-PERQUIMANS",
+"before": 0.001532,
+"after": 0.00148051,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-WARREN",
+"before": 0.00046069,
+"after": 0.000498265,
+"ratio": 1.0816
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-WARREN",
+"before": 0.000747306,
+"after": 0.000722186,
+"ratio": 0.9664
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-WARREN",
+"before": 0.000478245,
+"after": 0.000517253,
+"ratio": 1.0816
+},
+{
+"file": "data/local/2026/NC.json",
+"id": "2026-local-NC-ncsbe-2026-03-03-WATAUGA_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-WATAUGA",
+"before": 0.00247964,
+"after": 0.00239893,
+"ratio": 0.9675
+},
+{
+"file": "data/primary/2017/NC.json",
+"id": "2017-primary-NC-ncsbe-2017-09-12-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_6-rep-MECKLENBURG",
+"before": null,
+"after": 0.000262759,
+"ratio": null
+},
+{
+"file": "data/primary/2017/NC.json",
+"id": "2017-primary-NC-ncsbe-2017-10-10-CITY_OF_CHARLOTTE_COUNCIL_DISTRICT_5-dem-MECKLENBURG",
+"before": null,
+"after": 0.000629939,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-ANSON",
+"before": null,
+"after": 0.00218683,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-BERTIE",
+"before": null,
+"after": 0.000285595,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-dem-BERTIE",
+"before": null,
+"after": 0.00029154,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-BERTIE",
+"before": null,
+"after": 0.000298161,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-dem-BLADEN",
+"before": null,
+"after": 0.000976227,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-BRUNSWICK",
+"before": null,
+"after": 0.000193056,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-CASWELL",
+"before": null,
+"after": 0.00660516,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_I-rep-CHEROKEE",
+"before": null,
+"after": 0.000274118,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-CHEROKEE",
+"before": null,
+"after": 0.000281237,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_IV-rep-CHEROKEE",
+"before": null,
+"after": 0.000274261,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CITY_OF_ALBEMARLE_CITY_COUNCIL__AT_LARGE-rep-STANLY",
+"before": null,
+"after": 0.000747098,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CITY_OF_LINCOLNTON_CITY_COUNCIL_WARD_1-dem-LINCOLN",
+"before": null,
+"after": 0.00151894,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-COLUMBUS_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_7-dem-COLUMBUS",
+"before": null,
+"after": 0.00168303,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-CRAVEN",
+"before": null,
+"after": 0.000873167,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-rep-CRAVEN",
+"before": null,
+"after": 0.000582596,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-CRAVEN",
+"before": null,
+"after": 0.00185064,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CURRITUCK",
+"before": null,
+"after": 0.000359979,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-DARE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-DARE",
+"before": null,
+"after": 0.000395937,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-rep-DARE",
+"before": null,
+"after": 0.000393121,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-FORSYTH",
+"before": null,
+"after": 0.00011455,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-dem-FRANKLIN",
+"before": null,
+"after": 0.00107067,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-GATES_COUNTY_BOARD_OF_COMMISSIONERS_GATESVILLE_DISTRICT-dem-GATES",
+"before": null,
+"after": 0.000538401,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-GATES_COUNTY_BOARD_OF_COMMISSIONERS_GATES_DISTRICT-dem-GATES",
+"before": null,
+"after": 0.000511901,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-GREENE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-dem-GREENE",
+"before": null,
+"after": 0.000438223,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-rep-GUILFORD",
+"before": null,
+"after": 0.000430677,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_8_UNEXPIRED-dem-GUILFORD",
+"before": null,
+"after": 0.000323107,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-dem-HENDERSON",
+"before": null,
+"after": 0.000301066,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-rep-HENDERSON",
+"before": null,
+"after": 8.77251e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-HERTFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-HERTFORD",
+"before": null,
+"after": 0.000254833,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-HYDE_COUNTY_BOARD_OF_COMMISSIONERS_SWAN_QUARTER_TOWNSHIP-dem-HYDE",
+"before": null,
+"after": 0.00179724,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-JACKSON",
+"before": null,
+"after": 0.000913409,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-JOHNSTON",
+"before": null,
+"after": 0.000120406,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-rep-JOHNSTON",
+"before": null,
+"after": 0.000127851,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_6__UNEXPIRED-rep-JOHNSTON",
+"before": null,
+"after": 0.000123943,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_7-rep-JOHNSTON",
+"before": null,
+"after": 0.000127016,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-JONES_COUNTY_BOARD_OF_COMMISSIONER_DISTRICT_2-dem-JONES",
+"before": null,
+"after": 0.0069521,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-JONES_COUNTY_BOARD_OF_COMMISSIONER_DISTRICT_7-dem-JONES",
+"before": null,
+"after": 0.00728586,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-LEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-rep-LEE",
+"before": null,
+"after": 0.00245544,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-MACON",
+"before": null,
+"after": 0.000422704,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-MECKLENBURG",
+"before": null,
+"after": 0.000107746,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-MOORE",
+"before": null,
+"after": 0.00010454,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-dem-NORTHAMPTON",
+"before": null,
+"after": 0.000269408,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-NORTHAMPTON",
+"before": null,
+"after": 0.000263197,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-ORANGE",
+"before": null,
+"after": 0.00014579,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-dem-PENDER",
+"before": null,
+"after": 0.000529179,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-PENDER",
+"before": null,
+"after": 0.000268581,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-PITT",
+"before": null,
+"after": 0.000567182,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-PITT",
+"before": null,
+"after": 0.000814279,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-dem-PITT",
+"before": null,
+"after": 0.000469987,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-RANDOLPH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-rep-RANDOLPH",
+"before": null,
+"after": 8.63335e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-dem-ROBESON",
+"before": null,
+"after": 0.000409201,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_6-rep-ROBESON",
+"before": null,
+"after": 0.00216445,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-SAMPSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-SAMPSON",
+"before": null,
+"after": 0.00120734,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-SCOTLAND_COUNTY_BOARD_OF_COMMISSIONERS_SPRING_HILL_TOWNSHIP-dem-SCOTLAND",
+"before": null,
+"after": 0.000317924,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-STANLY",
+"before": null,
+"after": 0.000149974,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-STANLY",
+"before": null,
+"after": 0.000152744,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-rep-STANLY",
+"before": null,
+"after": 0.000149739,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-STANLY",
+"before": null,
+"after": 0.000150641,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_MOUNT_AIRY_DISTRICT-rep-SURRY",
+"before": null,
+"after": 0.000186841,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-SWAIN_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-dem-SWAIN",
+"before": null,
+"after": 0.000762832,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-dem-WAKE",
+"before": null,
+"after": 1.6951e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-WAKE",
+"before": null,
+"after": 1.67504e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-dem-WAKE",
+"before": null,
+"after": 1.67818e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-WAKE",
+"before": null,
+"after": 1.77319e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_7-dem-WAKE",
+"before": null,
+"after": 1.7062e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2018/NC.json",
+"id": "2018-primary-NC-ncsbe-2018-05-08-WATAUGA_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-rep-WATAUGA",
+"before": null,
+"after": 0.000355954,
+"ratio": null
+},
+{
+"file": "data/primary/2019/NC.json",
+"id": "2019-primary-NC-ncsbe-2019-09-10-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_01-dem-MECKLENBURG",
+"before": 0.000162438,
+"after": 0.00017611,
+"ratio": 1.0842
+},
+{
+"file": "data/primary/2019/NC.json",
+"id": "2019-primary-NC-ncsbe-2019-09-10-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_07-rep-MECKLENBURG",
+"before": 0.000123972,
+"after": 0.000134407,
+"ratio": 1.0842
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-ANSON",
+"before": 0.00294349,
+"after": 0.00320241,
+"ratio": 1.088
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-ANSON",
+"before": 0.00196975,
+"after": 0.00214479,
+"ratio": 1.0889
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BERTIE",
+"before": 0.000463032,
+"after": 0.000505125,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-BLADEN",
+"before": 0.000975191,
+"after": 0.00106384,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-BLADEN",
+"before": 0.00103344,
+"after": 0.00112739,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-BRUNSWICK",
+"before": 9.79739e-05,
+"after": 0.000106881,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BUNCOMBE",
+"before": 7.78295e-05,
+"after": 8.49049e-05,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-BUNCOMBE",
+"before": 0.000256468,
+"after": 0.000279783,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-BUNCOMBE",
+"before": 8.17084e-05,
+"after": 8.91365e-05,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CAMDEN_COUNTY_BOARD_OF_COMMISSIONERS_SOUTH_MILLS_DISTRICT-rep-CAMDEN",
+"before": 0.00106103,
+"after": 0.00115749,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-CARTERET",
+"before": 0.000472251,
+"after": 0.000515182,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CHATHAM_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-CHATHAM",
+"before": 0.000101679,
+"after": 0.000110923,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_II-rep-CHEROKEE",
+"before": 0.000283514,
+"after": 0.000309288,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_V-rep-CHEROKEE",
+"before": 0.000284336,
+"after": 0.000310185,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CHOWAN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CHOWAN",
+"before": 0.0011793,
+"after": 0.00128651,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_NORTH_WARD-dem-FORSYTH",
+"before": 0.00035903,
+"after": 0.000391669,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_SOUTHWEST_WARD-dem-FORSYTH",
+"before": 0.00031183,
+"after": 0.000340178,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_WEST_WARD-rep-FORSYTH",
+"before": 0.000474077,
+"after": 0.000517175,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-CURRITUCK",
+"before": 0.000390491,
+"after": 0.00042599,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-CURRITUCK",
+"before": 0.000388633,
+"after": 0.000423964,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-DARE",
+"before": 0.000491343,
+"after": 0.00053601,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-DUPLIN",
+"before": 0.00144034,
+"after": 0.00157128,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-EDGECOMBE",
+"before": 0.00123165,
+"after": 0.00134362,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE_SEAT_07-dem-FRANKLIN",
+"before": 0.000191308,
+"after": 0.0002087,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-FRANKLIN",
+"before": 0.00182102,
+"after": 0.00198309,
+"ratio": 1.089
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_CROWDERS_MOUNTAIN_TWP-rep-GASTON",
+"before": 9.42202e-05,
+"after": 0.000102786,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_GASTONIA_TWP-dem-GASTON",
+"before": 0.00010087,
+"after": 0.00011004,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-GRANVILLE",
+"before": 0.00113559,
+"after": 0.00123882,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-GRANVILLE",
+"before": 0.00131185,
+"after": 0.00143111,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GREENE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-GREENE",
+"before": 0.000675822,
+"after": 0.00073726,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-GUILFORD",
+"before": 0.000145877,
+"after": 0.000159139,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-GUILFORD",
+"before": 0.00033491,
+"after": 0.000365356,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-GUILFORD",
+"before": 0.000297269,
+"after": 0.000324293,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_08-dem-GUILFORD",
+"before": 0.00016826,
+"after": 0.000183556,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02__UNEX-rep-HARNETT",
+"before": 0.000706334,
+"after": 0.000770547,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-HARNETT",
+"before": 0.000607932,
+"after": 0.000663199,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-HARNETT",
+"before": 0.000601714,
+"after": 0.000656415,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-HENDERSON",
+"before": 0.000116179,
+"after": 0.00012674,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-HENDERSON",
+"before": 9.36203e-05,
+"after": 0.000102131,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-HERTFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-HERTFORD",
+"before": 0.000367647,
+"after": 0.00040107,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-JOHNSTON",
+"before": 7.6709e-05,
+"after": 8.36825e-05,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-MACON",
+"before": 0.000460278,
+"after": 0.000502121,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-MECKLENBURG",
+"before": 6.0312e-05,
+"after": 6.57949e-05,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-MONTGOMERY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-MONTGOMERY",
+"before": 0.00105192,
+"after": 0.00114755,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_II-rep-MOORE",
+"before": 0.000111662,
+"after": 0.000121813,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-NASH",
+"before": 0.000715267,
+"after": 0.000780291,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-NORTHAMPTON",
+"before": 0.000307654,
+"after": 0.000335623,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-NORTHAMPTON",
+"before": 0.000306692,
+"after": 0.000334573,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-ORANGE",
+"before": 3.71576e-05,
+"after": 4.05356e-05,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-PAMLICO_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-PAMLICO",
+"before": 0.0028971,
+"after": 0.00315207,
+"ratio": 1.088
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-PASQUOTANK_COUNTY_BOARD_OF_COMMISSIONERS_NORTHERN_INSIDE-dem-PASQUOTANK",
+"before": 0.00132844,
+"after": 0.00144921,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06__UNEXPIRED-rep-PITT",
+"before": 0.000498167,
+"after": 0.000543455,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-ROBESON",
+"before": 0.00101002,
+"after": 0.00110184,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-ROBESON",
+"before": 0.000598774,
+"after": 0.000653208,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-RUTHERFORD",
+"before": 0.00020516,
+"after": 0.000223811,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-SAMPSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-SAMPSON",
+"before": 0.000973255,
+"after": 0.00106173,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-SCOTLAND_COUNTY_BOARD_OF_COMMISSIONERS_LAUREL_HILL_TWP-dem-SCOTLAND",
+"before": 0.000397242,
+"after": 0.000433354,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-STANLY",
+"before": 0.000179143,
+"after": 0.000195429,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_MOUNT_AIRY_DISTRICT-rep-SURRY",
+"before": 0.000201533,
+"after": 0.000219854,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WAKE",
+"before": 8.83247e-06,
+"after": 9.63542e-06,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-WAKE",
+"before": 9.13114e-06,
+"after": 9.96124e-06,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WARREN",
+"before": 0.000388223,
+"after": 0.000423516,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-WARREN",
+"before": 0.000386793,
+"after": 0.000421956,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-WAYNE",
+"before": 0.000143738,
+"after": 0.000156806,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WAYNE",
+"before": 0.000714224,
+"after": 0.000779154,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-WAYNE",
+"before": 0.000626315,
+"after": 0.000683253,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-WAYNE",
+"before": 0.00070498,
+"after": 0.000769069,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2020/NC.json",
+"id": "2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-WAYNE",
+"before": 0.00074763,
+"after": 0.000815596,
+"ratio": 1.0909
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-ALEXANDER_COUNTY_BOARD_OF_COMMISSIONERS__UNEXPIRED-rep-ALEXANDER",
+"before": 0.000457842,
+"after": 0.000503626,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-BLADEN",
+"before": 0.00132475,
+"after": 0.00145723,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BUNCOMBE",
+"before": 0.000136407,
+"after": 0.000150047,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CAMDEN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CAMDEN",
+"before": 0.00101025,
+"after": 0.00111128,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CAMDEN_COUNTY_BOARD_OF_COMMISSIONERS_SHILOH_DISTRICT-rep-CAMDEN",
+"before": 0.0010513,
+"after": 0.00115643,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CARTERET",
+"before": 0.00104513,
+"after": 0.00114965,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-CARTERET",
+"before": 0.000762127,
+"after": 0.00083834,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CASWELL",
+"before": 0.00449466,
+"after": 0.00492117,
+"ratio": 1.0949
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-CASWELL",
+"before": 0.00287515,
+"after": 0.00315308,
+"ratio": 1.0967
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CHATHAM_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-CHATHAM",
+"before": 0.000179189,
+"after": 0.000197108,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_03-dem-MECKLENBURG",
+"before": 0.000246698,
+"after": 0.000271368,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CITY_OF_SANFORD_COUNCIL_MEMBER_WARD_01-dem-LEE",
+"before": 0.00321525,
+"after": 0.00352486,
+"ratio": 1.0963
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-CRAVEN",
+"before": 0.00132039,
+"after": 0.00145243,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-CRAVEN",
+"before": 0.000678629,
+"after": 0.000746491,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-CRAVEN",
+"before": 0.00253452,
+"after": 0.0027805,
+"ratio": 1.0971
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-CURRITUCK",
+"before": 0.000567886,
+"after": 0.000624675,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-DARE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-DARE",
+"before": 0.000445509,
+"after": 0.00049006,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-DUPLIN",
+"before": 0.0015092,
+"after": 0.00166012,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-FORSYTH",
+"before": 7.57092e-05,
+"after": 8.32801e-05,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE_SEAT_06-rep-FRANKLIN",
+"before": 0.000267781,
+"after": 0.000294559,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_DALLAS_TWP-rep-GASTON",
+"before": 9.33425e-05,
+"after": 0.000102677,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-GATES_COUNTY_BOARD_OF_COMMISSIONERS_GATES_DISTRICT-dem-GATES",
+"before": 0.00130855,
+"after": 0.0014394,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-GUILFORD",
+"before": 4.03694e-05,
+"after": 4.44063e-05,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-GUILFORD",
+"before": 6.03225e-05,
+"after": 6.63548e-05,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-GUILFORD",
+"before": 0.000318752,
+"after": 0.000350627,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-rep-GUILFORD",
+"before": 0.00138658,
+"after": 0.00152524,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-HARNETT",
+"before": 0.00127831,
+"after": 0.00140614,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-HARNETT",
+"before": 0.000865306,
+"after": 0.000951837,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-HENDERSON",
+"before": 9.58121e-05,
+"after": 0.000105393,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-rep-JACKSON",
+"before": 0.000537987,
+"after": 0.000591786,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-JACKSON",
+"before": 0.000569095,
+"after": 0.000626004,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-JOHNSTON",
+"before": 9.00572e-05,
+"after": 9.90629e-05,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-JONES_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-JONES",
+"before": 0.0120875,
+"after": 0.0131403,
+"ratio": 1.0871
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-MACON",
+"before": 0.000232437,
+"after": 0.00025568,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-MECKLENBURG",
+"before": 0.000138205,
+"after": 0.000152025,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-MECKLENBURG",
+"before": 0.000152919,
+"after": 0.000168211,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-MOORE",
+"before": 0.000141696,
+"after": 0.000155865,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-NASH",
+"before": 0.000861589,
+"after": 0.000947748,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-dem-NASH",
+"before": 0.00117788,
+"after": 0.00129567,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-NORTHAMPTON",
+"before": 0.000427807,
+"after": 0.000470588,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-NORTHAMPTON",
+"before": 0.000449,
+"after": 0.0004939,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-NORTHAMPTON",
+"before": 0.000446625,
+"after": 0.000491288,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-PASQUOTANK_COUNTY_BOARD_OF_COMMISSIONERS_SOUTHERN_INSIDE-dem-PASQUOTANK",
+"before": 0.00160428,
+"after": 0.00176471,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-PENDER",
+"before": 0.000272558,
+"after": 0.000299814,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-PENDER",
+"before": 0.000284396,
+"after": 0.000312836,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-PITT",
+"before": 0.00075177,
+"after": 0.000826947,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-RANDOLPH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-RANDOLPH",
+"before": 9.21681e-05,
+"after": 0.000101385,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-RANDOLPH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-RANDOLPH",
+"before": 9.25349e-05,
+"after": 0.000101788,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-ROBESON",
+"before": 0.00181893,
+"after": 0.00199693,
+"ratio": 1.0979
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_08-dem-ROBESON",
+"before": 0.00188079,
+"after": 0.00206472,
+"ratio": 1.0978
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-RUTHERFORD",
+"before": 0.00021325,
+"after": 0.000234575,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-RUTHERFORD",
+"before": 0.000208402,
+"after": 0.000229242,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-SAMPSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-SAMPSON",
+"before": 0.000865773,
+"after": 0.000952351,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-STANLY",
+"before": 0.00020762,
+"after": 0.000228382,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_CENTRAL_DISTRICT-rep-SURRY",
+"before": 0.000224563,
+"after": 0.000247019,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_SOUTH_DISTRICT-rep-SURRY",
+"before": 0.000225986,
+"after": 0.000248585,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-VANCE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-VANCE",
+"before": 0.00298768,
+"after": 0.00327614,
+"ratio": 1.0965
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WAKE",
+"before": 1.90044e-05,
+"after": 2.09049e-05,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-WASHINGTON_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-WASHINGTON",
+"before": 0.00138899,
+"after": 0.00152788,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2022/NC.json",
+"id": "2022-primary-NC-ncsbe-2022-05-17-WATAUGA_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WATAUGA",
+"before": 0.000499775,
+"after": 0.000549753,
+"ratio": 1.1
+},
+{
+"file": "data/primary/2023/NC.json",
+"id": "2023-primary-NC-ncsbe-2023-09-12-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_02-dem-MECKLENBURG",
+"before": 0.000416521,
+"after": 0.000441878,
+"ratio": 1.0609
+},
+{
+"file": "data/primary/2023/NC.json",
+"id": "2023-primary-NC-ncsbe-2023-09-12-CITY_OF_SANFORD_COUNCIL_MEMBER_WARD_04-dem-LEE",
+"before": 0.00877927,
+"after": 0.00926165,
+"ratio": 1.0549
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-ALAMANCE_COUNTY_BOARD_OF_COMMISSIONERS-rep-ALAMANCE",
+"before": null,
+"after": 0.000362037,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-ASHE_COUNTY_BOARD_OF_COMMISSIONERS-rep-ASHE",
+"before": null,
+"after": 0.00127722,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-AVERY_COUNTY_BOARD_OF_COMMISSIONERS-rep-AVERY",
+"before": null,
+"after": 0.00156759,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BERTIE",
+"before": 0.000850014,
+"after": 0.000903327,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BLADEN",
+"before": 0.00136985,
+"after": 0.00145576,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-BLADEN",
+"before": 0.00142354,
+"after": 0.00151283,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-BRUNSWICK",
+"before": 7.37068e-05,
+"after": 7.83297e-05,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-BRUNSWICK",
+"before": 7.80228e-05,
+"after": 8.29164e-05,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BUNCOMBE",
+"before": 0.000168842,
+"after": 0.000179432,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-BUNCOMBE",
+"before": 0.000228003,
+"after": 0.000242303,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-BURKE_COUNTY_BOARD_OF_COMMISSIONERS-rep-BURKE",
+"before": null,
+"after": 0.000500961,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CALDWELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-CALDWELL",
+"before": null,
+"after": 0.000589696,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-CARTERET",
+"before": 0.000852561,
+"after": 0.000906034,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_II-rep-CHEROKEE",
+"before": 0.000307536,
+"after": 0.000326825,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_V-rep-CHEROKEE",
+"before": 0.000304736,
+"after": 0.000323849,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_NORTHEAST_WARD-dem-FORSYTH",
+"before": 0.00058393,
+"after": 0.000620554,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_NORTHWEST_WARD-dem-FORSYTH",
+"before": 0.000485722,
+"after": 0.000516187,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_NORTHWEST_WARD-rep-FORSYTH",
+"before": 0.000819015,
+"after": 0.000870384,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CLEVELAND_COUNTY_BOARD_OF_COMMISSIONERS-rep-CLEVELAND",
+"before": null,
+"after": 0.000441811,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-COLUMBUS_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-COLUMBUS",
+"before": 0.00154604,
+"after": 0.00164301,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CUMBERLAND_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-CUMBERLAND",
+"before": null,
+"after": 0.000556673,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CUMBERLAND_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-CUMBERLAND",
+"before": null,
+"after": 0.000622469,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CURRITUCK",
+"before": 0.000338388,
+"after": 0.000359611,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CURRITUCK",
+"before": 0.000346564,
+"after": 0.000368301,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-CURRITUCK",
+"before": 0.000345302,
+"after": 0.000366959,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-CURRITUCK",
+"before": 0.000342255,
+"after": 0.000363722,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-DARE",
+"before": 0.000326291,
+"after": 0.000346756,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01__UNEXPIRED-rep-DARE",
+"before": 0.000321497,
+"after": 0.000341661,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-DARE",
+"before": 0.000334475,
+"after": 0.000355454,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-DAVIDSON_COUNTY_BOARD_OF_COMMISSIONERS-rep-DAVIDSON",
+"before": null,
+"after": 0.000304309,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-DAVIE_COUNTY_BOARD_OF_COMMISSIONERS-rep-DAVIE",
+"before": null,
+"after": 0.000814092,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-DUPLIN",
+"before": 0.00175226,
+"after": 0.0018599,
+"ratio": 1.0614
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-DUPLIN",
+"before": 0.00277063,
+"after": 0.00293882,
+"ratio": 1.0607
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-EDGECOMBE",
+"before": 0.00217691,
+"after": 0.00230997,
+"ratio": 1.0611
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-EDGECOMBE",
+"before": 0.00212805,
+"after": 0.0022582,
+"ratio": 1.0612
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_B-dem-FORSYTH",
+"before": null,
+"after": 0.000278243,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_B-rep-FORSYTH",
+"before": null,
+"after": 0.000216009,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE_SEAT_07-dem-FRANKLIN",
+"before": 0.000330652,
+"after": 0.000351391,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_CROWDERS_MOUNTAIN_TWP-rep-GASTON",
+"before": 8.37912e-05,
+"after": 8.90466e-05,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_GASTONIA_TWP-rep-GASTON",
+"before": 8.2352e-05,
+"after": 8.75171e-05,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-GRAHAM_COUNTY_BOARD_OF_COMMISSIONERS-rep-GRAHAM",
+"before": null,
+"after": 0.00320414,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-GRANVILLE",
+"before": 0.00202695,
+"after": 0.00215107,
+"ratio": 1.0612
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-GRANVILLE",
+"before": 0.00212537,
+"after": 0.00225536,
+"ratio": 1.0612
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-GUILFORD",
+"before": 0.000335,
+"after": 0.000356012,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-HALIFAX_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-HALIFAX",
+"before": 0.000733804,
+"after": 0.000779828,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-HARNETT",
+"before": 0.000513177,
+"after": 0.000545364,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-HENDERSON",
+"before": 9.31573e-05,
+"after": 9.90001e-05,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-HENDERSON",
+"before": 8.90968e-05,
+"after": 9.4685e-05,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-IREDELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-IREDELL",
+"before": null,
+"after": 0.000248282,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-JOHNSTON",
+"before": 7.09522e-05,
+"after": 7.54024e-05,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-JOHNSTON",
+"before": 7.08374e-05,
+"after": 7.52804e-05,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-LEE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-LEE",
+"before": null,
+"after": 0.00137279,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-LINCOLN_COUNTY_BOARD_OF_COMMISSIONERS-rep-LINCOLN",
+"before": null,
+"after": 0.000445469,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-MACON",
+"before": 0.000263521,
+"after": 0.000280049,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-MACON",
+"before": 0.000264994,
+"after": 0.000281615,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-MECKLENBURG",
+"before": null,
+"after": 5.33568e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-MECKLENBURG",
+"before": 0.000140572,
+"after": 0.000149389,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-MECKLENBURG",
+"before": 0.000138812,
+"after": 0.000147518,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MITCHELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-MITCHELL",
+"before": null,
+"after": 0.00177316,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MONTGOMERY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-MONTGOMERY",
+"before": 0.00101597,
+"after": 0.00107969,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MONTGOMERY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-MONTGOMERY",
+"before": 0.00180794,
+"after": 0.00191894,
+"ratio": 1.0614
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_IV-rep-MOORE",
+"before": 0.000127214,
+"after": 0.000135193,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-NASH",
+"before": 0.000884825,
+"after": 0.000940321,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-NORTHAMPTON",
+"before": 0.000518005,
+"after": 0.000550495,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-PAMLICO_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-PAMLICO",
+"before": 0.00467614,
+"after": 0.00495376,
+"ratio": 1.0594
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-PAMLICO_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-PAMLICO",
+"before": 0.0024208,
+"after": 0.00256835,
+"ratio": 1.061
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-PASQUOTANK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-PASQUOTANK",
+"before": 0.000521646,
+"after": 0.000554364,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-PASQUOTANK_COUNTY_COMMISSIONERS_SOUTHERN_INSIDE__UNEXPIRED-dem-PASQUOTANK",
+"before": 0.00236708,
+"after": 0.00251145,
+"ratio": 1.061
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01__UNEXPIRED-rep-PENDER",
+"before": 0.000232538,
+"after": 0.000247123,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-PENDER",
+"before": 0.00024587,
+"after": 0.000261291,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-PERSON_COUNTY_BOARD_OF_COMMISSIONERS-rep-PERSON",
+"before": null,
+"after": 0.00134811,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_B-rep-PITT",
+"before": 0.000350982,
+"after": 0.000372996,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-POLK_COUNTY_BOARD_OF_COMMISSIONERS-rep-POLK",
+"before": null,
+"after": 0.00145513,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-RICHMOND_COUNTY_BOARD_OF_COMMISSIONERS-rep-RICHMOND",
+"before": null,
+"after": 0.00170535,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-ROBESON",
+"before": 0.000978685,
+"after": 0.00104007,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-ROCKINGHAM_COUNTY_BOARD_OF_COMMISSIONERS-rep-ROCKINGHAM",
+"before": null,
+"after": 0.000449473,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-RUTHERFORD",
+"before": 0.000188163,
+"after": 0.000199965,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-SAMPSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-SAMPSON",
+"before": 0.000887124,
+"after": 0.000942765,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-STANLY",
+"before": 0.00016271,
+"after": 0.000172915,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-STANLY",
+"before": 0.000161524,
+"after": 0.000171655,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-TRANSYLVANIA_COUNTY_BOARD_OF_COMMISSIONERS-rep-TRANSYLVANIA",
+"before": null,
+"after": 0.000895369,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-VANCE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-VANCE",
+"before": 0.00360823,
+"after": 0.00382513,
+"ratio": 1.0601
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-WAKE",
+"before": 9.73272e-05,
+"after": 0.000103432,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-WAKE",
+"before": 0.000124088,
+"after": 0.000131871,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-WARREN",
+"before": 0.000682185,
+"after": 0.000724972,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WAYNE",
+"before": 0.00147014,
+"after": 0.00156234,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-WAYNE",
+"before": 0.000765393,
+"after": 0.000813399,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-WAYNE",
+"before": 0.000895972,
+"after": 0.000952168,
+"ratio": 1.0627
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-WILKES_COUNTY_BOARD_OF_COMMISSIONERS-rep-WILKES",
+"before": null,
+"after": 0.00042947,
+"ratio": null
+},
+{
+"file": "data/primary/2024/NC.json",
+"id": "2024-primary-NC-ncsbe-2024-03-05-YADKIN_COUNTY_BOARD_OF_COMMISSIONERS-rep-YADKIN",
+"before": null,
+"after": 0.000704597,
+"ratio": null
+},
+{
+"file": "data/primary/2025/NC.json",
+"id": "2025-primary-NC-ncsbe-2025-09-09-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_01-dem-MECKLENBURG",
+"before": 0.00021946,
+"after": 0.00023736,
+"ratio": 1.0816
+},
+{
+"file": "data/primary/2025/NC.json",
+"id": "2025-primary-NC-ncsbe-2025-09-09-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_04-dem-MECKLENBURG",
+"before": 0.000244661,
+"after": 0.000264617,
+"ratio": 1.0816
+},
+{
+"file": "data/primary/2025/NC.json",
+"id": "2025-primary-NC-ncsbe-2025-09-09-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_05-dem-MECKLENBURG",
+"before": 0.000251871,
+"after": 0.000272415,
+"ratio": 1.0816
+},
+{
+"file": "data/primary/2025/NC.json",
+"id": "2025-primary-NC-ncsbe-2025-09-09-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_06-rep-MECKLENBURG",
+"before": 0.000477808,
+"after": 0.00051678,
+"ratio": 1.0816
+},
+{
+"file": "data/primary/2025/NC.json",
+"id": "2025-primary-NC-ncsbe-2025-09-09-CITY_OF_SANFORD_COUNCIL_MEMBER_WARD_03-dem-LEE",
+"before": 0.0129404,
+"after": 0.0138597,
+"ratio": 1.071
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ALEXANDER_COUNTY_BOARD_OF_COMMISSIONERS-rep-ALEXANDER",
+"before": 0.00158781,
+"after": 0.00155507,
+"ratio": 0.9794
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ALEXANDER_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-rep-ALEXANDER",
+"before": null,
+"after": 0.00199767,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ALLEGHANY_COUNTY_BOARD_OF_COMMISSIONERS-rep-ALLEGHANY",
+"before": 0.00428627,
+"after": 0.00420548,
+"ratio": 0.9812
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-ANSON",
+"before": 0.00152175,
+"after": 0.00163067,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ASHE_COUNTY_BOARD_OF_COMMISSIONERS-rep-ASHE",
+"before": 0.000961579,
+"after": 0.000940675,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-AVERY_COUNTY_BOARD_OF_COMMISSIONERS-rep-AVERY",
+"before": 0.00261893,
+"after": 0.00256675,
+"ratio": 0.9801
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BEAUFORT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-rep-BEAUFORT",
+"before": null,
+"after": 0.00193018,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BEAUFORT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-rep-BEAUFORT",
+"before": null,
+"after": 0.002064,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BEAUFORT_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06-rep-BEAUFORT",
+"before": null,
+"after": 0.00134898,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-BERTIE",
+"before": 0.000505123,
+"after": 0.000541278,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BLADEN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-dem-BLADEN",
+"before": null,
+"after": 0.00126646,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BLADEN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-rep-BLADEN",
+"before": null,
+"after": 0.00118652,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-BRUNSWICK",
+"before": 8.04537e-05,
+"after": 8.62122e-05,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-BRUNSWICK",
+"before": 8.17929e-05,
+"after": 8.76474e-05,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-BUNCOMBE",
+"before": 0.000158531,
+"after": 0.000169878,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CABARRUS_COUNTY_BOARD_OF_COMMISSIONERS-rep-CABARRUS",
+"before": 0.000465385,
+"after": 0.000455268,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CARTERET",
+"before": 0.000821057,
+"after": 0.000879825,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-CARTERET",
+"before": 0.000468579,
+"after": 0.000502119,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-CARTERET",
+"before": 0.000765331,
+"after": 0.000820111,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CARTERET_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-rep-CARTERET",
+"before": null,
+"after": 0.000768462,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE__UNEXPIRED-dem-CASWELL",
+"before": 0.000943079,
+"after": 0.00101058,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE__UNEXPIRED-rep-CASWELL",
+"before": 0.000983311,
+"after": 0.00105369,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CASWELL",
+"before": 0.00340308,
+"after": 0.00363761,
+"ratio": 1.0689
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CATAWBA_COUNTY_BOARD_OF_COMMISSIONERS-rep-CATAWBA",
+"before": 0.00042613,
+"after": 0.000416866,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CHATHAM_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-CHATHAM",
+"before": 0.000124604,
+"after": 0.000133523,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CHATHAM_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-CHATHAM",
+"before": 0.000127972,
+"after": 0.000137131,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-CHEROKEE",
+"before": 0.000339264,
+"after": 0.000363547,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CHEROKEE_COUNTY_BOARD_OF_EDUCATION_AT_LARGE-rep-CHEROKEE",
+"before": null,
+"after": 0.000316897,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CHEROKEE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_II-rep-CHEROKEE",
+"before": null,
+"after": 0.000313146,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CITY_OF_MONROE_COUNCIL-rep-UNION",
+"before": 0.00278557,
+"after": 0.00273038,
+"ratio": 0.9802
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CLAY_COUNTY_BOARD_OF_COMMISSIONERS-rep-CLAY",
+"before": 0.00269638,
+"after": 0.0026428,
+"ratio": 0.9801
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-COLUMBUS_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-dem-COLUMBUS",
+"before": 0.00809972,
+"after": 0.00863024,
+"ratio": 1.0655
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-CRAVEN",
+"before": 0.000992024,
+"after": 0.00106303,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-rep-CRAVEN",
+"before": 0.000875641,
+"after": 0.000938317,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CRAVEN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06-rep-CRAVEN",
+"before": null,
+"after": 0.00161773,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-CURRITUCK",
+"before": 0.00186021,
+"after": 0.00199057,
+"ratio": 1.0701
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CURRITUCK",
+"before": 0.000439663,
+"after": 0.000471132,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-CURRITUCK",
+"before": 0.000439786,
+"after": 0.000471264,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-CURRITUCK",
+"before": 0.000459244,
+"after": 0.000492114,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-DARE",
+"before": 0.000249506,
+"after": 0.000267365,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-DUPLIN",
+"before": 0.00153968,
+"after": 0.00164989,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-dem-EDGECOMBE",
+"before": 0.00309404,
+"after": 0.00330798,
+"ratio": 1.0691
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-FORSYTH",
+"before": 4.76804e-05,
+"after": 5.10932e-05,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-FORSYTH",
+"before": 0.000113031,
+"after": 0.000121121,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_B-dem-FORSYTH",
+"before": 7.2632e-05,
+"after": 7.78307e-05,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_DALLAS_TWP-rep-GASTON",
+"before": 9.61653e-05,
+"after": 0.000103048,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-GASTON_COUNTY_BOARD_OF_EDUCATION_GASTONIA_TWP-dem-GASTON",
+"before": null,
+"after": 0.000159013,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-GRAHAM_COUNTY_BOARD_OF_COMMISSIONERS-rep-GRAHAM",
+"before": 0.00339416,
+"after": 0.00332826,
+"ratio": 0.9806
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-GRANVILLE",
+"before": 0.00180659,
+"after": 0.00193326,
+"ratio": 1.0701
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-GREENE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-GREENE",
+"before": 0.00108998,
+"after": 0.001168,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-dem-GUILFORD",
+"before": 0.00021483,
+"after": 0.000230206,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-GUILFORD_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06-dem-GUILFORD",
+"before": null,
+"after": 0.000237265,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-HALIFAX_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-HALIFAX",
+"before": 0.000898473,
+"after": 0.000878941,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-HARNETT",
+"before": 0.000919835,
+"after": 0.000985673,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-HAYWOOD_COUNTY_BOARD_OF_COMMISSIONERS-rep-HAYWOOD",
+"before": 0.000739626,
+"after": 0.000723547,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-HENDERSON",
+"before": 0.000142103,
+"after": 0.000152274,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-HENDERSON",
+"before": 0.000145439,
+"after": 0.000155849,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-HOKE_COUNTY_BOARD_OF_COMMISSIONERS-dem-HOKE",
+"before": 0.00139875,
+"after": 0.00136973,
+"ratio": 0.9793
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-IREDELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-IREDELL",
+"before": 0.000466257,
+"after": 0.000456121,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-IREDELL_STATESVILLE_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_01-rep-IREDELL",
+"before": null,
+"after": 0.000700624,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-IREDELL_STATESVILLE_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_03-rep-IREDELL",
+"before": null,
+"after": 0.000992753,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-IREDELL_STATESVILLE_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_05-rep-IREDELL",
+"before": null,
+"after": 0.00103595,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-dem-JACKSON",
+"before": 0.000465794,
+"after": 0.000499134,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-JACKSON",
+"before": 0.000489506,
+"after": 0.000524543,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-JACKSON",
+"before": 0.000468439,
+"after": 0.000501968,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-rep-JOHNSTON",
+"before": 9.08637e-05,
+"after": 9.73673e-05,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-JOHNSTON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-rep-JOHNSTON",
+"before": null,
+"after": 8.55688e-05,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-JONES_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-JONES",
+"before": 0.00710843,
+"after": 0.00757919,
+"ratio": 1.0662
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-JONES_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-JONES",
+"before": 0.00774091,
+"after": 0.00825011,
+"ratio": 1.0658
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-LENOIR_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-LENOIR",
+"before": 0.00168793,
+"after": 0.00180644,
+"ratio": 1.0702
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-LENOIR_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-rep-LENOIR",
+"before": null,
+"after": 0.00177883,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-LINCOLN_COUNTY_BOARD_OF_EDUCATION_AT_LARGE-rep-LINCOLN",
+"before": null,
+"after": 0.000158836,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-LINCOLN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-rep-LINCOLN",
+"before": null,
+"after": 0.000163977,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-MADISON_COUNTY_BOARD_OF_COMMISSIONERS-rep-MADISON",
+"before": 0.0035255,
+"after": 0.00345736,
+"ratio": 0.9807
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-MCDOWELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-MCDOWELL",
+"before": 0.000987769,
+"after": 0.000966296,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-MCDOWELL_COUNTY_BOARD_OF_EDUCATION_MARION_DISTRICT-rep-MCDOWELL",
+"before": null,
+"after": 0.000278746,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-MECKLENBURG",
+"before": 7.79285e-05,
+"after": 7.62344e-05,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-MECKLENBURG",
+"before": 9.85475e-05,
+"after": 0.000105601,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-MECKLENBURG",
+"before": 8.68076e-05,
+"after": 9.3021e-05,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-MITCHELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-MITCHELL",
+"before": 0.00135212,
+"after": 0.00132402,
+"ratio": 0.9792
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-MOORE",
+"before": 0.000143063,
+"after": 0.000153303,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-NASH",
+"before": 0.00111718,
+"after": 0.00119714,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-rep-NASH",
+"before": 0.00108395,
+"after": 0.00116154,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-NORTHAMPTON",
+"before": 0.00045445,
+"after": 0.000486978,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ONSLOW_COUNTY_BOARD_OF_COMMISSIONERS-rep-ONSLOW",
+"before": 0.0006347,
+"after": 0.000620902,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-ORANGE",
+"before": 5.91895e-05,
+"after": 6.34261e-05,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-ORANGE",
+"before": 9.88396e-05,
+"after": 0.000105914,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-ORANGE",
+"before": 0.000143272,
+"after": 0.000153527,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PAMLICO_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-dem-PAMLICO",
+"before": null,
+"after": 0.00839353,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-PENDER",
+"before": 0.000256111,
+"after": 0.000274442,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-PENDER",
+"before": 0.000244791,
+"after": 0.000262312,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-PENDER",
+"before": 0.000249427,
+"after": 0.00026728,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04__UNEXPIRED-rep-PENDER",
+"before": 0.00024125,
+"after": 0.000258517,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-rep-PENDER",
+"before": null,
+"after": 0.000228608,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-rep-PENDER",
+"before": null,
+"after": 0.000232062,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-PITT",
+"before": 0.000632525,
+"after": 0.000677799,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-PITT",
+"before": 0.000810863,
+"after": 0.000868901,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-RANDOLPH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-RANDOLPH",
+"before": 0.00011024,
+"after": 0.000118131,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-ROBESON",
+"before": 0.000968127,
+"after": 0.00103742,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-ROBESON",
+"before": 0.00488969,
+"after": 0.0052213,
+"ratio": 1.0678
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_08-dem-ROBESON",
+"before": 0.00259249,
+"after": 0.00277272,
+"ratio": 1.0695
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_08-rep-ROBESON",
+"before": 0.00330954,
+"after": 0.00353783,
+"ratio": 1.069
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ROWAN_COUNTY_BOARD_OF_COMMISSIONERS-rep-ROWAN",
+"before": 0.000608263,
+"after": 0.00059504,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-ROWAN_SALISBURY_BOARD_OF_EDUCATION_SEAT_04__WEST-rep-ROWAN",
+"before": null,
+"after": 0.000128422,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-RUTHERFORD",
+"before": 0.000181454,
+"after": 0.000194442,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-RUTHERFORD_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-dem-RUTHERFORD",
+"before": null,
+"after": 0.000725163,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-RUTHERFORD_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-rep-RUTHERFORD",
+"before": null,
+"after": 0.000169222,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-RUTHERFORD_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-rep-RUTHERFORD",
+"before": null,
+"after": 0.000175349,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-RUTHERFORD_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-rep-RUTHERFORD",
+"before": null,
+"after": 0.00017411,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-SCOTLAND_COUNTY_BOARD_OF_COMMISSIONERS_SPRING_HILL_TWP-rep-SCOTLAND",
+"before": 0.000736906,
+"after": 0.00078965,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-STANLY",
+"before": 0.000881056,
+"after": 0.000944118,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-STANLY",
+"before": 0.000337801,
+"after": 0.00036198,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-STANLY",
+"before": 0.000339411,
+"after": 0.000363704,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-STANLY",
+"before": 0.000338677,
+"after": 0.000362918,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-STOKES_COUNTY_BOARD_OF_COMMISSIONERS-rep-STOKES",
+"before": 0.00125885,
+"after": 0.00123261,
+"ratio": 0.9792
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_MOUNT_AIRY_DISTRICT-rep-SURRY",
+"before": 0.000137878,
+"after": 0.000147747,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-SURRY_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_02-rep-SURRY",
+"before": null,
+"after": 0.000160893,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-SURRY_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_03-rep-SURRY",
+"before": null,
+"after": 0.000160748,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-SURRY_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_04-rep-SURRY",
+"before": null,
+"after": 0.00016243,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-SWAIN_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-dem-SWAIN",
+"before": 0.00164023,
+"after": 0.00175544,
+"ratio": 1.0702
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-UNION_COUNTY_BOARD_OF_COMMISSIONERS-rep-UNION",
+"before": 0.000333996,
+"after": 0.000326735,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-UNION_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-rep-UNION",
+"before": null,
+"after": 0.0004592,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-UNION_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-dem-UNION",
+"before": null,
+"after": 0.000859033,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-VANCE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-VANCE",
+"before": 0.0044329,
+"after": 0.00473497,
+"ratio": 1.0681
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-VANCE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-dem-VANCE",
+"before": null,
+"after": 0.00179445,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-VANCE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-dem-VANCE",
+"before": null,
+"after": 0.00217722,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WARREN",
+"before": 0.000550931,
+"after": 0.000590364,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-WARREN",
+"before": 0.000546703,
+"after": 0.000585834,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-WASHINGTON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-dem-WASHINGTON",
+"before": null,
+"after": 0.000915751,
+"ratio": null
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-WATAUGA_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WATAUGA",
+"before": 0.00132943,
+"after": 0.00142459,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE__UNEXPIRED-rep-WAYNE",
+"before": 0.000168104,
+"after": 0.000180136,
+"ratio": 1.0716
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-WILSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WILSON",
+"before": 0.00169339,
+"after": 0.00181227,
+"ratio": 1.0702
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-WILSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WILSON",
+"before": 0.00160991,
+"after": 0.00172303,
+"ratio": 1.0703
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-YADKIN_COUNTY_BOARD_OF_COMMISSIONERS-rep-YADKIN",
+"before": 0.000748625,
+"after": 0.00073235,
+"ratio": 0.9783
+},
+{
+"file": "data/primary/2026/NC.json",
+"id": "2026-primary-NC-ncsbe-2026-03-03-YANCEY_COUNTY_BOARD_OF_COMMISSIONERS-rep-YANCEY",
+"before": 0.0024834,
+"after": 0.0024337,
+"ratio": 0.98
+}
+]
+}
