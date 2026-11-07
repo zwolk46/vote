@@ -1,6 +1,6 @@
 # Senate, House and governor: sources, method and checks
 
-Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19, 08:06 and 08:36 UTC, and the orchestrator's words of 08:54, 09:03, 09:08 and 09:26). Written 2026-11-07 and revised nine times the same day (last at 09:55 UTC):
+Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19, 08:06 and 08:36 UTC, and the orchestrator's words of 08:54, 09:03, 09:08, 09:26 and 11:16). Written 2026-11-07 and revised ten times the same day (last at 11:26 UTC):
 - for the follow-ups from M2 (§0.9);
 - for the orchestrator's third round (§0.8);
 - for its fourth, the near-ties (§0.7);
@@ -9,19 +9,20 @@ Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36,
 - for the rest of that pass, with round 5 taken again under the robustness test (§0.4);
 - for round 4's near-tie factor taken again under that test, with the governors' near-even note (§0.3);
 - for the next round, a half-life k and Cha's incumbency codes 2 and 3, neither adopted (§0.2);
-- and for the near-even note on the House's and the Senate's p, with the FEC's 2004 file (§0.1).
+- for the near-even note on the House's and the Senate's p, with the FEC's 2004 file (§0.1);
+- and for the note's two tests, which take it off the Senate's and the governors' p (§0.1, item 3).
 
 It covers every Senate and House race of the even years 2006 to 2024, and every governor race of the even years 1978 to 2024, that the sources hold, with p, and control of the Senate and the House.
 
 ## 0. What each round changed
 
-### 0.1 The near-even note at every level, and the FEC's 2004 file (the orchestrator, 2026-11-07 09:26 UTC)
+### 0.1 The near-even note at every level, the FEC's 2004 file, and the note's two tests (the orchestrator, 2026-11-07 09:26 and 11:16 UTC)
 
 **What was asked.** The orchestrator, 09:26: "Stop the search for a better forecast here. Six variants have now failed the same way, and more searching on the same years would fit noise." It asked for two things, then a stop:
 - **The note.** "Write the House's and the Senate's near-even shortfall onto each of their model's own p, built from your back-test with its counts, as for the governors." *Reason:* "the same disclosure at every level, whichever way the forecast leans."
 - **FEC 2004.** "FEC 2004 by script, so that House 2006 gets its lagged inputs and its p, if the FEC's 2004 file is reachable and token-light. Otherwise record why and leave it."
 
-**1. The note** (`chambers.near_even_note`, written by `compute`). Each p of the model's own normal forecast now carries a `note`, whether it stands first or beside 538's. That is the forecast the back-test scores. There are 3,369 such p in the House (2,514 first, 855 beside) and 317 in the Senate (170 first, 147 beside):
+**1. The note** (`chambers.near_even_note`, written by `compute`). *Since 11:16 the note stands on the House's p only; the Senate's is taken off (item 3).* Each p of the model's own normal forecast now carries a `note`, whether it stands first or beside 538's. That is the forecast the back-test scores. There are 3,369 such p in the House (2,514 first, 855 beside) and 317 in the Senate (170 first, 147 beside):
 
 > House: this route's back-test shows more near-even finishes than it forecast (105 against 87.5 within 1 point, 2010 to 2024), so p may be low
 >
@@ -29,7 +30,7 @@ It covers every Senate and House race of the even years 2006 to 2024, and every 
 
 - **Where the counts come from.** They are the back-test's: 49-51% of the two-party vote, 2010-2024, out of sample, under the forecast of record. The House's count includes its near-tie factor; the Senate has none since §0.3. The sentence turns "more … may be low" into "fewer … may be high" when the count leans the other way.
 - **p is not corrected.**
-- **538's p carry no note**, since the back-test does not score them. The governors' note (§0.3) stays on every governor p, from the history by votes.
+- **538's p carry no note**, since the back-test does not score them. The governors' note (§0.3) stayed on every governor p, from the history by votes, until item 3 took it off.
 
 **2. FEC 2004: the file is taken in; House 2006 is left as it is.**
 - **The file is reachable and light.** It is `https://www.fec.gov/documents/1625/2004congresults.xls`, 908,800 bytes. `fec_federal_elections.py 2004` now reads it into the cache. Two changes to the reader were needed, both fixed:
@@ -42,6 +43,35 @@ It covers every Senate and House race of the even years 2006 to 2024, and every 
   - They do not state the others. Georgia's map of 2005 is a known case that no source read here states.
   - Wikipedia's API refused the request ("You are making too many requests to the API"). By the rules that route was stopped, not worked around.
 - **What it would take.** A source listing every state whose lines changed between 2004 and 2006, such as the Census Bureau's notes on the 110th Congress's districts. With it, the 2004 rows would enter every later House fit. So every House p of 2008-2024 would move, as well as the 2006 p being computed, and all of it would need to be scored again under the robustness test. It is left for the orchestrator (§7).
+
+**3. The note's two tests (the orchestrator, 11:16).** The orchestrator's ruling of 11:01 UTC, fixed before the numbers were seen: a back-test lean note stands only where two tests of the same back-test lean the same way.
+- **(s)** Seen against expected within the note's share line, 1 point of ½ (49-51%).
+- **(v)** Seen against expected within k votes. k is the smallest of 1,000, 5,000, 10,000, 20,000 and 50,000 at which 5 or more are expected.
+- A test counts only with 5 or more seen or expected.
+
+*Reason* (11:16): "a note that one reading of the record contradicts tells the reader a direction the record doesn't give, and X1's first screen draws these notes as arrows."
+
+**The counts are M2's** (`checks/m2/c16_notes.py`, M2's third pass, on its branch; the orchestrator relayed them at 11:16). The chance is M2's one-sided chance of a count that far off.
+
+| Level, years | (s) seen against expected, within 1 point | (v) k, seen against expected | Leans | The note |
+|---|---|---|---|---|
+| House, 2010-2024 | 105 against 87.5: more (chance 0.030) | 1,000 votes: 24 against 16.9, more (0.057) | the same way | **stands** |
+| Senate, 2010-2024 | 17 against 11.1: more (0.053) | 10,000 votes: 4 against 5.1, fewer (0.42) | opposite ways | **goes** |
+| Governors, 2006-2024 | 17 against 15.8: more | 10,000 votes: 6 against 9.7, fewer | opposite ways | **goes** |
+
+- **The governors' own line does not count.** Their note's 5,000-vote line expected under 5 (4.5), so it is not a test under the ruling.
+- **This route's own (s) is the same count at every level.** Its back-test gives 105 against 87.47, 17 against 11.10 and 17 against 15.78 (governors, 2006-2024, under the variant of record).
+- **(v) is not recomputed here.** This route's back-test does not keep each race's vote total. `history.json` counts by votes under the p the files show, which is 538's forecast where it stands first. So its counts differ from M2's, but they lean the same way at each level's k:
+  - House: 24 against 18.6 at 1,000 votes;
+  - Senate: 4 against 7.1 at 10,000;
+  - governors: 4 against 9.0 at 10,000.
+- **One reading differs, and no level reaches it.** M2's script lets a note stand on one test where only one counts. The ruling as relayed here says "two tests". Both tests count at all three levels, so the two readings agree here.
+
+**What changed** (`chambers.lean_note_test`, with the counts in `LEAN_TESTS`; `history.json`, `lean_note`):
+- The note is taken off each Senate p: 170 that stand first and 147 beside 538's.
+- It is taken off each of the 420 governor p.
+- The House's 3,369 stay (2,514 first, 855 beside).
+- Only notes change. Every p, control and other figure is as it was, and so is every other field of each p. The House's files and the governors' of 1978-1984 are unchanged.
 
 ### 0.2 A half-life k, and Cha's incumbency codes 2 and 3, under the robustness test (the orchestrator, 2026-11-07 09:03 and 09:08 UTC)
 
@@ -146,7 +176,7 @@ It covers every Senate and House race of the even years 2006 to 2024, and every 
 
 The House's shrink scores differ from §0.4 (+0.0266 there). Under shrinkage the near-tie factor is refitted, and it now fails the robustness test too.
 
-**3. The governors' near-even note.** `chambers.py history` now writes a `note` onto each of the 420 governor p of 1986-2024. Its words are the brief's:
+**3. The governors' near-even note.** *Since 11:16 it is taken off again: its two tests lean opposite ways (§0.1, item 3).* `chambers.py history` now writes a `note` onto each of the 420 governor p of 1986-2024. Its words are the brief's:
 
 > this route's back-test shows fewer near-even finishes than it forecast (0 against 4.5 within 5,000 votes, 2006 to 2024), so p may be high
 
@@ -240,7 +270,7 @@ The contests whose p changed state:
   - the Senate's `level` scheme fails without 2020, where the 49-51% count beyond 10 points from even moves further from the count seen; its `band` scheme fails without 2024, on the log score.
   - So under the new test the Senate would take no near-tie factor. On the orchestrator's word it was taken out (§0.3).
 
-**5. The governors' near-even note** is not written. The brief asks for it if round 5's governor forecast stands, and it does not. Under the normal forecast that stands now, the governors still show the shortfall: 4.5 expected within 5,000 votes in 2006-2024 against none seen (Poisson chance 0.011); 9.9 against 5 over 1986-2024 (§5). On the orchestrator's word it is written onto each governor p (§0.3).
+**5. The governors' near-even note** is not written. The brief asks for it if round 5's governor forecast stands, and it does not. Under the normal forecast that stands now, the governors still show the shortfall: 4.5 expected within 5,000 votes in 2006-2024 against none seen (Poisson chance 0.011); 9.9 against 5 over 1986-2024 (§5). On the orchestrator's word it is written onto each governor p (§0.3), and taken off again since its two tests lean opposite ways (§0.1, item 3).
 
 **Sums, before and after** (before is `main` at f22bf6b, after #45):
 
@@ -911,7 +941,7 @@ What decides control:
 - 176 with p = 0.
 - 1,042 not computed, each with its reason. 457 of them are for too few earlier cycles: the House of 2006 and the governors of 1978-1984.
 - 2,142 of the p computed are calibrated to earlier years' near-ties (§2.6): the model's own for the House of 2010-2024. The Senate's 108 were calibrated until round 4's factor failed the robustness test (§0.3). Each now shows beside it what p would be with the factor.
-- Each of the 420 governor p carries the near-even note (§0.3).
+- The near-even note stands on the House's 3,369 p of the model's own forecast. It is taken off the Senate's and the governors' p, since their two tests lean opposite ways (§0.1, item 3).
 - Nothing of round 5 is of record (§0.4).
 
 p is under the normal forecast. The other tails and the other forecasts' figures sit beside it in `p.alongside`, each with its own `control`.
