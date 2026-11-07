@@ -8,7 +8,7 @@ import { ANCHORS, anchor, TOTAL, YEARS, UNIT } from '../data/real.js';
 import { money } from '../lib/format.js';
 import { useMedia, DESKTOP } from '../lib/media.js';
 import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar, whenOf, sharedBy, SOURCES } from '../components/Lead.jsx';
-import { Field, RECORD_KEY } from '../components/Field.jsx';
+import { Field, RECORD_KEY, leanKey } from '../components/Field.jsx';
 import { Boundary } from '../components/Boundary.jsx';
 import { Legend } from '../components/Legend.jsx';
 import './ruler.css';
@@ -17,8 +17,11 @@ import './ruler.css';
 const FIELD_KEY = [['dot', `= ${UNIT} contests`], ...RECORD_KEY, ['ring', 'a named figure'], ['line', 'your cost']];
 
 export function Ruler({ C, minutes, wage, setCost, reading, setReading }) {
-  const [sel, setSel] = useState('close');
-  const a = anchor(sel);
+  const [sel, setSel] = useState('most');
+  // In the reading "to each person", a figure the data give no population for has no place (its dots fade, and so
+  // does it): the lead is then the highest chance's, and the reader's own choice comes back with the reading "to you"
+  const per = reading === 'person', off = x => per && !x.pop;
+  const a = off(anchor(sel)) ? anchor('most') : anchor(sel);
   const desk = useMedia(DESKTOP);
   return (
     <main class="page ra">
@@ -37,17 +40,17 @@ export function Ruler({ C, minutes, wage, setCost, reading, setReading }) {
         <div class="ra-fh"><h2 id="ra-f">Every contest</h2><span class="src num">{TOTAL.toLocaleString('en-US')} contests, {YEARS[0]}–{YEARS[1]}</span></div>
         <Legend items={FIELD_KEY} />
         <Boundary what="The field of contests" fallback={() => <p class="muted">The field could not be drawn.</p>}>
-          <Field C={C} reading={reading} sel={sel} onSel={setSel} desk={desk} />
+          <Field C={C} reading={reading} sel={a.id} onSel={setSel} desk={desk} />
         </Boundary>
       </section>
       <section class="ra-list" aria-labelledby="ra-l">
         <h2 id="ra-l" class="vh">The named figures</h2>
         <ul class="clist">
           {ANCHORS.map(x => (
-            <li key={x.id}><button type="button" aria-pressed={x.id === sel ? 'true' : 'false'} onClick={() => setSel(x.id)}>
+            <li key={x.id} class={off(x) ? 'off' : null}><button type="button" aria-pressed={x.id === a.id ? 'true' : 'false'} disabled={off(x)} onClick={() => setSel(x.id)}>
               <span class="n">{x.short}</span>
-              <span class={`f${bstar(x, C, reading) == null ? ' none' : ''}`}>{bstar(x, C, reading) == null ? 'No figure yet' : money(bstar(x, C, reading))}{x.lean ? <span class={`lg lg-lean${x.lean === 'low' ? ' low' : ''}`} role="img" aria-label={x.lean === 'low' ? 'may be lower' : 'may be higher'} /> : null}</span>
-              <span class="w">{whenOf(x)}{reading === 'person' ? `; ${sharedBy(x)}` : ''}</span>
+              <span class="f">{off(x) ? '' : money(bstar(x, C, reading))}{x.lean && !off(x) ? <span class={`lg lg-lean${x.lean === 'low' ? ' low' : ''}`} role="img" aria-label={leanKey(x.lean)} /> : null}</span>
+              <span class="w">{whenOf(x)}{per ? `; ${sharedBy(x)}` : ''}</span>
             </button></li>
           ))}
         </ul>

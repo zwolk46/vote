@@ -131,7 +131,6 @@ p { margin: 0; }
 /* ---- the lead: the figure, its key and its working (§2.1, §2.4) ---- */
 .lead-fig { font-size: var(--t-display); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.28em; }
 .lead-fig .w { font-weight: 400; }
-.lead-fig.none > span:first-child { font-size: 0.62em; color: var(--muted); }
 .lean-p .lg-lean { display: inline-block; vertical-align: middle; margin-right: 3px; }
 .lead-fig .to { flex: 1 1 100%; font-size: var(--t-sub); font-weight: 400; color: var(--muted); letter-spacing: 0; line-height: 1.35; margin-top: 4px; text-wrap: pretty; }
 .working { font-size: var(--t-src); color: var(--muted); font-variant-numeric: tabular-nums; margin-top: 6px; line-height: 1.45; max-width: 52ch; }
@@ -156,9 +155,10 @@ p { margin: 0; }
 .clist .n { font-weight: 600; flex: 1 1 0; }
 .clist .w { order: 3; flex: 1 0 100%; font-size: var(--t-src); color: var(--muted); }
 .clist .f { font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; margin-left: auto; }
-.clist .f.none { font-weight: 400; color: var(--muted); }
+/* a figure with no place in this reading (no population in the data yet): faded as its dots are, and not chosen */
+.clist li.off button { opacity: 0.38; cursor: default; }
 .clist .f .lg-lean { display: inline-block; vertical-align: middle; margin-left: 6px; }
-@media (hover: hover) { .clist button:hover { background: var(--hover); } }
+@media (hover: hover) { .clist button:not(:disabled):hover { background: var(--hover); } }
 
 .foot { max-width: var(--maxw); margin: 0 auto; padding: 24px var(--gutter) 40px; border-top: 1px solid var(--line); }
 .foot > * + * { margin-top: 8px; }

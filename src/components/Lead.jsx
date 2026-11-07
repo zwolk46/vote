@@ -9,10 +9,11 @@ import { useFold, FoldBody } from './Fold.jsx';
 import { Seg } from './Seg.jsx';
 import { LeadRuler } from './LeadRuler.jsx';
 
-// B*, or null in the reading "to each person" where the data give no population yet (none is filled in)
+// B*, or null in the reading "to each person" where the data give no population yet (none is filled in); the
+// candidates then show no such figure (its mark fades, and the lead is another's)
 export const bstar = (a, C, reading) => (reading === 'person' ? (a.pop ? (C * a.N) / a.pop.value : null) : C * a.N);
 
-// Which election, and why this one is named: "2024 · the closest state", "1980 · the lowest of 53,397 since 1975"
+// Which election, and why this one is named: "2024 · the highest chance of any state", "2024 · the lowest of 34"
 export const whenOf = a => `${a.when} · ${a.role}`;
 // the people a per-person figure is shared among
 export const sharedBy = a => (a.pop ? `shared by ${count(a.pop.value)} people in ${a.pop.of}` : 'no population in the data yet');
@@ -26,18 +27,11 @@ export const leanWords = a => {
 // The figure the page leads with, B*, in the display size, the unit word lighter; under it what it is, in a label
 // (every cold reader of 11-07 first took "$89 million to you" for a sum they would receive); the working as figures;
 // and the working drawn, the cost carried to the figure by the odds (LeadRuler), which is what explains it.
+// A figure with no population is never led with "to each person" (the candidates lead with another's), so that
+// reading falls back to "to you" here only as a guard.
 export function LeadFigure({ a, C, reading, id }) {
-  const per = reading === 'person';
-  if (per && !a.pop) {
-    // no population in the data yet: the figure is not made up; the working stays the reader's own figure's
-    return (
-      <div class="lead" id={id}>
-        <p class="lead-fig none"><span>No figure yet</span><span class="to">the data give no population for {a.place} yet</span></p>
-        <p class="working">{`${money(C)} × ${digits(a.N)} = ${money(C * a.N)} to you`}</p>
-        <LeadRuler a={a} C={C} reading="you" />
-      </div>
-    );
-  }
+  const per = reading === 'person' && !!a.pop;
+  reading = per ? 'person' : 'you';
   const [n, w] = moneyParts(bstar(a, C, reading));
   return (
     <div class="lead" id={id}>

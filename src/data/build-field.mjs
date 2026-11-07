@@ -9,14 +9,17 @@
 //   "district (class A)" or "(class B)". Class C is a chamber's average district, and the like-race routes (class,
 //   boundary, runoff) an average of like races; both are kept in the field, marked, and never chosen as a case.
 //   *Reason:* law 8; a figure shown for one district must be that district's (09:31).
-// - The lowest-B* case of each level is chosen at the default cost, $8.87, among the contests' own p. B* = C × N is
-//   C times the same N for every contest, so the lowest B* is the highest p, at any cost.
-// - The lead is the closest state of 2024 (design/DESIGN-SPEC.md §7.2): the 2024 presidential contest with the
-//   highest p.
+// - The lead is the state with the highest chance in 2024 (design/DESIGN-SPEC.md §7.2, read with the orchestrator's
+//   11:05 correction: Nevada had the highest chance, not the narrowest result, so it is named by its chance), and beside
+//   it the average voter and the state with the lowest chance. A state is a state: not DC, not a district of Maine's or
+//   Nebraska's.
+// - The lowest-B* case of each level is that of 2024, the lead's own year, among the contests' own p (the orchestrator,
+//   11:05: the reader compares like with like, and the history stays in the dots). It is chosen at the default cost,
+//   $8.87, but B* = C × N is C times the same N for every contest, so the lowest B* is the highest p, at any cost.
 // - Populations for the reading "to each person" only where D1 and D2 give them: the nation for the presidency
 //   (population_nation), the contest's own population elsewhere; none is filled in.
 // - A route's back-test leaning one way (p.note: "so p may be high", "so p may be low") is carried as `lean`, so the
-//   page can draw it (the maker, 04:32: visuals over prose).
+//   page can draw it (the maker, 04:32: visuals over prose); except the governors' (LEAN_OUT).
 //
 // The field is written as groups of UNIT contests, each at its group's middle (median) N, so the page draws whole
 // dots that can be seen and moved (the midterms swarms) and the file stays small. Groups never mix a contest's own p
@@ -44,7 +47,12 @@ const LEVELS = [
 const STATES = {};
 for (const f of files(join(DATA, 'president'))) for (const c of read(f).contests || []) if (c.place && !c.place.district && c.place.name) STATES[c.place.state] = c.place.name;
 
-const leanOf = p => { const m = /so p may be (high|low)/.exec(p.note || ''); return m ? m[1] : null; };
+// The orchestrator's ruling of 11:05: a lean note stands only where the share test and the vote-count test of the same
+// back-test lean the same way (each counted only with 5 or more expected). For governors they disagree (17 against 14.9
+// within 1 point; 4 against 8.8 within 10,000 votes), so their note is coming out of the data; until it does, it is not
+// drawn. The House's and the Senate's notes are drawn as the data carry them.
+const LEAN_OUT = new Set(['governor']);
+const leanOf = (level, p) => { if (LEAN_OUT.has(level)) return null; const m = /so p may be (high|low)/.exec(p.note || ''); return m ? m[1] : null; };
 const ownOf = (level, p) => (level !== 'state' ? true : /^district/.test(p.forecast_scope || ''));
 const popOf = (level, c) => (level === 'president' ? c.population_nation : c.population) || null;
 
@@ -59,7 +67,7 @@ for (const L of LEVELS) {
         const p = c.p || {};
         if (!(p.value > 0)) continue;
         const pop = popOf(L.id, c);
-        rows.push({ c, doc, sub: d, N: 1 / p.value, lN: -Math.log10(p.value), pop: pop && pop.value > 0 ? pop : null, own: ownOf(L.id, p), lean: leanOf(p) });
+        rows.push({ c, doc, sub: d, N: 1 / p.value, lN: -Math.log10(p.value), pop: pop && pop.value > 0 ? pop : null, own: ownOf(L.id, p), lean: leanOf(L.id, p) });
       }
     }
   }
@@ -82,7 +90,8 @@ for (const L of LEVELS) {
   levels.push({
     id: L.id, name: L.name, count: rows.length, withPop: rows.filter(r => r.pop).length, avgCount: rows.filter(r => !r.own).length,
     years: [Math.min(...years), Math.max(...years)],
-    lean: leans.length ? { dir: leans[0].lean, n: leans.length, note: leans[0].c.p.note } : null,
+    // how many of the row's contests carry each way of leaning, in all and among those with a population
+    lean: leans.length ? Object.fromEntries(['high', 'low'].map(d => [d, { n: leans.filter(r => r.lean === d).length, withPop: leans.filter(r => r.lean === d && r.pop).length }]).filter(([, v]) => v.n)) : null,
     g: { you: gs.map(g => g.you), per: gs.map(g => g.per), avg: gs.map(g => g.avg), size: gs.map(g => g.size) },
   });
 }
@@ -130,25 +139,27 @@ function caseOf(id, level, r, extra = {}) {
     ...extra,
   };
 }
-const lowest = rows => rows.filter(r => r.own).reduce((a, b) => (b.N < a.N ? b : a));
-const p24 = all.president.filter(r => r.c.year === 2024);
-const lead = p24.reduce((a, b) => (b.N < a.N ? b : a));
-const safest = p24.filter(r => !r.c.place.district && r.c.place.state !== 'DC').reduce((a, b) => (b.N > a.N ? b : a));
+const lowest = rows => rows.reduce((a, b) => (b.N < a.N ? b : a));
+// the states of 2024: not DC, not a district (Maine's and Nebraska's are counted on their own)
+const s24 = all.president.filter(r => r.c.year === 2024 && !r.c.place.district && r.c.place.state !== 'DC');
+const lead = lowest(s24);
+const least = s24.reduce((a, b) => (b.N > a.N ? b : a));
 const doc24 = read(join(DATA, 'president', '2024.json'));
 const cases = [
-  caseOf('close', 'president', lead, { role: 'the closest state' }),
+  caseOf('most', 'president', lead, { role: 'the highest chance of any state' }),
   { id: 'avg', contest: null, level: 'president', year: 2024, N: doc24.summary.one_in, name: 'President, for the average voter', short: 'President, average voter', place: 'the average voter', when: '2024', votes: null,
     src: `The chance of the average voter of 2024: each state's chance, weighted by its two-party vote, averaged over the ${doc24.summary.states_with_p} states with a chance. Forecast: this site's own model, as for each state.`,
     pop: { value: lead.c.population_nation.value, of: 'the United States', src: shortSrc(lead.c.population_nation.source?.name) }, lean: null, note: null, role: 'the average over the states',
     mark: 'An average over the states, not one contest.' },
-  caseOf('safe', 'president', safest, { role: 'the safest state' }),
+  caseOf('least', 'president', least, { role: 'the lowest chance of any state' }),
 ];
 for (const L of LEVELS) {
-  const r = lowest(all[L.id]);
-  if (L.id === 'president' && r === lead) continue;
-  // among the contests whose p is their own, the pool it was chosen from
-  const pool = all[L.id].filter(x => x.own), y0 = Math.min(...pool.map(x => x.c.year));
-  cases.push(caseOf(`low-${L.id}`, L.id, r, { role: `the lowest of ${pool.length.toLocaleString('en-US')} since ${y0}` }));
+  if (L.id === 'president') continue;   // the presidency's highest chance of 2024 is the lead
+  // the pool: this level's contests of 2024 whose p is their own
+  const pool = all[L.id].filter(x => x.own && x.c.year === 2024);
+  if (!pool.length) continue;
+  const r = lowest(pool);
+  cases.push(caseOf(`low-${L.id}`, L.id, r, { role: `the lowest of ${pool.length.toLocaleString('en-US')}${L.id === 'state' ? ' with a district forecast' : ''}` }));
 }
 cases.sort((a, b) => a.N - b.N);
 
