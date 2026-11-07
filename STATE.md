@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 08:32: #46 merged (D3: NC certified counts in the legislature files where they differ: 2016 79 contests, 2018 22, 2024 46 of MEDSL's 170 (up to 643 votes); 2000, 2002, 2010 keep Klarner; outside NC 3,166 p moved by at most 1.2e-5). 2002 slips (HD 118 113,717 vs 13,717; SD 15 34,177 vs 36,177): gate SBE 2002 against the Clerk's 2002 NC House figures, else p not computed for the two. D3 on Indiana's certified 2024 archive, then LA, NJ, local thresholds.
+
 - 2026-11-07 08:20: #45 merged (D2 incumbency fix: Cha matched within the contest by name, votes, first name; incumbency = Cha's coding of the D and R nominees; 13 contests changed, 4 with p (UT 2006 x0.150, MI-11 2014 x4.75, NY-14 2018 x2,071, SD-AL 2024 x0.0353), reproduced; 1,135 seats' control moved, Senate 2006 sum 1.155e-6 to 8.613e-7; fits, lambda, F unchanged; f_half documented as calibrated). Next D2 round, after M2: recent-years k and Cha inc 2/3 variants ((a) 1+2, (b) 1+2+3), each fixed before scoring, same adoption rule.
 
 - 2026-11-07 08:13: D3: the 1,158 write-in count is right (equal to the boundary count by coincidence; 1,249 includes 91 on MEDSL dates). Klarner NC replaced only for 2016 and 2018 (2002 has no certified federal file in data/ to gate on).
