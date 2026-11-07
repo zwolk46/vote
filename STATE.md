@@ -4,7 +4,7 @@
 
 ## Where things stand
 
-- **Phase 2 (data, with design alongside) begins**, by `plan/PLAN.md` (written 03:04, told to the maker, not asked: law 7a). Briefs T1 (tracker), D1 (presidency), D2 (Congress and governors), X1 (design) written; threads started 03:08 (#13 put law, model, plan and briefs on `main`). Next: gate D1's `pipeline/core.py` PR first (D2 imports it); approve each data worker's own-forecast method before it computes p; send X1's options to the maker.
+- **Phase 2 (data, with design alongside) begins**, by `plan/PLAN.md` (written 03:04, told to the maker, not asked: law 7a). Briefs T1 (tracker), D1 (presidency), D2 (Congress and governors), X1 (design) written; threads started 03:08 (#13 put law, model, plan and briefs on `main`). Next: gate D1's `pipeline/core.py` PR first (D2 imports it); approve each data worker's own-forecast method before it computes p; send X1's options to the maker; start D3 (`briefs/D3-data-local.md`) when X1 waits on his pick or D1 or D2 ends.
 - **Tracker** for the maker: "Vote Work", https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH (source `tracker/vote-work.html`; db collection `tasks`, rows {s, t, o, link, linkLabel}; seeded 03:02, read back at view level). Kept current by T1.
 - Open with the maker: the design-effort card (max for design work only, recommended / xhigh; until he answers, design runs at xhigh); the batched asks of plan §5 (web.archive.org; MEDSL's guestbook).
 - Hold of 02:45 lifted at 02:54 (RULINGS). Design follows `inherited/design/` (#11, from the midterms orchestrator). Work autonomously: the plan is recorded and he is told, not asked.
@@ -48,6 +48,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 03:20: the maker (03:13, project chat): gather "absolutely as much data as we can find", through a token-light intake from standardized data; no live data (RULINGS). Applied: `plan/PLAN.md` §2 (every contest the sources allow, back as far as they go) and new §3a (one intake script per standardized source, `pipeline/intake/`; inventories in `data/sources/`); briefs D1, D2, X1 amended and told by message with his words attached; brief D3 (local, state legislatures, primaries, measures, by script) written, to start when X1 waits on his pick or D1 or D2 ends.
 
 - 2026-11-07 03:09: #13 merged (law in force, model of record, plan, briefs T1, D1, D2, X1, tracker source); main merged back. T1, D1, D2, X1 started by the coordinator on the networked environment (ids in the table). The maker told the plan, with two asks: allow web.archive.org; MEDSL's guestbook with his name and email. Tracker rows updated to match.
 

@@ -55,3 +55,7 @@
 **Zach, 03:11 UTC (project chat, relayed):** Let me know when the tracker's up and give me the artifact link.
 
 **Orchestrator, 03:11:** It's up: Vote Work (https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH). The tracker thread has started and will keep it current, adding preview links as they appear.
+
+**Zach, 03:13 UTC (project chat, relayed):**
+
+> I think one of the really cool aspects of the website or the presentation of data could be the amount of data that's available. Like, I want the site to be really special for someone to say, wow, which are like some of the principles behind the design of the last site too. And I really want to focus on like aggregating absolutely as much data as we can find. So maybe that involves researching enough to be able to create an intake flow that doesn't use as many tokens, something like that, if there's standardized data. Because especially about past elections, you don't necessarily need live data. We don't need live data at all. So we can pull maybe from standardized spreadsheets or other things like that. I trust you'll understand what I mean in light of the end goal of the end goals and what I'm trying to head towards. So just apply this as you see fit.
