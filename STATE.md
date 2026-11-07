@@ -51,7 +51,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
-- 2026-11-07 05:26: #25 merged (4ca6b90 re-gated: no partisan p off the top two, no numeric party codes; WI-25 2010 not computed with reason; 93,285 p, 66,534 p=0). D3 restarts its branch from main for MEDSL.
+- 2026-11-07 05:24: #25 merged (4ca6b90 re-gated: no partisan p off the top two, no numeric party codes; WI-25 2010 not computed with reason; 93,285 p, 66,534 p=0). D3 restarts its branch from main for MEDSL.
 
 - 2026-11-07 05:17: D3 v1.1 done (earlier years only, from 3 earlier years by back-test; 93,579 p, 66,716 p=0; near-ties 22.4 vs 22). Gated #25 (d0f87a1): clean, tests and build pass, 137 MB checkout, pack +15 MiB measured; WI 2010 p recomputed to 4 figures. Held for two fixes: route (a) used where D and R were not the top two (281 contests, 39 won by neither party), and Klarner's numeric party codes untranslated (~1,300 candidates). D3 to push both to #25.
 
