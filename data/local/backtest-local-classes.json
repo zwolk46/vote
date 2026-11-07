@@ -63,13 +63,13 @@
    "seen_over_expected": 0.194
   },
   "2024": {
-   "contests": 2264,
-   "expected_in_window": 284.1,
+   "contests": 2270,
+   "expected_in_window": 284.5,
    "seen_in_window": 214,
    "by_office_type": {
     "class, local council, commission or board": {
-     "contests": 960,
-     "expected": 133.0,
+     "contests": 966,
+     "expected": 133.4,
      "seen": 100
     },
     "class, local school board": {
@@ -113,7 +113,7 @@
      "seen": 7
     }
    },
-   "seen_over_expected": 0.753
+   "seen_over_expected": 0.752
   }
  }
 }

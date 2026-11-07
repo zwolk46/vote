@@ -180,7 +180,7 @@ The orchestrator sends the links; the maker picks; the chosen one goes to `main`
 
 **Settled by the orchestrator** (03:53 UTC 11-07, on version 1's list):
 1. **The default cost** is the median, 14 minutes, $8.87, with the mean (19 minutes, $12.03) in the cost's fold. *Reason:* the lower cost makes every B\* lower, the cautious side against the maker's own claim.
-2. **The lead contest** is the presidency in the closest states, with the lowest-B\* cases on the same screen at the same weight (law 1a). Once D1's data lands, the lead becomes the closest state of the latest cycle, 2024, in place of 2008.
+2. **The lead contest** is the presidency in the closest states, with the lowest-B\* cases on the same screen at the same weight (law 1a). Once D1's data lands, the lead becomes the closest state of the latest cycle, 2024, in place of 2008. *Amended 11-07 (the orchestrator, 11:05):* the lead is the state with the highest chance in 2024 (Nevada), named by its chance, not as the closest state (New Hampshire and Wisconsin were nearer); beside it the average voter and the state with the lowest chance; and the lowest-B\* case of each level is 2024's, from contests whose forecast is their own. *Reason:* only true things are shown, and the cases in the lead's own year compare like with like; the history stays in the dots.
 3. **`--t-display`** and **`--accent`** are approved.
 4. **The name and the mark** (§2.11) go to the maker with the candidates; his to name.
 5. **Populations** for the per-person reading come with D1 and D2; until then that reading is marked as a sample.

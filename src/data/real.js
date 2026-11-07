@@ -22,9 +22,10 @@ export const UNIT = FIELD.unit;
 export const TOTAL = FIELD.total;
 export const YEARS = FIELD.years;
 
-// The named figures, in order of N (law 1a: the lowest first): the closest state of 2024, which leads (DESIGN-SPEC
-// §7.2), the average voter and the safest state of 2024 beside it, and each level's lowest. `pop` is null where the
-// data give no population yet; `lean` is "high" or "low" where the route's back-test leans that way (p.note).
+// The named figures, in order of N (law 1a: the lowest first), all of 2024: the state with the highest chance, which
+// leads (DESIGN-SPEC §7.2), the average voter and the state with the lowest chance beside it, and each level's lowest.
+// `pop` is null where the data give no population yet; `lean` is "high" or "low" where the route's back-test leans
+// that way (p.note).
 export const ANCHORS = FIELD.cases;
 export const anchor = id => ANCHORS.find(a => a.id === id);
 

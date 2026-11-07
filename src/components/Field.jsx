@@ -10,9 +10,11 @@
 // Two marks carry what the record says of a chance, without a sentence (the maker, 04:32): a dot whose p is an average
 // race's, not its own (a state legislature's class C, a chamber's average district, or like past races; the
 // orchestrator, 09:31: "mark it visually as a chamber average") is the same dot, lighter, stacked above the contests'
-// own; and where a route's back-test leans one way (p.note, "so p may be high"), a dashed arrow points the way the
-// figure may lie, on the row's name and on its named figure. In the reading "to each person", a contest the data give
-// no population for has no place, so its dot fades where it stands and the row counts those that remain.
+// own; and where a route's back-test leans one way (p.note, "so p may be low"), a dashed arrow points the way the
+// figure may lie: on a named figure whose p carries the note, and in the row's count beside the number of its contests
+// that carry it (in the House and the Senate, the routes of this site's own model; 538's carry none). In the reading
+// "to each person", a contest the data give no population for has no place, so its dot fades where it stands and the
+// row counts those that remain.
 //
 // Where a dot stands is the formula, not a layout: x = log10(B*) = log10(C) + log10(N), so the distance from the
 // reader's cost to a dot is the size of N (§2.1). The stacks are binned from the reader's cost, so a new cost moves
@@ -86,12 +88,17 @@ export function pastEnd(R, C, reading) {
   return s;
 }
 export const pastWords = n => (n ? ` · ${n.toLocaleString('en-US')} past $1T \u203a` : '');
-// The key's items for the record's two marks, only where the data carry them
-const LEAN = LEVELS.find(l => l.lean)?.lean.dir;
+// The key's items for the record's two marks, only where the data carry them: each way of leaning that a row or a
+// named figure carries
+const DIRS = ['high', 'low'].filter(d => LEVELS.some(l => l.lean?.[d]) || ANCHORS.some(a => a.lean === d));
+export const leanKey = d => (d === 'low' ? 'may be lower' : 'may be higher');
 export const RECORD_KEY = [
   ...(LEVELS.some(l => l.avgCount) ? [['avg', 'an average race’s chance, not its own']] : []),
-  ...(LEAN ? [[LEAN === 'low' ? 'lean low' : 'lean', LEAN === 'low' ? 'may be lower' : 'may be higher']] : []),
+  ...DIRS.map(d => [d === 'low' ? 'lean low' : 'lean', leanKey(d)]),
 ];
+// A row's leaning contests, beside its count: the arrow and how many carry it (in the reading "to each person", how
+// many of those with a place)
+export const leanCounts = (r, per) => (r.lean ? Object.entries(r.lean).map(([d, v]) => [d, per ? v.withPop : v.n]).filter(([, n]) => n) : []);
 export function orderOf(rel) {
   const o = new Float32Array(rel.length), idx = Array.from(rel, (_, i) => i).sort((a, b) => rel[a] - rel[b]);
   idx.forEach((i, k) => { o[i] = idx.length > 1 ? k / (idx.length - 1) : 0; });
@@ -344,8 +351,8 @@ export function Field({ C, reading, sel, onSel, desk }) {
         aria-label={`Every contest with a chance from ${FIELD.years[0]} to ${FIELD.years[1]}, on one scale of dollars from 1 cent to 1 trillion, in rows: ${rows.map(r => `${r.name}, ${r.count.toLocaleString('en-US')} from ${r.years[0]}`).join('; ')}. Each dot is ${UNIT} contests; a lighter dot's chance is an average race's, not its own. The named figures are ringed, and listed below.`} />
       {lay && rows.map((r, ri) => (
         <div class="field-row" ref={el => { labs.current[ri] = el; }} style={{ top: `${lay[ri].top}px`, height: desk ? `${lay[ri].base + g.lane - lay[ri].top}px` : 'auto', width: desk ? `${g.left - 16}px` : '100%' }} aria-hidden="true">
-          <span class="field-n">{r.name}{r.lean ? <span class={`lg lg-lean${r.lean.dir === 'low' ? ' low' : ''}`} /> : null}</span>
-          <span class="field-k num">{reading === 'person' && r.withPop < r.count ? `${r.withPop.toLocaleString('en-US')} of ${r.count.toLocaleString('en-US')}` : r.count.toLocaleString('en-US')}{pastWords(pastEnd(r, C, reading))}</span>
+          <span class="field-n">{r.name}</span>
+          <span class="field-k num"><span class="field-c-n">{reading === 'person' && r.withPop < r.count ? `${r.withPop.toLocaleString('en-US')} of ${r.count.toLocaleString('en-US')}` : r.count.toLocaleString('en-US')}</span>{leanCounts(r, reading === 'person').map(([d, n]) => <span class="field-lean" key={d}>{' · '}<span class={`lg lg-lean${d === 'low' ? ' low' : ''}`} /> {n.toLocaleString('en-US')}</span>)}{pastWords(pastEnd(r, C, reading))}</span>
         </div>
       ))}
       <span ref={costL} class="field-cost" aria-hidden="true">Your cost</span>

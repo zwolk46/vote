@@ -20,7 +20,9 @@
 .field-row { position: absolute; left: 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 8px; font-size: var(--t-src); pointer-events: none; }
 .field-n { color: var(--fg); font-weight: 600; min-width: 0; flex: 0 1 auto; background: var(--bg); padding-right: 6px; line-height: 1.3; }
 .field-k { background: var(--bg); padding-left: 6px; margin-left: auto; }
-.field-k { color: var(--faint); white-space: nowrap; }
+/* the count, each leaning count and the count past the end each kept whole; between them the line may break */
+.field-k { color: var(--faint); }
+.field-c-n { white-space: nowrap; }
 @media (min-width: 900px) {
   .field-row { flex-direction: column; flex-wrap: nowrap; justify-content: center; align-items: flex-start; gap: 0; }
   .field-k { margin-left: 0; padding-left: 0; }
@@ -33,4 +35,5 @@
 .field-t.last { transform: translateX(-100%); }
 
 .field-t.mid { color: var(--faint); font-size: calc(var(--t-src) * 0.92); }
-.field-n .lg-lean { display: inline-block; margin-left: 6px; vertical-align: middle; }
+.field-lean { white-space: nowrap; }
+.field-lean .lg-lean { display: inline-block; vertical-align: middle; }

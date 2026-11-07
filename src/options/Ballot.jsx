@@ -2,8 +2,8 @@
 // casts a vote on every line of the ballot, so the trip pays when the lines' shares add to 100% (law 2c; §2.3). Each
 // line has its B* at the right edge and a track on which the reader sets what that outcome is worth to them; behind
 // each track, faint, every contest of its kind (src/data/build-field.mjs). The lead figure is the line in focus.
-// Each line below the presidency is the lowest figure of its kind in the data (law 1a), so the lines are of different
-// states and years: the ballot is every kind of contest on one trip, each at its lowest, not one voter's ballot.
+// Each line below the presidency is the lowest figure of its kind in 2024 (law 1a), so the lines are of different
+// states: the ballot is every kind of contest on one trip, each at its lowest, not one voter's ballot.
 //
 // Motion (§4): V2 a new cost moves every line's contests and its B* mark by one distance (`chart`, one transform per
 // line); V3 the reading moves each dot by its own population (`chart`, drawn frame by frame); V5 a stake follows the
@@ -14,7 +14,7 @@ import { money, oneIn, pct, count, tick, tickShort } from '../lib/format.js';
 import { useMedia, DESKTOP, useColours } from '../lib/media.js';
 import { play, reducedMotion, springValue, TOKENS } from '../lib/motion.js';
 import { LeadFigure, CostRow, ChanceRow, ReadingSeg, ONE_Q, bstar, whenOf, sharedBy, SOURCES } from '../components/Lead.jsx';
-import { useGroups, stacks, pitchFor, thinStep, liveOf, orderOf, STAGGER, LO, HI, AVG_A, RECORD_KEY, pastEnd, pastWords } from '../components/Field.jsx';
+import { useGroups, stacks, pitchFor, thinStep, liveOf, orderOf, STAGGER, LO, HI, AVG_A, RECORD_KEY, leanKey, pastEnd, pastWords } from '../components/Field.jsx';
 import { Seg } from '../components/Seg.jsx';
 import { Boundary } from '../components/Boundary.jsx';
 import { Legend } from '../components/Legend.jsx';
@@ -30,8 +30,10 @@ const share = x => (x < 10 ? pct(x * 100) : `${count(Math.round(x))} times`);
 const at = lx => ((lx - LO) / SPAN) * 100;          // percent of the track
 const shift = d => `translateX(${(d / SPAN) * 100}%)`;
 
-// The ballot, top line to bottom. A line without a figure of record says so; its contests are still behind it.
-const WHERE = [['close', 'Closest state'], ['avg', 'Average voter'], ['safe', 'Safest state']];
+// The ballot, top line to bottom. Where you vote for president: the state with the highest chance of 2024, the average
+// voter, the state with the lowest; each named by its chance, not by its margin (the orchestrator, 11:05: Nevada had
+// the highest chance, not the narrowest result).
+const WHERE = [['most', 'Highest chance'], ['avg', 'Average voter'], ['least', 'Lowest chance']];
 const LINES = [
   { level: 'president', name: 'President' },
   { level: 'senate', name: 'U.S. Senate', a: 'low-senate' },
@@ -44,7 +46,7 @@ const ctxOf = a => `${a.place[0].toUpperCase()}${a.place.slice(1)}, ${a.when}`;
 
 export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
   const desk = useMedia(DESKTOP);
-  const [where, setWhere] = useState('close');
+  const [where, setWhere] = useState('most');
   const [focus, setFocus] = useState('president');
   // level -> log10 of the stake, for each reading apart (worth to you and worth to each person are different
   // questions); none by default (no default B)
@@ -56,7 +58,10 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
     const a = id ? anchor(id) : null;
     return { ...L, a, ctx: a ? ctxOf(a) : '' };
   });
-  const fl = lines.find(l => l.level === focus) || lines[0];
+  // in the reading "to each person", a line the data give no population for has no figure (it fades), so the
+  // presidency is in focus; the reader's own choice comes back with the reading "to you"
+  const fl0 = lines.find(l => l.level === focus) || lines[0];
+  const fl = reading === 'person' && !fl0.a.pop ? lines[0] : fl0;
   const shares = lines.map(l => (l.a && stakes[l.level] != null && bstar(l.a, C, reading) ? 10 ** stakes[l.level] / bstar(l.a, C, reading) : 0));
   const total = shares.reduce((s, x) => s + x, 0);
   const anySet = Object.keys(stakes).length > 0;
@@ -90,7 +95,7 @@ export function Ballot({ C, minutes, wage, setCost, reading, setReading }) {
           <Legend items={[['dot', `= ${UNIT} contests`], ...RECORD_KEY, ['tick', 'the line’s figure'], ['knob', 'what it is worth to you']]} />
           <div class="bt-where"><span class="src">Where you vote for president</span><Seg fit label="Where you vote for president" options={WHERE} value={where} onChange={setWhere} /></div>
           <Boundary what="The ballot" fallback={() => <p class="muted">The ballot could not be drawn.</p>}>
-            <Lines lines={lines} C={C} reading={reading} desk={desk} stakes={stakes} setStakes={setStakes} shares={shares} focus={focus} setFocus={setFocus} />
+            <Lines lines={lines} C={C} reading={reading} desk={desk} stakes={stakes} setStakes={setStakes} shares={shares} focus={fl.level} setFocus={setFocus} />
           </Boundary>
           {desk ? null : trip}
         </section>
@@ -217,11 +222,13 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
           const B = l.a ? bstar(l.a, C, reading) : null;
           const per = reading === 'person';
           const has = B != null;   // per person, a line with no population has no figure, and no stake to weigh against it
+          // the words under the track once, under the first line, until a stake is set: the hollow knob is the rest
+          const hint = i === 0 && !Object.keys(stakes).length;
           const n = per && r.withPop < r.count ? `${r.withPop.toLocaleString('en-US')} of ${r.count.toLocaleString('en-US')}` : r.count.toLocaleString('en-US');
           return (
-            <li class={`bt-line${l.level === focus ? ' on' : ''}`} key={l.level}>
+            <li class={`bt-line${l.level === focus ? ' on' : ''}${has ? '' : ' off'}`} key={l.level}>
               <span class="bt-name">{l.name}</span>
-              <button type="button" class={`bt-fig${has ? '' : ' none'}`} aria-pressed={l.level === focus ? 'true' : 'false'} aria-label={`${l.name}: ${has ? money(B) : 'no figure yet'}${l.a.lean ? `, which may be ${l.a.lean === 'low' ? 'lower' : 'higher'}` : ''}. Show in focus`} onClick={() => setFocus(l.level)}>{has ? money(B) : 'No figure yet'}{l.a.lean ? <span class={`lg lg-lean${l.a.lean === 'low' ? ' low' : ''}`} aria-hidden="true" /> : null}</button>
+              <button type="button" class="bt-fig" disabled={!has} aria-pressed={l.level === focus ? 'true' : 'false'} aria-label={has ? `${l.name}: ${money(B)}${l.a.lean ? `, which ${leanKey(l.a.lean)}` : ''}. Show in focus` : `${l.name}: no population in the data yet, so no figure to each person`} onClick={() => setFocus(l.level)}>{has ? money(B) : ''}{has && l.a.lean ? <span class={`lg lg-lean${l.a.lean === 'low' ? ' low' : ''}`} aria-hidden="true" /> : null}</button>
               <span class="bt-ctx">{`${l.ctx} · ${oneIn(l.a.N)}${per ? ` · ${sharedBy(l.a)}` : ''}`}<span class="bt-n"><span class="sep"> · </span>{/^low-/.test(l.a.id) ? l.a.role : <><span class="num">{n}</span> contests</>}{pastWords(pastEnd(r, C, reading))}</span></span>
               <div class="bt-track" ref={i === 0 ? first : null}>
                 <div class="bt-layer" ref={el => { layers.current[i] = el; }}>
@@ -236,7 +243,7 @@ function Lines({ lines, C, reading, desk, stakes, setStakes, shares, focus, setF
                   : null}
               </div>
               {has
-                ? <span class="bt-worth">{v == null ? <span class="muted">{per ? 'Worth to each person: drag to set' : 'Worth to you: drag to set'}</span> : <>{per ? 'Worth to each person' : 'Worth to you'} <b class="num">{money(10 ** v)}</b></>}</span>
+                ? <span class="bt-worth">{v == null ? (hint ? <span class="muted">{per ? 'Worth to each person: drag to set' : 'Worth to you: drag to set'}</span> : null) : <>{per ? 'Worth to each person' : 'Worth to you'} <b class="num">{money(10 ** v)}</b></>}</span>
                 : <span class="bt-worth" />}
               <span class="bt-share num">{has && v != null ? (shares[i] < 10 ? `repays ${share(shares[i])} of the cost` : `repays the cost ${share(shares[i])}`) : ''}</span>
             </li>
