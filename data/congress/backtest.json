@@ -37,6 +37,7 @@
    },
    "b_lean": 0.8153710319101193,
    "b_inc": 0.05283347172178376,
+   "b_inc_se": 0.0012204597739394224,
    "b_lag": null,
    "lag": false,
    "s_e": 0.04886248551254273,
@@ -121,6 +122,7 @@
    },
    "b_lean": 0.5816546366370509,
    "b_inc": 0.08875266518083401,
+   "b_inc_se": 0.003580875227027781,
    "b_lag": null,
    "lag": false,
    "s_e": 0.0735182417810024,
@@ -209,6 +211,7 @@
    },
    "b_lean": 0.29210903919721026,
    "b_inc": 0.07173529184931095,
+   "b_inc_se": 0.005237701274086422,
    "b_lag": 0.1355262617715833,
    "lag": true,
    "s_e": 0.07906339159098916,
@@ -19787,6 +19790,11 @@
    "both": {
     "shrink": true,
     "tails": "t4"
+   },
+   "halflife": {
+    "shrink": false,
+    "tails": "normal",
+    "k": "halflife"
    }
   },
   "by_level": {
@@ -20758,6 +20766,289 @@
      "robust": false,
      "adopted_if": "improves on every scored year, and on every set with one scored year left out"
     },
+    "halflife": {
+     "variant": "halflife",
+     "near_tie": "level",
+     "races": 3047,
+     "mean_log_score": 1.5866584007375095,
+     "coverage": {
+      "0.5": 0.5500492287495897,
+      "0.8": 0.8493600262553331,
+      "0.95": 0.9704627502461437
+     },
+     "within": {
+      "49-51%": {
+       "expected": 86.22749764008634,
+       "seen": 105
+      },
+      "48-52%": {
+       "expected": 163.77148002137048,
+       "seen": 209
+      },
+      "45-55%": {
+       "expected": 416.51593463240823,
+       "seen": 521
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 290,
+       "mean_log_score": 1.670027651683369,
+       "within": {
+        "49-51%": {
+         "expected": 41.27332479459277,
+         "seen": 52
+        },
+        "48-52%": {
+         "expected": 76.44352130662928,
+         "seen": 90
+        },
+        "45-55%": {
+         "expected": 168.8390765003239,
+         "seen": 202
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 14.500000000000071,
+         "seen": 4
+        },
+        "1%": {
+         "expected": 2.899999999999982,
+         "seen": 1
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 542,
+       "mean_log_score": 1.555033365412044,
+       "within": {
+        "49-51%": {
+         "expected": 32.14673275198297,
+         "seen": 37
+        },
+        "48-52%": {
+         "expected": 61.36878242796944,
+         "seen": 83
+        },
+        "45-55%": {
+         "expected": 161.78311843053783,
+         "seen": 216
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 27.10000000000025,
+         "seen": 29
+        },
+        "1%": {
+         "expected": 5.419999999999929,
+         "seen": 5
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 1426,
+       "mean_log_score": 1.5733197718531962,
+       "within": {
+        "49-51%": {
+         "expected": 12.706922727166956,
+         "seen": 16
+        },
+        "48-52%": {
+         "expected": 25.737427630442014,
+         "seen": 36
+        },
+        "45-55%": {
+         "expected": 84.86045233389763,
+         "seen": 102
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 71.2999999999981,
+         "seen": 65
+        },
+        "1%": {
+         "expected": 14.25999999999974,
+         "seen": 17
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 789,
+       "mean_log_score": 1.6018479712839457,
+       "within": {
+        "49-51%": {
+         "expected": 0.10051736634346486,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.22174865632981927,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 1.0332873676482837,
+         "seen": 1
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 39.449999999999896,
+         "seen": 49
+        },
+        "1%": {
+         "expected": 7.889999999999876,
+         "seen": 8
+        }
+       }
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": false,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 49-51%",
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [
+      "|mean - 1/2| 0.10-0.20, 49-51%",
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_seats_supported": false,
+     "improves": false,
+     "mean_log_score_gain": 0.008123011073801534,
+     "count_49_51": {
+      "expected": 86.22749764008634,
+      "record_expected": 87.46674869677558,
+      "seen": 105
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": false,
+       "mean_log_score_gain": 0.009389010929485186,
+       "count_49_51": {
+        "expected": 75.24063917722047,
+        "record_expected": 76.46616504349787,
+        "seen": 88
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": 0.009180394700400107,
+       "count_49_51": {
+        "expected": 75.25301517280582,
+        "record_expected": 76.49689530232125,
+        "seen": 93
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": 0.007375106041177526,
+       "count_49_51": {
+        "expected": 77.43860879983978,
+        "record_expected": 78.42875842523047,
+        "seen": 96
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": 0.0072005357252398206,
+       "count_49_51": {
+        "expected": 78.34888909039627,
+        "record_expected": 79.24413705386637,
+        "seen": 97
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": 0.008860343813399618,
+       "count_49_51": {
+        "expected": 70.60355506940832,
+        "record_expected": 71.95018111144476,
+        "seen": 84
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2020": {
+       "improves": false,
+       "mean_log_score_gain": 0.009313819671298296,
+       "count_49_51": {
+        "expected": 76.66653945994265,
+        "record_expected": 77.57309365801855,
+        "seen": 93
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": 0.007397768735949217,
+       "count_49_51": {
+        "expected": 73.3261134194853,
+        "record_expected": 74.5769473840735,
+        "seen": 89
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": 0.006296239722121566,
+       "count_49_51": {
+        "expected": 76.71512329150517,
+        "record_expected": 77.53106289897669,
+        "seen": 95
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      }
+     },
+     "robust": false,
+     "adopted_if": "improves on every scored year, and on every set with one scored year left out"
+    },
     "adopted": "none"
    },
    "senate": {
@@ -21684,6 +21975,274 @@
      "robust": false,
      "adopted_if": "improves on every scored year, and on every set with one scored year left out"
     },
+    "halflife": {
+     "variant": "halflife",
+     "near_tie": null,
+     "races": 256,
+     "mean_log_score": 1.3192609431284612,
+     "coverage": {
+      "0.5": 0.49609375,
+      "0.8": 0.84765625,
+      "0.95": 0.98046875
+     },
+     "within": {
+      "49-51%": {
+       "expected": 10.87044822632457,
+       "seen": 17
+      },
+      "48-52%": {
+       "expected": 21.7827696803065,
+       "seen": 34
+      },
+      "45-55%": {
+       "expected": 55.10921565218656,
+       "seen": 69
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 50,
+       "mean_log_score": 1.3842987762021326,
+       "within": {
+        "49-51%": {
+         "expected": 4.916862303455323,
+         "seen": 5
+        },
+        "48-52%": {
+         "expected": 9.75816793165087,
+         "seen": 14
+        },
+        "45-55%": {
+         "expected": 23.14472105057343,
+         "seen": 28
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.499999999999999,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.5000000000000002,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 59,
+       "mean_log_score": 1.1217361347251376,
+       "within": {
+        "49-51%": {
+         "expected": 3.651339406543767,
+         "seen": 8
+        },
+        "48-52%": {
+         "expected": 7.31571926535583,
+         "seen": 15
+        },
+        "45-55%": {
+         "expected": 18.440187641668356,
+         "seen": 23
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.9499999999999975,
+         "seen": 2
+        },
+        "1%": {
+         "expected": 0.5900000000000003,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 130,
+       "mean_log_score": 1.3541133123620277,
+       "within": {
+        "49-51%": {
+         "expected": 2.2782615132498094,
+         "seen": 4
+        },
+        "48-52%": {
+         "expected": 4.657772775939242,
+         "seen": 5
+        },
+        "45-55%": {
+         "expected": 13.33706234244262,
+         "seen": 18
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 6.499999999999985,
+         "seen": 3
+        },
+        "1%": {
+         "expected": 1.300000000000001,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 17,
+       "mean_log_score": 1.5469823573489754,
+       "within": {
+        "49-51%": {
+         "expected": 0.023985003075669642,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.05110970736055065,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 0.18724461750218235,
+         "seen": 0
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 0.8500000000000002,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.17,
+         "seen": 0
+        }
+       }
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": false,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_seats_supported": false,
+     "improves": false,
+     "mean_log_score_gain": 0.020824964106606503,
+     "count_49_51": {
+      "expected": 10.87044822632457,
+      "record_expected": 11.096015225409264,
+      "seen": 17
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": false,
+       "mean_log_score_gain": 0.02385824168609263,
+       "count_49_51": {
+        "expected": 9.058324625755796,
+        "record_expected": 9.29038580845879,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": 0.021564899532978465,
+       "count_49_51": {
+        "expected": 9.155686917232023,
+        "record_expected": 9.391123776376105,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": 0.020699828781679308,
+       "count_49_51": {
+        "expected": 9.32264091965618,
+        "record_expected": 9.542175546502474,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": 0.02265491099900996,
+       "count_49_51": {
+        "expected": 9.936848528519477,
+        "record_expected": 10.089861667785122,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": 0.022216507864958768,
+       "count_49_51": {
+        "expected": 9.659943581115705,
+        "record_expected": 9.870160237215977,
+        "seen": 16
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2020": {
+       "improves": false,
+       "mean_log_score_gain": 0.019697741333020602,
+       "count_49_51": {
+        "expected": 9.749471320571136,
+        "record_expected": 9.933852400297535,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": 0.018100840936737805,
+       "count_49_51": {
+        "expected": 9.73893894103156,
+        "record_expected": 9.910506168173558,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": 0.01783415463850524,
+       "count_49_51": {
+        "expected": 9.471282750390088,
+        "record_expected": 9.644040973055299,
+        "seen": 13
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      }
+     },
+     "robust": false,
+     "adopted_if": "improves on every scored year, and on every set with one scored year left out"
+    },
     "adopted": "none"
    },
    "governor": {
@@ -22578,6 +23137,258 @@
      "robust": false,
      "adopted_if": "improves on every scored year, and on every set with one scored year left out"
     },
+    "halflife": {
+     "variant": "halflife",
+     "near_tie": null,
+     "races": 186,
+     "mean_log_score": 1.1724852366264886,
+     "coverage": {
+      "0.5": 0.5860215053763441,
+      "0.8": 0.8494623655913979,
+      "0.95": 0.9623655913978495
+     },
+     "within": {
+      "49-51%": {
+       "expected": 12.879587158075378,
+       "seen": 16
+      },
+      "48-52%": {
+       "expected": 25.667660205614517,
+       "seen": 31
+      },
+      "45-55%": {
+       "expected": 62.605906612674374,
+       "seen": 70
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 88,
+       "mean_log_score": 1.1794662001358682,
+       "within": {
+        "49-51%": {
+         "expected": 8.26515926054491,
+         "seen": 12
+        },
+        "48-52%": {
+         "expected": 16.41547332218716,
+         "seen": 23
+        },
+        "45-55%": {
+         "expected": 39.12686964090149,
+         "seen": 43
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 4.399999999999992,
+         "seen": 2
+        },
+        "1%": {
+         "expected": 0.8800000000000006,
+         "seen": 1
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 55,
+       "mean_log_score": 1.0548548095943855,
+       "within": {
+        "49-51%": {
+         "expected": 3.4748768318242096,
+         "seen": 2
+        },
+        "48-52%": {
+         "expected": 6.94484273150395,
+         "seen": 5
+        },
+        "45-55%": {
+         "expected": 17.2484452547049,
+         "seen": 22
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.7499999999999982,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 0.5500000000000003,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 43,
+       "mean_log_score": 1.3086561365785878,
+       "within": {
+        "49-51%": {
+         "expected": 1.1395510657062533,
+         "seen": 2
+        },
+        "48-52%": {
+         "expected": 2.3073441519233926,
+         "seen": 3
+        },
+        "45-55%": {
+         "expected": 6.230591717067991,
+         "seen": 5
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.1500000000000004,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.4300000000000002,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 0,
+       "mean_log_score": null,
+       "within": {
+        "49-51%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 0.0,
+         "seen": 0
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.0,
+         "seen": 0
+        }
+       }
+      }
+     },
+     "raises_log_score": false,
+     "count_nearer": true,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [],
+     "safe_seats_supported": true,
+     "improves": false,
+     "mean_log_score_gain": -0.005465574534432749,
+     "count_49_51": {
+      "expected": 12.879587158075378,
+      "record_expected": 12.784447366042548,
+      "seen": 16
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": false,
+       "mean_log_score_gain": -0.004325966874069165,
+       "count_49_51": {
+        "expected": 10.350119779742123,
+        "record_expected": 10.17700504200196,
+        "seen": 10
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": -0.005924326610164288,
+       "count_49_51": {
+        "expected": 12.023680672044854,
+        "record_expected": 11.931545369579203,
+        "seen": 15
+       },
+       "fails": [
+        "the log score"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": -0.008283916247073142,
+       "count_49_51": {
+        "expected": 11.050606043523175,
+        "record_expected": 10.954518418038875,
+        "seen": 13
+       },
+       "fails": [
+        "the log score"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": -0.00463870769936503,
+       "count_49_51": {
+        "expected": 11.908974317605946,
+        "record_expected": 11.852522849896493,
+        "seen": 15
+       },
+       "fails": [
+        "the log score"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": -0.010909215790568139,
+       "count_49_51": {
+        "expected": 9.856869963821758,
+        "record_expected": 9.839495356214487,
+        "seen": 13
+       },
+       "fails": [
+        "the log score"
+       ]
+      },
+      "2020": {
+       "improves": true,
+       "mean_log_score_gain": 0.0020881374601768865,
+       "count_49_51": {
+        "expected": 12.192978089209571,
+        "record_expected": 12.109493994348552,
+        "seen": 16
+       },
+       "fails": []
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": -0.008768788402157446,
+       "count_49_51": {
+        "expected": 10.707690735999108,
+        "record_expected": 10.63117086307639,
+        "seen": 14
+       },
+       "fails": [
+        "the log score"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": -0.004443376318964409,
+       "count_49_51": {
+        "expected": 12.066190504581085,
+        "record_expected": 11.995379669141863,
+        "seen": 16
+       },
+       "fails": [
+        "the log score"
+       ]
+      }
+     },
+     "robust": false,
+     "adopted_if": "improves on every scored year, and on every set with one scored year left out"
+    },
     "adopted": "none"
    }
   },
@@ -22995,103 +23806,127 @@
    "house": {
     "2010": {
      "none": 1.0,
-     "shrunk": 1.0
+     "shrunk": 1.0,
+     "halflife": 1.0
     },
     "2012": {
      "none": 1.0,
-     "shrunk": 1.0
+     "shrunk": 1.0,
+     "halflife": 1.0
     },
     "2014": {
      "none": 0.9815538261269621,
-     "shrunk": 0.9815495267897163
+     "shrunk": 0.9815495267897163,
+     "halflife": 0.9495470678872202
     },
     "2016": {
      "none": 0.9296955791105597,
-     "shrunk": 0.9282403274926354
+     "shrunk": 0.9282403274926354,
+     "halflife": 0.8762665436403655
     },
     "2018": {
      "none": 0.9033374337142649,
-     "shrunk": 0.902005100323216
+     "shrunk": 0.902005100323216,
+     "halflife": 0.8440955912476514
     },
     "2020": {
      "none": 0.8949420079966233,
-     "shrunk": 0.8839588692832145
+     "shrunk": 0.8839588692832145,
+     "halflife": 0.8475931722825273
     },
     "2022": {
      "none": 0.8910595415111766,
-     "shrunk": 0.8687779922521714
+     "shrunk": 0.8687779922521714,
+     "halflife": 0.8551358596214542
     },
     "2024": {
      "none": 0.87105606691175,
-     "shrunk": 0.8488853596110061
+     "shrunk": 0.8488853596110061,
+     "halflife": 0.8156019953747057
     }
    },
    "senate": {
     "2010": {
      "none": 1.0163340218613897,
-     "shrunk": 1.0160235540792621
+     "shrunk": 1.0160235540792621,
+     "halflife": 1.0021926724030867
     },
     "2012": {
      "none": 1.0070394323846834,
-     "shrunk": 1.0065883466218946
+     "shrunk": 1.0065883466218946,
+     "halflife": 0.983980950756355
     },
     "2014": {
      "none": 0.9692397139220702,
-     "shrunk": 0.9690240781874643
+     "shrunk": 0.9690240781874643,
+     "halflife": 0.8824886317909433
     },
     "2016": {
      "none": 0.9539358144733232,
-     "shrunk": 0.953333312415011
+     "shrunk": 0.953333312415011,
+     "halflife": 0.8608664565422438
     },
     "2018": {
      "none": 0.9468846996333419,
-     "shrunk": 0.9456209525490209
+     "shrunk": 0.9456209525490209,
+     "halflife": 0.8639768138138866
     },
     "2020": {
      "none": 0.939284182495665,
-     "shrunk": 0.9337694164679482
+     "shrunk": 0.9337694164679482,
+     "halflife": 0.8597271120848697
     },
     "2022": {
      "none": 0.9254944920296339,
-     "shrunk": 0.9169685313250353
+     "shrunk": 0.9169685313250353,
+     "halflife": 0.8256137636404943
     },
     "2024": {
      "none": 0.9112874220411747,
-     "shrunk": 0.9008239074820004
+     "shrunk": 0.9008239074820004,
+     "halflife": 0.7913291493351263
     }
    },
    "governor": {
     "2010": {
      "none": 0.9851226744058339,
-     "shrunk": 0.9831981632160722
+     "shrunk": 0.9831981632160722,
+     "halflife": 1.0290528783320165
     },
     "2012": {
      "none": 0.9732543957143793,
-     "shrunk": 0.9709736119439716
+     "shrunk": 0.9709736119439716,
+     "halflife": 0.9680810912447229
     },
     "2014": {
      "none": 0.9671786394251634,
-     "shrunk": 0.9640995251850332
+     "shrunk": 0.9640995251850332,
+     "halflife": 0.9412206003680059
     },
     "2016": {
      "none": 0.9539052942009839,
-     "shrunk": 0.9536472755932033
+     "shrunk": 0.9536472755932033,
+     "halflife": 0.89560097273993
     },
     "2018": {
      "none": 0.9571000324589375,
-     "shrunk": 0.956874747569287
+     "shrunk": 0.956874747569287,
+     "halflife": 0.9223852434269123
     },
     "2020": {
      "none": 0.9354085485316804,
-     "shrunk": 0.9350738560094654
+     "shrunk": 0.9350738560094654,
+     "halflife": 0.832026147094596
     },
     "2022": {
      "none": 0.9461171742980355,
-     "shrunk": 0.9456640638274108
+     "shrunk": 0.9456640638274108,
+     "halflife": 0.9124283630051372
     },
     "2024": {
      "none": 0.9360685320974704,
-     "shrunk": 0.935258765852799
+     "shrunk": 0.935258765852799,
+     "halflife": 0.8736850458100243
     }
    }
   }
@@ -34933,6 +35768,6567 @@
     "governor": null
    },
    "adopted_if": "round 4's test and round 5's cells pass on every year the factor reaches, and again on every set with one of those years left out (the orchestrator, 08:54)"
+  },
+  "halflife": {
+   "variant": "halflife",
+   "window": "49-51%",
+   "min_expected": 30,
+   "bands": [
+    0.0,
+    0.05,
+    0.1
+   ],
+   "by_level": {
+    "house": {
+     "years": [
+      2010,
+      2012,
+      2014,
+      2016,
+      2018,
+      2020,
+      2022,
+      2024
+     ],
+     "none": {
+      "races": 3047,
+      "mean_log_score": 1.5858144043499336,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 36.808969397080375,
+        "seen": 52
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 28.448120340632478,
+        "seen": 37
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 11.905131514820493,
+        "seen": 16
+       }
+      },
+      "coverage": {
+       "0.5": 0.549721037085658,
+       "0.8": 0.8473908762717427,
+       "0.95": 0.9704627502461437
+      },
+      "within": {
+       "49-51%": {
+        "expected": 77.16222125253354,
+        "seen": 105
+       },
+       "48-52%": {
+        "expected": 155.66827274054577,
+        "seen": 209
+       },
+       "45-55%": {
+        "expected": 411.1170866770548,
+        "seen": 521
+       }
+      }
+     },
+     "level": {
+      "races": 3047,
+      "mean_log_score": 1.5866584007375095,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 41.27332479459277,
+        "seen": 52
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 32.14673275198297,
+        "seen": 37
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 12.807440093510436,
+        "seen": 16
+       }
+      },
+      "coverage": {
+       "0.5": 0.5500492287495897,
+       "0.8": 0.8493600262553331,
+       "0.95": 0.9704627502461437
+      },
+      "within": {
+       "49-51%": {
+        "expected": 86.22749764008634,
+        "seen": 105
+       },
+       "48-52%": {
+        "expected": 163.77148002137048,
+        "seen": 209
+       },
+       "45-55%": {
+        "expected": 416.51593463240823,
+        "seen": 521
+       }
+      },
+      "raises_log_score": true,
+      "count_nearer": true,
+      "safe_seats_supported": true,
+      "improves": true,
+      "mean_log_score_gain": 0.0008439963875759293,
+      "round_5_cells": {
+       "improves": true,
+       "safe_bands_tested": [
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ],
+       "safe_bands_further": []
+      },
+      "leave_one_year_out": {
+       "2010": {
+        "improves": true,
+        "mean_log_score_gain": 0.0012236995511551996,
+        "fails": []
+       },
+       "2012": {
+        "improves": true,
+        "mean_log_score_gain": 0.0009138644636013105,
+        "fails": []
+       },
+       "2014": {
+        "improves": true,
+        "mean_log_score_gain": 0.0009264070131342894,
+        "fails": []
+       },
+       "2016": {
+        "improves": true,
+        "mean_log_score_gain": 0.000925728199437037,
+        "fails": []
+       },
+       "2018": {
+        "improves": true,
+        "mean_log_score_gain": 0.0006689982250520643,
+        "fails": []
+       },
+       "2020": {
+        "improves": true,
+        "mean_log_score_gain": 0.0007132844311181774,
+        "fails": []
+       },
+       "2022": {
+        "improves": true,
+        "mean_log_score_gain": 0.0005740494925983164,
+        "fails": []
+       },
+       "2024": {
+        "improves": true,
+        "mean_log_score_gain": 0.0008033581833759573,
+        "fails": []
+       }
+      },
+      "robust": true
+     },
+     "band": {
+      "races": 3047,
+      "mean_log_score": 1.5865288886608107,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 41.29533202680221,
+        "seen": 52
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 31.252421569034677,
+        "seen": 37
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 11.905131514820493,
+        "seen": 16
+       }
+      },
+      "coverage": {
+       "0.5": 0.5500492287495897,
+       "0.8": 0.8477190679356744,
+       "0.95": 0.9704627502461437
+      },
+      "within": {
+       "49-51%": {
+        "expected": 84.4528851106576,
+        "seen": 105
+       },
+       "48-52%": {
+        "expected": 162.0677291875109,
+        "seen": 209
+       },
+       "45-55%": {
+        "expected": 415.06995428943975,
+        "seen": 521
+       }
+      },
+      "raises_log_score": true,
+      "count_nearer": true,
+      "safe_seats_supported": true,
+      "improves": true,
+      "mean_log_score_gain": 0.0007144843108770615,
+      "round_5_cells": {
+       "improves": true,
+       "safe_bands_tested": [
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ],
+       "safe_bands_further": []
+      },
+      "leave_one_year_out": {
+       "2010": {
+        "improves": true,
+        "mean_log_score_gain": 0.0008255721256111848,
+        "fails": []
+       },
+       "2012": {
+        "improves": true,
+        "mean_log_score_gain": 0.0008075050798361794,
+        "fails": []
+       },
+       "2014": {
+        "improves": true,
+        "mean_log_score_gain": 0.0008378302917566582,
+        "fails": []
+       },
+       "2016": {
+        "improves": true,
+        "mean_log_score_gain": 0.000815762648544327,
+        "fails": []
+       },
+       "2018": {
+        "improves": true,
+        "mean_log_score_gain": 0.0006919558606517384,
+        "fails": []
+       },
+       "2020": {
+        "improves": true,
+        "mean_log_score_gain": 0.0006814969200239496,
+        "fails": []
+       },
+       "2022": {
+        "improves": true,
+        "mean_log_score_gain": 0.00046364708121537923,
+        "fails": []
+       },
+       "2024": {
+        "improves": true,
+        "mean_log_score_gain": 0.0005874088772712671,
+        "fails": []
+       }
+      },
+      "robust": true
+     },
+     "factors_by_year": {
+      "2008": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2010": {
+       "level": {
+        "factor": 0.8849597937517764,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008
+         ],
+         "house": [
+          2008
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008
+         ]
+        },
+        "expected": 39.22694616895765,
+        "seen": 35
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2012": {
+       "level": {
+        "factor": 1.0797870835416767,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010
+         ],
+         "house": [
+          2008,
+          2010
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010
+         ]
+        },
+        "expected": 55.882247813197786,
+        "seen": 60
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2014": {
+       "level": {
+        "factor": 1.1276937323077307,
+        "of": "the house's own earlier years",
+        "fitted_on": {
+         "house": [
+          2008,
+          2010,
+          2012
+         ]
+        },
+        "expected": 33.111339963466264,
+        "seen": 37
+       },
+       "band": [
+        {
+         "factor": 1.149331214229715,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012
+          ],
+          "house": [
+           2008,
+           2010,
+           2012
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012
+          ]
+         },
+         "expected": 30.895236826457154,
+         "seen": 35
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2016": {
+       "level": {
+        "factor": 1.1333358023822266,
+        "of": "the house's own earlier years",
+        "fitted_on": {
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014
+         ]
+        },
+        "expected": 40.967355223010834,
+        "seen": 46
+       },
+       "band": [
+        {
+         "factor": 1.1159638565063354,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014
+          ]
+         },
+         "expected": 34.43902845182277,
+         "seen": 38
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2018": {
+       "level": {
+        "factor": 1.136112670093453,
+        "of": "the house's own earlier years",
+        "fitted_on": {
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 47.99439915767892,
+        "seen": 54
+       },
+       "band": [
+        {
+         "factor": 1.074425680965728,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ]
+         },
+         "expected": 38.44649227706999,
+         "seen": 41
+        },
+        {
+         "factor": 1.206169939127347,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ]
+         },
+         "expected": 31.917987888217084,
+         "seen": 38
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2020": {
+       "level": {
+        "factor": 1.2332200379441005,
+        "of": "the house's own earlier years",
+        "fitted_on": {
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 61.95190422870603,
+        "seen": 75
+       },
+       "band": [
+        {
+         "factor": 1.1931783718327655,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ]
+         },
+         "expected": 50.47524597158799,
+         "seen": 59
+        },
+        {
+         "factor": 1.1714691225955551,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ]
+         },
+         "expected": 37.107063148575946,
+         "seen": 43
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2022": {
+       "level": {
+        "factor": 1.272742260343379,
+        "of": "the house's own earlier years",
+        "fitted_on": {
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 69.86158766571411,
+        "seen": 87
+       },
+       "band": [
+        {
+         "factor": 1.3216485004003289,
+         "of": "the house's own earlier years, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ]
+         },
+         "expected": 30.684713610131695,
+         "seen": 39
+        },
+        {
+         "factor": 1.2038439403855552,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ]
+         },
+         "expected": 41.22670136547969,
+         "seen": 49
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2024": {
+       "level": {
+        "factor": 1.3169602447342386,
+        "of": "the house's own earlier years",
+        "fitted_on": {
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 80.29663278123402,
+        "seen": 103
+       },
+       "band": [
+        {
+         "factor": 1.3640963481440282,
+         "of": "the house's own earlier years, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ]
+         },
+         "expected": 36.82228164137129,
+         "seen": 48
+        },
+        {
+         "factor": 1.233260073222839,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ]
+         },
+         "expected": 46.077541834796016,
+         "seen": 56
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      }
+     },
+     "adopted": "level",
+     "adopted_round_4": "level"
+    },
+    "senate": {
+     "years": [
+      2010,
+      2012,
+      2014,
+      2016,
+      2018,
+      2020,
+      2022,
+      2024
+     ],
+     "none": {
+      "races": 256,
+      "mean_log_score": 1.3192609431284612,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 4.916862303455323,
+        "seen": 5
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 3.651339406543767,
+        "seen": 8
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 2.30224651632548,
+        "seen": 4
+       }
+      },
+      "coverage": {
+       "0.5": 0.49609375,
+       "0.8": 0.84765625,
+       "0.95": 0.98046875
+      },
+      "within": {
+       "49-51%": {
+        "expected": 10.87044822632457,
+        "seen": 17
+       },
+       "48-52%": {
+        "expected": 21.7827696803065,
+        "seen": 34
+       },
+       "45-55%": {
+        "expected": 55.10921565218656,
+        "seen": 69
+       }
+      }
+     },
+     "level": {
+      "races": 256,
+      "mean_log_score": 1.3228160508638709,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 5.27837350559903,
+        "seen": 5
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 4.10058021283598,
+        "seen": 8
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 2.5375989502204064,
+        "seen": 4
+       }
+      },
+      "coverage": {
+       "0.5": 0.49609375,
+       "0.8": 0.85546875,
+       "0.95": 0.98046875
+      },
+      "within": {
+       "49-51%": {
+        "expected": 11.91655266865542,
+        "seen": 17
+       },
+       "48-52%": {
+        "expected": 22.747308745557536,
+        "seen": 34
+       },
+       "45-55%": {
+        "expected": 55.836933694870005,
+        "seen": 69
+       }
+      },
+      "raises_log_score": true,
+      "count_nearer": true,
+      "safe_seats_supported": true,
+      "improves": true,
+      "mean_log_score_gain": 0.0035551077354096794,
+      "round_5_cells": {
+       "improves": true,
+       "safe_bands_tested": [
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ],
+       "safe_bands_further": []
+      },
+      "leave_one_year_out": {
+       "2010": {
+        "improves": true,
+        "mean_log_score_gain": 0.004276900305794751,
+        "fails": []
+       },
+       "2012": {
+        "improves": true,
+        "mean_log_score_gain": 0.003968906717591647,
+        "fails": []
+       },
+       "2014": {
+        "improves": true,
+        "mean_log_score_gain": 0.0039180993637832895,
+        "fails": []
+       },
+       "2016": {
+        "improves": true,
+        "mean_log_score_gain": 0.003520521089172446,
+        "fails": []
+       },
+       "2018": {
+        "improves": true,
+        "mean_log_score_gain": 0.004206927721937648,
+        "fails": []
+       },
+       "2020": {
+        "improves": false,
+        "mean_log_score_gain": 0.0034532330026868507,
+        "fails": [
+         "the safe seats' 49-51% count (|mean - 1/2| from 0.10)"
+        ]
+       },
+       "2022": {
+        "improves": true,
+        "mean_log_score_gain": 0.003413861515501493,
+        "fails": []
+       },
+       "2024": {
+        "improves": true,
+        "mean_log_score_gain": 0.0016895515049819565,
+        "fails": []
+       }
+      },
+      "robust": false
+     },
+     "band": {
+      "races": 256,
+      "mean_log_score": 1.3200882921596264,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 5.302528065239614,
+        "seen": 5
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 3.9849533161531294,
+        "seen": 8
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 2.30224651632548,
+        "seen": 4
+       }
+      },
+      "coverage": {
+       "0.5": 0.4921875,
+       "0.8": 0.85546875,
+       "0.95": 0.98046875
+      },
+      "within": {
+       "49-51%": {
+        "expected": 11.58972789771822,
+        "seen": 17
+       },
+       "48-52%": {
+        "expected": 22.43198093786095,
+        "seen": 34
+       },
+       "45-55%": {
+        "expected": 55.560153551297226,
+        "seen": 69
+       }
+      },
+      "raises_log_score": true,
+      "count_nearer": true,
+      "safe_seats_supported": true,
+      "improves": true,
+      "mean_log_score_gain": 0.0008273490311652143,
+      "round_5_cells": {
+       "improves": true,
+       "safe_bands_tested": [
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ],
+       "safe_bands_further": []
+      },
+      "leave_one_year_out": {
+       "2010": {
+        "improves": true,
+        "mean_log_score_gain": 0.0009583771582732936,
+        "fails": []
+       },
+       "2012": {
+        "improves": true,
+        "mean_log_score_gain": 0.0009413393421262573,
+        "fails": []
+       },
+       "2014": {
+        "improves": true,
+        "mean_log_score_gain": 0.0013592790090330986,
+        "fails": []
+       },
+       "2016": {
+        "improves": true,
+        "mean_log_score_gain": 0.0010497682135344188,
+        "fails": []
+       },
+       "2018": {
+        "improves": true,
+        "mean_log_score_gain": 0.0014515626774542767,
+        "fails": []
+       },
+       "2020": {
+        "improves": true,
+        "mean_log_score_gain": 0.0015608270885927311,
+        "fails": []
+       },
+       "2022": {
+        "improves": true,
+        "mean_log_score_gain": 0.0008455069512007807,
+        "fails": []
+       },
+       "2024": {
+        "improves": false,
+        "mean_log_score_gain": -0.0015513016142727487,
+        "fails": [
+         "the log score"
+        ]
+       }
+      },
+      "robust": false
+     },
+     "factors_by_year": {
+      "1996": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "1998": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2000": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2002": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2004": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2006": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2008": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2010": {
+       "level": {
+        "factor": 0.8849597937517764,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008
+         ],
+         "house": [
+          2008
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008
+         ]
+        },
+        "expected": 39.22694616895765,
+        "seen": 35
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2012": {
+       "level": {
+        "factor": 1.0797870835416767,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010
+         ],
+         "house": [
+          2008,
+          2010
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010
+         ]
+        },
+        "expected": 55.882247813197786,
+        "seen": 60
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2014": {
+       "level": {
+        "factor": 1.0999066385628753,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ],
+         "house": [
+          2008,
+          2010,
+          2012
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ]
+        },
+        "expected": 68.67596136268716,
+        "seen": 75
+       },
+       "band": [
+        {
+         "factor": 1.149331214229715,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012
+          ],
+          "house": [
+           2008,
+           2010,
+           2012
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012
+          ]
+         },
+         "expected": 30.895236826457154,
+         "seen": 35
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2016": {
+       "level": {
+        "factor": 1.1234826355603489,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ]
+        },
+        "expected": 79.9087650434523,
+        "seen": 89
+       },
+       "band": [
+        {
+         "factor": 1.1159638565063354,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014
+          ]
+         },
+         "expected": 34.43902845182277,
+         "seen": 38
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2018": {
+       "level": {
+        "factor": 1.1366190112065993,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 88.84002151639491,
+        "seen": 100
+       },
+       "band": [
+        {
+         "factor": 1.074425680965728,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ]
+         },
+         "expected": 38.44649227706999,
+         "seen": 41
+        },
+        {
+         "factor": 1.206169939127347,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ]
+         },
+         "expected": 31.917987888217084,
+         "seen": 38
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2020": {
+       "level": {
+        "factor": 1.1844863769299754,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 107.03074842688449,
+        "seen": 125
+       },
+       "band": [
+        {
+         "factor": 1.1931783718327655,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ]
+         },
+         "expected": 50.47524597158799,
+         "seen": 59
+        },
+        {
+         "factor": 1.1714691225955551,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ]
+         },
+         "expected": 37.107063148575946,
+         "seen": 43
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2022": {
+       "level": {
+        "factor": 1.2100057784908196,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 116.74801783851181,
+        "seen": 139
+       },
+       "band": [
+        {
+         "factor": 1.1713839457683388,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ]
+         },
+         "expected": 54.79098529967957,
+         "seen": 63
+        },
+        {
+         "factor": 1.2038439403855552,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ]
+         },
+         "expected": 41.22670136547969,
+         "seen": 49
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2024": {
+       "level": {
+        "factor": 1.242094201104302,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 130.486468661401,
+        "seen": 159
+       },
+       "band": [
+        {
+         "factor": 1.2139565141914095,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ]
+         },
+         "expected": 62.428234093147566,
+         "seen": 74
+        },
+        {
+         "factor": 1.233260073222839,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ]
+         },
+         "expected": 46.077541834796016,
+         "seen": 56
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      }
+     },
+     "adopted": null,
+     "adopted_round_4": "level"
+    },
+    "governor": {
+     "years": [
+      2010,
+      2012,
+      2014,
+      2016,
+      2018,
+      2020,
+      2022,
+      2024
+     ],
+     "none": {
+      "races": 186,
+      "mean_log_score": 1.1724852366264886,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 8.26515926054491,
+        "seen": 12
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 3.4748768318242096,
+        "seen": 2
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 1.1395510657062533,
+        "seen": 2
+       }
+      },
+      "coverage": {
+       "0.5": 0.5860215053763441,
+       "0.8": 0.8494623655913979,
+       "0.95": 0.9623655913978495
+      },
+      "within": {
+       "49-51%": {
+        "expected": 12.879587158075378,
+        "seen": 16
+       },
+       "48-52%": {
+        "expected": 25.667660205614517,
+        "seen": 31
+       },
+       "45-55%": {
+        "expected": 62.605906612674374,
+        "seen": 70
+       }
+      }
+     },
+     "level": {
+      "races": 186,
+      "mean_log_score": 1.169538619493034,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 8.784860138019326,
+        "seen": 12
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 3.793635613127262,
+        "seen": 2
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 1.264495096998006,
+        "seen": 2
+       }
+      },
+      "coverage": {
+       "0.5": 0.5860215053763441,
+       "0.8": 0.8494623655913979,
+       "0.95": 0.9623655913978495
+      },
+      "within": {
+       "49-51%": {
+        "expected": 13.842990848144593,
+        "seen": 16
+       },
+       "48-52%": {
+        "expected": 26.54612381848423,
+        "seen": 31
+       },
+       "45-55%": {
+        "expected": 63.24337376805374,
+        "seen": 70
+       }
+      },
+      "raises_log_score": false,
+      "count_nearer": true,
+      "safe_seats_supported": true,
+      "improves": false,
+      "mean_log_score_gain": -0.0029466171334546765,
+      "round_5_cells": {
+       "improves": false,
+       "safe_bands_tested": [
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ],
+       "safe_bands_further": [
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "leave_one_year_out": {
+       "2010": {
+        "improves": false,
+        "mean_log_score_gain": -0.0007046877517145056,
+        "fails": [
+         "the log score",
+         "the 49-51% count",
+         "|mean - 1/2| 0.10-0.20, 45-55%"
+        ]
+       },
+       "2012": {
+        "improves": false,
+        "mean_log_score_gain": -0.0031815439027815806,
+        "fails": [
+         "the log score",
+         "|mean - 1/2| 0.10-0.20, 45-55%"
+        ]
+       },
+       "2014": {
+        "improves": false,
+        "mean_log_score_gain": -0.00431525097530705,
+        "fails": [
+         "the log score",
+         "the safe seats' 49-51% count (|mean - 1/2| from 0.10)"
+        ]
+       },
+       "2016": {
+        "improves": false,
+        "mean_log_score_gain": -0.00313400762763294,
+        "fails": [
+         "the log score",
+         "|mean - 1/2| 0.10-0.20, 45-55%"
+        ]
+       },
+       "2018": {
+        "improves": false,
+        "mean_log_score_gain": -0.0034788093503268502,
+        "fails": [
+         "the log score",
+         "|mean - 1/2| 0.10-0.20, 45-55%"
+        ]
+       },
+       "2020": {
+        "improves": false,
+        "mean_log_score_gain": -0.0024134179368449082,
+        "fails": [
+         "the log score",
+         "|mean - 1/2| 0.10-0.20, 45-55%"
+        ]
+       },
+       "2022": {
+        "improves": false,
+        "mean_log_score_gain": -0.0031789213110076098,
+        "fails": [
+         "the log score"
+        ]
+       },
+       "2024": {
+        "improves": false,
+        "mean_log_score_gain": -0.0031696275650472394,
+        "fails": [
+         "the log score",
+         "|mean - 1/2| 0.10-0.20, 45-55%"
+        ]
+       }
+      },
+      "robust": false
+     },
+     "band": {
+      "races": 186,
+      "mean_log_score": 1.171077693789886,
+      "within_49_51_by_band": {
+       "|mean - 1/2| from 0.00": {
+        "expected": 8.900256403339537,
+        "seen": 12
+       },
+       "|mean - 1/2| from 0.05": {
+        "expected": 3.7882576224923126,
+        "seen": 2
+       },
+       "|mean - 1/2| from 0.10": {
+        "expected": 1.1395510657062533,
+        "seen": 2
+       }
+      },
+      "coverage": {
+       "0.5": 0.5860215053763441,
+       "0.8": 0.8494623655913979,
+       "0.95": 0.9623655913978495
+      },
+      "within": {
+       "49-51%": {
+        "expected": 13.828065091538104,
+        "seen": 16
+       },
+       "48-52%": {
+        "expected": 26.524820247074977,
+        "seen": 31
+       },
+       "45-55%": {
+        "expected": 63.20617485600012,
+        "seen": 70
+       }
+      },
+      "raises_log_score": false,
+      "count_nearer": true,
+      "safe_seats_supported": true,
+      "improves": false,
+      "mean_log_score_gain": -0.0014075428366027154,
+      "round_5_cells": {
+       "improves": false,
+       "safe_bands_tested": [
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ],
+       "safe_bands_further": []
+      },
+      "leave_one_year_out": {
+       "2010": {
+        "improves": false,
+        "mean_log_score_gain": -0.0017223879447900714,
+        "fails": [
+         "the log score",
+         "the 49-51% count"
+        ]
+       },
+       "2012": {
+        "improves": false,
+        "mean_log_score_gain": -0.001496016957760471,
+        "fails": [
+         "the log score"
+        ]
+       },
+       "2014": {
+        "improves": false,
+        "mean_log_score_gain": -0.0021178947056317288,
+        "fails": [
+         "the log score"
+        ]
+       },
+       "2016": {
+        "improves": false,
+        "mean_log_score_gain": -0.001045517522962447,
+        "fails": [
+         "the log score"
+        ]
+       },
+       "2018": {
+        "improves": false,
+        "mean_log_score_gain": -0.002091421479952338,
+        "fails": [
+         "the log score"
+        ]
+       },
+       "2020": {
+        "improves": false,
+        "mean_log_score_gain": -0.0008709394589021535,
+        "fails": [
+         "the log score"
+        ]
+       },
+       "2022": {
+        "improves": false,
+        "mean_log_score_gain": -0.001644905788600104,
+        "fails": [
+         "the log score"
+        ]
+       },
+       "2024": {
+        "improves": false,
+        "mean_log_score_gain": -0.0005395953880229509,
+        "fails": [
+         "the log score"
+        ]
+       }
+      },
+      "robust": false
+     },
+     "factors_by_year": {
+      "1986": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "1988": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "1990": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "1992": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "1994": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "1996": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "1998": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2000": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2002": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2004": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2006": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2008": {
+       "level": {
+        "factor": 1.0,
+        "of": null,
+        "fitted_on": {},
+        "expected": null,
+        "seen": null
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2010": {
+       "level": {
+        "factor": 0.8849597937517764,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008
+         ],
+         "house": [
+          2008
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008
+         ]
+        },
+        "expected": 39.22694616895765,
+        "seen": 35
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2012": {
+       "level": {
+        "factor": 1.0797870835416767,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010
+         ],
+         "house": [
+          2008,
+          2010
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010
+         ]
+        },
+        "expected": 55.882247813197786,
+        "seen": 60
+       },
+       "band": [
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2014": {
+       "level": {
+        "factor": 1.0999066385628753,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ],
+         "house": [
+          2008,
+          2010,
+          2012
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012
+         ]
+        },
+        "expected": 68.67596136268716,
+        "seen": 75
+       },
+       "band": [
+        {
+         "factor": 1.149331214229715,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012
+          ],
+          "house": [
+           2008,
+           2010,
+           2012
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012
+          ]
+         },
+         "expected": 30.895236826457154,
+         "seen": 35
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2016": {
+       "level": {
+        "factor": 1.1234826355603489,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014
+         ]
+        },
+        "expected": 79.9087650434523,
+        "seen": 89
+       },
+       "band": [
+        {
+         "factor": 1.1159638565063354,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014
+          ]
+         },
+         "expected": 34.43902845182277,
+         "seen": 38
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2018": {
+       "level": {
+        "factor": 1.1366190112065993,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016
+         ]
+        },
+        "expected": 88.84002151639491,
+        "seen": 100
+       },
+       "band": [
+        {
+         "factor": 1.074425680965728,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ]
+         },
+         "expected": 38.44649227706999,
+         "seen": 41
+        },
+        {
+         "factor": 1.206169939127347,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016
+          ]
+         },
+         "expected": 31.917987888217084,
+         "seen": 38
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2020": {
+       "level": {
+        "factor": 1.1844863769299754,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018
+         ]
+        },
+        "expected": 107.03074842688449,
+        "seen": 125
+       },
+       "band": [
+        {
+         "factor": 1.1931783718327655,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ]
+         },
+         "expected": 50.47524597158799,
+         "seen": 59
+        },
+        {
+         "factor": 1.1714691225955551,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018
+          ]
+         },
+         "expected": 37.107063148575946,
+         "seen": 43
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2022": {
+       "level": {
+        "factor": 1.2100057784908196,
+        "of": "every level's earlier years pooled",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "house": [
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ],
+         "senate": [
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020
+         ]
+        },
+        "expected": 116.74801783851181,
+        "seen": 139
+       },
+       "band": [
+        {
+         "factor": 1.1713839457683388,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ]
+         },
+         "expected": 54.79098529967957,
+         "seen": 63
+        },
+        {
+         "factor": 1.2038439403855552,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020
+          ]
+         },
+         "expected": 41.22670136547969,
+         "seen": 49
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      },
+      "2024": {
+       "level": {
+        "factor": 0.9918714994346496,
+        "of": "the governor's own earlier years",
+        "fitted_on": {
+         "governor": [
+          1986,
+          1988,
+          1990,
+          1992,
+          1994,
+          1996,
+          1998,
+          2000,
+          2002,
+          2004,
+          2006,
+          2008,
+          2010,
+          2012,
+          2014,
+          2016,
+          2018,
+          2020,
+          2022
+         ]
+        },
+        "expected": 30.2268890197986,
+        "seen": 30
+       },
+       "band": [
+        {
+         "factor": 1.2139565141914095,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.00 to 0.05",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ]
+         },
+         "expected": 62.428234093147566,
+         "seen": 74
+        },
+        {
+         "factor": 1.233260073222839,
+         "of": "every level's earlier years pooled, |mean - 1/2| from 0.05 to 0.10",
+         "fitted_on": {
+          "governor": [
+           1986,
+           1988,
+           1990,
+           1992,
+           1994,
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "house": [
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ],
+          "senate": [
+           1996,
+           1998,
+           2000,
+           2002,
+           2004,
+           2006,
+           2008,
+           2010,
+           2012,
+           2014,
+           2016,
+           2018,
+           2020,
+           2022
+          ]
+         },
+         "expected": 46.077541834796016,
+         "seen": 56
+        },
+        {
+         "factor": 1.0,
+         "of": null,
+         "fitted_on": {},
+         "expected": null,
+         "seen": null
+        }
+       ]
+      }
+     },
+     "adopted": null,
+     "adopted_round_4": null
+    }
+   },
+   "adopted": {
+    "house": "level",
+    "senate": null,
+    "governor": null
+   },
+   "adopted_round_4": {
+    "house": "level",
+    "senate": "level",
+    "governor": null
+   },
+   "adopted_if": "round 4's test and round 5's cells pass on every year the factor reaches, and again on every set with one of those years left out (the orchestrator, 08:54)"
+  }
+ },
+ "incumbency_test": {
+  "record": [
+   1
+  ],
+  "variants": {
+   "a": [
+    1,
+    2
+   ],
+   "b": [
+    1,
+    2,
+    3
+   ]
+  },
+  "years": [
+   2010,
+   2012,
+   2014,
+   2016,
+   2018,
+   2020,
+   2022,
+   2024
+  ],
+  "adopted_if": "improves on every scored year, and on every set with one scored year left out",
+  "by_level": {
+   "house": {
+    "record": {
+     "variant": "none",
+     "near_tie": "level",
+     "races": 3047,
+     "mean_log_score": 1.578535389663708,
+     "coverage": {
+      "0.5": 0.5687561535936987,
+      "0.8": 0.869379717755169,
+      "0.95": 0.9757138168690516
+     },
+     "within": {
+      "49-51%": {
+       "expected": 87.46674869677558,
+       "seen": 105
+      },
+      "48-52%": {
+       "expected": 166.52697340808214,
+       "seen": 209
+      },
+      "45-55%": {
+       "expected": 422.47818257371495,
+       "seen": 521
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 290,
+       "mean_log_score": 1.6549224727539984,
+       "within": {
+        "49-51%": {
+         "expected": 39.776666456838555,
+         "seen": 52
+        },
+        "48-52%": {
+         "expected": 74.07233989723969,
+         "seen": 90
+        },
+        "45-55%": {
+         "expected": 164.8417161037593,
+         "seen": 202
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 14.500000000000071,
+         "seen": 2
+        },
+        "1%": {
+         "expected": 2.899999999999982,
+         "seen": 1
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 542,
+       "mean_log_score": 1.5448017320350171,
+       "within": {
+        "49-51%": {
+         "expected": 33.33484923228817,
+         "seen": 37
+        },
+        "48-52%": {
+         "expected": 63.563420836305376,
+         "seen": 83
+        },
+        "45-55%": {
+         "expected": 164.47571627800696,
+         "seen": 216
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 27.10000000000025,
+         "seen": 26
+        },
+        "1%": {
+         "expected": 5.419999999999929,
+         "seen": 5
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 1426,
+       "mean_log_score": 1.5656721129636761,
+       "within": {
+        "49-51%": {
+         "expected": 14.233591347042735,
+         "seen": 16
+        },
+        "48-52%": {
+         "expected": 28.625945574666275,
+         "seen": 36
+        },
+        "45-55%": {
+         "expected": 91.94488724092882,
+         "seen": 102
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 71.2999999999981,
+         "seen": 57
+        },
+        "1%": {
+         "expected": 14.25999999999974,
+         "seen": 11
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 789,
+       "mean_log_score": 1.5968806633174688,
+       "within": {
+        "49-51%": {
+         "expected": 0.12164166060622889,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.2652670998702692,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 1.2158629510214638,
+         "seen": 1
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 39.449999999999896,
+         "seen": 42
+        },
+        "1%": {
+         "expected": 7.889999999999876,
+         "seen": 5
+        }
+       }
+      }
+     }
+    },
+    "a": {
+     "variant": "none",
+     "near_tie": "level",
+     "races": 3047,
+     "mean_log_score": 1.5861761328223454,
+     "coverage": {
+      "0.5": 0.5654742369543814,
+      "0.8": 0.8677387594355104,
+      "0.95": 0.9770265835247784
+     },
+     "within": {
+      "49-51%": {
+       "expected": 86.903139902228,
+       "seen": 105
+      },
+      "48-52%": {
+       "expected": 164.21502446517195,
+       "seen": 209
+      },
+      "45-55%": {
+       "expected": 415.4968611159128,
+       "seen": 521
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 290,
+       "mean_log_score": 1.6670487008624717,
+       "within": {
+        "49-51%": {
+         "expected": 39.570903204798725,
+         "seen": 52
+        },
+        "48-52%": {
+         "expected": 73.10246886639219,
+         "seen": 90
+        },
+        "45-55%": {
+         "expected": 162.1768940972444,
+         "seen": 202
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 14.500000000000071,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 2.899999999999982,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 542,
+       "mean_log_score": 1.559202843294408,
+       "within": {
+        "49-51%": {
+         "expected": 33.17179223536842,
+         "seen": 37
+        },
+        "48-52%": {
+         "expected": 62.7601345548214,
+         "seen": 83
+        },
+        "45-55%": {
+         "expected": 161.9175426126187,
+         "seen": 216
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 27.10000000000025,
+         "seen": 27
+        },
+        "1%": {
+         "expected": 5.419999999999929,
+         "seen": 4
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 1426,
+       "mean_log_score": 1.5738774163233935,
+       "within": {
+        "49-51%": {
+         "expected": 14.041751772488142,
+         "seen": 16
+        },
+        "48-52%": {
+         "expected": 28.094618935212097,
+         "seen": 36
+        },
+        "45-55%": {
+         "expected": 90.21867660130769,
+         "seen": 102
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 71.2999999999981,
+         "seen": 55
+        },
+        "1%": {
+         "expected": 14.25999999999974,
+         "seen": 12
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 789,
+       "mean_log_score": 1.5972083862063686,
+       "within": {
+        "49-51%": {
+         "expected": 0.11869268957269045,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.25780210874615433,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 1.1837478047426937,
+         "seen": 1
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 39.449999999999896,
+         "seen": 43
+        },
+        "1%": {
+         "expected": 7.889999999999876,
+         "seen": 7
+        }
+       }
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": false,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 49-51%",
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [
+      "|mean - 1/2| 0.10-0.20, 49-51%",
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_seats_supported": false,
+     "improves": false,
+     "mean_log_score_gain": 0.007640743158637386,
+     "count_49_51": {
+      "expected": 86.903139902228,
+      "record_expected": 87.46674869677558,
+      "seen": 105
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": false,
+       "mean_log_score_gain": 0.008411719848327337,
+       "count_49_51": {
+        "expected": 75.99812237874343,
+        "record_expected": 76.46616504349787,
+        "seen": 88
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": 0.008165853930063083,
+       "count_49_51": {
+        "expected": 75.9304877420481,
+        "record_expected": 76.49689530232125,
+        "seen": 93
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": 0.00786649422155028,
+       "count_49_51": {
+        "expected": 77.7642268413531,
+        "record_expected": 78.42875842523047,
+        "seen": 96
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": 0.004671694632524037,
+       "count_49_51": {
+        "expected": 78.69746791094292,
+        "record_expected": 79.24413705386637,
+        "seen": 97
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": 0.007387780419884971,
+       "count_49_51": {
+        "expected": 71.76734324350495,
+        "record_expected": 71.95018111144476,
+        "seen": 84
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2020": {
+       "improves": false,
+       "mean_log_score_gain": 0.00798889159614058,
+       "count_49_51": {
+        "expected": 77.20540947918964,
+        "record_expected": 77.57309365801855,
+        "seen": 93
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": 0.00839815531379795,
+       "count_49_51": {
+        "expected": 74.00103874365468,
+        "record_expected": 74.5769473840735,
+        "seen": 89
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": 0.008286182551537014,
+       "count_49_51": {
+        "expected": 76.9578829761597,
+        "record_expected": 77.53106289897669,
+        "seen": 95
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      }
+     },
+     "robust": false
+    },
+    "b": {
+     "variant": "none",
+     "near_tie": "level",
+     "races": 3047,
+     "mean_log_score": 1.583871806280602,
+     "coverage": {
+      "0.5": 0.5664588119461765,
+      "0.8": 0.8674105677715787,
+      "0.95": 0.9770265835247784
+     },
+     "within": {
+      "49-51%": {
+       "expected": 87.08575250215722,
+       "seen": 105
+      },
+      "48-52%": {
+       "expected": 164.39370042222544,
+       "seen": 209
+      },
+      "45-55%": {
+       "expected": 415.59670181205473,
+       "seen": 521
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 290,
+       "mean_log_score": 1.6649062543501296,
+       "within": {
+        "49-51%": {
+         "expected": 39.5560003035384,
+         "seen": 52
+        },
+        "48-52%": {
+         "expected": 73.01422529704296,
+         "seen": 90
+        },
+        "45-55%": {
+         "expected": 161.92881061865106,
+         "seen": 202
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 14.500000000000071,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 2.899999999999982,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 542,
+       "mean_log_score": 1.5567839766145335,
+       "within": {
+        "49-51%": {
+         "expected": 33.219065404467756,
+         "seen": 37
+        },
+        "48-52%": {
+         "expected": 62.78025134100277,
+         "seen": 83
+        },
+        "45-55%": {
+         "expected": 161.77842763915976,
+         "seen": 216
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 27.10000000000025,
+         "seen": 27
+        },
+        "1%": {
+         "expected": 5.419999999999929,
+         "seen": 4
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 1426,
+       "mean_log_score": 1.5712609752954516,
+       "within": {
+        "49-51%": {
+         "expected": 14.18749585440286,
+         "seen": 16
+        },
+        "48-52%": {
+         "expected": 28.33249336417072,
+         "seen": 36
+        },
+        "45-55%": {
+         "expected": 90.67501774957798,
+         "seen": 102
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 71.2999999999981,
+         "seen": 56
+        },
+        "1%": {
+         "expected": 14.25999999999974,
+         "seen": 12
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 789,
+       "mean_log_score": 1.595487343319459,
+       "within": {
+        "49-51%": {
+         "expected": 0.12319093974814212,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.26673042000930086,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 1.2144458046671185,
+         "seen": 1
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 39.449999999999896,
+         "seen": 43
+        },
+        "1%": {
+         "expected": 7.889999999999876,
+         "seen": 7
+        }
+       }
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": false,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 49-51%",
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [
+      "|mean - 1/2| 0.10-0.20, 49-51%",
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_seats_supported": false,
+     "improves": false,
+     "mean_log_score_gain": 0.005336416616894102,
+     "count_49_51": {
+      "expected": 87.08575250215722,
+      "record_expected": 87.46674869677558,
+      "seen": 105
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": false,
+       "mean_log_score_gain": 0.006351126482984304,
+       "count_49_51": {
+        "expected": 76.12850807058686,
+        "record_expected": 76.46616504349787,
+        "seen": 88
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": 0.0071432127207222695,
+       "count_49_51": {
+        "expected": 76.08740324702615,
+        "record_expected": 76.49689530232125,
+        "seen": 93
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": 0.0054124047665145,
+       "count_49_51": {
+        "expected": 77.91098515266431,
+        "record_expected": 78.42875842523047,
+        "seen": 96
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": 0.0021784960297488443,
+       "count_49_51": {
+        "expected": 78.8572689412494,
+        "record_expected": 79.24413705386637,
+        "seen": 97
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": 0.004772771839835599,
+       "count_49_51": {
+        "expected": 71.9394778199833,
+        "record_expected": 71.95018111144476,
+        "seen": 84
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2020": {
+       "improves": false,
+       "mean_log_score_gain": 0.005339507040177605,
+       "count_49_51": {
+        "expected": 77.37126099258005,
+        "record_expected": 77.57309365801855,
+        "seen": 93
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": 0.005812342979881535,
+       "count_49_51": {
+        "expected": 74.17639535845206,
+        "record_expected": 74.5769473840735,
+        "seen": 89
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": 0.005717461709924709,
+       "count_49_51": {
+        "expected": 77.12896793255877,
+        "record_expected": 77.53106289897669,
+        "seen": 95
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 49-51%",
+        "|mean - 1/2| 0.10-0.20, 48-52%",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      }
+     },
+     "robust": false
+    },
+    "adopted": "record"
+   },
+   "senate": {
+    "record": {
+     "variant": "none",
+     "near_tie": null,
+     "races": 256,
+     "mean_log_score": 1.2984359790218547,
+     "coverage": {
+      "0.5": 0.54296875,
+      "0.8": 0.91015625,
+      "0.95": 0.98828125
+     },
+     "within": {
+      "49-51%": {
+       "expected": 11.096015225409264,
+       "seen": 17
+      },
+      "48-52%": {
+       "expected": 22.21507394033375,
+       "seen": 34
+      },
+      "45-55%": {
+       "expected": 55.88411774895773,
+       "seen": 69
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 50,
+       "mean_log_score": 1.3464214226792925,
+       "within": {
+        "49-51%": {
+         "expected": 4.645798429414272,
+         "seen": 5
+        },
+        "48-52%": {
+         "expected": 9.228632193933823,
+         "seen": 14
+        },
+        "45-55%": {
+         "expected": 22.02191651554901,
+         "seen": 28
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.499999999999999,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.5000000000000002,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 59,
+       "mean_log_score": 1.1326014662129817,
+       "within": {
+        "49-51%": {
+         "expected": 3.6931360637601762,
+         "seen": 8
+        },
+        "48-52%": {
+         "expected": 7.384315504241355,
+         "seen": 15
+        },
+        "45-55%": {
+         "expected": 18.390027189157358,
+         "seen": 23
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.9499999999999975,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 0.5900000000000003,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 130,
+       "mean_log_score": 1.3307310241434716,
+       "within": {
+        "49-51%": {
+         "expected": 2.716803460207685,
+         "seen": 4
+        },
+        "48-52%": {
+         "expected": 5.5174468649735795,
+         "seen": 5
+        },
+        "45-55%": {
+         "expected": 15.185189605177488,
+         "seen": 18
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 6.499999999999985,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 1.300000000000001,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 17,
+       "mean_log_score": 1.4858835206125316,
+       "within": {
+        "49-51%": {
+         "expected": 0.040277272027128386,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.08467937718500335,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 0.28698443907386073,
+         "seen": 0
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 0.8500000000000002,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.17,
+         "seen": 0
+        }
+       }
+      }
+     }
+    },
+    "a": {
+     "variant": "none",
+     "near_tie": null,
+     "races": 256,
+     "mean_log_score": 1.2979956357514177,
+     "coverage": {
+      "0.5": 0.53125,
+      "0.8": 0.90234375,
+      "0.95": 0.9921875
+     },
+     "within": {
+      "49-51%": {
+       "expected": 10.770989437107358,
+       "seen": 17
+      },
+      "48-52%": {
+       "expected": 21.574056753425744,
+       "seen": 34
+      },
+      "45-55%": {
+       "expected": 54.43216309693581,
+       "seen": 69
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 50,
+       "mean_log_score": 1.3172789951395347,
+       "within": {
+        "49-51%": {
+         "expected": 4.363602418455173,
+         "seen": 5
+        },
+        "48-52%": {
+         "expected": 8.672906289206065,
+         "seen": 14
+        },
+        "45-55%": {
+         "expected": 20.77538458522605,
+         "seen": 28
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.499999999999999,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.5000000000000002,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 59,
+       "mean_log_score": 1.148135573123952,
+       "within": {
+        "49-51%": {
+         "expected": 3.6422061004285884,
+         "seen": 8
+        },
+        "48-52%": {
+         "expected": 7.281633481699523,
+         "seen": 15
+        },
+        "45-55%": {
+         "expected": 18.121799163853908,
+         "seen": 23
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.9499999999999975,
+         "seen": 3
+        },
+        "1%": {
+         "expected": 0.5900000000000003,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 130,
+       "mean_log_score": 1.3332609031285654,
+       "within": {
+        "49-51%": {
+         "expected": 2.7246156044469605,
+         "seen": 4
+        },
+        "48-52%": {
+         "expected": 5.534177400936553,
+         "seen": 5
+        },
+        "45-55%": {
+         "expected": 15.244772344563506,
+         "seen": 18
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 6.499999999999985,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 1.300000000000001,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 17,
+       "mean_log_score": 1.4917068690799844,
+       "within": {
+        "49-51%": {
+         "expected": 0.04056531377663719,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.08533958158361821,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 0.29020700329237203,
+         "seen": 0
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 0.8500000000000002,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.17,
+         "seen": 0
+        }
+       }
+      }
+     },
+     "raises_log_score": false,
+     "count_nearer": false,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [
+      "|mean - 1/2| 0.10-0.20, 48-52%"
+     ],
+     "safe_seats_supported": false,
+     "improves": false,
+     "mean_log_score_gain": -0.0004403432704369603,
+     "count_49_51": {
+      "expected": 10.770989437107358,
+      "record_expected": 11.096015225409264,
+      "seen": 17
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": false,
+       "mean_log_score_gain": -0.0005100808924511924,
+       "count_49_51": {
+        "expected": 8.965360020156885,
+        "record_expected": 9.29038580845879,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": -0.004553497846451426,
+       "count_49_51": {
+        "expected": 9.182394689304834,
+        "record_expected": 9.391123776376105,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": -0.0002981161558106571,
+       "count_49_51": {
+        "expected": 9.27828450277235,
+        "record_expected": 9.542175546502474,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": -0.007094687805575095,
+       "count_49_51": {
+        "expected": 9.800112935049155,
+        "record_expected": 10.089861667785122,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": -0.00011954421290960582,
+       "count_49_51": {
+        "expected": 9.550948385047127,
+        "record_expected": 9.870160237215977,
+        "seen": 16
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2020": {
+       "improves": false,
+       "mean_log_score_gain": 0.010454308119327571,
+       "count_49_51": {
+        "expected": 9.708468620478529,
+        "record_expected": 9.933852400297535,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": -0.0010247982799662658,
+       "count_49_51": {
+        "expected": 9.600965760532786,
+        "record_expected": 9.910506168173558,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": -0.00037862791593945566,
+       "count_49_51": {
+        "expected": 9.310391146409852,
+        "record_expected": 9.644040973055299,
+        "seen": 13
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      }
+     },
+     "robust": false
+    },
+    "b": {
+     "variant": "none",
+     "near_tie": null,
+     "races": 256,
+     "mean_log_score": 1.2977098928476238,
+     "coverage": {
+      "0.5": 0.54296875,
+      "0.8": 0.90625,
+      "0.95": 0.9921875
+     },
+     "within": {
+      "49-51%": {
+       "expected": 10.286613522717074,
+       "seen": 17
+      },
+      "48-52%": {
+       "expected": 20.619464046677688,
+       "seen": 34
+      },
+      "45-55%": {
+       "expected": 52.28241306987521,
+       "seen": 69
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 50,
+       "mean_log_score": 1.2719877842128302,
+       "within": {
+        "49-51%": {
+         "expected": 4.097971461668094,
+         "seen": 5
+        },
+        "48-52%": {
+         "expected": 8.149820950341581,
+         "seen": 14
+        },
+        "45-55%": {
+         "expected": 19.60238202598991,
+         "seen": 28
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.499999999999999,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.5000000000000002,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 59,
+       "mean_log_score": 1.1763816389304484,
+       "within": {
+        "49-51%": {
+         "expected": 3.358526336761022,
+         "seen": 8
+        },
+        "48-52%": {
+         "expected": 6.719222402316021,
+         "seen": 15
+        },
+        "45-55%": {
+         "expected": 16.80222858384322,
+         "seen": 23
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.9499999999999975,
+         "seen": 3
+        },
+        "1%": {
+         "expected": 0.5900000000000003,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 130,
+       "mean_log_score": 1.336967384123729,
+       "within": {
+        "49-51%": {
+         "expected": 2.786226741631741,
+         "seen": 4
+        },
+        "48-52%": {
+         "expected": 5.658165641883646,
+         "seen": 5
+        },
+        "45-55%": {
+         "expected": 15.5656461612802,
+         "seen": 18
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 6.499999999999985,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 1.300000000000001,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 17,
+       "mean_log_score": 1.4942392191393583,
+       "within": {
+        "49-51%": {
+         "expected": 0.04388898265621477,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.09225505213642776,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 0.31215629876184453,
+         "seen": 0
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 0.8500000000000002,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.17,
+         "seen": 0
+        }
+       }
+      }
+     },
+     "raises_log_score": false,
+     "count_nearer": false,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 48-52%",
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [
+      "|mean - 1/2| 0.10-0.20, 48-52%"
+     ],
+     "safe_seats_supported": false,
+     "improves": false,
+     "mean_log_score_gain": -0.0007260861742308666,
+     "count_49_51": {
+      "expected": 10.286613522717074,
+      "record_expected": 11.096015225409264,
+      "seen": 17
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": false,
+       "mean_log_score_gain": -0.00030004836365171705,
+       "count_49_51": {
+        "expected": 8.574301966031678,
+        "record_expected": 9.29038580845879,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": -0.002548865227894881,
+       "count_49_51": {
+        "expected": 8.716699428825086,
+        "record_expected": 9.391123776376105,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": -0.0075929469221580614,
+       "count_49_51": {
+        "expected": 8.893142530069918,
+        "record_expected": 9.542175546502474,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 48-52%"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": -0.006975096605878139,
+       "count_49_51": {
+        "expected": 9.312058077751098,
+        "record_expected": 10.089861667785122,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": 0.0017469634372975218,
+       "count_49_51": {
+        "expected": 9.140144873541837,
+        "record_expected": 9.870160237215977,
+        "seen": 16
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2020": {
+       "improves": false,
+       "mean_log_score_gain": 0.015042401804459704,
+       "count_49_51": {
+        "expected": 9.277323923460115,
+        "record_expected": 9.933852400297535,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": -0.0025549368520343396,
+       "count_49_51": {
+        "expected": 9.231503039090954,
+        "record_expected": 9.910506168173558,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": -0.0026965110899719313,
+       "count_49_51": {
+        "expected": 8.861120820248827,
+        "record_expected": 9.644040973055299,
+        "seen": 13
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count"
+       ]
+      }
+     },
+     "robust": false
+    },
+    "adopted": "record"
+   },
+   "governor": {
+    "record": {
+     "variant": "none",
+     "near_tie": null,
+     "races": 186,
+     "mean_log_score": 1.1779508111609214,
+     "coverage": {
+      "0.5": 0.5913978494623656,
+      "0.8": 0.8602150537634409,
+      "0.95": 0.967741935483871
+     },
+     "within": {
+      "49-51%": {
+       "expected": 12.784447366042548,
+       "seen": 16
+      },
+      "48-52%": {
+       "expected": 25.47805298335808,
+       "seen": 31
+      },
+      "45-55%": {
+       "expected": 62.144375983576595,
+       "seen": 70
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 88,
+       "mean_log_score": 1.189305301908992,
+       "within": {
+        "49-51%": {
+         "expected": 8.113877476471787,
+         "seen": 12
+        },
+        "48-52%": {
+         "expected": 16.119928896042932,
+         "seen": 23
+        },
+        "45-55%": {
+         "expected": 38.50028195258127,
+         "seen": 43
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 4.399999999999992,
+         "seen": 2
+        },
+        "1%": {
+         "expected": 0.8800000000000006,
+         "seen": 1
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 55,
+       "mean_log_score": 1.0695497284087145,
+       "within": {
+        "49-51%": {
+         "expected": 3.467959551058519,
+         "seen": 2
+        },
+        "48-52%": {
+         "expected": 6.928073454482218,
+         "seen": 5
+        },
+        "45-55%": {
+         "expected": 17.1632657164202,
+         "seen": 22
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.7499999999999982,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 0.5500000000000003,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 43,
+       "mean_log_score": 1.2933662615223451,
+       "within": {
+        "49-51%": {
+         "expected": 1.2026103385122369,
+         "seen": 2
+        },
+        "48-52%": {
+         "expected": 2.4300506328329283,
+         "seen": 3
+        },
+        "45-55%": {
+         "expected": 6.480828314575111,
+         "seen": 5
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.1500000000000004,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.4300000000000002,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 0,
+       "mean_log_score": null,
+       "within": {
+        "49-51%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 0.0,
+         "seen": 0
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.0,
+         "seen": 0
+        }
+       }
+      }
+     }
+    },
+    "a": {
+     "variant": "none",
+     "near_tie": null,
+     "races": 186,
+     "mean_log_score": 1.1817102281150675,
+     "coverage": {
+      "0.5": 0.5860215053763441,
+      "0.8": 0.8655913978494624,
+      "0.95": 0.967741935483871
+     },
+     "within": {
+      "49-51%": {
+       "expected": 12.739003184243392,
+       "seen": 16
+      },
+      "48-52%": {
+       "expected": 25.388653758963688,
+       "seen": 31
+      },
+      "45-55%": {
+       "expected": 61.945799542752226,
+       "seen": 70
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 88,
+       "mean_log_score": 1.185338640488013,
+       "within": {
+        "49-51%": {
+         "expected": 8.123326270163236,
+         "seen": 12
+        },
+        "48-52%": {
+         "expected": 16.137899230661784,
+         "seen": 23
+        },
+        "45-55%": {
+         "expected": 38.530876253691986,
+         "seen": 43
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 4.399999999999992,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 0.8800000000000006,
+         "seen": 1
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 55,
+       "mean_log_score": 1.0870851781060364,
+       "within": {
+        "49-51%": {
+         "expected": 3.4243249759645624,
+         "seen": 2
+        },
+        "48-52%": {
+         "expected": 6.842355827763699,
+         "seen": 5
+        },
+        "45-55%": {
+         "expected": 16.9740830625357,
+         "seen": 22
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.7499999999999982,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 0.5500000000000003,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 43,
+       "mean_log_score": 1.2953166807122216,
+       "within": {
+        "49-51%": {
+         "expected": 1.1913519381155995,
+         "seen": 2
+        },
+        "48-52%": {
+         "expected": 2.4083987005382044,
+         "seen": 3
+        },
+        "45-55%": {
+         "expected": 6.440840226524566,
+         "seen": 5
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.1500000000000004,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.4300000000000002,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 0,
+       "mean_log_score": null,
+       "within": {
+        "49-51%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 0.0,
+         "seen": 0
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.0,
+         "seen": 0
+        }
+       }
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": false,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [],
+     "safe_seats_supported": true,
+     "improves": false,
+     "mean_log_score_gain": 0.0037594169541461664,
+     "count_49_51": {
+      "expected": 12.739003184243392,
+      "record_expected": 12.784447366042548,
+      "seen": 16
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": true,
+       "mean_log_score_gain": 0.003940308489608357,
+       "count_49_51": {
+        "expected": 10.124396632871763,
+        "record_expected": 10.17700504200196,
+        "seen": 10
+       },
+       "fails": []
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": -0.0034070748195738076,
+       "count_49_51": {
+        "expected": 11.934069706570702,
+        "record_expected": 11.931545369579203,
+        "seen": 15
+       },
+       "fails": [
+        "the log score"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": 0.004249485310820589,
+       "count_49_51": {
+        "expected": 10.910473171453456,
+        "record_expected": 10.954518418038875,
+        "seen": 13
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": 0.004631385859172221,
+       "count_49_51": {
+        "expected": 11.798609896162803,
+        "record_expected": 11.852522849896493,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": 0.00782954013640813,
+       "count_49_51": {
+        "expected": 9.822431806243694,
+        "record_expected": 9.839495356214487,
+        "seen": 13
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2020": {
+       "improves": false,
+       "mean_log_score_gain": 0.004257906938126332,
+       "count_49_51": {
+        "expected": 12.062351813330137,
+        "record_expected": 12.109493994348552,
+        "seen": 16
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": 0.004699828096056402,
+       "count_49_51": {
+        "expected": 10.579996118764457,
+        "record_expected": 10.63117086307639,
+        "seen": 14
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": 0.00468571261046713,
+       "count_49_51": {
+        "expected": 11.940693144306739,
+        "record_expected": 11.995379669141863,
+        "seen": 16
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      }
+     },
+     "robust": false
+    },
+    "b": {
+     "variant": "none",
+     "near_tie": null,
+     "races": 186,
+     "mean_log_score": 1.1818791935773412,
+     "coverage": {
+      "0.5": 0.5860215053763441,
+      "0.8": 0.8548387096774194,
+      "0.95": 0.967741935483871
+     },
+     "within": {
+      "49-51%": {
+       "expected": 12.430100255945426,
+       "seen": 16
+      },
+      "48-52%": {
+       "expected": 24.78242792464025,
+       "seen": 31
+      },
+      "45-55%": {
+       "expected": 60.618520035745085,
+       "seen": 70
+      }
+     },
+     "by_band": {
+      "|mean - 1/2| 0.00-0.05": {
+       "races": 88,
+       "mean_log_score": 1.1819144994183466,
+       "within": {
+        "49-51%": {
+         "expected": 7.803009549553167,
+         "seen": 12
+        },
+        "48-52%": {
+         "expected": 15.508650396666324,
+         "seen": 23
+        },
+        "45-55%": {
+         "expected": 37.14332358764738,
+         "seen": 43
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 4.399999999999992,
+         "seen": 2
+        },
+        "1%": {
+         "expected": 0.8800000000000006,
+         "seen": 1
+        }
+       }
+      },
+      "|mean - 1/2| 0.05-0.10": {
+       "races": 55,
+       "mean_log_score": 1.0940485610976398,
+       "within": {
+        "49-51%": {
+         "expected": 3.413964972575115,
+         "seen": 2
+        },
+        "48-52%": {
+         "expected": 6.821553822941662,
+         "seen": 5
+        },
+        "45-55%": {
+         "expected": 16.920945866240565,
+         "seen": 22
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.7499999999999982,
+         "seen": 1
+        },
+        "1%": {
+         "expected": 0.5500000000000003,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.10-0.20": {
+       "races": 43,
+       "mean_log_score": 1.2941484464232758,
+       "within": {
+        "49-51%": {
+         "expected": 1.2131257338171428,
+         "seen": 2
+        },
+        "48-52%": {
+         "expected": 2.4522237050322655,
+         "seen": 3
+        },
+        "45-55%": {
+         "expected": 6.554250581857125,
+         "seen": 5
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 2.1500000000000004,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.4300000000000002,
+         "seen": 0
+        }
+       }
+      },
+      "|mean - 1/2| 0.20 up": {
+       "races": 0,
+       "mean_log_score": null,
+       "within": {
+        "49-51%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "48-52%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "45-55%": {
+         "expected": 0.0,
+         "seen": 0
+        }
+       },
+       "beyond_quantile_toward_half": {
+        "5%": {
+         "expected": 0.0,
+         "seen": 0
+        },
+        "1%": {
+         "expected": 0.0,
+         "seen": 0
+        }
+       }
+      }
+     },
+     "raises_log_score": true,
+     "count_nearer": false,
+     "safe_bands_tested": [
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_bands_further": [
+      "|mean - 1/2| 0.10-0.20, 45-55%"
+     ],
+     "safe_seats_supported": false,
+     "improves": false,
+     "mean_log_score_gain": 0.003928382416419796,
+     "count_49_51": {
+      "expected": 12.430100255945426,
+      "record_expected": 12.784447366042548,
+      "seen": 16
+     },
+     "leave_one_year_out": {
+      "2010": {
+       "improves": false,
+       "mean_log_score_gain": 0.001165657853258395,
+       "count_49_51": {
+        "expected": 9.95966663967343,
+        "record_expected": 10.17700504200196,
+        "seen": 10
+       },
+       "fails": [
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2012": {
+       "improves": false,
+       "mean_log_score_gain": -0.0028838156474173537,
+       "count_49_51": {
+        "expected": 11.619436221556079,
+        "record_expected": 11.931545369579203,
+        "seen": 15
+       },
+       "fails": [
+        "the log score",
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2014": {
+       "improves": false,
+       "mean_log_score_gain": 0.003634818348238422,
+       "count_49_51": {
+        "expected": 10.58374576267493,
+        "record_expected": 10.954518418038875,
+        "seen": 13
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2016": {
+       "improves": false,
+       "mean_log_score_gain": 0.005676233507717621,
+       "count_49_51": {
+        "expected": 11.525772098826256,
+        "record_expected": 11.852522849896493,
+        "seen": 15
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2018": {
+       "improves": false,
+       "mean_log_score_gain": 0.007907356235621332,
+       "count_49_51": {
+        "expected": 9.619370131603738,
+        "record_expected": 9.839495356214487,
+        "seen": 13
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2020": {
+       "improves": false,
+       "mean_log_score_gain": 0.0035869511586661407,
+       "count_49_51": {
+        "expected": 11.791934929077481,
+        "record_expected": 12.109493994348552,
+        "seen": 16
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      },
+      "2022": {
+       "improves": false,
+       "mean_log_score_gain": 0.007560597278249537,
+       "count_49_51": {
+        "expected": 10.286898008790882,
+        "record_expected": 10.63117086307639,
+        "seen": 14
+       },
+       "fails": [
+        "the 49-51% count"
+       ]
+      },
+      "2024": {
+       "improves": false,
+       "mean_log_score_gain": 0.005473199828612385,
+       "count_49_51": {
+        "expected": 11.623877999415194,
+        "record_expected": 11.995379669141863,
+        "seen": 16
+       },
+       "fails": [
+        "the 49-51% count",
+        "|mean - 1/2| 0.10-0.20, 45-55%"
+       ]
+      }
+     },
+     "robust": false
+    },
+    "adopted": "record"
+   }
+  },
+  "adopted": {
+   "house": "record",
+   "senate": "record",
+   "governor": "record"
+  },
+  "b_inc_by_year": {
+   "house": {
+    "2010": {
+     "record": {
+      "b_inc": 0.09439244632374107,
+      "se": 0.0031207976902583694,
+      "races": 758
+     },
+     "a": {
+      "b_inc": 0.09433628274657553,
+      "se": 0.003094092352264769,
+      "races": 758
+     },
+     "b": {
+      "b_inc": 0.09433628274657553,
+      "se": 0.003094092352264769,
+      "races": 758
+     }
+    },
+    "2012": {
+     "record": {
+      "b_inc": 0.08253729800355164,
+      "se": 0.0023807386521698414,
+      "races": 1168
+     },
+     "a": {
+      "b_inc": 0.08269083467728251,
+      "se": 0.0023501197571577344,
+      "races": 1168
+     },
+     "b": {
+      "b_inc": 0.08269083467728251,
+      "se": 0.0023501197571577344,
+      "races": 1168
+     }
+    },
+    "2014": {
+     "record": {
+      "b_inc": 0.07724918572722499,
+      "se": 0.002065917718321646,
+      "races": 1519
+     },
+     "a": {
+      "b_inc": 0.07726122687632611,
+      "se": 0.0020380846383467074,
+      "races": 1519
+     },
+     "b": {
+      "b_inc": 0.07726122687632611,
+      "se": 0.0020380846383467074,
+      "races": 1519
+     }
+    },
+    "2016": {
+     "record": {
+      "b_inc": 0.07251092500596222,
+      "se": 0.0018557117064426291,
+      "races": 1879
+     },
+     "a": {
+      "b_inc": 0.07281737212285695,
+      "se": 0.001835088883276748,
+      "races": 1879
+     },
+     "b": {
+      "b_inc": 0.07281737212285695,
+      "se": 0.001835088883276748,
+      "races": 1879
+     }
+    },
+    "2018": {
+     "record": {
+      "b_inc": 0.06969615081706326,
+      "se": 0.00170051750364936,
+      "races": 2223
+     },
+     "a": {
+      "b_inc": 0.07041047966851939,
+      "se": 0.001675976817698977,
+      "races": 2223
+     },
+     "b": {
+      "b_inc": 0.07041047966851939,
+      "se": 0.001675976817698977,
+      "races": 2223
+     }
+    },
+    "2020": {
+     "record": {
+      "b_inc": 0.064603592463401,
+      "se": 0.0015609143740870262,
+      "races": 2613
+     },
+     "a": {
+      "b_inc": 0.06539156779923483,
+      "se": 0.0015412555240020545,
+      "races": 2613
+     },
+     "b": {
+      "b_inc": 0.06539156779923483,
+      "se": 0.0015412555240020545,
+      "races": 2613
+     }
+    },
+    "2022": {
+     "record": {
+      "b_inc": 0.060030519580710505,
+      "se": 0.0014189776315568878,
+      "races": 3021
+     },
+     "a": {
+      "b_inc": 0.06072736212197511,
+      "se": 0.0014030995181424277,
+      "races": 3021
+     },
+     "b": {
+      "b_inc": 0.06072736212197511,
+      "se": 0.0014030995181424277,
+      "races": 3021
+     }
+    },
+    "2024": {
+     "record": {
+      "b_inc": 0.05602277080078366,
+      "se": 0.0013127462092700254,
+      "races": 3424
+     },
+     "a": {
+      "b_inc": 0.05676829907811409,
+      "se": 0.001300129817132349,
+      "races": 3424
+     },
+     "b": {
+      "b_inc": 0.05676829907811409,
+      "se": 0.001300129817132349,
+      "races": 3424
+     }
+    }
+   },
+   "senate": {
+    "2010": {
+     "record": {
+      "b_inc": 0.10448812916816912,
+      "se": 0.004519601429535529,
+      "races": 443
+     },
+     "a": {
+      "b_inc": 0.10448812916816912,
+      "se": 0.004519601429535529,
+      "races": 443
+     },
+     "b": {
+      "b_inc": 0.10456586546153093,
+      "se": 0.0045011515289301775,
+      "races": 443
+     }
+    },
+    "2012": {
+     "record": {
+      "b_inc": 0.10244636942134294,
+      "se": 0.004417172387030444,
+      "races": 478
+     },
+     "a": {
+      "b_inc": 0.10244636942134294,
+      "se": 0.004417172387030444,
+      "races": 478
+     },
+     "b": {
+      "b_inc": 0.10258544318638127,
+      "se": 0.004387350326194,
+      "races": 478
+     }
+    },
+    "2014": {
+     "record": {
+      "b_inc": 0.1019262723020599,
+      "se": 0.004265287617442489,
+      "races": 509
+     },
+     "a": {
+      "b_inc": 0.10168780361732119,
+      "se": 0.004237937617931273,
+      "races": 509
+     },
+     "b": {
+      "b_inc": 0.1014832441121429,
+      "se": 0.004202925210711871,
+      "races": 509
+     }
+    },
+    "2016": {
+     "record": {
+      "b_inc": 0.09942041385318842,
+      "se": 0.004125371034815742,
+      "races": 542
+     },
+     "a": {
+      "b_inc": 0.09926278162026259,
+      "se": 0.004098013965712179,
+      "races": 542
+     },
+     "b": {
+      "b_inc": 0.0993538621910435,
+      "se": 0.00405300139526954,
+      "races": 542
+     }
+    },
+    "2018": {
+     "record": {
+      "b_inc": 0.0975539214118246,
+      "se": 0.0040234728651809505,
+      "races": 573
+     },
+     "a": {
+      "b_inc": 0.09783254005251954,
+      "se": 0.003991416284552854,
+      "races": 573
+     },
+     "b": {
+      "b_inc": 0.09794636540223357,
+      "se": 0.003951239309098337,
+      "races": 573
+     }
+    },
+    "2020": {
+     "record": {
+      "b_inc": 0.09539172005595292,
+      "se": 0.0038984103218367427,
+      "races": 604
+     },
+     "a": {
+      "b_inc": 0.09567253001768561,
+      "se": 0.003868024049917644,
+      "races": 604
+     },
+     "b": {
+      "b_inc": 0.09587484776342545,
+      "se": 0.0038296112002343804,
+      "races": 604
+     }
+    },
+    "2022": {
+     "record": {
+      "b_inc": 0.0927916878749678,
+      "se": 0.0037889007958650752,
+      "races": 635
+     },
+     "a": {
+      "b_inc": 0.09234030026443103,
+      "se": 0.0037606208398298885,
+      "races": 635
+     },
+     "b": {
+      "b_inc": 0.09232938603173062,
+      "se": 0.0037270572909815446,
+      "races": 635
+     }
+    },
+    "2024": {
+     "record": {
+      "b_inc": 0.09083203515903464,
+      "se": 0.003689165256452592,
+      "races": 667
+     },
+     "a": {
+      "b_inc": 0.0902940690383146,
+      "se": 0.0036588147351479076,
+      "races": 667
+     },
+     "b": {
+      "b_inc": 0.09036070351699585,
+      "se": 0.0036300886707689136,
+      "races": 667
+     }
+    }
+   },
+   "governor": {
+    "2010": {
+     "record": {
+      "b_inc": 0.0813937252310464,
+      "se": 0.00672979289652246,
+      "races": 355
+     },
+     "a": {
+      "b_inc": 0.08159360897976856,
+      "se": 0.006675328071384368,
+      "races": 355
+     },
+     "b": {
+      "b_inc": 0.08147760398550688,
+      "se": 0.006625585558180752,
+      "races": 355
+     }
+    },
+    "2012": {
+     "record": {
+      "b_inc": 0.0811597515972815,
+      "se": 0.006410275154722921,
+      "races": 389
+     },
+     "a": {
+      "b_inc": 0.08136022003601698,
+      "se": 0.006361087759717066,
+      "races": 389
+     },
+     "b": {
+      "b_inc": 0.08110932889386624,
+      "se": 0.00630794702413395,
+      "races": 389
+     }
+    },
+    "2014": {
+     "record": {
+      "b_inc": 0.08038299225782435,
+      "se": 0.006334454351357469,
+      "races": 400
+     },
+     "a": {
+      "b_inc": 0.08102354736715406,
+      "se": 0.006258243448500552,
+      "races": 400
+     },
+     "b": {
+      "b_inc": 0.08073980929360859,
+      "se": 0.0062079415224656044,
+      "races": 400
+     }
+    },
+    "2016": {
+     "record": {
+      "b_inc": 0.07593210126263841,
+      "se": 0.005965616797861271,
+      "races": 435
+     },
+     "a": {
+      "b_inc": 0.07658501808539324,
+      "se": 0.0059010469913726915,
+      "races": 435
+     },
+     "b": {
+      "b_inc": 0.07643357994830899,
+      "se": 0.005858578221947558,
+      "races": 435
+     }
+    },
+    "2018": {
+     "record": {
+      "b_inc": 0.0743221431852485,
+      "se": 0.00593027231579855,
+      "races": 447
+     },
+     "a": {
+      "b_inc": 0.0749731906012287,
+      "se": 0.005868159291147938,
+      "races": 447
+     },
+     "b": {
+      "b_inc": 0.07474813877588111,
+      "se": 0.00581597899344431,
+      "races": 447
+     }
+    },
+    "2020": {
+     "record": {
+      "b_inc": 0.07331497459505253,
+      "se": 0.0056193731268188015,
+      "races": 483
+     },
+     "a": {
+      "b_inc": 0.073649058921592,
+      "se": 0.005558734763446945,
+      "races": 483
+     },
+     "b": {
+      "b_inc": 0.07304862505946526,
+      "se": 0.005504508481819013,
+      "races": 483
+     }
+    },
+    "2022": {
+     "record": {
+      "b_inc": 0.07323844239110879,
+      "se": 0.0055286125766903374,
+      "races": 494
+     },
+     "a": {
+      "b_inc": 0.07357093458383054,
+      "se": 0.005470628871517988,
+      "races": 494
+     },
+     "b": {
+      "b_inc": 0.07264105146107071,
+      "se": 0.005416047203568788,
+      "races": 494
+     }
+    },
+    "2024": {
+     "record": {
+      "b_inc": 0.07238334836352839,
+      "se": 0.00525981638456364,
+      "races": 530
+     },
+     "a": {
+      "b_inc": 0.07269167745791753,
+      "se": 0.005210164217970416,
+      "races": 530
+     },
+     "b": {
+      "b_inc": 0.07169647362505745,
+      "se": 0.005170291681291921,
+      "races": 530
+     }
+    }
+   }
+  },
+  "rows_changed": {
+   "house": {
+    "a": {
+     "rows": 59,
+     "of": 3805
+    },
+    "b": {
+     "rows": 59,
+     "of": 3805
+    }
+   },
+   "senate": {
+    "a": {
+     "rows": 9,
+     "of": 319
+    },
+    "b": {
+     "rows": 22,
+     "of": 319
+    }
+   },
+   "governor": {
+    "a": {
+     "rows": 3,
+     "of": 232
+    },
+    "b": {
+     "rows": 14,
+     "of": 232
+    }
+   }
   }
  }
 }
