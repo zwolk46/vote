@@ -1,0 +1,580 @@
+{
+ "about": "Every statewide record whose threshold citation, matched text, proposer or p.note changed with the two fixes of the orchestrator's check of #81 (2026-11-07 14:36), taken against 8b794e7 (#81 merged), p figures unchanged in every one. 1. Citations: the rule that governs each question by its kind, chosen by who proposed it (its ballot text's proposer where read, else its title's words, pipeline/measures.py proposer_of); where the source does not show which governs, every rule that could is cited ('A, or B'; threshold.also_governs). 'citation' is [before, after]; 'matched' the new text; 'proposer' the ballot text's proposer added (data/measure/ballot-texts.json). 2. Notes: a p taken at a threshold other than 1/2 carries a note only from the back-test near its own threshold (data/measure/backtest-measures.json, lean_notes_statewide_own_threshold: 18 questions, (s) 0.9 expected and 0 seen within 1 point, (v) under 5 expected at every line, so neither test counts and no note); 'note' is [before, after], 't' the p's threshold. data/local/REPORT.md section 20.",
+ "taken_against": "8b794e7",
+ "records": [
+  {
+   "id": "2016-measure-AK-BALLOT_MEASURE_NO__1___15PFVR",
+   "citation": [
+    "Alaska Const. art. XIII, §1",
+    "Alaska Const. art. XIII, §1, or Alaska Const. art. XI, §6, or Alaska Const. art. IX, §8"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Alaska Const. art. XIII, §1: constitutional amendment proposed by legislature (two-thirds of each house); Alaska has no constitutional initiative; Alaska Const. art. XI, §6: initiated statute and referred act (rejection of a referred act); Alaska Const. art. IX, §8: state debt (general obligation bond question)), and each sets this share"
+  },
+  {
+   "id": "2016-measure-AK-BALLOT_MEASURE_NO__2___SJR2",
+   "citation": [
+    "Alaska Const. art. XIII, §1",
+    "Alaska Const. art. XIII, §1, or Alaska Const. art. XI, §6, or Alaska Const. art. IX, §8"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Alaska Const. art. XIII, §1: constitutional amendment proposed by legislature (two-thirds of each house); Alaska has no constitutional initiative; Alaska Const. art. XI, §6: initiated statute and referred act (rejection of a referred act); Alaska Const. art. IX, §8: state debt (general obligation bond question)), and each sets this share"
+  },
+  {
+   "id": "2016-measure-MO-PROPOSITION_A",
+   "citation": [
+    "Mo. Const. art. XII, §2(b)",
+    "Mo. Const. art. XII, §2(b), or Mo. Const. art. III, §51, or Mo. Const. art. III, §52(b)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Mo. Const. art. XII, §2(b): constitutional amendment proposed by the General Assembly or by initiative; Mo. Const. art. III, §51: initiated statute; Mo. Const. art. III, §52(b): measure referred to the people (referendum)), and each sets this share"
+  },
+  {
+   "id": "2016-measure-MT-CONSTITUTIONAL_INITIATIVE_NO__116___ENSURE_THAT_CRIME_VICTIM",
+   "citation": [
+    "Mont. Const. art. XIV, §8",
+    "Mont. Const. art. XIV, §9(3)"
+   ],
+   "matched": "by the type the source's title states (amendment); proposed by the initiative [stated: the title's words], so Mont. Const. art. XIV, §9(3) governs (constitutional amendment proposed by initiative)"
+  },
+  {
+   "id": "2016-measure-OK-STATE_QUESTION_NO__776_LEGISLATIVE_REFERENDUM_NO__367",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2016-measure-OK-STATE_QUESTION_NO__777_LEGISLATIVE_REFERENDUM_NO__368",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2016-measure-OK-STATE_QUESTION_NO__779_INITIATIVE_PETITION_NO__403",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. V, sec. 3"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; proposed by the initiative [stated: the title's words], so Okla. Const. art. V, sec. 3 governs (initiated or referred measure (statute or constitutional amendment by initiative))"
+  },
+  {
+   "id": "2016-measure-OK-STATE_QUESTION_NO__780_INITIATIVE_PETITION_NO__404",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. V, sec. 3"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; proposed by the initiative [stated: the title's words], so Okla. Const. art. V, sec. 3 governs (initiated or referred measure (statute or constitutional amendment by initiative))"
+  },
+  {
+   "id": "2016-measure-OK-STATE_QUESTION_NO__781_INITIATIVE_PETITION_NO__405",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. V, sec. 3"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; proposed by the initiative [stated: the title's words], so Okla. Const. art. V, sec. 3 governs (initiated or referred measure (statute or constitutional amendment by initiative))"
+  },
+  {
+   "id": "2016-measure-OK-STATE_QUESTION_NO__790_LEGISLATIVE_REFERENDUM_NO__369",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2016-measure-OK-STATE_QUESTION_NO__792_LEGISLATIVE_REFERENDUM_NO__370",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2016-measure-OR-094__AMENDS_CONSTITUTION__ELIMINATES_MANDATORY_RETIREMENT_AG",
+   "citation": [
+    "Or. Const. art. IV, sec. 1(4)(d)",
+    "Or. Const. art. XVII, sec. 1"
+   ],
+   "matched": "by the type the source's title states (amendment); the ballot text shows it is not a measure that itself requires more than a majority to approve a change [inferred] (data/measure/ballot-texts.json); proposed by the legislature [stated: the ballot text read, data/measure/ballot-texts.json], so Or. Const. art. XVII, sec. 1 governs (constitutional amendment (legislative or initiative))",
+   "proposer": "legislature"
+  },
+  {
+   "id": "2016-measure-OR-095__AMENDS_CONSTITUTION__ALLOWS_INVESTMENTS_IN_EQUITIES_BY_",
+   "citation": [
+    "Or. Const. art. IV, sec. 1(4)(d)",
+    "Or. Const. art. XVII, sec. 1"
+   ],
+   "matched": "by the type the source's title states (amendment); the ballot text shows it is not a measure that itself requires more than a majority to approve a change [inferred] (data/measure/ballot-texts.json); proposed by the legislature [stated: the ballot text read, data/measure/ballot-texts.json], so Or. Const. art. XVII, sec. 1 governs (constitutional amendment (legislative or initiative))",
+   "proposer": "legislature"
+  },
+  {
+   "id": "2016-measure-OR-096__AMENDS_CONSTITUTION__DEDICATES_1_5__OF_STATE_LOTTERY_NE",
+   "citation": [
+    "Or. Const. art. IV, sec. 1(4)(d)",
+    "Or. Const. art. XVII, sec. 1"
+   ],
+   "matched": "by the type the source's title states (amendment); the ballot text shows it is not a measure that itself requires more than a majority to approve a change [inferred] (data/measure/ballot-texts.json); proposed by the legislature [stated: the ballot text read, data/measure/ballot-texts.json], so Or. Const. art. XVII, sec. 1 governs (constitutional amendment (legislative or initiative))",
+   "proposer": "legislature"
+  },
+  {
+   "id": "2016-measure-OR-097__INCREASES_CORPORATE_MINIMUM_TAX_WHEN_SALES_EXCEED__25_M",
+   "proposer": "initiative"
+  },
+  {
+   "id": "2016-measure-OR-098__REQUIRES_STATE_FUNDING_FOR_DROPOUT_PREVENTION__CAREER_A",
+   "proposer": "initiative"
+  },
+  {
+   "id": "2016-measure-OR-099__CREATES__OUTDOOR_SCHOOL_EDUCATION_FUND___CONTINUOUSLY_F",
+   "proposer": "initiative"
+  },
+  {
+   "id": "2016-measure-OR-100__PROHIBITS_PURCHASE_OR_SALE_OF_PARTS_OR_PRODUCTS_FROM_CE",
+   "proposer": "initiative"
+  },
+  {
+   "id": "2018-measure-AK-BALLOT_MEASURE_NO__1___17FSH2",
+   "citation": [
+    "Alaska Const. art. XIII, §1",
+    "Alaska Const. art. XIII, §1, or Alaska Const. art. XI, §6, or Alaska Const. art. IX, §8"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Alaska Const. art. XIII, §1: constitutional amendment proposed by legislature (two-thirds of each house); Alaska has no constitutional initiative; Alaska Const. art. XI, §6: initiated statute and referred act (rejection of a referred act); Alaska Const. art. IX, §8: state debt (general obligation bond question)), and each sets this share"
+  },
+  {
+   "id": "2018-measure-MI-STATE_PROPOSAL___18_2__CONSTITUTIONAL_AMENDMENT__VOTERS_NOT_",
+   "citation": [
+    "Mich. Const. art. XII, §1",
+    "Mich. Const. art. XII, §1, or Mich. Const. art. XII, §2"
+   ],
+   "matched": "by the type the source's title states (amendment); the source does not show which of these governs it (Mich. Const. art. XII, §1: constitutional amendment proposed by the legislature; Mich. Const. art. XII, §2: constitutional amendment proposed by initiative petition), and each sets this share"
+  },
+  {
+   "id": "2018-measure-MI-STATE_PROPOSAL___18_3__CONSTITUTIONAL_AMENDMENT__PROMOTE_THE",
+   "citation": [
+    "Mich. Const. art. XII, §1",
+    "Mich. Const. art. XII, §1, or Mich. Const. art. XII, §2"
+   ],
+   "matched": "by the type the source's title states (amendment); the source does not show which of these governs it (Mich. Const. art. XII, §1: constitutional amendment proposed by the legislature; Mich. Const. art. XII, §2: constitutional amendment proposed by initiative petition), and each sets this share"
+  },
+  {
+   "id": "2018-measure-NC-PROTECT_RIGHT_TO_HUNT_AND_FISH",
+   "citation": [
+    "N.C. Const. art. XIII, sec. 4",
+    "N.C. Const. art. XIII, sec. 4, or N.C. Const. art. V, sec. 3(1)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.C. Const. art. XIII, sec. 4: constitutional amendment (legislature-proposed); no initiative or statutory referendum exists in NC; N.C. Const. art. V, sec. 3(1): state bond question (debt secured by faith and credit)), and each sets this share"
+  },
+  {
+   "id": "2018-measure-NC-STRENGTHENING_VICTIMS_RIGHTS",
+   "citation": [
+    "N.C. Const. art. XIII, sec. 4",
+    "N.C. Const. art. XIII, sec. 4, or N.C. Const. art. V, sec. 3(1)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.C. Const. art. XIII, sec. 4: constitutional amendment (legislature-proposed); no initiative or statutory referendum exists in NC; N.C. Const. art. V, sec. 3(1): state bond question (debt secured by faith and credit)), and each sets this share"
+  },
+  {
+   "id": "2018-measure-NC-BIPARTISAN_BOARD_OF_ETHICS_AND_ELECTIONS",
+   "citation": [
+    "N.C. Const. art. XIII, sec. 4",
+    "N.C. Const. art. XIII, sec. 4, or N.C. Const. art. V, sec. 3(1)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.C. Const. art. XIII, sec. 4: constitutional amendment (legislature-proposed); no initiative or statutory referendum exists in NC; N.C. Const. art. V, sec. 3(1): state bond question (debt secured by faith and credit)), and each sets this share"
+  },
+  {
+   "id": "2018-measure-NC-NONPARTISAN_JUDICIAL_MERIT_COMMISSION",
+   "citation": [
+    "N.C. Const. art. XIII, sec. 4",
+    "N.C. Const. art. XIII, sec. 4, or N.C. Const. art. V, sec. 3(1)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.C. Const. art. XIII, sec. 4: constitutional amendment (legislature-proposed); no initiative or statutory referendum exists in NC; N.C. Const. art. V, sec. 3(1): state bond question (debt secured by faith and credit)), and each sets this share"
+  },
+  {
+   "id": "2018-measure-NC-MAXIMUM_INCOME_TAX_RATE_OF_7_0",
+   "citation": [
+    "N.C. Const. art. XIII, sec. 4",
+    "N.C. Const. art. XIII, sec. 4, or N.C. Const. art. V, sec. 3(1)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.C. Const. art. XIII, sec. 4: constitutional amendment (legislature-proposed); no initiative or statutory referendum exists in NC; N.C. Const. art. V, sec. 3(1): state bond question (debt secured by faith and credit)), and each sets this share"
+  },
+  {
+   "id": "2018-measure-NC-REQUIRE_PHOTO_ID_TO_VOTE",
+   "citation": [
+    "N.C. Const. art. XIII, sec. 4",
+    "N.C. Const. art. XIII, sec. 4, or N.C. Const. art. V, sec. 3(1)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.C. Const. art. XIII, sec. 4: constitutional amendment (legislature-proposed); no initiative or statutory referendum exists in NC; N.C. Const. art. V, sec. 3(1): state bond question (debt secured by faith and credit)), and each sets this share"
+  },
+  {
+   "id": "2018-measure-OH-STATE_ISSUE_1_TO_REDUCE_PENALTIES_FOR_CRIMES_OF_OBTAINING__P",
+   "citation": [
+    "Ohio Const. art. XVI, sec. 1",
+    "Ohio Const. art. II, sec. 1b"
+   ],
+   "matched": "by the type the ballot text shows [inferred] (amendment; data/measure/ballot-texts.json); the ballot text shows it is not an initiated amendment the ballot board finds to conflict with art. II sec. 1e(B)(1) (put as two questions) [inferred] (data/measure/ballot-texts.json); proposed by the initiative [stated: the ballot text read, data/measure/ballot-texts.json], so Ohio Const. art. II, sec. 1b governs (initiated statute and initiated constitutional amendment)",
+   "proposer": "initiative"
+  },
+  {
+   "id": "2018-measure-OK-STATE_QUESTION_NO__793_INITIATIVE_PETITION_NO__415",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. V, sec. 3"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; proposed by the initiative [stated: the title's words], so Okla. Const. art. V, sec. 3 governs (initiated or referred measure (statute or constitutional amendment by initiative))"
+  },
+  {
+   "id": "2018-measure-OK-STATE_QUESTION_NO__794_LEGISLATIVE_REFERENDUM_NO__371",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2018-measure-OK-STATE_QUESTION_NO__798_LEGISLATIVE_REFERENDUM_NO__372",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2018-measure-OK-STATE_QUESTION_NO__800_LEGISLATIVE_REFERENDUM_NO__373",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2018-measure-OK-STATE_QUESTION_NO__801_LEGISLATIVE_REFERENDUM_NO__374",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2022-measure-CO-AMENDMENT_D__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2022-measure-CO-AMENDMENT_E__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2022-measure-CO-AMENDMENT_F__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2022-measure-FL-AMENDMENT_NO__1__LIMITATION_ON_ASSESSMENT_OF_REAL_PROPERTY_U",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2022-measure-FL-AMENDMENT_NO__2__ABOLISHING_THE_CONSTITUTION_REVISION_COMMIS",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2022-measure-FL-AMENDMENT_NO__3__ADDITIONAL_HOMESTEAD_PROPERTY_TAX_EXEMPTION",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2022-measure-MT-CONSTITUTIONAL_AMENDMENT_NO__48",
+   "citation": [
+    "Mont. Const. art. XIV, §8",
+    "Mont. Const. art. XIV, §8, or Mont. Const. art. XIV, §9(3)"
+   ],
+   "matched": "by the type the source's title states (amendment); the source does not show which of these governs it (Mont. Const. art. XIV, §8: constitutional amendment proposed by the legislature; Mont. Const. art. XIV, §9(3): constitutional amendment proposed by initiative), and each sets this share"
+  },
+  {
+   "id": "2022-measure-MT-LEGISLATIVE_REFERENDUM_NO__131",
+   "citation": [
+    "Mont. Const. art. XIV, §8",
+    "Mont. Const. art. XIV, §8, or Mont. Code Ann. §13-27-503, or Mont. Const. art. VIII, §8"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Mont. Const. art. XIV, §8: constitutional amendment proposed by the legislature; Mont. Code Ann. §13-27-503: initiated statute and referred act (statewide ballot issues); Const. art. III §§4-5 state no vote threshold, statute does; Mont. Const. art. VIII, §8: state debt (statewide bond question)), and each sets this share"
+  },
+  {
+   "id": "2022-measure-NE-PROPOSED_AMENDMENT_NO_1",
+   "not_computed": [
+    "Neb. Const. art. III, sec. 4: majority of votes on the measure plus yes votes of at least 35% of ALL votes cast at the election (turnout floor): the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only",
+    "Neb. Const. art. III, sec. 4, or Neb. Const. art. XVI, sec. 1 (the source does not show which of these governs it): majority of votes on the measure plus yes votes of at least 35% of ALL votes cast at the election (turnout floor): the threshold turns on more than the yes share of those voting on the question, and the model forecasts that share only"
+   ]
+  },
+  {
+   "id": "2024-measure-AK-BALLOT_MEASURE_NO__1___23AMLS",
+   "citation": [
+    "Alaska Const. art. XIII, §1",
+    "Alaska Const. art. XIII, §1, or Alaska Const. art. XI, §6, or Alaska Const. art. IX, §8"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Alaska Const. art. XIII, §1: constitutional amendment proposed by legislature (two-thirds of each house); Alaska has no constitutional initiative; Alaska Const. art. XI, §6: initiated statute and referred act (rejection of a referred act); Alaska Const. art. IX, §8: state debt (general obligation bond question)), and each sets this share"
+  },
+  {
+   "id": "2024-measure-AK-BALLOT_MEASURE_NO__2___22AKHE",
+   "citation": [
+    "Alaska Const. art. XIII, §1",
+    "Alaska Const. art. XIII, §1, or Alaska Const. art. XI, §6, or Alaska Const. art. IX, §8"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Alaska Const. art. XIII, §1: constitutional amendment proposed by legislature (two-thirds of each house); Alaska has no constitutional initiative; Alaska Const. art. XI, §6: initiated statute and referred act (rejection of a referred act); Alaska Const. art. IX, §8: state debt (general obligation bond question)), and each sets this share"
+  },
+  {
+   "id": "2024-measure-CO-AMENDMENT_G__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2024-measure-CO-AMENDMENT_H__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2024-measure-CO-AMENDMENT_I__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2024-measure-CO-AMENDMENT_K__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2024-measure-CO-AMENDMENT_79__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2024-measure-CO-AMENDMENT_80__CONSTITUTIONAL",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.55
+  },
+  {
+   "id": "2024-measure-DC-INITIATIVE_83",
+   "matched": "by the type the source's title states (statute); proposed by the initiative [stated: the title's words], so D.C. Code §1-1001.16(r)(1) governs (initiative measure)"
+  },
+  {
+   "id": "2024-measure-FL-AMENDMENT_NO_1__PARTISAN_ELECTION_OF_MEMBERS_OF_DISTRICT_SCH",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2024-measure-FL-AMENDMENT_NO_2__RIGHT_TO_FISH_AND_HUNT",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2024-measure-FL-AMENDMENT_NO_3__ADULT_PERSONAL_USE_OF_MARIJUANA",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2024-measure-FL-AMENDMENT_NO_4__AMENDMENT_TO_LIMIT_GOVERNMENT_INTERFERENCE_W",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2024-measure-FL-AMENDMENT_NO_5__ANNUAL_ADJUSTMENTS_TO_THE_VALUE_OF_CERTAIN_H",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2024-measure-FL-AMENDMENT_NO_6__REPEAL_OF_PUBLIC_CAMPAIGN_FINANCING_REQUIREM",
+   "note": [
+    "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of ½, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+    null
+   ],
+   "t": 0.6
+  },
+  {
+   "id": "2024-measure-MO-PROPOSITION_A",
+   "citation": [
+    "Mo. Const. art. XII, §2(b)",
+    "Mo. Const. art. XII, §2(b), or Mo. Const. art. III, §51, or Mo. Const. art. III, §52(b)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Mo. Const. art. XII, §2(b): constitutional amendment proposed by the General Assembly or by initiative; Mo. Const. art. III, §51: initiated statute; Mo. Const. art. III, §52(b): measure referred to the people (referendum)), and each sets this share"
+  },
+  {
+   "id": "2024-measure-MT-CI_126_A_CONSTITUTIONAL_AMENDMENT_PROPOSED_BY_INITIATIVE_PET",
+   "citation": [
+    "Mont. Const. art. XIV, §8",
+    "Mont. Const. art. XIV, §9(3)"
+   ],
+   "matched": "by the type the source's title states (amendment); proposed by the initiative [stated: the title's words], so Mont. Const. art. XIV, §9(3) governs (constitutional amendment proposed by initiative)"
+  },
+  {
+   "id": "2024-measure-MT-CI_127_A_CONSTITUTIONAL_AMENDMENT_PROPOSED_BY_INITIATIVE_PET",
+   "citation": [
+    "Mont. Const. art. XIV, §8",
+    "Mont. Const. art. XIV, §9(3)"
+   ],
+   "matched": "by the type the source's title states (amendment); proposed by the initiative [stated: the title's words], so Mont. Const. art. XIV, §9(3) governs (constitutional amendment proposed by initiative)"
+  },
+  {
+   "id": "2024-measure-MT-CI_128_A_CONSTITUTIONAL_AMENDMENT_PROPOSED_BY_INITIATIVE_PET",
+   "citation": [
+    "Mont. Const. art. XIV, §8",
+    "Mont. Const. art. XIV, §9(3)"
+   ],
+   "matched": "by the type the source's title states (amendment); proposed by the initiative [stated: the title's words], so Mont. Const. art. XIV, §9(3) governs (constitutional amendment proposed by initiative)"
+  },
+  {
+   "id": "2024-measure-ND-PROPOSITION_RELATED_TO_TERMINOLOGY_DESCRIBING_PUBLIC_INSTITU",
+   "citation": [
+    "N.D. Const. art. III, sec. 8 (and sec. 9)",
+    "N.D. Const. art. III, sec. 8 (and sec. 9), or N.D. Const. art. III, sec. 9, or N.D. Const. art. IV, sec. 16"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.D. Const. art. III, sec. 8 (and sec. 9): initiated or referred statute (and, by sec. 9, initiated constitutional amendment); N.D. Const. art. III, sec. 9: constitutional amendment by initiative; N.D. Const. art. IV, sec. 16: constitutional amendment (legislature-proposed)), and each sets this share"
+  },
+  {
+   "id": "2024-measure-ND-PROPOSITION_RELATED_TO_CONSTITUTIONAL_AMENDMENTS",
+   "citation": [
+    "N.D. Const. art. III, sec. 8 (and sec. 9)",
+    "N.D. Const. art. III, sec. 8 (and sec. 9), or N.D. Const. art. III, sec. 9, or N.D. Const. art. IV, sec. 16"
+   ],
+   "matched": "by the type the source's title states (amendment); the source does not show which of these governs it (N.D. Const. art. III, sec. 8 (and sec. 9): initiated or referred statute (and, by sec. 9, initiated constitutional amendment); N.D. Const. art. III, sec. 9: constitutional amendment by initiative; N.D. Const. art. IV, sec. 16: constitutional amendment (legislature-proposed)), and each sets this share"
+  },
+  {
+   "id": "2024-measure-ND-PROPOSITION_RELATED_TO_SPENDING_AND_TRANSFERS_FROM_THE_LEGAC",
+   "citation": [
+    "N.D. Const. art. III, sec. 8 (and sec. 9)",
+    "N.D. Const. art. III, sec. 8 (and sec. 9), or N.D. Const. art. III, sec. 9, or N.D. Const. art. IV, sec. 16"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.D. Const. art. III, sec. 8 (and sec. 9): initiated or referred statute (and, by sec. 9, initiated constitutional amendment); N.D. Const. art. III, sec. 9: constitutional amendment by initiative; N.D. Const. art. IV, sec. 16: constitutional amendment (legislature-proposed)), and each sets this share"
+  },
+  {
+   "id": "2024-measure-ND-PROPOSITION_RELATED_TO_PROHIBITING_ALL_POLITICAL_SUBDIVISION",
+   "citation": [
+    "N.D. Const. art. III, sec. 8 (and sec. 9)",
+    "N.D. Const. art. III, sec. 8 (and sec. 9), or N.D. Const. art. III, sec. 9, or N.D. Const. art. IV, sec. 16"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.D. Const. art. III, sec. 8 (and sec. 9): initiated or referred statute (and, by sec. 9, initiated constitutional amendment); N.D. Const. art. III, sec. 9: constitutional amendment by initiative; N.D. Const. art. IV, sec. 16: constitutional amendment (legislature-proposed)), and each sets this share"
+  },
+  {
+   "id": "2024-measure-ND-PROPOSITION_RELATED_TO_THE_LEGALIZATION_OF_CANNABIS_AND_RELA",
+   "citation": [
+    "N.D. Const. art. III, sec. 8 (and sec. 9)",
+    "N.D. Const. art. III, sec. 8 (and sec. 9), or N.D. Const. art. III, sec. 9, or N.D. Const. art. IV, sec. 16"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.D. Const. art. III, sec. 8 (and sec. 9): initiated or referred statute (and, by sec. 9, initiated constitutional amendment); N.D. Const. art. III, sec. 9: constitutional amendment by initiative; N.D. Const. art. IV, sec. 16: constitutional amendment (legislature-proposed)), and each sets this share"
+  },
+  {
+   "id": "2024-measure-NY-STATE_PROPOSAL_ONE",
+   "citation": [
+    "N.Y. Const. art. XIX, sec. 1",
+    "N.Y. Const. art. XIX, sec. 1, or N.Y. Const. art. VII, sec. 11"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (N.Y. Const. art. XIX, sec. 1: constitutional amendment (no initiative in NY); N.Y. Const. art. VII, sec. 11: state bond question), and each sets this share"
+  },
+  {
+   "id": "2024-measure-OH-STATE_ISSUE_1",
+   "citation": [
+    "Ohio Const. art. XVI, sec. 1",
+    "Ohio Const. art. II, sec. 1b"
+   ],
+   "matched": "by the type the ballot text states (amendment; data/measure/ballot-texts.json); the ballot text shows it is not an initiated amendment the ballot board finds to conflict with art. II sec. 1e(B)(1) (put as two questions) [inferred] (data/measure/ballot-texts.json); proposed by the initiative [stated: the ballot text read, data/measure/ballot-texts.json], so Ohio Const. art. II, sec. 1b governs (initiated statute and initiated constitutional amendment)",
+   "proposer": "initiative"
+  },
+  {
+   "id": "2024-measure-OK-STATE_QUESTION_NO__833_LEGISLATIVE_REFERENDUM_NO__376-FOR_THE_PROPOSAL",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2024-measure-OK-STATE_QUESTION_NO__834_LEGISLATIVE_REFERENDUM_NO__377-FOR_THE_PROPOSAL",
+   "citation": [
+    "Okla. Const. art. XXIV, sec. 1",
+    "Okla. Const. art. XXIV, sec. 1, or Okla. Const. art. V, sec. 3, or Okla. Const. art. V, sec. 33(C)"
+   ],
+   "matched": "the source's title does not give the type; every rule read for the state's measures (but its convention question) sets this threshold; the source does not show which of these governs it (Okla. Const. art. XXIV, sec. 1: constitutional amendment proposed by Legislature; Okla. Const. art. V, sec. 3: initiated or referred measure (statute or constitutional amendment by initiative); Okla. Const. art. V, sec. 33(C): revenue bill referred to the people), and each sets this share"
+  },
+  {
+   "id": "2024-measure-OR-STATE_MEASURE_115_AUTHORIZES_IMPEACHMENT_BY_OREGON_LEGISLATU",
+   "citation": [
+    "Or. Const. art. IV, sec. 1(4)(d)",
+    "Or. Const. art. XVII, sec. 1"
+   ],
+   "matched": "by the type the ballot text states (amendment; data/measure/ballot-texts.json); the ballot text shows it is not a measure that itself requires more than a majority to approve a change [inferred] (data/measure/ballot-texts.json); proposed by the legislature [stated: the ballot text read, data/measure/ballot-texts.json], so Or. Const. art. XVII, sec. 1 governs (constitutional amendment (legislative or initiative))",
+   "proposer": "legislature"
+  },
+  {
+   "id": "2024-measure-OR-STATE_MEASURE_116_ESTABLISHES_COMPENSATION_COMMISSION",
+   "citation": [
+    "Or. Const. art. IV, sec. 1(4)(d)",
+    "Or. Const. art. XVII, sec. 1"
+   ],
+   "matched": "by the type the ballot text states (amendment; data/measure/ballot-texts.json); the ballot text shows it is not a measure that itself requires more than a majority to approve a change [inferred] (data/measure/ballot-texts.json); proposed by the legislature [stated: the ballot text read, data/measure/ballot-texts.json], so Or. Const. art. XVII, sec. 1 governs (constitutional amendment (legislative or initiative))",
+   "proposer": "legislature"
+  },
+  {
+   "id": "2024-measure-OR-STATE_MEASURE_117_RANK_CHOICE_VOTING",
+   "proposer": "legislature"
+  },
+  {
+   "id": "2024-measure-OR-STATE_MEASURE_118_INCREASE_CORPORATE_TAXES",
+   "proposer": "initiative"
+  },
+  {
+   "id": "2024-measure-OR-STATE_MEASURE_119_CANNABIS_RETAILERS_AND_LABOR_ORGANIZATIONS",
+   "proposer": "initiative"
+  }
+ ]
+}
