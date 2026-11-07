@@ -1,0 +1,3464 @@
+{
+ "about": "the volume test of MEDSL's precinct files (pipeline/local_volume.py; the orchestrator's rulings of 2026-11-07 18:54, 19:04 and 19:13; data/local/REPORT.md section 29)",
+ "line": 0.005,
+ "part2_rule": {
+  "share_at_2_or_half_over": 0.05,
+  "ratio_tolerance": 0.01,
+  "median_off_over": 0.03
+ },
+ "untested": {
+  "2020": "MEDSL's 2020 file holds local offices only (no top contest), and part 2's overlap with Klarner is 2016-2022 for the years MEDSL's files hold a legislature",
+  "2024": "tested by local_medsl.quality (the president against D1's certified count)"
+ },
+ "years": {
+  "2016": {
+   "part1": {
+    "AK": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "AL": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "AR": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "AZ": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "CO": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "DC": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "FL": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "GA": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "HI": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "ID": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "IL": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "KY": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "LA": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "ME": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "MN": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "MO": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "GREITENS, ERIC",
+       "party": "R",
+       "d2": 1433397,
+       "medsl_lines_summed": 1433397,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "KOSTER, CHRIS",
+       "party": "D",
+       "d2": 1277360,
+       "medsl_lines_summed": 1277360,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_file": "2016-3345337-2016-precinct-state.csv",
+     "flag": false
+    },
+    "MS": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "MT": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "BULLOCK, STEVE",
+       "party": "D",
+       "d2": 255933,
+       "medsl_lines_summed": 255933,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "GIANFORTE, GREG",
+       "party": "R",
+       "d2": 236115,
+       "medsl_lines_summed": 236115,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_file": "2016-3345337-2016-precinct-state.csv",
+     "flag": false
+    },
+    "NC": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "COOPER, ROY A., III",
+       "party": "D",
+       "d2": 2309157,
+       "medsl_lines_summed": 2309157,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "MCCRORY, PATRICK LLOYD (PAT)",
+       "party": "R",
+       "d2": 2298880,
+       "medsl_lines_summed": 2298880,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_file": "2016-3345337-2016-precinct-state.csv",
+     "flag": false
+    },
+    "NJ": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "NM": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "OK": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "OR": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "RI": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "SC": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "SD": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    },
+    "WA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "INSLEE, JAY ROBERT",
+       "party": "D",
+       "d2": 1760520,
+       "medsl_lines_summed": 1759614,
+       "miss_lines_summed": -0.00051
+      },
+      {
+       "candidate": "BRYANT, BILL",
+       "party": "R",
+       "d2": 1476346,
+       "medsl_lines_summed": 1474547,
+       "miss_lines_summed": -0.00122
+      }
+     ],
+     "worst": -0.00122,
+     "reading": "the party lines summed",
+     "medsl_file": "2016-3345337-2016-precinct-state.csv",
+     "flag": false
+    },
+    "WY": {
+     "top": null,
+     "why": "no governor that year and no House count beside MEDSL's (MEDSL's 2016 files hold no federal contest)"
+    }
+   },
+   "part2": {
+    "AK": {
+     "matched": 75,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "AR": {
+     "matched": 54,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "AZ": {
+     "matched": 69,
+     "median": 0.9999,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CA": {
+     "matched": 195,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CO": {
+     "matched": 167,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CT": {
+     "matched": 346,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "DE": {
+     "matched": 1,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "FL": {
+     "matched": 188,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "GA": {
+     "matched": 259,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "HI": {
+     "matched": 80,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IA": {
+     "matched": 234,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "ID": {
+     "matched": 119,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IL": {
+     "matched": 210,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IN": {
+     "matched": 205,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "KS": {
+     "matched": 274,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "KY": {
+     "matched": 186,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MA": {
+     "matched": 213,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "ME": {
+     "matched": 67,
+     "median": 0.9336,
+     "at_2_or_half": 1,
+     "share_at_2_or_half": 0.0149,
+     "flag": true
+    },
+    "MI": {
+     "matched": 260,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MN": {
+     "matched": 391,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MO": {
+     "matched": 293,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MT": {
+     "matched": 227,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NC": {
+     "matched": 253,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "ND": {
+     "matched": 132,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NE": {
+     "matched": 45,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NH": {
+     "matched": 46,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NM": {
+     "matched": 153,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NV": {
+     "matched": 103,
+     "median": 0.9999,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NY": {
+     "matched": 381,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OH": {
+     "matched": 201,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OK": {
+     "matched": 202,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OR": {
+     "matched": 161,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "PA": {
+     "matched": 358,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "RI": {
+     "matched": 169,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "SC": {
+     "matched": 202,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "SD": {
+     "matched": 164,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "TN": {
+     "matched": 182,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "TX": {
+     "matched": 10,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "UT": {
+     "matched": 155,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WA": {
+     "matched": 218,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WI": {
+     "matched": 182,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WV": {
+     "matched": 229,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WY": {
+     "matched": 130,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    }
+   },
+   "flags": {
+    "ME": {
+     "part1": false,
+     "part2": true,
+     "verdict": "hold",
+     "by": "ruling 19:13 1"
+    }
+   },
+   "cleared": {}
+  },
+  "2018": {
+   "part1": {
+    "AK": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "DUNLEAVY, MICHAEL J. (MIKE)",
+       "party": "R",
+       "d2": 145631,
+       "medsl_lines_summed": 145631,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "BEGICH, MARK",
+       "party": "D",
+       "d2": 125739,
+       "medsl_lines_summed": 125739,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 0,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "AL": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "IVEY, KAY E.",
+       "party": "R",
+       "d2": 1022457,
+       "medsl_lines_summed": 1021276,
+       "miss_lines_summed": -0.00116
+      },
+      {
+       "candidate": "MADDOX, WALTER (WALT)",
+       "party": "D",
+       "d2": 694495,
+       "medsl_lines_summed": 694011,
+       "miss_lines_summed": -0.0007
+      }
+     ],
+     "worst": -0.00116,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 67,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "AR": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "HUTCHINSON, WILLIAM (ASA)",
+       "party": "R",
+       "d2": 582406,
+       "medsl_lines_summed": 582406,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "HENDERSON, JARED K.",
+       "party": "D",
+       "d2": 283218,
+       "medsl_lines_summed": 283218,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 75,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "AZ": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "DUCEY, DOUG",
+       "party": "R",
+       "d2": 1330863,
+       "medsl_lines_summed": 1330863,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "GARCIA, DAVID",
+       "party": "D",
+       "d2": 994341,
+       "medsl_lines_summed": 994341,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 15,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "CA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "NEWSOM, GAVIN",
+       "party": "D",
+       "d2": 7721410,
+       "medsl_lines_summed": 7721410,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "COX, JOHN H.",
+       "party": "R",
+       "d2": 4742825,
+       "medsl_lines_summed": 4742825,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 58,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "CO": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "POLIS, JARED S.",
+       "party": "D",
+       "d2": 1348888,
+       "medsl_lines_summed": 1348888,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "STAPLETON, WALKER",
+       "party": "R",
+       "d2": 1080801,
+       "medsl_lines_summed": 1080801,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 64,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "CT": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "LAMONT, EDWARD M. (NED)",
+       "party": "D",
+       "d2": 676649,
+       "medsl_lines_summed": 694509,
+       "miss_lines_summed": 0.02639,
+       "medsl_own_line": 676649,
+       "miss_own_line": 0.0
+      },
+      {
+       "candidate": "STEFANOWSKI, BOB",
+       "party": "R",
+       "d2": 624750,
+       "medsl_lines_summed": 650132,
+       "miss_lines_summed": 0.04063,
+       "medsl_own_line": 624750,
+       "miss_own_line": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "each candidate's own party line, as D2's source reports it",
+     "medsl_contests": 1,
+     "medsl_counties": 8,
+     "raw_file_read": "2018-github-2018-ct-precinct-general.zip",
+     "flag": false
+    },
+    "DC": {
+     "top": "mayor (DC elects no governor; D2 holds no House count for it)",
+     "d2_source": "the Board of Elections' certified results",
+     "worst": 0.0,
+     "reading": "every candidate's votes together",
+     "settlement": {
+      "source": {
+       "page": {
+        "url": "https://electionresults.dcboe.org/election_results/2018-General-Election",
+        "served_from": "electionresults.dcboe.org",
+        "read_utc": "2026-11-07T19:12Z",
+        "finished_utc": "2026-11-07T19:12:03Z",
+        "bytes": 85457,
+        "sha256": "0d585745290a1c12c7e0aec17979cd0ad93c8c02eed06351551a5c0e2b449910",
+        "how": "rendered in headless Chromium (pipeline/intake/render_page.cjs)"
+       },
+       "mark": "the page's heading 'General Election 2018 - Certified Results'"
+      },
+      "board": {
+       "Ann C. Wilcox - STG": 20950,
+       "Dustin 'DC' Canter - IND": 15478,
+       "Muriel Bowser - DEM": 171608,
+       "Martin Moulton - LIB": 7569,
+       "WRITE-IN": 9053
+      },
+      "medsl": {
+       "MURIEL BOWSER": 171608,
+       "ANN C WILCOX": 20950,
+       "DUSTIN \"DC\" CANTER": 15478,
+       "WRITEIN": 9053,
+       "MARTIN MOULTON": 7569
+      },
+      "board_total": 224658,
+      "medsl_total": 224658,
+      "equal": true,
+      "worst": 0.0
+     },
+     "flag": false
+    },
+    "DE": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 353814,
+     "medsl": 353814,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "FL": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "DESANTIS, RONALD D. (RON)",
+       "party": "R",
+       "d2": 4076186,
+       "medsl_lines_summed": 4076521,
+       "miss_lines_summed": 8e-05
+      },
+      {
+       "candidate": "GILLUM, ANDREW",
+       "party": "D",
+       "d2": 4043723,
+       "medsl_lines_summed": 4044092,
+       "miss_lines_summed": 9e-05
+      }
+     ],
+     "worst": 9e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 67,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "GA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "KEMP, BRIAN P.",
+       "party": "R",
+       "d2": 1978408,
+       "medsl_lines_summed": 1978408,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "ABRAMS, STACEY",
+       "party": "D",
+       "d2": 1923685,
+       "medsl_lines_summed": 1923685,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 159,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "HI": {
+     "top": "governor",
+     "d2_source": "State of Hawaii Office of Elections, 2018 General Election, Certified Text Files",
+     "rows": [
+      {
+       "candidate": "IGE, DAVID YUTAKA",
+       "party": "D",
+       "d2": 244934,
+       "medsl_lines_summed": 244934,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "TUPOLA, ANDRIA",
+       "party": "R",
+       "d2": 131719,
+       "medsl_lines_summed": 131719,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 4,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "IA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "REYNOLDS, KIM",
+       "party": "R",
+       "d2": 667275,
+       "medsl_lines_summed": 667275,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "HUBBELL, FRED",
+       "party": "D",
+       "d2": 630986,
+       "medsl_lines_summed": 630986,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 99,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "ID": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "LITTLE, BRAD",
+       "party": "R",
+       "d2": 361661,
+       "medsl_lines_summed": 361661,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "JORDAN, PAULETTE",
+       "party": "D",
+       "d2": 231081,
+       "medsl_lines_summed": 231081,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 44,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "IL": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "PRITZKER, JAY (J.B.)",
+       "party": "D",
+       "d2": 2479746,
+       "medsl_lines_summed": 2479746,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": " RAUNER, BRUCE V.",
+       "party": "R",
+       "d2": 1765651,
+       "medsl_lines_summed": 1765751,
+       "miss_lines_summed": 6e-05
+      }
+     ],
+     "worst": 6e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 102,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "IN": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 2256149,
+     "medsl": 2240431,
+     "worst": -0.00697,
+     "reading": "every line's votes together",
+     "flag": true
+    },
+    "KS": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "KELLY, LAURA",
+       "party": "D",
+       "d2": 506509,
+       "medsl_lines_summed": 506509,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "KOBACH, KRIS W.",
+       "party": "R",
+       "d2": 453030,
+       "medsl_lines_summed": 453030,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 105,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "KY": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 1569798,
+     "medsl": 1570074,
+     "worst": 0.00018,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "LA": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 1460593,
+     "medsl": 1460593,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "MA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "BAKER, CHARLES D. (CHARLIE)",
+       "party": "R",
+       "d2": 1781341,
+       "medsl_lines_summed": 1781341,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "GONZALEZ, JAY M.",
+       "party": "D",
+       "d2": 885770,
+       "medsl_lines_summed": 885770,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 14,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "MD": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "HOGAN, LAWRENCE JOSEPH (LARRY), JR.",
+       "party": "R",
+       "d2": 1275644,
+       "medsl_lines_summed": 1275644,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "JEALOUS, BEN",
+       "party": "D",
+       "d2": 1002639,
+       "medsl_lines_summed": 1002639,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 24,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "ME": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "MILLS, JANET T.",
+       "party": "D",
+       "d2": 320962,
+       "medsl_lines_summed": 320962,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "MOODY, SHAWN H.",
+       "party": "R",
+       "d2": 272311,
+       "medsl_lines_summed": 272311,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 17,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "MI": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "WHITMER, GRETCHEN",
+       "party": "D",
+       "d2": 2266193,
+       "medsl_lines_summed": 2266193,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "SCHUETTE, WILLIAM (BILL)",
+       "party": "R",
+       "d2": 1859534,
+       "medsl_lines_summed": 1859534,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 83,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "MN": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "WALZ, TIMOTHY J. (TIM)",
+       "party": "DFL",
+       "d2": 1393096,
+       "medsl_lines_summed": 1393096,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "JOHNSON, JEFF",
+       "party": "R",
+       "d2": 1097705,
+       "medsl_lines_summed": 1097705,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 87,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "MO": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 2418413,
+     "medsl": 2418438,
+     "worst": 1e-05,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "MS": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 938903,
+     "medsl": 938903,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "MT": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 504421,
+     "medsl": 504421,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "NC": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 3663326,
+     "medsl": 3663001,
+     "worst": -9e-05,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "ND": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 321532,
+     "medsl": 321532,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "NE": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "RICKETTS, PETE",
+       "party": "R",
+       "d2": 411812,
+       "medsl_lines_summed": 411812,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "KRIST, BOB",
+       "party": "D",
+       "d2": 286169,
+       "medsl_lines_summed": 286169,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 93,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "NH": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "SUNUNU, CHRISTOPHER (CHRIS)",
+       "party": "R",
+       "d2": 302764,
+       "medsl_lines_summed": 302764,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "KELLY, MOLLY",
+       "party": "D",
+       "d2": 262359,
+       "medsl_lines_summed": 262359,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 10,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "NJ": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 3098743,
+     "medsl": 3053723,
+     "worst": -0.01453,
+     "reading": "every line's votes together",
+     "flag": true
+    },
+    "NM": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "GRISHAM, MICHELLE LUJAN",
+       "party": "D",
+       "d2": 398368,
+       "medsl_lines_summed": 398368,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "PEARCE, STEVAN E. (STEVE)",
+       "party": "R",
+       "d2": 298091,
+       "medsl_lines_summed": 298091,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 33,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "NV": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "SISOLAK, STEVE",
+       "party": "D",
+       "d2": 480007,
+       "medsl_lines_summed": 480007,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "LAXALT, ADAM PAUL",
+       "party": "R",
+       "d2": 440320,
+       "medsl_lines_summed": 440320,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 17,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "NY": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "CUOMO, ANDREW M.",
+       "party": "D",
+       "d2": 3424416,
+       "medsl_lines_summed": 3286344,
+       "miss_lines_summed": -0.04032,
+       "medsl_own_line": 3098235,
+       "miss_own_line": -0.09525
+      },
+      {
+       "candidate": "MOLINARO, MARCUS J. (MARC)",
+       "party": "R",
+       "d2": 1926485,
+       "medsl_lines_summed": 1866153,
+       "miss_lines_summed": -0.03132,
+       "medsl_own_line": 1622796,
+       "miss_own_line": -0.15764
+      }
+     ],
+     "worst": -0.04032,
+     "reading": "the party lines summed; on each candidate's own party line, 84.24%",
+     "medsl_contests": 1,
+     "medsl_counties": 57,
+     "raw_file_read": "2018-github-2018-ny-precinct-general.zip",
+     "flag": true
+    },
+    "OH": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "DEWINE, MICHAEL (MIKE)",
+       "party": "R",
+       "d2": 2235825,
+       "medsl_lines_summed": 2235825,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "CORDRAY, RICHARD A.",
+       "party": "D",
+       "d2": 2070046,
+       "medsl_lines_summed": 2070046,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 88,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "OK": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "STITT, KEVIN",
+       "party": "R",
+       "d2": 644579,
+       "medsl_lines_summed": 644579,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "EDMONDSON, DREW",
+       "party": "D",
+       "d2": 500973,
+       "medsl_lines_summed": 500973,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 77,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "OR": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "BROWN, KATE",
+       "party": "D",
+       "d2": 934498,
+       "medsl_lines_summed": 940114,
+       "miss_lines_summed": 0.00601,
+       "medsl_own_line": 940114,
+       "miss_own_line": 0.00601
+      },
+      {
+       "candidate": "BUEHLER, KNUTE C.",
+       "party": "R",
+       "d2": 814988,
+       "medsl_lines_summed": 821594,
+       "miss_lines_summed": 0.00811,
+       "medsl_own_line": 821594,
+       "miss_own_line": 0.00811
+      }
+     ],
+     "worst": 0.00811,
+     "reading": "the party lines summed; on each candidate's own party line, 100.81%",
+     "medsl_contests": 1,
+     "medsl_counties": 36,
+     "raw_file_read": "2018-github-2018-or-precinct-general.zip",
+     "flag": true
+    },
+    "PA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "WOLF, THOMAS W. (TOM)",
+       "party": "D",
+       "d2": 2895652,
+       "medsl_lines_summed": 2895848,
+       "miss_lines_summed": 7e-05
+      },
+      {
+       "candidate": "WAGNER, SCOTT R.",
+       "party": "R",
+       "d2": 2039882,
+       "medsl_lines_summed": 2040169,
+       "miss_lines_summed": 0.00014
+      }
+     ],
+     "worst": 0.00014,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 67,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "RI": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "RAIMONDO, GINA M.",
+       "party": "D",
+       "d2": 198122,
+       "medsl_lines_summed": 198122,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "FUNG, ALLAN W.",
+       "party": "R",
+       "d2": 139932,
+       "medsl_lines_summed": 139932,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 5,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "SC": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "MCMASTER, HENRY D.",
+       "party": "R",
+       "d2": 921342,
+       "medsl_lines_summed": 921342,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "SMITH, JAMES E., JR.",
+       "party": "D",
+       "d2": 784182,
+       "medsl_lines_summed": 784182,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 46,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "SD": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "NOEM, KRISTI LYNN",
+       "party": "R",
+       "d2": 172912,
+       "medsl_lines_summed": 172706,
+       "miss_lines_summed": -0.00119
+      },
+      {
+       "candidate": "SUTTON, BILLIE",
+       "party": "D",
+       "d2": 161454,
+       "medsl_lines_summed": 161171,
+       "miss_lines_summed": -0.00175
+      }
+     ],
+     "worst": -0.00175,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 66,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "TN": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "LEE, BILL",
+       "party": "R",
+       "d2": 1336106,
+       "medsl_lines_summed": 1336106,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "DEAN, KARL",
+       "party": "D",
+       "d2": 864863,
+       "medsl_lines_summed": 864863,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 95,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "TX": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "ABBOTT, GREG",
+       "party": "R",
+       "d2": 4656196,
+       "medsl_lines_summed": 4655344,
+       "miss_lines_summed": -0.00018
+      },
+      {
+       "candidate": "VALDEZ, LUPE",
+       "party": "D",
+       "d2": 3546615,
+       "medsl_lines_summed": 3545673,
+       "miss_lines_summed": -0.00027
+      }
+     ],
+     "worst": -0.00027,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 254,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "UT": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 1052506,
+     "medsl": 1054753,
+     "worst": 0.00213,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "VA": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 3313211,
+     "medsl": 3313227,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "VT": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "SCOTT, PHILLIP B. (PHIL)",
+       "party": "R",
+       "d2": 151261,
+       "medsl_lines_summed": 151270,
+       "miss_lines_summed": 6e-05
+      },
+      {
+       "candidate": "HALLQUIST, CHRISTINE",
+       "party": "D",
+       "d2": 110335,
+       "medsl_lines_summed": 110335,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 6e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 14,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "WA": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 3021951,
+     "medsl": 3028794,
+     "worst": 0.00226,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "WV": {
+     "top": "US House",
+     "d2_source": "data/house/2018.json",
+     "d2": 577991,
+     "medsl": 577991,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "WY": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "GORDON, MARK",
+       "party": "R",
+       "d2": 136412,
+       "medsl_lines_summed": 136412,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "THRONE, MARY A.",
+       "party": "D",
+       "d2": 55965,
+       "medsl_lines_summed": 55965,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 23,
+     "raw_file_read": null,
+     "flag": false
+    }
+   },
+   "part2": {
+    "AK": {
+     "matched": 84,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "AL": {
+     "matched": 209,
+     "median": 1.0026,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "AR": {
+     "matched": 70,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "AZ": {
+     "matched": 157,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CA": {
+     "matched": 194,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CO": {
+     "matched": 180,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CT": {
+     "matched": 357,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "DE": {
+     "matched": 89,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "FL": {
+     "matched": 207,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "GA": {
+     "matched": 309,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "HI": {
+     "matched": 53,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IA": {
+     "matched": 234,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "ID": {
+     "matched": 167,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IL": {
+     "matched": 236,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IN": {
+     "matched": 210,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "KS": {
+     "matched": 189,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "KY": {
+     "matched": 224,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MD": {
+     "matched": 239,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "ME": {
+     "matched": 352,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MI": {
+     "matched": 342,
+     "median": 1.0,
+     "at_2_or_half": 1,
+     "share_at_2_or_half": 0.0029,
+     "flag": false
+    },
+    "MO": {
+     "matched": 331,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MT": {
+     "matched": 226,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NC": {
+     "matched": 361,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NE": {
+     "matched": 43,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NH": {
+     "matched": 778,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NV": {
+     "matched": 96,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NY": {
+     "matched": 262,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OH": {
+     "matched": 231,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OK": {
+     "matched": 201,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OR": {
+     "matched": 143,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "PA": {
+     "matched": 387,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "RI": {
+     "matched": 173,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "SC": {
+     "matched": 164,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "SD": {
+     "matched": 192,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "TN": {
+     "matched": 214,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "TX": {
+     "matched": 19,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "UT": {
+     "matched": 192,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WA": {
+     "matched": 47,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WV": {
+     "matched": 232,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WY": {
+     "matched": 108,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    }
+   },
+   "flags": {
+    "IN": {
+     "part1": true,
+     "part2": false,
+     "verdict": "note",
+     "by": "rulings 19:04 3 and 19:13 5"
+    },
+    "NJ": {
+     "part1": true,
+     "part2": false,
+     "verdict": "hold_counties",
+     "by": "ruling 19:13 4",
+     "settlement": {
+      "source": {
+       "page": {
+        "url": "https://www.nj.gov/state/elections/election-information-2018.shtml",
+        "served_from": "www.nj.gov",
+        "read_utc": "2026-11-07T19:09Z",
+        "finished_utc": "2026-11-07T19:09:32Z",
+        "bytes": 58723,
+        "sha256": "4fd44ad5c60f831effb5bd5b6253e876c317fea6fad49e968b0cc08af66ea3d2",
+        "how": "curl"
+       },
+       "file": {
+        "url": "https://www.nj.gov/state/elections/assets/pdf/election-results/2018/2018-official-general-election-results-us-house.pdf",
+        "served_from": "www.nj.gov",
+        "read_utc": "2026-11-07T19:09Z",
+        "finished_utc": "2026-11-07T19:09:51Z",
+        "bytes": 292913,
+        "sha256": "6ab852b0bab1dd070e97842c631d001f7cce9bf0a7b25ce2bc971ce759cec8c0",
+        "how": "curl, the Division's page's 'Official General Election Results: U.S. House of Representatives' link"
+       },
+       "mark": "the file's heading 'Official List', dated 12/03/2018"
+      },
+      "list_total": 3098743,
+      "d2_total": 3098743,
+      "list_equals_d2": true,
+      "by_county": {
+       "34001": {
+        "county": "Atlantic",
+        "list": 93868,
+        "medsl": 93868,
+        "miss": 0.0
+       },
+       "34003": {
+        "county": "Bergen",
+        "list": 335808,
+        "medsl": 335922,
+        "miss": 0.00034
+       },
+       "34005": {
+        "county": "Burlington",
+        "list": 188344,
+        "medsl": 188425,
+        "miss": 0.00043
+       },
+       "34007": {
+        "county": "Camden",
+        "list": 182665,
+        "medsl": 182808,
+        "miss": 0.00078
+       },
+       "34009": {
+        "county": "Cape May",
+        "list": 41071,
+        "medsl": 41084,
+        "miss": 0.00032
+       },
+       "34011": {
+        "county": "Cumberland",
+        "list": 40521,
+        "medsl": 40533,
+        "miss": 0.0003
+       },
+       "34013": {
+        "county": "Essex",
+        "list": 242946,
+        "medsl": 242406,
+        "miss": -0.00222
+       },
+       "34015": {
+        "county": "Gloucester",
+        "list": 111496,
+        "medsl": 111538,
+        "miss": 0.00038
+       },
+       "34017": {
+        "county": "Hudson",
+        "list": 145401,
+        "medsl": 145480,
+        "miss": 0.00054
+       },
+       "34019": {
+        "county": "Hunterdon",
+        "list": 63285,
+        "medsl": 62792,
+        "miss": -0.00779
+       },
+       "34021": {
+        "county": "Mercer",
+        "list": 126288,
+        "medsl": 126334,
+        "miss": 0.00036
+       },
+       "34023": {
+        "county": "Middlesex",
+        "list": 249429,
+        "medsl": 204444,
+        "miss": -0.18035
+       },
+       "34025": {
+        "county": "Monmouth",
+        "list": 259617,
+        "medsl": 259718,
+        "miss": 0.00039
+       },
+       "34027": {
+        "county": "Morris",
+        "list": 213619,
+        "medsl": 213673,
+        "miss": 0.00025
+       },
+       "34029": {
+        "county": "Ocean",
+        "list": 222810,
+        "medsl": 222888,
+        "miss": 0.00035
+       },
+       "34031": {
+        "county": "Passaic",
+        "list": 144908,
+        "medsl": 144965,
+        "miss": 0.00039
+       },
+       "34033": {
+        "county": "Salem",
+        "list": 23781,
+        "medsl": 23803,
+        "miss": 0.00093
+       },
+       "34035": {
+        "county": "Somerset",
+        "list": 135186,
+        "medsl": 135235,
+        "miss": 0.00036
+       },
+       "34037": {
+        "county": "Sussex",
+        "list": 60973,
+        "medsl": 61017,
+        "miss": 0.00072
+       },
+       "34039": {
+        "county": "Union",
+        "list": 176334,
+        "medsl": 176378,
+        "miss": 0.00025
+       },
+       "34041": {
+        "county": "Warren",
+        "list": 40393,
+        "medsl": 40412,
+        "miss": 0.00047
+       }
+      },
+      "counties": [
+       "34019",
+       "34023"
+      ]
+     }
+    },
+    "NY": {
+     "part1": true,
+     "part2": false,
+     "verdict": "hold",
+     "by": "rulings 19:04 3 and 19:13 5"
+    },
+    "OR": {
+     "part1": true,
+     "part2": false,
+     "verdict": "note",
+     "by": "ruling 19:04 3"
+    }
+   },
+   "cleared": {
+    "2018-HI": "D2's count was the dataset's 137,719 for Tupola; the Office of Elections' certified summary has 131,719, equal to MEDSL's (pipeline/governor_hi2018.py)",
+    "2018-CT": "D2's source gives each governor candidate's own party line; MEDSL's lines equal them"
+   }
+  },
+  "2022": {
+   "part1": {
+    "AK": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "DUNLEAVY, MICHAEL J. (MIKE)",
+       "party": "R",
+       "d2": 132632,
+       "medsl_lines_summed": 132632,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "GARA, LES S.",
+       "party": "D",
+       "d2": 63851,
+       "medsl_lines_summed": 63851,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 0,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "AL": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "IVEY, KAY E.",
+       "party": "R",
+       "d2": 946932,
+       "medsl_lines_summed": 946932,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "FLOWERS, YOLANDA ROCHELLE",
+       "party": "D",
+       "d2": 412961,
+       "medsl_lines_summed": 412961,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 67,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "AR": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "SANDERS, SARAH HUCKABEE",
+       "party": "R",
+       "d2": 571105,
+       "medsl_lines_summed": 569213,
+       "miss_lines_summed": -0.00331,
+       "medsl_own_line": 569213,
+       "miss_own_line": -0.00331
+      },
+      {
+       "candidate": "JONES, CHRIS",
+       "party": "D",
+       "d2": 319242,
+       "medsl_lines_summed": 316827,
+       "miss_lines_summed": -0.00756,
+       "medsl_own_line": 316827,
+       "miss_own_line": -0.00756
+      }
+     ],
+     "worst": -0.00756,
+     "reading": "the party lines summed; on each candidate's own party line, 99.24%",
+     "medsl_contests": 1,
+     "medsl_counties": 74,
+     "raw_file_read": "2022-14240723-2022-ar-local-precinct-general.zip",
+     "flag": true
+    },
+    "AZ": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "HOBBS, KATIE",
+       "party": "D",
+       "d2": 1287891,
+       "medsl_lines_summed": 1287891,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "LAKE, KARI",
+       "party": "R",
+       "d2": 1270774,
+       "medsl_lines_summed": 1270718,
+       "miss_lines_summed": -4e-05
+      }
+     ],
+     "worst": -4e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 15,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "CA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "NEWSOM, GAVIN",
+       "party": "D",
+       "d2": 6470099,
+       "medsl_lines_summed": 6469743,
+       "miss_lines_summed": -6e-05
+      },
+      {
+       "candidate": "DAHLE, BRIAN",
+       "party": "R",
+       "d2": 4462910,
+       "medsl_lines_summed": 4462336,
+       "miss_lines_summed": -0.00013
+      }
+     ],
+     "worst": -0.00013,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 58,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "CO": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "POLIS, JARED S.",
+       "party": "D",
+       "d2": 1468481,
+       "medsl_lines_summed": 1468481,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "GANAHL, HEIDI",
+       "party": "R",
+       "d2": 983040,
+       "medsl_lines_summed": 983040,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 64,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "CT": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "LAMONT, EDWARD M. (NED)",
+       "party": "D",
+       "d2": 709147,
+       "medsl_lines_summed": 709117,
+       "miss_lines_summed": -4e-05
+      },
+      {
+       "candidate": "STEFANOWSKI, BOB",
+       "party": "R",
+       "d2": 546209,
+       "medsl_lines_summed": 546209,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": -4e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 8,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "DE": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 321667,
+     "medsl": 321649,
+     "worst": -6e-05,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "FL": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "DESANTIS, RONALD D. (RON)",
+       "party": "R",
+       "d2": 4614210,
+       "medsl_lines_summed": 4614209,
+       "miss_lines_summed": -0.0
+      },
+      {
+       "candidate": "CRIST, CHARLES J. (CHARLIE), JR.",
+       "party": "D",
+       "d2": 3106313,
+       "medsl_lines_summed": 3106313,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": -0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 67,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "GA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "KEMP, BRIAN P.",
+       "party": "R",
+       "d2": 2111572,
+       "medsl_lines_summed": 2111572,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "ABRAMS, STACEY",
+       "party": "D",
+       "d2": 1813673,
+       "medsl_lines_summed": 1813673,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 2,
+     "medsl_counties": 159,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "HI": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "GREEN, JOSH",
+       "party": "D",
+       "d2": 261025,
+       "medsl_lines_summed": 261025,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "AIONA, JAMES R. (DUKE), JR.",
+       "party": "R",
+       "d2": 152237,
+       "medsl_lines_summed": 152237,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 4,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "IA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "REYNOLDS, KIM",
+       "party": "R",
+       "d2": 709198,
+       "medsl_lines_summed": 709198,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "DEJEAR, DEIDRE",
+       "party": "D",
+       "d2": 482950,
+       "medsl_lines_summed": 482950,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 99,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "ID": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "LITTLE, BRAD",
+       "party": "R",
+       "d2": 358598,
+       "medsl_lines_summed": 357187,
+       "miss_lines_summed": -0.00393
+      },
+      {
+       "candidate": "HEIDT, STEPHEN",
+       "party": "D",
+       "d2": 120160,
+       "medsl_lines_summed": 119863,
+       "miss_lines_summed": -0.00247
+      }
+     ],
+     "worst": -0.00393,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 43,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "IL": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "PRITZKER, JAY (J.B.)",
+       "party": "D",
+       "d2": 2253748,
+       "medsl_lines_summed": 2253748,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "BAILEY, DARREN",
+       "party": "R",
+       "d2": 1739095,
+       "medsl_lines_summed": 1739095,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 102,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "IN": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 1856849,
+     "medsl": 790540,
+     "worst": -0.57426,
+     "reading": "every line's votes together",
+     "flag": true
+    },
+    "KS": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "KELLY, LAURA",
+       "party": "D",
+       "d2": 499849,
+       "medsl_lines_summed": 499845,
+       "miss_lines_summed": -1e-05
+      },
+      {
+       "candidate": "SCHMIDT, DEREK",
+       "party": "R",
+       "d2": 477591,
+       "medsl_lines_summed": 477586,
+       "miss_lines_summed": -1e-05
+      }
+     ],
+     "worst": -1e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 105,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "KY": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 1463418,
+     "medsl": 1462592,
+     "worst": -0.00056,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "LA": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 1133124,
+     "medsl": 1133124,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "MA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "HEALEY, MAURA",
+       "party": "D",
+       "d2": 1584403,
+       "medsl_lines_summed": 1584403,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "DIEHL, GEOFF",
+       "party": "R",
+       "d2": 859343,
+       "medsl_lines_summed": 859343,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 14,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "MD": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "MOORE, WES",
+       "party": "D",
+       "d2": 1293944,
+       "medsl_lines_summed": 1293944,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "COX, DAN",
+       "party": "R",
+       "d2": 644000,
+       "medsl_lines_summed": 644000,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 24,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "ME": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "MILLS, JANET T.",
+       "party": "D",
+       "d2": 376934,
+       "medsl_lines_summed": 375332,
+       "miss_lines_summed": -0.00425
+      },
+      {
+       "candidate": "LEPAGE, PAUL R.",
+       "party": "R",
+       "d2": 287304,
+       "medsl_lines_summed": 287087,
+       "miss_lines_summed": -0.00076
+      }
+     ],
+     "worst": -0.00425,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 16,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "MI": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "WHITMER, GRETCHEN",
+       "party": "D",
+       "d2": 2430505,
+       "medsl_lines_summed": 2403861,
+       "miss_lines_summed": -0.01096,
+       "medsl_own_line": 2403861,
+       "miss_own_line": -0.01096
+      },
+      {
+       "candidate": "DIXON, TUDOR M.",
+       "party": "R",
+       "d2": 1960635,
+       "medsl_lines_summed": 1952318,
+       "miss_lines_summed": -0.00424,
+       "medsl_own_line": 1952318,
+       "miss_own_line": -0.00424
+      }
+     ],
+     "worst": -0.01096,
+     "reading": "the party lines summed; on each candidate's own party line, 98.90%",
+     "medsl_contests": 2,
+     "medsl_counties": 83,
+     "raw_file_read": "2022-14248930-2022-mi-local-precinct-general.zip",
+     "flag": true
+    },
+    "MN": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "WALZ, TIMOTHY J. (TIM)",
+       "party": "DFL",
+       "d2": 1312349,
+       "medsl_lines_summed": 1312349,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "JENSEN, SCOTT",
+       "party": "R",
+       "d2": 1119941,
+       "medsl_lines_summed": 1119941,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 87,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "MO": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 2060089,
+     "medsl": 2058977,
+     "worst": -0.00054,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "MT": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 463632,
+     "medsl": 463632,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "NC": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 3760753,
+     "medsl": 3760381,
+     "worst": -0.0001,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "ND": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 238586,
+     "medsl": 238586,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "NE": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "PILLEN, JIM",
+       "party": "R",
+       "d2": 398334,
+       "medsl_lines_summed": 398334,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "BLOOD, CAROL",
+       "party": "D",
+       "d2": 242006,
+       "medsl_lines_summed": 242006,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 93,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "NH": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "SUNUNU, CHRISTOPHER (CHRIS)",
+       "party": "R",
+       "d2": 352813,
+       "medsl_lines_summed": 352813,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "SHERMAN, TOM",
+       "party": "D",
+       "d2": 256766,
+       "medsl_lines_summed": 256766,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 10,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "NJ": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 2609716,
+     "medsl": 7829084,
+     "worst": 1.99998,
+     "reading": "every line's votes together",
+     "flag": true
+    },
+    "NM": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "GRISHAM, MICHELLE LUJAN",
+       "party": "D",
+       "d2": 370168,
+       "medsl_lines_summed": 370125,
+       "miss_lines_summed": -0.00012
+      },
+      {
+       "candidate": "RONCHETTI, MARK V.",
+       "party": "R",
+       "d2": 324701,
+       "medsl_lines_summed": 324665,
+       "miss_lines_summed": -0.00011
+      }
+     ],
+     "worst": -0.00012,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 33,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "NV": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "LOMBARDO, JOE",
+       "party": "R",
+       "d2": 497377,
+       "medsl_lines_summed": 497147,
+       "miss_lines_summed": -0.00046
+      },
+      {
+       "candidate": "SISOLAK, STEVE",
+       "party": "D",
+       "d2": 481991,
+       "medsl_lines_summed": 481872,
+       "miss_lines_summed": -0.00025
+      }
+     ],
+     "worst": -0.00046,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 17,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "NY": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "HOCHUL, KATHLEEN COURTNEY (KATHY)",
+       "party": "D",
+       "d2": 3140415,
+       "medsl_lines_summed": 3156467,
+       "miss_lines_summed": 0.00511,
+       "medsl_own_line": 2893701,
+       "miss_own_line": -0.07856
+      },
+      {
+       "candidate": "ZELDIN, LEE M.",
+       "party": "R",
+       "d2": 2762581,
+       "medsl_lines_summed": 2788149,
+       "miss_lines_summed": 0.00926,
+       "medsl_own_line": 2472465,
+       "miss_own_line": -0.10502
+      }
+     ],
+     "worst": 0.00926,
+     "reading": "the party lines summed; on each candidate's own party line, 89.50%",
+     "medsl_contests": 1,
+     "medsl_counties": 62,
+     "raw_file_read": "2022-10855145-ny22_cleaned.csv",
+     "flag": true
+    },
+    "OH": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "DEWINE, MICHAEL (MIKE)",
+       "party": "R",
+       "d2": 2580424,
+       "medsl_lines_summed": 2580424,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "WHALEY, NAN",
+       "party": "D",
+       "d2": 1545489,
+       "medsl_lines_summed": 1545489,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 88,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "OK": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "STITT, KEVIN",
+       "party": "R",
+       "d2": 639484,
+       "medsl_lines_summed": 639484,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "HOFMEISTER, JOY",
+       "party": "D",
+       "d2": 481904,
+       "medsl_lines_summed": 481904,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 77,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "OR": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "KOTEK, TINA",
+       "party": "D",
+       "d2": 917074,
+       "medsl_lines_summed": 917034,
+       "miss_lines_summed": -4e-05
+      },
+      {
+       "candidate": "DRAZAN, CHRISTINE",
+       "party": "R",
+       "d2": 850347,
+       "medsl_lines_summed": 850347,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": -4e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 36,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "PA": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "SHAPIRO, JOSHUA D. (JOSH)",
+       "party": "D",
+       "d2": 3031137,
+       "medsl_lines_summed": 3031032,
+       "miss_lines_summed": -3e-05
+      },
+      {
+       "candidate": "MASTRIANO, DOUGLAS VINCENT",
+       "party": "R",
+       "d2": 2238477,
+       "medsl_lines_summed": 2238337,
+       "miss_lines_summed": -6e-05
+      }
+     ],
+     "worst": -6e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 67,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "RI": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "MCKEE, DANIEL J.",
+       "party": "D",
+       "d2": 207166,
+       "medsl_lines_summed": 207166,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "KALUS, ASHLEY MARIE",
+       "party": "R",
+       "d2": 139001,
+       "medsl_lines_summed": 139001,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 5,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "SC": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "MCMASTER, HENRY D.",
+       "party": "R",
+       "d2": 988501,
+       "medsl_lines_summed": 991882,
+       "miss_lines_summed": 0.00342
+      },
+      {
+       "candidate": "CUNNINGHAM, JOE",
+       "party": "D",
+       "d2": 692691,
+       "medsl_lines_summed": 695280,
+       "miss_lines_summed": 0.00374
+      }
+     ],
+     "worst": 0.00374,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 46,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "SD": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "NOEM, KRISTI LYNN",
+       "party": "R",
+       "d2": 217035,
+       "medsl_lines_summed": 217035,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "SMITH, JAMIE",
+       "party": "D",
+       "d2": 123148,
+       "medsl_lines_summed": 123148,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 66,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "TN": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 1710425,
+     "medsl": 1710425,
+     "worst": 0.0,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "TX": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "ABBOTT, GREG",
+       "party": "R",
+       "d2": 4437099,
+       "medsl_lines_summed": 4437097,
+       "miss_lines_summed": -0.0
+      },
+      {
+       "candidate": "O'ROURKE, ROBERT (BETO)",
+       "party": "D",
+       "d2": 3553656,
+       "medsl_lines_summed": 3554772,
+       "miss_lines_summed": 0.00031
+      }
+     ],
+     "worst": 0.00031,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 254,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "UT": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 1063258,
+     "medsl": 1065142,
+     "worst": 0.00177,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "VT": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "SCOTT, PHILLIP B. (PHIL)",
+       "party": "R",
+       "d2": 202147,
+       "medsl_lines_summed": 202160,
+       "miss_lines_summed": 6e-05
+      },
+      {
+       "candidate": "SIEGEL, BRENDA",
+       "party": "D",
+       "d2": 68248,
+       "medsl_lines_summed": 68248,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 6e-05,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 14,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "WA": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 3026187,
+     "medsl": 3023462,
+     "worst": -0.0009,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "WI": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "EVERS, ANTHONY STEVEN (TONY)",
+       "party": "D",
+       "d2": 1358774,
+       "medsl_lines_summed": 1358774,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "MICHELS, TIM",
+       "party": "R",
+       "d2": 1268535,
+       "medsl_lines_summed": 1268535,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 72,
+     "raw_file_read": null,
+     "flag": false
+    },
+    "WV": {
+     "top": "US House",
+     "d2_source": "data/house/2022.json",
+     "d2": 472082,
+     "medsl": 471967,
+     "worst": -0.00024,
+     "reading": "every line's votes together",
+     "flag": false
+    },
+    "WY": {
+     "top": "governor",
+     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "rows": [
+      {
+       "candidate": "GORDON, MARK",
+       "party": "R",
+       "d2": 143696,
+       "medsl_lines_summed": 143696,
+       "miss_lines_summed": 0.0
+      },
+      {
+       "candidate": "LIVINGSTON, THERESA A.",
+       "party": "D",
+       "d2": 30686,
+       "medsl_lines_summed": 30686,
+       "miss_lines_summed": 0.0
+      }
+     ],
+     "worst": 0.0,
+     "reading": "the party lines summed",
+     "medsl_contests": 1,
+     "medsl_counties": 23,
+     "raw_file_read": null,
+     "flag": false
+    }
+   },
+   "part2": {
+    "AK": {
+     "matched": 91,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "AL": {
+     "matched": 209,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "AR": {
+     "matched": 211,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "AZ": {
+     "matched": 148,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CA": {
+     "matched": 157,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CO": {
+     "matched": 181,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "CT": {
+     "matched": 344,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "DE": {
+     "matched": 101,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "FL": {
+     "matched": 192,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "GA": {
+     "matched": 337,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IA": {
+     "matched": 206,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "ID": {
+     "matched": 56,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IL": {
+     "matched": 282,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "IN": {
+     "matched": 117,
+     "median": 0.7794,
+     "at_2_or_half": 1,
+     "share_at_2_or_half": 0.0085,
+     "flag": true
+    },
+    "KY": {
+     "matched": 169,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MD": {
+     "matched": 201,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "ME": {
+     "matched": 348,
+     "median": 0.9985,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MI": {
+     "matched": 317,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MN": {
+     "matched": 129,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MO": {
+     "matched": 271,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "MT": {
+     "matched": 221,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NC": {
+     "matched": 293,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "ND": {
+     "matched": 96,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NE": {
+     "matched": 45,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NH": {
+     "matched": 88,
+     "median": 0.5,
+     "at_2_or_half": 65,
+     "share_at_2_or_half": 0.7386,
+     "flag": true
+    },
+    "NM": {
+     "matched": 107,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NV": {
+     "matched": 110,
+     "median": 0.9999,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "NY": {
+     "matched": 365,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OH": {
+     "matched": 197,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OK": {
+     "matched": 76,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "OR": {
+     "matched": 149,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "PA": {
+     "matched": 388,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "RI": {
+     "matched": 194,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "SC": {
+     "matched": 167,
+     "median": 1.0018,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "SD": {
+     "matched": 146,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "TN": {
+     "matched": 173,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "TX": {
+     "matched": 25,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "UT": {
+     "matched": 160,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WA": {
+     "matched": 167,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WI": {
+     "matched": 206,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WV": {
+     "matched": 32,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    },
+    "WY": {
+     "matched": 115,
+     "median": 1.0,
+     "at_2_or_half": 0,
+     "share_at_2_or_half": 0.0,
+     "flag": false
+    }
+   },
+   "flags": {
+    "AR": {
+     "part1": true,
+     "part2": false,
+     "verdict": "held_already",
+     "by": "local_medsl.quality"
+    },
+    "IN": {
+     "part1": true,
+     "part2": true,
+     "verdict": "held_already",
+     "by": "local_medsl.quality"
+    },
+    "MI": {
+     "part1": true,
+     "part2": false,
+     "verdict": "note",
+     "by": "rulings 19:04 3 and 19:13 5"
+    },
+    "NH": {
+     "part1": false,
+     "part2": true,
+     "verdict": "settled",
+     "by": "ruling 19:04 1"
+    },
+    "NJ": {
+     "part1": true,
+     "part2": false,
+     "verdict": "no_records",
+     "by": "-"
+    },
+    "NY": {
+     "part1": true,
+     "part2": false,
+     "verdict": "note",
+     "by": "rulings 19:04 3 and 19:13 5"
+    }
+   },
+   "cleared": {
+    "2022-ID": "MEDSL's file counted each county twice (a COUNTY TOTAL line beside its precincts); the rule that drops such a line where the precincts add up to it (medsl_precinct.drop_county_totals) leaves Power County's absence alone"
+   }
+  }
+ }
+}
