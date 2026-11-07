@@ -1,0 +1,310 @@
+{
+ "state": "VA",
+ "name": "Virginia",
+ "status": "read",
+ "code": {
+  "name": "Code of Virginia, Title 24.2 (Elections), and Constitution of Virginia, Article V",
+  "edition": "the current Code as Virginia Law (the General Assembly's LIS site) prints it, pages dated 11/7/2026; 24.2-802.1 shows amendment by 2026, c. 1078",
+  "site": "https://law.lis.virginia.gov/",
+  "reached": true
+ },
+ "sections": {
+  "ch6": {
+   "citation": "Code of Virginia, Title 24.2, Chapter 6 (The Election): esp. 24.2-673 (highest number of votes elected), 24.2-674 (determination by lot in case of tie), 24.2-679 (State Board), 24.2-684 (referenda)",
+   "url": "https://law.lis.virginia.gov/vacodefull/title24.2/chapter6/",
+   "read_at": "state",
+   "note": "the site's 'full text' page of the chapter"
+  },
+  "ch8": {
+   "citation": "Code of Virginia, Title 24.2, Chapter 8 (Recounts and Contested Elections), Article 1: 24.2-800 (recounts in all elections), 24.2-801, 24.2-801.1, 24.2-802.1, 24.2-802.2 (general recount procedures; tie after a recount), 24.2-802.3 (costs); and 24.2-803(H) (contest tie)",
+   "url": "https://law.lis.virginia.gov/vacodefull/title24.2/chapter8/",
+   "read_at": "state",
+   "note": "the site's 'full text' page of the chapter; election contest sections read only for what they say about a tie"
+  },
+  "ch5": {
+   "citation": "Code of Virginia, Title 24.2, Chapter 5 (Nominations; primaries), read for a primary tie rule (none found)",
+   "url": "https://law.lis.virginia.gov/vacodefull/title24.2/chapter5/",
+   "read_at": "state"
+  },
+  "const-v2": {
+   "citation": "Constitution of Virginia, Article V, Section 2 (Election of Governor)",
+   "url": "https://law.lis.virginia.gov/constitution/article5/section2/",
+   "read_at": "state"
+  },
+  "const-v13": {
+   "citation": "Constitution of Virginia, Article V, Section 13 (Lieutenant Governor; election and qualifications)",
+   "url": "https://law.lis.virginia.gov/constitution/article5/section13/",
+   "read_at": "state"
+  },
+  "const-v15": {
+   "citation": "Constitution of Virginia, Article V, Section 15 (Attorney General)",
+   "url": "https://law.lis.virginia.gov/constitution/article5/section15/",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "a county, city, town or district office where, before any recount, two or more persons have an equal and the highest number of votes",
+   "resolution": "lot",
+   "steps": "(1) the electoral board determines publicly by lot which of the tied candidates is declared elected (24.2-674); (2) a person who loses the lot may petition for a recount under Article 1 of Chapter 8 (24.2-674, last paragraph); (3) if that recount finds each party to the recount with an equal number of votes, the court issues a writ ordering a special election to decide the office (24.2-802.2(H))",
+   "who": "the local electoral board (the lot); the recount court (the later special election)",
+   "sources": [
+    {
+     "section": "ch6",
+     "quote": "If, prior to a recount, two or more persons have an equal number of votes for any county, city, town, or district office, and a higher number than any other person, the electoral board shall proceed publicly to determine by lot which of the candidates shall be declared elected."
+    },
+    {
+     "section": "ch6",
+     "quote": "Any person who loses the determination by lot may petition for a recount pursuant to Article 1"
+    },
+    {
+     "section": "ch8",
+     "quote": "Except in the case of a recount of an election for Governor, Lieutenant Governor, or Attorney General, or for elector of President or Vice President of the United States, if the court finds that each party to the recount has received an equal number of votes, it shall issue a writ promptly ordering a special election be held to determine which candidate is elected to the office."
+    }
+   ],
+   "mark": "measured",
+   "note": "State general law only; town and city charters were not read. 'District office' is read to include school board and other district-wide local offices [inferred]."
+  },
+  {
+   "kinds": [
+    "federal",
+    "state-legislative"
+   ],
+   "applies_to": "member of the General Assembly or of the Congress of the United States, where before any recount two or more persons have an equal and the highest number of votes",
+   "resolution": "lot",
+   "steps": "(1) the State Board of Elections determines publicly by lot which tied person is declared elected, after reasonable notice to the candidates, and in their absence if they fail to appear (24.2-674); (2) a person who loses the lot may petition for a recount (24.2-674); (3) if the recount leaves each party with an equal number of votes, the court orders a special election (24.2-802.2(H))",
+   "who": "the State Board of Elections (the lot); the recount court (the later special election)",
+   "sources": [
+    {
+     "section": "ch6",
+     "quote": "If, prior to a recount, any two or more persons have an equal number of votes and a higher number than any other person for member of the General Assembly or of the Congress of the United States, or if any two or more persons have an equal number of votes and a higher number than any other person for elector of President and Vice President of the United States, the State Board of Elections shall proceed publicly to determine by lot which of them shall be declared elected."
+    },
+    {
+     "section": "ch6",
+     "quote": "Any person who loses the determination by lot may petition for a recount pursuant to Article 1"
+    },
+    {
+     "section": "ch8",
+     "quote": "Except in the case of a recount of an election for Governor, Lieutenant Governor, or Attorney General, or for elector of President or Vice President of the United States, if the court finds that each party to the recount has received an equal number of votes, it shall issue a writ promptly ordering a special election be held to determine which candidate is elected to the office."
+    }
+   ],
+   "mark": "measured",
+   "note": "U.S. Senate and House are both within 'the Congress of the United States'. A contested election to a house of the General Assembly that the house finds to be a tie is also decided by lot under 24.2-674 (24.2-803(H))."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "elector of President and Vice President, where before any recount two or more persons have an equal and the highest number of votes",
+   "resolution": "lot",
+   "steps": "the State Board of Elections determines publicly by lot which of the tied persons is declared elected; a person who loses may petition for a recount; the special election after a tied recount is NOT available for electors (24.2-802.2(H) excepts them), and no other rule for a tied recount of electors was found",
+   "who": "the State Board of Elections",
+   "sources": [
+    {
+     "section": "ch6",
+     "quote": "If, prior to a recount, any two or more persons have an equal number of votes and a higher number than any other person for member of the General Assembly or of the Congress of the United States, or if any two or more persons have an equal number of votes and a higher number than any other person for elector of President and Vice President of the United States, the State Board of Elections shall proceed publicly to determine by lot which of them shall be declared elected."
+    },
+    {
+     "section": "ch8",
+     "quote": "Except in the case of a recount of an election for Governor, Lieutenant Governor, or Attorney General, or for elector of President or Vice President of the United States, if the court finds that each party to the recount has received an equal number of votes, it shall issue a writ promptly ordering a special election be held to determine which candidate is elected to the office."
+    }
+   ],
+   "mark": "measured",
+   "note": "In an election of electors, the presidential candidate stands for the slate of electors in a recount (24.2-800(B))."
+  },
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "applies_to": "Governor, where two or more have the highest and an equal number of votes",
+   "resolution": "legislature",
+   "steps": "one of those tied is chosen Governor by a majority of the total membership of the General Assembly; 24.2-674 does not list the Governor, and 24.2-802.2(H) excepts the Governor from the special election after a tied recount",
+   "who": "the General Assembly, by a majority of its total membership",
+   "sources": [
+    {
+     "section": "const-v2",
+     "quote": "The person having the highest number of votes shall be declared elected; but if two or more shall have the highest and an equal number of votes, one of them shall be chosen Governor by a majority of the total membership of the General Assembly."
+    }
+   ],
+   "mark": "measured",
+   "note": "From the Constitution of Virginia, Article V, Section 2, which the Code does not displace."
+  },
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "applies_to": "Lieutenant Governor and Attorney General",
+   "resolution": "legislature",
+   "steps": "their election is to be ascertained 'in the same manner' as the Governor's, whose tie is decided by the General Assembly; no tie sentence names these two offices",
+   "who": "the General Assembly [inferred by cross-reference]",
+   "sources": [
+    {
+     "section": "const-v13",
+     "quote": "his qualifications and the manner and ascertainment of his election, in all respects, shall be the same"
+    },
+    {
+     "section": "const-v15",
+     "quote": "the fact of his election shall be ascertained in the same manner."
+    }
+   ],
+   "mark": "inferred",
+   "note": "The Lieutenant Governor's election is the same 'in all respects' as the Governor's (Art. V, section 13) and the Attorney General's 'ascertained in the same manner' (Art. V, section 15); that this carries the Governor's tie rule to them is my reading. 24.2-802.2(H) excepts Governor, Lieutenant Governor and Attorney General from the special election after a tied recount, which agrees."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a party primary tie",
+   "resolution": "lot",
+   "steps": "no tie rule specific to primaries was found; the tie rule 24.2-674 speaks of 'any ... office' without excluding nominations, and Article 1 of Chapter 8 applies to 'all elections held in the Commonwealth'. If read to cover primaries, the electoral board or State Board decides by lot before any recount",
+   "who": "the electoral board or State Board [inferred]",
+   "sources": [
+    {
+     "section": "ch6",
+     "quote": "If, prior to a recount, two or more persons have an equal number of votes for any county, city, town, or district office, and a higher number than any other person, the electoral board shall proceed publicly to determine by lot which of the candidates shall be declared elected."
+    }
+   ],
+   "mark": "inferred",
+   "note": "Inferred. I read all of Chapter 5 (Nominations; the primary sections) and found no sentence about a tie in a primary; 24.2-674 does not say general election. Ranked choice voting for some local offices is in 24.2-673.1 and was not read as a tie rule."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a referendum or other question with an equal number of yes and no votes",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie on a question",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "An absence, marked inferred. I read all of Chapter 6 (The Election), including 24.2-684 (how referendum elections are held and results ascertained), Chapter 8 Article 1 (recounts), and found no sentence on a tied question; 24.2-802.2(H) speaks of which candidate is elected."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary",
+    "presidential-electors"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total vote cast for the two such candidates",
+    "inclusive": true,
+    "combine": null,
+    "conditions": "the margin is judged on the totals as determined by the State Board or electoral board before the recount; the petition is filed within 10 days of certification (2 calendar days to 5:00 p.m. for presidential electors); the defeated candidate petitions",
+    "in_words": "a margin of one-half of one percent or less of the vote for the two candidates: the defeated candidate may petition and the recount is paid by the counties and cities, not the candidate"
+   },
+   "who_may_request": [
+    "the defeated candidate, by petition to the circuit court (Circuit Court of the City of Richmond for a statewide office or presidential electors; the circuit court of the county or city where the challenged candidate resides, otherwise), within 10 days after certification"
+   ],
+   "cost_bearer": "the counties and cities comprising the election district (no bond)",
+   "sources": [
+    {
+     "section": "ch8",
+     "quote": "When there is between any candidate apparently nominated or elected and any candidate apparently defeated a difference of not more than one percent of the total vote cast for the two such candidates as determined by the State Board or the electoral board, the defeated candidate may appeal from the determination of the State Board or the electoral board for a recount of the vote as set forth in this article."
+    },
+    {
+     "section": "ch8",
+     "quote": "Costs of the recount shall be assessed against the counties and cities comprising the election district when (i) the candidate petitioning for the recount is declared the winner; (ii) the petitioners in a recount of a referendum win the recount; or (iii) there was between the candidate apparently nominated or elected and the candidate petitioning for the recount a difference of not more than one-half of one percent of the total vote cast for the two such candidates as determined by the State Board or electoral board prior to the recount."
+    },
+    {
+     "section": "ch8",
+     "quote": "The petition for a recount of an election, other than an election for presidential electors, shall be filed within 10 days from the day the State Board or the electoral board certifies the result of the election"
+    }
+   ],
+   "mark": "measured",
+   "note": "No margin larger than one percent gives a right to a recount (next rule). A recount is judicial: a three-judge recount court, one recount per precinct, final and not appealable. For a write-in candidate apparently elected or defeated, the margin is five percent of the vote for the two candidates (24.2-800(B))."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary",
+    "presidential-electors"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the total vote cast for the two such candidates",
+    "inclusive": true,
+    "combine": null,
+    "conditions": "between one-half of one percent and one percent the petitioner bears the costs unless he or she wins the recount; a bond of $10 per precinct in the area subject to recount is posted and forfeited only up to the assessed costs; five percent for a write-in candidate",
+    "in_words": "a margin of one percent or less of the vote for the two candidates: the defeated candidate may petition; above one-half of one percent the petitioner is assessed the costs unless the petitioner wins"
+   },
+   "who_may_request": [
+    "the defeated candidate, as in the previous rule"
+   ],
+   "cost_bearer": "the petitioner (up to the assessed costs, with a bond of $10 per precinct) unless the petitioner wins the recount, in which case the counties and cities",
+   "sources": [
+    {
+     "section": "ch8",
+     "quote": "When there is between any candidate apparently nominated or elected and any candidate apparently defeated a difference of not more than one percent of the total vote cast for the two such candidates as determined by the State Board or the electoral board, the defeated candidate may appeal from the determination of the State Board or the electoral board for a recount of the vote as set forth in this article."
+    },
+    {
+     "section": "ch8",
+     "quote": "Otherwise the costs of the recount shall be assessed against the candidate petitioning for the recount or the petitioners in a recount of a referendum."
+    },
+    {
+     "section": "ch8",
+     "quote": "Any petitioner who may be assessed with costs under subsection A shall post a bond with surety with the court in the amount of $10 per precinct in the area subject to recount."
+    }
+   ],
+   "mark": "measured",
+   "note": "A recount at the requester's own cost beyond the one-half percent margin, as the brief asks to record separately. Primaries are included because Article 1 'applies to all elections held in the Commonwealth' (24.2-800(A)) [inferred as to the kind label]."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the total vote cast for and against the question",
+    "votes": 50,
+    "combine": "greater-of",
+    "inclusive": true,
+    "conditions": "50 or more voters qualified to vote on the question must sign and file the petition",
+    "in_words": "a difference between the vote for and against the question of not more than 50 votes or one percent of the total vote cast for and against, whichever is greater"
+   },
+   "who_may_request": [
+    "50 or more voters qualified to vote on the question, by petition"
+   ],
+   "cost_bearer": "the counties and cities if the petitioners win the recount; otherwise the petitioners",
+   "sources": [
+    {
+     "section": "ch8",
+     "quote": "When there is between the vote for a question and the vote against a question a difference of not more than 50 votes or one percent of the total vote cast for and against the question as determined by the State Board or the electoral board, whichever is greater, 50 or more voters qualified to vote on the question, by signing and filing their petition, may appeal from the determination of the State Board or the electoral board for a recount of the vote as set forth in this article."
+    },
+    {
+     "section": "ch8",
+     "quote": "Costs of the recount shall be assessed against the counties and cities comprising the election district when (i) the candidate petitioning for the recount is declared the winner; (ii) the petitioners in a recount of a referendum win the recount; or (iii) there was between the candidate apparently nominated or elected and the candidate petitioning for the recount a difference of not more than one-half of one percent of the total vote cast for the two such candidates as determined by the State Board or electoral board prior to the recount."
+    },
+    {
+     "section": "ch8",
+     "quote": "Otherwise the costs of the recount shall be assessed against the candidate petitioning for the recount or the petitioners in a recount of a referendum."
+    }
+   ],
+   "mark": "measured",
+   "note": "The petition for a referendum recount is filed in the Circuit Court of the City of Richmond for a statewide referendum and in the circuit court of any county or city in the election district otherwise (24.2-801(A))."
+  }
+ ],
+ "unread": [],
+ "notes": [
+  "Read in full from the site's chapter pages: Title 24.2 Chapter 6 (24.2-670 to 24.2-687), Chapter 8 (recounts and contests), Chapter 5 (nominations); and Article V sections 2, 13 and 15 of the Constitution of Virginia. Election contest sections of Chapter 8 (24.2-803 to 24.2-814) were read only for a tie sentence (24.2-803(H)).",
+  "There is no automatic recount in the sections read: every recount follows a defeated candidate's (or 50 voters') petition. Tie before a recount: lot (local, General Assembly, Congress, electors) or the General Assembly (Governor, with the Lieutenant Governor and Attorney General by cross-reference). Tie after a recount: a special election, except for Governor, Lieutenant Governor, Attorney General and electors.",
+  "Earlier lead 'VA lot (24.2-674)' is right for local, legislative, congressional and elector offices but does not cover the three statewide executive offices."
+ ]
+}

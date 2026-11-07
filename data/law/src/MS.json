@@ -1,0 +1,296 @@
+{
+ "state": "MS",
+ "name": "Mississippi",
+ "status": "partly-read",
+ "code": {
+  "name": "Mississippi Code of 1972 Annotated, Title 23, Chapter 15 (the Mississippi Election Code)",
+  "edition": "the Secretary of State's PDF of Chapter 15, printed with the 2017 session laws (every page footer reads '2017 By the State of Mississippi and Matthew Bender & Company'); later amendments are not in it",
+  "site": "the state's own code site is not open to us (see unread); text read in the Secretary of State's PDF https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf",
+  "reached": false
+ },
+ "sections": {
+  "ms-sos-code": {
+   "citation": "Miss. Code Ann. Title 23, ch. 15, as the Secretary of State publishes it (PDF): 23-15-171, 23-15-191, 23-15-193, 23-15-601, 23-15-605, 23-15-607, 23-15-611, 23-15-781, 23-15-783, 23-15-833, 23-15-857, 23-15-911, 23-15-921, 23-15-923, 23-15-951, 23-15-955, 23-15-1033, 23-15-1041",
+   "url": "https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf",
+   "read_at": "state agency guide",
+   "note": "A PDF of the whole Election Code on the Secretary of State's own site, found by web search; it is the statute's own words in the 2017 printing, but not a page of the legislature's, so it is graded as an agency publication. The printing is of 2017: amendments made after July 1, 2017 are not in it. A plain Justia/Cornell compilation was not used, because this file is a plain download from the state's own site."
+  },
+  "ms-county-handbook": {
+   "citation": "Mississippi Secretary of State, 2026 County Elections Handbook (the page footers read 'Rev. 12/24/2025'; the file name says 'revised 12-26-2025'), part on general and special elections",
+   "url": "https://www.sos.ms.gov/content/documents/elections/links/2026%20County%20Election%20Handbook.revised%2012-26-2025.pdf",
+   "read_at": "state agency guide",
+   "note": "An agency handbook, not the statute. Used to see that the Secretary of State's current guide still gives the county tie rule as the 2017 printing does, and to see what it says of mistakes in a canvass."
+  }
+ },
+ "ties": [
+  {
+   "kinds": ["federal"],
+   "applies_to": "U.S. Representative in a general election (each congressional district is made of two or more counties)",
+   "resolution": "lot",
+   "steps": "the candidates with equal votes each draw one of two sealed containers from an opaque bag, under the direction of the Governor and the Secretary of State; the containers hold a straw of conspicuous length and a shorter straw, and the candidate drawing the longer straw is declared the winner",
+   "who": "the Governor and the Secretary of State",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "but if it appears that two (2) or more candidates for any district office where the district is composed of two (2) or more counties, standing highest on the list, and not elected, have an equal number of votes, the election shall be decided between the candidates having an equal number of votes by each candidate individually drawing one (1) of the two (2) sealed containers from an opaque bag, under the direction of the Governor and Secretary of State."},
+    {"section": "ms-sos-code", "quote": "The containers shall consist of a straw of conspicuous length, and the candidate drawing the container with the longer of the two (2) straws shall be declared the winner."},
+    {"section": "ms-sos-code", "quote": "The laws regulating general elections shall apply to and govern elections for representatives in Congress"}
+   ],
+   "mark": "inferred",
+   "note": "Miss. Code 23-15-605 (as the 2017 printing has it; the straw draw replaced a draw of lots in 2017). The section does not name Congress: it names 'any district office where the district is composed of two (2) or more counties', and 23-15-1033 sends congressional elections to the general-election laws. That a congressional district is such an office is my reading [inferred]."
+  },
+  {
+   "kinds": ["federal", "statewide"],
+   "applies_to": "U.S. Senator, and the state officers (Governor and other statewide offices), in a general election",
+   "resolution": "unread",
+   "steps": "23-15-605 takes 'state offices' out of the Secretary of State's count and has no tie clause for a statewide office; 23-15-193 says state officers 'shall be elected in the manner prescribed in Section 140 of the Constitution', which was not read; no section of the Code printing names a tie for U.S. Senator",
+   "who": null,
+   "sources": [
+    {"section": "ms-sos-code", "quote": "The state officers shall be elected in the manner prescribed in Section 140 of the Constitution."},
+    {"section": "ms-sos-code", "quote": "shall sum up the whole number of votes given for each candidate other than candidates for state offices, legislative offices composed of one (1) county or less, county offices and county district offices"}
+   ],
+   "mark": "inferred",
+   "note": "The Mississippi Constitution, sections 140 and 141 (the Governor and statewide officers; a 2020 resolution, HC 47, is listed in the legislature's index as the change to them, and its text was not readable) could not be read: sos.state.ms.us answered 403 and the legislature's billstatus host failed its certificate. What those sections say about a tie was not found; this is recorded as unread, not as no rule."
+  },
+  {
+   "kinds": ["statewide"],
+   "applies_to": "judge of the Supreme Court or the Court of Appeals, in a general election",
+   "resolution": "lot",
+   "steps": "the State Board of Election Commissioners sums the county returns; if candidates standing highest and not elected have equal votes, each draws one of two sealed containers from an opaque bag, under the direction of the Governor and the Secretary of State; the longer straw wins",
+   "who": "the Governor and the Secretary of State",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "but if it appears that two (2) or more candidates for judge of the Supreme Court or Court of Appeals standing highest on the list, and not elected, have an equal number of votes, the election shall be decided between the candidates having an equal number of votes by each candidate individually drawing one (1) of the two (2) sealed containers from an opaque bag, under the direction of the Governor and Secretary of State."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-607(1). Judicial elections are nonpartisan and need a majority, with a runoff three weeks later between the top two (23-15-981); no tie clause for the runoff itself was found."
+  },
+  {
+   "kinds": ["state-legislative"],
+   "applies_to": "state Representative, and State Senator where the county is a senatorial district, for a district of one county or part of a county",
+   "resolution": "lot",
+   "steps": "the interested candidates appear before the county election commissioners within two days after the canvass, and the tie is determined by a toss of a coin or by lot fairly and publicly drawn; a certificate of election is then given",
+   "who": "the county election commissioners",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "If it appears that two (2) or more candidates for Representative of the county, or part of the county, or for any county office, board of supervisors, justice court judge or constable standing highest on the list, and not elected, have an equal number of votes, the interested candidates shall appear before the election commissioners within two (2) days after the canvass and the tie shall be determined by a toss of a coin or by lot fairly and publicly drawn, and a certificate of election shall be given accordingly. The foregoing provisions shall apply to Senators, if the county be a senatorial district."},
+    {"section": "ms-sos-code", "quote": "Section 38, Mississippi Constitution of 1890, provides that each house of the Mississippi State Legislature shall judge the qualifications, return and election of its membership."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-601(1). For a district of two or more counties the straw draw of 23-15-605 applies (next rule). Each house also judges the election of its own members (Miss. Code 23-15-955, citing Constitution section 38), so a seat can still be taken up by the house after the draw."
+  },
+  {
+   "kinds": ["state-legislative"],
+   "applies_to": "state Representative or State Senator for a district made of two or more counties",
+   "resolution": "lot",
+   "steps": "the Secretary of State sums the county returns; candidates with equal votes each draw one of two sealed containers from an opaque bag, under the direction of the Governor and the Secretary of State; the longer straw wins",
+   "who": "the Governor and the Secretary of State",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "but if it appears that two (2) or more candidates for any district office where the district is composed of two (2) or more counties, standing highest on the list, and not elected, have an equal number of votes, the election shall be decided between the candidates having an equal number of votes by each candidate individually drawing one (1) of the two (2) sealed containers from an opaque bag, under the direction of the Governor and Secretary of State."}
+   ],
+   "mark": "inferred",
+   "note": "Miss. Code 23-15-605. 'Any district office' is read as including a legislative district [inferred]; 23-15-605 itself excludes 'legislative offices composed of one (1) county or less' from the Secretary of State's count, which implies that legislative districts of more than one county are in it."
+  },
+  {
+   "kinds": ["local"],
+   "applies_to": "county offices, board of supervisors, justice court judge and constable, in a general or special election",
+   "resolution": "lot",
+   "steps": "the interested candidates appear before the county election commissioners within two days after the canvass, and the tie is determined by a toss of a coin or by lot fairly and publicly drawn",
+   "who": "the county election commissioners",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "the interested candidates shall appear before the election commissioners within two (2) days after the canvass and the tie shall be determined by a toss of a coin or by lot fairly and publicly drawn, and a certificate of election shall be given accordingly."},
+    {"section": "ms-county-handbook", "quote": "If it appears any two (2) or more of the candidates receiving the highest number of votes have received an equal number of votes, the election shall be decided by the toss of a coin or by lot fairly and publicly drawn."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-601(1); the Secretary of State's 2026 county handbook (rev. 12/24/2025) gives the same rule in its own words."
+  },
+  {
+   "kinds": ["local"],
+   "applies_to": "municipal offices in the municipal general election",
+   "resolution": "lot",
+   "steps": "the municipal election commissioners canvass the returns and, if candidates receiving the highest number of votes have equal votes, the election is decided by a toss of a coin or by lot fairly and publicly drawn under their direction",
+   "who": "the municipal election commissioners",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "If it shall appear that any two (2) or more of the candidates receiving the highest number of votes shall have received an equal number of votes, the election shall be decided by a toss of a coin or by lot fairly and publicly drawn under the direction of the election commissioners."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-611(1)."
+  },
+  {
+   "kinds": ["local"],
+   "applies_to": "a special election to fill a vacancy in a municipal office",
+   "resolution": "lot",
+   "steps": "a candidate needs a majority; if none has one, the top two (and any tied for the next highest vote) go to an election three weeks later; if that election is itself tied, a toss of a coin or a lot fairly and publicly drawn decides, under the supervision of the election commission",
+   "who": "the election commission",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "However, if no candidate receives a majority and there is a tie in the election of those receiving the next highest vote, those receiving the next highest vote and the candidate receiving the highest vote shall have their names placed on the ballot for the election to be held three (3) weeks thereafter, and whoever receives the most votes cast in the election shall be elected."},
+    {"section": "ms-sos-code", "quote": "Should the election held three (3) weeks thereafter result in a tie vote, the prevailing candidate shall be decided by a toss of a coin or by lot fairly and publicly drawn under the supervision of the election commission."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-857, the section on filling vacancies in city, town and village offices."
+  },
+  {
+   "kinds": ["local"],
+   "applies_to": "a special election to fill a vacancy in a county, county district or district attorney office, or the office of circuit judge or chancellor",
+   "resolution": "runoff",
+   "steps": "a candidate needs a majority; if none has one, a runoff is held three weeks later between the top two; a tie for the next highest vote sends all three to the runoff, and whoever leads in the runoff is entitled to the office",
+   "who": null,
+   "sources": [
+    {"section": "ms-sos-code", "quote": "When there is a tie in the first election of those receiving the next highest vote, these two (2) and the one receiving the highest vote, none having received a majority, shall go into the runoff election and whoever leads in the runoff election shall be entitled to the office."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-833. A tie in the runoff itself is not addressed in the section."
+  },
+  {
+   "kinds": ["presidential-electors"],
+   "applies_to": "the electors of President and Vice President, chosen by the voters of the state at large",
+   "resolution": "none-found",
+   "steps": "no tie provision for electors was found",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Read: Miss. Code 23-15-781 (electors chosen by the qualified electors of the state at large), 23-15-783 (the laws regulating general elections apply to the election of electors), 23-15-605 (its tie clause names a 'district office' of two or more counties, which an at-large office is not), and a search of the whole of Chapter 15 for 'tie', 'equal number of votes' and 'lot'. Whether Title 23 outside Chapter 15 or the Constitution says more was not read."
+  },
+  {
+   "kinds": ["primary"],
+   "applies_to": "a party primary (state, district, county and municipal), first primary",
+   "resolution": "runoff",
+   "steps": "a majority nominates; if none has one, the top two go to a second primary three weeks later (in municipal primaries, the fourth Tuesday in April); if the tie is for the next highest vote, all three go into the second primary, and whoever receives the most votes there is the nominee",
+   "who": null,
+   "sources": [
+    {"section": "ms-sos-code", "quote": "However, if no candidate receives a majority vote at the first primary, and there is a tie in the election of those receiving the next highest vote, then those candidates receiving the next highest vote and the candidate receiving the highest vote shall have their names placed on the ballot for the second primary election to be held three (3) weeks later, and whoever receives the most votes cast in the second primary election shall be the party nominee."},
+    {"section": "ms-sos-code", "quote": "However, if no candidate shall receive a majority vote at the first primary, and there is a tie in the election of those receiving the next highest vote, those candidates receiving the next highest vote and the candidate receiving the highest vote shall have their names placed on the ballot for the second primary election, and whoever receives the most votes cast in the second primary election shall be the party nominee."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-191 (state and county primaries) and 23-15-171 (municipal primaries)."
+  },
+  {
+   "kinds": ["primary"],
+   "applies_to": "a tie in the second primary",
+   "resolution": "none-found",
+   "steps": "no provision for a tie at the end of the second primary was found",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Read: Miss. Code 23-15-171, 23-15-191 and a search of the whole of Chapter 15 for 'tie' and 'equal number of votes'; the hits for the primary are the first-primary clauses recorded above. The printing's case notes mention decisions on a tied second primary for a municipal office, which the statute text does not decide; they are annotations, not law, and were not relied on."
+  },
+  {
+   "kinds": ["measure"],
+   "applies_to": "a tie vote on a ballot measure",
+   "resolution": "none-found",
+   "steps": "no provision for a tie on a ballot measure was found",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Read: a search of the whole of Chapter 15 (the Election Code) for 'tie', 'equal number of votes', 'lot' and 'coin'; none concerns a measure. The initiative and referendum chapter of Title 23 and the Constitution (section 273) were not read."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": ["federal", "statewide", "state-legislative", "local", "primary", "presidential-electors", "measure"],
+   "type": "other",
+   "election": "any",
+   "threshold": {
+    "no_margin_required": true,
+    "in_words": "no recount of the votes, automatic or on request, with or without a margin, was found in the Election Code as printed; the only route to a new count of the ballots is an election contest or a candidate's examination of the ballot boxes (the rules that follow)"
+   },
+   "who_may_request": [],
+   "cost_bearer": null,
+   "sources": [
+    {"section": "ms-county-handbook", "quote": "the Commission does not have the authority to reassemble and alter or amend the certification of the results of the election. Any error which may be made in the canvass of the returns only may be corrected by a court of competent jurisdiction."}
+   ],
+   "mark": "inferred",
+   "note": "An absence, from Chapter 15 searched for 'recount', 're-count', 'recanvass' and 'reexamin': the only hits are in the voting-equipment sections (a DRE machine must keep a paper record 'available for any recount', which sets no recount) and in case annotations. The quotation is the Secretary of State's 2026 handbook, which tells commissions they cannot reopen their certification and that a court corrects canvass errors. Other chapters of Title 23 and rules of the Secretary of State or the parties were not read."
+  },
+  {
+   "kinds": ["local", "statewide"],
+   "type": "court",
+   "election": "general or special election, county offices and state district offices",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "a petition filed within twenty days after the election, in the circuit clerk's office; a circuit judge or chancellor from another district is designated to hear it; a jury finds the person with the greatest number of legal votes",
+    "in_words": "any person who wants to contest the election of another may file a petition within twenty days; no margin is required"
+   },
+   "who_may_request": ["a person desiring to contest the election of another person returned as elected"],
+   "cost_bearer": "costs are awarded as in other cases (by the court)",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "a person desiring to contest the election of another person returned as elected to any office within any county, may, within twenty (20) days after the election, file a petition in the office of the clerk of the circuit court of the county, setting forth the grounds upon which the election is contested."},
+    {"section": "ms-sos-code", "quote": "the verdict of the jury shall find the person having the greatest number of legal votes at the election."},
+    {"section": "ms-sos-code", "quote": "new trials shall be granted and costs awarded as in other cases."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-951. Not called a recount in the statute: the trial finds the legal votes. For a state district office (district attorney and the like) the petition may be filed in any county of the district or an adjoining district within twenty days, as in the case of county officers. Recorded as the court route because it is the one way the ballots are counted again."
+  },
+  {
+   "kinds": ["state-legislative"],
+   "type": "court",
+   "election": "general or special election to the Legislature",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "an election contest filed with the Clerk of the House or the Secretary of the Senate within thirty days after a regular general election (ten days after a special election to fill a vacancy)",
+    "in_words": "the House or the Senate, not a court, has exclusive jurisdiction over a contest of its own member's seat; no margin is required"
+   },
+   "who_may_request": ["the person contesting the seat"],
+   "cost_bearer": "not stated in the section",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "the House of Representatives shall have exclusive jurisdiction over an election contest regarding the seat of any member of the House of Representatives, and the Senate shall have exclusive jurisdiction over an election contest regarding the seat of any member of the Senate."},
+    {"section": "ms-sos-code", "quote": "An election contest regarding the seat of a member of the House of Representatives or the Senate shall be filed with the Clerk of the House or the Secretary of the Senate, as the case may be, within thirty (30) days after a regular general election"}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-955, citing Constitution section 38. Type 'court' is the closest of the allowed types; the body that decides is the legislative chamber. 23-15-911(2) lets the ballot-box examination below be used in such a contest, with the result reported to the chamber."
+  },
+  {
+   "kinds": ["federal", "statewide", "state-legislative", "local", "primary"],
+   "type": "court",
+   "election": "party primary",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "a petition to the party executive committee within twenty days after the primary (county and county-district nominations, and legislative districts of one county or less); for state, congressional and judicial districts, a complaint with the chairman of the State Executive Committee; the committee declares the true result by majority vote",
+    "in_words": "any person who wants to contest a nomination may petition the party executive committee within twenty days after the primary; no margin is required; the contest then can go to the circuit court (23-15-927 and following)"
+   },
+   "who_may_request": ["a person desiring to contest the election of another returned as the nominee"],
+   "cost_bearer": "not stated in the sections read",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "a person desiring to contest the election of another person returned as the nominee of the party to any county or county district office, or as the nominee of a legislative district composed of one (1) county or less, may, within twenty (20) days after the primary election, file a petition with the secretary, or any member of the county executive committee in the county in which the election was held"},
+    {"section": "ms-sos-code", "quote": "The State Executive Committee by majority vote of members present shall declare the true results of such primary."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-921 and 23-15-923. The later sections on the circuit court's review of a primary contest (23-15-927 to 23-15-941) were not read in full. Applies to the nomination, not to a recount by name."
+  },
+  {
+   "kinds": ["federal", "statewide", "state-legislative", "local", "primary"],
+   "type": "other",
+   "election": "general and primary elections",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "within twelve days after the canvass of the box by the election commission or executive committee, on three days' notice served on the opposing candidates; the examination is made in the presence of the circuit clerk or a deputy, and the box is resealed",
+    "in_words": "any candidate, or a representative authorized in writing, may examine the ballot box and its contents within twelve days after the canvass; no margin is required; it is an examination, not a count by officials"
+   },
+   "who_may_request": ["any candidate, or a representative authorized in writing by the candidate"],
+   "cost_bearer": "not stated in the section",
+   "sources": [
+    {"section": "ms-sos-code", "quote": "At any time within twelve (12) days after the canvass and examination of the box and its contents by the election commission or executive committee, as the case may be, any candidate or his or her representative authorized in writing by him or her shall have the right of full examination of the box and its contents upon three (3) days' notice of his or her application therefor served upon the opposing candidates."}
+   ],
+   "mark": "stated",
+   "note": "Miss. Code 23-15-911(1)(a), (c). It is what a candidate does before a contest. It gives a look at the ballots, not an official recount; the section sets no margin and no cost."
+  }
+ ],
+ "unread": [
+  {
+   "what": "the Mississippi Constitution, sections 140 and 141 (the election of the Governor and statewide officers, and what happens on a tie), and section 273 (initiative) for a tie on a measure",
+   "reason": "sos.state.ms.us/ed_pubs/constitution/constitution.asp answered 'HTTP 403'; the legislature's host billstatus.ls.state.ms.us answered 'curl: (60) SSL certificate problem: unable to get local issuer certificate' (for the 2020 resolution HC 47 that changed sections 140 and 141); the Blue Book page on www.sos.ms.gov (publications-external-affairs/publications) answered 'HTTP 403'; not retried, per the stop-at-first-refusal rule",
+   "url": "https://www.sos.state.ms.us/ed_pubs/constitution/constitution.asp",
+   "tried_at": "about 2026-11-07T07:40Z"
+  },
+  {
+   "what": "the Mississippi Code at the legislature's or the state's code site, for any amendment of Chapter 15 after the 2017 printing",
+   "reason": "no state code page was reachable (above); the Secretary of State's PDF was read instead; a Justia compilation was not used because a plain PDF from the state's site was available",
+   "url": "https://www.sos.ms.gov/sites/default/files/elections/MSCODE_Elections.pdf"
+  },
+  {
+   "what": "Title 23 outside Chapter 15, municipal charters and ordinances, and the rules of the political parties",
+   "reason": "not read"
+  }
+ ],
+ "notes": [
+  "Every quotation from the Code is read in the Secretary of State's PDF of Chapter 15 (the 2017 printing), because the state's code site could not be read; the grade is therefore 'agency publication', and the orchestrator may set it aside. The Secretary of State's 2026 county handbook (rev. 12/24/2025) repeats the county tie rule unchanged, which is some evidence that the 2017 text of 23-15-601 still holds.",
+  "Mississippi has no recount in the Election Code as printed: no automatic recount, no recount on request. A candidate may examine the ballot boxes (23-15-911) and may bring an election contest within twenty days (23-15-921, 23-15-951) or thirty days for a legislative seat (23-15-955). The straw draw is unusual: since 2017 a tie for a district office, a seat on the Supreme Court or Court of Appeals is decided by drawing straws from an opaque bag, not by lot or coin.",
+  "The governor's tie rule, changed in 2020, is the main thing not read."
+ ]
+}

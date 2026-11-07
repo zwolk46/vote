@@ -1,0 +1,148 @@
+{
+ "state": "NV",
+ "name": "Nevada",
+ "status": "read",
+ "code": {"name": "Nevada Revised Statutes", "edition": "NRS chapter 293 as the Legislative Counsel Bureau's page prints it: [Rev. 9/9/2026 11:47:08 AM--2026R1]; chapter 298 [Rev. 4/15/2026 12:14:33 PM--2025]", "site": "https://www.leg.state.nv.us/NRS/", "reached": true},
+ "sections": {
+  "nrs-293": {"citation": "NRS chapter 293 (Elections), read for 293.109 (state officer defined), 293.395 (canvass), 293.400 (tie vote), 293.403 to 293.405 (recounts) and 293.424 (presidential elector recount)", "url": "https://www.leg.state.nv.us/NRS/NRS-293.html", "read_at": "state"},
+  "nrs-298": {"citation": "NRS chapter 298 (Presidential Electors and Elections), read for ties and recounts", "url": "https://www.leg.state.nv.us/NRS/NRS-298.html", "read_at": "state"},
+  "nrs-293c": {"citation": "NRS chapter 293C (City Elections), searched for tie and recount provisions", "url": "https://www.leg.state.nv.us/NRS/NRS-293C.html", "read_at": "state"}
+ },
+ "ties": [
+  {"kinds": ["federal", "statewide"],
+   "applies_to": "a general election for United States Senator, Representative in Congress, or a state officer elected statewide or by district, where the tie leaves one or more but fewer than all of the tied persons elected",
+   "resolution": "legislature",
+   "steps": "after the canvass, the Legislature elects one of the tied persons to the office, by joint vote of both houses",
+   "who": "the Legislature, by joint vote of both houses",
+   "sources": [
+    {"section": "nrs-293", "quote": "If, after the completion of the canvass of the returns of any election, two or more persons receive an equal number of votes, which is sufficient for the election of one or more but fewer than all of them to the office, the person or persons elected must be determined as follows:"},
+    {"section": "nrs-293", "quote": "In a general election for a United States Senator, Representative in Congress, state officer who is elected statewide or by district, district judge, or district officer whose district includes area in more than one county, the Legislature shall, by joint vote of both houses, elect one of those persons to fill the office."}
+   ],
+   "mark": "measured",
+   "note": "Governor, Lieutenant Governor, Secretary of State, Treasurer, Controller, Attorney General, judges and regents are all \"state officer\" by NRS 293.109. A district judge or a district officer whose district spans more than one county is also sent to the Legislature."},
+  {"kinds": ["state-legislative"],
+   "applies_to": "a general election for State Senator or Assemblyman (Assemblywoman)",
+   "resolution": "legislature",
+   "steps": "after the canvass, the Legislature elects one of the tied persons to the office, by joint vote of both houses",
+   "who": "the Legislature, by joint vote of both houses",
+   "sources": [
+    {"section": "nrs-293", "quote": "In a general election for a United States Senator, Representative in Congress, state officer who is elected statewide or by district, district judge, or district officer whose district includes area in more than one county, the Legislature shall, by joint vote of both houses, elect one of those persons to fill the office."},
+    {"section": "nrs-293", "quote": "9. A State Senator;[...]10. A State Assemblyman or Assemblywoman;"}
+   ],
+   "mark": "inferred",
+   "note": "NRS 293.109 lists a State Senator and a State Assemblyman or Assemblywoman among the \"state officers\", and 293.400(1)(a) sends a tie for a state officer elected \"statewide or by district\" to the Legislature; the section never says \"member of the Legislature\" in the tie provision, so this is a reading of two definitions together. Paragraph (c) also names a \"district which is wholly located within one county\" (county clerk's lot); I read that as local districts, not legislative ones, because paragraph (a) is the specific rule for state officers [inferred]."},
+  {"kinds": ["local"],
+   "applies_to": "a general election for any partisan or nonpartisan office of a county, township, incorporated city, a city organized under a special charter whose charter is silent on ties, or a district wholly in one county",
+   "resolution": "lot",
+   "steps": "the county clerk summons the tied candidates (by mail at least 5 days before) to appear at a time and place the clerk sets and determines the tie by lot; if the tie is for county clerk, the board of county commissioners does this",
+   "who": "the county clerk (the board of county commissioners where the office is county clerk)",
+   "sources": [
+    {"section": "nrs-293", "quote": "the county clerk shall summon the candidates who have received the tie votes to appear before the county clerk at a time and place designated by the county clerk and determine the tie by lot. If the tie vote is for the office of county clerk, the board of county commissioners shall perform these duties."},
+    {"section": "nrs-293", "quote": "general election for any partisan or nonpartisan office of a county, township, incorporated city, city organized under a special charter where the charter is silent as to determination of a tie vote in such an election, or district which is wholly located within one county"}
+   ],
+   "mark": "measured",
+   "note": "State general law only; city charters were not read (a special charter that speaks to ties governs its own city). NRS chapter 293C (city elections) was searched for \"tie\" and \"equal number\" and holds no tie provision, so city elections fall under 293.400. Judicial and school offices are covered only to the extent the text says \"district\" or \"county\" office; not separately traced."},
+  {"kinds": ["primary"],
+   "applies_to": "a primary election for United States Senator, Representative in Congress, a state officer elected statewide or by district, a district judge, or a district officer whose district spans more than one county",
+   "resolution": "lot",
+   "steps": "the Secretary of State summons the tied candidates (by mail at least 5 days before) to a time and place the Secretary designates and determines the tie by lot; if the tie is for Secretary of State, the Governor does this",
+   "who": "the Secretary of State (the Governor where the office is Secretary of State)",
+   "sources": [
+    {"section": "nrs-293", "quote": "In a primary election for a United States Senator, Representative in Congress, state officer who is elected statewide or by district, district judge, or district officer whose district includes area in more than one county, the Secretary of State shall summon the candidates who have received the tie votes to appear before the Secretary of State at a time and place designated by the Secretary of State and the Secretary of State shall determine the tie by lot."}
+   ],
+   "mark": "measured",
+   "note": "Applies to state legislative primaries through the same \"state officer\" definition [inferred]."},
+  {"kinds": ["primary"],
+   "applies_to": "a primary election for a partisan office of a county, township, incorporated city, a city organized under a special charter whose charter is silent on ties, or a district wholly in one county",
+   "resolution": "lot",
+   "steps": "the county clerk summons the tied candidates and determines the tie by lot; if the tie is for county clerk, the board of county commissioners does this",
+   "who": "the county clerk (the board of county commissioners where the office is county clerk)",
+   "sources": [
+    {"section": "nrs-293", "quote": "In a primary election for any partisan office of or general election for any partisan or nonpartisan office of a county, township, incorporated city[...]the county clerk shall summon the candidates who have received the tie votes to appear before the county clerk at a time and place designated by the county clerk and determine the tie by lot."}
+   ],
+   "mark": "measured",
+   "note": "The sentence is one paragraph with the general-election rule; see the local rule above for the remainder of its words."},
+  {"kinds": ["primary"],
+   "applies_to": "a primary election for a nonpartisan office of a county, township, incorporated city (or a special-charter city silent on ties), or a district wholly in one county",
+   "resolution": "other",
+   "steps": "no lot: if the tied candidates received the highest number of votes, all of them are declared nominees and placed on the general election ballot; if they tied for the next highest number, the leader and all the tied candidates are declared nominees, unless the leader won a majority and another law or charter would declare the leader elected at the primary",
+   "who": null,
+   "sources": [
+    {"section": "nrs-293", "quote": "If the candidates who received the tie votes received the highest number of votes at the primary election, all of those candidates must be declared nominees for the office and placed on the ballot for the general election."}
+   ],
+   "mark": "measured",
+   "note": null},
+  {"kinds": ["presidential-electors"],
+   "applies_to": "a tie in the statewide popular vote for President and Vice President (the electors of the party or candidates)",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie in the vote for presidential electors",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "NRS 293.400(1) names the offices it covers (U.S. Senator, Representative, state officer, district judge, district officer, county, township, city, district) and does not name presidential electors. Chapter 298 states that the nominees whose candidates \"receive the highest number of votes in this State\" are the electors (298.065) and has a lot only for filling a vacancy at the electors' meeting; no tie rule for the statewide vote. Read: 293.395 (canvass), 293.400, 293.424, and the whole of chapter 298 searched for tie and equal."},
+  {"kinds": ["measure"],
+   "applies_to": "a tie vote on a ballot question",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie on a ballot question",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "NRS 293.400 lists candidates' offices only. Chapter 293 was searched for \"tie\" and \"equal number of votes\" and the recount sections read (293.403 to 293.405). The measure-specific chapters (for example the initiative and referendum chapter 295) were not read."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "statewide", "state-legislative", "local", "primary"], "type": "requested", "election": "general and primary",
+   "threshold": {"percent": null, "percent_of": null, "votes": null, "combine": null, "inclusive": null,
+                 "conditions": "none on the margin; the demand is made in writing within 3 working days after the canvass and the county or city clerk's certification of the abstract of votes, with the estimated cost deposited in advance",
+                 "in_words": "a defeated candidate at any election may demand a recount of the vote for the office, whatever the margin, by filing a written demand and depositing the estimated cost"},
+   "no_margin_required": true,
+   "who_may_request": ["a candidate defeated at any election, by written demand to the officer with whom the candidate filed the declaration of candidacy"],
+   "cost_bearer": "the requester deposits the estimated cost in advance and pays any deficiency if the recount does not change the result in the requester's favor; if the requester prevails the deposit is refunded and the cost is borne by the county or city (non-statewide office) or by the State through the Reserve for Statutory Contingency Account (statewide office)",
+   "sources": [
+    {"section": "nrs-293", "quote": "Except as otherwise provided in NRS 293.424[...], a candidate defeated at any election may demand and receive a recount of the vote for the office for which he or she is a candidate to determine the number of votes received for the candidate and the number of votes received for the person who won the election if, within 3 working days after the canvass of the vote and the certification by the county clerk or city clerk of the abstract of votes, the candidate who demands the recount:"},
+    {"section": "nrs-293", "quote": "If the person who demanded the recount does not prevail, and it is found that the sum deposited was less than the cost of the recount, the person shall, upon demand, pay the deficiency to the county clerk, city clerk or Secretary of State, as the case may be."},
+    {"section": "nrs-293", "quote": "If the person who demanded the recount prevails, the sum deposited with the Secretary of State, county clerk or city clerk must be refunded to the person and the cost of the recount must be paid as follows:"}
+   ],
+   "mark": "measured",
+   "note": "No automatic recount found: chapter 293 was searched for \"recount\" and \"automatic\" and its recount sections (293.403 to 293.405, 293.424) all rest on a demand. The section says \"any election\", so primaries are covered [inferred]; \"canvass\" is defined in 293.403(4) separately for primary and general elections."},
+  {"kinds": ["federal", "statewide", "state-legislative", "local", "primary"], "type": "requested", "election": "general and primary",
+   "threshold": {"percent": null, "percent_of": null, "votes": 0, "combine": null, "inclusive": true,
+                 "conditions": "applies when two or more candidates tie",
+                 "in_words": "in case of a tie the right to a recount extends to all candidates, not only a defeated one"},
+   "who_may_request": ["any of the tied candidates"],
+   "cost_bearer": "not stated in the tie provision; the cost rules of 293.403 and 293.405 (deposit by the demander) are the only ones read",
+   "sources": [
+    {"section": "nrs-293", "quote": "The right to a recount extends to all candidates in case of a tie."}
+   ],
+   "mark": "measured",
+   "note": "A tied candidate is not \"defeated\" under 293.403, so this sentence gives the tied candidates the right to demand the recount; the procedure and costs are those of 293.403 to 293.405 [inferred]."},
+  {"kinds": ["presidential-electors"], "type": "requested", "election": "general",
+   "threshold": {"percent": null, "percent_of": null, "votes": null, "combine": null, "inclusive": null,
+                 "conditions": "none on the margin; demand on or before the 13th day after the election, with the estimated cost deposited",
+                 "in_words": "a candidate for presidential elector may demand a recount whatever the margin, by the 13th day after the election, depositing the estimated cost with the Secretary of State; the recount begins within 1 day and ends within 5 days"},
+   "no_margin_required": true,
+   "who_may_request": ["a candidate for the office of presidential elector, by written demand filed with the Secretary of State"],
+   "cost_bearer": "the requester (estimated costs deposited in advance with the Secretary of State)",
+   "sources": [
+    {"section": "nrs-293", "quote": "A candidate for the office of presidential elector may demand and receive a recount of the vote to determine the number of votes received for the candidate and the number of votes received for the person who won the election if, on or before the 13th day following the election, the candidate who demands the recount:"}
+   ],
+   "mark": "measured",
+   "note": "Section 293.424 was added in 2023; the refund rule of 293.405(2) was not read as applying to it."},
+  {"kinds": ["measure"], "type": "requested", "election": "general and primary",
+   "threshold": {"percent": null, "percent_of": null, "votes": null, "combine": null, "inclusive": null,
+                 "conditions": "none on the margin; within 3 working days after the canvass and the county or city clerk's certification, with the estimated cost deposited in advance",
+                 "in_words": "any voter may demand a recount of a ballot question, whatever the margin, by filing a written demand and depositing the estimated cost"},
+   "no_margin_required": true,
+   "who_may_request": ["any voter at the election, by written demand to the Secretary of State (a question affecting more than one county) or to the county or city clerk who will conduct the recount (a question affecting one county or city)"],
+   "cost_bearer": "the requester deposits the estimated cost in advance; refunded and borne by the county, city or State if the requester prevails (293.405)",
+   "sources": [
+    {"section": "nrs-293", "quote": "Any voter at an election may demand and receive a recount of the vote for a ballot question if, within 3 working days after the canvass of the vote and the certification by the county clerk or city clerk of the abstract of votes, the voter:"}
+   ],
+   "mark": "measured",
+   "note": null}
+ ],
+ "unread": [
+  {"what": "city charters, the initiative and referendum chapter (NRS 295), NRS 293.407 to 293.435 (election contests), judicial-office and special-district chapters", "reason": "outside the brief or not read; contest chapters were skipped except where they bear on a tie"}
+ ],
+ "notes": ["Nevada has no automatic recount in chapter 293: every recount rests on a demand with an advance deposit, whatever the margin.",
+  "Nevada sends a general-election tie for Congress and for state offices, including the Legislature, to the Legislature by joint vote of both houses; a tie in a local general election goes to the county clerk's lot. A tied nonpartisan local primary puts all tied candidates on the general ballot."]
+}

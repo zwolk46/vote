@@ -1,0 +1,82 @@
+{
+ "state": "WI",
+ "name": "Wisconsin",
+ "status": "unread",
+ "code": {
+  "name": "Wisconsin Statutes (the Legislature's statutes site, docs.legis.wisconsin.gov)",
+  "edition": "not read",
+  "site": "https://docs.legis.wisconsin.gov/statutes/",
+  "reached": false
+ },
+ "sections": {},
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary",
+    "measure"
+   ],
+   "applies_to": "all",
+   "resolution": "unread",
+   "steps": "not read",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Not read: the statute site refused us (connection reset) and no other permitted route was open. Lead from the earlier reader (research/historical-close-races-v2.md 3a), NOT re-read and not recorded as data: a lot; and that a municipal tie is broken by the municipal board of canvassers by lot, a coin or names from a hat, per the Elections Commission manual."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary",
+    "measure"
+   ],
+   "type": "other",
+   "election": "any",
+   "threshold": {
+    "in_words": "not read"
+   },
+   "who_may_request": [],
+   "cost_bearer": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Not read. Lead from the earlier reader, NOT re-read: requested recount at 40 votes (total 4,000 or fewer) or 1% (more than 4,000) under Wis. Stat. 9.01(1)(a)5, with fee waivers at narrower margins, as the Elections Commission's recount manual of Nov 2024 is said to state."
+  }
+ ],
+ "unread": [
+  {
+   "what": "Wis. Stat. chapter 9 (post-election actions; recounts, 9.01, as a search result and the earlier reader's report name it) and the statutes on the canvass and on tie votes (their section numbers were not seen by me), and the primary and measure provisions",
+   "reason": "curl: (35) Recv failure: Connection reset by peer, on the first request to docs.legis.wisconsin.gov (the earlier reader saw the same reset twice); stopped on that host as the brief requires and did not try its PDF address (https://docs.legis.wisconsin.gov/statutes/statutes/9.pdf) or any other route to the host",
+   "urls_tried": [
+    "https://docs.legis.wisconsin.gov/statutes/statutes/9"
+   ],
+   "tried_utc": "2026-11-07T07:31Z"
+  },
+  {
+   "what": "the Wisconsin Elections Commission's Recount Manual (an agency guide, an allowed lower grade), via its public manual page",
+   "reason": "HTTP 403 for https://elections.wi.gov/resources/manuals/recount-manual; stopped on that host and did not try the manual's PDF",
+   "urls_tried": [
+    "https://elections.wi.gov/resources/manuals/recount-manual"
+   ],
+   "tried_utc": "2026-11-07T07:31Z"
+  },
+  {
+   "what": "a compilation (Justia or Cornell LII), allowed by the orchestrator's amendment of 07:21",
+   "reason": "law.justia.com answered HTTP 403 on the first request for another state (Texas) at 07:22, so I stopped on that host as the amendment requires and did not try it for Wisconsin; Cornell LII: a search restricted to law.cornell.edu for the Wisconsin statutes returned no Wisconsin statute page (only federal and other pages), so none was found to fetch",
+   "urls_tried": [],
+   "tried_utc": "2026-11-07T07:31Z"
+  }
+ ],
+ "notes": [
+  "Wisconsin is unread: both of the state's own hosts I could use answered with a reset or a 403, and the compilation route was closed by Justia's refusal. A reader with another permitted route (the orchestrator's decision) should start at Wis. Stat. 9.01 (recounts, named in a search result and the earlier report) and look up the canvass and tie sections on the statute site."
+ ]
+}
