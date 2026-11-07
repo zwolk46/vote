@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 09:36: M2 item 4 done (#47): every p at D3's levels reproduces (state-upper 20,454, state-lower 71,591, local 4,868, measures 64) except 503 like-race exact-sum blocks (renormalisation, x1.99 worst); #31 factor reproduces and fails the robustness test (without 2020, 0.325 on 178 contests; 4 of 9 cells further); partisan factor 0.903 untestable (two years); partisan_rows picks the pair by who led, not the ballot (401 contests); NC route within 1-17 rows; boundary route (c) 12% low under 3,000 votes, 20% high over 30,000. To D3 in one PR: exact-sum fix, both local factors out, pair by the ballot, NC rows checked; then size bins for (c) under the test. M2 to recheck after D3's and D2's last PRs, then finish and stop.
+
 - 2026-11-07 09:36: #57 merged (D3: p.forecast_scope on every partisan p: district (class A) 40,332, district (class B) 13,065, chamber average (class C) 21,978, plus the local transferred route; only the field and commit stamps changed). #31's factor test next; expected to fail (one scored year; cells worse).
 
 - 2026-11-07 09:31: #56 merged (D3: State Board placeless county contests split per county, 88 to 500; 497 p change, 137 new, 360 move median 7%, max 10%, all listed; SBE back-test local 275.9 vs 289, primaries 50.6 vs 55). Class C: 2,461 of 2024 legislative p are chamber averages (back-test 2024: 112.6 expected vs 106 seen within 49-51%). Ruled: X1 chooses lowest-B* cases only from contest-specific forecasts (classes A, B, district partisan routes, Congress, presidency), class C marked as chamber average if shown; D3 marks class C p blocks in the files (law 8).
