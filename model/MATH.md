@@ -24,7 +24,7 @@ Everything below uses these, and `common.py` codes them in the same words.
 - **swing**, the rise when your ballot for A replaces a ballot for B: **swing = Σ_M P(M) [W(M + 1) − W(M − 1)].**
 - **event**: "the others are exactly tied, or your side is exactly one short": P(M = 0) + P(M = −1); only one term can be non-zero at a given n.
 
-Four exact distributions of X are available in `common.py`: binomial (a known share v₀), Beta-binomial (v ~ Beta), a normal forecast of v with the binomial folded in by numerical integration, and a Student-t(4) forecast likewise. "Exact p" below always means p computed from one of these by the lattice sum, to numerical precision.
+Four exact distributions of X are available in `common.py`: binomial (a known share v₀), Beta-binomial (v ~ Beta), a normal forecast of v with the binomial folded in by numerical integration, and a Student-t(4) forecast likewise. "Exact p" below always means p computed from one of these by the lattice sum, to numerical precision. *Note (the orchestrator, 2026-11-07, from M2's second pass, `checks/M2-REPORT.md`):* the normal and t forecasts in `common.py` are truncated to (0, 1) and renormalised. That is right for a forecast of the share v, which cannot fall outside (0, 1). It is not right where a normal only stands in for a density measured near ½, as in the like-race route (MODEL §7), whose f(½) is a count of like races in a window: renormalising raises the density at ½ by the inverse of the normal's mass in (0, 1), up to 2× for a flat class (sd_eq > 0.3). There the exact sum uses the stand-in without renormalising, so that it keeps the measured f(½) and agrees with f(½)/(2n) as n grows.
 
 ---
 

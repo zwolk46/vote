@@ -2,23 +2,43 @@
  "state": "IL",
  "name": "Illinois",
  "status": "unread",
- "code": {"name": "Illinois Compiled Statutes (Election Code, 10 ILCS 5)", "edition": "not read", "site": "https://www.ilga.gov/legislation/ilcs/", "reached": false},
+ "code": {
+  "name": "Illinois Compiled Statutes (Election Code, 10 ILCS 5)",
+  "edition": "not read",
+  "site": "https://www.ilga.gov/legislation/ilcs/",
+  "reached": false
+ },
  "sections": {},
  "ties": [
-  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local", "primary", "measure"],
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary",
+    "measure"
+   ],
    "applies_to": "all kinds of office and measures",
    "resolution": "unread",
    "steps": "not read",
    "who": null,
    "sources": [],
    "mark": null,
-   "note": "The Illinois General Assembly's site did not give a readable page (a certificate failure), and no plain downloadable file of the Election Code was found on a state site. Nothing is recorded from any other publisher. See 'unread'."}
+   "note": "The Illinois General Assembly's site did not give a readable page (a certificate failure), and no plain downloadable file of the Election Code was found on a state site. Nothing is recorded from any other publisher. See 'unread'."
+  }
  ],
  "recounts": [],
  "unread": [
-  {"what": "Illinois Election Code, 10 ILCS 5: the sections on tie votes and on recounts. Leads from the titles of search results, not read: 5/22-12 ('Declaration of winners for city or town offices - Tie votes'), 5/23-27 ('Finding of tie vote upon recount - Decision by lot'), and 5/22-3, 5/22-4, 5/7-59 and the Article 22 and 23 recount sections",
-   "reason": "'NOT READ: curl failed for https://www.ilga.gov/legislation/ilcs/documents/001000050K22-3.htm: curl: (60) SSL certificate problem: unable to get local issuer certificate'; the same message for the same path at https://ilga.gov/ (the host without 'www', the address that the search result itself gave). Certificate verification was not bypassed. No Illinois State Board of Elections guide that states the tie or recount rules was found: the 2025 Precinct Election Manual and the 2027 Candidate's Guide (both on elections.il.gov, read whole) contain no recount or tie text. Justia, the compilation the orchestrator allowed, refused us (HTTP 403 at its first request, for Georgia) and was not tried again; Cornell LII carries no Illinois statutes text.",
-   "url": "https://www.ilga.gov/legislation/ilcs/documents/001000050K22-3.htm", "tried_utc": "2026-11-07T07:26Z"}
+  {
+   "what": "Illinois Election Code, 10 ILCS 5: the sections on tie votes and on recounts. Leads from the titles of search results, not read: 5/22-12 ('Declaration of winners for city or town offices - Tie votes'), 5/23-27 ('Finding of tie vote upon recount - Decision by lot'), and 5/22-3, 5/22-4, 5/7-59 and the Article 22 and 23 recount sections",
+   "reason": "After the orchestrator's ruling of 2026-11-07 08:00 UTC the certificate chain was completed (`state_law.py chain www.ilga.gov`: the intermediate 'Sectigo Public Server Authentication CA OV R40' fetched from the CA Issuers address in the server's own certificate, http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR40.crt, and `openssl verify` found the server's certificate chaining to a root in the system bundle; verification was not turned off). With the chain complete the site answered HTTP 403: for https://www.ilga.gov/legislation/ilcs/documents/001000050K22-3.htm (the address the earlier reader had), at 2026-11-07T08:07Z, and the first guess, https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=170&ChapterID=3, also 403. A 403 that recurs on a corrected address is a refusal (briefs/_COMMON.md 13): stopped, not tried another way. Before that the reader found: no Illinois State Board of Elections guide that states the tie or recount rules (the 2025 Precinct Election Manual and the 2027 Candidate's Guide, both on elections.il.gov, read whole, contain no recount or tie text). Justia, the compilation the orchestrator allowed, refused us (HTTP 403 at its first request, for Georgia) and was not tried again; Cornell LII carries no Illinois statutes text.",
+   "url": "https://www.ilga.gov/legislation/ilcs/documents/001000050K22-3.htm",
+   "tried_utc": "2026-11-07T08:07Z"
+  }
  ],
- "notes": ["Illinois is unread. When a way to read the ILGA site (a working certificate chain) or another allowed publisher is available, the sections to read are the Election Code's Articles 7 (primaries), 22 (canvass, declaration of winners, discovery recount) and 23 (recount and tie), and 65 ILCS 5 (municipal code) for city offices."]
+ "notes": [
+  "Illinois is unread. The ILGA site, with its certificate chain completed, answers HTTP 403 to curl (recorded, not worked round). If the orchestrator finds another allowed publisher, the sections to read are the Election Code's Articles 7 (primaries), 22 (canvass, declaration of winners, discovery recount) and 23 (recount and tie), and 65 ILCS 5 (municipal code) for city offices."
+ ]
 }
