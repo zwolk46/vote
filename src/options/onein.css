@@ -1,0 +1,42 @@
+/* Candidate C, "One in N, made visible" (design/DESIGN-SPEC.md §5). Phone: the question, then the field held at the
+   top of the screen while the lead and the stops scroll beneath it. Desktop: the words in a column at the left, the
+   field at the right, held in view. */
+.oc-text > * + * { margin-top: 24px; }
+.oc-say { color: var(--muted); max-width: 52ch; }
+.oc-intro .oc-say { margin-top: 8px; }
+.oc-lead > * + * { margin-top: 14px; }
+.oc-lead .seg { width: max-content; max-width: 100%; }
+.oc-lead .key { margin-top: 20px; }
+.oc-sh { padding-bottom: 12px; border-bottom: 1px solid var(--line-strong); margin-top: 40px !important; }
+.oc-list { list-style: none; margin: 0; padding: 0; }
+.oc-step { min-height: 62vh; padding: 28px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; }
+.oc-step > * + * { margin-top: 8px; }
+.oc-k { font-weight: 600; }
+.oc-n { font-size: var(--t-fig); font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; }
+.oc-b { font-size: var(--t-sub); }
+.oc-bf { font-weight: 600; }
+.oc-txt { max-width: 52ch; }
+.oc-step .src { max-width: 60ch; }
+.oc-last h3 { font-size: var(--t-sub); }
+.oc-bands { list-style: none; margin: 4px 0 0; padding: 0; border-top: 1px solid var(--line-strong); max-width: 440px; }
+.oc-bands li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.oc-bands li .num { font-weight: 600; }
+.oc-srcs { margin-top: 16px; }
+
+/* the stage */
+.oc-stage { background: var(--bg); }
+.oc-box { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; }
+.oc-c { display: block; }
+.oc-cap { margin-top: 6px; color: var(--muted); text-align: center; min-height: 2.9em; }
+
+@media (max-width: 899px) {
+  .oc-stage-slot { position: sticky; top: 0; z-index: 2; background: var(--bg); padding: 8px 0 4px; margin: 16px calc(-1 * var(--gutter)) 0; border-bottom: 1px solid var(--line); }
+  .oc-box { height: min(38vh, calc(100vw - 2 * var(--gutter))); }
+  .oc-cap { padding: 0 var(--gutter); }
+  .oc-step { min-height: 50vh; }
+}
+@media (min-width: 900px) {
+  .oc { display: grid; grid-template-columns: minmax(360px, 460px) minmax(0, 1fr); column-gap: 56px; align-items: start; }
+  .oc-stage-col { position: sticky; top: 24px; }
+  .oc-box { aspect-ratio: 1 / 1; max-height: calc(100vh - 112px); }
+}
