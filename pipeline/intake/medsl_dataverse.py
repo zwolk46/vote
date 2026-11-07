@@ -59,7 +59,9 @@ def fetch_file(key):
     if not pick:
         raise SystemExit(f"{key}: no file named {stem}* in {[f['dataFile']['filename'] for f in files]}")
     df = pick[0]["dataFile"]
-    frec = cc.fetch(f"{API}/access/datafile/{df['id']}?format=original", f"medsl/{key}/{stem}.original")
+    # Harvard Dataverse serves its files from Amazon S3: a redirect there is the publisher's own storage
+    frec = cc.fetch(f"{API}/access/datafile/{df['id']}?format=original", f"medsl/{key}/{stem}.original",
+                    storage_sites=("amazonaws.com",))
     version = f"v{v.get('versionNumber')}.{v.get('versionMinorNumber')}, released {v.get('releaseTime')}"
     return {"record": rec, "file": frec, "filename": df["filename"], "file_id": df["id"],
             "version": version, "licence": lic, "doi": DATASETS[key][0]}

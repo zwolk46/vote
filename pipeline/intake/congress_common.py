@@ -8,75 +8,45 @@ this folder is named for its source and does three things (plan/PLAN.md section 
 This file holds the parts they share, so that each script carries only what is particular to its source.
 
 Rules this code keeps, with their reasons:
-  - At most one request every few seconds to one host, and a stop at the first refusal of us
-    (briefs/_COMMON.md 13). Reason: a source that blocks us is lost.
-  - No contact detail in any request; curl's own default user agent (briefs/_COMMON.md 15).
+  - Every download goes through pipeline/fetch.py: at most one request every few seconds to one host, a
+    stop at the first refusal of us or at a redirect to another site (briefs/_COMMON.md 13; reason: a
+    source that blocks us is lost), and no contact detail in any request (briefs/_COMMON.md 15).
   - Raw files stay in the cache, not the repository (plan section 3a): anyone can fetch them again.
   - Every file read is recorded with its URL, the time it was read, its size and its SHA-256, so a
     figure can be traced to the exact bytes it came from (law 8).
 """
 import datetime as _dt
-import hashlib
 import json
 import os
-import subprocess
-import time
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import fetch as _fetch  # noqa: E402  (pipeline/fetch.py, D1's: the one implementation of a download)
 
 REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, os.pardir))
-CACHE = os.environ.get("VOTE_CACHE", "/tmp/vote-cache")
+CACHE = _fetch.CACHE          # one cache for every intake script: $VOTE_CACHE, or ~/.cache/vote-intake
 DATA = os.path.join(REPO, "data")
-POLITE_SECONDS = 4.0
-_last_request = {}
-
-
-class Refused(RuntimeError):
-    """A host refused us (a 403 not explained by a wrong address, a 429, a challenge page)."""
+Refused = _fetch.Refused
 
 
 def now_utc():
     return _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
 
 
-def sha256(path):
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(1 << 20), b""):
-            h.update(chunk)
-    return h.hexdigest()
-
-
-def fetch(url, rel_path, refresh=False, min_bytes=1):
-    """Download url to CACHE/rel_path with curl -sSL (once; again only if refresh). Returns a record
-    {url, path, bytes, sha256, read_utc}. Raises Refused on an HTTP error, and stops: it never retries
-    another way (briefs/_COMMON.md 6 and 13)."""
-    path = os.path.join(CACHE, rel_path)
-    meta_path = path + ".meta.json"
-    if os.path.exists(path) and os.path.exists(meta_path) and not refresh:
-        with open(meta_path) as f:
-            return json.load(f)
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    host = url.split("/")[2]
-    wait = POLITE_SECONDS - (time.time() - _last_request.get(host, 0.0))
-    if wait > 0:
-        time.sleep(wait)
-    _last_request[host] = time.time()
-    tmp = path + ".part"
-    out = subprocess.run(["curl", "-sSL", "--max-time", "600", "-o", tmp, "-w", "%{http_code}", url],
-                         capture_output=True, text=True)
-    code = out.stdout.strip()
-    if out.returncode != 0 or code != "200":
-        if os.path.exists(tmp):
-            os.remove(tmp)
-        raise Refused(f"{url}: curl exit {out.returncode}, HTTP {code}, {out.stderr.strip()[:200]}")
-    size = os.path.getsize(tmp)
-    if size < min_bytes:
-        os.remove(tmp)
-        raise Refused(f"{url}: only {size} bytes")
-    os.replace(tmp, path)
-    rec = {"url": url, "path": rel_path, "bytes": size, "sha256": sha256(path), "read_utc": now_utc()}
-    with open(meta_path, "w") as f:
-        json.dump(rec, f, indent=1)
-    return rec
+def fetch(url, rel_path, refresh=False, min_bytes=1, storage_sites=()):
+    """Download url to CACHE/rel_path through pipeline/fetch.py (once; again only if refresh), and return the
+    record these scripts read, {url, path, bytes, sha256, read_utc}. pipeline/fetch.py keeps the rules: curl's
+    own user agent, 4 seconds between requests to a host, a stop (Refused) on HTTP 400 or above and on a
+    redirect to another site than the url's own or one of storage_sites; it never retries another way
+    (briefs/_COMMON.md 6 and 13). Reason for one implementation: the orchestrator, 2026-11-07 05:58 (item 7)."""
+    os.makedirs(os.path.dirname(os.path.join(CACHE, rel_path)), exist_ok=True)
+    path = _fetch.fetch(url, rel_path, refresh=refresh, storage_sites=storage_sites)
+    m = _fetch.meta(rel_path)
+    if m["bytes"] < min_bytes:
+        os.remove(path)
+        os.remove(path + ".meta.json")
+        raise Refused(f"{url}: only {m['bytes']} bytes")
+    return {"url": m["url"], "path": rel_path, "bytes": m["bytes"], "sha256": m["sha256"], "read_utc": m["read_utc"]}
 
 
 def source_block(name, url, read_utc, licence, mark="stated", via=None, note=None):
