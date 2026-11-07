@@ -922,7 +922,8 @@ def measure_p(rec, c, d, q_rows, book):
     general dates."""
     import measures as MS
     year = int(d[:4])
-    rule, how, why = MS.local_rule_for({"state": "NC", "office": c["_base"], "subject": None}, book, year)
+    rule, how, why = MS.local_rule_for({"state": "NC", "office": c["_base"], "subject": None,
+                                          "date": _iso(d)}, book, year)
     if rule is None:
         return {"not_computed": why}
     t = rule["t"]
