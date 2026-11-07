@@ -182,6 +182,8 @@ def known_contests(contests, year):
             if m.get("state") == "IL" and m["office"] in ("COMPTROLLER", "TREASURER") and m.get("counties") == ["17031"] \
                     and {x["name"] for x in m["candidates"]} == {"MARY ARLINE VANN-METCALF"}:
                 m["held_reason"] = IL_2018_HELD
+                for x in m["candidates"]:
+                    x["won_marked"] = None   # not known to be a contest, so no winner is marked
                 hits += 1
                 KNOWN[year]["IL: a stray line held"] += 1
         if hits != 2:
