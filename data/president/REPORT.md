@@ -28,8 +28,8 @@ The average voter's p in each year, weighted by two-party vote over the states:
 | 2004 | 17,131,511 | NM 3.92M, NH 4.78M, IA 5.50M | the model's own |
 | 2008 | 64,982,810 | NM 15.9M, NV 16.2M, IA 20.9M | the model's own (538's chances beside) |
 | 2012 | 14,860,470 | NH 3.08M, NV 4.51M, VA 4.65M | the model's own (538's chances beside) |
-| 2016 | 15,932,632 | NV 3.81M, NH 4.89M, NC 4.97M | 538 polls-plus (Utah: the model's own) |
-| 2020 | 64,705,610 | PA 8.86M, WI 17.4M, NH 18.8M | The Economist for 16 states; 538 for 34 states and the five districts; the model's own for DC |
+| 2016 | 15,864,808 | NV 3.81M, NH 4.89M, NC 4.97M | 538 polls-plus for 45 states and three districts; the model's own for Utah, Alabama, California, DC, Maryland and Oklahoma |
+| 2020 | 64,466,634 | PA 8.86M, WI 17.4M, NH 18.8M | The Economist for 16 states; 538 for 30 states and four districts; the model's own for DC, Delaware, Maryland, Massachusetts and New York; NE-3 none |
 | 2024 | 23,235,822 | NV 5.74M, AZ 7.03M, GA 7.25M | the model's own |
 
 The landslides (1984, 1996) are low because the College was not close, so W is small everywhere: the eve forecast gave the winner all but certainty (P(D) 0.00 in 1984, 1.00 in 1996, back-test). Where W is small everywhere the small states lead, since p_state carries 1/n (our reading of the figures, not a separate measurement).
@@ -84,20 +84,40 @@ These are the orchestrator's rulings of 03:51 (under the maker's word of 02:38) 
   - Maine's and Nebraska's five districts use 538's, since the Economist does not model them.
 - **1976 and 1980:** no p (below).
 
-**538's forecasts** (rules of 04:12 and 04:20, the same for Congress):
+**538's forecasts** (rules of 04:12 and 04:20, and the amendment of 05:58 after M2; the same for Congress):
 
 - **The forecast used is the last dated before Election Day:** 2012-11-05, 2016-11-07 and 2020-11-02. 538's 2008 file holds Election Day only, so 2008's chances are dated Election Day, kept as the check and marked (04:20).
 - **No source read says which 2016 model 538 showed by default.** The CSV and its repository's README are silent, so polls-plus is first and marked so.
 - **The implied sd is kept only where it can be read.** It falls back to the model's own forecast, marked with the reason, where:
   - other candidates hold 1% or more of the chance (Utah 2016, 12.4% for McMullin and the rest);
   - the chance is exactly 0 or 1 (DC 2020);
-  - the implied sd's estimated relative error is 20% or more.
+  - p's estimated relative error under the implied sd is 20% or more (the amendment of 05:58).
 
-  The error has two sources, combined in quadrature, and is recorded on every unit as `share.sd_rel_error`:
+  The sd's error has two sources, combined in quadrature, and is recorded on every unit as `share.sd_rel_error`:
   - **The chance's sampling error.** 538 printed each chance as a count of simulation runs: every 2016 chance is a whole multiple of 0.00005 (20,000 runs) and every 2020 chance of 0.000025 (40,000 runs), measured; the run counts are inferred. The error is taken at the chance one standard error either side, not linearised. A chance of one run in 20,000 therefore comes out near 50% and falls back.
   - **The rounding of the printed shares**, to half their last digit.
 
-  Florida 2016 comes out at 9.6%, North Carolina 2016 at 8.6% and ME-2 2016 at 10.5%, so all three keep 538's sd. Only Utah 2016 and DC 2020 fall back. In the College stage under 538, a unit that falls back takes the model's own sd.
+  **The rule is on p's error, not the sd's** (the orchestrator's amendment of 05:58, after M2 §3.9). *Reason:* the reader sees p, not the sd. p = φ(z) ÷ (2n × sd) with z = Φ⁻¹(538's chance), and an error in the chance moves the sd and the density together, so it reaches p multiplied by \|z² − 1\|. The mean's rounding moves the sd with z fixed, so it reaches p with factor 1, as D2 does for Congress. p's error is recorded on every unit as `share.p_rel_error`.
+
+  - Near even, \|z² − 1\| is about 1, so p's error equals the sd's. Florida 2016 comes out at 9.5% and North Carolina 2016 at 8.5%, and both keep 538.
+  - In safe states z is 3 to 4, so a small sd error becomes a large p error. California 2016's sd error of 4.5% is a p error of 50% at z = 3.48.
+
+  Under this rule, 10 contests change the forecast shown first, from 538 to the model's own:
+
+  | Year | Contest | z | sd's error | p's error | p shown first now, 1 in |
+  |---|---|---|---|---|---|
+  | 2016 | Alabama | −3.14 | 2.6% | 23% | 864M |
+  | 2016 | California | 3.48 | 4.5% | 50% | 356M |
+  | 2016 | DC | 3.72 | 8.1% | 103% | 87.4B |
+  | 2016 | Maryland | 3.62 | 6.0% | 73% | 676M |
+  | 2016 | Oklahoma | −3.54 | 5.1% | 58% | 3.81B |
+  | 2020 | Delaware | 3.89 | 7.4% | 105% | 99.2M |
+  | 2020 | Maryland | 3.30 | 2.2% | 22% | 3.56B |
+  | 2020 | Massachusetts | 3.35 | 2.4% | 24% | 4.60B |
+  | 2020 | New York | 3.79 | 5.5% | 74% | 1.56B |
+  | 2020 | NE-3 | −3.51 | 3.0% | 34% | none: the model's own does not model the districts in 2020 |
+
+  Utah 2016 (third candidates) and DC 2020 (a chance of exactly 1) fall back as before. In the College stage under 538, a unit that falls back takes the model's own sd. That moves every other 538 p by at most 0.15% (Massachusetts 2016). The average voter's p moves from 1 in 15,932,632 to 1 in 15,864,808 in 2016, and from 1 in 64,705,610 to 1 in 64,466,634 in 2020; no other year changes.
 
 ### The model's own forecast (`pipeline/own_forecast.py`)
 
@@ -162,6 +182,16 @@ Its 80,000 joint draws give both stages at once.
   - the forecast carries `p_bound`, a 95% Poisson upper bound under its draws;
   - p falls to 538's, or to the model's own where 538's sd falls back too (DC).
 - **A check on W for every state** reads the Economist's means, sds and correlation matrix as a multivariate normal (100,000 seeded draws given the tie). Its result is `W_mvn`.
+- **Where the window holds fewer than 30 weighted decisive draws, W is marked thin** (`W_thin`, `W_thin_note`, and a note on the contest; the orchestrator's amendment of 05:58, after M2 §2.4). *Reason:* there W moves by large factors with the window's width, so the page must say so. Every Economist p also carries `W_by_window`, W read at the four half-widths counted (±0.0025, ±0.005, ±0.01, ±0.02):
+
+  | State | Weighted draws | W at ±0.0025 | ±0.005 | ±0.01 (used) | ±0.02 |
+  |---|---|---|---|---|---|
+  | Ohio | 13 | 0 | 0.00013 | 0.00042 | 0.0018 |
+  | Iowa | 12 | 0.00012 | 0.00022 | 0.00039 | 0.00093 |
+  | Colorado | 28 | 0.043 | 0.055 | 0.059 | 0.065 |
+  | Pennsylvania, for comparison | 2,481 | 0.31 | 0.29 | 0.26 | 0.18 |
+
+  These three keep the Economist's p first, marked. Their ratios to its published figure (OH 0.14, IA 0.52, CO 0.67, below) are as unsettled as their W.
 
 ### Maine and Nebraska
 

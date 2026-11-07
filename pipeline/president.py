@@ -31,11 +31,17 @@ Which forecast, by year (the orchestrator's ruling of 2026-11-07 03:51, under th
                 first); and where the implied sd breaks down, the unit's p falls back to the model's own
                 forecast, marked, with the reason. It breaks down (the orchestrator's rule of 04:20): where
                 other candidates hold 1% or more of 538's chance of winning (Utah 2016); where the chance is
-                exactly 0 or 1; and where the implied sd's estimated relative error is 20% or more, from two
+                exactly 0 or 1; and where p's estimated relative error under the implied sd is 20% or more
+                (the orchestrator's amendment of 05:58, after M2 3.9: the reader sees p, not the sd). Two
                 sources: the chance's sampling error (538 printed chances as counts of runs, 20,000 in 2016
                 and 40,000 in 2020, inferred from their steps), evaluated at the chance one standard error
-                either side, and the rounding of the printed shares. The error is recorded on every unit.
-                In the College stage under 538 the units that fall back take the model's own sd.
+                either side, which reaches p multiplied by |z^2 - 1|; and the rounding of the printed shares,
+                which reaches p with factor 1 (as D2 does for Congress). Both errors, the sd's and p's, are
+                recorded on every unit. In the College stage under 538 the units that fall back take the
+                model's own sd.
+    The Economist, 2020: where its window holds fewer than 30 weighted decisive draws its W is marked thin,
+                with W at the other window widths beside it (M2 2.4: there W moves by factors of 3 to 10 with
+                the width); under 10, its draws give a bound only.
     1984-2004,  the model's own forecast (pipeline/own_forecast.py, approved version).
     2024
     1976, 1980  no forecast: the model's own needs the results of the two elections before, and no
@@ -81,9 +87,10 @@ DISTRICTS = {"ME": ["ME-1", "ME-2"], "NE": ["NE-1", "NE-2", "NE-3"]}
 SPLIT_FROM = {"ME": 1972, "NE": 1992}       # the first year each state gave electors by district
 WINDOW_INDEX = 2                            # the Economist draws: the window of +-100 steps (+-0.01)
 MIN_WINDOW_WEIGHT_VALUE = 10   # decisive draws in the window below which the Economist's draws give a bound only
+THIN_WINDOW_WEIGHT = 30        # below this the Economist's W is marked thin (amendment of 05:58, M2 2.4)
 MVN_DRAWS = 100000
 THIRD_CHANCE = 0.01   # other candidates' combined chance of winning from which 538's two-way spread is not read
-SD_REL_ERROR_MAX = 0.20   # 538's implied sd is kept where its estimated relative error is under this (rule of 04:20)
+P_REL_ERROR_MAX = 0.20    # 538's implied sd is kept where p's estimated relative error is under this (05:58)
 EX_POST = "n is the two nominees' certified votes less one: ex post, which no voter knew; the model allows it (section 3)"
 
 
@@ -244,7 +251,19 @@ def sd_rel_error(r, runs, step):
     return {"value": fin(value), "from_chance": fin(from_chance), "from_mean_rounding": fin(from_mean),
             "runs": runs, "runs_mark": f"inferred: every chance 538 printed for this model and year is a whole "
                                        f"multiple of {step:g}",
-            "chance_se": se, "mean_rounding": dm}
+            "chance_se": se, "mean_rounding": dm, "z": z}
+
+
+def p_rel_error(err):
+    """p's estimated relative error under 538's implied sd (the amendment of 05:58, M2 3.9). p = phi(z) / (2n sd)
+    with z = Phi^-1(P) and sd = (m - 1/2) / z: an error in the chance moves sd and the density together, so it
+    reaches p multiplied by |z^2 - 1|; the mean's rounding moves sd with z fixed, so it reaches p with factor 1
+    (as D2's pipeline/chambers.py does for Congress)."""
+    z, fc, fm = err["z"], err["from_chance"], err["from_mean_rounding"]
+    if fc is None or fm is None:
+        return {"value": None, "z": z, "how": "unbounded: the sd's own error is unbounded"}
+    return {"value": math.hypot((z * z - 1) * fc, fm), "z": z,
+            "how": "sqrt(((z^2 - 1) x the sd's error from the chance)^2 + (the mean's rounding)^2)"}
 
 
 def implied_sd_breaks(r, runs, step):
@@ -254,13 +273,17 @@ def implied_sd_breaks(r, runs, step):
     if P in (0.0, 1.0):
         return f"538's chance here is exactly {P:g}, which fixes no spread", None
     err = sd_rel_error(r, runs, step)
+    err["p"] = p_rel_error(err)
     if r["probwin_other"] >= THIRD_CHANCE:
         return (f"other candidates hold {r['probwin_other']:.1%} of 538's chance of winning here, so its two-party "
                 "chance does not fix a two-way spread"), err
-    if err["value"] is None or err["value"] >= SD_REL_ERROR_MAX:
-        v = "unbounded" if err["value"] is None else f"{err['value']:.0%}"
-        return (f"the implied sd's estimated relative error is {v}, not under {SD_REL_ERROR_MAX:.0%} (538's chance "
-                f"{P:.5f} out of {runs:,} runs, its two-party mean {m:.4f})"), err
+    pe = err["p"]["value"]
+    if pe is None or pe >= P_REL_ERROR_MAX:
+        v = "unbounded" if pe is None else f"{pe:.0%}"
+        sv = "unbounded" if err["value"] is None else f"{err['value']:.1%}"
+        return (f"p's estimated relative error under 538's implied sd is {v}, not under {P_REL_ERROR_MAX:.0%} "
+                f"(the sd's own error {sv}, at z = {err['z']:.2f}; 538's chance {P:.5f} out of {runs:,} runs, its "
+                f"two-party mean {m:.4f})"), err
     if (m - 0.5) / Phi_inv(P) <= 0:
         return "538's mean and chance point to different winners", err
     return None, err
@@ -475,7 +498,9 @@ def build(I, y, commit):
                       "share": {"mean": float(mu[i]), "sd": (float(tau[i]) if why is None else None), "tails": "normal",
                                 "mean_mark": "stated (538's projected shares, made two-party here)",
                                 "sd_mark": ("inferred" if why is None else None), "sd_how": raw[u]["sd_how"],
-                                "sd_rel_error": raw[u]["sd_rel_error"]},
+                                "sd_rel_error": ({k: v for k, v in raw[u]["sd_rel_error"].items() if k != "p"}
+                                                 if raw[u]["sd_rel_error"] else None),
+                                "p_rel_error": (raw[u]["sd_rel_error"] or {}).get("p")},
                       "win_prob": raw[u]["win_prob"], "p_published": None, "convention": None,
                       "as_of": fdate, "source": fte_src, "unit_ev": int(ev[i]), "p": pb}
                 if why is not None:
@@ -529,7 +554,18 @@ def build(I, y, commit):
                           "one half, each weighted by whether the state's electoral votes decide the College in that "
                           "draw (a 269 tie counted half)")
                 extra = {"window_draws": w["in_window"], "window_weighted": w["weighted"], "window_width": width,
-                         "relative_error": 1 / math.sqrt(w["weighted"]), **check}
+                         "relative_error": 1 / math.sqrt(w["weighted"]), **check,
+                         "W_by_window": {f"+-{(v['width'] - 1e-4) / 2:.4f}": (v["weighted"] / v["in_window"]
+                                                                              if v["in_window"] else None)
+                                         for v in es["sims"]["windows"]}}
+                if w["weighted"] < THIN_WINDOW_WEIGHT:
+                    ws = [v for v in extra["W_by_window"].values() if v is not None]
+                    extra["W_thin"] = True
+                    extra["W_thin_note"] = (
+                        f"the window holds {w['weighted']:g} weighted decisive draws, under {THIN_WINDOW_WEIGHT}, and W "
+                        f"read at the four window widths (+-0.0025 to +-0.02) runs from {min(ws):.2g} to {max(ws):.2g} "
+                        "(W_by_window; M2 2.4), so this p is the Economist's draws read at one width, not a settled "
+                        "figure")
                 pb = p_block(p_state, W, "The Economist", method, n, commit, extra)
                 pb["ratio_to_published"] = pb["value"] / pub["p_decisive_vote"]
             else:
@@ -556,6 +592,8 @@ def build(I, y, commit):
                 contests[s]["p"] = pb
                 contests[s]["stage_two"]["inputs"].update(
                     {"W": pb["W"], "unit_ev": int(ev[i]), "method": method, "districts_modelled": False})
+                if pb.get("W_thin"):
+                    contests[s]["notes"].append(f"The Economist's W here is thin: {pb['W_thin_note']}.")
             elif fte is None:
                 use_own(s, "the Economist's draws cannot fix p here (see its forecast's p_bound), and 538's implied "
                            "sd breaks down here (see its forecast's note)")
