@@ -193,6 +193,10 @@ def deciding_words(earlier):
 def election_words(c, d):
     kind, other = c["_round"]
     on = ", ".join(_iso(x) for x in other)
+    if c["_level"] == "measure":   # a question has no rounds: one of the same title on another date is another question
+        w = (("general" if int(d[:4]) % 2 == 0 else "general (odd year: municipal)") if is_general_date(d) else
+             f"election on {_iso(d)}, not a November general (the source does not say its kind)")
+        return w + (f"; a question of the same title was on the ballot on {on} too" if other else "")
     if c["_party"]:
         w = PRIMARY_WORD.get(c["_party"], f"{c['_party']} primary (the party's code in the source)")
         if kind == "second primary":
@@ -518,7 +522,8 @@ def medsl_shape(year):
                     "office": base, "district": "STATEWIDE" if statewide else "", "subject": None,
                     "magnitude": c.get("vote_for"), "question": c["_level"] == "measure",
                     "own_county": c.get("own_county") or None,
-                    "earlier_round": c["_round"][1] if c["_round"][0] == "after an earlier round" else None,
+                    "earlier_round": (c["_round"][1] if c["_round"][0] == "after an earlier round" and
+                                      c["_level"] == "local" else None),
                     "precincts": c["n_precincts"], "counties": sorted({fips[x] for x in c["counties"] if x in fips}),
                     "candidates": [{"name": x["name"], "votes": x["votes"], "as_named": True,
                                     "party": {"D": "DEMOCRAT", "R": "REPUBLICAN"}.get(_major(x["party"]),
