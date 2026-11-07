@@ -9,8 +9,9 @@ Plan section 3a: data comes in by script; raw files stay in a cache outside the 
 
 Source: the Division of Elections' page for each year, https://www.nj.gov/state/elections/election-information-<year>.shtml.
 It links each official result as a PDF, "Official List: Candidates for <office> For GENERAL ELECTION <date> Election",
-one line per candidate and county ("BURLINGTON  DEMOCRATIC  132,275") and a "Total" line per candidate [stated: the
-files]. Links inside the page's HTML comments are old drafts and are not read. The site prints no licence; these are
+one line per candidate and county ("BURLINGTON  DEMOCRATIC  132,275"), a "Total" line per candidate and one for the
+contest [stated: the files]. Each list's heading says "* denotes incumbent" [stated]; "(w)" follows the names of the
+candidates elected [inferred: it marks the leading candidate for each seat in every contest read]. Links inside the page's HTML comments are old drafts and are not read. The site prints no licence; these are
 the state's public election returns.
 
 What it does:
@@ -47,6 +48,33 @@ COUNTIES = ["ATLANTIC", "BERGEN", "BURLINGTON", "CAMDEN", "CAPE MAY", "CUMBERLAN
 ORDINAL = {w: i + 1 for i, w in enumerate(
     "First Second Third Fourth Fifth Sixth Seventh Eighth Ninth Tenth Eleventh Twelfth Thirteenth Fourteenth Fifteenth "
     "Sixteenth Seventeenth Eighteenth Nineteenth Twentieth".split())}
+ORDINAL.update({"Thirtieth": 30, "Fortieth": 40})
+TENS = {"Twenty": 20, "Thirty": 30}   # "Thirty-First Legislative District" [stated: the 2023 and 2025 lists]
+# the address column's first word where the name ran into it with one space ("GERARD SCHARFENBERGER 20 SEA GULL LANE")
+ADDRESS_START = re.compile(r"\s(?=\d|P\.\s?O\.)")
+
+
+def ordinal(word):
+    """A district's ordinal as the lists write it ("Fifth", "Thirty-First", "Fortieth") as a number; else the word."""
+    if word in ORDINAL:
+        return ORDINAL[word]
+    a, _, b = word.partition("-")
+    if a in TENS and b in ORDINAL and ORDINAL[b] < 10:
+        return TENS[a] + ORDINAL[b]
+    return word
+
+
+def _named(heading):
+    """The counties a district's heading names, [{county, part}] ("ATLANTIC (part) - CAPE MAY - CUMBERLAND (part)
+    Counties"), or None."""
+    m = re.search(r":\s*(.*?)\s*Count(?:y|ies)\s*$", heading)
+    return [{"county": x.replace("(part)", "").strip(), "part": "(part)" in x}
+            for x in re.split(r"\s+-\s+", m.group(1))] if m else None
+
+
+def _marks(seg):
+    """The "(w)" and "*" marks in a piece of the name column, and the piece without them."""
+    return "(w)" in seg, "*" in seg, " ".join(re.sub(r"\(w\)|\*", " ", seg).split())
 # a county line starts in the county column, 40 or more spaces in; an address line ("UNION CITY, NJ 07087") nearer
 TALLY = re.compile(r"^\s{40,}(" + "|".join(COUNTIES) + r")\s*(\S.*?)\s+([\d,]+)\s*$")
 TOTAL = re.compile(r"^\s{20,}Total\s+([\d,]+)\s*$")
@@ -67,7 +95,7 @@ def links(year):
 
 
 def _official_general(year):
-    pat = re.compile(rf"/{year}/{year}-official-general-results-([a-z-]+)\.pdf$")
+    pat = re.compile(rf"/{year}/{year}-official-general-results-([a-z0-9-]+)\.pdf$")
     out = []
     for href, text in links(year):
         m = pat.search(href)
@@ -84,6 +112,8 @@ def parse(path):
     every page."""
     txt = subprocess.run(["pdftotext", "-layout", path, "-"], capture_output=True, text=True, check=True).stdout
     contests, office, district, cand, name_end, party_at, listed = [], None, None, None, None, None, None
+    named, heading = None, None
+    pending, in_bracket = None, False   # the candidate whose name lines are being read, and a "(bracketed with" note
     for line in txt.splitlines():
         if line.startswith("Candidate Totals for Party"):   # the last page: candidates by party, not votes
             name_end = None
@@ -94,17 +124,45 @@ def parse(path):
             continue
         m = OFFICE.match(line)
         if m:
-            office = m.group(1)
+            office, pending = m.group(1), None
+            if office != (contests[-1]["office"] if contests else None):
+                named = None
             continue
         if line.startswith("Name ") and "Address" in line:   # each page's header gives the columns
             name_end, party_at = line.index("Address"), line.index("Party")
             continue
+        if heading is not None:   # a district's heading that wrapped: it ends at "Counties" ("SALEM Counties")
+            heading += " " + line.strip()
+            if re.search(r"Count(?:y|ies)\s*$", line):
+                named, heading = _named(heading), None
+            continue
         m = DISTRICT.match(line)
         if m:
-            district = ORDINAL.get(m.group(1).split("-")[0], m.group(1))
+            district, pending = ordinal(m.group(1)), None
+            if re.search(r"Count(?:y|ies)\s*$", line):
+                named = _named(line)
+            else:
+                named, heading = None, line.strip()
+            continue
+        if pending is not None and name_end and line[:1].strip() and (len(line) <= party_at
+                                                                      or not line[party_at:].strip()):
+            # a line under a candidate's name, with no party: the name column holds the rest of a name that wrapped
+            # ("VERLINA REYNOLDS-" / "JACKSON (w) *"), the marks ("(w) *"), or a note "(bracketed with ...)" [stated:
+            # the 2023 and 2025 General Assembly lists]
+            seg = re.split(r"\s{2,}", line.strip())[0]   # the name column's text, up to the address's
+            if seg.startswith("(bracketed") or in_bracket:
+                in_bracket = not seg.endswith(")")
+                continue
+            if seg.startswith("(") and not seg.startswith("(w)"):   # a running mate's name ("(TIM WALZ)"), 2024
+                continue
+            w, inc, rest = _marks(seg)
+            pending["w"], pending["incumbent"] = pending["w"] or w, pending["incumbent"] or inc
+            if rest and (pending["name"].endswith("-") or w or inc):   # the name's own rest, before its marks
+                pending["name"] += ("" if pending["name"].endswith("-") else " ") + rest
             continue
         m = TALLY.match(line)
         if m and cand is not None:
+            pending = None
             cand["counties"][m.group(1)] = cand["counties"].get(m.group(1), 0) + int(m.group(3).replace(",", ""))
             if m.group(2) not in cand["slogans"]:   # the county lines' party column ("DEMOCRATIC", "GREEN PARTY")
                 cand["slogans"].append(m.group(2))
@@ -114,9 +172,17 @@ def parse(path):
             cand["total"] = int(m.group(1).replace(",", ""))
             cand = None
             continue
+        if m and contests and contests[-1]["candidates"]:   # a "Total" after the last candidate's: the contest's own
+            contests[-1]["total_line"] = int(m.group(1).replace(",", ""))
+            continue
         if name_end and line[:1].strip() and line[:1] != "(" and len(line) > party_at and \
                 not re.match(r"\d{2}/\d{2}/\d{4}", line) and not line.startswith("Total Candidates"):
-            name = " ".join(re.sub(r"\(w\)|\*", " ", line[:name_end]).split())
+            first = re.split(r"\s{2,}", line.rstrip())[0]
+            if len(first) > name_end:   # the name ran into the address with one space between them
+                at_ = ADDRESS_START.search(first)
+                first = first[:at_.start()] if at_ else line[:name_end]
+            w, inc, name = _marks(first)
+            marks = {"incumbent": inc, "w": w}
             chunks = re.split(r"\s{2,}", line[name_end:].strip())
             if len(chunks) > 1:   # the address, then the party, set apart by a run of spaces
                 party = chunks[-1]
@@ -128,14 +194,22 @@ def parse(path):
             key = (office, district)
             if not contests or (contests[-1]["office"], contests[-1]["district"]) != key:
                 contests.append({"office": office, "district": district, "candidates": []})
+                if named:
+                    contests[-1]["counties_named"] = named
             last = contests[-1]["candidates"][-1] if contests[-1]["candidates"] else None
-            if last is not None and last is cand and last["name"] == name:
+            if last is not None and last is cand and last["first"] == name:
+                pending = None
                 continue   # the same candidate again at the top of the next page: the list goes on
-            cand = {"name": name, "party": party, "slogans": [], "counties": {}, "total": None}
+            cand = {"name": name, "first": name, "party": party, "slogans": [], "counties": {}, "total": None,
+                    **marks}
             contests[-1]["candidates"].append(cand)
+            pending, in_bracket = cand, False
     for c in contests:
         for x in c["candidates"]:
+            x.pop("first")
             x["adds_up"] = x["total"] is not None and sum(x["counties"].values()) == x["total"]
+        if "total_line" in c:   # the contest's own total equals its candidates' totals added up
+            c["total_adds_up"] = c["total_line"] == sum(x["total"] or 0 for x in c["candidates"])
         # the last candidate's name again, with no county line and a "Total" equal to all the contest's candidates'
         # votes added up: that line is the contest's total, not another candidate [measured: NJ-12, 2024]
         for x in list(c["candidates"]):

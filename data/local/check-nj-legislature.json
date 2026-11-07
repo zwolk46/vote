@@ -1,0 +1,51 @@
+{
+ "about": "the gate within the certifying source of New Jersey's 2023 and 2025 legislatures (pipeline/local_nj_leg.py, docstring): (a) each list linked as official and headed 'Official List', its last page's count of candidates equal to those read; (b) each candidate's county lines adding up to its Total and each contest's Total to its candidates'; (c) each candidate's county lines within the counties its district's heading names; (d) 2025: the Governor's list equal to D2's data/governor/2025.json and the same file. Proposed by worker D3, 2026-11-07, for the orchestrator's ruling.",
+ "years": {
+  "2023": {
+   "lists": {
+    "state-senate": [
+     true,
+     "linked as official, every page headed 'Official List', and its last page's count of candidates equal to those read"
+    ],
+    "general-assembly": [
+     true,
+     "linked as official, every page headed 'Official List', and its last page's count of candidates equal to those read"
+    ]
+   },
+   "year": [
+    true,
+    "no federal or statewide contest on the ballot: the gate is the lists' own (a)-(c)"
+   ],
+   "contests": 80,
+   "contests_held": {},
+   "districts_counties_same": {
+    "senate_and_assembly": true
+   }
+  },
+  "2025": {
+   "lists": {
+    "governor": [
+     true,
+     "linked as official, every page headed 'Official List', and its last page's count of candidates equal to those read"
+    ],
+    "state-senate-35ld": [
+     true,
+     "linked as official, every page headed 'Official List', and its last page's count of candidates equal to those read"
+    ],
+    "general-assembly": [
+     true,
+     "linked as official, every page headed 'Official List', and its last page's count of candidates equal to those read"
+    ]
+   },
+   "year": [
+    true,
+    "the Governor's list equals D2's data/governor/2025.json for each of its 4 candidates, and is the same file (sha256 ef28c114c11de275)"
+   ],
+   "contests": 42,
+   "contests_held": {},
+   "districts_counties_same": {
+    "assembly_2023_and_2025": true
+   }
+  }
+ }
+}

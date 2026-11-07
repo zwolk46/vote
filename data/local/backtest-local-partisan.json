@@ -1,5 +1,5 @@
 {
- "about": "route (a)'s class-C terms (fitted on Klarner's state legislative races of earlier years only) applied to local races between one Democrat and one Republican, the place's lean read from the US House vote of the previous general in the race's counties (MEDSL's precinct returns): the forecast against what happened. Built by pipeline/local_medsl.py backtest-local-partisan.",
+ "about": "route (a)'s class-C terms (fitted on the state legislative races of earlier years only: Klarner's, and for 2024 on New Jersey's 2023 Senate from its Official List) applied to local races between one Democrat and one Republican, the place's lean read from the US House vote of the previous general in the race's counties (MEDSL's precinct returns): the forecast against what happened. Built by pipeline/local_medsl.py backtest-local-partisan.",
  "rule": "p is computed for a year only if its 50% interval holds between 40% and 60% of outcomes",
  "years": {
   "2020": {
@@ -83,7 +83,7 @@
    },
    "in_intervals_50_80_95": {
     "50": 0.519,
-    "80": 0.81,
+    "80": 0.811,
     "95": 0.963
    },
    "within_49_51": {
@@ -145,7 +145,7 @@
     "earlier_years_of_kind": 14,
     "years_fitted": [
      1968,
-     2022
+     2023
     ],
     "method": "D3-v1.1"
    },
