@@ -67,7 +67,7 @@
 - `forecast_inputs`: what the model's own forecast is built from.
   - `lean`: the district's or state's Democratic two-party share in the presidential election before the race, minus the national share.
   - `pres_year`, `district_share_D` or `state_share_D`, `national_share_D`.
-  - `incumbency`: +1 if a Democratic incumbent runs, −1 if a Republican one does, 0 otherwise. `incumbency_source` is `cha`, `record` (the source of record's own incumbent mark) or `algara_amlani` (governors before 2006, with the authors' `seat_status` as they wrote it).
+  - `incumbency`: +1 if the Democratic nominee is the incumbent, −1 if the Republican nominee is, 0 otherwise; the fit's definition (REPORT §2.2, §0.1). The Democratic nominee is the candidate with the most votes on a Democratic line, or the independent who caucuses with the Democrats; the Republican nominee is the candidate with the most votes on a Republican line. A nominee is an incumbent where Cha, Kuriwaki and Snyder code them 1; their codes 2 (elected in a special election) and 3 (appointed) count as not, as in the fit (REPORT §7). `incumbency_source` is `cha`, `record` (the source of record's own incumbent mark on that same nominee, where Cha does not hold them) or `algara_amlani` (governors before 2006, with the authors' `seat_status` as they wrote it).
   - `midterm`, `president_party`, and each one's `_source` key.
   - `lean_missing`: why there is no `lean`.
   - `lines`: for a House special, the lines its lean is taken on (the old Congress's, on which a special is held).
@@ -92,7 +92,7 @@
 - `p.reason`: why p is 0 (one candidate).
 - `forecasts[].shrink` and `forecasts[].share.mean_unshrunk` (the model's own, House 2014-2024, round 5, REPORT §2.7): `share.mean` is the mean shrunk toward ½, ½ + λ·(`mean_unshrunk` − ½), with λ the `shrink.factor` fitted on the level's earlier years (`shrink.years`); `share.sd` is the sd with k refitted on the shrunk means. Governors from round 5: the model's own forecast with `share.tails` "t4" stands first and the normal one beside it.
 - `p.value_uncalibrated`: where p is calibrated to earlier years' near-ties (`p.under` ends so), p before it: what pipeline/core.py gives from the forecast's mean and sd. `p.value`, `p.event` and `p.f_half` are that times the forecast's `calibration.multiplier`, and so is each `p.alongside` entry of the model's own.
-- `p.method` (`exact` or `density`), `p.f_half` and `p.n` are pipeline/core.py's own outputs. `p.sd`: for 538, the implied sd p used.
+- `p.method` (`exact` or `density`) and `p.n` are pipeline/core.py's own outputs, and so is `p.f_half` where p is not calibrated. Where it is (`p.under` ends so), `p.f_half` is the calibrated density at ½: f(½) × `calibration.multiplier`, with f(½) the forecast's own density there. f(½) itself is `p.f_half` ÷ the multiplier. `p.sd`: for 538, the implied sd p used.
 - `p.alongside`: p under the other forecasts: the model's own with t4 tails (same sd), the model's own normal where 538's comes first, and 538's other versions. Each has its own `event`, `f_half`, `of_forecast`, its `control`, and for 538 the implied `sd`.
 - `p.control`: p for control of the chamber, which is p × `P_decides_given_tie` (MATH §4.2), with its `event`. The chamber stage is the model's common swing and the other seats, with this seat entered under the forecast p is computed from (for 538, reading (c)); `p.control.under` says so.
 - `stage_two.inputs`: how the seat enters control.
