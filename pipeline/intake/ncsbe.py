@@ -16,9 +16,16 @@ What it does:
   fetch   downloads every results file once through pipeline/fetch.py (4 s between requests; a refusal stops it).
   read    reads every fetched file into contests (one per contest per date): $VOTE_CACHE/ncsbe/normalized/<date>.jsonl,
           and checks-<date>.json (rows read, rows kept, contests, votes; the layout used).
-Which rows form one contest: from 2014 the file's own `contest group id` links a contest's lines across counties; before
-2014, the contest's name (and its district, where the file has one) within its county, and across counties only for a
-contest the file marks as statewide or a district's.
+Which rows form one contest: its name (and its district, where the file has one), across counties, except:
+  - 2010-2013: a contest the file does not mark statewide (type S) is one per county, since those years name a county's
+    own contests without the county ("BOARD OF COMMISSIONERS", type C);
+  - from 2014: a county's own contest (any type but S) whose name carries no place (`generic`: "SHERIFF (REP)",
+    "BOARD OF EDUCATION DISTRICT 1", "COUNTYWIDE MALT BEVERAGE ELECTION") is one per county too, since each county's
+    has that same name; it is one across counties only where they share a county-prefixed `contest group id` (10000
+    or more), as the Town of Davidson's 2017 bonds do in Iredell and Mecklenburg. Such a contest carries
+    `own_county: true` where its name stands for more than one contest on the date. (Added 2026-11-07 09:21 UTC: before
+    this, those names were summed across counties: 88 written contests, none with p.) The group id itself is not the
+    key, because from 2016 most files number each county's contests from 1 again.
 
 Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/intake/ncsbe.py list|fetch|read [--dates 2024_11_05,...]
 """
@@ -157,6 +164,28 @@ def _int(x):
     return int(float(x)) if x and re.match(r"^-?\d+(\.\d+)?$", x) else None
 
 
+# The words of a county's own office or question that do not name a place: a name made of these alone (and district
+# numbers, letters and party marks) is the same in every county that holds one. A name with any other word names its
+# place ("CITY OF DURHAM MAYOR", "NASH-ROCKY MOUNT BOARD OF EDUCATION DISTRICT 9", "HANDY SANITARY DISTRICT SUPERVISOR").
+# Drawn from every 2014-2026 file's names of non-statewide contests held in more than one county [measured, 2026-11-07].
+_GENERIC = frozenset("""
+    A ABC ALCOHOLIC AND AREA AT AT-LARGE BEVERAGE BEVERAGES BOARD BOND BONDS CENT CHAIR CHAIRMAN CLERK COLLEGE
+    COMMISSIONER COMMISSIONERS COMMUNITY CONSERVATION CORONER COUNTY COUNTYWIDE COURT DEEDS DISTRICT EDUCATION ELECTION
+    FACILITIES FIRE FOR FORTIFIED GENERAL GREENWAY GREENWAYS HOSPITAL HOUSING IMPROVEMENT IMPROVEMENTS IN LARGE LIBRARY
+    LOCAL MALT MEMBER MEMBERS MIXED MOBILITY OBLIGATION OF OFF-PREMISES ON ON-PREMISES ONE ONE-QUARTER OPTION OR PARK
+    PARKS PERCENT PUBLIC QUARTER RECREATION RECREATIONAL REFERENDUM REGISTER SAFETY SALE SALES SCHOOL SCHOOLS SEAT
+    SHERIFF SIDEWALK SIDEWALKS SOIL STORE STORES STREET STREETS SUPERIOR SUPERVISOR SUPERVISORS SURVEYOR TAX TERM THE TO
+    TRANSPORTATION TREASURER TRUSTEE TRUSTEES UNEXPIRED UNFORTIFIED USE VICE WATER WINE""".split())
+_MARK = re.compile(r"\((DEM|REP|LIB|GRE|CST|UNA|NONPARTISAN|UNEXPIRED)\)")
+_NUMBERISH = re.compile(r"\d+[A-Z]?|[IVX]+|#\d+|NO\.?|\d+(ST|ND|RD|TH)|-")
+
+
+def generic(name):
+    """True where a contest's name carries no place: every word is one of _GENERIC, a number or a party mark."""
+    words = _MARK.sub(" ", name.upper()).replace(",", " ").replace("-", " - ").split()
+    return bool(words) and all(w in _GENERIC or _NUMBERISH.fullmatch(w) for w in words)
+
+
 def read_date(d, path):
     """The contests of one election date."""
     contests = {}
@@ -180,16 +209,23 @@ def read_date(d, path):
         district = r.get("district") or ""
         district = "" if district.upper() in ("NOT FOUND", "") else district
         name = re.sub(r"\s+", " ", name).strip()
-        # one contest: from 2014 and before 2010 the contest's name, across counties (the names carry their place:
-        # "CITY OF ARCHDALE MAYOR", "ALAMANCE COUNTY BOARD OF COMMISSIONERS"); 2010-2013 names a county's own contests
-        # without the county ("BOARD OF COMMISSIONERS", type C), so those are one per county
-        key = (county, name, district) if ("contest_type" in r and "contest_group_id" not in r and ctype != "S") \
-            else ("", name, district)
+        # one contest: its name, across counties (most names carry their place: "CITY OF ARCHDALE MAYOR", "ALAMANCE
+        # COUNTY BOARD OF COMMISSIONERS"); 2010-2013 names a county's own contests without the county ("BOARD OF
+        # COMMISSIONERS", type C), so those are one per county; from 2014 a county's own contest whose name carries no
+        # place is one per county too, or one across the counties that share its county-prefixed group id (docstring)
+        if "contest_type" in r and "contest_group_id" not in r and ctype != "S":
+            key = (county, name, district)
+        elif "contest_group_id" in r and ctype != "S" and generic(name):
+            key = ("group " + group if group.isdigit() and int(group) >= 10000 else county, name, district)
+        else:
+            key = ("", name, district)
         c = contests.get(key)
         if c is None:
             c = contests[key] = {"date": d, "contest": name, "contest_type": ctype, "group": group or None,
                                  "district": district or None, "vote_for": _int(r.get("vote_for")),
                                  "counties": set(), "precincts": set(), "choices": {}}
+            if key[0] and "contest_group_id" in r:
+                c["_generic"] = True
         c["counties"].add(county)
         c["precincts"].add((county, r.get("precinct") or r.get("precinct_abbrv") or ""))
         party = (r.get("choice_party") or r.get("party") or r.get("party_cd") or "").strip()
@@ -203,7 +239,10 @@ def read_date(d, path):
                 ch["flags"][f"{fl}={r[fl]}"] += 1
         kept += 1
     out = []
-    for c in contests.values():
+    per_name = collections.Counter((k[1], k[2]) for k, c in contests.items() if c.get("_generic"))
+    for k, c in contests.items():
+        if c.pop("_generic", False) and per_name[(k[1], k[2])] > 1:
+            c["own_county"] = True
         c["counties"] = sorted(c["counties"])
         c["n_precincts"] = len(c.pop("precincts"))
         c["choices"] = [{"name": k, "votes": v["votes"],

@@ -1042,8 +1042,11 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
         return {}
     t4 = core.p_contest(n, mean, sd, "t4")
     counts[f"{label}: p computed, partisan (transferred)"] += 1
-    return L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal; transferred, not yet checked", commit,
-                      {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+    p = L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal; transferred, not yet checked", commit,
+                   {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+    # class C's terms, but with the race's own counties' lean, not a chamber's (L.FORECAST_SCOPE)
+    p["forecast_scope"] = "the race's counties (class C's terms with the counties' US House lean)"
+    return p
 
 
 # ------------------------------------------------------------------ local races: classes of like races
@@ -1351,6 +1354,7 @@ def build(out_dir, with_p=True):
                     t4 = core.p_contest(n, mean, sd, "t4")
                     p = L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal", commit,
                                    {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+                    p["forecast_scope"] = L.FORECAST_SCOPE[r_["cls"]]
                     counts[f"{level} {year}: p computed, partisan"] += 1
             rec["p"] = p
             files[(level, year, c["state"])].append(L._compact(rec))
@@ -1465,12 +1469,16 @@ def build(out_dir, with_p=True):
                               "yes_share": round(yes / (yes + no), 6) if yes + no else None},
                    "forecasts": []}
             notes = []
-            # Indiana's file gives each question once, with its counties and its type, title and text; MEDSL's and
-            # the State Board's keep the note
-            by_county = c.get("source", "medsl") != "in_enr"   # local_in.SOURCE_KEY
+            # MEDSL's wording of a local question does not show its place; the State Board's file names it (or the
+            # question is one county's own: pipeline/intake/ncsbe.py, generic), and Indiana's gives each question
+            # once with its counties and its type, title and text
+            by_county = c.get("source", "medsl") == "medsl"
             if scope == "local" and by_county:
                 notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
                              "it, so a question held across several counties appears once per county")
+            if c.get("own_county"):
+                import local_ncsbe as NS
+                notes.append(NS.OWN_COUNTY_NOTE)
             if c.get("read_as_question"):
                 notes.append("filed in the source as a candidate contest; read as a question, since its two lines are "
                              "a yes and a no")

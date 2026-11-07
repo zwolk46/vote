@@ -153,6 +153,8 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 
 **The 2024 state legislative forecasts against what happened** (out of sample: fitted on 1967-2022) [measured], 3,032 partisan races: in the 50/80/95% intervals 60/86/96%; within 49-51%, 134.2 expected and 128 seen; within 100 votes, 42.7 expected and 42 seen. The forecasts leaned 2.3 points too Democratic on average, the year's swing. Class C carries 2,406 of them: precinct names change between the files, so the lines test finds unchanged lines for only 627 districts.
 
+**Class C** (added 2026-11-07 at 09:28 UTC, at the orchestrator's question of 09:22: the site will need to know which p rest on a coarse forecast) [measured]. With Indiana's (§10), 2,461 of the 2024 legislative p rest on class C, against 478 on class A and 163 on class B. Class C's forecast reads the chamber's lean (the mean Democratic share of the chamber's contested seats at its previous election, minus ½), which is the same for every district of a chamber, and incumbency; so it cannot tell a safe district from a close one, and its sd is about 0.11. Indiana's House District 2 is an example: 82% Democratic, forecast at 0.47 with sd 0.115, p 9.2e-5. Out of sample in 2024, class C's 2,461 races: within 49-51%, 112.6 expected and 106 seen; in the 50/80/95% intervals 55/84/95%; the means leaned 2.6 points Democratic. In 1972-2022 (`data/local/backtest.json`, `partisan.by_class.C`), 19,619 races: 972.8 expected and 923 seen within 49-51%. Class C is right near ½ in the count, but each of its p is that of an average district of its chamber, not of its own.
+
 **Where p is computed**, and what would compute the rest: superseded by §7, which adds 2018 and 2020.
 
 ## 7. MEDSL's 2018 and 2020 returns, and p for local races
@@ -267,7 +269,14 @@ Not read, because the sites refused and the readers stopped there (never routed 
 - `pipeline/intake/ncsbe.py` runs `list`, `fetch` and `read`. It handles the six layouts of the site's `layout_results_pct.txt`; three files have no header line, and their layout is read from their columns.
 - `pipeline/local_ncsbe.py` runs `check` and `build`.
 - What the files do not say, and how each is read [inferred]:
-  - **Which lines form one contest.** The State Board names each contest with its place ("CITY OF ARCHDALE MAYOR"), so lines are joined across counties by that name. The exception is 2010 to 2013, whose county contests are named without the county ("BOARD OF COMMISSIONERS"); those are joined within a county.
+  - **Which lines form one contest.** The State Board names most contests with their place ("CITY OF ARCHDALE MAYOR"), so lines are joined across counties by that name. The exceptions are a county's own contests named without the county ("BOARD OF COMMISSIONERS"). In 2010 to 2013 every county contest is one per county. From 2014, a county's own contest whose name carries no place (`generic` in `pipeline/intake/ncsbe.py`: "SHERIFF (REP)", "BOARD OF EDUCATION DISTRICT 1", "COUNTYWIDE MALT BEVERAGE ELECTION") is also one per county, and says so in its `notes`. The one exception is where the counties share a county-prefixed group id, as the Town of Davidson's 2017 bonds do in Iredell and Mecklenburg.
+  - *Corrected 2026-11-07 at 09:21 UTC* [measured]. Before this, from 2014 those names were joined across counties, so different counties' contests were summed. 88 written contests were affected, none with p. Examples are the 2014 primary's "Sheriff (REP)" across 34 counties, 2016's "Soil and Water Conservation District Supervisor" across 77, and 2018's "One Quarter Cent Sales Tax" across 11. They are now 500 contests, one per county, on five dates from 2014-05-06 to 2018-05-08; 80 old ids are gone and 495 are new.
+  - They entered the earlier years' like races, so later p moved. 497 p change:
+    - 137 are new, in classes that now reach 100 like races;
+    - 360 move, by a median of 7% and at most 10% (each class's f(½) is measured again on more races);
+    - none falls out.
+    - The changes are in the local races of 2019-2026 (67) and the primaries of 2017-2026 (430).
+    - Each p is listed, with its id, before and after, in `data/local/moves-ncsbe-own-county.json`.
   - **The number of seats.** "Vote for" is given only from 2014. Before that, a contest with several names has no seat count, so it has no winners and no p.
   - **Which round.** A party's primary carries the party in its name ("- DEM", "(REP)"). Before 2008 it is read from its candidates' party codes, and one name holding several parties is split by party. A second primary, or a first round, is the same name on another ballot that year.
   - **Winners.** The leading names for the seats are taken as won, and none at a tie.
@@ -330,39 +339,41 @@ The p of these contests are computed from the certified counts. Elsewhere, the f
   - "a Democrat against a Republican", since these dates have no county lean;
   - primaries by office type and number of candidates, with p between the top two (model section 7).
 - **The back-test.** Each year is forecast from earlier years only. For each class, the expected count is the chance its like races gave of finishing in the class's window around ½; the seen count is how many did.
-  - Local races, 2016-2026: 2,191 forecast, 270.3 expected and 281 seen.
-  - Single-seat races: 115.3 against 113. Multi-seat boundaries: 193.7 against 206.
-  - Primaries, 2019-2026: 484 forecast, 38.7 against 38.
+  - Local races, 2016-2026: 2,231 forecast, 275.9 expected and 289 seen.
+  - Single-seat races: 132.8 against 138. Multi-seat boundaries: 193.7 against 206.
+  - Primaries, 2017-2026: 613 forecast, 50.6 against 55.
+  - These are the figures after the correction of 09:21 above. Before it they were 2,191 forecast, 270.3 against 281; single-seat 115.3 against 113; and primaries 484 forecast, 38.7 against 38.
 - **A single year is rougher than the pooled figure.**
 
   | Year | Local races: expected, seen | Primaries: expected, seen |
   |---|---|---|
-  | 2017 | 29.4, 28 | |
-  | 2018 | 7.4, 15 | |
-  | 2019 | 32.7, 41 | 0.2, 0 |
-  | 2020 | 7.2, 6 | 12.3, 10 |
+  | 2016 | 0.5, 1 | |
+  | 2017 | 29.4, 28 | 0.2, 0 |
+  | 2018 | 7.4, 15 | 5.5, 11 |
+  | 2019 | 32.8, 41 | 0.1, 0 |
+  | 2020 | 12.0, 14 | 8.6, 7 |
   | 2021 | 49.4, 41 | |
-  | 2022 | 16.8, 13 | 7.6, 11 |
+  | 2022 | 17.2, 13 | 8.0, 11 |
   | 2023 | 51.1, 54 | 0.1, 0 |
-  | 2024 | 15.3, 13 | 5.8, 7 |
+  | 2024 | 15.6, 13 | 11.0, 14 |
   | 2025 | 58.5, 67 | 0.3, 1 |
-  | 2026 | 2.0, 2 | 12.4, 9 |
+  | 2026 | 2.0, 2 | 16.8, 11 |
 
   In 2018, twice as many local races finished in the window as were expected. In 2021, a sixth fewer.
-- **No calibration.** A factor fitted on earlier years only (the 06:38 rule) brings 2019-2026 to 251.6 expected against 237 seen; uncalibrated gives 233.0. It makes the later years worse, so it is not applied, and each forecast says so in its `note`. Unlike MEDSL's national classes (0.75-0.78, §7), North Carolina's own classes are about right.
+- **No calibration.** A factor fitted on earlier years only (the 06:38 rule) brings 2019-2026 to 261.7 expected against 245 seen; uncalibrated gives 238.6 (before the correction of 09:21: 251.6, 237 and 233.0). It makes the later years worse, so it is not applied, and each forecast says so in its `note`. Unlike MEDSL's national classes (0.75-0.78, §7), North Carolina's own classes are about right.
 - **What it gives, on the State Board's other dates** (the State Board's contests on MEDSL's dates take MEDSL's routes, above).
-  - p: 1,742 local races (584 single-seat, 1,158 at the boundary, marked not yet checked for M2) and 484 primaries.
-  - p = 0: 5,177.
+  - p: 1,750 local races (592 single-seat, 1,158 at the boundary, marked not yet checked for M2) and 613 primaries.
+  - p = 0: 5,263.
   - Out of reach, each with its reason:
-    - too few like races in earlier years: 1,746 local, 1,453 primaries;
-    - 2014, with no earlier year to fit on: 504;
+    - too few like races in earlier years: 1,754 local, 1,375 primaries;
+    - 2014, with no earlier year to fit on: 603;
     - no seats before 2014: 3,343;
-    - first rounds, second primaries and primaries that a second primary followed: 380;
+    - first rounds, second primaries and primaries that a second primary followed: 522;
     - after an earlier round: 171;
-    - write-ins near the winner's votes: 1,158 (the same number as the boundary races with p, by coincidence; with the 91 on MEDSL's dates, 1,249 State Board contests carry this reason) [measured];
+    - write-ins near the winner's votes: 1,162 (with the 91 on MEDSL's dates, 1,253 State Board contests carry this reason) [measured];
     - a write-in in the deciding pair: 41;
     - no votes: 1;
-    - questions, waiting on step (b): 572.
+    - questions, waiting on step (b): 583.
 
 **Size** [measured]. The repository packs to 28.48 MiB with this change, against 26.60 MiB at main's 001d3f7 (scratch clones, `git gc --aggressive`). The new files are 15.9 MB unpacked.
 
