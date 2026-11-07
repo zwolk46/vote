@@ -27,7 +27,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 | Thread | Id | Brief | Status |
 |---|---|---|---|
-| Verify vote decisiveness models | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi | `briefs/R1-research-decisiveness-models-at-source.md` (Sonnet 5.5, xhigh) | started 2026-11-07 00:09 |
+| Verify vote decisiveness models | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi | `briefs/R1-research-decisiveness-models-at-source.md` (Sonnet 5.5, xhigh) | done; #2 merged 00:41 |
 | Verify historical close races | cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS | `briefs/R2-research-close-races-at-source.md` (Sonnet 5.5, xhigh) | started 00:09 |
 | Verify voting frameworks and costs | cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz | `briefs/R3-research-frameworks-at-source.md` (Sonnet 5.5, xhigh) | started 00:09 |
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | started 00:09 |
@@ -35,6 +35,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 00:41: R1 done, #2 merged (`research/decisiveness-models-v2.md`, 20 corrections). For the Fable math check (its section 5): GKBafumi's 1.84/n example vs its inputs (3.316/n); GKT eq. 2/5 density vs tie probability; vote-vs-abstain vs A-vs-B factor of 2; GSE's density-at-0. To batch for the maker after R2-R4: allow web.archive.org (538 definitions; old forecasts); MEDSL county file behind a Dataverse guestbook asking name, email, institution, position (his to answer or not; the state-level file is free); paywalled 1975-81 papers need copies from him.
 
 - 2026-11-07 00:25: the maker chose "lead with break-even, show both" for B (RULINGS). Open with him: the evidential reading of "everything else fixed" (taken as excluded unless he says otherwise).
 
