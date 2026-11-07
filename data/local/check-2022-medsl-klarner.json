@@ -1,11 +1,11 @@
 {
  "tallies": {
   "medsl contest without a like-named Klarner contest": 699,
-  "matched": 4139,
+  "matched": 4130,
   "same winner": 4041,
   "D and R votes identical": 3426,
-  "winner differs": 98,
-  "a major party's candidate in one source only": 103,
+  "winner differs": 89,
+  "a major party's candidate in one source only": 94,
   "two-party share within 1 point, counts differ": 574,
   "two-party share differs by more than 1 point": 36
  },
@@ -92,11 +92,11 @@
    "winner differs": 2
   },
   "IL": {
-   "matched": 195,
+   "matched": 186,
    "same winner": 174,
    "D and R votes identical": 171,
-   "winner differs": 21,
-   "a major party's candidate in one source only": 23,
+   "winner differs": 12,
+   "a major party's candidate in one source only": 14,
    "two-party share within 1 point, counts differ": 1
   },
   "IN": {
@@ -774,23 +774,6 @@
   {
    "state": "IL",
    "chamber": "state-upper",
-   "district": "50",
-   "klarner": [
-    0,
-    73674
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
-   "chamber": "state-upper",
    "district": "49",
    "klarner": [
     48969,
@@ -812,23 +795,6 @@
    "klarner": [
     41880,
     30746
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
-   "chamber": "state-upper",
-   "district": "1",
-   "klarner": [
-    27928,
-    0
    ],
    "medsl": [
     0,
@@ -892,95 +858,10 @@
   },
   {
    "state": "IL",
-   "chamber": "state-upper",
-   "district": "19",
-   "klarner": [
-    41905,
-    40924
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
-   "chamber": "state-lower",
-   "district": "19",
-   "klarner": [
-    22458,
-    9695
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
    "chamber": "state-lower",
    "district": "28",
    "klarner": [
     22195,
-    0
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
-   "chamber": "state-lower",
-   "district": "33",
-   "klarner": [
-    23564,
-    3335
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
-   "chamber": "state-lower",
-   "district": "59",
-   "klarner": [
-    20619,
-    10398
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
-   "chamber": "state-upper",
-   "district": "5",
-   "klarner": [
-    45337,
     0
    ],
    "medsl": [
@@ -1012,44 +893,10 @@
   {
    "state": "IL",
    "chamber": "state-lower",
-   "district": "5",
-   "klarner": [
-    23847,
-    0
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
-   "chamber": "state-lower",
    "district": "10",
    "klarner": [
     24344,
     0
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "IL",
-   "chamber": "state-lower",
-   "district": "11",
-   "klarner": [
-    36894,
-    6265
    ],
    "medsl": [
     0,

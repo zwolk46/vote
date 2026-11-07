@@ -143,7 +143,7 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 
 **Checks** [measured]:
 - 2024: the presidential totals above. Indiana's, Louisiana's and New Jersey's contests are recorded with p not computed and the reason.
-- 2022 state legislatures against Klarner's (`data/local/check-2022-medsl-klarner.json`), 4,139 single-member districts named alike in both: D and R votes identical in 3,426; the two-party share within 1 point in 574 more (counts scaled alike: New Hampshire's senate is exactly double in Klarner, Idaho's double in MEDSL); a major party's candidate in one source only in 103; the share more than 1 point apart in 36. The winner differs in 98. States where more than 10% of districts differ in share or parties (AR, IL, IN, MI, WA, WY), and California, whose 2022 file has exactly 1,048,575 rows, a spreadsheet's limit, so it is likely cut short [inferred], are not used for last results or like races.
+- 2022 state legislatures against Klarner's (`data/local/check-2022-medsl-klarner.json`), 4,130 single-member districts named alike in both: D and R votes identical in 3,426; the two-party share within 1 point in 574 more (counts scaled alike: New Hampshire's senate is exactly double in Klarner, Idaho's double in MEDSL); a major party's candidate in one source only in 94; the share more than 1 point apart in 36. The winner differs in 89. (Read again with the intake of §7, 9 Illinois districts the first reading had split now join, and Illinois falls under the line.) States where more than 10% of districts differ in share or parties (AR, IN, MI, WA, WY), and California, whose 2022 file has exactly 1,048,575 rows, a spreadsheet's limit, so it is likely cut short [inferred], are not used for last results or like races.
 - The US House totals in the same files against D2's are kept in the checks file but not used: D2's state totals include blank-ballot lines in some states and its party words vary, so they do not compare line for line.
 
 **Method**, D3-v1.1 unchanged:
@@ -153,10 +153,45 @@ The orchestrator ruled at 05:06: commit plain JSON if the pack grows under about
 
 **The 2024 state legislative forecasts against what happened** (out of sample: fitted on 1967-2022) [measured], 3,032 partisan races: in the 50/80/95% intervals 60/86/96%; within 49-51%, 134.2 expected and 128 seen; within 100 votes, 42.7 expected and 42 seen. The forecasts leaned 2.3 points too Democratic on average, the year's swing. Class C carries 2,406 of them: precinct names change between the files, so the lines test finds unchanged lines for only 627 districts.
 
-**Where p is computed** [measured], 30,410 contests:
-- State legislatures 2024, 5,314: p computed for 3,616 (partisan 3,032, like-race 393, boundary 191); p = 0 for 1,470 unopposed; not computed for 228 (129 in the three states held back, 39 ranked choice, 21 split districts, 15 too few like races, 14 specials or recounts, 9 unopposed with strong write-ins, 1 write-in in the deciding pair).
-- Local races and state offices, 20,152: p = 0 for 10,293 unopposed; p computed for none. Not computed: 3,379 classes with fewer than 100 like races in earlier years (the 2022 files hold local races for few states, and four of those are held back); 2,036 where MEDSL leaves the number of seats empty (CA, NJ, IN, NY, UT, ND, NV, CT, NM); 2,055 in states held back; 1,499 Democrat-against-Republican races, which need the place's partisan lean; 499 specials; 287 unopposed with strong write-ins; 90 with redacted counts; 12 with a write-in in the deciding pair; 2 recounts.
-- Measures, 4,944 (323 statewide, 4,549 local; 774 of them retentions): p not computed.
+**Where p is computed**, and what would compute the rest: superseded by §7, which adds 2018 and 2020.
 
-**What would compute the rest** (put to the orchestrator): like races and measures of earlier years (MEDSL's 2016 sets are reachable but carry no seat counts; its 2018 and 2020 sets sit behind the guestbook, the maker's call); each measure's threshold from its law; a partisan lean for local races; and MEDSL's OAARCY set for the 2022 legislatures of the eight states above.
+## 7. MEDSL's 2018 and 2020 returns, and p for local races
 
+**Sources** [measured] (the orchestrator, 06:16: "check GitHub first... compare their files to the Dataverse sets"):
+- **2018**: MEDSL's GitHub repository `MEDSL/2018-elections-official` at commit 42055b1, one zip per state (51). Each CSV inside is byte-identical, by MD5, to the file of the same name in the Dataverse set Precinct-Level Returns 2018 by Individual State (doi:10.7910/DVN/NVQYMG, CC0 1.0, behind guestbook 458): `medsl_precinct.py 2018 --compare-dataverse` reads the Dataverse's public file list (names, sizes, MD5) and downloads nothing from it. So the guestbook is not needed for 2018. Wisconsin's file is in MEDSL's older layout (no county codes, party groups or seat counts) and holds state offices only, which Klarner records; it is not read.
+- **2020**: `MEDSL/2020-elections-official` at commit a450bb4, the commit before its files were deleted (2023-10-24) with a note that the official data are now on the Dataverse. Its local returns are read (one file, 33 states). No file of the Dataverse collection 2020_precincts has its name or MD5; the by-state set there (NT66Z3, version 8, 2026-03-02) may hold a later version of the same races, behind the guestbook. So 2020's local races are MEDSL's earlier release, and nothing in the file can check them: it holds no federal or legislative contest.
+- Neither repository has a licence file; the Dataverse sets of the same years are CC0 1.0.
+- **Intake fixes**: county codes are now always five digits (Alabama's 2022 file wrote 1001 for 01001). The US House vote is kept by county for the lean below.
+
+**2018 legislatures against Klarner's** (`data/local/check-2018-medsl-klarner.json`) [measured], 4,130 single-member districts named alike: D and R votes identical in 3,785; the share within 1 point in 305 more; a major party's candidate in one source only in 27; the share more than 1 point apart in 13; the winner differs in 53. No state passes the 10% line, so none is held back. Klarner stays the record for 2018's legislatures; MEDSL's 2018 legislative contests are its check and are not written again.
+
+**Local races between one Democrat and one Republican** (the orchestrator, 06:16: route (a)'s class-C terms "with the county's 2022 House share, marked 'transferred, not yet checked'... If its 50% interval holds under 40% or over 60%, do not compute"). The lean is the Democrats' two-party share of the US House vote in the race's counties at the previous general, minus ½, from MEDSL's own precincts. Missing, with the reason, where a county had a precinct whose ballot lacked a Democrat or a Republican, or the previous year's state is held back. Incumbency is not matched (0). The back-test (`data/local/backtest-local-partisan.json`), each year fitted on Klarner's races of earlier years only [measured]:
+
+| year (lean from) | races with a lean | in 50 / 80 / 95% intervals | within 49-51%: expected, seen | within 100 votes: expected, seen | mean forecast minus outcome |
+|---|---|---|---|---|---|
+| 2024 (2022 House) | 953 of 1,401 | 51 / 81 / 96% | 58.8, 53 | 50.7, 43 | +3.0 points D |
+| 2020 (2018 House) | 856 of 979 | 52 / 83 / 96% | 53.8, 49 | 46.1, 43 | +2.8 points D |
+
+Both years are within the line, so p is computed: 947 races in 2024 and 848 in 2020. The intervals hold, but the forecasts lean about 3 points too Democratic, and slightly fewer races finished near ½ than forecast (about 10% fewer within 49-51%, 15% fewer within 100 votes in 2024), so these p are, if anything, a little high. By office, the 50% interval holds 44% for councils and boards (454 races in 2024) and 66-68% for clerks and judges. 2018 and 2022 have no previous House vote by county in the sources taken in (2016 is not read; 2020's file is local only), so their 2,038 such races are not computed, with that reason.
+
+**Local like-race classes, now with earlier years** (`data/local/backtest-local-classes.json`) [measured]. Each year's classes come from the local races of earlier years only (2018 from none, 2020 from 2018, 2022 from 2018 and 2020, 2024 from 2018 to 2022). Out of sample, the classes forecast more close races than happened:
+
+| year | contests with p | expected within the window | seen | seen over expected |
+|---|---|---|---|---|
+| 2024 | 2,066 | 270.6 | 202 | 0.75 |
+| 2020 | 1,817 | 317.8 | 248 | 0.78 |
+
+So a like-race p for a local race is about a third too high on average [measured, these two years]. Councils and boards (961 in 2024: 141.3 expected, 107 seen) and school boards (511: 77.5, 50) carry most of it. The same direction as the legislatures' recount zone (§4). Not corrected: a correction is a change of method, which is the orchestrator's to approve.
+
+**Where p is computed** [measured], 56,908 contests:
+- State legislatures 2024, 5,314: unchanged from §6 (p for 3,616, 0 for 1,470, not computed for 228).
+- Local races and state offices, 43,301:
+  - 2024, 19,711: p computed for 3,013 (2,066 like-race, 947 Democrat against Republican); p = 0 for 10,158 unopposed. Not computed: 2,036 seats not given, 2,027 in states held back, 1,239 classes with fewer than 100 like races, 499 specials, 357 lean missing, 280 unopposed with strong write-ins, 84 redacted, 18 others.
+  - 2020, 8,965: p computed for 2,665 (1,817 like-race, 848 Democrat against Republican); p = 0 for 3,617. Not computed: 1,470 seats not given, 901 too few like races, 123 lean missing, 88 specials, 84 strong write-ins, 17 others.
+  - 2022, 441: p = 0 for 135. Not computed: 192 Democrat against Republican with no lean, 74 too few like races, 24 held back, 16 others.
+  - 2018, 14,184: p = 0 for 7,180. Not computed: 4,364 too few like races (no earlier year), 1,846 Democrat against Republican with no lean, 290 specials, 218 seats not given, 172 strong write-ins, 114 others.
+- Measures, 8,293 (2018: 1,581; 2020: 1,768; 2022: 95; 2024: 4,849): p not computed yet (next).
+
+**Size**: the data grow the repository's pack from 21.3 to 23.3 MiB (scratch clone, `git gc --aggressive`, `git count-objects -vH`); no file is over 20 MB.
+
+**Still open**: measures (thresholds from state law, the like-past-measures route, MEDSL's 2016 measures); OAARCY for the 2022 legislatures of the eight states UYQIEP holds only as local files; 2020's state offices and legislatures (Klarner covers the legislatures; the rest sit behind the guestbook).
