@@ -7,6 +7,7 @@
 //       `chart` token (450 ms on the spring) and the words change at once. For a person handed a phone: the pace is
 //       theirs, nothing moves until they ask, and a step cannot be half-scrolled.
 // Under reduced motion each step is drawn still and complete, and changes at once (MOTION-SPEC s.5).
+import { Component } from 'preact';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { BEATS, SRC } from './beats.js';
 import { SCENES, ALT } from './scenes.js';
@@ -98,23 +99,27 @@ function Stage({ api, onTap }) {
   );
 }
 
-// Every step's key and words, laid out unseen at the page's width, for their tallest (B's room on a phone).
-function Measure({ r }) {
-  return (
-    <div class="xp-measure" ref={r} aria-hidden="true" inert>
-      {BEATS.map(b => (
-        <div key={b.id}>
-          <Key items={b.key} />
-          <div class="xp-mw">
-            <h2 class="xp-h">{b.head}</h2>
-            {b.fig ? <p class="xp-fig">{b.fig}</p> : null}
-            {b.sub ? <p class="xp-sub">{b.sub}</p> : null}
-            <span class="xp-srcb">Source</span>
+// Every step's key and words, laid out unseen at the page's width, for their tallest (B's room on a phone). They never
+// change, so a step's tap does not lay them out again (the first step's frame on a slow phone, the motion check).
+class Measure extends Component {
+  shouldComponentUpdate() { return false; }
+  render({ r }) {
+    return (
+      <div class="xp-measure" ref={r} aria-hidden="true" inert>
+        {BEATS.map(b => (
+          <div key={b.id}>
+            <Key items={b.key} />
+            <div class="xp-mw">
+              <h2 class="xp-h">{b.head}</h2>
+              {b.fig ? <p class="xp-fig">{b.fig}</p> : null}
+              {b.sub ? <p class="xp-sub">{b.sub}</p> : null}
+              <span class="xp-srcb">Source</span>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+    );
+  }
 }
 
 function Words({ b }) {

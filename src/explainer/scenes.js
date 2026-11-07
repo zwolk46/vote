@@ -111,10 +111,31 @@ function stippleTurned(ctx, S, x, y, w, h) {
 }
 
 // ---- 1. two worlds: the town's 2,000 ballots twice; yours counted in one, not in the other -----------------------
-// k 0: a run where your side has 1,040 of 2,000 with you (52%): the same winner either way. k 1: a closer run of the
-// same race, 1,000 to 1,000 with you: counted, a tie, settled by lot (a coin toss); not counted, 999 to 1,000, the
-// other side wins.
-// Each world names its winner under its count.
+// The 2,000 ballots are drawn once into a grid of each colour, at the screen's pixels, and each frame shows the part of
+// each grid its side holds: 4,000 dots a frame are one copy each, so the first step's move keeps inside a frame on a slow
+// phone (the motion check, 4x slowed: drawn dot by dot, the first frame after the tap ran past 50 ms).
+// Each grid is drawn at its panel's own fraction of a pixel and copied at the whole pixel, so every dot falls on the
+// screen's pixels exactly as when it was drawn dot by dot.
+const GRIDS = [];
+function grids(S, p, x, y, cols, rows, pitch, r) {
+  const dx = x * S.dpr, dy = y * S.dpr, fx = dx - Math.floor(dx), fy = dy - Math.floor(dy);
+  const key = [S.dpr, fx, fy, cols, rows, pitch, r, S.col.fg, S.col.dot].join();
+  const c = GRIDS[p] || (GRIDS[p] = {});
+  if (c.key !== key) {
+    const w = Math.ceil(cols * pitch * S.dpr + 1), h = Math.ceil(rows * pitch * S.dpr + 1);
+    const one = colour => {
+      const el = document.createElement('canvas'); el.width = w; el.height = h;
+      const g = el.getContext('2d'); g.setTransform(S.dpr, 0, 0, S.dpr, fx, fy);
+      const pts = [];
+      for (let k = 0; k < cols * rows; k++) pts.push(((k % cols) + 0.5) * pitch, (Math.floor(k / cols) + 0.5) * pitch);
+      dots(g, pts, r, colour);
+      return el;
+    };
+    Object.assign(c, { key, a: one(S.col.fg), b: one(S.col.dot) });
+  }
+  // where to copy them: the whole pixel, in the page's units
+  return [c.a, c.b, Math.floor(dx) / S.dpr, Math.floor(dy) / S.dpr];
+}
 function worlds(ctx, S, st) {
   const { W, H, col, fs } = S;
   const gap = Math.max(14, W * 0.05), pw = (W - gap) / 2, cols = 40, rows = 50;
@@ -135,13 +156,14 @@ function worlds(ctx, S, st) {
   for (let p = 0; p < 2; p++) {
     const x0 = p * (pw + gap) + (pw - gw) / 2, cx = p * (pw + gap) + pw / 2;
     titles[p].forEach((t, i) => text(ctx, S, t, cx, y0 + fs + i * lineH(S), { weight: 600, color: col.fg }));
-    const a = [], b = [];
-    for (let k = 0; k < 2000; k++) {
-      if (k === me) continue;
-      (k < ours ? a : b).push(x0 + ((k % cols) + 0.5) * pitch, y0 + top + (Math.floor(k / cols) + 0.5) * pitch);
-    }
-    ctx.globalAlpha = 0.9; dots(ctx, a, r, col.fg);
-    ctx.globalAlpha = 0.75; dots(ctx, b, r, col.dot);
+    // the ballots: your side's, the first `ours`, from the dark grid, and the rest from the grey, each cut at the
+    // boundary between two dots (yours is drawn over its place below)
+    const gx = x0, gy = y0 + top, full = Math.floor(ours / cols), part = ours % cols;
+    const [ga, gb, cx0, cy0] = grids(S, p, gx, gy, cols, rows, pitch, r);
+    ctx.save(); ctx.beginPath(); ctx.rect(gx - 1, gy - 1, gw + 2, full * pitch + 1); ctx.rect(gx - 1, gy + full * pitch, part * pitch + 1, pitch);
+    ctx.clip(); ctx.globalAlpha = 0.9; ctx.drawImage(ga, cx0, cy0, ga.width / S.dpr, ga.height / S.dpr); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.rect(gx + part * pitch, gy + full * pitch, (cols - part) * pitch + 1, pitch); ctx.rect(gx - 1, gy + (full + 1) * pitch, gw + 2, (rows - full - 1) * pitch + 1);
+    ctx.clip(); ctx.globalAlpha = 0.75; ctx.drawImage(gb, cx0, cy0, gb.width / S.dpr, gb.height / S.dpr); ctx.restore();
     ctx.globalAlpha = 1;
     const mx = x0 + ((me % cols) + 0.5) * pitch, my = y0 + top + (Math.floor(me / cols) + 0.5) * pitch, rr = Math.max(7, r * 3.6);
     if (p === 0) dot(ctx, mx, my, Math.max(2.5, r * 1.5), col.accent);
