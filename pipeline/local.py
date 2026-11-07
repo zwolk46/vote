@@ -161,6 +161,16 @@ def two_leading(cands):
     return named
 
 
+def top_named(cands):
+    """Every named candidate, write-ins included (not the source's 'scattering'), by votes: the pairs that decide."""
+    named = [a for a in cands if not a["scattering"]]
+    named.sort(key=lambda a: -(a["votes"] or 0))
+    return named
+
+
+WRITE_IN_STRONG = 0.10   # a write-in with at least this share of the last winner's votes makes an unopposed race a contest
+
+
 def size_bin(n):
     for i in range(len(BINS) - 1):
         if n < BINS[i + 1]:
@@ -656,7 +666,9 @@ def _cands(c):
         code = None
         if party == "other" and a["lines"]:
             party = a["lines"][0]
-            if str(party).isdigit():
+            if party == "nm":     # Klarner's own abbreviation for a non-major party with no name
+                party = _MINOR
+            elif str(party).isdigit():
                 code = str(party)
                 party = KLARNER_CODES.get(code, ("unknown",))[0]
         x = {"name": a["name"], "party": party, "votes": None if a["vote_missing"] else a["votes"],
@@ -775,6 +787,22 @@ def build(out_dir, with_p=False, sample=False):
             notes.append("Klarner advises against analysing this contest (dontuse = 1)")
         if c["uncert"]:
             notes.append("Klarner marks uncertainty about: " + ", ".join(c["uncert"]))
+        k_seats = c["eseats"] or 1
+        tn = top_named(c["cands"])
+        everyone = sorted(c["cands"], key=lambda a: -(a["votes"] or 0))
+        scattering_decides = lambda kk: any(a["scattering"] for a in everyone[kk - 1:kk + 1])  # noqa: E731
+        SCATTER_WHY = ("the source's 'scattering' (write-in votes counted together) finished in the deciding pair, "
+                       "and whether one write-in candidate did is not reported")
+        if route == "zero":
+            ballot = [a for a in tn if a["party"] != "w"]
+            last = ballot[k_seats - 1]["votes"] if len(ballot) >= k_seats else 0
+            wi = [a for a in tn if a["party"] == "w" and (a["votes"] or 0) >= max(1, WRITE_IN_STRONG * (last or 0))]
+            if wi and (a_w := wi[0]["votes"] or 0) > 0:
+                share = (f"{100 * a_w / last:.0f}% of the last winner's votes" if last else "votes, with no "
+                         "candidate on the ballot")
+                route, why = ("not computed", f"one name on the ballot for each seat, but a write-in candidate "
+                                              f"received {share}: {METHOD} has no forecast route for write-in "
+                                              f"contests")
         if route == "zero":
             p.update({"value": 0.0, "event": 0.0, "reason": why})
             counts["p = 0 (unopposed)"] += 1
@@ -792,7 +820,7 @@ def build(out_dir, with_p=False, sample=False):
             lead = two_leading(c["cands"])
             d = next(x for x in lead if x["party"] == "d")
             rr = next(x for x in lead if x["party"] == "r")
-            off_pair = {lead[0]["party"], lead[1]["party"]} != {"d", "r"}
+            off_pair = {tn[0]["party"], tn[1]["party"]} != {"d", "r"}
             n = d["votes"] + rr["votes"] - 1
             rec["two_party"] = {"votes": [d["votes"], rr["votes"]], "n_other_voters": n,
                                 "share_first": round(d["votes"] / (n + 1), 6)}
@@ -806,7 +834,10 @@ def build(out_dir, with_p=False, sample=False):
             rec["forecasts"].append({"by": "the model's own", "method": METHOD, "route": "partisan",
                                      "share": {"of": "Democrat, two-party", "mean": round(mean, 4), "sd": round(sd, 4),
                                                "tails": "normal"}, "source": "model"})
-            if off_pair:   # the orchestrator, 05:17: p is between the top two (model section 7)
+            if scattering_decides(1):
+                p["not_computed"] = SCATTER_WHY
+                counts["not computed: scattering in the deciding pair"] += 1
+            elif off_pair:   # the orchestrator, 05:17: p is between the top two (model section 7)
                 p["not_computed"] = ("the two leading candidates were not the Democrat and the Republican, so the "
                                      "model's own forecast of the Democrat against the Republican is not of the pair "
                                      "that decided this contest (model section 7: p is between the top two)")
@@ -832,7 +863,15 @@ def build(out_dir, with_p=False, sample=False):
             fld = "boundary" if route == "boundary" else "two_party"
             rec[fld] = {"votes": [pair[0]["votes"], pair[1]["votes"]], "n_other_voters": n,
                         "share_first": round(pair[0]["votes"] / (n + 1), 6)}
-            if f is None:
+            if scattering_decides(kk):
+                p["not_computed"] = SCATTER_WHY
+                counts["not computed: scattering in the deciding pair"] += 1
+            elif any(a["party"] == "w" for a in tn[kk - 1:kk + 1]):
+                p["not_computed"] = ("a write-in candidate is in the pair that decided this contest; the like-race "
+                                     f"classes of {METHOD} are of candidates on the ballot (model section 7: p is "
+                                     "between the deciding pair)")
+                counts["not computed: a write-in in the deciding pair"] += 1
+            elif f is None:
                 p["not_computed"] = f"fewer than {MIN_CLASS} like races in earlier years ({N}) for the class '{key}'"
                 counts["not computed: too few like races"] += 1
             else:
