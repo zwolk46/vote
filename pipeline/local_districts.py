@@ -221,6 +221,124 @@ def test(kc, m, pr=None, b_test=True):
             "medsl_write_ins": sum(x["votes"] or 0 for x in rest)}
 
 
+COVER_GAP = 0.02      # the orchestrator, 22:26 (a): the chamber's rows missing beyond 2% of a county's precincts
+COVER_VERSION = 3
+COVER_YEARS = {2016: (2016, 2018), 2018: (2016, 2018), 2022: (2022, 2024), 2024: (2022, 2024)}   # MEDSL's files on the same lines
+
+
+def _dkey(district):
+    import local_medsl as M
+    d = (district or "").strip().upper()
+    return M.district_no(d) or d
+
+
+def _coverage_file(path, year, out):
+    """One raw MEDSL file's rows, county by county: the precincts with votes in each general contest, and for each
+    chamber the precincts with its rows and the counties of each of its districts (into `out`)."""
+    import local_medsl as M
+    import local_volume as V
+    import medsl_precinct as P
+    per = collections.defaultdict(lambda: collections.defaultdict(set))   # (st, county) -> contest -> precincts
+    rows_in = collections.defaultdict(lambda: collections.defaultdict(set))   # the same, rows with no votes too
+    for r in P._rows(path):
+        if (r.get("stage") or "").upper() != "GEN" or (r.get("special") or "").upper() == "TRUE":
+            continue
+        cand = (r.get("candidate") or "").strip()
+        if P.is_meta(cand):
+            continue
+        prec = r.get("precinct") or ""
+        if V.AGG_NAME.search(prec) or P.COUNTY_TOTAL.search(prec.strip().upper()):
+            continue
+        st = r.get("state_po") or r.get("state_postal") or ""
+        county = P.fips5(r.get("county_fips") or "")
+        pk = (r.get("jurisdiction_fips") or r.get("jurisdiction") or "", prec)
+        m = M.relabel({"office": (r.get("office") or "").strip().upper(), "district": r.get("district") or ""})
+        try:
+            v = int(float(r.get("votes") or 0))
+        except ValueError:
+            v = 0
+        if m["office"] in M.LEG:
+            sen, dk = M.LEG[m["office"]], _dkey(m["district"])
+            if dk:   # a row with no district (MEDSL's 2016 Maricopa County rows) is no district's row
+                out["districts"].setdefault(f"{st}|{sen}|{dk}", set()).add(county)
+                per[(st, county)][("LEG", sen)].add(pk)
+        else:
+            k = (m["office"], r.get("district") or "", (r.get("dataverse") or "").upper())
+            rows_in[(st, county)][k].add(pk)
+            if v > 0:
+                per[(st, county)][k].add(pk)
+    if year in out["years_counted"]:
+        # a contest with rows in at least 90% of its state's counties is statewide; a precinct of a county's top
+        # contest with no row of any other contest (no district's row, no local one) is one whose district-level
+        # rows the file lacks (MEDSL's 2024 Monroe County, New York: M2's seventh pass, the orchestrator, 22:19)
+        n_c = collections.Counter(st for st, _ in rows_in)
+        spread = collections.Counter((st, k) for (st, _), cs in rows_in.items() for k in cs)
+        for (st, county), cs in per.items():
+            tops = [k for k in cs if k[0] != "LEG"]
+            top = max(tops, key=lambda k: len(cs[k])) if tops else None
+            ps = cs[top] if top else set()
+            rec = {"top": " ".join(x for x in top if x) if top else None, "precincts": len(ps)}
+            for sen in (0, 1):
+                have = cs.get(("LEG", sen), set())
+                rec[("upper" if sen else "lower") + "_missing"] = len(ps - have)
+            local = set().union(*[x for k, x in rows_in[(st, county)].items()
+                                  if spread[(st, k)] < 0.9 * n_c[st]], cs.get(("LEG", 0), set()),
+                                cs.get(("LEG", 1), set()))
+            rec["only_statewide"] = len(ps - local)
+            out["counties"][f"{st}|{county}"] = rec
+
+
+def coverage(year):
+    """MEDSL's own coverage of each chamber, county by county (the orchestrator, 2026-11-07 22:26 (a)): the precincts
+    of the day's top contest in the county (the general contest with votes in the most precincts) that have no row of
+    the chamber; and each district's counties, from every MEDSL file on the same lines (COVER_YEARS). Cached in
+    $VOTE_CACHE/volume/normalized/coverage-<year>.json."""
+    import local_volume as V
+    files = []
+    for y in COVER_YEARS[year]:
+        if y == 2016:
+            files.append((y, os.path.join(V.RAWDIR, V.STATE_2016)))
+        else:
+            files += [(y, p_) for _, p_ in V.raw_files(y) if p_]
+    shas = []
+    for _, p_ in files:
+        with open(p_ + ".meta.json") as f:
+            shas.append(json.load(f).get("sha256"))
+    out_p = os.path.join(V.VNORM, f"coverage-{year}.json")
+    if os.path.exists(out_p):
+        with open(out_p) as f:
+            d = json.load(f)
+        if d.get("sha256s") == shas and d.get("version") == COVER_VERSION:
+            return d
+    out = {"districts": {}, "counties": {}, "years_counted": {year}}
+    for y, p_ in files:
+        _coverage_file(p_, y, out)
+    d = {"version": COVER_VERSION, "sha256s": shas, "files": [os.path.basename(p_) for _, p_ in files],
+         "districts": {k: sorted(v) for k, v in out["districts"].items()}, "counties": out["counties"]}
+    with open(out_p, "w") as f:
+        json.dump(d, f)
+    return d
+
+
+def district_cover(kc, m, year, cov, full_upper):
+    """22:26 (a): the counties of MEDSL's district (from every MEDSL file on the same lines, and the contest's own)
+    where MEDSL lacks the chamber's rows beyond 2% of the county's precincts: {"counties", "gaps": [[county,
+    missing, precincts]], "by"}. A staggered upper chamber is read by the lower chamber's rows."""
+    st, sen = kc["state"], kc["sen"]
+    counties = set(cov["districts"].get(f"{st}|{sen}|{_dkey(m['district'])}", [])) | set(m.get("counties") or [])
+    ch = "upper" if sen and st in full_upper else "lower"
+    gaps = []
+    for county in sorted(counties):
+        rec = cov["counties"].get(f"{st}|{county}")
+        if rec is None:   # the county has no row of this year's file at all
+            gaps.append([county, None, None])
+            continue
+        if rec["precincts"] and rec[ch + "_missing"] / rec["precincts"] > COVER_GAP:
+            gaps.append([county, rec[ch + "_missing"], rec["precincts"]])
+    return {"counties": sorted(counties), "gaps": gaps, "by": f"the {ch} chamber's rows"
+            + (" (a staggered upper chamber)" if sen and ch == "lower" else "")}
+
+
 def klarner_id(kc):
     return f"{kc['year']}-{kc['state']}-{'upper' if kc['sen'] else 'lower'}-{kc['dname'] or ''}-{kc['dno'] or ''}" \
            f"-{kc['geopost'] or ''}-{kc['mmdpost'] or ''}"
@@ -290,7 +408,16 @@ def check():
                      "orchestrator's orders of 2026-11-07 21:21 and 21:26; data/local/REPORT.md section 32)"),
            "rules": {"ratio_off_over": RATIO_OFF, "held_at_or_over": HOLD_GAP, "doubled_within": DOUBLE_TOL},
            "years": {}}
+    seats_up = collections.Counter((st, y) for st, y, _, _ in {(c["state"], c["year"], c["dname"], c["dno"])
+                                                                for c in cs if c["etype"] == "g" and c["sen"] == 1})
     for year in YEARS:
+        cov = coverage(year)
+        # an upper chamber with all its seats up this year (its districts this year at least 90% of its most in
+        # 2012-2022); one that is staggered leaves whole districts without a row, so the lower chamber's rows stand
+        # in for the file's coverage of each county
+        full_upper = {st for (st, y) in seats_up if y == year and seats_up[(st, y)] >= 0.9 * max(
+            seats_up.get((st, y_), 0) for y_ in range(2012, 2023, 2))}
+        status = {}
         pool = collections.defaultdict(list)
         for m in medsl_contests(year):
             pool[(m["state"], m["sen"])].append(m)
@@ -303,6 +430,7 @@ def check():
             hits = match(kc, pool)
             if len(hits) != 1:
                 tallies["unmatched" if not hits else "matched to several"] += 1
+                status[klarner_id(kc)] = ["unmatched" if not hits else "matched to several"]
                 continue
             found.append((kc, hits[0]))
         # a MEDSL contest that several of Klarner's districts match (a county's lines filed as one district, as in
@@ -320,64 +448,189 @@ def check():
                 if any(p_ is None for p_ in prs) or len(lines) != len(set(lines)):
                     tallies["a MEDSL contest that several districts match, not paired apart"] += 1
                     shared[kc["state"]] += 1
+                    status[klarner_id(kc)] = ["shared, not paired apart", m["district"]]
                     continue
                 pr, b_test = prs[groups[id(m)].index(kc)], False
                 tallies["shared: (a) only"] += 1
             t = test(kc, m, pr, b_test)
             if not t["matched"]:
                 tallies["candidates not paired"] += 1
+                status[klarner_id(kc)] = ["candidates not paired", m["district"]]
                 continue
             tallies["tested"] += 1
+            status[klarner_id(kc)] = ["tested", m["district"], t["klarner"], t["medsl"],
+                                      (kc.get("votes_source") or {}).get("source")]
             if not (t["flag_a"] or t["flag_b"]):
                 continue
             f = {"id": klarner_id(kc), "state": kc["state"], "chamber": "state-upper" if kc["sen"] else "state-lower",
                  "dname": kc["dname"] or None, "dno": kc["dno"] or None, "post": kc["geopost"] or kc["mmdpost"] or None,
                  "eseats": kc["eseats"], "medsl_district": m["district"], "medsl_file": m["file"],
                  "flags": [x for x, y in (("a", t["flag_a"]), ("b", t["flag_b"])) if y], **t}
-            f.update(outcome(kc, t, year, canv))
+            f.update(outcome(kc, t, year, canv, district_cover(kc, m, year, cov, full_upper)))
             flags.append(f)
             tallies[f"flag {'+'.join(f['flags'])}: {f['outcome']}"] += 1
         out["years"][str(year)] = {"tallies": dict(sorted(tallies.items())), "shared_by_state": dict(sorted(shared.items())),
                                    "flags": sorted(flags, key=lambda f: (f["state"], f["chamber"], f["id"]))}
         print(year, dict(sorted(tallies.items())))
+        import local_volume as V
+        with open(os.path.join(V.VNORM, f"districts-status-{year}.json"), "w") as f:
+            json.dump(status, f)
+    # 22:19: the counties whose district-level and local rows MEDSL's file lacks, for the contests MEDSL's counts are
+    # shown for (local_medsl.coverage_gate); 2020's file holds local offices only, with no statewide contest to read by
+    out["incomplete_counties"] = {}
+    for year in (2018, 2022, 2024):
+        cov = coverage(year)
+        out["incomplete_counties"][str(year)] = {
+            k: {"only_statewide": v["only_statewide"], "precincts": v["precincts"], "top": v["top"]}
+            for k, v in sorted(cov["counties"].items())
+            if v["precincts"] and v["only_statewide"] / v["precincts"] > COVER_GAP}
+    out["incomplete_counties"]["about"] = ("counties where more than 2% of the precincts of the county's top contest "
+                                           "have no row of any contest but the statewide ones (a contest with rows in "
+                                           "90% of the state's counties); 2020 untested: MEDSL's file holds local "
+                                           "offices only")
     with open(CHECK, "w") as f:
         json.dump(out, f, indent=1, ensure_ascii=False)
         f.write("\n")
     return out
 
 
-def outcome(kc, t, year, canv):
+def outcome(kc, t, year, canv, cover=None):
     """The outcome of a flagged district (OUTCOMES in the module's docstring), and what the build does."""
     src = (kc.get("votes_source") or {}).get("source")
     if src:
         return {"outcome": "settled earlier", "by": src}
+    if kc.get("held_reason"):   # held by an earlier rule (New Hampshire 2022's names, nh_2022)
+        return {"outcome": "settled earlier", "by": "held"}
     if kc["state"] == "ID" and year == 2022 and canv:
         s = settle_id(kc, t, canv)
         if s:
             return {"outcome": "settled by the state", "by": "Idaho's 2022 canvass (cached)", "state_count": s}
     r = t["ratio"]
     ballot_others = [x for x in t["others"] if not x["write_in"]]
-    if "a" in [x for x, y in (("a", t["flag_a"]),) if y] and r is not None and \
-            all(p[1] and abs(p[3] / p[1] - 0.5) <= 0.5 * DOUBLE_TOL for p in t["pairs"] if p[1]) and not ballot_others:
+    voted = [p for p in t["pairs"] if p[1]]
+    if t["flag_a"] and r is not None and len(voted) >= 2 and not ballot_others and \
+            all(abs(p[3] / p[1] - 0.5) <= 0.5 * DOUBLE_TOL for p in voted):   # one candidate at half is no pattern
         return {"outcome": "MEDSL taken", "mark": "Klarner's figures are doubled; MEDSL's counts"}
-    gaps = []
-    if t["flag_a"]:
+    gaps, uncovered = [], None
+    if t["flag_a"] and r < 1 and cover is not None and cover["gaps"]:
+        # 22:26 (b): MEDSL lacks the chamber's rows in part of the district, which explains a Klarner count above
+        # MEDSL's; (c) a Klarner count below MEDSL's partial count is not explained so, and goes on to the gap rule
+        uncovered = cover
+    elif t["flag_a"]:
         gaps.append(abs(r - 1))
     if t["flag_b"] and ballot_others:
         tot = t["medsl"] + sum(x["votes"] for x in t["others"])
         gaps.append(sum(x["votes"] for x in ballot_others) / tot if tot else 1.0)
+    if uncovered and not gaps:
+        return {"outcome": "kept: MEDSL does not cover the district", "coverage": uncovered}
     if not gaps:   # a (b) flag whose others are all write-ins
         return {"outcome": "write-in rule"}
     g = max(gaps)
-    return {"outcome": "held" if g >= HOLD_GAP else "noted", "gap": round(g, 5),
-            "write_ins_added": bool(t["flag_b"] and any(x["write_in"] for x in t["others"]))}
+    out = {"outcome": "held" if g >= HOLD_GAP else "noted", "gap": round(g, 5),
+           "write_ins_added": bool(t["flag_b"] and any(x["write_in"] for x in t["others"]))}
+    if uncovered:
+        out["coverage"] = uncovered
+    if cover is not None:
+        out["covered"] = not cover["gaps"]
+    return out
+
+
+COMPARE = os.path.join(REPO, "data", "local", "check-districts-m2.json")
+
+
+def compare(m2_path):
+    """22:19 item 2: M2's list of Klarner districts 5% or more off MEDSL (checks/m2/c38-districts.json, M2's seventh
+    pass) beside these checks' flags, each difference with its reason. Reads check-districts.json and the per-contest
+    statuses check() leaves in the cache."""
+    import local as L
+    import local_volume as V
+    with open(m2_path) as f:
+        m2 = json.load(f)["districts"]
+    with open(CHECK) as f:
+        chk = json.load(f)
+    kl = {klarner_id(c): c for c in L.c38(L.nh_2022(L.certified_votes(L.load_klarner(raw=True))))
+          if c["etype"] == "g"}
+    flags = {f["id"]: f for v in chk["years"].values() for f in v["flags"]}
+    status = {}
+    for y in YEARS:
+        with open(os.path.join(V.VNORM, f"districts-status-{y}.json")) as f:
+            status.update(json.load(f))
+
+    def ids(r):
+        code = " ".join(r["klarner_code"].split()).lower()
+        return sorted(k for k, c in kl.items() if c["year"] == r["year"] and c["state"] == r["state"]
+                      and ("state-upper" if c["sen"] else "state-lower") == r["chamber"]
+                      and " ".join(f"{c['dname'] or ''} {c['dno'] or ''}".split()).lower() == code)
+    rows, tally, seen = [], collections.Counter(), set()
+    for r in m2:
+        mine = ids(r)
+        seen.update(mine)
+        got = [flags[k] for k in mine if k in flags]
+        if got:
+            why = "flagged here too: " + "; ".join(f"{f['id']} ({'+'.join(f['flags'])}, {f['outcome']})" for f in got)
+            kind = "both"
+        elif not mine:
+            why, kind = "no Klarner general contest of that code here", "M2 only: no contest"
+        else:
+            st_ = [status.get(k) for k in mine]
+            if any(x and x[0] == "tested" and x[4] for x in st_):
+                kind = "M2 only: settled before this check"
+                why = "a fix the build makes already, before this check reads the contest (" + ", ".join(
+                    sorted({x[4] for x in st_ if x and x[0] == "tested" and x[4]})) + "); M2 reads Klarner's raw file"
+            elif any(x and x[0] == "tested" for x in st_):
+                x = next(x for x in st_ if x and x[0] == "tested")
+                kind = "M2 only: within 3% here"
+                why = (f"tested here on the named candidates matched by surname: Klarner {x[2]:,}, MEDSL {x[3]:,} "
+                       f"(district {x[1]!r}); M2 reads MEDSL's rows of the district's code ({r['by']}): "
+                       f"{r['medsl']:,} against Klarner's {r['klarner']:,}")
+            elif any(x is None for x in st_):
+                kind = "M2 only: not tested here"
+                why = ("not among the contests tested: its state has no legislative contest in MEDSL's file this "
+                       "year by this check's reading, or the contest was held earlier")
+                if any(kl[k].get("held_reason") for k in mine):
+                    kind, why = "M2 only: held before this check", "held by an earlier rule (nh_2022)"
+            else:
+                kind = "M2 only: " + st_[0][0]
+                why = {"unmatched": "no MEDSL contest of its chamber names all its candidates by surname, so it is "
+                                    "untested here (22:26 (e)); M2 matches by the district's code",
+                       "matched to several": "several MEDSL contests name all its candidates; untested here",
+                       "shared, not paired apart": "MEDSL files several districts' lines as one contest whose "
+                                                   "candidates do not pair apart; untested here",
+                       "candidates not paired": "its candidates do not pair one to one; untested here"}.get(
+                    st_[0][0], st_[0][0])
+        tally[kind] += 1
+        rows.append({"year": r["year"], "state": r["state"], "chamber": r["chamber"], "district": r["klarner_code"],
+                     "m2": {"klarner": r["klarner"], "medsl": r["medsl"], "off": r["off"], "by": r["by"]},
+                     "ids": mine, "here": kind, "reason": why})
+    only_here = collections.Counter()
+    for k, f in flags.items():
+        if k in seen:
+            continue
+        a = f["ratio"] is not None and abs(f["ratio"] - 1) >= 0.05
+        only_here[f"{k[:4]}: " + ("(a) off 5% or more on the named candidates; M2's by D+R or every vote, or "
+                                  "matched by code" if a and "a" in f["flags"] else
+                                  "(a) off 3% to 5%, under M2's line" if "a" in f["flags"] else
+                                  "(b) only: M2 does not test an uncontested record")] += 1
+    out = {"about": ("M2's list of Klarner districts 5% or more off MEDSL (checks/m2/c38-districts.json) beside "
+                     "data/local/check-districts.json (the orchestrator, 2026-11-07 22:19, item 2)"),
+           "tally": dict(sorted(tally.items())), "flags_not_on_m2s_list": dict(sorted(only_here.items())),
+           "m2": rows}
+    with open(COMPARE, "w") as f:
+        json.dump(out, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+    print(json.dumps(out["tally"], indent=1), json.dumps(out["flags_not_on_m2s_list"], indent=1))
+    return out
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["check"])
-    ap.parse_args()
-    check()
+    ap.add_argument("cmd", choices=["check", "compare"])
+    ap.add_argument("--m2", default=os.path.join(REPO, "checks", "m2", "c38-districts.json"))
+    a = ap.parse_args()
+    if a.cmd == "check":
+        check()
+    else:
+        compare(a.m2)
 
 
 if __name__ == "__main__":

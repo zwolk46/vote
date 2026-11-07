@@ -99,9 +99,52 @@ def load(year):
                 out.append(c)
     import local_nj as NJ
     import local_volume as V
-    return V.volume_gate(listed_rows(mark_whole_state(statewide_pieces(known_contests(
+    return coverage_gate(V.volume_gate(listed_rows(mark_whole_state(statewide_pieces(known_contests(
         NJ.county_gate(certified_la(certified_in(certified_nc(join_statewide(fix_questions(out, year), year), year),
-                                                 year), year), year), year), year)), year), year)
+                                                 year), year), year), year), year)), year), year), year)
+
+
+COVERAGE_HELD = ("MEDSL's {year} file lacks every district-level and local row in {gaps}, where the county's statewide "
+                 "contests are whole [measured: pipeline/local_districts.py coverage, data/local/check-districts.json "
+                 "incomplete_counties]; this contest's area includes the county, so its rows may be missing in part of "
+                 "its district and its count is incomplete, and no certified count is read{asked} (the orchestrator, "
+                 "2026-11-07 22:19, from M2's seventh pass: \"Treat any contest whose rows are missing in part of its "
+                 "district as incomplete: held, no p, unless a certified count is read\"); p not computed")
+COVERAGE_ASKED = {("NY", "36055"): "; Monroe County's Board of Elections answered the one request allowed, for its 2024 "
+                                   "certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found'"}
+COVERAGE_COUNT = collections.Counter()
+
+
+def coverage_gate(contests, year):
+    """The counties where MEDSL's file holds a statewide contest's precincts with no other row (local_districts.py
+    coverage: more than 2% of the county's precincts; data/local/check-districts.json, incomplete_counties): each
+    MEDSL contest below the whole state whose area includes one is held (volume_gate), unless a state's own count
+    stands for it."""
+    path = os.path.join(L.REPO, "data", "local", "check-districts.json")
+    if not os.path.exists(path):
+        return contests
+    with open(path) as f:
+        bad = json.load(f).get("incomplete_counties", {}).get(str(year), {})
+    by_state = collections.defaultdict(dict)
+    for k, v in bad.items():
+        st, county = k.split("|")
+        by_state[st][county] = v
+    COVERAGE_COUNT.clear()
+    for m in contests:
+        b = by_state.get(m.get("state"))
+        if not b or m.get("whole_state") or m.get("source", "medsl") != "medsl" or m.get("state_votes") \
+                or (m.get("volume_gate") or {}).get("held"):
+            continue
+        inside = sorted(set(b) & set(m.get("counties") or []))
+        if not inside:
+            continue
+        gaps = "; ".join(f"county {c} ({b[c]['only_statewide']:,} of its {b[c]['precincts']:,} precincts)" for c in inside)
+        asked = "".join(COVERAGE_ASKED.get((m["state"], c), "") for c in inside)
+        m["volume_gate"] = {"held": COVERAGE_HELD.format(year=year, gaps=gaps, asked=asked), "note": None,
+                            "record": {"verdict": "hold_counties", "counties_held": inside,
+                                       "check": "data/local/check-districts.json", "by": "the orchestrator, 22:19"}}
+        COVERAGE_COUNT[m["state"]] += 1
+    return contests
 
 
 def mark_whole_state(contests):
@@ -119,7 +162,17 @@ def mark_whole_state(contests):
     for m in contests:
         a = allc[(m.get("state"), m.get("date"))]
         m["whole_state"] = len(a) > 1 and a <= set(m.get("counties") or [])
+        if m.get("statewide_seat") and not m["whole_state"]:
+            # a statewide seat whose lines miss counties (statewide_pieces): the class goes by the seat, elected in
+            # every county, not by the counties the file covers (the orchestrator, 2026-11-07 21:55, item 4: "OR
+            # Position 1 is typed 'judge', but the class goes by the seat ... Make it 'statewide judge', and check the
+            # pipeline for other cases typed by the file's coverage")
+            m["whole_state"] = True
+            WHOLE_BY_SEAT[(m["state"], m.get("date"), m["office"], m.get("district") or "")] += 1
     return contests
+
+
+WHOLE_BY_SEAT = collections.Counter()
 
 
 NM_SOS = os.path.join(F.CACHE, "nm_sos", "normalized")
@@ -688,6 +741,7 @@ def statewide_pieces(contests, year):
             held_.add(key + ("second count",))
         elif k == "officer" or len(mine) >= len(a) / 2:
             if m["state"] == "ND" and _nd_state(m, year, a):
+                m["statewide_seat"] = True
                 PIECES[year]["ND: the state's official total for a contest MEDSL leaves incomplete"] += 1
                 held_.add(key + ("state total",))
                 continue
@@ -698,6 +752,7 @@ def statewide_pieces(contests, year):
                      f"file, and " + (orx if orx else "the state's own total was not read") + ", so p is not "
                      f"computed and no winner is drawn from a partial count", "incomplete", year)
             m["votes_incomplete"] = {"counties_missing": miss, "counties_of_state": len(a)}
+            m["statewide_seat"] = True   # the seat is elected in every county; the file's lines miss some (21:55 (4))
             held_.add(key + ("incomplete",))
     if held_ != HOLDS_EXPECTED.get(year, set()):
         raise SystemExit(f"statewide_pieces: {year}: holds {sorted(held_ - HOLDS_EXPECTED.get(year, set()))} new, "
@@ -724,6 +779,10 @@ def _listed_key(r):
     return (r["file"], r["state"], r["office"], r["district"], r["county"], r["precinct"], r["kind"])
 
 
+SUBTOTAL_KIND = "equal to the rest, one candidate with votes"
+SUBTOTALS = collections.Counter()
+
+
 def listed_rows(contests, year):
     """The orchestrator's order of 2026-11-07 20:28 (pipeline/local_volume.py listed_rows_summary): each row part 3
     lists and does not drop, against the contest it falls in, with and without it; where the difference is more than
@@ -738,6 +797,13 @@ def listed_rows(contests, year):
         raise SystemExit("listed_rows: data/local/check-volume.json has no listed_rows: run local_volume.py check")
     line = lr["line"]
     LISTED[year] = []
+    SUBTOTALS[year] = 0
+    # 21:55 (3): a one-candidate row equal to the sum of that candidate's other rows in the county is a subtotal where
+    # the county shows the same pattern in its other contests in the file (Bergen's, 2024)
+    pattern = collections.defaultdict(set)
+    for row in lr["years"].get(str(year), {}).get("rows", []):
+        if row["kind"] == SUBTOTAL_KIND:
+            pattern[(row["contest"][0], row["county"], row["file"])].add(tuple(row["contest"][1:3]))
     for row in lr["years"].get(str(year), {}).get("rows", []):
         st, office, district, stage, special, dv = row["contest"]
         hits = [m for m in contests if m.get("state") == st and (m.get("office_as_filed") or m["office"]).upper() == office
@@ -768,6 +834,29 @@ def listed_rows(contests, year):
         m, take = found[0]
         tot = sum(x["votes"] for x in m["candidates"])
         share = take / tot if tot else 1.0
+        others = len(pattern.get((st, row["county"], row["file"]), set()) - {(office, district)})
+        if row["kind"] == SUBTOTAL_KIND and take and others and not m["question"]:
+            for c, _, _, v in row["votes"]:
+                for x in m["candidates"]:
+                    if v and " ".join(x["name"].upper().split()) == " ".join(c.upper().split()):
+                        x["votes"] -= v
+            rec.update({"falls_in": {"office": m["office"], "district": m.get("district") or None,
+                                     "counties": len(m.get("counties") or []), "question": m["question"]},
+                        "total_with": tot, "total_without": tot - take, "difference_share": round(share, 6),
+                        "noted": True, "dropped": f"a subtotal: the county shows the same pattern in {others} other "
+                                                  f"contest{'s' if others > 1 else ''} of the file"})
+            LISTED[year].append(rec)
+            m.setdefault("listed_rows_recs", []).append(rec)
+            m.setdefault("listed_rows_notes", []).append(
+                f"MEDSL's precinct line {row['precinct']!r} in county {row['county']}, one candidate's, equals the sum "
+                f"of that candidate's other lines in the county ({take:,} votes, {100 * share:.1f}% of the contest's "
+                f"{tot:,}), and the county shows the same pattern in {others} other contest{'s' if others > 1 else ''} "
+                f"of the file [measured]: dropped as a subtotal (the orchestrator, 2026-11-07 21:55: \"A one-candidate "
+                f"row that exactly equals the sum of that candidate's other rows in the county, and is not 0, is "
+                f"dropped as a subtotal in two cases: the county shows the same pattern in its other contests in the "
+                f"file, as Bergen does, or dropping it reproduces an independent count\")")
+            SUBTOTALS[year] += 1
+            continue
         rec.update({"falls_in": {"office": m["office"], "district": m.get("district") or None,
                                  "counties": len(m.get("counties") or []), "question": m["question"]},
                     "total_with": tot, "total_without": tot - take, "difference_share": round(share, 6),
@@ -858,7 +947,9 @@ def over_ballot(contests, year, whole):
         return sum(x["votes"] for x in m["candidates"])
     one = [m for m in contests if not m["question"] and m.get("magnitude") == 1 and m.get("dataverse") == "STATE"
            and whole(m) and m.get("stage") == "GEN" and "RECOUNT" not in (m.get("stage") or "")]
-    read = [m for m in one if is_local_level(m) and not m.get("state_votes") and m.get("source", "medsl") == "medsl"]
+    # every count shown, whatever its source (the orchestrator, 21:55 (2)); a state's own count that fails is re-read
+    # (STATE_OVER_REREAD) and, where the re-read stands, kept with a note and listed
+    read = [m for m in one if is_local_level(m)]
     asked = [m for m in contests if m["question"] and m.get("dataverse") == "STATE" and whole(m)
              and m.get("stage") == "GEN" and not m.get("held_reason")]
     federal = {sd: [t for t in tl if t["dataverse"] in ("PRESIDENT", "SENATE")] for sd, tl in yb["tops"].items()}
@@ -901,6 +992,22 @@ def over_ballot(contests, year, whole):
                 f"the over-ballot test: the contest's {v:,} votes in MEDSL's file are {r:.3f} times the {b:,} of "
                 f"{name}, the day's highest-vote statewide contest; between 1.0 and 1.1 times, which can be real, so "
                 f"kept and listed (the orchestrator, 17:44) [measured]"]
+        state_count = bool(m.get("state_votes")) or m.get("source", "medsl") != "medsl"
+        if verdict == "held" and state_count:
+            src = (m.get("state_votes") or {}).get("source") or m.get("source")
+            rr = STATE_OVER_REREAD.get(year, {}).get((m["state"], m["office"]))
+            if rr is None:
+                raise SystemExit(f"over_ballot: {year}: {m['state']} {m['office']}: the state's own count ({src}) is "
+                                 f"{r:.2f} times {name}: re-read it (STATE_OVER_REREAD)")
+            rows_out[-1]["verdict"] = "a state's count, re-read and kept"
+            rows_out[-1]["source"] = src
+            m["notes"] = (m.get("notes") or []) + [
+                f"the over-ballot test: this contest's {v:,} votes, the state's own count ({src}), are {r:.2f} times "
+                f"the {b:,} of {name}; re-read: {rr}; so the certified count stays (the orchestrator, 2026-11-07 "
+                f"21:55: \"Test every count shown, whatever its source. A state count that fails is re-read first. If "
+                f"the re-read stands, the certified count stays with a note and goes on my list\") [measured]"]
+            found.add((m["state"], m["office"]))
+            continue
         if verdict != "held":
             continue
         if kind == "ballots cast":
@@ -936,6 +1043,11 @@ def over_ballot(contests, year, whole):
         f.write("\n")
     if found != OVER_EXPECTED.get(year, set()):
         raise SystemExit(f"over_ballot: {year}: {sorted(found)} differ from OVER_EXPECTED")
+
+
+# A state's own count that the over-ballot test fails, re-read (the orchestrator, 21:55 (2)): {year: {(state, office):
+# what the re-read found}}. A failing state count not here stops the build.
+STATE_OVER_REREAD = {}
 
 
 STATEWIDE_LISTED = os.path.join(L.REPO, "data", "measure", "statewide-filed-local.json")

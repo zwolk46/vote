@@ -385,6 +385,20 @@ D_STATE = ("Idaho's canvass of the 2022 general (the Secretary of State's 'Canva
            "already cached\"): {diff}")
 
 
+D_UNCOVERED = ("MEDSL's precinct file ({file}) gives this district's {n} named candidate{s} {m:,} votes against Klarner's "
+               "{k:,}, {pct:+.1f}%, but the file lacks {by} in part of the district: {gaps} [measured: pipeline/"
+               "local_districts.py coverage]. A gap in the file tested against is not Klarner's fault, so Klarner's "
+               "count is kept (the orchestrator, 2026-11-07 22:26: \"In such a district, a Klarner count above MEDSL's "
+               "is explained by the gap. Klarner's count stays, with a note naming the counties and the share "
+               "missing\")")
+
+
+def _gap_words(cov):
+    return "; ".join(f"county {c}: no row of the file at all" if miss is None else
+                     f"county {c}: {miss:,} of the {tot:,} precincts of the county's top contest ({100 * miss / tot:.0f}%)"
+                     for c, miss, tot in cov["gaps"])
+
+
 def _add_note(c, note):
     c["certified_note"] = (c["certified_note"] + "; " + note) if c.get("certified_note") else note
 
@@ -431,6 +445,11 @@ def district_checks(contests):
                 else:
                     _add_note(c, D_NOTED.format(what=what, rule=D_RULE))
                 DISTRICTS_COUNT[f"{year}: {o}"] += 1
+            elif o == "kept: MEDSL does not cover the district":
+                cv = fl["coverage"]
+                _add_note(c, D_UNCOVERED.format(file=fname, n=n, s=s_, m=fl["medsl"], k=fl["klarner"],
+                                                pct=100 * (fl["ratio"] - 1), by=cv["by"], gaps=_gap_words(cv)))
+                DISTRICTS_COUNT[f"{year}: kept, MEDSL does not cover the district"] += 1
             elif o == "write-in rule":
                 wi = [x for x in fl["others"] if x["write_in"]]
                 for x in wi:

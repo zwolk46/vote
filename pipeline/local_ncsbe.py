@@ -872,10 +872,15 @@ def build(out_dir, dates):
                 rec["p"] = route_p(rec, c, d, rows, dens, commit, counts, note)
             rec = L._compact(rec)
             if gated.get(d, (0,))[0] > LM.QUALITY_LINE:
+                if gated[d][0] >= 0.05:   # the 19:04 rule holds a gap of 5% or more: no date has one yet
+                    raise SystemExit(f"local_ncsbe: {d}'s file misses the certified counts by {gated[d][0]:.1%}: "
+                                     f"5% or more, which the ruling of 19:04 holds; this build has no rule for it")
                 rec["notes"] = (rec.get("notes") or []) + [
                     f"this date's file falls short of the certified federal counts by up to {100 * gated[d][0]:.1f}% "
                     f"({gated[d][1]}): it was likely posted before the final count [inferred], so its counts are "
-                    f"the State Board's posted ones, not the certified"]
+                    f"the State Board's posted ones, not the certified; under 5%, so they are kept with this note "
+                    f"(the orchestrator, 2026-11-07 22:19, on M2's seventh pass: \"NC 2000 and 2010 Board at -0.7% ... "
+                    f"under 5%, so keep them with a note, per 19:04\")"]
             k, n = rec["id"], 2
             while rec["id"] in seen_ids:
                 rec["id"] = f"{k}~{n}"
