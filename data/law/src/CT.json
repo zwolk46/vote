@@ -1,124 +1,903 @@
 {
  "state": "CT",
  "name": "Connecticut",
- "status": "partly-read",
- "code": {"name": "Connecticut General Statutes", "edition": "not read: the text read is the Secretary of the State's Recanvass Procedure Manual, 2012 (Rev. 08/12), which prints sections 9-311a, 9-311b, 9-370a, 9-445 and 9-446 as they stood in 2012; the statutes may have changed since", "site": "https://www.cga.ct.gov/current/pub/chap_148.htm", "reached": false},
+ "status": "read",
+ "code": {
+  "name": "General Statutes of Connecticut; Constitution of the State of Connecticut",
+  "edition": "General Statutes revised to January 1, 2025, as the General Assembly's site prints them under /current/pub/ (every chapter page and the titles page carry the note: \"Readers should refer to the 2026 Supplement, revised to January 1, 2026, for updated versions of statutes amended, repealed or added during the 2025 legislative sessions\"). Of the sections cited here, the 2026 Supplement's Title 9 index lists only Sec. 9-311 and 9-311a (chapter 148) and Sec. 9-218 (chapter 146); it lists no section of chapters 149, 152 or 154, and in chapter 153 only Sec. 9-404c. The Supplement's chapters 148 and 146 were read for those three sections (P.A. 25-134 and P.A. 25-168). The Constitution is the codified text on the site, incorporating amendments through Article XXXV (adopted November 27, 2024).",
+  "site": "https://www.cga.ct.gov/current/pub/titles.htm",
+  "reached": true
+ },
  "sections": {
-  "ct-recanvass-manual-2012": {"citation": "Connecticut Secretary of the State, Recanvass Procedure Manual (Rev. 08/12), with the text of Conn. Gen. Stat. 9-311a, 9-311b, 9-370a, 9-445, 9-446 as it printed them in 2012", "url": "https://portal.ct.gov/-/media/SOTS/ElectionServices/LEAD_Communications/2020/81420---Recanvass-Procedure-Manual.pdf", "read_at": "state agency guide", "note": "A plain PDF on the Secretary of the State's public site (portal.ct.gov): a documented download. It is a 2012 guide reproducing the statutes of that year, a lower grade than the current statute and possibly out of date."}
+  "title09": {
+   "citation": "General Statutes of Connecticut, Title 9 (Elections): the chapter index (chapters 141 to 158), read to find the chapters on canvass, contested elections, referenda, nominations and the presidential preference primary",
+   "url": "https://www.cga.ct.gov/current/pub/title_09.htm",
+   "read_at": "state"
+  },
+  "sup-title09": {
+   "citation": "2026 Supplement to the General Statutes, Title 9 index: the sections of Title 9 amended, repealed or added in the 2025 sessions",
+   "url": "https://www.cga.ct.gov/2026/sup/title_09.htm",
+   "read_at": "state"
+  },
+  "chap148": {
+   "citation": "Conn. Gen. Stat. Chapter 148 (Election Canvass and Returns), Sec. 9-307 to 9-322b, revised to January 1, 2025; read for 9-311 (recanvass for a discrepancy), 9-311a (recanvass on close vote), 9-311b (recanvass on tie vote), 9-315, 9-318 and 9-319 (who counts and declares the votes) and 9-320f (audit and discrepancy recanvass)",
+   "url": "https://www.cga.ct.gov/current/pub/chap_148.htm",
+   "read_at": "state"
+  },
+  "sup-chap148": {
+   "citation": "Conn. Gen. Stat. 2026 Supplement, Chapter 148: Sec. 9-311 and 9-311a as amended by P.A. 25-134 (technical changes), the current text of the recanvass sections",
+   "url": "https://www.cga.ct.gov/2026/sup/chap_148.htm",
+   "read_at": "state"
+  },
+  "chap149": {
+   "citation": "Conn. Gen. Stat. Chapter 149 (Elections and Primaries: Contested), Sec. 9-323 to 9-332, revised to January 1, 2025; read for the court complaints that may order a recount (9-323, 9-324, 9-327, 9-328, 9-329a) and 9-332 (adjourned election in tie vote)",
+   "url": "https://www.cga.ct.gov/current/pub/chap_149.htm",
+   "read_at": "state"
+  },
+  "chap146": {
+   "citation": "Conn. Gen. Stat. Chapter 146 (Elections), revised to January 1, 2025; read for 9-173 (plurality required for election), 9-175a (National Popular Vote agreement), 9-188 (first selectman, tie vote) and 9-218 (probate judge); the rest of the chapter was searched for tie and recanvass words",
+   "url": "https://www.cga.ct.gov/current/pub/chap_146.htm",
+   "read_at": "state"
+  },
+  "sup-chap146": {
+   "citation": "Conn. Gen. Stat. 2026 Supplement, Chapter 146: Sec. 9-218 (probate judge) as amended by P.A. 25-168, the current text",
+   "url": "https://www.cga.ct.gov/2026/sup/chap_146.htm",
+   "read_at": "state"
+  },
+  "chap152": {
+   "citation": "Conn. Gen. Stat. Chapter 152 (Referenda), Sec. 9-369 to 9-371c, revised to January 1, 2025; read for 9-370a (recanvass on close question vote) and 9-371b (complaints to the Superior Court about a referendum)",
+   "url": "https://www.cga.ct.gov/current/pub/chap_152.htm",
+   "read_at": "state"
+  },
+  "chap153": {
+   "citation": "Conn. Gen. Stat. Chapter 153 (Nominations and Political Parties), revised to January 1, 2025; read for 9-372 (definitions of state office and district office) and 9-444 to 9-448 (determination of the nominee, recanvass on close vote, tie vote, unlocking of tabulators, recount of paper ballots)",
+   "url": "https://www.cga.ct.gov/current/pub/chap_153.htm",
+   "read_at": "state"
+  },
+  "chap154": {
+   "citation": "Conn. Gen. Stat. Chapter 154 (Presidential Preference Primary), Sec. 9-463 to 9-486, revised to January 1, 2025; searched for tie and recanvass words and read for 9-476 (conduct of primary)",
+   "url": "https://www.cga.ct.gov/current/pub/chap_154.htm",
+   "read_at": "state"
+  },
+  "constitution": {
+   "citation": "Constitution of the State of Connecticut, codified text incorporating all extant amendments (through Article XXXV): Article Third, Sec. 7 (canvass of legislators' votes; ties; each house the judge of its members), Article Fourth, Sec. 4 (canvass and tie for the six state executive offices), Article Twelfth and Article Thirteenth, Sec. 2 (amendment and convention votes)",
+   "url": "https://www.cga.ct.gov/asp/Content/constitutions/Constitution_State_CT.pdf",
+   "read_at": "state"
+  }
  },
  "ties": [
-  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"],
-   "applies_to": "a tie in an election (general or municipal) for any office",
-   "resolution": "unread",
-   "steps": "if the electors fail to elect a candidate for any office by reason of an equality of votes, there is a recanvass of the returns for that office (unless all but one of the tied candidates dies, withdraws or is disqualified); what is done if the recanvass leaves the tie was not found in the manual",
-   "who": null,
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "applies_to": "a tie for the greatest number of votes in the general election for Governor, Lieutenant Governor, Secretary of the State, Treasurer, Comptroller or Attorney General",
+   "resolution": "legislature",
+   "steps": "the returns for the office are recanvassed (Sec. 9-311b) unless all but one of the tied candidates has died, withdrawn or become disqualified; if two or more are still found to have an equal and the greatest number of votes and the election is not contested, the General Assembly on the second day of its session holds a joint convention of both houses and takes a ballot, without debate, to choose the officer from the tied persons, balloting on that or later days until one is chosen by a majority vote of those present and voting. If the election is contested as the statute provides and the contest goes to final judgment, the person the court finds to have the greatest number of votes is elected (Constitution, Article Fourth, Sec. 4)",
+   "who": "the General Assembly, in joint convention of both houses",
    "sources": [
-    {"section": "ct-recanvass-manual-2012", "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office unless, prior to the time of such recanvass, all but one of the candidates so receiving an equal number of votes dies, withdraws his name or for any reason becomes disqualified to hold such office."}
+    {
+     "section": "constitution",
+     "quote": "If two or more persons shall be found upon the count of the treasurer, secretary and comptroller to have received an equal and the greatest number of votes for any of said offices, and the election is not contested, the general assembly on the second day of its session shall hold a joint convention of both houses, at which, without debate, a ballot shall be taken to choose such officer from those persons who received such a vote; and the balloting shall continue on that or subsequent days until one of such persons is chosen by a majority vote of those present and voting."
+    },
+    {
+     "section": "constitution",
+     "quote": "provided, if the election of any of them shall be contested as provided by statute, and if such a contest shall proceed to final judgment, the person found by the court to have received the greatest number of votes shall be elected."
+    },
+    {
+     "section": "chap146",
+     "quote": "If no person has a plurality of the votes for any of said offices, the General Assembly shall choose such officer."
+    },
+    {
+     "section": "chap148",
+     "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office unless, prior to the time of such recanvass, all but one of the candidates so receiving an equal number of votes dies, withdraws his name or for any reason becomes disqualified to hold such office."
+    }
+   ],
+   "mark": "measured",
+   "note": "The Governor and Lieutenant Governor are voted for as a unit (Article Fourth, Sec. 3), so a tie for them is read as a tie between tickets [inferred]. The Constitution, not a statute, sets the General Assembly's ballot; Sec. 9-173 repeats it for a failure to elect. The recanvass comes first because Sec. 9-311b speaks of \"any office\"."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "an equal vote for presidential electors in the general election",
+   "resolution": "recount-then-lot",
+   "steps": "the returns for the office are recanvassed (Sec. 9-311b); the Treasurer, the Secretary of the State and the Comptroller then count the votes publicly on the last Wednesday of the month in which they were cast and, in case of an equal vote for the electors, determine by lot, from the persons having the equal number of votes, the persons appointed",
+   "who": "the Treasurer, the Secretary of the State and the Comptroller",
+   "sources": [
+    {
+     "section": "chap148",
+     "quote": "they shall declare the proper number of persons having the greatest number of votes to be presidential electors and, in case of an equal vote for said electors, shall determine by lot from the persons having such equal number of votes the persons appointed"
+    },
+    {
+     "section": "chap148",
+     "quote": "shall be publicly counted by the Treasurer, Secretary of the State and Comptroller on the last Wednesday of the month in which they were cast"
+    },
+    {
+     "section": "chap148",
+     "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office"
+    }
+   ],
+   "mark": "measured",
+   "note": "The lot is stated for presidential electors in Sec. 9-315. The recanvass step before it is read from Sec. 9-311b (\"any office\"); Sec. 9-311a deems the office of presidential elector a state office for its own purpose [inferred for electors]. Sec. 9-332 (an adjourned election) applies only where \"no provision is otherwise made by law\", and this is such a provision."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "a tie for the national popular vote winner, under the National Popular Vote agreement that Sec. 9-175a enacts, in a year in which the agreement is in effect on July 20",
+   "resolution": "other",
+   "steps": "in the event of a tie for the national popular vote winner, the presidential elector certifying official of each member state certifies the appointment of the elector slate nominated in association with the presidential slate that received the largest number of popular votes within that official's own state",
+   "who": "the presidential elector certifying official of each member state",
+   "sources": [
+    {
+     "section": "chap146",
+     "quote": "In event of a tie for the national popular vote winner, the presidential elector certifying official of each member state shall certify the appointment of the elector slate nominated in association with the presidential slate receiving the largest number of popular votes within that official's own state."
+    },
+    {
+     "section": "chap146",
+     "quote": "This article shall govern the appointment of presidential electors in each member state in any year in which this agreement is, on July twentieth, in effect in states cumulatively possessing a majority of the electoral votes."
+    }
+   ],
+   "mark": "measured",
+   "note": "This is a tie in the national total, not in Connecticut, and it governs only when states with a majority of the electoral votes have enacted the agreement (Article IV: \"This agreement shall take effect when states cumulatively possessing a majority of the electoral votes have enacted this agreement\"). The page does not say whether that condition is met, and it was not checked elsewhere. Where it is not in effect, the previous rule governs a tie within Connecticut."
+  },
+  {
+   "kinds": [
+    "federal"
+   ],
+   "applies_to": "a tie for the greatest number of votes for U.S. Senator in a general election",
+   "resolution": "other",
+   "steps": "the returns are recanvassed (Sec. 9-311b). Sec. 9-173 declares elected the person with the greatest number of votes and says that if no person has a plurality of the votes for the office, the Governor may make a temporary appointment of a senator in Congress to serve for the ensuing two years unless the General Assembly directs a special election for a senator in Congress, to be held during that period. Sec. 9-332 (the election stands adjourned three weeks) applies to any office only where no provision is otherwise made by law",
+   "who": "the Governor (temporary appointment) or the General Assembly (directs a special election)",
+   "sources": [
+    {
+     "section": "chap146",
+     "quote": "In the election for senator in Congress, the person receiving the greatest number of votes for such office shall be declared elected; but, if no person has a plurality of the votes for said office, the Governor may make a temporary appointment of a senator in Congress to serve for the ensuing two years unless the General Assembly directs a special election for a senator in Congress, to be held during said period, to fill the vacancy occasioned by such failure to elect."
+    },
+    {
+     "section": "chap149",
+     "quote": "If the electors fail to choose a candidate for any office by reason of an equality of votes at any election, and no provision is otherwise made by law for the election of a candidate to such office, such election shall stand adjourned for three weeks at the same hour at which the first election was held."
+    }
    ],
    "mark": "inferred",
-   "note": "Only the recanvass step is read (Sec. 9-311b as printed in 2012). The rule for a tie that survives the recanvass in a general election is NOT READ: the earlier reader's lead (a special election three weeks later) is not in this text, and the Connecticut Constitution and chapter 149 (contested elections) were not read. The site cga.ct.gov refused us (see unread)."},
-  {"kinds": ["primary"],
-   "applies_to": "a primary for a state or district office or for the municipal office of state senator or state representative",
-   "resolution": "recount-then-new-election",
-   "steps": "tied candidates (or the state chairman of the party) may apply for a recanvass; if none is applied for, or if the recanvass results in a tie, the primary stands adjourned for three weeks and a second primary is held among the tied candidates; if the second primary also ties, the Secretary of the State dissolves the tie by lot in the presence of not fewer than three disinterested persons",
-   "who": "the voters at the adjourned primary; the Secretary of the State by lot if it ties again",
-   "sources": [
-    {"section": "ct-recanvass-manual-2012", "quote": "If no such application is made, or if any such recanvass results in a tie vote, such primary shall stand adjourned for three weeks at the same hour at which the first primary was held."},
-    {"section": "ct-recanvass-manual-2012", "quote": "If such second primary results in a tie vote with two or more candidates receiving the same highest total number of votes, the Secretary of the State, in the presence of not fewer than three disinterested persons, and after notification"},
-    {"section": "ct-recanvass-manual-2012", "quote": "to the candidates obtaining the same number of votes and the chairperson of the state central committee of the party holding the primary of the time when and the place where such tie vote is to be dissolved, shall dissolve such tie vote by lot."}
+   "note": "Two statutes could reach a tied Senate race and the pages do not say which governs. Whether an exact tie is \"no plurality\" under Sec. 9-173 is a reading [inferred]; if it is, Sec. 9-173 is the provision \"otherwise made by law\" that displaces Sec. 9-332 for this office [inferred]; if it is not, the rule for U.S. Representative below applies. No court decision was read. Sec. 9-173 also says \"may\" for the Governor's appointment, so no appointment or special election is mandatory on the words."
+  },
+  {
+   "kinds": [
+    "federal"
    ],
-   "mark": "stated",
-   "note": "Sec. 9-446(a) as the 2012 manual prints it, not the current statute. The recanvass before the adjourned primary is on application (the manual's summary says the Secretary of the State gives notice of a recanvass under 9-445)."},
-  {"kinds": ["primary"],
-   "applies_to": "a primary for municipal office (other than state senator or representative), town committee members or justices of the peace",
+   "applies_to": "a tie for the greatest number of votes for U.S. Representative in a general election",
    "resolution": "recount-then-new-election",
-   "steps": "as for a state primary: a recanvass on application, then an adjourned primary three weeks later among the tied candidates, then, if it also ties, the registrar dissolves the tie by lot in the presence of not fewer than three disinterested persons",
-   "who": "the voters at the adjourned primary; the registrar by lot if it ties again",
+   "steps": "the returns are recanvassed (Sec. 9-311b); if the tie remains, the election stands adjourned for three weeks at the same hour, with ballots that contain only the tied candidates' names; it is not held if all but one of the tied candidates die, withdraw or become disqualified, and the remaining candidate is then deemed lawfully elected",
+   "who": "the voters of the district at the adjourned election (the municipal clerks provide ballots and notice)",
    "sources": [
-    {"section": "ct-recanvass-manual-2012", "quote": "If such second primary results in a tie vote, the registrar, in the presence of not fewer than three disinterested persons, and after notification to the candidates obtaining the same number of votes and the chairperson of the town committee of the party holding the primary of the time when and the place where such tie vote is to be dissolved, shall dissolve such tie vote by lot."}
+    {
+     "section": "chap149",
+     "quote": "If the electors fail to choose a candidate for any office by reason of an equality of votes at any election, and no provision is otherwise made by law for the election of a candidate to such office, such election shall stand adjourned for three weeks at the same hour at which the first election was held."
+    },
+    {
+     "section": "chap149",
+     "quote": "No such election shall be held if prior to such election all but one of the candidates for such office die, withdraw their names or for any reason become disqualified to hold such office, and, in such event, the remaining candidate shall be deemed to be lawfully elected to such office."
+    },
+    {
+     "section": "chap146",
+     "quote": "In all elections of representatives in Congress, state senators, state representatives and judges of probate, the person having the greatest number of votes shall be declared elected."
+    },
+    {
+     "section": "chap148",
+     "quote": "In accordance with the count so made, they shall, on said day, declare what persons are elected senators in the Congress of the United States or representatives in Congress"
+    },
+    {
+     "section": "chap148",
+     "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office"
+    }
    ],
-   "mark": "stated",
-   "note": "Sec. 9-446(b) as the 2012 manual prints it, not the current statute."},
-  {"kinds": ["measure"],
-   "applies_to": "a question or referendum",
-   "resolution": "unread",
-   "steps": null,
+   "mark": "inferred",
+   "note": "Neither Sec. 9-173 nor Sec. 9-315 says what happens when two candidates for U.S. Representative are equal. Sec. 9-332 speaks of \"any office\" and \"any election\" without naming federal offices, so its reach to this office is a reading of its words [inferred]."
+  },
+  {
+   "kinds": [
+    "state-legislative"
+   ],
+   "applies_to": "a tie for the greatest number of votes for state senator or state representative in a general election",
+   "resolution": "recount-then-new-election",
+   "steps": "the returns are recanvassed (Sec. 9-311b); the Treasurer, Secretary of the State and Comptroller declare who is elected \"except in case of a tie vote\"; the election then stands adjourned for three weeks at the same hour, with ballots that contain only the tied candidates' names (for a multiple-opening office, only the names whose votes are equal); it is not held if all but one of the tied candidates die, withdraw or become disqualified, and the remaining candidate is then deemed lawfully elected",
+   "who": "the voters of the district at the adjourned election (the municipal clerks provide ballots and notice)",
+   "sources": [
+    {
+     "section": "chap148",
+     "quote": "they shall declare, except in case of a tie vote, who is elected senator in each senatorial district, representative in each assembly district and judge of probate in each probate district."
+    },
+    {
+     "section": "chap149",
+     "quote": "If the electors fail to choose a candidate for any office by reason of an equality of votes at any election, and no provision is otherwise made by law for the election of a candidate to such office, such election shall stand adjourned for three weeks at the same hour at which the first election was held."
+    },
+    {
+     "section": "chap149",
+     "quote": "In the case of a multiple opening office only the names of those candidates whose votes are equal shall be placed on the ballot of the adjourned election."
+    },
+    {
+     "section": "constitution",
+     "quote": "The general assembly shall provide by law the manner in which an equal and the greatest number of votes for two or more persons so voted for for senator or representative shall be resolved."
+    },
+    {
+     "section": "chap148",
+     "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office"
+    }
+   ],
+   "mark": "measured",
+   "note": "The Constitution (Article Third, Sec. 7) tells the General Assembly to provide by law how an equal and greatest vote for senator or representative is resolved; Sec. 9-319 excepts a tie from the declaration and Sec. 9-332 is the adjourned election. The same Section makes each house \"the final judge of the election returns and qualifications of its own members\"; the pages do not say how that bears on a tie after an adjourned election, and a tie at the adjourned election is not provided for in the text read."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "a tie at a regular or special municipal election for a municipal office, including first selectman",
+   "resolution": "recount-then-new-election",
+   "steps": "the returns are recanvassed (Sec. 9-311b); if the tie remains, the election stands adjourned for three weeks at the same hour, held by the municipal clerk with ballots that contain only the tied candidates' names; for first selectman, the election for first selectman and the election for selectmen both stand adjourned; it is not held if all but one of the tied candidates die, withdraw or become disqualified, and the remaining candidate is then deemed lawfully elected",
+   "who": "the voters of the municipality at the adjourned election; the municipal clerk",
+   "sources": [
+    {
+     "section": "chap149",
+     "quote": "If the electors fail to choose a candidate for any office by reason of an equality of votes at any election, and no provision is otherwise made by law for the election of a candidate to such office, such election shall stand adjourned for three weeks at the same hour at which the first election was held."
+    },
+    {
+     "section": "chap149",
+     "quote": "Ballots for such election shall be provided forthwith by the clerk of the municipality wherein such election stands adjourned"
+    },
+    {
+     "section": "chap146",
+     "quote": "If the electors fail to elect a first selectman at any election by reason of an equality of votes, such election for the office of first selectman and the election for selectmen shall stand adjourned and such adjourned election shall be held as provided in section"
+    },
+    {
+     "section": "chap148",
+     "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office"
+    }
+   ],
+   "mark": "measured",
+   "note": "State general law only. Sec. 9-173 says that unless otherwise provided by law a plurality elects in municipal elections, and Sec. 9-188 says \"unless otherwise provided by special act, charter or ordinance\" for parts of the selectmen's election; charters, special acts and ordinances were not read, and Sec. 9-332 yields wherever \"provision is otherwise made by law\". Judge of probate is the next rule."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "a tie for judge of probate (an office voted for in a probate district at the state election), where two or more have an equal and the highest number of votes",
+   "resolution": "recount-then-new-election",
+   "steps": "the returns are recanvassed (Sec. 9-311b); where there is no election of probate judge because two or more have an equal and the highest number of votes, the Governor may issue writs of election to the town clerks of the district ordering an election on a day named; the election is conducted and declared as at a state election, and the Secretary of the State, Treasurer and Comptroller count and declare the votes within thirty days",
+   "who": "the Governor (issues the writs, \"may\"); the voters of the probate district",
+   "sources": [
+    {
+     "section": "sup-chap146",
+     "quote": "When there is no election of probate judge in any district by reason of two or more having an equal and the highest number of votes, [...] the Governor may issue writs of election directed to the town clerk or clerks or assistant town clerk or clerks within such district, ordering an election to be held on a day named therein, other than a Saturday or Sunday, to fill such vacancy or impending vacancy"
+    },
+    {
+     "section": "chap148",
+     "quote": "they shall declare, except in case of a tie vote, who is elected senator in each senatorial district, representative in each assembly district and judge of probate in each probate district."
+    },
+    {
+     "section": "chap148",
+     "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office"
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-218 is read as the provision \"otherwise made by law\" that displaces Sec. 9-332's automatic adjourned election for this office [inferred]. The Governor's writ is permissive (\"may\"; the history note says P.A. 15-217 replaced \"shall\"). Probate districts are filed under local because they are not statewide and the kind list has no judicial-district kind. The 2026 Supplement's Sec. 9-218 (P.A. 25-168) changes how the writs reach the clerks, not the tie clause."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie for the same and highest total number of votes at a primary for a state or district office, or for the municipal office of state senator or state representative (first primary)",
+   "resolution": "recount-then-new-election",
+   "steps": "any of the tied candidates, or the state chairman of the political party, may apply for a recanvass of the returns (the manner of Sec. 9-445); if no application is made, or if the recanvass results in a tie, the primary stands adjourned for three weeks at the same hour; a second primary is held with ballots that carry only the candidates who received the tie number of votes; it is not held if all but one of the tied candidates die, withdraw or become disqualified, and the remaining candidate is then deemed lawfully voted upon as the candidate",
+   "who": "the voters at the adjourned primary; the registrars of voters provide the ballots; the Secretary of the State directs when it is not held",
+   "sources": [
+    {
+     "section": "chap153",
+     "quote": "If two or more candidates obtain the same and the highest total number of votes at a primary held to nominate candidates for a state or district office or the municipal office of state senator or state representative, and a tie vote thereby occurs, any of such candidates, or the state chairman of the political party, may apply for a recanvass of the returns"
+    },
+    {
+     "section": "chap153",
+     "quote": "If no such application is made, or if any such recanvass results in a tie vote, such primary shall stand adjourned for three weeks at the same hour at which the first primary was held."
+    },
+    {
+     "section": "chap153",
+     "quote": "No such primary shall be held if prior to such primary all but one of the candidates for such office die, withdraw their names or for any reason become disqualified to hold such office, and, in such event, the remaining candidate shall be deemed to be lawfully voted upon as the candidate for such office."
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-446(a). The text read is the 2025 revision; Sec. 9-446 is not in the 2026 Supplement's Title 9 index. Sec. 9-444 says that in all primaries a plurality of the votes cast is sufficient to nominate or elect. A presidential preference primary is the last primary rule below."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie with two or more candidates receiving the same highest total number of votes at the adjourned (second) primary for a state or district office, or the municipal office of state senator or state representative",
+   "resolution": "lot",
+   "steps": "the Secretary of the State, in the presence of not fewer than three disinterested persons and after notifying the tied candidates and the chairperson of the state central committee of the party of the time and place, dissolves the tie vote by lot; the Secretary executes a certificate of the result, and the person so certified is deemed to have received a plurality and to have been chosen the party's nominee",
+   "who": "the Secretary of the State",
+   "sources": [
+    {
+     "section": "chap153",
+     "quote": "If such second primary results in a tie vote with two or more candidates receiving the same highest total number of votes, the Secretary of the State, in the presence of not fewer than three disinterested persons, and after notification to the candidates obtaining the same number of votes and the chairperson of the state central committee of the party holding the primary of the time when and the place where such tie vote is to be dissolved, shall dissolve such tie vote by lot."
+    },
+    {
+     "section": "chap153",
+     "quote": "the person so certified or the slate so certified as having been chosen by lot shall be deemed to have received a plurality of the votes cast and shall be deemed to have been chosen as the nominee of such party to such office."
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-446(a). The earlier file recorded this from the Secretary of the State's 2012 manual as [stated]; the statute page carries the same words."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie in a primary for a municipal office other than state senator or state representative, for town committee members, or between slates for justices of the peace (first primary)",
+   "resolution": "recount-then-new-election",
+   "steps": "any of the tied candidates, or the town chairman of the political party, may apply for a recanvass of the returns; if no application is made, or if the recanvass results in a tie, the primary stands adjourned for three weeks at the same hour; a second primary is held among the tied candidates (for a multiple-opening office, only the names whose votes are equal); it is not held if all but one of the tied candidates die, withdraw or become disqualified",
+   "who": "the voters at the adjourned primary; the municipal clerk and the registrars of voters",
+   "sources": [
+    {
+     "section": "chap153",
+     "quote": "If two or more candidates obtain the same number of votes at a primary held to nominate candidates for a municipal office, other than the municipal office of state senator or state representative, or to elect members of a town committee, or if two or more slates of candidates obtain the same number of votes at a primary held for justices of the peace, and a tie vote thereby occurs, any of such candidates, or the town chairman of the political party, may apply for a recanvass of the returns"
+    },
+    {
+     "section": "chap153",
+     "quote": "In the case of a multiple-opening office only the names of those candidates whose votes are equal shall be placed on the ballot of the adjourned primary."
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-446(b). The statute says that if no application is made, or if the recanvass results in a tie, the primary stands adjourned for three weeks; the sentence is identical to subsection (a)'s and is quoted there."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie at the adjourned (second) primary for a municipal office other than state senator or state representative, for town committee members, or between slates for justices of the peace",
+   "resolution": "lot",
+   "steps": "the registrar, in the presence of not fewer than three disinterested persons and after notifying the tied candidates and the chairperson of the town committee of the party of the time and place, dissolves the tie vote by lot; the registrar executes a certificate of the result, and the person or slate so certified is deemed to have received a plurality and to have been chosen the party's nominee",
+   "who": "the registrar of voters",
+   "sources": [
+    {
+     "section": "chap153",
+     "quote": "If such second primary results in a tie vote, the registrar, in the presence of not fewer than three disinterested persons, and after notification to the candidates obtaining the same number of votes and the chairperson of the town committee of the party holding the primary of the time when and the place where such tie vote is to be dissolved, shall dissolve such tie vote by lot."
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-446(b). Sec. 9-372(12) defines \"registrar\" as the registrar of voters enrolled with the party holding the primary."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie in a presidential preference primary (chapter 154)",
+   "resolution": "none-found",
+   "steps": "chapter 154 (Sec. 9-463 to 9-486) was searched and has no section on a tie vote or a recanvass; Sec. 9-476 applies chapter 145 and chapter 153's provisions on absentee voting at primaries, conduct of primaries and return and tabulation of the vote \"as nearly as practicable\" to a presidential preference primary, so whether the primary tie rules above reach it is a reading the text does not make",
+   "who": null,
+   "sources": [
+    {
+     "section": "chap154",
+     "quote": "Except as otherwise provided in this chapter, the provisions of chapter 145 and chapter 153 concerning absentee voting at primaries, conduct of primaries and return and tabulation of the vote at such primaries shall apply as nearly as practicable and in the manner prescribed by the Secretary of the State, to a presidential preference primary."
+    }
+   ],
+   "mark": "inferred",
+   "note": "None found in chapter 154; the carry-over from chapter 153 is the only link and is not a statement about ties. Delegates are allocated by a party or state formula (Sec. 9-483 and 9-484, not read in full)."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "equal \"Yes\" and \"No\" votes on a statewide question to amend the Constitution (Article Twelfth), or on the question whether to hold a constitutional convention (Article Thirteenth, Sec. 2)",
+   "resolution": "other",
+   "steps": "no tie rule is stated; an amendment is valid if a majority of the electors present and voting on it approve it, and a convention follows if a majority of the electors voting on the question signify \"yes\"; equal votes are not a majority, so the question is not carried",
+   "who": null,
+   "sources": [
+    {
+     "section": "constitution",
+     "quote": "If it shall appear, in a manner to be provided by law, that a majority of the electors present and voting on such amendment at such election shall have approved such amendment, the same shall be valid, to all intents and purposes, as a part of this constitution."
+    },
+    {
+     "section": "constitution",
+     "quote": "If a majority of the electors voting on the question shall signify \"yes\", the general assembly shall provide for such convention as provided in Section 3 of this article."
+    }
+   ],
+   "mark": "inferred",
+   "note": "The Constitution says nothing of a tie; that an exact tie fails to carry is the reading of \"a majority\" [inferred]. The recanvass of Sec. 9-370a for a close vote on a question is recorded under recounts."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a tie on any other question or referendum (local questions, regional school district referenda)",
+   "resolution": "none-found",
+   "steps": "chapter 152 (Referenda, Sec. 9-369 to 9-371c) was read for tie or equal-vote rules and has none; Sec. 9-332 (adjourned election in tie vote) and Sec. 9-311b (recanvass on tie vote) speak of electors failing to choose a candidate for an office, not of a question; Sec. 9-370a's recanvass applies to a close Yes-No difference",
    "who": null,
    "sources": [],
-   "mark": "inferred",
-   "note": "The manual's text on a question (Sec. 9-370a) speaks only of a recanvass at a close vote; nothing read says what a tie on a question does."}
+   "mark": null,
+   "note": "None found in chapter 152, chapter 149 or chapter 146 as searched; this does not say that no rule exists. Charters and special acts, which govern many local questions, were not read, and Sec. 9-1 (the definition of \"referendum\" and of \"election\") was not read."
+  }
  ],
  "recounts": [
-  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"], "type": "automatic", "election": "general (regular or special) for state, district and municipal offices",
-   "threshold": {"percent": 0.5, "percent_of": "the total number of votes cast for the office (for a multiple-opening office, the total number of electors checked as having voted in the state, district, municipality or political subdivision)", "votes": 2000, "combine": "lesser-of", "inclusive": false,
-                 "conditions": "the plurality of the elected candidate over the next highest defeated candidate is less than the one-half percent equivalent but not more than 2,000 votes; a separate alternative (less than twenty votes) is the next rule; the defeated candidate may waive in writing",
-                 "in_words": "a plurality of less than one-half of one percent of the votes cast for the office, but not more than two thousand votes, brings a recanvass of the returns"},
-   "who_may_request": [],
-   "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass, with the municipal clerk for a municipal office or with the Secretary of the State for a state or district office",
-   "cost_bearer": "not stated in the text read",
-   "sources": [
-    {"section": "ct-recanvass-manual-2012", "quote": "when at any such election the plurality of an elected candidate for an office over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast for the office but not more than two thousand votes, or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office unless such defeated candidate or defeated candidates, as the case may be, for such office file a written statement waiving this right to such canvass"}
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local"
    ],
-   "mark": "stated",
-   "note": "Sec. 9-311a as the 2012 manual prints it, not the current statute. It is a recanvass of the returns of the tabulators and absentee ballots, not a hand recount. The section defines state office to include presidential electors; whether U.S. Senate and House offices fall under \"state or district\" office (Sec. 9-372) was not read, so \"federal\" is [inferred]."},
-  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"], "type": "automatic", "election": "general (regular or special) for state, district and municipal offices",
-   "threshold": {"percent": null, "percent_of": null, "votes": 20, "combine": null, "inclusive": false,
-                 "conditions": "the plurality is less than twenty votes; the second alternative of Sec. 9-311a, in addition to the percentage test above; waivable in writing",
-                 "in_words": "a plurality of less than twenty votes brings a recanvass of the returns"},
+   "type": "automatic",
+   "election": "regular or special election for municipal office; state and district offices on the Secretary of the State's tabulation of the vote",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total number of votes cast for the office (for an office with multiple openings, the total number of electors checked as having voted in the state, district, municipality or political subdivision)",
+    "votes": 2000,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "the plurality of the elected candidate over the defeated candidate with the next highest number of votes is less than the one-half percent equivalent AND not more than 2,000 votes (the 2,000 is inclusive); the recanvass is held unless the defeated candidate or candidates file a written waiver; a separate alternative (fewer than 20 votes) is the next rule",
+    "in_words": "a plurality of less than one-half of one per cent of the votes cast for the office, but not more than two thousand votes, brings a recanvass of the returns of the voting tabulators and absentee ballots"
+   },
    "who_may_request": [],
-   "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass (with the municipal clerk, or with the Secretary of the State for a state or district office)",
-   "cost_bearer": "not stated in the text read",
+   "waiver": "the defeated candidate or candidates for the office may file a written statement waiving the recanvass, with the municipal clerk for a municipal office or with the Secretary of the State for a state or district office",
+   "cost_bearer": "not stated in Sec. 9-311a (the municipal clerk notifies the moderator, who causes the recanvass)",
    "sources": [
-    {"section": "ct-recanvass-manual-2012", "quote": "or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office unless such defeated candidate"}
+    {
+     "section": "sup-chap148",
+     "quote": "Forthwith after a regular or special election for municipal office, or forthwith upon tabulation of the vote for state and district offices by the Secretary of the State, when at any such election the plurality of an elected candidate for an office over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast for the office but not more than two thousand votes, or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office unless such defeated candidate or defeated candidates, as the case may be, for such office file a written statement waiving this right to such canvass with the municipal clerk in the case of a municipal office, or with the Secretary of the State in the case of a state or district office."
+    },
+    {
+     "section": "sup-chap148",
+     "quote": "state, district and municipal offices shall be as defined in section 9-372 except that the office of presidential elector shall be deemed a state office."
+    },
+    {
+     "section": "chap153",
+     "quote": "“State office” means any office for which all the electors of the state may vote and includes the office of Governor, Lieutenant Governor, Secretary, Treasurer, Comptroller, Attorney General and senator in Congress"
+    }
    ],
-   "mark": "stated",
-   "note": "Sec. 9-311a(2) as printed in 2012. Either alternative triggers the recanvass."},
-  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"], "type": "automatic", "election": "any election for any office",
-   "threshold": {"percent": null, "percent_of": null, "votes": 0, "combine": null, "inclusive": true,
-                 "conditions": "only a tie; no recanvass if all but one of the tied candidates dies, withdraws or is disqualified before the recanvass",
-                 "in_words": "only on a tie: there is a recanvass of the returns for the office"},
+   "mark": "measured",
+   "note": "Sec. 9-311a, current text (the 2026 Supplement's, P.A. 25-134, technical changes; the 2025 revision prints the same words). Replaces the earlier [stated] reading from the Secretary of the State's 2012 manual: the manual's quotation is found word for word in the statute pages. It is a recanvass of the returns of the tabulators and absentee ballots, not a new election count by hand. U.S. Senator is a \"state office\" by Sec. 9-372(14) and presidential elector by Sec. 9-311a; U.S. Representative is read as a \"district office\" (an office for which only the electors of a district crossing town lines vote, Sec. 9-372(3) and (4)) [inferred]. Arithmetic, [inferred]: the 2,000-vote cap is the lesser limit once an office has 400,000 votes or more; the 20-vote alternative is the larger limit when an office has 4,000 votes or fewer. The section does not preclude judicial proceedings under chapter 149."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "type": "automatic",
+   "election": "regular or special election for municipal office; state and district offices on the Secretary of the State's tabulation of the vote",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": 20,
+    "combine": null,
+    "inclusive": false,
+    "conditions": "the plurality of the elected candidate over the defeated candidate with the next highest number of votes is less than twenty votes; the second alternative of Sec. 9-311a, in addition to the percentage test; waivable in writing",
+    "in_words": "a plurality of less than twenty votes brings a recanvass of the returns of the voting tabulators and absentee ballots"
+   },
+   "who_may_request": [],
+   "waiver": "the defeated candidate or candidates for the office may file a written statement waiving the recanvass, with the municipal clerk for a municipal office or with the Secretary of the State for a state or district office",
+   "cost_bearer": "not stated in Sec. 9-311a",
+   "sources": [
+    {
+     "section": "sup-chap148",
+     "quote": "or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office"
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-311a(2), current text. Either alternative brings the recanvass; the first is the previous rule."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "type": "automatic",
+   "election": "any election for any office",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": 0,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "only an equality of votes; no recanvass if all but one of the tied candidates dies, withdraws or becomes disqualified before the recanvass",
+    "in_words": "if the electors fail to elect a candidate for any office by reason of an equality of votes, there is a recanvass of the returns for the office"
+   },
    "who_may_request": [],
    "waiver": null,
-   "cost_bearer": "not stated in the text read",
+   "cost_bearer": "not stated in Sec. 9-311b",
    "sources": [
-    {"section": "ct-recanvass-manual-2012", "quote": "there shall be a recanvass of the returns for such office unless, prior to the time of such recanvass, all but one of the candidates so receiving an equal number of votes dies, withdraws his name or for any reason becomes disqualified to hold such office."}
+    {
+     "section": "chap148",
+     "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office unless, prior to the time of such recanvass, all but one of the candidates so receiving an equal number of votes dies, withdraws his name or for any reason becomes disqualified to hold such office."
+    }
    ],
-   "mark": "stated",
-   "note": "Sec. 9-311b as printed in 2012."},
-  {"kinds": ["measure"], "type": "automatic", "election": "election or referendum on a question",
-   "threshold": {"percent": 0.5, "percent_of": "the total number of votes cast for the question", "votes": 2000, "combine": "lesser-of", "inclusive": false,
-                 "conditions": "the difference between the Yes and No vote is less than the one-half percent equivalent but not more than 2,000 votes",
-                 "in_words": "a Yes-No difference of less than one-half of one percent of the votes cast on the question, and not more than two thousand votes, brings a recanvass"},
+   "mark": "measured",
+   "note": "Sec. 9-311b, 2025 revision (not in the 2026 Supplement's index). The recanvass is the step before every tie rule above; what follows it depends on the office. Sec. 9-311a speaks of the plurality of an elected candidate over a defeated candidate, and an exact tie has no elected candidate, which is read as why Sec. 9-311b is a separate section [inferred]."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "automatic",
+   "election": "election or referendum on a question",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total number of votes cast for the question",
+    "votes": 2000,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "the difference between the Yes and No votes is less than the one-half percent equivalent AND not more than 2,000 votes; no waiver is mentioned; for a regional school district referendum with the vote tabulated as a whole, the district's moderators cause the recanvass on that tabulation",
+    "in_words": "a Yes-No difference of less than one-half of one per cent of the votes cast on the question, but not more than two thousand votes, brings a recanvass of the returns"
+   },
    "who_may_request": [],
    "waiver": null,
-   "cost_bearer": "not stated in the text read",
+   "cost_bearer": "not stated in Sec. 9-370a",
    "sources": [
-    {"section": "ct-recanvass-manual-2012", "quote": "difference between the “Yes” and “No” vote on a question was less than one-half of one per cent of the total number of votes cast for the question but not more than two thousand votes, the moderator shall proceed forthwith to cause a recanvass of such returns to be made"}
+    {
+     "section": "chap152",
+     "quote": "In the case of an election or referendum wherein the difference between the \"Yes\" and \"No\" vote on a question was less than one-half of one per cent of the total number of votes cast for the question but not more than two thousand votes, the moderator shall proceed forthwith to cause a recanvass of such returns to be made"
+    }
    ],
-   "mark": "stated",
-   "note": "Sec. 9-370a as printed in 2012."},
-  {"kinds": ["primary"], "type": "automatic", "election": "primary for state, district or municipal office or town committee",
-   "threshold": {"percent": 0.5, "percent_of": "the total number of votes cast at the primary for the office or position", "votes": 1000, "combine": "lesser-of", "inclusive": false,
-                 "conditions": "the plurality is less than the one-half percent equivalent but not more than 1,000 votes, or (a separate alternative) less than twenty votes; waivable in writing within one day after the primary (for a municipal office) or before the Secretary of the State notifies the town clerks (state and district offices)",
-                 "in_words": "a primary plurality of less than one-half of one percent of the votes cast, but not more than one thousand votes, or of less than twenty votes, brings a recanvass"},
+   "mark": "measured",
+   "note": "Sec. 9-370a, 2025 revision. It speaks of \"an election or referendum\", of \"the moderator\" and of a regional school district referendum; whether it applies to a statewide question, and how the margin is then measured, is not stated in the section and Sec. 9-1 (definitions) was not read."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "primary for state, district or municipal office, or for members of a town committee",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total number of votes cast at the primary for the office or position (multiple openings: the total number of electors checked as having voted in the primary in the state, district, municipality or political subdivision)",
+    "votes": 1000,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "the plurality of the elected or nominated candidate over the defeated candidate with the next highest number of votes is less than the one-half percent equivalent AND not more than 1,000 votes (the 1,000 is inclusive); the recanvass is held unless the defeated candidate or candidates file a written waiver (within one day after the primary for a municipal office or town committee; before the Secretary of the State notifies the town clerks, for a state or district office); a separate alternative (fewer than 20 votes) is the next rule",
+    "in_words": "a primary plurality of less than one-half of one per cent of the votes cast, but not more than one thousand votes, brings a recanvass of the returns of the voting tabulators"
+   },
    "who_may_request": [],
-   "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass",
-   "cost_bearer": "not stated in the text read",
+   "waiver": "the defeated candidate or candidates may file a written statement waiving the right to the recanvass, with the municipal clerk (municipal office or town committee) or the Secretary of the State (state or district office)",
+   "cost_bearer": "not stated in Sec. 9-445",
    "sources": [
-    {"section": "ct-recanvass-manual-2012", "quote": "when the plurality of an elected or nominated candidate over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast at the primary for the office or position but not more than one thousand votes, or (2)"}
+    {
+     "section": "chap153",
+     "quote": "Forthwith after a primary for nomination to a municipal office or for election of members of a town committee, or forthwith upon tabulation of the vote for a state or district office by the Secretary of the State when the plurality of an elected or nominated candidate over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast at the primary for the office or position but not more than one thousand votes, or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators used in such primary for such office or position unless within one day after the primary, in the case of nomination to a municipal office or for election of members of a town committee, or prior to the time the Secretary of the State notifies the town clerk of state and district offices which qualify for an automatic recanvass, the defeated candidate or defeated candidates, as the case may be, for such office or position file a written statement waiving the right to such recanvass with the municipal clerk in the case of a municipal office or town committee, or with the Secretary of the State in the case of a state or district office."
+    }
    ],
-   "mark": "stated",
-   "note": "Sec. 9-445 as printed in 2012."}
+   "mark": "measured",
+   "note": "Sec. 9-445, 2025 revision. Replaces the earlier [stated] reading from the manual; the quotation is found word for word in the statute page. Sec. 9-448 applies Sec. 9-445 to 9-447 to a primary at which paper ballots are used, and the paper ballots are then recounted wherever a recanvass would be held. In a recanvass of a primary the recanvass officials are divided equally, as nearly as may be, among the candidates. Arithmetic, [inferred]: the 1,000-vote cap is the lesser limit once an office has 200,000 votes or more."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "primary for state, district or municipal office, or for members of a town committee",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": 20,
+    "combine": null,
+    "inclusive": false,
+    "conditions": "the plurality is less than twenty votes; the second alternative of Sec. 9-445, in addition to the percentage test; waivable in writing",
+    "in_words": "a primary plurality of less than twenty votes brings a recanvass of the returns of the voting tabulators"
+   },
+   "who_may_request": [],
+   "waiver": "the defeated candidate or candidates may file a written statement waiving the right to the recanvass",
+   "cost_bearer": "not stated in Sec. 9-445",
+   "sources": [
+    {
+     "section": "chap153",
+     "quote": "or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators used in such primary for such office or position"
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-445(2), 2025 revision."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "requested",
+   "election": "primary at which two or more candidates have the same and the highest number of votes",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": 0,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "only a tie: for a state or district office, or the municipal office of state senator or state representative, any tied candidate or the state chairman of the political party may apply; for other municipal offices, town committee members or justice of the peace slates, any tied candidate or the town chairman of the political party may apply; the recanvass is in the manner of Sec. 9-445",
+    "in_words": "on a tie at a primary, a tied candidate or the party chairman may apply for a recanvass of the returns"
+   },
+   "who_may_request": [
+    "any of the tied candidates, or the state chairman of the political party (state or district office, or municipal office of state senator or state representative)",
+    "any of the tied candidates, or the town chairman of the political party (other municipal offices, town committee members, justice of the peace slates)"
+   ],
+   "cost_bearer": "not stated in Sec. 9-446",
+   "sources": [
+    {
+     "section": "chap153",
+     "quote": "If two or more candidates obtain the same and the highest total number of votes at a primary held to nominate candidates for a state or district office or the municipal office of state senator or state representative, and a tie vote thereby occurs, any of such candidates, or the state chairman of the political party, may apply for a recanvass of the returns"
+    },
+    {
+     "section": "chap153",
+     "quote": "any of such candidates, or the town chairman of the political party, may apply for a recanvass of the returns"
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-446(a) and (b). If no one applies, or the recanvass ties, the adjourned primary follows (see the primary tie rules)."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "general election or primary for an office subject to the post-election audit (Sec. 9-320f(b))",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": false,
+    "conditions": "after the manual or electronic audit of at least five per cent of the voting districts, a \"discrepancy\" exists (a difference between the tabulator count and the audit count in a voting district that exceeds one-half of one per cent of the lesser of the two counts, and cannot be resolved by an accounting of improperly marked ballots) AND the margin of victory in the race is less than the amount of the discrepancy multiplied by the total number of voting districts where the race appeared on the ballot; only for the offices selected for the audit",
+    "in_words": "the Secretary of the State orders a discrepancy recanvass of an office when an audit finds a discrepancy and the margin of victory is less than the discrepancy times the number of voting districts where the race appeared"
+   },
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "not stated for the recanvass; election officials who take part in the audit are paid by the municipality at its standard election rate (Sec. 9-320f(a))",
+   "sources": [
+    {
+     "section": "chap148",
+     "quote": "the Secretary of the State shall order a discrepancy recanvass of the returns of an election or primary for any office if a discrepancy, as defined in subsection (o) of this section, exists where the margin of victory in the race for such office is less than the amount of the discrepancy multiplied by the total number of voting districts where such race appeared on the ballot"
+    },
+    {
+     "section": "chap148",
+     "quote": "the State Elections Enforcement Commission shall order a discrepancy recanvass if a discrepancy, as defined by subsection (o) of this section, has occurred that could affect the outcome of the election or primary for such office."
+    },
+    {
+     "section": "chap148",
+     "quote": "\"discrepancy\" means any difference in vote totals between tabulator counts from an election or primary and manual or electronic counts from an audit described in subsection (a) of this section in a voting district that exceeds one-half of one per cent of the lesser amount of the vote totals between such tabulator counts and such manual or electronic counts where such differences cannot be resolved through an accounting of ballots that were not marked properly"
+    },
+    {
+     "section": "chap148",
+     "quote": "The offices subject to an audit pursuant to this section shall be, (1) in the case of an election where the office of presidential elector is on the ballot, all offices required to be audited by federal law, plus one additional office selected in a random drawing by the Secretary of the State, but in no case less than three offices"
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-320f(f), the audit's discrepancy recanvass: it is a recount rule in the sense that no one asks and a recanvass of the returns is ordered, but its trigger is not a margin percentage; it depends on what a sampled audit finds, so a close race with a clean audit has none. The Secretary of the State orders it; in a year in which the Secretary is a candidate for an audited office, the State Elections Enforcement Commission orders it (the discrepancy then only needs to be one that could affect the outcome). The statute says \"for any office\", but a discrepancy is defined by an audit, so it reaches only audited offices [inferred]. Which offices are audited is set by Sec. 9-320f(b): where presidential electors or the Governor are on the ballot, the offices required to be audited by federal law plus one drawn at random by the Secretary of the State, never fewer than three; at a municipal election, three offices or twenty per cent of those on the ballot, whichever is greater; at a primary, the offices required by federal law plus one, never less than twenty per cent of those on the ballot. The audit covers at least five per cent of the voting districts, drawn at random by the Secretary of the State. \"The amount of the discrepancy\" is read as the vote difference found in the audited district [inferred]. The audit report may be used as prima facie evidence of a discrepancy in a chapter 149 contest (Sec. 9-320f(h)). The section's recanvass rests on Sec. 9-311's procedure (\"Notwithstanding the provisions of section 9-311\")."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "type": "other",
+   "election": "any election (general or municipal)",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "it appears to the moderator, within three days after the election, that there is a discrepancy in the returns of any voting district; no margin is required; the recanvass officials meet not later than the fifth business day after the election",
+    "in_words": "the moderator who finds a discrepancy in a voting district's returns within three days after an election summons the recanvass officials to recanvass the returns of the tabulators, absentee ballots or write-in ballots"
+   },
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "not stated in Sec. 9-311",
+   "sources": [
+    {
+     "section": "sup-chap148",
+     "quote": "If, within three days after an election, it appears to the moderator that there is a discrepancy in the returns of any voting district, such moderator shall forthwith within said period summon, by written notice delivered personally, the recanvass officials"
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-311(a), current text (the 2026 Supplement's, P.A. 25-134, technical changes). Not a margin-based recount: the moderator's finding of a discrepancy in one district's returns starts a recanvass of that district. The earlier file left it out; it is recorded as type other, since neither the candidates nor a margin set it off. Sec. 9-311 is also the procedure that Sec. 9-311a, 9-370a and 9-445 point to, and its subsection (c) says that the recanvass return is substituted for the original return and has the same force and effect."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors"
+   ],
+   "type": "court",
+   "election": "general election for presidential electors, U.S. Senator and U.S. Representative",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "an elector or candidate aggrieved by an election official's ruling, or claiming a mistake in the count of the votes cast at a voting district in the elector's or candidate's town, brings a complaint to a Supreme Court judge no later than fourteen days after the election (seven days after the close of a manual audit tabulation under Sec. 9-320f); the judge sits with two other Supreme Court judges and, if sufficient reason is shown, may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+    "in_words": "a Supreme Court judge, with two others, may order a recount of the votes, including absentee ballots, on a complaint of an aggrieved elector or candidate if sufficient reason is shown"
+   },
+   "who_may_request": [
+    "any elector or candidate who claims to be aggrieved by a ruling of an election official in connection with the election, or that there was a mistake in the count of the votes at a voting district in the elector's or candidate's town"
+   ],
+   "cost_bearer": "the complainant gives a bond for the payment of costs, and the judges order payment of costs as equitable (Sec. 9-327)",
+   "sources": [
+    {
+     "section": "chap149",
+     "quote": "If sufficient reason is shown, such judges may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+    },
+    {
+     "section": "chap149",
+     "quote": "Any elector or candidate who claims that he or she is aggrieved by any ruling of any election official in connection with any election for presidential electors and for a senator in Congress and for representative in Congress or any of them"
+    },
+    {
+     "section": "chap149",
+     "quote": "shall give a good and sufficient bond for prosecution for the payment of costs, and the judge or judges hearing such application shall make such order regarding the payment of the costs in such action as may be equitable"
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-323 (and Sec. 9-327 for the bond). The judges may also order a new election or a change in the election schedule, provided the order complies with Section 302 of the Help America Vote Act. A primary is not an \"election\" for Sec. 9-323, according to a court annotation printed with the section; that is not statute text. Sec. 9-330 lets such a judge order the examination and testing of tabulators."
+  },
+  {
+   "kinds": [
+    "statewide",
+    "local"
+   ],
+   "type": "court",
+   "election": "general election for Governor, Lieutenant Governor, Secretary of the State, State Treasurer, Attorney General, State Comptroller or judge of probate",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "an elector or candidate aggrieved by an election official's ruling, or claiming a mistake in the count of the votes at a voting district in the elector's or candidate's town, brings a complaint to a Superior Court judge no later than fourteen days after the election (seven days after the close of a manual audit tabulation under Sec. 9-320f); if sufficient reason is shown the judge may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+    "in_words": "a Superior Court judge may order a recount of the votes, including absentee ballots, on a complaint of an aggrieved elector or candidate if sufficient reason is shown"
+   },
+   "who_may_request": [
+    "any elector or candidate who claims to be aggrieved by a ruling of an election official in connection with the election, or that there was a mistake in the count of the votes at a voting district in the elector's or candidate's town"
+   ],
+   "cost_bearer": "the complainant gives a bond for the payment of costs, and the judge orders payment of costs as equitable (Sec. 9-327)",
+   "sources": [
+    {
+     "section": "chap149",
+     "quote": "Any elector or candidate who claims that such elector or candidate is aggrieved by any ruling of any election official in connection with any election for Governor, Lieutenant Governor, Secretary of the State, State Treasurer, Attorney General, State Comptroller or judge of probate"
+    },
+    {
+     "section": "chap149",
+     "quote": "If sufficient reason is shown, such judge may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-324. The judge certifies the finding to the Secretary of the State before the fifteenth day of the next December; a question of law may go to the Supreme Court (Sec. 9-325). A court annotation printed with the section says a Superior Court judge may not order a recount of ballots for state legislators; Sec. 9-323, 9-324 and 9-328 do not name state senators or representatives, so no court-ordered recount route for a state legislative general election was found in them [inferred]; Article Third, Sec. 7 of the Constitution makes each house the final judge of its members' returns."
+  },
+  {
+   "kinds": [
+    "local",
+    "primary"
+   ],
+   "type": "court",
+   "election": "election for a municipal office, or a primary for justice of the peace",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "an elector or candidate aggrieved by an election official's ruling, or claiming a mistake in the count of the votes cast for the office, brings a complaint to a Superior Court judge no later than fourteen days after the election or primary (seven days after the close of a manual audit tabulation); if sufficient reason is shown the judge may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+    "in_words": "a Superior Court judge may order a recount of the votes, including absentee ballots, on a complaint of an aggrieved elector or candidate if sufficient reason is shown"
+   },
+   "who_may_request": [
+    "any elector or candidate claiming to have been aggrieved by a ruling of an election official in connection with an election for municipal office or a primary for justice of the peace, or claiming a mistake in the count of the votes cast for the office"
+   ],
+   "cost_bearer": "the complainant gives a bond for the payment of costs, and the judge orders payment of costs as equitable (Sec. 9-327)",
+   "sources": [
+    {
+     "section": "chap149",
+     "quote": "Any elector or candidate claiming to have been aggrieved by any ruling of any election official in connection with an election for any municipal office or a primary for justice of the peace, or any elector or candidate claiming that there has been a mistake in the count of votes cast for any such office at such election or primary"
+    },
+    {
+     "section": "chap149",
+     "quote": "If sufficient reason is shown, he may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-328. The judge may order a new election or primary or a change in the election schedule. \"Municipal office\" is defined in Sec. 9-372(7); an annotation printed with the section says a state House seat is not a \"municipal office\" for it (not statute text)."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "court",
+   "election": "primary held under Sec. 9-423, 9-425 or 9-464 (Sec. 9-464 is in the presidential preference primary chapter), or under a special act",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "an elector or candidate aggrieved by an election official's ruling, alleging a mistake in the count of the votes cast, or a candidate aggrieved by a violation of the absentee ballot sections, brings a complaint to a Superior Court judge no later than fourteen days after the primary (seven days after the close of a manual audit tabulation); after a hearing, if sufficient reason is shown, the judge may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+    "in_words": "a Superior Court judge may, after a hearing, order a recount of the votes cast at a primary, including absentee ballots, on a complaint of an aggrieved elector or candidate if sufficient reason is shown"
+   },
+   "who_may_request": [
+    "any elector or candidate aggrieved by a ruling of an election official in connection with the primary",
+    "any elector or candidate who alleges that there has been a mistake in the count of the votes cast at the primary"
+   ],
+   "cost_bearer": "the complainant gives a bond for the payment of costs, and the judge orders payment of costs as equitable (Sec. 9-327)",
+   "sources": [
+    {
+     "section": "chap149",
+     "quote": "(2) elector or candidate who alleges that there has been a mistake in the count of the votes cast at such primary"
+    },
+    {
+     "section": "chap149",
+     "quote": "If, after hearing, sufficient reason is shown, such judge may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-329a (formerly Sec. 9-449). The judge may determine the result of the primary, change the primary schedule, or order a new primary if the result might have been different and the judge is unable to determine it. Primaries for justice of the peace are under Sec. 9-328."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "court",
+   "election": "referendum",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "a person claiming to be aggrieved by an election official's ruling in connection with a referendum, or claiming a mistake in the count of the votes cast for it, brings a complaint to a Superior Court judge within thirty days after the referendum; if sufficient reason is shown the judge may order tabulators unlocked or ballot boxes opened and a recount, including absentee ballots; no margin is required",
+    "in_words": "a Superior Court judge may order a recount of the votes on a referendum, including absentee ballots, on a complaint of an aggrieved person if sufficient reason is shown"
+   },
+   "who_may_request": [
+    "any person claiming to have been aggrieved by a ruling of an election official in connection with a referendum, or claiming a mistake in the count of the votes cast for a referendum"
+   ],
+   "cost_bearer": "not stated in Sec. 9-371b (the bond-for-costs section, Sec. 9-327, does not list it)",
+   "sources": [
+    {
+     "section": "chap152",
+     "quote": "Any person (1) claiming to have been aggrieved by any ruling of any election official in connection with a referendum, (2) claiming that there has been a mistake in the count of votes cast for a referendum"
+    },
+    {
+     "section": "chap152",
+     "quote": "If sufficient reason is shown, such judge may order any voting tabulators to be unlocked or any ballot boxes to be opened and a recount of the votes cast, including absentee ballots, to be made."
+    }
+   ],
+   "mark": "measured",
+   "note": "Sec. 9-371b. The judge may order a new referendum or a change in the referendum schedule. Whether \"referendum\" reaches a statewide question is not stated in the chapter read (Sec. 9-1 was not read)."
+  }
  ],
  "unread": [
-  {"what": "the Connecticut General Statutes at the General Assembly's own site: chapter 148 (election canvass and returns, Sec. 9-311a, 9-311b), chapter 149 (contested elections), the tie rule for a general election that survives the recanvass, any recount on request, and the Connecticut Constitution",
-   "reason": "the General Assembly's site answered with a certificate failure: curl reported \"SSL certificate problem: unable to get local issuer certificate\" for https://www.cga.ct.gov/current/pub/chap_148.htm and for https://cga.ct.gov/2025/pub/chap_148.htm, the address the site itself publishes; stopped there and the certificate check was not turned off. The compilation route allowed at 07:21 was closed because Justia refused us with HTTP 403 on its first request (an Alabama page, 07:23Z), so no further request was made to that host.",
-   "url": "https://www.cga.ct.gov/current/pub/chap_148.htm",
-   "tried_at": "2026-11-07T07:28Z"}
+  {
+   "what": "municipal charters, special acts and ordinances (Sec. 9-188, 9-173 and 9-332 each give way to \"charter\", \"special act\" or other law); the definitions of Sec. 9-1 (\"election\", \"referendum\"); chapters 141, 144a, 145, 145a, 147, 150, 151, 151a and 155 to 158 (not opened); Title 7 (municipalities) and Title 45a (probate courts); the Connecticut Supreme Court and Superior Court rules of procedure; Sec. 9-483 and 9-484 (delegate allocation in a presidential preference primary)",
+   "reason": "outside the sections that the tie and recount rules cite; this reading is of state general law at the General Assembly's site, and the brief names local charters and ordinances as not read. Chapters 146, 148, 149, 152, 153 and 154 were searched for tie, equal-vote, lot, recount and recanvass words and read where those words occur; no other tie or recanvass rule turned up in them. The chapters not opened were not searched."
+  },
+  {
+   "what": "acts passed after the 2026 Supplement's revision date (January 1, 2026), and any change they make to the sections cited",
+   "reason": "neither book the site prints (the General Statutes revised to January 1, 2025, and the 2026 Supplement revised to January 1, 2026) carries them; the site's own note directs readers to the Supplement for the 2025 sessions' changes. Not searched."
+  },
+  {
+   "what": "the Secretary of the State's Recanvass Procedure Manual (Rev. 08/12) and the Secretary's other handbooks",
+   "reason": "no longer used. The earlier file rested wholly on the manual because the General Assembly's site had failed a certificate check. With the certificate chain completed (the orchestrator's ruling), the statutes themselves were read at the site, and every quotation the earlier file took from the manual is found word for word in the statute pages. The manual is a procedure guide for one make of tabulator; the passages checked add no threshold, trigger or request right that the statutes lack, and the rest of it was not re-read for this file."
+  }
  ],
  "notes": [
-  "Connecticut is partly read: every rule rests on the Secretary of the State's 2012 Recanvass Procedure Manual, a state agency guide that reproduces the statutes of 2012, so each rule is marked stated and may be out of date.",
-  "Surprise: Connecticut's automatic step is a recanvass of the machine returns, not a hand recount; the earlier lead (recount, then special election three weeks after a general-election tie) was not confirmed. The three-week adjourned primary is a primary tie rule (Sec. 9-446).",
-  "The manual's separate discrepancy recanvass (Sec. 9-311, moderator's call within three days) is not recorded as a recount rule."
+  "Connecticut is read at the General Assembly's own site (www.cga.ct.gov): chapters 146, 148, 149, 152, 153 and 154 of the General Statutes (revised to January 1, 2025), the 2026 Supplement's chapters 146 and 148, and the codified Constitution. The earlier file rested wholly on the Secretary of the State's 2012 Recanvass Procedure Manual [stated]; the manual rules for Sec. 9-311a, 9-311b, 9-370a, 9-445 and 9-446 are replaced by [measured] statute rules, because each manual quotation is found word for word in the statute pages, and the manual is dropped as a section.",
+  "What a tie does depends on the office, which the earlier file could not say. Every tied office is first recanvassed (Sec. 9-311b). After that: Governor, Lieutenant Governor, Secretary of the State, Treasurer, Comptroller and Attorney General go to a ballot of the General Assembly in joint convention (Constitution, Article Fourth, Sec. 4); presidential electors are chosen by lot by the Treasurer, Secretary of the State and Comptroller (Sec. 9-315); state senator, state representative and municipal offices go to an adjourned election three weeks later (Sec. 9-332); probate judge goes to the Governor's writ of election (Sec. 9-218); U.S. Representative falls under Sec. 9-332 by a plain reading of \"any office\" [inferred]; and U.S. Senator is uncertain, because Sec. 9-173 speaks of \"no plurality\" and a Governor's temporary appointment or a special election, and the text does not say whether a tie is that case [inferred]. The earlier lead (recount, then a special election three weeks after a general-election tie) is confirmed for the legislature, local offices and, by reading, U.S. Representative, and does not hold for the statewide executive offices, presidential electors or probate judge.",
+  "Connecticut has no candidate-requested recount in a general election. The automatic step is a recanvass of the returns of the voting tabulators and absentee ballots, triggered by a plurality of less than one-half of one per cent of the votes cast but not more than 2,000, or of less than 20 votes, unless the defeated candidate files a written waiver (Sec. 9-311a); a primary is the same with a 1,000-vote cap (Sec. 9-445); a question has a recanvass at the same margin as an election (Sec. 9-370a). A court may order a hand recount on a complaint (Sec. 9-323, 9-324, 9-328, 9-329a, 9-371b). A tied primary may be recanvassed on a candidate's or a party chairman's application (Sec. 9-446).",
+  "The audit's discrepancy recanvass (Sec. 9-320f(f)) is recorded as an automatic recount rule, with the trigger in words and no percentage: the Secretary of the State orders a recanvass when an audit finds a discrepancy and the margin of victory is less than the discrepancy times the number of voting districts where the race appeared on the ballot. It reaches only offices chosen for the audit [inferred]. The moderator's discrepancy recanvass (Sec. 9-311) is recorded as type other.",
+  "A primary tie is the one place the statutes name a lot after a second vote: a first-primary tie gets an adjourned primary three weeks later among the tied candidates, and a tie at that second primary is dissolved by lot, by the Secretary of the State (state and district offices) or the registrar (municipal offices) (Sec. 9-446). No lot is provided for a general-election tie except for presidential electors.",
+  "Sec. 9-311a and Sec. 9-311 have a 2026 Supplement text (P.A. 25-134, technical changes) and Sec. 9-218 has one (P.A. 25-168); the rules cite the Supplement's text for them and the 2025 revision for the rest. The Supplement's index lists no change to Sec. 9-173, 9-175a, 9-188, 9-315, 9-319, 9-320f, 9-332, 9-370a, 9-371b, 9-372, 9-444 to 9-448 or 9-476.",
+  "The Constitution is on the same site at /asp/Content/constitutions/Constitution_State_CT.pdf, found through the site's constitutions page (https://www.cga.ct.gov/asp/Content/constitutions.asp, linked from the home page). A first guess at an address, https://www.cga.ct.gov/asp/Content/constitutions/CTConstitution.htm, answered HTTP 404 at 2026-11-07T08:13Z and was corrected once from the site's own page. The site answered every other request."
  ]
 }
