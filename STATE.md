@@ -4,7 +4,10 @@
 
 ## Where things stand
 
-- Hold of 02:45 lifted at 02:54 (RULINGS). Design follows `inherited/design/` (#11, from the midterms orchestrator). Work autonomously: the plan is recorded and he is told, not asked. Now: law draft 2 from the cold readings, B2's breaks and the design guidance; then to him to ratify.
+- **Phase 2 (data, with design alongside) begins**, by `plan/PLAN.md` (written 03:10, told to the maker, not asked: law 7a). Briefs T1 (tracker), D1 (presidency), D2 (Congress and governors), X1 (design) written; threads asked of the coordinator. Next: gate D1's `pipeline/core.py` PR first (D2 imports it); approve each data worker's own-forecast method before it computes p; send X1's options to the maker.
+- **Tracker** for the maker: "Vote Work", https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH (source `tracker/vote-work.html`; db collection `tasks`, rows {s, t, o, link, linkLabel}; seeded 03:02, read back at view level). Kept current by T1.
+- Open with the maker: the design-effort card (max for design work only, recommended / xhigh; until he answers, design runs at xhigh); the batched asks of plan §5 (web.archive.org; MEDSL's guestbook).
+- Hold of 02:45 lifted at 02:54 (RULINGS). Design follows `inherited/design/` (#11, from the midterms orchestrator). Work autonomously: the plan is recorded and he is told, not asked.
 
 - Initialized on 2026-11-06 from `handoff/vote-importance/` in zwolk46/midterms (its PR #252), by the midterms orchestrator: system files, templates, `inherited/`, the starter site with Plex. `npm run build` and `npm test` (1 pass) clean.
 - Vercel: linked. Project `vote` (prj_C78MKoz1D80kgE2Bfz9mMmET3Ndo, team zachs-projects-74dd78e7), imported by the maker. Production deployment dpl_5azt1qjLZELKy2tUsxjUHhD9Sotx of `main` 80e6705 is READY [measured 2026-11-06 17:36 UTC]. Address: https://vote-rho-pearl.vercel.app. Vercel Authentication is on ("all_except_custom_domains"), so the vercel.app addresses ask visitors to sign in to Vercel; to settle before launch (midterms lesson 20: no link previews behind a login).
@@ -37,10 +40,16 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Check the math of a deciding vote | cmsg_01FHkmcV6WaeZh9r5PfgnMbuST7d1oALJPJTFqCrnN4ZYd | `briefs/M1-math-check.md` (Fable 5.1, xhigh) | done; #7 merged 01:54 (the orchestrator re-ran run_all.sh: output identical); resolved |
 | Try to break the site's law | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCtPmSab848QZ6xppDXay7H | `briefs/B2-break-the-law.md` (Fable 5.1, xhigh) | done 02:54; PR #12 (61 breaks) open, not merged during the hold |
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
+| Keep the vote tracker current | (asked 03:12) | `briefs/T1-tracker.md` (Sonnet 5.5, xhigh) | asked of the coordinator |
+| Gather presidential data by state | (asked 03:12) | `briefs/D1-data-president.md` (Opus 5.5, xhigh) | asked of the coordinator |
+| Gather Senate, House and governor data | (asked 03:12) | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | asked of the coordinator |
+| Design the site's first screen | (asked 03:12) | `briefs/X1-design.md` (Opus 5.5, xhigh) | asked of the coordinator |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 03:12: "Vote Work" published (https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH), a copy of Midterms Work with its db rule (read view, write admin), seeded with eight rows and read back at view level; the maker told, with the law in force. `plan/PLAN.md` written (phases; contests in order; one data layout; `pipeline/` in Python on `model/math/common.py`; who does what). Briefs T1, D1, D2, X1 written. This session's network still reaches only GitHub (web.archive.org, Dataverse, FEC, Census refused here; new threads run on the networked environment). PR of law, model, plan, briefs and tracker to `main`, then the four threads asked of the coordinator.
 
 - 2026-11-07 03:05: #12 merged (B2's breaks). `LAW.md` written: law draft 2, in force as if ratified at the maker's 02:55 word (the one time an agent writes `LAW.md`, on his instruction; CLAUDE.md's rule stands for every later change). The maker asked (02:58, project chat) for a tracker like the midterms one: an artifact task list plus a dedicated thread that keeps it current, with preview links. Midterms' tracker read ("Midterms Work", claude.ai/artifact/FVgfkAoKfKgzHGLi1KHkSf: a `db` collection `tasks`, rows {s: doing/todo/done, t, o, link, linkLabel}). Next: publish "Vote Work" the same way, brief T1 (tracker), the plan, and briefs D1, D2, X1.
 

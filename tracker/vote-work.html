@@ -1,0 +1,88 @@
+<title>Vote Work</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* One list in the midterms look the design guidance carries (Plex, warm paper, ink): a state mark, the task, a link if any. Same page as Midterms Work, for the vote site. */
+:root {
+  --bg: #fbfaf8; --fg: #16181b; --muted: #5b6068; --faint: #8a8f96; --line: #e3e1dc; --line-strong: #c9c6bf; --panel: #f2f1ed;
+  --done: #13756d; --done-ink: #ffffff;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121314; --fg: #ecebe7; --muted: #a2a6ad; --faint: #7a7f86; --line: #2a2c30; --line-strong: #3d4046; --panel: #1a1b1e;
+  --done: #4cc0b1; --done-ink: #0d1514; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121314; --fg: #ecebe7; --muted: #a2a6ad; --faint: #7a7f86; --line: #2a2c30; --line-strong: #3d4046; --panel: #1a1b1e;
+  --done: #4cc0b1; --done-ink: #0d1514; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.4; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 640px; margin: 0 auto; padding-block: 28px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.tally { display: flex; gap: 18px; margin: 0 0 18px; padding: 0; list-style: none; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 15px; }
+.tally li { display: inline-flex; align-items: center; gap: 7px; }
+.list { list-style: none; margin: 0; padding: 0; }
+.row { display: flex; align-items: center; gap: 14px; min-height: 56px; padding: 10px 0; border-top: 1px solid var(--line); }
+.row:last-child { border-bottom: 1px solid var(--line); }
+.t { flex: 1 1 auto; min-width: 0; font-weight: 500; }
+.row.done .t { color: var(--muted); font-weight: 400; }
+.row.todo .t { color: var(--muted); }
+.gap { height: 22px; }
+a.go { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--fg); text-decoration: none; font-size: 14px; }
+a.go:hover { background: var(--panel); }
+a.go:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+.m { flex: none; width: 22px; height: 22px; display: block; }
+.m.spin { animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .m.spin { animation-duration: 3s; } }
+.sk { height: 56px; border-top: 1px solid var(--line); }
+.sk::after { content: ""; display: block; margin-top: 21px; width: 55%; height: 12px; border-radius: 6px; background: var(--panel); }
+.quiet { color: var(--faint); font-size: 14px; padding: 18px 0; }
+</style>
+
+<div class="wrap">
+  <ul class="tally" id="tally" aria-label="Counts"></ul>
+  <ul class="list" id="list" aria-busy="true"><li class="sk"></li><li class="sk"></li><li class="sk"></li></ul>
+</div>
+
+<script>
+const ICON = {
+  doing: '<svg class="m spin" viewBox="0 0 22 22" aria-label="In progress" role="img"><circle cx="11" cy="11" r="8.5" fill="none" stroke="var(--line-strong)" stroke-width="2.4"/><path d="M11 2.5a8.5 8.5 0 0 1 8.5 8.5" fill="none" stroke="var(--fg)" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  done: '<svg class="m" viewBox="0 0 22 22" aria-label="Done" role="img"><circle cx="11" cy="11" r="10" fill="var(--done)"/><path d="M6.6 11.3l3 3 5.8-6.2" fill="none" stroke="var(--done-ink)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  todo: '<svg class="m" viewBox="0 0 22 22" aria-label="Not started" role="img"><circle cx="11" cy="11" r="9" fill="none" stroke="var(--line-strong)" stroke-width="2" stroke-dasharray="3.2 3"/></svg>',
+};
+const ARROW = '<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 8.5l5-5M4.5 3.5h4v4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ORDER = { doing: 0, todo: 1, done: 2 };
+const list = document.getElementById('list'), tally = document.getElementById('tally');
+
+function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+function render(tasks) {
+  list.removeAttribute('aria-busy');
+  list.replaceChildren();
+  const valid = tasks.filter(t => ICON[t.s] && typeof t.t === 'string');
+  valid.sort((a, b) => ORDER[a.s] - ORDER[b.s] || (a.o ?? 0) - (b.o ?? 0));
+  let prev = null;
+  for (const t of valid) {
+    if (prev && prev !== t.s) list.append(el('li', 'gap'));
+    prev = t.s;
+    const li = el('li', 'row ' + t.s, ICON[t.s]);
+    const span = el('span', 't'); span.textContent = t.t; li.append(span);
+    if (typeof t.link === 'string' && /^https:\/\//.test(t.link)) {
+      const a = el('a', 'go', ''); a.href = t.link; a.target = '_blank'; a.rel = 'noopener';
+      const w = document.createElement('span'); w.textContent = t.linkLabel || 'Open';
+      a.append(w); a.insertAdjacentHTML('beforeend', ARROW); li.append(a);
+    }
+    list.append(li);
+  }
+  if (!valid.length) list.append(el('li', 'quiet', 'Nothing yet'));
+  const n = s => valid.filter(t => t.s === s).length;
+  tally.replaceChildren();
+  for (const s of ['doing', 'todo', 'done']) { const li = el('li', '', ICON[s].replace(' spin', '')); const b = document.createElement('span'); b.textContent = n(s); li.append(b); tally.append(li); }
+}
+
+(async () => {
+  const db = await window.claude?.use?.('db');
+  if (!db) { list.removeAttribute('aria-busy'); list.replaceChildren(el('li', 'quiet', 'Open in Claude to see the work')); return; }
+  const timer = setTimeout(() => { if (list.getAttribute('aria-busy')) render([]); }, 10000);
+  db.collection('tasks').onSnapshot(snap => { clearTimeout(timer); render(snap.docs.map(d => d.data() || {})); }, () => { clearTimeout(timer); render([]); });
+})();
+</script>
