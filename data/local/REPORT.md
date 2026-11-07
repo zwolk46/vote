@@ -1,8 +1,8 @@
 # State legislatures, primaries, local races and measures: sources, method and checks
 
-*Worker D3, `briefs/D3-data-local.md`. First written 2026-11-07 05:10 UTC; method and figures brought to D3-v1.1 at 05:50, and the review points of 05:17 fixed at 06:10; MEDSL's 2022 and 2024 returns added at 06:14 (§6), their 2018 and 2020 returns and local p at 06:36 (§7), and measures with their thresholds and MEDSL's 2016 questions at 07:25 (§8). Marks: [measured] computed here from the files; [stated] as the source says; [inferred] my reading. The inventory of every source found is `data/sources/local.md`.*
+*Worker D3, `briefs/D3-data-local.md`. First written 2026-11-07 05:10 UTC; method and figures brought to D3-v1.1 at 05:50, and the review points of 05:17 fixed at 06:10; MEDSL's 2022 and 2024 returns added at 06:14 (§6), their 2018 and 2020 returns and local p at 06:36 (§7), measures with their thresholds and MEDSL's 2016 questions at 07:25 (§8), and North Carolina's State Board of Elections, every date from 2000, at 08:00 (§9). Marks: [measured] computed here from the files; [stated] as the source says; [inferred] my reading. The inventory of every source found is `data/sources/local.md`.*
 
-**State at this writing.** Every state legislative contest of 1967-2022 that Klarner's dataset holds is in `data/state-upper/`, `data/state-lower/` and `data/primary/`: 189,103 contests. Each has p, p = 0 with the reason, or the reason p is not computed. The forecast method is D3-v1.1: D3-v1 as proposed, approved by the orchestrator at 05:06 with one change (each year fitted on earlier years only), and with runoffs added at its word. **MEDSL's precinct returns of 2022 and 2024** add 30,410 contests (§6): the state legislatures of 2024, 3,616 of them with p; local races and the states' other offices, 20,152; and 4,944 ballot measures. §7 adds 2018 and 2020 and p for local races; §8 adds 2016's questions and p for statewide measures: 9,768 measures, 63 of them with p.
+**State at this writing.** Every state legislative contest of 1967-2022 that Klarner's dataset holds is in `data/state-upper/`, `data/state-lower/` and `data/primary/`: 189,103 contests. Each has p, p = 0 with the reason, or the reason p is not computed. The forecast method is D3-v1.1: D3-v1 as proposed, approved by the orchestrator at 05:06 with one change (each year fitted on earlier years only), and with runoffs added at its word. **MEDSL's precinct returns of 2022 and 2024** add 30,410 contests (§6): the state legislatures of 2024, 3,616 of them with p; local races and the states' other offices, 20,152; and 4,944 ballot measures. §7 adds 2018 and 2020 and p for local races; §8 adds 2016's questions and p for statewide measures: 9,768 measures, 63 of them with p. §9 adds North Carolina's own certified files: 21,002 contests from 2000 to 2026, which also take the place of MEDSL's North Carolina contests on its dates. With them, D3's files hold 265,272 contests.
 
 ## 1. Sources taken in by script
 
@@ -246,8 +246,80 @@ Not read, because the sites refused and the readers stopped there (never routed 
 | 2024 | 215 | 112 | 3.1, 7 | 6.3, 12 | 17.7, 26 |
 | all | | 244 | 6.5, 11 | 14.1, 19 | 35.3, 49 |
 
-**It still under-forecasts near ½.** Over the three years, 35.3 measures were expected within 5 points of ½ and 49 finished there (1.4 times); within 1 point, 6.5 and 11. Most of it is 2024 (17.7 and 26 within 5 points). The 63 measures given p finished within their own window 8 times against 3.6 expected (2022: 2 and 1.3; 2024: 6 and 2.3), so their p are likely too low, perhaps by half. Earlier years do not show it steadily: fitted on 2018 and 2022 only, the factor would be 1.18 within 1 point, 0.90 within 2 and 1.31 within 5, so a calibration like §7's would not correct 2024 in any steady way, and none is applied. At the orchestrator's word (07:25), each of the 63 p carries the shortfall in `p.note`, written by the build from its own back-test: "this route's back-test shows more near-even finishes than it forecast (49 against 35.3 within 5 points, 2018 to 2024), so p may be low". Retentions: no earlier statewide retention finished within 5 points of ½, yet 2024 had 3 (2 within 1 point); none has p.
+**It still under-forecasts near ½.** Over the three years, 35.3 measures were expected within 5 points of ½ and 49 finished there (1.4 times); within 1 point, 6.5 and 11. Most of it is 2024 (17.7 and 26 within 5 points). The 63 measures given p finished within their own window 8 times against 3.6 expected (2022: 2 and 1.3; 2024: 6 and 2.3), so their p are likely too low, perhaps by half. Earlier years do not show it steadily: fitted on 2018 and 2022 only, the factor would be 1.18 within 1 point, 0.90 within 2 and 1.31 within 5, so a calibration like §7's would not correct 2024 in any steady way, and none is applied. At the orchestrator's word (07:25), each of the 63 p carries the shortfall in `p.note`, written by the build from its own back-test: "this route's back-test shows more near-even finishes than it forecast (49 against 35.3 within 5 points, 2018 to 2024), so p may be low". *With §9's North Carolina counts, North Carolina's 2024 amendment is one statewide measure rather than 100 county questions. That makes 64 statewide p, and the note, which the build writes from its back-test, now reads "49 against 35.5".* Retentions: no earlier statewide retention finished within 5 points of ½, yet 2024 had 3 (2 within 1 point); none has p.
 
 **Size**: the rebuild grows the repository's pack from 27.43 to 27.83 MiB (scratch clone, `git gc --aggressive`, `git count-objects -vH`) [measured]; no file is over 20 MB.
 
 **Still open**, in the orchestrator's order of 07:25: OpenElections and North Carolina's State Board for the local races MEDSL lacks; local thresholds, state by state, from the state law that governs each kind of local measure; each statewide measure's own ballot text, for the 85 held back by an exception and the 16 untyped. Where a state's own code refuses (AL, CA, NH, IL), its statute may be read from Justia or Cornell LII, marked "via compilation", with the official citation and the code year (the orchestrator's ruling of 07:21 for D4, which holds for D3).
+
+## 9. North Carolina's State Board of Elections: every contest from 2000
+
+*Added 2026-11-07 at 08:00 UTC, at the orchestrator's order of 07:25 ("OpenElections and NC SBE first: by script, the most contests for the fewest tokens") and its go-ahead of 07:30 (the results_pct files by script; the 1990s PDFs left for later).*
+
+**Source** [measured]. The State Board's public download site, https://dl.ncsbe.gov/, is an S3 bucket whose `ENRS/` folder holds one folder per election date.
+- The listing was read at 07:31 UTC: 87 dates from 1990 to 2026.
+- 70 dates have a `results_pct_<date>` file (2000-11-07 to 2026-11-03): every contest on the ballots, by county, precinct and choice. 9 of these files are empty. The 1990s have PDFs only.
+- The files were fetched at 07:37 to 07:42 (60 MB).
+- The site's `ReadMe_PUBLIC_DATA.txt` says its files "are considered public information per NC General Statutes" and cites G.S. 132-1 [stated]. No licence is printed.
+- 2026-11-03 is left out. Its count was four days old at reading and is not yet certified [inferred], and the brief takes no live data.
+
+**Scripts.**
+- `pipeline/intake/ncsbe.py` runs `list`, `fetch` and `read`. It handles the six layouts of the site's `layout_results_pct.txt`; three files have no header line, and their layout is read from their columns.
+- `pipeline/local_ncsbe.py` runs `check` and `build`.
+- What the files do not say, and how each is read [inferred]:
+  - **Which lines form one contest.** The State Board names each contest with its place ("CITY OF ARCHDALE MAYOR"), so lines are joined across counties by that name. The exception is 2010 to 2013, whose county contests are named without the county ("BOARD OF COMMISSIONERS"); those are joined within a county.
+  - **The number of seats.** "Vote for" is given only from 2014. Before that, a contest with several names has no seat count, so it has no winners and no p.
+  - **Which round.** A party's primary carries the party in its name ("- DEM", "(REP)"). Before 2008 it is read from its candidates' party codes, and one name holding several parties is split by party. A second primary, or a first round, is the same name on another ballot that year.
+  - **Winners.** The leading names for the seats are taken as won, and none at a tie.
+
+**Checks** (`data/local/check-ncsbe.json`) [measured].
+- **The gate against the certified federal counts** (D1's presidency, D2's Senate, and the House district by district in a year with neither). It covers each November general date of an even year.
+  - Equal to the vote: 2004, 2006, 2008, 2012, 2014, 2016, 2018, 2022 and 2024.
+  - 2020: the president's Republican count is 2 votes lower (2,758,773 against 2,758,775).
+  - 2002 is not checked, because D2's files start in 2006.
+  - **2000 and 2010 fall short.** In 2000 the president's count is 0.8% lower (Democratic 1,247,003 against 1,257,692). In 2010 the Senate's is 1.0% lower (1,134,001 against 1,145,074). These files were likely posted before the final count [inferred]. Their 1,109 contests carry a note that their counts are the State Board's posted ones, not the certified.
+- **The legislature against Klarner** (D and R votes, single-seat districts).
+  - Equal in all 170 districts in 2004, 2006, 2008, 2012, 2014, 2020 and 2022.
+  - 2002: 167 of 170.
+  - 2000: 103 of 115 compared, the rest being multi-member.
+  - 2010: none, since the file falls short.
+  - 2016: 91 equal and 79 off by a few votes. The State Board is higher, for example 33,456 against 33,441 in Senate 24, and its 2016 Senate and president equal the certified. So Klarner's 2016 North Carolina counts are slightly short [inferred]. They stay in `data/state-*/` as Klarner's, and the orchestrator may want the certified ones there.
+  - 2018: 148 equal, and 22 off by about one vote.
+- **MEDSL's North Carolina contests** (the same names and votes).
+  - 2018: 810 races equal, 73 off by a few votes, and 112 not found.
+  - 2020: 742 equal, 95 not found.
+  - 2024: 685 equal, 165 off, 113 not found; questions 39 equal, 134 not found.
+  - 2022: MEDSL's set holds only 29 North Carolina races.
+  - The races not found are mostly ones MEDSL joins and the State Board keeps apart. Cherokee County's three 2018 commissioner districts are one MEDSL contest. The Court of Appeals' three 2024 seats are one MEDSL contest of four names. MEDSL also files the 2024 amendment (citizens-only voting) as 100 county questions, so §8 counted it as 100 local questions.
+
+**The certified file wins** (brief D3, step 2: "let the certified one win"). On MEDSL's general dates (2016 to 2024), North Carolina's local races and questions are now the State Board's. `pipeline/local_medsl.py` reads them in place of MEDSL's (`certified_nc`) and gives them MEDSL's routes and checks. The legislature, the governor and Congress stay MEDSL's. The State Board's other dates are written by `pipeline/local_ncsbe.py` into the same files, and each build keeps the other's contests. Running both builds in either order gives the same files [measured]. What changed:
+- North Carolina's 2024 amendment is one statewide measure with its threshold (N.C. Const. art. XIII, sec. 4) and p. Statewide measures with p go from 63 to 64. The measures' back-test reads 49 against 35.5 within 5 points (was 35.3), and so does each p's note.
+- 2022 gains about 1,000 North Carolina local races, which MEDSL's 2022 set lacked. 110 of them get p by like races, calibrated on 2020.
+- **Outside North Carolina**, the like-race classes and the calibration are fitted on these certified contests too. So 2,786 local p of 2024 in other states moved: by a median of −1.8%, and at most −20.5%.
+  - The school board factor goes from 0.749 to 0.646.
+  - The pooled like-race factor goes from 0.781 to 0.759.
+  - The 2024 out-of-sample test now reads 195 finishes within 1 point against 191.9 expected after calibration. Before, it read 202 against 214.7.
+  - So §7's figures for 2024 are now these.
+
+**What is written** [measured]: 21,002 North Carolina contests from 2000 to 2026.
+- By level: 17,078 local (with the state's courts, district attorneys and Council of State), 3,057 primaries and 867 questions.
+- 4,230 of them are on MEDSL's general dates. 354 of these have p, 2,334 have p = 0 and 1,542 are not computed, each with its reason.
+- The other 16,772 are written by `pipeline/local_ncsbe.py`. 5,177 are unopposed, so p = 0. 11,595 are not yet computed, with these reasons:
+  - 3,971 local races and 2,015 primaries are left to the like-race route, which is to be fitted to North Carolina's own earlier dates and back-tested before it is used (next step);
+  - 3,343 have no seat count (before 2014);
+  - 1,158 have write-ins near the winner's votes;
+  - 365 are first rounds and second primaries, and 171 follow an earlier round (perhaps runoffs);
+  - 572 are questions, waiting on step (b)'s local thresholds.
+- Left out:
+  - the legislature's generals, which are Klarner's and MEDSL's and are compared above;
+  - 54 legislative primaries of 2014, which Klarner's file holds;
+  - Congress, the presidency, the governor and the straight-party lines.
+
+**Size** [measured]. The repository packs to 28.48 MiB with this change, against 26.60 MiB at main's 001d3f7 (scratch clones, `git gc --aggressive`). The new files are 15.9 MB unpacked.
+
+**Still open.**
+- p for the State Board's other dates: like races fitted on North Carolina's earlier dates, with a back-test, before p.
+- Klarner's 2016 North Carolina counts, against the certified ones.
+- The 1990s PDFs (left for later, 07:30).
+- 2026-11-03, once certified.
+

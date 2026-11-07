@@ -710,6 +710,29 @@ def _compact(x):
     return x
 
 
+def kept_from_others(path, owns):
+    """The contests an existing file holds that this build does not write (owns(contest) is false), their source
+    blocks, and the file's head. A file holds one level, year and state, and two builds can each write some of its
+    contests (North Carolina's State Board beside MEDSL or Klarner): each rewrites its own and keeps the other's."""
+    if not os.path.exists(path):
+        return [], {}, {}
+    with open(path) as f:
+        d = json.load(f)
+    keep = [c for c in d.get("contests", []) if not owns(c)]
+    # every source block the file had, when it keeps contests: their results and forecasts cite blocks by key
+    src = dict(d.get("sources") or {}) if keep else {}
+    return keep, src, {k: v for k, v in d.items() if k != "contests"}
+
+
+def write_level_file(path, head, contests):
+    """One file of data/<level>/<year>/<ST>.json: its head, then one contest per line."""
+    with open(path, "w") as f:
+        body = json.dumps(head, ensure_ascii=False, separators=(",", ":"))
+        f.write(body[:-1] + ',"contests":[\n')
+        f.write(",\n".join(json.dumps(x, ensure_ascii=False, separators=(",", ":")) for x in contests))
+        f.write("\n]}\n")
+
+
 def build(out_dir, with_p=False, sample=False):
     contests = load_klarner()
     info = klarner_info()
@@ -935,12 +958,10 @@ def build(out_dir, with_p=False, sample=False):
                "contests": cs}
         path = os.path.join(out_dir, level, str(t), f"{st}.json")
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "w") as f:
-            head = {k: v for k, v in obj.items() if k != "contests" and v is not None}
-            body = json.dumps(head, ensure_ascii=False, separators=(",", ":"))
-            f.write(body[:-1] + ',"contests":[\n')
-            f.write(",\n".join(json.dumps(x, ensure_ascii=False, separators=(",", ":")) for x in cs))
-            f.write("\n]}\n")
+        head = {k: v for k, v in obj.items() if k != "contests" and v is not None}
+        others, other_src, _ = kept_from_others(path, lambda r: (r.get("result") or {}).get("source") == "klarner")
+        head["sources"] = dict(other_src, **head["sources"])
+        write_level_file(path, head, cs + others)
         sz = os.path.getsize(path)
         total_bytes += sz
         by_level[level] += sz
