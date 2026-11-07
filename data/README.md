@@ -257,7 +257,7 @@
 - **`gate`** (every New Jersey record of 2024): how the record passed or failed the county gate.
   - `by` is `county` and `line` the 0.5% line. `check` names `data/local/check-nj.json`.
   - `counties` maps each of the contest's counties (FIPS) to its worst miss against the state's certified lists, for `president`, `senate` and `house` (a share, e.g. `0.0071`).
-  - `row_checks` is `passed`, or the list of checks the contest's rows failed (a repeated row, a total line among the precincts, a precinct over its federal votes times vote-for-N).
+  - `row_checks` is `passed`, or the list of checks the contest's rows failed (a repeated row, a total line among the precincts, a precinct over its ballots cast times vote-for-N, data/local/REPORT.md §13).
   - `released` is true when the gate lets the record's p be computed by its usual routes; those may still leave it out, and `p.not_computed` then says why. When false, `p.not_computed` gives the gate's reason.
   - `clerk_check` (the five sampled contests only): the county clerk's official file (`file`, `sha256`) and the `worst_miss` against it.
 

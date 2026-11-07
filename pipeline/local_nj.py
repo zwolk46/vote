@@ -114,6 +114,8 @@ def medsl_by_county():
 
 FEDERAL = ("US PRESIDENT", "US SENATE", "US HOUSE")
 TOTAL_ROW = re.compile(r"\bTOTAL\b", re.I)
+OVER_UNDER = re.compile(r"^(OVER|UNDER) ?VOTES?$")
+CONTEST_TOTAL = "CONTEST TOTAL"
 
 
 def _resolve(modes):
@@ -124,15 +126,20 @@ def _resolve(modes):
 
 def medsl_rows():
     """MEDSL's New Jersey rows, read once: ({(office, district, magnitude): {precinct key: {candidate: {mode: votes}}}},
-    {precinct key: the most votes cast there for one federal office}, {row key: times it appears})."""
+    {precinct key: the ballots cast there}, {row key: times it appears}).
+    A precinct's ballots cast (the orchestrator's ruling of 2026-11-07 11:16): for each vote-for-1 contest there (the
+    file's magnitude 1, which every federal office has), its votes plus its overvotes plus its undervotes, or its
+    "CONTEST TOTAL" row where that is larger; the largest of these over the precinct's contests. Each ballot counts
+    once in a vote-for-1 contest's votes, overvotes or undervotes; in a vote-for-N contest it counts N times, so those
+    are left out."""
     from intake import medsl_precinct as MP
     rows = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
-    fed = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
+    one = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     seen = collections.Counter()
     with open(os.path.join(F.CACHE, MEDSL_FILE), newline="", encoding="utf-8", errors="replace") as f:
         for r in csv.DictReader(f):
             cand = (r["candidate"] or "").strip()
-            if MP.is_meta(cand) or r.get("stage", "GEN") != "GEN":
+            if r.get("stage", "GEN") != "GEN":
                 continue
             pk = (MP.fips5(r["county_fips"]), r["jurisdiction_fips"], r["precinct"])
             mode = (r["mode"] or "TOTAL").upper()
@@ -140,34 +147,42 @@ def medsl_rows():
                 v = int(float(r["votes"]))
             except ValueError:
                 v = 0
+            if r["magnitude"] in ("1", "1.0") and (not MP.is_meta(cand) or OVER_UNDER.match(cand.upper())
+                                                   or cand.upper() == CONTEST_TOTAL):
+                c1 = one[pk][(r["office"], r["district"], r["dataverse"])][cand.upper()]
+                c1[mode] = c1.get(mode, 0) + v
+            if MP.is_meta(cand):
+                continue
             seen[(r["office"], r["district"], r["magnitude"]) + pk + (cand, mode)] += 1
-            if r["office"] in FEDERAL:
-                cell = fed[pk][(r["office"], r["district"])]
-            elif r["dataverse"] == "LOCAL":
+            if r["dataverse"] == "LOCAL" and r["office"] not in FEDERAL:
                 mag = r["magnitude"]
                 try:
                     mag = int(float(mag))
                 except ValueError:
                     mag = None
-                cell = rows[(r["office"], r["district"], mag)][pk]
-            else:
-                continue
-            cell[cand][mode] = cell[cand].get(mode, 0) + v
-    most = {pk: max(sum(_resolve(m) for m in cands.values()) for cands in offices.values())
-            for pk, offices in fed.items()}
-    return rows, most, seen
+                cell = rows[(r["office"], r["district"], mag)][pk][cand]
+                cell[mode] = cell.get(mode, 0) + v
+    ballots = {pk: max(max(sum(_resolve(m) for n, m in cands.items() if n != CONTEST_TOTAL),
+                           _resolve(cands[CONTEST_TOTAL]) if CONTEST_TOTAL in cands else 0)
+                       for cands in contests.values())
+               for pk, contests in one.items()}
+    return rows, ballots, seen
 
 
-def row_checks(contests, rows=None, most=None, seen=None):
+def row_checks(contests, rows=None, ballots=None, seen=None):
     """For each of MEDSL's New Jersey contests (the intake's normalized ones), the orchestrator's checks of 10:45 on its
     rows: (a) a row repeated for the same precinct, office, candidate and mode; (b) a precinct line that is a total,
     named so or equal for every candidate to all the contest's other precincts added up (Gloucester's presidential
-    failure: a "COUNTY TOTAL" line beside its municipalities); (c) a precinct whose votes in the contest exceed the most
-    it cast for one federal office times the contest's vote-for-N (the number of candidates on the ballot where MEDSL
-    gives no vote-for-N). Returns [reasons] for each contest, in order: empty where none applies."""
+    failure: a "COUNTY TOTAL" line beside its municipalities); (c) a precinct whose votes in the contest exceed the
+    ballots cast there (medsl_rows) times the contest's vote-for-N. Where MEDSL gives no vote-for-N, the number of
+    candidates named is used, and a contest over that bound is held with that said (the ruling of 11:16: "keep holding
+    contests whose vote-for-N is unknown"; read as those the check holds, since the bound cannot then clear them).
+    (c) was first the most votes cast for one federal office (the ruling of 10:45); the ruling of 11:16 replaced it,
+    because a ballot overvoted or left blank for president still counts for sheriff (Camden, data/local/REPORT.md
+    section 13). Returns [reasons] for each contest, in order: empty where none applies."""
     from intake import medsl_precinct as MP
     if rows is None:
-        rows, most, seen = medsl_rows()
+        rows, ballots, seen = medsl_rows()
     out = []
     for c in contests:
         names = {x["name"] for x in c["candidates"]}
@@ -190,10 +205,12 @@ def row_checks(contests, rows=None, most=None, seen=None):
                 break
         n_ = c["magnitude"] or sum(1 for x in c["candidates"] if not MP.is_generic(x["name"]))
         over = [pk for pk, cands in prec.items()
-                if sum(_resolve(m) for m in cands.values()) > most.get(pk, 0) * max(n_, 1)]
+                if sum(_resolve(m) for m in cands.values()) > ballots.get(pk, 0) * max(n_, 1)]
         if over:
-            why.append(f"{len(over)} of its {len(prec)} precincts count more votes than the most they cast for one "
-                       f"federal office times {n_} (e.g. '{over[0][2]}')")
+            why.append(f"{len(over)} of its {len(prec)} precincts count more votes than the ballots cast there times "
+                       + (f"its vote-for-N, {n_}" if c["magnitude"] else
+                          f"{n_}, the number of candidates named, since its vote-for-N is not given")
+                       + f" (e.g. '{over[0][2]}')")
         out.append(why)
     return out
 
