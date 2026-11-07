@@ -17,7 +17,8 @@ share of the two-party vote:
   inc_i   +1 if a Democratic incumbent runs, -1 if a Republican incumbent runs, 0 for an open seat
           (Cha, Kuriwaki and Snyder's hand-coded incumbency; for the Senate before 2006, inferred from MEDSL);
   lag_i   governors only: the Democrat's two-party share in the state's last governor race before year t that
-          a Democrat and a Republican led (Cha; M2's A4, the orchestrator 2026-11-07 05:58, item 5);
+          a Democrat and a Republican led (Cha from 2006, Algara and Amlani's county returns before; M2's A4,
+          the orchestrator 2026-11-07 05:58, item 5);
   a_t     the year's national swing, common to every race of the level that year;
   e_i     the race's own error, independent across races.
 
@@ -28,14 +29,18 @@ midterm, and the president's party (National Archives):
 
 with M_t = 1 in a midterm, P_t = +1 if the sitting president is a Democrat and -1 if a Republican.
 
-EARLIER CYCLES ONLY (method D2-v2, the orchestrator, 2026-11-07 05:58, item 2). The forecast for year t is
-fitted on the level's cycles before t and nothing later, as a forecaster then could have: the House from
-2006, the Senate from 1982 (MEDSL reaches back before Cha), governors from 2010 (FIT_FROM). Its national sd
+EARLIER CYCLES ONLY (method D2-v2, the orchestrator, 2026-11-07 05:58, item 2; D2-v3 from 06:36). The forecast
+for year t is fitted on the level's cycles before t and nothing later, as a forecaster then could have: the House
+from 2006, the Senate from 1982 (MEDSL reaches back before Cha), governors from 1978 (Algara and Amlani's county
+returns reach back before Cha; FIT_FROM). Its national sd
 is the OLS prediction sd from those cycles, s_a sqrt(1 + z (Z'Z)^-1 z'). A fit needs at least K_MIN = 4
 cycles (the three national terms and one degree of freedom for their spread) and presidents of both
 parties among them; a year with fewer gets no forecast of its own (p not computed, unless 538's stands
-first). So the forecast for race i is normal with mean 1/2 + c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G
-(lag_i - 1/2)) and variance sd_nat^2 + s_e^2; a Student-t with 4 degrees of freedom matched on the same sd
+first). The House of 2008-2012, with one to three earlier cycles of its own, takes the national terms (c, s_a,
+(Z'Z)^-1) from the Senate's fit on the Senate's earlier cycles and fits b_lean, b_inc and s_e on its own
+(06:36, item 2; raw_model). CALIBRATION (06:36, item 3): both sds are then multiplied by k, the root mean square
+of z over the level's earlier years scored out of sample, once CAL_MIN = 3 such years exist (calibration). So the forecast for race i is normal with mean 1/2 + c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G
+(lag_i - 1/2)) and variance k^2 (sd_nat^2 + s_e^2); a Student-t with 4 degrees of freedom matched on the same sd
 is computed alongside (model section 9.5). The common part sd_nat^2 is what ties races together for
 control of a chamber (MATH 4.2): rho = sd_nat^2 / (sd_nat^2 + s_e^2).
 
