@@ -98,8 +98,97 @@ def load(year):
                     continue
                 out.append(c)
     import local_nj as NJ
-    return NJ.county_gate(certified_la(certified_in(certified_nc(join_statewide(fix_questions(out, year), year), year),
-                                                year), year), year)
+    return mark_whole_state(known_contests(
+        NJ.county_gate(certified_la(certified_in(certified_nc(join_statewide(fix_questions(out, year), year), year),
+                                                 year), year), year), year))
+
+
+def mark_whole_state(contests):
+    """m["whole_state"]: the contest has a vote in every county that the state's contests on its date have votes in,
+    in the files taken in [measured], and the state has more than one. Why: the orchestrator's rulings of 2026-11-07
+    16:19 type "a statewide contest for a commission seat that elects one seat" and "a supreme court or appellate seat
+    elected statewide in a one-seat contest" by what the contest elects; a seat's district column does not say that,
+    since it holds a seat's number or place as often as a district ("PLACE 1", "POSITION 2", "SEAT C", "001": Alabama's
+    and Texas's places, Arkansas's positions, Nevada's seats), so the counties the contest's votes are in are read
+    instead. A contest that misses one county of the state's files is not read as statewide (data/local/REPORT.md
+    section 25 lists the near misses). County codes that are not five digits are left out of both counts."""
+    allc = collections.defaultdict(set)
+    for m in contests:
+        allc[(m.get("state"), m.get("date"))].update(x for x in (m.get("counties") or []) if re.fullmatch(r"\d{5}", x or ""))
+    for m in contests:
+        a = allc[(m.get("state"), m.get("date"))]
+        m["whole_state"] = len(a) > 1 and a <= set(m.get("counties") or [])
+    return contests
+
+
+NM_SOS = os.path.join(F.CACHE, "nm_sos", "normalized")
+KNOWN = collections.defaultdict(collections.Counter)   # year -> what known_contests did, for the report
+# Illinois's 2018 Comptroller and Treasurer each carry a second contest in MEDSL's file: one name, Mary Arline
+# Vann-Metcalf, with 17 and 2 votes in one Cook County precinct ("COUNTY FLOATING"), no party, not marked a write-in,
+# district STATEWIDE [measured]. The orchestrator, 16:19: "identify them from the State Board's results and fix or
+# hold them, with the reason". The State Board's results page (elections.il.gov, ElectionVoteTotals.aspx) answered its
+# own form for the 2018 general election with its error page ("An error has occurred."), twice, at 16:20 and 16:21 UTC
+# [measured], so the lines are not identified, and they are held.
+IL_2018_HELD = ("held: one name with a handful of votes in one Cook County precinct of MEDSL's file ('COUNTY "
+                "FLOATING'), filed apart from the statewide contest of the same office; the State Board of Elections' "
+                "results could not be read to say what these lines are (its page answered the form for the 2018 "
+                "general with an error page, 2026-11-07), so p is not computed")
+
+
+def known_contests(contests, year):
+    """Two fixes of MEDSL's contests, each from a ruling of the orchestrator's of 2026-11-07 16:19 (data/local/REPORT.md
+    section 25):
+      New Mexico's Public Education Commissioners of 2022 take their districts from the Secretary of State's
+        official results (pipeline/intake/nm_sos.py): "NM's PEC members are elected by district, so find the district
+        or hold them". Each MEDSL contest of no district must match one official contest by its names; the official
+        votes are the counts (the ruling of 15:16, "the certified count wins"), and MEDSL's stay in nm_sos.medsl.
+      Illinois's two stray 2018 lines are held (IL_2018_HELD)."""
+    KNOWN[year] = collections.Counter()   # this load's fixes (a year may be loaded more than once)
+    if year == 2022:
+        path = os.path.join(NM_SOS, "2022-pec.json")
+        if not os.path.exists(path):
+            raise SystemExit(f"{path} is not in the cache: run pipeline/intake/nm_sos.py read --year 2022 first")
+        with open(path) as f:
+            off = json.load(f)
+        by_names = {frozenset(x["name"].upper() for x in c["candidates"]): c for c in off["contests"]}
+        hits = 0
+        for m in contests:
+            if m.get("state") == "NM" and m["office"] == "PUBLIC EDUCATION COMMISSIONER" and not m.get("district"):
+                names = frozenset(x["name"].upper() for x in ballot(m["candidates"]))
+                o = by_names.get(names)
+                if o is None:
+                    raise SystemExit(f"known_contests: NM 2022 PEC {sorted(names)}: no official contest of these names")
+                votes = {x["name"].upper(): x["votes"] for x in o["candidates"]}
+                m["nm_sos"] = {"district": o["district"], "medsl": {x["name"]: x["votes"] for x in m["candidates"]}}
+                for x in m["candidates"]:
+                    if x["name"].upper() in votes:
+                        x["votes"] = votes[x["name"].upper()]
+                m["district"] = o["district"]
+                diff = {n: (v, votes[n.upper()]) for n, v in m["nm_sos"]["medsl"].items()
+                        if n.upper() in votes and votes[n.upper()] != v}
+                m["notes"] = (m.get("notes") or []) + [
+                    f"district {o['district']} and the votes: the New Mexico Secretary of State's official results "
+                    "(pipeline/intake/nm_sos.py); MEDSL's 2022 file gives this contest no district"
+                    + "".join(f"; MEDSL's count for {n.title()} is {a:,}, the official {b:,}" for n, (a, b) in diff.items())]
+                hits += 1
+                KNOWN[year]["NM: Public Education Commissioner, district from the official results"] += 1
+                if diff:
+                    KNOWN[year]["NM: Public Education Commissioner, official votes differ from MEDSL's"] += 1
+        if hits != len(off["contests"]):
+            raise SystemExit(f"known_contests: NM 2022 PEC: {hits} MEDSL contests for {len(off['contests'])} official")
+    if year == 2018:
+        hits = 0
+        for m in contests:
+            if m.get("state") == "IL" and m["office"] in ("COMPTROLLER", "TREASURER") and m.get("counties") == ["17031"] \
+                    and {x["name"] for x in m["candidates"]} == {"MARY ARLINE VANN-METCALF"}:
+                m["held_reason"] = IL_2018_HELD
+                for x in m["candidates"]:
+                    x["won_marked"] = None   # not known to be a contest, so no winner is marked
+                hits += 1
+                KNOWN[year]["IL: a stray line held"] += 1
+        if hits != 2:
+            raise SystemExit(f"known_contests: IL 2018: {hits} stray lines found, not 2")
+    return contests
 
 
 STATEWIDE_LISTED = os.path.join(L.REPO, "data", "measure", "statewide-filed-local.json")
@@ -952,8 +1041,7 @@ def _backtest_one(M, k, rows, bad, pres):
         e100 += nd.cdf(0.5 + h) - nd.cdf(0.5 - h)
         s100 += abs(r_["d"]["votes"] - r_["r"]["votes"]) <= 100
         bias += m - y
-        t = office_type_in(r_["m"]["office"], r_["m"].get("state"), r_["m"].get("district"),
-                           "state" if r_["m"]["dataverse"] == "STATE" else "local", r_["m"].get("counties"))
+        t = contest_type(r_["m"])
         by_type[t][0] += 1
         by_type[t][1] += abs(y - m) <= z["50"] * sd
     n = max(len(used), 1)
@@ -1526,17 +1614,49 @@ STATE_EXEC = re.compile(
     r"CHIEF FINANCIAL OFFICER|SECRETARY OF (THE )?(STATE|COMMONWEALTH)|SECRETARY OF AGRICULTURE|"
     r"LIEUTENANT GOVERNOR|LT\.? GOVERNOR|ATTORNEY GENERAL( - [A-Z ]+)?|"
     r"COMMISSIONER OF (AGRICULTURE( AND INDUSTRIES)?|INSURANCE|LABOR|PUBLIC LANDS|STATE LANDS|SCHOOL AND PUBLIC LANDS|"
-    r"THE BUREAU OF LABOR AND INDUSTRIES)|(AGRICULTURE|INSURANCE|LABOR|PUBLIC LANDS) COMMISSIONER|STATE MINE INSPECTOR"
+    r"THE BUREAU OF LABOR AND INDUSTRIES)|(AGRICULTURE|INSURANCE|LABOR|PUBLIC LANDS) COMMISSIONER|STATE MINE INSPECTOR|"
+    r"CLERK OF THE SUPREME COURT"   # Montana's: the orchestrator, 16:19, "MT's Clerk of the Supreme Court is a statewide officer"
     r")$")
+# The orchestrator's rulings of 2026-11-07 16:19, each by what the contest elects (reason: "a race's class is set by what
+# the contest elects"; "a statewide judicial race is not like a county bench, and the class decides the pool"):
+#   1. "A statewide contest for a commission seat that elects one seat, by the source's own vote-for or seat count, is a
+#      'statewide officer'. Where it elects more than one, it keeps the board type. Where the source does not show the
+#      count, hold it as a board and do not infer the count."
+#   2. "A supreme court or appellate seat elected statewide in a one-seat contest is typed 'statewide judge'. Retentions
+#      stay retentions, and the other judges keep their type."
+# A commission seat is an office named for a commission (STATE_COMMISSION: Alabama's and Georgia's Public Service
+# Commission, its president, the Arizona and Oklahoma corporation commissioners, North Dakota's public service and
+# South Dakota's public utilities commissioners, Texas's railroad commissioners); a supreme court or appellate seat is
+# one named for that court (STATE_COURT), not its clerk, and not a retention. "Statewide" is read from the counties the
+# contest's votes are in (mark_whole_state; the State Board's North Carolina contests: all 100 counties), since a seat's
+# district column holds places and positions as often as districts; one seat is the source's own count (MEDSL's
+# magnitude, the State Board's vote-for), never inferred.
+STATE_COMMISSION = re.compile(r"\bCOM+IS+I[O0]N(ERS?)?\b")
+STATE_COURT = re.compile(r"\bSUPREME\b|\bAPPEALS\b|\bAPPELLATE\b|\bCOMMONWEALTH COURT\b|\bCT OF APP\b")
+RETENTION = re.compile(r"RETENTION|RETAIN")
 
 
-def office_type_in(office, state=None, district=None, scope="local", counties=None):
-    """office_type, with a state office's single-seat statewide executive office typed "statewide officer"."""
+def office_type_in(office, state=None, district=None, scope="local", counties=None, seats=None, whole_state=False):
+    """office_type, with a state office's single-seat statewide executive office typed "statewide officer", and a state
+    office's one-seat contest elected statewide typed by the rulings of 16:19: a commission seat "statewide officer", a
+    supreme court or appellate seat "statewide judge"."""
     o = " ".join(office.upper().split())
     if scope == "state" and district in (None, "", "STATEWIDE") and (counties is None or len(counties) != 1) \
             and (STATE_SUPT.search(o) or STATE_EXEC.match(o)):
         return "statewide officer"
+    if scope == "state" and whole_state and seats == 1 and (counties is None or len(counties) != 1) \
+            and not RETENTION.search(o) and "CLERK" not in o:
+        if STATE_COURT.search(o):
+            return "statewide judge"
+        if STATE_COMMISSION.search(o) and office_type(office, state, district) == "council, commission or board":
+            return "statewide officer"
     return office_type(office, state, district)
+
+
+def contest_type(m):
+    """office_type_in for a MEDSL contest, from its own fields."""
+    return office_type_in(m["office"], m.get("state"), m.get("district"), "state" if m["dataverse"] == "STATE" else "local",
+                          m.get("counties"), m.get("magnitude"), m.get("whole_state"))
 
 
 def office_type(office, state=None, district=None):
@@ -1560,6 +1680,8 @@ def local_structure(m):
     k = m.get("magnitude")
     if m.get("held_round"):   # a round the source's own state file marks as not the deciding one (local_la.py)
         return ("not computed", m["held_round"])
+    if m.get("held_reason"):   # a contest the source's own lines cannot settle (known_contests)
+        return ("not computed", m["held_reason"])
     if k is None:
         return ("not computed", "the number of seats is not verified in the source (MEDSL's magnitude is empty)")
     if m["special"]:
@@ -1575,7 +1697,7 @@ def local_structure(m):
     nd = sum(1 for x in b if major(x) == "D")
     nr = sum(1 for x in b if major(x) == "R")
     scope = "state" if m["dataverse"] == "STATE" else "local"
-    ot = office_type_in(m["office"], m.get("state"), m.get("district"), scope, m.get("counties"))
+    ot = contest_type(m)
     if k > 1:
         slate = ("both major parties on the ballot" if nd and nr else "one major party or none")
         return ("boundary", f"{scope} {ot}, {k if k < 4 else '4+'} seats at once, {slate}")
@@ -1901,7 +2023,7 @@ def build(out_dir, with_p=True):
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
-                   "office": c["office"].title(), "office_type": office_type_in(c["office"], c["state"], c["district"], scope, c.get("counties")), "office_scope": scope,
+                   "office": c["office"].title(), "office_type": contest_type(c), "office_scope": scope,
                    "election": c.get("election_words") or ((("general" if c["stage"] == "GEN" else
                                                                c["stage"].lower())
                                                               + (", special" if c["special"] else ""))
@@ -1916,8 +2038,11 @@ def build(out_dir, with_p=True):
                 rec["gate"] = (c.get("county_gate") or c.get("source_gate"))["record"]
             if c.get("party_office"):   # Louisiana's party committees (local_la.py)
                 rec["party_office"] = c["party_office"]
-            if c.get("notes"):   # Louisiana's tied generals held again (local_la.py tie_note)
+            if c.get("notes"):   # Louisiana's tied generals held again (local_la.py tie_note); New Mexico's PEC
                 rec["notes"] = list(c["notes"])
+            if c.get("nm_sos"):   # New Mexico's official PEC results in place of MEDSL's (known_contests)
+                rec["result"]["votes_source"] = "nm_sos"
+                rec["result"]["medsl_votes"] = c["nm_sos"]["medsl"]
             if c.get("tie"):   # an exact tie, and how it was settled (local_la.py tie_record)
                 rec["result"]["tie"] = True
                 rec["result"]["tie_settled"] = c["tie"]
@@ -2266,6 +2391,15 @@ def build(out_dir, with_p=True):
             import local_la as LA
             head["sources"]["la_sos"] = LA.source_block(year)
             head["sources"]["fips"] = LA.fips_source()
+        if any((x.get("result") or {}).get("votes_source") == "nm_sos" for x in cs + others):
+            with open(os.path.join(NM_SOS, f"{year}-pec.json")) as f:   # New Mexico's official PEC results
+                nm = json.load(f)
+            head["sources"]["nm_sos"] = F.source(
+                "New Mexico Secretary of State, " + nm["archive"]["link_text"] + ": Public Education Commission",
+                nm["page"]["url"], nm["page"]["read_utc"], nm["licence"], mark="stated",
+                via=f"pipeline/intake/nm_sos.py; linked from {nm['archive']['url']}",
+                note="each Public Education Commissioner's district and votes (result.votes_source 'nm_sos'); MEDSL's "
+                     "counts in result.medsl_votes", sha256=nm["page"]["sha256"])
         if "in_enr" in used:   # Indiana's own certified file (certified_in)
             import local_in as LI
             head["sources"]["in_enr"] = LI.source_block()
@@ -2306,6 +2440,7 @@ def build(out_dir, with_p=True):
           + ", ".join(f"{k} {v / 1e6:.1f} MB" for k, v in sorted(by_level.items())))
     counts.update({f"left out, no vote anywhere, {y}": EMPTY[y] for y in YEARS})
     counts.update({f"joined {y}, {k}": v for y in sorted(JOINED) for k, v in JOINED[y].items()})
+    counts.update({f"known {y}, {k}": v for y in sorted(KNOWN) for k, v in KNOWN[y].items()})
     print(json.dumps(dict(sorted(counts.items())), indent=1))
     return files, counts
 

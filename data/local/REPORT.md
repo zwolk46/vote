@@ -1327,3 +1327,75 @@ Typing them all `statewide officer` would put them in one pool. It would move mo
 
 **Lieutenant governors on a joint ticket.** None is filed as its own contest [measured]. Each of the 29 general-election lieutenant governor records was set beside the same state's governor contest in `data/governor/`, party by party. 27 have a governor's contest to compare. No Democratic or Republican count equals the governor's: where both have the party's candidate, the ratios run from 0.74 to 1.35, apart from Idaho's 2022. A joint ticket's votes would be the governor's own.
 - Idaho's 2022 record reads 2.96 and 2.09 times the governor's. MEDSL's 2022 Idaho file is about double: its US House count is 1,163,392 against the certified 583,628 in `checks-2022.json`. The file's own quality gate already holds those records. California's 2022 and Louisiana's 2023 had no governor's contest to compare.
+
+## 25. Commission seats, statewide judges, Montana's clerk, New Mexico's PEC and Illinois's stray lines (the rulings of 16:19)
+
+*Added 2026-11-07 at 16:44 UTC.* The rulings, verbatim:
+1. "A statewide contest for a commission seat that elects one seat, by the source's own vote-for or seat count, is a 'statewide officer'. Where it elects more than one, it keeps the board type. Where the source does not show the count, hold it as a board and do not infer the count."
+2. "A supreme court or appellate seat elected statewide in a one-seat contest is typed 'statewide judge'. Retentions stay retentions, and the other judges keep their type."
+3. "MT's Clerk of the Supreme Court is a statewide officer."
+4. "MI's boards, HI's OHA trustees and DC's at-large seats keep their types under rule 1. NM's PEC members are elected by district, so find the district or hold them. DC's AG and Mayor stay local."
+5. "IL 2018's two stray lines: identify them from the State Board's results and fix or hold them, with the reason."
+
+Reasons: "a race's class is set by what the contest elects"; "a statewide judicial race is not like a county bench, and the class decides the pool". Every record that changed: `data/local/moves-courts-commissions.json`, against main after #87.
+
+**How "elected statewide" is read.** A seat's district column does not say whether the seat is elected statewide. It holds a seat's place or position as often as a district: Alabama's and Texas's "PLACE 1" and "002", Arkansas's "POSITION 2", Nevada's "SEAT C", Minnesota's "STATEWIDE, COURT 5" [measured: MEDSL's files]. So the contest's own votes are read instead (`pipeline/local_medsl.py`, `mark_whole_state`). A contest is elected statewide if it has a vote in every county where the state's contests on its date have votes, in the files taken in [measured]. County codes that are not five digits are left out. For the State Board's North Carolina contests, the contest must be in all 100 counties, the test that script already uses. "One seat" is the source's own count: MEDSL's magnitude, the State Board's vote-for. A contest with no count keeps its type.
+
+The courts' seats split cleanly [measured, MEDSL's state files 2016-2024]:
+- 117 contests are in every county.
+- 155 have votes in under half the state's counties. They are district seats: Ohio's, Texas's, Kentucky's, Washington's and Mississippi's courts of appeals by district, Kentucky's and Mississippi's supreme courts by district, New York's supreme court (a trial court).
+- 5 fall between, the near misses below.
+
+**What moves:**
+- **142 records are typed `statewide judge`** (135 local, 7 North Carolina primaries); all were `judge`. Of them:
+  - 47 kept p 0 (unopposed);
+  - 4 kept their p (North Carolina's 2024 Democrat-against-Republican races, whose partisan route does not read the type).
+  - **7 lost their p:** Arkansas's 2024 Chief Justice; Michigan's 2024 Supreme Court; Minnesota's 2024 Chief Justice and Associate Justice 6; Montana's 2024 Chief Justice and Justice 3; Washington's 2024 Position 2. Their new class, "state statewide judge, nonpartisan, 2 candidates", has 8 like races in earlier years, under the method's floor of 100.
+  - The other 84 had no p before and have none now.
+  - By state and year, the records are Alabama's (22), North Carolina's (47), Minnesota's (15), Texas's (10), New Mexico's (10), Nevada's (11), Ohio's (7), Washington's (6), Montana's (4), Arkansas's (3), Michigan's (3), West Virginia's (2) and North Dakota's (2). `typed_by_office` in the moves file lists every office name.
+- **12 other judges lost their p** with no change of type:
+  - Arkansas: 4;
+  - Florida: 2;
+  - Indiana: 1;
+  - Mississippi: 1 (a supreme court seat by district);
+  - Oregon: 4 circuit judges.
+
+  All are 2024 county or district benches in the class "state judge, nonpartisan, 2 candidates". With the statewide seats gone from that class, it has 94 like races in earlier years, under the floor of 100. This follows from the ruling's pool; it is not a choice made here.
+- **16 records are typed `statewide officer`:**
+  - 14 commission seats, all one seat in every county: Alabama's Public Service Commission (Places 1 and 2 of 2018, its President of 2024); Georgia's Public Service Commission (Metro-Atlanta and Western of 2018, members elected statewide from residency districts [inferred: the contests are in all 159 counties]); North Dakota's Public Service Commissioner (2018, 2024); Oklahoma's Corporation Commissioner (2018, 2022); South Dakota's Public Utilities Commissioner (2018, 2022, 2024); Texas's Railroad Commissioner (2018, 2024).
+  - Montana's Clerk of the Supreme Court (2018, 2024), which `STATE_EXEC` now names.
+
+  Their types before were `council, commission or board` (14) and `clerk, treasurer or other county officer` (2). None moved a p: Alabama's 2024 president keeps p 0 and Montana's 2024 clerk keeps its partisan p (2.97e-6). The rest are Democrat-against-Republican races with no county lean for the year, before and after.
+- **Kept their type by rule 1:**
+  - Arizona's corporation commissioners: 2 and 3 seats at once, and a 2024 contest split in two by MEDSL's file, 12 and 3 counties.
+  - Montana's and Nebraska's public service commissioners, by district (19, 6, 8 and 4 counties).
+  - Michigan's boards (2 seats at once), Hawaii's OHA trustees and the District of Columbia's at-large seats, as ruled.
+- **New Mexico's Public Education Commissioners, 2022.** MEDSL's 2022 file gives the contests no district [measured: the district column is empty]. Its five candidates, each the only name in precincts of its own, had been read as five contests of no district. The Secretary of State's official results give each one's district:
+  - the page is "2022 General Election Official Results", Public Education Commission, read by the new `pipeline/intake/nm_sos.py` at 16:32 UTC [stated];
+  - Timothy E Beck, district 2; Alan Lee Brauer Jr, 3; Sharon Clahchischilliage, 5; Stewart Alan Ingham, 6; Patricia E Gipson, 7;
+  - each was the only name, every precinct reported, and each total equals its candidate's votes.
+
+  What changes in the records:
+  - each takes its district, so its id changes (`…PUBLIC_EDUCATION_COMMISSIONER-2` and so on);
+  - each takes the official votes (`result.votes_source` `nm_sos`; the ruling of 15:16, "the certified count wins") and keeps MEDSL's in `result.medsl_votes`. Gipson's official count is 35,567 against MEDSL's 35,565; the other four are equal;
+  - each keeps p 0 (unopposed) and its type, `school board`.
+
+  The 2024 file already gives the districts. The 2016 contests are read for their questions only.
+- **Illinois's two stray lines of 2018.** Each is one name, Mary Arline Vann-Metcalf, with 17 votes for Comptroller and 2 for Treasurer, plus 1 for State Senate 17, which is not a local record [measured]:
+  - all in one Cook County precinct, "COUNTY FLOATING";
+  - no party, not marked a write-in, district STATEWIDE.
+
+  The State Board of Elections' results page (elections.il.gov, ElectionVoteTotals.aspx) answered its own form for the 2018 general election with its error page, "An error has occurred.", at 16:20 and at 16:21 UTC, the second time with the page's own session cookie [measured]. So the lines are not identified. They are held: p not computed (before, p 0), and no winner is marked. The reason is in each record.
+
+**The back-tests.** `backtest-local-classes.json` (2024) has 19 fewer contests, the 19 judges above, and its "class, state judge" row is gone. `backtest-local-partisan.json` and `calibration-local.json` show the judges' rows split. No verdict is read from these rows.
+
+**For a ruling, not acted on here:**
+- **Near misses of "statewide":**
+  - Oregon's 2024 Supreme Court positions 1 and 7 have votes in 28 and 26 of the state's 36 counties in MEDSL's file.
+  - Washington's 2022 positions 1, 5 and 6 are in 38 of 39: King County's lines are filed as other contests ("STATE SUPREME COURT JUSTICE POSITION NO. 6", 558,007 votes, beside 1,360,073 for the rest of the state), and MEDSL gives each position 3 seats.
+  - All five stay `judge`.
+  - The same split touches Washington's 2022 statewide officers (Secretary of State, 38 of 39 counties).
+- **One-seat statewide boards that are not commissions:** Colorado's at-large State Board of Education seat (64 of 64 counties) and Hawaii's resident trustees (one seat, statewide) keep their board types under rule 4.
+- **Michigan's 2018 Supreme Court** is one contest of six names with MEDSL's magnitude 1, so one winner is marked. Whether it elected two seats should be checked against Michigan's results. They have not been read here.
+- **North Dakota's "Justice of the Supreme Court"** with district names ("East Central Judicial District" and seven more; 8 contests) covers only those districts' counties. These are probably district court seats filed under the Supreme Court's name [inferred]. They keep `judge`.
+- **The officer test of §24** ("no district and not one county") is unchanged. Read by counties, 14 of its MEDSL officers would miss a county of MEDSL's file: Washington 2022 (King), Arizona 2022 (two counties), Idaho 2022 (five offices) and others. These are gaps in those files, not districts [inferred].

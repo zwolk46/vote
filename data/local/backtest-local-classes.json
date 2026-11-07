@@ -71,9 +71,9 @@
    "seen_over_expected": 3.636
   },
   "2024": {
-   "contests": 2393,
-   "expected_in_window": 293.1,
-   "seen_in_window": 207,
+   "contests": 2374,
+   "expected_in_window": 291.0,
+   "seen_in_window": 204,
    "by_office_type": {
     "class, local council, commission or board": {
      "contests": 1000,
@@ -105,18 +105,13 @@
      "expected": 4.3,
      "seen": 0
     },
-    "class, state judge": {
-     "contests": 19,
-     "expected": 2.0,
-     "seen": 3
-    },
     "class, local sheriff or constable": {
      "contests": 15,
      "expected": 1.3,
      "seen": 1
     }
    },
-   "seen_over_expected": 0.706
+   "seen_over_expected": 0.701
   }
  }
 }
