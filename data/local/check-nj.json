@@ -1217,31 +1217,11 @@
   "contests": {
    "held by county: offices": 315,
    "held by county: questions": 9,
-   "held by the row checks: offices": 3,
-   "released: offices": 983,
+   "held by the row checks: offices": 1,
+   "released: offices": 985,
    "released: questions": 40
   },
   "held_by_the_row_checks": [
-   {
-    "office": "CAMDEN SHERIFF",
-    "district": "",
-    "counties": [
-     "34007"
-    ],
-    "row_checks": [
-     "8 of its 429 precincts count more votes than the most they cast for one federal office times 1 (e.g. 'Camden Ward 3 District 1')"
-    ]
-   },
-   {
-    "office": "CAMDEN COUNTY CLERK",
-    "district": "",
-    "counties": [
-     "34007"
-    ],
-    "row_checks": [
-     "6 of its 429 precincts count more votes than the most they cast for one federal office times 1 (e.g. 'Camden Ward 3 District 1')"
-    ]
-   },
    {
     "office": "BOARD OF EDUCATION DELANCO TOWNSHIP",
     "district": "",
@@ -1249,7 +1229,7 @@
      "34005"
     ],
     "row_checks": [
-     "1 of its 7 precincts count more votes than the most they cast for one federal office times 1 (e.g. 'Delanco Township Election District 1')"
+     "1 of its 7 precincts count more votes than the ballots cast there times 1, the number of candidates named, since its vote-for-N is not given (e.g. 'Delanco Township Election District 1')"
     ]
    }
   ],
