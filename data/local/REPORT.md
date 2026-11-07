@@ -511,3 +511,25 @@ The variant is adopted in a pool only where it passes there. A pool where it fai
 **What follows.**
 - **If it is adopted in a pool,** the p of that pool's boundary contests change. Each forecast names the bin its density came from (`forecasts[].size_bin`, with `like_races` counted in that bin), and every moved p is listed.
 - **If it is not,** nothing changes. The test is recorded in `data/local/size-bins-test.json` and here.
+
+**The result: not adopted in any pool** (*added 2026-11-07 at 10:14 UTC*; `data/local/size-bins-test.json`; `pipeline/local_sizebins.py`, run at 3544a68) [measured]. No p changes, and the forecast stays as it was. This is a new variant, not one that stood, so it is reported here and in the test file, not on each p (as D2 reports its variants, `data/congress/REPORT.md` §0.2).
+
+| Pool | Contests (with their own bin) | 49-51%: record, variant, seen | Deviance over the cells | Tested cells made worse | One year left out |
+|---|---|---|---|---|---|
+| Legislatures, 1968-2024 | 9,068 (7,188) | 1,415.6, 1,430.4, 1,419 | 105.8 → 45.0 | 8 of 33 | fails for all 55 years |
+| MEDSL local, 2020-2024 | 0 | | | | |
+| North Carolina, 2015-2026 | 1,257 (1,151) | 196.7, 188.3, 209 | 8.0 → 9.6 | 3 of 10 | fails for all 11 years |
+
+- **Legislatures.** By size, the variant does what M2 asked of it. In the 49-51% counts it brings each bin near the count seen:
+  - under 3,000 votes: 199.4 to 209.0, against 228 seen;
+  - 3,000-10,000: 559.0 to 623.5, against 622;
+  - 10,000-30,000: 309.5 to 279.9, against 279;
+  - 30,000 or more: 347.7 to 318.1, against 290.
+
+  So the deviance falls by more than half.
+- **Why it still fails.** The total moves from 3.4 under the count seen to 11.4 over it. Eight tested cells of class and bin move further from their counts. For example, two seats with both parties running a full slate under 3,000 votes; three seats with full slates at 10,000-30,000; and the within-10-votes counts of three-seat and four-seat races at 3,000-10,000.
+- **Without 2024.** On Klarner's years alone, the total does come nearer: 1,387.5 to 1,400.7, against 1,395. But the same eight cells are made worse, so the decision does not rest on 2024's 191 contests. With any one year left out it fails too.
+- **MEDSL's local races.** None at the boundary has a forecast: every class has fewer than 100 earlier like races. The variant falls back to the class, so it could change nothing here.
+- **North Carolina.** The variant moves the count away from the count seen and raises the deviance. Three council cells under 3,000 votes are made worse.
+- **An observation, not part of the test** [inferred]. In North Carolina's small boundary races, the record expects 427.7 finishes within 10 votes against 327 seen, and 82.8 margins of 0 or 1 against 72. Under 3,000 votes a 10-vote window is wide in share, so f(½) × 10.5 / n overstates it where the density is not flat. p itself uses f at ½ only.
+- **What would change the verdict** is the orchestrator's to say: for example, a cell rule that weighs the cells' sum, since the record's total for the legislatures is already within 3.4 of the count seen. The rule as fixed at 10:10 stands, and under it the variant fails.
