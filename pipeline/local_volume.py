@@ -1,6 +1,6 @@
 """pipeline/local_volume.py: the volume test of MEDSL's precinct files, and the holds and notes it decides.
 
-Written 2026-11-07 by worker D3 on the orchestrator's rulings of 18:54, 19:04 and 19:13. Reason (the orchestrator,
+Written 2026-11-07 by worker D3 on the orchestrator's rulings of 18:54, 19:04, 19:13 and 19:49. Reason (the orchestrator,
 18:54): "n enters p directly, so a doubled count halves a figure we show"; a share test cannot see a count that is
 doubled or missing a county, since the shares stay the same. The rulings:
   18:54 (b) "Volume test for every MEDSL state-year taken in": part 1, "the precinct sum of the top contest (president,
@@ -16,6 +16,13 @@ doubled or missing a county, since the shares stay the same. The rulings:
   19:13 1. Maine 2016: "use D1's 2016 president (or D2's House) as part 1's top contest, which is what part 1 should do
         in any year without a governor"; 4. New Jersey 2018: "hold only the MEDSL records whose area includes
         Middlesex"; 5. "NY 2018 held; NY 2022, MI 2022 and IN 2018 kept with notes: agreed."
+  19:49 1. "NJ 2018: hold Hunterdon-area records too. That matches NJ 2024's county gate, which held any county past
+        0.5% on federal offices." 3. "ME 2016: hold the 53". 5. "list in REPORT which state-years part 1 or part 2
+        could test, and which neither could. Then add part 3, a structural scan of every MEDSL file. Look for aggregate
+        rows beside precinct rows (names like "COUNTY TOTAL", "TOTAL" or "CUMULATIVE"), and any row equal to the sum of
+        the other rows for the same contest, county and candidate. Apply the ID rule where it reproduces the parts
+        exactly; list the rest for me. Reason: Idaho's fault was structural, and a scan can find it where no second
+        count exists."
 
 Part 1's top contest: the governor where the state elected one that year (D2's data/governor/<year>.json, not a
 special), else the US House (D2's data/house/<year>.json, as pipeline/intake/medsl_precinct.py check_house adds it up,
@@ -27,18 +34,25 @@ president against D1's certified count, at the same 0.5%).
 Governors are matched by surname: D2's two leading candidates, against MEDSL's lines for that surname. A fusion
 candidate (Connecticut, New York) has several lines; both readings are tried, the lines summed (the ruling's rule) and
 the line of D2's party alone (where D2's source reports that line only: Connecticut's Lamont and Stefanowski, 2018,
-data/governor/2018.json), and the closer one is the miss [the reading is written beside it].
+data/governor/2018.json). The lines summed are the miss; the own line is used only where it comes within part 1's
+bound, and otherwise is written beside the miss [the reading].
 
 Settlements read from the states' own files (no request is made here; each was read once, between 19:07 and 19:12 UTC,
 and is kept in $VOTE_CACHE/volume/raw with its .meta.json):
   Hawaii 2018      the Office of Elections' certified summary (pipeline/governor_hi2018.py): D2's Tupola 137,719 was
                    the dataset's typo for 131,719; with D2's file fixed, MEDSL equals it.
-  New Jersey 2018  the Division of Elections' "Official List" of 12/03/2018 for the House, by county: every county but
-                   Middlesex equals MEDSL's precincts for the two parties' candidates; Middlesex is short.
+  New Jersey 2018  the Division of Elections' "Official List" of 12/03/2018 for the House, by county, every candidate:
+                   its total equals D2's; MEDSL is short in Middlesex (-18.04%) and Hunterdon (-0.78%) and within 0.5%
+                   in every other county.
   DC 2018          the Board of Elections' "General Election 2018 - Certified Results" page (rendered): MEDSL's mayor
                    equals it to the vote. DC elects no governor and D2 holds no House count for it.
 
-Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_volume.py check    (writes data/local/check-volume.json)
+Part 3 (scan): every MEDSL raw file of the five years, row by row, for rows named as totals beside precinct rows and
+rows equal to the sum of the others (scan_file); the normalizer's rules (medsl_precinct.drop_county_totals and
+drop_sum_rows) drop those that reproduce their parts exactly, and check() lists the rest in check-volume.json "part3".
+
+Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_volume.py scan --year <year>   (each year; the cache)
+      VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_volume.py check    (writes data/local/check-volume.json)
 The build (local_medsl.load) reads that file through volume_gate.
 """
 import argparse
@@ -93,10 +107,10 @@ VERDICTS = {
                    "Division of Elections' Official List (12/03/2018), whose total equals D2's, shows MEDSL's precincts "
                    "short in {counties_named} and within 0.5% in every other county, so records whose area includes "
                    "one of those counties are held and the rest kept"),
-    (2018, "OR"): ("note", "ruling 19:04 3",
-                   "MEDSL's 2018 Oregon precincts add up to {worst_pct} of D2's certified count for governor; not "
-                   "settled, since the Secretary of State's records host failed (HTTP 500) at each of three requests "
-                   "for its official results (19:08 and 19:38 UTC); under 5%, so kept"),
+    (2018, "OR"): ("settled", "ruling 19:49 5",
+                   "MEDSL's 2018 Oregon file filed some counties' sums as precincts named TOTAL beside their precincts; "
+                   "the county-total rule drops them (medsl_precinct.drop_county_totals), and its governor then equals "
+                   "D2's certified count to the vote"),
     (2018, "IN"): ("note", "rulings 19:04 3 and 19:13 5",
                    "MEDSL's 2018 Indiana precincts add up to {worst_pct} of D2's certified US House count (Indiana "
                    "elected no governor in 2018); not settled, since the state's 2018 results were not found at its "
@@ -491,7 +505,7 @@ def settle_dc_2018():
 
 # ------------------------------------------------------------------ part 3: the structural scan of every file
 
-AGG_NAME = re.compile(r"\bTOTALS?\b|CUMULATIVE|^ALL PRECINCTS$")
+AGG_NAME = re.compile(r"\bTOTALS?\b|CUMULATIVE|^ALL PRECINCTS$", re.I)
 
 
 def raw_files(year):
@@ -512,48 +526,52 @@ def _scan_groups(groups, out):
         if len(pp) < 2:
             continue
         named = [p for p in pp if AGG_NAME.search(p[2] or "")]
-        plain = [p for p in pp if p not in named]
+        plain = [p for p in pp if p not in set(named)]
         cands = {c for p in pp for c in pp[p]}
+        plain_tot = {c: sum(pp[q].get(c, 0) for q in plain) for c in cands}
         for p in named:
             nm = re.sub(r"\s+", " ", (p[2] or "").strip().upper())
             t = out["named"].setdefault(nm, collections.Counter())
-            others = [q for q in plain if any(pp[q].values())]
-            if not others:
+            if not any(any(pp[q].values()) for q in plain):
                 t["alone"] += 1
                 continue
-            eq = all(pp[p].get(c, 0) == sum(pp[q].get(c, 0) for q in others) for c in cands)
+            eq = all(pp[p].get(c, 0) == plain_tot[c] for c in cands)
             t["equal" if eq else "unequal"] += 1
             if eq and len(out["examples_named"]) < 40:
                 out["examples_named"].append({"contest": list(contest), "county": county, "precinct": p[2]})
         # a row that is not named as a total but equals the sum of the others, for every candidate of the contest
-        for p in plain:
-            others = [q for q in plain if q != p and any(pp[q].values())]
-            if len(others) < 2 or not any(pp[p].values()):
-                continue
-            if all(pp[p].get(c, 0) == sum(pp[q].get(c, 0) for q in others) for c in cands):
+        live = [q for q in plain if any(pp[q].values())]
+        tot = {c: sum(pp[q].get(c, 0) for q in live) for c in cands}
+        for p in live:
+            if len(live) - 1 < 2:
+                break
+            if all(2 * pp[p].get(c, 0) == tot[c] for c in cands):
+                others = [q for q in live if q != p]
                 out["unnamed_equal"] += 1
                 if len(out["examples_unnamed"]) < 40:
                     out["examples_unnamed"].append({"contest": list(contest), "county": county, "precinct": p[2],
                                                     "candidates": len(cands), "others": len(others)})
 
 
-def scan_file(path):
+def scan_file(path, keep=frozenset()):
     """Part 3 for one raw file: every row read, precincts resolved as the normalizer does (a TOTAL mode where there
     is one, else the modes added up), grouped by contest (state, office, district, stage, special, dataverse) and
     county. Counts the rows named as totals (AGG_NAME) beside other precincts, whether each equals the others' sum for
-    every candidate, and the rows not so named that equal the others' sum for every candidate (at least two others)."""
+    every candidate, and the rows not so named that equal the others' sum for every candidate (at least two others).
+    A state's groups are tallied when the file moves on to the next state, which keeps memory to one state; a state
+    in `keep` (one whose rows the file gives in more than one block, found by a first pass) is held to the end of the
+    file, so that a total row in one block and its precincts in another are seen together."""
     import medsl_precinct as P
     out = {"named": {}, "examples_named": [], "unnamed_equal": 0, "examples_unnamed": [], "rows": 0,
            "states_seen_twice": []}
     groups = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     cur, done = None, set()
 
-    def flush():
+    def flush(final=False):
         res = {}
-        for k, pp in groups.items():
-            res[k] = {p: {c: (P.resolve(m) or 0) for c, m in cs.items()} for p, cs in pp.items()}
+        for k in [k for k in groups if final or k[0][0] not in keep]:
+            res[k] = {p: {c: (P.resolve(m) or 0) for c, m in cs.items()} for p, cs in groups.pop(k).items()}
         _scan_groups(res, out)
-        groups.clear()
     for r in P._rows(path):
         out["rows"] += 1
         st = r.get("state_po") or r.get("state_postal") or ""
@@ -579,7 +597,7 @@ def scan_file(path):
         mode = (r.get("mode") or "TOTAL").upper()
         m = groups[(contest, county)][pk].setdefault(ck, {})
         m[mode] = (m.get(mode) or 0) + v
-    flush()
+    flush(final=True)
     out["named"] = {k: dict(v) for k, v in out["named"].items()}
     return out
 
@@ -592,6 +610,10 @@ def scan(year):
             res[name] = {"read": False, "why": "not in the cache"}
             continue
         r = scan_file(path)
+        if r["states_seen_twice"]:
+            again = sorted(set(r["states_seen_twice"]))
+            r = scan_file(path, keep=frozenset(again))
+            r["held_whole"] = again
         r["raw"] = os.path.basename(path)
         res[name] = r
         print(year, name, r["rows"], {k: v for k, v in r["named"].items()}, "unnamed equal", r["unnamed_equal"],
@@ -669,7 +691,7 @@ def coverage(out):
         y = out["years"][str(year)]
         states = sorted(y["part1"])
         p1 = sorted(st for st, r in y["part1"].items() if r.get("top"))
-        p2 = sorted(y["part2"])
+        p2 = sorted(set(y["part2"]) & set(states))
         cov[str(year)] = {"states": len(states), "part1": p1, "part2": p2,
                           "neither": sorted(set(states) - set(p1) - set(p2))}
     st20 = sorted(_medsl_states(2020))
@@ -702,7 +724,22 @@ def part3_summary():
                 continue
             if r["named"] or r["unnamed_equal"] or r["states_seen_twice"]:
                 files[name] = {k: r[k] for k in ("rows", "named", "unnamed_equal", "examples_named",
-                                                 "examples_unnamed", "states_seen_twice")}
+                                                 "examples_unnamed", "states_seen_twice", "held_whole")
+                                if k in r}
+        import medsl_precinct as P
+        for name, f in files.items():
+            if "named" in f:
+                f["rule_drops"] = sorted(n for n, t in f["named"].items() if P.COUNTY_TOTAL.search(n) and t.get("equal"))
+                f["listed_for_the_orchestrator"] = sorted(n for n, t in f["named"].items()
+                                                          if not (P.COUNTY_TOTAL.search(n) and t.get("equal")))
+        with open(os.path.join(NORM, f"checks-{year}.json")) as f:
+            chk = json.load(f).get("files") or {}
+        for name, f in files.items():
+            c_ = chk.get(name) or {}
+            for k_ in ("county_total_lines", "county_total_lines_federal", "sum_rows", "sum_rows_federal",
+                       "sum_rows_where"):
+                if c_.get(k_):
+                    f.setdefault("normalizer", {})[k_] = c_[k_]
         out[str(year)] = {"scanned": True, "files": len(sc), "rows": sum(r.get("rows") or 0 for r in sc.values()),
                           "files_with_findings": files}
     return out

@@ -1342,27 +1342,23 @@
        "candidate": "BROWN, KATE",
        "party": "D",
        "d2": 934498,
-       "medsl_lines_summed": 940114,
-       "miss_lines_summed": 0.00601,
-       "medsl_own_line": 940114,
-       "miss_own_line": 0.00601
+       "medsl_lines_summed": 934498,
+       "miss_lines_summed": 0.0
       },
       {
        "candidate": "BUEHLER, KNUTE C.",
        "party": "R",
        "d2": 814988,
-       "medsl_lines_summed": 821594,
-       "miss_lines_summed": 0.00811,
-       "medsl_own_line": 821594,
-       "miss_own_line": 0.00811
+       "medsl_lines_summed": 814988,
+       "miss_lines_summed": 0.0
       }
      ],
-     "worst": 0.00811,
-     "reading": "the party lines summed; on each candidate's own party line, 100.81%",
+     "worst": 0.0,
+     "reading": "the party lines summed",
      "medsl_contests": 1,
      "medsl_counties": 36,
-     "raw_file_read": "2018-github-2018-or-precinct-general.zip",
-     "flag": true
+     "raw_file_read": null,
+     "flag": false
     },
     "PA": {
      "top": "governor",
@@ -2067,15 +2063,10 @@
      "part2": false,
      "verdict": "hold",
      "by": "rulings 19:04 3 and 19:13 5"
-    },
-    "OR": {
-     "part1": true,
-     "part2": false,
-     "verdict": "note",
-     "by": "ruling 19:04 3"
     }
    },
    "cleared": {
+    "2018-OR": "MEDSL's 2018 Oregon file filed some counties' sums as precincts named TOTAL beside their precincts; the county-total rule drops them (medsl_precinct.drop_county_totals), and its governor then equals D2's certified count to the vote",
     "2018-HI": "D2's count was the dataset's 137,719 for Tupola; the Office of Elections' certified summary has 131,719, equal to MEDSL's (pipeline/governor_hi2018.py)",
     "2018-CT": "D2's source gives each governor candidate's own party line; MEDSL's lines equal them"
    }
@@ -2572,8 +2563,8 @@
        "candidate": "WHITMER, GRETCHEN",
        "party": "D",
        "d2": 2430505,
-       "medsl_lines_summed": 2403861,
-       "miss_lines_summed": -0.01096,
+       "medsl_lines_summed": 2400628,
+       "miss_lines_summed": -0.01229,
        "medsl_own_line": 2403861,
        "miss_own_line": -0.01096
       },
@@ -2581,13 +2572,13 @@
        "candidate": "DIXON, TUDOR M.",
        "party": "R",
        "d2": 1960635,
-       "medsl_lines_summed": 1952318,
-       "miss_lines_summed": -0.00424,
+       "medsl_lines_summed": 1948292,
+       "miss_lines_summed": -0.0063,
        "medsl_own_line": 1952318,
        "miss_own_line": -0.00424
       }
      ],
-     "worst": -0.01096,
+     "worst": -0.01229,
      "reading": "the party lines summed; on each candidate's own party line, 98.90%",
      "medsl_contests": 2,
      "medsl_counties": 83,
@@ -3458,6 +3449,5947 @@
    },
    "cleared": {
     "2022-ID": "MEDSL's file counted each county twice (a COUNTY TOTAL line beside its precincts); the rule that drops such a line where the precincts add up to it (medsl_precinct.drop_county_totals) leaves Power County's absence alone"
+   }
+  }
+ },
+ "coverage": {
+  "2016": {
+   "states": 28,
+   "part1": [
+    "MO",
+    "MT",
+    "NC",
+    "WA"
+   ],
+   "part2": [
+    "AK",
+    "AR",
+    "AZ",
+    "CO",
+    "FL",
+    "GA",
+    "HI",
+    "ID",
+    "IL",
+    "KY",
+    "ME",
+    "MN",
+    "MO",
+    "MT",
+    "NC",
+    "NM",
+    "OK",
+    "OR",
+    "RI",
+    "SC",
+    "SD",
+    "WA",
+    "WY"
+   ],
+   "neither": [
+    "AL",
+    "DC",
+    "LA",
+    "MS",
+    "NJ"
+   ]
+  },
+  "2018": {
+   "states": 50,
+   "part1": [
+    "AK",
+    "AL",
+    "AR",
+    "AZ",
+    "CA",
+    "CO",
+    "CT",
+    "DC",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "IA",
+    "ID",
+    "IL",
+    "IN",
+    "KS",
+    "KY",
+    "LA",
+    "MA",
+    "MD",
+    "ME",
+    "MI",
+    "MN",
+    "MO",
+    "MS",
+    "MT",
+    "NC",
+    "ND",
+    "NE",
+    "NH",
+    "NJ",
+    "NM",
+    "NV",
+    "NY",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VA",
+    "VT",
+    "WA",
+    "WV",
+    "WY"
+   ],
+   "part2": [
+    "AK",
+    "AL",
+    "AR",
+    "AZ",
+    "CA",
+    "CO",
+    "CT",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "IA",
+    "ID",
+    "IL",
+    "IN",
+    "KS",
+    "KY",
+    "MD",
+    "ME",
+    "MI",
+    "MO",
+    "MT",
+    "NC",
+    "NE",
+    "NH",
+    "NV",
+    "NY",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "WA",
+    "WV",
+    "WY"
+   ],
+   "neither": []
+  },
+  "2022": {
+   "states": 48,
+   "part1": [
+    "AK",
+    "AL",
+    "AR",
+    "AZ",
+    "CA",
+    "CO",
+    "CT",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "IA",
+    "ID",
+    "IL",
+    "IN",
+    "KS",
+    "KY",
+    "LA",
+    "MA",
+    "MD",
+    "ME",
+    "MI",
+    "MN",
+    "MO",
+    "MT",
+    "NC",
+    "ND",
+    "NE",
+    "NH",
+    "NJ",
+    "NM",
+    "NV",
+    "NY",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VT",
+    "WA",
+    "WI",
+    "WV",
+    "WY"
+   ],
+   "part2": [
+    "AK",
+    "AL",
+    "AR",
+    "AZ",
+    "CA",
+    "CO",
+    "CT",
+    "DE",
+    "FL",
+    "GA",
+    "IA",
+    "ID",
+    "IL",
+    "IN",
+    "KY",
+    "MD",
+    "ME",
+    "MI",
+    "MN",
+    "MO",
+    "MT",
+    "NC",
+    "ND",
+    "NE",
+    "NH",
+    "NM",
+    "NV",
+    "NY",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "WA",
+    "WI",
+    "WV",
+    "WY"
+   ],
+   "neither": []
+  },
+  "2020": {
+   "states": 31,
+   "part1": [],
+   "part2": [],
+   "neither": [
+    "AK",
+    "AL",
+    "AR",
+    "CO",
+    "CT",
+    "DC",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "ID",
+    "IL",
+    "KY",
+    "LA",
+    "MD",
+    "ME",
+    "MT",
+    "NC",
+    "NE",
+    "NH",
+    "NV",
+    "OH",
+    "OK",
+    "RI",
+    "SC",
+    "TX",
+    "VA",
+    "VT",
+    "WI",
+    "WV",
+    "WY"
+   ],
+   "why": "MEDSL's 2020 file holds local offices only: no governor, House or legislature"
+  },
+  "2024": {
+   "states": 51,
+   "president_gate": [
+    "AK",
+    "AL",
+    "AR",
+    "AZ",
+    "CA",
+    "CO",
+    "CT",
+    "DC",
+    "DE",
+    "FL",
+    "GA",
+    "HI",
+    "IA",
+    "ID",
+    "IL",
+    "IN",
+    "KS",
+    "KY",
+    "LA",
+    "MA",
+    "MD",
+    "ME",
+    "MI",
+    "MN",
+    "MO",
+    "MS",
+    "MT",
+    "NC",
+    "ND",
+    "NE",
+    "NH",
+    "NJ",
+    "NM",
+    "NV",
+    "NY",
+    "OH",
+    "OK",
+    "OR",
+    "PA",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VA",
+    "VT",
+    "WA",
+    "WI",
+    "WV",
+    "WY"
+   ],
+   "neither": [],
+   "why": "2024's test is local_medsl.quality: the president against D1's certified count"
+  }
+ },
+ "part3": {
+  "2016": {
+   "scanned": true,
+   "files": 2,
+   "rows": 9840451,
+   "files_with_findings": {
+    "2016-precinct-state.csv": {
+     "rows": 8146112,
+     "named": {
+      "CUMULATIVE:": {
+       "unequal": 21,
+       "alone": 4
+      },
+      "TOTAL": {
+       "unequal": 34
+      },
+      "CUMULATIVE": {
+       "unequal": 11
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [],
+     "examples_unnamed": [],
+     "states_seen_twice": [
+      "MA",
+      "MI",
+      "MO",
+      "WV"
+     ],
+     "held_whole": [
+      "MA",
+      "MI",
+      "MO",
+      "WV"
+     ],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [
+      "CUMULATIVE",
+      "CUMULATIVE:",
+      "TOTAL"
+     ]
+    },
+    "2016-precinct-local.csv": {
+     "rows": 1694339,
+     "named": {
+      "CUMULATIVE:": {
+       "alone": 107
+      },
+      "TOTAL": {
+       "unequal": 4
+      }
+     },
+     "unnamed_equal": 1,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "KY",
+        "MEMBER BOARD OF EDUCATION (UNEXPIRED TERM)",
+        "5",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "21041",
+       "precinct": "B102",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [
+      "NJ",
+      "WA",
+      "WV"
+     ],
+     "held_whole": [
+      "NJ",
+      "WA",
+      "WV"
+     ],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [
+      "CUMULATIVE:",
+      "TOTAL"
+     ]
+    }
+   }
+  },
+  "2018": {
+   "scanned": true,
+   "files": 51,
+   "rows": 14156724,
+   "files_with_findings": {
+    "2018-il-precinct-general.zip": {
+     "rows": 1357954,
+     "named": {},
+     "unnamed_equal": 1,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "IL",
+        "CARROLL/JODAVIESS/STEPHENSON- SUPERINTENDENT OF SCHOOLS",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "17195",
+       "precinct": "GENESEE 1",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": []
+    },
+    "2018-ky-precinct-general.zip": {
+     "rows": 156930,
+     "named": {},
+     "unnamed_equal": 1,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "KY",
+        "MAGISTRATE",
+        "004",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "21087",
+       "precinct": "C101",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": []
+    },
+    "2018-nj-precinct-general.zip": {
+     "rows": 171177,
+     "named": {
+      "AUDUBON BORO DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO DIST 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO DIST 4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO DIST 5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO DIST 6 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO DIST 7 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO DIST 8 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON BORO PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON PARK DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON PARK MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "AUDUBON PARK PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BARRINGTON DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BARRINGTON DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BARRINGTON DIST 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BARRINGTON DIST 4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BARRINGTON DIST 5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BARRINGTON MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BARRINGTON PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR DIST 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR DIST 4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR DIST 5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR DIST 6 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR DIST 7 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BELLMAWR PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BERLIN BORO DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN BORO DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN BORO DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN BORO DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN BORO DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN BORO MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN BORO PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN TWP DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN TWP DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN TWP DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN TWP DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN TWP MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "BERLIN TWP PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "BROOKLAWN DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BROOKLAWN MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "BROOKLAWN PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D10 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D6 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D7 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D8 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W1 D9 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D10 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D11 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D6 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D7 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D8 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W2 D9 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D6 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D7 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D8 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W3 D9 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D10 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D6 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D7 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D8 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY W4 D9 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY WARD 1 MAIL-IN TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY WARD 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY WARD 2 MAIL-IN TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY WARD 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY WARD 3 MAIL-IN TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY WARD 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY WARD 4 MAIL-IN TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CAMDEN CITY WARD 4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "CHERRY HILL DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 10 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 11 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 12 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 13 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 14 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 15 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 16 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 17 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 18 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 19 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 20 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 21 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 22 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 23 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 24 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 25 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 26 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 27 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 28 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 29 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 30 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 31 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 32 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 33 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 34 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 35 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 36 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 37 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 38 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 39 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 40 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 41 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 42 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 43 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 44 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 45 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 46 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 47 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 48 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 7 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 8 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL DIST 9 TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "CHERRY HILL PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "CHESILHURST DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "CHESILHURST MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "CHESILHURST PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "CLEMENTON DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "CLEMENTON DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "CLEMENTON DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "CLEMENTON MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "CLEMENTON PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 10 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 11 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 12 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 7 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 8 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD DIST 9 TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "COLLINGSWOOD PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "GIBBSBORO DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "GIBBSBORO DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "GIBBSBORO MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "GIBBSBORO PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER CITY W1 D1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY W1 D2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY W1 D3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY W2 D1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY W2 D2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY W2 D3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY W3 D1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY W3 D2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY WARD 1 MAIL- TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY WARD 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY WARD 2 MAIL- TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY WARD 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY WARD 3 MAIL- TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER CITY WARD 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "GLOUCESTER TWP DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 10 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 11 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 12 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 13 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 14 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 15 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 16 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 17 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 18 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 19 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 20 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 21 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 22 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 23 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 24 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 25 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 26 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 27 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 28 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 29 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 30 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 31 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 32 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 33 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 34 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 35 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 36 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 37 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 38 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 39 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 40 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 7 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 8 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP DIST 9 TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "GLOUCESTER TWP PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "HADDON HEIGHTS DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON HEIGHTS DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON HEIGHTS DIST 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON HEIGHTS DIST 4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON HEIGHTS DIST 5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON HEIGHTS DIST 6 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON HEIGHTS DIST 7 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON HEIGHTS MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON HEIGHTS PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "HADDON TWP DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 10 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 11 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 12 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 13 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 14 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 15 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 7 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 8 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP DIST 9 TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "HADDON TWP PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 10 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 7 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 8 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD DIST 9 TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "HADDONFIELD PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "HI NELLA MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "HI NELLA PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "HI-NELLA DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "LAUREL SPRINGS DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "LAUREL SPRINGS DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "LAUREL SPRINGS MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "LAUREL SPRINGS PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "LAWNSIDE DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "LAWNSIDE DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "LAWNSIDE MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "LAWNSIDE PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "LINDENWOLD DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD DIST 7 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD DIST 8 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD DIST 9 TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "LINDENWOLD PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "MAGNOLIA DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MAGNOLIA DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MAGNOLIA DIST 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MAGNOLIA DIST 4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MAGNOLIA MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MAGNOLIA PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MERCHANTVILLE DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "MERCHANTVILLE DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "MERCHANTVILLE DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "MERCHANTVILLE MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "MERCHANTVILLE PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "MT EPHRAIM DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MT EPHRAIM DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MT EPHRAIM DIST 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MT EPHRAIM DIST 4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MT. EPHRAIM MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "MT. EPHRAIM PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "OAKLYN DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "OAKLYN DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "OAKLYN DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "OAKLYN DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "OAKLYN MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "OAKLYN PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 10 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 11 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 12 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 13 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 14 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 15 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 16 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 17 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 18 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 19 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 20 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 21 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 22 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 23 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 24 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 7 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 8 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN DIST 9 TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "PENNSAUKEN PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "PINE HILL DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "PINE HILL DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "PINE HILL DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "PINE HILL DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "PINE HILL DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "PINE HILL DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "PINE HILL MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "PINE HILL PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "PINE VALLEY BOROUGH TOTAL": {
+       "unequal": 2
+      },
+      "PINE VALLEY MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "RUNNEMEDE DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "RUNNEMEDE DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "RUNNEMEDE DIST 3 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "RUNNEMEDE DIST 4 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "RUNNEMEDE DIST 5 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "RUNNEMEDE DIST 6 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "RUNNEMEDE MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "RUNNEMEDE PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "SOMERDALE DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "SOMERDALE DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "SOMERDALE DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "SOMERDALE DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "SOMERDALE MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "SOMERDALE PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "STRATFORD DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "STRATFORD DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "STRATFORD DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "STRATFORD DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "STRATFORD DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "STRATFORD DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "STRATFORD MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "STRATFORD PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "TAVISTOCK BOROUGH TOTAL": {
+       "unequal": 2
+      },
+      "TAVISTOCK MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 1 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 10 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 11 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 12 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 13 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 14 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 15 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 16 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 17 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 18 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 19 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 2 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 3 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 4 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 5 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 6 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 7 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 8 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES DIST 9 TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "VOORHEES PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W1 D1 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W1 D2 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W1 D3 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W1 D4 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W1 D5 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W1 D6 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W2 D1 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W2 D2 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W2 D3 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W2 D4 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W2 D5 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W2 D6 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W3 D1 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W3 D2 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W3 D3 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W3 D4 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W3 D5 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W4 D1 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W4 D2 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W4 D3 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W4 D4 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW W4 D5 TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW WARD 1 MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW WARD 1 PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW WARD 2 MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW WARD 2 PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW WARD 3 MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW WARD 3 PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW WARD 4 MAIL-IN BALLOT TOTAL": {
+       "unequal": 2
+      },
+      "WINSLOW WARD 4 PROVISIONAL TOTAL": {
+       "unequal": 2
+      },
+      "WOODLYNNE DIST 1 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "WOODLYNNE DIST 2 TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "WOODLYNNE MAIL-IN BALLOT TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "WOODLYNNE PROVISIONAL TOTAL": {
+       "unequal": 2,
+       "alone": 1
+      },
+      "WATERFORD DIST 1 TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD DIST 2 TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD DIST 3 TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD DIST 4 TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD DIST 5 TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD DIST 6 TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD DIST 7 TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD DIST 8 TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD MAIL-IN BALLOT TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      },
+      "WATERFORD PROVISIONAL TOTAL": {
+       "alone": 1,
+       "unequal": 1
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [
+      "AUDUBON BORO DIST 1 TOTAL",
+      "AUDUBON BORO DIST 2 TOTAL",
+      "AUDUBON BORO DIST 3 TOTAL",
+      "AUDUBON BORO DIST 4 TOTAL",
+      "AUDUBON BORO DIST 5 TOTAL",
+      "AUDUBON BORO DIST 6 TOTAL",
+      "AUDUBON BORO DIST 7 TOTAL",
+      "AUDUBON BORO DIST 8 TOTAL",
+      "AUDUBON BORO MAIL-IN BALLOT TOTAL",
+      "AUDUBON BORO PROVISIONAL TOTAL",
+      "AUDUBON PARK DIST 1 TOTAL",
+      "AUDUBON PARK MAIL-IN BALLOT TOTAL",
+      "AUDUBON PARK PROVISIONAL TOTAL",
+      "BARRINGTON DIST 1 TOTAL",
+      "BARRINGTON DIST 2 TOTAL",
+      "BARRINGTON DIST 3 TOTAL",
+      "BARRINGTON DIST 4 TOTAL",
+      "BARRINGTON DIST 5 TOTAL",
+      "BARRINGTON MAIL-IN BALLOT TOTAL",
+      "BARRINGTON PROVISIONAL TOTAL",
+      "BELLMAWR DIST 1 TOTAL",
+      "BELLMAWR DIST 2 TOTAL",
+      "BELLMAWR DIST 3 TOTAL",
+      "BELLMAWR DIST 4 TOTAL",
+      "BELLMAWR DIST 5 TOTAL",
+      "BELLMAWR DIST 6 TOTAL",
+      "BELLMAWR DIST 7 TOTAL",
+      "BELLMAWR MAIL-IN BALLOT TOTAL",
+      "BELLMAWR PROVISIONAL TOTAL",
+      "BERLIN BORO DIST 1 TOTAL",
+      "BERLIN BORO DIST 2 TOTAL",
+      "BERLIN BORO DIST 3 TOTAL",
+      "BERLIN BORO DIST 4 TOTAL",
+      "BERLIN BORO DIST 5 TOTAL",
+      "BERLIN BORO MAIL-IN BALLOT TOTAL",
+      "BERLIN BORO PROVISIONAL TOTAL",
+      "BERLIN TWP DIST 1 TOTAL",
+      "BERLIN TWP DIST 2 TOTAL",
+      "BERLIN TWP DIST 3 TOTAL",
+      "BERLIN TWP DIST 4 TOTAL",
+      "BERLIN TWP MAIL-IN BALLOT TOTAL",
+      "BERLIN TWP PROVISIONAL TOTAL",
+      "BROOKLAWN DIST 1 TOTAL",
+      "BROOKLAWN MAIL-IN BALLOT TOTAL",
+      "BROOKLAWN PROVISIONAL TOTAL",
+      "CAMDEN CITY W1 D1 TOTAL",
+      "CAMDEN CITY W1 D10 TOTAL",
+      "CAMDEN CITY W1 D2 TOTAL",
+      "CAMDEN CITY W1 D3 TOTAL",
+      "CAMDEN CITY W1 D4 TOTAL",
+      "CAMDEN CITY W1 D5 TOTAL",
+      "CAMDEN CITY W1 D6 TOTAL",
+      "CAMDEN CITY W1 D7 TOTAL",
+      "CAMDEN CITY W1 D8 TOTAL",
+      "CAMDEN CITY W1 D9 TOTAL",
+      "CAMDEN CITY W2 D1 TOTAL",
+      "CAMDEN CITY W2 D10 TOTAL",
+      "CAMDEN CITY W2 D11 TOTAL",
+      "CAMDEN CITY W2 D2 TOTAL",
+      "CAMDEN CITY W2 D3 TOTAL",
+      "CAMDEN CITY W2 D4 TOTAL",
+      "CAMDEN CITY W2 D5 TOTAL",
+      "CAMDEN CITY W2 D6 TOTAL",
+      "CAMDEN CITY W2 D7 TOTAL",
+      "CAMDEN CITY W2 D8 TOTAL",
+      "CAMDEN CITY W2 D9 TOTAL",
+      "CAMDEN CITY W3 D1 TOTAL",
+      "CAMDEN CITY W3 D2 TOTAL",
+      "CAMDEN CITY W3 D3 TOTAL",
+      "CAMDEN CITY W3 D4 TOTAL",
+      "CAMDEN CITY W3 D5 TOTAL",
+      "CAMDEN CITY W3 D6 TOTAL",
+      "CAMDEN CITY W3 D7 TOTAL",
+      "CAMDEN CITY W3 D8 TOTAL",
+      "CAMDEN CITY W3 D9 TOTAL",
+      "CAMDEN CITY W4 D1 TOTAL",
+      "CAMDEN CITY W4 D10 TOTAL",
+      "CAMDEN CITY W4 D2 TOTAL",
+      "CAMDEN CITY W4 D3 TOTAL",
+      "CAMDEN CITY W4 D4 TOTAL",
+      "CAMDEN CITY W4 D5 TOTAL",
+      "CAMDEN CITY W4 D6 TOTAL",
+      "CAMDEN CITY W4 D7 TOTAL",
+      "CAMDEN CITY W4 D8 TOTAL",
+      "CAMDEN CITY W4 D9 TOTAL",
+      "CAMDEN CITY WARD 1 MAIL-IN TOTAL",
+      "CAMDEN CITY WARD 1 TOTAL",
+      "CAMDEN CITY WARD 2 MAIL-IN TOTAL",
+      "CAMDEN CITY WARD 2 TOTAL",
+      "CAMDEN CITY WARD 3 MAIL-IN TOTAL",
+      "CAMDEN CITY WARD 3 TOTAL",
+      "CAMDEN CITY WARD 4 MAIL-IN TOTAL",
+      "CAMDEN CITY WARD 4 TOTAL",
+      "CHERRY HILL DIST 1 TOTAL",
+      "CHERRY HILL DIST 10 TOTAL",
+      "CHERRY HILL DIST 11 TOTAL",
+      "CHERRY HILL DIST 12 TOTAL",
+      "CHERRY HILL DIST 13 TOTAL",
+      "CHERRY HILL DIST 14 TOTAL",
+      "CHERRY HILL DIST 15 TOTAL",
+      "CHERRY HILL DIST 16 TOTAL",
+      "CHERRY HILL DIST 17 TOTAL",
+      "CHERRY HILL DIST 18 TOTAL",
+      "CHERRY HILL DIST 19 TOTAL",
+      "CHERRY HILL DIST 2 TOTAL",
+      "CHERRY HILL DIST 20 TOTAL",
+      "CHERRY HILL DIST 21 TOTAL",
+      "CHERRY HILL DIST 22 TOTAL",
+      "CHERRY HILL DIST 23 TOTAL",
+      "CHERRY HILL DIST 24 TOTAL",
+      "CHERRY HILL DIST 25 TOTAL",
+      "CHERRY HILL DIST 26 TOTAL",
+      "CHERRY HILL DIST 27 TOTAL",
+      "CHERRY HILL DIST 28 TOTAL",
+      "CHERRY HILL DIST 29 TOTAL",
+      "CHERRY HILL DIST 3 TOTAL",
+      "CHERRY HILL DIST 30 TOTAL",
+      "CHERRY HILL DIST 31 TOTAL",
+      "CHERRY HILL DIST 32 TOTAL",
+      "CHERRY HILL DIST 33 TOTAL",
+      "CHERRY HILL DIST 34 TOTAL",
+      "CHERRY HILL DIST 35 TOTAL",
+      "CHERRY HILL DIST 36 TOTAL",
+      "CHERRY HILL DIST 37 TOTAL",
+      "CHERRY HILL DIST 38 TOTAL",
+      "CHERRY HILL DIST 39 TOTAL",
+      "CHERRY HILL DIST 4 TOTAL",
+      "CHERRY HILL DIST 40 TOTAL",
+      "CHERRY HILL DIST 41 TOTAL",
+      "CHERRY HILL DIST 42 TOTAL",
+      "CHERRY HILL DIST 43 TOTAL",
+      "CHERRY HILL DIST 44 TOTAL",
+      "CHERRY HILL DIST 45 TOTAL",
+      "CHERRY HILL DIST 46 TOTAL",
+      "CHERRY HILL DIST 47 TOTAL",
+      "CHERRY HILL DIST 48 TOTAL",
+      "CHERRY HILL DIST 5 TOTAL",
+      "CHERRY HILL DIST 6 TOTAL",
+      "CHERRY HILL DIST 7 TOTAL",
+      "CHERRY HILL DIST 8 TOTAL",
+      "CHERRY HILL DIST 9 TOTAL",
+      "CHERRY HILL MAIL-IN BALLOT TOTAL",
+      "CHERRY HILL PROVISIONAL TOTAL",
+      "CHESILHURST DIST 1 TOTAL",
+      "CHESILHURST MAIL-IN BALLOT TOTAL",
+      "CHESILHURST PROVISIONAL TOTAL",
+      "CLEMENTON DIST 1 TOTAL",
+      "CLEMENTON DIST 2 TOTAL",
+      "CLEMENTON DIST 3 TOTAL",
+      "CLEMENTON MAIL-IN BALLOT TOTAL",
+      "CLEMENTON PROVISIONAL TOTAL",
+      "COLLINGSWOOD DIST 1 TOTAL",
+      "COLLINGSWOOD DIST 10 TOTAL",
+      "COLLINGSWOOD DIST 11 TOTAL",
+      "COLLINGSWOOD DIST 12 TOTAL",
+      "COLLINGSWOOD DIST 2 TOTAL",
+      "COLLINGSWOOD DIST 3 TOTAL",
+      "COLLINGSWOOD DIST 4 TOTAL",
+      "COLLINGSWOOD DIST 5 TOTAL",
+      "COLLINGSWOOD DIST 6 TOTAL",
+      "COLLINGSWOOD DIST 7 TOTAL",
+      "COLLINGSWOOD DIST 8 TOTAL",
+      "COLLINGSWOOD DIST 9 TOTAL",
+      "COLLINGSWOOD MAIL-IN BALLOT TOTAL",
+      "COLLINGSWOOD PROVISIONAL TOTAL",
+      "GIBBSBORO DIST 1 TOTAL",
+      "GIBBSBORO DIST 2 TOTAL",
+      "GIBBSBORO MAIL-IN BALLOT TOTAL",
+      "GIBBSBORO PROVISIONAL TOTAL",
+      "GLOUCESTER CITY W1 D1 TOTAL",
+      "GLOUCESTER CITY W1 D2 TOTAL",
+      "GLOUCESTER CITY W1 D3 TOTAL",
+      "GLOUCESTER CITY W2 D1 TOTAL",
+      "GLOUCESTER CITY W2 D2 TOTAL",
+      "GLOUCESTER CITY W2 D3 TOTAL",
+      "GLOUCESTER CITY W3 D1 TOTAL",
+      "GLOUCESTER CITY W3 D2 TOTAL",
+      "GLOUCESTER CITY WARD 1 MAIL- TOTAL",
+      "GLOUCESTER CITY WARD 1 TOTAL",
+      "GLOUCESTER CITY WARD 2 MAIL- TOTAL",
+      "GLOUCESTER CITY WARD 2 TOTAL",
+      "GLOUCESTER CITY WARD 3 MAIL- TOTAL",
+      "GLOUCESTER CITY WARD 3 TOTAL",
+      "GLOUCESTER TWP DIST 1 TOTAL",
+      "GLOUCESTER TWP DIST 10 TOTAL",
+      "GLOUCESTER TWP DIST 11 TOTAL",
+      "GLOUCESTER TWP DIST 12 TOTAL",
+      "GLOUCESTER TWP DIST 13 TOTAL",
+      "GLOUCESTER TWP DIST 14 TOTAL",
+      "GLOUCESTER TWP DIST 15 TOTAL",
+      "GLOUCESTER TWP DIST 16 TOTAL",
+      "GLOUCESTER TWP DIST 17 TOTAL",
+      "GLOUCESTER TWP DIST 18 TOTAL",
+      "GLOUCESTER TWP DIST 19 TOTAL",
+      "GLOUCESTER TWP DIST 2 TOTAL",
+      "GLOUCESTER TWP DIST 20 TOTAL",
+      "GLOUCESTER TWP DIST 21 TOTAL",
+      "GLOUCESTER TWP DIST 22 TOTAL",
+      "GLOUCESTER TWP DIST 23 TOTAL",
+      "GLOUCESTER TWP DIST 24 TOTAL",
+      "GLOUCESTER TWP DIST 25 TOTAL",
+      "GLOUCESTER TWP DIST 26 TOTAL",
+      "GLOUCESTER TWP DIST 27 TOTAL",
+      "GLOUCESTER TWP DIST 28 TOTAL",
+      "GLOUCESTER TWP DIST 29 TOTAL",
+      "GLOUCESTER TWP DIST 3 TOTAL",
+      "GLOUCESTER TWP DIST 30 TOTAL",
+      "GLOUCESTER TWP DIST 31 TOTAL",
+      "GLOUCESTER TWP DIST 32 TOTAL",
+      "GLOUCESTER TWP DIST 33 TOTAL",
+      "GLOUCESTER TWP DIST 34 TOTAL",
+      "GLOUCESTER TWP DIST 35 TOTAL",
+      "GLOUCESTER TWP DIST 36 TOTAL",
+      "GLOUCESTER TWP DIST 37 TOTAL",
+      "GLOUCESTER TWP DIST 38 TOTAL",
+      "GLOUCESTER TWP DIST 39 TOTAL",
+      "GLOUCESTER TWP DIST 4 TOTAL",
+      "GLOUCESTER TWP DIST 40 TOTAL",
+      "GLOUCESTER TWP DIST 5 TOTAL",
+      "GLOUCESTER TWP DIST 6 TOTAL",
+      "GLOUCESTER TWP DIST 7 TOTAL",
+      "GLOUCESTER TWP DIST 8 TOTAL",
+      "GLOUCESTER TWP DIST 9 TOTAL",
+      "GLOUCESTER TWP MAIL-IN BALLOT TOTAL",
+      "GLOUCESTER TWP PROVISIONAL TOTAL",
+      "HADDON HEIGHTS DIST 1 TOTAL",
+      "HADDON HEIGHTS DIST 2 TOTAL",
+      "HADDON HEIGHTS DIST 3 TOTAL",
+      "HADDON HEIGHTS DIST 4 TOTAL",
+      "HADDON HEIGHTS DIST 5 TOTAL",
+      "HADDON HEIGHTS DIST 6 TOTAL",
+      "HADDON HEIGHTS DIST 7 TOTAL",
+      "HADDON HEIGHTS MAIL-IN BALLOT TOTAL",
+      "HADDON HEIGHTS PROVISIONAL TOTAL",
+      "HADDON TWP DIST 1 TOTAL",
+      "HADDON TWP DIST 10 TOTAL",
+      "HADDON TWP DIST 11 TOTAL",
+      "HADDON TWP DIST 12 TOTAL",
+      "HADDON TWP DIST 13 TOTAL",
+      "HADDON TWP DIST 14 TOTAL",
+      "HADDON TWP DIST 15 TOTAL",
+      "HADDON TWP DIST 2 TOTAL",
+      "HADDON TWP DIST 3 TOTAL",
+      "HADDON TWP DIST 4 TOTAL",
+      "HADDON TWP DIST 5 TOTAL",
+      "HADDON TWP DIST 6 TOTAL",
+      "HADDON TWP DIST 7 TOTAL",
+      "HADDON TWP DIST 8 TOTAL",
+      "HADDON TWP DIST 9 TOTAL",
+      "HADDON TWP MAIL-IN BALLOT TOTAL",
+      "HADDON TWP PROVISIONAL TOTAL",
+      "HADDONFIELD DIST 1 TOTAL",
+      "HADDONFIELD DIST 10 TOTAL",
+      "HADDONFIELD DIST 2 TOTAL",
+      "HADDONFIELD DIST 3 TOTAL",
+      "HADDONFIELD DIST 4 TOTAL",
+      "HADDONFIELD DIST 5 TOTAL",
+      "HADDONFIELD DIST 6 TOTAL",
+      "HADDONFIELD DIST 7 TOTAL",
+      "HADDONFIELD DIST 8 TOTAL",
+      "HADDONFIELD DIST 9 TOTAL",
+      "HADDONFIELD MAIL-IN BALLOT TOTAL",
+      "HADDONFIELD PROVISIONAL TOTAL",
+      "HI NELLA MAIL-IN BALLOT TOTAL",
+      "HI NELLA PROVISIONAL TOTAL",
+      "HI-NELLA DIST 1 TOTAL",
+      "LAUREL SPRINGS DIST 1 TOTAL",
+      "LAUREL SPRINGS DIST 2 TOTAL",
+      "LAUREL SPRINGS MAIL-IN BALLOT TOTAL",
+      "LAUREL SPRINGS PROVISIONAL TOTAL",
+      "LAWNSIDE DIST 1 TOTAL",
+      "LAWNSIDE DIST 2 TOTAL",
+      "LAWNSIDE MAIL-IN BALLOT TOTAL",
+      "LAWNSIDE PROVISIONAL TOTAL",
+      "LINDENWOLD DIST 1 TOTAL",
+      "LINDENWOLD DIST 2 TOTAL",
+      "LINDENWOLD DIST 3 TOTAL",
+      "LINDENWOLD DIST 4 TOTAL",
+      "LINDENWOLD DIST 5 TOTAL",
+      "LINDENWOLD DIST 6 TOTAL",
+      "LINDENWOLD DIST 7 TOTAL",
+      "LINDENWOLD DIST 8 TOTAL",
+      "LINDENWOLD DIST 9 TOTAL",
+      "LINDENWOLD MAIL-IN BALLOT TOTAL",
+      "LINDENWOLD PROVISIONAL TOTAL",
+      "MAGNOLIA DIST 1 TOTAL",
+      "MAGNOLIA DIST 2 TOTAL",
+      "MAGNOLIA DIST 3 TOTAL",
+      "MAGNOLIA DIST 4 TOTAL",
+      "MAGNOLIA MAIL-IN BALLOT TOTAL",
+      "MAGNOLIA PROVISIONAL TOTAL",
+      "MERCHANTVILLE DIST 1 TOTAL",
+      "MERCHANTVILLE DIST 2 TOTAL",
+      "MERCHANTVILLE DIST 3 TOTAL",
+      "MERCHANTVILLE MAIL-IN BALLOT TOTAL",
+      "MERCHANTVILLE PROVISIONAL TOTAL",
+      "MT EPHRAIM DIST 1 TOTAL",
+      "MT EPHRAIM DIST 2 TOTAL",
+      "MT EPHRAIM DIST 3 TOTAL",
+      "MT EPHRAIM DIST 4 TOTAL",
+      "MT. EPHRAIM MAIL-IN BALLOT TOTAL",
+      "MT. EPHRAIM PROVISIONAL TOTAL",
+      "OAKLYN DIST 1 TOTAL",
+      "OAKLYN DIST 2 TOTAL",
+      "OAKLYN DIST 3 TOTAL",
+      "OAKLYN DIST 4 TOTAL",
+      "OAKLYN MAIL-IN BALLOT TOTAL",
+      "OAKLYN PROVISIONAL TOTAL",
+      "PENNSAUKEN DIST 1 TOTAL",
+      "PENNSAUKEN DIST 10 TOTAL",
+      "PENNSAUKEN DIST 11 TOTAL",
+      "PENNSAUKEN DIST 12 TOTAL",
+      "PENNSAUKEN DIST 13 TOTAL",
+      "PENNSAUKEN DIST 14 TOTAL",
+      "PENNSAUKEN DIST 15 TOTAL",
+      "PENNSAUKEN DIST 16 TOTAL",
+      "PENNSAUKEN DIST 17 TOTAL",
+      "PENNSAUKEN DIST 18 TOTAL",
+      "PENNSAUKEN DIST 19 TOTAL",
+      "PENNSAUKEN DIST 2 TOTAL",
+      "PENNSAUKEN DIST 20 TOTAL",
+      "PENNSAUKEN DIST 21 TOTAL",
+      "PENNSAUKEN DIST 22 TOTAL",
+      "PENNSAUKEN DIST 23 TOTAL",
+      "PENNSAUKEN DIST 24 TOTAL",
+      "PENNSAUKEN DIST 3 TOTAL",
+      "PENNSAUKEN DIST 4 TOTAL",
+      "PENNSAUKEN DIST 5 TOTAL",
+      "PENNSAUKEN DIST 6 TOTAL",
+      "PENNSAUKEN DIST 7 TOTAL",
+      "PENNSAUKEN DIST 8 TOTAL",
+      "PENNSAUKEN DIST 9 TOTAL",
+      "PENNSAUKEN MAIL-IN BALLOT TOTAL",
+      "PENNSAUKEN PROVISIONAL TOTAL",
+      "PINE HILL DIST 1 TOTAL",
+      "PINE HILL DIST 2 TOTAL",
+      "PINE HILL DIST 3 TOTAL",
+      "PINE HILL DIST 4 TOTAL",
+      "PINE HILL DIST 5 TOTAL",
+      "PINE HILL DIST 6 TOTAL",
+      "PINE HILL MAIL-IN BALLOT TOTAL",
+      "PINE HILL PROVISIONAL TOTAL",
+      "PINE VALLEY BOROUGH TOTAL",
+      "PINE VALLEY MAIL-IN BALLOT TOTAL",
+      "RUNNEMEDE DIST 1 TOTAL",
+      "RUNNEMEDE DIST 2 TOTAL",
+      "RUNNEMEDE DIST 3 TOTAL",
+      "RUNNEMEDE DIST 4 TOTAL",
+      "RUNNEMEDE DIST 5 TOTAL",
+      "RUNNEMEDE DIST 6 TOTAL",
+      "RUNNEMEDE MAIL-IN BALLOT TOTAL",
+      "RUNNEMEDE PROVISIONAL TOTAL",
+      "SOMERDALE DIST 1 TOTAL",
+      "SOMERDALE DIST 2 TOTAL",
+      "SOMERDALE DIST 3 TOTAL",
+      "SOMERDALE DIST 4 TOTAL",
+      "SOMERDALE MAIL-IN BALLOT TOTAL",
+      "SOMERDALE PROVISIONAL TOTAL",
+      "STRATFORD DIST 1 TOTAL",
+      "STRATFORD DIST 2 TOTAL",
+      "STRATFORD DIST 3 TOTAL",
+      "STRATFORD DIST 4 TOTAL",
+      "STRATFORD DIST 5 TOTAL",
+      "STRATFORD DIST 6 TOTAL",
+      "STRATFORD MAIL-IN BALLOT TOTAL",
+      "STRATFORD PROVISIONAL TOTAL",
+      "TAVISTOCK BOROUGH TOTAL",
+      "TAVISTOCK MAIL-IN BALLOT TOTAL",
+      "VOORHEES DIST 1 TOTAL",
+      "VOORHEES DIST 10 TOTAL",
+      "VOORHEES DIST 11 TOTAL",
+      "VOORHEES DIST 12 TOTAL",
+      "VOORHEES DIST 13 TOTAL",
+      "VOORHEES DIST 14 TOTAL",
+      "VOORHEES DIST 15 TOTAL",
+      "VOORHEES DIST 16 TOTAL",
+      "VOORHEES DIST 17 TOTAL",
+      "VOORHEES DIST 18 TOTAL",
+      "VOORHEES DIST 19 TOTAL",
+      "VOORHEES DIST 2 TOTAL",
+      "VOORHEES DIST 3 TOTAL",
+      "VOORHEES DIST 4 TOTAL",
+      "VOORHEES DIST 5 TOTAL",
+      "VOORHEES DIST 6 TOTAL",
+      "VOORHEES DIST 7 TOTAL",
+      "VOORHEES DIST 8 TOTAL",
+      "VOORHEES DIST 9 TOTAL",
+      "VOORHEES MAIL-IN BALLOT TOTAL",
+      "VOORHEES PROVISIONAL TOTAL",
+      "WATERFORD DIST 1 TOTAL",
+      "WATERFORD DIST 2 TOTAL",
+      "WATERFORD DIST 3 TOTAL",
+      "WATERFORD DIST 4 TOTAL",
+      "WATERFORD DIST 5 TOTAL",
+      "WATERFORD DIST 6 TOTAL",
+      "WATERFORD DIST 7 TOTAL",
+      "WATERFORD DIST 8 TOTAL",
+      "WATERFORD MAIL-IN BALLOT TOTAL",
+      "WATERFORD PROVISIONAL TOTAL",
+      "WINSLOW W1 D1 TOTAL",
+      "WINSLOW W1 D2 TOTAL",
+      "WINSLOW W1 D3 TOTAL",
+      "WINSLOW W1 D4 TOTAL",
+      "WINSLOW W1 D5 TOTAL",
+      "WINSLOW W1 D6 TOTAL",
+      "WINSLOW W2 D1 TOTAL",
+      "WINSLOW W2 D2 TOTAL",
+      "WINSLOW W2 D3 TOTAL",
+      "WINSLOW W2 D4 TOTAL",
+      "WINSLOW W2 D5 TOTAL",
+      "WINSLOW W2 D6 TOTAL",
+      "WINSLOW W3 D1 TOTAL",
+      "WINSLOW W3 D2 TOTAL",
+      "WINSLOW W3 D3 TOTAL",
+      "WINSLOW W3 D4 TOTAL",
+      "WINSLOW W3 D5 TOTAL",
+      "WINSLOW W4 D1 TOTAL",
+      "WINSLOW W4 D2 TOTAL",
+      "WINSLOW W4 D3 TOTAL",
+      "WINSLOW W4 D4 TOTAL",
+      "WINSLOW W4 D5 TOTAL",
+      "WINSLOW WARD 1 MAIL-IN BALLOT TOTAL",
+      "WINSLOW WARD 1 PROVISIONAL TOTAL",
+      "WINSLOW WARD 2 MAIL-IN BALLOT TOTAL",
+      "WINSLOW WARD 2 PROVISIONAL TOTAL",
+      "WINSLOW WARD 3 MAIL-IN BALLOT TOTAL",
+      "WINSLOW WARD 3 PROVISIONAL TOTAL",
+      "WINSLOW WARD 4 MAIL-IN BALLOT TOTAL",
+      "WINSLOW WARD 4 PROVISIONAL TOTAL",
+      "WOODLYNNE DIST 1 TOTAL",
+      "WOODLYNNE DIST 2 TOTAL",
+      "WOODLYNNE MAIL-IN BALLOT TOTAL",
+      "WOODLYNNE PROVISIONAL TOTAL"
+     ]
+    },
+    "2018-ny-precinct-general.zip": {
+     "rows": 916156,
+     "named": {
+      "CUMULATIVE": {
+       "unequal": 13
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [
+      "CUMULATIVE"
+     ]
+    },
+    "2018-or-precinct-general.zip": {
+     "rows": 23070,
+     "named": {
+      "TOTAL": {
+       "equal": 5
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [
+      {
+       "contest": [
+        "OR",
+        "US HOUSE",
+        "005",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "41057",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "OR",
+        "GOVERNOR",
+        "STATEWIDE",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "41057",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "OR",
+        "STATE HOUSE",
+        "010",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "41057",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "OR",
+        "STATE HOUSE",
+        "032",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "41057",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "OR",
+        "STATE SENATE",
+        "016",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "41057",
+       "precinct": "TOTAL"
+      }
+     ],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [
+      "TOTAL"
+     ],
+     "listed_for_the_orchestrator": [],
+     "normalizer": {
+      "county_total_lines": {
+       "dropped": 17
+      },
+      "county_total_lines_federal": {
+       "dropped": 5
+      }
+     }
+    }
+   }
+  },
+  "2020": {
+   "scanned": true,
+   "files": 1,
+   "rows": 1485064,
+   "files_with_findings": {
+    "2020-all-states-local-precinct-general.zip": {
+     "rows": 1485064,
+     "named": {},
+     "unnamed_equal": 3,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "NE",
+        "BOARD OF GOVERNORS - WESTERN COMMUNITY COLLEGE",
+        "003",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "31157",
+       "precinct": "DEWEY-TABOR",
+       "candidates": 1,
+       "others": 2
+      },
+      {
+       "contest": [
+        "NE",
+        "PUBLIC POWER DISTRICT BOARD OF DIRECTORS - CUMING COUNTY",
+        "001",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "31173",
+       "precinct": "THAYER",
+       "candidates": 1,
+       "others": 2
+      },
+      {
+       "contest": [
+        "SC",
+        "WATEREE CREEK WATERSHED CONSERVATION DISTRICT",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "45039",
+       "precinct": "WHITE OAK",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": []
+    }
+   }
+  },
+  "2022": {
+   "scanned": true,
+   "files": 51,
+   "rows": 12310863,
+   "files_with_findings": {
+    "2022-id-local-precinct-general.csv": {
+     "rows": 62311,
+     "named": {
+      "COUNTY TOTAL": {
+       "equal": 1033,
+       "unequal": 2,
+       "alone": 3
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [
+      {
+       "contest": [
+        "ID",
+        "US SENATE",
+        "",
+        "GEN",
+        "FALSE",
+        "SENATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "US HOUSE",
+        "001",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "GOVERNOR",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "LIEUTENANT GOVERNOR",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "SECRETARY OF STATE",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE CONTROLLER",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE TREASURER",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "ATTORNEY GENERAL",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "SUPERINTENDENT OF PUBLIC INSTRUCTION",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE SENATE",
+        "001",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE HOUSE",
+        "1A",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE HOUSE",
+        "1B",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE SENATE",
+        "002",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE HOUSE",
+        "2A",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE HOUSE",
+        "2B",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTY COMMISSIONER",
+        "002",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTY COMMISSIONER",
+        "003",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "CLERK OF THE DISTRICT COURT",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTY TREASURER",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTY ASSESSOR",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTY CORONER",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "SJR 102 CONSTITUTIONAL AMENDMENT",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "IDAHO ADVISORY QUESTION (2022 SPECIAL SESSION HB 1)",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "MAGISTRATE JUDGE TO RETAIN: LORI MEULENBERG",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "CITY OF SANDPOINT LOCAL OPTION TAX",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "VOTING STATISTICS",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTYWIDE VOTING STATISTICS",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16017",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "US SENATE",
+        "",
+        "GEN",
+        "FALSE",
+        "SENATE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "US HOUSE",
+        "001",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "GOVERNOR",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "LIEUTENANT GOVERNOR",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "SECRETARY OF STATE",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE CONTROLLER",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "STATE TREASURER",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "ATTORNEY GENERAL",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "SUPERINTENDENT OF PUBLIC INSTRUCTION",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTY COMMISSIONER",
+        "002",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTY COMMISSIONER",
+        "003",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "CLERK OF THE DISTRICT COURT",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      },
+      {
+       "contest": [
+        "ID",
+        "COUNTY TREASURER",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "16027",
+       "precinct": "COUNTY TOTAL"
+      }
+     ],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [
+      "COUNTY TOTAL"
+     ],
+     "listed_for_the_orchestrator": [],
+     "normalizer": {
+      "county_total_lines": {
+       "dropped": 1137
+      },
+      "county_total_lines_federal": {
+       "dropped": 107
+      }
+     }
+    },
+    "2022-mi-local-precinct-general.zip": {
+     "rows": 368499,
+     "named": {
+      "TOTAL": {
+       "unequal": 1
+      },
+      "MACKINAC COUNTY MICHIGAN - TOTAL": {
+       "equal": 8
+      },
+      "TOTALS": {
+       "equal": 6
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [
+      {
+       "contest": [
+        "MI",
+        "STRAIGHT PARTY",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "26097",
+       "precinct": "Mackinac County Michigan - Total"
+      },
+      {
+       "contest": [
+        "MI",
+        "GOVERNOR",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26097",
+       "precinct": "Mackinac County Michigan - Total"
+      },
+      {
+       "contest": [
+        "MI",
+        "ATTORNEY GENERAL",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26097",
+       "precinct": "Mackinac County Michigan - Total"
+      },
+      {
+       "contest": [
+        "MI",
+        "US HOUSE",
+        "001",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "26097",
+       "precinct": "Mackinac County Michigan - Total"
+      },
+      {
+       "contest": [
+        "MI",
+        "STATE SENATE",
+        "037",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26097",
+       "precinct": "Mackinac County Michigan - Total"
+      },
+      {
+       "contest": [
+        "MI",
+        "STATE SENATE",
+        "038",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26097",
+       "precinct": "Mackinac County Michigan - Total"
+      },
+      {
+       "contest": [
+        "MI",
+        "STATE HOUSE",
+        "107",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26097",
+       "precinct": "Mackinac County Michigan - Total"
+      },
+      {
+       "contest": [
+        "MI",
+        "STATE HOUSE",
+        "108",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26097",
+       "precinct": "Mackinac County Michigan - Total"
+      },
+      {
+       "contest": [
+        "MI",
+        "GOVERNOR",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26083",
+       "precinct": "TOTALS"
+      },
+      {
+       "contest": [
+        "MI",
+        "SECRETARY OF STATE",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26083",
+       "precinct": "TOTALS"
+      },
+      {
+       "contest": [
+        "MI",
+        "ATTORNEY GENERAL",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26083",
+       "precinct": "TOTALS"
+      },
+      {
+       "contest": [
+        "MI",
+        "US HOUSE",
+        "001",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "26083",
+       "precinct": "TOTALS"
+      },
+      {
+       "contest": [
+        "MI",
+        "STATE SENATE",
+        "",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26083",
+       "precinct": "TOTALS"
+      },
+      {
+       "contest": [
+        "MI",
+        "STATE HOUSE",
+        "110",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "26083",
+       "precinct": "TOTALS"
+      }
+     ],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [
+      "MACKINAC COUNTY MICHIGAN - TOTAL",
+      "TOTALS"
+     ],
+     "listed_for_the_orchestrator": [
+      "TOTAL"
+     ],
+     "normalizer": {
+      "county_total_lines": {
+       "dropped": 44
+      },
+      "county_total_lines_federal": {
+       "dropped": 9
+      }
+     }
+    },
+    "ky22_cleaned.csv": {
+     "rows": 197236,
+     "named": {},
+     "unnamed_equal": 2,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "KY",
+        "MEMBER BOARD OF EDUCATION",
+        "5TH EDUCATIONAL DISTRICT",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "21205",
+       "precinct": "B104",
+       "candidates": 1,
+       "others": 3
+      },
+      {
+       "contest": [
+        "KY",
+        "MAYOR CITY OF BEDFORD",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "21223",
+       "precinct": "D103",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": []
+    },
+    "ms_cleaned22.csv": {
+     "rows": 5903,
+     "named": {
+      "TOTAL": {
+       "equal": 7
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [
+      {
+       "contest": [
+        "MS",
+        "US HOUSE",
+        "002",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "28163",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "MS",
+        "CHANCERY COURT 11",
+        "011, PLACE 3",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "28163",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "MS",
+        "CHANCERY COURT 11-1",
+        "011, SEAT 1, PLACE 1",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "28163",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "MS",
+        "CIRCUIT COURT",
+        "021",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "28163",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "MS",
+        "COUNTY COURT JUDGE",
+        "",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "28163",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "MS",
+        "SCHOOL DISTRICT",
+        "001",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "28163",
+       "precinct": "TOTAL"
+      },
+      {
+       "contest": [
+        "MS",
+        "SCHOOL DISTRICT",
+        "002",
+        "GEN",
+        "FALSE",
+        ""
+       ],
+       "county": "28163",
+       "precinct": "TOTAL"
+      }
+     ],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [
+      "TOTAL"
+     ],
+     "listed_for_the_orchestrator": []
+    },
+    "nj22_cleaned.csv": {
+     "rows": 2682,
+     "named": {
+      "BURLINGTON TOTALS": {
+       "equal": 2
+      },
+      "CAMDEN TOTALS": {
+       "equal": 1
+      },
+      "GLOUCESTER TOTALS": {
+       "equal": 2
+      },
+      "DISTRICT 1 TOTALS": {
+       "unequal": 1
+      },
+      "ATLANTIC TOTALS": {
+       "equal": 1
+      },
+      "CAPE MAY TOTALS": {
+       "equal": 1
+      },
+      "CUMBERLAND TOTALS": {
+       "equal": 1
+      },
+      "OCEAN TOTALS": {
+       "equal": 3
+      },
+      "SALEM TOTALS": {
+       "equal": 1
+      },
+      "DISTRICT 2 TOTALS": {
+       "unequal": 1
+      },
+      "MERCER TOTALS": {
+       "unequal": 1,
+       "equal": 1
+      },
+      "DISTRICT 3 TOTALS": {
+       "unequal": 1
+      },
+      "MONMOUTH TOTALS": {
+       "equal": 2
+      },
+      "DISTRICT 4 TOTALS": {
+       "unequal": 1
+      },
+      "BERGEN TOTALS": {
+       "equal": 2
+      },
+      "PASSAIC TOTALS": {
+       "equal": 3
+      },
+      "SUSSEX TOTALS": {
+       "equal": 2
+      },
+      "DISTRICT 5 TOTALS": {
+       "unequal": 1
+      },
+      "MIDDLESEX TOTALS": {
+       "equal": 2
+      },
+      "DISTRICT TOTALS": {
+       "unequal": 1
+      },
+      "HUNTERDON TOTALS": {
+       "equal": 1
+      },
+      "MORRIS TOTALS": {
+       "equal": 2
+      },
+      "SOMERSET TOTALS": {
+       "equal": 2
+      },
+      "UNION TOTALS": {
+       "equal": 4
+      },
+      "WARREN TOTALS": {
+       "equal": 1
+      },
+      "DISTRICT 7 TOTALS": {
+       "unequal": 1
+      },
+      "ESSEX TOTALS": {
+       "equal": 3
+      },
+      "HUDSON TOTALS": {
+       "equal": 3
+      },
+      "DISTRICT 8 TOTALS": {
+       "unequal": 1
+      },
+      "DISTRICT 9 TOTALS": {
+       "unequal": 1
+      },
+      "DISTRICT 10 TOTALS": {
+       "unequal": 1
+      },
+      "DISTRICT 11 TOTALS": {
+       "unequal": 1
+      },
+      "DISTRICT 12 TOTALS": {
+       "unequal": 1
+      },
+      "COUNTY TOTAL": {
+       "equal": 4
+      },
+      "DISTRICT TOTAL": {
+       "unequal": 1,
+       "equal": 1
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "001",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34005",
+       "precinct": "Burlington Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "001",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34007",
+       "precinct": "Camden Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "001",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34015",
+       "precinct": "Gloucester Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "002",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34001",
+       "precinct": "Atlantic Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "002",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34009",
+       "precinct": "Cape May Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "002",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34011",
+       "precinct": "Cumberland Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "002",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34015",
+       "precinct": "Gloucester Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "002",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34029",
+       "precinct": "Ocean Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "002",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34033",
+       "precinct": "Salem Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "003",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34005",
+       "precinct": "Burlington Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "003",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34025",
+       "precinct": "Ocean Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "004",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34025",
+       "precinct": "Monmouth Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "004",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34029",
+       "precinct": "Ocean Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "005",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34003",
+       "precinct": "Bergen Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "005",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34031",
+       "precinct": "Passaic Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "005",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34037",
+       "precinct": "Sussex Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "006",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34023",
+       "precinct": "Middlesex Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "006",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34025",
+       "precinct": "Monmouth Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "007",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34019",
+       "precinct": "Hunterdon Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "007",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34027",
+       "precinct": "Morris Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "007",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34035",
+       "precinct": "Somerset Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "007",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34037",
+       "precinct": "Sussex Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "007",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34039",
+       "precinct": "Union Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "007",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34041",
+       "precinct": "Warren Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "008",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34013",
+       "precinct": "Essex Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "008",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34017",
+       "precinct": "Hudson Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "008",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34039",
+       "precinct": "Union Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "009",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34003",
+       "precinct": "Bergen Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "009",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34017",
+       "precinct": "Hudson Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "009",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34031",
+       "precinct": "Passaic Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "010",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34013",
+       "precinct": "Essex Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "010",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34017",
+       "precinct": "Hudson Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "010",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34039",
+       "precinct": "Union Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "011",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34013",
+       "precinct": "Essex Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "011",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34027",
+       "precinct": "Morris Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "011",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34031",
+       "precinct": "Passaic Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "012",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34021",
+       "precinct": "Mercer Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "012",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34023",
+       "precinct": "Middlesex Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "012",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34035",
+       "precinct": "Somerset Totals"
+      },
+      {
+       "contest": [
+        "NJ",
+        "US HOUSE",
+        "012",
+        "GEN",
+        "FALSE",
+        "HOUSE"
+       ],
+       "county": "34039",
+       "precinct": "Union Totals"
+      }
+     ],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [
+      "ATLANTIC TOTALS",
+      "BERGEN TOTALS",
+      "BURLINGTON TOTALS",
+      "CAMDEN TOTALS",
+      "CAPE MAY TOTALS",
+      "COUNTY TOTAL",
+      "CUMBERLAND TOTALS",
+      "DISTRICT TOTAL",
+      "ESSEX TOTALS",
+      "GLOUCESTER TOTALS",
+      "HUDSON TOTALS",
+      "HUNTERDON TOTALS",
+      "MERCER TOTALS",
+      "MIDDLESEX TOTALS",
+      "MONMOUTH TOTALS",
+      "MORRIS TOTALS",
+      "OCEAN TOTALS",
+      "PASSAIC TOTALS",
+      "SALEM TOTALS",
+      "SOMERSET TOTALS",
+      "SUSSEX TOTALS",
+      "UNION TOTALS",
+      "WARREN TOTALS"
+     ],
+     "listed_for_the_orchestrator": [
+      "DISTRICT 1 TOTALS",
+      "DISTRICT 10 TOTALS",
+      "DISTRICT 11 TOTALS",
+      "DISTRICT 12 TOTALS",
+      "DISTRICT 2 TOTALS",
+      "DISTRICT 3 TOTALS",
+      "DISTRICT 4 TOTALS",
+      "DISTRICT 5 TOTALS",
+      "DISTRICT 7 TOTALS",
+      "DISTRICT 8 TOTALS",
+      "DISTRICT 9 TOTALS",
+      "DISTRICT TOTALS"
+     ]
+    },
+    "ny22_cleaned.csv": {
+     "rows": 573017,
+     "named": {
+      "CUMULATIVE": {
+       "unequal": 16
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [
+      "CUMULATIVE"
+     ]
+    },
+    "vt22_cleaned.csv": {
+     "rows": 32423,
+     "named": {},
+     "unnamed_equal": 1,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "VT",
+        "STATE SENATE",
+        "CHI SE 1",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "50001",
+       "precinct": "WEYBRIDGE",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": []
+    }
+   }
+  },
+  "2024": {
+   "scanned": true,
+   "files": 51,
+   "rows": 18383653,
+   "files_with_findings": {
+    "2024-al-precinct-general.csv": {
+     "rows": 236649,
+     "named": {},
+     "unnamed_equal": 1,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "AL",
+        "MONROE COUNTY CONSTABLE",
+        "004",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "01099",
+       "precinct": "LIMESTONE FAULK",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": []
+    },
+    "2024-az-precinct-general.csv": {
+     "rows": 1171069,
+     "named": {},
+     "unnamed_equal": 6,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "AZ",
+        "STATE SENATE",
+        "030",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "04025",
+       "precinct": "SPURS (317.00)",
+       "candidates": 2,
+       "others": 2
+      },
+      {
+       "contest": [
+        "AZ",
+        "STATE HOUSE",
+        "030",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "04025",
+       "precinct": "SPURS (317.00)",
+       "candidates": 3,
+       "others": 2
+      },
+      {
+       "contest": [
+        "AZ",
+        "YAVAPAI BOARD OF SUPERVISORS",
+        "1",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "04025",
+       "precinct": "PLEASANT (322.00)",
+       "candidates": 1,
+       "others": 16
+      },
+      {
+       "contest": [
+        "AZ",
+        "COTTONWOOD COUNCIL MEMBER 4YR",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "04025",
+       "precinct": "GHOST (338.00)",
+       "candidates": 1,
+       "others": 4
+      },
+      {
+       "contest": [
+        "AZ",
+        "CAMP VERDE COUNCIL MEMBER 4YR",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "04025",
+       "precinct": "AZURE (335.00)",
+       "candidates": 6,
+       "others": 2
+      },
+      {
+       "contest": [
+        "AZ",
+        "PROPOSITION 480",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "04025",
+       "precinct": "GHOST (338.00)",
+       "candidates": 2,
+       "others": 4
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [],
+     "normalizer": {
+      "sum_rows": {
+       "dropped_rows": 4,
+       "lines": 13
+      },
+      "sum_rows_where": [
+       {
+        "key": [
+         "AZ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "STATE",
+         "STATE HOUSE",
+         "030",
+         "2"
+        ],
+        "county": "04025",
+        "precinct": "SPURS (317.00)"
+       },
+       {
+        "key": [
+         "AZ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "STATE",
+         "STATE SENATE",
+         "030",
+         "1"
+        ],
+        "county": "04025",
+        "precinct": "SPURS (317.00)"
+       },
+       {
+        "key": [
+         "AZ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CAMP VERDE COUNCIL MEMBER 4YR",
+         "",
+         "3"
+        ],
+        "county": "04025",
+        "precinct": "AZURE (335.00)"
+       },
+       {
+        "key": [
+         "AZ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "PROPOSITION 480",
+         "",
+         "1"
+        ],
+        "county": "04025",
+        "precinct": "GHOST (338.00)"
+       }
+      ]
+     }
+    },
+    "2024-il-precinct-general.csv": {
+     "rows": 1384068,
+     "named": {
+      "COUNTY TOTALS": {
+       "unequal": 204
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [
+      "COUNTY TOTALS"
+     ],
+     "normalizer": {
+      "county_total_lines": {
+       "kept_alone": 9
+      },
+      "county_total_lines_federal": {
+       "kept_alone": 1061,
+       "kept_unequal": 1
+      }
+     }
+    },
+    "2024-in-precinct-general.csv": {
+     "rows": 372701,
+     "named": {},
+     "unnamed_equal": 14,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "IN",
+        "STATE SENATE",
+        "07",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 1,
+       "others": 16
+      },
+      {
+       "contest": [
+        "IN",
+        "STATE HOUSE",
+        "25",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 2,
+       "others": 14
+      },
+      {
+       "contest": [
+        "IN",
+        "STATE HOUSE",
+        "28",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 2,
+       "others": 41
+      },
+      {
+       "contest": [
+        "IN",
+        "DANVILLE SCHOOL BOARD",
+        "AT-LARGE",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 2,
+       "others": 11
+      },
+      {
+       "contest": [
+        "IN",
+        "DANVILLE SCHOOL BOARD",
+        "CENTER TOWNSHIP",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 3,
+       "others": 11
+      },
+      {
+       "contest": [
+        "IN",
+        "MILL CREEK SCHOOL BOARD",
+        "AT-LARGE",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 1,
+       "others": 8
+      },
+      {
+       "contest": [
+        "IN",
+        "MILL CREEK SCHOOL BOARD",
+        "CLAY TOWNSHIP",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 1,
+       "others": 8
+      },
+      {
+       "contest": [
+        "IN",
+        "MILL CREEK SCHOOL BOARD",
+        "FRANKLIN TWP",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 1,
+       "others": 8
+      },
+      {
+       "contest": [
+        "IN",
+        "BOARD MEMBER",
+        "EEL RIVER TOWNSHIP",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 2,
+       "others": 2
+      },
+      {
+       "contest": [
+        "IN",
+        "NW HENDRICKS SCHOOL BOARD",
+        "AT-LARGE",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 1,
+       "others": 8
+      },
+      {
+       "contest": [
+        "IN",
+        "NW HENDRICKS SCHOOL BOARD",
+        "MIDDLE TWP",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 1,
+       "others": 8
+      },
+      {
+       "contest": [
+        "IN",
+        "STATE SENATE",
+        "35",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 2,
+       "others": 27
+      },
+      {
+       "contest": [
+        "IN",
+        "PLAINFIELD SB",
+        "GUILFORD TOWNSHIP",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 6,
+       "others": 22
+      },
+      {
+       "contest": [
+        "IN",
+        "STATE HOUSE",
+        "57",
+        "GEN",
+        "FALSE",
+        "STATE"
+       ],
+       "county": "18063",
+       "precinct": "1229-Washington 29",
+       "candidates": 1,
+       "others": 12
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [],
+     "normalizer": {
+      "sum_rows": {
+       "dropped_rows": 7,
+       "lines": 19
+      },
+      "sum_rows_where": [
+       {
+        "key": [
+         "IN",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "STATE",
+         "STATE SENATE",
+         "35",
+         ""
+        ],
+        "county": "18063",
+        "precinct": "1229-Washington 29"
+       },
+       {
+        "key": [
+         "IN",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "STATE",
+         "STATE HOUSE",
+         "28",
+         ""
+        ],
+        "county": "18063",
+        "precinct": "1229-Washington 29"
+       },
+       {
+        "key": [
+         "IN",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "STATE",
+         "STATE HOUSE",
+         "25",
+         ""
+        ],
+        "county": "18063",
+        "precinct": "1229-Washington 29"
+       },
+       {
+        "key": [
+         "IN",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "DANVILLE SCHOOL BOARD",
+         "AT-LARGE",
+         ""
+        ],
+        "county": "18063",
+        "precinct": "1229-Washington 29"
+       },
+       {
+        "key": [
+         "IN",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "DANVILLE SCHOOL BOARD",
+         "CENTER TOWNSHIP",
+         "2"
+        ],
+        "county": "18063",
+        "precinct": "1229-Washington 29"
+       },
+       {
+        "key": [
+         "IN",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "BOARD MEMBER",
+         "EEL RIVER TOWNSHIP",
+         "2"
+        ],
+        "county": "18063",
+        "precinct": "1229-Washington 29"
+       },
+       {
+        "key": [
+         "IN",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "PLAINFIELD SB",
+         "GUILFORD TOWNSHIP",
+         "3"
+        ],
+        "county": "18063",
+        "precinct": "1229-Washington 29"
+       }
+      ]
+     }
+    },
+    "2024-mo-precinct-general.csv": {
+     "rows": 190270,
+     "named": {
+      "26_CUMULATIVE": {
+       "unequal": 16
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [
+      "26_CUMULATIVE"
+     ]
+    },
+    "2024-ms-precinct-general.csv": {
+     "rows": 34024,
+     "named": {},
+     "unnamed_equal": 2,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "MS",
+        "JUSTICE COURT JUDGE",
+        "SOUTHERN",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "28071",
+       "precinct": "Yocona Community Center",
+       "candidates": 7,
+       "others": 6
+      },
+      {
+       "contest": [
+        "MS",
+        "WALTHALL ELECTION COMMISSIONER",
+        "003",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "28147",
+       "precinct": "West Tylertown",
+       "candidates": 1,
+       "others": 3
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [],
+     "normalizer": {
+      "sum_rows": {
+       "dropped_rows": 1,
+       "lines": 7
+      },
+      "sum_rows_where": [
+       {
+        "key": [
+         "MS",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "JUSTICE COURT JUDGE",
+         "SOUTHERN",
+         "1"
+        ],
+        "county": "28071",
+        "precinct": "Yocona Community Center"
+       }
+      ]
+     }
+    },
+    "2024-nd-precinct-general.csv": {
+     "rows": 18909,
+     "named": {},
+     "unnamed_equal": 1,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "ND",
+        "SOIL CONSERVATION DISTRICT SUPERVISOR",
+        "SOUTH MCLEAN SOIL CONSERVATION DISTRICT",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "38055",
+       "precinct": "283301",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": []
+    },
+    "2024-nj-precinct-general.csv": {
+     "rows": 639869,
+     "named": {
+      "COUNTY TOTAL": {
+       "equal": 1
+      }
+     },
+     "unnamed_equal": 161,
+     "examples_named": [
+      {
+       "contest": [
+        "NJ",
+        "US PRESIDENT",
+        "STATEWIDE",
+        "GEN",
+        "FALSE",
+        "PRESIDENT"
+       ],
+       "county": "34015",
+       "precinct": "COUNTY TOTAL"
+      }
+     ],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "NJ",
+        "ALLENDALE COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Allendale",
+       "candidates": 2,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "ALLENDALE REGIONAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Allendale",
+       "candidates": 2,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "ALLENDALE REGIONAL BOE UNEX TWO YR",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Allendale",
+       "candidates": 1,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "ALLENDALE LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Allendale",
+       "candidates": 3,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "ALPINE COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Alpine",
+       "candidates": 2,
+       "others": 2
+      },
+      {
+       "contest": [
+        "NJ",
+        "ALPINE LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Alpine",
+       "candidates": 2,
+       "others": 2
+      },
+      {
+       "contest": [
+        "NJ",
+        "BERGENFIELD COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Bergenfield",
+       "candidates": 2,
+       "others": 18
+      },
+      {
+       "contest": [
+        "NJ",
+        "BERGENFIELD LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Bergenfield",
+       "candidates": 3,
+       "others": 18
+      },
+      {
+       "contest": [
+        "NJ",
+        "BOGOTA COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Bogota",
+       "candidates": 4,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "BOGOTA LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Bogota",
+       "candidates": 3,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "CARLSTADT COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Carlstadt",
+       "candidates": 2,
+       "others": 6
+      },
+      {
+       "contest": [
+        "NJ",
+        "CARLSTADT REGIONAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Carlstadt",
+       "candidates": 2,
+       "others": 6
+      },
+      {
+       "contest": [
+        "NJ",
+        "CARLSTADT LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Carlstadt",
+       "candidates": 3,
+       "others": 6
+      },
+      {
+       "contest": [
+        "NJ",
+        "CLIFFSIDE PARK COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Cliffside Park",
+       "candidates": 2,
+       "others": 16
+      },
+      {
+       "contest": [
+        "NJ",
+        "CLOSTER COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Closter",
+       "candidates": 4,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "CLOSTER REGIONAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Closter",
+       "candidates": 2,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "CLOSTER LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Closter",
+       "candidates": 3,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "CLOSTER PUBLIC QUESTION",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Closter",
+       "candidates": 2,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "CRESSKILL COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Cresskill",
+       "candidates": 2,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "CRESSKILL LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Cresskill",
+       "candidates": 3,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "DEMAREST COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Demarest",
+       "candidates": 3,
+       "others": 4
+      },
+      {
+       "contest": [
+        "NJ",
+        "DEMAREST LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Demarest",
+       "candidates": 2,
+       "others": 4
+      },
+      {
+       "contest": [
+        "NJ",
+        "DEMAREST LOCAL BOE UNEX ONE YR",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Demarest",
+       "candidates": 1,
+       "others": 4
+      },
+      {
+       "contest": [
+        "NJ",
+        "DUMONT COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Dumont",
+       "candidates": 4,
+       "others": 12
+      },
+      {
+       "contest": [
+        "NJ",
+        "DUMONT LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Dumont",
+       "candidates": 4,
+       "others": 12
+      },
+      {
+       "contest": [
+        "NJ",
+        "EAST RUTHERFORD COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "East Rutherford",
+       "candidates": 3,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "EAST RUTHERFORD COUNCIL UNEX TWO YR",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "East Rutherford",
+       "candidates": 1,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "EAST RUTHERFORD REGIONAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "East Rutherford",
+       "candidates": 3,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "EAST RUTHERFORD LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "East Rutherford",
+       "candidates": 4,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "EDGEWATER COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Edgewater",
+       "candidates": 2,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "EDGEWATER LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Edgewater",
+       "candidates": 2,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "EMERSON COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Emerson",
+       "candidates": 4,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "EMERSON LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Emerson",
+       "candidates": 1,
+       "others": 7
+      },
+      {
+       "contest": [
+        "NJ",
+        "ENGLEWOOD (AT LARGE) MAYOR",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Englewood",
+       "candidates": 2,
+       "others": 20
+      },
+      {
+       "contest": [
+        "NJ",
+        "ENGLEWOOD (AT LARGE) COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Englewood",
+       "candidates": 3,
+       "others": 20
+      },
+      {
+       "contest": [
+        "NJ",
+        "ENGLEWOOD CLIFFS COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Englewood Cliffs",
+       "candidates": 4,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "ENGLEWOOD CLIFFS LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Englewood Cliffs",
+       "candidates": 3,
+       "others": 5
+      },
+      {
+       "contest": [
+        "NJ",
+        "FAIR LAWN COUNCIL UNEX THREE YR",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Fair Lawn",
+       "candidates": 2,
+       "others": 24
+      },
+      {
+       "contest": [
+        "NJ",
+        "FAIR LAWN LOCAL BOE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Fair Lawn",
+       "candidates": 6,
+       "others": 24
+      },
+      {
+       "contest": [
+        "NJ",
+        "FAIRVIEW COUNCIL",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "34003",
+       "precinct": "Fairview",
+       "candidates": 2,
+       "others": 7
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [
+      "COUNTY TOTAL"
+     ],
+     "listed_for_the_orchestrator": [],
+     "normalizer": {
+      "county_total_lines_federal": {
+       "dropped": 9
+      },
+      "sum_rows": {
+       "dropped_rows": 140,
+       "lines": 436
+      },
+      "sum_rows_where": [
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ALLENDALE COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Allendale"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ALLENDALE REGIONAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Allendale"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ALLENDALE LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Allendale"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ALPINE COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Alpine"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ALPINE LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Alpine"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "BERGENFIELD COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Bergenfield"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "BERGENFIELD LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Bergenfield"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "BOGOTA COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Bogota"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "BOGOTA LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Bogota"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CARLSTADT COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Carlstadt"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CARLSTADT REGIONAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Carlstadt"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CARLSTADT LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Carlstadt"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CLIFFSIDE PARK COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Cliffside Park"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CLOSTER COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Closter"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CLOSTER REGIONAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Closter"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CLOSTER LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Closter"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CLOSTER PUBLIC QUESTION",
+         "",
+         "1"
+        ],
+        "county": "34003",
+        "precinct": "Closter"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CRESSKILL COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Cresskill"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "CRESSKILL LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Cresskill"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "DEMAREST COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Demarest"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "DEMAREST LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Demarest"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "DUMONT COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Dumont"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "DUMONT LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Dumont"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "EAST RUTHERFORD COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "East Rutherford"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "EAST RUTHERFORD REGIONAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "East Rutherford"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "EAST RUTHERFORD LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "East Rutherford"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "EDGEWATER COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Edgewater"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "EDGEWATER LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Edgewater"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "EMERSON COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Emerson"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ENGLEWOOD (AT LARGE) MAYOR",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Englewood"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ENGLEWOOD (AT LARGE) COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Englewood"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ENGLEWOOD CLIFFS COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Englewood Cliffs"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ENGLEWOOD CLIFFS LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Englewood Cliffs"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "FAIR LAWN COUNCIL UNEX THREE YR",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Fair Lawn"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "FAIR LAWN LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Fair Lawn"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "FAIRVIEW COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Fairview"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "FORT LEE COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Fort Lee"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "FORT LEE LOCAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Fort Lee"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "FRANKLIN LAKES COUNCIL",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Franklin Lakes"
+       },
+       {
+        "key": [
+         "NJ",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "FRANKLIN LAKES REGIONAL BOE",
+         "",
+         ""
+        ],
+        "county": "34003",
+        "precinct": "Franklin Lakes"
+       }
+      ]
+     }
+    },
+    "2024-ny-precinct-general.csv": {
+     "rows": 1041437,
+     "named": {},
+     "unnamed_equal": 1,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "NY",
+        "ENDICOTT VILLAGE TRUSTEE",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "36007",
+       "precinct": "Village of Endicott",
+       "candidates": 5,
+       "others": 7
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [],
+     "normalizer": {
+      "sum_rows": {
+       "dropped_rows": 1,
+       "lines": 5
+      },
+      "sum_rows_where": [
+       {
+        "key": [
+         "NY",
+         "2024-11-05",
+         "GEN",
+         "FALSE",
+         "LOCAL",
+         "ENDICOTT VILLAGE TRUSTEE",
+         "",
+         "2"
+        ],
+        "county": "36007",
+        "precinct": "Village of Endicott"
+       }
+      ]
+     }
+    },
+    "2024-or-precinct-general.csv": {
+     "rows": 116411,
+     "named": {
+      "TOTAL (RESTORED)": {
+       "unequal": 3
+      }
+     },
+     "unnamed_equal": 0,
+     "examples_named": [],
+     "examples_unnamed": [],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": [
+      "TOTAL (RESTORED)"
+     ]
+    },
+    "2024-sc-precinct-general.csv": {
+     "rows": 338046,
+     "named": {},
+     "unnamed_equal": 1,
+     "examples_named": [],
+     "examples_unnamed": [
+      {
+       "contest": [
+        "SC",
+        "WATEREE CREEK WATERSHED CONSERVATION DISTRICT",
+        "",
+        "GEN",
+        "FALSE",
+        "LOCAL"
+       ],
+       "county": "45039",
+       "precinct": "MITFORD",
+       "candidates": 1,
+       "others": 2
+      }
+     ],
+     "states_seen_twice": [],
+     "rule_drops": [],
+     "listed_for_the_orchestrator": []
+    }
    }
   }
  }
