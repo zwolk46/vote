@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 08:08: approved D3's NC like-race route for the State Board's other dates (D3-v1.1 on NC's own earlier years, from 2014; added classes D-vs-R and primaries by office and candidates; back-test 270.3 expected vs 281 seen, single-seat 115.3 vs 113, primaries 38.7 vs 38; factor rejected as it worsens 2019-26; 2,675 of 7,453 contested races get p).
+
 - 2026-11-07 08:06: #42 merged after D3 merged main (README: both sides kept). M2 second pass, early finding: 4 contests with p wrong by >2x from forecast_inputs.incumbency (2018 House NY-14 x2071, 2014 MI-11 x4.7, 2024 SD-AL x0.035, 2006 Senate UT x0.15; also 2006 AR-04, MI-07 without p): incumbency() keys Cha by last name, and FEC incumbent marks taken from non-D/R candidates; fits unaffected. Everything else in c8 reproduces to 1e-15. D2 asked for the narrow fix now (key by name, state, district, year; Cha's D/R coding; document f_half as calibrated). An exception to the three-worker cap, for a small correctness fix to wrong p; logged here for that reason.
 
 - 2026-11-07 08:06: #42 (D3 NC State Board: 21,002 NC contests 2000-2026, 17,078 local, 3,057 primaries, 867 questions; federal counts equal D1/D2 on 9 dates, 2000 and 2010 short 0.8%/1.0%, noted) gated: tests, build, NC 2024 amendment p reproduce; conflicts with #41 in data/README.md, D3 to merge main. Ruled: certified SBE replaces MEDSL NC (other states' 2024 local p move median -1.8%, max -20.5%); Klarner 2016 NC legislative counts to be replaced by certified, later PR; 2026-11-03 left out (not certified). Like-race fit for SBE's other dates to be proposed with back-test before computing.
