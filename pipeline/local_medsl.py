@@ -672,14 +672,32 @@ def check_oaarcy():
                               "against_klarner_oaarcy": b["by_state"].get(st)} for st in states}}
 
 
-def backtest_measures(mtest):
-    """Like past measures out of sample: each year's classes come from earlier years only. For each measure given a
-    forecast, the class's chance of finishing within 1, 2 and 5 points of its threshold is added up and set beside
-    how many did; and within its own window."""
+def _near_table(rows_, groups):
     out = {}
+    for r_ in rows_:
+        for grp in groups(r_):
+            y = out.setdefault(grp, {"measures": 0, "near": {}})
+            y["measures"] += 1
+            for hh, (q, seen) in r_["near"].items():
+                z = y["near"].setdefault(hh, [0.0, 0])
+                z[0] += q
+                z[1] += seen
+    for y in out.values():
+        y["near"] = {f"within {float(hh):.0%}": {"expected": round(v[0], 1), "seen": v[1]}
+                     for hh, v in sorted(y.pop("near").items(), key=lambda kv: float(kv[0]))}
+    return dict(sorted(out.items()))
+
+
+def backtest_measures(mtest, mhalf):
+    """Like past measures out of sample: each year's classes come from earlier years only. Near 1/2, for every
+    statewide question whose class has earlier years (its threshold read or not): the class's chance of finishing
+    within 1, 2 and 5 points of 1/2 added up, beside how many did. At the threshold, the same for the measures given
+    a forecast, and within the forecast's own window."""
+    half = _near_table(mhalf, lambda r_: (f"{r_['year']} {r_['key']} (trained on {r_['train']})", f"all years {r_['key']}"))
+    at_t = {}
     for r_ in mtest:
         for grp in (f"{r_['year']}", "all years"):
-            y = out.setdefault(grp, {"measures": 0, "own_window": [0.0, 0], "near_threshold": {}})
+            y = at_t.setdefault(grp, {"measures": 0, "own_window": [0.0, 0], "near_threshold": {}})
             y["measures"] += 1
             y["own_window"][0] += r_["q_own"]
             y["own_window"][1] += r_["in_own"]
@@ -687,14 +705,14 @@ def backtest_measures(mtest):
                 z = y["near_threshold"].setdefault(hh, [0.0, 0])
                 z[0] += q
                 z[1] += seen
-    for y in out.values():
+    for y in at_t.values():
         y["own_window"] = {"expected": round(y["own_window"][0], 1), "seen": y["own_window"][1]}
         y["near_threshold"] = {f"within {float(hh):.0%}": {"expected": round(v[0], 1), "seen": v[1]}
                                for hh, v in sorted(y["near_threshold"].items(), key=lambda kv: float(kv[0]))}
-    return {"about": "statewide measures and retentions given a forecast by like past measures (the yes share's "
-                     "density at the threshold among the same class's measures of earlier years): expected and seen "
-                     "counts finishing near the threshold. Built by pipeline/local_medsl.py build.",
-            "years": dict(sorted(out.items()))}
+    return {"about": "statewide measures and retentions, like past measures out of sample (each year's class from "
+                     "earlier years only): expected and seen counts finishing near 1/2 (every statewide question) "
+                     "and near the threshold (those given a forecast). Built by pipeline/local_medsl.py build.",
+            "near_half": half, "at_threshold": dict(sorted(at_t.items()))}
 
 
 def backtest_local_classes(files):
@@ -1274,16 +1292,23 @@ def build(out_dir, with_p=True):
 
     # -- measures and retentions: the threshold from the state's law, the forecast from like past measures
     import measures as MS
-    rules = MS.load_thresholds()["rules"]
-    ncount = MS.county_counts({y: m[y] for y in MEASURE_YEARS})
-    mrows = {y: MS.rows([c for c in m[y] if c["state"] not in bad[y]], y, ncount) for y in MEASURE_YEARS}
-    mdens, mtest = {}, []
+    book = MS.load_thresholds()
+    mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
+    mrows = {y: MS.rows([c for c in m[y] if c["state"] not in bad[y]], y, mref) for y in MEASURE_YEARS}
+    mdens, mtest, mhalf = {}, [], []
     for year in MEASURE_YEARS:
         train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
+        for r_ in mrows[year]:     # the route's calibration near 1/2: every statewide question, threshold read or not
+            if r_["key"].startswith("statewide"):
+                tr = [x["s"] for x in train if x["key"] == r_["key"]]
+                if tr:
+                    mhalf.append({"year": year, "key": r_["key"], "train": len(tr),
+                                  "near": {str(hh): [sum(1 for x in tr if abs(x - 0.5) <= hh) / len(tr),
+                                                     abs(r_["s"] - 0.5) <= hh] for hh in L.WINDOWS}})
         for c in m[year]:
             if not c["question"]:
                 continue
-            kind, scope = MS.kind_of(c), MS.scope_of(c, ncount)
+            kind, scope = MS.kind_of(c), MS.scope_of(c, mref, year)
             yes, no = yes_no(c)
             rec = {"id": cid(f"{year}-measure-{c['state']}-{L._slug(c['office'])[:60]}"
                              + (f"-{L._slug(c['subject'])}" if c.get("subject") else "")
@@ -1325,6 +1350,10 @@ def build(out_dir, with_p=True):
             elif any(x.get("votes_missing_in_some_precincts") for x in c["candidates"]):
                 p = {"not_computed": "the source redacts some precincts' counts for this question"}
                 counts[f"{label}: not computed, redacted"] += 1
+            elif scope == "partial":
+                p = {"not_computed": "a statewide question, but the source holds only part of the state's counties "
+                                     "this year, so its count is not the state's"}
+                counts[f"{label}: not computed, the source holds part of the state"] += 1
             elif scope == "local":
                 p = {"not_computed": f"a local {kind}: its threshold is the one state law sets for its kind of "
                                      f"{'measure' if kind == 'measure' else 'judge'}, which the source's wording does "
@@ -1332,14 +1361,15 @@ def build(out_dir, with_p=True):
                                      f"county); not inferred (the orchestrator, 2026-11-07 06:16)"}
                 counts[f"{label}: not computed, local"] += 1
             else:
-                rule, why = MS.rule_for(c, kind, rules, year)
+                rule, how, why = MS.rule_for(c, kind, book, year)
                 if rule is None:
                     p = {"not_computed": why}
-                    counts[f"{label}: not computed, threshold: {why.split(':')[0][:60]}"] += 1
+                    counts[f"{label}: not computed, threshold: {why.split(':')[0][:70]}"] += 1
                 else:
                     t = rule["t"]
                     key = f"{scope} {kind}"
-                    rec["threshold"] = {k: rule.get(k) for k in ("t", "rule", "citation", "url", "read_utc")}
+                    rec["threshold"] = {k: rule.get(k) for k in ("t", "rule", "citation", "url", "quote", "read_utc")}
+                    rec["threshold"]["matched"] = how
                     if (year, key, t) not in mdens:
                         mdens[(year, key, t)] = MS.density_at(train, key, t)
                     f, N, h, kin = mdens[(year, key, t)]
@@ -1376,7 +1406,7 @@ def build(out_dir, with_p=True):
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:
-            json.dump(backtest_measures(mtest), f, indent=1)
+            json.dump(backtest_measures(mtest, mhalf), f, indent=1)
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-classes.json"), "w") as f:
             json.dump(backtest_local_classes(files), f, indent=1)
     cal = calibrate_local(files)
@@ -1421,6 +1451,14 @@ def build(out_dir, with_p=True):
         sz = os.path.getsize(path)
         total += sz
         by_level[level] += sz
+    # a state's file from an earlier build that this build no longer writes would stand stale beside the rest
+    # (Michigan's 2022 measures, which were rejected-ballot lines until the fix of 2026-11-07): remove it
+    for level, year in {(lv, y) for lv, y, _ in files}:
+        for path in glob.glob(os.path.join(out_dir, level, str(year), "*.json")):
+            st = os.path.basename(path)[:-5]
+            if (level, year, st) not in files and len(st) == 2:
+                os.remove(path)
+                print(f"removed {os.path.relpath(path, out_dir)}: this build has no {level} contests there")
     print(f"wrote {sum(len(v) for v in files.values()):,} contests in {len(files):,} files, {total / 1e6:.1f} MB: "
           + ", ".join(f"{k} {v / 1e6:.1f} MB" for k, v in sorted(by_level.items())))
     counts.update({f"left out, no vote anywhere, {y}": EMPTY[y] for y in YEARS})

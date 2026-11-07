@@ -2,8 +2,8 @@
  "about": "local races given p by like past races (routes (b) and (c), method D3-v1.1): the chance each class gives of finishing within its window around one half, added up over the year's contests, beside how many did. Classes come from earlier years only. Built by pipeline/local_medsl.py build.",
  "years": {
   "2020": {
-   "contests": 1817,
-   "expected_in_window": 317.8,
+   "contests": 1809,
+   "expected_in_window": 317.4,
    "seen_in_window": 248,
    "by_office_type": {
     "class, local council, commission or board": {
@@ -12,12 +12,12 @@
      "seen": 178
     },
     "class, local school board": {
-     "contests": 358,
-     "expected": 59.2,
+     "contests": 355,
+     "expected": 58.7,
      "seen": 44
     },
     "class, local other local office": {
-     "contests": 160,
+     "contests": 155,
      "expected": 11.1,
      "seen": 7
     },
@@ -28,7 +28,7 @@
     },
     "class, local special district": {
      "contests": 130,
-     "expected": 18.4,
+     "expected": 18.6,
      "seen": 7
     },
     "class, local mayor or executive": {
@@ -37,11 +37,11 @@
      "seen": 7
     }
    },
-   "seen_over_expected": 0.78
+   "seen_over_expected": 0.781
   },
   "2024": {
    "contests": 2066,
-   "expected_in_window": 270.6,
+   "expected_in_window": 271.1,
    "seen_in_window": 202,
    "by_office_type": {
     "class, local council, commission or board": {
@@ -51,17 +51,17 @@
     },
     "class, local school board": {
      "contests": 511,
-     "expected": 77.5,
+     "expected": 77.7,
      "seen": 50
     },
     "class, local special district": {
      "contests": 194,
-     "expected": 24.3,
+     "expected": 24.4,
      "seen": 13
     },
     "class, local other local office": {
      "contests": 136,
-     "expected": 7.7,
+     "expected": 7.9,
      "seen": 10
     },
     "class, local mayor or executive": {
@@ -90,7 +90,7 @@
      "seen": 7
     }
    },
-   "seen_over_expected": 0.746
+   "seen_over_expected": 0.745
   }
  }
 }
