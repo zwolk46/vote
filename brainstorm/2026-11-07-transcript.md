@@ -71,3 +71,7 @@
 **Zach, 04:09 UTC (this thread):** "Keep in mind on option c as it exists currently on mobile it looks awful. Really scrutinized it to make sure it looks nice. An example of a component I love that serves its own specific purposes are the graphs with the dots that move together for each individual race from the midterms page"
 
 **Orchestrator, 04:09.** "Passing this to the designer now, with the midterms race-page dot charts as the model to study."
+
+**Zach, 04:09 UTC (this thread):** "And it should also be checked by an agent specifically instructed to lack some technical understanding and as a total layperson, who doesn't even understand the fundamental correct nature of a cost-benefit analysis"
+
+**Orchestrator, 04:10.** "Adding that reader to the explainer's test, and to the first-screen options too."

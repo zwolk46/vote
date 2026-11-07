@@ -45,9 +45,11 @@ These ideas, in this order, are the content. How they are shown is yours. Each i
 - what the break-even stakes are and where they come from;
 - why the presidency's chance is so small.
 
-Where it gets one wrong or cannot say, the page has failed there. Fix it, then read again with a fresh subagent, once. Put both readings, verbatim, in `design/EXPLAINER-READINGS.md`.
+**A second cold reading, by a total layperson** (the maker, 04:09 UTC). Run a second Sonnet 5.5 subagent at xhigh, told that it has no technical understanding at all. It does not know what a cost-benefit analysis is. It has never weighed a small chance of a large gain against a sure cost, and it does not know that such a weighing is how one decides whether something "pays". It reads only the same screenshots and text. Ask it the five questions above, and one more: why paying a small, sure cost for a tiny chance of a large gain can pay in one race and not in another. The page must teach this reader the weighing itself, not assume it.
 
-*Reason:* the maker's test is a non-technical person who understands. A reader who has seen this brief or the model cannot stand in for one, so the reader sees only the page.
+Where either reader gets one wrong or cannot say, the page has failed there. Fix it, then read again with fresh subagents of both kinds, once. Put all the readings, verbatim, in `design/EXPLAINER-READINGS.md`.
+
+*Reason:* the maker's test is a non-technical person who understands. A reader who has seen this brief or the model cannot stand in for one, so the readers see only the page. His words of 04:09: "it should also be checked by an agent specifically instructed to lack some technical understanding and as a total layperson, who doesn't even understand the fundamental correct nature of a cost-benefit analysis"
 
 ## Path and constraints
 

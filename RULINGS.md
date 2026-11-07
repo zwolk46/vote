@@ -110,3 +110,11 @@ In the orchestrator's thread, after seeing X1's preview:
 > Keep in mind on option c as it exists currently on mobile it looks awful. Really scrutinized it to make sure it looks nice. An example of a component I love that serves its own specific purposes are the graphs with the dots that move together for each individual race from the midterms page
 
 *Reading.* Option C as built does not pass on a phone. Every option is scrutinized at phone widths by eye, as well as by the automated checks, before it goes to him (the design guidance, process step 4, read with his midterms rule "These are all things you should catch yourself"). The midterms race pages' graphs, in which the dots for each race move together, are a component he loves for its own purpose and the model for this site's dot charts, in the first screen and the explainer.
+
+## 2026-11-07 04:09 UTC: a total layperson checks it
+
+In the orchestrator's thread, a minute later:
+
+> And it should also be checked by an agent specifically instructed to lack some technical understanding and as a total layperson, who doesn't even understand the fundamental correct nature of a cost-benefit analysis
+
+*Reading.* The explainer, and with it the first-screen options, is read cold by a second agent as well: one told it has no technical understanding and does not know how a cost-benefit weighing works, so the page must teach the weighing itself. Briefs X2 and X1 carry it.

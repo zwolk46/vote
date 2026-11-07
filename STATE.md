@@ -49,6 +49,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 04:10: the maker (04:09, a minute later): it should also be checked by an agent told to be a total layperson who does not understand cost-benefit analysis (RULINGS). Briefs X2 (a second cold reader, plus the question of why a small sure cost for a tiny chance of a large gain pays in one race and not another) and X1 (two cold readers per first-screen option; the phone by eye; the midterms dot component) amended.
+
 - 2026-11-07 04:09: the maker (04:09, this thread): option C "looks awful" on mobile; scrutinize; the midterms race-page graphs whose dots move together per race are a component he loves (RULINGS). Passed to X1 with his words: fix C on the phone or drop it, check A and B by eye at phone widths, study that midterms component and name it.
 
 - 2026-11-07 04:07: the maker (04:06, project chat): the expanded explanation of how the model works is "crucial", for a non-technical person through the visuals, "Probably a scroll animation? but you decide" (RULINGS). Decided: a scroll-driven story, one idea per step, one changing visual, two or three versions for his pick, tried first on a cold non-technical reader (a Sonnet subagent seeing only the page). Brief `X2-explainer.md`, for X1's thread once its first-screen options are sent; plan §4 and §5 updated; D3 now starts when D1 or D2 ends.
