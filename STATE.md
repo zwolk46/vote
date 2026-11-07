@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 07:30: #37 merged (D3: the near-1/2 shortfall written onto each of the 63 measure p by the build; REPORT says their own window shows 8 near-even against 3.6 expected, so p likely low, perhaps by half; 06:38 citation fixed). D3 on NC SBE results_pct 2010+ by script (public records, G.S. 132-1), 1990s PDFs left for later; then OpenElections.
+
 - 2026-11-07 07:25: #36 merged (D3 measures: 131 threshold rules in 37 states and DC with quotes verified; p for 63 statewide measures, all t = 1/2; 85 held for exceptions the source cannot show, 34 compound, 130 thin; AL, CA, NH, IL codes refused). Route under-forecasts near 1/2 (49 vs 35.3 within 5 pt); no factor (unstable 0.90-1.31), to be written onto the 63. Compilations rule extended to D3. Order: OpenElections and NC SBE, local thresholds, the 85 exceptions.
 
 - 2026-11-07 07:21: D4 asked three calls. Decided: state wages via FRED (marked, origin BLS; five states checked against BLS when its 25-a-day limit resets); SPAE 2024 gated, look for an ungated copy first, else it waits for the maker with any other sign-up asks; statutes via Justia or Cornell LII where a state's code refuses, marked via compilation with the code year and the official citation as origin.
