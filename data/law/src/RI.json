@@ -1,0 +1,677 @@
+{
+ "state": "RI",
+ "name": "Rhode Island",
+ "status": "read",
+ "code": {
+  "name": "Rhode Island General Laws",
+  "edition": "Rhode Island General Laws as the General Assembly's statute site prints them on 2026-11-07; each section shows its history (latest seen: P.L. 2025, ch. 233 and ch. 234, effective June 24, 2025, on 17-19-36)",
+  "site": "https://webserver.rilegislature.gov/Statutes/",
+  "reached": true
+ },
+ "sections": {
+  "ri-17-19-36": {
+   "citation": "R.I. Gen. Laws § 17-19-36 (tabulation of town returns - certificate of election)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-19/17-19-36.htm",
+   "read_at": "state"
+  },
+  "ri-17-19-37": {
+   "citation": "R.I. Gen. Laws § 17-19-37 (tabulation of state returns - certificate of election)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-19/17-19-37.htm",
+   "read_at": "state"
+  },
+  "ri-17-19-37.1": {
+   "citation": "R.I. Gen. Laws § 17-19-37.1 (recount eligibility - candidates for public office)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-19/17-19-37.1.htm",
+   "read_at": "state"
+  },
+  "ri-17-19-37.2": {
+   "citation": "R.I. Gen. Laws § 17-19-37.2 (recount eligibility - write-in candidates for public office)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-19/17-19-37.2.htm",
+   "read_at": "state"
+  },
+  "ri-17-19-37.3": {
+   "citation": "R.I. Gen. Laws § 17-19-37.3 (recount eligibility - ballot questions and other offices)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-19/17-19-37.3.htm",
+   "read_at": "state"
+  },
+  "ri-17-2-3": {
+   "citation": "R.I. Gen. Laws § 17-2-3 (elections by general assembly on failure to elect or incapacity of person elected)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-2/17-2-3.htm",
+   "read_at": "state"
+  },
+  "ri-17-2-6": {
+   "citation": "R.I. Gen. Laws § 17-2-6 (majority required in general assembly)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-2/17-2-6.htm",
+   "read_at": "state"
+  },
+  "ri-17-3-3": {
+   "citation": "R.I. Gen. Laws § 17-3-3 (adjourned elections on failure to elect)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-3/17-3-3.htm",
+   "read_at": "state"
+  },
+  "ri-17-4-7": {
+   "citation": "R.I. Gen. Laws § 17-4-7 (new election in absence of plurality)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-4/17-4-7.htm",
+   "read_at": "state"
+  },
+  "ri-17-4-10": {
+   "citation": "R.I. Gen. Laws § 17-4-10 (presidential electors - election by plurality)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-4/17-4-10.htm",
+   "read_at": "state"
+  },
+  "ri-17-5-6": {
+   "citation": "R.I. Gen. Laws § 17-5-6 (statewide referenda - count of votes, declaration of results)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-5/17-5-6.htm",
+   "read_at": "state"
+  },
+  "ri-17-15-29": {
+   "citation": "R.I. Gen. Laws § 17-15-29 (number of votes required to nominate or elect, primaries)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-15/17-15-29.htm",
+   "read_at": "state"
+  },
+  "ri-17-15-33": {
+   "citation": "R.I. Gen. Laws § 17-15-33 (tie vote, primaries)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-15/17-15-33.htm",
+   "read_at": "state"
+  },
+  "ri-17-15-34": {
+   "citation": "R.I. Gen. Laws § 17-15-34 (recount petition or other protest, primaries)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-15/17-15-34.htm",
+   "read_at": "state"
+  },
+  "ri-17-15-35": {
+   "citation": "R.I. Gen. Laws § 17-15-35 (hearing on recount or protest)",
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE17/17-15/17-15-35.htm",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal"
+   ],
+   "applies_to": "U.S. senator and U.S. representative: no person receives a plurality of the votes cast in the state or in either congressional district (R.I. Gen. Laws 17-4-7)",
+   "resolution": "new-election",
+   "steps": "a new election is held in the state or the district on the fourth Tuesday after the election at which there was no choice; new certificates of nomination or nomination papers are filed ten days before it",
+   "who": "the voters, at a new election",
+   "sources": [
+    {
+     "section": "ri-17-4-7",
+     "quote": "In case no person receives a plurality of the votes cast in the state or in either congressional district at any election, a new election shall be held in the state or in the district on the fourth (4th) Tuesday after the holding of the election at which there was no choice."
+    }
+   ],
+   "mark": "inferred",
+   "note": "The section does not use the word tie; a tie for the most votes is read as 'no person receives a plurality' [inferred]. 17-4-6 says the person receiving the largest number of votes is declared elected."
+  },
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "applies_to": "the general offices of governor, lieutenant governor, secretary of state, attorney general and general treasurer: failure of any person to receive a plurality (R.I. Gen. Laws 17-2-3)",
+   "resolution": "legislature",
+   "steps": "on a failure to elect one of these officers the general assembly, on its organization, meets in grand committee and elects someone to fill the office; where the failure is that no person received a plurality, the election is made from the persons who received the same and largest number of votes; the person receiving a majority of the votes in the grand committee is elected",
+   "who": "the general assembly in grand committee",
+   "sources": [
+    {
+     "section": "ri-17-2-3",
+     "quote": "When the general assembly elects any of the officers because of the failure of any person to receive a plurality of the votes cast, the election in each case shall be made from the persons who received the same and largest number of votes."
+    },
+    {
+     "section": "ri-17-2-6",
+     "quote": "In elections by the general assembly in grand committee, the person receiving a majority of the votes shall be elected."
+    }
+   ],
+   "mark": "measured",
+   "note": "The Rhode Island Constitution was not read."
+  },
+  {
+   "kinds": [
+    "state-legislative"
+   ],
+   "applies_to": "senator or representative in the general assembly: no election made in a district (R.I. Gen. Laws 17-3-3)",
+   "resolution": "new-election",
+   "steps": "the state board notifies the secretary of state of the failure to elect; the secretary of state directs the local boards to issue warrants for the election to proceed on the tenth day from the date of the warrant (next non-holiday day if a holiday, never Saturday) for the officer for which there was no choice, on a ballot with the names of the candidates for that office",
+   "who": "the voters of the district, at an adjourned election",
+   "sources": [
+    {
+     "section": "ri-17-3-3",
+     "quote": "If it appears by the count of the state board that no election has been made of any one or more of the senators or representatives in the general assembly, at any election held for those officers, the board shall, immediately after the count, notify the secretary of state of the failure to elect; the secretary of state shall, immediately after the notification, direct the local boards in the senatorial or representative districts to issue their warrants to the moderators of the district, districts, or voting districts, as the case may be, directing the election to proceed on the tenth (10th) day from the date of the warrant"
+    }
+   ],
+   "mark": "inferred",
+   "note": "The section does not use the word tie; a tie for the most votes is read as 'no election has been made' [inferred]. The section does not say whether a recount comes first. The Rhode Island Constitution was not read."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a failure to make a nomination or to elect a candidate to party office at a primary by reason of a tie vote (R.I. Gen. Laws 17-15-33)",
+   "resolution": "party-committee",
+   "steps": "the vacancy is filled by the party committee: the executive committee of the state committee for an office filled by the voters of more than one city or town (the senatorial or representative district committee for a senatorial or representative committee), or the city or town committee for an office filled by the voters of no more than one city or town; the choice is only of one of the candidates receiving the tie vote, and the name is certified to the state or local board",
+   "who": "the executive committee of the state committee, the district committee, or the city or town committee of the party",
+   "sources": [
+    {
+     "section": "ri-17-15-33",
+     "quote": "If there is a failure to make a nomination or to elect a candidate to party office at any primary by reason of a tie vote, the vacancy, if in respect to an office to be filled by the voters of more than one city or town, shall be filled by the executive committee of the state committee of the respective party"
+    },
+    {
+     "section": "ri-17-15-33",
+     "quote": "The vacancy shall be filled only by the choice of one of the candidates receiving the tie vote."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "presidential electors (R.I. Gen. Laws 17-4-10)",
+   "resolution": "none-found",
+   "steps": "17-4-10 says the candidates having a plurality of the legal votes are elected; no provision found saying what a tie does",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Read: R.I. Gen. Laws 17-4-6, 17-4-7, 17-4-10, 17-22-5, 17-22-6. 17-4-7 (new election when no person receives a plurality 'in the state') might be read to reach a tied slate of electors, but it speaks of senators and representatives in the sections around it; not decided. An absence cannot be confirmed from these sections."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "town and city offices",
+   "resolution": "none-found",
+   "steps": "no provision found saying what a tie in a local election does",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Read in Title 17: 17-19-34, 17-19-36 (local returns and certificates), 17-8 index (local canvassing authorities), 17-15-33 (primary tie, party offices). A tie in a town or city election is probably governed by municipal charters, which were not read (state general law only)."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a proposed amendment of the Constitution or a question submitted to the electors of the state (R.I. Gen. Laws 17-5-6)",
+   "resolution": "none-found",
+   "steps": "17-5-6 says the state board counts the votes and declares the result; no provision found saying what a tie does",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Read: 17-5-6 and 17-5 index; the Rhode Island Constitution (which sets the majority needed to adopt an amendment) was not read."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the number of votes cast in the race (including irregular ballots, 17-19-37.1(1)(b))",
+    "votes": 200,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "races in which a single candidate is elected; 20,000 or fewer votes cast; recount by manual re-feeding of the computer ballots into the optical scan equipment; petition to the state board within nine days (local boards, 17-19-36) or seven days (state declaration, 17-19-37)",
+    "in_words": "a trailing candidate may request a recount if trailing by less than 2% or 200 votes, whichever is less, where 20,000 or fewer votes are cast"
+   },
+   "who_may_request": [
+    "a candidate for election or nomination for election to public office who trails the winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.1",
+     "quote": "In those races where the number of votes cast is less than or equal to twenty thousand (20,000) the candidate requesting the recount shall trail the winning candidate by two percent (2%) or two hundred (200) votes, whichever is less;"
+    }
+   ],
+   "mark": "measured",
+   "note": "Applies to races in which a single candidate is elected: 'a candidate who trails the winning candidate may request a recount ... provided that the candidate shall trail the winning candidate by less than the following number of votes'. The deadline to petition the state board is nine days after the election for a local declaration (17-19-36) and seven days after the state board's declaration (17-19-37). Kinds are a mapping of 'public office' (including nomination) [inferred]. A tie is not described: no candidate 'trails the winning candidate' where there is no winner."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the number of votes cast in the race (including irregular ballots, 17-19-37.1(1)(b))",
+    "votes": 500,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "single-candidate races; 20,001 to 100,000 votes cast; recount by manual re-feeding",
+    "in_words": "a trailing candidate may request a recount if trailing by less than 1% or 500 votes, whichever is less, where 20,001 to 100,000 votes are cast"
+   },
+   "who_may_request": [
+    "a candidate for election or nomination for election to public office who trails the winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.1",
+     "quote": "in those races where the number of votes cast is between twenty thousand one (20,001) and one hundred thousand (100,000) the candidate requesting the recount shall trail the winning candidate by one percent (1%) or five hundred (500) votes, whichever is less;"
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the number of votes cast in the race (including irregular ballots, 17-19-37.1(1)(b))",
+    "votes": 1500,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "single-candidate races; more than 100,000 votes cast; recount by manual re-feeding",
+    "in_words": "a trailing candidate may request a recount if trailing by less than one-half of one percent or 1,500 votes, whichever is less, where more than 100,000 votes are cast"
+   },
+   "who_may_request": [
+    "a candidate for election or nomination for election to public office who trails the winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.1",
+     "quote": "and, in those races where more than one hundred thousand (100,000) votes are cast the candidate requesting the recount shall trail the winning candidate by one-half of one percent (½%) or one thousand five hundred (1,500) votes, whichever is less."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "local",
+    "state-legislative",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the total number of votes cast in the race, found by dividing the votes eligible to be cast by the number of candidates each voter could vote for (17-19-37.1(2)(b))",
+    "votes": 50,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "races in which more than one candidate is elected; 5,000 or fewer votes cast; manual re-feeding",
+    "in_words": "a trailing candidate may request a recount if trailing by less than 2% or 50 votes, whichever is less, where 5,000 or fewer votes are cast"
+   },
+   "who_may_request": [
+    "a candidate for election or nomination for election to public office who trails a winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.1",
+     "quote": "In those races where the number of votes cast is less than or equal to five thousand (5,000) the candidate requesting the recount shall trail the winning candidate by two percent (2%) or fifty (50) votes, whichever is less;"
+    }
+   ],
+   "mark": "measured",
+   "note": "Multi-seat races (for example at-large local bodies); the general assembly's districts elect one each, so the kinds are a mapping [inferred]."
+  },
+  {
+   "kinds": [
+    "local",
+    "state-legislative",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the total number of votes cast in the race, found by dividing the votes eligible to be cast by the number of candidates each voter could vote for (17-19-37.1(2)(b))",
+    "votes": 100,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "races in which more than one candidate is elected; 5,001 to 20,000 votes cast; manual re-feeding",
+    "in_words": "a trailing candidate may request a recount if trailing by less than 1% or 100 votes, whichever is less, where 5,001 to 20,000 votes are cast"
+   },
+   "who_may_request": [
+    "a candidate for election or nomination for election to public office who trails a winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.1",
+     "quote": "in those races where the number of votes cast is between five thousand one (5,001) and twenty thousand (20,000) the candidate requesting the recount shall trail the winning candidate by one percent (1%) or one hundred (100) votes, whichever is less;"
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "local",
+    "state-legislative",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total number of votes cast in the race, found by dividing the votes eligible to be cast by the number of candidates each voter could vote for (17-19-37.1(2)(b))",
+    "votes": 150,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "races in which more than one candidate is elected; more than 20,000 votes cast; manual re-feeding",
+    "in_words": "a trailing candidate may request a recount if trailing by less than one-half of one percent or 150 votes, whichever is less, where more than 20,000 votes are cast"
+   },
+   "who_may_request": [
+    "a candidate for election or nomination for election to public office who trails a winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.1",
+     "quote": "and in those races where more than twenty thousand (20,000) votes are cast the candidate requesting the recount shall trail the winning candidate by one-half of one percent (½%) or one hundred fifty (150) votes, whichever is less."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 5,
+    "percent_of": "the number of votes cast in the race",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "a candidate who trails by 5% or less but by more than the minimum percentage or number of votes in the tiers above may petition the state board for a recount by re-reading the programmed memory devices and comparing with the election-night totals; if after that recount the candidate trails by less than the tier's number the candidate may request the manual re-feeding recount",
+    "in_words": "a candidate trailing by five percent or less may petition for a re-reading of the memory devices of each precinct (a lesser recount); if that leaves the candidate within the tier thresholds, the full re-feeding recount may be requested"
+   },
+   "who_may_request": [
+    "a candidate who trails the winning candidate by five percent or less"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.1",
+     "quote": "a candidate who trails the winning candidate by five percent (5%) or less, but more than the minimum percentage or number of votes as required in subsections (1)(a) or (2)(a) of this section, as applicable, may petition the state board to conduct a recount of the votes cast at each precinct by re-reading the programmed memory device or devices and comparing the results and totals obtained at such recount with the results and totals obtained on election night."
+    }
+   ],
+   "mark": "measured",
+   "note": "A machine-memory check, not a count of ballots, up to a 5% margin."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the votes cast in the race",
+    "votes": 10,
+    "combine": "greater-of",
+    "inclusive": true,
+    "conditions": "the write-in candidate must have received a minimum of ten votes or one percent of the votes cast, whichever is greater, after the initial manual count of irregular ballots (at least ten votes where only write-in candidates receive votes), and must trail the winning candidate by less than the number required under 17-19-37.1(1) or (2); the recount is a manual recount of the irregular ballots",
+    "in_words": "a write-in candidate with at least ten votes or one percent of the votes cast (whichever is greater) who also trails by less than the margin required for a recount under 17-19-37.1"
+   },
+   "who_may_request": [
+    "a write-in candidate for public office"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.2",
+     "quote": "A write-in candidate for election to public office shall be eligible to request a recount of the votes cast in a race: (a) If, following the initial manual count of all irregular ballots, the write-in candidate shall have received a minimum of ten (10) votes or one percent (1%) of the votes cast in the race, whichever is greater;"
+    }
+   ],
+   "mark": "measured",
+   "note": "The numbers 10 and 1% are the eligibility floor for the write-in candidate's own votes, not the margin; the margin is the tiered margin of 17-19-37.1."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the total of 'approve' and 'reject' votes on the question (17-19-37.3(1)(c))",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "fewer than 100,000 votes cast on the question; re-reading of the programmed memory devices and comparing with election-night totals; the petitioner must be a person, group or organization of 'recognized standing' as determined by the board of elections",
+    "in_words": "a recount by re-reading memory devices where the difference between approval and rejection is two percent or less (fewer than 100,000 votes cast)"
+   },
+   "who_may_request": [
+    "a person, group or organization of 'recognized standing' regarding the ballot question, as determined by the board of elections"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.3",
+     "quote": "for those ballot questions where less than one hundred thousand (100,000) votes are cast the difference between the approval or rejection of the question shall be by two percent (2%) or less;"
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the total of 'approve' and 'reject' votes on the question",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "100,000 or more votes cast on the question; re-reading of the programmed memory devices; petitioner of 'recognized standing'",
+    "in_words": "a recount by re-reading memory devices where the difference between approval and rejection is one percent or less (100,000 or more votes cast)"
+   },
+   "who_may_request": [
+    "a person, group or organization of 'recognized standing' regarding the ballot question, as determined by the board of elections"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.3",
+     "quote": "and, for those ballot questions where one hundred thousand (100,000) or more votes are cast the difference between the approval or rejection of the question shall be by one percent (1%) or less."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total of 'approve' and 'reject' votes on the question",
+    "votes": 500,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "manual re-feeding of the computer ballots into the optical scan equipment; petitioner of 'recognized standing'",
+    "in_words": "a manual re-feeding recount of a ballot question where the difference between approval and rejection is less than one-half of one percent or 500 votes, whichever is less"
+   },
+   "who_may_request": [
+    "a person, group or organization of 'recognized standing' regarding the ballot question, as determined by the board of elections"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.3",
+     "quote": "The person, group or organization may request a recount of the votes cast at each precinct by a manual re-feeding of the computer ballots are cast into the optical scan voting equipment if the difference between the approval and rejection of the ballot question shall be by less than one-half of one percent (½%) or five hundred (500) votes, whichever is less."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the number of votes cast in the race (for multi-seat races, the votes eligible to be cast divided by the number of candidates each voter could vote for, 17-19-37.3(2)(d))",
+    "votes": 100,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "candidate for an office other than a public office (party offices); single-candidate races; re-reading of memory devices",
+    "in_words": "a candidate for an office other than a public office, trailing by less than 2% or 100 votes, whichever is less, may request a recount"
+   },
+   "who_may_request": [
+    "a candidate for any office other than a public office who trails the winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.3",
+     "quote": "In those races in which a single candidate is elected a candidate who trails the winning candidate by less than two percent (2%) or one hundred (100) votes, whichever is less, may request a recount of the votes cast at each precinct by re-reading the programmed memory device or devices"
+    }
+   ],
+   "mark": "measured",
+   "note": "'any office other than a public office' is not defined in the section; party office is the evident meaning [inferred]. The word 'more eight' is the statute's own typographical slip."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the number of votes cast in the race (for multi-seat races, the votes eligible to be cast divided by the number of candidates each voter could vote for, 17-19-37.3(2)(d))",
+    "votes": 25,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "races for such offices in which more than one but fewer than eight candidates are elected; re-reading of memory devices",
+    "in_words": "a candidate for such an office trailing by less than 1% or 25 votes, whichever is less, may request a recount"
+   },
+   "who_may_request": [
+    "a candidate for any office other than a public office who trails the winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.3",
+     "quote": "In those races in which more than one but less than eight (8) candidates are elected a candidate who trails the winning candidate by less than one percent (1%) or twenty-five (25) votes, whichever is less, may request a recount of the votes cast at each precinct by re-reading the programmed memory device or devices"
+    }
+   ],
+   "mark": "measured",
+   "note": "'any office other than a public office' is not defined in the section; party office is the evident meaning [inferred]. The word 'more eight' is the statute's own typographical slip."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the number of votes cast in the race (for multi-seat races, the votes eligible to be cast divided by the number of candidates each voter could vote for, 17-19-37.3(2)(d))",
+    "votes": 25,
+    "combine": "lesser-of",
+    "inclusive": false,
+    "conditions": "races for such offices in which eight or more candidates are elected; re-reading of memory devices",
+    "in_words": "a candidate for such an office trailing by less than one-half of one percent or 25 votes, whichever is less, may request a recount"
+   },
+   "who_may_request": [
+    "a candidate for any office other than a public office who trails the winning candidate"
+   ],
+   "cost_bearer": "not stated in this section; the notice of a primary recount hearing is served at the petitioner's expense (17-15-35(a))",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-19-37.3",
+     "quote": "In those races in which more eight (8) or more candidates are elected a candidate who trails the winning candidate by less than one-half of one percent (½%) or twenty-five (25) votes, whichever is less, may request a recount of the votes cast at each precinct by re-reading the programmed memory device or devices"
+    }
+   ],
+   "mark": "measured",
+   "note": "'any office other than a public office' is not defined in the section; party office is the evident meaning [inferred]. The word 'more eight' is the statute's own typographical slip."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "threshold": {
+    "percent": null,
+    "percent_of": null,
+    "votes": null,
+    "combine": null,
+    "inclusive": null,
+    "conditions": "filed with the state board no later than 4:00 p.m. on the day following the primary, with the candidate's reason; the state board may also order a recount on its own motion before certification",
+    "in_words": "no margin condition: any candidate whose name was on the primary ballot may request a recount or protest the primary the day after it"
+   },
+   "who_may_request": [
+    "any candidate whose name was on the primary ballot",
+    "the state board of elections, on its own motion"
+   ],
+   "cost_bearer": "notice to other candidates is served at the petitioner's expense (17-15-35(a)); who pays for the recount itself is not stated in the sections read",
+   "waiver": "none found",
+   "sources": [
+    {
+     "section": "ri-17-15-34",
+     "quote": "Any candidate whose name was on the primary ballot may file with the state board a request for the recounting of the votes cast, or other protest concerning the primary, provided he or she files the request or protest no later than four o'clock (4:00) p.m. on the day following the primary."
+    }
+   ],
+   "mark": "measured",
+   "note": "The 17-19-37.1 margins above also apply to 'nomination' of a public office; this section gives a request with no margin condition for primaries. Recounts are conducted as set out in chapter 19 (17-15-35(b)).",
+   "no_margin_required": true
+  }
+ ],
+ "unread": [
+  {
+   "what": "the Rhode Island Constitution, city and town charters and Title 45 (towns and cities), and any rule of the state board of elections on recount cost",
+   "reason": "not read: state general law only for local offices; the Constitution was not fetched; the recount-cost provisions were not found in the Title 17 sections read"
+  }
+ ],
+ "notes": [
+  "Read, section by section, from the General Assembly's site: chapters 17-2, 17-3, 17-4, 17-5, 17-15 and 17-19 (recount eligibility 17-19-37.1 to 37.3), 17-22 (index plus 17-22-5 and 17-22-6), 17-8 and 17-1 (index only).",
+  "Rhode Island has no automatic recount and no recount on a tie in the sections read: every recount is requested by a trailing candidate (or, for questions, a person of recognized standing) within a size-tiered margin, and a tie leaves 'no plurality' (new election for Congress and the general assembly), a vote of the general assembly (general offices), or a party committee (primaries)."
+ ]
+}

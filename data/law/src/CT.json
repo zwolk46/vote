@@ -1,0 +1,124 @@
+{
+ "state": "CT",
+ "name": "Connecticut",
+ "status": "partly-read",
+ "code": {"name": "Connecticut General Statutes", "edition": "not read: the text read is the Secretary of the State's Recanvass Procedure Manual, 2012 (Rev. 08/12), which prints sections 9-311a, 9-311b, 9-370a, 9-445 and 9-446 as they stood in 2012; the statutes may have changed since", "site": "https://www.cga.ct.gov/current/pub/chap_148.htm", "reached": false},
+ "sections": {
+  "ct-recanvass-manual-2012": {"citation": "Connecticut Secretary of the State, Recanvass Procedure Manual (Rev. 08/12), with the text of Conn. Gen. Stat. 9-311a, 9-311b, 9-370a, 9-445, 9-446 as it printed them in 2012", "url": "https://portal.ct.gov/-/media/SOTS/ElectionServices/LEAD_Communications/2020/81420---Recanvass-Procedure-Manual.pdf", "read_at": "state agency guide", "note": "A plain PDF on the Secretary of the State's public site (portal.ct.gov): a documented download. It is a 2012 guide reproducing the statutes of that year, a lower grade than the current statute and possibly out of date."}
+ },
+ "ties": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"],
+   "applies_to": "a tie in an election (general or municipal) for any office",
+   "resolution": "unread",
+   "steps": "if the electors fail to elect a candidate for any office by reason of an equality of votes, there is a recanvass of the returns for that office (unless all but one of the tied candidates dies, withdraws or is disqualified); what is done if the recanvass leaves the tie was not found in the manual",
+   "who": null,
+   "sources": [
+    {"section": "ct-recanvass-manual-2012", "quote": "If the electors fail to elect a candidate for any office by reason of an equality of votes at any election, there shall be a recanvass of the returns for such office unless, prior to the time of such recanvass, all but one of the candidates so receiving an equal number of votes dies, withdraws his name or for any reason becomes disqualified to hold such office."}
+   ],
+   "mark": "inferred",
+   "note": "Only the recanvass step is read (Sec. 9-311b as printed in 2012). The rule for a tie that survives the recanvass in a general election is NOT READ: the earlier reader's lead (a special election three weeks later) is not in this text, and the Connecticut Constitution and chapter 149 (contested elections) were not read. The site cga.ct.gov refused us (see unread)."},
+  {"kinds": ["primary"],
+   "applies_to": "a primary for a state or district office or for the municipal office of state senator or state representative",
+   "resolution": "recount-then-new-election",
+   "steps": "tied candidates (or the state chairman of the party) may apply for a recanvass; if none is applied for, or if the recanvass results in a tie, the primary stands adjourned for three weeks and a second primary is held among the tied candidates; if the second primary also ties, the Secretary of the State dissolves the tie by lot in the presence of not fewer than three disinterested persons",
+   "who": "the voters at the adjourned primary; the Secretary of the State by lot if it ties again",
+   "sources": [
+    {"section": "ct-recanvass-manual-2012", "quote": "If no such application is made, or if any such recanvass results in a tie vote, such primary shall stand adjourned for three weeks at the same hour at which the first primary was held."},
+    {"section": "ct-recanvass-manual-2012", "quote": "If such second primary results in a tie vote with two or more candidates receiving the same highest total number of votes, the Secretary of the State, in the presence of not fewer than three disinterested persons, and after notification"},
+    {"section": "ct-recanvass-manual-2012", "quote": "to the candidates obtaining the same number of votes and the chairperson of the state central committee of the party holding the primary of the time when and the place where such tie vote is to be dissolved, shall dissolve such tie vote by lot."}
+   ],
+   "mark": "stated",
+   "note": "Sec. 9-446(a) as the 2012 manual prints it, not the current statute. The recanvass before the adjourned primary is on application (the manual's summary says the Secretary of the State gives notice of a recanvass under 9-445)."},
+  {"kinds": ["primary"],
+   "applies_to": "a primary for municipal office (other than state senator or representative), town committee members or justices of the peace",
+   "resolution": "recount-then-new-election",
+   "steps": "as for a state primary: a recanvass on application, then an adjourned primary three weeks later among the tied candidates, then, if it also ties, the registrar dissolves the tie by lot in the presence of not fewer than three disinterested persons",
+   "who": "the voters at the adjourned primary; the registrar by lot if it ties again",
+   "sources": [
+    {"section": "ct-recanvass-manual-2012", "quote": "If such second primary results in a tie vote, the registrar, in the presence of not fewer than three disinterested persons, and after notification to the candidates obtaining the same number of votes and the chairperson of the town committee of the party holding the primary of the time when and the place where such tie vote is to be dissolved, shall dissolve such tie vote by lot."}
+   ],
+   "mark": "stated",
+   "note": "Sec. 9-446(b) as the 2012 manual prints it, not the current statute."},
+  {"kinds": ["measure"],
+   "applies_to": "a question or referendum",
+   "resolution": "unread",
+   "steps": null,
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "The manual's text on a question (Sec. 9-370a) speaks only of a recanvass at a close vote; nothing read says what a tie on a question does."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"], "type": "automatic", "election": "general (regular or special) for state, district and municipal offices",
+   "threshold": {"percent": 0.5, "percent_of": "the total number of votes cast for the office (for a multiple-opening office, the total number of electors checked as having voted in the state, district, municipality or political subdivision)", "votes": 2000, "combine": "lesser-of", "inclusive": false,
+                 "conditions": "the plurality of the elected candidate over the next highest defeated candidate is less than the one-half percent equivalent but not more than 2,000 votes; a separate alternative (less than twenty votes) is the next rule; the defeated candidate may waive in writing",
+                 "in_words": "a plurality of less than one-half of one percent of the votes cast for the office, but not more than two thousand votes, brings a recanvass of the returns"},
+   "who_may_request": [],
+   "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass, with the municipal clerk for a municipal office or with the Secretary of the State for a state or district office",
+   "cost_bearer": "not stated in the text read",
+   "sources": [
+    {"section": "ct-recanvass-manual-2012", "quote": "when at any such election the plurality of an elected candidate for an office over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast for the office but not more than two thousand votes, or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office unless such defeated candidate or defeated candidates, as the case may be, for such office file a written statement waiving this right to such canvass"}
+   ],
+   "mark": "stated",
+   "note": "Sec. 9-311a as the 2012 manual prints it, not the current statute. It is a recanvass of the returns of the tabulators and absentee ballots, not a hand recount. The section defines state office to include presidential electors; whether U.S. Senate and House offices fall under \"state or district\" office (Sec. 9-372) was not read, so \"federal\" is [inferred]."},
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"], "type": "automatic", "election": "general (regular or special) for state, district and municipal offices",
+   "threshold": {"percent": null, "percent_of": null, "votes": 20, "combine": null, "inclusive": false,
+                 "conditions": "the plurality is less than twenty votes; the second alternative of Sec. 9-311a, in addition to the percentage test above; waivable in writing",
+                 "in_words": "a plurality of less than twenty votes brings a recanvass of the returns"},
+   "who_may_request": [],
+   "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass (with the municipal clerk, or with the Secretary of the State for a state or district office)",
+   "cost_bearer": "not stated in the text read",
+   "sources": [
+    {"section": "ct-recanvass-manual-2012", "quote": "or (2) less than twenty votes, there shall be a recanvass of the returns of the voting tabulator or voting tabulators and absentee ballots used in such election for such office unless such defeated candidate"}
+   ],
+   "mark": "stated",
+   "note": "Sec. 9-311a(2) as printed in 2012. Either alternative triggers the recanvass."},
+  {"kinds": ["federal", "presidential-electors", "statewide", "state-legislative", "local"], "type": "automatic", "election": "any election for any office",
+   "threshold": {"percent": null, "percent_of": null, "votes": 0, "combine": null, "inclusive": true,
+                 "conditions": "only a tie; no recanvass if all but one of the tied candidates dies, withdraws or is disqualified before the recanvass",
+                 "in_words": "only on a tie: there is a recanvass of the returns for the office"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "not stated in the text read",
+   "sources": [
+    {"section": "ct-recanvass-manual-2012", "quote": "there shall be a recanvass of the returns for such office unless, prior to the time of such recanvass, all but one of the candidates so receiving an equal number of votes dies, withdraws his name or for any reason becomes disqualified to hold such office."}
+   ],
+   "mark": "stated",
+   "note": "Sec. 9-311b as printed in 2012."},
+  {"kinds": ["measure"], "type": "automatic", "election": "election or referendum on a question",
+   "threshold": {"percent": 0.5, "percent_of": "the total number of votes cast for the question", "votes": 2000, "combine": "lesser-of", "inclusive": false,
+                 "conditions": "the difference between the Yes and No vote is less than the one-half percent equivalent but not more than 2,000 votes",
+                 "in_words": "a Yes-No difference of less than one-half of one percent of the votes cast on the question, and not more than two thousand votes, brings a recanvass"},
+   "who_may_request": [],
+   "waiver": null,
+   "cost_bearer": "not stated in the text read",
+   "sources": [
+    {"section": "ct-recanvass-manual-2012", "quote": "difference between the “Yes” and “No” vote on a question was less than one-half of one per cent of the total number of votes cast for the question but not more than two thousand votes, the moderator shall proceed forthwith to cause a recanvass of such returns to be made"}
+   ],
+   "mark": "stated",
+   "note": "Sec. 9-370a as printed in 2012."},
+  {"kinds": ["primary"], "type": "automatic", "election": "primary for state, district or municipal office or town committee",
+   "threshold": {"percent": 0.5, "percent_of": "the total number of votes cast at the primary for the office or position", "votes": 1000, "combine": "lesser-of", "inclusive": false,
+                 "conditions": "the plurality is less than the one-half percent equivalent but not more than 1,000 votes, or (a separate alternative) less than twenty votes; waivable in writing within one day after the primary (for a municipal office) or before the Secretary of the State notifies the town clerks (state and district offices)",
+                 "in_words": "a primary plurality of less than one-half of one percent of the votes cast, but not more than one thousand votes, or of less than twenty votes, brings a recanvass"},
+   "who_may_request": [],
+   "waiver": "the defeated candidate or candidates may file a written statement waiving the recanvass",
+   "cost_bearer": "not stated in the text read",
+   "sources": [
+    {"section": "ct-recanvass-manual-2012", "quote": "when the plurality of an elected or nominated candidate over the vote for a defeated candidate receiving the next highest number of votes was either (1) less than a vote equivalent to one-half of one per cent of the total number of votes cast at the primary for the office or position but not more than one thousand votes, or (2)"}
+   ],
+   "mark": "stated",
+   "note": "Sec. 9-445 as printed in 2012."}
+ ],
+ "unread": [
+  {"what": "the Connecticut General Statutes at the General Assembly's own site: chapter 148 (election canvass and returns, Sec. 9-311a, 9-311b), chapter 149 (contested elections), the tie rule for a general election that survives the recanvass, any recount on request, and the Connecticut Constitution",
+   "reason": "the General Assembly's site answered with a certificate failure: curl reported \"SSL certificate problem: unable to get local issuer certificate\" for https://www.cga.ct.gov/current/pub/chap_148.htm and for https://cga.ct.gov/2025/pub/chap_148.htm, the address the site itself publishes; stopped there and the certificate check was not turned off. The compilation route allowed at 07:21 was closed because Justia refused us with HTTP 403 on its first request (an Alabama page, 07:23Z), so no further request was made to that host.",
+   "url": "https://www.cga.ct.gov/current/pub/chap_148.htm",
+   "tried_at": "2026-11-07T07:28Z"}
+ ],
+ "notes": [
+  "Connecticut is partly read: every rule rests on the Secretary of the State's 2012 Recanvass Procedure Manual, a state agency guide that reproduces the statutes of 2012, so each rule is marked stated and may be out of date.",
+  "Surprise: Connecticut's automatic step is a recanvass of the machine returns, not a hand recount; the earlier lead (recount, then special election three weeks after a general-election tie) was not confirmed. The three-week adjourned primary is a primary tie rule (Sec. 9-446).",
+  "The manual's separate discrepancy recanvass (Sec. 9-311, moderator's call within three days) is not recorded as a recount rule."
+ ]
+}

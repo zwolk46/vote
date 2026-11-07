@@ -1,0 +1,133 @@
+{
+ "state": "AR",
+ "name": "Arkansas",
+ "status": "partly-read",
+ "code": {"name": "Arkansas Code of 1987 Annotated", "edition": "not read: the text read is the State Board of Election Commissioners' County Board of Election Commissioners Procedures Manual, 2026 Edition (a state agency guide that cites A.C.A. sections and Acts through 2025), not the Code itself", "site": "https://sbec.arkansas.gov/", "reached": false},
+ "sections": {
+  "ar-cbec-manual": {"citation": "Arkansas State Board of Election Commissioners, County Board of Election Commissioners Procedures Manual (2026 Edition), pages 25, 102-106 and the primary and school-election passages (citing A.C.A. 7-5-106, 7-5-319, 7-5-703, 7-5-704, 7-5-705, 7-7-104, 6-14-121)", "url": "https://sbec.arkansas.gov/wp-content/uploads/2026-CBEC-Manual.pdf", "read_at": "state agency guide", "note": "A plain PDF linked from the State Board of Election Commissioners' public site: a documented download. It is the Board's guide to the Code, a lower grade than the statute."}
+ },
+ "ties": [
+  {"kinds": ["federal"],
+   "applies_to": "U.S. Senate and House in a general election; the guide's words speak of \"the qualified electors of the congressional district\"",
+   "resolution": "runoff",
+   "steps": "the two tied candidates are placed on a special runoff ballot held four weeks after the general election, voted on by the qualified electors",
+   "who": "the voters, in a special runoff",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "If any two (2) candidates receiving the highest number of votes also receive an equal number of votes, a tie shall exist, and a special runoff election must be held four (4) weeks from the day of the general election with the names of those two (2) candidates placed on a special runoff election ballot to be voted upon by the qualified electors of the congressional district."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-5-703(c), not from the Code. The guide's wording is about the congressional district (the House); that the same section governs the U.S. Senate (statewide electors) is [inferred] and was not stated."},
+  {"kinds": ["statewide"],
+   "applies_to": "governor, lieutenant governor, secretary of state, treasurer of state, auditor of state and attorney general (\"all other constitutional officers\" besides the Commissioner of State Lands)",
+   "resolution": "legislature",
+   "steps": "one of the tied candidates is chosen by a joint vote of both houses of the General Assembly by a majority vote",
+   "who": "the General Assembly, both houses voting jointly",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "For all other constitutional officers, if two (2) or more candidates receive an equal number of votes and the highest number of votes for the same office, a tie shall exist, and one (1) of them shall be chosen by a joint vote of both houses of the General Assembly by a majority vote."},
+    {"section": "ar-cbec-manual", "quote": "Tie votes for the state constitutional offices are decided by the General Assembly."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-5-705(b) and the Arkansas Constitution art. 6 sec. 3 and amendment 6 sec. 3, not from the Code or the Constitution."},
+  {"kinds": ["statewide"],
+   "applies_to": "Commissioner of State Lands",
+   "resolution": "runoff",
+   "steps": "the two tied candidates go on a special runoff ballot held four weeks after the general election, voted on by the qualified electors of the state",
+   "who": "the voters of the state",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "If any two (2) candidates for Commissioner of State Lands receive the highest number of votes and an equal number of votes, a tie shall exist, and a special runoff election must be held four (4) weeks from the day of the general election with the names of those two (2) candidates placed on a special runoff election ballot to be voted upon by the qualified electors of the state."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-5-704, not from the Code."},
+  {"kinds": ["state-legislative"],
+   "applies_to": "state senator and state representative in a general election",
+   "resolution": "runoff",
+   "steps": "the two tied candidates go on a special runoff ballot held four weeks after the general election, voted on by the qualified electors of the district",
+   "who": "the voters of the district",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "If any two (2) candidates receive the highest number of votes and an equal number of votes, a tie shall exist, and a special runoff election must be held four (4) weeks from the day of the general election with the names of those two (2) candidates placed on a special runoff election ballot to be voted upon by the qualified electors of the districts."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-5-704, not from the Code. If a tie is among more than two candidates, or the runoff itself ties, the guide gives no rule for these offices."},
+  {"kinds": ["local"],
+   "applies_to": "county and municipal offices in a general election (cities of the first and second class and incorporated towns), and school district offices; state general law as the guide summarises it, municipal charters not read",
+   "resolution": "runoff",
+   "steps": "if two candidates tie for the highest number of votes, both go on the general runoff ballot four weeks after the general election; if the two runoff candidates tie, the county board of election commissioners decides the winner by lot at a public meeting in the presence of the two candidates; a tie for second place behind a leader short of a majority is decided by lot to choose the runoff candidate",
+   "who": "the voters in the runoff; the county board of election commissioners for a lot",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "If two (2) candidates receive the highest number of votes and also receive the same number of votes, a tie shall exist. The names of the two (2) candidates shall be placed on the general runoff election ballot to be voted upon by the qualified electors of the county."},
+    {"section": "ar-cbec-manual", "quote": "If in the runoff election, the two (2) candidates seeking election receive the same number of votes, a tie shall exist. The county board must hold a public meeting and in the presence of the two (2) candidates determine the winner of the runoff general election by lot."},
+    {"section": "ar-cbec-manual", "quote": "If no candidate received a majority of the votes cast for the office or if a tie vote exists, a runoff election is held in the district at the same time as the general election held in November."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-5-106(b) and (e)(2) for county and municipal offices and 6-14-121(a) for school districts, not from the Code. Constable: the guide says a tie leaves the incumbent holding over or the office vacant (14-14-1310(b))."},
+  {"kinds": ["primary"],
+   "applies_to": "a party primary for any office (the preferential primary)",
+   "resolution": "runoff",
+   "steps": "a second (general) primary between the two highest candidates is held if no candidate has a majority or if there is a tie vote for an office",
+   "who": "the voters, in the general primary (runoff)",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "The county board of election commissioners conducts the general primary election only if no candidate receives a majority of the vote, or if there is a tie vote for an office."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-7-102, 7-7-202 and 7-7-304(f)(2), not from the Code."},
+  {"kinds": ["primary"],
+   "applies_to": "a tie vote in the general primary (the primary runoff)",
+   "resolution": "party-committee",
+   "steps": "a tie in the general primary creates a vacancy in nomination, which the party fills by convention",
+   "who": "the political party, by convention",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "If there is a tie vote in a general primary (runoff) there is a vacancy in nomination and the vacancy will be filled by convention."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-7-104(b), not from the Code."},
+  {"kinds": ["presidential-electors", "measure"],
+   "applies_to": "presidential electors and ballot measures",
+   "resolution": "none-found",
+   "steps": null,
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "The guide's tie passages (pages 25 and 102-106, the primary and school-election passages) name neither; not recorded as an absence in the law. The Code itself was not read."}
+ ],
+ "recounts": [
+  {"kinds": ["federal", "statewide", "state-legislative", "local"], "type": "requested", "election": "general",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null,
+                 "conditions": "petition to the county board of election commissioners for a recount of the returns from any precinct; due no later than two days after preliminary results if the outstanding overseas absentee and uncounted provisional ballots cannot change the result, otherwise before the final canvass or by noon on the seventh day after the election; one recount per candidate per election",
+                 "in_words": "any candidate dissatisfied with the returns may petition for a recount; no margin is required"},
+   "no_margin_required": true,
+   "who_may_request": ["any candidate who is dissatisfied with the returns of the election, by petition to the county board of election commissioners"],
+   "waiver": null,
+   "cost_bearer": "the petitioning candidate, charged up to 25 cents per vote cast in the precincts recounted or $2,500 for the entire county, whichever is less, paid before the recount; refunded if the recount changes the outcome",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "Any candidate who is dissatisfied with the returns of the election may submit to the county board of election commissioners a petition requesting a recount of the returns from any precinct."},
+    {"section": "ar-cbec-manual", "quote": "charge the candidate petitioning the recount up to a maximum rate of twenty-five cents (25¢) per vote cast in the precincts where the recount is requested or a total of two thousand five hundred dollars ($2,500) for the entire county, whichever is less."},
+    {"section": "ar-cbec-manual", "quote": "If the recount changes the outcome of the election, the cost shall be refunded to the candidate."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-5-319, not from the Code. The guide describes the county boards' recount; it does not say whether it also covers the preferential primary, so primary is not listed. There is no automatic recount in the guide's recount section."},
+  {"kinds": ["federal", "statewide", "state-legislative", "local", "measure"], "type": "other", "election": "general",
+   "threshold": {"no_margin_required": true, "percent": null, "votes": null, "combine": null, "inclusive": null, "percent_of": null,
+                 "conditions": "at the board's discretion",
+                 "in_words": "the county board of election commissioners may decide to recount on its own motion; on the request of an advocate for or against a measure, it may at its discretion conduct the recount"},
+   "no_margin_required": true,
+   "who_may_request": ["the county board of election commissioners itself", "an advocate for or against a measure (the board may decline)"],
+   "waiver": null,
+   "cost_bearer": "the county",
+   "sources": [
+    {"section": "ar-cbec-manual", "quote": "The election commission may decide to conduct a recount on its own motion, without a request from a candidate. Also, when an advocate for or against a measure requests a recount, the board may, at its discretion conduct the recount. In this instance, the county would bear the cost of the recount because the law requires only candidates for office to pay the cost of recounts."}
+   ],
+   "mark": "stated",
+   "note": "From an agency guide that cites A.C.A. 7-5-319(b), not from the Code."}
+ ],
+ "unread": [
+  {"what": "the Arkansas Code of 1987 Annotated itself: Title 7 sections 7-5-106, 7-5-319, 7-5-703 to 7-5-705, 7-7-104; Title 6 section 6-14-121; and the Arkansas Constitution art. 6",
+   "reason": "no free statute site of the state was found: a search for the Code on the General Assembly's and the state's sites found none (the Code is published for the state by LexisNexis, whose application is not a plain page), and the compilation route allowed on 2026-11-07 07:21 was closed because Justia refused us with HTTP 403 on its first request (an Alabama page, 07:23Z), so no further request was made to that host. Cornell LII was not tried for Arkansas (it carries no state Code).",
+   "url": "https://law.justia.com/codes/arkansas/title-7/chapter-5/subchapter-3/section-7-5-319",
+   "tried_at": "2026-11-07T07:23Z"}
+ ],
+ "notes": [
+  "Arkansas is partly read: every rule rests on the State Board of Election Commissioners' 2026 County Board manual, a state agency guide on the state's own site, which is a lower grade than the statute; each rule is marked stated. The quotations are the guide's words.",
+  "Surprise: a tie for the state executive offices other than the Commissioner of State Lands is decided by the two houses of the General Assembly voting jointly; ties for Congress, the legislature and the Commissioner of State Lands go to a special runoff four weeks after the election; county and municipal ties go to a runoff, then a lot.",
+  "The guide also says (not recorded as a rule): a tie for second place is settled by lot at the county board, and the order of candidates' names on the ballot is determined by lot at a commission meeting."
+ ]
+}

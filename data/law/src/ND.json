@@ -1,0 +1,302 @@
+{
+ "state": "ND",
+ "name": "North Dakota",
+ "status": "partly-read",
+ "code": {
+  "name": "North Dakota Century Code, Title 16.1 (Elections)",
+  "edition": "chapters 16.1-11, 16.1-15 and 16.1-16 as PDFs on ndlegis.gov; the PDFs print no edition date and their file metadata give a creation date of 2025-06-30, so amendments after that are not excluded",
+  "site": "https://ndlegis.gov/cencode/",
+  "reached": true
+ },
+ "sections": {
+  "t16-1c11": {
+   "citation": "N.D. Cent. Code chapter 16.1-11 (Nominations for office; primary election), read for 16.1-11-38 (tie vote determination)",
+   "url": "https://ndlegis.gov/cencode/t16-1c11.pdf",
+   "read_at": "state"
+  },
+  "t16-1c15": {
+   "citation": "N.D. Cent. Code chapter 16.1-15 (Canvass of votes; canvassing boards), read for 16.1-15-28 to 16.1-15-30, 16.1-15-42 to 16.1-15-44 and 16.1-15-48",
+   "url": "https://ndlegis.gov/cencode/t16-1c15.pdf",
+   "read_at": "state"
+  },
+  "t16-1c16": {
+   "citation": "N.D. Cent. Code chapter 16.1-16 (Recounts and contest of elections), read for 16.1-16-01 (election recounts)",
+   "url": "https://ndlegis.gov/cencode/t16-1c16.pdf",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "state-legislative"
+   ],
+   "applies_to": "state senate or house of representatives: two or more individuals with equal and the highest number of votes for one and the same office",
+   "resolution": "recount-then-lot",
+   "steps": "a recount must be done under 16.1-16-01; if it results in a tie, the secretary of state notifies the tied individuals to appear in the secretary's office at a time fixed no more than five days from the date the tie is determined, where they publicly decide by a drawing of names which is declared elected; the secretary of state delivers the certificate of election",
+   "who": "the secretary of state, with the tied individuals drawing names",
+   "sources": [
+    {
+     "section": "t16-1c15",
+     "quote": "If the requisite number of individuals is not elected to the state senate or house of representatives because two or more individuals have equal and the highest number of votes for one and the same office, a recount must be done pursuant to section 16.1-16-01. If a recount results in a tie vote, the secretary of state shall notify the individuals with equal and the[...]highest number of votes to appear in the office of the secretary of state"
+    },
+    {
+     "section": "t16-1c15",
+     "quote": "On the date fixed, the individuals notified to appear shall publicly decide by a drawing of names which of them must be declared elected"
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "county offices: two or more persons with equal and the highest number of votes for one and the same office",
+   "resolution": "recount-then-lot",
+   "steps": "a recount must be done under 16.1-16-01; if it results in a tie, the county auditor gives notice to the persons to appear at the auditor's office, where they publicly decide by a drawing of names which is declared elected; the county auditor delivers the election certificate",
+   "who": "the county auditor, with the tied persons drawing names",
+   "sources": [
+    {
+     "section": "t16-1c15",
+     "quote": "If the requisite number of county officers are not elected because two or more persons have equal and the highest number of votes for one and the same office, a recount must be done pursuant to section 16.1-16-01. If a recount results in a tie vote, the county auditor shall give notice to the persons to appear at the county auditor's office at a time appointed by the county auditor. The persons then shall publicly decide by a drawing of names which of them must be declared elected."
+    }
+   ],
+   "mark": "measured",
+   "note": "State general law, county offices only. City, school district, township and park district offices are in other titles of the Century Code (not read) and may differ; the recount chapter 16.1-16-01 reaches city offices, but no tie rule for them was read."
+  },
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "applies_to": "a judicial district office or a state office (including Governor) where a certificate of election cannot be issued because two or more individuals have equal and the highest number of votes",
+   "resolution": "new-election",
+   "steps": "the governor, by proclamation, orders a new election",
+   "who": "the governor",
+   "sources": [
+    {
+     "section": "t16-1c15",
+     "quote": "If a certificate of election cannot be issued for a judicial district office or a state office because any two or more individuals have equal and the highest number of votes, the governor, by proclamation, shall order a new election."
+    }
+   ],
+   "mark": "measured",
+   "note": "A recount comes first in practice: a tie is within the half-of-one-percent automatic recount (16.1-16-01(1)(b)), and 16.1-15-44 withholds the certificate until the recount results are determined [inferred]. The section says \"state office\" without a list; statewide offices are read as state offices [inferred]."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors"
+   ],
+   "applies_to": "U.S. Senate, U.S. House, presidential electors",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie for a congressional office or for presidential electors",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "Read: chapter 16.1-15 whole (canvass: the tie sections 16.1-15-29, 16.1-15-30 and 16.1-15-43 name county offices, the legislative assembly, and judicial district and state offices only), chapter 16.1-16 recounts section 16.1-16-01 (which includes congressional and presidential recounts), and the primary chapter 16.1-11 tie section. A congressional office is not a \"state office\" or \"judicial district office\" in 16.1-15-43 on its face, but this reading is not settled by the text [inferred]. The presidential-elector provisions of the Century Code and the North Dakota Constitution were not read."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a tie vote in a primary election for nomination",
+   "resolution": "lot",
+   "steps": "the nominee or nominees are determined by a drawing of names in the presence of the candidates, on at least five days' notice, by the canvassing board or boards concerned; a candidate in the tie may withdraw by signing a statement before the filing officer; if no candidates remain, the office is filled by the rules for filling a vacancy",
+   "who": "the canvassing board or boards concerned",
+   "sources": [
+    {
+     "section": "t16-1c11",
+     "quote": "In case of a tie vote the nominee or nominees must be determined by a drawing of names in the presence of the candidates upon at least five days' notice to each candidate, by the canvassing board or boards concerned, at a time and place designated by the board."
+    }
+   ],
+   "mark": "measured",
+   "note": "Whether a recount comes first is governed by 16.1-16-01(1)(a): a primary margin of one percent or less is an automatic recount, which a tie falls within [inferred]."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a tie vote on a constitutional amendment, measure, question or bond issue",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie on a measure",
+   "who": null,
+   "sources": [
+    {
+     "section": "t16-1c15",
+     "quote": "it shall determine whether the amendment or proposition has been approved and ratified by a majority of the electors voting thereon"
+    }
+   ],
+   "mark": "inferred",
+   "note": "A measure needs a majority of those voting (16.1-15-48 for state measures), so a tie is not an approval [inferred]; no tie rule was found in chapters 16.1-15 and 16.1-16. The measure chapters (for example the initiated measure chapter) were not read."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "primary",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the highest vote cast for a candidate seeking nomination from the political party for the office sought, or for a candidate for the no-party office sought",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "applies to nominations for presidential, congressional, state, judicial district, multicounty district, legislative, county or city office",
+    "in_words": "a recount must be conducted where an individual failed to be nominated by one percent or less of the highest vote cast for a candidate seeking nomination for the office"
+   },
+   "who_may_request": [],
+   "cost_bearer": "paid by the county (county offices), by the city or other political subdivision (its own offices), or by the state from the general fund (presidential, congressional, state, judicial district, multicounty district and legislative offices)",
+   "sources": [
+    {
+     "section": "t16-1c16",
+     "quote": "A recount must be conducted when: a. Any individual failed to be nominated by the individual's party or to a no-party office in a primary election by one percent or less of the highest vote cast for a candidate seeking nomination from the political party for the office sought or for a candidate for the no-party office sought."
+    },
+    {
+     "section": "t16-1c16",
+     "quote": "The expenses incurred in a recount of a county election must be paid by the county on a warrant by the county auditor."
+    }
+   ],
+   "mark": "measured",
+   "note": "The margin is measured from the highest vote cast for any candidate for the office, not from the total. The section says a recount \"must be conducted\" with no demand; it is automatic. No waiver is stated."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "type": "automatic",
+   "election": "general and special",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the highest vote cast for a candidate for that office",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "applies to presidential, congressional, state, judicial district, multicounty district, legislative, county or city office",
+    "in_words": "a recount must be conducted where an individual failed to be elected in a general or special election by one-half of one percent or less of the highest vote cast for a candidate for that office"
+   },
+   "who_may_request": [],
+   "cost_bearer": "paid by the county (county offices), by the city or other political subdivision (its own offices), or by the state from the general fund (presidential, congressional, state, judicial district, multicounty district and legislative offices)",
+   "sources": [
+    {
+     "section": "t16-1c16",
+     "quote": "b. Any individual failed to be elected in a general or special election by one-half of one percent or less of the highest vote cast for a candidate for that office."
+    },
+    {
+     "section": "t16-1c16",
+     "quote": "The expenses incurred in a recount of a presidential, congressional, state, judicial district, multicounty district, or legislative election must be paid by the state from the general fund upon approval by the secretary of state of a statement of expenses received from the county auditors."
+    }
+   ],
+   "mark": "measured",
+   "note": "Automatic: \"a recount must be conducted\". The recount is by the county auditors under the secretary of state's guidelines; statewide races are to be recounted within fourteen days, legislative contests within seven days of the notice (16.1-16-01(4))."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "automatic",
+   "election": "any",
+   "threshold": {
+    "percent": 0.25,
+    "percent_of": "the total vote cast for and against the question",
+    "votes": null,
+    "combine": null,
+    "inclusive": true,
+    "conditions": "a question, measure or bond issue submitted to the qualified electors of the state or a political subdivision",
+    "in_words": "a recount must be conducted where a measure was decided by a margin not exceeding one-fourth of one percent of the total vote cast for and against"
+   },
+   "who_may_request": [],
+   "cost_bearer": "paid by the county (county offices), by the city or other political subdivision (its own offices), or by the state from the general fund (presidential, congressional, state, judicial district, multicounty district and legislative offices)",
+   "sources": [
+    {
+     "section": "t16-1c16",
+     "quote": "A question, measure, or bond issue submitted to the qualified electors has been decided by a margin not exceeding one-fourth of one percent of the total vote cast for and against the question at any election."
+    }
+   ],
+   "mark": "measured",
+   "note": null
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "type": "requested",
+   "election": "primary",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the highest vote cast for a candidate seeking nomination from the political party for the office sought, or for a candidate for the no-party office sought",
+    "votes": null,
+    "combine": null,
+    "inclusive": false,
+    "conditions": "the margin is more than one percent (at one percent or less the recount is automatic) and less than two percent; demand within three days after the canvass, in writing, reciting the condition, with a bond",
+    "in_words": "a candidate who failed to be nominated by more than one percent and less than two percent of the highest vote may demand a recount, posting a bond for its cost"
+   },
+   "who_may_request": [
+    "any individual who failed to be nominated by more than one percent and less than two percent of the highest vote, by written demand with a bond, within three days after the canvass"
+   ],
+   "cost_bearer": "the requester, from the bond filed with the demand (the bond must be enough to pay the cost of the recount)",
+   "sources": [
+    {
+     "section": "t16-1c16",
+     "quote": "A demand for a recount may be made by any of the following: a. Any individual who failed to be nominated by the individual's party or to a no-party office in a primary election by more than one percent and less than two percent of the highest vote cast for a candidate seeking nomination from the political party for the office sought or for a candidate for the no-party office sought."
+    },
+    {
+     "section": "t16-1c16",
+     "quote": "The expenses incurred in a recount demanded under subsection 2 of section 16.1-16-01 must be paid by the secretary of state or county auditor from the bond submitted by the individual requesting the recount."
+    }
+   ],
+   "mark": "measured",
+   "note": "The sources do not say whether the bond is refunded when the requester wins."
+  },
+  {
+   "kinds": [
+    "federal",
+    "presidential-electors",
+    "statewide",
+    "state-legislative",
+    "local"
+   ],
+   "type": "requested",
+   "election": "general and special",
+   "threshold": {
+    "percent": 2,
+    "percent_of": "the highest vote cast for a candidate for that office",
+    "votes": null,
+    "combine": null,
+    "inclusive": false,
+    "conditions": "the margin is more than one-half of one percent (at one-half of one percent or less the recount is automatic) and less than two percent; demand within three days after the canvass, in writing, reciting the condition, with a bond",
+    "in_words": "a candidate who failed to be elected by more than one-half of one percent and less than two percent of the highest vote may demand a recount, posting a bond for its cost"
+   },
+   "who_may_request": [
+    "any individual who failed to be elected by more than one-half of one percent and less than two percent of the highest vote, by written demand with a bond, within three days after the canvass"
+   ],
+   "cost_bearer": "the requester, from the bond filed with the demand (the bond must be enough to pay the cost of the recount)",
+   "sources": [
+    {
+     "section": "t16-1c16",
+     "quote": "b. Any individual who failed to be elected in a general or special election by more than one-half of one percent and less than two percent of the highest vote cast for a candidate for that office."
+    },
+    {
+     "section": "t16-1c16",
+     "quote": "The demand must be in writing, must recite one of the conditions in subsection 2 as a basis for the recount, must contain a bond in an amount previously established by the auditor or auditors doing the recount sufficient to pay the cost of the recount"
+    }
+   ],
+   "mark": "measured",
+   "note": "Beyond two percent the chapter gives no recount demand right (contests are in 16.1-16-02 onward, not read for recounts)."
+  }
+ ],
+ "unread": [
+  {
+   "what": "city, school district, township and park district tie rules (other titles of the Century Code); the presidential-elector and measure chapters; the North Dakota Constitution; election contests (16.1-16-02 onward)",
+   "reason": "outside the chapters read or outside the brief; North Dakota's site answered every request made (no refusal)."
+  }
+ ],
+ "notes": [
+  "North Dakota: a tie for a county office or the state senate or house goes to a recount and then a drawing of names; a tie for a state or judicial district office goes to a new election ordered by the governor; a primary tie is a drawing of names.",
+  "Recount margins are measured from the highest vote cast for any candidate for the office, not the total: automatic at 1% (primary) or 0.5% (general), and 0.25% of the vote for and against for a measure."
+ ]
+}

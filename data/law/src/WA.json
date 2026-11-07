@@ -1,0 +1,283 @@
+{
+ "state": "WA",
+ "name": "Washington",
+ "status": "read",
+ "code": {
+  "name": "Revised Code of Washington (RCW), Title 29A (Elections), and Constitution of the State of Washington",
+  "edition": "the Washington State Legislature's RCW site (app.leg.wa.gov) as it prints the chapters now; each section shows its own amendment history (29A.60.221: 2004 c 271 s 176; 29A.64.021: 2013 c 11 s 66; 29A.64.081: 2020 c 337 s 5)",
+  "site": "https://app.leg.wa.gov/RCW/",
+  "reached": true
+ },
+ "sections": {
+  "29A.60": {
+   "citation": "RCW chapter 29A.60 (Canvassing, certification), esp. 29A.60.221 (Tie in primary or final election)",
+   "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=29A.60&full=true",
+   "read_at": "state",
+   "note": "the chapter's full-text page"
+  },
+  "29A.64": {
+   "citation": "RCW chapter 29A.64 (Recounts), esp. 29A.64.011 (application), 29A.64.021 (mandatory), 29A.64.030 (deposit), 29A.64.081 (expenses)",
+   "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=29A.64&full=true",
+   "read_at": "state",
+   "note": "the chapter's full-text page"
+  },
+  "const": {
+   "citation": "Constitution of the State of Washington, Article III, section 4 (returns of elections, canvass, etc.)",
+   "url": "https://leg.wa.gov/media/o3fg0ey1/washington-state-constitution.pdf",
+   "read_at": "state",
+   "note": "the Legislature's PDF of the Constitution, found through a search for the citation; the statute page itself points to Art. III s 4 for a tie in an executive branch office. PDF line-end hyphens are why the quotation is cut with [...]."
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "state-legislative",
+    "local"
+   ],
+   "applies_to": "any federal, state, county, city, district or precinct office where two or more persons have an equal and highest number of votes for one and the same office",
+   "resolution": "lot",
+   "steps": "the official empowered to issue the original certificate of election gives notice to the tied persons to attend at the appropriate office at the time appointed, and there publicly decides by lot which is declared duly elected, and delivers the certificate to that person; separately, a difference of zero votes is less than 2,000 votes and less than one-half of one percent, so the mandatory recount of RCW 29A.64.021 also applies (no cost of it may be charged to a candidate)",
+   "who": "the official empowered by state law to issue the original certificate of election (the county canvassing board for local offices; the Secretary of State for offices whose declaration of candidacy was filed with the Secretary of State)",
+   "sources": [
+    {
+     "section": "29A.60",
+     "quote": "If the requisite number of any federal, state, county, city, district, or precinct officers have not been elected by reason of two or more persons having an equal and highest number of votes for one and the same office, the official empowered by state law to issue the original certificate of election shall give notice to the several persons so having the highest and equal number of votes to attend at the appropriate office at the time to be appointed by that official, who shall then and there proceed publicly to decide by lot which of those persons will be declared duly elected"
+    }
+   ],
+   "mark": "measured",
+   "note": "The lot is stated plainly in 29A.60.221(2). Whether the mandatory recount of 29A.64.021 comes before the lot is not stated in either chapter: 29A.64.021(1) orders a recount whenever the official canvass shows a difference below its thresholds, which a tie meets, and 29A.60.221 does not say 'after a recount'. I record the resolution as the lot the section names and leave the order unstated. 'State' offices are read to include state legislators [inferred]. The page of 29A.60.221 refers a tie in an executive branch office to the State Constitution (see the statewide rule)."
+  },
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "applies_to": "the eight officers of the executive department named in Article III, section 1 (governor, lieutenant governor, secretary of state, treasurer, auditor, attorney general, superintendent of public instruction, commissioner of public lands)",
+   "resolution": "legislature",
+   "steps": "if any two or more are highest and equal in votes for the same office, one of them is chosen by the joint vote of both houses of the legislature",
+   "who": "the Senate and House of Representatives voting jointly",
+   "sources": [
+    {
+     "section": "const",
+     "quote": "The person having the highest number of votes shall be declared duly elected, and a certificate thereof shall be given to such person, signed by the presiding officers of both houses; but if any two or more shall be highest and equal in votes for the same [...] one of them shall be chosen by the joint vote of both houses."
+    }
+   ],
+   "mark": "measured",
+   "note": "From the State Constitution, Art. III s 4, which the statute page itself cites ('Tie vote for executive branch officer: State Constitution Art. III s 4'). Section 4 speaks of 'the officers named in the first section of this article'; I read section 1 in the same PDF for the list above. Any other state officer not in that list would fall under the 'state ... officers' of RCW 29A.60.221(2), so a lot [inferred]; they are not given a separate rule here."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a primary where the requisite number of federal, state, county, city or district offices have not been nominated because two or more persons have an equal and requisite number of votes for a place on the general election ballot",
+   "resolution": "lot",
+   "steps": "the official empowered by state law to certify candidates for the general election ballot gives notice to the tied persons to attend at the appropriate office at the time designated, and there publicly decides by lot which of them is declared nominated and placed on the general election ballot",
+   "who": "the official empowered to certify candidates for the general election ballot",
+   "sources": [
+    {
+     "section": "29A.60",
+     "quote": "by reason of two or more persons having an equal and requisite number of votes for being placed on the general election ballot [...] who shall then and there proceed publicly to decide by lot which of those persons will be declared nominated and placed on the general election ballot."
+    }
+   ],
+   "mark": "measured",
+   "note": "The primary is the state's top-two primary: a tie matters at the cut for the general election ballot. The mandatory recount of 29A.64.021 also applies to a primary."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "the presidential vote",
+   "resolution": "lot",
+   "steps": "no rule names presidential electors; the general tie rule for 'federal' officers (29A.60.221(2)) is read to cover them",
+   "who": "the official empowered to issue the original certificate of election",
+   "sources": [
+    {
+     "section": "29A.60",
+     "quote": "If the requisite number of any federal, state, county, city, district, or precinct officers have not been elected by reason of two or more persons having an equal and highest number of votes for one and the same office"
+    }
+   ],
+   "mark": "inferred",
+   "note": "Inferred: the section says 'federal ... officers' and does not mention electors; chapter 29A.56 or other chapters on presidential elections were not read."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a ballot measure with equal votes for and against",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie on a measure",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "An absence, marked inferred. I read the whole of chapter 29A.60 (canvassing) and chapter 29A.64 (recounts) and found a tie rule only in 29A.60.221, which speaks of offices and persons. Other chapters (for example 29A.72 on initiatives and referenda) were not read."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "any",
+   "applies_to": "any office at any primary or election (the machine recount)",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total number of votes cast for both candidates",
+    "votes": 2000,
+    "combine": "and",
+    "inclusive": false,
+    "conditions": "both tests must be met; judged on the official canvass of all returns for the office, between the candidate apparently qualified for the general election ballot or elected and the closest apparently defeated opponent",
+    "in_words": "a difference of less than 2,000 votes and also less than one-half of one percent of the votes cast for both candidates: the county canvassing board recounts all votes cast on that position, with no request"
+   },
+   "who_may_request": [],
+   "cost_bearer": "no cost of a mandatory recount may be charged to any candidate; for offices filed with the Secretary of State, legislative and congressional offices, the state reimburses the counties",
+   "sources": [
+    {
+     "section": "29A.64",
+     "quote": "the difference in the number of votes cast for a candidate apparently qualified for the general election ballot or elected to any office, and the number of votes cast for the closest apparently defeated opponent is less than two thousand votes and also less than one-half of one percent of the total number of votes cast for both candidates, the county canvassing board shall conduct a recount of all votes cast on that position."
+    },
+    {
+     "section": "29A.64",
+     "quote": "No cost of a mandatory recount may be charged to any candidate."
+    }
+   ],
+   "mark": "measured",
+   "note": "RCW 29A.64.081(2): for offices whose declaration of candidacy was filed with the Secretary of State, any legislative office and any congressional office, the county auditor files an expense claim with the Secretary of State for the state to reimburse; who bears the cost of a mandatory recount for a local office is not stated in the sections read except that no candidate is charged. The tighter manual tiers follow."
+  },
+  {
+   "kinds": [
+    "statewide"
+   ],
+   "type": "automatic",
+   "election": "any",
+   "applies_to": "statewide elections (the manual recount)",
+   "threshold": {
+    "percent": 0.25,
+    "percent_of": "the total number of votes cast for both candidates",
+    "votes": 1000,
+    "combine": "and",
+    "inclusive": false,
+    "conditions": "both tests must be met; the votes are recounted manually, or by an alternative method that the two candidates agree to in a signed written statement (29A.64.021(3))",
+    "in_words": "a difference of less than 1,000 votes and also less than one-fourth of one percent of the votes cast for both candidates: the votes are recounted manually"
+   },
+   "who_may_request": [],
+   "cost_bearer": "no cost of a mandatory recount may be charged to any candidate",
+   "sources": [
+    {
+     "section": "29A.64",
+     "quote": "For statewide elections, if the difference in the number of votes cast for the apparent winner and the closest apparently defeated opponent is less than one thousand votes and also less than one-fourth of one percent of the total number of votes cast for both candidates, the votes shall be recounted manually"
+    },
+    {
+     "section": "29A.64",
+     "quote": "No cost of a mandatory recount may be charged to any candidate."
+    }
+   ],
+   "mark": "measured",
+   "note": "'Statewide elections' is read to include the U.S. Senate [inferred]."
+  },
+  {
+   "kinds": [
+    "federal",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "any",
+   "applies_to": "elections not included in the statewide tier (the manual recount)",
+   "threshold": {
+    "percent": 0.25,
+    "percent_of": "the total number of votes cast for both candidates",
+    "votes": 150,
+    "combine": "and",
+    "inclusive": false,
+    "conditions": "both tests must be met; the votes are recounted manually, or by an alternative method the two candidates agree to in writing",
+    "in_words": "a difference of less than 150 votes and also less than one-fourth of one percent of the votes cast for both candidates: the votes are recounted manually"
+   },
+   "who_may_request": [],
+   "cost_bearer": "no cost of a mandatory recount may be charged to any candidate",
+   "sources": [
+    {
+     "section": "29A.64",
+     "quote": "For elections not included in (b)(i) of this subsection, if the difference in the number of votes cast for the apparent winner and the closest apparently defeated opponent is less than one hundred fifty votes and also less than one-fourth of one percent of the total number of votes cast for both candidates, the votes shall be recounted manually"
+    },
+    {
+     "section": "29A.64",
+     "quote": "No cost of a mandatory recount may be charged to any candidate."
+    }
+   ],
+   "mark": "measured",
+   "note": "Includes U.S. House, state legislative and local offices [inferred from 'elections not included' in the statewide tier]."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "any office, at a primary or at any election",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "the written application must be filed within two business days after the county canvassing board or Secretary of State has declared the official results, and must say whether the recount is manual or by the vote tally system",
+    "in_words": "no margin is required: an officer of a political party or any person for whom votes were cast may apply; in a primary, one who did not qualify for the general election"
+   },
+   "who_may_request": [
+    "an officer of a political party, or any person for whom votes were cast at the election; in a primary, a person for whom votes were cast who did not qualify for the general election"
+   ],
+   "cost_bearer": "the applicant, by a deposit of 25 cents per ballot for a manual recount (15 cents for a machine recount); the costs are deducted from the deposit and the applicant pays any excess; no charge may be deducted if the recount changes the result",
+   "sources": [
+    {
+     "section": "29A.64",
+     "quote": "An officer of a political party or any person for whom votes were cast at any election may file a written application for a recount of the votes or a portion of the votes cast at that election for all candidates for election to that office."
+    },
+    {
+     "section": "29A.64",
+     "quote": "No charges may be deducted by the canvassing board from the deposit for a recount if the recount changes the result of the nomination or election for which the recount was ordered."
+    },
+    {
+     "section": "29A.64",
+     "quote": "An application for a recount must be filed within two business days after the county canvassing board or secretary of state has declared the official results of the primary or election for the office or issue for which the recount is requested."
+    }
+   ],
+   "mark": "measured",
+   "note": "A recount any applicant may buy, beyond the mandatory margins, at the applicant's own cost. The deposit amounts are in 29A.64.030."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "any question or issue",
+   "threshold": {
+    "no_margin_required": true,
+    "in_words": "no margin is required: any group of five or more registered voters may apply, within two business days after official results are declared"
+   },
+   "who_may_request": [
+    "any group of five or more registered voters, who designate one as chair and give the voting residence of each member"
+   ],
+   "cost_bearer": "the applicants, by a deposit (25 cents per ballot manual, 15 cents machine), costs deducted from it; no charge if the recount changes the result",
+   "sources": [
+    {
+     "section": "29A.64",
+     "quote": "Any group of five or more registered voters may file a written application for a recount of the votes or a portion of the votes cast upon any question or issue."
+    }
+   ],
+   "mark": "measured",
+   "note": "No mandatory recount for a measure appears in 29A.64.021, which speaks of candidates."
+  }
+ ],
+ "unread": [],
+ "notes": [
+  "Read in full: RCW chapter 29A.60 and chapter 29A.64 (the site's full-chapter pages) and Article III s 4 of the State Constitution. Not read: chapter 29A.72 (initiatives and referenda), 29A.56 (presidential electors), the Washington Administrative Code on recounts.",
+  "Earlier lead 'WA lot, RCW 29A.60.221' is right for the offices that section names; it does not cover the statewide executive offices, which the Constitution (Art. III s 4) sends to a joint vote of the legislature. Earlier lead for recounts (2,000 votes and 0.5%; manual tiers 1,000 or 150 votes and 0.25%) is confirmed."
+ ]
+}
