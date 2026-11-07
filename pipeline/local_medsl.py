@@ -950,7 +950,8 @@ def lean_note(rows, what):
            {"counts": False, "why": f"under {NOTE_MIN} expected at every line up to {VOTE_LINES[-1]:,} votes"}}
     if not rows:
         return dict(out, note=None)
-    ys = f"{min(r_['year'] for r_ in rows)} to {max(r_['year'] for r_ in rows)}"
+    y0, y1 = min(r_["year"] for r_ in rows), max(r_["year"] for r_ in rows)
+    ys = f"in {y0}" if y0 == y1 else f"{y0} to {y1}"
     if s["counts"] and v and v["counts"] and s["leans"] == v["leans"] != "neither":
         out["note"] = (f"this route's back-test of {what} shows {s['leans']} near-even finishes than it forecast "
                        f"({s['seen']} against {s['expected']:.1f} within 1 point of the threshold, and {v['seen']} "
