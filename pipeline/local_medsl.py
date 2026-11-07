@@ -12,7 +12,9 @@ Written 2026-11-07 by worker D3 (briefs/D3-data-local.md, steps 3 to 6), beside 
 
 Files: data/<level>/<year>/<ST>.json, compact, one contest per line, as pipeline/local.py writes them.
 
-Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_medsl.py check2022
+Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_medsl.py check2018
+      VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_medsl.py check2022
+      VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_medsl.py backtest-local-partisan
       VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_medsl.py build [--out DIR]
 """
 import argparse
@@ -34,7 +36,9 @@ import local as L  # noqa: E402
 NORM = os.path.join(F.CACHE, "medsl", "normalized")
 SAME_LINES = 0.8          # share of a district's 2024 precincts also in its 2022 precincts for "lines unchanged"
 LEG = {"STATE HOUSE": 0, "STATE SENATE": 1}
-YEARS = (2022, 2024)
+YEARS = (2018, 2020, 2022, 2024)
+KLARNER_CHECKED = (2018, 2022)   # years whose MEDSL legislative returns are checked against Klarner's, the record
+GITHUB_YEARS = {2018: "MEDSL/2018-elections-official", 2020: "MEDSL/2020-elections-official"}
 
 
 # ------------------------------------------------------------------ inputs
@@ -131,8 +135,8 @@ def quality(year):
                            f"totals (off by {100 * worst[0]:.1f}% for {worst[1].get('candidate')}, "
                            f"pipeline/intake/medsl_precinct.py's check), so its counts for this contest may be "
                            f"incomplete or double-counted; p not computed")
-    elif year == 2022:
-        path = os.path.join(L.REPO, "data", "local", "check-2022-medsl-klarner.json")
+    elif year in KLARNER_CHECKED:
+        path = os.path.join(L.REPO, "data", "local", f"check-{year}-medsl-klarner.json")
         if os.path.exists(path):
             with open(path) as f:
                 kc = json.load(f)
@@ -204,14 +208,15 @@ def district_no(d):
 
 # ------------------------------------------------------------------ 2022: MEDSL beside Klarner
 
-def check_2022(klarner=None, medsl=None):
+def check_2022(klarner=None, medsl=None, year=2022):
     """Single-member districts both sources name the same way (a number, no county name or post): are the
-    Democrat's and the Republican's votes, and the winner, the same? Returns the tallies and every difference."""
+    Democrat's and the Republican's votes, and the winner, the same? Returns the tallies and every difference.
+    The same check runs for 2018 (year=2018), MEDSL's GitHub-held returns of that year beside Klarner's."""
     klarner = klarner or L.load_klarner()
-    medsl = medsl or load(2022)
+    medsl = medsl or load(year)
     kl = {}
     for c in klarner:
-        if c["year"] == 2022 and c["etype"] == "g" and c["eseats"] == 1 and not c["dname"] and not c["geopost"] \
+        if c["year"] == year and c["etype"] == "g" and c["eseats"] == 1 and not c["dname"] and not c["geopost"] \
                 and not c["mmdpost"] and c["dno"]:
             kl[(c["state"], c["sen"], c["dno"])] = c
     out = collections.Counter()
@@ -411,6 +416,358 @@ def class_p(rec, c, route, key, train, dens, cache_key, commit, with_p, counts, 
     return L._p_block(n, 0.5, sd_eq, f"the model's own ({L.METHOD}), like past races", commit)
 
 
+# ------------------------------------------------------------------ local Democrat-against-Republican races
+
+def county_lean(chk_prev, bad_prev, c):
+    """The place's lean for a local race (the orchestrator, 06:16): the Democrats' two-party share of the US House
+    vote of the previous general election in the race's counties, minus one half, from MEDSL's own returns of that
+    year. None, with the reason, where a county's House race was not contested by both parties in every precinct,
+    or the previous year's file for the state is not sound."""
+    st = c["state"]
+    if st in bad_prev:
+        return None, "the previous general's returns for this state are held back (see the state's check)"
+    rows = (chk_prev.get("house_by_county") or {}).get(st) or {}
+    if not c["counties"]:
+        return None, "the source places this contest in no county"
+    dv = rv = 0
+    for county in c["counties"]:
+        r = rows.get(county)
+        if not r:
+            return None, f"no US House vote for county {county} in the previous general's returns"
+        if not r[2]:
+            return None, f"county {county}'s US House race was not contested by both parties throughout"
+        dv += r[0]
+        rv += r[1]
+    if dv + rv <= 0:
+        return None, "no Democratic or Republican US House vote in the race's counties"
+    return dv / (dv + rv) - 0.5, None
+
+
+def local_partisan_rows(contests, chk_prev, bad_prev, year):
+    """Single-seat general races below the legislature with one Democrat and one Republican on the ballot, as rows
+    for route (a)'s class C: no last result, incumbency not matched (0), the county's lean."""
+    rows = []
+    for c in contests:
+        if not is_local_level(c) or c["special"] or c["stage"] != "GEN" or c.get("magnitude") != 1:
+            continue
+        b, d, r = _two_party(c)
+        if len(d) != 1 or len(r) != 1 or d[0]["votes"] <= 0 or r[0]["votes"] <= 0:
+            continue
+        lean, why = county_lean(chk_prev, bad_prev, c)
+        rows.append({"m": c, "year": year, "state": c["state"], "cls": "C", "inc": 0, "xl": 0.0, "ulag": 0,
+                     "L": lean if lean is not None else 0.0, "Lmiss": 0, "lean_missing": why,
+                     "N": d[0]["votes"] + r[0]["votes"], "y": d[0]["votes"] / (d[0]["votes"] + r[0]["votes"]),
+                     "d": d[0], "r": r[0]})
+    return rows
+
+
+LOCAL_PARTISAN_OK = (0.40, 0.60)   # the orchestrator, 06:16: compute only if the back-test's 50% interval holds 40-60%
+
+
+def lean_rows(year, contests=None):
+    """The local Democrat-against-Republican rows of a year with their lean from the previous general's US House
+    vote by county, or None where the sources taken in hold no such vote for that year."""
+    prev = year - 2
+    if prev not in YEARS or not (checks(prev).get("house_by_county") or {}):
+        return None
+    return local_partisan_rows(contests if contests is not None else load(year), checks(prev), quality(prev), year)
+
+
+def _lean_reason(why):
+    """The kind of reason a lean is missing, without the county's code: for the tallies."""
+    return re.sub(r"county \d+('s)?", lambda mt: "a county" + (mt.group(1) or ""), why or "")
+
+
+def backtest_local_partisan(write=True, years=None, prow=None, pres=None):
+    """Route (a)'s class-C terms, fitted on Klarner's races before the year, applied to the year's local races
+    between one Democrat and one Republican with the county's previous-general US House lean: the forecasts against
+    what happened. {year: tallies}; written to data/local/backtest-local-partisan.json."""
+    if prow is None:
+        pres, _ = L.president_party()
+        prow = [r_ for r_ in L.partisan_rows(L.load_klarner()) if r_["year"] in pres]
+    res = {}
+    for year in years or YEARS:
+        rows = lean_rows(year)
+        if rows is None:
+            continue
+        M, k = L.fit_before(prow, pres, year)
+        res[year] = _backtest_one(M, k, rows, quality(year), pres)
+    if write:
+        with open(os.path.join(L.REPO, "data", "local", "backtest-local-partisan.json"), "w") as f:
+            json.dump({"about": "route (a)'s class-C terms (fitted on Klarner's state legislative races of earlier "
+                                "years only) applied to local races between one Democrat and one Republican, the "
+                                "place's lean read from the US House vote of the previous general in the race's "
+                                "counties (MEDSL's precinct returns): the forecast against what happened. Built by "
+                                "pipeline/local_medsl.py backtest-local-partisan.",
+                       "rule": f"p is computed for a year only if its 50% interval holds between "
+                               f"{LOCAL_PARTISAN_OK[0]:.0%} and {LOCAL_PARTISAN_OK[1]:.0%} of outcomes",
+                       "years": {str(y): v for y, v in res.items()}}, f, indent=1)
+    return res
+
+
+def _backtest_one(M, k, rows, bad, pres):
+    from statistics import NormalDist
+    used = [r_ for r_ in rows if r_["lean_missing"] is None and r_["m"]["state"] not in bad]
+    z = {"50": 0.6744897501960817, "80": 1.2815515655446004, "95": 1.959963984540054}
+    out = {"races": len(rows), "with_lean": len(used),
+           "held_back_state": sum(1 for r_ in rows if r_["lean_missing"] is None and r_["m"]["state"] in bad),
+           "lean_missing": dict(collections.Counter(_lean_reason(r_["lean_missing"]) for r_ in rows
+                                                    if r_["lean_missing"]).most_common())}
+    if M is None:
+        out["fit"] = None
+        return out
+    cov = collections.Counter()
+    exp49 = seen49 = e100 = s100 = bias = 0.0
+    by_type = collections.defaultdict(lambda: [0, 0])
+    for r_ in used:
+        m, sd, a = L.predict_partisan(M, r_, pres)
+        y = r_["y"]
+        for kz, v in z.items():
+            cov[kz] += abs(y - m) <= v * sd
+        nd = NormalDist(m, sd)
+        exp49 += nd.cdf(0.51) - nd.cdf(0.49)
+        seen49 += 0.49 <= y <= 0.51
+        h = 50 / r_["N"]
+        e100 += nd.cdf(0.5 + h) - nd.cdf(0.5 - h)
+        s100 += abs(r_["d"]["votes"] - r_["r"]["votes"]) <= 100
+        bias += m - y
+        t = office_type(r_["m"]["office"])
+        by_type[t][0] += 1
+        by_type[t][1] += abs(y - m) <= z["50"] * sd
+    n = max(len(used), 1)
+    out.update({"in_intervals_50_80_95": {kz: round(v / n, 3) for kz, v in cov.items()},
+                "within_49_51": {"expected": round(exp49, 1), "seen": int(seen49)},
+                "within_100_votes": {"expected": round(e100, 1), "seen": int(s100)},
+                "mean_forecast_minus_outcome": round(bias / n, 4),
+                "in_50_interval_by_office_type": {t: [v[0], round(v[1] / v[0], 3)] for t, v in sorted(by_type.items())},
+                "fit": {"earlier_years_of_kind": k, "years_fitted": [M["years_fitted"][0], M["years_fitted"][-1]],
+                        "method": L.METHOD}})
+    out["computed"] = bool(used) and LOCAL_PARTISAN_OK[0] <= out["in_intervals_50_80_95"].get("50", 0) <= \
+        LOCAL_PARTISAN_OK[1]
+    return out
+
+
+def backtest_local_classes(files):
+    """Routes (b) and (c) for local races, out of sample: each year's like-race classes come from earlier years
+    only, so the year's own outcomes test them. For each contest given p, the class's chance of finishing within
+    its window (q) is added up and set beside how many did."""
+    out = {}
+    for (level, year, st), cs in files.items():
+        if level != "local":
+            continue
+        for c in cs:
+            fc = [x for x in c.get("forecasts", []) if x.get("route") in ("class", "boundary")]
+            if not fc or "value" not in c.get("p", {}):
+                continue
+            x = fc[-1]
+            tp = c.get("two_party") or c.get("boundary")
+            inw = x["window"][0] <= tp["share_first"] <= x["window"][1]
+            y = out.setdefault(str(year), {"contests": 0, "expected_in_window": 0.0, "seen_in_window": 0,
+                                          "by_office_type": {}})
+            k = f"{x['route']}, {c.get('office_scope', 'local')} {c.get('office_type', '')}".strip()
+            t = y["by_office_type"].setdefault(k, [0, 0.0, 0])
+            y["contests"] += 1
+            y["expected_in_window"] += x["q"]
+            y["seen_in_window"] += inw
+            t[0] += 1
+            t[1] += x["q"]
+            t[2] += inw
+    for y in out.values():
+        y["expected_in_window"] = round(y["expected_in_window"], 1)
+        y["seen_over_expected"] = round(y["seen_in_window"] / y["expected_in_window"], 3) if y["expected_in_window"] else None
+        y["by_office_type"] = {k: {"contests": v[0], "expected": round(v[1], 1), "seen": v[2]}
+                               for k, v in sorted(y["by_office_type"].items(), key=lambda kv: -kv[1][0])}
+    return {"about": "local races given p by like past races (routes (b) and (c), method " + L.METHOD + "): the "
+                     "chance each class gives of finishing within its window around one half, added up over the "
+                     "year's contests, beside how many did. Classes come from earlier years only. Built by "
+                     "pipeline/local_medsl.py build.", "years": dict(sorted(out.items()))}
+
+
+CAL_MIN_EXPECTED = 30   # the orchestrator, 07:37: an office type gets its own factor only with about 30 or more
+                         # expected near-1/2 races in the fitting years; otherwise the fitting years' races pooled
+CAL_NOTE = "calibrated to earlier years' near-ties"
+
+
+def _near_half(rec):
+    """(route group, office-type key, chance the forecast gave of finishing near 1/2, whether it did) for a local
+    record with a forecast; None otherwise. Near 1/2 is the class's window for like races, 49-51% for the
+    Democrat-against-Republican route."""
+    fc = rec.get("forecasts") or []
+    if not fc:
+        return None
+    x = fc[-1]
+    if x.get("route") in ("class", "boundary"):
+        tp = rec.get("two_party") or rec.get("boundary")
+        return ("like races", f"{x['route']}, {rec.get('office_scope', 'local')} {rec.get('office_type', '')}",
+                x["q"], x["window"][0] <= tp["share_first"] <= x["window"][1])
+    if x.get("route") == "partisan" and rec.get("two_party"):
+        m, sd = x["share"]["mean"], x["share"]["sd"]
+        e = L._ncdf(0.51, m, sd) - L._ncdf(0.49, m, sd)
+        return ("partisan", f"partisan, {rec.get('office_scope', 'local')} {rec.get('office_type', '')}", e,
+                abs(rec["two_party"]["share_first"] - 0.5) <= 0.01)
+    return None
+
+
+def _deviance(pairs):
+    """Poisson deviance of seen counts against expected ones, summed over office types: lower is closer."""
+    d = 0.0
+    for e, s_ in pairs:
+        if e <= 0:
+            continue
+        d += 2 * ((s_ * math.log(s_ / e) if s_ > 0 else 0.0) - (s_ - e))
+    return d
+
+
+def calibrate_local(files, test_year=2024):
+    """The orchestrator's ruling of 07:37 on local races given p by like races or by the transferred partisan
+    route: a factor (seen over expected near 1/2) fitted on years before the one it is applied to, by office type
+    where the fitting years expected about 30 or more such races, else pooled; adopted for a route only if it
+    brings test_year's out-of-sample count nearer what happened. Changes the records in place; returns the
+    report."""
+    recs = collections.defaultdict(list)   # (group, year) -> [(rec, key, e, seen)]
+    for (level, year, st), cs in files.items():
+        if level != "local":
+            continue
+        for rec in cs:
+            nh = _near_half(rec)
+            if nh:
+                recs[(nh[0], year)].append((rec, nh[1], nh[2], nh[3]))
+    report = {}
+    for group in ("like races", "partisan"):
+        years = sorted(y for g, y in recs if g == group)
+        factors = {}
+        for t in years:
+            fit_years = [y for y in years if y < t]
+            if not fit_years:
+                factors[t] = None
+                continue
+            by = collections.defaultdict(lambda: [0.0, 0])
+            for y in fit_years:
+                for _, key, e, seen in recs[(group, y)]:
+                    by[key][0] += e
+                    by[key][1] += seen
+            pe, ps = sum(v[0] for v in by.values()), sum(v[1] for v in by.values())
+            own = {k: v[1] / v[0] for k, v in by.items() if v[0] >= CAL_MIN_EXPECTED}
+            factors[t] = {"fitted_on": fit_years, "pooled": ps / pe if pe else 1.0, "own": own,
+                          "fit_counts": {k: [round(v[0], 1), v[1]] for k, v in by.items()}}
+        rep_g = {"factors": {str(t): (None if f is None else {
+            "fitted_on": f["fitted_on"], "pooled": round(f["pooled"], 3),
+            "own": {k: round(v, 3) for k, v in sorted(f["own"].items())},
+            "fit_counts_expected_seen": dict(sorted(f["fit_counts"].items()))}) for t, f in factors.items()}}
+        test = recs.get((group, test_year), [])
+        f_t = factors.get(test_year)
+        if test and f_t:
+            by_b = collections.defaultdict(lambda: [0.0, 0.0, 0])
+            for rec, key, e, seen in test:
+                k = f_t["own"].get(key, f_t["pooled"])
+                by_b[key][0] += e
+                by_b[key][1] += e * k
+                by_b[key][2] += seen
+            eb, ea, sn = (sum(v[i] for v in by_b.values()) for i in range(3))
+            db, da = _deviance([(v[0], v[2]) for v in by_b.values()]), _deviance([(v[1], v[2]) for v in by_b.values()])
+            adopt = abs(ea - sn) < abs(eb - sn) and da < db
+            rep_g["test"] = {"year": test_year, "contests": len(test), "seen_near_half": int(sn),
+                             "expected_before": round(eb, 1), "expected_after": round(ea, 1),
+                             "deviance_by_office_type_before": round(db, 2), "deviance_after": round(da, 2),
+                             "by_office_type": {k: {"expected_before": round(v[0], 1), "expected_after": round(v[1], 1),
+                                                    "seen": int(v[2])} for k, v in sorted(by_b.items(),
+                                                                                         key=lambda kv: -kv[1][0])}}
+        else:
+            adopt = False
+        rep_g["adopted"] = adopt
+        report[group] = rep_g
+        if not adopt:
+            continue
+        for t in years:
+            f = factors[t]
+            for rec, key, e, seen in recs[(group, t)]:
+                p = rec.get("p") or {}
+                if "value" not in p or not p.get("value"):
+                    continue
+                fc = rec["forecasts"][-1]
+                if f is None:
+                    fc["note"] = (fc.get("note", "") + "; " if fc.get("note") else "") + \
+                        f"p {CAL_NOTE}: no earlier year in the sources taken in has these forecasts to fit on"
+                    rec["p"] = {"not_computed": f"this route's p is {CAL_NOTE} (the orchestrator, 2026-11-07), and no "
+                                                f"earlier year in the sources taken in has its forecasts to fit the "
+                                                f"factor on"}
+                    continue
+                k = f["own"].get(key)
+                factor, of = (k, key) if k is not None else (f["pooled"], "pooled over the fitting years' races")
+                fc["calibration"] = {"factor": round(factor, 4), "of": of, "fitted_on": f["fitted_on"],
+                                     "what": "seen over expected near 1/2 in the fitting years' out-of-sample forecasts"}
+                if group == "like races":
+                    sd_eq = 1.0 / (math.sqrt(2 * math.pi) * p["f_half"] * factor)
+                    rec["p"] = L._compact(L._p_block(p["n"], 0.5, sd_eq, f"{p['under']}, {CAL_NOTE}", None))
+                else:
+                    q = dict(p)
+                    q["value"], q["event"], q["f_half"] = p["value"] * factor, p["event"] * factor, p["f_half"] * factor
+                    q["under"] = f"{p['under']}, {CAL_NOTE}"
+                    if p.get("alongside", {}).get("t4"):
+                        t4 = dict(p["alongside"]["t4"])
+                        t4["value"], t4["event"] = t4["value"] * factor, t4["event"] * factor
+                        q["alongside"] = {"t4": t4}
+                    rec["p"] = L._compact(q)
+    return report
+
+
+def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, counts):
+    """The transferred partisan route for a local race between one Democrat and one Republican (the orchestrator,
+    06:16: route (a)'s class-C terms with the county's House lean, marked "transferred, not yet checked")."""
+    label = f"local {year}"
+    if rows is None:
+        counts[f"{label}: not computed, D against R, no lean in the sources"] += 1
+        return {"not_computed": f"a race between a Democrat and a Republican: the model's forecast for these reads "
+                                f"the place's lean from the US House vote by county at the previous general "
+                                f"({year - 2}), which the sources taken in do not hold"}
+    r_ = rows.get(id(c))
+    if r_ is None:
+        counts[f"{label}: not computed, no votes"] += 1
+        return {"not_computed": "no votes for the Democrat or the Republican"}
+    if r_["lean_missing"]:
+        counts[f"{label}: not computed, D against R, lean missing"] += 1
+        return {"not_computed": "a race between a Democrat and a Republican, whose forecast reads the place's lean: "
+                                + r_["lean_missing"]}
+    M, k = fit
+    if M is None or k < L.MIN_EARLIER:
+        counts[f"{label}: not computed, too few earlier years"] += 1
+        return {"not_computed": "too few earlier years to fit on"}
+    mean, sd, a = L.predict_partisan(M, r_, pres)
+    n = r_["N"] - 1
+    rec["two_party"] = {"votes": [r_["d"]["votes"], r_["r"]["votes"]], "n_other_voters": n,
+                        "share_first": round(r_["y"], 6)}
+    rec["forecast_inputs"] = {"class": "C", "incumbency": 0, "lean": round(r_["L"], 4), "lean_year": year - 2,
+                              "lean_of": "the Democrats' two-party share of the US House vote in the race's counties "
+                                         "at the previous general, minus one half (MEDSL's precinct returns)",
+                              "swing": round(a, 4)}
+    rec["forecasts"].append({"by": "the model's own", "method": L.METHOD, "route": "partisan",
+                             "share": {"of": "Democrat, two-party", "mean": round(mean, 4), "sd": round(sd, 4),
+                                       "tails": "normal"},
+                             "note": "transferred, not yet checked: route (a)'s class-C terms, fitted on Klarner's "
+                                     "state legislative races of earlier years, applied with the county's US House "
+                                     "lean; incumbency not matched (taken as 0); back-test in "
+                                     "data/local/backtest-local-partisan.json",
+                             "source": "model"})
+    top = sorted(c["candidates"], key=lambda x: -x["votes"])
+    if any(x.get("writein") or _is_generic(x["name"]) for x in top[:2]) or {major(top[0]), major(top[1])} != {"D", "R"}:
+        counts[f"{label}: not computed, D and R not the top two"] += 1
+        return {"not_computed": "the two leading lines were not the Democrat and the Republican, so the forecast of "
+                                "the Democrat against the Republican is not of the pair that decided this contest "
+                                "(model section 7)"}
+    if not ok:
+        cov = (bt or {}).get("in_intervals_50_80_95", {}).get("50")
+        counts[f"{label}: not computed, D against R, back-test outside the line"] += 1
+        return {"not_computed": f"the back-test of this transferred route on {year}'s races "
+                                + (f"held {cov:.0%} of outcomes in its 50% interval, " if cov is not None else "")
+                                + f"outside {LOCAL_PARTISAN_OK[0]:.0%}-{LOCAL_PARTISAN_OK[1]:.0%}"}
+    if not with_p:
+        return {}
+    t4 = core.p_contest(n, mean, sd, "t4")
+    counts[f"{label}: p computed, partisan (transferred)"] += 1
+    return L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal; transferred, not yet checked", commit,
+                      {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+
+
 # ------------------------------------------------------------------ local races: classes of like races
 
 OFFICE_TYPES = [
@@ -461,9 +818,7 @@ def local_structure(m):
         slate = ("both major parties on the ballot" if nd and nr else "one major party or none")
         return ("boundary", f"{scope} {ot}, {k if k < 4 else '4+'} seats at once, {slate}")
     if nd == 1 and nr == 1:
-        return ("not computed", f"a {scope} race between a Democrat and a Republican: the model's own forecast for "
-                                f"these needs the place's partisan lean, which {L.METHOD} has at state legislative "
-                                f"level only")
+        return ("partisan", f"a {scope} race between a Democrat and a Republican")
     nonpartisan = all((x.get("party") or "NONPARTISAN") in ("NONPARTISAN", "") for x in b)
     kind = ("nonpartisan" if nonpartisan else "one major party against others" if nd + nr == 1 else
             "two or more of one major party" if nd + nr >= 2 else "no Democrat or Republican")
@@ -532,8 +887,17 @@ def _cands_out(cands, seats=1):
 
 
 def _src_medsl(year, chk, files):
-    doi = {2024: "doi:10.7910/DVN/NYTPDU", 2022: "doi:10.7910/DVN/UYQIEP"}[year]
     rec = chk.get("record", {})
+    if year in GITHUB_YEARS:
+        return F.source(f"MIT Election Data and Science Lab, {year} precinct-level returns, GitHub "
+                        f"{GITHUB_YEARS[year]} at commit {rec.get('commit', '')[:12]}", rec.get("url"),
+                        rec.get("read_utc"), "no licence file in the repository; MEDSL's Dataverse sets of the same "
+                        "year are CC0 1.0", mark="stated", via=f"https://github.com/{GITHUB_YEARS[year]}",
+                        note="MEDSL's own earlier release, read by git (the repository now points to its Dataverse "
+                             "sets, which sit behind a guestbook; pipeline/intake/medsl_precinct.py --compare-dataverse "
+                             "matches the files by MD5); added up to the contest by pipeline/intake/medsl_precinct.py, "
+                             "files " + ", ".join(sorted(files)))
+    doi = {2024: "doi:10.7910/DVN/NYTPDU", 2022: "doi:10.7910/DVN/UYQIEP"}[year]
     return F.source(f"MIT Election Data and Science Lab, Precinct-Level Returns {year} by Individual State, Harvard "
                     f"Dataverse {doi}, version {rec.get('version')}", f"https://doi.org/{doi.split(':', 1)[1]}",
                     rec.get("read_utc"), "CC0 1.0", mark="stated", via=f"https://doi.org/{doi.split(':', 1)[1]}",
@@ -587,8 +951,8 @@ def build(out_dir, with_p=True):
             if c["office"] not in LEG or c["question"]:
                 continue
             level = "state-upper" if LEG[c["office"]] else "state-lower"
-            if year == 2022:
-                continue   # Klarner's 2022 is the record; MEDSL's 2022 is its check (check_2022)
+            if year in KLARNER_CHECKED or year < 2024:
+                continue   # Klarner's 1967-2022 are the record; MEDSL's 2018 and 2022 are its check (check_2022)
             dist = district_no(c["district"]) or (c["district"] if c["district"] not in ("", "STATEWIDE") else None)
             lead = sorted(ballot(c["candidates"]) or c["candidates"], key=lambda x: -x["votes"])
             rec = {"id": cid(f"{year}-{level}-{c['state']}-"
@@ -693,6 +1057,12 @@ def build(out_dir, with_p=True):
     # -- local races: routes (b) and (c), from like races of earlier years
     lrows = {y: local_rows([c for c in m[y] if c["state"] not in bad[y]]) for y in YEARS}
     dens = {}
+    bt = backtest_local_partisan(write=True, prow=prow, pres=pres)
+    lp = {}
+    for y in YEARS:
+        rows_y = lean_rows(y, m[y])
+        lp[y] = None if rows_y is None else {id(r_["m"]): r_ for r_ in rows_y}
+    fits = {y: L.fit_before(prow, pres, y) if lp[y] is not None else (None, 0) for y in YEARS}
     for year in YEARS:
         train = [r_ for y in YEARS if y < year for r_ in lrows[y]]
         for c in m[year]:
@@ -732,6 +1102,10 @@ def build(out_dir, with_p=True):
             elif route == "zero":
                 p = {"value": 0.0, "event": 0.0, "reason": key}
                 counts[f"local {year}: p = 0"] += 1
+            elif route == "partisan":
+                p = local_partisan_p(rec, c, lp[year], bool(bt.get(year, {}).get("computed")),
+                                     fits[year],
+                                     bt.get(year), pres, year, commit, with_p, counts)
             elif route == "not computed":
                 p["not_computed"] = key
                 counts[f"local {year}: not computed, {key.split(':')[0][:50]}"] += 1
@@ -774,6 +1148,31 @@ def build(out_dir, with_p=True):
             counts[f"measure {year}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
+    write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
+    if write_checks:
+        with open(os.path.join(L.REPO, "data", "local", "backtest-local-classes.json"), "w") as f:
+            json.dump(backtest_local_classes(files), f, indent=1)
+    cal = calibrate_local(files)
+    for g, r in cal.items():
+        if r["adopted"]:
+            for (level, year, st), cs in files.items():
+                if level == "local":
+                    for rec in cs:
+                        nh = _near_half(rec)
+                        if nh and nh[0] == g:
+                            if "value" in rec["p"] and (rec["forecasts"][-1].get("calibration") or not rec["p"]["value"]):
+                                counts[f"local {year}: {g}: p calibrated" if rec["p"]["value"] else
+                                       f"local {year}: {g}: p = 0"] += 1
+                            elif CAL_NOTE in rec["p"].get("not_computed", ""):
+                                counts[f"local {year}: {g}: not computed, no earlier year to calibrate on"] += 1
+    if write_checks:
+        with open(os.path.join(L.REPO, "data", "local", "calibration-local.json"), "w") as f:
+            json.dump({"about": "the orchestrator's ruling of 2026-11-07 07:37: local races' p by like races, and by "
+                                "the transferred Democrat-against-Republican route, calibrated to earlier years' "
+                                "near-ties (seen over expected near 1/2), by office type where the fitting years "
+                                f"expected {CAL_MIN_EXPECTED} or more, else pooled; adopted for a route only if it "
+                                "improves the 2024 out-of-sample test (the count near 1/2 and the deviance by office "
+                                "type). Built by pipeline/local_medsl.py build.", "routes": cal}, f, indent=1)
     total = 0
     by_level = collections.Counter()
     for (level, year, st), cs in sorted(files.items()):
@@ -804,15 +1203,18 @@ def build(out_dir, with_p=True):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("what", choices=["check2022", "build"])
+    ap.add_argument("what", choices=["check2018", "check2022", "build", "backtest-local-partisan"])
     ap.add_argument("--out", default=os.path.join(L.REPO, "data"))
     a = ap.parse_args()
-    if a.what == "check2022":
-        out = check_2022()
-        path = os.path.join(L.REPO, "data", "local", "check-2022-medsl-klarner.json")
+    if a.what in ("check2018", "check2022"):
+        year = int(a.what[5:])
+        out = check_2022(year=year)
+        path = os.path.join(L.REPO, "data", "local", f"check-{year}-medsl-klarner.json")
         with open(path, "w") as f:
             json.dump(out, f, indent=1)
         print(json.dumps(out["tallies"], indent=1))
+    elif a.what == "backtest-local-partisan":
+        print(json.dumps(backtest_local_partisan(), indent=1))
     else:
         build(a.out)
 
