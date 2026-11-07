@@ -215,7 +215,7 @@ HOLDS_EXPECTED = {
            ("MI", "SECRETARY OF STATE", "", "incomplete"), ("NY", "COMPTROLLER", "", "incomplete"),
            ("OR", "COMMISSIONER OF THE BUREAU OF LABOR AND INDUSTRIES", "", "incomplete")},
     2024: {("ND", "STATE AUDITOR", "", "state total"), ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 1", "incomplete"),
-           ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 7", "state total")}}
+           ("OR", "JUDGE OF THE SUPREME COURT", "POSITION 7", "incomplete")}}
 # Michigan's Supreme Court: the orchestrator, 16:53: "If neither answers, do not leave MI 2018 as it is. Hold it: no p,
 # out of every pool, and marked 'seat count unread' ... Do the same for any other MI year whose count can't be read.
 # Reason: a record kept in the pools as one seat when it may be two would bias every later statewide-judge p"; and
@@ -470,9 +470,12 @@ OR_SOS = os.path.join(F.CACHE, "or_sos", "normalized")
 
 def _or_state(m, year, a):
     """Oregon 2024: the Secretary of State's abstract of votes for a statewide contest MEDSL's lines leave incomplete
-    (pipeline/intake/or_sos.py; the orchestrator's orders of 17:44, 19:49 item 4 and 20:28). True where its total is
-    taken; a reason (str) where the abstract holds the contest and fails its gate, so the contest stays held with that
-    reason; None where the abstract read holds no such contest."""
+    (pipeline/intake/or_sos.py; the orchestrator's orders of 17:44, 19:49 item 4 and 20:28). The abstract carries no
+    mark (the orchestrator, 2026-11-07 21:55: "the records system's title "...Official Results(2).PDF" is the uploaded
+    file's name, and the "(2)" shows that. 15:16 excludes a file name, and 19:49 asks for the document's or the
+    linking page's own words. So the abstract carries no mark. P7 goes back to held as before, and the abstract's
+    figures can stay in a note, unmarked."), so its total is never taken: a reason (str) for the hold, with the
+    abstract's figures put in a note, unmarked; None where the abstract read holds no such contest."""
     path = os.path.join(OR_SOS, f"{year}-general.json")
     if not os.path.exists(path):
         raise SystemExit(f"{path} is not in the cache: run pipeline/intake/or_sos.py read first")
@@ -481,29 +484,18 @@ def _or_state(m, year, a):
     c = next((c for c in off["contests"] if (c["office"], c["district"]) == (m["office"], m.get("district"))), None)
     if c is None:
         return None
-    if not c["adds_up"]:
-        return ("the Secretary of State's abstract of votes was read (pipeline/intake/or_sos.py) and fails its own "
-                "gate: " + "; ".join(c["differences"]) + ", so its total is not taken either")
-    st = {("WRITE-IN" if x["misc"] else name_key(x["name"])): x for x in c["candidates"]}
-    mine = {_ckey(x): x for x in m["candidates"]}
-    if set(st) != set(mine):
-        raise SystemExit(f"_or_state: {m['office']} {m.get('district')}: the abstract's names {sorted(st)} differ from "
-                         f"MEDSL's {sorted(mine)}")
-    medsl = {x["name"]: x["votes"] for x in m["candidates"]}
-    missing = sorted(a - set(m["counties"]))
-    for k, x in mine.items():
-        x["votes"] = st[k]["votes"]
-        x["won_marked"] = True if st[k]["elected"] else None
-    m["counties"] = sorted(a)
-    m["state_votes"] = {"source": "or_sos", "medsl": medsl,
-                        "office_as_listed": f"{c['title']}, {c['position']}"}
     m["notes"] = (m.get("notes") or []) + [
-        f"votes: the Oregon Secretary of State's abstract of votes of the {year} general election ('{c['title']}, "
-        f"{c['position']}'; the records system titles it {off['source']['title']!r}, which the orchestrator's ruling of "
-        f"2026-11-07 19:49 counts as its mark; each candidate's 36 county lines add up to its Total line; "
-        f"pipeline/intake/or_sos.py), the state's total in place of MEDSL's (the ruling of 16:47); MEDSL's lines for "
-        f"this contest miss {', '.join(missing)} and add up to {sum(medsl.values()):,} (result.medsl_votes)"]
-    return True
+        f"the Oregon Secretary of State's abstract of votes of the {year} general election ('{c['title']}, "
+        f"{c['position']}'; pipeline/intake/or_sos.py), unmarked and not taken: "
+        + ", ".join(f"{x['name']} {x['votes']:,}" for x in c["candidates"])
+        + (f"; each candidate's {len(c['counties'])} county lines add up to its Total line" if c["adds_up"] else
+           "; " + "; ".join(c["differences"])) + " [stated: the abstract]"]
+    why = ("the Secretary of State's abstract of votes was read (pipeline/intake/or_sos.py) but carries no mark of an "
+           "official or certified count: the document prints none, and the records system's title, "
+           f"{off['source']['title']!r}, is the uploaded file's name (the orchestrator, 2026-11-07 21:55)")
+    if not c["adds_up"]:
+        why += ", and it fails its own gate: " + "; ".join(c["differences"])
+    return why + "; so its total is not taken either"
 
 
 AZ_RECOUNT = "count before the recount, certified count unread"
@@ -700,10 +692,6 @@ def statewide_pieces(contests, year):
                 held_.add(key + ("state total",))
                 continue
             orx = _or_state(m, year, a) if m["state"] == "OR" and year == 2024 else None
-            if orx is True:
-                PIECES[year]["OR: the state's abstract of votes for a contest MEDSL leaves incomplete"] += 1
-                held_.add(key + ("state total",))
-                continue
             miss = sorted(a - mine)
             _hold(m, f"incomplete: MEDSL's lines for this contest miss {len(miss)} of the {len(a)} counties the "
                      f"state's contests have votes in that day ({', '.join(miss)}), no other piece of it is in the "
@@ -3339,7 +3327,7 @@ def build(out_dir, with_p=True):
                      "applied, in result.medsl_votes); checked: " + id_["check"] + f" (the canvass, "
                      f"{id_['canvass']['url']}, sha256 {id_['canvass']['sha256'][:16]})",
                 sha256=id_["results"]["sha256"])
-        if any((x.get("result") or {}).get("votes_source") == "or_sos" for x in cs + others):
+        if any("Oregon Secretary of State's abstract of votes" in n for x in cs + others for n in x.get("notes") or []):
             with open(os.path.join(OR_SOS, f"{year}-general.json")) as f:   # Oregon's abstract of votes
                 or_ = json.load(f)["source"]
             head["sources"]["or_sos"] = F.source(
@@ -3347,9 +3335,9 @@ def build(out_dir, with_p=True):
                 or_["abstract"]["url"], or_["abstract"]["read_utc"], or_["licence"], mark="stated",
                 via=f"pipeline/intake/or_sos.py; the state's records system, whose Record Viewer "
                     f"({or_['viewer']['final_url']}, sha256 {or_['viewer']['sha256'][:16]}) titles the record "
-                    f"{or_['title']!r} (the orchestrator's ruling of 19:49: the records system's title counts)",
-                note="the votes of each contest whose result.votes_source is 'or_sos' (MEDSL's in result.medsl_votes); "
-                     "checked: " + or_["check"], sha256=or_["abstract"]["sha256"])
+                    f"{or_['title']!r}, the uploaded file's name, which is no mark (the orchestrator, 21:55)",
+                note="the figures quoted, unmarked and not taken, in the notes of the contests it holds, which stay "
+                     "held; checked: " + or_["check"], sha256=or_["abstract"]["sha256"])
         if any((x.get("result") or {}).get("state_total", {}).get("source") == "wa_sos" for x in cs + others):
             with open(os.path.join(WA_SOS, "20221108-statewide.json")) as f:   # Washington's own results
                 wa = json.load(f)

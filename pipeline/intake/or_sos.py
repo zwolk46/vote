@@ -1,5 +1,5 @@
-"""pipeline/intake/or_sos.py: Oregon's official abstract of votes of the 2024 general election, for the statewide
-contests MEDSL's file holds in part.
+"""pipeline/intake/or_sos.py: Oregon's abstract of votes of the 2024 general election, for the statewide contests
+MEDSL's file holds in part.
 
 Written 2026-11-07 by worker D3 on the orchestrator's orders of 17:44 ("read held contests' certified totals where the
 agency answers ... ID and OR SoS"), 19:49 (item 4: "a file name in a URL is not a mark. Two things count: a mark
@@ -18,19 +18,21 @@ Sources, kept in $VOTE_CACHE/or_sos/raw (each with a .meta.json):
   or-2024-abstract-record-viewer.html   the records system's Record Viewer for the same record (ORSOSWebDrawer/
       Recordhtml/13735458, redirected to ORSOSCMSearch/Search/RecordViewer.aspx?uri=13735458; one request, 20:56:06
       UTC), which titles the record "2024 November General Election Official Results(2).PDF" (its lblTitle) and shows
-      the document from the same DocumentStream address [stated: the page]. That is the records system's title, which
-      the ruling of 19:49 counts; the title is the uploaded file's own name, kept by the records system.
+      the document from the same DocumentStream address [stated: the page]. That title is the uploaded file's own
+      name, so it is no mark. The orchestrator, 21:55: "the "(2)" shows that. 15:16 excludes a file name, and 19:49
+      asks for the document's or the linking page's own words. So the abstract carries no mark." Its figures are
+      quoted, unmarked, in the notes of the contests it holds, which stay held (pipeline/local_medsl.py _or_state).
 The state prints no licence; these are its public election returns.
 
 Oregon 2022: no abstract of the 2022 general election was found (two web searches of the state's hosts, 20:57 UTC,
 found its statistical summary and some counties' canvasses only), so none was requested, and the 2022 contest MEDSL
 holds in part stays held.
 
-What it does (read): checks that the record viewer titles the record with the words "Official Results" and shows the
-same document; reads each contest of CONTESTS from the abstract (its candidates, the county lines and the Total line);
-checks that there are 36 county lines and that each candidate's county lines add up to the Total line (the gate: a
-contest that fails it is written with its differences and not used, pipeline/local_medsl.py _or_state); writes
-$VOTE_CACHE/or_sos/normalized/2024-general.json. No request is made.
+What it does (read): checks that the record viewer shows the same document, and keeps its title; reads each contest
+of CONTESTS from the abstract (its candidates, the county lines and the Total line); checks that there are 36 county
+lines and that each candidate's county lines add up to the Total line (a contest that fails is written with its
+differences); writes $VOTE_CACHE/or_sos/normalized/2024-general.json. No request is made. No total is taken from it
+(no mark): pipeline/local_medsl.py _or_state quotes its figures in a note.
 
 Found [measured]: Position 7 passes. Position 1's write-in line ("Misc.") does not: its county lines add up to 26,078,
 its Total line reads 26,077; the named candidate's lines add up exactly.
@@ -138,7 +140,7 @@ def read():
     pdf, pdf_meta = _need(ABSTRACT)
     view, view_meta = _need(VIEWER)
     title, shows = viewer_title(view)
-    if "Official Results" not in title or not shows:
+    if not shows:
         raise SystemExit(f"or_sos: the record viewer titles the record {title!r} (shows the document: {shows})")
     txt = subprocess.run(["pdftotext", "-layout", pdf, "-"], capture_output=True, text=True, check=True).stdout
     pages = txt.split("\f")
@@ -149,8 +151,8 @@ def read():
         out.append(c)
     res = {"year": 2024, "election": HEADING,
            "source": {"abstract": pdf_meta, "viewer": view_meta, "licence": LICENCE,
-                      "mark": f"the records system titles the record {title!r} (its Record Viewer, which shows the "
-                              f"document)", "title": title,
+                      "mark": None, "title": title,
+                      "title_is": "the uploaded file's name, which is no mark (the orchestrator, 2026-11-07 21:55)",
                       "check": f"each candidate's {COUNTIES} county lines add up to its Total line"},
            "contests": out}
     os.makedirs(NORM, exist_ok=True)
