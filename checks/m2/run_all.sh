@@ -1,6 +1,6 @@
 #!/bin/sh
-# Runs every M2 check in order (c1-c36) on the files as they stand and writes checks/m2/OUTPUT.txt, so that every
-# number in checks/M2-REPORT.md is reproduced by one run (about 40 minutes, plus the first-time summaries of MEDSL's
+# Runs every M2 check in order (c1-c37) on the files as they stand and writes checks/m2/OUTPUT.txt, so that every
+# number in checks/M2-REPORT.md is reproduced by one run (about 45 minutes, plus the first-time summaries of MEDSL's
 # raw files, see below). From the repository root:
 #   sh checks/m2/run_all.sh
 # c1-c7 are the first pass's scripts (written for D1's #23 and D2's #24); since the third pass they read today's files
@@ -15,6 +15,9 @@
 # (MEDSL's raw precinct files of 2016-2024, the State Board's results_pct files, New Mexico's pages) through
 # checks/m2/m2medsl.py, which summarizes each raw file once into ~/.cache/vote-m2/fifth/derived/ (an hour or so the first
 # time, for about 20 million rows; read from there after).
+# c37 (statewide contests filed in pieces, the holds, North Dakota's judgeships, the over-ballot and one-seat-board rules, the
+# quote URLs, #90) is the sixth; it reads what checks/m2/fetch_sixth_pass.sh fetches (Washington's and North Dakota's pages
+# and exports, the 20 quote pages, the two rule pages) and MEDSL's files of the fifth cache.
 # Needs python3 with numpy, scipy and openpyxl, and the sources fetched outside the repository (m2lib.CACHE: the
 # Economist's economist_model_output.zip, 538's four checking-our-work CSVs, the Economist's us-potus-model
 # README.md, Cha's .dta, MEDSL's Senate CSV, The Downballot's lines sheets, Klarner's contest file, and for c18
@@ -31,7 +34,7 @@ OUT=checks/m2/OUTPUT.txt
            c17_first_pass_diff \
            c8_recompute2 c9_fit2 c10_backtest2 c11_k_reading c12_control2 c13_governors2 c14_d3_recompute c15_d3_refit \
            c16_notes c18_louisiana c19_deciding_rounds c20_sizebins c21_new_jersey c22_louisiana_2023 c23_nc_rounds_by_place c24_office_types c25_odd_governors c26_feed_2023 c27_local_thresholds c28_governor_codes c29_fixes_c24 c30_ballot_texts c31_statewide_filed_local c32_certified_count c33_one_county \
-           c34_towns_counties c35_statewide_officers c36_courts_commissions; do
+           c34_towns_counties c35_statewide_officers c36_courts_commissions c37_statewide_pieces; do
     echo "##### $s"
     python3 -I checks/m2/$s.py 2>&1 || echo "### $s exited with $?"
     echo

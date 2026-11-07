@@ -160,7 +160,8 @@ def _one_file(f, year, st):
         for k, p in f.items():
             n = os.path.basename(p).lower()
             if k.startswith("medsl:2022:") and (n.startswith(f"2022-{st.lower()}-") or n.startswith(st.lower() + "22")
-                                                 or n.startswith(st.lower() + "-") or n.startswith(st.lower() + "_")):
+                                                 or n.startswith(st.lower() + "-") or n.startswith(st.lower() + "_")
+                                                 or (st == "CO" and n.startswith("colorado"))):   # MEDSL's own names
                 return p
     return None
 
