@@ -97,8 +97,8 @@
    "mean_forecast_minus_outcome": 0.0294,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
-     212,
-     0.665
+     211,
+     0.664
     ],
     "council, commission or board": [
      475,
@@ -131,6 +131,10 @@
     "special district": [
      5,
      0.4
+    ],
+    "statewide officer": [
+     1,
+     1.0
     ]
    },
    "fit": {

@@ -942,7 +942,7 @@
     "near_votes": {
      "within 10 votes": {
       "expected": 2.0,
-      "seen": 2
+      "seen": 3
      },
      "within 100 votes": {
       "expected": 10.8,
@@ -1197,7 +1197,7 @@
     "near_votes": {
      "within 10 votes": {
       "expected": 2.1,
-      "seen": 2
+      "seen": 3
      },
      "within 100 votes": {
       "expected": 12.9,
@@ -1503,7 +1503,7 @@
     "near_votes": {
      "within 10 votes": {
       "expected": 21.9,
-      "seen": 23
+      "seen": 25
      },
      "within 100 votes": {
       "expected": 108.4,
@@ -1543,12 +1543,12 @@
    },
    "vote_test": {
     "expected": 21.9,
-    "seen": 23,
+    "seen": 25,
     "counts": true,
     "leans": "more",
     "line": "within 10 votes"
    },
-   "note": "this route's back-test of North Carolina's local questions on the State Board's other dates shows more near-even finishes than it forecast (15 against 10.9 within 1 point of the threshold, and 23 against 21.9 within 10 votes, 2012 to 2026), so p may be low",
+   "note": "this route's back-test of North Carolina's local questions on the State Board's other dates shows more near-even finishes than it forecast (15 against 10.9 within 1 point of the threshold, and 25 against 21.9 within 10 votes, 2012 to 2026), so p may be low",
    "stands_on": "both tests"
   }
  }

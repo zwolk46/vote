@@ -20,6 +20,7 @@ Run:  VOTE_CACHE=/tmp/vote-cache python3 pipeline/local_medsl.py check2018
 import argparse
 import collections
 import datetime
+import fractions
 import glob
 import json
 import math
@@ -163,6 +164,21 @@ def join_statewide(contests, year):
 ONE_PLACE = collections.defaultdict(collections.Counter)   # year -> what one_place found, for the report
 
 
+_COUNTY_PRECINCTS = {}
+
+
+def county_precincts(year):
+    """{"<file>|<state>|<date>|<county FIPS>": precincts}: how many precincts each county has in MEDSL's file
+    (pipeline/intake/medsl_county_precincts.py)."""
+    if year not in _COUNTY_PRECINCTS:
+        path = os.path.join(NORM, f"county-precincts-{year}.json")
+        if not os.path.exists(path):
+            raise SystemExit(f"{path} is not in the cache: run pipeline/intake/medsl_county_precincts.py {year} first")
+        with open(path) as f:
+            _COUNTY_PRECINCTS[year] = json.load(f)["counts"]
+    return _COUNTY_PRECINCTS[year]
+
+
 def one_place(contests, year, mref, counts):
     """A local question MEDSL holds in one county's file only is counted whole where the place its title names lies
     wholly in that county (pipeline/places.py; the orchestrator's item 5: "count one whole only where the place it
@@ -189,9 +205,20 @@ def one_place(contests, year, mref, counts):
             ONE_PLACE[year]["one county: the line names no county: held"] += 1
             continue
         found, why = PL.match(c["office"], c["state"], c["counties"][0])
+        if found and found["unit"] == "county":
+            # a county's own question is counted whole only where "the record covers that county's whole file" (the
+            # orchestrator, 15:43): its precincts are all the county's precincts in MEDSL's file on that date
+            # (pipeline/intake/medsl_county_precincts.py, counted as a contest's are), so no part of the county
+            # (an unincorporated area, a district) is taken for the whole
+            n_all = county_precincts(year).get(f"{c['file']['name']}|{c['state']}|{c['date']}|{c['counties'][0]}")
+            if n_all is None or c["precincts"] != n_all:
+                found, why = None, (f"the county's own question covers {c['precincts']} of the county's "
+                                    f"{n_all or 0} precincts in MEDSL's file")
+            else:
+                found = {**found, "precincts": c["precincts"], "county_precincts": n_all}
         if found:
             c["one_place"] = found
-            ONE_PLACE[year][f"one county: whole, the place [{found['mark']}]"] += 1
+            ONE_PLACE[year][f"one county: whole, the {found['unit']} [{found['mark']}]"] += 1
         else:
             ONE_PLACE[year][f"one county: held, {why.split(' (')[0].split(' so ')[0]}"] += 1
     for k, v in ONE_PLACE[year].items():
@@ -925,7 +952,8 @@ def _backtest_one(M, k, rows, bad, pres):
         e100 += nd.cdf(0.5 + h) - nd.cdf(0.5 - h)
         s100 += abs(r_["d"]["votes"] - r_["r"]["votes"]) <= 100
         bias += m - y
-        t = office_type(r_["m"]["office"], r_["m"].get("state"), r_["m"].get("district"))
+        t = office_type_in(r_["m"]["office"], r_["m"].get("state"), r_["m"].get("district"),
+                           "state" if r_["m"]["dataverse"] == "STATE" else "local")
         by_type[t][0] += 1
         by_type[t][1] += abs(y - m) <= z["50"] * sd
     n = max(len(used), 1)
@@ -1051,11 +1079,19 @@ LOCAL_NOTE_POOL = {"NC": "North Carolina's local questions on the even years' No
 NOTE_LINE, NOTE_MIN = 0.01, 5
 
 
-def vote_lines(tr, s_, t, total):
+def vote_lines(tr, yes, no, t):
     """For one question of the back-test: the class's chance (the share of its earlier questions) of finishing within
     k votes of the threshold, and whether this one did, at each line. Within k votes is |yes - t (yes + no)| <= k/2,
-    the margin |yes - no| <= k at t = 1/2: as a share, |s - t| <= k / (2 (yes + no))."""
-    return {str(k): [sum(1 for x in tr if abs(x - t) <= k / (2 * total)) / len(tr), abs(s_ - t) * total <= k / 2]
+    the margin |yes - no| <= k at t = 1/2. Whether this one did is counted in whole votes, k included: with t = a/b,
+    |2 b yes - 2 a (yes + no)| <= b k, in integers (M2's check c27 §27.5 and the orchestrator, 2026-11-07 15:50: "a
+    test stated in votes has to be computed in votes"; the share form |s - t| <= k / (2 (yes + no)) in floating point
+    dropped two questions at a margin of exactly 10). The class's chance stays a share of its earlier questions, each
+    taken at this question's size."""
+    total = yes + no
+    tf = fractions.Fraction(t).limit_denominator(1000)   # 0.5, 0.55, 0.6, 2/3: the thresholds as written
+    a, b = tf.numerator, tf.denominator
+    return {str(k): [sum(1 for x in tr if abs(x - t) <= k / (2 * total)) / len(tr),
+                     abs(2 * b * yes - 2 * a * total) <= b * k]
             for k in VOTE_LINES}
 
 
@@ -1469,6 +1505,21 @@ STATE_OFFICE_TYPES = {
 SEAT_DISTRICT = re.compile(r"^(WARD \d+,? )?POS(ITION)?\.? ?\d+$")
 
 
+# A state's own superintendent of public instruction is one statewide office, not a county's officer (M2's check c29
+# §29.2 and the orchestrator, 2026-11-07 15:50: "Type them as the statewide office they are"; reason: "the class
+# decides which pool and which back-test a race falls in"). Read only where the contest is a state office (MEDSL's
+# STATE files; the State Board's state offices), since a county's or a district's superintendent has the same words.
+STATE_SUPT = re.compile(r"^(?=.*(SCHOOL|EDUCATION|INSTRUCTION)).*(\bSUPERINTENDENTS?\b|\bSUPT\b|"
+                        r"\bSUPER\. OF PUBLIC INSTRUCTION\b)")
+
+
+def office_type_in(office, state=None, district=None, scope="local"):
+    """office_type, with a state office's superintendent of public instruction typed as the statewide office."""
+    if scope == "state" and STATE_SUPT.search(" ".join(office.upper().split())):
+        return "statewide officer"
+    return office_type(office, state, district)
+
+
 def office_type(office, state=None, district=None):
     o = " ".join(office.upper().split())
     for name, pat in STATE_OFFICE_TYPES.get(state, []):
@@ -1504,8 +1555,8 @@ def local_structure(m):
         return ("not computed", "the source redacts some precincts' counts for this contest")
     nd = sum(1 for x in b if major(x) == "D")
     nr = sum(1 for x in b if major(x) == "R")
-    ot = office_type(m["office"], m.get("state"), m.get("district"))
     scope = "state" if m["dataverse"] == "STATE" else "local"
+    ot = office_type_in(m["office"], m.get("state"), m.get("district"), scope)
     if k > 1:
         slate = ("both major parties on the ballot" if nd and nr else "one major party or none")
         return ("boundary", f"{scope} {ot}, {k if k < 4 else '4+'} seats at once, {slate}")
@@ -1831,7 +1882,7 @@ def build(out_dir, with_p=True):
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
-                   "office": c["office"].title(), "office_type": office_type(c["office"], c["state"], c["district"]), "office_scope": scope,
+                   "office": c["office"].title(), "office_type": office_type_in(c["office"], c["state"], c["district"], scope), "office_scope": scope,
                    "election": c.get("election_words") or ((("general" if c["stage"] == "GEN" else
                                                                c["stage"].lower())
                                                               + (", special" if c["special"] else ""))
@@ -1914,7 +1965,7 @@ def build(out_dir, with_p=True):
                     mhalf.append({"year": year, "key": r_["key"], "train": len(tr),
                                   "near": {str(hh): [sum(1 for x in tr if abs(x - 0.5) <= hh) / len(tr),
                                                      abs(r_["s"] - 0.5) <= hh] for hh in L.WINDOWS},
-                                  "votes": vote_lines(tr, r_["s"], 0.5, r_["n"])})
+                                  "votes": vote_lines(tr, r_["yes"], r_["n"] - r_["yes"], 0.5)})
     # the orchestrator, 2026-11-07 07:25: write the route's near-1/2 lean onto each p it gives; retaken at 13:52 under
     # the two tests of the ruling of 11:01 as amended (lean_note), on the same pool: every statewide question whose
     # class has earlier years, near 1/2, the point every statewide p of record is taken at
@@ -1953,10 +2004,23 @@ def build(out_dir, with_p=True):
             if c.get("one_place"):   # one county's own question: the place its title names lies wholly in it
                 op = c["one_place"]
                 rec["place_whole"] = op
-                notes.append(f"counted whole: held in one county's file only, and its title names {op['place']}, "
-                             f"which lies wholly in {op['county_name']} by the Census Bureau's 2020 place-by-county "
-                             f"file ({op['how']}; [{op['mark']}]; the place's county [measured] for 2020"
-                             + ("" if year == 2020 else ", [inferred] for " + str(year)) + ")")
+                later = "" if year == 2020 else ", [inferred] for " + str(year)
+                if op["unit"] == "county":
+                    notes.append(f"counted whole: held in one county's file only, and its title is the county's own "
+                                 f"question ({op['how']}; [{op['mark']}]); every voter on a county's own question is "
+                                 f"in that county, and it covers all {op['county_precincts']} of the county's "
+                                 f"precincts in MEDSL's file [measured]")
+                elif op["unit"] == "county subdivision":
+                    notes.append(f"counted whole: held in one county's file only, and its title names {op['place']}, "
+                                 f"a county subdivision with a government of its own, which lies wholly in "
+                                 f"{op['county_name']} by the Census Bureau's 2020 county subdivision file, whose "
+                                 f"subdivisions nest within counties ({op['how']}; [{op['mark']}]; the subdivision's "
+                                 f"county [measured] for 2020{later})")
+                else:
+                    notes.append(f"counted whole: held in one county's file only, and its title names {op['place']}, "
+                                 f"which lies wholly in {op['county_name']} by the Census Bureau's 2020 "
+                                 f"place-by-county file ({op['how']}; [{op['mark']}]; the place's county [measured] "
+                                 f"for 2020{later})")
             if scope == "local" and by_county:
                 notes.append("counted by county: MEDSL's wording of a local question does not show which place holds "
                              "it, so a question held across several counties appears once per county")
@@ -2074,7 +2138,7 @@ def build(out_dir, with_p=True):
                                       "in_own": abs(s_ - t) <= h,
                                       "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
                                                          abs(s_ - t) <= hh] for hh in L.WINDOWS},
-                                      "votes": vote_lines(tr, s_, t, yes + no)})
+                                      "votes": vote_lines(tr, yes, no, t)})
                         if not with_p:
                             p = {}
                         elif f <= 0:
@@ -2188,8 +2252,15 @@ def build(out_dir, with_p=True):
             head["sources"]["in_enr"] = LI.source_block()
         if any(x.get("place_whole") for x in cs + others):   # the Census files that place a one-county question
             import places as PL
-            for b_ in PL.source_blocks():
+            units = {x["place_whole"]["unit"] for x in cs + others if x.get("place_whole")}
+            for b_ in PL.source_blocks():   # both files: each places one unit and holds the others' names back
                 head["sources"]["census_places" if "place_by_county" in b_["url"] else "census_cousub"] = b_
+            if "county" in units:
+                head["sources"]["medsl_county_precincts"] = {
+                    "name": "each county's precincts in MEDSL's file on the date, counted from the same files as the "
+                            "contests (a precinct with a vote in any contest; in 2016, any general-election row)",
+                    "script": "pipeline/intake/medsl_county_precincts.py",
+                    "where": "each county's own question: place_whole.precincts and place_whole.county_precincts"}
         if any((x.get("result") or {}).get("votes_source") == "state_certified" for x in cs + others):
             head["sources"]["state_certified"] = {   # the certified count wins (certified_count)
                 "name": "the state's own certified statewide totals of a statewide question MEDSL files with local "
