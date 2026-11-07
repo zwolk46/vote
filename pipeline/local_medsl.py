@@ -39,12 +39,39 @@ YEARS = (2022, 2024)
 
 # ------------------------------------------------------------------ inputs
 
+_WA_LEG = re.compile(r"^LEGISLATIVE DISTRICT (\d+) - STATE (SENATOR|REPRESENTATIVE)(?: POS\.? ?(\d+))?")
+
+
+def relabel(m):
+    """Washington files its legislature as local offices named by district ('LEGISLATIVE DISTRICT 9 - STATE
+    REPRESENTATIVE POS. 1'): read as the state house or senate, the district and the position."""
+    x = _WA_LEG.match(m["office"])
+    if x:
+        m["office_as_filed"] = m["office"]
+        m["office"] = "STATE SENATE" if x.group(2) == "SENATOR" else "STATE HOUSE"
+        m["district"] = x.group(1)
+        m["post"] = x.group(3)
+        m["dataverse"] = "STATE"
+    return m
+
+
 def load(year):
     out = []
     for path in sorted(glob.glob(os.path.join(NORM, str(year), "*.jsonl"))):
         with open(path) as f:
-            out.extend(json.loads(line) for line in f)
+            out.extend(relabel(json.loads(line)) for line in f)
     return out
+
+
+def leg_key(m):
+    return (m["state"], m["office"], district_no(m["district"]) or m["district"], m.get("post"))
+
+
+YES_WORDS = {"YES", "FOR", "APPROVE", "APPROVED", "ACCEPT", "RETAIN", "BONDS YES", "YES ON", "FOR THE MEASURE",
+             "IN FAVOR", "IN FAVOR OF", "YES FOR APPROVAL"}
+NO_WORDS = {"NO", "AGAINST", "REJECT", "REJECTED", "NOT RETAIN", "DO NOT RETAIN", "BONDS NO", "NO ON",
+            "AGAINST THE MEASURE", "OPPOSED", "NO FOR REJECTION"}
+GOVERNOR = re.compile(r"^GOVERNOR\b(?! *'S COUNCIL)")   # D2's level; a lieutenant governor or a council stays here
 
 
 def checks(year):
@@ -57,26 +84,33 @@ RCV_EXPLAINED = {"ME": "Maine counts its federal races by ranked choice, and MED
                        "counts (its README); its state and local races are not counted that way"}
 
 
+RANKED = {"AK": "counted by ranked choice (Alaska's state offices from 2022; MEDSL's 2022 README: its counts are the "
+                "first choices before any redistribution): a vote works through the rounds, so p is not computed "
+                "(model section 7); recorded with its first-choice counts"}
+
+
 def quality(year):
-    """{state: reason} for states whose MEDSL counts cannot be trusted to add up: the presidency's totals (2024) or the
-    US House's by party (2022), added up from the same files, against D1's and D2's certified totals."""
+    """{state: reason} for states whose MEDSL counts cannot be trusted to add up: the same files' presidential totals
+    (2024) and US House totals (every year), added up from the precincts, against D1's and D2's certified totals."""
     chk = checks(year)
-    rows = chk.get("president") if year % 4 == 0 else chk.get("house_by_party")
     out = {}
-    for st, rs in (rows or {}).items():
-        worst = None
-        for r in rs:
-            if not r.get("certified"):
+    for what, rows in (("presidential", chk.get("president") or {}), ("US House", chk.get("house_by_party") or {})):
+        for st, rs in rows.items():
+            if st in out:
                 continue
-            rel = abs((r.get("medsl_precincts") or 0) - r["certified"]) / r["certified"]
-            if worst is None or rel > worst[0]:
-                worst = (rel, r)
-        if worst and worst[0] > QUALITY_LINE and st not in RCV_EXPLAINED:
-            what = "presidential" if year % 4 == 0 else "US House"
-            out[st] = (f"the source's {year} counts for this state do not add up to the certified {what} totals "
-                       f"(off by {100 * worst[0]:.1f}% for {worst[1].get('candidate') or worst[1].get('party')}, "
-                       f"pipeline/intake/medsl_precinct.py's check), so its counts for this contest may be "
-                       f"incomplete or double-counted; p not computed")
+            worst = None
+            for r in rs:
+                if not r.get("certified"):
+                    continue
+                rel = abs((r.get("medsl_precincts") or 0) - r["certified"]) / r["certified"]
+                if worst is None or rel > worst[0]:
+                    worst = (rel, r)
+            if worst and worst[0] > QUALITY_LINE and st not in RCV_EXPLAINED:
+                who = worst[1].get("candidate") or {"all": "all candidates", "D": "the Democrats",
+                                                     "R": "the Republicans"}.get(worst[1].get("party"))
+                out[st] = (f"the source's {year} counts for this state do not add up to the certified {what} totals "
+                           f"(off by {100 * worst[0]:.1f}% for {who}, pipeline/intake/medsl_precinct.py's check), so "
+                           f"its counts for this contest may be incomplete or double-counted; p not computed")
     return out
 
 
@@ -179,7 +213,7 @@ def leg_rows_2024(m24, m22, klarner):
     by22 = {}
     for m in m22:
         if m["office"] in LEG and m["stage"] == "GEN" and not m["special"]:
-            by22[(m["state"], m["office"], m["district"])] = m
+            by22[leg_key(m)] = m
     # sitting members by name: the 2022 winners (MEDSL) and Klarner's winners of 2020 to 2022, by state and chamber
     sitting = collections.defaultdict(set)
     for m in m22:
@@ -213,7 +247,7 @@ def leg_rows_2024(m24, m22, klarner):
         if len(d) != 1 or len(r) != 1 or d[0]["votes"] <= 0 or r[0]["votes"] <= 0:
             continue
         sen = LEG[m["office"]]
-        prev = by22.get((m["state"], m["office"], m["district"]))
+        prev = by22.get(leg_key(m)) if m["district"] not in ("", "STATEWIDE") else None
         lines = None
         cls, xl, ulag, last = "C", 0.0, 0, None
         if prev and prev.get("precinct_ids") and m.get("precinct_ids"):
@@ -240,6 +274,81 @@ def leg_rows_2024(m24, m22, klarner):
                      "L_year": Lv[1] if Lv else None, "Lmiss": 0 if Lv else 1, "lines": lines, "last": last,
                      "d": d[0], "r": r[0], "ballot": b})
     return rows
+
+
+def leg_structure(m):
+    """(route, class key or reason) for a MEDSL state legislative general, in the classes pipeline/local.py's
+    structure() gives Klarner's generals, so that like races of 1967-2022 forecast it. Ex ante: who is on the ballot."""
+    b = ballot(m["candidates"])
+    k = m.get("magnitude") or 1
+    if len(b) <= k:
+        return ("zero", "one name on the ballot for each seat (unopposed): p is 0")
+    nd = sum(1 for x in b if major(x) == "D")
+    nr = sum(1 for x in b if major(x) == "R")
+    if k > 1:
+        slate = ("both major parties running a full slate" if nd >= k and nr >= k else
+                 "both major parties running, one short of a full slate" if nd and nr else
+                 "one major party or none against the others")
+        return ("boundary", f"general, {k if k < 4 else '4+'} seats at once, {slate}")
+    if nd == 1 and nr == 1:
+        return ("partisan", None)
+    if nd + nr == 0:
+        if all((x.get("party") or "") == "NONPARTISAN" for x in b):
+            return ("class", "general, nonpartisan")
+        return ("class", "general, no Democrat or Republican on the ballot")
+    if nd + nr == 1:
+        return ("class", "general, one major party against minor parties or independents")
+    return ("class", "general, two candidates of one major party")
+
+
+def strong_write_in(cands, seats):
+    """An unopposed race where write-ins got at least L.WRITE_IN_STRONG of the last winner's votes: the share, else
+    None. MEDSL mostly counts write-ins together, so a total that large counts too."""
+    b = sorted(ballot(cands), key=lambda x: -x["votes"])
+    last = b[seats - 1]["votes"] if len(b) >= seats else 0
+    w = sorted((x for x in cands if x.get("writein") or _is_generic(x["name"])), key=lambda x: -x["votes"])
+    if w and w[0]["votes"] > 0 and w[0]["votes"] >= max(1, L.WRITE_IN_STRONG * last):
+        return w[0]["votes"] / last if last else None, _is_generic(w[0]["name"])
+    return None
+
+
+def class_p(rec, c, route, key, train, dens, cache_key, commit, with_p, counts, label, pair_k):
+    """Routes (b) and (c) for one contest: the deciding pair, the class density from like races of earlier years,
+    p. Returns the p block."""
+    top = sorted(c["candidates"], key=lambda x: -x["votes"])
+    if any(x.get("writein") or _is_generic(x["name"]) for x in top[pair_k - 1:pair_k + 1]):
+        counts[f"{label}: not computed, write-in in the deciding pair"] += 1
+        return {"not_computed": "a write-in line is in the pair that decided this contest; the like-race classes "
+                                "are of candidates on the ballot"}
+    b = sorted(ballot(c["candidates"]), key=lambda x: -x["votes"])
+    pair = b[pair_k - 1:pair_k + 1]
+    if len(pair) < 2 or pair[0]["votes"] + pair[1]["votes"] <= 0:
+        counts[f"{label}: not computed, no votes"] += 1
+        return {"not_computed": "no votes for the deciding pair"}
+    n = pair[0]["votes"] + pair[1]["votes"] - 1
+    rec["boundary" if route == "boundary" else "two_party"] = {
+        "votes": [pair[0]["votes"], pair[1]["votes"]], "n_other_voters": n,
+        "share_first": round(pair[0]["votes"] / (n + 1), 6)}
+    if cache_key not in dens:
+        dens[cache_key] = L.class_density(train, key)
+    f, N, h, kin = dens[cache_key]
+    if f is None:
+        counts[f"{label}: not computed, too few like races"] += 1
+        return {"not_computed": f"fewer than {L.MIN_CLASS} like races in earlier years in the sources taken in "
+                                f"({N}) for the class '{key}'"}
+    fc = {"by": "the model's own", "method": L.METHOD, "route": route, "class": key, "like_races": N,
+          "window": [round(0.5 - h, 2), round(0.5 + h, 2)], "in_window": kin, "q": round(f * 2 * h, 5),
+          "source": "model"}
+    if route == "boundary":
+        fc["note"] = "not yet checked"
+    rec["forecasts"].append(fc)
+    if not with_p:
+        return {}
+    if f <= 0:
+        return {"value": 0.0, "event": 0.0, "reason": f"no like race in {N} finished within the window"}
+    counts[f"{label}: p computed, {route}"] += 1
+    sd_eq = 1.0 / (math.sqrt(2 * math.pi) * f)
+    return L._p_block(n, 0.5, sd_eq, f"the model's own ({L.METHOD}), like past races", commit)
 
 
 # ------------------------------------------------------------------ local races: classes of like races
@@ -276,6 +385,8 @@ def local_structure(m):
         return ("not computed", "the number of seats is not verified in the source (MEDSL's magnitude is empty)")
     if m["special"]:
         return ("not computed", "a special election: the model's own forecasts are fitted to regular elections")
+    if "RECOUNT" in m["stage"]:
+        return ("not computed", "a recount's count, recorded beside the general's")
     if m["stage"] != "GEN":
         return ("not computed", f"a {m['stage'].lower()} contest: {L.METHOD} classes local races at general elections")
     if len(b) <= k:
@@ -285,23 +396,31 @@ def local_structure(m):
     nd = sum(1 for x in b if major(x) == "D")
     nr = sum(1 for x in b if major(x) == "R")
     ot = office_type(m["office"])
+    scope = "state" if m["dataverse"] == "STATE" else "local"
     if k > 1:
         slate = ("both major parties on the ballot" if nd and nr else "one major party or none")
-        return ("boundary", f"local {ot}, {k if k < 4 else '4+'} seats at once, {slate}")
+        return ("boundary", f"{scope} {ot}, {k if k < 4 else '4+'} seats at once, {slate}")
     if nd == 1 and nr == 1:
-        return ("not computed", "a local race between a Democrat and a Republican: the model's own forecast for "
-                                "these needs the place's partisan lean, which D3-v1.1 has at state legislative level only")
+        return ("not computed", f"a {scope} race between a Democrat and a Republican: the model's own forecast for "
+                                f"these needs the place's partisan lean, which {L.METHOD} has at state legislative "
+                                f"level only")
     nonpartisan = all((x.get("party") or "NONPARTISAN") in ("NONPARTISAN", "") for x in b)
     kind = ("nonpartisan" if nonpartisan else "one major party against others" if nd + nr == 1 else
             "two or more of one major party" if nd + nr >= 2 else "no Democrat or Republican")
     n = len(b)
-    return ("class", f"local {ot}, {kind}, {n if n < 4 else '4+'} candidates")
+    return ("class", f"{scope} {ot}, {kind}, {n if n < 4 else '4+'} candidates")
+
+
+def is_local_level(m):
+    """Contests written to data/local/: local offices, and the state's other offices (its courts, boards and
+    statewide officers), which plan section 3 gives no level of their own; not the legislature, not the governor."""
+    return not m["question"] and m["office"] not in LEG and not GOVERNOR.match(m["office"])
 
 
 def local_rows(contests):
     rows = []
     for m in contests:
-        if m["dataverse"] != "LOCAL" or m["question"]:
+        if not is_local_level(m):
             continue
         route, key = local_structure(m)
         if route not in ("class", "boundary"):
@@ -323,6 +442,8 @@ def _party_word(x):
         return "D"
     if p == "REPUBLICAN":
         return "R"
+    if p == "DEMOCRAT AND REPUBLICAN":
+        return "D and R"
     if x.get("writein") or _is_generic(x["name"]):
         return "write-in"
     if p in ("", "NONPARTISAN"):
@@ -342,6 +463,10 @@ def _cands_out(cands, seats=1):
              "votes": x["votes"], "won": True if id(x) in winners else None}
         if x.get("votes_missing_in_some_precincts"):
             c["votes_incomplete"] = True
+        if x.get("lines"):   # a candidate on several parties' lines, or spelled differently by county: each line
+            c["lines"] = [{k: v for k, v in (("name", ln["name"].title() if ln.get("name") else None),
+                                             ("party", _party_word({"name": "", **ln})), ("votes", ln["votes"]))
+                           if v is not None} for ln in x["lines"]]
         out.append(c)
     return out
 
@@ -393,40 +518,84 @@ def build(out_dir, with_p=True):
     prow = [r_ for r_ in L.partisan_rows(klarner) if r_["year"] in pres]
     M, kfit = L.fit_before(prow, pres, 2024)
     rows24 = {id(r_["m"]): r_ for r_ in leg_rows_2024(m[2024], m[2022], klarner)}
+    ktrain = [r_ for r_ in L.class_rows(klarner) if r_["year"] < 2024]   # like races of earlier years only
+    kdens = {}
+    pieces = collections.Counter(leg_key(c) + (c["stage"], c["special"]) for c in m[2024]
+                                 if c["office"] in LEG and not c["question"])
     for year in YEARS:
         for c in m[year]:
-            if c["office"] not in LEG:
+            if c["office"] not in LEG or c["question"]:
                 continue
             level = "state-upper" if LEG[c["office"]] else "state-lower"
             if year == 2022:
                 continue   # Klarner's 2022 is the record; MEDSL's 2022 is its check (check_2022)
-            rec = {"id": cid(f"{year}-{level}-{c['state']}-{L._slug(c['district'] or 'at large')}"
-                             + ("" if c["stage"] == "GEN" and not c["special"] else f"-{c['stage'].lower()}"
+            dist = district_no(c["district"]) or (c["district"] if c["district"] not in ("", "STATEWIDE") else None)
+            lead = sorted(ballot(c["candidates"]) or c["candidates"], key=lambda x: -x["votes"])
+            rec = {"id": cid(f"{year}-{level}-{c['state']}-"
+                             + (L._slug(dist) if dist else "district-not-given-" + L._slug(lead[0]["name"] if lead else ""))
+                             + (f"-position-{c['post']}" if c.get("post") else "")
+                             + ("" if c["stage"] == "GEN" and not c["special"] else f"-{L._slug(c['stage'])}"
                                 + ("-special" if c["special"] else ""))),
                    "year": year, "date": c["date"] or None, "level": level,
-                   "place": {"state": c["state"], "district": (district_no(c["district"]) or c["district"] or None)},
+                   "place": {"state": c["state"], "district": dist, "position": c.get("post")},
                    "election": ("general" if c["stage"] == "GEN" else c["stage"].lower())
                                + (", special" if c["special"] else ""),
                    "seats": c["magnitude"] if (c.get("magnitude") or 1) > 1 else None,
                    "result": {"candidates": _cands_out(c["candidates"], c.get("magnitude") or 1),
                               "total_votes": sum(x["votes"] for x in c["candidates"]), "source": "medsl"},
                    "forecasts": []}
+            if c.get("office_as_filed"):
+                rec["office_as_filed"] = c["office_as_filed"].title()
+            if not dist:
+                rec.setdefault("notes", []).append("the source gives no district number for this contest; it is "
+                                                   "pieced together from its precincts' candidates")
             p = {}
             b = ballot(c["candidates"])
             k = c.get("magnitude") or 1
             r_ = rows24.get(id(c))
             top = sorted(c["candidates"], key=lambda x: -x["votes"])
+            route, key = leg_structure(c)
+            label = f"{level} {year}"
+            swi = strong_write_in(c["candidates"], k) if route == "zero" else None
             if c["state"] in bad[year]:
                 p["not_computed"] = bad[year][c["state"]]
-                counts[f"{level} {year}: not computed, the state's counts do not add up"] += 1
-            elif len(b) <= k:
-                p = {"value": 0.0, "event": 0.0, "reason": "one name on the ballot for each seat (unopposed): p is 0"}
-                counts[f"{level} {year}: p = 0"] += 1
+                counts[f"{label}: not computed, the state's counts do not add up"] += 1
+            elif c["state"] in RANKED and route != "zero":
+                p["not_computed"] = RANKED[c["state"]]
+                counts[f"{label}: not computed, ranked choice"] += 1
+            elif c["stage"] != "GEN" or c["special"]:
+                p["not_computed"] = ("a recount's count, recorded beside the general's" if "RECOUNT" in c["stage"]
+                                     else "a special election: the model's own forecasts are fitted to regular "
+                                          "elections")
+                counts[f"{label}: not computed, special or recount"] += 1
+            elif c["district"] == "" or (dist and pieces[leg_key(c) + (c["stage"], c["special"])] > 1):
+                p["not_computed"] = ("the source splits this district's returns into more than one contest (its "
+                                     "counties do not list the same candidates), so this count may not be the "
+                                     "district's whole count")
+                counts[f"{label}: not computed, the district is split in the source"] += 1
+            elif c.get("magnitude") is None:
+                p["not_computed"] = "the number of seats is not verified in the source (MEDSL's magnitude is empty)"
+                counts[f"{label}: not computed, seats not given"] += 1
+            elif route == "zero" and swi:
+                share, generic = swi
+                p["not_computed"] = ("one name on the ballot for each seat, but write-ins received "
+                                     + (f"{100 * share:.0f}% of the last winner's votes" if share else "votes")
+                                     + (" (counted together, so whether one write-in candidate did is not reported)"
+                                        if generic else "")
+                                     + f": {L.METHOD} has no forecast route for write-in contests")
+                counts[f"{label}: not computed, unopposed with strong write-ins"] += 1
+            elif route == "zero":
+                p = {"value": 0.0, "event": 0.0, "reason": key}
+                counts[f"{label}: p = 0"] += 1
+            elif route in ("class", "boundary"):
+                p = class_p(rec, c, route, key, ktrain, kdens, key, commit, with_p, counts, label,
+                            k if route == "boundary" else 1)
+                if rec["forecasts"]:
+                    rec["forecasts"][-1]["note"] = ((rec["forecasts"][-1].get("note", "") + "; ") if route ==
+                                                    "boundary" else "") + "like races from Klarner's 1967-2022 returns"
             elif r_ is None:
-                p["not_computed"] = ("not a single-seat general with one Democrat and one Republican on the ballot: "
-                                     f"{L.METHOD}'s like-race classes for these are of Klarner's years and are not "
-                                     "yet applied to MEDSL's 2024 returns")
-                counts[f"{level} {year}: not computed, other structure"] += 1
+                p["not_computed"] = "no votes for the Democrat or the Republican"
+                counts[f"{label}: not computed, no votes"] += 1
             else:
                 mean, sd, a = L.predict_partisan(M, r_, pres)
                 n = r_["N"] - 1
@@ -466,16 +635,17 @@ def build(out_dir, with_p=True):
     dens = {}
     for year in YEARS:
         train = [r_ for y in YEARS if y < year for r_ in lrows[y]]
-        by_m = {id(r_["m"]): r_ for r_ in lrows[year]}
         for c in m[year]:
-            if c["dataverse"] != "LOCAL" or c["question"]:
+            if not is_local_level(c):
                 continue
             route, key = local_structure(c)
+            scope = "state" if c["dataverse"] == "STATE" else "local"
             rec = {"id": cid(f"{year}-local-{c['state']}-{L._slug(c['office'])[:60]}-{L._slug(c['district'] or '')}"
                              .rstrip("-")),
                    "year": year, "date": c["date"] or None, "level": "local",
-                   "place": {"state": c["state"], "district": c["district"] or None, "counties": c["counties"]},
-                   "office": c["office"].title(), "office_type": office_type(c["office"]),
+                   "place": {"state": c["state"], "district": c["district"] or None,
+                             "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
+                   "office": c["office"].title(), "office_type": office_type(c["office"]), "office_scope": scope,
                    "election": ("general" if c["stage"] == "GEN" else c["stage"].lower())
                                + (", special" if c["special"] else ""),
                    "seats": c["magnitude"] if (c.get("magnitude") or 1) > 1 else None,
@@ -486,6 +656,17 @@ def build(out_dir, with_p=True):
             if c["state"] in bad[year] and route != "zero":
                 p["not_computed"] = bad[year][c["state"]]
                 counts[f"local {year}: not computed, the state's counts do not add up"] += 1
+            elif scope == "state" and c["state"] in RANKED and route != "zero":
+                p["not_computed"] = RANKED[c["state"]]
+                counts[f"local {year}: not computed, ranked choice"] += 1
+            elif route == "zero" and (swi := strong_write_in(c["candidates"], c.get("magnitude") or 1)):
+                share, generic = swi
+                p["not_computed"] = ("one name on the ballot for each seat, but write-ins received "
+                                     + (f"{100 * share:.0f}% of the last winner's votes" if share else "votes")
+                                     + (" (counted together, so whether one write-in candidate did is not reported)"
+                                        if generic else "")
+                                     + f": {L.METHOD} has no forecast route for write-in contests")
+                counts[f"local {year}: not computed, unopposed with strong write-ins"] += 1
             elif route == "zero":
                 p = {"value": 0.0, "event": 0.0, "reason": key}
                 counts[f"local {year}: p = 0"] += 1
@@ -493,43 +674,8 @@ def build(out_dir, with_p=True):
                 p["not_computed"] = key
                 counts[f"local {year}: not computed, {key.split(':')[0][:50]}"] += 1
             else:
-                r_ = by_m.get(id(c))
-                top = sorted(c["candidates"], key=lambda x: -x["votes"])
-                kk = c["magnitude"] if route == "boundary" else 1
-                if r_ is None:
-                    p["not_computed"] = "no votes for the deciding pair"
-                    counts[f"local {year}: not computed, no votes"] += 1
-                elif any(x.get("writein") or _is_generic(x["name"]) for x in top[kk - 1:kk + 1]):
-                    p["not_computed"] = ("a write-in line is in the pair that decided this contest; the like-race "
-                                         "classes are of candidates on the ballot")
-                    counts[f"local {year}: not computed, write-in in the deciding pair"] += 1
-                else:
-                    b = sorted(ballot(c["candidates"]), key=lambda x: -x["votes"])
-                    pair = b[kk - 1:kk + 1]
-                    n = pair[0]["votes"] + pair[1]["votes"] - 1
-                    rec["boundary" if route == "boundary" else "two_party"] = {
-                        "votes": [pair[0]["votes"], pair[1]["votes"]], "n_other_voters": n,
-                        "share_first": round(pair[0]["votes"] / max(n + 1, 1), 6)}
-                    if (year, key) not in dens:
-                        dens[(year, key)] = L.class_density(train, key)
-                    f, N, h, kin = dens[(year, key)]
-                    if f is None:
-                        p["not_computed"] = (f"fewer than {L.MIN_CLASS} like races in earlier years in the sources "
-                                             f"taken in ({N}) for the class '{key}'")
-                        counts[f"local {year}: not computed, too few like races"] += 1
-                    else:
-                        fc = {"by": "the model's own", "method": L.METHOD, "route": route, "class": key,
-                              "like_races": N, "window": [round(0.5 - h, 2), round(0.5 + h, 2)], "in_window": kin,
-                              "q": round(f * 2 * h, 5), "source": "model"}
-                        if route == "boundary":
-                            fc["note"] = "not yet checked"
-                        rec["forecasts"].append(fc)
-                        if with_p and n >= 1 and f > 0:
-                            sd_eq = 1.0 / (math.sqrt(2 * math.pi) * f)
-                            p = L._p_block(n, 0.5, sd_eq, f"the model's own ({L.METHOD}), like past races", commit)
-                            counts[f"local {year}: p computed, {route}"] += 1
-                        elif with_p:
-                            p = {"value": 0.0, "event": 0.0, "reason": f"no like race in {N} finished within the window"}
+                p = class_p(rec, c, route, key, train, dens, (year, key), commit, with_p, counts, f"local {year}",
+                            c["magnitude"] if route == "boundary" else 1)
             rec["p"] = p
             files[("local", year, c["state"])].append(L._compact(rec))
 
@@ -541,9 +687,8 @@ def build(out_dir, with_p=True):
             kind = "retention" if "RETENTION" in c["office"].upper() or "RETAIN" in " ".join(
                 x["name"] for x in c["candidates"]) else "measure"
             scope = "statewide" if c["dataverse"] == "STATE" else "local"
-            yes = sum(x["votes"] for x in c["candidates"] if x["name"] in ("YES", "FOR", "APPROVE", "RETAIN"))
-            no = sum(x["votes"] for x in c["candidates"] if x["name"] in ("NO", "AGAINST", "REJECT", "NOT RETAIN",
-                                                                          "DO NOT RETAIN"))
+            yes = sum(x["votes"] for x in c["candidates"] if x["name"] in YES_WORDS)
+            no = sum(x["votes"] for x in c["candidates"] if x["name"] in NO_WORDS)
             rec = {"id": cid(f"{year}-measure-{c['state']}-{L._slug(c['office'])[:60]}"
                              + (f"-{L._slug(c['subject'])}" if c.get("subject") else "")
                              + ("" if scope == "statewide" else f"-{c['counties'][0]}")),

@@ -554,29 +554,44 @@ def check_president(year, totals):
 
 
 def check_house(year, house):
-    """The US House vote by state and party (D, R), MEDSL's precincts added up, against D2's certified results
-    (data/house/<year>.json, from the FEC's official results): a check of the adding up in years without a
-    presidential race."""
+    """The US House vote by state, MEDSL's precincts added up, against D2's certified results (data/house/<year>.json,
+    from the Clerk's and the FEC's official results): every line's votes together ("all"), and the Democrats' and the
+    Republicans' where D2's candidate stands on that party's line alone. D2 gives a fusion candidate's votes on all
+    their lines together, which MEDSL splits by line, so only the "all" row is compared in every state."""
     path = os.path.join(REPO, "data", "house", f"{year}.json")
     if not os.path.exists(path) or not house:
         return {}
     with open(path) as f:
         d2 = json.load(f)
     cert = collections.defaultdict(collections.Counter)
+    fusion = set()
     for c in d2["contests"]:
+        if c.get("special"):
+            continue
         for cand in c["result"]["candidates"]:
-            if cand.get("party") in ("D", "R"):
-                cert[c["place"]["state"]][cand["party"]] += cand.get("votes") or 0
+            v = cand.get("votes") or 0
+            cert[c["place"]["state"]]["all"] += v
+            word = (cand.get("party") or "")
+            if word in ("Democrat", "Republican"):
+                cert[c["place"]["state"]][word[0]] += v
+            elif "/" in word:
+                fusion.add(c["place"]["state"])
     out = {}
     for st, precincts in house.items():
         mine = collections.Counter()
         for pk, cands in precincts.items():
             for ck, modes in cands.items():
+                v = resolve(modes) or 0
+                mine["all"] += v
                 p_ = {"DEMOCRAT": "D", "REPUBLICAN": "R"}.get(ck[2])
                 if p_:
-                    mine[p_] += resolve(modes) or 0
-        out[st] = [{"party": p_, "certified": cert[st][p_], "medsl_precincts": mine[p_],
-                    "difference": mine[p_] - cert[st][p_]} for p_ in ("D", "R")]
+                    mine[p_] += v
+        rows = [{"party": "all", "certified": cert[st]["all"], "medsl_precincts": mine["all"],
+                 "difference": mine["all"] - cert[st]["all"]}]
+        if st not in fusion:
+            rows += [{"party": p_, "certified": cert[st][p_], "medsl_precincts": mine[p_],
+                      "difference": mine[p_] - cert[st][p_]} for p_ in ("D", "R")]
+        out[st] = rows
     return out
 
 
