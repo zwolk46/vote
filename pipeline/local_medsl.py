@@ -74,7 +74,7 @@ def load(year):
                     EMPTY[year] += 1
                     continue
                 out.append(c)
-    return certified_in(certified_nc(fix_questions(out, year), year), year)
+    return certified_la(certified_in(certified_nc(fix_questions(out, year), year), year), year)
 
 
 def certified_nc(contests, year):
@@ -184,6 +184,24 @@ def certified_in(contests, year):
     keep = [c for c in contests if not (c["state"] == "IN" and (c["question"] or c["office"] in LEG
                                                                  or is_local_level(c)))]
     CERTIFIED_STATES[year].add("IN")
+    return keep + st
+
+
+def certified_la(contests, year):
+    """Louisiana's local races and questions of 2024, from the Secretary of State's official results
+    (pipeline/local_la.py) in place of MEDSL's, which count Election Day only (quality()): the certified one wins (brief
+    D3, step 2; the orchestrator, 08:08 and 10:17). The presidency and Congress stay MEDSL's lines here (D1's and D2's
+    are the record for them). Louisiana is then no longer held back in `year` (build: bad[year])."""
+    if year != 2024:
+        return contests
+    import local_la as LA
+    st = LA.medsl_shape(year)
+    if st is None:
+        print(f"{year}: Louisiana's own file is missing or fails its gate; MEDSL's Louisiana contests kept")
+        return contests
+    keep = [c for c in contests if not (c["state"] == "LA" and (c["question"] or c["office"] in LEG
+                                                                 or is_local_level(c)))]
+    CERTIFIED_STATES[year].add("LA")
     return keep + st
 
 
@@ -619,8 +637,7 @@ def class_p(rec, c, route, key, train, dens, cache_key, commit, with_p, counts, 
     if f <= 0:
         return {"value": 0.0, "event": 0.0, "reason": f"no like race in {N} finished within the window"}
     counts[f"{label}: p computed, {route}"] += 1
-    sd_eq = 1.0 / (math.sqrt(2 * math.pi) * f)
-    return L._p_block(n, 0.5, sd_eq, f"the model's own ({L.METHOD}), like past races", commit)
+    return L._p_like(n, f, f"the model's own ({L.METHOD}), like past races", commit)
 
 
 # ------------------------------------------------------------------ local Democrat-against-Republican races
@@ -896,12 +913,53 @@ def _deviance(pairs):
     return d
 
 
-def calibrate_local(files, test_year=2024):
+CAL_CELL_MIN = 5   # the robustness test's tested cells (brief D3, amended 08:36: "no tested cell made worse"): an
+                   # office type whose count seen or expected (as the forecast stands) is 5 or more, D2's rule for its
+                   # near-even cells (data/congress/REPORT.md section 0.1), so that both builds test alike
+CAL_OUT_NOTE = ("the near-tie calibration of #31 (the orchestrator, 06:38), taken out by the robustness test (brief D3, "
+                "amended 2026-11-07 08:36: adopted only if it improves the out-of-sample test, and still does, with no "
+                "tested cell made worse, when any one scored year is left out); data/local/calibration-local.json")
+
+
+def _cal_score(recs, group, years, factors):
+    """The out-of-sample test of a route's factors over the scored `years`, each year with its own factor (fitted on
+    the years before it): near 1/2, expected before and after against seen, overall and by office type, and the
+    deviance by office type. It improves where the count comes nearer and the deviance falls; a tested cell (CAL_CELL_MIN)
+    is made worse where its expected count moves further from its seen one."""
+    by_b = collections.defaultdict(lambda: [0.0, 0.0, 0])
+    n = 0
+    for t in years:
+        f_t = factors[t]
+        for rec, key, e, seen in recs.get((group, t), []):
+            k = f_t["own"].get(key, f_t["pooled"])
+            by_b[key][0] += e
+            by_b[key][1] += e * k
+            by_b[key][2] += seen
+            n += 1
+    eb, ea, sn = (sum(v[i] for v in by_b.values()) for i in range(3))
+    db, da = _deviance([(v[0], v[2]) for v in by_b.values()]), _deviance([(v[1], v[2]) for v in by_b.values()])
+    worse = sorted(k for k, v in by_b.items() if max(v[0], v[2]) >= CAL_CELL_MIN and abs(v[1] - v[2]) > abs(v[0] - v[2]))
+    improves = abs(ea - sn) < abs(eb - sn) and da < db
+    return {"years": list(years), "contests": n, "seen_near_half": int(sn), "expected_before": round(eb, 1),
+            "expected_after": round(ea, 1), "deviance_by_office_type_before": round(db, 2),
+            "deviance_after": round(da, 2), "improves": improves, "tested_cells_made_worse": worse,
+            "passes": improves and not worse,
+            "by_office_type": {k: {"expected_before": round(v[0], 1), "expected_after": round(v[1], 1),
+                                   "seen": int(v[2]), "tested": max(v[0], v[2]) >= CAL_CELL_MIN}
+                               for k, v in sorted(by_b.items(), key=lambda kv: -kv[1][0])}}
+
+
+def calibrate_local(files):
     """The orchestrator's ruling of 06:38 on local races given p by like races or by the transferred partisan
     route: a factor (seen over expected near 1/2) fitted on years before the one it is applied to, by office type
     where the fitting years expected about 30 or more such races, else pooled; adopted for a route only if it
-    brings test_year's out-of-sample count nearer what happened. Changes the records in place; returns the
-    report."""
+    improves the out-of-sample test. Since the brief's amendment of 08:36 the test is the robustness test: every year
+    with a factor is scored (each with its own factor); the factors must improve the test over all of them with no
+    tested cell made worse, and again with any one scored year left out. A route with one scored year cannot show the
+    second, so it fails: the default is no change [inferred: the amendment's words, "the model's default is no
+    change"]. Where adopted, p is calibrated (and a year with no earlier year to fit on has none); where not, p stays
+    uncalibrated and each p a factor would have moved carries calibration_not_of_record beside it. Changes the
+    records in place; returns the report."""
     recs = collections.defaultdict(list)   # (group, year) -> [(rec, key, e, seen)]
     for (level, year, st), cs in files.items():
         if level != "local":
@@ -932,30 +990,22 @@ def calibrate_local(files, test_year=2024):
             "fitted_on": f["fitted_on"], "pooled": round(f["pooled"], 3),
             "own": {k: round(v, 3) for k, v in sorted(f["own"].items())},
             "fit_counts_expected_seen": dict(sorted(f["fit_counts"].items()))}) for t, f in factors.items()}}
-        test = recs.get((group, test_year), [])
-        f_t = factors.get(test_year)
-        if test and f_t:
-            by_b = collections.defaultdict(lambda: [0.0, 0.0, 0])
-            for rec, key, e, seen in test:
-                k = f_t["own"].get(key, f_t["pooled"])
-                by_b[key][0] += e
-                by_b[key][1] += e * k
-                by_b[key][2] += seen
-            eb, ea, sn = (sum(v[i] for v in by_b.values()) for i in range(3))
-            db, da = _deviance([(v[0], v[2]) for v in by_b.values()]), _deviance([(v[1], v[2]) for v in by_b.values()])
-            adopt = abs(ea - sn) < abs(eb - sn) and da < db
-            rep_g["test"] = {"year": test_year, "contests": len(test), "seen_near_half": int(sn),
-                             "expected_before": round(eb, 1), "expected_after": round(ea, 1),
-                             "deviance_by_office_type_before": round(db, 2), "deviance_after": round(da, 2),
-                             "by_office_type": {k: {"expected_before": round(v[0], 1), "expected_after": round(v[1], 1),
-                                                    "seen": int(v[2])} for k, v in sorted(by_b.items(),
-                                                                                         key=lambda kv: -kv[1][0])}}
+        scored = [t for t in years if factors.get(t) and recs.get((group, t))]
+        if scored:
+            rep_g["test"] = _cal_score(recs, group, scored, factors)
+            rep_g["leave_one_year_out"] = {
+                str(t): (_cal_score(recs, group, [y for y in scored if y != t], factors) if len(scored) > 1 else
+                         {"passes": False, "why": "no scored year is left: this route's only scored year is " + str(t)})
+                for t in scored}
+            adopt = rep_g["test"]["passes"] and all(v["passes"] for v in rep_g["leave_one_year_out"].values())
         else:
             adopt = False
+        rep_g["robustness_rule"] = ("adopted only if it improves the out-of-sample test (the count near 1/2 nearer, "
+                                    "and the deviance by office type lower) over every scored year with no tested "
+                                    f"cell made worse (a tested cell: {CAL_CELL_MIN} or more seen or expected), and "
+                                    "again with any one scored year left out (brief D3, amended 2026-11-07 08:36)")
         rep_g["adopted"] = adopt
         report[group] = rep_g
-        if not adopt:
-            continue
         for t in years:
             f = factors[t]
             for rec, key, e, seen in recs[(group, t)]:
@@ -964,19 +1014,19 @@ def calibrate_local(files, test_year=2024):
                     continue
                 fc = rec["forecasts"][-1]
                 if f is None:
-                    fc["note"] = (fc.get("note", "") + "; " if fc.get("note") else "") + \
-                        f"p {CAL_NOTE}: no earlier year in the sources taken in has these forecasts to fit on"
-                    rec["p"] = {"not_computed": f"this route's p is {CAL_NOTE} (the orchestrator, 2026-11-07), and no "
-                                                f"earlier year in the sources taken in has its forecasts to fit the "
-                                                f"factor on"}
+                    if adopt:
+                        fc["note"] = (fc.get("note", "") + "; " if fc.get("note") else "") + \
+                            f"p {CAL_NOTE}: no earlier year in the sources taken in has these forecasts to fit on"
+                        rec["p"] = {"not_computed": f"this route's p is {CAL_NOTE} (the orchestrator, 2026-11-07), "
+                                                    f"and no earlier year in the sources taken in has its forecasts "
+                                                    f"to fit the factor on"}
                     continue
                 k = f["own"].get(key)
                 factor, of = (k, key) if k is not None else (f["pooled"], "pooled over the fitting years' races")
-                fc["calibration"] = {"factor": round(factor, 4), "of": of, "fitted_on": f["fitted_on"],
-                                     "what": "seen over expected near 1/2 in the fitting years' out-of-sample forecasts"}
+                cal = {"factor": round(factor, 4), "of": of, "fitted_on": f["fitted_on"],
+                       "what": "seen over expected near 1/2 in the fitting years' out-of-sample forecasts"}
                 if group == "like races":
-                    sd_eq = 1.0 / (math.sqrt(2 * math.pi) * p["f_half"] * factor)
-                    rec["p"] = L._compact(L._p_block(p["n"], 0.5, sd_eq, f"{p['under']}, {CAL_NOTE}", None))
+                    q = L._compact(L._p_like(p["n"], p["f_half"] * factor, f"{p['under']}, {CAL_NOTE}", None))
                 else:
                     q = dict(p)
                     q["value"], q["event"], q["f_half"] = p["value"] * factor, p["event"] * factor, p["f_half"] * factor
@@ -985,7 +1035,12 @@ def calibrate_local(files, test_year=2024):
                         t4 = dict(p["alongside"]["t4"])
                         t4["value"], t4["event"] = t4["value"] * factor, t4["event"] * factor
                         q["alongside"] = {"t4": t4}
-                    rec["p"] = L._compact(q)
+                    q = L._compact(q)
+                if adopt:
+                    fc["calibration"] = cal
+                    rec["p"] = q
+                else:
+                    rec["p"] = dict(p, calibration_not_of_record=dict(cal, value=q["value"], note=CAL_OUT_NOTE))
     return report
 
 
@@ -1079,6 +1134,8 @@ def local_structure(m):
     """(route, class key or reason) for a MEDSL local candidate contest; ex ante: who is on the ballot."""
     b = ballot(m["candidates"])
     k = m.get("magnitude")
+    if m.get("held_round"):   # a round the source's own state file marks as not the deciding one (local_la.py)
+        return ("not computed", m["held_round"])
     if k is None:
         return ("not computed", "the number of seats is not verified in the source (MEDSL's magnitude is empty)")
     if m["special"]:
@@ -1157,7 +1214,7 @@ def _cands_out(cands, seats=1):
     for x in b:
         c = {"name": x["name"].title() if not (_is_generic(x["name"]) or x.get("as_named")) else x["name"],
              "party": _party_word(x),
-             "votes": x["votes"], "won": True if id(x) in winners else None}
+             "votes": x["votes"], "won": x["won_marked"] if "won_marked" in x else True if id(x) in winners else None}
         if x.get("votes_missing_in_some_precincts"):
             c["votes_incomplete"] = True
         if x.get("lines"):   # a candidate on several parties' lines, or spelled differently by county: each line
@@ -1195,11 +1252,19 @@ def _src_medsl(year, chk, files):
                          + ", ".join(sorted(files)))
 
 
+def _deciding_words(earlier):
+    """The State Board's November contests whose name was on an earlier ballot that year (pipeline/local_ncsbe.py,
+    medsl_shape): the deciding round, in the State Board route's words, so that both routes mark it alike (the
+    orchestrator, 2026-11-07 09:53 UTC)."""
+    import local_ncsbe as NS
+    return NS.deciding_words(earlier)
+
+
 def _owns(r):
     """The contests this build writes: MEDSL's, Indiana's own of 2024 (certified_in), and the State Board's of MEDSL's
     general dates (certified_nc)."""
     src = (r.get("result") or {}).get("source")
-    return src in ("medsl", "in_enr") or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
+    return src in ("medsl", "in_enr", "la_sos") or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
                               and (r.get("level") == "measure" or r.get("year") in YEARS))
 
 
@@ -1378,13 +1443,17 @@ def build(out_dir, with_p=True):
             where = "-".join(x for x in (c["district"] if c["district"] not in ("", "STATEWIDE") else "",
                                          ("county-" + c["counties"][0]) if c["counties"] and scope == "local" else "")
                              if x)
-            rec = {"id": cid(f"{year}-local-{c['state']}-{L._slug(c['office'])[:60]}-{L._slug(where)}".rstrip("-")),
+            rec = {"id": cid(f"{year}-local-{c['state']}-{L._slug(c['office'])[:60]}-{L._slug(where)}".rstrip("-")
+                             + (f"-{c['date']}" if c.get("id_date") else "")),
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
                    "office": c["office"].title(), "office_type": office_type(c["office"]), "office_scope": scope,
-                   "election": ("general" if c["stage"] == "GEN" else c["stage"].lower())
-                               + (", special" if c["special"] else ""),
+                   "election": c.get("election_words") or ((("general" if c["stage"] == "GEN" else
+                                                               c["stage"].lower())
+                                                              + (", special" if c["special"] else ""))
+                                                             if not c.get("earlier_round") else
+                                                             _deciding_words(c["earlier_round"])),
                    "seats": c["magnitude"] if (c.get("magnitude") or 1) > 1 else None,
                    "result": {"candidates": _cands_out(c["candidates"], c.get("magnitude") or 1),
                               "total_votes": sum(x["votes"] for x in c["candidates"]),
@@ -1455,7 +1524,8 @@ def build(out_dir, with_p=True):
             yes, no = yes_no(c)
             rec = {"id": cid(f"{year}-measure-{c['state']}-{L._slug(c['office'])[:60]}"
                              + (f"-{L._slug(c['subject'])}" if c.get("subject") else "")
-                             + ("" if scope == "statewide" else f"-{c['counties'][0] if c['counties'] else 'none'}")),
+                             + ("" if scope == "statewide" else f"-{c['counties'][0] if c['counties'] else 'none'}")
+                             + (f"-{c['date']}" if c.get("id_date") else "")),
                    "year": year, "date": c["date"] or None, "level": "measure",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "statewide" else c["counties"]},
@@ -1582,8 +1652,12 @@ def build(out_dir, with_p=True):
                                 "the transferred Democrat-against-Republican route, calibrated to earlier years' "
                                 "near-ties (seen over expected near 1/2), by office type where the fitting years "
                                 f"expected {CAL_MIN_EXPECTED} or more, else pooled; adopted for a route only if it "
-                                "improves the 2024 out-of-sample test (the count near 1/2 and the deviance by office "
-                                "type). Built by pipeline/local_medsl.py build.", "routes": cal}, f, indent=1)
+                                "passes the robustness test (brief D3, amended 2026-11-07 08:36: it improves the "
+                                "out-of-sample test, the count near 1/2 and the deviance by office type, over every "
+                                "scored year with no tested cell made worse, and still does with any one scored year "
+                                "left out; each route's robustness_rule). Where not adopted, p is uncalibrated and each "
+                                "p the factor would move carries calibration_not_of_record. Built by "
+                                "pipeline/local_medsl.py build.", "routes": cal}, f, indent=1)
     total = 0
     by_level = collections.Counter()
     for (level, year, st), cs in sorted(files.items()):
@@ -1608,6 +1682,10 @@ def build(out_dir, with_p=True):
             head["sources"]["ncsbe"] = NS.block_for(cs + others)
             if "ncsbe" in used:
                 head["sources"]["fips"] = NS.fips_source()
+        if "la_sos" in used:   # Louisiana's own official results (certified_la), and its parishes' FIPS codes
+            import local_la as LA
+            head["sources"]["la_sos"] = LA.source_block()
+            head["sources"]["fips"] = LA.fips_source()
         if "in_enr" in used:   # Indiana's own certified file (certified_in)
             import local_in as LI
             head["sources"]["in_enr"] = LI.source_block()

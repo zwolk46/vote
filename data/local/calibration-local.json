@@ -1,5 +1,5 @@
 {
- "about": "the orchestrator's ruling of 2026-11-07 06:38: local races' p by like races, and by the transferred Democrat-against-Republican route, calibrated to earlier years' near-ties (seen over expected near 1/2), by office type where the fitting years expected 30 or more, else pooled; adopted for a route only if it improves the 2024 out-of-sample test (the count near 1/2 and the deviance by office type). Built by pipeline/local_medsl.py build.",
+ "about": "the orchestrator's ruling of 2026-11-07 06:38: local races' p by like races, and by the transferred Democrat-against-Republican route, calibrated to earlier years' near-ties (seen over expected near 1/2), by office type where the fitting years expected 30 or more, else pooled; adopted for a route only if it passes the robustness test (brief D3, amended 2026-11-07 08:36: it improves the out-of-sample test, the count near 1/2 and the deviance by office type, over every scored year with no tested cell made worse, and still does with any one scored year left out; each route's robustness_rule). Where not adopted, p is uncalibrated and each p the factor would move carries calibration_not_of_record. Built by pipeline/local_medsl.py build.",
  "routes": {
   "like races": {
    "factors": {
@@ -79,62 +79,192 @@
     }
    },
    "test": {
-    "year": 2024,
-    "contests": 2264,
-    "seen_near_half": 214,
-    "expected_before": 284.1,
-    "expected_after": 210.7,
-    "deviance_by_office_type_before": 35.8,
-    "deviance_after": 16.45,
+    "years": [
+     2022,
+     2024
+    ],
+    "contests": 2380,
+    "seen_near_half": 217,
+    "expected_before": 299.9,
+    "expected_after": 222.8,
+    "deviance_by_office_type_before": 43.92,
+    "deviance_after": 16.99,
+    "improves": true,
+    "tested_cells_made_worse": [
+     "class, local judge",
+     "class, local other local office",
+     "class, local sheriff or constable"
+    ],
+    "passes": false,
     "by_office_type": {
      "class, local council, commission or board": {
-      "expected_before": 133.0,
-      "expected_after": 107.7,
-      "seen": 100
+      "expected_before": 136.9,
+      "expected_after": 110.9,
+      "seen": 101,
+      "tested": true
      },
      "class, local school board": {
-      "expected_before": 102.9,
-      "expected_after": 66.5,
-      "seen": 69
+      "expected_before": 114.5,
+      "expected_after": 75.0,
+      "seen": 71,
+      "tested": true
      },
      "class, local special district": {
       "expected_before": 20.4,
       "expected_after": 15.4,
-      "seen": 13
+      "seen": 13,
+      "tested": true
      },
      "class, local other local office": {
       "expected_before": 8.0,
       "expected_after": 6.1,
-      "seen": 10
+      "seen": 10,
+      "tested": true
      },
      "class, local mayor or executive": {
-      "expected_before": 5.9,
-      "expected_after": 4.5,
-      "seen": 4
+      "expected_before": 6.3,
+      "expected_after": 4.8,
+      "seen": 4,
+      "tested": true
      },
      "class, local judge": {
       "expected_before": 5.0,
       "expected_after": 3.8,
-      "seen": 8
+      "seen": 8,
+      "tested": true
      },
      "class, local sheriff or constable": {
       "expected_before": 3.8,
       "expected_after": 2.9,
-      "seen": 7
+      "seen": 7,
+      "tested": true
      },
      "class, local clerk, treasurer or other county officer": {
       "expected_before": 3.0,
       "expected_after": 2.3,
-      "seen": 0
+      "seen": 0,
+      "tested": false
      },
      "class, state judge": {
       "expected_before": 2.0,
       "expected_after": 1.6,
-      "seen": 3
+      "seen": 3,
+      "tested": false
      }
     }
    },
-   "adopted": true
+   "leave_one_year_out": {
+    "2022": {
+     "years": [
+      2024
+     ],
+     "contests": 2270,
+     "seen_near_half": 214,
+     "expected_before": 284.5,
+     "expected_after": 211.0,
+     "deviance_by_office_type_before": 35.98,
+     "deviance_after": 16.49,
+     "improves": true,
+     "tested_cells_made_worse": [
+      "class, local judge",
+      "class, local other local office",
+      "class, local sheriff or constable"
+     ],
+     "passes": false,
+     "by_office_type": {
+      "class, local council, commission or board": {
+       "expected_before": 133.4,
+       "expected_after": 108.0,
+       "seen": 100,
+       "tested": true
+      },
+      "class, local school board": {
+       "expected_before": 102.9,
+       "expected_after": 66.5,
+       "seen": 69,
+       "tested": true
+      },
+      "class, local special district": {
+       "expected_before": 20.4,
+       "expected_after": 15.4,
+       "seen": 13,
+       "tested": true
+      },
+      "class, local other local office": {
+       "expected_before": 8.0,
+       "expected_after": 6.1,
+       "seen": 10,
+       "tested": true
+      },
+      "class, local mayor or executive": {
+       "expected_before": 5.9,
+       "expected_after": 4.5,
+       "seen": 4,
+       "tested": true
+      },
+      "class, local judge": {
+       "expected_before": 5.0,
+       "expected_after": 3.8,
+       "seen": 8,
+       "tested": true
+      },
+      "class, local sheriff or constable": {
+       "expected_before": 3.8,
+       "expected_after": 2.9,
+       "seen": 7,
+       "tested": true
+      },
+      "class, local clerk, treasurer or other county officer": {
+       "expected_before": 3.0,
+       "expected_after": 2.3,
+       "seen": 0,
+       "tested": false
+      },
+      "class, state judge": {
+       "expected_before": 2.0,
+       "expected_after": 1.6,
+       "seen": 3,
+       "tested": false
+      }
+     }
+    },
+    "2024": {
+     "years": [
+      2022
+     ],
+     "contests": 110,
+     "seen_near_half": 3,
+     "expected_before": 15.5,
+     "expected_after": 11.7,
+     "deviance_by_office_type_before": 15.41,
+     "deviance_after": 9.51,
+     "improves": true,
+     "tested_cells_made_worse": [],
+     "passes": true,
+     "by_office_type": {
+      "class, local school board": {
+       "expected_before": 11.6,
+       "expected_after": 8.6,
+       "seen": 2,
+       "tested": true
+      },
+      "class, local council, commission or board": {
+       "expected_before": 3.5,
+       "expected_after": 2.9,
+       "seen": 1,
+       "tested": false
+      },
+      "class, local mayor or executive": {
+       "expected_before": 0.4,
+       "expected_after": 0.3,
+       "seen": 0,
+       "tested": false
+      }
+     }
+    }
+   },
+   "robustness_rule": "adopted only if it improves the out-of-sample test (the count near 1/2 nearer, and the deviance by office type lower) over every scored year with no tested cell made worse (a tested cell: 5 or more seen or expected), and again with any one scored year left out (brief D3, amended 2026-11-07 08:36)",
+   "adopted": false
   },
   "partisan": {
    "factors": {
@@ -194,97 +324,127 @@
     }
    },
    "test": {
-    "year": 2024,
-    "contests": 968,
+    "years": [
+     2024
+    ],
+    "contests": 971,
     "seen_near_half": 54,
-    "expected_before": 59.8,
-    "expected_after": 54.0,
-    "deviance_by_office_type_before": 11.71,
-    "deviance_after": 11.14,
+    "expected_before": 59.9,
+    "expected_after": 54.1,
+    "deviance_by_office_type_before": 11.81,
+    "deviance_after": 11.21,
+    "improves": true,
+    "tested_cells_made_worse": [
+     "partisan, local council, commission or board"
+    ],
+    "passes": false,
     "by_office_type": {
      "partisan, local council, commission or board": {
-      "expected_before": 27.4,
+      "expected_before": 27.5,
       "expected_after": 24.8,
-      "seen": 29
+      "seen": 29,
+      "tested": true
      },
      "partisan, local clerk, treasurer or other county officer": {
       "expected_before": 8.9,
       "expected_after": 8.0,
-      "seen": 7
+      "seen": 7,
+      "tested": true
      },
      "partisan, local sheriff or constable": {
       "expected_before": 5.8,
       "expected_after": 5.2,
-      "seen": 3
+      "seen": 3,
+      "tested": true
      },
      "partisan, local school board": {
       "expected_before": 4.5,
       "expected_after": 4.1,
-      "seen": 1
+      "seen": 1,
+      "tested": false
      },
      "partisan, local judge": {
       "expected_before": 4.3,
       "expected_after": 3.9,
-      "seen": 3
+      "seen": 3,
+      "tested": false
      },
      "partisan, local prosecutor": {
       "expected_before": 2.6,
       "expected_after": 2.3,
-      "seen": 4
+      "seen": 4,
+      "tested": false
      },
      "partisan, state judge": {
       "expected_before": 1.4,
       "expected_after": 1.2,
-      "seen": 2
+      "seen": 2,
+      "tested": false
      },
      "partisan, local other local office": {
       "expected_before": 1.1,
       "expected_after": 1.0,
-      "seen": 1
+      "seen": 1,
+      "tested": false
      },
      "partisan, state school board": {
       "expected_before": 0.7,
       "expected_after": 0.7,
-      "seen": 1
+      "seen": 1,
+      "tested": false
      },
      "partisan, state prosecutor": {
       "expected_before": 0.7,
       "expected_after": 0.6,
-      "seen": 1
+      "seen": 1,
+      "tested": false
+     },
+     "partisan, local mayor or executive": {
+      "expected_before": 0.5,
+      "expected_after": 0.5,
+      "seen": 0,
+      "tested": false
      },
      "partisan, state clerk, treasurer or other county officer": {
       "expected_before": 0.5,
       "expected_after": 0.5,
-      "seen": 1
-     },
-     "partisan, local mayor or executive": {
-      "expected_before": 0.5,
-      "expected_after": 0.4,
-      "seen": 0
+      "seen": 1,
+      "tested": false
      },
      "partisan, state other local office": {
       "expected_before": 0.4,
       "expected_after": 0.4,
-      "seen": 1
+      "seen": 1,
+      "tested": false
      },
      "partisan, local special district": {
       "expected_before": 0.4,
       "expected_after": 0.4,
-      "seen": 0
+      "seen": 0,
+      "tested": false
      },
      "partisan, state mayor or executive": {
       "expected_before": 0.3,
       "expected_after": 0.3,
-      "seen": 0
+      "seen": 0,
+      "tested": false
      },
      "partisan, state council, commission or board": {
       "expected_before": 0.3,
       "expected_after": 0.3,
-      "seen": 0
+      "seen": 0,
+      "tested": false
      }
     }
    },
-   "adopted": true
+   "leave_one_year_out": {
+    "2024": {
+     "passes": false,
+     "why": "no scored year is left: this route's only scored year is 2024"
+    }
+   },
+   "robustness_rule": "adopted only if it improves the out-of-sample test (the count near 1/2 nearer, and the deviance by office type lower) over every scored year with no tested cell made worse (a tested cell: 5 or more seen or expected), and again with any one scored year left out (brief D3, amended 2026-11-07 08:36)",
+   "adopted": false
   }
  }
 }

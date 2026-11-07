@@ -40,8 +40,10 @@ FILES = {
     2010: "https://www.fec.gov/documents/1675/federalelections2010.xls",
     2008: "https://www.fec.gov/documents/1659/2008congresults.xls",
     2006: "https://www.fec.gov/documents/1642/federalelections2006.xls",
+    # 2004 (the orchestrator, 09:26): the House of 2004 is the earlier House cycle the House of 2006's fit needs
+    2004: "https://www.fec.gov/documents/1625/2004congresults.xls",
 }
-ELECTION_DAY = {2006: "2006-11-07", 2008: "2008-11-04", 2010: "2010-11-02", 2012: "2012-11-06",
+ELECTION_DAY = {2004: "2004-11-02", 2006: "2006-11-07", 2008: "2008-11-04", 2010: "2010-11-02", 2012: "2012-11-06",
                 2014: "2014-11-04", 2016: "2016-11-08", 2018: "2018-11-06", 2020: "2020-11-03",
                 2022: "2022-11-08", 2024: "2024-11-05"}
 LICENCE = "US federal public record; the FEC prints no licence or terms for election results"
@@ -53,7 +55,7 @@ def sheets(path):
         import xlrd
         wb = xlrd.open_workbook(path)
         for sn in wb.sheet_names():
-            if "Results" in sn and ("House" in sn or "Senate" in sn):
+            if "RESULTS" in sn.upper() and ("HOUSE" in sn.upper() or "SENATE" in sn.upper()):   # 2004: upper case
                 sh = wb.sheet_by_name(sn)
                 yield sn, [sh.row_values(r) for r in range(sh.nrows)]
     else:
@@ -163,7 +165,10 @@ def parse_year(year):
                 continue
             gen_raw = cells[m["gen"]] if "gen" in m else None
             party_txt = texts[m["party"]] if "party" in m else ""
-            if "COMBINED" in party_txt.upper():
+            if "COMBINED" in party_txt.upper() or ("combined" not in m and not party_txt and
+                                                  any(t.upper().rstrip(": ") == "COMBINED PARTIES" for t in texts)):
+                # (2004, which has no combined-totals column, prints "Combined Parties:" in the column before the
+                # November votes, with no party; a year with that column keeps such a line as before)
                 # a fusion candidate's summary line (e.g. "D/WF/IDP Combined Parties"): its party lines
                 # follow and are summed; the summary is kept only as the check
                 c.setdefault("combined_lines", []).append((name, cc.to_int(gen_raw)))
