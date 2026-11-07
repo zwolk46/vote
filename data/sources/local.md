@@ -1,0 +1,48 @@
+# Standardized election datasets below Congress: an inventory
+
+*Kept by worker D3 (state legislatures, local races, primaries, ballot measures), started 2026-11-07 04:40 UTC, extending `data/sources/congress.md` (D2's). "Reached" means this environment fetched the record or a file on the date given; "refused" names what refused. Licences are as each publisher prints them. "Taken" names the intake script in `pipeline/intake/`. Marks: [measured] read here; [stated] as the publisher says; [inferred] my reading. These are leads until taken; nothing here is a choice for the site.*
+
+## Ranked by contests covered per script written
+
+| Rank | Dataset | Contests it covers (about) | Why this rank |
+|---|---|---|---|
+| 1 | Klarner, State Legislative Election Returns 1967-2022 | 189,103 contests: 158,537 generals, about 30,000 primaries, specials and runoffs [measured] | every state, every chamber, 56 years, one file |
+| 2 | MEDSL precinct returns 2016, 2022, 2024 (state, local, by-state sets without a guestbook) | every office on the ballot in the states covered: state legislatures (2024 is past Klarner's end), local offices, state and local measures; tens of thousands of contests a year [inferred from the records' descriptions; to be counted] | one script reads all years, since the files share a codebook |
+| 3 | North Carolina State Board of Elections, results by precinct | every contest on North Carolina's ballots, local, judicial, referenda and primaries, by election date [stated on the files' layout; to be counted] | one state, but every level and every election date |
+| 4 | OpenElections state repositories | certified results by precinct or county, generals and primaries, many offices; coverage varies by state [stated] | one script per standardized CSV layout, many states |
+| 5 | Singer, US 2020 General Official Election Results (tabular) | 2020 results by state for many offices, local included [stated] | one year |
+| 6 | Virginia Election Data 1969-2026 | every level in Virginia, primaries included [stated] | one state; 140 zips |
+| 7 | Retrospective Voting in Big-City U.S. Mayoral Elections | mayoral elections in large cities [stated] | one office |
+
+## The datasets
+
+| Dataset | Publisher | Covers | Format | Licence | Reached | Taken |
+|---|---|---|---|---|---|---|
+| State Legislative Election Returns, 1967-2022 (doi:10.7910/DVN/FJOGJB), v1.0, released 2024-06-12 | Carl Klarner, Harvard Dataverse | every state legislative contest 1967-2022, candidate by candidate: generals (158,537 contests), specials, Louisiana's two rounds, runoffs, and primaries for 1967-1989 in some states and for 2014 in 46 states; 418,894 rows; Klarner's own contest file with the seat's previous result and incumbency [measured] | csv (tab originals) | CC0 1.0 [stated] | yes, 2026-11-07 04:33, no guestbook | `klarner_state_legislative.py` |
+| State Precinct-Level Returns 2024 (DODOBJ), v1.0, 2026-05-01 | MIT Election Data and Science Lab (MEDSL) | precinct returns for state offices, state legislatures among them, 2024; 1,288 MB [measured: record] | csv | CC0 1.0 | record yes, no guestbook | next |
+| Precinct-Level Returns 2024 by Individual State (NYTPDU), v1.0 | MEDSL | every office on the ballot, one file per state, 2024; 3,133 MB | tab, csv | CC0 1.0 | record yes, no guestbook | next |
+| State Offices Precinct-Level Returns 2022 (OAARCY), v5.0, 2026-09-18 | MEDSL | state offices, 2022; 863 MB | csv | CC0 1.0 | record yes, no guestbook | next |
+| Precinct-Level Returns 2022 by Individual State (UYQIEP), v5.0 | MEDSL | every office, one file per state, with separate local files for AR, AZ, ID, IN, MD, MI, ND, WA; 2,071 MB | tab, csv, zip | CC0 1.0 | record yes, no guestbook | next |
+| State Precinct-Level Returns 2016 (GSZG1O), v10.1 | MEDSL | state offices, 2016; 1,951 MB | tab | CC0 1.0 | record yes, no guestbook | next |
+| Local Precinct-Level Returns 2016 (Q8OHRS), v10.1 | MEDSL | local offices and measures, 2016; 440 MB | tab | CC0 1.0 | record yes, no guestbook | next |
+| State Precinct-Level Returns 2018 (ZFXEJU) and 2020 (OKL2K1); Local Precinct-Level Returns 2018 (CHYXUP); by Individual State 2018 (NVQYMG) and 2020 (NT66Z3) | MEDSL | as above, for 2018 and 2020 | csv, tab | CC0 1.0 | behind Dataverse guestbook 458 (a name and email): not filled, the maker's call (law 10) | no |
+| Presidential Vote within Legislative Districts (24655), v1.0, 2014 | Harvard Dataverse | presidential vote by state legislative district, about the 2000s [stated: title; codebook not yet read] | tab | CC0 1.0 | record yes | no (a lean input for the forecast, to read) |
+| Statewide results by legislative district, 2012-2020 | The Downballot | presidential and statewide vote on state legislative lines | Google Sheets | none printed | yes (D2) | no (lead for the lean input) |
+| American Local Government Elections Database (OSF mv5e6) | de Benedictis-Kessner, Lee, Velez and Warshaw | about 78,000 candidates in 57,000 contests for mayor, council, county executive and legislature, sheriff, prosecutor and school board in 1,747 places, 1989-2021 [stated: the OSF wiki and the paper, *Scientific Data* 2023] | csv, rds | CC BY 4.0 [stated] | the OSF project answers; its storage holds only the replication folder (composition files and code). The candidate-level file the paper names (`ledb_candidatelevel.csv`) is not in the listing read 2026-11-07 04:36 | no: the data file was not found where the paper says it is |
+| Retrospective Voting in Big-City U.S. Mayoral Elections (KFIKH8), v1.0 | Harvard Dataverse (replication data, PSRM) | mayoral elections in large cities [stated] | tab | CC0 1.0 | record yes | not yet |
+| US 2020 General Official Election Results in Tabular Format (RV80FW) | Stephanie Frank Singer | official 2020 results by state, many offices; 24 MB | tab | CC0 1.0 | record yes | not yet |
+| Virginia Election Data 1969-2026 (BAQ69D), v203.0 | Joseph Jones | Virginia elections of every level, primaries included; 140 zips, 2,192 MB | zip | CC BY-SA 4.0 | record yes | not yet |
+| Louisiana Democratic Primary Results, 2012-2020 (H2O1QA) | Harvard Dataverse | Louisiana Democratic primaries | zip | no licence; terms of use present (not read) | record yes | no |
+| Results by precinct (`results_pct_<date>.zip`, dl.ncsbe.gov) | North Carolina State Board of Elections | every contest on the state's ballots by precinct, by election date | zip of text | public record; no licence printed [to read] | yes (2024-11-05 file, 3.7 MB, 2026-11-07 04:36) | not yet |
+| OpenElections state repositories (github.com/openelections/openelections-data-XX) | OpenElections | pre-processed certified results by precinct or county, generals and primaries, many offices | csv | varies by repository [to read] | `git clone` yes (VT tested 2026-11-07); api.github.com refused by this session's GitHub policy ("access to this repository is not enabled for this session"); raw.githubusercontent.com yes | not yet |
+| California Elections Data Archive (CEDA) | Sacramento State's Center for California Studies, with the Secretary of State | California county, city and school district candidates and measures | PDF reports on elections.cdn.sos.ca.gov; data files not located | not read | the guessed csus.edu address answered 404 (my address, not a refusal); the data page was not found | no |
+| NCSL Ballot Measures for the Correlates of State Policy | Michigan State University, IPPSR | statewide ballot measures from NCSL's database [stated: title] | not read | not read | not tried | not yet |
+| Ballotpedia | Ballotpedia | every level, measures | not standardized for download | not read | refused (CloudFront 403, R2) | no |
+| NCSL ballot measures database | NCSL | statewide measures | web | not read | bot checks (R2) | no |
+| Local Elections in America Project (LEAP) | Marschall and others | local elections in a sample of cities | not found for download | not read | no public download found | no |
+
+## Refusals and gaps, for the orchestrator
+
+- **api.github.com** (the GitHub API, needed to list a repository's files) is refused by this session's GitHub policy for repositories outside zwolk46/vote. A shallow `git clone` of a public OpenElections repository works, which needs no listing. Not routed around: the clone is the documented way to read a public repository, and the orchestrator allowed public GitHub clones (03:46).
+- **MEDSL 2018 and 2020** precinct sets (state, local, by state) sit behind the Dataverse guestbook: the maker's call (law 10).
+- **ALGED**'s candidate-level file was not found on OSF where its paper says it is.
