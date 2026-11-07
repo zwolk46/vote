@@ -19,7 +19,7 @@
 // - Populations for the reading "to each person" only where D1 and D2 give them: the nation for the presidency
 //   (population_nation), the contest's own population elsewhere; none is filled in.
 // - A route's back-test leaning one way (p.note: "so p may be high", "so p may be low") is carried as `lean`, so the
-//   page can draw it (the maker, 04:32: visuals over prose); except the governors' (LEAN_OUT).
+//   page can draw it (the maker, 04:32: visuals over prose); except the governors' and the Senate's (LEAN_OUT).
 //
 // The field is written as groups of UNIT contests, each at its group's middle (median) N, so the page draws whole
 // dots that can be seen and moved (the midterms swarms) and the file stays small. Groups never mix a contest's own p
@@ -49,9 +49,10 @@ for (const f of files(join(DATA, 'president'))) for (const c of read(f).contests
 
 // The orchestrator's ruling of 11:05: a lean note stands only where the share test and the vote-count test of the same
 // back-test lean the same way (each counted only with 5 or more expected). For governors they disagree (17 against 14.9
-// within 1 point; 4 against 8.8 within 10,000 votes), so their note is coming out of the data; until it does, it is not
-// drawn. The House's and the Senate's notes are drawn as the data carry them.
-const LEAN_OUT = new Set(['governor']);
+// within 1 point; 4 against 8.8 within 10,000 votes), and on M2's numbers (the orchestrator, 11:16) so do the Senate's:
+// both notes are coming out of the data, and until they do they are not drawn. The House's note stands, and is drawn as
+// the data carry it (and the statewide measures', when they are shown).
+const LEAN_OUT = new Set(['governor', 'senate']);
 const leanOf = (level, p) => { if (LEAN_OUT.has(level)) return null; const m = /so p may be (high|low)/.exec(p.note || ''); return m ? m[1] : null; };
 const ownOf = (level, p) => (level !== 'state' ? true : /^district/.test(p.forecast_scope || ''));
 const popOf = (level, c) => (level === 'president' ? c.population_nation : c.population) || null;
