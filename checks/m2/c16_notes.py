@@ -288,12 +288,15 @@ def after_67(summary):
     print(f"    governor_note: note {g.get('note')!r}, written on {g.get('written_on')} p blocks (its own 5,000-vote count {g.get('seen')} against {g.get('expected', 0):.2f})")
     for level in ("house", "senate", "governor"):
         t = collections.Counter()
+        odd = collections.Counter()
         for path in L.level_files(level) if hasattr(L, "level_files") else sorted(glob.glob(os.path.join(L.DATA, level, "[0-9]*.json"))):
-            for c in L.load_json(path)["contests"]:
+            doc = L.load_json(path)
+            for c in doc["contests"]:
                 p = c.get("p") or {}
                 note = p.get("note") or ""
-                t["near-even note" if "near-even" in note else "another note" if note else "no note"] += 1
-        print(f"    {level}: p blocks by note: {dict(t)}" + (" (the note stands: expected on the model's own p)" if level == "house" else " (the note goes: none expected)"))
+                (odd if doc["year"] % 2 else t)["near-even note" if "near-even" in note else "another note" if note else "no note"] += 1
+        print(f"    {level}: p blocks by note: {dict(t)}" + (" (the note stands: expected on the model's own p)" if level == "house" else " (the note goes: none expected)")
+              + (f"; odd years (the odd-year governors, #74: their own note, c25) {dict(odd)}" if odd else ""))
 
 
 if __name__ == "__main__":

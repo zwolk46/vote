@@ -70,6 +70,8 @@ def main():
             year, m = doc["year"], doc.get("model") or {}
             if "c" not in m:
                 continue
+            if year % 2:   # the odd-year governors (#74, #76): their blocks are c25's, fitted on even years only
+                continue
             variant = RECORD_VARIANT[level]
             mm, fy = F.variant_model(rows, level, year, variant)
             if mm is None:
@@ -167,7 +169,7 @@ def main():
         for path in sorted(os.listdir(os.path.join(L.DATA, level))):
             doc = L.load_json(os.path.join(L.DATA, level, path))
             year, m = doc["year"], doc.get("model") or {}
-            if "c" not in m:
+            if "c" not in m or year % 2:   # the odd-year governors are c25's
                 continue
             mm, _ = F.variant_model(rows, level, year, RECORD_VARIANT[level])
             if mm is None:
