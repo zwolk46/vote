@@ -225,6 +225,13 @@ def local_pools():
     Board contest of May 2018 sits in a file local_medsl.py wrote: the route is read from the source and the date."""
     medsl, nc = [], []
     miss = collections.Counter()
+    # the State Board's route leaves out of its pool a November contest that follows a first round the same year (the
+    # year's 'first round: the same contest is on the ballot again on <date>' row; D3's REPORT section 7 since #59)
+    after_first = set()
+    for r in D.rows("local"):
+        el = r["election"] or ""
+        if r["state"] == "NC" and el.startswith("first round: the same contest is on the ballot again on "):
+            after_first.add((r["year"], el.split(" on the ballot again on ")[1][:10], r["office"], tuple(r["counties"] or [])))
     for r in D.rows("local"):
         if r["status"] == "value" and r["route"] is None:
             continue
@@ -254,6 +261,9 @@ def local_pools():
                 else:
                     miss[("write-in pair contest, my structure", st[0])] += 1
         if r["state"] == "NC" and r["year"] >= NC_FIRST:
+            if (r["year"], r["date"], r["office"], tuple(r["counties"] or [])) in after_first:
+                miss["North Carolina: a November contest after a first round this year (the State Board's route leaves it out of its pool)"] += 1
+                continue
             top = sorted([a for a in r["cands"] if a[1] is not None], key=lambda a: -a[1])
             if any(_generic(a[2]) for a in top[k - 1:k + 1]):
                 continue
@@ -452,6 +462,28 @@ def klarner_rows():
     return rows, by
 
 
+def ballot_rows_by_chamber_year():
+    """Route (a)'s rows counted from the state files' candidate rows as pipeline/local.py partisan_rows selects them
+    (on_ballot: every named candidate but a write-in; exactly one Democrat and one Republican; single-seat general-type
+    contests, every candidate's votes reported), by (year, state, chamber)."""
+    out = collections.Counter()
+    for level, sen in (("state-lower", 0), ("state-upper", 1)):
+        for r in D.rows(level):
+            if r["src"] != "klarner" or (r["seats"] or 1) != 1:
+                continue
+            if r["election"] not in ("general", "special general of the whole chamber", "general, for the rest of a term"):
+                continue
+            named = [a for a in r["cands"] if a[0] != "write-in"]
+            if any(a[1] is None for a in named):
+                continue
+            ds = [a for a in named if a[0] == "D"]
+            rs = [a for a in named if a[0] == "R"]
+            if len(ds) != 1 or len(rs) != 1 or (ds[0][1] or 0) <= 0 or (rs[0][1] or 0) <= 0:
+                continue
+            out[(r["year"], r["state"], sen)] += 1
+    return out
+
+
 def design(rows, ys):
     yi = {t: i for i, t in enumerate(ys)}
     k = len(ys)
@@ -612,15 +644,20 @@ def partisan():
     worst.sort(key=lambda x: -x[0])
     for _, rid, s in worst[:12]:
         print(f"    {rid}: {s}")
-    # why the rows differ: the pipeline's partisan_rows takes the contests whose two leading named candidates are one
-    # Democrat and one Republican (local.py two_leading), mine the contests with one Democrat and one Republican on the
-    # ballot (Klarner's dcand and rcand), which is REPORT section 2's words and law 2a's rule
-    other_led = sum(1 for r_ in rows if r_.get("ocand") == 1 and r_.get("ovote", 0) > min(r_["d"], r_["r"]))
-    print(f"  the rows: mine are the contests with one Democrat and one Republican on the ballot (Klarner's dcand = rcand = 1; REPORT section 2's")
-    print(f"  words, 'on the ballot'); pipeline/local.py partisan_rows takes the contests whose two leading named candidates are the Democrat and the")
-    print(f"  Republican (two_leading), so {other_led:,} of mine with one other candidate who finished ahead of the Democrat or the Republican are not")
-    print(f"  rows there, and a contest with two Democrats or two Republicans on the ballot is a row there when a Democrat and a Republican led.")
-    print(f"  The chamber lean (the mean of the chamber's rows at its previous election) differs where those rows differ: see the tally above.")
+    # the rows (D3's #59; REPORT section 2): pipeline/local.py on_ballot returns every named candidate but a write-in,
+    # and partisan_rows keeps the contests with exactly one Democrat and one Republican among them; mine keep Klarner's
+    # contest-level dcand = rcand = 1. The two differ where Klarner's dcand/rcand disagree with its own candidate rows
+    # (D3: 30 contests). Counted by chamber and year from the state files' candidate rows:
+    files_cnt = ballot_rows_by_chamber_year()
+    mine_cnt = collections.Counter((r_["year"], r_["state"], r_["sen"]) for r_ in rows)
+    diff = {k: (mine_cnt.get(k, 0), files_cnt.get(k, 0)) for k in set(mine_cnt) | set(files_cnt) if mine_cnt.get(k, 0) != files_cnt.get(k, 0)}
+    print(f"  the rows: mine {sum(mine_cnt.values()):,} (Klarner's contest-level dcand = rcand = 1); from the files' candidate rows as pipeline/local.py")
+    print(f"  on_ballot reads them (every named candidate but a write-in; exactly one Democrat and one Republican; single-seat generals; every vote")
+    print(f"  reported) {sum(files_cnt.values()):,}; chamber-years where the two counts differ: {len(diff)}, rows {sum(abs(a - b) for a, b in diff.values())}: "
+          + "; ".join(f"{st} {'upper' if sen else 'lower'} {y} {a}/{b}" for (y, st, sen), (a, b) in sorted(diff.items())[:40]))
+    print("  (D3's #59: the pipeline's rows follow the ballot, as REPORT section 2 says; 30 contests differ from mine where Klarner's dcand/rcand")
+    print("   disagree with its candidate rows: 12 with two Republicans in the rows and rcand 1, 11 with a Republican of a few votes and rcand 0,")
+    print("   7 others. The chamber lean differs where those rows sit, which is the tally above; my reading 10.8 of 09:34 was wrong on the rule.)")
     # the back-test by earlier years of the kind (REPORT section 3's table), from my fits
     bt = collections.defaultdict(lambda: [0, 0, 0.0, 0, 0.0, 0])
     for r_ in rows:
@@ -653,8 +690,8 @@ def near_half_local():
     (pipeline/local_medsl.py _near_half: the class's window for like races, 49-51% for the partisan route)."""
     out = collections.defaultdict(list)
     for r in D.rows("local"):
-        if r["by"] != "pipeline/local_medsl.py" or not r["route"] or not r["pair"]:
-            continue
+        if r["by"] != "pipeline/local_medsl.py" or not r["route"] or not r["pair"] or not medsl_route(r):
+            continue   # local_ncsbe.py's contests on North Carolina's other dates sit in the same files; not that build's
         v0, v1 = r["pair"]["votes"]
         if r["route"] in ("class", "boundary") and r["N"] is not None:
             s = v0 / (v0 + v1)
@@ -702,6 +739,27 @@ def factor_test(recs, group, test_year, f):
             "dev_after": da, "adopt": adopt, "cells_worse": worse, "cells": len(by_b)}
 
 
+def cal_score(recs, group, years, factors):
+    """pipeline/local_medsl.py _cal_score (#59): the factors' out-of-sample test over the scored years, each year with its
+    own factor; a tested cell is an office type with 5 or more seen or expected."""
+    by_b = collections.defaultdict(lambda: [0.0, 0.0, 0])
+    n = 0
+    for t in years:
+        f_t = factors[t]
+        for _, key, e, seen in recs.get((group, t), []):
+            k = f_t["own"].get(key, f_t["pooled"])
+            by_b[key][0] += e
+            by_b[key][1] += e * k
+            by_b[key][2] += seen
+            n += 1
+    eb, ea, sn = (sum(v[i] for v in by_b.values()) for i in range(3))
+    db, da = deviance([(v[0], v[2]) for v in by_b.values()]), deviance([(v[1], v[2]) for v in by_b.values()])
+    worse = sorted(k for k, v in by_b.items() if max(v[0], v[2]) >= 5 and abs(v[1] - v[2]) > abs(v[0] - v[2]))
+    improves = abs(ea - sn) < abs(eb - sn) and da < db
+    return {"contests": n, "seen": sn, "before": eb, "after": ea, "dev_before": db, "dev_after": da, "improves": improves,
+            "worse": worse, "passes": bool(improves and not worse)}
+
+
 def calibration():
     h1("15.5 The #31 calibration factor (the orchestrator, 06:38): recomputed, the 2024 test, leave-one-year-out [measured]")
     recs = near_half_local()
@@ -723,9 +781,7 @@ def calibration():
             T = factor_test(recs, group, 2024, f)
             got = rec[group].get("test", {})
             print(f"    the 2024 test: {T['contests']:,} contests, seen {T['seen']}, expected before {T['before']:.1f} after {T['after']:.1f}; "
-                  f"deviance {T['dev_before']:.2f} -> {T['dev_after']:.2f}; adopt {T['adopt']} (record: {got.get('contests')}, seen {got.get('seen_near_half')}, "
-                  f"{got.get('expected_before')} -> {got.get('expected_after')}, deviance {got.get('deviance_by_office_type_before')} -> {got.get('deviance_after')}, "
-                  f"adopted {rec[group].get('adopted')})")
+                  f"deviance {T['dev_before']:.2f} -> {T['dev_after']:.2f}; adopt {T['adopt']} (the record's test is over every scored year since #59: below)")
             print(f"    cells (office types) the factor moves further from what was seen: {len(T['cells_worse'])} of {T['cells']}: "
                   + "; ".join(f"{k.split(', ', 1)[1]}: {v[0]} -> {v[1]} vs {v[2]}" for k, v in T["cells_worse"].items()))
             # leave one scored year out (the orchestrator, 08:35)
@@ -756,6 +812,48 @@ def calibration():
                           + f"): test 2024 seen {T2['seen']}, expected {T2['before']:.1f} -> {T2['after']:.1f}, deviance {T2['dev_before']:.2f} -> {T2['dev_after']:.2f}; "
                           f"adopt {T2['adopt']}; cells worse {len(T2['cells_worse'])} of {T2['cells']}: "
                           + "; ".join(f"{k.split(', ', 1)[1]} {v[0]}->{v[1]} vs {v[2]}" for k, v in T2["cells_worse"].items()))
+        # D3's robustness test as calibration-local.json records it since #59 (each route's test and leave_one_year_out): every
+        # year with a factor is scored with its own factor (fitted on the years before it); it improves where the count near 1/2
+        # comes nearer and the deviance falls; a tested cell (5 or more seen or expected) may not move further; and again with
+        # any one scored year left out (a route with one scored year fails)
+        factors = {}
+        for t in years:
+            fy = [y for y in years if y < t]
+            if fy and recs.get((group, t)):
+                factors[t] = factor_fit(recs, group, fy)
+        scored = sorted(factors)
+        got = rec[group].get("test") or {}
+        if scored:
+            T3 = cal_score(recs, group, scored, factors)
+            print(f"    the robustness test (#59; every scored year with its own factor; a tested cell has 5 or more seen or expected): years {scored} (record {got.get('years')});")
+            print(f"      {T3['contests']:,} contests (record {got.get('contests')}), seen {T3['seen']} ({got.get('seen_near_half')}), expected {T3['before']:.1f} -> {T3['after']:.1f} "
+                  f"({got.get('expected_before')} -> {got.get('expected_after')}), deviance {T3['dev_before']:.2f} -> {T3['dev_after']:.2f} "
+                  f"({got.get('deviance_by_office_type_before')} -> {got.get('deviance_after')}); improves {T3['improves']} ({got.get('improves')}); "
+                  f"tested cells made worse {[k.split(', ', 1)[1] for k in T3['worse']]} ({[k.split(', ', 1)[1] for k in got.get('tested_cells_made_worse') or []]}); "
+                  f"passes {T3['passes']} ({got.get('passes')})")
+            lo_rec = rec[group].get("leave_one_year_out") or {}
+            loo_pass = []
+            for t in scored:
+                rest = [y for y in scored if y != t]
+                g2 = lo_rec.get(str(t)) or {}
+                if not rest:
+                    loo_pass.append(False)
+                    print(f"      without {t}: no scored year is left, so it fails (record: passes {g2.get('passes')}; {g2.get('why')})")
+                    continue
+                T4 = cal_score(recs, group, rest, factors)
+                loo_pass.append(T4["passes"])
+                print(f"      without {t}: {T4['contests']:,} contests ({g2.get('contests')}), seen {T4['seen']} ({g2.get('seen_near_half')}), expected "
+                      f"{T4['before']:.1f} -> {T4['after']:.1f} ({g2.get('expected_before')} -> {g2.get('expected_after')}); tested cells made worse "
+                      f"{[k.split(', ', 1)[1] for k in T4['worse']]} ({[k.split(', ', 1)[1] for k in g2.get('tested_cells_made_worse') or []]}); passes {T4['passes']} ({g2.get('passes')})")
+            print(f"      adopted under the rule: mine {bool(T3['passes'] and all(loo_pass))}; the record: no factor of record for this route (each p the "
+                  f"factor would move carries calibration_not_of_record)")
+        for t in scored:
+            got_f = (rec[group]["factors"].get(str(t)) or {}).get("fit_counts_expected_seen") or {}
+            mine_c = factors[t]["counts"]
+            diffs = [(k, round(v[0], 1), v[1], got_f.get(k)) for k, v in sorted(mine_c.items())
+                     if got_f.get(k) is None or abs(got_f[k][0] - v[0]) > 0.051 or got_f[k][1] != v[1]]
+            print(f"    the fitting counts (expected, seen) by office type behind {t}'s factor: {len(mine_c)} types, {len(diffs)} differ from the record's "
+                  f"fit_counts_expected_seen" + (": " + "; ".join(f"{k.split(', ', 1)[1]} mine {e}/{s_} record {g}" for k, e, s_, g in diffs[:6]) if diffs else ""))
     # North Carolina's own: data/local/backtest-ncsbe.json 'calibration' (local: each year with 30 or more expected in earlier years)
     nc = collections.defaultdict(list)
     for r in D.rows("local"):

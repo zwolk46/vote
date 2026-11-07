@@ -20,6 +20,7 @@ import os
 import sys
 
 import numpy as np
+from scipy import stats
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import m2d3 as D  # noqa: E402
@@ -213,7 +214,19 @@ def recompute():
                     maxrel[(level, "like: p exact")] = max(maxrel[(level, "like: p exact")], d)
                     T.add("like races: p = the exact lattice sum at sd_eq", D.within(p["value"], lo, hi, 2e-5), rid,
                           f"p {p['value']} vs {(lo + hi) / 2:.6g}", d)
+                    # #59: the record multiplies the pipeline's renormalised sum by the normal's mass on the sum's grid
+                    # (mean +- 12 sd within (0, 1)) and records it as exact_mass; that mass is checked, and the record's
+                    # form (renormalised x mass) where the plain sum is not within tolerance
+                    elo, ehi = max(1e-9, 0.5 - 12 * s), min(1 - 1e-9, 0.5 + 12 * s)
+                    mass = stats.norm.cdf(ehi, 0.5, s) - stats.norm.cdf(elo, 0.5, s)
+                    T.add("like races: exact_mass recorded on every exact block (#59)", "exact_mass" in p, rid, f"keys {sorted(p)}")
+                    if "exact_mass" in p:
+                        T.add("like races: exact_mass = the normal's mass on the sum's grid, mean +- 12 sd within (0, 1) (#59)",
+                              D.rel(p["exact_mass"], mass) <= 1e-5, rid, f"exact_mass {p['exact_mass']} vs {mass:.6g}", D.rel(p["exact_mass"], mass))
                     if not D.within(p["value"], lo, hi, 2e-5):
+                        rr = M.p_exact(n, 0.5, s, renormalize=True) * mass
+                        T.add("like races: where the plain sum is beyond tolerance, the record = the renormalised sum x exact_mass (#59's form)",
+                              D.rel(p["value"], rr) <= 2e-5, rid, f"p {p['value']} vs {rr:.6g} (plain {(lo + hi) / 2:.6g})", D.rel(p["value"], rr))
                         # the pipeline's normal is cut to (0, 1) and renormalised (model/math/common.py normalmix_pmf),
                         # which raises a flat like-race density by 1/mass: the record against that sum
                         if fbox:
@@ -283,26 +296,56 @@ def recompute():
                 continue
             d = D.rel(p.get("event"), 2 * p["value"])
             T.add("event = 2 p", d is not None and d <= 1e-5, rid, f"event {p.get('event')} vs {2 * p['value']:.6g}")
-            # the calibration block against calibration-local.json
+            # the calibration (#31), taken out by #59 under the robustness test: no p is calibrated; each p a factor would
+            # have moved carries calibration_not_of_record (the factor, 'of', fitted_on, and the p it would have given),
+            # checked against calibration-local.json's factors and against my own p with the factor
             if r["cal"]:
+                T.add("calibration: a calibration block of record (none since #59)", False, rid, str(r["cal"]))
+            if "calibrated" in p.get("under", ""):
+                T.add("calibration: p.under does not say calibrated (#59)", False, rid, p.get("under"))
+            if level == "local" and _medsl_route(r) and r["route"] in ("class", "boundary", "partisan") and r["status"] == "value":
                 group = "like races" if r["route"] in ("class", "boundary") else "partisan"
                 f = cal_tab.get((group, r["year"]))
-                key = f"{r['route']}, {r['office_scope']} {r['office_type']}"
+                co = r["cal_out"]
                 if f is None:
-                    T.add("calibration: a factor for this year in calibration-local.json", False, rid, f"{group} {r['year']}")
+                    T.add("calibration: no calibration_not_of_record where the year has no factor", co is None, rid, f"{group} {r['year']}: {co}")
+                elif co is None:
+                    T.add("calibration: calibration_not_of_record carried where the year has a factor", p["value"] == 0, rid, f"{group} {r['year']}: {p.get('under')}")
                 else:
+                    key = f"{r['route']}, {r['office_scope']} {r['office_type']}"
                     own = f["own"].get(key)
                     want, of = (own, key) if own is not None else (f["pooled"], "pooled over the fitting years' races")
-                    T.add("calibration: factor and 'of' match calibration-local.json (own by office type else pooled)",
-                          abs(r["cal"]["factor"] - want) <= 6e-4 and r["cal"]["of"] == of and r["cal"]["fitted_on"] == f["fitted_on"],
-                          rid, f"{r['cal']} vs {want} ({of}), fitted on {f['fitted_on']}")
-                T.add("calibration: 'calibrated' in p.under", "calibrated" in p.get("under", ""), rid, p.get("under"))
-            elif level == "local" and r["src"] in ("medsl", "in_enr") and r["year"] in (2022, 2024):
-                T.add("local 2022/2024 MEDSL p without a calibration block", False, rid, f"{r['route']} {p.get('under')}")
+                    T.add("calibration: calibration_not_of_record's factor, 'of' and fitted_on match calibration-local.json (own by office type else pooled)",
+                          abs(co["factor"] - want) <= 6e-4 and co["of"] == of and co["fitted_on"] == f["fitted_on"], rid,
+                          f"{co} vs {want} ({of}), fitted on {f['fitted_on']}")
+                    k_ = co["factor"]
+                    if r["route"] in ("class", "boundary"):
+                        if p.get("method") == "exact":
+                            s2 = D.sd_eq(p["f_half"] * k_)
+                            would = M.p_exact(n, 0.5, s2)
+                            elo2, ehi2 = max(1e-9, 0.5 - 12 * s2), min(1 - 1e-9, 0.5 + 12 * s2)
+                            would_r = M.p_exact(n, 0.5, s2, renormalize=True) * (stats.norm.cdf(ehi2, 0.5, s2) - stats.norm.cdf(elo2, 0.5, s2))
+                            ok = D.rel(co["value"], would) <= 2e-5 or D.rel(co["value"], would_r) <= 2e-5
+                        else:
+                            would = p["f_half"] * k_ / (2 * n)
+                            ok = D.rel(co["value"], would) <= 1e-5
+                    else:
+                        would = p["value"] * k_
+                        ok = D.rel(co["value"], would) <= 1e-5 or (p.get("method") == "exact")
+                    T.add("calibration: calibration_not_of_record.value = p with the factor (density f x factor; exact at sd_eq(f x factor))",
+                          ok, rid, f"{co['value']} vs {would:.6g} (factor {k_}, {p.get('method')})")
         T.report(f"{level} ({n_exact:,} exact sums recomputed)")
     print("\n  largest relative differences, record against my own figure:")
     for k, v in sorted(maxrel.items()):
         print(f"    {k[0]:12s} {k[1]:24s} {v:.3g}")
+
+
+def _medsl_route(r):
+    """pipeline/local_medsl.py's route: MEDSL's contests, Indiana's own of 2024 (#54), and the State Board's North
+    Carolina contests of MEDSL's general dates (certified_nc); the rest of North Carolina is local_ncsbe.py's."""
+    if r["src"] in ("medsl", "in_enr"):
+        return True
+    return r["state"] == "NC" and r["src"] == "ncsbe" and (r["date"] or "")[5:7] == "11" and r["year"] in (2018, 2020, 2022, 2024)
 
 
 if __name__ == "__main__":
