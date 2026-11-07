@@ -122,6 +122,7 @@ def join_statewide(contests, year):
     state is still read from its counties and precincts (measures.scope_of): a question the source holds for part of
     the state stays partial, and gets no p."""
     listed = [q for q in _listed() if q["year"] == year]
+    JOINED[year] = collections.Counter()   # this load's joins (a year may be loaded more than once)
     if not listed:
         return contests
     out, groups = [], collections.defaultdict(list)
@@ -1908,6 +1909,12 @@ def build(out_dir, with_p=True):
                                "are joined into one statewide question (data/measure/statewide-filed-local.json)")
                 rec["listed_statewide"] = {"list": q["list"], "quote": q["quote"], "mark": q["mark"],
                                            "lines_joined": fl["records"]}
+                for k_ in ("type", "type_mark", "fact"):   # what the list shows, beside the rule it decided
+                    if q.get(k_) is not None:
+                        rec["listed_statewide"][k_] = ({x: q[k_].get(x) for x in ("applies", "quote", "why", "mark")}
+                                                       if k_ == "fact" else q[k_])
+                if q.get("proposer"):
+                    rec["listed_statewide"]["proposer"] = {"who": q["proposer"]["who"], "mark": q["proposer"]["mark"]}
                 if q.get("state_total"):   # the state's own statewide figures, where a page read prints them
                     st_ = q["state_total"]
                     ours = {x["name"].upper(): x["votes"] for x in c["candidates"]}
