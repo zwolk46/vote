@@ -243,10 +243,12 @@
 - `question.subject` is the question's ballot text, as the site gives it.
 
 **From Louisiana's official results, 2024** (`pipeline/intake/la_sos.py`, `pipeline/local_la.py`; `data/local/2024/LA.json`, `data/measure/2024/LA.json`):
-- **The source.** `result.source` is `la_sos`: the Secretary of State's results site, one workbook for each of 2024's four dates, each marked official on the site's list of elections. It matches D1's and D2's certified federal counts, so it takes the place of MEDSL's Louisiana file, which counts Election Day only and is held back (`data/local/check-la.json`; REPORT §12). The presidency and Congress stay D1's and D2's. The parties' own committees are left out.
+- **The source.** `result.source` is `la_sos`: the Secretary of State's results site, one workbook for each of 2024's four dates, each marked official on the site's list of elections. It matches D1's and D2's certified federal counts, so it takes the place of MEDSL's Louisiana file, which counts Election Day only and is held back (`data/local/check-la.json`; REPORT §12). The presidency and Congress stay D1's and D2's. The parties' own committees are in (below).
 - **`election`: which round, in words** [inferred: from the four dates and the contests the source repeats]:
   - `first round: Louisiana's primary, its general election followed on <date>` or `first round: Louisiana's primary, decided in it (no general election of this contest followed)` marks a contest on a primary date (2024-03-23, 2024-11-05). Its p is not computed (model section 7). Its candidates on the general's ballot have `won` `"to runoff"`.
   - `deciding round after an earlier round on <date> (Louisiana's general election after its primary)` marks a contest on a general date (2024-04-27, 2024-12-07) whose primary held the same contest. It takes the routes' classes.
+  - `the party's own election of its committee's members, held with the presidential preference primary and decided in it: the most votes are elected (La. R.S. 18:443, 18:444) [stated]` marks a party committee's contest (2024-03-23). It takes the routes of its seats and ballot.
+- **`party_office`** (the parties' committees only: DSCC, RSCC, DPEC and RPEC members): `party` (`D` or `R`); `body` (e.g. "the Democratic Party's state central committee"); `law` and `law_url`, the section of La. R.S. that sets its election; `voters`, who may vote in it, with its mark.
   - One contest on a general date has no primary in the source, and says so.
 - **`id`** ends with the contest's date, because one contest has a primary and a general in the same year.
 - **`party`**: the site's codes, read into the files' usual values: `D`, `R`, `libertarian`, `green`, `independent`, `no party` (its `NOPTY`) and `other`.
@@ -257,7 +259,7 @@
 - **`gate`** (every New Jersey record of 2024): how the record passed or failed the county gate.
   - `by` is `county` and `line` the 0.5% line. `check` names `data/local/check-nj.json`.
   - `counties` maps each of the contest's counties (FIPS) to its worst miss against the state's certified lists, for `president`, `senate` and `house` (a share, e.g. `0.0071`).
-  - `row_checks` is `passed`, or the list of checks the contest's rows failed (a repeated row, a total line among the precincts, a precinct over its federal votes times vote-for-N).
+  - `row_checks` is `passed`, or the list of checks the contest's rows failed (a repeated row, a total line among the precincts, a precinct over its ballots cast times vote-for-N, data/local/REPORT.md §13).
   - `released` is true when the gate lets the record's p be computed by its usual routes; those may still leave it out, and `p.not_computed` then says why. When false, `p.not_computed` gives the gate's reason.
   - `clerk_check` (the five sampled contests only): the county clerk's official file (`file`, `sha256`) and the `worst_miss` against it.
 
