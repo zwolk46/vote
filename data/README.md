@@ -210,3 +210,16 @@
 - `two_way`: `votes` (Yes, No), `n_other_voters` (their sum minus one) and `share_yes`.
 - `forecasts[]` with route `like past measures`: `class` (`statewide measure` or `statewide retention`), `like_measures` (how many questions of the class in earlier years), `window` (around t), `in_window` (how many of them finished in it) and `q` (their share).
 - `p` (model section 7, the threshold form): `yes`, about (1 − t) f(t) / n, the chance a Yes ballot decides; `no`, about t f(t) / n; `value`, the larger of the two, and `value_of`, which ballot it is (`either ballot` at t = ½); `event`, f(t) / n, the chance the count lands on the threshold; `threshold`, `f_t`, `n`, `under` and `method`; `note`, where the route's own back-test found more near-even finishes than it forecast, says so with the counts.
+
+**From North Carolina's State Board of Elections** (`pipeline/intake/ncsbe.py`, `pipeline/local_ncsbe.py`; every election date from 2000 with a results file):
+- `result.source` is `ncsbe`. The votes are the State Board's precinct counts, added up to the contest. The State Board names each contest in full, with its place ("CITY OF ARCHDALE MAYOR"), so its lines are joined across counties by that name. 2010 to 2013 name a county's own contests without the county, so those are joined within one county.
+- `election`: which round, in words. The source does not say which round a date holds, so each is read from the ballots [inferred]:
+  - a party's primary is a name that carries the party ("... - DEM"), or, before 2008, a contest whose candidates all carry one party code;
+  - a second primary, or a first round followed by a later one, is the same contest's name on another ballot that year;
+  - `general (odd year: municipal)` is a November date of an odd year.
+- `seats`: the source's "vote for", given from 2014 only. Earlier contests with more than one name have no seat count, so `won` is left out and a note says so.
+- `party`: `D` and `R` for the source's DEM and REP. Any other code is kept as the source writes it, in `party` and `party_code`, because its layout files give no codebook.
+- `place.counties`: FIPS codes. The source names counties, and the codes come from the county_name and county_fips columns of MEDSL's 2024 North Carolina file (the `fips` source block).
+- **Where MEDSL and the State Board hold the same contest** (North Carolina's local races and questions on MEDSL's general dates, 2016 to 2024), the State Board's counts are written in place of MEDSL's, by `pipeline/local_medsl.py`, with MEDSL's routes for p. The certified count wins (brief D3, step 2). The legislature, the governor and Congress stay MEDSL's.
+- **A file with two sources' contests.** One level, year and state can hold contests from two builds. For example, `data/local/2022/NC.json` holds MEDSL's general date and the State Board's other dates. Each build rewrites only its own contests and keeps the other's. A contest that carries its own `p.computed_by` and `p.commit` has them in place of the file's `p_computed_by` and `p_commit`.
+- `notes` names a date whose file falls short of the certified federal counts by more than 0.5%, which marks a file posted before the final count [inferred]. The 2000 and 2010 general elections are such dates (`data/local/check-ncsbe.json`, `gate`). Their counts are the State Board's posted ones.
