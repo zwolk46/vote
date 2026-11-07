@@ -39,7 +39,9 @@ parties among them; a year with fewer gets no forecast of its own (p not compute
 first). The House of 2008-2012, with one to three earlier cycles of its own, takes the national terms (c, s_a,
 (Z'Z)^-1) from the Senate's fit on the Senate's earlier cycles and fits b_lean, b_inc and s_e on its own
 (06:36, item 2; raw_model). CALIBRATION (06:36, item 3): both sds are then multiplied by k, the root mean square
-of z over the level's earlier years scored out of sample, once CAL_MIN = 3 such years exist (calibration). So the forecast for race i is normal with mean 1/2 + c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G
+of z over the level's earlier years scored out of sample, once CAL_MIN = 3 such years exist (calibration). NEAR-TIE
+CALIBRATION (07:04, round 4): the model's own p is then multiplied by F / Z, F the factor that matches earlier
+years' out-of-sample near-ties (49-51%), where adopted for the level (near_tie_test). So the forecast for race i is normal with mean 1/2 + c_0 + c_.. P_t + b_L lean_i + b_I inc_i (+ b_G
 (lag_i - 1/2)) and variance k^2 (sd_nat^2 + s_e^2); a Student-t with 4 degrees of freedom matched on the same sd
 is computed alongside (model section 9.5). The common part sd_nat^2 is what ties races together for
 control of a chamber (MATH 4.2): rho = sd_nat^2 / (sd_nat^2 + s_e^2).
@@ -1203,8 +1205,9 @@ def year_model(rows, level, year):
 # pooled, else none (D3's rule, the orchestrator 07:37). The second scheme the orchestrator named, a factor by band
 # of |mean - 1/2|, takes the band's own F (by level, else pooled over levels) and none where the band has too few
 # expected, so that no safe seat's p is raised without support at its distance. A scheme is adopted for a level only
-# if, on the years it reaches, it raises the mean log score and brings the count within 49-51% nearer the count
-# seen (near_tie_test, backtest.json "near_tie"); of two that do, the better log score.
+# if, on the years it reaches, it raises the mean log score, brings the count within 49-51% nearer the count seen,
+# and does not move the safe seats' count (|mean - 1/2| of 0.10 or more) further from theirs (near_tie_test,
+# backtest.json "near_tie"); of two that do, the better log score.
 # Reason: about 20% too few near-even finishes means p near even is about 20% low, which understates exactly the
 # races law 1a says the site must show.
 NEAR_W = 0.01
@@ -1304,6 +1307,7 @@ def _near_score(rows, level, scheme, years):
     coverage, and expected against seen within 1, 2 and 5 points of one half."""
     n, ls, cov = 0, 0.0, [0, 0, 0]
     win = {w: [0.0, 0] for w in NEAR_WINDOWS}
+    by_band = {b: [0.0, 0] for b in range(len(NEAR_BANDS))}
     for (L, T), rs in sorted(_near_scored(rows).items()):
         if L != level or T not in years:
             continue
@@ -1322,7 +1326,12 @@ def _near_score(rows, level, scheme, years):
             for w in NEAR_WINDOWS:
                 win[w][0] += (near_q(mu, sd, w=w) + (F - 1) * q1) / Z
                 win[w][1] += abs(y - 0.5) < w
+            bb = by_band[near_band(mu)]
+            bb[0] += F * q1 / Z
+            bb[1] += inside
     return {"races": n, "mean_log_score": ls / n if n else None,
+            "within_49_51_by_band": {f"|mean - 1/2| from {NEAR_BANDS[b]:.2f}": {"expected": v[0], "seen": v[1]}
+                                     for b, v in by_band.items()},
             "coverage": {q: c_ / n for q, c_ in zip(("0.5", "0.8", "0.95"), cov)} if n else None,
             "within": {f"{50 - round(w * 100)}-{50 + round(w * 100)}%": {"expected": v[0], "seen": v[1]}
                        for w, v in win.items()}}
@@ -1354,7 +1363,13 @@ def near_tie_test(rows):
                 better_ls = r["mean_log_score"] > b0["mean_log_score"]
                 nearer = abs(r["within"][k49]["expected"] - r["within"][k49]["seen"]) < \
                     abs(b0["within"][k49]["expected"] - b0["within"][k49]["seen"])
-                r["improves"] = bool(better_ls and nearer)
+                # the safe seats (the last band): a factor must not move their count further from the one seen,
+                # so that no safe seat's p is raised without support at its distance (the orchestrator, 07:04)
+                kb = f"|mean - 1/2| from {NEAR_BANDS[-1]:.2f}"
+                safe_ok = abs(r["within_49_51_by_band"][kb]["expected"] - r["within_49_51_by_band"][kb]["seen"]) <= \
+                    abs(b0["within_49_51_by_band"][kb]["expected"] - b0["within_49_51_by_band"][kb]["seen"])
+                r["raises_log_score"], r["count_nearer"], r["safe_seats_supported"] = better_ls, nearer, safe_ok
+                r["improves"] = bool(better_ls and nearer and safe_ok)
                 if r["improves"] and (best is None or r["mean_log_score"] > res[best]["mean_log_score"]):
                     best = sch
         res["adopted"] = best
