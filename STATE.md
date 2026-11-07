@@ -51,6 +51,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 05:08: D3 report 1: PR #25 (Klarner state legislatures 1967-2022 by script, 189,103 contests; the record's 52 of 109,093 reproduced exactly). Method D3-v1 approved with earlier-years-only fits (MODEL §3 "like past races"), the minimum cycles chosen by back-test; (b) 25q/n by class approved; (c) multi-seat boundary marked unchecked for M2. Size: plain compact JSON, not .json.gz; go if pack growth is under ~50 MB and no file is over 20 MB, measured first (replaces the 100 MB line). Runoff second rounds: computed as two-way, marked; first rounds not. #25 gated when D3 finishes its p.
+
 - 2026-11-07 05:05: the maker (project chat, 05:03) asked only for confirmation that desktop and mobile are both in the works; confirmed from fit.cjs on the options branch (320-430 px at 1-2x text; 900-1440 px; 390x664, 360x640, 1280x720; light and dark). No change of direction.
 
 - 2026-11-07 05:02: X1 reported its first-screen options (A Ruler, B Ballot; C dropped); ten cold readings in design/FIRST-SCREEN-READINGS.md (round 2: all six right; the weighing itself left to the explainer); text ledger A 4 sentences, B 3; fit 240 views 0 findings. The orchestrator built 489deb6 and looked by eye at 375 px, light and dark: clean (a line under B's "Your ballot" in a full-page shot is the sticky trip bar stitched, not seen when scrolling). Sent to the maker with a decision card (A recommended). #19 (spec v2) merged. X1 now on X2.
