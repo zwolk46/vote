@@ -1,11 +1,11 @@
 {
  "tallies": {
   "medsl contest without a like-named Klarner contest": 699,
-  "matched": 4130,
+  "matched": 4122,
   "same winner": 4041,
   "D and R votes identical": 3426,
-  "winner differs": 89,
-  "a major party's candidate in one source only": 94,
+  "winner differs": 81,
+  "a major party's candidate in one source only": 86,
   "two-party share within 1 point, counts differ": 574,
   "two-party share differs by more than 1 point": 36
  },
@@ -129,13 +129,12 @@
    "D and R votes identical": 4
   },
   "MI": {
-   "matched": 157,
+   "matched": 149,
    "same winner": 146,
    "two-party share within 1 point, counts differ": 17,
    "D and R votes identical": 121,
    "two-party share differs by more than 1 point": 11,
-   "winner differs": 11,
-   "a major party's candidate in one source only": 8
+   "winner differs": 3
   },
   "MN": {
    "matched": 67,
@@ -1027,142 +1026,6 @@
    "same_winner": true
   },
   {
-   "state": "MI",
-   "chamber": "state-upper",
-   "district": "31",
-   "klarner": [
-    47413,
-    82383
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "MI",
-   "chamber": "state-lower",
-   "district": "43",
-   "klarner": [
-    12771,
-    30920
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "MI",
-   "chamber": "state-lower",
-   "district": "86",
-   "klarner": [
-    17222,
-    22091
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "MI",
-   "chamber": "state-upper",
-   "district": "30",
-   "klarner": [
-    63363,
-    63754
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "MI",
-   "chamber": "state-upper",
-   "district": "33",
-   "klarner": [
-    36915,
-    77239
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "MI",
-   "chamber": "state-lower",
-   "district": "89",
-   "klarner": [
-    12374,
-    27497
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "MI",
-   "chamber": "state-lower",
-   "district": "88",
-   "klarner": [
-    20416,
-    27448
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "MI",
-   "chamber": "state-lower",
-   "district": "85",
-   "klarner": [
-    13336,
-    32848
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
    "state": "NM",
    "chamber": "state-lower",
    "district": "16",
@@ -1365,23 +1228,6 @@
    "medsl_over_klarner": 0.0,
    "what": "a major party's candidate in one source only",
    "same_winner": true
-  },
-  {
-   "state": "WY",
-   "chamber": "state-lower",
-   "district": "62",
-   "klarner": [
-    0,
-    2518
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
   },
   {
    "state": "WY",
@@ -1624,23 +1470,6 @@
   {
    "state": "WY",
    "chamber": "state-lower",
-   "district": "25",
-   "klarner": [
-    0,
-    2585
-   ],
-   "medsl": [
-    0,
-    0
-   ],
-   "relative": 1.0,
-   "medsl_over_klarner": 0.0,
-   "what": "a major party's candidate in one source only",
-   "same_winner": false
-  },
-  {
-   "state": "WY",
-   "chamber": "state-lower",
    "district": "51",
    "klarner": [
     0,
@@ -1705,6 +1534,40 @@
    "medsl_over_klarner": 0.0,
    "what": "a major party's candidate in one source only",
    "same_winner": true
+  },
+  {
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "62",
+   "klarner": [
+    0,
+    2518
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
+  },
+  {
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "25",
+   "klarner": [
+    0,
+    2585
+   ],
+   "medsl": [
+    0,
+    0
+   ],
+   "relative": 1.0,
+   "medsl_over_klarner": 0.0,
+   "what": "a major party's candidate in one source only",
+   "same_winner": false
   },
   {
    "state": "IN",
