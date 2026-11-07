@@ -1,5 +1,5 @@
 {
- "about": "statewide measures and retentions, like past measures out of sample (each year's class from earlier years only): expected and seen counts finishing near 1/2 (every statewide question) and near the threshold (those given a forecast). at_threshold_local is the same for local questions given p by step (b) on these dates (each state's own class); North Carolina's questions on its other dates are in data/local/backtest-ncsbe.json. Built by pipeline/local_medsl.py build.",
+ "about": "statewide measures and retentions, like past measures out of sample (each year's class from earlier years only): expected and seen counts finishing near 1/2 (every statewide question) and near the threshold (those given a forecast). at_threshold_local is the same for local questions given p by step (b) on these dates (each state's own class); North Carolina's questions on its other dates are in data/local/backtest-ncsbe.json. near_votes: the same within 1,000 to 50,000 votes of the threshold. lean_notes_local: for each local class, the two tests of the orchestrator's ruling of 11:01 (as amended at 13:52) and the note they give, and lean_notes_statewide the same for the statewide classes near 1/2 (data/local/REPORT.md section 18). Built by pipeline/local_medsl.py build.",
  "near_half": {
   "2018 statewide measure (trained on 83)": {
    "measures": 87,
@@ -175,6 +175,36 @@
      "expected": 3.0,
      "seen": 9
     }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 1,000 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 5,000 votes": {
+     "expected": 0.1,
+     "seen": 0
+    },
+    "within 10,000 votes": {
+     "expected": 0.3,
+     "seen": 0
+    },
+    "within 20,000 votes": {
+     "expected": 0.7,
+     "seen": 0
+    },
+    "within 50,000 votes": {
+     "expected": 1.9,
+     "seen": 3
+    }
    }
   },
   "2024": {
@@ -196,6 +226,36 @@
      "expected": 6.9,
      "seen": 15
     }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 1,000 votes": {
+     "expected": 0.0,
+     "seen": 1
+    },
+    "within 5,000 votes": {
+     "expected": 0.3,
+     "seen": 2
+    },
+    "within 10,000 votes": {
+     "expected": 0.7,
+     "seen": 3
+    },
+    "within 20,000 votes": {
+     "expected": 1.4,
+     "seen": 6
+    },
+    "within 50,000 votes": {
+     "expected": 4.6,
+     "seen": 7
+    }
    }
   },
   "all years": {
@@ -216,6 +276,36 @@
     "within 5%": {
      "expected": 9.9,
      "seen": 24
+    }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 0.0,
+     "seen": 0
+    },
+    "within 1,000 votes": {
+     "expected": 0.0,
+     "seen": 1
+    },
+    "within 5,000 votes": {
+     "expected": 0.5,
+     "seen": 2
+    },
+    "within 10,000 votes": {
+     "expected": 1.0,
+     "seen": 3
+    },
+    "within 20,000 votes": {
+     "expected": 2.1,
+     "seen": 6
+    },
+    "within 50,000 votes": {
+     "expected": 6.5,
+     "seen": 10
     }
    }
   }
@@ -240,6 +330,36 @@
      "expected": 12.9,
      "seen": 6
     }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 1.1,
+     "seen": 2
+    },
+    "within 100 votes": {
+     "expected": 7.0,
+     "seen": 6
+    },
+    "within 1,000 votes": {
+     "expected": 19.2,
+     "seen": 16
+    },
+    "within 5,000 votes": {
+     "expected": 34.0,
+     "seen": 33
+    },
+    "within 10,000 votes": {
+     "expected": 41.8,
+     "seen": 38
+    },
+    "within 20,000 votes": {
+     "expected": 49.3,
+     "seen": 43
+    },
+    "within 50,000 votes": {
+     "expected": 56.0,
+     "seen": 54
+    }
    }
   },
   "2018": {
@@ -260,6 +380,36 @@
     "within 5%": {
      "expected": 10.4,
      "seen": 14
+    }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 0.4,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 3.6,
+     "seen": 8
+    },
+    "within 1,000 votes": {
+     "expected": 19.2,
+     "seen": 21
+    },
+    "within 5,000 votes": {
+     "expected": 36.4,
+     "seen": 38
+    },
+    "within 10,000 votes": {
+     "expected": 42.0,
+     "seen": 40
+    },
+    "within 20,000 votes": {
+     "expected": 46.7,
+     "seen": 46
+    },
+    "within 50,000 votes": {
+     "expected": 51.1,
+     "seen": 51
     }
    }
   },
@@ -282,6 +432,36 @@
      "expected": 4.3,
      "seen": 2
     }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 0.1,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 1.7,
+     "seen": 1
+    },
+    "within 1,000 votes": {
+     "expected": 11.0,
+     "seen": 14
+    },
+    "within 5,000 votes": {
+     "expected": 17.0,
+     "seen": 17
+    },
+    "within 10,000 votes": {
+     "expected": 18.0,
+     "seen": 18
+    },
+    "within 20,000 votes": {
+     "expected": 19.1,
+     "seen": 19
+    },
+    "within 50,000 votes": {
+     "expected": 19.7,
+     "seen": 19
+    }
    }
   },
   "2022": {
@@ -302,6 +482,36 @@
     "within 5%": {
      "expected": 4.9,
      "seen": 3
+    }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 0.5,
+     "seen": 0
+    },
+    "within 100 votes": {
+     "expected": 3.2,
+     "seen": 3
+    },
+    "within 1,000 votes": {
+     "expected": 8.5,
+     "seen": 7
+    },
+    "within 5,000 votes": {
+     "expected": 13.9,
+     "seen": 14
+    },
+    "within 10,000 votes": {
+     "expected": 16.4,
+     "seen": 16
+    },
+    "within 20,000 votes": {
+     "expected": 18.6,
+     "seen": 18
+    },
+    "within 50,000 votes": {
+     "expected": 21.7,
+     "seen": 20
     }
    }
   },
@@ -324,6 +534,36 @@
      "expected": 46.1,
      "seen": 46
     }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 17.8,
+     "seen": 9
+    },
+    "within 100 votes": {
+     "expected": 112.1,
+     "seen": 98
+    },
+    "within 1,000 votes": {
+     "expected": 250.3,
+     "seen": 253
+    },
+    "within 5,000 votes": {
+     "expected": 302.9,
+     "seen": 306
+    },
+    "within 10,000 votes": {
+     "expected": 317.5,
+     "seen": 322
+    },
+    "within 20,000 votes": {
+     "expected": 326.3,
+     "seen": 328
+    },
+    "within 50,000 votes": {
+     "expected": 332.8,
+     "seen": 334
+    }
    }
   },
   "all years": {
@@ -344,6 +584,36 @@
     "within 5%": {
      "expected": 78.5,
      "seen": 71
+    }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 19.9,
+     "seen": 11
+    },
+    "within 100 votes": {
+     "expected": 127.7,
+     "seen": 116
+    },
+    "within 1,000 votes": {
+     "expected": 308.2,
+     "seen": 311
+    },
+    "within 5,000 votes": {
+     "expected": 404.2,
+     "seen": 408
+    },
+    "within 10,000 votes": {
+     "expected": 435.6,
+     "seen": 434
+    },
+    "within 20,000 votes": {
+     "expected": 460.1,
+     "seen": 454
+    },
+    "within 50,000 votes": {
+     "expected": 481.4,
+     "seen": 478
     }
    }
   },
@@ -366,6 +636,36 @@
      "expected": 39.7,
      "seen": 41
     }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 17.6,
+     "seen": 9
+    },
+    "within 100 votes": {
+     "expected": 110.4,
+     "seen": 97
+    },
+    "within 1,000 votes": {
+     "expected": 240.7,
+     "seen": 244
+    },
+    "within 5,000 votes": {
+     "expected": 281.7,
+     "seen": 287
+    },
+    "within 10,000 votes": {
+     "expected": 291.0,
+     "seen": 296
+    },
+    "within 20,000 votes": {
+     "expected": 296.9,
+     "seen": 298
+    },
+    "within 50,000 votes": {
+     "expected": 300.9,
+     "seen": 302
+    }
    }
   },
   "all years local measure, NC": {
@@ -387,7 +687,114 @@
      "expected": 38.9,
      "seen": 30
     }
+   },
+   "near_votes": {
+    "within 10 votes": {
+     "expected": 2.3,
+     "seen": 2
+    },
+    "within 100 votes": {
+     "expected": 17.4,
+     "seen": 19
+    },
+    "within 1,000 votes": {
+     "expected": 67.5,
+     "seen": 67
+    },
+    "within 5,000 votes": {
+     "expected": 122.5,
+     "seen": 121
+    },
+    "within 10,000 votes": {
+     "expected": 144.6,
+     "seen": 138
+    },
+    "within 20,000 votes": {
+     "expected": 163.2,
+     "seen": 156
+    },
+    "within 50,000 votes": {
+     "expected": 180.5,
+     "seen": 176
+    }
    }
+  }
+ },
+ "lean_notes_statewide": {
+  "statewide measure": {
+   "questions": 259,
+   "share_test": {
+    "expected": 6.8,
+    "seen": 11,
+    "counts": true,
+    "leans": "more",
+    "line": "within 1% of \u00bd"
+   },
+   "vote_test": {
+    "expected": 6.2,
+    "seen": 10,
+    "counts": true,
+    "leans": "more",
+    "line": "within 20,000 votes"
+   },
+   "note": "this route's back-test of statewide measures shows more near-even finishes than it forecast (11 against 6.8 within 1 point of \u00bd, and 10 against 6.2 within 20,000 votes, 2018 to 2024), so p may be low",
+   "stands_on": "both tests"
+  },
+  "statewide retention": {
+   "questions": 79,
+   "share_test": {
+    "expected": 0.0,
+    "seen": 2,
+    "counts": false,
+    "leans": "more",
+    "line": "within 1% of \u00bd"
+   },
+   "vote_test": {
+    "counts": false,
+    "why": "under 5 expected at every line up to 50,000 votes"
+   },
+   "note": null,
+   "why_none": "neither test counts"
+  }
+ },
+ "lean_notes_local": {
+  "local measure, LA": {
+   "questions": 304,
+   "share_test": {
+    "expected": 7.1,
+    "seen": 8,
+    "counts": true,
+    "leans": "more",
+    "line": "within 1% of the threshold"
+   },
+   "vote_test": {
+    "expected": 17.6,
+    "seen": 9,
+    "counts": true,
+    "leans": "fewer",
+    "line": "within 10 votes"
+   },
+   "note": null,
+   "why_none": "the two tests lean opposite ways"
+  },
+  "local measure, NC": {
+   "questions": 190,
+   "share_test": {
+    "expected": 6.5,
+    "seen": 5,
+    "counts": true,
+    "leans": "fewer",
+    "line": "within 1% of the threshold"
+   },
+   "vote_test": {
+    "expected": 17.4,
+    "seen": 19,
+    "counts": true,
+    "leans": "more",
+    "line": "within 100 votes"
+   },
+   "note": null,
+   "why_none": "the two tests lean opposite ways"
   }
  }
 }
