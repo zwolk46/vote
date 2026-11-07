@@ -776,6 +776,14 @@ def _cands(c):
     return out
 
 
+# What the model's own partisan forecast knows of the seat, by its class (orchestrator, 2026-11-07 09:31: "mark each
+# class C p block in the files as a chamber average ... the site and M2 must be able to tell them apart without reading
+# REPORT"). The lean is the chamber's in every class (partisan_rows: the mean D share of the chamber's contested seats
+# at its previous election); A adds the seat's own last result and B whether the seat was last won unopposed, so only
+# class C knows nothing of the seat but its incumbency.
+FORECAST_SCOPE = {"A": "district (class A)", "B": "district (class B)", "C": "chamber average (class C)"}
+
+
 def _p_block(n, mean, sd, under, commit, alongside=None):
     r = core.p_contest(n, mean, sd, "normal")
     out = {"value": r["p"], "event": r["event"], "under": under, "method": r["method"], "f_half": r["f_half"],
@@ -968,6 +976,7 @@ def build(out_dir, with_p=False, sample=False):
                 t4 = core.p_contest(n, mean, sd, "t4")
                 p = _p_block(n, mean, sd, f"the model's own ({METHOD}), normal", commit,
                              {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+                p["forecast_scope"] = FORECAST_SCOPE[r_["cls"]]
                 counts["p computed: partisan"] += 1
             else:
                 p["not_computed"] = "awaiting the orchestrator's approval of the forecast method (brief step 3)"
