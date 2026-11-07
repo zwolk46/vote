@@ -216,7 +216,7 @@ def medsl_shape(year=YEAR):
         parishes = sorted({fips[_key(p)] for p in c["parishes"] if _key(p) in fips})
         statewide = len(parishes) == N_PARISHES
         r = rd[id(c)]
-        title = _base(c["title"]).upper()
+        title = ", ".join(x for x in (c["office"], c["place"]) if x).upper()   # "MAYOR, TOWN OF MELVILLE"
         base = {"state": "LA", "date": c["date"], "stage": "GEN", "special": False, "subject": None,
                 "precincts": None, "counties": parishes, "source": SOURCE_KEY, "id_date": True,
                 "election_words": election_words(r, c["date"]),
