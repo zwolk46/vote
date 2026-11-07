@@ -486,12 +486,32 @@ def stage_two(entries, s_e, sd_a, pivotal_weights, grid_points=401):
     return out, seats, fixed_D
 
 
+# Two Senate specials of 2006-2024 that the November record and Cha, Kuriwaki and Snyder do not settle by
+# themselves, each with the U.S. Senate's own words (pipeline/intake/party_divisions.py, 111th Congress):
+OFF_DATE_SPECIALS = {
+    # held before November: its winner holds the seat in November, which is not up
+    (2010, "MA"): "U.S. Senate, Party Division, 111th Congress, note 4: \"Scott Brown (R) of Massachusetts, "
+                  "elected January 19, 2010, was seated, replacing appointed Senator Paul Kirk (D).\"",
+}
+SAME_SEAT_SPECIALS = {
+    # held the same day as the regular election for the same seat: it fills the weeks before the new Senate
+    # meets, and only the regular election counts for control
+    (2010, "IL"): "U.S. Senate, Party Division, 111th Congress, note 5: \"Mark Kirk (R) of Illinois, elected "
+                  "November 2, 2010, was seated, replacing appointed Senator Roland Burris (D).\" The seat is "
+                  "Illinois's class 3 seat, whose regular election was the same day (FEC, Federal Elections 2010: "
+                  "\"Unexpired term\")",
+}
+
+
 def senate_not_up(year):
-    """The seats not up in year t, each held by the winner of its latest election before t (Cha, Kuriwaki
-    and Snyder; the deciding round, runoffs included), counted by caucus. Class from the year: a regular
-    election in 2006, 2012, 2018, 2024 is class 1; 2008, 2014, 2020 class 2; 2010, 2016, 2022 class 3; a
-    special's class is that of the year its term ends (next_up). Specials whose term ends at the new
-    Congress (next_up = t) do not count."""
+    """The seats not up in year t, each held by the winner of its latest election before t, counted by
+    caucus. Winners from Cha, Kuriwaki and Snyder (2006 on; the deciding round, runoffs included); for a
+    seat last elected before 2006, from MEDSL's U.S. Senate 1976-2024 (the most votes in that election).
+    Class from the year: a regular election in 2006, 2012, 2018, 2024 is class 1; 2008, 2014, 2020 class 2;
+    2010, 2016, 2022 class 3; a special's class is that of the year its term ends (next_up). Specials whose
+    term ends at the new Congress (next_up = t) do not count; a special held earlier in year t
+    (OFF_DATE_SPECIALS) holds its seat in November. Returns ({(state, class): (year, caucus, name, source
+    key)}, the set of seats up)."""
     cha = _load("cha/normalized/contests.json")["contests"]
 
     def cls(y):
@@ -517,10 +537,11 @@ def senate_not_up(year):
                 k = (c["state"], min(nxt, key=nxt.get))
         else:
             k = (c["state"], cls(c["year"]))
-        if c["year"] == year:
+        before = c["year"] < year or (c["year"] == year and c["special"] and (year, c["state"]) in OFF_DATE_SPECIALS)
+        if c["year"] == year and not before:
             up.add(k)
             continue
-        if c["year"] > year:
+        if not before:
             continue
         w = [a for a in c["candidates"] if a["won"] == 1]
         if not w:
@@ -529,9 +550,78 @@ def senate_not_up(year):
             last = w[0]["name"].split(",")[0].split()[-1]
             party = "D" if w[0]["party"] == "D" or (c["state"], last) in CAUCUS_D_LAST else \
                 "R" if w[0]["party"] == "R" else "non-D"
-            latest[k] = (c["year"], party, w[0]["name"])
+            latest[k] = (c["year"], party, w[0]["name"], "cha")
+    # seats last elected before Cha begins (2006): MEDSL's regular elections of the six years before t
+    medsl = _load("medsl/normalized/senate.json")["contests"]
+    for st, cl_set in classes.items():
+        for cl in cl_set:
+            k = (st, cl)
+            if k in up or k in latest:
+                continue
+            past = [c for c in medsl if c["state"] == st and not c["special"] and year - 6 <= c["year"] < year
+                    and cls(c["year"]) == cl]
+            if not past:
+                continue
+            c = max(past, key=lambda c: c["year"])
+            w = max(c["candidates"], key=lambda a: a["votes"] or 0)
+            labels = " ".join(w["parties"]).upper()
+            party = "D" if "DEMOCRAT" in labels else "R" if "REPUBLICAN" in labels else "non-D"
+            latest[k] = (c["year"], party, w["name"], "medsl_senate")
     held = {k: v for k, v in latest.items() if k not in up}
     return held, up
+
+
+def division_check(d, level, year, held):
+    """Seats the Democrats (with the independents who caucus with them) and the Republicans won, counted
+    from Cha, Kuriwaki and Snyder's winners (the deciding round), plus the seats not up, against the
+    division the new Congress opened with (pipeline/intake/party_divisions.py)."""
+    div = _load("divisions/normalized/divisions.json")
+    n = str((year - 1788) // 2 + 1)
+    cha = _load("cha/normalized/contests.json")["contests"]
+    won = {"D": 0, "R": 0, "other": 0, "no winner in the check source": 0}
+    for c in d["contests"]:
+        st2 = c.get("stage_two") or {}
+        if not st2.get("of"):
+            continue
+        st, dist = c["place"]["state"], c["place"]["district"]
+        cs = [x for x in cha if x["year"] == year and x["office"] == level and x["state"] == st
+              and bool(x["special"]) == bool(c["special"])
+              and (level == "senate" or (x["district"] or "") in (dist, "01" if dist == "AL" else dist))]
+        if level == "senate" and not cs:
+            # one source calls it a special and the other does not (Arizona 2020): the state's only contest
+            alt = [x for x in cha if x["year"] == year and x["office"] == level and x["state"] == st]
+            cs = alt if len(alt) == 1 else cs
+        w = [a for x in cs for a in x["candidates"] if a["won"] == 1]
+        if not w:
+            won["no winner in the check source"] += 1
+            continue
+        last = w[-1]["name"].split(",")[0].split()[-1]
+        won["D" if w[-1]["party"] == "D" or (st, last) in CAUCUS_D_LAST else "R" if w[-1]["party"] == "R"
+            else "other"] += 1
+    out = {"of": f"the {n}th Congress at its opening", "won_in_this_file": won}
+    if level == "senate":
+        nu = {"D": sum(1 for v in held.values() if v[1] == "D"), "R": sum(1 for v in held.values() if v[1] == "R"),
+              "other": sum(1 for v in held.values() if v[1] == "non-D")}
+        out["not_up"] = nu
+        out["counted"] = {"D_caucus": won["D"] + nu["D"], "R": won["R"] + nu["R"], "other": won["other"] + nu["other"]}
+        x = div["senate"].get(n)
+        out["division"] = ({"D": x["D"], "R": x["R"], "other": x["other"], "vacant": x["vacant"], "from": x["from"],
+                            "notes": x["footnotes"]} if x else None)
+        if x:
+            # the page's "other" senators of 2007-2025 are independents who caucused with the Democrats (its
+            # notes say so); a winner counted "other" here is one who did not run as a Democrat or a
+            # Republican and does not caucus with the Democrats (Murkowski, a write-in in 2010)
+            out["agrees"] = (out["counted"]["D_caucus"] == x["D"] + x["other"]
+                             and out["counted"]["R"] + out["counted"]["other"] == x["R"])
+        out["source"] = "senate_gov"
+    else:
+        out["counted"] = {"D": won["D"], "R": won["R"], "other": won["other"]}
+        x = div["house"].get(n)
+        out["division"] = {"D": x["D"], "R": x["R"], "other": x["other"], "note": x["footnote"]} if x else None
+        if x:
+            out["agrees"] = out["counted"]["D"] == x["D"] and out["counted"]["R"] == x["R"]
+        out["source"] = "house_history"
+    return out
 
 
 def compute(year):
@@ -593,6 +683,11 @@ def control(d, level, year, m, sd_a, commit):
             if nu and nu[0].get("next_up") and nu[0]["next_up"] <= year:
                 c["stage_two"] = {"of": None, "inputs": {}, "source": None,
                                   "note": "the term ends when the new Senate meets; not part of control"}
+                continue
+            if (year, c["place"]["state"]) in SAME_SEAT_SPECIALS:
+                c["stage_two"] = {"of": None, "inputs": {}, "source": None,
+                                  "note": "the term ends when the new Senate meets; not part of control. "
+                                          + SAME_SEAT_SPECIALS[(year, c["place"]["state"])]}
                 continue
         kind, val, note = seat_entry(c, m, year)
         if kind == "model":
@@ -662,8 +757,23 @@ def control(d, level, year, m, sd_a, commit):
                     "vice_president": vp,
                     "expected_D_seats": float((k * seats).sum()) + fixed_D + (sum(1 for v in held.values() if v[1] == "D") if held else 0),
                     "common_swing_sd": sd_a, "own_sd": s_e, "commit": commit,
-                    "not_up_source": ("Cha, Kuriwaki and Snyder: the winner of each seat's latest election before "
-                                      f"{year}") if held else None}
+                    "not_up_source": ("the winner of each seat's latest election before "
+                                      f"{year}: Cha, Kuriwaki and Snyder from 2006, MEDSL's U.S. Senate 1976-2024 "
+                                      "before" + "".join(f"; {v}" for (y, st), v in OFF_DATE_SPECIALS.items()
+                                                          if y == year)) if held else None,
+                    "seats_not_up_list": ({f"{k[0]} class {k[1]}": {"elected": v[0], "caucus": v[1], "name": v[2],
+                                                                    "source": v[3]} for k, v in sorted(held.items())}
+                                          if held else None)}
+    d["chamber"]["check"] = division_check(d, level, year, held)
+    divs = _load("divisions/normalized/divisions.json")["sources"]
+    d["sources"][d["chamber"]["check"]["source"]] = divs[d["chamber"]["check"]["source"]]
+    if held and any(v[3] == "medsl_senate" for v in held.values()):
+        i = _load("medsl/normalized/senate.json")["source"]
+        d["sources"]["medsl_senate"] = cc.source_block(
+            "MIT Election Data and Science Lab, U.S. Senate statewide 1976-2024, Harvard Dataverse "
+            "doi:10.7910/DVN/PEJ5QU, " + str(i.get("version")), i["file"]["url"], i["file"]["read_utc"],
+            i.get("licence"), mark="stated", via="https://doi.org/10.7910/DVN/PEJ5QU",
+            note="the winner of a seat last elected before 2006 is the candidate with the most votes")
 
 
 PRES = None

@@ -199,7 +199,38 @@ def parse_year(year):
                 a["combined_printed"] = r["combined"]
             if r["winner"]:
                 a["winner_marked"] = True
+        # A fusion candidate's party lines sometimes carry two FEC ids that differ by a digit (Connecticut 2010,
+        # Blumenthal: S0CT00177 on the Democratic line, S0CT00178 on the Working Families line). Lines of one
+        # contest with the same printed name are one candidate's; they are summed, and the merge is noted.
+        by_name = {}
+        for k in list(cands):
+            a = cands[k]
+            if a["scattered"]:
+                continue
+            nm = re.sub(r"\s+", " ", a["name"]).strip().rstrip(",").lower()
+            if nm in by_name and by_name[nm] != k:
+                b = cands[by_name[nm]]
+                for p_ in a["parties"]:
+                    if p_ not in b["parties"]:
+                        b["parties"].append(p_)
+                for f in ("votes", "runoff_votes"):
+                    if a[f] is not None:
+                        b[f] = (b[f] or 0) + a[f]
+                b["incumbent"] = b["incumbent"] or a["incumbent"]
+                b["winner_marked"] = b["winner_marked"] or a["winner_marked"]
+                b["combined_printed"] = b["combined_printed"] if b["combined_printed"] is not None else a["combined_printed"]
+                c["notes"].add(f"{a['name']}: lines under FEC ids {b['fec_id']} and {a['fec_id']} are one "
+                                  f"candidate's (same name in the contest) and are summed")
+                del cands[k]
+            else:
+                by_name[nm] = k
         cl = [a for a in cands.values() if a["votes"] is not None or a["text"]]
+        if not cl:
+            # a district cell with no candidate under it (2018: a "CA" row read as an at-large district;
+            # 2006: Ohio's 3rd and 18th marked with an asterisk and no special-election lines): no contest
+            print(f"   {c['state']} {c['office']} {c['district'] or ''}{' special' if c['special'] else ''}: "
+                  f"no candidate lines; not a contest")
+            continue
         checks = []
         for nm, tot in c.get("combined_lines", []):
             for a in cl:
