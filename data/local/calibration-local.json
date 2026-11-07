@@ -413,8 +413,8 @@
     "seen_near_half": 54,
     "expected_before": 60.5,
     "expected_after": 54.7,
-    "deviance_by_office_type_before": 12.47,
-    "deviance_after": 11.75,
+    "deviance_by_office_type_before": 11.54,
+    "deviance_after": 10.82,
     "improves": true,
     "tested_cells_made_worse": [
      "partisan, local council, commission or board"
@@ -457,6 +457,12 @@
       "seen": 1,
       "tested": false
      },
+     "partisan, state statewide officer": {
+      "expected_before": 1.5,
+      "expected_after": 1.4,
+      "seen": 2,
+      "tested": false
+     },
      "partisan, state judge": {
       "expected_before": 1.3,
       "expected_after": 1.2,
@@ -469,34 +475,22 @@
       "seen": 1,
       "tested": false
      },
-     "partisan, state council, commission or board": {
-      "expected_before": 0.7,
-      "expected_after": 0.6,
-      "seen": 0,
-      "tested": false
-     },
-     "partisan, state prosecutor": {
-      "expected_before": 0.7,
-      "expected_after": 0.6,
-      "seen": 1,
-      "tested": false
-     },
      "partisan, local mayor or executive": {
       "expected_before": 0.5,
       "expected_after": 0.5,
       "seen": 0,
       "tested": false
      },
-     "partisan, state clerk, treasurer or other county officer": {
-      "expected_before": 0.5,
-      "expected_after": 0.5,
+     "partisan, state prosecutor": {
+      "expected_before": 0.3,
+      "expected_after": 0.3,
       "seen": 1,
       "tested": false
      },
-     "partisan, state other local office": {
-      "expected_before": 0.4,
+     "partisan, state council, commission or board": {
+      "expected_before": 0.3,
       "expected_after": 0.3,
-      "seen": 1,
+      "seen": 0,
       "tested": false
      },
      "partisan, local special district": {
@@ -511,7 +505,7 @@
       "seen": 0,
       "tested": false
      },
-     "partisan, state statewide officer": {
+     "partisan, state clerk, treasurer or other county officer": {
       "expected_before": 0.1,
       "expected_after": 0.1,
       "seen": 0,
