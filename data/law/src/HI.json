@@ -1,0 +1,193 @@
+{
+ "state": "HI",
+ "name": "Hawaii",
+ "status": "read",
+ "code": {
+  "name": "Hawaii Revised Statutes",
+  "edition": "current Hawaii Revised Statutes (hrscurrent) as the Legislature's data site prints it; the pages carry no edition date; section 11-158 shows its latest amendment as L 2025, c 226",
+  "site": "https://data.capitol.hawaii.gov/hrscurrent/",
+  "reached": true
+ },
+ "sections": {
+  "hi-11-0001": {
+   "citation": "HRS 11-1 (definitions: 'Election')",
+   "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0011/HRS_0011-0001.htm",
+   "read_at": "state"
+  },
+  "hi-11-0157": {
+   "citation": "HRS 11-157 (in case of tie)",
+   "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0011/HRS_0011-0157.htm",
+   "read_at": "state"
+  },
+  "hi-11-0158": {
+   "citation": "HRS 11-158 (mandatory recount of votes)",
+   "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0011/HRS_0011-0158.htm",
+   "read_at": "state"
+  },
+  "hi-14-0023": {
+   "citation": "HRS 14-23 (presidential electors: time for election, number to be chosen)",
+   "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0014/HRS_0014-0023.htm",
+   "read_at": "state"
+  },
+  "hi-12-0041": {
+   "citation": "HRS 12-41 (primary: result of election)",
+   "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0012/HRS_0012-0041.htm",
+   "read_at": "state"
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "applies_to": "any election, by the statute's definition 'all elections, primary, special primary, general, special general, special, or county'; a failure of an election by equality of vote between two or more candidates",
+   "resolution": "lot",
+   "steps": "the tie is decided by lot, by the chief election officer, or by the clerk in the case of county elections",
+   "who": "the chief election officer (state elections) or the county clerk (county elections)",
+   "sources": [
+    {
+     "section": "hi-11-0157",
+     "quote": "In case of the failure of an election by reason of the equality of vote between two or more candidates, the tie shall be decided by the chief election officer or clerk in the case of county elections by lot."
+    },
+    {
+     "section": "hi-11-0001",
+     "quote": "\"Election\", all elections, primary, special primary, general, special general, special, or county, unless otherwise specifically stated."
+    }
+   ],
+   "mark": "measured",
+   "note": "11-157 says 'an election' and 'candidates' and does not name federal, statewide or legislative offices; read as covering all of them because chapter 11's definition of 'election' includes every kind of election [inferred for federal and legislative offices, stated in the text for county elections and primaries]. Hawaii has no general election runoff in the sections read. County charters were not read. Section 11-157 is in a part (X, vote disposition) whose neighbours 11-151 to 11-156 were not read."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "presidential electors, chosen at large at the general election",
+   "resolution": "lot",
+   "steps": "the election is conducted and its results determined under the laws governing general elections, so a tie among candidates is read to fall under 11-157 and is decided by lot",
+   "who": "the chief election officer",
+   "sources": [
+    {
+     "section": "hi-14-0023",
+     "quote": "The election shall be conducted and the results thereof determined in conformity with the laws governing general elections except as otherwise provided."
+    },
+    {
+     "section": "hi-11-0157",
+     "quote": "In case of the failure of an election by reason of the equality of vote between two or more candidates, the tie shall be decided by the chief election officer or clerk in the case of county elections by lot."
+    }
+   ],
+   "mark": "inferred",
+   "note": "Chapter 14 says nothing about a tie among electors; that 11-157 reaches it is the reader's reading through 14-23 [inferred]."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a ballot question that ends tied",
+   "resolution": "none-found",
+   "steps": "none found",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "11-157 speaks of equality of vote 'between two or more candidates' only. Read: 11-1, 11-157 and 11-158 of chapter 11, 12-41 and 14-23, and the contents of chapters 11, 12 and 14. 11-151 to 11-156 (vote count, certification) and Part XI (election contests) were not read, and the State Constitution was not read, so an absence elsewhere is not excluded."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary",
+    "measure"
+   ],
+   "type": "automatic",
+   "election": "all elections (primary, general, special, county)",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total number of votes cast for the contest",
+    "votes": 100,
+    "combine": "lesser-of",
+    "inclusive": true,
+    "conditions": "for an office, the difference between the votes for the candidate apparently qualified for the general election ballot or elected and the closest apparently defeated opponent; for a ballot question, the difference between affirmative and negative votes, including blank votes where applicable; whichever of 100 votes and one-half of one percent is lesser",
+    "in_words": "a margin equal to or less than one hundred votes or one-half of one percent of the votes cast in the contest, whichever is lesser, makes a recount of all votes in the contest mandatory"
+   },
+   "who_may_request": [
+    "no request: the chief election officer, or the clerk in a county election, conducts it"
+   ],
+   "cost_bearer": "the State or county (no candidate is charged for the cost of a mandatory recount)",
+   "waiver": null,
+   "sources": [
+    {
+     "section": "hi-11-0158",
+     "quote": "The chief election officer, or the clerk in the case of a county election, shall conduct a recount of all votes cast for any office or ballot question in any election if the official tabulation of all of the returns for that office or question reveals that the difference in:"
+    },
+    {
+     "section": "hi-11-0158",
+     "quote": "is equal to or less than one hundred votes or one-half of one per cent of the total number of votes cast for the contest, whichever is lesser."
+    },
+    {
+     "section": "hi-11-0158",
+     "quote": "No candidate shall be charged for the cost of a mandatory recount under this section."
+    }
+   ],
+   "mark": "measured",
+   "note": "Enacted by L 2019, c 135 and amended by L 2024, c 1 and L 2025, c 226 as the page's history shows. 'Any office or ballot question in any election' read as covering federal, statewide, legislative, local and primary contests because 'election' means all elections (11-1). Hawaii has no recount on request in the sections read: 11-158(f) says the mandatory recount is not a contest for cause; election contests (Part XI, litigation) were not read."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "type": "automatic",
+   "election": "general",
+   "threshold": {
+    "percent": 0.5,
+    "percent_of": "the total number of votes cast for the contest",
+    "votes": 100,
+    "combine": "lesser-of",
+    "inclusive": true,
+    "conditions": "as the rule above",
+    "in_words": "the same lesser of one hundred votes and one-half of one percent, read to cover the presidential election"
+   },
+   "who_may_request": [
+    "no request: the chief election officer conducts it"
+   ],
+   "cost_bearer": "the State (no candidate is charged)",
+   "waiver": null,
+   "sources": [
+    {
+     "section": "hi-14-0023",
+     "quote": "The election shall be conducted and the results thereof determined in conformity with the laws governing general elections except as otherwise provided."
+    },
+    {
+     "section": "hi-11-0158",
+     "quote": "is equal to or less than one hundred votes or one-half of one per cent of the total number of votes cast for the contest, whichever is lesser."
+    }
+   ],
+   "mark": "inferred",
+   "note": "Electors are voted on at large at the general election (14-23); that 11-158 applies to the contest for them is the reader's reading [inferred]."
+  }
+ ],
+ "unread": [
+  {
+   "what": "the same sections at www.capitol.hawaii.gov (the Legislature's main site); refused, not read there",
+   "reason": "HTTP 403 twice: 'NOT READ: HTTP 403 for https://www.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0011/' (a directory address) and 'NOT READ: HTTP 403 for https://www.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0011/HRS_0011-0158.htm' (a section address from a search result, so not a mistyped address). That host was not tried again. The Legislature's data host, data.capitol.hawaii.gov, which the Legislature also uses for its bills and archives, answered the same file paths under /hrscurrent/ with 200, and every section above was read there, one per request, four seconds apart, with the helper's curl user agent.",
+   "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0011/HRS_0011-0158.htm",
+   "tried_utc": "2026-11-07T07:23Z"
+  },
+  {
+   "what": "HRS chapter 11, part X sections 11-151 to 11-156 (vote count, certification) and Part XI (election contests)",
+   "reason": "not read: the sections that set the tie and the mandatory recount were found directly in the contents of chapter 11; contests are litigation (brief)",
+   "url": "https://data.capitol.hawaii.gov/hrscurrent/Vol01_Ch0001-0042F/HRS0011/HRS_0011-.htm",
+   "tried_utc": "2026-11-07T07:23Z"
+  }
+ ],
+ "notes": [
+  "Hawaii was read at data.capitol.hawaii.gov, the Hawaii Legislature's own document host (its HRS, session laws and bills are served there), because www.capitol.hawaii.gov answered HTTP 403 (see unread). The orchestrator ruled on 2026-11-07 (07:48 UTC) that the Legislature's data host counts as the state's own publisher of its code, not a route round the refusal. The pages are the Legislature's own, public, and were fetched by the helper with no special header.",
+  "Hawaii's recount trigger is the lesser of 100 votes and one-half of one percent, an automatic recount for every office and ballot question; the earlier reader's report did not cover Hawaii."
+ ]
+}

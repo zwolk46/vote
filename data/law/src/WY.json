@@ -1,0 +1,281 @@
+{
+ "state": "WY",
+ "name": "Wyoming",
+ "status": "read",
+ "code": {
+  "name": "Wyoming Statutes, Title 22 (Elections), Chapter 16 (Canvass and Recount)",
+  "edition": "Title 22 as the Wyoming Legislature's site publishes it in its compressed-titles PDF (file created 8 May 2026)",
+  "site": "https://wyoleg.gov/statutes/",
+  "reached": true
+ },
+ "sections": {
+  "title22": {
+   "citation": "Wyo. Stat. Title 22, Chapter 16: 22-16-105 (tie votes), 22-16-109 to 22-16-113 (recounts), 22-16-115 to 22-16-119 (state canvass; tie vote in state abstract)",
+   "url": "https://wyoleg.gov/statutes/compress/title22.pdf",
+   "read_at": "state",
+   "note": "The Legislature's own PDF of the whole title, found through a search on wyoleg.gov; the statute database pages (NXT gateway) are script-driven."
+  }
+ },
+ "ties": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative"
+   ],
+   "applies_to": "an office in the state abstract: state officers, justice of the supreme court, United States senator, representative in congress, district court and circuit court judges, members of the state legislature",
+   "resolution": "lot",
+   "steps": "the state canvassing board resolves a tie vote for an office in the state abstract at an open meeting by lots cast; for members of the state legislature, 22-16-105 sends the tie to this same rule",
+   "who": "the state canvassing board (governor, secretary of state, state auditor and state treasurer)",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "A tie vote for an office contained in the state abstract shall be resolved at an open meeting by lots cast by the state canvassing board."
+    },
+    {
+     "section": "title22",
+     "quote": "The state canvassing board is the governor, secretary of state, state auditor and state treasurer."
+    },
+    {
+     "section": "title22",
+     "quote": "the secretary of state shall tabulate a statewide abstract by counties of votes for president and vice-president, state officers, justice of the supreme court, United States senator, representative in congress, district court judges, circuit court judges, members of the state legislature and the votes for and against ballot propositions voted on by electors of a district larger than a county."
+    },
+    {
+     "section": "title22",
+     "quote": "A tie vote shall be decided at an open meeting by lots cast by the county canvassing board or other authority holding the election, except in elections for members of the state legislature, which shall be determined as provided in W.S. 22-16-119."
+    }
+   ],
+   "mark": "measured",
+   "note": "Which offices the state abstract holds comes from 22-16-116 (quoted). Whether a recount under 22-16-109(b) (a margin under 1%, which a tie meets) comes before the lot is not stated in these sections [inferred possible]; the sections do not say a recount is required first, so the resolution is recorded as the lot the sections name."
+  },
+  {
+   "kinds": [
+    "presidential-electors"
+   ],
+   "applies_to": "the vote for president and vice-president, which the state abstract holds",
+   "resolution": "lot",
+   "steps": "a tie in the vote for president and vice-president, an office contained in the state abstract, is resolved by lots cast by the state canvassing board",
+   "who": "the state canvassing board",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "A tie vote for an office contained in the state abstract shall be resolved at an open meeting by lots cast by the state canvassing board."
+    },
+    {
+     "section": "title22",
+     "quote": "the secretary of state shall tabulate a statewide abstract by counties of votes for president and vice-president, state officers, justice of the supreme court, United States senator, representative in congress, district court judges, circuit court judges, members of the state legislature and the votes for and against ballot propositions voted on by electors of a district larger than a county."
+    }
+   ],
+   "mark": "inferred",
+   "note": "Inferred: the section lists 'president and vice-president' among the votes tabulated in the state abstract, and a tie 'for an office contained in the state abstract' is resolved by lot; presidential electors are not named. Wyoming's chapter on presidential electors was not searched for another rule."
+  },
+  {
+   "kinds": [
+    "local"
+   ],
+   "applies_to": "county, municipal, school and other offices not in the state abstract",
+   "resolution": "lot",
+   "steps": "a tie vote is decided at an open meeting by lots cast by the county canvassing board or other authority holding the election",
+   "who": "the county canvassing board or other authority holding the election",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "A tie vote shall be decided at an open meeting by lots cast by the county canvassing board or other authority holding the election, except in elections for members of the state legislature, which shall be determined as provided in W.S. 22-16-119."
+    }
+   ],
+   "mark": "measured",
+   "note": "State general law (Election Code). The section's words are 'a tie vote' and 'the election'; local offices are read within them [inferred as to municipal and school offices]. Municipal charters were not read."
+  },
+  {
+   "kinds": [
+    "primary"
+   ],
+   "applies_to": "a party primary tie",
+   "resolution": "lot",
+   "steps": "22-16-105 speaks of 'a tie vote' decided by lots without limiting the election; a primary tie is read to be decided by lot by the county canvassing board or other authority holding the election (and by the state canvassing board for an office in the state abstract)",
+   "who": "the county canvassing board or other authority holding the election; the state canvassing board for the state abstract",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "A tie vote shall be decided at an open meeting by lots cast by the county canvassing board or other authority holding the election, except in elections for members of the state legislature, which shall be determined as provided in W.S. 22-16-119."
+    }
+   ],
+   "mark": "inferred",
+   "note": "Inferred. The sections read do not mention a tie in a primary specifically; 22-16-103(d) refers to the canvass of a municipal primary, and the chapter's canvass sections speak of 'the election'."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "applies_to": "a ballot proposition with equal votes for and against",
+   "resolution": "none-found",
+   "steps": "no provision found for a tie on a ballot proposition",
+   "who": null,
+   "sources": [],
+   "mark": "inferred",
+   "note": "An absence, marked inferred. I read all of Chapter 16 (canvass and recount) and searched Title 22 for 'tie'; 22-16-105 says 'a tie vote' without naming propositions and 22-16-119 speaks of 'an office', so a lot for a tied proposition is possible but not stated."
+  }
+ ],
+ "recounts": [
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "automatic",
+   "election": "any",
+   "applies_to": "any office",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the number of votes cast for the winning candidate receiving the least number of votes cast for that office",
+    "inclusive": false,
+    "combine": null,
+    "conditions": "the difference is between the winning candidate receiving the least number of votes and the losing candidate receiving the greatest number of votes (so it covers offices with several seats); the recount is of the entire district in which the candidates stand",
+    "in_words": "a difference of less than one percent of the votes cast for the lowest winning candidate: all the votes for the office are recounted, with no request"
+   },
+   "who_may_request": [],
+   "cost_bearer": "the county in which the recount is taken, regardless of the result",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "There shall be a recount made of all the votes cast for any office in which the difference in number of votes cast for the winning candidate receiving the least number of votes and the number of votes cast for the losing candidate receiving the greatest number of votes is less than one percent (1%) of the number of votes cast for the winning candidate receiving the least number of votes cast for that office."
+    },
+    {
+     "section": "title22",
+     "quote": "If the recount is initiated by the county canvassing board or required by W.S. 22-16-109(b), the cost of the recount shall be paid by the county in which the recount is taken regardless of the result of the recount."
+    }
+   ],
+   "mark": "measured",
+   "note": "The text says 'any office' and does not separate federal, state, local or primary elections, so the kinds are my reading [inferred for primary and local]. A tie has a difference of zero and so meets this threshold."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "a losing candidate, for the office the candidate sought",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "the candidate files an affidavit alleging that fraud or error occurred in counting, returning or canvassing the votes cast in any part of the district, not later than two days after the county canvass (or the state canvass, for an office the state canvassing board certifies); a deposit of $500 if the difference (computed as in 22-16-109(b)) is 1% or more but under 5%, $3,000 if 5% or more",
+    "in_words": "no margin is required, but the candidate must allege fraud or error in an affidavit and post a deposit sized by the margin"
+   },
+   "who_may_request": [
+    "a losing candidate, by affidavit filed in the office where the candidate filed the application for nomination, within two days after the canvass"
+   ],
+   "cost_bearer": "the county if the recount shows sufficient error to change the result (and the deposit is returned); otherwise the requesting candidate, up to the amount deposited, per county recounted",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "There shall be a recount made of all the votes cast for any office if a losing candidate requests one under provision of W.S. 22-16-110."
+    },
+    {
+     "section": "title22",
+     "quote": "A candidate may obtain a recount of votes for the office he is seeking by making and filing an affidavit alleging that fraud or error occurred in counting, returning or canvassing the votes cast in any part of the district in which he is standing for election."
+    },
+    {
+     "section": "title22",
+     "quote": "If the recount shows sufficient error to change the result of the election, the county in which the recount is taken shall pay expenses of the recount and the deposit shall be returned. Otherwise the applicant or applicants seeking the recount shall be liable for the actual cost of conducting the recount up to a maximum of the amount deposited under subsection (a) of this section, per county recounted."
+    }
+   ],
+   "mark": "measured",
+   "note": "A recount a candidate may buy beyond the 1% margin, on an affidavit of fraud or error and at the candidate's own cost unless the result changes."
+  },
+  {
+   "kinds": [
+    "federal",
+    "statewide",
+    "state-legislative",
+    "local",
+    "primary"
+   ],
+   "type": "other",
+   "election": "any",
+   "applies_to": "a precinct where the county canvassing board finds irregularities",
+   "threshold": {
+    "in_words": "no margin: the board recounts the precinct if it appears a recount is required because of irregularities"
+   },
+   "who_may_request": [],
+   "cost_bearer": "the county in which the recount is taken, regardless of the result (22-16-113(c): a recount initiated by the county canvassing board)",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "The county canvassing board shall make a recount of precinct votes if it appears to the board that a recount is required due to irregularities in that precinct."
+    }
+   ],
+   "mark": "measured",
+   "note": "The board's own motion, not a request and not a margin."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "automatic",
+   "election": "any",
+   "applies_to": "a ballot proposition",
+   "threshold": {
+    "percent": 1,
+    "percent_of": "the total number of votes cast on the proposition (for a constitutional amendment, the total number of votes cast in the election)",
+    "inclusive": null,
+    "combine": null,
+    "conditions": "measured from the number of votes required for passage: the proposition receives a number of votes, greater or lesser, within 1% of the number required",
+    "in_words": "the proposition receives a number of votes, greater or lesser, within one percent of the number of votes required for passage"
+   },
+   "who_may_request": [],
+   "cost_bearer": "the county in which the recount is taken",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "A recount will be made if the proposition receives a number of votes, greater or lesser, within one percent (1%) of the number of votes required for passage. The one percent (1%) variance shall be calculated based upon the total number of votes cast on the proposition, except for constitutional amendments in which case the variance shall be calculated based upon the total number of votes cast in the election"
+    },
+    {
+     "section": "title22",
+     "quote": "The county in which the recount is taken shall pay the costs of the recount if the recount is required by subsection (a)(i) of this section"
+    }
+   ],
+   "mark": "measured",
+   "note": "'Within one percent' is not stated as inclusive or exclusive, so `inclusive` is left null."
+  },
+  {
+   "kinds": [
+    "measure"
+   ],
+   "type": "requested",
+   "election": "any",
+   "applies_to": "a ballot proposition",
+   "threshold": {
+    "no_margin_required": true,
+    "conditions": "an affidavit signed by 25 electors registered in a district voting on the question, filed with the county clerk (or the secretary of state for a multi-county proposition) within two days after the canvass, with a deposit of $100",
+    "in_words": "no margin is required: 25 registered electors may request a recount by affidavit with a $100 deposit"
+   },
+   "who_may_request": [
+    "25 electors registered in a district voting on the question, by affidavit"
+   ],
+   "cost_bearer": "the signers, jointly and severally, for the cost of the recount they requested up to $500 per county recounted if the results are not changed by the recount",
+   "sources": [
+    {
+     "section": "title22",
+     "quote": "A recount will be made if requested in an affidavit signed by twenty-five (25) electors registered in a district voting on the question."
+    },
+    {
+     "section": "title22",
+     "quote": "the signers of the affidavit referred to in subsection (a)(ii) of this section shall be jointly and severally liable for the costs of the recount requested by them up to five hundred dollars ($500.00) per county recounted if the results of the election are not changed by the recount."
+    }
+   ],
+   "mark": "measured",
+   "note": "A recount any group of 25 electors may buy, whatever the margin."
+  }
+ ],
+ "unread": [],
+ "notes": [
+  "Read: all of Chapter 16 of Title 22 (canvass and recount) from the Legislature's own PDF of Title 22, and a search of the whole title for 'tie' and 'recount'. Not read: the chapter on presidential electors beyond the party nomination sections, and any municipal charters.",
+  "Wyoming settles every tie by lot (county canvassing board or the state canvassing board of governor, secretary of state, auditor and treasurer), and recounts automatically at under 1% of the lowest winning candidate's votes."
+ ]
+}
