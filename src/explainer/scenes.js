@@ -82,6 +82,20 @@ function stipple(ctx, colour, dpr) {   // a point every 3 px, for a field too fi
   tile = { k, p: ctx.createPattern(c, 'repeat') };
   return tile.p;
 }
+// A grid of square dots as one fill: one cell, scaled to the grid's pitch, repeated. A field of thousands of dots in
+// motion is drawn this way in one call, where a dot at a time dropped frames on the slow-phone check (M-motion s.4,
+// rule 11: no gap over 50 ms at 4x slower CPU).
+let cell = null;
+function gridFill(ctx, colour, x0, y0, pitch) {
+  if (!cell || cell.colour !== colour) {
+    const c = document.createElement('canvas'); c.width = c.height = 20;
+    const x = c.getContext('2d'); x.fillStyle = colour; x.fillRect(4.5, 4.5, 11, 11);   // 0.55 of the cell, centred
+    cell = { colour, p: ctx.createPattern(c, 'repeat') };
+  }
+  const k = pitch / 20;
+  cell.p.setTransform(new DOMMatrix([k, 0, 0, k, x0, y0]));
+  return cell.p;
+}
 function stippleRect(ctx, S, x, y, w, h) {
   ctx.fillStyle = stipple(ctx, S.col.dot, S.dpr);
   ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -280,10 +294,17 @@ function fieldOf(ctx, S, n, cx, cy, D, inner = []) {
   if (pitch >= 2.5) {
     const cols = Math.ceil(side), rows = Math.ceil(n / cols), x0 = cx - (cols * pitch) / 2, y0 = cy - (rows * pitch) / 2, s = Math.max(1, pitch * 0.55);
     ctx.globalAlpha = 0.75; ctx.fillStyle = col.dot;
-    const pts = [];
-    for (let k = 0; k < n; k++) pts.push(x0 + ((k % cols) + 0.5) * pitch, y0 + (Math.floor(k / cols) + 0.5) * pitch);
-    if (pitch > 7) dots(ctx, pts, s / 2, col.dot);
-    else { ctx.beginPath(); for (let i = 0; i < pts.length; i += 2) ctx.rect(pts[i] - s / 2, pts[i + 1] - s / 2, s, s); ctx.fill(); }
+    if (pitch > 7) {
+      const pts = [];
+      for (let k = 0; k < n; k++) pts.push(x0 + ((k % cols) + 0.5) * pitch, y0 + (Math.floor(k / cols) + 0.5) * pitch);
+      dots(ctx, pts, s / 2, col.dot);
+    } else {
+      // full rows, then the last row's part
+      const m = Math.round(n), full = Math.floor(m / cols), rest = m - full * cols;
+      ctx.fillStyle = gridFill(ctx, col.dot, x0, y0, pitch);
+      ctx.fillRect(x0, y0, cols * pitch, full * pitch);
+      if (rest > 0) ctx.fillRect(x0, y0 + full * pitch, rest * pitch, pitch);
+    }
   } else { ctx.globalAlpha = 0.6; stippleRect(ctx, S, cx - D / 2, cy - D / 2, D, D); }
   ctx.globalAlpha = 1;
   ctx.strokeStyle = col.fg; ctx.lineWidth = 1.2;
