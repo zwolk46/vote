@@ -1042,8 +1042,11 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
         return {}
     t4 = core.p_contest(n, mean, sd, "t4")
     counts[f"{label}: p computed, partisan (transferred)"] += 1
-    return L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal; transferred, not yet checked", commit,
-                      {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+    p = L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal; transferred, not yet checked", commit,
+                   {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+    # class C's terms, but with the race's own counties' lean, not a chamber's (L.FORECAST_SCOPE)
+    p["forecast_scope"] = "the race's counties (class C's terms with the counties' US House lean)"
+    return p
 
 
 # ------------------------------------------------------------------ local races: classes of like races
@@ -1351,6 +1354,7 @@ def build(out_dir, with_p=True):
                     t4 = core.p_contest(n, mean, sd, "t4")
                     p = L._p_block(n, mean, sd, f"the model's own ({L.METHOD}), normal", commit,
                                    {"t4": {"value": t4["p"], "event": t4["event"], "method": t4["method"]}})
+                    p["forecast_scope"] = L.FORECAST_SCOPE[r_["cls"]]
                     counts[f"{level} {year}: p computed, partisan"] += 1
             rec["p"] = p
             files[(level, year, c["state"])].append(L._compact(rec))
