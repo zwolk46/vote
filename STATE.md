@@ -30,6 +30,7 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Verify vote decisiveness models | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi | `briefs/R1-research-decisiveness-models-at-source.md` (Sonnet 5.5, xhigh) | done; #2 merged 00:41; set aside |
 | Verify historical close races | cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS | `briefs/R2-research-close-races-at-source.md` (Sonnet 5.5, xhigh) | done; #4 merged 00:53; set aside |
 | Verify voting frameworks and costs | cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz | `briefs/R3-research-frameworks-at-source.md` (Sonnet 5.5, xhigh) | done; #5 merged 01:08; set aside |
+| Try to break the vote model | cmsg_01FHkmcV6WaeZh9r5PfgnMbuH8ty6rzznPCoUJXYqbKL9P | `briefs/B1-break-the-model.md` (Fable 5.1, xhigh) | started 2026-11-07 01:57 |
 | Check the math of a deciding vote | cmsg_01FHkmcV6WaeZh9r5PfgnMbuST7d1oALJPJTFqCrnN4ZYd | `briefs/M1-math-check.md` (Fable 5.1, xhigh) | done; #7 merged 01:54 (the orchestrator re-ran run_all.sh: output identical); resolved |
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
 
@@ -37,9 +38,11 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
-- 2026-11-07 02:08: #8 merged (draft 2, B1 on `main`); asked the coordinator to start B1 (Fable 5.1, xhigh). Decision card to the maker: which elections the site covers.
+- 2026-11-07 01:57: B1 up (Fable 5.1, xhigh). Scope card posted to the maker. Log times now taken from the clock (`date -u`); earlier estimates ran up to 12 minutes ahead.
 
-- 2026-11-07 02:05: M1 done, #7 merged (`model/MATH.md`: p = f(1/2)/(2n) ex ante under every tie rule; lay form p ~ 25 q/n, q = chance of finishing 49-51%, within 1.22x for n >= 1,000; two-stage product safe within 2 points of even; recounts leave p unchanged while the recount zone << forecast spread; published conventions differ by 2x). Wrote `model/MODEL-DRAFT-2.md` and `briefs/B1-break-the-model.md` (Fable 5.1, xhigh). Next: B1 breaks draft 2; meanwhile the maker is asked which elections the site covers.
+- 2026-11-07 01:57: #8 merged (draft 2, B1 on `main`); asked the coordinator to start B1 (Fable 5.1, xhigh). Decision card to the maker: which elections the site covers.
+
+- 2026-11-07 01:56: M1 done, #7 merged (`model/MATH.md`: p = f(1/2)/(2n) ex ante under every tie rule; lay form p ~ 25 q/n, q = chance of finishing 49-51%, within 1.22x for n >= 1,000; two-stage product safe within 2 points of even; recounts leave p unchanged while the recount zone << forecast spread; published conventions differ by 2x). Wrote `model/MODEL-DRAFT-2.md` and `briefs/B1-break-the-model.md` (Fable 5.1, xhigh). Next: B1 breaks draft 2; meanwhile the maker is asked which elections the site covers.
 
 - 2026-11-07 01:08: M1 up (Fable 5.1, xhigh); R1-R4 set aside. Draft 2 waits on M1, because the simple-mode formula and the constants are the heart of the page and draft 2 would otherwise be rewritten.
 
