@@ -1418,7 +1418,8 @@ def backtest_local_partisan(write=True, years=None, prow=None, pres=None):
     if write:
         with open(os.path.join(L.REPO, "data", "local", "backtest-local-partisan.json"), "w") as f:
             json.dump({"about": "route (a)'s class-C terms (fitted on the state legislative races of earlier years "
-                                "only: Klarner's, and for 2024 on New Jersey's 2023 Senate from its Official List) "
+                                "only: Klarner's, and for 2024 on New Jersey's 2023 Senate from its Official List and "
+                                "Virginia's 2023 legislature from its Department of Elections) "
                                 "applied to local races between one Democrat and one Republican, the "
                                 "place's lean read from the US House vote of the previous general in the race's "
                                 "counties (MEDSL's precinct returns): the forecast against what happened. Built by "
@@ -1876,7 +1877,8 @@ def local_partisan_p(rec, c, rows, ok, fit, bt, pres, year, commit, with_p, coun
                                        "tails": "normal"},
                              "note": "transferred, not yet checked: route (a)'s class-C terms, fitted on the state "
                                      "legislative races of earlier years ("
-                                     + ("Klarner's, and New Jersey's 2023 Senate" if year > 2023 else "Klarner's")
+                                     + ("Klarner's, and New Jersey's and Virginia's 2023 legislatures" if year > 2023
+                                        else "Klarner's")
                                      + "), applied with the county's US House "
                                      "lean; incumbency not matched (taken as 0); back-test in "
                                      "data/local/backtest-local-partisan.json",
@@ -2235,7 +2237,7 @@ def _owns(r):
     """The contests this build writes: MEDSL's, Indiana's own of 2024 (certified_in), and the State Board's of MEDSL's
     general dates (certified_nc)."""
     src = (r.get("result") or {}).get("source")
-    return src in ("medsl", "in_enr", "la_sos", "nj_sos") or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
+    return src in ("medsl", "in_enr", "la_sos", "nj_sos", "va_elect") or (src == "ncsbe" and (r.get("date") or "")[5:7] == "11" and r.get("year") in MEASURE_YEARS
                               and (r.get("level") == "measure" or r.get("year") in YEARS))
 
 
@@ -2284,6 +2286,9 @@ def build(out_dir, with_p=True):
     import local_nj_leg as NJL
     this = sys.modules[__name__]
     prow += [r_ for r_ in NJL.partisan_rows(2023, prow, this) if r_["year"] in pres]
+    # Virginia's 2023 Senate and House of Delegates (pipeline/local_va_leg.py), the same way
+    import local_va_leg as VAL
+    prow += [r_ for r_ in VAL.partisan_rows(2023, prow, this) if r_["year"] in pres]
     M, kfit = L.fit_before(prow, pres, 2024)
     m22_sound = [c for c in m[2022] if c["state"] not in bad[2022]]   # last results and like races: sound states only
     rows24 = {id(r_["m"]): r_ for r_ in leg_rows_2024(m[2024], m22_sound, klarner)}
@@ -2291,6 +2296,8 @@ def build(out_dir, with_p=True):
     for y in ODD_YEARS:   # Louisiana's 2023 legislature: its deciding rounds join the later years' like races
         ktrain += LA.class_rows(y)
     ktrain += NJL.class_rows(2023, this)   # New Jersey's 2023 legislature, the same way
+    ktrain += VAL.class_rows(2023, this)   # and Virginia's
+    prow24 = []   # 2024's route (a) races, as earlier races of 2025's fit (VAL.records)
     leg24 = []   # 2024's legislative contests of routes (b) and (c), as like races of 2025 (NJL.records)
     kdens = {}
     pieces = collections.Counter(leg_key(c) + (c["stage"], c["special"]) for c in m[2024]
@@ -2396,12 +2403,13 @@ def build(out_dir, with_p=True):
                     rec["forecasts"][-1]["note"] = ((rec["forecasts"][-1].get("note", "") + "; ") if route ==
                                                     "boundary" else "") + ("like races of every earlier year in the "
                                                                            "sources taken in: Klarner's returns of "
-                                                                           "1967-2022 and Louisiana's and New "
-                                                                           "Jersey's of 2023")
+                                                                           "1967-2022 and Louisiana's, New "
+                                                                           "Jersey's and Virginia's of 2023")
             elif r_ is None:
                 p["not_computed"] = "no votes for the Democrat or the Republican"
                 counts[f"{label}: not computed, no votes"] += 1
             else:
+                prow24.append(r_)
                 mean, sd, a = L.predict_partisan(M, r_, pres)
                 n = r_["N"] - 1
                 rec["two_party"] = {"votes": [r_["d"]["votes"], r_["r"]["votes"]], "n_other_voters": n,
@@ -2417,8 +2425,8 @@ def build(out_dir, with_p=True):
                 rec["forecasts"].append({"by": "the model's own", "method": L.METHOD, "route": "partisan",
                                          "share": {"of": "Democrat, two-party", "mean": round(mean, 4),
                                                    "sd": round(sd, 4), "tails": "normal"},
-                                         "note": "fitted on Klarner's races of 1967-2022 and New Jersey's 2023 "
-                                                 "Senate; incumbency matched by name",
+                                         "note": "fitted on Klarner's races of 1967-2022 and New Jersey's and "
+                                                 "Virginia's 2023 legislatures; incumbency matched by name",
                                          "source": "model"})
                 if any(x.get("writein") or _is_generic(x["name"]) for x in top[:2]) or \
                         {major(top[0]), major(top[1])} != {"D", "R"}:
@@ -2441,10 +2449,14 @@ def build(out_dir, with_p=True):
     for y in ODD_YEARS:
         for k_, recs in LA.legislature_records(y, ktrain, kdens, cid, commit, with_p, counts).items():
             files[k_] += [L._compact(r_) for r_ in recs]
-    # -- New Jersey's legislatures of 2023 and 2025 (pipeline/local_nj_leg.py): like races of every earlier year
-    for y in NJL.YEARS:
-        for k_, recs in NJL.records(y, prow, pres, ktrain + leg24, kdens, cid, commit, with_p, counts, this).items():
-            files[k_] += [L._compact(r_) for r_ in recs]
+    # -- New Jersey's legislatures of 2023 and 2025 (pipeline/local_nj_leg.py) and Virginia's (pipeline/
+    # local_va_leg.py): like races and route (a)'s races of every earlier year, 2024's included for 2025
+    prow25 = prow + [r_ for r_ in prow24 if r_["year"] in pres]
+    for mod in (NJL, VAL):
+        for y in mod.YEARS:
+            for k_, recs in mod.records(y, prow if y < 2024 else prow25, pres, ktrain + leg24, kdens, cid, commit,
+                                        with_p, counts, this).items():
+                files[k_] += [L._compact(r_) for r_ in recs]
 
     # -- local races: routes (b) and (c), from like races of earlier years
     lrows = {y: local_rows([c for c in m[y] if not held(c, bad[y])]) for y in YEARS + ODD_YEARS}
@@ -2833,6 +2845,8 @@ def build(out_dir, with_p=True):
                          f"section 3 with the fields data/README.md adds (D3). Built by pipeline/local_medsl.py from "
                          + ("pipeline/intake/nj_sos.py's cache (the Division of Elections' Official Lists; MEDSL "
                             f"holds no {year})" if st == "NJ" and year in NJL.YEARS else
+                            "pipeline/intake/va_elect.py's cache (the Department of Elections' official results, read "
+                            f"before it refused us; MEDSL holds no {year})" if st == "VA" and year in VAL.YEARS else
                             "pipeline/intake/la_sos.py's cache (the state's own official results; MEDSL holds no "
                             f"{year})" if year not in MEASURE_YEARS else "pipeline/intake/medsl_precinct.py's cache")
                          + ".",
@@ -2856,6 +2870,8 @@ def build(out_dir, with_p=True):
                 head["sources"]["fips"] = NS.fips_source()
         if "nj_sos" in used:   # New Jersey's Official Lists of its 2023 and 2025 legislatures
             head["sources"]["nj_sos"] = NJL.source_block(year)
+        if "va_elect" in used:   # Virginia's Department of Elections, its 2023 and 2025 legislatures
+            head["sources"]["va_elect"] = VAL.source_block(year)
         if "la_sos" in used:   # Louisiana's own official results (certified_la), and its parishes' FIPS codes
             import local_la as LA
             head["sources"]["la_sos"] = LA.source_block(year)
