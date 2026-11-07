@@ -1,0 +1,32 @@
+/* Candidate A, "Every contest on one ruler" (design/DESIGN-SPEC.md §5). Phone: the lead, then the field, then the
+   named figures. Desktop: the lead and the named figures in a column at the left, the field beside them. */
+.ra { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+.ra-lead > * + * { margin-top: 16px; }
+.ra-lead .lead { margin-top: 12px; }
+.ra-lead .key { margin-top: 24px; }
+.ra-lead .seg { width: max-content; max-width: 100%; }
+.ra-fh { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 1px solid var(--line-strong); margin-bottom: 16px; }
+.ra-list .src { margin-top: 12px; }
+@media (min-width: 900px) {
+  .ra { grid-template-columns: minmax(340px, 400px) minmax(0, 1fr); grid-template-areas: "lead field" "list field"; column-gap: 56px; row-gap: 40px; align-items: start; }
+  .ra-lead { grid-area: lead; }
+  .ra-field { grid-area: field; position: sticky; top: 24px; }
+  .ra-list { grid-area: list; }
+}
+
+/* the field (components/Field.jsx) */
+.field { position: relative; width: 100%; }
+.field-c { position: absolute; left: 0; top: 0; display: block; touch-action: pan-y; }
+.field-row { position: absolute; left: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: var(--t-src); pointer-events: none; }
+.field-n { color: var(--fg); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; background: var(--bg); padding-right: 6px; }
+.field-k { background: var(--bg); padding-left: 6px; }
+.field-k { color: var(--faint); white-space: nowrap; }
+@media (min-width: 900px) {
+  .field-row { flex-direction: column; justify-content: center; align-items: flex-start; gap: 0; }
+  .field-n { font-size: var(--t-body); }
+}
+.field-cost { position: absolute; left: 0; top: 0; font-size: var(--t-src); font-weight: 600; color: var(--accent); white-space: nowrap; padding-left: 6px; pointer-events: none; }
+.field-axis { position: absolute; left: 0; right: 0; height: 18px; font-size: var(--t-src); color: var(--muted); pointer-events: none; }
+.field-t { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.field-t.first { transform: none; }
+.field-t.last { transform: translateX(-100%); }
