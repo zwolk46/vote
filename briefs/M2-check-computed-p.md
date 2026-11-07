@@ -53,3 +53,20 @@ Work in this order. The presidency is first because it is final on `main` (#23).
 ## Done when
 
 Items 1 to 6 are answered in `checks/M2-REPORT.md` for every level now on `main`, the scripts reproduce every number, the pull request is open, and you have reported to the orchestrator in at most fifteen lines. Then stop (`_COMMON.md` 14). The levels D3 brings (state legislatures, local races, primaries, measures, and races that fill several seats) are a second pass, on the orchestrator's word.
+
+## Amended 2026-11-07 07:44 UTC: the second pass
+
+*The orchestrator's word for the second pass, which the "Done when" above leaves to it. Reason: since #26, D2 has rebuilt Congress and the governors four times (#29, #32, #35, #38: earlier cycles only, the governors' last race, the near-tie factor F, the mean shrunk toward ½, t4 tails for the governors), and D3 has brought every other level (#25, #28, #30, #31, #36, #37). None of it has had a check by a script that does not share its code, and every figure on the site is read from these files.*
+
+Work on a new branch from `main`, extending `checks/m2/` and adding a section to `checks/M2-REPORT.md`. In this order:
+
+1. **Congress and the governors, as they stand after #38.**
+   - Recompute every p from its recorded inputs, as before: `value_uncalibrated` from the forecast's mean, sd and tails, then `value` with the near-tie factor in D2's form (the density within 1 point of ½ multiplied by F and renormalized; `data/congress/REPORT.md` §2.6). Check that each F is the one its year's earlier-only fit gives.
+   - The shrinkage: check that each shrunk mean is ½ + λ(mean_unshrunk − ½) with the λ D2 reports for its year, fitted on earlier years only.
+   - Control: `c3_chambers.py` must read `stage_two.inputs.own_sd`, `common_swing_sd` and `swing_loading`, which the files now carry. Recompute P(decides given a tie) for a sample of House and Senate years, under the model's own forecast and under 538's reading (c), including the 23 marked seats, and the Senate with the Vice President's tie vote at the presidential chance.
+   - Re-run your governor test of #26 (no race within 5,000 votes against 4.4 expected): did adding the last governor race and t4 cure it?
+2. **The back-tests D2 used to adopt or reject each change** (REPORT §0.1, §2.6, §2.7): are the log scores and cells reproduced, is each fit on earlier years only, and was the rule "adopt only if the out-of-sample test improves" applied as written? Say where a decision would flip.
+3. **The spread factor k.** D2 finds the House's sd wider than its results in every year 2010–24 (rms z 0.75–0.92) and suspects that k, averaged over all earlier years, lags shrinking errors. Give the reading, with what a recent-years k would do to p; choose nothing (`_COMMON.md` 3).
+4. **D3's levels**, every p in `data/state-upper/`, `data/state-lower/`, `data/local/` and `data/measure/`: the like-race forecast (D3-v1.1), the calibration of #31, and the measures' threshold form, Yes ≈ (1 − t)·f(t)/n (MODEL §7), each by your own implementation. Every contest, not a sample, since a script makes them cheap.
+
+Report to the orchestrator in at most fifteen lines when items 1 and 2 are done, and again at the end. Open one pull request and update it as you go. A p wrong by more than a factor of two goes to the orchestrator at once, as before.
