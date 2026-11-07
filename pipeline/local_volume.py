@@ -835,9 +835,21 @@ def ballots_summary():
                 tested.append(dict(t, file=name))
             for sd, t in r["tops"].items():
                 tops.setdefault(sd, []).extend(t)
-        out[str(year)] = {"tested": sorted(tested, key=lambda t: (t["state"], t["date"], t["office"], t["district"])),
+        # kept here: the rows that give ballots cast, and every row of a contest the files give more than once (the
+        # build reads a contest's ballots only where one row matches it); the rest, and every field, stay in the
+        # cache's ballots-<year>.json. The build's verdicts are the same either way.
+        key = collections.Counter((t["state"], t["date"], t["office"], t["district"], str(t["special"]).upper())
+                                  for t in tested)
+        kept = [{k: t[k] for k in BALLOTS_KEPT} for t in tested if t["ballots_cast"] is not None
+                or key[(t["state"], t["date"], t["office"], t["district"], str(t["special"]).upper())] > 1]
+        out[str(year)] = {"rows_read": len(tested), "rows_kept": len(kept),
+                          "tested": sorted(kept, key=lambda t: (t["state"], t["date"], t["office"], t["district"])),
                           "tops": {sd: sorted(t, key=lambda x: -x["votes"]) for sd, t in sorted(tops.items())}}
     return out
+
+
+BALLOTS_KEPT = ("state", "date", "office", "district", "special", "votes", "precincts", "precincts_bounded",
+                "ballots_cast")
 
 
 # ------------------------------------------------------------------ the check

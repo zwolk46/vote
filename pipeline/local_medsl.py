@@ -516,7 +516,8 @@ def az_recount(contests):
     until then the record says it shows the count before the recount. Reason: a record must not pass off a superseded
     count as the count of record. Unread [stated: data/local/REPORT.md section 31]: the Secretary of State (azsos.gov,
     403) and the Maricopa County Clerk of the Superior Court (403 at 21:02:40 UTC) refused; the court's order is found
-    only as a copy on a third party's host, not read."""
+    only as a copy on a third party's host, which does not count (the orchestrator, 21:03: "a count of record has to
+    come from the body that certifies it or another body of the state"), so it was not read."""
     ms = [m for m in contests if m.get("state") == "AZ" and m.get("office") == "ATTORNEY GENERAL"
           and m.get("dataverse") == "STATE" and "RECOUNT" not in (m.get("stage") or "")]
     if len(ms) != 1:
