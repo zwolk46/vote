@@ -4,7 +4,7 @@
 
 ## Where things stand
 
-- **Phase 2 (data, with design alongside) begins**, by `plan/PLAN.md` (written 03:04, told to the maker, not asked: law 7a). Briefs T1 (tracker), D1 (presidency), D2 (Congress and governors), X1 (design) written; threads started 03:08 (#13 put law, model, plan and briefs on `main`). Next: gate D1's `pipeline/core.py` PR first (D2 imports it); approve each data worker's own-forecast method before it computes p; send X1's options to the maker; X1 takes up `briefs/X2-explainer.md` once its first-screen options are sent; start D3 (`briefs/D3-data-local.md`) when D1 or D2 ends.
+- **Phase 2 (data, with design alongside).** Data on `main`: the presidency by state 1976–2024 with both stages (D1, #14, #23) and Senate, House and governors 2006–2024 with chamber control (D2, #18, #22). Working: X1 (first-screen options, then X2 the explainer), D3 (state legislatures, local, primaries, measures), M2 (Fable: checks every computed p and the own forecasts; asked 04:37), and T1 (tracker). Queued for a free slot: D2 once more (the VP tie vote at the presidential chance, not one half; and one fetch and one FEC intake, on D1's redirect-refusing `pipeline/fetch.py`), then D4 (cost inputs). No governor p is shown until M2 has examined the calibration flag. Design rulings standing: 04:06 explainer, 04:09 phone and dots, 04:09 layperson reader, 04:32 visuals over prose.
 - **Tracker** for the maker: "Vote Work", https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH (source `tracker/vote-work.html`; db collection `tasks`, rows {s, t, o, link, linkLabel}; seeded 03:02, read back at view level). Kept current by T1.
 - Open with the maker: the design-effort card (max for design work only, recommended / xhigh; until he answers, design runs at xhigh); the batched asks of plan §5 (web.archive.org; MEDSL's guestbook).
 - Hold of 02:45 lifted at 02:54 (RULINGS). Design follows `inherited/design/` (#11, from the midterms orchestrator). Work autonomously: the plan is recorded and he is told, not asked.
@@ -41,13 +41,17 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Try to break the site's law | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCtPmSab848QZ6xppDXay7H | `briefs/B2-break-the-law.md` (Fable 5.1, xhigh) | done 02:54; PR #12 (61 breaks) open, not merged during the hold |
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
 | Keep the vote tracker current | cmsg_01FHkmcV6WaeZh9r5PfgnMbuByWBE5rw5LTK6xKGeqevgf | `briefs/T1-tracker.md` (Sonnet 5.5, xhigh) | started 03:08 |
-| Gather presidential data by state | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCWdWPRkhAafpzm5UUF9z22 | `briefs/D1-data-president.md` (Opus 5.5, xhigh) | started 03:08 |
+| Gather presidential data by state | cmsg_01FHkmcV6WaeZh9r5PfgnMbuCWdWPRkhAafpzm5UUF9z22 | `briefs/D1-data-president.md` (Opus 5.5, xhigh) | done; #14, #23 merged; stopped |
 | Gather Senate, House and governor data | cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48 | `briefs/D2-data-congress.md` (Opus 5.5, xhigh) | done; #18, #22 merged; stopped (to wake once for the VP follow-up) |
-| Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | started 03:08 |
+| Design the site's first screen | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh | `briefs/X1-design.md` (Opus 5.5, xhigh) | started 03:08; #16 (spec) merged; options on its preview branch; X2 next in this thread |
+| Gather local, legislative, primary and measure data | cmsg_01FHkmcV6WaeZh9r5PfgnMbuVThyXDPxVFHnA4YqgssTSs | `briefs/D3-data-local.md` (Opus 5.5, xhigh) | started ~04:30 |
+| Check every computed p | (asked of the coordinator 04:37) | `briefs/M2-check-computed-p.md` (Fable 5.1, xhigh) | asked |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 04:37: #23 merged (D1 final: presidency 1976-2024, p for 1984-2024 in both stages; 1976 and 1980 recorded without p). D1 done. Brief M2 written (Fable: an independent recompute of every p, the second stages, the own forecasts incl. governors and leave-one-out, the published checks); asked of the coordinator. D3 told to keep files compact. D2's VP change waits for a slot.
 
 - 2026-11-07 04:36: ruling of 04:32 recorded (explanation by visuals; no text unless truly needed); X1 and X2 briefs amended (text ledger, refined lines, a third cold reading of the visuals alone); X1 told. #23 gate: 2024 forecast dated 12 September is forced (538 2024 averages end there; later ones redirect to ABC), errors fitted to 9 September of earlier cycles, marked; accepted.
 
