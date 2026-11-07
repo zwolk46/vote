@@ -3,7 +3,7 @@
  "years": {
   "2020": {
    "contests": 1765,
-   "expected_in_window": 313.0,
+   "expected_in_window": 313.2,
    "seen_in_window": 247,
    "by_office_type": {
     "class, local council, commission or board": {
@@ -13,7 +13,7 @@
     },
     "class, local school board": {
      "contests": 289,
-     "expected": 45.3,
+     "expected": 45.5,
      "seen": 36
     },
     "class, local special district": {
@@ -41,7 +41,7 @@
    "by_office_type": {
     "class, local school board": {
      "contests": 74,
-     "expected": 11.8,
+     "expected": 11.9,
      "seen": 2
     },
     "class, local council, commission or board": {
@@ -72,7 +72,7 @@
   },
   "2024": {
    "contests": 2393,
-   "expected_in_window": 292.9,
+   "expected_in_window": 293.1,
    "seen_in_window": 207,
    "by_office_type": {
     "class, local council, commission or board": {
@@ -81,8 +81,8 @@
      "seen": 87
     },
     "class, local school board": {
-     "contests": 757,
-     "expected": 106.9,
+     "contests": 756,
+     "expected": 107.0,
      "seen": 78
     },
     "class, local special district": {
@@ -101,8 +101,8 @@
      "seen": 8
     },
     "class, local clerk, treasurer or other county officer": {
-     "contests": 35,
-     "expected": 4.2,
+     "contests": 36,
+     "expected": 4.3,
      "seen": 0
     },
     "class, state judge": {
@@ -116,7 +116,7 @@
      "seen": 1
     }
    },
-   "seen_over_expected": 0.707
+   "seen_over_expected": 0.706
   }
  }
 }
