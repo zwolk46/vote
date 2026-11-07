@@ -57,6 +57,12 @@ DATASETS = {
            "paths": r"^all_states/2020-all-states-local-precinct-general\.zip$",
            "title": "2020 local precinct-level election returns (GitHub, MEDSL/2020-elections-official)"},
 }
+# 2016: MEDSL's older layout (no party groups, no seat counts, no dataverse column), read for its questions only
+# (the orchestrator, 06:16: "Then MEDSL 2016 measures"): the state and the local set, both CC0 1.0, no guestbook.
+SETS_2016 = [(3345337, "2016-precinct-state.csv", "STATE", "doi:10.7910/DVN/GSZG1O",
+              "State Precinct-Level Returns 2016"),
+             (3345356, "2016-precinct-local.csv", "LOCAL", "doi:10.7910/DVN/Q8OHRS",
+              "Local Precinct-Level Returns 2016")]
 OUT = os.path.join(F.CACHE, "medsl", "normalized")
 csv.field_size_limit(1 << 24)
 
@@ -316,8 +322,9 @@ def fips5(x):
     return x
 
 
-def read_file(path):
-    """Rows of one MEDSL file into {contest key: {precinct key: {candidate key: {mode: votes or None}}}}."""
+def read_file(path, only_states=None):
+    """Rows of one MEDSL file into {contest key: {precinct key: {candidate key: {mode: votes or None}}}}; only the
+    states named, where only_states is given."""
     agg = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     pres = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
     house = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
@@ -330,6 +337,8 @@ def read_file(path):
         if is_meta(cand):
             continue
         st = row.get("state_po", "")
+        if only_states and st not in only_states:
+            continue
         states[st] += 1
         v = row.get("votes", "")
         try:
@@ -867,16 +876,184 @@ def run(year, only=None):
     return checks
 
 
+_YES16 = re.compile(r"^(YES|FOR|IN FAVOR|APPROVE|APPROVED|ACCEPT|RETAIN)\b")
+_NO16 = re.compile(r"^(NO|AGAINST|OPPOSED|REJECT|REJECTED|NOT RETAIN|DO NOT RETAIN)\b(?! (NAME|CANDIDATE|CONFIDENCE))")
+
+
+def _answer16(cand):
+    if _NO16.match(cand):
+        return "NO"
+    if _YES16.match(cand) and not re.match(r"^FOR (ALL|UNOPPOSED)", cand):
+        return "YES"
+    return None
+
+
+def _office16(o):
+    """One spelling for a 2016 office across counties: upper case, single spaces, none inside brackets."""
+    o = re.sub(r"\s+", " ", (o or "").upper()).strip().rstrip(",.;")
+    return re.sub(r"\(\s+", "(", re.sub(r"\s+\)", ")", o))
+
+
+# MEDSL's 2022 state offices set (OAARCY), read for the eight states whose UYQIEP file is named a local file, to
+# see whether it holds state offices those files lack. It does not [measured, 2026-11-07]: it holds ID, IN, ND and
+# WA only, the same 363 contests their UYQIEP files give, and none for AR, AZ, MD or MI. So it is read to a folder of
+# its own (normalized/oaarcy-2022) for that comparison (pipeline/local_medsl.py check-oaarcy), and not into 2022.
+OAARCY = {"id": 14249788, "name": "STATE_precinct_general.csv", "doi": "doi:10.7910/DVN/OAARCY",
+          "title": "State Offices Precinct-Level Returns 2022", "states": ("AR", "AZ", "ID", "IN", "MD", "MI", "ND", "WA")}
+
+
+def run_oaarcy(out_dir=None):
+    """The eight states' 2022 state offices from OAARCY, into out_dir (default: the 2022 normalized folder),
+    one file per state named by the file's id."""
+    out_dir = out_dir or os.path.join(OUT, "oaarcy-2022")
+    os.makedirs(out_dir, exist_ok=True)
+    raw = f"medsl/raw/2022-{OAARCY['id']}-{OAARCY['name']}"
+    path = F.fetch(f"{API}/access/datafile/{OAARCY['id']}", raw, timeout_s=3600, storage_sites=("amazonaws.com",))
+    agg, pres, house, n, states = read_file(path, set(OAARCY["states"]))
+    merge_statewide(agg)
+    contests = []
+    for k, precincts in agg.items():
+        contests.extend(contests_of(k, precincts))
+    contests, joined = join_unnumbered(contests)
+    m = F.meta(raw)
+    by_state = collections.defaultdict(list)
+    for c in contests:
+        by_state[c["state"]].append(c)
+    for st_, cs in by_state.items():
+        with open(os.path.join(out_dir, f"{st_}-{OAARCY['id']}.jsonl"), "w") as f:
+            for c in cs:
+                c["file"] = {"id": OAARCY["id"], "name": OAARCY["name"], "url": m["url"], "read_utc": m["read_utc"],
+                             "sha256": m["sha256"], "doi": OAARCY["doi"]}
+                f.write(json.dumps(c, ensure_ascii=False, separators=(",", ":")) + "\n")
+    print(f"{OAARCY['name']}: {n:,} rows read, {sum(states.values()):,} in the eight states, {len(contests):,} contests",
+          flush=True)
+    return {"rows_read": n, "states": dict(states), "contests": len(contests),
+            "legislative_pieces_without_district_joined": joined}
+
+
+def run_2016():
+    """2016's questions from MEDSL's state and local precinct sets (older layout). A contest is the office's
+    rows in a state under one spelling (_office16), across its counties; it is a question when every line on it
+    other than write-ins and ballot counts is a yes or a no, and it has both. A precinct's votes for an answer are
+    its total row where it has one, else the sum of its modes."""
+    os.makedirs(os.path.join(OUT, "2016"), exist_ok=True)
+    checks = {"files": {}, "president": {}, "house_by_county": {}, "record": {"sets": []}}
+    for fid, name, dv, doi, title in SETS_2016:
+        raw = f"medsl/raw/2016-{fid}-{name}"
+        path = F.fetch(f"{API}/access/datafile/{fid}?format=original", raw, timeout_s=3600,
+                       storage_sites=("amazonaws.com",))
+        agg = collections.defaultdict(lambda: collections.defaultdict(lambda: collections.defaultdict(dict)))
+        other = set()
+        n = 0
+        states = collections.Counter()
+        for row in _rows(path):
+            n += 1
+            st = row.get("state_postal", "")
+            states[st] += 1
+            cand = re.sub(r"\s+", " ", (row.get("candidate") or "").upper()).strip()
+            k = (st, row.get("stage", "").upper(), (row.get("special") or "").upper() == "TRUE",
+                 _office16(row.get("office")), (row.get("district") or "").strip())
+            if not cand or is_meta(cand) or (row.get("writein") or "").upper() == "TRUE" or is_generic(cand):
+                continue
+            a = _answer16(cand)
+            if a is None:
+                other.add(k)
+                continue
+            if k in other:
+                continue
+            try:
+                v = int(float(row.get("votes") or ""))
+            except ValueError:
+                v = None
+            pk = (fips5(row.get("county_fips", "")), row.get("jurisdiction", ""), row.get("precinct", ""))
+            mode = (row.get("mode") or "TOTAL").upper()
+            cell = agg[k][pk][a]
+            cell[mode] = None if v is None or cell.get(mode, 0) is None else cell.get(mode, 0) + v
+        m = F.meta(raw)
+        by_state = collections.defaultdict(list)
+        for k, precincts in agg.items():
+            if k in other:
+                continue
+            tot = collections.Counter()
+            missing = set()
+            counties = set()
+            for pk, cands in precincts.items():
+                for a, modes in cands.items():
+                    v = resolve(modes)
+                    if v is None:
+                        missing.add(a)
+                    else:
+                        tot[a] += v
+                if any((resolve(md) or 0) > 0 for md in cands.values()):
+                    counties.add(pk[0])
+            if set(tot) != {"YES", "NO"} or not sum(tot.values()):
+                continue
+            st, stage, special, office, district = k
+            by_state[st].append({"state": st, "date": "2016-11-08" if stage == "GEN" else "", "stage": stage,
+                                 "special": special, "dataverse": dv, "office": office, "district": district,
+                                 "subject": None, "magnitude": 1, "question": True, "precincts": len(precincts),
+                                 "counties": sorted(c for c in counties if c),
+                                 "candidates": [{"votes": tot[a], "name": a, **({"votes_missing_in_some_precincts":
+                                                                                 True} if a in missing else {})}
+                                                for a in ("YES", "NO")],
+                                 "file": {"id": fid, "name": name, "url": m["url"], "read_utc": m["read_utc"],
+                                          "sha256": m["sha256"]}})
+        nq = 0
+        joined = 0
+        for st, cs in by_state.items():
+            # a county spelling the office apart ("TWELEVE" for "TWELVE"): near-identical wording, other counties
+            import difflib
+            cs.sort(key=lambda c: -len(c["counties"]))
+            keep = []
+            for c in cs:
+                for k in keep:
+                    if (k["stage"], k["special"], k["district"]) == (c["stage"], c["special"], c["district"]) and \
+                            not set(k["counties"]) & set(c["counties"]) and \
+                            difflib.SequenceMatcher(None, k["office"], c["office"]).ratio() >= 0.95:
+                        for x, y in zip(k["candidates"], c["candidates"]):
+                            x["votes"] += y["votes"]
+                            if y.get("votes_missing_in_some_precincts"):
+                                x["votes_missing_in_some_precincts"] = True
+                        k["counties"] = sorted(set(k["counties"]) | set(c["counties"]))
+                        k["precincts"] += c["precincts"]
+                        k.setdefault("joined_from", [k["office"]]).append(c["office"])
+                        joined += 1
+                        break
+                else:
+                    keep.append(c)
+            cs[:] = keep
+            with open(os.path.join(OUT, "2016", f"{st}-{fid}.jsonl"), "w") as f:
+                for c in cs:
+                    f.write(json.dumps(c, ensure_ascii=False, separators=(",", ":")) + "\n")
+            nq += len(cs)
+        checks["files"][name] = {"rows_read": n, "rows_recorded_by_dataverse": None, "rows_ok": True,
+                                 "contests": nq, "states": dict(states), "questions_only": True,
+                                 "spellings_joined": joined}
+        checks["record"]["sets"].append({"doi": doi, "title": title, "licence": "CC0 1.0", "read_utc": m["read_utc"],
+                                         "url": f"https://doi.org/{doi.split(':', 1)[1]}"})
+        print(f"{name}: {n:,} rows, {nq:,} questions", flush=True)
+    with open(os.path.join(OUT, "checks-2016.json"), "w") as f:
+        json.dump(checks, f, indent=1)
+    return checks
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("year", type=int, choices=sorted(DATASETS))
+    ap.add_argument("year", type=int, choices=sorted(DATASETS) + [2016])
     ap.add_argument("--states", default="")
+    ap.add_argument("--oaarcy", action="store_true", help="2022: read OAARCY's eight states to a folder of their own")
     ap.add_argument("--compare-dataverse", action="store_true",
                     help="a GitHub-held year: compare its files with MEDSL's Dataverse sets, by MD5")
     a = ap.parse_args()
+    if a.oaarcy:
+        print(json.dumps(run_oaarcy(), indent=1))
+        return
     if a.compare_dataverse:
         r = compare_dataverse(a.year)
         print(json.dumps({k: v for k, v in r.items() if k != "github_files"}, indent=1))
+        return
+    if a.year == 2016:
+        run_2016()
         return
     only = {s.strip().upper() for s in a.states.split(",") if s.strip()} or None
     run(a.year, only)

@@ -1,0 +1,1760 @@
+{
+ "about": "Each state's thresholds for statewide ballot measures and judicial retentions, read from its constitution or statute by worker D3's readers on 2026-11-07 (briefs/D3-data-local.md step 4; the orchestrator, 2026-11-07 06:16: 'Read statewide thresholds from each constitution or statute, with URLs'). Every quote was checked against the page saved when it was read, except where read_via says otherwise. t is the yes share of those voting on the question that the measure needs; compound, where set, is a rule that turns on more than that share, and p is not computed for it. only_if marks an exception that turns on what the measure does. The texts are those in force when read: applying them to 2016-2024 reads each section as in force then [inferred], except where from_year says otherwise. Used by pipeline/measures.py.",
+ "states": {
+  "AK": {
+   "complete": true
+  },
+  "AR": {
+   "complete": false,
+   "note": "bond rules not read"
+  },
+  "AZ": {
+   "complete": true,
+   "note": "measure rules applied from 2023: the tax clauses of art. XXI sec. 1 and art. IV pt. 1 sec. 1(5) are dated by the reader to Proposition 132 of 2022 [stated by the reader; the pages read do not date them], so the earlier text is not read"
+  },
+  "CO": {
+   "complete": false,
+   "note": "read from the 2017 session law (SB17-152) amending C.R.S. 1-40-123; the constitution's own sections and the retention rule were not reachable; applied from 2017"
+  },
+  "DC": {
+   "complete": false,
+   "note": "charter amendments not read"
+  },
+  "FL": {
+   "complete": true
+  },
+  "GA": {
+   "complete": false,
+   "note": "the 2016 edition on legis.ga.gov (sos.ga.gov refused, HTTP 403); statewide referendums and bonds not read"
+  },
+  "HI": {
+   "complete": false,
+   "note": "bond rules not read"
+  },
+  "IA": {
+   "complete": true
+  },
+  "ID": {
+   "complete": true
+  },
+  "IL": {
+   "complete": false,
+   "not_read": "ilga.gov failed TLS verification and WebFetch was refused by its robots.txt, so art. XIV sec. 2(b) and art. VI sec. 12(d) are not read; art. XIV sec. 3 is read as the Illinois Supreme Court quotes it"
+  },
+  "KY": {
+   "complete": true
+  },
+  "LA": {
+   "complete": false,
+   "note": "bond rules not read"
+  },
+  "ME": {
+   "complete": true,
+   "note": "the 2024 codification is an OCR scan; quotes chosen to avoid OCR errors"
+  },
+  "MI": {
+   "complete": true
+  },
+  "MN": {
+   "complete": true
+  },
+  "MO": {
+   "complete": true
+  },
+  "MT": {
+   "complete": true,
+   "note": "the convention question (art. XIV secs. 1-3) is not read; retention threshold not stated"
+  },
+  "NC": {
+   "complete": true
+  },
+  "ND": {
+   "complete": true,
+   "note": "no bond or convention vote in the text read"
+  },
+  "NE": {
+   "complete": true
+  },
+  "NM": {
+   "complete": true,
+   "note": "the 2021 Compilation Commission edition (nmonesource.com returned a captcha); amendments adopted from 2022 on are not in it"
+  },
+  "NY": {
+   "complete": true
+  },
+  "OH": {
+   "complete": true,
+   "note": "bond rules not read; Ohio's bond questions are amendments"
+  },
+  "OK": {
+   "complete": true
+  },
+  "OR": {
+   "complete": true
+  },
+  "RI": {
+   "complete": true
+  },
+  "SC": {
+   "complete": false
+  },
+  "SD": {
+   "complete": false,
+   "note": "the share for initiated and referred laws (art. III sec. 1) and for retention is not stated in the text read"
+  },
+  "TN": {
+   "complete": false,
+   "note": "the 104th General Assembly's Legislative Manual copy"
+  },
+  "UT": {
+   "complete": false,
+   "note": "the referendum share is not stated in art. VI; statutes not read beyond 20A-12-201"
+  },
+  "VA": {
+   "complete": false
+  },
+  "WA": {
+   "complete": true,
+   "note": "the 2020 edition"
+  },
+  "WV": {
+   "complete": false
+  },
+  "WY": {
+   "complete": true
+  },
+  "IN": {
+   "complete": false,
+   "note": "retention only, through WebFetch: iga.in.gov gave curl a JavaScript page and archive.iga.in.gov refused (HTTP 403)"
+  },
+  "KS": {
+   "complete": false,
+   "note": "retention of Supreme Court justices only"
+  },
+  "MD": {
+   "complete": false,
+   "note": "appellate retention only"
+  },
+  "AL": {
+   "complete": false,
+   "not_read": "alison.legislature.state.al.us is a JavaScript page and WebFetch was refused by its robots.txt"
+  },
+  "CA": {
+   "complete": false,
+   "not_read": "leginfo.legislature.ca.gov gave curl a Cloudflare bot check (HTTP 403) and WebFetch failed"
+  },
+  "NH": {
+   "complete": false,
+   "not_read": "nh.gov, mm.nh.gov, sos.nh.gov and courts.nh.gov refused curl (HTTP 403), gc.nh.gov and gencourt.state.nh.us returned an empty reply, and WebFetch failed"
+  }
+ },
+ "rules": [
+  {
+   "state": "AK",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by legislature (two-thirds of each house); Alaska has no constitutional initiative",
+   "rule": "majority of the votes cast on the proposition (exactly half is not a majority)",
+   "citation": "Alaska Const. art. XIII, §1",
+   "url": "https://akleg.gov/docs/pdf/Alaska_Constitution.pdf",
+   "quote": "If a majority of the votes cast on the proposition favor the amendment, it shall be adopted.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "AK",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated statute and referred act (rejection of a referred act)",
+   "rule": "majority of the votes cast on the proposition",
+   "citation": "Alaska Const. art. XI, §6",
+   "url": "https://akleg.gov/docs/pdf/Alaska_Constitution.pdf",
+   "quote": "If a majority of the votes cast on the proposition favor its adoption, the initiated measure is enacted. If a majority of the votes cast on the proposition favor the rejection of an act referred, it is rejected.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "AK",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state debt (general obligation bond question)",
+   "rule": "majority of the qualified voters who vote on the question",
+   "citation": "Alaska Const. art. IX, §8",
+   "url": "https://akleg.gov/docs/pdf/Alaska_Constitution.pdf",
+   "quote": "No state debt shall be contracted unless authorized by law for capital improvements or unless authorized by law for housing loans for veterans, and ratified by a majority of the qualified voters of the State who vote on the question.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "AK",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional convention question (2022)",
+   "rule": "majority of the votes cast on the question in the affirmative calls a convention",
+   "citation": "Alaska Const. art. XIII, §3",
+   "url": "https://akleg.gov/docs/pdf/Alaska_Constitution.pdf",
+   "quote": "If a majority of the votes cast on the question are in the negative, the question need not be placed on the ballot until the end of the next ten-year period. If a majority of the votes cast on the question are in the affirmative, delegates to the convention shall be chosen at the next regular statewide election",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "AK",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (supreme court justice, superior court judge)",
+   "rule": "judge is out only if rejected by a majority of those voting on the question; so retained with at least half yes (a tie does not reject)",
+   "citation": "Alaska Const. art. IV, §7 (with §6)",
+   "url": "https://akleg.gov/docs/pdf/Alaska_Constitution.pdf",
+   "quote": "The office of any supreme court justice or superior court judge becomes vacant ninety days after the election at which he is rejected by a majority of those voting on the question, or for which he fails to file his declaration of candidacy to succeed himself.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "AR",
+   "type": "amendment",
+   "t": null,
+   "compound": "text reads 'majority of the electors voting at such election'; the base (ballots on the amendment, or all ballots at the election) is not stated here. Amendment 7 states the initiative rule differently (see next object)",
+   "applies_to": "constitutional amendment proposed by the General Assembly",
+   "rule": "majority of the electors voting at such election (text says 'at such election', not 'on the amendment'; it does not say which base is counted)",
+   "citation": "Ark. Const. art. 19, §22",
+   "url": "https://www.sos.arkansas.gov/uploads/elections/Arkansas_Election_Laws_and_Constitution_2025_Edition.pdf",
+   "quote": "if a majority of the electors voting at such election adopt such amendments, the same shall become a part of this Constitution.",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "AR",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated constitutional amendment, initiated act, and referred measure",
+   "rule": "majority of the votes cast upon the measure; expressly not required to be a majority of electors voting at the election",
+   "citation": "Ark. Const. amend. 7 (Majority paragraph)",
+   "url": "https://www.sos.arkansas.gov/uploads/elections/Arkansas_Election_Laws_and_Constitution_2025_Edition.pdf",
+   "quote": "Any measure submitted to the people as herein provided shall take effect and become a law when approved by a majority of the votes cast upon such measure, and not otherwise, and shall not be required to receive a majority of the electors voting at such election.",
+   "read_utc": "2026-11-07T06:56Z",
+   "only_if": "an amendment the people initiated (Amendment 7)"
+  },
+  {
+   "state": "AR",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated constitutional amendment, initiated act, and referred measure",
+   "rule": "majority of the votes cast upon the measure; expressly not required to be a majority of electors voting at the election",
+   "citation": "Ark. Const. amend. 7 (Majority paragraph)",
+   "url": "https://www.sos.arkansas.gov/uploads/elections/Arkansas_Election_Laws_and_Constitution_2025_Edition.pdf",
+   "quote": "Any measure submitted to the people as herein provided shall take effect and become a law when approved by a majority of the votes cast upon such measure, and not otherwise, and shall not be required to receive a majority of the electors voting at such election.",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "AZ",
+   "type": "amendment",
+   "t": 0.6,
+   "compound": null,
+   "applies_to": "constitutional amendment, any proposer (legislature or initiative), that approves a tax (2022 Prop 132 rule)",
+   "rule": "60% of qualified electors voting thereon",
+   "citation": "Ariz. Const. art. XXI, §1",
+   "url": "https://www.azleg.gov/const/21/1.htm",
+   "quote": "for any proposed amendment or amendments to approve a tax, if sixty percent of the qualified electors voting thereon shall approve and ratify such proposed amendment or amendments in the regular or special election, such amendment or amendments shall become a part of this constitution",
+   "read_utc": "2026-11-07T06:57Z",
+   "only_if": "an amendment that approves a tax",
+   "from_year": 2023
+  },
+  {
+   "state": "AZ",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment, any proposer, not approving a tax (exception to the 60% rule)",
+   "rule": "majority of qualified electors voting thereon",
+   "citation": "Ariz. Const. art. XXI, §1",
+   "url": "https://www.azleg.gov/const/21/1.htm",
+   "quote": "and for any other proposed amendment or amendments, if a majority of the qualified electors voting thereon shall approve and ratify such proposed amendment or amendments in the regular or special election, such amendment or amendments shall become a part of this constitution.",
+   "read_utc": "2026-11-07T06:57Z",
+   "from_year": 2023
+  },
+  {
+   "state": "AZ",
+   "type": "statute",
+   "t": 0.6,
+   "compound": null,
+   "applies_to": "initiated or referred statute (and initiated constitutional amendment) that approves a tax",
+   "rule": "60% of the votes cast thereon",
+   "citation": "Ariz. Const. art. IV, pt. 1, §1(5)",
+   "url": "https://www.azleg.gov/const/4/1.p1.htm",
+   "quote": "for an initiative or referendum to approve a tax, shall become law when approved by sixty percent of the votes cast thereon and upon proclamation of the governor, and not otherwise",
+   "read_utc": "2026-11-07T06:57Z",
+   "only_if": "an initiative or referendum that approves a tax",
+   "from_year": 2023
+  },
+  {
+   "state": "AZ",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated or referred statute (and initiated constitutional amendment) that does not approve a tax",
+   "rule": "majority of the votes cast thereon",
+   "citation": "Ariz. Const. art. IV, pt. 1, §1(5)",
+   "url": "https://www.azleg.gov/const/4/1.p1.htm",
+   "quote": "and for all other initiatives and referendums, shall become law when approved by a majority of the votes cast thereon and upon proclamation of the governor, and not otherwise.",
+   "read_utc": "2026-11-07T06:57Z",
+   "from_year": 2023
+  },
+  {
+   "state": "AZ",
+   "type": "convention",
+   "t": null,
+   "compound": "calling the convention: approval 'by the people on a Referendum vote', share not stated; proposals from the convention: majority of electors voting thereon",
+   "applies_to": "constitutional convention (referendum on the law calling one, and convention proposals)",
+   "rule": "laws calling a convention must first be approved by the people on a referendum vote; convention proposals need a majority of electors voting thereon. No percentage stated for the first vote.",
+   "citation": "Ariz. Const. art. XXI, §2",
+   "url": "https://www.azleg.gov/const/21/2.htm",
+   "quote": "No Convention shall be called by the Legislature to propose alterations, revisions, or amendments to this Constitution, or to propose a new Constitution, unless laws providing for such Convention shall first be approved by the people on a Referendum vote at a regular or special election",
+   "read_utc": "2026-11-07T06:57Z",
+   "from_year": 2023
+  },
+  {
+   "state": "AZ",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (supreme, appellate, superior court judges)",
+   "rule": "retained if a majority of those voting on the question votes Yes; vacancy if a majority votes No. A tie is not addressed in the text.",
+   "citation": "Ariz. Const. art. VI, §38(C)",
+   "url": "https://www.azleg.gov/const/6/38.htm",
+   "quote": "If a majority of those voting on the question votes \"No,\" then, upon the expiration of the term for which such justice or judge was serving, a vacancy shall exist, which shall be filled as provided by this article. If a majority of those voting on the question votes \"Yes,\" such justice or judge shall remain in office for another term",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "CO",
+   "type": "amendment",
+   "t": 0.55,
+   "compound": null,
+   "applies_to": "constitutional amendment (statute C.R.S. 1-40-123(3) as amended by SB17-152; the constitution text itself was NOT read)",
+   "rule": "at least 55% of votes cast thereon",
+   "citation": "C.R.S. 1-40-123(3), as enacted by 2017 Colo. Sess. Laws ch. 169 (SB17-152), §7 (capitals in the source are its way of marking new text)",
+   "url": "https://content.leg.colorado.gov/sites/default/files/documents/2017A/bills/sl/2017a_sl_169.pdf",
+   "quote": "AT LEAST FIFTY-FIVE PERCENT OF THE VOTES CAST THEREON ADOPTS ANY MEASURE SUBMITTED FOR AN AMENDMENT TO THE STATE CONSTITUTION; EXCEPT THAT A MAJORITY OF THE VOTES CAST THEREON ADOPTS ANY MEASURE SUBMITTED FOR AN AMENDMENT TO THE STATE CONSTITUTION THAT ONLY REPEALS IN WHOLE OR IN PART ANY PROVISION OF THE STATE CONSTITUTION.",
+   "read_utc": "2026-11-07T06:59Z",
+   "from_year": 2017
+  },
+  {
+   "state": "CO",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment that only repeals, in whole or in part, a provision of the constitution (exception)",
+   "rule": "majority of votes cast thereon",
+   "citation": "C.R.S. 1-40-123(3), as enacted by SB17-152, §7",
+   "url": "https://content.leg.colorado.gov/sites/default/files/documents/2017A/bills/sl/2017a_sl_169.pdf",
+   "quote": "EXCEPT THAT A MAJORITY OF THE VOTES CAST THEREON ADOPTS ANY MEASURE SUBMITTED FOR AN AMENDMENT TO THE STATE CONSTITUTION THAT ONLY REPEALS IN WHOLE OR IN PART ANY PROVISION OF THE STATE CONSTITUTION.",
+   "read_utc": "2026-11-07T06:59Z",
+   "only_if": "an amendment that only repeals, in whole or in part, a provision of the constitution",
+   "from_year": 2017
+  },
+  {
+   "state": "CO",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated or referred statute (proposed law)",
+   "rule": "majority of the votes cast thereon",
+   "citation": "C.R.S. 1-40-123(2), as enacted by SB17-152, §7",
+   "url": "https://content.leg.colorado.gov/sites/default/files/documents/2017A/bills/sl/2017a_sl_169.pdf",
+   "quote": "A majority of the votes cast thereon ADOPTS ANY MEASURE SUBMITTED FOR A PROPOSED LAW",
+   "read_utc": "2026-11-07T06:59Z",
+   "from_year": 2017
+  },
+  {
+   "state": "DC",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiative measure",
+   "rule": "ratified by a majority of the registered qualified electors voting on the measure",
+   "citation": "D.C. Code §1-1001.16(r)(1)",
+   "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-1001.16",
+   "quote": "An initiative measure which has been ratified by a majority of the registered qualified electors voting on the measure shall not take effect until the end of the 30-day congressional review period",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "DC",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "referendum on an act of the Council (rejection)",
+   "rule": "act is rejected if a majority of registered qualified electors voting in the referendum vote to disapprove",
+   "citation": "D.C. Code §1-1001.16(r)(2)",
+   "url": "https://code.dccouncil.gov/us/dc/council/code/sections/1-1001.16",
+   "quote": "If a majority of the registered qualified electors voting in a referendum on an act or part or parts thereof vote to disapprove the act or part or parts thereof, then such action shall be deemed a rejection of the act or part or parts thereof",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "FL",
+   "type": "amendment",
+   "t": 0.6,
+   "compound": null,
+   "applies_to": "constitutional amendment or revision (any proposer: legislature, initiative, commissions, convention), general rule",
+   "rule": "at least 60% of the electors voting on the measure",
+   "citation": "Fla. Const. art. XI, §5(e)",
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?Mode=Constitution&Submenu=3&Tab=statutes",
+   "quote": "Unless otherwise specifically provided for elsewhere in this constitution, if the proposed amendment or revision is approved by vote of at least sixty percent of the electors voting on the measure, it shall be effective as an amendment to or revision of the constitution",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "FL",
+   "type": "amendment",
+   "t": null,
+   "compound": "two-thirds of the voters voting in the election, not only of those voting on the measure",
+   "applies_to": "constitutional amendment imposing a new State tax or fee (exception to 60%)",
+   "rule": "not fewer than two-thirds of the voters voting in the election (text says 'in the election in which such proposed amendment is considered', not 'on the measure'); a failing amendment is void",
+   "citation": "Fla. Const. art. XI, §7",
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?Mode=Constitution&Submenu=3&Tab=statutes",
+   "quote": "no new State tax or fee shall be imposed on or after November 8, 1994 by any amendment to this constitution unless the proposed amendment is approved by not fewer than two-thirds of the voters voting in the election in which such proposed amendment is considered.",
+   "read_utc": "2026-11-07T07:00Z",
+   "only_if": "an amendment that imposes a new State tax or fee"
+  },
+  {
+   "state": "FL",
+   "type": "bond",
+   "t": null,
+   "compound": "text sets no vote share",
+   "applies_to": "state bonds pledging full faith and credit",
+   "rule": "approval by a vote of the electors; no share is stated in the text",
+   "citation": "Fla. Const. art. VII, §11(a)",
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?Mode=Constitution&Submenu=3&Tab=statutes",
+   "quote": "State bonds pledging the full faith and credit of the state may be issued only to finance or refinance the cost of state fixed capital outlay projects authorized by law, and purposes incidental thereto, upon approval by a vote of the electors",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "FL",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional convention question",
+   "rule": "majority voting on the question",
+   "citation": "Fla. Const. art. XI, §4(b)",
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?Mode=Constitution&Submenu=3&Tab=statutes",
+   "quote": "If a majority voting on the question votes in the affirmative, at the next succeeding general election there shall be elected from each representative district a member of a constitutional convention.",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "FL",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (justices and judges)",
+   "rule": "retained if a majority of the qualified electors voting within the territorial jurisdiction of the court vote to retain",
+   "citation": "Fla. Const. art. V, §10(a)",
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?Mode=Constitution&Submenu=3&Tab=statutes",
+   "quote": "If a majority of the qualified electors voting within the territorial jurisdiction of the court vote to retain, the justice or judge shall be retained for a term of six years.",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "GA",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the General Assembly (two-thirds of each house); Georgia has no initiative",
+   "rule": "majority of the electors qualified to vote for General Assembly members voting thereon (edition read is the 2016 annotated edition)",
+   "citation": "Ga. Const. art. X, §I, ¶II",
+   "url": "https://www.legis.ga.gov/api/document/docs/default-source/joint-features-document-library/2ga-const-(v2)-2016-pdf.pdf?sfvrsn=f5de823e_0",
+   "quote": "If such proposal is ratified by a majority of the electors qualified to vote for members of the General Assembly voting thereon in such general election, such proposal shall become a part of this Constitution or shall become a new Constitution, as the case may be.",
+   "read_utc": "2026-11-07T07:01Z"
+  },
+  {
+   "state": "GA",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional convention proposals",
+   "rule": "ratified the same way as legislative proposals (majority of electors voting thereon)",
+   "citation": "Ga. Const. art. X, §I, ¶IV",
+   "url": "https://www.legis.ga.gov/api/document/docs/default-source/joint-features-document-library/2ga-const-(v2)-2016-pdf.pdf?sfvrsn=f5de823e_0",
+   "quote": "A proposal by the convention to amend this Constitution or for a new Constitution shall be advertised, submitted to, and ratified by the people in the same manner provided for advertisement, submission, and ratification of proposals to amend the Constitution by the General Assembly.",
+   "read_utc": "2026-11-07T07:01Z"
+  },
+  {
+   "state": "HI",
+   "type": "amendment",
+   "t": null,
+   "compound": "majority of the votes tallied on the question, and that majority must be at least 50% of the total vote cast at the election",
+   "applies_to": "constitutional amendment proposed by legislature, and revisions or amendments proposed by convention, at a general election",
+   "rule": "majority of all votes tallied upon the question, and that majority at least 50% of the total vote cast at the election",
+   "citation": "Haw. Const. art. XVII, §2 (ratification paragraph); §3 for the legislature",
+   "url": "https://lrb.hawaii.gov/constitution/",
+   "quote": "The revision or amendments shall be effective only if approved at a general election by a majority of all the votes tallied upon the question, this majority constituting at least fifty per cent of the total vote cast at the election, or at a special election by a majority of all the votes tallied upon the question, this majority constituting at least thirty per cent of the total number of registered voters.",
+   "read_utc": "2026-11-07T07:02Z"
+  },
+  {
+   "state": "HI",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional convention question (2018)",
+   "rule": "majority of the ballots cast upon the question in the affirmative",
+   "citation": "Haw. Const. art. XVII, §2",
+   "url": "https://lrb.hawaii.gov/constitution/",
+   "quote": "If a majority of the ballots cast upon such a question be in the affirmative, delegates to the convention shall be chosen at the next regular election unless the legislature shall provide for the election of delegates at a special election.",
+   "read_utc": "2026-11-07T07:02Z"
+  },
+  {
+   "state": "IA",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the General Assembly (no initiative in Iowa)",
+   "rule": "majority of electors voting on the amendment",
+   "citation": "Iowa Const. art. X, §1",
+   "url": "https://www.legis.iowa.gov/docs/publications/ICNST/1022949.pdf",
+   "quote": "if the people shall approve and ratify such amendment or amendments, by a majority of the electors qualified to vote for members of the General Assembly, voting thereon, such amendment or amendments shall become a part of the Constitution of this State.",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "IA",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional convention question",
+   "rule": "majority voting on the question",
+   "citation": "Iowa Const. art. X, §3 (as substituted by Amendment 22 of 1964)",
+   "url": "https://www.legis.iowa.gov/docs/publications/ICNST/1022949.pdf",
+   "quote": "in case a majority of the electors so qualified, voting at such election, for and against such proposition, shall decide in favor of a Convention for such purpose, the General Assembly, at its next session, shall provide by law for the election of delegates",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "IA",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state debt law (statewide bond question)",
+   "rule": "majority of votes cast for and against",
+   "citation": "Iowa Const. art. VII, §5",
+   "url": "https://www.legis.iowa.gov/docs/publications/ICNST/1022949.pdf",
+   "quote": "no such law shall take effect until at a general election it shall have been submitted to the people, and have received a majority of all the votes cast for and against it at such election",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "IA",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (supreme court, court of appeals, district court judges)",
+   "rule": "more affirmative than negative votes. Iowa Const. art. V, §17 puts judges on a retention ballot but states no threshold; the threshold is in the statute.",
+   "citation": "Iowa Code §46.24(1) (2026 Code, ch. 46)",
+   "url": "https://www.legis.iowa.gov/docs/ico/chapter/46.pdf",
+   "quote": "A judge of the supreme court, court of appeals, or district court including a district associate judge, full-time associate juvenile judge, or full-time associate probate judge, or a clerk of the district court must receive more affirmative than negative votes to be retained in office.",
+   "read_utc": "2026-11-07T06:59Z"
+  },
+  {
+   "state": "ID",
+   "type": "amendment",
+   "t": null,
+   "compound": "majority of 'the electors'; denominator not stated in the text I read",
+   "applies_to": "constitutional amendment proposed by the legislature",
+   "rule": "text says only 'a majority of the electors shall ratify'; the denominator (voting on it, or all electors voting at the election) is not stated in the section",
+   "citation": "Idaho Const. art. XX, §1",
+   "url": "https://legislature.idaho.gov/statutesrules/idconst/ArtXX/Sect1",
+   "quote": "and if a majority of the electors shall ratify the same, such amendment or amendments shall become a part of this Constitution.",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "ID",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated statute and referendum measure",
+   "rule": "majority of those voting on the measure (statute; Const. art. III, §1 leaves conditions to the legislature)",
+   "citation": "Idaho Code §34-1813(1)",
+   "url": "https://legislature.idaho.gov/statutesrules/idstat/Title34/T34CH18/SECT34-1813",
+   "quote": "declaring such measures as are approved by a majority of those voted thereon to be in full force and effect as the law of the state of Idaho",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "ID",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state debt law (statewide bond question)",
+   "rule": "majority of all votes cast for or against",
+   "citation": "Idaho Const. art. VIII, §1",
+   "url": "https://legislature.idaho.gov/statutesrules/idconst/ArtVIII/Sect1",
+   "quote": "no such law shall take effect until at a general election it shall have been submitted to the people, and shall have received a majority of all the votes cast for or against it at such election",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "ID",
+   "type": "convention",
+   "t": null,
+   "compound": "majority of all the electors voting at the election (share of all ballots at the election, not only of those voting on the question)",
+   "applies_to": "constitutional convention question",
+   "rule": "majority of all electors voting at the election",
+   "citation": "Idaho Const. art. XX, §3",
+   "url": "https://legislature.idaho.gov/statutesrules/idconst/ArtXX/Sect3",
+   "quote": "if a majority of all the electors voting at said election shall have voted for a convention, the legislature shall at the next session provide by law for calling the same",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "IL",
+   "type": "amendment",
+   "t": null,
+   "compound": "three-fifths of those voting on the amendment, or a majority of those voting in the election",
+   "applies_to": "constitutional amendment by initiative (Article IV amendments only)",
+   "rule": "three-fifths of those voting on the amendment, or a majority of those voting in the election. NOT read from the constitution site; this is the Illinois Supreme Court's quotation of the section.",
+   "citation": "Ill. Const. art. XIV, §3, as quoted in Hooker v. Illinois State Board of Elections, 2016 IL 121077, ¶99",
+   "url": "https://www.illinoiscourts.gov/Resources/7ad6c973-c39b-4316-9289-cb869dc83b4f/121077.pdf",
+   "quote": "shall become effective if approved by either three-fifths of those voting on the amendment or a majority of those voting in the election.",
+   "read_utc": "2026-11-07T07:03Z",
+   "only_if": "an amendment to Article IV the people initiated"
+  },
+  {
+   "state": "KY",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the General Assembly (no initiative in Kentucky)",
+   "rule": "majority of votes cast for and against",
+   "citation": "Ky. Const. §256",
+   "url": "https://apps.legislature.ky.gov/Law/Constitution/Constitution/ViewConstitution?rsn=294",
+   "quote": "If it shall appear that a majority of the votes cast for and against an amendment at said election was for the amendment, then the same shall become a part of the Constitution of this Commonwealth",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "KY",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state debt act (statewide bond question)",
+   "rule": "majority of all votes cast for and against",
+   "citation": "Ky. Const. §50",
+   "url": "https://apps.legislature.ky.gov/Law/Constitution/Constitution/ViewConstitution?rsn=54",
+   "quote": "nor shall such act take effect until it shall have been submitted to the people at a general election, and shall have received a majority of all the votes cast for and against it",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "KY",
+   "type": "convention",
+   "t": null,
+   "compound": "majority voting on the proposition, plus a turnout floor: yes votes must equal one-fourth of those who voted at the last general election",
+   "applies_to": "constitutional convention question",
+   "rule": "majority voting on the proposition AND yes votes at least one-fourth of the voters at the last general election",
+   "citation": "Ky. Const. §258",
+   "url": "https://apps.legislature.ky.gov/Law/Constitution/Constitution/ViewConstitution?rsn=296",
+   "quote": "If it shall appear that a majority voting on the proposition was for calling a Convention, and if the total number of votes cast for the calling of the Convention is equal to one-fourth of the number of qualified voters who voted at the last preceding general election in this State",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "LA",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the legislature (no initiative in Louisiana)",
+   "rule": "majority of electors voting on the amendment",
+   "citation": "La. Const. art. XIII, §1(C)",
+   "url": "https://www.legis.la.gov/legis/Law.aspx?d=206363",
+   "quote": "If a majority of the electors voting on the proposed amendment approve it, the governor shall proclaim its adoption, and it shall become part of this constitution, effective twenty days after the proclamation, unless the amendment provides otherwise.",
+   "read_utc": "2026-11-07T07:02Z"
+  },
+  {
+   "state": "LA",
+   "type": "amendment",
+   "t": null,
+   "compound": "majority statewide and also a majority in each affected parish (or each affected municipality)",
+   "applies_to": "exception: amendment directly affecting not more than five parishes (or areas within them), or not more than five municipalities",
+   "rule": "majority statewide AND majority in each affected parish or municipality",
+   "citation": "La. Const. art. XIII, §1(C)",
+   "url": "https://www.legis.la.gov/legis/Law.aspx?d=206363",
+   "quote": "shall become part of this constitution only when approved by a majority of the electors voting thereon in the state and also a majority of the electors voting thereon in each affected parish.",
+   "read_utc": "2026-11-07T07:02Z",
+   "only_if": "an amendment directly affecting not more than five parishes or five municipalities"
+  },
+  {
+   "state": "LA",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitution or revision proposed by a constitutional convention",
+   "rule": "majority of electors voting",
+   "citation": "La. Const. art. XIII, §2",
+   "url": "https://www.legis.la.gov/legis/Law.aspx?d=206364",
+   "quote": "If the proposal is approved by a majority of the electors voting thereon, the governor shall proclaim it to be the Constitution of Louisiana.",
+   "read_utc": "2026-11-07T07:02Z"
+  },
+  {
+   "state": "ME",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the legislature (no initiative for amendments)",
+   "rule": "majority of inhabitants voting on the question",
+   "citation": "Me. Const. art. X, §4",
+   "url": "https://lldc.mainelegislature.org/Open/Const/Versions/MeConst_2024_Amd.pdf",
+   "quote": "if it shall appear that a majority of the inhabitants voting on the question are in favor of such amendment, it shall become a part of this Constitution.",
+   "read_utc": "2026-11-07T07:02Z"
+  },
+  {
+   "state": "ME",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "people's veto referendum on an act",
+   "rule": "majority of electors voting thereon",
+   "citation": "Me. Const. art. IV, pt. 3, §17(1)",
+   "url": "https://lldc.mainelegislature.org/Open/Const/Versions/MeConst_2024_Amd.pdf",
+   "quote": "that the same have been ratified by a majority of the electors voting thereon at a statewide or general election.",
+   "read_utc": "2026-11-07T07:02Z"
+  },
+  {
+   "state": "ME",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "measure referred to the people (direct initiative or referendum)",
+   "rule": "majority of votes given thereon",
+   "citation": "Me. Const. art. IV, pt. 3, §19",
+   "url": "https://lldc.mainelegislature.org/Open/Const/Versions/MeConst_2024_Amd.pdf",
+   "quote": "approved by a majority of the votes given thereon shall, unless a later date is specified in said measure, take effect and become a law in 30 days after the Governor has made public proclamation of the result of the vote",
+   "read_utc": "2026-11-07T07:02Z"
+  },
+  {
+   "state": "ME",
+   "type": "statute",
+   "t": null,
+   "compound": "runoff rule for competing measures: neither has a majority, the leader needs more than 1/3 to go to a later statewide election by itself",
+   "applies_to": "exception: initiative with competing legislative measure, neither gets a majority of votes given for or against both",
+   "rule": "most-voted measure goes to a later runoff if it gets more than 1/3 of the votes given for and against both",
+   "citation": "Me. Const. art. IV, pt. 3, §18(2)",
+   "url": "https://lldc.mainelegislature.org/Open/Const/Versions/MeConst_2024_Amd.pdf",
+   "quote": "When there are competing bills and neither receives a majority of the votes given for or against both, the one receiving the most votes shall at the next statewide election",
+   "read_utc": "2026-11-07T07:02Z",
+   "only_if": "an initiative with a competing measure on the same ballot"
+  },
+  {
+   "state": "ME",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "statewide bond question",
+   "rule": "2/3 of both houses, then ratified by majority of electors voting thereon",
+   "citation": "Me. Const. art. IX, §14",
+   "url": "https://lldc.mainelegislature.org/Open/Const/Versions/MeConst_2024_Amd.pdf",
+   "quote": "by proper enactment ratified by a majority of the electors voting thereon at a general or special election, the Legislature may authorize the issuance of bonds on behalf of the State",
+   "read_utc": "2026-11-07T07:02Z"
+  },
+  {
+   "state": "MI",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the legislature",
+   "rule": "majority of electors voting on the amendment",
+   "citation": "Mich. Const. art. XII, §1",
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-Article-XII-1",
+   "quote": "If a majority of electors voting on a proposed amendment approve the same, it shall become part of the constitution",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "MI",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by initiative petition",
+   "rule": "majority of electors voting on the question",
+   "citation": "Mich. Const. art. XII, §2",
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-Article-XII-2",
+   "quote": "If the proposed amendment is approved by a majority of the electors voting on the question, it shall become part of the constitution",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "MI",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated law and referendum on an act",
+   "rule": "majority of votes cast thereon",
+   "citation": "Mich. Const. art. II, §9",
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-Article-II-9",
+   "quote": "Any law submitted to the people by either initiative or referendum petition and approved by a majority of the votes cast thereon at any election shall take effect 10 days after the date of the official declaration of the vote.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "MI",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state long-term borrowing question",
+   "rule": "2/3 of each house, then approved by majority of electors voting thereon",
+   "citation": "Mich. Const. art. IX, §15",
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-Article-IX-15",
+   "quote": "adopted by a vote of two-thirds of the members elected to and serving in each house, and approved by a majority of the electors voting thereon at any general election.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "MI",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional convention question (and convention's proposed constitution)",
+   "rule": "majority of electors voting on the question; proposed constitution by majority of qualified electors voting thereon",
+   "citation": "Mich. Const. art. XII, §3",
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-Article-XII-3",
+   "quote": "If a majority of the electors voting on the question decide in favor of a convention for such purpose",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "MN",
+   "type": "amendment",
+   "t": null,
+   "compound": "majority of all the electors voting at the election (a blank on the question counts against)",
+   "applies_to": "constitutional amendment proposed by the legislature (no initiative in Minnesota)",
+   "rule": "majority of all electors voting at the election",
+   "citation": "Minn. Const. art. IX, §1",
+   "url": "https://www.revisor.mn.gov/constitution/",
+   "quote": "If a majority of all the electors voting at the election vote to ratify an amendment, it becomes a part of this constitution.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "MN",
+   "type": "convention",
+   "t": null,
+   "compound": "majority of all the electors voting at the election",
+   "applies_to": "constitutional convention question",
+   "rule": "majority of all electors voting at the election",
+   "citation": "Minn. Const. art. IX, §2",
+   "url": "https://www.revisor.mn.gov/constitution/",
+   "quote": "If a majority of all the electors voting at the election vote for a convention, the legislature at its next session, shall provide by law for calling the convention.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "MN",
+   "type": "amendment",
+   "t": 0.6,
+   "compound": null,
+   "applies_to": "revision proposed by a constitutional convention",
+   "rule": "three-fifths of electors voting on the question",
+   "citation": "Minn. Const. art. IX, §3",
+   "url": "https://www.revisor.mn.gov/constitution/",
+   "quote": "If three-fifths of all the electors voting on the question vote to ratify the revision, it becomes a new constitution of the state of Minnesota.",
+   "read_utc": "2026-11-07T06:53Z",
+   "only_if": "a revision proposed by a constitutional convention"
+  },
+  {
+   "state": "MO",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the General Assembly or by initiative",
+   "rule": "majority of votes cast thereon",
+   "citation": "Mo. Const. art. XII, §2(b)",
+   "url": "https://revisor.mo.gov/main/OneSection.aspx?section=XII%20%202(b)&bid=-1",
+   "quote": "If a majority of the votes cast thereon is in favor of any amendment, the same shall take effect at the end of thirty days after the election.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "MO",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated statute",
+   "rule": "majority of votes cast thereon",
+   "citation": "Mo. Const. art. III, §51",
+   "url": "https://revisor.mo.gov/main/OneSection.aspx?section=III%20%2051&bid=-1",
+   "quote": "Except as provided in this constitution, any measure proposed shall take effect when approved by a majority of the votes cast thereon.",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "MO",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "measure referred to the people (referendum)",
+   "rule": "majority of votes cast thereon",
+   "citation": "Mo. Const. art. III, §52(b)",
+   "url": "https://revisor.mo.gov/main/OneSection.aspx?section=III%20%2052(b)&bid=-1",
+   "quote": "Any measure referred to the people shall take effect when approved by a majority of the votes cast thereon, and not otherwise.",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "MO",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional convention question (every twenty years, 2022)",
+   "rule": "majority of votes cast thereon",
+   "citation": "Mo. Const. art. XII, §3(a)",
+   "url": "https://revisor.mo.gov/main/OneSection.aspx?section=XII%20%203(a)&bid=-1",
+   "quote": "if a majority of the votes cast thereon is for the affirmative, the governor shall call an election of delegates to the convention",
+   "read_utc": "2026-11-07T06:55Z"
+  },
+  {
+   "state": "MT",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by the legislature",
+   "rule": "majority of electors voting thereon",
+   "citation": "Mont. Const. art. XIV, §8",
+   "url": "https://leg.mt.gov/bills/mca/title_0000/article_0140/part_0010/section_0080/0000-0140-0010-0080.html",
+   "quote": "If approved by a majority of the electors voting thereon, the amendment shall become a part of this constitution on the first day of July after certification of the election returns unless the amendment provides otherwise.",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "MT",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by initiative",
+   "rule": "majority voting thereon",
+   "citation": "Mont. Const. art. XIV, §9(3)",
+   "url": "https://leg.mt.gov/bills/mca/title_0000/article_0140/part_0010/section_0090/0000-0140-0010-0090.html",
+   "quote": "If approved by a majority voting thereon, it shall become a part of the constitution effective the first day of July following its approval, unless the amendment provides otherwise.",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "MT",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated statute and referred act (statewide ballot issues); Const. art. III §§4-5 state no vote threshold, statute does",
+   "rule": "approved by a majority of those voting on the issue",
+   "citation": "Mont. Code Ann. §13-27-503",
+   "url": "https://leg.mt.gov/bills/mca/title_0130/chapter_0270/part_0050/section_0030/0130-0270-0050-0030.html",
+   "quote": "the effective date of each statewide ballot issue approved by a majority of those voting on the issue.",
+   "read_utc": "2026-11-07T07:01Z"
+  },
+  {
+   "state": "MT",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state debt (statewide bond question)",
+   "rule": "authorized by 2/3 of each house of the legislature OR a majority of electors voting thereon (two alternative routes; the ballot question needs a voter majority)",
+   "citation": "Mont. Const. art. VIII, §8",
+   "url": "https://leg.mt.gov/bills/mca/title_0000/article_0080/part_0010/section_0080/0000-0080-0010-0080.html",
+   "quote": "No state debt shall be created unless authorized by a two-thirds vote of the members of each house of the legislature or a majority of the electors voting thereon.",
+   "read_utc": "2026-11-07T07:01Z"
+  },
+  {
+   "state": "MT",
+   "type": "retention",
+   "t": null,
+   "compound": "threshold not read",
+   "applies_to": "judicial retention (unopposed incumbent supreme court justice or district judge)",
+   "rule": "threshold not stated. The constitution says voters 'approve or reject' the incumbent; MCA 13-14-212 gives the ballot form (yes/no) only. No vote share found.",
+   "citation": "Mont. Const. art. VII, §8(3); Mont. Code Ann. §13-14-212",
+   "url": "https://leg.mt.gov/bills/mca/title_0000/article_0070/part_0010/section_0080/0000-0070-0010-0080.html",
+   "quote": "If an incumbent files for election and there is no election contest for the office, the name of the incumbent shall nevertheless be placed on the general election ballot to allow the voters of the state or district to approve or reject him.",
+   "read_utc": "2026-11-07T07:01Z"
+  },
+  {
+   "state": "NC",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment (legislature-proposed); no initiative or statutory referendum exists in NC",
+   "rule": "majority of votes cast thereon",
+   "citation": "N.C. Const. art. XIII, sec. 4",
+   "url": "https://www.ncleg.gov/Laws/Constitution/Article13",
+   "quote": "If a majority of the votes cast thereon are in favor of the proposed new or revised Constitution or constitutional amendment or amendments, it or they shall become effective January first next after ratification by the voters unless a different effective date is prescribed in the act submitting the proposal or proposals to the qualified voters.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "NC",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "convention question",
+   "rule": "majority of votes cast on the proposition",
+   "citation": "N.C. Const. art. XIII, sec. 1",
+   "url": "https://www.ncleg.gov/Laws/Constitution/Article13",
+   "quote": "If a majority of the votes cast upon the proposition are in favor of a Convention, it shall assemble on the day prescribed by the General Assembly.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "NC",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state bond question (debt secured by faith and credit)",
+   "rule": "majority of qualified voters who vote thereon",
+   "citation": "N.C. Const. art. V, sec. 3(1)",
+   "url": "https://www.ncleg.gov/Laws/Constitution/Article5",
+   "quote": "The General Assembly shall have no power to contract debts secured by a pledge of the faith and credit of the State, unless approved by a majority of the qualified voters of the State who vote thereon, except for the following purposes:",
+   "read_utc": "2026-11-07T06:55Z"
+  },
+  {
+   "state": "ND",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated or referred statute (and, by sec. 9, initiated constitutional amendment)",
+   "rule": "majority of votes cast upon the measure",
+   "citation": "N.D. Const. art. III, sec. 8 (and sec. 9)",
+   "url": "https://ndlegis.gov/constit/a03.pdf",
+   "quote": "If a majority of votes cast upon an initiated or a referred measure are affirmative, it shall be deemed enacted.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "ND",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated or referred statute (and, by sec. 9, initiated constitutional amendment)",
+   "rule": "majority of votes cast upon the measure",
+   "citation": "N.D. Const. art. III, sec. 8 (and sec. 9)",
+   "url": "https://ndlegis.gov/constit/a03.pdf",
+   "quote": "If a majority of votes cast upon an initiated or a referred measure are affirmative, it shall be deemed enacted.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "ND",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment by initiative",
+   "rule": "sec. 9 says all other initiative provisions apply, so the sec. 8 majority applies",
+   "citation": "N.D. Const. art. III, sec. 9",
+   "url": "https://ndlegis.gov/constit/a03.pdf",
+   "quote": "All other provisions relating to initiative measures apply to initiative measures for constitutional amendments.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "ND",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment (legislature-proposed)",
+   "rule": "majority of votes cast upon the question",
+   "citation": "N.D. Const. art. IV, sec. 16",
+   "url": "https://ndlegis.gov/constit/a04.pdf",
+   "quote": "If agreed to upon a roll call by a majority of the members elected to each house, must be submitted to the electors and if a majority of the votes cast upon the question are in the affirmative, the amendment is a part of this constitution.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "NE",
+   "type": "statute",
+   "t": null,
+   "compound": "majority of votes on the measure plus yes votes of at least 35% of ALL votes cast at the election (turnout floor)",
+   "applies_to": "initiated statute or initiated constitutional amendment",
+   "rule": "majority of votes cast thereon AND at least 35% of the total vote cast at the election",
+   "citation": "Neb. Const. art. III, sec. 4",
+   "url": "https://nebraskalegislature.gov/laws/articles.php?article=III-4",
+   "quote": "A measure initiated shall become a law or part of the Constitution, as the case may be, when a majority of the votes cast thereon, and not less than thirty-five per cent of the total vote cast at the election at which the same was submitted, are cast in favor thereof",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "NE",
+   "type": "amendment",
+   "t": null,
+   "compound": "majority of votes on the measure plus yes votes of at least 35% of ALL votes cast at the election (turnout floor)",
+   "applies_to": "initiated statute or initiated constitutional amendment",
+   "rule": "majority of votes cast thereon AND at least 35% of the total vote cast at the election",
+   "citation": "Neb. Const. art. III, sec. 4",
+   "url": "https://nebraskalegislature.gov/laws/articles.php?article=III-4",
+   "quote": "A measure initiated shall become a law or part of the Constitution, as the case may be, when a majority of the votes cast thereon, and not less than thirty-five per cent of the total vote cast at the election at which the same was submitted, are cast in favor thereof",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "NE",
+   "type": "amendment",
+   "t": null,
+   "compound": "majority of those voting on the amendment plus yes votes of at least 35% of all votes cast at the election",
+   "applies_to": "constitutional amendment proposed by legislature",
+   "rule": "majority of electors voting on the amendment AND yes votes at least 35% of total votes cast at the election",
+   "citation": "Neb. Const. art. XVI, sec. 1",
+   "url": "https://nebraskalegislature.gov/laws/articles.php?article=XVI-1",
+   "quote": "If a majority of the electors voting on any such amendment adopt the same, it shall become a part of this Constitution, provided the votes cast in favor of such amendment shall not be less than thirty-five per cent of the total votes cast at such election.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "NE",
+   "type": "convention",
+   "t": null,
+   "compound": "call of convention needs majority on the proposition plus yes votes of at least 35% of all votes cast at the election; the convention's product needs a simple majority of those voting for and against",
+   "applies_to": "convention question (call), then ratification of convention product",
+   "rule": "call: majority voting on proposition AND yes at least 35% of total votes at election; ratification: majority of those voting for and against",
+   "citation": "Neb. Const. art. XVI, sec. 2",
+   "url": "https://nebraskalegislature.gov/laws/articles.php?article=XVI-2",
+   "quote": "if a majority of the electors voting on the proposition, vote for a convention, the Legislature shall, at its next session provide by law for calling the same; Provided, the votes cast in favor of calling a convention shall not be less than thirty-five per cent of the total votes cast at such election.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "NE",
+   "type": "statute",
+   "t": null,
+   "compound": "constitution states no yes-vote threshold for a referendum; not read in statute",
+   "applies_to": "referred statute (referendum)",
+   "rule": "no vote threshold stated in art. III sec. 3 or sec. 4; the 35% sentence in sec. 4 is written only for 'a measure initiated'",
+   "citation": "Neb. Const. art. III, sec. 3",
+   "url": "https://nebraskalegislature.gov/laws/articles.php?article=III-3",
+   "quote": "When the referendum is invoked as to any act or part of act, other than emergency acts or those for the immediate preservation of the public peace, health, or safety, by petition signed by not less than ten percent of the registered voters of the state distributed as aforesaid, it shall suspend the taking effect of such act or part of act until the same has been approved by the electors of the state.",
+   "read_utc": "2026-11-07T06:55Z"
+  },
+  {
+   "state": "NE",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (Supreme Court, district, county judges)",
+   "rule": "constitution leaves the manner to the Legislature; statute: majority of electors voting on the question retains",
+   "citation": "Neb. Rev. Stat. sec. 24-817 (authorized by Neb. Const. art. V, sec. 21(3), 'in such manner as the Legislature shall provide')",
+   "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=24-817",
+   "quote": "If the majority of the electors voting with regard to said question at said election vote in the affirmative, said judge shall be retained in office for an additional term. If the majority of the voters voting on said question at said election vote in the negative, a vacancy in said office shall occur at the end of the term of office of said judge.",
+   "read_utc": "2026-11-07T07:00Z"
+  },
+  {
+   "state": "NM",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment, general rule (legislature-proposed; initiative does not exist in NM)",
+   "rule": "majority of the electors voting on the amendment",
+   "citation": "N.M. Const. art. XIX, sec. 1",
+   "url": "https://nmcourts.gov/wp-content/uploads/sites/64/2023/11/NM-Constitution-2021-SOS.pdf",
+   "quote": "An amendment that is ratified by a majority of the electors voting on the amendment shall become part of this constitution.",
+   "read_utc": "2026-11-07T06:59Z"
+  },
+  {
+   "state": "NM",
+   "type": "amendment",
+   "t": 0.75,
+   "compound": null,
+   "applies_to": "exception: amendment restricting art. VII secs. 1 and 3 (elective franchise) or art. XII secs. 8 and 10 (education)",
+   "rule": "three-fourths of the electors voting on the amendment (and proposed by three-fourths of each house). No per-county test appears in this text.",
+   "citation": "N.M. Const. art. XIX, sec. 1",
+   "url": "https://nmcourts.gov/wp-content/uploads/sites/64/2023/11/NM-Constitution-2021-SOS.pdf",
+   "quote": "No amendment shall restrict the rights created by Sections One and Three of Article VII hereof, on elective franchise, and Sections Eight and Ten of Article XII hereof, on education, unless it be proposed by vote of three-fourths of the members elected to each house and be ratified by a vote of the people of this state in an election at which at least three-fourths of the electors voting on the amendment vote in favor of that amendment.",
+   "read_utc": "2026-11-07T06:59Z",
+   "only_if": "an amendment that restricts the rights of art. VII secs. 1 and 3 (elective franchise) or art. XII secs. 8 and 10 (education)"
+  },
+  {
+   "state": "NM",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "convention question",
+   "rule": "majority of all electors voting on the question; convention's proposals need a majority",
+   "citation": "N.M. Const. art. XIX, sec. 2",
+   "url": "https://nmcourts.gov/wp-content/uploads/sites/64/2023/11/NM-Constitution-2021-SOS.pdf",
+   "quote": "if a majority of all the electors voting on such questions at said election in the state votes in favor of calling a convention, the legislature shall, at the next session, provide by law for calling the same.",
+   "read_utc": "2026-11-07T06:59Z"
+  },
+  {
+   "state": "NM",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state general-obligation bond question",
+   "rule": "majority of all the votes cast thereon at a general election",
+   "citation": "N.M. Const. art. IX, sec. 8(A)",
+   "url": "https://nmcourts.gov/wp-content/uploads/sites/64/2023/11/NM-Constitution-2021-SOS.pdf",
+   "quote": "No such law shall take effect until it shall have been submitted to the qualified electors of the state and have received a majority of all the votes cast thereon at a general election;",
+   "read_utc": "2026-11-07T06:59Z"
+  },
+  {
+   "state": "NM",
+   "type": "statute",
+   "t": null,
+   "compound": "rejection needs a majority of votes on the question plus rejection votes of at least 40% of all votes cast at the general election; otherwise the law stays in force",
+   "applies_to": "referendum on a statute (vote is on rejection)",
+   "rule": "law is annulled only if a majority of votes cast thereon AND at least 40% of the total votes cast at the general election are cast for rejection",
+   "citation": "N.M. Const. art. IV, sec. 1",
+   "url": "https://nmcourts.gov/wp-content/uploads/sites/64/2023/11/NM-Constitution-2021-SOS.pdf",
+   "quote": "if a majority of the legal votes cast thereon, and not less than forty per centum of the total number of legal votes cast at such general election, be cast for the rejection of such law, it shall be annulled and thereby repealed",
+   "read_utc": "2026-11-07T06:59Z"
+  },
+  {
+   "state": "NM",
+   "type": "retention",
+   "t": 0.57,
+   "compound": null,
+   "applies_to": "judicial retention (Supreme Court, Court of Appeals, district, metropolitan court judges)",
+   "rule": "at least 57% of the vote cast on the question of retention or rejection",
+   "citation": "N.M. Const. art. VI, sec. 33(A)",
+   "url": "https://nmcourts.gov/wp-content/uploads/sites/64/2023/11/NM-Constitution-2021-SOS.pdf",
+   "quote": "Retention of the judicial office shall require at least fifty-seven percent of the vote cast on the question of retention or rejection.",
+   "read_utc": "2026-11-07T06:59Z"
+  },
+  {
+   "state": "NY",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment (no initiative in NY)",
+   "rule": "majority of the electors voting thereon",
+   "citation": "N.Y. Const. art. XIX, sec. 1",
+   "url": "https://www.nysenate.gov/legislation/laws/CNS/A19S1",
+   "quote": "if the people shall approve and ratify such amendment or amendments by a majority of the electors voting thereon, such amendment or amendments shall become a part of the constitution on the first day of January next after such approval.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "NY",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "convention question",
+   "rule": "majority of the electors voting thereon",
+   "citation": "N.Y. Const. art. XIX, sec. 2",
+   "url": "https://www.nysenate.gov/legislation/laws/CNS/A19S2",
+   "quote": "the question \"Shall there be a convention to revise the constitution and amend the same?\" shall be submitted to and decided by the electors of the state; and in case a majority of the electors voting thereon shall decide in favor of a convention for such purpose,",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "NY",
+   "type": "bond",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "state bond question",
+   "rule": "majority of all the votes cast for and against it",
+   "citation": "N.Y. Const. art. VII, sec. 11",
+   "url": "https://www.nysenate.gov/legislation/laws/CNS/A7S11",
+   "quote": "No such law shall take effect until it shall, at a general election, have been submitted to the people, and have received a majority of all the votes cast for and against it at such election",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "OH",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by General Assembly",
+   "rule": "majority of electors voting on it (3/5 of each house to propose)",
+   "citation": "Ohio Const. art. XVI, sec. 1",
+   "url": "https://codes.ohio.gov/ohio-constitution/section-16.1",
+   "quote": "If the majority of the electors voting on the same shall adopt such amendments the same shall become a part of the constitution.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "OH",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated statute and initiated constitutional amendment",
+   "rule": "majority of the electors voting thereon",
+   "citation": "Ohio Const. art. II, sec. 1b",
+   "url": "https://codes.ohio.gov/ohio-constitution/section-2.1b",
+   "quote": "Any proposed law or amendment to the constitution submitted to the electors as provided in 1a and 1b, if approved by a majority of the electors voting thereon, shall take effect thirty days after the election at which it was approved and shall be published by the secretary of state.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "OH",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated statute and initiated constitutional amendment",
+   "rule": "majority of the electors voting thereon",
+   "citation": "Ohio Const. art. II, sec. 1b",
+   "url": "https://codes.ohio.gov/ohio-constitution/section-2.1b",
+   "quote": "Any proposed law or amendment to the constitution submitted to the electors as provided in 1a and 1b, if approved by a majority of the electors voting thereon, shall take effect thirty days after the election at which it was approved and shall be published by the secretary of state.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "OH",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "referred statute (referendum)",
+   "rule": "majority of those voting upon it",
+   "citation": "Ohio Const. art. II, sec. 1c",
+   "url": "https://codes.ohio.gov/ohio-constitution/section-2.1c",
+   "quote": "no such law, section or item shall go into effect until and unless approved by a majority of those voting upon the same.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "OH",
+   "type": "amendment",
+   "t": null,
+   "compound": "two questions, both must get a majority of those voting on each; if only one passes the amendment does not take effect",
+   "applies_to": "exception: initiated amendment the ballot board finds conflicts with art. II sec. 1e(B)(1) (monopolies, tax rates, commercial rights)",
+   "rule": "two separate questions on the ballot; each must be approved by a majority of electors voting on it",
+   "citation": "Ohio Const. art. II, sec. 1e(B)(2)(c)",
+   "url": "https://codes.ohio.gov/ohio-constitution/section-2.1e",
+   "quote": "(c) If both questions are approved or affirmed by a majority of the electors voting on them, then the constitutional amendment shall take effect. If only one question is approved or affirmed by a majority of the electors voting on it, then the constitutional amendment shall not take effect.",
+   "read_utc": "2026-11-07T06:54Z",
+   "only_if": "an initiated amendment the ballot board finds to conflict with art. II sec. 1e(B)(1) (put as two questions)"
+  },
+  {
+   "state": "OH",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "convention question",
+   "rule": "majority of all electors voting for and against calling a convention",
+   "citation": "Ohio Const. art. XVI, sec. 2",
+   "url": "https://codes.ohio.gov/ohio-constitution/section-16.2",
+   "quote": "if a majority of all the electors, voting for and against the calling of a convention, shall have voted for a convention, the General Assembly shall, at their next session, provide, by law, for calling the same.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "OK",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment proposed by Legislature",
+   "rule": "majority of all the electors voting on the proposed amendment",
+   "citation": "Okla. Const. art. XXIV, sec. 1",
+   "url": "https://accessible.oksenate.gov/sites/default/files/2022-05/oc24.pdf",
+   "quote": "If a majority of all the electors voting on any proposed amendment at such election shall vote in favor thereof, it shall thereby become a part of this Constitution.",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "OK",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated or referred measure (statute or constitutional amendment by initiative)",
+   "rule": "majority of the votes cast thereon",
+   "citation": "Okla. Const. art. V, sec. 3",
+   "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
+   "quote": "Any measure referred to the people by the initiative or referendum shall take effect and be in force when it shall have been approved by a majority of the votes cast thereon and not otherwise.",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "OK",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated or referred measure (statute or constitutional amendment by initiative)",
+   "rule": "majority of the votes cast thereon",
+   "citation": "Okla. Const. art. V, sec. 3",
+   "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
+   "quote": "Any measure referred to the people by the initiative or referendum shall take effect and be in force when it shall have been approved by a majority of the votes cast thereon and not otherwise.",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "OK",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "revenue bill referred to the people",
+   "rule": "majority of the votes cast on the measure",
+   "citation": "Okla. Const. art. V, sec. 33(C)",
+   "url": "https://accessible.oksenate.gov/sites/default/files/2019-12/oc5.pdf",
+   "quote": "shall become effective and be in force when it has been approved by a majority of the votes cast on the measure at such election and not otherwise, except as otherwise provided in subsection D of this section.",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "OK",
+   "type": "convention",
+   "t": null,
+   "compound": "share needed for the call is not stated in the text (question must also be submitted at least once every 20 years)",
+   "applies_to": "convention question (law calling convention)",
+   "rule": "must be approved by the people on a referendum; no vote share stated. Convention's product needs a majority of electors voting thereon.",
+   "citation": "Okla. Const. art. XXIV, sec. 2",
+   "url": "https://accessible.oksenate.gov/sites/default/files/2022-05/oc24.pdf",
+   "quote": "No convention shall be called by the Legislature to propose alterations, revisions, or amendments to this Constitution, or to propose a new Constitution, unless the law providing for such convention shall first be approved by the people on a referendum vote at a regular or special election,",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "OK",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (Supreme Court, Court of Criminal Appeals, Court of Civil Appeals judges)",
+   "rule": "majority of those voting thereon",
+   "citation": "Okla. Const. art. VII-B, sec. 2",
+   "url": "https://oksenate.gov/sites/default/files/2019-12/oc7B.pdf",
+   "quote": "The question shall be decided by a majority of those voting thereon. If the decision is \"yes\" the Judicial Officer shall be retained in office for the next ensuing six (6) year term.",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "OR",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated or referred measure (statute or amendment) effective date",
+   "rule": "approved by a majority of the votes cast thereon",
+   "citation": "Or. Const. art. IV, sec. 1(4)(d)",
+   "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
+   "quote": "an initiative or referendum measure becomes effective 30 days after the day on which it is enacted or approved by a majority of the votes cast thereon.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "OR",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated or referred measure (statute or amendment) effective date",
+   "rule": "approved by a majority of the votes cast thereon",
+   "citation": "Or. Const. art. IV, sec. 1(4)(d)",
+   "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
+   "quote": "an initiative or referendum measure becomes effective 30 days after the day on which it is enacted or approved by a majority of the votes cast thereon.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "OR",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment (legislative or initiative)",
+   "rule": "majority of the electors voting on the amendment",
+   "citation": "Or. Const. art. XVII, sec. 1",
+   "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
+   "quote": "If a majority of the electors voting on any such amendment shall vote in favor thereof, it shall thereby become a part of this Constitution.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "OR",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "revision of the constitution (2/3 of each house to refer)",
+   "rule": "majority of the votes cast",
+   "citation": "Or. Const. art. XVII, sec. 2(1)",
+   "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
+   "quote": "if it appears to the Governor that the majority of the votes cast in the election on the proposed revision are in favor of the proposed revision, he shall, promptly following the canvass, declare, by his proclamation, that the proposed revision has received a majority of votes",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "OR",
+   "type": "statute",
+   "t": null,
+   "compound": "threshold equals whatever supermajority percentage the measure itself specifies (measures from Nov 3, 1998 on)",
+   "applies_to": "any measure that itself sets a greater-than-majority voting requirement",
+   "rule": "such a measure takes effect only if approved by at least the same percentage it specifies",
+   "citation": "Or. Const. art. II, sec. 23(1)",
+   "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
+   "quote": "Any measure that includes any proposed requirement for more than a majority of votes cast by the electorate to approve any change in law or government action shall become effective only if approved by at least the same percentage of voters specified in the proposed voting requirement.",
+   "read_utc": "2026-11-07T06:53Z",
+   "only_if": "a measure that itself requires more than a majority to approve a change"
+  },
+  {
+   "state": "OR",
+   "type": "amendment",
+   "t": null,
+   "compound": "threshold equals whatever supermajority percentage the measure itself specifies (measures from Nov 3, 1998 on)",
+   "applies_to": "any measure that itself sets a greater-than-majority voting requirement",
+   "rule": "such a measure takes effect only if approved by at least the same percentage it specifies",
+   "citation": "Or. Const. art. II, sec. 23(1)",
+   "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
+   "quote": "Any measure that includes any proposed requirement for more than a majority of votes cast by the electorate to approve any change in law or government action shall become effective only if approved by at least the same percentage of voters specified in the proposed voting requirement.",
+   "read_utc": "2026-11-07T06:53Z",
+   "only_if": "a measure that itself requires more than a majority to approve a change"
+  },
+  {
+   "state": "OR",
+   "type": "convention",
+   "t": null,
+   "compound": "share needed not stated in the text",
+   "applies_to": "convention question",
+   "rule": "law providing for a convention must first be approved by the people on a referendum vote; no vote share stated",
+   "citation": "Or. Const. art. XVII, sec. 1",
+   "url": "https://www.oregonlegislature.gov/bills_laws/Pages/OrConst.aspx",
+   "quote": "No convention shall be called to amend or propose amendments to this Constitution, or to propose a new Constitution, unless the law providing for such convention shall first be approved by the people on a referendum vote at a regular general election.",
+   "read_utc": "2026-11-07T06:53Z"
+  },
+  {
+   "state": "RI",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment (no initiative in RI)",
+   "rule": "majority of the electors voting thereon",
+   "citation": "R.I. Const. art. XIV, sec. 1",
+   "url": "https://rilegislature.gov/riconstitution/Constitution/C14.aspx",
+   "quote": "submitted to the electors at the next general election as provided in the resolution of approval; and, if then approved by a majority of the electors voting thereon, it shall become a part of the Constitution.",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "RI",
+   "type": "convention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "convention question ('Shall there be a convention...') and ratification of its product",
+   "rule": "majority of electors voting on the question; convention product needs a majority of those voting thereon. Submitted at least once per 10 years.",
+   "citation": "R.I. Const. art. XIV, sec. 2",
+   "url": "https://rilegislature.gov/riconstitution/Constitution/C14.aspx",
+   "quote": "If a majority of the electors voting at such election on said question shall vote to hold a convention, the general assembly at its next session shall provide by law for the election of delegates to such convention.",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "RI",
+   "type": "bond",
+   "t": null,
+   "compound": "share not stated in art. VI sec. 16",
+   "applies_to": "state borrowing (bond questions)",
+   "rule": "requires 'the express consent of the people'; the constitution states no vote share",
+   "citation": "R.I. Const. art. VI, sec. 16",
+   "url": "https://rilegislature.gov/riconstitution/Constitution/C06.aspx",
+   "quote": "The general assembly shall have no powers, without the express consent of the people, to incur state debts to an amount exceeding fifty thousand dollars, except in time of war, or in case of insurrection or invasion;",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "RI",
+   "type": "statute",
+   "t": null,
+   "compound": "two tests: statewide majority and a majority of voters in the municipality where the gambling would be allowed",
+   "applies_to": "statewide referendum on expanding gambling",
+   "rule": "majority statewide AND majority in the host municipality",
+   "citation": "R.I. Const. art. VI, sec. 22",
+   "url": "https://rilegislature.gov/riconstitution/Constitution/C06.aspx",
+   "quote": "shall take effect until it has been approved by the majority of those electors voting in a statewide referendum and by the majority of those electors voting in said referendum in the municipality in which the proposed gambling would be allowed",
+   "read_utc": "2026-11-07T06:57Z",
+   "only_if": "a referendum on expanding gambling"
+  },
+  {
+   "state": "SC",
+   "type": "amendment",
+   "t": null,
+   "compound": "a majority of those voting on the question, and then ratification by a majority of each branch of the next General Assembly",
+   "applies_to": "constitutional amendment",
+   "rule": "Amendment needs a majority of electors voting on the question, then ratification by a majority of each house of the next General Assembly",
+   "citation": "S.C. Const. art. XVI, §1",
+   "url": "https://www.scstatehouse.gov/scconstitution/A16.pdf",
+   "quote": "If a majority of the electors qualified to vote for members of the General Assembly voting on the question vote in favor of the amendment or amendments and a majority of each branch of the next General Assembly, after the election and before another, ratify the amendment or amendments, by yeas and nays, they become part of the Constitution.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "TN",
+   "type": "amendment",
+   "t": null,
+   "compound": "yes votes must be a majority of all citizens voting for governor at that election, not of those voting on the amendment",
+   "applies_to": "constitutional amendment",
+   "rule": "Majority of all citizens voting for governor must vote in favor (after two successive legislatures, the second by two-thirds)",
+   "citation": "Tenn. Const. art. XI, §3",
+   "url": "https://www.capitol.tn.gov/Archives/House/104GA/Publications/LegManual/appendix%20V.pdf",
+   "quote": "And if the people shall approve and ratify such amendment or amendments by a majority of all the citizens of the state voting for governor, voting in their favor, such amendment or amendments shall become a part of this Constitution.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "SD",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment (legislative and initiated)",
+   "rule": "Majority of votes cast on the amendment",
+   "citation": "S.D. Const. art. XXIII, §3",
+   "url": "https://sdlegislature.gov/api/Statutes/0N.html?all=true",
+   "quote": "Any constitutional amendment or revision must be submitted to the voters and shall become a part of the Constitution only when approved by a majority of the votes cast thereon.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "SD",
+   "type": "retention",
+   "t": null,
+   "compound": "threshold not stated in text read",
+   "applies_to": "Supreme Court justice retention",
+   "rule": "Constitution and SDCL 16-1-2 say justices are subject to 'approval or rejection' by the electorate; neither states the vote share needed",
+   "citation": "S.D. Const. art. V, §7; SDCL 16-1-2",
+   "url": "https://sdlegislature.gov/api/Statutes/0N.html?all=true",
+   "quote": "Retention of each Supreme Court justice shall, in the manner provided by law, be subject to approval or rejection on a nonpolitical ballot at the first general election following the expiration of three years from the date of his appointment.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "UT",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment",
+   "rule": "Majority of electors voting on the amendment (after two-thirds of each house)",
+   "citation": "Utah Const. art. XXIII, §1",
+   "url": "https://le.utah.gov/xcode/UC_1800010118000101.pdf",
+   "quote": "if a majority of the electors voting thereon shall approve the same, such amendment or amendments shall become part of this Constitution.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "UT",
+   "type": "statute",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "initiated statute (general)",
+   "rule": "Majority vote of those voting on the legislation",
+   "citation": "Utah Const. art. VI, §1(2)(a)(i)(A)",
+   "url": "https://le.utah.gov/xcode/UC_1800010118000101.pdf",
+   "quote": "initiate any desired legislation and cause it to be submitted to the people for adoption upon a majority vote of those voting on the legislation, as provided by statute;",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "UT",
+   "type": "statute",
+   "t": 0.6667,
+   "compound": null,
+   "applies_to": "initiated statute on wildlife (exception)",
+   "rule": "Two-thirds of those voting",
+   "citation": "Utah Const. art. VI, §1(2)(a)(ii)",
+   "url": "https://le.utah.gov/xcode/UC_1800010118000101.pdf",
+   "quote": "Notwithstanding Subsection (2)(a)(i)(A), legislation initiated to allow, limit, or prohibit the taking of wildlife or the season for or method of taking wildlife shall be adopted upon approval of two-thirds of those voting.",
+   "read_utc": "2026-11-07T06:54Z",
+   "only_if": "an initiated law on taking wildlife"
+  },
+  {
+   "state": "UT",
+   "type": "statute",
+   "t": 0.6,
+   "compound": null,
+   "applies_to": "initiated statute that imposes or raises a tax, voted after Nov 1 2026 (exception; text marked 'Contingently Effective 11/23/2026')",
+   "rule": "At least 60% of those voting",
+   "citation": "Utah Const. art. VI, §1(2)(a)(iii) (contingently effective 11/23/2026; the earlier version, effective until 11/23/2026, has no such clause)",
+   "url": "https://le.utah.gov/xcode/UC_1800010118000101.pdf",
+   "quote": "Notwithstanding Subsection (2)(a)(i)(A), initiated legislation that is subject to a vote that occurs after November 1, 2026, shall be adopted upon approval of at least 60% of those voting on the legislation if the initiated legislation includes:",
+   "read_utc": "2026-11-07T06:54Z",
+   "only_if": "an initiated law that imposes or raises a tax, voted after 2026-11-01",
+   "from_year": 2026
+  },
+  {
+   "state": "UT",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (all courts of record)",
+   "rule": "Retained if more yes than no votes; a tie or fewer yes votes means not retained. The constitution (art. VIII, §9) leaves the manner to statute",
+   "citation": "Utah Code 20A-12-201(5); Utah Const. art. VIII, §9",
+   "url": "https://le.utah.gov/xcode/Title20A/Chapter12/C20A-12-P2_1800010118000101.pdf",
+   "quote": "If the justice or judge receives more yes votes than no votes, the justice or judge is retained for the term of office provided by law.",
+   "read_utc": "2026-11-07T06:56Z"
+  },
+  {
+   "state": "VA",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment",
+   "rule": "Majority of those voting (after passage by two successive General Assemblies)",
+   "citation": "Va. Const. art. XII, §1",
+   "url": "https://law.lis.virginia.gov/constitution/article12/section1/",
+   "quote": "If a majority of those voting vote in favor of any amendment, it shall become part of the Constitution on the date prescribed by the General Assembly in submitting the amendment to the voters.",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "WA",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment",
+   "rule": "Majority of electors voting thereon",
+   "citation": "Wash. Const. art. XXIII, §1 (Amend. 37)",
+   "url": "https://leg.wa.gov/media/ofyh0uxx/wa-constitution.pdf",
+   "quote": "if the people approve and ratify such amendment or amendments, by a majority of the electors voting thereon, the same shall become part of this Constitution",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "WA",
+   "type": "statute",
+   "t": null,
+   "compound": "majority of votes cast on the measure AND measure votes at least one-third of total votes cast at the election",
+   "applies_to": "initiated or referred statute (initiative to the people, initiative to the legislature, referendum)",
+   "rule": "Majority of votes cast on the measure, and the votes cast on the measure must equal one-third of the total votes cast at the election",
+   "citation": "Wash. Const. art. II, §1(d) (Amend. 72)",
+   "url": "https://leg.wa.gov/media/ofyh0uxx/wa-constitution.pdf",
+   "quote": "Any measure initiated by the people or referred to the people as herein provided shall take effect and become the law if it is approved by a majority of the votes cast thereon: Provided, That the vote cast upon such question or measure shall equal one-third of the total votes cast at such election and not otherwise.",
+   "read_utc": "2026-11-07T06:54Z"
+  },
+  {
+   "state": "WV",
+   "type": "amendment",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "constitutional amendment",
+   "rule": "Majority of qualified voters voting on the question",
+   "citation": "W. Va. Const. art. XIV, §2",
+   "url": "https://www.wvlegislature.gov/wvcode/wv_con.cfm",
+   "quote": "If a majority of the qualified voters, voting on the question at the polls held pursuant to such law, ratify the proposed amendment, it shall be in force from the time of such ratification, as part of the constitution of the state.",
+   "read_utc": "2026-11-07T06:57Z"
+  },
+  {
+   "state": "WY",
+   "type": "amendment",
+   "t": null,
+   "compound": "yes votes must exceed half of the electors voting at the general election, so ballots that skip the question count against",
+   "applies_to": "constitutional amendment",
+   "rule": "Majority of the electors voting at the general election (not just those voting on the amendment); the constitution itself says only 'a majority of the electors'",
+   "citation": "Wyo. Stat. 22-2-117(d); Wyo. Const. art. 20, §1",
+   "url": "https://wyoleg.gov/statutes/compress/title22.pdf",
+   "quote": "shall be ratified if approved by a majority of the electors voting at the next general election.",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "WY",
+   "type": "amendment",
+   "t": null,
+   "compound": "majority of the electors voting at the general election, read with Wyo. Stat. 22-2-117(d)",
+   "applies_to": "constitutional amendment (constitutional text)",
+   "rule": "Constitution says 'a majority of the electors shall ratify'",
+   "citation": "Wyo. Const. art. 20, §1",
+   "url": "https://wyoleg.gov/statutes/compress/title97.pdf",
+   "quote": "and if a majority of the electors shall ratify the same, such amendment or amendments shall become a part of this constitution.",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "WY",
+   "type": "statute",
+   "t": null,
+   "compound": "yes votes must exceed 50% of all those voting in the general election, not of those voting on the measure",
+   "applies_to": "initiated statute",
+   "rule": "More than 50% of those voting in the general election",
+   "citation": "Wyo. Const. art. 3, §52(f); Wyo. Stat. 22-2-117(e)",
+   "url": "https://sos.wyo.gov/Forms/Publications/WYConstitution.pdf",
+   "quote": "If votes in an amount in excess of fifty percent (50%) of those voting in the general election are cast in favor of adoption of an initiated measure, the measure is enacted.",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "WY",
+   "type": "statute",
+   "t": null,
+   "compound": "rejection votes must exceed 50% of those voting in the general election",
+   "applies_to": "referred act (referendum)",
+   "rule": "Act is rejected only if more than 50% of those voting in the general election vote to reject",
+   "citation": "Wyo. Const. art. 3, §52(f)",
+   "url": "https://sos.wyo.gov/Forms/Publications/WYConstitution.pdf",
+   "quote": "If votes in an amount in excess of fifty percent (50%) of those voted in the general election are cast in favor of rejection of an act referred, it is rejected.",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "WY",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (Supreme Court justices and district judges)",
+   "rule": "Majority of those voting on the question vote affirmatively; a majority voting negatively creates a vacancy",
+   "citation": "Wyo. Const. art. 5, §4(h)",
+   "url": "https://wyoleg.gov/statutes/compress/title97.pdf",
+   "quote": "the appropriate electorate shall vote upon a nonpartisan judicial ballot on the question of retention in or rejection from office of such justice or judge, and if a majority of those voting on the question vote affirmatively, the justice or judge shall be elected to serve the succeeding term prescribed by law.",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "IN",
+   "type": "retention",
+   "t": null,
+   "compound": "threshold not stated in text read",
+   "applies_to": "judicial retention (Supreme Court and Court of Appeals)",
+   "rule": "Constitution says only 'approval or rejection by the electorate'; no vote share stated in art. 7, §§10-11. Read through WebFetch, not curl: the iga.in.gov PDF returns a JavaScript shell to curl, and archive.iga.in.gov returned 403. Quotes are fragments returned by WebFetch",
+   "citation": "Ind. Const. art. 7, §11",
+   "url": "https://iga.in.gov/publications/indiana_constitution/Constitution%20(as%20amended%202024).pdf",
+   "quote": "subject to approval or rejection by the electorate",
+   "read_utc": "2026-11-07T07:03Z",
+   "read_via": "WebFetch (curl got a JavaScript page; the quote is WebFetch's fragment, not checked against a saved page)"
+  },
+  {
+   "state": "KS",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "Supreme Court justice retention",
+   "rule": "Retained unless a majority of those voting on the question vote against retention; a tie retains",
+   "citation": "Kan. Const. art. 3, §5(c)",
+   "url": "https://www.sos.ks.gov/publications/kansas-constitution/kansas-constitution-article-3.html",
+   "quote": "If a majority of those voting on the question vote against retaining him in office, the position or office which he holds shall be open upon the expiration of his term of office; otherwise he shall, unless removed for cause, remain in office",
+   "read_utc": "2026-11-07T06:58Z"
+  },
+  {
+   "state": "MD",
+   "type": "retention",
+   "t": 0.5,
+   "compound": null,
+   "applies_to": "judicial retention (Supreme Court of Maryland and Appellate Court of Maryland)",
+   "rule": "Voters vote yes or no; rejection or a tie vacates the office, so more yes than no is needed",
+   "citation": "Md. Const. art. IV, §5A(e)",
+   "url": "https://msa.maryland.gov/msa/mdmanual/43const/html/04art4.html",
+   "quote": "If the voters reject the retention in office of a justice or judge, or if the vote is tied, the office becomes vacant ten days after certification of the election returns.",
+   "read_utc": "2026-11-07T07:01Z"
+  }
+ ],
+ "dropped": [
+  "GA: no retention election; judges are elected",
+  "HI art. XVII sec. 3 sends legislative amendments to sec. 2's test (recorded in the sec. 2 rule)",
+  "HI special-election variant of art. XVII sec. 2 (no special elections in the sources)",
+  "IL general rule not read",
+  "NH not read",
+  "OR: no retention election; judges are elected",
+  "WA: no retention election; justices are elected"
+ ]
+}
