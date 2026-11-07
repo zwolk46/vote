@@ -813,3 +813,85 @@ The like-race classes (`calibration-local.json`), before and after:
 - **The State Board's routes** (`backtest-ncsbe.json`): unchanged.
 - **The measures' back-test** (`data/measure/backtest-measures.json`): no pass or fail changes; its expected counts move by 0.1.
 
+
+## 17. Local questions' thresholds, read from state law (step (b))
+
+*Added 2026-11-07 at 13:37 UTC, at the orchestrator's ruling of 06:16: "local thresholds read from the governing state law or p not computed (never inferred ½)". The order is from the ruling of 11:56, and the go-ahead from 12:44 ("Push (b)"). Under the ruling of 07:21, a statute may be read through Justia or Cornell LII where the state's own code site refuses; such a reading is marked as read via a compilation.*
+
+**Which questions can take a rule.** A rule can be applied only where the source shows the question's place. That holds for North Carolina's State Board, Louisiana's Secretary of State and Indiana's own file.
+- MEDSL counts a local question once per county and does not show which place holds it. Its p stays not computed, as before.
+- MEDSL holds 4,346 local question titles that appear in one county only. Counting those as single places is a possible later step. It is not taken here.
+
+**What was read** [measured]. Readers (Sonnet) read the law for each kind of question in the three states' files, and D3 checked their work. Every quote was compared word for word against the page saved when it was read, with only whitespace, quote marks and dashes normalised. The rules are in `data/measure/thresholds-local.json`.
+
+| State | Questions | Kinds with a rule | Rules | Stated | Inferred | Not covered |
+|---|---|---|---|---|---|---|
+| North Carolina (ncleg.gov) | 870 | 863 | 39 | 22 | 17 | 7 |
+| Louisiana (legis.la.gov) | 619 | 608 | 16 | 8 | 8 | 11 |
+| Indiana | 33 | none | none | | | 33 |
+
+- **Stated** means the law's words name the kind of question. **Inferred** means the reader joined a general rule to the question, and the rule's `match_note` says how.
+- **Every threshold read is ½ of those voting on the question** [measured over the rules]. No supermajority was found for any local question in these two states.
+- **Indiana is not read.** Indiana's code site (iga.in.gov) returns the same script shell for every address (4 addresses, 12:46 to 12:47 UTC). Cornell LII holds no Indiana code; it links to iga.in.gov. Justia answered 403 with a challenge page (13:32 UTC). That part stopped there, and Indiana's 33 questions carry this reason.
+
+**How a rule is matched** (`pipeline/measures.py`, `local_rule_for`).
+- A question takes the first rule, in the file's order, whose pattern its title matches (with `match_also` and `dates` where they are set). So one place's own act comes before the general law.
+- A rule with a `hold` gives no p, and its reason says why: the source does not show which law governs the question, or the law leaves the threshold open.
+- An advisory rule gives no p, because no threshold applies.
+- A compound rule, a second test the counts do not show, is refused, as for statewide questions.
+- A question no rule matches says so.
+- A tax, bond or fee proposition whose title names a justice system is now read as a measure, not a retention. Examples are Louisiana's "Parishwide Criminal Justice Proposition, 3.16 Mills Renewal" and Washington's "City of Langley Sales and Use Tax for Criminal Justice". This fixes the keyword audit's open item (§15).
+
+**The forecast** (D3-v1.1, like past measures). Each state's local questions form their own class, `local measure, NC` or `local measure, LA`. A class is fitted on that state's local questions of earlier years that the source counts whole, and it needs at least 100 of them.
+- For North Carolina, that is the State Board's local questions on every date.
+- For Louisiana, it is the Secretary of State's questions of 2023, which fit 2024. Louisiana's 2023 questions have no earlier year, so their p is not computed.
+- p is model §7's threshold form, as for statewide questions.
+
+**What moves** [measured]. The build was rerun at 13:33 UTC. Every move is listed in `data/measure/moves-local-thresholds.json`, against `de31d9b`. No p moves, and no p is lost.
+
+*Now computed: 800.*
+- **North Carolina: 496.** 190 are on MEDSL's general dates and 306 on the State Board's other dates. p runs from 1.2e-6 to 0.041, with a median of 1.9e-4.
+- **Louisiana 2024: 304.** p runs from 3.2e-6 to 0.084, with a median of 7.6e-4.
+
+*Still not computed, with a new reason: 381 in North Carolina, 315 in Louisiana, 33 in Indiana and 1 in Washington.*
+
+North Carolina's 381:
+- **216 "other" general obligation bonds are held.** G.S. 159-61(a) asks for a majority of those voting. But a bond whose proceeds may serve a service district needs a majority in the whole unit and in the districts at once (G.S. 153A-308, 160A-543), and the source does not show whether a given bond does. School, community college and county library bonds take p.
+- **77 have fewer than 100 like questions in earlier years.**
+- **63 are held because a local act may govern them.** The source does not show whether the question was put under the general law read or under a local act, which was not read. These are charter amendments (28), fire district taxes (16), the structure of county boards of commissioners (10), city special taxes (5), county special taxes (2), Greensboro's term lengths (1) and Leland's annexation (1).
+- **7 statewide questions fall on the State Board's other dates.** They are not computed in this step.
+- **7 are not covered by any rule.**
+- **4 half-cent transit taxes are held.** G.S. 105-509.1 adds a majority in each county of a multicounty district.
+- **3 sales or leases of city enterprises** (Salisbury, Davidson, Mooresville) are held.
+- **The rest are 1 each.** Asheville's water system is held. One school tax title does not name its Article. Caswell's zoning question is advisory. Rowan-Salisbury's 2024 question is held, because S.L. 2024-2 asks for "the majority of the qualified voters of Rowan County", which may mean all qualified voters.
+
+Louisiana's 315:
+- **287 are 2023 questions with no earlier class.**
+- **17 are held.** These are fire protection district parcel fees (6) and service charges (3), where the source does not show which act governs; hotel taxes (3), each on its own act; charter-section amendments whose title does not name the charter (3); a Lawrason Act adoption (1); and one gravity drainage acreage tax (1). The acreage tax is compound: R.S. 38:1783 also needs "a majority in number of acres voting".
+- **11 are not covered by any rule.**
+
+The other two states:
+- **Indiana's 33** say their law is not read.
+- **Washington's 1** (Langley) changes from local retention to local measure.
+
+**The back-test, out of sample** [measured]. Local questions are scored apart from statewide ones, so the statewide counts stay as they were.
+- **Statewide** (`data/measure/backtest-measures.json`, `at_threshold`): unchanged, at 65 measures. Within 2 points, 3.6 were expected and 8 seen.
+- **Local, on MEDSL's general dates** (`at_threshold_local`): 494 questions.
+- **Local, on North Carolina's other dates** (`data/local/backtest-ncsbe.json`, `questions_at_threshold`): 306 questions.
+
+Expected against seen:
+
+| | Questions | Own window | Within 1 point | Within 2 points | Within 5 points |
+|---|---|---|---|---|---|
+| Louisiana 2024 | 304 | 14.2 / 14 | 7.1 / 8 | 14.2 / 14 | 39.7 / 41 |
+| North Carolina, general dates | 190 | 6.5 / 5 | 6.5 / 5 | 15.6 / 11 | 38.9 / 30 |
+| North Carolina, other dates | 306 | 19.6 / 23 | 10.9 / 15 | 28.8 / 31 | 65.6 / 82 |
+
+No calibration is applied, as for every route since 09:49 (§7).
+
+**Verdicts** [measured]. The back-test files were compared with main's. The only differences are the new local keys. No pass or fail changes, and no route's adoption changes. `calibration-local.json` and `backtest-local-*.json` change only in their stamps, which were put back.
+
+**Open readings for the orchestrator.** Each of these is a looser reading of the law, which this step does not take.
+- **The 216 "other" bonds.** They could take ½ with the service-district test noted, since most county and city bonds serve no service district [inferred, not read].
+- **The 63 North Carolina questions and Louisiana's fire and hotel questions.** They could take the general law, unless a local act is found.
+- **Three of the 4 transit taxes** (Durham 2011, Orange 2012, Wake 2016). These were single-county referendums, which the multicounty test does not reach, by the reader's own reading. Mecklenburg's 2025 tax may rest on an act of 2025 that was not read.
