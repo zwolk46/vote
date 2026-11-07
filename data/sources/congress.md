@@ -1,6 +1,6 @@
 # Standardized election datasets: an inventory
 
-*Kept by worker D2 (Senate, House, governor), 2026-11-07, for every level, so that the next worker (D3: state legislatures, local races, primaries, measures) starts from what is known (plan §3a). "Reached" means this environment fetched it on the date given; "refused" names what refused. Licences are as each publisher prints them. Datasets marked "taken" have an intake script in `pipeline/intake/`.*
+*Kept by worker D2 (Senate, House, governor), 2026-11-07 (updated 04:30 UTC), for every level, so that the next worker (D3: state legislatures, local races, primaries, measures) starts from what is known (plan §3a). "Reached" means this environment fetched it on the date given; "refused" names what refused. Licences are as each publisher prints them. Datasets marked "taken" have an intake script in `pipeline/intake/`.*
 
 ## Federal and statewide results
 
@@ -26,8 +26,8 @@
 | US 2020 General Official Election Results, tabular / NIST CDF (RV80FW, PBFRQM, 2KJK8U, 0GKBGT) | Stephanie Frank Singer | 2020 official results by state, many offices, one file per state | tab, xml, json | CC0 1.0 | record read | no |
 | Virginia Election Data 1969-2026 (doi:10.7910/DVN/BAQ69D) | Joseph Jones | Virginia elections of every level, primaries included | zip | CC BY-SA 4.0 | record read | no |
 | Electoral College results | National Archives | President and VP elected, electoral votes, 1789 on | HTML, one page a year | federal record | yes | `nara_electoral_college.py` (D1 has its own) |
-| Party Divisions of the House, 1789 to present | House History, Art & Archives | seats by party at the start of each Congress | HTML | none printed | yes | no (used as a check) |
-| Party Division (Senate) | U.S. Senate | seats by party by Congress, with changes | HTML | none printed | yes (at /about/parties-leadership/party-division.htm) | no (used as a check) |
+| Party Divisions of the House, 1789 to present | House History, Art & Archives | seats by party at the start of each Congress | HTML | none printed | yes | `party_divisions.py` (a check) |
+| Party Division (Senate) | U.S. Senate | seats by party by Congress, with changes and notes (special elections' dates among them) | HTML | none printed | yes (at /about/parties-leadership/party-division.htm) | `party_divisions.py` (a check) |
 
 ## District-level inputs
 
@@ -36,15 +36,18 @@
 | Presidential results by congressional district | The Downballot (formerly Daily Kos Elections) | 2000-2024 presidential vote on the lines of each House election 2006-2024. Gaps: 2020 on AL/LA/NC 2024 lines, 2008 on CA 2012 lines, 2012 on FL 2016 lines | Google Sheets (CSV export) | none printed | yes | `downballot_pres_by_cd.py` |
 | The Downballot's data guide (the-downballot.com/data) | The Downballot | index of its sheets: statewide results by **legislative district** (2012-2020), special elections 2017-2026, open and uncontested seats 2006-2026, primary calendars, redistricting tables, district demographics | Google Sheets | none printed | yes | no (leads for D3) |
 | ACS 1-year, table B01003 (table-based summary file) | U.S. Census Bureau | population of every state and congressional district, 2021 on in this format | pipe-delimited | federal record | yes (www2.census.gov). The Census API itself now refuses requests without a key | `census_acs_population.py` |
+| ACS 1-year summary files, sequence-based (2005-2019) | U.S. Census Bureau | the same tables for earlier years, by state and summary level | zip of text files | federal record | on www2.census.gov (not yet read); the route to population before 2022 | no |
 
 ## Forecasts
 
 | Dataset | Publisher | Covers | Reached |
 |---|---|---|---|
-| House, Senate and governor forecasts 2018 (`house-forecast-2018` etc. in fivethirtyeight/data) | FiveThirtyEight | daily forecasts with vote-share ranges | READMEs only; the data files sit at projects.fivethirtyeight.com, which redirects to abcnews.com. Refused in effect |
-| `forecast-review` (fivethirtyeight/data) | FiveThirtyEight | final 2018 win probabilities by race, no vote share | yes (raw.githubusercontent.com); CC BY 4.0; to be the check beside 2018 |
+| House, Senate and governor forecasts 2018 (`house-forecast-2018` etc. in fivethirtyeight/data) | FiveThirtyEight | daily forecasts with vote-share ranges | READMEs only; the data files sit at projects.fivethirtyeight.com, which redirects to abcnews.com. The same forecasts are in `checking-our-work-data` |
+| `checking-our-work-data` (github.com/fivethirtyeight) | FiveThirtyEight | every forecast it published, by race, day and version, with projected vote share and chance: Senate 2008-2022 (shares from 2014), House 2010 and 2018-2022 (shares from 2018), governors 2010, 2018, 2022 (shares from 2018), President 2008-2020, primaries; sports too | yes (raw.githubusercontent.com, commit f6d5b2e); CC BY 4.0; taken: `fivethirtyeight_checking_our_work.py` (congressional files; D1 to add the presidential ones) |
+| `forecast-review` (fivethirtyeight/data) | FiveThirtyEight | final 2018 win probabilities by race, no vote share | yes (raw.githubusercontent.com); CC BY 4.0; superseded by `checking-our-work-data` |
+| `election-forecasts-2020`, `election-forecasts-2022` READMEs (fivethirtyeight/data) | FiveThirtyEight | the 2020 and 2022 forecast files' columns | READMEs read; they do not say which version 538 showed by default |
 | `pollster-ratings` raw polls (fivethirtyeight/data) | FiveThirtyEight | polls of many races | not yet read; a lead for a polls-based version of the model's own forecast |
-| 538 forecast pages for past years | FiveThirtyEight | every published forecast | need web.archive.org, which this environment refuses |
+| 538 forecast pages and methodology articles | FiveThirtyEight | every published forecast, and which version was the default | fivethirtyeight.com and projects.fivethirtyeight.com redirect to abcnews.com (checked 2026-11-07); web.archive.org is refused here |
 
 ## Other levels (for D3)
 
