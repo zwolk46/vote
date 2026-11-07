@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 09:36: #57 merged (D3: p.forecast_scope on every partisan p: district (class A) 40,332, district (class B) 13,065, chamber average (class C) 21,978, plus the local transferred route; only the field and commit stamps changed). #31's factor test next; expected to fail (one scored year; cells worse).
+
 - 2026-11-07 09:31: #56 merged (D3: State Board placeless county contests split per county, 88 to 500; 497 p change, 137 new, 360 move median 7%, max 10%, all listed; SBE back-test local 275.9 vs 289, primaries 50.6 vs 55). Class C: 2,461 of 2024 legislative p are chamber averages (back-test 2024: 112.6 expected vs 106 seen within 49-51%). Ruled: X1 chooses lowest-B* cases only from contest-specific forecasts (classes A, B, district partisan routes, Congress, presidency), class C marked as chamber average if shown; D3 marks class C p blocks in the files (law 8).
 
 - 2026-11-07 09:26: X1 woken (D4's slot): real data into both options' previews while the maker's picks are pending (lead = closest 2024 state; lowest-B* cases at $8.87 from M2-checked levels only: presidency, Congress, governors, state legislatures; midterms-style dots; populations; back-test lean notes shown visually). Picker kept, nothing merged. Reason: needed whichever he picks, and reversible.
