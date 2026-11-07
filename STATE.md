@@ -30,13 +30,15 @@ The session's egress policy refuses every scholarly, archive, data and news host
 | Verify vote decisiveness models | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi | `briefs/R1-research-decisiveness-models-at-source.md` (Sonnet 5.5, xhigh) | done; #2 merged 00:41; set aside |
 | Verify historical close races | cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS | `briefs/R2-research-close-races-at-source.md` (Sonnet 5.5, xhigh) | done; #4 merged 00:53; set aside |
 | Verify voting frameworks and costs | cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz | `briefs/R3-research-frameworks-at-source.md` (Sonnet 5.5, xhigh) | done; #5 merged 01:08; set aside |
-| Try to break the vote model | cmsg_01FHkmcV6WaeZh9r5PfgnMbuH8ty6rzznPCoUJXYqbKL9P | `briefs/B1-break-the-model.md` (Fable 5.1, xhigh) | started 2026-11-07 01:57 |
+| Try to break the vote model | cmsg_01FHkmcV6WaeZh9r5PfgnMbuH8ty6rzznPCoUJXYqbKL9P | `briefs/B1-break-the-model.md` (Fable 5.1, xhigh) | done; #9 merged 02:24 (45 breaks; run_all.sh output identical) |
 | Check the math of a deciding vote | cmsg_01FHkmcV6WaeZh9r5PfgnMbuST7d1oALJPJTFqCrnN4ZYd | `briefs/M1-math-check.md` (Fable 5.1, xhigh) | done; #7 merged 01:54 (the orchestrator re-ran run_all.sh: output identical); resolved |
 | Verify decisiveness across electoral systems | cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo | `briefs/R4-research-electoral-systems-at-source.md` (Sonnet 5.5, xhigh) | done; #3 merged 00:46; set aside |
 
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 02:28: B1 done, #9 merged (`model/BREAKS-draft-2.md`, 45 breaks). Wrote `model/MODEL-DRAFT-3.md`, taking in every break (its §11 maps each) and the scope ruling: per-race p and B* with the ballot summed (shares B/B* adding past 100%); a tie counted as half a decision, now listed as a choice open to correction; where no forecast was published, the model's own, fitted to like past races (GKB, M&H), so past races are inputs; cost $8.87 to $12.03 (14 to 19 minutes at $38.00); mail voting as its own cost case; ballot-measure formula corrected; other countries dropped. One decision card to the maker: race or whole ballot (#41). Next, while he answers: draft the law from the brainstorm.
 
 - 2026-11-07 01:59: the maker chose "US races at every level" (RULINGS). Draft 2's §7 (other systems) and §10 to follow in draft 3; the data plan (wave 3) covers president, Senate, House, state legislature and local races.
 
