@@ -4,6 +4,9 @@ This file carries the design taste of Zach (the maker) from the election-results
 
 A remark about elections only was left out (see "Left out" at the end).
 
+
+> **Superseded in part (2026-11-07 02:45 UTC).** The rulings under "Components and where they come from" that require every part to be a found, real component, and that forbid designing in-house, no longer bind. The maker: "I think I was too strict about using real components, and it would have been better probably to leave a little bit of the design and the creativity to you or whatever agent was working". Components he names himself are still built from. See `README.md`, process step 1.
+
 ## Faults he named (what reads as AI-made or careless)
 
 - **2026-10-23.** Soft drop shadows separating cards, called "peak AI default design". Do not separate cards with soft shadows.

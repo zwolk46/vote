@@ -4,7 +4,7 @@
 
 ## The rule (why this folder binds by default)
 
-**Any work that decides how this site looks, moves, reads or is laid out follows this folder.** Each of the maker's rulings in `TASTE.md` stands here as his default, unless he rules otherwise in this project. A worker whose brief touches design reads the files below before it draws anything. Where this folder and this project's `LAW.md` or `RULINGS.md` differ, those govern.
+**Any work that decides how this site looks, moves, reads or is laid out follows this folder.** Each of the maker's rulings in `TASTE.md` stands here as his default, unless he rules otherwise in this project. A worker whose brief touches design reads the files below before it draws anything. **One exception:** `TASTE.md`'s rulings that every component must be a found, real one are replaced by his 02:45 UTC 11-07 correction (process step 1 below). Where this folder and this project's `LAW.md` or `RULINGS.md` differ, those govern.
 
 *Reason:* his words of 02:39 UTC 11-07: "ensure absolutely that whatever information is used here to very easily change designs or redo web pages … are automatically applied". A taste ruling is about him, not about elections, so it carries over. A ruling that only makes sense for elections was left out of `TASTE.md`; the full record is in midterms.
 
@@ -17,7 +17,11 @@
 
 ## How a design is made here (the process he settled on)
 
-1. **Nothing is invented in-house.** A design worker, given the principles above, finds real components and flows first: Details (`search_inspirations`, then `get_inspiration`), 21st.dev (`search`, then `get_component`; never `generate` without his word), and Mobbin (`search_screens`, `search_flows`). It cites the real example each part comes from. *Reason:* the maker, 11-03 21:20 and 11-05 20:58 to 21:03 (`TASTE.md`). The briefs that did this are `briefs/2026-11-02-W5-design-field.md`, `briefs/2026-11-05-W25-door-sourcing.md` and `briefs/2026-11-05-W17-ticket-21st.md`.
+1. **Real components where they help; design freedom where they do not.** The maker's correction of 2026-11-07 02:45 UTC replaces the midterms rule that nothing is designed in-house (`ASK.md`): "I think I was too strict about using real components", and "it's impossible for the agent themselves to find components that actually work perfectly together". So:
+   - **When the maker names a component** ("use this sidebar"), build from it. That worked well on midterms.
+   - **Otherwise the design worker designs**, within the principles above (`TASTE.md`, DESIGN-SPEC sections 0 and 1, MOTION-SPEC). It may look at real examples on Details, 21st.dev and Mobbin for reference and use one when it fits the page as a whole, but it is not limited to them. A whole page that works together outranks a set of found parts that do not.
+   - Never generate with 21st.dev's `generate` without his word (it costs).
+   *Reason:* on midterms the sign-in page was held to found components only, and the found parts did not fit together or come with how they were meant to be used (his words, 02:45 UTC 11-07).
 2. **Show him options side by side, never one.** For a surface that matters (the first screen, the hero), build two or three whole options on one preview branch, switched by a query parameter (for example `?v=a`, `?v=b`, `?v=c`), with a picker shown only on previews. Send him the links and let him pick. *Reason:* this is how the midterms door was redone (W25, `briefs/2026-11-05-W25-door-sourcing.md`; W18, `briefs/2026-11-05-W18-door.md`). Each option was a whole build he could try, not a mock-up.
 3. **Motion is measured, not judged by eye.** Use the tokens in `code/motion.js`; check the press-to-motion time and frame gaps on a slowed phone profile (MOTION-SPEC 4, rule 11). *Reason:* `briefs/2026-11-02-W8-motion.md`.
 4. **Every page is checked where it does not fit:** phone widths 320 to 430 at text 1× to 2×, desktop at the narrowest width of each layout, light and dark, with real data. `code/fitcheck.cjs` is the model, and `code/checks.cjs` runs every check. *Reason:* the maker, 11-03 12:50: "These are all things you should catch yourself"; `briefs/2026-11-05-W23-phone-fit.md`.
