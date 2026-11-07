@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 07:43: D2 holding for M2; recent-years k designed, not run (/mnt/project-files/d2/recent-k-design.md): (1) rms z over the last 3 scored years, (2) all earlier years with a two-cycle half-life; both fixed before any score, on round 5's record, F refitted, same adoption rule, 20+ band tail counts reported.
+
 - 2026-11-07 07:42: #38 merged (D2 round 5, out of sample 2010-24, earlier-only fits: House mean shrinkage adopted (log score 1.5743 to 1.6008, lambda 1.00 in 2014 to 0.93 in 2022-24); governors t4 adopted (1.1780 to 1.2045); Senate nothing (shrinkage fails one 10-20 pt cell); far seats show no heavy tails toward 1/2. House sum 1.0158e-2 to 1.0178e-2, control 1.4184e-4 to 1.4438e-4, governors 9.8925e-4 to 1.0439e-3. Reproduced: governors 2024 exactly, House and Senate value_uncalibrated exactly, shrunk mean = 1/2 + 0.93(mean-1/2)). D2 holds: next test is a recent-years k (House sd wider than results, rms z 0.75-0.92). M2's second pass started (brief amended); slots D3, D4, M2.
 
 - 2026-11-07 07:30: #37 merged (D3: the near-1/2 shortfall written onto each of the 63 measure p by the build; REPORT says their own window shows 8 near-even against 3.6 expected, so p likely low, perhaps by half; 06:38 citation fixed). D3 on NC SBE results_pct 2010+ by script (public records, G.S. 132-1), 1990s PDFs left for later; then OpenElections.
