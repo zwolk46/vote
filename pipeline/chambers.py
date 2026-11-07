@@ -1643,26 +1643,33 @@ def near_tie(rows, level, year, mean, sd, tails):
 
 def near_tie_taken_out(rows, level, year, mean, sd, tails):
     """Round 4's near-tie factor where the robustness test takes it out for the level (08:54), reported beside the
-    forecast: {"factor", "multiplier", "scheme", "note"}, or None where round 4's rule stands or had none."""
+    forecast: {"factor", "multiplier", "scheme", "note"}, or None where round 4's rule stands or had none. Where
+    the level's scheme of record stands because the higher-scoring scheme fails the switch test (13:43), that scheme
+    instead, with multiplier 1 where the seat's band takes no factor under it."""
     v = variant_of_record(rows, level)
     nt = near_tie_test(rows, v)
     sch = nt["adopted_round_4"].get(level)
     if not sch or nt["adopted"].get(level) == sch:
         return None
     f = near_tie_factor(rows, level, year, mean, sch, v)
-    if not f["of"]:
-        return None
-    F = f["factor"]
     sw = nt["by_level"][level].get("switch")
     if sw and sw["to"] == sch and not sw["passes"]:
+        # the scheme that failed the switch test (13:43): what p would be under it, beside the scheme of record's
         note = (f"the {sch} scheme's near-tie factor, beside p and not in it: it scores higher than the scheme of "
                 f"record ({sw['from']}) but does not pass the robustness test against it (the orchestrator, "
                 "2026-11-07 13:43; the file's model.near_tie.beside says where it fails; REPORT 10.4). value is what "
-                "p would be with it, p times multiplier")
-    else:
-        note = ("round 4's near-tie factor, taken out of p: it does not pass the robustness test (the "
-                "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.3). "
-                "value is what p would be with it, p times multiplier")
+                "p would be under it: p before any near-tie factor (value_uncalibrated) times multiplier" +
+                ("" if f["of"] else f"; this seat's band takes no factor under the {sch} scheme, so multiplier is 1"))
+        if not f["of"]:
+            return {"factor": None, "multiplier": 1.0, "scheme": sch, "note": note}
+        F = f["factor"]
+        return {"factor": F, "multiplier": F / (1 + (F - 1) * near_q(mean, sd, tails)), "scheme": sch, "note": note}
+    if not f["of"]:
+        return None
+    F = f["factor"]
+    note = ("round 4's near-tie factor, taken out of p: it does not pass the robustness test (the "
+            "orchestrator, 2026-11-07 08:54; the file's model.near_tie says where it fails; REPORT 0.3). "
+            "value is what p would be with it, p times multiplier")
     return {"factor": F, "multiplier": F / (1 + (F - 1) * near_q(mean, sd, tails)), "scheme": sch, "note": note}
 
 
@@ -2332,11 +2339,11 @@ def compute(year):
                                                                   r_["event"] * nt["multiplier"],
                                                                   r_["f_half"] * nt["multiplier"])
                         e_["under"] += f", {NEAR_NOTE}"
-                    else:
-                        out_ = near_tie_taken_out(rows, level, year, mean, sd, t_)
-                        if out_:
-                            # round 4's factor, taken out by the robustness test (08:54): reported beside p
-                            e_["near_tie_not_of_record"] = dict(out_, value=r_["p"] * out_["multiplier"])
+                    out_ = near_tie_taken_out(rows, level, year, mean, sd, t_)
+                    if out_:
+                        # round 4's factor, taken out by the robustness test (08:54), or a scheme that failed the
+                        # switch test against the scheme of record (13:43): reported beside p, on p uncalibrated
+                        e_["near_tie_not_of_record"] = dict(out_, value=r_["p"] * out_["multiplier"])
                     if nn:
                         # the near-even disclosure (the orchestrator, 09:26), on the forecast the back-test scores
                         e_["note"] = nn
