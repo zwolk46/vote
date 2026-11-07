@@ -1,13 +1,13 @@
 {
  "written_by": "pipeline/governor_incumbency.py check",
- "asked": "the orchestrator, 2026-11-07 13:06 UTC",
- "what": "every governor nominee's incumbency code set against the seat's last race in the record (data/governor/*.json, Louisiana apart); kind A: won the last race and not coded 1; kind B: coded 1 (or Cha's 2 or 3) and did not win it",
+ "asked": "the orchestrator, 2026-11-07 13:06 UTC; its rule for successors, 13:43 UTC",
+ "what": "every governor nominee's incumbency code set against the seat's last race in the record (data/governor/*.json, Louisiana apart); kind A: won the last race and not coded 1; kind B: coded 1 (or Cha's 2 or 3) and did not win it; kind C: coded 1 and won it, a special election (Cha's guide codes that 2)",
+ "rule": "the definition of record in every year (the orchestrator, 2026-11-07 13:43 UTC): \"a successor who was not elected to the seat is not the incumbent, and this holds in every year\"; Cha's 2 and 3 read as not incumbents (REPORT 0.2); \"Don't add a new variant.\" Reason: \"an input has to mean one thing in every year it is fitted on.\"",
  "codes": "Cha, Kuriwaki and Snyder's inc, found by the nominee's exact name within Cha's contest (not build_congress's join); Algara and Amlani's seat status before 2006 and where Cha lacks the contest. The record counts Cha's 1 only (REPORT 2.2, 0.2)",
  "contests_read": 613,
  "counts": {
-  "confirmed": 11,
+  "fixed": 17,
   "inferred": 6,
-  "fixed": 5,
   "kept": 14
  },
  "join_check": {
@@ -28,10 +28,13 @@
     "year": 1974,
     "winner": "Castro, Raul H."
    },
-   "verdict": "confirmed",
-   "why": "the roster has Bolin 1977 to 1978 and Babbitt from 1978 (Castro won the seat's last race in the record, 1974); it gives years only, so that Babbitt sat before the election in November is inferred",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): the roster has Castro (the seat's last race in the record, 1974) to 1977, Bolin 1977 to 1978 and Babbitt from 1978; it gives years only, but either way Babbitt did not win the seat before 1978",
    "roster": "AZ",
-   "fix": null
+   "fix": {
+    "from": "Democratic Incumbent",
+    "to": "Democratic Open Seat"
+   }
   },
   {
    "contest": "1978-governor-ID",
@@ -60,10 +63,13 @@
     "year": 1974,
     "winner": "Anderson, Wendell R."
    },
-   "verdict": "confirmed",
-   "why": "assumed office 12/29/1976 (Anderson won the seat's last race in the record, 1974)",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): he assumed office 12/29/1976, after Anderson (the seat's last race in the record, 1974)",
    "roster": "MN",
-   "fix": null
+   "fix": {
+    "from": "Democratic Incumbent",
+    "to": "Democratic Open Seat"
+   }
   },
   {
    "contest": "1978-governor-WI",
@@ -92,10 +98,13 @@
     "year": 1978,
     "winner": "Grasso, Ella T."
    },
-   "verdict": "confirmed",
-   "why": "served from 1980 (Grasso won the seat's last race in the record, 1978); the roster gives years only",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): the roster has Grasso (the seat's last race in the record, 1978) to 1980 and O'Neill from 1980",
    "roster": "CT",
-   "fix": null
+   "fix": {
+    "from": "Democratic Incumbent",
+    "to": "Democratic Open Seat"
+   }
   },
   {
    "contest": "1982-governor-MN",
@@ -143,10 +152,13 @@
     "year": 1986,
     "winner": "Bryan, Richard H."
    },
-   "verdict": "confirmed",
-   "why": "in office from Jan 3, 1989 (Bryan won the seat's last race in the record, 1986)",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): the roster has Bryan (the seat's last race in the record, 1986) to Jan 3, 1989 and Miller from then",
    "roster": "NV",
-   "fix": null
+   "fix": {
+    "from": "Democratic Incumbent",
+    "to": "Democratic Open Seat"
+   }
   },
   {
    "contest": "1992-governor-VT",
@@ -159,10 +171,13 @@
     "year": 1990,
     "winner": "Snelling, Richard A."
    },
-   "verdict": "confirmed",
-   "why": "governor from 1991 by reason of the death of Snelling (the seat's last race in the record, 1990)",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): he became governor in 1991 by reason of the death of Snelling (the seat's last race in the record, 1990)",
    "roster": "VT",
-   "fix": null
+   "fix": {
+    "from": "Democratic Incumbent",
+    "to": "Democratic Open Seat"
+   }
   },
   {
    "contest": "1994-governor-AL",
@@ -175,10 +190,13 @@
     "year": 1990,
     "winner": "Hunt, Guy"
    },
-   "verdict": "confirmed",
-   "why": "succeeded Hunt (the seat's last race in the record, 1990) on April 22, 1993",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): he succeeded Hunt (the seat's last race in the record, 1990) on April 22, 1993",
    "roster": "AL",
-   "fix": null
+   "fix": {
+    "from": "Democratic Incumbent",
+    "to": "Democratic Open Seat"
+   }
   },
   {
    "contest": "1994-governor-AR",
@@ -191,10 +209,13 @@
     "year": 1990,
     "winner": "Clinton, Bill"
    },
-   "verdict": "confirmed",
-   "why": "served from 1991 (Clinton won the seat's last race in the record, 1990); the roster gives years only",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): he served the balance of Clinton's term (the seat's last race in the record, 1990)",
    "roster": "AR",
-   "fix": null
+   "fix": {
+    "from": "Democratic Incumbent",
+    "to": "Democratic Open Seat"
+   }
   },
   {
    "contest": "1998-governor-AR",
@@ -207,10 +228,13 @@
     "year": 1994,
     "winner": "Tucker, Jim Guy"
    },
-   "verdict": "confirmed",
-   "why": "served from 1996 (Tucker won the seat's last race in the record, 1994)",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): he became governor in July 1996 when Tucker (the seat's last race in the record, 1994) resigned",
    "roster": "AR",
-   "fix": null
+   "fix": {
+    "from": "Republican Incumbent",
+    "to": "Republican Open Seat"
+   }
   },
   {
    "contest": "1998-governor-AZ",
@@ -223,10 +247,13 @@
     "year": 1994,
     "winner": "Symington, Fife"
    },
-   "verdict": "confirmed",
-   "why": "served from 1997 (Symington won the seat's last race in the record, 1994)",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): the roster has Symington (the seat's last race in the record, 1994) to 1997 and Hull from 1997",
    "roster": "AZ",
-   "fix": null
+   "fix": {
+    "from": "Republican Incumbent",
+    "to": "Republican Open Seat"
+   }
   },
   {
    "contest": "1998-governor-FL",
@@ -271,10 +298,13 @@
     "year": 1998,
     "winner": "Bush, George W."
    },
-   "verdict": "confirmed",
-   "why": "sworn in December 21, 2000, after Bush (the seat's last race in the record, 1998) resigned",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): he was sworn in December 21, 2000, after Bush (the seat's last race in the record, 1998) resigned",
    "roster": "TX",
-   "fix": null
+   "fix": {
+    "from": "Republican Incumbent",
+    "to": "Republican Open Seat"
+   }
   },
   {
    "contest": "2002-governor-WI",
@@ -367,10 +397,13 @@
     "year": 2006,
     "winner": "NAPOLITANO, JANET"
    },
-   "verdict": "confirmed",
-   "why": "served from 2009 (Napolitano won the seat's last race in the record, 2006)",
+   "verdict": "fixed",
+   "why": "a successor, not elected to the seat, is not the incumbent (the orchestrator, 2026-11-07 13:43; the record reads Cha's 3 so, REPORT 0.2): Cha codes her 1, but the roster has Napolitano (the seat's last race in the record, 2006) to 2009 and Brewer from 2009; Cha codes the other successors 3",
    "roster": "AZ",
-   "fix": null
+   "fix": {
+    "from": 1,
+    "to": 3
+   }
   },
   {
    "contest": "2010-governor-IL",
@@ -419,6 +452,25 @@
    "why": "Cha codes him 2, an incumbent elected in a special election; he won the seat's last race in the record, the special of 2010 (data/governor/2010.json); the record reads Cha's 2 and 3 as not incumbents (REPORT 2.2; counting them was tested in 0.2 and not adopted), so the code is kept",
    "roster": null,
    "fix": null
+  },
+  {
+   "contest": "2012-governor-WV",
+   "side": "D",
+   "nominee": "TOMBLIN, EARL RAY",
+   "code_in_source": 1,
+   "source": "cha",
+   "kind": "C",
+   "last_race": {
+    "year": 2011,
+    "winner": "TOMBLIN, EARL RAY"
+   },
+   "verdict": "fixed",
+   "why": "Cha codes him 1, but he won the seat's last race in the record as a special election (2011, data/governor/2011.json): Cha's guide codes that 2, as it does Brown (OR 2018) and Herbert (UT 2012), and the record reads 2 as not an incumbent",
+   "roster": null,
+   "fix": {
+    "from": 1,
+    "to": 2
+   }
   },
   {
    "contest": "2016-governor-OR-special",
@@ -635,8 +687,9 @@
    "sha256": "c5f861c90183a01624a995e4a20c3e0183349d30bf199bf27a9ac861161bb553",
    "quotes": [
     "Asa Hutchinson Born: December 3, 1950, at Bentonville, Arkansas. Died: n/a Buried: n/a Served: 2015-2023",
-    "James Guy Tucker Jr. Born: June 13, 1943, at Oklahoma City, Oklahoma Died: n/a Buried: n/a Served: 1991-1996",
-    "Mike Huckabee Born: August 24, 1955, at Hope, Arkansas Died: n/a Buried: n/a Served: 1996-2007"
+    "He served the balance of the Clinton term and then was elected to a four-year term in November 1994.",
+    "Served: 1979-1981; 1983-1992",
+    "He became Governor of Arkansas in July 1996 when his predecessor resigned."
    ]
   },
   "AZ": {
@@ -649,9 +702,12 @@
    "note": null,
    "sha256": "35b41c8c57efc2be75e307bf0739860a422fdf8b7b33424e5e2712d8a2941009",
    "quotes": [
+    "Raul H. Castro 1975 to 1977",
     "Harvey Wesley Bolin 1977 to 1978",
     "Bruce Babbitt 1978 to 1987",
+    "J. Fife Symington 1991 to 1997",
     "Jane Dee Hull 1997 to 2003",
+    "Janet Napolitano 2003 to 2009",
     "Janice K. Brewer 2009 to 2015"
    ]
   },
@@ -678,6 +734,7 @@
    "note": null,
    "sha256": "8ef4b69de3696c9a488d1e2909dba059b092eca1006c9c06b59822936e7b8a00",
    "quotes": [
+    "Ella T. Grasso 1975-80",
     "William A. O’Neill 1980-91",
     "M. Jodi Rell 2004-2011"
    ]
@@ -695,6 +752,7 @@
     "Rudy Perpich 1/3/1983 36th",
     "Al Quie 1/4/1979 35th",
     "Rudy Perpich 12/29/1976 34th",
+    "Wendell Anderson 1/4/1971 33rd",
     "Rudy Perpich 12/29/1976 34th"
    ]
   },
@@ -708,6 +766,7 @@
    "note": null,
    "sha256": "602a78f3a55653f67d986d0439d9f3fae94c3cbe80ef9ff8ec554df20d59780f",
    "quotes": [
+    "Richard Hudson Bryan Jan 3, 1983 - Jan 3, 1989",
     "Bob Miller Jan 3, 1989 - Jan 4, 1999"
    ]
   },
@@ -796,7 +855,67 @@
   "against": "a33c0650",
   "incumbency_moved": [
    {
+    "contest": "1978-governor-AZ",
+    "before": 1,
+    "after": 0
+   },
+   {
+    "contest": "1978-governor-MN",
+    "before": 1,
+    "after": 0
+   },
+   {
+    "contest": "1982-governor-CT",
+    "before": 1,
+    "after": 0
+   },
+   {
     "contest": "1982-governor-MN",
+    "before": 1,
+    "after": 0
+   },
+   {
+    "contest": "1990-governor-NV",
+    "before": 1,
+    "after": 0
+   },
+   {
+    "contest": "1992-governor-VT",
+    "before": 1,
+    "after": 0
+   },
+   {
+    "contest": "1994-governor-AL",
+    "before": 1,
+    "after": 0
+   },
+   {
+    "contest": "1994-governor-AR",
+    "before": 1,
+    "after": 0
+   },
+   {
+    "contest": "1998-governor-AR",
+    "before": -1,
+    "after": 0
+   },
+   {
+    "contest": "1998-governor-AZ",
+    "before": -1,
+    "after": 0
+   },
+   {
+    "contest": "2002-governor-TX",
+    "before": -1,
+    "after": 0
+   },
+   {
+    "contest": "2010-governor-AZ",
+    "before": -1,
+    "after": 0
+   },
+   {
+    "contest": "2012-governor-WV",
     "before": 1,
     "after": 0
    },
@@ -825,3982 +944,3982 @@
    {
     "contest": "1985-governor-NJ",
     "before": 9.553494143406456e-07,
-    "after": 9.513901389185323e-07,
-    "ratio": 0.9958556781815312,
+    "after": 9.246989880607144e-07,
+    "ratio": 0.9679170512695764,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1985-governor-VA",
     "before": 1.6420109333555544e-06,
-    "after": 1.631342692589314e-06,
-    "ratio": 0.9935029416981779,
+    "after": 1.6252545178835157e-06,
+    "ratio": 0.9897951864194985,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-AL",
     "before": 1.581167795043487e-06,
-    "after": 1.5673793028854435e-06,
-    "ratio": 0.9912795516065616,
+    "after": 1.5625180533440343e-06,
+    "ratio": 0.9882050837628275,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-AR",
     "before": 1.634902537576554e-06,
-    "after": 1.6193679625472266e-06,
-    "ratio": 0.9904981644640698,
+    "after": 1.5472562325359004e-06,
+    "ratio": 0.9463905015582316,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-AZ",
     "before": 3.0111646792163597e-06,
-    "after": 3.0058035970907692e-06,
-    "ratio": 0.9982195984953617,
+    "after": 3.008334105577791e-06,
+    "ratio": 0.999059973817405,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-CA",
     "before": 2.7624677845970835e-07,
-    "after": 2.755052757652308e-07,
-    "ratio": 0.9973157960479684,
+    "after": 2.6834043957291163e-07,
+    "ratio": 0.9713794349715832,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-CO",
     "before": 1.7680774078816497e-06,
-    "after": 1.7653314384860584e-06,
-    "ratio": 0.9984469178875595,
+    "after": 1.7725110072752442e-06,
+    "ratio": 1.0025075821758882,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-CT",
     "before": 1.3687384590794902e-06,
-    "after": 1.3415455386487722e-06,
-    "ratio": 0.9801328586551108,
+    "after": 1.2710272415416892e-06,
+    "ratio": 0.9286122071827264,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-FL",
     "before": 5.689211782905466e-07,
-    "after": 5.670146287939496e-07,
-    "ratio": 0.9966488336709037,
+    "after": 5.67274839910571e-07,
+    "ratio": 0.9971062100642439,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-GA",
     "before": 9.316588899244766e-07,
-    "after": 9.215843635410196e-07,
-    "ratio": 0.9891864646037203,
+    "after": 8.802603966391959e-07,
+    "ratio": 0.9448312103913405,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-HI",
     "before": 5.8031874673632096e-06,
-    "after": 5.717975382172525e-06,
-    "ratio": 0.9853163307802976,
+    "after": 5.684940687198273e-06,
+    "ratio": 0.9796238221098406,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-IA",
     "before": 2.236869296500533e-06,
-    "after": 2.23613811816378e-06,
-    "ratio": 0.9996731242465096,
+    "after": 2.1851502724605478e-06,
+    "ratio": 0.976878835021386,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-ID",
     "before": 5.589825281571969e-06,
-    "after": 5.5461233662150816e-06,
-    "ratio": 0.9921818816947714,
+    "after": 5.496692822434646e-06,
+    "ratio": 0.9833389319976863,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-KS",
     "before": 2.4851000301878703e-06,
-    "after": 2.4653171085095735e-06,
-    "ratio": 0.9920393861663583,
+    "after": 2.446536840983523e-06,
+    "ratio": 0.9844822386479823,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-MA",
     "before": 5.45756568073409e-07,
-    "after": 5.302815556004007e-07,
-    "ratio": 0.9716448442798644,
+    "after": 5.030894685836434e-07,
+    "ratio": 0.9218202730195517,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-MD",
     "before": 1.5883608334178005e-06,
-    "after": 1.5648937004965786e-06,
-    "ratio": 0.9852255656098459,
+    "after": 1.56807496217653e-06,
+    "ratio": 0.987228423910693,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-ME",
     "before": 6.37494398086988e-06,
-    "after": 6.32657329947234e-06,
-    "ratio": 0.9924123754588757,
+    "after": 6.321246411744892e-06,
+    "ratio": 0.9915767778844605,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-MI",
     "before": 5.552734166744159e-07,
-    "after": 5.427194525101629e-07,
-    "ratio": 0.9773913827183734,
+    "after": 5.133513189292338e-07,
+    "ratio": 0.9245018823406721,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-MN",
     "before": 6.76732790100076e-07,
-    "after": 6.534312705261587e-07,
-    "ratio": 0.965567621497295,
+    "after": 6.171685404027545e-07,
+    "ratio": 0.9119826162280196,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-NE",
     "before": 3.792383267107598e-06,
-    "after": 3.762462514524837e-06,
-    "ratio": 0.9921103036071612,
+    "after": 3.728948176226876e-06,
+    "ratio": 0.983273027430821,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-NH",
     "before": 5.835204352469141e-06,
-    "after": 5.89056141402098e-06,
-    "ratio": 1.0094867391453763,
+    "after": 5.721161866169564e-06,
+    "ratio": 0.9804561281129219,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-NM",
     "before": 5.159176534384506e-06,
-    "after": 5.099613615779379e-06,
-    "ratio": 0.9884549562884394,
+    "after": 5.06006698484072e-06,
+    "ratio": 0.9807896572479643,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-NV",
     "before": 5.68295052723355e-06,
-    "after": 5.634177798711091e-06,
-    "ratio": 0.991417710168559,
+    "after": 5.3755299289599795e-06,
+    "ratio": 0.9459047554962224,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-NY",
     "before": 2.918368388397462e-07,
-    "after": 2.8142752582963486e-07,
-    "ratio": 0.9643317373793673,
+    "after": 2.6426279697050954e-07,
+    "ratio": 0.9055155545856972,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-OH",
     "before": 3.7229583420186076e-07,
-    "after": 3.666176725864226e-07,
-    "ratio": 0.9847482536902108,
+    "after": 3.4899503294043987e-07,
+    "ratio": 0.9374132098163981,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-OK",
     "before": 2.41309009632469e-06,
-    "after": 2.4039843625264437e-06,
-    "ratio": 0.9962265255606846,
+    "after": 2.3962013826588288e-06,
+    "ratio": 0.9930012088269792,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-OR",
     "before": 2.0231242453587205e-06,
-    "after": 2.000014323695582e-06,
-    "ratio": 0.9885771120008298,
+    "after": 1.977085929687344e-06,
+    "ratio": 0.9772439504014676,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-PA",
     "before": 5.999929004891313e-07,
-    "after": 5.896247594057779e-07,
-    "ratio": 0.9827195603899629,
+    "after": 5.836898612656653e-07,
+    "ratio": 0.9728279464470742,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-RI",
     "before": 6.251379506329519e-06,
-    "after": 6.292393514771007e-06,
-    "ratio": 1.0065607932457086,
+    "after": 6.151565184053719e-06,
+    "ratio": 0.9840332326369344,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-SC",
     "before": 2.4206140517829282e-06,
-    "after": 2.4218201973857025e-06,
-    "ratio": 1.000498280839891,
+    "after": 2.4393526379429555e-06,
+    "ratio": 1.0077412531527796,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-SD",
     "before": 7.123007861695668e-06,
-    "after": 7.115232667271353e-06,
-    "ratio": 0.9989084394436617,
+    "after": 7.087815972554235e-06,
+    "ratio": 0.9950594061069792,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-TN",
     "before": 1.7609873657865622e-06,
-    "after": 1.7405931897901651e-06,
-    "ratio": 0.9884188970388849,
+    "after": 1.72118291567243e-06,
+    "ratio": 0.9773965157913821,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-TX",
     "before": 4.162994224869843e-07,
-    "after": 4.0972745086248846e-07,
-    "ratio": 0.9842133539719208,
+    "after": 3.891343938677371e-07,
+    "ratio": 0.9347464177178951,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-WI",
     "before": 7.282239728547551e-07,
-    "after": 7.084793389156187e-07,
-    "ratio": 0.9728865916597962,
+    "after": 6.699429073614951e-07,
+    "ratio": 0.9199682135362985,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1986-governor-WY",
     "before": 1.2362208144185548e-05,
-    "after": 1.232792117824796e-05,
-    "ratio": 0.9972264691277088,
+    "after": 1.2286491738182394e-05,
+    "ratio": 0.9938751713997982,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1987-governor-KY",
     "before": 2.915068660277593e-06,
-    "after": 2.902388653512648e-06,
-    "ratio": 0.9956501858986272,
+    "after": 2.9053585032445415e-06,
+    "ratio": 0.9966689782764406,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-DE",
     "before": 8.00956881794999e-06,
-    "after": 8.001601990732916e-06,
-    "ratio": 0.9990053363173285,
+    "after": 7.917703723582204e-06,
+    "ratio": 0.9885305818008693,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-IN",
     "before": 1.0309852361764604e-06,
-    "after": 1.0240106774762103e-06,
-    "ratio": 0.993235054726762,
+    "after": 1.016126651592149e-06,
+    "ratio": 0.9855879754016494,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-MT",
     "before": 5.026905587085199e-06,
-    "after": 5.052686798072172e-06,
-    "ratio": 1.0051286443599037,
+    "after": 5.03459973611938e-06,
+    "ratio": 1.0015305935034762,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-NC",
     "before": 8.682723853553997e-07,
-    "after": 8.658759357433668e-07,
-    "ratio": 0.9972399794667522,
+    "after": 8.56054834009262e-07,
+    "ratio": 0.9859288956412718,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-ND",
     "before": 4.4929234771559304e-06,
-    "after": 4.47473945287538e-06,
-    "ratio": 0.9959527411555068,
+    "after": 4.164304689675533e-06,
+    "ratio": 0.9268585834699289,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-NH",
     "before": 3.759303412438449e-06,
-    "after": 3.7288605048405128e-06,
-    "ratio": 0.9919019817615121,
+    "after": 3.4943762716538933e-06,
+    "ratio": 0.9295275981427866,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-RI",
     "before": 4.7531578293689e-06,
-    "after": 4.80189352206777e-06,
-    "ratio": 1.0102533293545906,
+    "after": 4.776467143691015e-06,
+    "ratio": 1.004903963882304,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-UT",
     "before": 2.9305304504196416e-06,
-    "after": 2.8910889916105915e-06,
-    "ratio": 0.9865411878578494,
+    "after": 2.853728012696473e-06,
+    "ratio": 0.9737923085862593,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-WA",
     "before": 6.013328964019643e-07,
-    "after": 5.905592668854537e-07,
-    "ratio": 0.9820837516440993,
+    "after": 5.431414439274756e-07,
+    "ratio": 0.9032292215798047,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1988-governor-WV",
     "before": 3.1741342824199364e-06,
-    "after": 3.1715812833959936e-06,
-    "ratio": 0.9991956865095208,
+    "after": 3.141441851315029e-06,
+    "ratio": 0.9897003629348715,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1989-governor-NJ",
     "before": 9.80489272582462e-07,
-    "after": 9.839166372094699e-07,
-    "ratio": 1.003495565655686,
+    "after": 9.95926207486832e-07,
+    "ratio": 1.0157441140214736,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1989-governor-VA",
     "before": 1.2905562581063737e-06,
-    "after": 1.2868677149294074e-06,
-    "ratio": 0.9971418966404623,
+    "after": 1.2914731285426e-06,
+    "ratio": 1.000710445926295,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-AL",
     "before": 1.438345194684704e-06,
-    "after": 1.439502959087665e-06,
-    "ratio": 1.000804928057075,
+    "after": 1.4013539624680913e-06,
+    "ratio": 0.9742820900342205,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-AR",
     "before": 1.715138133312926e-06,
-    "after": 1.70701982701394e-06,
-    "ratio": 0.9952666749451224,
+    "after": 1.652157984898579e-06,
+    "ratio": 0.9632798389872564,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-CA",
     "before": 3.1131151732506265e-07,
-    "after": 3.0945745360302953e-07,
-    "ratio": 0.994044345875912,
+    "after": 3.098069826893548e-07,
+    "ratio": 0.9951671089825538,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-CO",
     "before": 1.2256357228431908e-06,
-    "after": 1.2093373376748894e-06,
-    "ratio": 0.9867020968265409,
+    "after": 1.164876251528364e-06,
+    "ratio": 0.9504261582928744,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-FL",
     "before": 4.933494613149575e-07,
-    "after": 4.92638117385419e-07,
-    "ratio": 0.9985581337665951,
+    "after": 4.788808998214755e-07,
+    "ratio": 0.970672793571279,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-HI",
     "before": 3.1866756913286906e-06,
-    "after": 3.0846193585815256e-06,
-    "ratio": 0.9679740448565657,
+    "after": 2.9399213633531154e-06,
+    "ratio": 0.9225668527716762,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-IA",
     "before": 2.262180294412817e-06,
-    "after": 2.265852315698056e-06,
-    "ratio": 1.0016232222048385,
+    "after": 2.242414975738963e-06,
+    "ratio": 0.9912627129134354,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-ID",
     "before": 5.348512655066635e-06,
-    "after": 5.308145698569729e-06,
-    "ratio": 0.9924526762671738,
+    "after": 5.149748797617399e-06,
+    "ratio": 0.9628375456378612,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-IL",
     "before": 6.74611691119038e-07,
-    "after": 6.691978854929852e-07,
-    "ratio": 0.9919749306196095,
+    "after": 6.710100400786847e-07,
+    "ratio": 0.9946611493874663,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-KS",
     "before": 2.706797668600992e-06,
-    "after": 2.705925182404559e-06,
-    "ratio": 0.9996776684838494,
+    "after": 2.643554143306797e-06,
+    "ratio": 0.9766352963770351,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-MA",
     "before": 7.485957438646763e-07,
-    "after": 7.435018428474117e-07,
-    "ratio": 0.9931953914258623,
+    "after": 7.549299773986628e-07,
+    "ratio": 1.0084614875063083,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-MD",
     "before": 5.748952328479015e-07,
-    "after": 5.798693441821076e-07,
-    "ratio": 1.0086522048714257,
+    "after": 5.674765006746108e-07,
+    "ratio": 0.9870955058427949,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-ME",
     "before": 3.9272185872811786e-06,
-    "after": 3.939863010330699e-06,
-    "ratio": 1.0032196891434746,
+    "after": 3.850194406410451e-06,
+    "ratio": 0.9803870909757403,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-MI",
     "before": 3.8925992349456884e-07,
-    "after": 3.8745106379944577e-07,
-    "ratio": 0.995353080073376,
+    "after": 3.751201072178647e-07,
+    "ratio": 0.9636751295901095,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-MN",
     "before": 5.805198470979115e-07,
-    "after": 5.649757920503761e-07,
-    "ratio": 0.9732239041864942,
+    "after": 5.402324453841327e-07,
+    "ratio": 0.9306011639133781,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-NE",
     "before": 3.0931640331898728e-06,
-    "after": 3.087153580464654e-06,
-    "ratio": 0.9980568593644804,
+    "after": 3.00334584851951e-06,
+    "ratio": 0.9709623596722944,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-NH",
     "before": 5.487303870640949e-06,
-    "after": 5.495554957187634e-06,
-    "ratio": 1.0015036686032337,
+    "after": 5.33472058379755e-06,
+    "ratio": 0.9721933958023039,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-NM",
     "before": 5.429191143911503e-06,
-    "after": 5.391192334026464e-06,
-    "ratio": 0.9930010182220878,
+    "after": 5.40169593914897e-06,
+    "ratio": 0.9949356719935405,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-NV",
     "before": 3.554679823174245e-06,
-    "after": 3.589981332067086e-06,
-    "ratio": 1.0099309953776139,
+    "after": 6.784328112097087e-06,
+    "ratio": 1.9085623599255255,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-OH",
     "before": 6.082502165348306e-07,
-    "after": 6.059615717721931e-07,
-    "ratio": 0.9962373301308863,
+    "after": 6.096736210691898e-07,
+    "ratio": 1.0023401628074515,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-OK",
     "before": 2.7719327119043392e-06,
-    "after": 2.7601501797080476e-06,
-    "ratio": 0.9957493440783427,
+    "after": 2.7661647490154454e-06,
+    "ratio": 0.9979191547961743,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-OR",
     "before": 2.1769592649091197e-06,
-    "after": 2.153831080145146e-06,
-    "ratio": 0.9893759221236786,
+    "after": 2.1618973267128187e-06,
+    "ratio": 0.9930812034753761,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-PA",
     "before": 4.2142904831755945e-07,
-    "after": 4.1202782937264434e-07,
-    "ratio": 0.9776920480862747,
+    "after": 3.948909996421003e-07,
+    "ratio": 0.9370284303338722,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-RI",
     "before": 6.223986567703568e-06,
-    "after": 6.229730757937204e-06,
-    "ratio": 1.0009229117336857,
+    "after": 6.173595938046774e-06,
+    "ratio": 0.9919038016697735,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-SC",
     "before": 2.403889131525111e-06,
-    "after": 2.3946887988244277e-06,
-    "ratio": 0.9961727300231829,
+    "after": 2.326197015683773e-06,
+    "ratio": 0.9676806576382966,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-SD",
     "before": 7.901027954600834e-06,
-    "after": 7.90881855674407e-06,
-    "ratio": 1.0009860238677804,
+    "after": 7.756299494421384e-06,
+    "ratio": 0.9816823252605791,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-TN",
     "before": 1.8912647450068012e-06,
-    "after": 1.870859609603177e-06,
-    "ratio": 0.989210851914045,
+    "after": 1.8065760953152496e-06,
+    "ratio": 0.9552211556234307,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-TX",
     "before": 6.048668639519233e-07,
-    "after": 6.018889708122538e-07,
-    "ratio": 0.9950767791771346,
+    "after": 6.030800941851933e-07,
+    "ratio": 0.9970460114891134,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-WI",
     "before": 1.5375349780803512e-06,
-    "after": 1.5414970244656638e-06,
-    "ratio": 1.0025768821144214,
+    "after": 1.519269633609141e-06,
+    "ratio": 0.9881203714181418,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1990-governor-WY",
     "before": 9.827977007792558e-06,
-    "after": 9.755074025774984e-06,
-    "ratio": 0.9925820968079423,
+    "after": 9.448105418511155e-06,
+    "ratio": 0.9613479367137098,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1991-governor-KY",
     "before": 2.7537748692381166e-06,
-    "after": 2.7681937569685053e-06,
-    "ratio": 1.0052360444898598,
+    "after": 2.713679832780765e-06,
+    "ratio": 0.9854399729966143,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-DE",
     "before": 8.720006439471704e-06,
-    "after": 8.76261591506906e-06,
-    "ratio": 1.0048864041435202,
+    "after": 8.626372929950128e-06,
+    "ratio": 0.9892622201403731,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-IN",
     "before": 7.0385189510237e-07,
-    "after": 7.023449413928882e-07,
-    "ratio": 0.9978589903359391,
+    "after": 6.801060519022961e-07,
+    "ratio": 0.9662630116288594,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-MT",
     "before": 5.659447186481989e-06,
-    "after": 5.667974123953871e-06,
-    "ratio": 1.0015066732122262,
+    "after": 5.581578594651223e-06,
+    "ratio": 0.9862409544139291,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-NC",
     "before": 9.480177624531743e-07,
-    "after": 9.510265381013101e-07,
-    "ratio": 1.0031737545089345,
+    "after": 9.364139620741339e-07,
+    "ratio": 0.9877599335807661,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-ND",
     "before": 7.489958692190308e-06,
-    "after": 7.522980674414594e-06,
-    "ratio": 1.0044088336907275,
+    "after": 7.370717458953851e-06,
+    "ratio": 0.9840798543574361,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-NH",
     "before": 4.72102585979722e-06,
-    "after": 4.740345038329635e-06,
-    "ratio": 1.0040921568968582,
+    "after": 4.6748684296494715e-06,
+    "ratio": 0.9902230084056919,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-RI",
     "before": 1.7160504941475148e-06,
-    "after": 1.6921130150461923e-06,
-    "ratio": 0.9860508305653244,
+    "after": 1.6354096414774458e-06,
+    "ratio": 0.9530078788793863,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-WA",
     "before": 9.125772675205008e-07,
-    "after": 9.139249019676186e-07,
-    "ratio": 1.0014767346230082,
+    "after": 8.965299973511347e-07,
+    "ratio": 0.9824154395024907,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1992-governor-WV",
     "before": 1.7257553088164692e-06,
-    "after": 1.6955884415187742e-06,
-    "ratio": 0.9825196149514478,
+    "after": 1.6595238879259983e-06,
+    "ratio": 0.9616217776922891,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1993-governor-NJ",
     "before": 5.805538437923642e-07,
-    "after": 5.797801295378876e-07,
-    "ratio": 0.9986672825221129,
+    "after": 5.647099060696599e-07,
+    "ratio": 0.9727089263259259,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1993-governor-VA",
     "before": 1.3159063330898695e-06,
-    "after": 1.3223908675274134e-06,
-    "ratio": 1.0049278085183446,
+    "after": 1.2641306777437725e-06,
+    "ratio": 0.9606539963794208,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-AL",
     "before": 1.644493928462639e-06,
-    "after": 1.6488479435327561e-06,
-    "ratio": 1.0026476321953877,
+    "after": 1.8123873562520862e-06,
+    "ratio": 1.102094282553176,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-AR",
     "before": 2.0047695781915076e-06,
-    "after": 1.9879934812303695e-06,
-    "ratio": 0.991631907654808,
+    "after": 3.0321644330244996e-06,
+    "ratio": 1.512475281952253,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-AZ",
     "before": 1.313074450429564e-06,
-    "after": 1.2998346004699394e-06,
-    "ratio": 0.9899169084012767,
+    "after": 1.3412292468386075e-06,
+    "ratio": 1.0214418888432661,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-CA",
     "before": 2.1188093598502024e-07,
-    "after": 2.1222522406259462e-07,
-    "ratio": 1.0016249129539372,
+    "after": 2.1174227613647444e-07,
+    "ratio": 0.9993455765715722,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-CO",
     "before": 1.5192559309579117e-06,
-    "after": 1.5248447431584102e-06,
-    "ratio": 1.00367865090181,
+    "after": 1.4604401568012735e-06,
+    "ratio": 0.9612864607218916,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-CT",
     "before": 2.926129679909009e-06,
-    "after": 2.9399638996752244e-06,
-    "ratio": 1.0047278218259437,
+    "after": 2.797851133950606e-06,
+    "ratio": 0.9561610181397046,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-FL",
     "before": 4.293497673984696e-07,
-    "after": 4.3103482719428236e-07,
-    "ratio": 1.0039246784877116,
+    "after": 4.1257563861748894e-07,
+    "ratio": 0.960931319742831,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-IA",
     "before": 1.5249609752101044e-06,
-    "after": 1.5266572639790826e-06,
-    "ratio": 1.0011123489692872,
+    "after": 1.5404789779545117e-06,
+    "ratio": 1.0101759999086333,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-ID",
     "before": 5.720014738992801e-06,
-    "after": 5.714310630412273e-06,
-    "ratio": 0.9990027807897691,
+    "after": 5.524158335735842e-06,
+    "ratio": 0.9657594582891851,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-IL",
     "before": 5.786020389440365e-07,
-    "after": 5.794504548225002e-07,
-    "ratio": 1.0014663202362926,
+    "after": 5.78096635693781e-07,
+    "ratio": 0.9991265097316665,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-KS",
     "before": 2.775668342302598e-06,
-    "after": 2.782824081731984e-06,
-    "ratio": 1.002578023937633,
+    "after": 2.6739929063177594e-06,
+    "ratio": 0.9633690256017792,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-MA",
     "before": 8.31126557366066e-07,
-    "after": 8.349634057978832e-07,
-    "ratio": 1.0046164430649125,
+    "after": 8.248170996095191e-07,
+    "ratio": 0.9924085475303036,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-MD",
     "before": 1.6217193550827616e-06,
-    "after": 1.6292502611874608e-06,
-    "ratio": 1.0046437788888047,
+    "after": 1.546330095032e-06,
+    "ratio": 0.9535127580401146,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-MI",
     "before": 5.357960752789847e-07,
-    "after": 5.340965469269044e-07,
-    "ratio": 0.9968280313527953,
+    "after": 5.397425786007293e-07,
+    "ratio": 1.0073656816535839,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-MN",
     "before": 1.0309264923848711e-06,
-    "after": 1.031758006998294e-06,
-    "ratio": 1.0008065702254865,
+    "after": 1.0319053180563667e-06,
+    "ratio": 1.0009494621379176,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-NE",
     "before": 3.7208565120510884e-06,
-    "after": 3.7482644613799086e-06,
-    "ratio": 1.007366032320798,
+    "after": 3.5625572270360785e-06,
+    "ratio": 0.9574562242584977,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-NH",
     "before": 4.805035630036787e-06,
-    "after": 4.785814921823392e-06,
-    "ratio": 0.9959998822707484,
+    "after": 4.885599782313521e-06,
+    "ratio": 1.0167666087163056,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-NM",
     "before": 3.883343530541939e-06,
-    "after": 3.870488758620821e-06,
-    "ratio": 0.9966897669958844,
+    "after": 3.754866452291843e-06,
+    "ratio": 0.9669158607165083,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-NV",
     "before": 4.396719102085469e-06,
-    "after": 4.4292024641974895e-06,
-    "ratio": 1.0073880912921211,
+    "after": 4.213321513842742e-06,
+    "ratio": 0.9582876267542912,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-NY",
     "before": 2.5465028670116016e-07,
-    "after": 2.530956556543066e-07,
-    "ratio": 0.9938950351598153,
+    "after": 2.46804952869867e-07,
+    "ratio": 0.9691917337579913,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-OH",
     "before": 4.5627069474673723e-07,
-    "after": 4.5401205381396643e-07,
-    "ratio": 0.9950497786538219,
+    "after": 4.6345746865605425e-07,
+    "ratio": 1.0157511187811572,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-OK",
     "before": 3.012010430354122e-06,
-    "after": 3.0170714404954084e-06,
-    "ratio": 1.0016802764327384,
+    "after": 2.8994561274750035e-06,
+    "ratio": 0.9626315029507101,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-OR",
     "before": 2.027223922318224e-06,
-    "after": 2.0362038948347976e-06,
-    "ratio": 1.004429689496908,
+    "after": 1.9384512476686813e-06,
+    "ratio": 0.9562097340741584,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-PA",
     "before": 7.464633465876452e-07,
-    "after": 7.50897246882371e-07,
-    "ratio": 1.0059398767735814,
+    "after": 7.107001313716188e-07,
+    "ratio": 0.9520897906380629,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-RI",
     "before": 6.776321119690801e-06,
-    "after": 6.806112592108039e-06,
-    "ratio": 1.0043964080053216,
+    "after": 6.440880273980109e-06,
+    "ratio": 0.9504980888913367,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-SC",
     "before": 2.3554542215562444e-06,
-    "after": 2.3717813822406877e-06,
-    "ratio": 1.0069316399932646,
+    "after": 2.272475171514839e-06,
+    "ratio": 0.9647715292948545,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-SD",
     "before": 7.496545739962932e-06,
-    "after": 7.52794078447137e-06,
-    "ratio": 1.0041879347632172,
+    "after": 7.228276414789621e-06,
+    "ratio": 0.9642142748835363,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-TN",
     "before": 1.5718308235998758e-06,
-    "after": 1.5795207475034608e-06,
-    "ratio": 1.0048923356051596,
+    "after": 1.5025345991581273e-06,
+    "ratio": 0.95591368778286,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-TX",
     "before": 4.334792538765439e-07,
-    "after": 4.3462970130055026e-07,
-    "ratio": 1.0026539849686416,
+    "after": 4.169364201706116e-07,
+    "ratio": 0.9618370808798989,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-WI",
     "before": 9.770531190127388e-07,
-    "after": 9.755657036479283e-07,
-    "ratio": 0.9984776514849947,
+    "after": 9.889364824608863e-07,
+    "ratio": 1.0121624538286669,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1994-governor-WY",
     "before": 1.1612944071036756e-05,
-    "after": 1.1646671243741625e-05,
-    "ratio": 1.002904274101258,
+    "after": 1.1151542138528691e-05,
+    "ratio": 0.9602683066683475,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1995-governor-KY",
     "before": 2.3263667338780646e-06,
-    "after": 2.338129643851627e-06,
-    "ratio": 1.0050563437837479,
+    "after": 2.235872227675202e-06,
+    "ratio": 0.9611004985219987,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-DE",
     "before": 5.865547923760659e-06,
-    "after": 5.847160090399586e-06,
-    "ratio": 0.996865112415741,
+    "after": 5.680272559653204e-06,
+    "ratio": 0.9684129485402504,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-IN",
     "before": 1.0712249399880253e-06,
-    "after": 1.0733730941102024e-06,
-    "ratio": 1.0020053249714305,
+    "after": 1.0400592216669944e-06,
+    "ratio": 0.9709064668328397,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-MT",
     "before": 3.1071674644395633e-06,
-    "after": 3.103009937153365e-06,
-    "ratio": 0.9986619558379844,
+    "after": 3.1906887138079693e-06,
+    "ratio": 1.0268801892155082,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-NC",
     "before": 7.401229961399968e-07,
-    "after": 7.389451733698209e-07,
-    "ratio": 0.9984086121140424,
+    "after": 7.165423608201892e-07,
+    "ratio": 0.968139572148428,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-ND",
     "before": 3.438485353576147e-06,
-    "after": 3.401346227614615e-06,
-    "ratio": 0.9891989867216081,
+    "after": 3.597715504526284e-06,
+    "ratio": 1.0463082242838497,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-NH",
     "before": 4.244320802378472e-06,
-    "after": 4.29432051704e-06,
-    "ratio": 1.0117803806520724,
+    "after": 4.125554712298799e-06,
+    "ratio": 0.972017645317216,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-UT",
     "before": 1.2901003769724616e-06,
-    "after": 1.2562462359794389e-06,
-    "ratio": 0.9737585217419517,
+    "after": 1.3645659403508213e-06,
+    "ratio": 1.0577207515845484,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-WA",
     "before": 1.0136790698991309e-06,
-    "after": 1.0185616096127655e-06,
-    "ratio": 1.0048166523889266,
+    "after": 9.79314283535757e-07,
+    "ratio": 0.9660989484898869,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1996-governor-WV",
     "before": 3.7170501617917644e-06,
-    "after": 3.7321169871781566e-06,
-    "ratio": 1.0040534361201974,
+    "after": 3.583931306369836e-06,
+    "ratio": 0.9641869628797908,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1997-governor-NJ",
     "before": 7.739426475776939e-07,
-    "after": 7.77756290130239e-07,
-    "ratio": 1.0049275518857645,
+    "after": 7.760957159523876e-07,
+    "ratio": 1.002781948225017,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1997-governor-VA",
     "before": 1.2823872630281726e-06,
-    "after": 1.2893774001545482e-06,
-    "ratio": 1.005450878473223,
+    "after": 1.2513911929353662e-06,
+    "ratio": 0.9758293995999199,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-AL",
     "before": 7.239676884384282e-07,
-    "after": 7.08279101525253e-07,
-    "ratio": 0.9783297139309975,
+    "after": 7.670991329097762e-07,
+    "ratio": 1.059576477182816,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-AR",
     "before": 2.133591580792008e-06,
-    "after": 2.1203222817261695e-06,
-    "ratio": 0.9937807689225541,
+    "after": 3.0779666789571134e-06,
+    "ratio": 1.4426222462944593,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-AZ",
     "before": 1.0854316082540715e-06,
-    "after": 1.0738639645404673e-06,
-    "ratio": 0.9893428166034239,
+    "after": 2.0942306899256237e-06,
+    "ratio": 1.9293990279997617,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-CA",
     "before": 2.66945676062306e-07,
-    "after": 2.685603507537349e-07,
-    "ratio": 1.0060487014258737,
+    "after": 2.611979531583631e-07,
+    "ratio": 0.9784685671304847,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-CO",
     "before": 1.6511809111917095e-06,
-    "after": 1.65371545473786e-06,
-    "ratio": 1.0015349884007085,
+    "after": 1.6223335586749742e-06,
+    "ratio": 0.9825292599246952,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-CT",
     "before": 1.4040223178238047e-06,
-    "after": 1.4054956973669938e-06,
-    "ratio": 1.001049398947926,
+    "after": 1.445155755533697e-06,
+    "ratio": 1.0292968546067331,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-FL",
     "before": 4.5051073146676024e-07,
-    "after": 4.500342134081818e-07,
-    "ratio": 0.998942271459268,
+    "after": 4.333859910797178e-07,
+    "ratio": 0.9619881632313437,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-HI",
     "before": 3.30453731638528e-06,
-    "after": 3.270170417539078e-06,
-    "ratio": 0.989600087529411,
+    "after": 3.167585183072016e-06,
+    "ratio": 0.9585563362731001,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-IA",
     "before": 2.263053969507874e-06,
-    "after": 2.2765188808908292e-06,
-    "ratio": 1.0059498852278292,
+    "after": 2.2176242370387216e-06,
+    "ratio": 0.9799254754498712,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-ID",
     "before": 4.928259403903569e-06,
-    "after": 4.906069606501548e-06,
-    "ratio": 0.9954974372119201,
+    "after": 4.9216399542146935e-06,
+    "ratio": 0.9986568382168292,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-IL",
     "before": 6.515720259517327e-07,
-    "after": 6.564196520175588e-07,
-    "ratio": 1.0074398928633337,
+    "after": 6.372154049305218e-07,
+    "ratio": 0.9779661795635861,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-KS",
     "before": 9.101936904135595e-07,
-    "after": 8.872695444534987e-07,
-    "ratio": 0.9748139915695913,
+    "after": 9.802082355431851e-07,
+    "ratio": 1.0769226878487959,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-MA",
     "before": 7.702939674754143e-07,
-    "after": 7.857607860665739e-07,
-    "ratio": 1.0200791116693424,
+    "after": 7.839007299017765e-07,
+    "ratio": 1.0176643762003712,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-MD",
     "before": 1.0604275874795291e-06,
-    "after": 1.0528476193013137e-06,
-    "ratio": 0.9928519700282111,
+    "after": 1.0202375007420842e-06,
+    "ratio": 0.9621001120567124,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-MI",
     "before": 3.9063637903281337e-07,
-    "after": 3.9170717211059796e-07,
-    "ratio": 1.0027411504285284,
+    "after": 4.051353934618262e-07,
+    "ratio": 1.0371163957256395,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-NE",
     "before": 3.7640379740416742e-06,
-    "after": 3.735322353659535e-06,
-    "ratio": 0.99237105986173,
+    "after": 3.7289965852227667e-06,
+    "ratio": 0.9906904794636592,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-NH",
     "before": 5.26694250058872e-06,
-    "after": 5.264865273591717e-06,
-    "ratio": 0.9996056104662675,
+    "after": 5.0503105591079455e-06,
+    "ratio": 0.9588695070324842,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-NM",
     "before": 2.2879758933784544e-06,
-    "after": 2.2752798242897163e-06,
-    "ratio": 0.9944509602896249,
+    "after": 2.3862719676768136e-06,
+    "ratio": 1.042962023587239,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-NV",
     "before": 5.249206013988215e-06,
-    "after": 5.2622228228190955e-06,
-    "ratio": 1.0024797671869219,
+    "after": 5.153648775394314e-06,
+    "ratio": 0.9817958681104804,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-NY",
     "before": 3.922163298784242e-07,
-    "after": 3.9523310382949127e-07,
-    "ratio": 1.0076916072107507,
+    "after": 3.981971006377002e-07,
+    "ratio": 1.0152486531122502,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-OH",
     "before": 6.318763840095268e-07,
-    "after": 6.382746148376055e-07,
-    "ratio": 1.0101257635037397,
+    "after": 6.224391780985112e-07,
+    "ratio": 0.9850647909150639,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-OK",
     "before": 9.565296199839324e-07,
-    "after": 9.413627153360549e-07,
-    "ratio": 0.9841438212356327,
+    "after": 1.0166014471703966e-06,
+    "ratio": 1.0628018473567742,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-OR",
     "before": 1.6208934269579673e-06,
-    "after": 1.6188816824302236e-06,
-    "ratio": 0.9987588668728707,
+    "after": 1.5570170430655743e-06,
+    "ratio": 0.9605918669111554,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-PA",
     "before": 4.49616289259361e-07,
-    "after": 4.4723901350249006e-07,
-    "ratio": 0.9947126565169893,
+    "after": 4.676421727729154e-07,
+    "ratio": 1.0400917047361604,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-RI",
     "before": 5.820302114119139e-06,
-    "after": 5.871372166878756e-06,
-    "ratio": 1.0087744676750936,
+    "after": 5.896447247018955e-06,
+    "ratio": 1.013082677051265,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-SC",
     "before": 9.127286513762868e-07,
-    "after": 8.944784419151447e-07,
-    "ratio": 0.9800047807926014,
+    "after": 9.65900382355235e-07,
+    "ratio": 1.0582557925608795,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-SD",
     "before": 3.69815307599949e-06,
-    "after": 3.6471742895481254e-06,
-    "ratio": 0.9862150686021598,
+    "after": 3.907365897886978e-06,
+    "ratio": 1.056572245006636,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-TN",
     "before": 1.1079211491504218e-06,
-    "after": 1.096644651548108e-06,
-    "ratio": 0.9898219312710467,
+    "after": 1.1620058153864913e-06,
+    "ratio": 1.048816349681151,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-TX",
     "before": 2.556011457769086e-07,
-    "after": 2.511004590316632e-07,
-    "ratio": 0.9823917583328299,
+    "after": 2.703333846787489e-07,
+    "ratio": 1.0576376090062554,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-WI",
     "before": 6.148629400759886e-07,
-    "after": 6.184111155463451e-07,
-    "ratio": 1.0057706770714105,
+    "after": 6.400483624292208e-07,
+    "ratio": 1.0409610349098608,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1998-governor-WY",
     "before": 4.510102576406549e-06,
-    "after": 4.405300939099883e-06,
-    "ratio": 0.9767629149157474,
+    "after": 4.82588395886043e-06,
+    "ratio": 1.0700164524207965,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "1999-governor-KY",
     "before": 3.211929481476234e-06,
-    "after": 3.1944319124549753e-06,
-    "ratio": 0.9945523184359525,
+    "after": 3.158838627672879e-06,
+    "ratio": 0.9834707286976444,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-DE",
     "before": 7.06877672163236e-06,
-    "after": 7.097841462109768e-06,
-    "ratio": 1.0041117072475159,
+    "after": 6.8126727984006405e-06,
+    "ratio": 0.9637696968914052,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-IN",
     "before": 8.871406977963381e-07,
-    "after": 8.86892728976159e-07,
-    "ratio": 0.9997204853516527,
+    "after": 8.690541814164218e-07,
+    "ratio": 0.979612572814162,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-MT",
     "before": 4.945777662745341e-06,
-    "after": 5.002608509478055e-06,
-    "ratio": 1.01149078074431,
+    "after": 4.792023360204017e-06,
+    "ratio": 0.9689120067609394,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-NC",
     "before": 7.652913755141797e-07,
-    "after": 7.675129531299163e-07,
-    "ratio": 1.002902917355163,
+    "after": 7.412235267189465e-07,
+    "ratio": 0.9685507382347507,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-ND",
     "before": 7.042169164526937e-06,
-    "after": 7.0900287243625855e-06,
-    "ratio": 1.0067961389051443,
+    "after": 6.834463694405668e-06,
+    "ratio": 0.9705054699385055,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-NH",
     "before": 2.742708657927336e-06,
-    "after": 2.73472594387822e-06,
-    "ratio": 0.9970894779414345,
+    "after": 2.723420401229815e-06,
+    "ratio": 0.9929674423706027,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-UT",
     "before": 7.31840986194539e-07,
-    "after": 7.269118584017786e-07,
-    "ratio": 0.9932647557519414,
+    "after": 7.775095910489223e-07,
+    "ratio": 1.0624023602338168,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-WA",
     "before": 6.150245086233944e-07,
-    "after": 6.09698166140321e-07,
-    "ratio": 0.9913396256435449,
+    "after": 6.117006882611388e-07,
+    "ratio": 0.9945956294169556,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2000-governor-WV",
     "before": 2.2707458608936257e-06,
-    "after": 2.281088206016164e-06,
-    "ratio": 1.0045546026530985,
+    "after": 2.285058767063158e-06,
+    "ratio": 1.0063031739553188,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2001-governor-NJ",
     "before": 1.0294896749535322e-06,
-    "after": 1.0298848849892456e-06,
-    "ratio": 1.0003838892660397,
+    "after": 9.93280767790074e-07,
+    "ratio": 0.9648282949849959,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2001-governor-VA",
     "before": 1.2585136581655512e-06,
-    "after": 1.2642639582822062e-06,
-    "ratio": 1.0045691201516531,
+    "after": 1.2184451079030249e-06,
+    "ratio": 0.9681620060278635,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-AL",
     "before": 8.94550377637089e-07,
-    "after": 8.887216746149791e-07,
-    "ratio": 0.9934842093102614,
+    "after": 8.861723873725962e-07,
+    "ratio": 0.9906344120197871,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-AR",
     "before": 2.2631379101955283e-06,
-    "after": 2.27749807623152e-06,
-    "ratio": 1.0063452456747326,
+    "after": 2.2660923481686053e-06,
+    "ratio": 1.0013054608646548,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-AZ",
     "before": 2.066401401359254e-06,
-    "after": 2.0701736186924498e-06,
-    "ratio": 1.0018255007622017,
+    "after": 1.993860201757897e-06,
+    "ratio": 0.9648949136631246,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-CA",
     "before": 1.0620761696603274e-07,
-    "after": 1.0330007843438344e-07,
-    "ratio": 0.9726240112083563,
+    "after": 1.0788423273185602e-07,
+    "ratio": 1.0157862101958233,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-CO",
     "before": 1.3826254241222796e-06,
-    "after": 1.3852736040590457e-06,
-    "ratio": 1.0019153270947894,
+    "after": 1.3842658936840764e-06,
+    "ratio": 1.0011864887866055,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-CT",
     "before": 2.102081340100629e-06,
-    "after": 2.1244196053906882e-06,
-    "ratio": 1.0106267368745063,
+    "after": 2.065374486109987e-06,
+    "ratio": 0.9825378527032237,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-FL",
     "before": 3.899506541805827e-07,
-    "after": 3.922740235654965e-07,
-    "ratio": 1.00595811126358,
+    "after": 3.8779688607063985e-07,
+    "ratio": 0.9944768188311707,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-HI",
     "before": 5.087953102542837e-06,
-    "after": 5.048102231278991e-06,
-    "ratio": 0.9921676024796829,
+    "after": 4.91035843267038e-06,
+    "ratio": 0.9650950654824826,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-IA",
     "before": 9.82216011700427e-07,
-    "after": 9.623299009317952e-07,
-    "ratio": 0.9797538316096022,
+    "after": 9.859883526303948e-07,
+    "ratio": 1.0038406428779725,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-ID",
     "before": 2.599544166561302e-06,
-    "after": 2.5809498325782788e-06,
-    "ratio": 0.9928470790293901,
+    "after": 2.721474276181955e-06,
+    "ratio": 1.0469044193166925,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-IL",
     "before": 5.961646918247234e-07,
-    "after": 5.93473588132083e-07,
-    "ratio": 0.9954859727026041,
+    "after": 5.747660041672348e-07,
+    "ratio": 0.9641060801638686,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-KS",
     "before": 2.8421069582967456e-06,
-    "after": 2.8590763016323416e-06,
-    "ratio": 1.0059706913161937,
+    "after": 2.7531204252514682e-06,
+    "ratio": 0.9686899422326434,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-MA",
     "before": 8.540222391556902e-07,
-    "after": 8.41951241195402e-07,
-    "ratio": 0.9858657100402657,
+    "after": 8.268513846187659e-07,
+    "ratio": 0.968184839584756,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-MD",
     "before": 1.1304903465645576e-06,
-    "after": 1.1240869335965195e-06,
-    "ratio": 0.9943357207892156,
+    "after": 1.0895499138164646e-06,
+    "ratio": 0.9637852433923857,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-ME",
     "before": 4.7797813618553855e-06,
-    "after": 4.77206605956087e-06,
-    "ratio": 0.9983858461903536,
+    "after": 4.604343906420344e-06,
+    "ratio": 0.963295924613811,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-MI",
     "before": 7.071610521165168e-07,
-    "after": 7.056802009484775e-07,
-    "ratio": 0.9979059209163073,
+    "after": 6.822396541477835e-07,
+    "ratio": 0.964758525806612,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-MN",
     "before": 1.2421246224893685e-06,
-    "after": 1.2408361615534988e-06,
-    "ratio": 0.9989626959223403,
+    "after": 1.1985951564277091e-06,
+    "ratio": 0.9649556370805845,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-NE",
     "before": 3.1344334992488067e-06,
-    "after": 3.112580649064446e-06,
-    "ratio": 0.9930281340505077,
+    "after": 3.216865214853272e-06,
+    "ratio": 1.0262987604057388,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-NH",
     "before": 5.100700945171728e-06,
-    "after": 5.106129591984407e-06,
-    "ratio": 1.001064294274656,
+    "after": 4.908590274106127e-06,
+    "ratio": 0.9623364174589669,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-NM",
     "before": 4.854792297716271e-06,
-    "after": 4.8549647771379526e-06,
-    "ratio": 1.0000355276623807,
+    "after": 4.677733607372352e-06,
+    "ratio": 0.9635290905385985,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-NV",
     "before": 4.210054271019374e-06,
-    "after": 4.23103705091268e-06,
-    "ratio": 1.004983968980577,
+    "after": 4.200690366149144e-06,
+    "ratio": 0.9977758232394561,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-NY",
     "before": 5.934373298927011e-07,
-    "after": 5.990399665071429e-07,
-    "ratio": 1.0094409912087174,
+    "after": 5.795447432486441e-07,
+    "ratio": 0.9765896313826955,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-OH",
     "before": 6.253888103134505e-07,
-    "after": 6.280781600551897e-07,
-    "ratio": 1.0043002843949052,
+    "after": 6.235096780090132e-07,
+    "ratio": 0.9969952575526647,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-OK",
     "before": 2.6430369396963528e-06,
-    "after": 2.654115294480777e-06,
-    "ratio": 1.0041915247638185,
+    "after": 2.5544859647231495e-06,
+    "ratio": 0.9664965049700075,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-OR",
     "before": 1.696342102172865e-06,
-    "after": 1.7019057971757737e-06,
-    "ratio": 1.0032798189679912,
+    "after": 1.6272042348551485e-06,
+    "ratio": 0.959242969192855,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-PA",
     "before": 6.412957554599266e-07,
-    "after": 6.40203809474303e-07,
-    "ratio": 0.9982972817513185,
+    "after": 6.188598499899129e-07,
+    "ratio": 0.9650147295081922,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-RI",
     "before": 5.356819321277915e-06,
-    "after": 5.272617866809407e-06,
-    "ratio": 0.9842814458695573,
+    "after": 5.19152145424006e-06,
+    "ratio": 0.9691425345668702,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-SC",
     "before": 1.143689065086952e-06,
-    "after": 1.1351316120525512e-06,
-    "ratio": 0.9925176752181765,
+    "after": 1.1322202216369871e-06,
+    "ratio": 0.989972061638018,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-SD",
     "before": 7.100898166371609e-06,
-    "after": 7.134463762746839e-06,
-    "ratio": 1.0047269508150658,
+    "after": 6.872556417754026e-06,
+    "ratio": 0.9678432582375336,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-TN",
     "before": 1.431408576799792e-06,
-    "after": 1.433438733295383e-06,
-    "ratio": 1.0014182928120563,
+    "after": 1.3820623958507607e-06,
+    "ratio": 0.9655261385541263,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-TX",
     "before": 3.209922581444243e-07,
-    "after": 3.2213758079584813e-07,
-    "ratio": 1.0035680693922173,
+    "after": 5.094900641233672e-07,
+    "ratio": 1.5872347422601447,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-WI",
     "before": 1.2510606291251798e-06,
-    "after": 1.260769534637318e-06,
-    "ratio": 1.0077605395662776,
+    "after": 1.2459542828135868e-06,
+    "ratio": 0.9959183862134934,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2002-governor-WY",
     "before": 1.2551496463314981e-05,
-    "after": 1.2588395635474635e-05,
-    "ratio": 1.0029398225357034,
+    "after": 1.2211677970617135e-05,
+    "ratio": 0.9729260575668364,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2003-governor-KY",
     "before": 2.2403547558034663e-06,
-    "after": 2.2454270451194218e-06,
-    "ratio": 1.0022640563075182,
+    "after": 2.164297481686051e-06,
+    "ratio": 0.9660512363408542,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-DE",
     "before": 2.655165431057296e-06,
-    "after": 2.618815710672298e-06,
-    "ratio": 0.9863098095659812,
+    "after": 2.6211342265096327e-06,
+    "ratio": 0.9871830191258132,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-IN",
     "before": 9.97235431820558e-07,
-    "after": 9.997661078464908e-07,
-    "ratio": 1.0025376916475108,
+    "after": 9.612176366192745e-07,
+    "ratio": 0.9638823551069288,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-MT",
     "before": 5.548450245807729e-06,
-    "after": 5.556633565470296e-06,
-    "ratio": 1.0014748838504501,
+    "after": 5.3769644393585344e-06,
+    "ratio": 0.9690930261871294,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-NC",
     "before": 4.2241581917176713e-07,
-    "after": 4.211911417222367e-07,
-    "ratio": 0.9971007774947168,
+    "after": 4.142191298360555e-07,
+    "ratio": 0.9805956856639911,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-ND",
     "before": 4.145424735216579e-06,
-    "after": 4.096142176543688e-06,
-    "ratio": 0.9881115779876011,
+    "after": 4.31313097076943e-06,
+    "ratio": 1.040455742478723,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-NH",
     "before": 2.605668545081616e-06,
-    "after": 2.6123669005576335e-06,
-    "ratio": 1.0025706859334282,
+    "after": 2.6357927893981074e-06,
+    "ratio": 1.0115610423180466,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-UT",
     "before": 2.469634403095464e-06,
-    "after": 2.4667509861695803e-06,
-    "ratio": 0.9988324519118014,
+    "after": 2.4080263719530545e-06,
+    "ratio": 0.9750537848577144,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-WA",
     "before": 8.315458814648615e-07,
-    "after": 8.330614824103708e-07,
-    "ratio": 1.0018226305719167,
+    "after": 7.95452121716362e-07,
+    "ratio": 0.9565943857662835,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2004-governor-WV",
     "before": 3.2939826197587703e-06,
-    "after": 3.301268724123568e-06,
-    "ratio": 1.0022119437792696,
+    "after": 3.1693040631249957e-06,
+    "ratio": 0.9621496009463143,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2005-governor-NJ",
     "before": 1.0783076918944627e-06,
-    "after": 1.08011877030992e-06,
-    "ratio": 1.0016795562426857,
+    "after": 1.0400838790706522e-06,
+    "ratio": 0.964552035461552,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2005-governor-VA",
     "before": 1.259608884820444e-06,
-    "after": 1.2627400395284872e-06,
-    "ratio": 1.0024858150381255,
+    "after": 1.2187924339758875e-06,
+    "ratio": 0.9675959328832657,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-AL",
     "before": 1.2102056993336057e-06,
-    "after": 1.2029008344064939e-06,
-    "ratio": 0.9939639476734127,
+    "after": 1.2274992143533222e-06,
+    "ratio": 1.0142897319267619,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-AR",
     "before": 3.2153864923610367e-06,
-    "after": 3.219696410748979e-06,
-    "ratio": 1.0013404044578098,
+    "after": 3.1080665198647013e-06,
+    "ratio": 0.9666229945447301,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-AZ",
     "before": 8.537045746484275e-07,
-    "after": 8.439995386119726e-07,
-    "ratio": 0.9886318565875654,
+    "after": 8.584300531773446e-07,
+    "ratio": 1.0055352620440896,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-CA",
     "before": 2.669293371817948e-07,
-    "after": 2.662556625113359e-07,
-    "ratio": 0.9974762059593318,
+    "after": 2.577831556142981e-07,
+    "ratio": 0.9657355700798536,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-CO",
     "before": 1.5813050717148785e-06,
-    "after": 1.5811538449121703e-06,
-    "ratio": 0.9999043658270543,
+    "after": 1.5306767015896479e-06,
+    "ratio": 0.9679831734996425,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-CT",
     "before": 2.012307242463777e-06,
-    "after": 2.0043420539586533e-06,
-    "ratio": 0.9960417632372225,
+    "after": 1.947986730830112e-06,
+    "ratio": 0.9680364358501669,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-FL",
     "before": 5.060012874524864e-07,
-    "after": 5.061619462745739e-07,
-    "ratio": 1.0003175067456773,
+    "after": 4.893422409663845e-07,
+    "ratio": 0.967077066997253,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-HI",
     "before": 6.2143279281487166e-06,
-    "after": 6.245839647187079e-06,
-    "ratio": 1.0050708168932678,
+    "after": 6.143417378786324e-06,
+    "ratio": 0.9885891845132291,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-IA",
     "before": 2.2294106368123713e-06,
-    "after": 2.230283852182369e-06,
-    "ratio": 1.00039167991557,
+    "after": 2.1519309708067248e-06,
+    "ratio": 0.965246570225202,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-ID",
     "before": 5.4294647448723705e-06,
-    "after": 5.440009792781825e-06,
-    "ratio": 1.0019421892221354,
+    "after": 5.259378865253703e-06,
+    "ratio": 0.9686735456235722,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-IL",
     "before": 2.8704959327340373e-07,
-    "after": 2.8034825322713533e-07,
-    "ratio": 0.976654417204188,
+    "after": 2.9239192694784007e-07,
+    "ratio": 1.0186111870548724,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-KS",
     "before": 1.8528999530729202e-06,
-    "after": 1.848314487047157e-06,
-    "ratio": 0.9975252489924463,
+    "after": 1.843004839138064e-06,
+    "ratio": 0.9946596609717402,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-MA",
     "before": 9.89944023166533e-07,
-    "after": 9.805661585773286e-07,
-    "ratio": 0.9905268738739313,
+    "after": 9.591294033203268e-07,
+    "ratio": 0.9688723613405539,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-MD",
     "before": 1.2206404669653061e-06,
-    "after": 1.2273079496722306e-06,
-    "ratio": 1.0054622822095198,
+    "after": 1.2034922288666885e-06,
+    "ratio": 0.9859514422447008,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-ME",
     "before": 2.4301876281532724e-06,
-    "after": 2.375046328647341e-06,
-    "ratio": 0.9773098591783081,
+    "after": 2.47386005858726e-06,
+    "ratio": 1.0179708060102235,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-MI",
     "before": 2.716781686724631e-07,
-    "after": 2.6643139705714023e-07,
-    "ratio": 0.9806875479139128,
+    "after": 2.756099453263728e-07,
+    "ratio": 1.0144721847659752,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-MN",
     "before": 9.811262564121097e-07,
-    "after": 9.860618030058996e-07,
-    "ratio": 1.0050304907870256,
+    "after": 9.72875992031169e-07,
+    "ratio": 0.9915910268153346,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-NE",
     "before": 4.0778961782624005e-06,
-    "after": 4.093492968720604e-06,
-    "ratio": 1.0038247149452562,
+    "after": 3.941743838588088e-06,
+    "ratio": 0.9666121122945491,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-NH",
     "before": 2.6335639980952113e-06,
-    "after": 2.585049006188759e-06,
-    "ratio": 0.9815781989951481,
+    "after": 2.6692193810044445e-06,
+    "ratio": 1.013538832902873,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-NM",
     "before": 1.8792727942320577e-06,
-    "after": 1.854877508759699e-06,
-    "ratio": 0.9870187630304478,
+    "after": 1.893220079939536e-06,
+    "ratio": 1.0074216397695352,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-NV",
     "before": 4.49428026694014e-06,
-    "after": 4.490963327796333e-06,
-    "ratio": 0.9992619643309283,
+    "after": 4.35421759085624e-06,
+    "ratio": 0.968835348984753,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-NY",
     "before": 4.877535232976048e-07,
-    "after": 4.838158705877587e-07,
-    "ratio": 0.9919269620376612,
+    "after": 4.731932133683546e-07,
+    "ratio": 0.9701482219322357,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-OH",
     "before": 6.05257950476896e-07,
-    "after": 6.04925563139681e-07,
-    "ratio": 0.9994508335876412,
+    "after": 5.856972284377844e-07,
+    "ratio": 0.9676820072768985,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-OK",
     "before": 1.8082073797372267e-06,
-    "after": 1.8049737975265072e-06,
-    "ratio": 0.9982117193818835,
+    "after": 1.795573056623986e-06,
+    "ratio": 0.9930127908696641,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-OR",
     "before": 7.836864945956052e-07,
-    "after": 7.679229455710405e-07,
-    "ratio": 0.9798853889491882,
+    "after": 7.95720415356968e-07,
+    "ratio": 1.0153555290850997,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-PA",
     "before": 2.48929400354458e-07,
-    "after": 2.446226246865075e-07,
-    "ratio": 0.9826988067226372,
+    "after": 2.519681856826258e-07,
+    "ratio": 1.012207418343678,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-RI",
     "before": 5.807031285945166e-06,
-    "after": 5.844939439631549e-06,
-    "ratio": 1.006527974763651,
+    "after": 5.6976232282645964e-06,
+    "ratio": 0.98115938208472,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-SC",
     "before": 1.5041958681065766e-06,
-    "after": 1.5021905519829471e-06,
-    "ratio": 0.9986668517271267,
+    "after": 1.5141417438329768e-06,
+    "ratio": 1.0066120881843132,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-SD",
     "before": 4.638620710614173e-06,
-    "after": 4.63313357107843e-06,
-    "ratio": 0.9988170751872022,
+    "after": 4.678468564929338e-06,
+    "ratio": 1.0085904532405472,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-TN",
     "before": 7.540360387346667e-07,
-    "after": 7.473832390410073e-07,
-    "ratio": 0.9911770799379519,
+    "after": 7.559536631307084e-07,
+    "ratio": 1.002543146875658,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-TX",
     "before": 4.917525285732916e-07,
-    "after": 4.912836435593979e-07,
-    "ratio": 0.9990465020784863,
+    "after": 4.961342468276065e-07,
+    "ratio": 1.008910413266257,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-WI",
     "before": 5.061151644376883e-07,
-    "after": 4.974040378488214e-07,
-    "ratio": 0.9827882521588832,
+    "after": 5.122858972145728e-07,
+    "ratio": 1.0121923491143372,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2006-governor-WY",
     "before": 9.52561869893518e-06,
-    "after": 9.540490458555545e-06,
-    "ratio": 1.0015612381820436,
+    "after": 9.409101638845815e-06,
+    "ratio": 0.9877680323166422,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2007-governor-KY",
     "before": 1.1805928277411753e-06,
-    "after": 1.17337440201295e-06,
-    "ratio": 0.9938857618320143,
+    "after": 1.207843207860078e-06,
+    "ratio": 1.0230819461871885,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-DE",
     "before": 5.808654165539098e-06,
-    "after": 5.81085045269411e-06,
-    "ratio": 1.000378106028078,
+    "after": 5.620441859469031e-06,
+    "ratio": 0.9675979494205954,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-IN",
     "before": 5.322192723157155e-07,
-    "after": 5.291250423188672e-07,
-    "ratio": 0.9941861744626699,
+    "after": 5.466995852731708e-07,
+    "ratio": 1.0272074194052587,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-MT",
     "before": 3.293930831005935e-06,
-    "after": 3.290268823634211e-06,
-    "ratio": 0.9988882561414911,
+    "after": 3.234923917204547e-06,
+    "ratio": 0.982086170952361,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-NC",
     "before": 5.773645508631383e-07,
-    "after": 5.787053861461817e-07,
-    "ratio": 1.0023223373881178,
+    "after": 5.609507915283776e-07,
+    "ratio": 0.9715712381194467,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-ND",
     "before": 3.6670858836431294e-06,
-    "after": 3.665509180989825e-06,
-    "ratio": 0.9995700393436824,
+    "after": 3.7647473742123726e-06,
+    "ratio": 1.0266319070968197,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-NH",
     "before": 1.4966444935882656e-06,
-    "after": 1.4974022471033194e-06,
-    "ratio": 1.000506301608899,
+    "after": 1.4575579359612755e-06,
+    "ratio": 0.9738838730276697,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-UT",
     "before": 1.0602443886609723e-06,
-    "after": 1.0422973808050502e-06,
-    "ratio": 0.9830727631781309,
+    "after": 1.1102514281476048e-06,
+    "ratio": 1.047165578069966,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-WA",
     "before": 3.620953620951281e-07,
-    "after": 3.5682470748800307e-07,
-    "ratio": 0.9854440151438881,
+    "after": 3.58774528695236e-07,
+    "ratio": 0.9908288430410228,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2008-governor-WV",
     "before": 1.955812886379043e-06,
-    "after": 1.9587481874973765e-06,
-    "ratio": 1.00150080876283,
+    "after": 1.911300460420095e-06,
+    "ratio": 0.97724095885197,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2009-governor-NJ",
     "before": 5.203614139802482e-07,
-    "after": 5.152207321761539e-07,
-    "ratio": 0.9901209396661964,
+    "after": 5.178218223304208e-07,
+    "ratio": 0.995119561939841,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2009-governor-VA",
     "before": 1.1802363147386152e-06,
-    "after": 1.1827040350863925e-06,
-    "ratio": 1.0020908696986872,
+    "after": 1.1531609960321676e-06,
+    "ratio": 0.977059408892664,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2010-governor-AK",
     "before": 8.018521960364006e-06,
-    "after": 8.003320449260883e-06,
-    "ratio": 0.99810420035285,
+    "after": 7.916710613675974e-06,
+    "ratio": 0.9873029783803934,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-AL",
     "before": 1.3178429650383886e-06,
-    "after": 1.316459009596285e-06,
-    "ratio": 0.998949832811026,
+    "after": 1.3003646756249286e-06,
+    "ratio": 0.9867371986821276,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-AR",
     "before": 2.691749713613433e-06,
-    "after": 2.703577301681684e-06,
-    "ratio": 1.0043940147958161,
+    "after": 2.637017735144166e-06,
+    "ratio": 0.9796667653784964,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-AZ",
     "before": 6.754938331678064e-07,
-    "after": 6.63013725314585e-07,
-    "ratio": 0.981524468114395,
+    "after": 1.3298350330272356e-06,
+    "ratio": 1.9686856751760715,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-CA",
     "before": 2.4438965467497763e-07,
-    "after": 2.4486282317179946e-07,
-    "ratio": 1.0019361232677837,
+    "after": 2.388333774058226e-07,
+    "ratio": 0.9772646789139069,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-CT",
     "before": 2.0677468816070522e-06,
-    "after": 2.0730841334121315e-06,
-    "ratio": 1.0025811920465484,
+    "after": 2.0219917023e-06,
+    "ratio": 0.9778719630946844,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-FL",
     "before": 4.390718967164904e-07,
-    "after": 4.400335861873413e-07,
-    "ratio": 1.002190277897635,
+    "after": 4.306869789172505e-07,
+    "ratio": 0.9809030870298354,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-HI",
     "before": 5.937369794223688e-06,
-    "after": 5.921676049387212e-06,
-    "ratio": 0.9973567850108066,
+    "after": 5.793679356180382e-06,
+    "ratio": 0.9757989744578316,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-IA",
     "before": 1.4765888804514977e-06,
-    "after": 1.4723621793113907e-06,
-    "ratio": 0.9971375233851046,
+    "after": 1.4545310139524193e-06,
+    "ratio": 0.9850616059817993,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-ID",
     "before": 1.6217091826407518e-06,
-    "after": 1.5873584578064175e-06,
-    "ratio": 0.9788181967506663,
+    "after": 1.7014949093324903e-06,
+    "ratio": 1.0491985416039993,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-IL",
     "before": 6.686297326755313e-07,
-    "after": 6.697377778443881e-07,
-    "ratio": 1.001657187999138,
+    "after": 6.518754344230468e-07,
+    "ratio": 0.9749423373898705,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-KS",
     "before": 2.7155279791260936e-06,
-    "after": 2.7105989311241843e-06,
-    "ratio": 0.9981848656910192,
+    "after": 2.676775078957428e-06,
+    "ratio": 0.9857291471616002,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-MA",
     "before": 5.83094839339479e-07,
-    "after": 5.788904361542129e-07,
-    "ratio": 0.9927895036937237,
+    "after": 5.750583863210573e-07,
+    "ratio": 0.9862175885015114,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-MD",
     "before": 7.164251708041959e-07,
-    "after": 7.092753135997172e-07,
-    "ratio": 0.9900200921242718,
+    "after": 7.087882865878433e-07,
+    "ratio": 0.9893402904761426,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-MI",
     "before": 7.38168368568081e-07,
-    "after": 7.397282607097347e-07,
-    "ratio": 1.002113192881293,
+    "after": 7.209585143644528e-07,
+    "ratio": 0.9766857333144573,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-MN",
     "before": 1.2690807208197066e-06,
-    "after": 1.271948355980978e-06,
-    "ratio": 1.0022596160466604,
+    "after": 1.2425031340540264e-06,
+    "ratio": 0.9790576073454859,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-NE",
     "before": 1.3551295385666379e-06,
-    "after": 1.351244866585494e-06,
-    "ratio": 0.9971333574609753,
+    "after": 1.400165514069499e-06,
+    "ratio": 1.0332337051338258,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-NH",
     "before": 3.159425814834673e-06,
-    "after": 3.1700846316144248e-06,
-    "ratio": 1.0033736562921354,
+    "after": 3.0924883162664135e-06,
+    "ratio": 0.9788133975945998,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-NM",
     "before": 3.859687081245266e-06,
-    "after": 3.869877673575513e-06,
-    "ratio": 1.0026402638648517,
+    "after": 3.762168816910655e-06,
+    "ratio": 0.9747341527222595,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-NV",
     "before": 3.4182397018108715e-06,
-    "after": 3.426295493197168e-06,
-    "ratio": 1.0023567075714523,
+    "after": 3.3454353459882126e-06,
+    "ratio": 0.9787012140242566,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-NY",
     "before": 4.951829735774594e-07,
-    "after": 4.964064243651241e-07,
-    "ratio": 1.0024707044727847,
+    "after": 4.801244656109045e-07,
+    "ratio": 0.9695900126416617,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-OH",
     "before": 4.337447022618825e-07,
-    "after": 4.34244331665345e-07,
-    "ratio": 1.0011518974199731,
+    "after": 4.2582973042778025e-07,
+    "ratio": 0.9817520034415926,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-OK",
     "before": 1.9582849660232297e-06,
-    "after": 1.9431102481072505e-06,
-    "ratio": 0.9922510164867399,
+    "after": 1.942205663620017e-06,
+    "ratio": 0.9917890895951339,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-OR",
     "before": 1.6553148608294123e-06,
-    "after": 1.6587879203927886e-06,
-    "ratio": 1.0020981262511206,
+    "after": 1.617412440707093e-06,
+    "ratio": 0.977102591767147,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-PA",
     "before": 5.855297185487633e-07,
-    "after": 5.867202910538418e-07,
-    "ratio": 1.0020333254954665,
+    "after": 5.725194468944404e-07,
+    "ratio": 0.9777803393368847,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-SC",
     "before": 1.6300572520668813e-06,
-    "after": 1.6317574250480435e-06,
-    "ratio": 1.001043014273889,
+    "after": 1.603493104188714e-06,
+    "ratio": 0.9837035491578688,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-SD",
     "before": 6.636858520892043e-06,
-    "after": 6.653157423912909e-06,
-    "ratio": 1.0024558159511099,
+    "after": 6.524014546100046e-06,
+    "ratio": 0.9829973813006896,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-TN",
     "before": 1.4229478534189537e-06,
-    "after": 1.4196092928970026e-06,
-    "ratio": 0.9976537717008185,
+    "after": 1.4018256814867667e-06,
+    "ratio": 0.9851560463853709,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-TX",
     "before": 1.7976007597696192e-07,
-    "after": 1.777090373996151e-07,
-    "ratio": 0.9885901328968637,
+    "after": 1.8650920775769098e-07,
+    "ratio": 1.0375452210066602,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-UT-special",
     "before": 2.6194070840399767e-06,
-    "after": 2.6283763890922465e-06,
-    "ratio": 1.0034241737784553,
+    "after": 2.5759098281745848e-06,
+    "ratio": 0.9833942359969856,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-WI",
     "before": 1.094449196271782e-06,
-    "after": 1.0967848071758096e-06,
-    "ratio": 1.0021340514589292,
+    "after": 1.070143670297351e-06,
+    "ratio": 0.9777920016230748,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2010-governor-WY",
     "before": 1.2146756474278616e-05,
-    "after": 1.2039956288237732e-05,
-    "ratio": 0.9912075140168457,
+    "after": 1.2056816984274363e-05,
+    "ratio": 0.9925955961828408,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (538's file gives its chance but not its projected share)"
    },
    {
     "contest": "2011-governor-KY",
     "before": 2.4876374372319035e-06,
-    "after": 2.492860497550585e-06,
-    "ratio": 1.002099606735495,
+    "after": 2.4536613987756703e-06,
+    "ratio": 0.9863420456905329,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-DE",
     "before": 2.6704967534556716e-06,
-    "after": 2.6495586298608508e-06,
-    "ratio": 0.9921594648756915,
+    "after": 2.6750952781134864e-06,
+    "ratio": 1.001721973506189,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-IN",
     "before": 9.369456044857588e-07,
-    "after": 9.401393008773912e-07,
-    "ratio": 1.0034086251926921,
+    "after": 9.190328998613513e-07,
+    "ratio": 0.9808818094255976,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-MO",
     "before": 6.410618969065512e-07,
-    "after": 6.403970829978841e-07,
-    "ratio": 0.9989629489572298,
+    "after": 6.365946361512867e-07,
+    "ratio": 0.9930314673562393,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-MT",
     "before": 5.085437828971621e-06,
-    "after": 5.093402584439594e-06,
-    "ratio": 1.001566188740446,
+    "after": 4.983355052814444e-06,
+    "ratio": 0.9799264528266152,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-NC",
     "before": 5.368554634749162e-07,
-    "after": 5.381602304252801e-07,
-    "ratio": 1.0024303877656726,
+    "after": 5.263105858162478e-07,
+    "ratio": 0.9803580695809363,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-ND",
     "before": 6.779653878646599e-06,
-    "after": 6.821724154900223e-06,
-    "ratio": 1.0062053722810438,
+    "after": 6.665153643702059e-06,
+    "ratio": 0.9831111975634665,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-NH",
     "before": 3.544889365598254e-06,
-    "after": 3.5535472191332466e-06,
-    "ratio": 1.00244234802333,
+    "after": 3.4743126386430143e-06,
+    "ratio": 0.9800905699229548,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-UT",
     "before": 1.8202681588928698e-06,
-    "after": 1.8231538949099412e-06,
-    "ratio": 1.0015853356567126,
+    "after": 1.789902987657604e-06,
+    "ratio": 0.9833182978634671,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-WA",
     "before": 7.742440685066027e-07,
-    "after": 7.757773636297097e-07,
-    "ratio": 1.001980376970875,
+    "after": 7.586803645596439e-07,
+    "ratio": 0.9798981941482887,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2012-governor-WV",
     "before": 3.588090181543884e-06,
-    "after": 3.589401763586341e-06,
-    "ratio": 1.0003655376470757,
+    "after": 3.7693272258410644e-06,
+    "ratio": 1.0505107271911427,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2013-governor-NJ",
     "before": 9.090147896698306e-07,
-    "after": 9.112412400650739e-07,
-    "ratio": 1.0024493005180388,
+    "after": 9.09735790798767e-07,
+    "ratio": 1.000793167654839,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2013-governor-VA",
     "before": 1.1664821429938854e-06,
-    "after": 1.1694274883891335e-06,
-    "ratio": 1.0025249811263193,
+    "after": 1.1447270764983025e-06,
+    "ratio": 0.9813498503802669,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-AL",
     "before": 4.747529031961366e-07,
-    "after": 4.666639714123871e-07,
-    "ratio": 0.9829618065960354,
+    "after": 4.981766429610044e-07,
+    "ratio": 1.0493388025795614,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-AR",
     "before": 2.4969233225470146e-06,
-    "after": 2.4839202044081107e-06,
-    "ratio": 0.9947923438331139,
+    "after": 2.4780775151419203e-06,
+    "ratio": 0.9924523884114028,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-AZ",
     "before": 1.498871660855034e-06,
-    "after": 1.501074793330221e-06,
-    "ratio": 1.001469860650998,
+    "after": 1.4844918787840579e-06,
+    "ratio": 0.9904062619592305,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-CA",
     "before": 1.6792566603858965e-07,
-    "after": 1.6653004235155156e-07,
-    "ratio": 0.9916890388470017,
+    "after": 1.6543121648354979e-07,
+    "ratio": 0.9851455134055169,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-CO",
     "before": 8.586044497915463e-07,
-    "after": 8.577900738220958e-07,
-    "ratio": 0.9990515120558154,
+    "after": 8.42593008971617e-07,
+    "ratio": 0.9813517844872379,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-CT",
     "before": 1.3550113691975838e-06,
-    "after": 1.3449196919929778e-06,
-    "ratio": 0.9925523302357366,
+    "after": 1.3317406844748046e-06,
+    "ratio": 0.9828262070328165,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-FL",
     "before": 1.9665439780744884e-07,
-    "after": 1.9519892868490195e-07,
-    "ratio": 0.9925988478326735,
+    "after": 2.0135245894085985e-07,
+    "ratio": 1.0238899367916046,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-HI",
     "before": 6.584927202834268e-06,
-    "after": 6.575692409817265e-06,
-    "ratio": 0.9985975861641981,
+    "after": 6.42460095266538e-06,
+    "ratio": 0.9756525402285571,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-IA",
     "before": 1.0916527974217848e-06,
-    "after": 1.0876378724585228e-06,
-    "ratio": 0.9963221594148394,
+    "after": 1.1150772437776475e-06,
+    "ratio": 1.0214577807258731,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-ID",
     "before": 9.005491850076824e-07,
-    "after": 8.819321749067973e-07,
-    "ratio": 0.9793270479715926,
+    "after": 9.583689418885673e-07,
+    "ratio": 1.0642049960662523,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-IL",
     "before": 4.199978551970108e-07,
-    "after": 4.1695878022099504e-07,
-    "ratio": 0.9927640702484297,
+    "after": 4.127579784597193e-07,
+    "ratio": 0.9827621102162643,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-KS",
     "before": 5.980616653423184e-07,
-    "after": 5.904614455106575e-07,
-    "ratio": 0.9872919127372749,
+    "after": 6.300278920221241e-07,
+    "ratio": 1.0534497168640777,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-MA",
     "before": 1.167233960218604e-06,
-    "after": 1.1693333029509792e-06,
-    "ratio": 1.0017985620740353,
+    "after": 1.1421948875032376e-06,
+    "ratio": 0.978548368562994,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-MD",
     "before": 1.3802769345916558e-06,
-    "after": 1.3825283837222134e-06,
-    "ratio": 1.0016311575410217,
+    "after": 1.3494340275322747e-06,
+    "ratio": 0.9776545515711992,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-ME",
     "before": 2.7946472435723794e-06,
-    "after": 2.785108513775222e-06,
-    "ratio": 0.9965867857494014,
+    "after": 2.8220470006128017e-06,
+    "ratio": 1.009804370517045,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-MI",
     "before": 3.9765379160545174e-07,
-    "after": 3.973609348646946e-07,
-    "ratio": 0.9992635384172378,
+    "after": 4.0566195015794345e-07,
+    "ratio": 1.020138519288752,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-MN",
     "before": 9.15016234948531e-07,
-    "after": 9.115958612867618e-07,
-    "ratio": 0.9962619530330392,
+    "after": 8.976677742863079e-07,
+    "ratio": 0.9810402701071211,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-NE",
     "before": 3.200112737476856e-06,
-    "after": 3.209993795747649e-06,
-    "ratio": 1.0030877219277543,
+    "after": 3.2044508690606373e-06,
+    "ratio": 1.0013556183608712,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-NH",
     "before": 3.4912006216857945e-06,
-    "after": 3.485553246879089e-06,
-    "ratio": 0.9983823975134438,
+    "after": 3.425483724771942e-06,
+    "ratio": 0.9811764192221873,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-NM",
     "before": 2.5791623742861073e-06,
-    "after": 2.5727685247186608e-06,
-    "ratio": 0.9975209588852597,
+    "after": 2.62310697142357e-06,
+    "ratio": 1.0170383212687903,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-NV",
     "before": 2.310504822084444e-06,
-    "after": 2.3038094062759734e-06,
-    "ratio": 0.9971021848799128,
+    "after": 2.3594690055250704e-06,
+    "ratio": 1.021191984960435,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-NY",
     "before": 2.591433007375256e-07,
-    "after": 2.5673739995890974e-07,
-    "ratio": 0.9907159445304253,
+    "after": 2.563163935002463e-07,
+    "ratio": 0.9890913358391519,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-OH",
     "before": 3.9312771841929985e-07,
-    "after": 3.906558971145474e-07,
-    "ratio": 0.9937124217170664,
+    "after": 4.01881522581031e-07,
+    "ratio": 1.022267074417771,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-OK",
     "before": 4.740980097068473e-07,
-    "after": 4.630813459054571e-07,
-    "ratio": 0.9767628980172217,
+    "after": 5.039048510616566e-07,
+    "ratio": 1.0628706316933074,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-OR",
     "before": 1.1476700611666147e-06,
-    "after": 1.1415911611530839e-06,
-    "ratio": 0.9947032686316208,
+    "after": 1.1268728552518124e-06,
+    "ratio": 0.9818787588711151,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-PA",
     "before": 3.3786762661428493e-07,
-    "after": 3.365015468503648e-07,
-    "ratio": 0.9959567604105507,
+    "after": 3.451757805806075e-07,
+    "ratio": 1.0216302284997125,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-RI",
     "before": 9.523730414420604e-06,
-    "after": 9.534326996942626e-06,
-    "ratio": 1.0011126504070271,
+    "after": 9.315132557948962e-06,
+    "ratio": 0.9780970431338766,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-SC",
     "before": 6.877999010208151e-07,
-    "after": 6.791685623187486e-07,
-    "ratio": 0.9874507997322245,
+    "after": 7.117997301139185e-07,
+    "ratio": 1.0348936210335062,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-SD",
     "before": 2.24865498170078e-06,
-    "after": 2.219724707306031e-06,
-    "ratio": 0.9871344094002062,
+    "after": 2.3543749184664082e-06,
+    "ratio": 1.0470147433136527,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-TN",
     "before": 4.1456208474634626e-07,
-    "after": 4.096721023867269e-07,
-    "ratio": 0.9882044631201348,
+    "after": 4.360458005315482e-07,
+    "ratio": 1.0518226740352943,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-TX",
     "before": 4.3331769683655936e-07,
-    "after": 4.334283873303732e-07,
-    "ratio": 1.0002554488187811,
+    "after": 4.305450670463541e-07,
+    "ratio": 0.993601392672289,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-WI",
     "before": 5.186863977115265e-07,
-    "after": 5.166038060992495e-07,
-    "ratio": 0.9959848732847718,
+    "after": 5.289575839197483e-07,
+    "ratio": 1.0198023049255558,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2014-governor-WY",
     "before": 1.5070153428215094e-06,
-    "after": 1.4743763086267758e-06,
-    "ratio": 0.9783419363643471,
+    "after": 1.6298174089280786e-06,
+    "ratio": 1.0814869381997485,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2015-governor-KY",
     "before": 2.5365407190675667e-06,
-    "after": 2.5360889692981906e-06,
-    "ratio": 0.999821903206213,
+    "after": 2.5063910946347076e-06,
+    "ratio": 0.9881138811586111,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-DE",
     "before": 5.6575394147167174e-06,
-    "after": 5.670608558766526e-06,
-    "ratio": 1.0023100403005258,
+    "after": 5.5328291892459586e-06,
+    "ratio": 0.9779568083703747,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-IN",
     "before": 8.806348083001806e-07,
-    "after": 8.820828526422607e-07,
-    "ratio": 1.0016443187669075,
+    "after": 8.712888967961559e-07,
+    "ratio": 0.9893873017328666,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-MO",
     "before": 8.806364622216117e-07,
-    "after": 8.815825111871455e-07,
-    "ratio": 1.0010742786678934,
+    "after": 8.697540566046861e-07,
+    "ratio": 0.987642567525001,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-MT",
     "before": 4.3808798584060035e-06,
-    "after": 4.3817204368562494e-06,
-    "ratio": 1.0001918743442901,
+    "after": 4.300386413048593e-06,
+    "ratio": 0.9816261920073064,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-NC",
     "before": 2.5658905723904637e-07,
-    "after": 2.5613222754069357e-07,
-    "ratio": 0.9982196056867413,
+    "after": 2.631128357135177e-07,
+    "ratio": 1.0254250066026531,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-ND",
     "before": 6.115989520140138e-06,
-    "after": 6.1326141471264986e-06,
-    "ratio": 1.0027182235894314,
+    "after": 6.092274240092904e-06,
+    "ratio": 0.9961224132302485,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-NH",
     "before": 3.5865052203567556e-06,
-    "after": 3.5937115990238315e-06,
-    "ratio": 1.0020093038276294,
+    "after": 3.527126005388031e-06,
+    "ratio": 0.9834437115463566,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-OR-special",
     "before": 1.3553266293612942e-06,
-    "after": 1.3576823468234713e-06,
-    "ratio": 1.0017381178906573,
+    "after": 1.3303610844795709e-06,
+    "ratio": 0.9815796839367876,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-UT",
     "before": 2.224524202688545e-07,
-    "after": 2.1877238575112496e-07,
-    "ratio": 0.98345698143773,
+    "after": 2.4003286967260884e-07,
+    "ratio": 1.0790301556733197,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-WA",
     "before": 4.4874086965183284e-07,
-    "after": 4.452278110712932e-07,
-    "ratio": 0.9921712979179602,
+    "after": 4.42345298833937e-07,
+    "ratio": 0.9857477416245638,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2016-governor-WV",
     "before": 3.1343346270988578e-06,
-    "after": 3.1294525465413607e-06,
-    "ratio": 0.9984423869374739,
+    "after": 3.1211989595282203e-06,
+    "ratio": 0.995809104919089,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2017-governor-NJ",
     "before": 1.172732416940793e-06,
-    "after": 1.1737202134798635e-06,
-    "ratio": 1.0008423034315426,
+    "after": 1.1526029804007023e-06,
+    "ratio": 0.9828354394836286,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2017-governor-VA",
     "before": 9.547493399282544e-07,
-    "after": 9.561997743662516e-07,
-    "ratio": 1.001519178256888,
+    "after": 9.382917896932573e-07,
+    "ratio": 0.9827624387399589,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2019-governor-KY",
     "before": 1.4805133310870828e-06,
-    "after": 4.963343342947967e-07,
-    "ratio": 0.335244758607042,
+    "after": 5.231906772740512e-07,
+    "ratio": 0.35338464456101376,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-DE",
     "before": 1.813772397425367e-06,
-    "after": 1.7793929156409334e-06,
-    "ratio": 0.9810453164723231,
+    "after": 1.7895626579666528e-06,
+    "ratio": 0.9866522726373608,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-IN",
     "before": 4.728546226956045e-07,
-    "after": 4.692099923121221e-07,
-    "ratio": 0.9922922813724323,
+    "after": 4.82229699657958e-07,
+    "ratio": 1.0198265524167005,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-MO",
     "before": 8.540583743956861e-07,
-    "after": 8.611750311151782e-07,
-    "ratio": 1.0083327521078729,
+    "after": 8.494448885895588e-07,
+    "ratio": 0.9945981610339085,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-MT",
     "before": 4.356736058327515e-06,
-    "after": 4.39112594012716e-06,
-    "ratio": 1.00789349672306,
+    "after": 4.332436473643132e-06,
+    "ratio": 0.9944225254045544,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-NC",
     "before": 2.742844369029071e-07,
-    "after": 2.7078834327991535e-07,
-    "ratio": 0.9872537659720398,
+    "after": 2.6961208286994257e-07,
+    "ratio": 0.9829652965887434,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-ND",
     "before": 1.3024685947597757e-06,
-    "after": 1.2958399939176656e-06,
-    "ratio": 0.9949107403673464,
+    "after": 1.3677332204498036e-06,
+    "ratio": 1.0501084064157917,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-NH",
     "before": 2.3686958429119443e-06,
-    "after": 2.366866839749643e-06,
-    "ratio": 0.999227843807902,
+    "after": 2.3830840356551193e-06,
+    "ratio": 1.0060743099567764,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-UT",
     "before": 1.63550080655828e-06,
-    "after": 1.654807010388802e-06,
-    "ratio": 1.0118044599874882,
+    "after": 1.6377756194155063e-06,
+    "ratio": 1.0013908968116092,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-VT",
     "before": 6.0703762572027315e-06,
-    "after": 7.121534998540984e-06,
-    "ratio": 1.1731620408357741,
+    "after": 7.037732648904909e-06,
+    "ratio": 1.1593569081577724,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-WA",
     "before": 2.0598924796747153e-07,
-    "after": 2.0123729266853422e-07,
-    "ratio": 0.9769310517620429,
+    "after": 2.035882991411461e-07,
+    "ratio": 0.9883443002486005,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2020-governor-WV",
     "before": 1.0456652325694199e-06,
-    "after": 1.0248266697513574e-06,
-    "ratio": 0.9800714777837093,
+    "after": 1.0858284555133715e-06,
+    "ratio": 1.0384092553648954,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2021-governor-NJ",
     "before": 9.300529475496317e-07,
-    "after": 4.501195773914273e-07,
-    "ratio": 0.48397199167782534,
+    "after": 4.4977351245045103e-07,
+    "ratio": 0.48359990002230396,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2021-governor-VA",
     "before": 7.622095492671147e-07,
-    "after": 7.773706447188996e-07,
-    "ratio": 1.0198909807235592,
+    "after": 7.636463994062617e-07,
+    "ratio": 1.0018851116999632,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2022-governor-OH",
     "before": 2.11599602888795e-07,
-    "after": 2.0245454747297713e-07,
-    "ratio": 0.9567813205177704,
+    "after": 2.1112996680799401e-07,
+    "ratio": 0.9977805436570323,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (p's estimated error under 538's implied sd is 74% (z = -3.79; 538's chance rests on 40,000 simulation runs, and its mean is 0.102 from even), at or above the 20% allowed)"
    },
    {
     "contest": "2022-governor-WI",
     "before": 8.086685606239172e-07,
-    "after": 8.112496194694177e-07,
-    "ratio": 1.0031917388299467,
+    "after": 7.999831251171304e-07,
+    "ratio": 0.989259585533923,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (p's estimated error under 538's implied sd is 61% (z = -0.01; 538's chance rests on 40,000 simulation runs, and its mean is 0.000 from even), at or above the 20% allowed)"
    },
    {
     "contest": "2022-governor-WY",
     "before": 9.164230983072848e-07,
-    "after": 8.165954419688289e-07,
-    "ratio": 0.891068157794313,
+    "after": 9.006168068374693e-07,
+    "ratio": 0.9827521900102572,
     "under": "the model's own (D2-v3 (with the last governor race)), normal; 538's forecast stands beside it as the check (p's estimated error under 538's implied sd is 29% (z = -3.43; 538's chance rests on 40,000 simulation runs, and its mean is 0.219 from even), at or above the 20% allowed)"
    },
    {
     "contest": "2024-governor-DE",
     "before": 4.826851685696205e-06,
-    "after": 4.920832596655004e-06,
-    "ratio": 1.019470436855829,
+    "after": 4.833404655872893e-06,
+    "ratio": 1.0013576075262696,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-IN",
     "before": 7.29602846402021e-07,
-    "after": 7.39160376280878e-07,
-    "ratio": 1.0130996334868885,
+    "after": 7.364602200733099e-07,
+    "ratio": 1.0093987759300906,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-MO",
     "before": 7.375015942865266e-07,
-    "after": 7.46700599066811e-07,
-    "ratio": 1.0124731998568541,
+    "after": 7.433281506750232e-07,
+    "ratio": 1.007900398363387,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-MT",
     "before": 1.3511649734020592e-06,
-    "after": 1.2829738814951374e-06,
-    "ratio": 0.9495316314075065,
+    "after": 1.338278917161097e-06,
+    "ratio": 0.9904630030420958,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-NC",
     "before": 4.7488275059049255e-07,
-    "after": 4.834634209017141e-07,
-    "ratio": 1.018069029251014,
+    "after": 4.775953453628795e-07,
+    "ratio": 1.0057121358251357,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-ND",
     "before": 3.7665993559776267e-06,
-    "after": 3.7698133890526732e-06,
-    "ratio": 1.0008532983657914,
+    "after": 3.8027769165495757e-06,
+    "ratio": 1.0096048337380334,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-NH",
     "before": 3.178367703151657e-06,
-    "after": 3.2417114207772494e-06,
-    "ratio": 1.019929637959378,
+    "after": 3.1987877014835236e-06,
+    "ratio": 1.0064246809176982,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-UT",
     "before": 4.35173206034371e-07,
-    "after": 4.1059658682765976e-07,
-    "ratio": 0.9435245119278549,
+    "after": 4.3149717123317226e-07,
+    "ratio": 0.991552708783021,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-WA",
     "before": 6.343654767456912e-07,
-    "after": 6.462502332869945e-07,
-    "ratio": 1.0187348728406098,
+    "after": 6.35247110673213e-07,
+    "ratio": 1.0013897886310656,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2024-governor-WV",
     "before": 1.7844333453595326e-06,
-    "after": 1.7731411120972346e-06,
-    "ratio": 0.9936718099941004,
+    "after": 1.7958862481018408e-06,
+    "ratio": 1.006418229502431,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2025-governor-NJ",
     "before": 7.643112788916788e-07,
-    "after": 7.769987658310014e-07,
-    "ratio": 1.016599894950812,
+    "after": 7.655309655753502e-07,
+    "ratio": 1.0015957983577584,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    },
    {
     "contest": "2025-governor-VA",
     "before": 7.436083449760078e-07,
-    "after": 7.562148422549003e-07,
-    "ratio": 1.0169531412121244,
+    "after": 7.453667475012058e-07,
+    "ratio": 1.0023646890692905,
     "under": "the model's own (D2-v3 (with the last governor race)), normal"
    }
   ],
   "p_ratio": {
    "n": 387,
-   "min": 0.335244758607042,
-   "median": 0.9988324519118014,
-   "max": 1.1731620408357741
+   "min": 0.35338464456101376,
+   "median": 0.9850647909150639,
+   "max": 1.9686856751760715
   },
   "model_own_beside_538": [
    {
     "contest": "2018-governor-AK",
     "before": 9.045614884652495e-06,
-    "after": 9.066833829542194e-06,
-    "ratio": 1.0023457714218744
+    "after": 8.915247465041841e-06,
+    "ratio": 0.9855877769203014
    },
    {
     "contest": "2018-governor-AL",
     "before": 1.3504801872948814e-06,
-    "after": 1.3542288142559236e-06,
-    "ratio": 1.0027757733851328
+    "after": 1.336324576952003e-06,
+    "ratio": 0.989518091064162
    },
    {
     "contest": "2018-governor-AR",
     "before": 2.7463839748949206e-06,
-    "after": 1.3758439383624513e-06,
-    "ratio": 0.5009656154926743
+    "after": 1.41266108152516e-06,
+    "ratio": 0.5143712949239773
    },
    {
     "contest": "2018-governor-AZ",
     "before": 7.860318967835326e-07,
-    "after": 7.878650100659932e-07,
-    "ratio": 1.002332110554243
+    "after": 7.909066336189458e-07,
+    "ratio": 1.0062017035890791
    },
    {
     "contest": "2018-governor-CA",
     "before": 1.2834938791720056e-07,
-    "after": 1.2756445824297398e-07,
-    "ratio": 0.9938844299379679
+    "after": 1.2550194433582674e-07,
+    "ratio": 0.9778149033074414
    },
    {
     "contest": "2018-governor-CO",
     "before": 9.449217019008041e-07,
-    "after": 9.446385924851074e-07,
-    "ratio": 0.9997003884923722
+    "after": 9.257100902413151e-07,
+    "ratio": 0.9796685676486815
    },
    {
     "contest": "2018-governor-CT",
     "before": 1.6503614029512704e-06,
-    "after": 1.6468637832504084e-06,
-    "ratio": 0.9978806946802032
+    "after": 1.6154743731434812e-06,
+    "ratio": 0.9788609756957463
    },
    {
     "contest": "2018-governor-FL",
     "before": 2.954542279365607e-07,
-    "after": 2.956323624279731e-07,
-    "ratio": 1.000602917388106
+    "after": 2.897980454070622e-07,
+    "ratio": 0.9808559770188395
    },
    {
     "contest": "2018-governor-HI",
     "before": 1.1283590234004333e-06,
-    "after": 1.099433488205885e-06,
-    "ratio": 0.9743649542435723
+    "after": 1.1328781782775782e-06,
+    "ratio": 1.0040050682304342
    },
    {
     "contest": "2018-governor-IA",
     "before": 1.906481030650519e-06,
-    "after": 1.910065154424117e-06,
-    "ratio": 1.0018799682325583
+    "after": 1.8760425529111575e-06,
+    "ratio": 0.984034208969299
    },
    {
     "contest": "2018-governor-ID",
     "before": 3.806611442078797e-06,
-    "after": 3.812628712110513e-06,
-    "ratio": 1.0015807418548688
+    "after": 3.7726760263140785e-06,
+    "ratio": 0.9910851379813574
    },
    {
     "contest": "2018-governor-IL",
     "before": 5.457233844025844e-07,
-    "after": 5.474772189362013e-07,
-    "ratio": 1.003213779331697
+    "after": 5.418296513879696e-07,
+    "ratio": 0.9928650061076687
    },
    {
     "contest": "2018-governor-KS",
     "before": 2.5622415224182728e-06,
-    "after": 2.5669953143605073e-06,
-    "ratio": 1.001855325464302
+    "after": 2.5250337518320766e-06,
+    "ratio": 0.9854784296247455
    },
    {
     "contest": "2018-governor-MA",
     "before": 9.160063656970267e-07,
-    "after": 9.185054310420217e-07,
-    "ratio": 1.0027282183165762
+    "after": 9.04504391597456e-07,
+    "ratio": 0.9874433469784696
    },
    {
     "contest": "2018-governor-MD",
     "before": 1.0661558915325275e-06,
-    "after": 1.0692731350010682e-06,
-    "ratio": 1.0029238158259013
+    "after": 1.0536318936132674e-06,
+    "ratio": 0.9882531269406974
    },
    {
     "contest": "2018-governor-ME",
     "before": 3.987248906034211e-06,
-    "after": 3.986874107740594e-06,
-    "ratio": 0.9999060007783689
+    "after": 3.909348970408191e-06,
+    "ratio": 0.9804627357203288
    },
    {
     "contest": "2018-governor-MI",
     "before": 5.815522710907413e-07,
-    "after": 5.818086082267132e-07,
-    "ratio": 1.0004407809043392
+    "after": 5.704414716992845e-07,
+    "ratio": 0.9808945817189954
    },
    {
     "contest": "2018-governor-MN",
     "before": 9.382334641442969e-07,
-    "after": 9.385500916361499e-07,
-    "ratio": 1.0003374719661506
+    "after": 9.194645864747719e-07,
+    "ratio": 0.9799955145634858
    },
    {
     "contest": "2018-governor-NE",
     "before": 1.7131496596640488e-06,
-    "after": 1.7096399102908978e-06,
-    "ratio": 0.9979512885209111
+    "after": 1.7530092942235024e-06,
+    "ratio": 1.0232668724151457
    },
    {
     "contest": "2018-governor-NH",
     "before": 3.5433728360611714e-06,
-    "after": 3.5499204154497242e-06,
-    "ratio": 1.0018478381168128
+    "after": 3.550406838488015e-06,
+    "ratio": 1.0019851149603163
    },
    {
     "contest": "2018-governor-NM",
     "before": 3.34124228125688e-06,
-    "after": 3.3368081583319756e-06,
-    "ratio": 0.998672911883769
+    "after": 3.2751501280681556e-06,
+    "ratio": 0.9802192874310622
    },
    {
     "contest": "2018-governor-NV",
     "before": 2.687946793853932e-06,
-    "after": 2.691202710364279e-06,
-    "ratio": 1.0012113024401346
+    "after": 2.6431379091468598e-06,
+    "ratio": 0.9833296980395858
    },
    {
     "contest": "2018-governor-NY",
     "before": 1.0253940792969792e-07,
-    "after": 1.0040836003976259e-07,
-    "ratio": 0.9792172791616234
+    "after": 1.0258305579566225e-07,
+    "ratio": 1.0004256691826645
    },
    {
     "contest": "2018-governor-OH",
     "before": 5.743301939983444e-07,
-    "after": 5.75533149640619e-07,
-    "ratio": 1.0020945366530356
+    "after": 5.653480306041114e-07,
+    "ratio": 0.9843606282795244
    },
    {
     "contest": "2018-governor-OK",
     "before": 1.9452967859760076e-06,
-    "after": 1.947859241600488e-06,
-    "ratio": 1.001317256905452
+    "after": 1.9291453261905e-06,
+    "ratio": 0.9916971744867177
    },
    {
     "contest": "2018-governor-OR",
     "before": 1.2305658310115965e-06,
-    "after": 1.2287405843630845e-06,
-    "ratio": 0.9985167419714461
+    "after": 1.2044326754471187e-06,
+    "ratio": 0.9787633014781544
    },
    {
     "contest": "2018-governor-PA",
     "before": 2.3132090759804707e-07,
-    "after": 2.2938995126985003e-07,
-    "ratio": 0.9916524781601136
+    "after": 2.29112708312307e-07,
+    "ratio": 0.9904539571944914
    },
    {
     "contest": "2018-governor-RI",
     "before": 2.3308321205744305e-06,
-    "after": 2.291814188892908e-06,
-    "ratio": 0.9832600849554507
+    "after": 2.3211113042065948e-06,
+    "ratio": 0.9958294652446097
    },
    {
     "contest": "2018-governor-SC",
     "before": 1.4491218016933505e-06,
-    "after": 1.45199875843922e-06,
-    "ratio": 1.0019853105118615
+    "after": 1.42672796512657e-06,
+    "ratio": 0.9845466153772495
    },
    {
     "contest": "2018-governor-SD",
     "before": 6.441947981381071e-06,
-    "after": 6.470186502119015e-06,
-    "ratio": 1.004383537529263
+    "after": 6.393709645340157e-06,
+    "ratio": 0.992511840179347
    },
    {
     "contest": "2018-governor-TN",
     "before": 1.0064790037339077e-06,
-    "after": 1.0113341557829497e-06,
-    "ratio": 1.0048238979959145
+    "after": 9.976825246787732e-07,
+    "ratio": 0.991260146488401
    },
    {
     "contest": "2018-governor-TX",
     "before": 1.9739250210345713e-07,
-    "after": 1.9788135026461767e-07,
-    "ratio": 1.0024765285203403
+    "after": 1.996155482038221e-07,
+    "ratio": 1.0112620594839
    },
    {
     "contest": "2018-governor-WI",
     "before": 7.444332627673578e-07,
-    "after": 7.459353118782438e-07,
-    "ratio": 1.002017708216452
+    "after": 7.468625437237442e-07,
+    "ratio": 1.0032632622397282
    },
    {
     "contest": "2018-governor-WY",
     "before": 9.35492418036907e-06,
-    "after": 9.36809997727149e-06,
-    "ratio": 1.0014084343868943
+    "after": 9.348663521749688e-06,
+    "ratio": 0.9993307632965621
    },
    {
     "contest": "2022-governor-AL",
     "before": 3.2602722249451636e-07,
-    "after": 3.0217469111249125e-07,
-    "ratio": 0.9268388351146772
+    "after": 3.23025409340645e-07,
+    "ratio": 0.9907927530379098
    },
    {
     "contest": "2022-governor-AR",
     "before": 1.5495108564406585e-06,
-    "after": 1.5593707019718142e-06,
-    "ratio": 1.006363198741185
+    "after": 1.572023126661308e-06,
+    "ratio": 1.0145286301977656
    },
    {
     "contest": "2022-governor-AZ",
     "before": 8.808189042527986e-07,
-    "after": 8.994386369383102e-07,
-    "ratio": 1.0211391156520495
+    "after": 8.906101502695524e-07,
+    "ratio": 1.0111160716118597
    },
    {
     "contest": "2022-governor-CA",
     "before": 1.0719848411505537e-07,
-    "after": 1.0373626258311389e-07,
-    "ratio": 0.9677027006442973
+    "after": 1.0357566329008755e-07,
+    "ratio": 0.9662045517259417
    },
    {
     "contest": "2022-governor-CO",
     "before": 7.000194948500345e-07,
-    "after": 6.922944533075146e-07,
-    "ratio": 0.9889645337032009
+    "after": 6.856963742461695e-07,
+    "ratio": 0.9795389689726663
    },
    {
     "contest": "2022-governor-CT",
     "before": 1.2892366201452362e-06,
-    "after": 1.2643069280953734e-06,
-    "ratio": 0.9806632144477447
+    "after": 1.2567271581898146e-06,
+    "ratio": 0.9747839446635023
    },
    {
     "contest": "2022-governor-FL",
     "before": 1.3111986213521004e-07,
-    "after": 1.2641420003074094e-07,
-    "ratio": 0.9641117521949752
+    "after": 1.310438433964515e-07,
+    "ratio": 0.9994202347568047
    },
    {
     "contest": "2022-governor-HI",
     "before": 5.70591381043566e-06,
-    "after": 5.8142043062679634e-06,
-    "ratio": 1.0189786420597957
+    "after": 5.700147496979288e-06,
+    "ratio": 0.9989894145534014
    },
    {
     "contest": "2022-governor-IA",
     "before": 7.360054002174681e-07,
-    "after": 7.038440125418383e-07,
-    "ratio": 0.9563027830147346
+    "after": 7.341288238264649e-07,
+    "ratio": 0.9974503225241979
    },
    {
     "contest": "2022-governor-ID",
     "before": 7.317946691839225e-07,
-    "after": 6.698544920532715e-07,
-    "ratio": 0.9153585291899913
+    "after": 7.225498676857555e-07,
+    "ratio": 0.9873669461018668
    },
    {
     "contest": "2022-governor-IL",
     "before": 3.9253373901580806e-07,
-    "after": 3.865792482136145e-07,
-    "ratio": 0.9848306267453005
+    "after": 3.833905237708547e-07,
+    "ratio": 0.9767071863226893
    },
    {
     "contest": "2022-governor-KS",
     "before": 2.423140424517352e-06,
-    "after": 2.4588007337614476e-06,
-    "ratio": 1.0147165673451215
+    "after": 2.4169934666717654e-06,
+    "ratio": 0.9974632267352764
    },
    {
     "contest": "2022-governor-MA",
     "before": 1.0241310684686776e-06,
-    "after": 1.0456515116764225e-06,
-    "ratio": 1.021013368181402
+    "after": 1.0285138868662226e-06,
+    "ratio": 1.0042795483239253
    },
    {
     "contest": "2022-governor-MD",
     "before": 1.2782554943425575e-06,
-    "after": 1.3014415603729437e-06,
-    "ratio": 1.0181388354151464
+    "after": 1.2794615807034193e-06,
+    "ratio": 1.0009435409166632
    },
    {
     "contest": "2022-governor-ME",
     "before": 2.799069449775806e-06,
-    "after": 2.782839096916161e-06,
-    "ratio": 0.9942015183435534
+    "after": 2.7514259996812e-06,
+    "ratio": 0.9829788253026654
    },
    {
     "contest": "2022-governor-MI",
     "before": 4.5553041413882507e-07,
-    "after": 4.5596670426991e-07,
-    "ratio": 1.0009577629013195
+    "after": 4.497357392561777e-07,
+    "ratio": 0.9872792799277692
    },
    {
     "contest": "2022-governor-MN",
     "before": 7.708072356520898e-07,
-    "after": 7.680709771018125e-07,
-    "ratio": 0.9964501389923222
+    "after": 7.58647174324651e-07,
+    "ratio": 0.9842242511940725
    },
    {
     "contest": "2022-governor-NE",
     "before": 2.779025422151558e-06,
-    "after": 2.8092274761205475e-06,
-    "ratio": 1.0108678581089074
+    "after": 2.812407420909207e-06,
+    "ratio": 1.012012124283413
    },
    {
     "contest": "2022-governor-NH",
     "before": 1.6000489500500186e-06,
-    "after": 1.5761771615121054e-06,
-    "ratio": 0.985080588605013
+    "after": 1.6178156837203859e-06,
+    "ratio": 1.0111038688346452
    },
    {
     "contest": "2022-governor-NM",
     "before": 2.5260237007576774e-06,
-    "after": 2.506693641778173e-06,
-    "ratio": 0.9923476335658663
+    "after": 2.479242213879765e-06,
+    "ratio": 0.9814801868787374
    },
    {
     "contest": "2022-governor-NV",
     "before": 2.1016708744987374e-06,
-    "after": 2.104598032589428e-06,
-    "ratio": 1.0013927766360604
+    "after": 2.0761865446897576e-06,
+    "ratio": 0.9878742527585067
    },
    {
     "contest": "2022-governor-NY",
     "before": 4.1289364728249145e-07,
-    "after": 4.21482195795554e-07,
-    "ratio": 1.0208008734684806
+    "after": 4.1343666280267673e-07,
+    "ratio": 1.0013151462216947
    },
    {
     "contest": "2022-governor-OK",
     "before": 3.298295184594307e-07,
-    "after": 2.998962268461025e-07,
-    "ratio": 0.9092461713155912
+    "after": 3.243270088369983e-07,
+    "ratio": 0.9833171098568328
    },
    {
     "contest": "2022-governor-OR",
     "before": 1.4153343311355343e-06,
-    "after": 1.4457657153880146e-06,
-    "ratio": 1.0215011983974591
+    "after": 1.4224442664392552e-06,
+    "ratio": 1.0050235023254304
    },
    {
     "contest": "2022-governor-PA",
     "before": 4.6282138061730955e-07,
-    "after": 4.7173357586220347e-07,
-    "ratio": 1.0192562306283406
+    "after": 4.659285090811471e-07,
+    "ratio": 1.0067134505750215
    },
    {
     "contest": "2022-governor-RI",
     "before": 7.179306372509462e-06,
-    "after": 7.329218589026679e-06,
-    "ratio": 1.0208811560252187
+    "after": 7.198958731275801e-06,
+    "ratio": 1.0027373617654194
    },
    {
     "contest": "2022-governor-SC",
     "before": 4.521602785977787e-07,
-    "after": 4.300183140402577e-07,
-    "ratio": 0.9510307171912872
+    "after": 4.5067672390033343e-07,
+    "ratio": 0.9967189627933573
    },
    {
     "contest": "2022-governor-SD",
     "before": 1.5294372851323353e-06,
-    "after": 1.4107089179280006e-06,
-    "ratio": 0.9223712090986054
+    "after": 1.5084823664244186e-06,
+    "ratio": 0.9862989356205583
    },
    {
     "contest": "2022-governor-TN",
     "before": 2.7121424927274875e-07,
-    "after": 2.526380908831783e-07,
-    "ratio": 0.9315074394528247
+    "after": 2.692724851571389e-07,
+    "ratio": 0.9928404789909947
    },
    {
     "contest": "2022-governor-TX",
     "before": 1.057312132171379e-07,
-    "after": 1.0173212140167446e-07,
-    "ratio": 0.9621768095363609
+    "after": 1.058527162178495e-07,
+    "ratio": 1.0011491686987652
    }
   ],
   "models": {
    "1985": {
     "b_lean": [
      0.1695864262435043,
-     0.18404060736060013
+     0.18573117666360292
     ],
     "b_inc": [
      0.05964945056784982,
-     0.06042423140080217
+     0.0656822391316698
     ],
     "b_lag": [
      0.18528972375779515,
-     0.17532643851305715
+     0.1625840757014307
     ],
     "s_e": [
      0.08161461261118466,
-     0.08173062909234573
+     0.08027585113544096
     ]
    },
    "1986": {
     "b_lean": [
      0.1695864262435043,
-     0.18404060736060013
+     0.18573117666360292
     ],
     "b_inc": [
      0.05964945056784982,
-     0.06042423140080217
+     0.0656822391316698
     ],
     "b_lag": [
      0.18528972375779515,
-     0.17532643851305715
+     0.1625840757014307
     ],
     "s_e": [
      0.08161461261118466,
-     0.08173062909234573
+     0.08027585113544096
     ]
    },
    "1987": {
     "b_lean": [
      0.19478567460632673,
-     0.20605925412612563
+     0.20462683339080448
     ],
     "b_inc": [
      0.06711893579026437,
-     0.06781405970571039
+     0.07204149002962242
     ],
     "b_lag": [
      0.15580670435946228,
-     0.14835777051610244
+     0.1399237704454306
     ],
     "s_e": [
      0.08245419531283787,
-     0.08249926391091349
+     0.08130926783376156
     ]
    },
    "1988": {
     "b_lean": [
      0.19478567460632673,
-     0.20605925412612563
+     0.20462683339080448
     ],
     "b_inc": [
      0.06711893579026437,
-     0.06781405970571039
+     0.07204149002962242
     ],
     "b_lag": [
      0.15580670435946228,
-     0.14835777051610244
+     0.1399237704454306
     ],
     "s_e": [
      0.08245419531283787,
-     0.08249926391091349
+     0.08130926783376156
     ]
    },
    "1989": {
     "b_lean": [
      0.21649288309723333,
-     0.2264227126447193
+     0.22555495699433023
     ],
     "b_inc": [
      0.06382104112262772,
-     0.06443453371552997
+     0.06802306214664192
     ],
     "b_lag": [
      0.14841360074467283,
-     0.14192225745265344
+     0.13454151821812932
     ],
     "s_e": [
      0.08321060857924988,
-     0.08324335513339959
+     0.08224550690120155
     ]
    },
    "1990": {
     "b_lean": [
      0.21649288309723333,
-     0.2264227126447193
+     0.22555495699433023
     ],
     "b_inc": [
      0.06382104112262772,
-     0.06443453371552997
+     0.06802306214664192
     ],
     "b_lag": [
      0.14841360074467283,
-     0.14192225745265344
+     0.13454151821812932
     ],
     "s_e": [
      0.08321060857924988,
-     0.08324335513339959
+     0.08224550690120155
     ]
    },
    "1991": {
     "b_lean": [
      0.18734786855075852,
-     0.19593603652837135
+     0.1867206495255432
     ],
     "b_inc": [
      0.06496246252450967,
-     0.06547753456221439
+     0.06662695417252168
     ],
     "b_lag": [
      0.1158290313975765,
-     0.11039919545968827
+     0.11880315634124576
     ],
     "k": [
      0.965294521005485,
-     0.9596459887433605
+     0.9709380981919429
     ],
     "s_e": [
      0.08130106851100871,
-     0.08085152824204603
+     0.08155429118819563
     ]
    },
    "1992": {
     "b_lean": [
      0.18734786855075852,
-     0.19593603652837135
+     0.1867206495255432
     ],
     "b_inc": [
      0.06496246252450967,
-     0.06547753456221439
+     0.06662695417252168
     ],
     "b_lag": [
      0.1158290313975765,
-     0.11039919545968827
+     0.11880315634124576
     ],
     "k": [
      0.965294521005485,
-     0.9596459887433605
+     0.9709380981919429
     ],
     "s_e": [
      0.08130106851100871,
-     0.08085152824204603
+     0.08155429118819563
     ]
    },
    "1993": {
     "b_lean": [
      0.20246936922292202,
-     0.2114662564824681
+     0.20316053390226846
     ],
     "b_inc": [
      0.06894424405827702,
-     0.06954370639309691
+     0.06849104608430778
     ],
     "b_lag": [
      0.0765328653763976,
-     0.07075438763884231
+     0.08498113865934358
     ],
     "k": [
      0.9765050567000655,
-     0.9705100419186202
+     1.0008879934422423
     ],
     "s_e": [
      0.08274842390113388,
-     0.08224036239697133
+     0.0854828711839055
     ]
    },
    "1994": {
     "b_lean": [
      0.20246936922292202,
-     0.2114662564824681
+     0.20316053390226846
     ],
     "b_inc": [
      0.06894424405827702,
-     0.06954370639309691
+     0.06849104608430778
     ],
     "b_lag": [
      0.0765328653763976,
-     0.07075438763884231
+     0.08498113865934358
     ],
     "k": [
      0.9765050567000655,
-     0.9705100419186202
+     1.0008879934422423
     ],
     "s_e": [
      0.08274842390113388,
-     0.08224036239697133
+     0.0854828711839055
     ]
    },
    "1995": {
     "b_lean": [
      0.17896870047537364,
-     0.18760996299067673
+     0.18080553187278017
     ],
     "b_inc": [
      0.07428476621025724,
-     0.07485307034231099
+     0.07389085761948784
     ],
     "b_lag": [
      0.08373240067536247,
-     0.07835442438738742
+     0.09022629767814629
     ],
     "k": [
      0.9915653421231985,
-     0.9863862464254419
+     1.009204911302433
     ],
     "s_e": [
      0.0834910036675773,
-     0.08305730551978693
+     0.08599265962910387
     ]
    },
    "1996": {
     "b_lean": [
      0.17896870047537364,
-     0.18760996299067673
+     0.18080553187278017
     ],
     "b_inc": [
      0.07428476621025724,
-     0.07485307034231099
+     0.07389085761948784
     ],
     "b_lag": [
      0.08373240067536247,
-     0.07835442438738742
+     0.09022629767814629
     ],
     "k": [
      0.9915653421231985,
-     0.9863862464254419
+     1.009204911302433
     ],
     "s_e": [
      0.0834910036675773,
-     0.08305730551978693
+     0.08599265962910387
     ]
    },
    "1997": {
     "b_lean": [
      0.22206951683111095,
-     0.23089364749474506
+     0.22415733216485034
     ],
     "b_inc": [
      0.0798713785149377,
-     0.08050579489154948
+     0.0798490287603391
     ],
     "b_lag": [
      0.07475227636246258,
-     0.06906023009701245
+     0.07988868471153211
     ],
     "k": [
      1.0176087151533961,
-     1.012252647380665
+     1.030909016447153
     ],
     "s_e": [
      0.08734929667505487,
-     0.08686131449281861
+     0.08945579505861175
     ]
    },
    "1998": {
     "b_lean": [
      0.22206951683111095,
-     0.23089364749474506
+     0.22415733216485034
     ],
     "b_inc": [
      0.0798713785149377,
-     0.08050579489154948
+     0.0798490287603391
     ],
     "b_lag": [
      0.07475227636246258,
-     0.06906023009701245
+     0.07988868471153211
     ],
     "k": [
      1.0176087151533961,
-     1.012252647380665
+     1.030909016447153
     ],
     "s_e": [
      0.08734929667505487,
-     0.08686131449281861
+     0.08945579505861175
     ]
    },
    "1999": {
     "b_lean": [
      0.22870503655272778,
-     0.23565913350789183
+     0.22918061939822224
     ],
     "b_inc": [
      0.07999274399741907,
-     0.08052241447028446
+     0.07924908028342299
     ],
     "b_lag": [
      0.0713303489088592,
-     0.06673176339286234
+     0.07558439943069657
     ],
     "k": [
      0.9925341845505541,
-     0.9880055576549285
+     1.0089131838413663
     ],
     "s_e": [
      0.08445991365427116,
-     0.08404753914602026
+     0.08719435616316168
     ]
    },
    "2000": {
     "b_lean": [
      0.22870503655272778,
-     0.23565913350789183
+     0.22918061939822224
     ],
     "b_inc": [
      0.07999274399741907,
-     0.08052241447028446
+     0.07924908028342299
     ],
     "b_lag": [
      0.0713303489088592,
-     0.06673176339286234
+     0.07558439943069657
     ],
     "k": [
      0.9925341845505541,
-     0.9880055576549285
+     1.0089131838413663
     ],
     "s_e": [
      0.08445991365427116,
-     0.08404753914602026
+     0.08719435616316168
     ]
    },
    "2001": {
     "b_lean": [
      0.2246103066618149,
-     0.23126425070821688
+     0.22495861933378106
     ],
     "b_inc": [
      0.07808701471347215,
-     0.07857371809322
+     0.0772569136189013
     ],
     "b_lag": [
      0.07319856283713255,
-     0.06892437567837334
+     0.07751395892236716
     ],
     "k": [
      0.9755792363922111,
-     0.9712083796209725
+     0.9907127743687874
     ],
     "s_e": [
      0.08203844518278415,
-     0.081650265579278
+     0.0845889821922999
     ]
    },
    "2002": {
     "b_lean": [
      0.2246103066618149,
-     0.23126425070821688
+     0.22495861933378106
     ],
     "b_inc": [
      0.07808701471347215,
-     0.07857371809322
+     0.0772569136189013
     ],
     "b_lag": [
      0.07319856283713255,
-     0.06892437567837334
+     0.07751395892236716
     ],
     "k": [
      0.9755792363922111,
-     0.9712083796209725
+     0.9907127743687874
     ],
     "s_e": [
      0.08203844518278415,
-     0.081650265579278
+     0.0845889821922999
     ]
    },
    "2003": {
     "b_lean": [
      0.20712616850123944,
-     0.2126997558471004
+     0.21135115355928366
     ],
     "b_inc": [
      0.07833810431916294,
-     0.0787865339574266
+     0.07749800824677346
     ],
     "b_lag": [
      0.04306997890384545,
-     0.039187038971266394
+     0.04959454714452368
     ],
     "k": [
      0.96273392155832,
-     0.9598220690329827
+     0.9773779663739156
     ],
     "s_e": [
      0.07889594494860472,
-     0.07863742169400349
+     0.08125961601247617
     ]
    },
    "2004": {
     "b_lean": [
      0.20712616850123944,
-     0.2126997558471004
+     0.21135115355928366
     ],
     "b_inc": [
      0.07833810431916294,
-     0.0787865339574266
+     0.07749800824677346
     ],
     "b_lag": [
      0.04306997890384545,
-     0.039187038971266394
+     0.04959454714452368
     ],
     "k": [
      0.96273392155832,
-     0.9598220690329827
+     0.9773779663739156
     ],
     "s_e": [
      0.07889594494860472,
-     0.07863742169400349
+     0.08125961601247617
     ]
    },
    "2005": {
     "b_lean": [
      0.21250503586476613,
-     0.2178764006477152
+     0.21645386712782985
     ],
     "b_inc": [
      0.07850739928239621,
-     0.07895565225426393
+     0.07769326367739143
     ],
     "b_lag": [
      0.03878852388080595,
-     0.034899652120523136
+     0.04523445075969457
     ],
     "k": [
      0.9600185911431575,
-     0.9571481285737659
+     0.9735703771507341
     ],
     "s_e": [
      0.07861054160962724,
-     0.07835357441285214
+     0.08084608806657238
     ]
    },
    "2006": {
     "b_lean": [
      0.21250503586476613,
-     0.2178764006477152
+     0.21645386712782985
     ],
     "b_inc": [
      0.07850739928239621,
-     0.07895565225426393
+     0.07769326367739143
     ],
     "b_lag": [
      0.03878852388080595,
-     0.034899652120523136
+     0.04523445075969457
     ],
     "k": [
      0.9600185911431575,
-     0.9571481285737659
+     0.9735703771507341
     ],
     "s_e": [
      0.07861054160962724,
-     0.07835357441285214
+     0.08084608806657238
     ]
    },
    "2007": {
     "b_lean": [
      0.2054796818097461,
-     0.21019771887778138
+     0.20887842536905718
     ],
     "b_inc": [
      0.07977066143434859,
-     0.0801738472847446
+     0.07912604175715626
     ],
     "b_lag": [
      0.04768191010606744,
-     0.04408301571820721
+     0.053555822866198394
     ],
     "k": [
      0.9677553701056463,
-     0.9652028906251934
+     0.9765632901609336
     ],
     "s_e": [
      0.07985143067417583,
-     0.07962309907734348
+     0.08158363663825421
     ]
    },
    "2008": {
     "b_lean": [
      0.2054796818097461,
-     0.21019771887778138
+     0.20887842536905718
     ],
     "b_inc": [
      0.07977066143434859,
-     0.0801738472847446
+     0.07912604175715626
     ],
     "b_lag": [
      0.04768191010606744,
-     0.04408301571820721
+     0.053555822866198394
     ],
     "k": [
      0.9677553701056463,
-     0.9652028906251934
+     0.9765632901609336
     ],
     "s_e": [
      0.07985143067417583,
-     0.07962309907734348
+     0.08158363663825421
     ]
    },
    "2009": {
     "b_lean": [
      0.2270135630908098,
-     0.23167588711166778
+     0.23044222853602417
     ],
     "b_inc": [
      0.0813937252310464,
-     0.08180012343098708
+     0.08086941262849567
     ],
     "b_lag": [
      0.06506808090255294,
-     0.061429327274278564
+     0.07045815836588978
     ],
     "k": [
      0.9851226744058339,
-     0.9825944819188364
+     0.992079608072994
     ],
     "s_e": [
      0.08248528690608761,
-     0.08225173021325398
+     0.0840364992566547
     ]
    },
    "2010": {
     "b_lean": [
      0.2270135630908098,
-     0.23167588711166778
+     0.23044222853602417
     ],
     "b_inc": [
      0.0813937252310464,
-     0.08180012343098708
+     0.08086941262849567
     ],
     "b_lag": [
      0.06506808090255294,
-     0.061429327274278564
+     0.07045815836588978
     ],
     "k": [
      0.9851226744058339,
-     0.9825944819188364
+     0.992079608072994
     ],
     "s_e": [
      0.08248528690608761,
-     0.08225173021325398
+     0.0840364992566547
     ]
    },
    "2011": {
     "b_lean": [
      0.27253487597343157,
-     0.27623542791307476
+     0.27835820710446824
     ],
     "b_inc": [
      0.0811597515972815,
-     0.08154058114891452
+     0.08141593981512313
     ],
     "b_lag": [
      0.05143416948138474,
-     0.04838927242071295
+     0.051044630229152566
     ],
     "k": [
      0.9732543957143793,
-     0.9706668334697564
+     0.9785550238505106
     ],
     "s_e": [
      0.08037979690367839,
-     0.08013340649844719
+     0.08160080863852186
     ]
    },
    "2012": {
     "b_lean": [
      0.27253487597343157,
-     0.27623542791307476
+     0.27835820710446824
     ],
     "b_inc": [
      0.0811597515972815,
-     0.08154058114891452
+     0.08141593981512313
     ],
     "b_lag": [
      0.05143416948138474,
-     0.04838927242071295
+     0.051044630229152566
     ],
     "k": [
      0.9732543957143793,
-     0.9706668334697564
+     0.9785550238505106
     ],
     "s_e": [
      0.08037979690367839,
-     0.08013340649844719
+     0.08160080863852186
     ]
    },
    "2013": {
     "b_lean": [
      0.2867266088364501,
-     0.2902917526371833
+     0.2893146471399806
     ],
     "b_inc": [
      0.08038299225782435,
-     0.0807517883152693
+     0.08053119378155536
     ],
     "b_lag": [
      0.06786610738769931,
-     0.06493708647259343
+     0.06841193252725082
     ],
     "k": [
      0.9671786394251634,
-     0.9646903089879795
+     0.9724420911639994
     ],
     "s_e": [
      0.07954167568822554,
-     0.07930586699679004
+     0.08079197784780434
     ]
    },
    "2014": {
     "b_lean": [
      0.2867266088364501,
-     0.2902917526371833
+     0.2893146471399806
     ],
     "b_inc": [
      0.08038299225782435,
-     0.0807517883152693
+     0.08053119378155536
     ],
     "b_lag": [
      0.06786610738769931,
-     0.06493708647259343
+     0.06841193252725082
     ],
     "k": [
      0.9671786394251634,
-     0.9646903089879795
+     0.9724420911639994
     ],
     "s_e": [
      0.07954167568822554,
-     0.07930586699679004
+     0.08079197784780434
     ]
    },
    "2015": {
     "b_lean": [
      0.271454372396822,
-     0.27443014195216514
+     0.2735390298965882
     ],
     "b_inc": [
      0.07593210126263841,
-     0.07622337841848191
+     0.07582395810302153
     ],
     "b_lag": [
      0.0765370355745052,
-     0.07393143014942123
+     0.07774598159479294
     ],
     "k": [
      0.9539052942009839,
-     0.9517977837052293
+     0.9579067160329109
     ],
     "s_e": [
      0.07757658476979272,
-     0.07738645500057625
+     0.0786539604291377
     ]
    },
    "2016": {
     "b_lean": [
      0.271454372396822,
-     0.27443014195216514
+     0.2735390298965882
     ],
     "b_inc": [
      0.07593210126263841,
-     0.07622337841848191
+     0.07582395810302153
     ],
     "b_lag": [
      0.0765370355745052,
-     0.07393143014942123
+     0.07774598159479294
     ],
     "k": [
      0.9539052942009839,
-     0.9517977837052293
+     0.9579067160329109
     ],
     "s_e": [
      0.07757658476979272,
-     0.07738645500057625
+     0.0786539604291377
     ]
    },
    "2017": {
     "b_lean": [
      0.27103090031494775,
-     0.27384391136334796
+     0.2729734430733911
     ],
     "b_inc": [
      0.0743221431852485,
-     0.07459374177261661
+     0.07414392542584589
     ],
     "b_lag": [
      0.0920979605919534,
-     0.0896081699487635
+     0.09348502033019339
     ],
     "k": [
      0.9571000324589375,
-     0.9551249963557723
+     0.9604704843844843
     ],
     "s_e": [
      0.07807630127984386,
-     0.07790088818699506
+     0.07908076264511192
     ]
    },
    "2018": {
     "b_lean": [
      0.27103090031494775,
-     0.27384391136334796
+     0.2729734430733911
     ],
     "b_inc": [
      0.0743221431852485,
-     0.07459374177261661
+     0.07414392542584589
     ],
     "b_lag": [
      0.0920979605919534,
-     0.0896081699487635
+     0.09348502033019339
     ],
     "k": [
      0.9571000324589375,
-     0.9551249963557723
+     0.9604704843844843
     ],
     "s_e": [
      0.07807630127984386,
-     0.07790088818699506
+     0.07908076264511192
     ]
    },
    "2019": {
     "b_lean": [
      0.2877228446531219,
-     0.287314963885822
+     0.28635970070880495
     ],
     "b_inc": [
      0.07331497459505253,
-     0.07395035671018876
+     0.07351305692258774
     ],
     "b_lag": [
      0.09904662173935144,
-     0.09589356906093402
+     0.09960503054808324
     ],
     "k": [
      0.9354085485316804,
-     0.9303643643037098
+     0.9349757182001817
     ],
     "s_e": [
      0.07476221145777767,
-     0.07416443505666581
+     0.07521414923558278
     ]
    },
    "2020": {
     "b_lean": [
      0.2877228446531219,
-     0.287314963885822
+     0.28635970070880495
     ],
     "b_inc": [
      0.07331497459505253,
-     0.07395035671018876
+     0.07351305692258774
     ],
     "b_lag": [
      0.09904662173935144,
-     0.09589356906093402
+     0.09960503054808324
     ],
     "k": [
      0.9354085485316804,
-     0.9303643643037098
+     0.9349757182001817
     ],
     "s_e": [
      0.07476221145777767,
-     0.07416443505666581
+     0.07521414923558278
     ]
    },
    "2021": {
     "b_lean": [
      0.27593637262719745,
-     0.2803011496781986
+     0.2793874997829833
     ],
     "b_inc": [
      0.07323844239110879,
-     0.0744605559414526
+     0.07406146831408979
     ],
     "b_lag": [
      0.10800121630858267,
-     0.10131116739595566
+     0.10486029523499421
     ],
     "k": [
      0.9461171742980355,
-     0.9349110328649053
+     0.9392273916812796
     ],
     "s_e": [
      0.07538835474674113,
-     0.07403254287268386
+     0.07504856507325484
     ]
    },
    "2022": {
     "b_lean": [
      0.27593637262719745,
-     0.2803011496781986
+     0.2793874997829833
     ],
     "b_inc": [
      0.07323844239110879,
-     0.0744605559414526
+     0.07406146831408979
     ],
     "b_lag": [
      0.10800121630858267,
-     0.10131116739595566
+     0.10486029523499421
     ],
     "k": [
      0.9461171742980355,
-     0.9349110328649053
+     0.9392273916812796
     ],
     "s_e": [
      0.07538835474674113,
-     0.07403254287268386
+     0.07504856507325484
     ]
    },
    "2023": {
     "b_lean": [
      0.29812376402793933,
-     0.3017976354922426
+     0.3010371893391986
     ],
     "b_inc": [
      0.07238334836352839,
-     0.07351070102466327
+     0.07311410289333425
     ],
     "b_lag": [
      0.11827775199047227,
-     0.11200948283688117
+     0.11542821241132355
     ],
     "k": [
      0.9360685320974704,
-     0.9262132351921051
+     0.9294068693840166
     ],
     "s_e": [
      0.07393174537161994,
-     0.07272366635334228
+     0.07359707832480565
     ]
    },
    "2024": {
     "b_lean": [
      0.29812376402793933,
-     0.3017976354922426
+     0.3010371893391986
     ],
     "b_inc": [
      0.07238334836352839,
-     0.07351070102466327
+     0.07311410289333425
     ],
     "b_lag": [
      0.11827775199047227,
-     0.11200948283688117
+     0.11542821241132355
     ],
     "k": [
      0.9360685320974704,
-     0.9262132351921051
+     0.9294068693840166
     ],
     "s_e": [
      0.07393174537161994,
-     0.07272366635334228
+     0.07359707832480565
     ]
    },
    "2025": {
     "b_lean": [
      0.29210903919721026,
-     0.29569855853229166
+     0.29494178435295915
     ],
     "b_inc": [
      0.07173529184931095,
-     0.07284066720395171
+     0.0724369512449934
     ],
     "b_lag": [
      0.1355262617715833,
-     0.12943452044581633
+     0.1328017991313513
     ],
     "k": [
      0.9386669991481872,
-     0.9294629269318216
+     0.9322447205440051
     ],
     "s_e": [
      0.07421419652719181,
-     0.07307281059432884
+     0.0738979866873015
     ]
    }
   }

@@ -1,6 +1,6 @@
 # Senate, House and governor: sources, method and checks
 
-Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19, 08:06 and 08:36 UTC, and the orchestrator's words of 08:54, 09:03, 09:08, 09:26, 11:16, 12:01, 12:11, 12:35, 12:40 and 13:06). Written 2026-11-07 and revised thirteen times the same day (last at 13:45 UTC):
+Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36, 07:04, 07:19, 08:06 and 08:36 UTC, and the orchestrator's words of 08:54, 09:03, 09:08, 09:26, 11:16, 12:01, 12:11, 12:35, 12:40, 13:06 and 13:43). Written 2026-11-07 and revised fourteen times the same day (last at 14:17 UTC):
 - for the follow-ups from M2 (§0.9);
 - for the orchestrator's third round (§0.8);
 - for its fourth, the near-ties (§0.7);
@@ -13,7 +13,7 @@ Worker D2 (`briefs/D2-data-congress.md`, amended 2026-11-07 03:13, 05:58, 06:36,
 - for the note's two tests, which take it off the Senate's and the governors' p (§0.1, item 3);
 - for the odd-year governors of Kentucky, Louisiana, Mississippi, New Jersey and Virginia (§8);
 - for New Jersey's and Virginia's governors of 2025 from the states' own certified results, Kentucky's and Mississippi's 2023 refused, and Rhode Island 2010 (§9);
-- and for the check of every governor's incumbency code against the record's last race: five codes fixed, and what moves with them, the House's near-tie scheme included (§10).
+- and for the check of every governor's incumbency code against the record's last race: seventeen codes fixed, under the orchestrator's rulings of 13:43 for successors, what moves with them, and the House's near-tie scheme kept by the switch test (§10).
 
 It covers every Senate and House race of the even years 2006 to 2024, every governor race of the even years 1978 to 2024 and of the odd years 1977 to 2025, that the sources hold, with p, and control of the Senate and the House.
 
@@ -1267,9 +1267,13 @@ The route is §8.3's, unchanged: the governors' D2-v3 fitted on the even years b
 - **Kentucky and Mississippi 2023** stay out unless the orchestrator finds a source by the rule of §9.2.
 - ~~**New Jersey 2021 in Cha.** Cha codes Murphy as not an incumbent (0), though he won the state's 2017 contest (`data/governor/2017.json`, from Algara and Amlani). It is a slip like the one in Kentucky 2019, where Cha codes both nominees as incumbents (§8.6). The fit's rule takes Cha's code, so New Jersey 2021's `incumbency` is 0. By the record's own 2017 winner it would be +1.~~ Fixed: +1 (§10.3).
 
-## 10. Every governor's incumbency code, against the record's last race (the orchestrator, 2026-11-07 13:06 UTC)
+## 10. Every governor's incumbency code, against the record's last race (the orchestrator, 2026-11-07 13:06 and 13:43 UTC)
 
 The ask, in the orchestrator's words: "Compare every governor nominee's incumbency code, as your files carry it, with the record's own last race for that seat." Where a nominee won the seat's last regular race and is coded as not incumbent, or the reverse, "find out first whether it is Cha's coding or your join (#45 was a join on last names)", and "fix each one where the record proves it." For a governor who took office mid-term: "Take those from the state's own roster of governors where it answers, or else mark them inferred and leave the code alone." And: "List every code you change and every p that moves." *Reason:* "incumbency is an input to every governor's forecast. One miscode found by chance means we need to know how many others there are."
+
+**The two rulings of 13:43**, applied here before the merge:
+1. **The near-tie scheme.** "A switch from level to band changes the forecast, so it goes through the robustness test of 08:36, which supersedes picking the better log score. Band replaces level only if its gain holds with each scored year left out and no tested cell gets worse. Otherwise level, the scheme of record, stays, and band's figures are reported beside it." *Reason:* "a margin of 0.00002 is a knife edge, and moving 2,142 House p on it would be fitting noise." (§10.4)
+2. **Successors.** "Keep the definition of record and make every era match it. Don't add a new variant. … So a successor who was not elected to the seat is not the incumbent, and this holds in every year: recode Brewer AZ 2010 to 0, and recode AA's successors to 0 where a state roster confirms the succession. Mark the rest inferred and leave their codes as they are." *Reason:* "an input has to mean one thing in every year it is fitted on. This rule is fixed now, before any score, and it is the one the record already uses." (§10.2, §10.3)
 
 ### 10.1 The check
 
@@ -1280,27 +1284,29 @@ The ask, in the orchestrator's words: "Compare every governor nominee's incumben
   - Cha, Kuriwaki and Snyder's `inc`, found by the nominee's exact name in Cha's own contest;
   - or, before 2006 and where Cha lacks the contest, Algara and Amlani's seat status.
 - **The test.** Each code is set against whether the nominee won the state's previous governor contest in the files. For a state's first contest, that is Algara and Amlani's last race before 1977.
-- **Two kinds of disagreement:**
+- **Three kinds of disagreement:**
   - A: the nominee won the last race and is not coded 1;
-  - B: the nominee is coded 1 (or Cha's 2 or 3) and did not win it.
+  - B: the nominee is coded 1 (or Cha's 2 or 3) and did not win it;
+  - C (added for the rule of 13:43): the nominee is coded 1 and won the last race, which was a special election. Cha's guide codes that 2. The files hold three special governor contests (Utah 2010, West Virginia 2011, Oregon 2016), so C can find at most three.
 - **Every name settles.** No case has an unknown last winner, and none matches by surname alone.
 
-**36 disagree: 4 of kind A and 32 of kind B. None is the join's.** For each of the 254 contests whose code is Cha's, the `incumbency` the files carried equals the one Cha's codes give the two nominees found by exact name (`join_check`). So #45's last-name join, `cha_entry`, changes no code. Every disagreement is in the sources' own codes.
+**37 disagree: 4 of kind A, 32 of kind B and 1 of kind C. None is the join's.** For each of the 254 contests whose code is Cha's, the `incumbency` the files carried equals the one Cha's codes give the two nominees found by exact name (`join_check`). So #45's last-name join, `cha_entry`, changes no code. Every disagreement is in the sources' own codes.
 
-**What counts as an incumbent is unchanged.**
+**What counts as an incumbent is the record's, now held in every year.**
 - The record counts Cha's code 1 only, and Algara and Amlani's "Incumbent" seat status (§2.2).
 - Cha's 2 (an incumbent elected in a special election) and 3 (appointed, in the guide; Cha uses it for governors who succeeded too) read as not incumbents. Counting them was tested in §0.2 and not adopted.
-- So a nominee coded 2 or 3 who did sit is coded right by Cha's own guide, and the code is kept. Only codes that are wrong by their own meaning are fixed.
+- So a successor who was not elected to the seat is not the incumbent, in Cha's years and in Algara and Amlani's (13:43). Before the ruling, Algara and Amlani's successors counted as incumbents and Cha's, Brewer apart, did not.
+- A nominee coded 2 or 3 is coded right by Cha's own guide, and the code is kept.
 
 ### 10.2 The verdicts
 
 | Verdict | Count | Contests |
 |---|---|---|
-| **Fixed**: wrong by its own meaning, proven by the record or the state's roster | 5 | §10.3 |
-| **Confirmed**: coded the incumbent; the state's roster shows the nominee took office mid-term, before the election | 11 | AL 1994 Folsom; AR 1994 Tucker, 1998 Huckabee; AZ 1978 Babbitt, 1998 Hull, 2010 Brewer; CT 1982 O'Neill; MN 1978 Perpich; NV 1990 Miller; TX 2002 Perry; VT 1992 Dean |
+| **Fixed**: wrong by its own meaning, or by the definition of record held in every year (13:43); proven by the record or the state's roster | 17 | §10.3 |
 | **Kept**: Cha's 2 or 3, right by Cha's guide, read as not an incumbent (§0.2) | 14 | Code 2: CA 2006 Schwarzenegger (elected in the 2003 recall, which the record does not hold); OR 2018 Brown and UT 2012 Herbert, who each won the special before. Code 3, the roster confirming the nominee sat: AL 2018 Ivey, CT 2006 Rell, SC 2018 McMaster. Code 3, roster refused: MO 2020 Parson. Code 3, no roster read: IA 2018 Reynolds, IL 2010 Quinn, MA 2006 Healey, NY 2022 Hochul, OR 2016 Brown (the special), UT 2010 Herbert (the special), AK 2010 Parnell |
-| **Inferred**: coded the incumbent, did not win the last race, and the state's roster did not answer; the code is kept, unproven | 6 | FL 1998 MacKay, NH 1988 McEachern (rosters refused, HTTP 403); WI 1978 Schreiber, WI 2002 McCallum (the connection was reset twice); ID 1978 Evans (Idaho's Blue Book not found, HTTP 404); MA 1998 Cellucci (no roster of the Commonwealth's own found) |
+| **Inferred**: coded the incumbent by Algara and Amlani, did not win the last race, and the state's roster did not answer; the code is kept, unproven (13:43: "Mark the rest inferred and leave their codes as they are") | 6 | FL 1998 MacKay, NH 1988 McEachern (rosters refused, HTTP 403); WI 1978 Schreiber, WI 2002 McCallum (the connection was reset twice); ID 1978 Evans (Idaho's Blue Book not found, HTTP 404); MA 1998 Cellucci (no roster of the Commonwealth's own found) |
 
+- **Before 13:43** the eleven successors the rosters confirmed (ten of Algara and Amlani's, and Brewer) were "confirmed" and kept. The ruling recodes them, and the verdict "confirmed" is gone.
 - **The rosters.** Ten answered, read by `pipeline/fetch.py` into the cache:
   - Alabama's Department of Archives and History; Arkansas's Secretary of State; the Arizona Governor's office; the California State Library; the Connecticut State Library;
   - the Minnesota and Texas Legislative Reference Libraries; Nevada's State Library and Archives; South Carolina's Legislative Manual; the Vermont Legislature's list.
@@ -1310,10 +1316,10 @@ The ask, in the orchestrator's words: "Compare every governor nominee's incumben
   - Wisconsin's Blue Book list reset the connection at 13:11, and again on the one retry at 13:16.
   - Idaho's Blue Book was at none of the three addresses a search gave (HTTP 404).
   - The orchestrator was told at 13:14. Nothing else was tried: no other host of a refusing agency (so not floridamemory.com, which is the Florida Department of State's too), and no copy elsewhere.
-- **Years only.** Three rosters give years, not days: AZ 1978 (Bolin 1977 to 1978, Babbitt from 1978), AR 1994 (Tucker from 1991) and CT 1982 (O'Neill from 1980). Only Babbitt's could have begun after the election; that he sat in November 1978 is inferred.
+- **Years only.** Three rosters give years, not days: AZ 1978 (Bolin 1977 to 1978, Babbitt from 1978), AR 1994 and CT 1982 (O'Neill from 1980). Under the rule of 13:43 the day does not matter: none of the three won the seat before the election, so each is not the incumbent whether or not he had taken office by election day.
 - **Not read for code 3.** For the seven nominees coded 3 with no roster read, a roster could not move a p: the record reads 3 as not an incumbent either way.
 
-### 10.3 The five codes changed
+### 10.3 The seventeen codes changed
 
 | Contest | Nominee | Code in the source | Code of record | `incumbency` | Proof |
 |---|---|---|---|---|---|
@@ -1322,67 +1328,81 @@ The ask, in the orchestrator's words: "Compare every governor nominee's incumben
 | KY 2019 | Beshear (D) | Cha 1 | 0 | 0 → −1 | Cha codes both nominees 1; Bevin, the Republican, won the last race, 2015 (`2015.json`) |
 | VT 2020 | Zuckerman (D) | Cha 1 | 0 | 0 → −1 | Cha codes both nominees 1; Scott, the Republican, won the last race, 2018 (`2018.json`) |
 | MN 1982 | Perpich (D) | Algara and Amlani "Democratic Incumbent" | "Republican Open Seat" | +1 → 0 | Minnesota's roster: Al Quie from 1/4/1979, Perpich from 1/3/1983 (his first term from 12/29/1976). In November 1982 the governor was Quie, who did not run. |
+| AZ 2010 | Brewer (R) | Cha 1 | 3 | −1 → 0 | a successor (13:43): Arizona's roster has Napolitano, who won the last race (2006), to 2009, and Brewer from 2009. Cha codes the other successors 3, so she takes Cha's 3, which the record reads as 0 |
+| WV 2012 | Tomblin (D) | Cha 1 | 2 | +1 → 0 | won the last race, the special of 2011 (`2011.json`). Cha codes Brown (OR 2018) and Herbert (UT 2012), each in the same place, 2, which the record reads as 0. Kind C; D2's reading of "an input has to mean one thing in every year", not named in the ruling (§10.5) |
+| AL 1994 | Folsom (D) | Algara and Amlani "Democratic Incumbent" | "Democratic Open Seat" | +1 → 0 | a successor (13:43): Alabama's archives, governor from April 22, 1993, "when Governor Hunt was convicted"; Hunt won the last race (1990) |
+| AR 1994 | Tucker (D) | "Democratic Incumbent" | "Democratic Open Seat" | +1 → 0 | Arkansas's roster: "He served the balance of the Clinton term"; Clinton won the last race (1990) |
+| AR 1998 | Huckabee (R) | "Republican Incumbent" | "Republican Open Seat" | −1 → 0 | Arkansas's roster: "He became Governor of Arkansas in July 1996 when his predecessor resigned"; Tucker won the last race (1994) |
+| AZ 1978 | Babbitt (D) | "Democratic Incumbent" | "Democratic Open Seat" | +1 → 0 | Arizona's roster: Castro, who won the last race (1974), to 1977, Bolin 1977 to 1978, Babbitt from 1978 |
+| AZ 1998 | Hull (R) | "Republican Incumbent" | "Republican Open Seat" | −1 → 0 | Arizona's roster: Symington, who won the last race (1994), to 1997, Hull from 1997 |
+| CT 1982 | O'Neill (D) | "Democratic Incumbent" | "Democratic Open Seat" | +1 → 0 | Connecticut's roster: Grasso, who won the last race (1978), 1975-80, O'Neill from 1980 |
+| MN 1978 | Perpich (D) | "Democratic Incumbent" | "Democratic Open Seat" | +1 → 0 | Minnesota's roster: Perpich from 12/29/1976, after Anderson, who won the last race (1974) |
+| NV 1990 | Miller (D) | "Democratic Incumbent" | "Democratic Open Seat" | +1 → 0 | Nevada's roster: Bryan, who won the last race (1986), to Jan 3, 1989, Miller from then |
+| TX 2002 | Perry (R) | "Republican Incumbent" | "Republican Open Seat" | −1 → 0 | Texas's roster: "Sworn in after Bush resignation", December 21, 2000; Bush won the last race (1998) |
+| VT 1992 | Dean (D) | "Democratic Incumbent" | "Democratic Open Seat" | +1 → 0 | Vermont's list: governor from 1991 "by reason of the death of Gov. Snelling", who won the last race (1990) |
 
 - **How they apply.** The fixes apply where the sources are read: `fix_cha` in `chambers.fit_rows`, `chambers.odd_governor_rows` and `build_congress.cha_index`, and `fix_aa` in `chambers.aa_governors` and `build_congress.AA_SOURCE`. Each fix must find its nominee with the code it corrects, or the run stops.
-- **In the files.** Each of the 36 contests carries `forecast_inputs.incumbency_check`: the nominee, the code in the source, the verdict, why, and the roster. Minnesota 1982 also keeps the authors' status as `seat_status_in_source`.
-- **The rows.** Three of the five are fit rows of the even years (AR 2018, VT 2020, MN 1982), so the coefficients of every later governor fit move. Two are odd-year rows (KY 2019, NJ 2021), scored in the odd years' back-test.
+- **In the files.** Each of the 37 contests carries `forecast_inputs.incumbency_check`: the nominee, the code in the source, the verdict, why, and the roster. The eleven recoded from Algara and Amlani also keep the authors' status as `seat_status_in_source`.
+- **The rows.** Fifteen of the seventeen are fit rows of the even years, so the coefficients of every later governor fit move. Two are odd-year rows (KY 2019, NJ 2021), scored in the odd years' back-test.
+- **The open seat's party.** Each recoded seat takes the party of the governor sitting on election day, as Algara and Amlani's own open seats do: the successor's party, so Democratic for Folsom though Hunt, who won the last race, was a Republican, and Republican for Huckabee though Tucker was a Democrat. The fit reads any open seat as 0 (`algara_amlani.INCUMBENT`), so the party moves no input.
 
 ### 10.4 What moved
 
-`pipeline/governor_incumbency.py moves a33c0650` writes `p_moved` in the table: every governor p and model term that differs from the files on main before this change.
+`pipeline/governor_incumbency.py moves a33c0650` writes `p_moved` in the table: every governor p and model term that differs from the files on main before this change (a33c0650; main has moved since, but not in these files).
 
 **The governors.**
-- **Inputs.** `incumbency` moved in the five contests of §10.3, and nowhere else.
+- **Inputs.** `incumbency` moved in the seventeen contests of §10.3, and nowhere else.
 - **p.** It moved in 387 of the 451 governor p that are not 0. Every one of them is the model's own; 538's p stand where they stood. Of the model's own p shown beside 538's, 64 moved.
-  - The ratios run from ×0.335 to ×1.173, with a median of ×0.9988.
-  - Most move by under 1%, through the refitted terms.
-- **The contests whose own input moved:**
+  - The ratios run from ×0.353 to ×1.969, with a median of ×0.985. 343 move by under 5%, and 83 by under 1%, through the refitted terms.
+- **The contests whose own input moved** (the five of the seventeen without p are AZ 1978, MN 1978, CT 1982 and MN 1982, with too few earlier cycles, and VT 1992, which Vermont's legislature decides when no one has a majority):
 
 | Contest | Result (the Democrat's two-party share) | The model's mean for the Democrat | p |
 |---|---|---|---|
-| KY 2019 | Beshear 50.2% | 0.450 → 0.376 | 1 in 675,441 → 1 in 2,014,771 |
-| NJ 2021 | Murphy 51.6% | 0.523 → 0.598 | 1 in 1,075,208 → 1 in 2,221,632 |
-| VT 2020 | Zuckerman 28.5% | 0.549 → 0.476 | 1 in 164,734 → 1 in 140,419 |
-| AR 2018 | 32.7% | 0.477 → 0.403 | 538's p stands first, unchanged (1 in 23,153,470); the model's own beside it, 1 in 364,115 → 1 in 726,827 |
-| MN 1982 | | | no p (too few earlier cycles); a fit row from 1985 on |
+| KY 2019 | Beshear 50.2% | 0.450 → 0.377 | 1 in 675,441 → 1 in 1,911,349 |
+| NJ 2021 | Murphy 51.6% | 0.523 → 0.598 | 1 in 1,075,208 → 1 in 2,223,341 |
+| AZ 2010 | Goddard 43.9% | 0.397 → 0.480 | 1 in 1,480,398 → 1 in 751,973 |
+| AZ 1998 | Johnson 36.8% | 0.391 → 0.474 | 1 in 921,293 → 1 in 477,502 |
+| NV 1990 | Miller 68.5% | 0.607 → 0.540 | 1 in 281,319 → 1 in 147,399 |
+| TX 2002 | Sanchez 40.9% | 0.415 → 0.495 | 1 in 3,115,340 → 1 in 1,962,747 |
+| AR 1994 | Tucker 59.8% | 0.584 → 0.518 | 1 in 498,810 → 1 in 329,797 |
+| AR 1998 | 39.3% | 0.419 → 0.503 | 1 in 468,693 → 1 in 324,890 |
+| VT 2020 | Zuckerman 28.5% | 0.549 → 0.477 | 1 in 164,734 → 1 in 142,091 |
+| AL 1994 | Folsom 49.6% | 0.549 → 0.482 | 1 in 608,090 → 1 in 551,758 |
+| WV 2012 | Tomblin 52.1% | 0.546 → 0.465 | 1 in 278,700 → 1 in 265,299 |
+| AR 2018 | 32.7% | 0.477 → 0.404 | 538's p stands first, unchanged (1 in 23,153,470); the model's own beside it, 1 in 364,115 → 1 in 707,884 |
 
-- **The next largest moves:** Wyoming 2022 ×0.891, Utah 2024 ×0.944, Montana 2024 ×0.950 and Ohio 2022 ×0.957.
-- **The coefficients.** Each year's fit is on its earlier cycles only (`models` in the table).
-  - b_inc rises a little in every fit: 1986's from 0.0597 to 0.0604, 2024's from 0.0724 to 0.0735.
-  - b_lean rises: 1986's from 0.170 to 0.184, 2024's from 0.298 to 0.302.
-  - b_lag falls: 2024's from 0.118 to 0.112.
-  - k falls a little: 2024's from 0.936 to 0.926.
+- **The next largest moves**, through the refitted terms: Washington 1988 ×0.903, New York 1986 ×0.906, Minnesota 1986 ×0.912 and Wisconsin 1986 ×0.920.
+- **The coefficients.** Each year's fit is on its earlier cycles only (`models` in the table, 41 files).
+  - b_inc rises most in the early fits, where the recoded successors are: 1986's from 0.0596 to 0.0657, 1990's from 0.0638 to 0.0680. Later it barely moves: 2006's from 0.0785 to 0.0777, 2024's from 0.0724 to 0.0731.
+  - b_lean rises: 1986's from 0.170 to 0.186, 2024's from 0.298 to 0.301.
+  - b_lag falls: 1986's from 0.185 to 0.163, 2024's from 0.118 to 0.115.
+  - k falls a little: 2024's from 0.936 to 0.929.
 - **The even years' back-test** (`data/congress/backtest.json`).
-  - The governors' log score of record, 2006-2024 calibrated, rises from 1.1295 to 1.1475.
-  - In the incumbency test of §0.2, the record's rises from 1.1780 to 1.2002 (2010-2024). Variants (a) and (b) score 1.2043 each and still fail: the 49-51% count is no nearer (12.7 and 12.4 expected against 16 seen, 12.7 under the record). So the record's reading of Cha's codes stands.
+  - The governors' log score of record, 2006-2024 calibrated, rises from 1.1295 to 1.1436.
+  - Over every scored year, 1986-2024, it falls, from 1.0879 to 1.0815. The years of the recoded successors score lower: 1992's from 0.953 to 0.770, 1998's from 1.103 to 1.058, 2002's from 1.126 to 1.094. Each successor won by more than an open seat forecasts. The rule was fixed before any score (13:43), so the score does not decide it; it is reported.
+  - In the incumbency test of §0.2, the record's rises from 1.1780 to 1.1931 (2010-2024). Variants (a) and (b) score 1.1985 and 1.1999 and still fail: the 49-51% count is no nearer (12.6 and 12.3 expected against 16 seen, 12.7 under the record). So the record's reading of Cha's codes stands.
   - No variant, near-tie factor or tails is adopted for governors, as before.
 - **The odd years' back-test** (`data/congress/backtest-governor-odd.json`).
-  - The plain route's log score falls from 1.1356 to 1.0973. Its two corrected races are close ones that the sitting governor's party did worse in than an incumbent's bid forecasts: Bevin lost by less than a point, and Murphy won by 3.
-  - The midterm term still fails: log score 1.1562, a gain of +0.0589, but its tested cells move further. So the plain route stands.
+  - The plain route's log score falls from 1.1356 to 1.0971. Its two corrected races are close ones that the sitting governor's party did worse in than an incumbent's bid forecasts: Bevin lost by less than a point, and Murphy won by 3.
+  - The midterm term still fails: log score 1.1538, a gain of +0.0568, but its tested cells move further. So the plain route stands.
   - The lean note stands, with new counts: 6 against 3.2 expected within 1 point, and 9 against 6.2 within 50,000 votes. The 31 odd-year p carry it.
-- **The even years' near-even counts** (`data/congress/history.json`, 2006-2024): 9.05 expected against 4 seen within 10,000 votes, from 9.03. The note's tests are M2's counts (§0.1), not recomputed here, and the governors' note stays off.
+- **The near-even counts** (`data/congress/history.json`). Every governor p, 1978-2024: 19.65 expected against 14 seen within 10,000 votes, from 19.74. The governors' note, 2006-2024 within 5,000 votes: 4.51 expected against 0 seen, from 4.52. The note's tests are M2's counts (§0.1), not recomputed here, and the governors' note stays off.
 
-**The House: its near-tie scheme changes, and 2,142 House p move.** This was not foreseen when the work was asked.
-- **How.** The near-tie factor is fitted on the level's own earlier years. Where those have too few expected near-ties (30), it is fitted on every level's earlier years pooled (§2.6). The governors' forecasts are in that pool, so they reach the House's first years and its safest band.
-- **The margin.** Both schemes pass the robustness test for the House, and the one with the higher log score stands (§0.3).
-  - Before: one factor 1.578535, by band 1.578513.
-  - After: one factor 1.578538, by band 1.578556.
-  - So the scheme of record moves from one factor to the band scheme, on a margin of 0.00002.
-- **What moves.** 2,142 of the House's 3,369 p move, all of them the model's own; 538's p, where they stand first, do not.
-  - The medians by year: ×1.13 in 2010, ×0.93 in 2012, ×0.89 in 2014, 2016 and 2018, ×0.82 in 2020, ×0.80 in 2022 and ×0.77 in 2024.
-  - The seats with |mean − ½| of 0.10 or more now take no factor in the years where that band has too few expected near-ties. Before, every seat took the one factor.
-  - The House's near-even note now reads 85.7 expected against 105 seen within 1 point, from 87.5.
-  - The chambers' control figures (`chamber`) do not change in any year.
-- **The Senate.** No Senate p moves. The factor that is taken out and shown beside each p (`near_tie_not_of_record`) moves a little through its pooled years (2018: 1.1280 to 1.1287).
-- **Unchanged files.** The Senate's files of 2006 and 2008 and the House's of 2006 came out equal, apart from `commit` and the time of the run, and were put back.
-- This is the rule as it stands, applied. Whether a scheme of record should change on so small a margin is open (§10.5).
+**The House: its near-tie scheme stays `level`, and band's figures are beside it.**
+- **The switch test** (`chambers._switch_test`, 13:43). `level` is the House's scheme of record (`NEAR_TIE_OF_RECORD`). Both schemes pass the robustness test against no factor, and band scores higher on the House's years 2010-2024 (log score 1.5786 against 1.5785, a mean gain of 0.00003). So band must pass the test of 08:36 against level. It does not:
+  - the 49-51% count moves further from the count seen: 85.8 expected under band, 87.5 under level, against 105 seen;
+  - the three tested cells of the safe band, |mean − ½| of 0.10 to 0.20 at 49-51%, 48-52% and 45-55%, are further under band;
+  - with each scored year left out, it fails the same way in all eight sets, and without 2010 or without 2024 its log score is lower too.
+  - So level stays. The House's p of record are level's, as on main.
+- **Band's figures, beside p.** Each House file's `model.near_tie.beside` gives band's factors by band, the switch test, and where it fails with each year left out. Each of the model's own House p carries `near_tie_not_of_record` with the scheme `band`: its factor, the multiplier, and `value`, what p would be under band (p before any near-tie factor, times the multiplier; 1 where the seat's band takes no factor under band). That is all of them, 2008-2024: the 3,369 normal forecasts (2,514 standing first, 855 beside 538's) and the t4 figure beside each. In 2008 neither scheme has a factor, so the value there is p.
+- **What moves against main.** 748 House p, all in 2010 and 2012, by ×1.0021 to ×1.0036 (medians ×1.0035 in 2010 and ×1.0024 in 2012). Those years' level factor is fitted on every level's earlier years pooled, governors included (§2.6): 2010's moves from 0.88614 to 0.88929, 2012's from 1.07929 to 1.08196. From 2014 the factor is fitted on the House's own years, and no p moves. The House's near-even note reads as on main, 87.5 expected against 105 seen within 1 point.
+- **The Senate.** No Senate p moves. The factor taken out and shown beside each p (`near_tie_not_of_record`, §0.3) moves a little through its pooled years. 2018's moves from 1.1280 to 1.1300, and 2024's from 1.2295 to 1.2317.
+- **Unchanged files.** Senate and House files that came out equal to main's, apart from `commit` and the time of the run, were put back. These are the Senate's files of 2006 and 2008, the House's of 2006, and the governors' of 1977, 1979, 1980, 1981, 1983 and 1984.
+- **The first pass of this check** (before 13:43) moved the House to band on a margin of 0.00002 and 2,142 House p by ×0.77 to ×1.13. None of that stands.
 
 ### 10.5 Open
 
-- **The successors.** Cha codes one successor 1 (Brewer, Arizona 2010) and ten 3 (Ivey, Rell, McMaster, Parson, Reynolds, Quinn, Hochul, Brown 2016, Herbert 2010, Parnell). It also codes Healey 3, who did not win the last race; no roster was read for her.
-  - Under the record's reading, Brewer counts as an incumbent and the other ten do not.
-  - Algara and Amlani count a successor as the incumbent (Perpich 1978, Perry 2002, Dean 1992 and the rest of §10.2's confirmed).
-  - So the fit reads a successor as the incumbent before 2006 and, Brewer apart, not after. Counting Cha's 3 was tested in §0.2 as variant (b) and not adopted; a variant that counts only the successors the rosters confirm was not tested. That is the orchestrator's call.
-- **The inferred six** would be settled by Florida's, New Hampshire's, Wisconsin's, Idaho's and Massachusetts's rosters. MacKay and McEachern are coded incumbents though the last race's winner, who did not run, may still have sat; no source read here says.
-- **The House's near-tie scheme** moved from one factor to the band scheme, on a log-score margin of 0.00002 that the governors' corrected codes tipped (§10.4). Both schemes pass. The rule takes the higher score, and that moves 2,142 House p by ×0.77 to ×1.13. Whether a scheme of record should change on so small a margin, or stay until another wins by more, is for the orchestrator.
+- **The inferred six** would be settled by Florida's, New Hampshire's, Wisconsin's, Idaho's and Massachusetts's rosters. Until then they are the one place where a successor may still count as the incumbent before 2006: Algara and Amlani code each one "Incumbent", and the codes are kept, as ruled. MacKay and McEachern may instead have been sitting governors after a resignation; no source read here says.
+- **Tomblin (WV 2012)** is recoded by D2's reading of the rule of 13:43, which names Brewer and Algara and Amlani's successors but not him. He was elected to the seat, but in a special, and Cha codes the two others in the same place 2. If the orchestrator rules otherwise, his code goes back to Cha's 1: one line in `CHECKS`.
+- **Brewer's code** is Cha's 3, not 0. Both read as not an incumbent, so p is the same; 3 is what Cha's guide gives a successor, so the raw code keeps one meaning across Cha's file.
 - **What the check cannot see.** A successor whom the source codes as not an incumbent can be found only from every state's roster, since the last race shows who won it, not who sat after.

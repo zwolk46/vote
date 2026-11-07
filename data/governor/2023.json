@@ -66,13 +66,13 @@
   ],
   "cycles": 23,
   "races": 530,
-  "b_lean": 0.3017976354922426,
-  "b_inc": 0.07351070102466327,
-  "b_lag": 0.11200948283688117,
-  "s_e_fitted": 0.07851719624613086,
-  "k": 0.9262132351921051,
+  "b_lean": 0.3010371893391986,
+  "b_inc": 0.07311410289333425,
+  "b_lag": 0.11542821241132355,
+  "s_e_fitted": 0.07918714693122897,
+  "k": 0.9294068693840166,
   "calibration": {
-   "k": 0.9262132351921051,
+   "k": 0.9294068693840166,
    "years": [
     1986,
     1988,
@@ -97,12 +97,12 @@
    "races": 437,
    "note": "k = the root mean square of z = (y - mean) / sd over these earlier years' races, each year forecast from its own earlier cycles"
   },
-  "s_e": 0.07272366635334228,
-  "s_a": 0.023835499920218512,
+  "s_e": 0.07359707832480565,
+  "s_a": 0.024717119448701908,
   "c": [
-   0.0001652786677041922,
-   -0.02171421741748439,
-   -0.00748443399287226
+   0.0009397360654261198,
+   -0.021784573163371374,
+   -0.007455655727961149
   ],
   "ZtZ_inv": [
    [
@@ -121,11 +121,11 @@
     0.09126984126984126
    ]
   ],
-  "national_forecast": 0.0001652786677041922,
-  "national_sd": 0.022553443056298608,
-  "sd": 0.07614058997385002,
-  "rho": 0.08773911064982874,
-  "commit": "ce811c7e",
+  "national_forecast": 0.0009397360654261198,
+  "national_sd": 0.023468284170042174,
+  "sd": 0.07724823816653316,
+  "rho": 0.09229655911012506,
+  "commit": "19d50eb4",
   "mean_is": "1/2 + national_forecast + b_lean * lean + b_inc * incumbency + b_lag * (last governor race's Democratic share - 1/2)",
   "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = k s_a sqrt(1 + z (Z'Z)^-1 z'), s_e = k s_e_fitted, z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic president, -1 Republican; k the calibration factor; in an odd year z = (1, w P, 0), w = 1 under the midterm term and 0 under the plain route (odd_year below)",
   "odd_year": {
@@ -140,7 +140,7 @@
    "midterm_term": {
     "improves": false,
     "robust": false,
-    "mean_log_score_gain": 0.05890347285443798
+    "mean_log_score_gain": 0.05675787388869136
    },
    "lean_note_stands": true
   },
