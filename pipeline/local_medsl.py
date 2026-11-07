@@ -40,9 +40,9 @@ YEARS = (2018, 2020, 2022, 2024)
 MEASURE_YEARS = (2016,) + YEARS   # 2016: MEDSL's older sets, read for their questions only
 # Years MEDSL holds none of, written from a state's own certified file alone (Louisiana's 2023, pipeline/local_la.py;
 # the orchestrator, 2026-11-07 10:35 and 11:16). They are forecast from the like races and measures of the earlier
-# years above, but are not added to any later year's like races, nor to the back-tests or the calibration's
-# robustness test, pending the orchestrator's word. Why: adding a year changes the 2024 forecasts and the test's
-# verdicts, a change the robustness rule (brief D3, amended 08:36) has not been asked to weigh.
+# years, and, like every other year, feed the later years' like races and measures, the back-tests and the
+# robustness test (the orchestrator, 11:56: "earlier cycles only means every earlier contest, and leaving one year
+# out would be an exception with no reason behind it"); data/local/REPORT.md section 16.
 ODD_YEARS = (2023,)
 ODD_PARTISAN = ("a race between a Democrat and a Republican: the transferred route (a) gives p only in a year whose own "
                 "back-test on that year's local races holds its 50% interval within 40-60% (the orchestrator, "
@@ -1452,6 +1452,8 @@ def build(out_dir, with_p=True):
     m22_sound = [c for c in m[2022] if c["state"] not in bad[2022]]   # last results and like races: sound states only
     rows24 = {id(r_["m"]): r_ for r_ in leg_rows_2024(m[2024], m22_sound, klarner)}
     ktrain = [r_ for r_ in L.class_rows(klarner) if r_["year"] < 2024]   # like races of earlier years only
+    for y in ODD_YEARS:   # Louisiana's 2023 legislature: its deciding rounds join the later years' like races
+        ktrain += LA.class_rows(y)
     kdens = {}
     pieces = collections.Counter(leg_key(c) + (c["stage"], c["special"]) for c in m[2024]
                                  if c["office"] in LEG and not c["question"])
@@ -1574,7 +1576,7 @@ def build(out_dir, with_p=True):
             files[k_] += [L._compact(r_) for r_ in recs]
 
     # -- local races: routes (b) and (c), from like races of earlier years
-    lrows = {y: local_rows([c for c in m[y] if not held(c, bad[y])]) for y in YEARS}
+    lrows = {y: local_rows([c for c in m[y] if not held(c, bad[y])]) for y in YEARS + ODD_YEARS}
     dens = {}
     bt = backtest_local_partisan(write=True, prow=prow, pres=pres)
     lp = {}
@@ -1583,7 +1585,7 @@ def build(out_dir, with_p=True):
         lp[y] = None if rows_y is None else {id(r_["m"]): r_ for r_ in rows_y}
     fits = {y: L.fit_before(prow, pres, y) if lp[y] is not None else (None, 0) for y in YEARS}
     for year in sorted(YEARS + ODD_YEARS):
-        train = [r_ for y in YEARS if y < year for r_ in lrows[y]]
+        train = [r_ for y in YEARS + ODD_YEARS if y < year for r_ in lrows[y]]
         for c in m[year]:
             if not is_local_level(c):
                 continue
@@ -1614,6 +1616,9 @@ def build(out_dir, with_p=True):
                 rec["party_office"] = c["party_office"]
             if c.get("notes"):   # Louisiana's tied generals held again (local_la.py tie_note)
                 rec["notes"] = list(c["notes"])
+            if c.get("tie"):   # an exact tie, and how it was settled (local_la.py tie_record)
+                rec["result"]["tie"] = True
+                rec["result"]["tie_settled"] = c["tie"]
             p = {}
             if held(c, bad[year]) and route != "zero":
                 p["not_computed"] = held(c, bad[year])
@@ -1652,10 +1657,10 @@ def build(out_dir, with_p=True):
     import measures as MS
     book = MS.load_thresholds()
     mref = MS.coverage({y: m[y] for y in MEASURE_YEARS})
-    mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS}
+    mrows = {y: MS.rows([c for c in m[y] if not held(c, bad[y])], y, mref) for y in MEASURE_YEARS + ODD_YEARS}
     mdens, mtest, mhalf = {}, [], []
-    for year in MEASURE_YEARS:
-        train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
+    for year in sorted(MEASURE_YEARS + ODD_YEARS):
+        train = [r_ for y in MEASURE_YEARS + ODD_YEARS if y < year for r_ in mrows[y]]
         for r_ in mrows[year]:     # the route's calibration near 1/2: every statewide question, threshold read or not
             if r_["key"].startswith("statewide"):
                 tr = [x["s"] for x in train if x["key"] == r_["key"]]
@@ -1674,7 +1679,7 @@ def build(out_dir, with_p=True):
                           f"{exp:.1f} within {L.WINDOWS[-1] * 100:.0f} points, {min(r_['year'] for r_ in rs)} to "
                           f"{max(r_['year'] for r_ in rs)}), so p may be low")
     for year in sorted(MEASURE_YEARS + ODD_YEARS):
-        train = [r_ for y in MEASURE_YEARS if y < year for r_ in mrows[y]]
+        train = [r_ for y in MEASURE_YEARS + ODD_YEARS if y < year for r_ in mrows[y]]
         for c in m[year]:
             if not c["question"]:
                 continue
@@ -1768,11 +1773,10 @@ def build(out_dir, with_p=True):
                                                  "q": round(f * 2 * h, 5), "source": "model"})
                         s_ = yes / (yes + no)
                         tr = [r_["s"] for r_ in train if r_["key"] == key]
-                        if year not in ODD_YEARS:   # not in the back-test (ODD_YEARS)
-                            mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
-                                          "in_own": abs(s_ - t) <= h,
-                                          "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
-                                                             abs(s_ - t) <= hh] for hh in L.WINDOWS}})
+                        mtest.append({"year": year, "key": key, "t": t, "s": s_, "q_own": f * 2 * h,
+                                      "in_own": abs(s_ - t) <= h,
+                                      "near": {str(hh): [sum(1 for x in tr if abs(x - t) <= hh) / len(tr),
+                                                         abs(s_ - t) <= hh] for hh in L.WINDOWS}})
                         if not with_p:
                             p = {}
                         elif f <= 0:
@@ -1788,7 +1792,7 @@ def build(out_dir, with_p=True):
             counts[f"{label}: {scope} {kind}"] += 1
             files[("measure", year, c["state"])].append(L._compact(rec))
 
-    scored = {k_: v for k_, v in files.items() if k_[1] not in ODD_YEARS}   # the back-tests' and test's years
+    scored = files   # every year written, ODD_YEARS too (the orchestrator, 11:56)
     write_checks = out_dir == os.path.join(L.REPO, "data") or os.environ.get("D3_WRITE_CHECKS")
     if write_checks:
         with open(os.path.join(L.REPO, "data", "measure", "backtest-measures.json"), "w") as f:

@@ -694,7 +694,7 @@ What it changes [measured]. Camden's county clerk and sheriff are released and g
 - First rounds, not computed: 496.
 - Specials (the two new elections after ties, and Turkey Creek): 3, not computed.
 - Deciding rounds: 119. 9 get p by the like-race classes, from 3.1 in 10,000 to 3.0 in 1,000. 93 have too few like races in earlier years. 17 are between a Democrat and a Republican, among them the runoffs for Secretary of State, Attorney General and Treasurer. Their route, the transferred route (a), gives p only in a year whose own back-test on that year's local races holds (the orchestrator, 06:16). 2023's local races in the sources are Louisiana's alone, too few for that back-test [inferred]. So those 17 are not computed, and the record says why.
-- **Left out:** the governor. It is D2's level, and `data/governor/` holds even years only. The gate's check (c) compared it, and it is equal.
+- **Left out:** the governor. It is D2's level, now in `data/governor/2023.json` (D2's #74; this section first said `data/governor/` held even years only, true when written). The gate's check (c) compared it, and it is equal.
 
 **Questions** (`data/measure/2023/LA.json`) [measured]. 307: 8 statewide amendments (4 on 2023-10-14, 4 on 2023-11-18) and 299 local questions. The amendments are held back, as 2024's are, by La. Const. art. XIII §1(C) (§8, §12). They join step (a)'s list. The site's posted file gives each amendment's full title, which step (a) can read. The local questions wait on step (b).
 
