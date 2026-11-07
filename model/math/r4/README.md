@@ -1,0 +1,1 @@
+These seven scripts are R4's, copied verbatim from research/electoral-systems.md Appendix A on 2026-11-07, with the one placeholder path `<directory holding these files>` replaced by the directory of the file. They are re-run by s7_systems.py. Nothing else is changed.
