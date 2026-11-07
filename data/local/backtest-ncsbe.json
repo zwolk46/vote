@@ -50,7 +50,7 @@
   "2018": {
    "all": {
     "forecast": 159,
-    "expected_in_window": 13.5,
+    "expected_in_window": 13.6,
     "seen_in_window": 28
    },
    "boundary": {
@@ -60,7 +60,7 @@
    },
    "class": {
     "forecast": 150,
-    "expected_in_window": 12.5,
+    "expected_in_window": 12.6,
     "seen_in_window": 27
    },
    "local": {
@@ -70,7 +70,7 @@
    },
    "primary": {
     "forecast": 66,
-    "expected_in_window": 5.5,
+    "expected_in_window": 5.6,
     "seen_in_window": 11
    }
   },
@@ -119,12 +119,12 @@
    },
    "local": {
     "forecast": 131,
-    "expected_in_window": 11.6,
+    "expected_in_window": 11.5,
     "seen_in_window": 11
    },
    "primary": {
     "forecast": 116,
-    "expected_in_window": 8.6,
+    "expected_in_window": 8.8,
     "seen_in_window": 7
    }
   },
@@ -173,14 +173,14 @@
    },
    "primary": {
     "forecast": 112,
-    "expected_in_window": 8.0,
+    "expected_in_window": 8.1,
     "seen_in_window": 11
    }
   },
   "2023": {
    "all": {
-    "forecast": 418,
-    "expected_in_window": 52.2,
+    "forecast": 419,
+    "expected_in_window": 52.4,
     "seen_in_window": 57
    },
    "boundary": {
@@ -189,13 +189,13 @@
     "seen_in_window": 44
    },
    "class": {
-    "forecast": 172,
-    "expected_in_window": 11.7,
+    "forecast": 173,
+    "expected_in_window": 11.8,
     "seen_in_window": 13
    },
    "local": {
-    "forecast": 416,
-    "expected_in_window": 52.0,
+    "forecast": 417,
+    "expected_in_window": 52.2,
     "seen_in_window": 57
    },
    "primary": {
@@ -206,9 +206,9 @@
   },
   "2024": {
    "all": {
-    "forecast": 297,
-    "expected_in_window": 27.3,
-    "seen_in_window": 28
+    "forecast": 314,
+    "expected_in_window": 29.8,
+    "seen_in_window": 31
    },
    "boundary": {
     "forecast": 39,
@@ -216,18 +216,18 @@
     "seen_in_window": 3
    },
    "class": {
-    "forecast": 258,
-    "expected_in_window": 21.1,
-    "seen_in_window": 25
+    "forecast": 275,
+    "expected_in_window": 23.6,
+    "seen_in_window": 28
    },
    "local": {
-    "forecast": 173,
-    "expected_in_window": 16.2,
-    "seen_in_window": 14
+    "forecast": 190,
+    "expected_in_window": 19.0,
+    "seen_in_window": 17
    },
    "primary": {
     "forecast": 124,
-    "expected_in_window": 11.0,
+    "expected_in_window": 10.8,
     "seen_in_window": 14
    }
   },
@@ -260,9 +260,9 @@
   },
   "2026": {
    "all": {
-    "forecast": 210,
-    "expected_in_window": 19.3,
-    "seen_in_window": 14
+    "forecast": 242,
+    "expected_in_window": 22.4,
+    "seen_in_window": 17
    },
    "boundary": {
     "forecast": 4,
@@ -270,9 +270,9 @@
     "seen_in_window": 1
    },
    "class": {
-    "forecast": 206,
-    "expected_in_window": 18.5,
-    "seen_in_window": 13
+    "forecast": 238,
+    "expected_in_window": 21.6,
+    "seen_in_window": 16
    },
    "local": {
     "forecast": 26,
@@ -280,17 +280,17 @@
     "seen_in_window": 3
    },
    "primary": {
-    "forecast": 184,
-    "expected_in_window": 16.8,
-    "seen_in_window": 11
+    "forecast": 216,
+    "expected_in_window": 19.8,
+    "seen_in_window": 14
    }
   }
  },
  "pooled": {
   "all": {
-   "forecast": 3037,
-   "expected_in_window": 339.4,
-   "seen_in_window": 359
+   "forecast": 3087,
+   "expected_in_window": 345.3,
+   "seen_in_window": 365
   },
   "boundary": {
    "forecast": 1257,
@@ -298,19 +298,19 @@
    "seen_in_window": 209
   },
   "class": {
-   "forecast": 1780,
-   "expected_in_window": 142.7,
-   "seen_in_window": 150
+   "forecast": 1830,
+   "expected_in_window": 148.5,
+   "seen_in_window": 156
   },
   "local": {
-   "forecast": 2424,
-   "expected_in_window": 288.6,
-   "seen_in_window": 304
+   "forecast": 2442,
+   "expected_in_window": 291.5,
+   "seen_in_window": 307
   },
   "primary": {
-   "forecast": 613,
-   "expected_in_window": 50.6,
-   "seen_in_window": 55
+   "forecast": 645,
+   "expected_in_window": 53.8,
+   "seen_in_window": 58
   }
  },
  "calibration": {
@@ -319,11 +319,11 @@
     "2018": 0.994,
     "2019": 1.232,
     "2020": 1.214,
-    "2021": 1.181,
+    "2021": 1.182,
     "2022": 1.056,
-    "2023": 1.02,
-    "2024": 1.038,
-    "2025": 1.026,
+    "2023": 1.021,
+    "2024": 1.039,
+    "2025": 1.027,
     "2026": 1.052
    },
    "scored_years": [
@@ -349,12 +349,12 @@
      2025,
      2026
     ],
-    "contests": 2207,
-    "seen_near_half": 274,
-    "expected_before": 258.5,
-    "expected_after": 284.5,
-    "deviance_by_office_type_before": 5.08,
-    "deviance_after": 5.57,
+    "contests": 2225,
+    "seen_near_half": 277,
+    "expected_before": 261.2,
+    "expected_after": 287.5,
+    "deviance_by_office_type_before": 4.84,
+    "deviance_after": 5.24,
     "improves": false,
     "tested_cells_made_worse": [
      "class, local mayor or executive",
@@ -364,13 +364,13 @@
     "by_office_type": {
      "boundary, local council, commission or board": {
       "expected_before": 165.3,
-      "expected_after": 182.8,
+      "expected_after": 183.0,
       "seen": 176,
       "tested": true
      },
      "class, local council, commission or board": {
       "expected_before": 46.2,
-      "expected_after": 49.1,
+      "expected_after": 49.2,
       "seen": 56,
       "tested": true
      },
@@ -381,9 +381,9 @@
       "tested": true
      },
      "class, local school board": {
-      "expected_before": 16.6,
-      "expected_after": 18.1,
-      "seen": 13,
+      "expected_before": 19.3,
+      "expected_after": 20.9,
+      "seen": 16,
       "tested": true
      },
      "boundary, local special district": {
@@ -412,12 +412,12 @@
       2025,
       2026
      ],
-     "contests": 2114,
-     "seen_near_half": 257,
-     "expected_before": 250.5,
-     "expected_after": 276.5,
-     "deviance_by_office_type_before": 3.66,
-     "deviance_after": 5.46,
+     "contests": 2132,
+     "seen_near_half": 260,
+     "expected_before": 253.2,
+     "expected_after": 279.5,
+     "deviance_by_office_type_before": 3.43,
+     "deviance_after": 5.14,
      "improves": false,
      "tested_cells_made_worse": [
       "class, local mayor or executive",
@@ -436,12 +436,12 @@
       2025,
       2026
      ],
-     "contests": 1879,
-     "seen_near_half": 221,
-     "expected_before": 214.3,
-     "expected_after": 230.0,
-     "deviance_by_office_type_before": 4.36,
-     "deviance_after": 4.99,
+     "contests": 1897,
+     "seen_near_half": 224,
+     "expected_before": 217.0,
+     "expected_after": 233.0,
+     "deviance_by_office_type_before": 4.13,
+     "deviance_after": 4.67,
      "improves": false,
      "tested_cells_made_worse": [
       "boundary, local council, commission or board",
@@ -461,12 +461,12 @@
       2025,
       2026
      ],
-     "contests": 2076,
-     "seen_near_half": 263,
-     "expected_before": 246.8,
-     "expected_after": 270.3,
-     "deviance_by_office_type_before": 7.13,
-     "deviance_after": 7.48,
+     "contests": 2094,
+     "seen_near_half": 266,
+     "expected_before": 249.7,
+     "expected_after": 273.5,
+     "deviance_by_office_type_before": 6.64,
+     "deviance_after": 6.96,
      "improves": false,
      "tested_cells_made_worse": [
       "class, local mayor or executive",
@@ -485,12 +485,12 @@
       2025,
       2026
      ],
-     "contests": 1840,
-     "seen_near_half": 233,
-     "expected_before": 208.5,
-     "expected_after": 225.4,
-     "deviance_by_office_type_before": 6.03,
-     "deviance_after": 4.26,
+     "contests": 1858,
+     "seen_near_half": 236,
+     "expected_before": 211.2,
+     "expected_after": 228.4,
+     "deviance_by_office_type_before": 5.84,
+     "deviance_after": 3.96,
      "improves": true,
      "tested_cells_made_worse": [
       "class, local mayor or executive",
@@ -509,11 +509,11 @@
       2025,
       2026
      ],
-     "contests": 2003,
-     "seen_near_half": 261,
-     "expected_before": 240.7,
-     "expected_after": 265.7,
-     "deviance_by_office_type_before": 4.83,
+     "contests": 2021,
+     "seen_near_half": 264,
+     "expected_before": 243.6,
+     "expected_after": 268.8,
+     "deviance_by_office_type_before": 4.84,
      "deviance_after": 4.35,
      "improves": true,
      "tested_cells_made_worse": [
@@ -532,12 +532,12 @@
       2025,
       2026
      ],
-     "contests": 1791,
-     "seen_near_half": 217,
-     "expected_before": 206.4,
-     "expected_after": 231.4,
-     "deviance_by_office_type_before": 3.29,
-     "deviance_after": 4.4,
+     "contests": 1808,
+     "seen_near_half": 220,
+     "expected_before": 209.0,
+     "expected_after": 234.1,
+     "deviance_by_office_type_before": 3.0,
+     "deviance_after": 4.0,
      "improves": false,
      "tested_cells_made_worse": [
       "boundary, local council, commission or board",
@@ -557,12 +557,12 @@
       2025,
       2026
      ],
-     "contests": 2034,
+     "contests": 2035,
      "seen_near_half": 260,
-     "expected_before": 242.3,
-     "expected_after": 267.6,
-     "deviance_by_office_type_before": 6.44,
-     "deviance_after": 6.47,
+     "expected_before": 242.2,
+     "expected_after": 267.7,
+     "deviance_by_office_type_before": 6.38,
+     "deviance_after": 6.38,
      "improves": false,
      "tested_cells_made_worse": [
       "class, local mayor or executive",
@@ -581,12 +581,12 @@
       2024,
       2026
      ],
-     "contests": 1738,
-     "seen_near_half": 209,
-     "expected_before": 202.4,
-     "expected_after": 226.9,
-     "deviance_by_office_type_before": 4.48,
-     "deviance_after": 6.87,
+     "contests": 1756,
+     "seen_near_half": 212,
+     "expected_before": 205.1,
+     "expected_after": 229.9,
+     "deviance_by_office_type_before": 4.29,
+     "deviance_after": 6.6,
      "improves": false,
      "tested_cells_made_worse": [
       "boundary, local council, commission or board",
@@ -606,12 +606,12 @@
       2024,
       2025
      ],
-     "contests": 2181,
-     "seen_near_half": 271,
-     "expected_before": 255.9,
-     "expected_after": 281.7,
-     "deviance_by_office_type_before": 5.07,
-     "deviance_after": 5.63,
+     "contests": 2199,
+     "seen_near_half": 274,
+     "expected_before": 258.7,
+     "expected_after": 284.8,
+     "deviance_by_office_type_before": 4.75,
+     "deviance_after": 5.19,
      "improves": false,
      "tested_cells_made_worse": [
       "class, local mayor or executive",
@@ -625,8 +625,8 @@
   },
   "primary": {
    "factors": {
-    "2025": 1.277,
-    "2026": 1.294
+    "2025": 1.276,
+    "2026": 1.293
    },
    "scored_years": [
     2025,
@@ -637,12 +637,12 @@
      2025,
      2026
     ],
-    "contests": 189,
-    "seen_near_half": 12,
-    "expected_before": 17.1,
-    "expected_after": 22.1,
-    "deviance_by_office_type_before": 2.85,
-    "deviance_after": 6.72,
+    "contests": 221,
+    "seen_near_half": 15,
+    "expected_before": 20.2,
+    "expected_after": 26.1,
+    "deviance_by_office_type_before": 2.82,
+    "deviance_after": 6.92,
     "improves": false,
     "tested_cells_made_worse": [
      "primary, class, local council, commission or board"
@@ -650,8 +650,8 @@
     "passes": false,
     "by_office_type": {
      "primary, class, local council, commission or board": {
-      "expected_before": 10.4,
-      "expected_after": 13.4,
+      "expected_before": 10.2,
+      "expected_after": 13.1,
       "seen": 9,
       "tested": true
      },
@@ -659,6 +659,12 @@
       "expected_before": 4.1,
       "expected_after": 5.3,
       "seen": 2,
+      "tested": false
+     },
+     "primary, class, local sheriff or constable": {
+      "expected_before": 3.2,
+      "expected_after": 4.2,
+      "seen": 3,
       "tested": false
      },
      "primary, class, state legislature": {
@@ -674,12 +680,12 @@
      "years": [
       2026
      ],
-     "contests": 184,
-     "seen_near_half": 11,
-     "expected_before": 16.8,
-     "expected_after": 21.7,
-     "deviance_by_office_type_before": 3.11,
-     "deviance_after": 7.31,
+     "contests": 216,
+     "seen_near_half": 14,
+     "expected_before": 19.8,
+     "expected_after": 25.6,
+     "deviance_by_office_type_before": 3.05,
+     "deviance_after": 7.47,
      "improves": false,
      "tested_cells_made_worse": [
       "primary, class, local council, commission or board"
@@ -694,8 +700,8 @@
      "seen_near_half": 1,
      "expected_before": 0.3,
      "expected_after": 0.4,
-     "deviance_by_office_type_before": 0.89,
-     "deviance_after": 0.58,
+     "deviance_by_office_type_before": 0.87,
+     "deviance_after": 0.57,
      "improves": true,
      "tested_cells_made_worse": [],
      "passes": true

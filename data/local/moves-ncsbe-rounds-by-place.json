@@ -1,0 +1,6989 @@
+{
+"about": "every North Carolina State Board contest whose round mark or p changed when its rounds were keyed by place as well as name (M2's check c19, PR #69; the orchestrator, 2026-11-07 11:44: 'a round is the same contest only in the same place'). A contest of the same name on another date is now a round of this one only where their counties overlap. 'R': the mark (election words) corrected, p unchanged; 'C': the mark corrected and p now computed (all p = 0, one name on the ballot for each seat, which the false first-round mark had held); 'N': p now computed, its class now has 100 or more like races in earlier years; 'P': p moved, its class's like races in earlier years changed (contests the false marks had kept out of the pool are in it). Not listed: 809 contests whose not-computed reason changes only in its count of like races. No p outside North Carolina moves; the State Board's calibration test keeps its verdicts (data/local/backtest-ncsbe.json). data/local/REPORT.md section 9. Written by worker D3 at 2026-11-07 12:01 UTC.",
+"before_commit": "20eedb9",
+"after_code_commit": "c6daa9d",
+"counts": {
+"R: mark corrected": 357,
+"C: mark corrected, p now computed": 17,
+"N: computed, class now large enough": 36,
+"P: moved, the class's like races changed": 461
+},
+"columns": [
+"id",
+"election_before",
+"election_after",
+"p_before",
+"p_after",
+"why"
+],
+"contests": [
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION-AVERY",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION-NORTHAMPTON",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION-ONSLOW",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION-PERQUIMANS",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION-RICHMOND",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION-WILKES",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION-YADKIN",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION-YANCEY",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_1-CARTERET",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_1-DARE",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_2-DARE",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_3-CARTERET",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_3-DARE",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_4-PAMLICO",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_5-CARTERET",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_5-GRANVILLE",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_6-CARTERET",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION_DISTRICT_7-GRANVILLE",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2010-local-NC-ncsbe-2010-05-04-BOARD_OF_EDUCATION___Unexpired_term_ending_2012-ONSLOW",
+"first round: the same contest is on the ballot again on 2010-11-02 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2010-05-04, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-ALLEGHANY",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-ASHE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-BRUNSWICK",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-CALDWELL",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-CAMDEN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-CUMBERLAND",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-GRAHAM",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-GREENE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-HENDERSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-HERTFORD",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-HOKE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-JONES",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-MITCHELL",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-NEW_HANOVER",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-STOKES",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-SWAIN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-TRANSYLVANIA",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION-WATAUGA",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_AT_LARGE-ANSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_AT_LARGE-CURRITUCK",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_AT_LARGE-FORSYTH",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_AT_LARGE-GASTON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_AT_LARGE-ROCKINGHAM",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_AT_LARGE-SCOTLAND",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_AT_LARGE-STANLY",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_AT_LARGE-UNION",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-ALEXANDER",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-BLADEN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-CHOWAN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-FORSYTH",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-HARNETT",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-LENOIR",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-MARTIN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-MONTGOMERY",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-RUTHERFORD",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-VANCE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-WARREN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-WASHINGTON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-WAYNE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_1-WILSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-ALEXANDER",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-ANSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-BEAUFORT",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-BERTIE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-BLADEN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-CRAVEN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-DUPLIN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-FORSYTH",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-LENOIR",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-MACON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-MARTIN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-RUTHERFORD",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-VANCE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-WARREN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_2-WASHINGTON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-BERTIE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-BLADEN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-CHATHAM",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-CHOWAN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-DUPLIN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-HARNETT",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-RUTHERFORD",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-UNION",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_3-WILSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-ALEXANDER",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-ANSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-BEAUFORT",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-BERTIE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-CHATHAM",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-CRAVEN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-DUPLIN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-GUILFORD",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-MACON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-MARTIN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-UNION",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-WARREN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_4-WAYNE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_5-ANSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_5-HARNETT",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_5-LENOIR",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_5-WAYNE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_5-WILSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-BEAUFORT",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-CRAVEN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-GUILFORD",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-MARTIN",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-MONTGOMERY",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-STANLY",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-UNION",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-VANCE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_6-WAYNE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_7-MONTGOMERY",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_7-STANLY",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_7-VANCE",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION_DISTRICT_7-WILSON",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2010-local-NC-ncsbe-2010-11-02-BOARD_OF_EDUCATION___Unexpired_term_ending_2012-CALDWELL",
+"deciding round after an earlier round on 2010-05-04 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-06-22-COUNTY_SALES_AND_USE_TAX-WILKES",
+"election on 2010-06-22, not a November general (the source does not say its kind); a question of the same title was on the ballot on 2010-11-02 too",
+"election on 2010-06-22, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-ALAMANCE",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-ALLEGHANY",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-BLADEN",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-CASWELL",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-CHEROKEE",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-CHOWAN",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-CLAY",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-COLUMBUS",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-GUILFORD",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-HARNETT",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-MONTGOMERY",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-ORANGE",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-PERSON",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-measure-NC-ncsbe-2010-11-02-COUNTY_SALES_AND_USE_TAX-YADKIN",
+"general; a question of the same title was on the ballot on 2010-06-22 too",
+"general",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-AVERY",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-BEAUFORT",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-BURKE",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-CABARRUS",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-CALDWELL",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-CLAY",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-DAVIDSON",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-GRAHAM",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-HAYWOOD",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-MADISON",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-MCDOWELL",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-MITCHELL",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-ROCKINGHAM",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-STANLY",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-STOKES",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-TRANSYLVANIA",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-UNION",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-WILKES",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER-rep-YADKIN",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER_AT_LARGE-rep-MECKLENBURG",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER_DISTRICT_2-rep-BRUNSWICK",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER_DISTRICT_2-rep-CRAVEN",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER_DISTRICT_2-rep-GUILFORD",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER_DISTRICT_2-rep-LENOIR",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-COUNTY_COMMISSIONER_DISTRICT_2-rep-WAKE",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-ALEXANDER",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-ANSON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-BERTIE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-BRUNSWICK",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-BUNCOMBE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-CLAY",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-CLEVELAND",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-CRAVEN",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-CUMBERLAND",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-DURHAM",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-EDGECOMBE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-FRANKLIN",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-GRAHAM",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-GRANVILLE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-GREENE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-HAYWOOD",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-HOKE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-HYDE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-IREDELL",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-JACKSON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-LINCOLN",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-MACON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-MARTIN",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-MCDOWELL",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-MECKLENBURG",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-MONTGOMERY",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-NASH",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-NORTHAMPTON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-ORANGE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-PASQUOTANK",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-PERSON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-PITT",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-RICHMOND",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-ROBESON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-ROWAN",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-SAMPSON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-SCOTLAND",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-STOKES",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-TYRRELL",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-VANCE",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-WARREN",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-WASHINGTON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-WILSON",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-dem-YANCEY",
+"Democratic primary (a second primary followed on 2010-06-22) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-AVERY",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-BERTIE",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-BRUNSWICK",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-CALDWELL",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-CARTERET",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-CATAWBA",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-CHEROKEE",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-CLAY",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-CLEVELAND",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-DARE",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-DAVIDSON",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-FORSYTH",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-GASTON",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-GRAHAM",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-GUILFORD",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-HENDERSON",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-IREDELL",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-LINCOLN",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-MADISON",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-MCDOWELL",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-PENDER",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-POLK",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-RANDOLPH",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-RICHMOND",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-ROWAN",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-RUTHERFORD",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-STANLY",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-STOKES",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-SWAIN",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-WILKES",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2010-primary-NC-ncsbe-2010-05-04-SHERIFF-rep-YADKIN",
+"Republican primary (a second primary followed on 2010-06-22) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-ALAMANCE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-ALEXANDER",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-ALLEGHANY",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-ASHE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-BEAUFORT",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-CABARRUS",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-CALDWELL",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-CATAWBA",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-CLAY",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-DAVIDSON",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-DAVIE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-GRAHAM",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-IREDELL",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-LINCOLN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-MCDOWELL",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-MITCHELL",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-ROCKINGHAM",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-ROWAN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-STOKES",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-TRANSYLVANIA",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS-rep-YADKIN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-ANSON",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-BERTIE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-BLADEN",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-GREENE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-HARNETT",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-MECKLENBURG",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-ORANGE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-WARREN",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-CURRITUCK",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-HENDERSON",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-JOHNSTON",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-WATAUGA",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-DAVIE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-JOHNSTON",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-LINCOLN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-MECKLENBURG",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-MOORE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-ONSLOW",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-PITT",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-ROWAN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-WAKE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-WILKES",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CLERK_OF_SUPERIOR_COURT-rep-YADKIN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-CORONER-dem-CASWELL",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-REGISTER_OF_DEEDS-rep-IREDELL",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-REGISTER_OF_DEEDS-rep-ROWAN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-BLADEN",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-CASWELL",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-CHATHAM",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-CHEROKEE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-COLUMBUS",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-CRAVEN",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-CUMBERLAND",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-DARE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-DURHAM",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-EDGECOMBE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-FRANKLIN",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-GRAHAM",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-GRANVILLE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-GREENE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-GUILFORD",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-HALIFAX",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-HYDE",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-IREDELL",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-JACKSON",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-LENOIR",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-MADISON",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-MECKLENBURG",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-MONTGOMERY",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-NASH",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-NEW_HANOVER",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-NORTHAMPTON",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-PAMLICO",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-PITT",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-ROBESON",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-RUTHERFORD",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-SAMPSON",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-SCOTLAND",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-STANLY",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-SWAIN",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-UNION",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-WARREN",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-WASHINGTON",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-dem-WILSON",
+"Democratic primary (a second primary followed on 2014-07-15) [inferred]",
+"Democratic primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-ALLEGHANY",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-ASHE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-AVERY",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-BURKE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-CALDWELL",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-CLAY",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-CRAVEN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-CUMBERLAND",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-CURRITUCK",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-DAVIDSON",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-DAVIE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-FORSYTH",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-FRANKLIN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-GASTON",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-GATES",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-GRAHAM",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-HENDERSON",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-IREDELL",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-MACON",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-MECKLENBURG",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-MONTGOMERY",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-MOORE",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-NEW_HANOVER",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-ONSLOW",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-PENDER",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-RANDOLPH",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-ROWAN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-RUTHERFORD",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-STANLY",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-UNION",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-WILKES",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2014-primary-NC-ncsbe-2014-05-06-SHERIFF-rep-YADKIN",
+"Republican primary (a second primary followed on 2014-07-15) [inferred]",
+"Republican primary",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION-HYDE",
+"first round: the same contest is on the ballot again on 2016-06-07 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION-JOHNSTON",
+"first round: the same contest is on the ballot again on 2016-06-07 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION-ONSLOW",
+"first round: the same contest is on the ballot again on 2016-06-07 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION-PERQUIMANS",
+"first round: the same contest is on the ballot again on 2016-06-07 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION-RICHMOND",
+"first round: the same contest is on the ballot again on 2016-06-07 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_1-PAMLICO",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_2-CARTERET",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_2-EDGECOMBE",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_2-PAMLICO",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_3-CARTERET",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_3-PAMLICO",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_3-PENDER",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_3-WAYNE",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_4-CARTERET",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_4-EDGECOMBE",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_5-GRANVILLE",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_5-PAMLICO",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+0.0,
+"C"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_5-PENDER",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-03-15-BOARD_OF_EDUCATION_DISTRICT_6-EDGECOMBE",
+"first round: the same contest is on the ballot again on 2016-11-08 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-BOARD_OF_EDUCATION_DISTRICT_1-CUMBERLAND",
+"deciding round after an earlier round on 2016-03-15 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-BOARD_OF_EDUCATION_DISTRICT_2-CUMBERLAND",
+"deciding round after an earlier round on 2016-03-15 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-BOARD_OF_EDUCATION_DISTRICT_3-CUMBERLAND",
+"deciding round after an earlier round on 2016-03-15 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-BOARD_OF_EDUCATION_DISTRICT_4-CUMBERLAND",
+"deciding round after an earlier round on 2016-03-15 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-BOARD_OF_EDUCATION_DISTRICT_5-CUMBERLAND",
+"deciding round after an earlier round on 2016-03-15 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+0.0,
+0.0,
+"R"
+],
+[
+"2016-local-NC-ncsbe-2016-11-08-BOARD_OF_EDUCATION_DISTRICT_6-CUMBERLAND",
+"deciding round after an earlier round on 2016-03-15 (a nonpartisan primary or a first round that went to a runoff; the source does not say which) [inferred]",
+"general",
+null,
+null,
+"R"
+],
+[
+"2016-measure-NC-ncsbe-2016-03-15-COUNTYWIDE_MALT_BEVERAGE_ELECTION-UNION",
+"election on 2016-03-15, not a November general (the source does not say its kind); a question of the same title was on the ballot on 2016-11-08 too",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2016-measure-NC-ncsbe-2016-03-15-COUNTYWIDE_UNFORTIFIED_WINE_ELECTION-UNION",
+"election on 2016-03-15, not a November general (the source does not say its kind); a question of the same title was on the ballot on 2016-11-08 too",
+"election on 2016-03-15, not a November general (the source does not say its kind)",
+null,
+null,
+"R"
+],
+[
+"2017-primary-NC-ncsbe-2017-09-12-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_6-rep-MECKLENBURG",
+"Republican primary",
+"Republican primary",
+0.000262759,
+0.000266276,
+"P"
+],
+[
+"2017-primary-NC-ncsbe-2017-10-10-CITY_OF_CHARLOTTE_COUNCIL_DISTRICT_5-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000629939,
+0.000638371,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-ANSON",
+"Democratic primary",
+"Democratic primary",
+0.00216832,
+0.00219979,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-BERTIE",
+"Democratic primary",
+"Democratic primary",
+0.000285595,
+0.000289802,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-dem-BERTIE",
+"Democratic primary",
+"Democratic primary",
+0.00029154,
+0.000295834,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-BERTIE",
+"Democratic primary",
+"Democratic primary",
+0.000298161,
+0.000302552,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-dem-BLADEN",
+"Democratic primary",
+"Democratic primary",
+0.000976227,
+0.000990605,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-BRUNSWICK",
+"Republican primary",
+"Republican primary",
+0.000193056,
+0.0001959,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-CASWELL",
+"Republican primary",
+"Republican primary",
+0.00654926,
+0.0066416,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_I-rep-CHEROKEE",
+"Republican primary",
+"Republican primary",
+0.000274118,
+0.000278155,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-CHEROKEE",
+"Republican primary",
+"Republican primary",
+0.000281237,
+0.000285379,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_IV-rep-CHEROKEE",
+"Republican primary",
+"Republican primary",
+0.000274261,
+0.000278301,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CITY_OF_ALBEMARLE_CITY_COUNCIL__AT_LARGE-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000747098,
+0.000758102,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CITY_OF_LINCOLNTON_CITY_COUNCIL_WARD_1-dem-LINCOLN",
+"Democratic primary",
+"Democratic primary",
+0.00150608,
+0.00152804,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-COLUMBUS_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_7-dem-COLUMBUS",
+"Democratic primary",
+"Democratic primary",
+0.00166879,
+0.00169309,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-CRAVEN",
+"Republican primary",
+"Republican primary",
+0.000873167,
+0.000886028,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-rep-CRAVEN",
+"Republican primary",
+"Republican primary",
+0.000582596,
+0.000591177,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-CRAVEN",
+"Democratic primary",
+"Democratic primary",
+0.00183497,
+0.00186167,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000359979,
+0.000365282,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-DARE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-DARE",
+"Republican primary",
+"Republican primary",
+0.000395937,
+0.000401768,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-rep-DARE",
+"Republican primary",
+"Republican primary",
+0.000393121,
+0.000398911,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-FORSYTH",
+"Republican primary",
+"Republican primary",
+0.00011455,
+0.000116237,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-dem-FRANKLIN",
+"Democratic primary",
+"Democratic primary",
+0.00106161,
+0.00107714,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-GATES_COUNTY_BOARD_OF_COMMISSIONERS_GATESVILLE_DISTRICT-dem-GATES",
+"Democratic primary",
+"Democratic primary",
+0.000538401,
+0.000546331,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-GATES_COUNTY_BOARD_OF_COMMISSIONERS_GATES_DISTRICT-dem-GATES",
+"Democratic primary",
+"Democratic primary",
+0.000511901,
+0.00051944,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-GREENE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-dem-GREENE",
+"Democratic primary",
+"Democratic primary",
+0.000438223,
+0.000444677,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-rep-GUILFORD",
+"Republican primary",
+"Republican primary",
+0.000430677,
+0.00043702,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_8_UNEXPIRED-dem-GUILFORD",
+"Democratic primary",
+"Democratic primary",
+0.000323107,
+0.000327866,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-dem-HENDERSON",
+"Democratic primary",
+"Democratic primary",
+0.000301066,
+0.000305501,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-rep-HENDERSON",
+"Republican primary",
+"Republican primary",
+8.77251e-05,
+8.90172e-05,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-HERTFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-HERTFORD",
+"Democratic primary",
+"Democratic primary",
+0.000254833,
+0.000258586,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-HYDE_COUNTY_BOARD_OF_COMMISSIONERS_SWAN_QUARTER_TOWNSHIP-dem-HYDE",
+"Democratic primary",
+"Democratic primary",
+0.00178203,
+0.00180797,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-JACKSON",
+"Republican primary",
+"Republican primary",
+0.000913409,
+0.000926862,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+0.000120406,
+0.000122179,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+0.000127851,
+0.000129734,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_6__UNEXPIRED-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+0.000123943,
+0.000125769,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_7-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+0.000127016,
+0.000128887,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-JONES_COUNTY_BOARD_OF_COMMISSIONER_DISTRICT_2-dem-JONES",
+"Democratic primary",
+"Democratic primary",
+0.00689327,
+0.00699024,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-JONES_COUNTY_BOARD_OF_COMMISSIONER_DISTRICT_7-dem-JONES",
+"Democratic primary",
+"Democratic primary",
+0.0072242,
+0.00732557,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-LEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-rep-LEE",
+"Republican primary",
+"Republican primary",
+0.00243466,
+0.00246993,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-MACON",
+"Republican primary",
+"Republican primary",
+0.000422704,
+0.00042893,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000107746,
+0.000109333,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-MOORE",
+"Republican primary",
+"Republican primary",
+0.00010454,
+0.00010608,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.000269408,
+0.000273376,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.000263197,
+0.000267074,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-ORANGE",
+"Democratic primary",
+"Democratic primary",
+0.00014579,
+0.000147938,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-dem-PENDER",
+"Democratic primary",
+"Democratic primary",
+0.000529179,
+0.000536973,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.000268581,
+0.000272537,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-PITT",
+"Democratic primary",
+"Democratic primary",
+0.000567182,
+0.000575535,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-PITT",
+"Republican primary",
+"Republican primary",
+0.000814279,
+0.000826272,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-dem-PITT",
+"Democratic primary",
+"Democratic primary",
+0.000469987,
+0.000476909,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-RANDOLPH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-rep-RANDOLPH",
+"Republican primary",
+"Republican primary",
+8.63335e-05,
+8.76051e-05,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-dem-ROBESON",
+"Democratic primary",
+"Democratic primary",
+0.000409201,
+0.000415228,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_6-rep-ROBESON",
+"Republican primary",
+"Republican primary",
+0.00214614,
+0.00217729,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-SAMPSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-SAMPSON",
+"Democratic primary",
+"Democratic primary",
+0.00119712,
+0.00121461,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-SCOTLAND_COUNTY_BOARD_OF_COMMISSIONERS_SPRING_HILL_TOWNSHIP-dem-SCOTLAND",
+"Democratic primary",
+"Democratic primary",
+0.000317924,
+0.000322606,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000149974,
+0.000152183,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000152744,
+0.000154994,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000149739,
+0.000151945,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_3-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000150641,
+0.00015286,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_MOUNT_AIRY_DISTRICT-rep-SURRY",
+"Republican primary",
+"Republican primary",
+0.000186841,
+0.000189593,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-SWAIN_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-dem-SWAIN",
+"Democratic primary",
+"Democratic primary",
+0.000762832,
+0.000774068,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_1-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+1.6951e-05,
+1.72007e-05,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_2-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+1.67504e-05,
+1.69972e-05,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_4-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+1.67818e-05,
+1.70289e-05,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+1.77319e-05,
+1.79931e-05,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_7-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+1.7062e-05,
+1.73133e-05,
+"P"
+],
+[
+"2018-primary-NC-ncsbe-2018-05-08-WATAUGA_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_5-rep-WATAUGA",
+"Republican primary",
+"Republican primary",
+0.000355954,
+0.000361197,
+"P"
+],
+[
+"2019-local-NC-ncsbe-2019-11-05-HICKORY_PUBLIC_SCHOOLS_BOARD_OF_EDUCATION_WARD_06-CATAWBA",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.00316194,
+0.00307946,
+"P"
+],
+[
+"2019-primary-NC-ncsbe-2019-09-10-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_01-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.00017611,
+0.000181002,
+"P"
+],
+[
+"2019-primary-NC-ncsbe-2019-09-10-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_07-rep-MECKLENBURG",
+"Republican primary",
+"Republican primary",
+0.000134407,
+0.000138141,
+"P"
+],
+[
+"2020-local-NC-ncsbe-2020-03-03-CASWELL_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-CASWELL",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+0.00215733,
+0.00209902,
+"P"
+],
+[
+"2020-local-NC-ncsbe-2020-03-03-EDGECOMBE_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_06-EDGECOMBE",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+0.00203232,
+0.00197739,
+"P"
+],
+[
+"2020-local-NC-ncsbe-2020-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-GATES",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+0.00133727,
+0.00130113,
+"P"
+],
+[
+"2020-local-NC-ncsbe-2020-03-03-JACKSON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-JACKSON",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+0.00027456,
+0.000267139,
+"P"
+],
+[
+"2020-local-NC-ncsbe-2020-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-WARREN",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+0.000513035,
+0.000499169,
+"P"
+],
+[
+"2020-local-NC-ncsbe-2020-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-WARREN",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+0.000507858,
+0.000494132,
+"P"
+],
+[
+"2020-local-NC-ncsbe-2020-03-03-YADKIN_COUNTY_BOARD_OF_EDUCATION__UNEXPIRED-YADKIN",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+"election on 2020-03-03, not a November general (the source does not say its kind)",
+0.000292201,
+0.000284303,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-ANSON",
+"Democratic primary",
+"Democratic primary",
+0.00320222,
+0.00328999,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-ANSON",
+"Democratic primary",
+"Democratic primary",
+0.00214467,
+0.0022041,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BERTIE",
+"Democratic primary",
+"Democratic primary",
+0.000505125,
+0.000519441,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-BLADEN",
+"Republican primary",
+"Republican primary",
+0.00106384,
+0.001094,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-BLADEN",
+"Democratic primary",
+"Democratic primary",
+0.00112739,
+0.00115934,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-BRUNSWICK",
+"Republican primary",
+"Republican primary",
+0.000106881,
+0.00010991,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BUNCOMBE",
+"Democratic primary",
+"Democratic primary",
+8.49049e-05,
+8.73113e-05,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-BUNCOMBE",
+"Republican primary",
+"Republican primary",
+0.000279783,
+0.000287713,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-BUNCOMBE",
+"Democratic primary",
+"Democratic primary",
+8.91365e-05,
+9.16628e-05,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CAMDEN_COUNTY_BOARD_OF_COMMISSIONERS_SOUTH_MILLS_DISTRICT-rep-CAMDEN",
+"Republican primary",
+"Republican primary",
+0.00115749,
+0.00119029,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-CARTERET",
+"Republican primary",
+"Republican primary",
+0.000515182,
+0.000529784,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CHATHAM_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-CHATHAM",
+"Democratic primary",
+"Democratic primary",
+0.000110923,
+0.000114067,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_II-rep-CHEROKEE",
+"Republican primary",
+"Republican primary",
+0.000309288,
+0.000318054,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_V-rep-CHEROKEE",
+"Republican primary",
+"Republican primary",
+0.000310185,
+0.000318976,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CHOWAN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CHOWAN",
+"Republican primary",
+"Republican primary",
+0.00128651,
+0.00132297,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_NORTH_WARD-dem-FORSYTH",
+"Democratic primary",
+"Democratic primary",
+0.000391669,
+0.00040277,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_SOUTHWEST_WARD-dem-FORSYTH",
+"Democratic primary",
+"Democratic primary",
+0.000340178,
+0.000349819,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_WEST_WARD-rep-FORSYTH",
+"Republican primary",
+"Republican primary",
+0.000517175,
+0.000531833,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.00042599,
+0.000438063,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000423964,
+0.000435979,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-DARE",
+"Republican primary",
+"Republican primary",
+0.00053601,
+0.000551202,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-DUPLIN",
+"Democratic primary",
+"Democratic primary",
+0.00157128,
+0.00161581,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-EDGECOMBE",
+"Democratic primary",
+"Democratic primary",
+0.00134362,
+0.0013817,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE_SEAT_07-dem-FRANKLIN",
+"Democratic primary",
+"Democratic primary",
+0.0002087,
+0.000214615,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-FRANKLIN",
+"Republican primary",
+"Republican primary",
+0.00198298,
+0.00203802,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_CROWDERS_MOUNTAIN_TWP-rep-GASTON",
+"Republican primary",
+"Republican primary",
+0.000102786,
+0.000105699,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_GASTONIA_TWP-dem-GASTON",
+"Democratic primary",
+"Democratic primary",
+0.00011004,
+0.000113159,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-GRANVILLE",
+"Democratic primary",
+"Democratic primary",
+0.00123882,
+0.00127394,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-GRANVILLE",
+"Democratic primary",
+"Democratic primary",
+0.00143111,
+0.00147167,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GREENE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-GREENE",
+"Democratic primary",
+"Democratic primary",
+0.00073726,
+0.000758155,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-GUILFORD",
+"Democratic primary",
+"Democratic primary",
+0.000159139,
+0.000163649,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-GUILFORD",
+"Republican primary",
+"Republican primary",
+0.000365356,
+0.000375711,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-GUILFORD",
+"Republican primary",
+"Republican primary",
+0.000324293,
+0.000333484,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_08-dem-GUILFORD",
+"Democratic primary",
+"Democratic primary",
+0.000183556,
+0.000188758,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02__UNEX-rep-HARNETT",
+"Republican primary",
+"Republican primary",
+0.000770547,
+0.000792385,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-HARNETT",
+"Republican primary",
+"Republican primary",
+0.000663199,
+0.000681995,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-HARNETT",
+"Republican primary",
+"Republican primary",
+0.000656415,
+0.000675019,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-HENDERSON",
+"Democratic primary",
+"Democratic primary",
+0.00012674,
+0.000130332,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-HENDERSON",
+"Republican primary",
+"Republican primary",
+0.000102131,
+0.000105026,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-HERTFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-HERTFORD",
+"Democratic primary",
+"Democratic primary",
+0.00040107,
+0.000412437,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+8.36825e-05,
+8.60543e-05,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-MACON",
+"Democratic primary",
+"Democratic primary",
+0.000502121,
+0.000516352,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+6.57949e-05,
+6.76597e-05,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-MONTGOMERY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-MONTGOMERY",
+"Republican primary",
+"Republican primary",
+0.00114755,
+0.00118008,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_II-rep-MOORE",
+"Republican primary",
+"Republican primary",
+0.000121813,
+0.000125265,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-NASH",
+"Democratic primary",
+"Democratic primary",
+0.000780291,
+0.000802406,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.000335623,
+0.000345135,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.000334573,
+0.000344056,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-ORANGE",
+"Democratic primary",
+"Democratic primary",
+4.05356e-05,
+4.16845e-05,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-PAMLICO_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-PAMLICO",
+"Republican primary",
+"Republican primary",
+0.00315188,
+0.00323831,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-PASQUOTANK_COUNTY_BOARD_OF_COMMISSIONERS_NORTHERN_INSIDE-dem-PASQUOTANK",
+"Democratic primary",
+"Democratic primary",
+0.00144921,
+0.00149029,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06__UNEXPIRED-rep-PITT",
+"Republican primary",
+"Republican primary",
+0.000543455,
+0.000558857,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-ROBESON",
+"Democratic primary",
+"Democratic primary",
+0.00110184,
+0.00113307,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-ROBESON",
+"Democratic primary",
+"Democratic primary",
+0.000653208,
+0.000671721,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-RUTHERFORD",
+"Republican primary",
+"Republican primary",
+0.000223811,
+0.000230154,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-SAMPSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-SAMPSON",
+"Democratic primary",
+"Democratic primary",
+0.00106173,
+0.00109182,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-SCOTLAND_COUNTY_BOARD_OF_COMMISSIONERS_LAUREL_HILL_TWP-dem-SCOTLAND",
+"Democratic primary",
+"Democratic primary",
+0.000433354,
+0.000445636,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000195429,
+0.000200968,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_MOUNT_AIRY_DISTRICT-rep-SURRY",
+"Republican primary",
+"Republican primary",
+0.000219854,
+0.000226086,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+9.63542e-06,
+9.9085e-06,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+9.96124e-06,
+1.02436e-05,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WARREN",
+"Democratic primary",
+"Democratic primary",
+0.000423516,
+0.000435519,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-WARREN",
+"Democratic primary",
+"Democratic primary",
+0.000421956,
+0.000433915,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-WAYNE",
+"Republican primary",
+"Republican primary",
+0.000156806,
+0.00016125,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WAYNE",
+"Democratic primary",
+"Democratic primary",
+0.000779154,
+0.000801237,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-WAYNE",
+"Republican primary",
+"Republican primary",
+0.000683253,
+0.000702618,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-WAYNE",
+"Republican primary",
+"Republican primary",
+0.000769069,
+0.000790866,
+"P"
+],
+[
+"2020-primary-NC-ncsbe-2020-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-WAYNE",
+"Republican primary",
+"Republican primary",
+0.000815596,
+0.000838712,
+"P"
+],
+[
+"2021-local-NC-ncsbe-2021-11-02-BURKE_COUNTY_BOARD_OF_EDUCATION_CENTRAL_DISTRICT-BURKE",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.000254912,
+0.00025001,
+"P"
+],
+[
+"2021-local-NC-ncsbe-2021-11-02-BURKE_COUNTY_BOARD_OF_EDUCATION_EASTERN_DISTRICT-BURKE",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.000264713,
+0.000259623,
+"P"
+],
+[
+"2021-local-NC-ncsbe-2021-11-02-HICKORY_PUBLIC_SCHOOLS_BOARD_OF_EDUCATION_WARD_01-CATAWBA",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.00987916,
+0.00971524,
+"P"
+],
+[
+"2021-local-NC-ncsbe-2021-11-02-HICKORY_PUBLIC_SCHOOLS_BOARD_OF_EDUCATION_WARD_05-CATAWBA",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.0338769,
+0.0334837,
+"P"
+],
+[
+"2021-local-NC-ncsbe-2021-11-02-NEWTON_CONOVER_SCHOOLS_BOARD_OF_EDUCATION_CONOVER_DISTRICT-CATAWBA",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.00242753,
+0.00238251,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-CASWELL_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-CASWELL",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00326721,
+0.00320915,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-DURHAM",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.000142146,
+0.000139498,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-EDGECOMBE_COUNTY_SCHOOLS_BOARD_OF_EDUCATION_DISTRICT_07-EDGECOMBE",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.0035297,
+0.0034672,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-GATES",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00144721,
+0.00142024,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-GATES",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00143236,
+0.00140567,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-GATES",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00144544,
+0.00141851,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-GRANVILLE",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00187622,
+0.00184126,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07-GRANVILLE",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00257558,
+0.00252934,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_05-DAVIDSON",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00697774,
+0.00686018,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-NORTHAMPTON_COUNTY_BOARD_OF_EDUCATION__UNEXPIRED-NORTHAMPTON",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.000596037,
+0.00058493,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-PAMLICO_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-PAMLICO",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00545235,
+0.00535847,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-ROBESON",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00145252,
+0.00142545,
+"P"
+],
+[
+"2022-local-NC-ncsbe-2022-05-17-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-ROBESON",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+"election on 2022-05-17, not a November general (the source does not say its kind)",
+0.00255621,
+0.00251031,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-ALEXANDER_COUNTY_BOARD_OF_COMMISSIONERS__UNEXPIRED-rep-ALEXANDER",
+"Republican primary",
+"Republican primary",
+0.000503626,
+0.000511545,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-BLADEN",
+"Republican primary",
+"Republican primary",
+0.00145723,
+0.00148014,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BUNCOMBE",
+"Democratic primary",
+"Democratic primary",
+0.000150047,
+0.000152406,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CAMDEN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CAMDEN",
+"Republican primary",
+"Republican primary",
+0.00111128,
+0.00112875,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CAMDEN_COUNTY_BOARD_OF_COMMISSIONERS_SHILOH_DISTRICT-rep-CAMDEN",
+"Republican primary",
+"Republican primary",
+0.00115643,
+0.00117461,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CARTERET",
+"Republican primary",
+"Republican primary",
+0.00114965,
+0.00116772,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-CARTERET",
+"Republican primary",
+"Republican primary",
+0.00083834,
+0.000851522,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CASWELL",
+"Republican primary",
+"Republican primary",
+0.00492113,
+0.00499432,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-CASWELL",
+"Republican primary",
+"Republican primary",
+0.00315305,
+0.00320089,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CHATHAM_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-CHATHAM",
+"Democratic primary",
+"Democratic primary",
+0.000197108,
+0.000200207,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_03-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000271368,
+0.000275635,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CITY_OF_SANFORD_COUNCIL_MEMBER_WARD_01-dem-LEE",
+"Democratic primary",
+"Democratic primary",
+0.00352483,
+0.00357809,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-CRAVEN",
+"Democratic primary",
+"Democratic primary",
+0.00145243,
+0.00147527,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-CRAVEN",
+"Republican primary",
+"Republican primary",
+0.000746491,
+0.000758229,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-CRAVEN",
+"Democratic primary",
+"Democratic primary",
+0.00278047,
+0.00282284,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000624675,
+0.000634497,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-DARE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-DARE",
+"Republican primary",
+"Republican primary",
+0.00049006,
+0.000497765,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-DUPLIN",
+"Republican primary",
+"Republican primary",
+0.00166012,
+0.00168622,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-FORSYTH",
+"Democratic primary",
+"Democratic primary",
+8.32801e-05,
+8.45896e-05,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE_SEAT_06-rep-FRANKLIN",
+"Republican primary",
+"Republican primary",
+0.000294559,
+0.000299191,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_DALLAS_TWP-rep-GASTON",
+"Republican primary",
+"Republican primary",
+0.000102677,
+0.000104291,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-GATES_COUNTY_BOARD_OF_COMMISSIONERS_GATES_DISTRICT-dem-GATES",
+"Democratic primary",
+"Democratic primary",
+0.0014394,
+0.00146203,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-GUILFORD",
+"Democratic primary",
+"Democratic primary",
+4.44063e-05,
+4.51045e-05,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-GUILFORD",
+"Republican primary",
+"Republican primary",
+6.63548e-05,
+6.73981e-05,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-GUILFORD",
+"Republican primary",
+"Republican primary",
+0.000350627,
+0.00035614,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-rep-GUILFORD",
+"Republican primary",
+"Republican primary",
+0.00152524,
+0.00154922,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-HARNETT",
+"Democratic primary",
+"Democratic primary",
+0.00140614,
+0.00142825,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-HARNETT",
+"Republican primary",
+"Republican primary",
+0.000951837,
+0.000966803,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-HENDERSON",
+"Republican primary",
+"Republican primary",
+0.000105393,
+0.00010705,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-rep-JACKSON",
+"Republican primary",
+"Republican primary",
+0.000591786,
+0.000601091,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-JACKSON",
+"Republican primary",
+"Republican primary",
+0.000626004,
+0.000635847,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+9.90629e-05,
+0.00010062,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-JONES_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-JONES",
+"Democratic primary",
+"Democratic primary",
+0.0131402,
+0.0133185,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-MACON",
+"Republican primary",
+"Republican primary",
+0.00025568,
+0.0002597,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000152025,
+0.000154415,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-MECKLENBURG",
+"Republican primary",
+"Republican primary",
+0.000168211,
+0.000170856,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-MOORE",
+"Republican primary",
+"Republican primary",
+0.000155865,
+0.000158316,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-NASH",
+"Republican primary",
+"Republican primary",
+0.000947748,
+0.000962649,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-dem-NASH",
+"Democratic primary",
+"Democratic primary",
+0.00129567,
+0.00131604,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.000470588,
+0.000477987,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.0004939,
+0.000501666,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.000491288,
+0.000499012,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-PASQUOTANK_COUNTY_BOARD_OF_COMMISSIONERS_SOUTHERN_INSIDE-dem-PASQUOTANK",
+"Democratic primary",
+"Democratic primary",
+0.00176471,
+0.00179245,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.000299814,
+0.000304528,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.000312836,
+0.000317754,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-PITT",
+"Democratic primary",
+"Democratic primary",
+0.000826947,
+0.00083995,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-RANDOLPH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-RANDOLPH",
+"Republican primary",
+"Republican primary",
+0.000101385,
+0.000102979,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-RANDOLPH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-RANDOLPH",
+"Republican primary",
+"Republican primary",
+0.000101788,
+0.000103389,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-ROBESON",
+"Democratic primary",
+"Democratic primary",
+0.00199691,
+0.0020276,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_08-dem-ROBESON",
+"Democratic primary",
+"Democratic primary",
+0.0020647,
+0.00209641,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-RUTHERFORD",
+"Republican primary",
+"Republican primary",
+0.000234575,
+0.000238263,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-RUTHERFORD",
+"Republican primary",
+"Republican primary",
+0.000229242,
+0.000232847,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-SAMPSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-SAMPSON",
+"Republican primary",
+"Republican primary",
+0.000952351,
+0.000967325,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000228382,
+0.000231973,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_CENTRAL_DISTRICT-rep-SURRY",
+"Republican primary",
+"Republican primary",
+0.000247019,
+0.000250903,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_SOUTH_DISTRICT-rep-SURRY",
+"Republican primary",
+"Republican primary",
+0.000248585,
+0.000252494,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-VANCE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-VANCE",
+"Democratic primary",
+"Democratic primary",
+0.00327611,
+0.00332575,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+2.09049e-05,
+2.12336e-05,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-WASHINGTON_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-WASHINGTON",
+"Democratic primary",
+"Democratic primary",
+0.00152788,
+0.00155191,
+"P"
+],
+[
+"2022-primary-NC-ncsbe-2022-05-17-WATAUGA_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WATAUGA",
+"Democratic primary",
+"Democratic primary",
+0.000549753,
+0.000558397,
+"P"
+],
+[
+"2023-local-NC-ncsbe-2023-11-07-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_01-DAVIDSON",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+null,
+0.0057451,
+"N"
+],
+[
+"2023-local-NC-ncsbe-2023-11-07-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_02-DAVIDSON",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.00900413,
+0.0088918,
+"P"
+],
+[
+"2023-primary-NC-ncsbe-2023-09-12-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_02-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000441878,
+0.000446902,
+"P"
+],
+[
+"2023-primary-NC-ncsbe-2023-09-12-CITY_OF_SANFORD_COUNCIL_MEMBER_WARD_04-dem-LEE",
+"Democratic primary",
+"Democratic primary",
+0.0092616,
+0.00935624,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-CASWELL_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-CASWELL",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.00229751,
+0.00226671,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-DURHAM_COUNTY_BOARD_OF_EDUCATION_AT_LARGE-DURHAM",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+3.38469e-05,
+3.33812e-05,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-GATES",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.000835038,
+0.000823547,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-GATES",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.000846821,
+0.000835167,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02__UNEXPIRED-GRANVILLE",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.00118956,
+0.00117319,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-GRANVILLE",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.00150767,
+0.00148692,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-GRANVILLE",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.00153504,
+0.00151391,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07__UNEXPIRED-GRANVILLE",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.00185305,
+0.00182755,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-JACKSON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-JACKSON",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.000251857,
+0.000248391,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-JACKSON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-JACKSON",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.000254963,
+0.000251454,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-PERQUIMANS_COUNTY_BOARD_OF_EDUCATION-PERQUIMANS",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+null,
+0.00114595,
+"N"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-ROBESON",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.000932097,
+0.00091927,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06__UNEXPIRED-ROBESON",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.00117158,
+0.00115545,
+"P"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-ROBESON_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07-ROBESON",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+null,
+0.00142545,
+"N"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-SAMPSON_COUNTY_SCHOOLS_BOARD_OF_EDUCATION-SAMPSON",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+null,
+0.000418782,
+"N"
+],
+[
+"2024-local-NC-ncsbe-2024-03-05-TYRRELL_COUNTY_BOARD_OF_EDUCATION-TYRRELL",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+"election on 2024-03-05, not a November general (the source does not say its kind)",
+0.00361438,
+0.00356666,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-ALAMANCE_COUNTY_BOARD_OF_COMMISSIONERS-rep-ALAMANCE",
+"Republican primary",
+"Republican primary",
+0.000362037,
+0.00033977,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-ASHE_COUNTY_BOARD_OF_COMMISSIONERS-rep-ASHE",
+"Republican primary",
+"Republican primary",
+0.00127722,
+0.00119866,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-AVERY_COUNTY_BOARD_OF_COMMISSIONERS-rep-AVERY",
+"Republican primary",
+"Republican primary",
+0.00156759,
+0.00147537,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BERTIE",
+"Democratic primary",
+"Democratic primary",
+0.000903327,
+0.000913776,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BLADEN",
+"Democratic primary",
+"Democratic primary",
+0.00145576,
+0.0014726,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-BLADEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-BLADEN",
+"Republican primary",
+"Republican primary",
+0.00151283,
+0.00153033,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-BRUNSWICK",
+"Republican primary",
+"Republican primary",
+7.83297e-05,
+7.92358e-05,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-BRUNSWICK",
+"Republican primary",
+"Republican primary",
+8.29164e-05,
+8.38756e-05,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-BUNCOMBE",
+"Democratic primary",
+"Democratic primary",
+0.000179432,
+0.000181508,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-BUNCOMBE",
+"Republican primary",
+"Republican primary",
+0.000242303,
+0.000245106,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-BURKE_COUNTY_BOARD_OF_COMMISSIONERS-rep-BURKE",
+"Republican primary",
+"Republican primary",
+0.000500961,
+0.00047015,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CALDWELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-CALDWELL",
+"Republican primary",
+"Republican primary",
+0.000589696,
+0.000553427,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-CARTERET",
+"Republican primary",
+"Republican primary",
+0.000906034,
+0.000916515,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_II-rep-CHEROKEE",
+"Republican primary",
+"Republican primary",
+0.000326825,
+0.000330606,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_V-rep-CHEROKEE",
+"Republican primary",
+"Republican primary",
+0.000323849,
+0.000327595,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_NORTHEAST_WARD-dem-FORSYTH",
+"Democratic primary",
+"Democratic primary",
+0.000620554,
+0.000627733,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_NORTHWEST_WARD-dem-FORSYTH",
+"Democratic primary",
+"Democratic primary",
+0.000516187,
+0.000522158,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CITY_OF_WINSTON_SALEM_COUNCIL_MEMBER_NORTHWEST_WARD-rep-FORSYTH",
+"Republican primary",
+"Republican primary",
+0.000870384,
+0.000880452,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CLEVELAND_COUNTY_BOARD_OF_COMMISSIONERS-rep-CLEVELAND",
+"Republican primary",
+"Republican primary",
+0.000441811,
+0.000414638,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-COLUMBUS_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-COLUMBUS",
+"Republican primary",
+"Republican primary",
+0.00164301,
+0.00166201,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CUMBERLAND_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-CUMBERLAND",
+"Democratic primary",
+"Democratic primary",
+0.000556673,
+0.000522435,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CUMBERLAND_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-CUMBERLAND",
+"Republican primary",
+"Republican primary",
+0.000622469,
+0.000584184,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000359611,
+0.000363771,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000368301,
+0.000372561,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000366959,
+0.000371204,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000363722,
+0.000367929,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-DARE",
+"Republican primary",
+"Republican primary",
+0.000346756,
+0.000350767,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01__UNEXPIRED-rep-DARE",
+"Republican primary",
+"Republican primary",
+0.000341661,
+0.000345614,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-DARE",
+"Republican primary",
+"Republican primary",
+0.000355454,
+0.000359565,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-DAVIDSON_COUNTY_BOARD_OF_COMMISSIONERS-rep-DAVIDSON",
+"Republican primary",
+"Republican primary",
+0.000304309,
+0.000285592,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-DAVIE_COUNTY_BOARD_OF_COMMISSIONERS-rep-DAVIE",
+"Republican primary",
+"Republican primary",
+0.000814092,
+0.000764022,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-DUPLIN",
+"Republican primary",
+"Republican primary",
+0.00185989,
+0.00188095,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-DUPLIN",
+"Democratic primary",
+"Democratic primary",
+0.0029388,
+0.00297166,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-EDGECOMBE",
+"Democratic primary",
+"Democratic primary",
+0.00230996,
+0.00233598,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-EDGECOMBE",
+"Democratic primary",
+"Democratic primary",
+0.00225819,
+0.00228364,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_B-dem-FORSYTH",
+"Democratic primary",
+"Democratic primary",
+0.000278243,
+0.00026113,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_B-rep-FORSYTH",
+"Republican primary",
+"Republican primary",
+0.000216009,
+0.000202724,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-FRANKLIN_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE_SEAT_07-dem-FRANKLIN",
+"Democratic primary",
+"Democratic primary",
+0.000351391,
+0.000355456,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_CROWDERS_MOUNTAIN_TWP-rep-GASTON",
+"Republican primary",
+"Republican primary",
+8.90466e-05,
+9.00767e-05,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_GASTONIA_TWP-rep-GASTON",
+"Republican primary",
+"Republican primary",
+8.75171e-05,
+8.85295e-05,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-GRAHAM_COUNTY_BOARD_OF_COMMISSIONERS-rep-GRAHAM",
+"Republican primary",
+"Republican primary",
+0.00320414,
+0.0030242,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-GRANVILLE",
+"Democratic primary",
+"Democratic primary",
+0.00215106,
+0.00217533,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-GRANVILLE",
+"Republican primary",
+"Republican primary",
+0.00225535,
+0.00228076,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-GUILFORD",
+"Republican primary",
+"Republican primary",
+0.000356012,
+0.00036013,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-HALIFAX_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-HALIFAX",
+"Democratic primary",
+"Democratic primary",
+0.000779828,
+0.000788849,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-HARNETT",
+"Republican primary",
+"Republican primary",
+0.000545364,
+0.000551672,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-HENDERSON",
+"Republican primary",
+"Republican primary",
+9.90001e-05,
+0.000100145,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-HENDERSON",
+"Republican primary",
+"Republican primary",
+9.4685e-05,
+9.57803e-05,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-IREDELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-IREDELL",
+"Republican primary",
+"Republican primary",
+0.000248282,
+0.000233012,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+7.54024e-05,
+7.62746e-05,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+7.52804e-05,
+7.61512e-05,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-LEE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-LEE",
+"Democratic primary",
+"Democratic primary",
+0.00137279,
+0.00131653,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-LINCOLN_COUNTY_BOARD_OF_COMMISSIONERS-rep-LINCOLN",
+"Republican primary",
+"Republican primary",
+0.000445469,
+0.000418071,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-MACON",
+"Republican primary",
+"Republican primary",
+0.000280049,
+0.000283289,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MACON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-MACON",
+"Republican primary",
+"Republican primary",
+0.000281615,
+0.000284872,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+5.33568e-05,
+5.00751e-05,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000149389,
+0.000151117,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000147518,
+0.000149224,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MITCHELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-MITCHELL",
+"Republican primary",
+"Republican primary",
+0.00177316,
+0.00166945,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MONTGOMERY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-MONTGOMERY",
+"Republican primary",
+"Republican primary",
+0.00107969,
+0.00109218,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MONTGOMERY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-MONTGOMERY",
+"Republican primary",
+"Republican primary",
+0.00191893,
+0.00194064,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_IV-rep-MOORE",
+"Republican primary",
+"Republican primary",
+0.000135193,
+0.000136757,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-NASH",
+"Republican primary",
+"Republican primary",
+0.000940321,
+0.000951199,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.000550495,
+0.000556863,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-PAMLICO_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-PAMLICO",
+"Republican primary",
+"Republican primary",
+0.00495373,
+0.00500784,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-PAMLICO_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-PAMLICO",
+"Republican primary",
+"Republican primary",
+0.00256834,
+0.00259718,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-PASQUOTANK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-PASQUOTANK",
+"Republican primary",
+"Republican primary",
+0.000554364,
+0.000560777,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-PASQUOTANK_COUNTY_COMMISSIONERS_SOUTHERN_INSIDE__UNEXPIRED-dem-PASQUOTANK",
+"Democratic primary",
+"Democratic primary",
+0.00251143,
+0.00253965,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01__UNEXPIRED-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.000247123,
+0.000249981,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.000261291,
+0.000264313,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-PERSON_COUNTY_BOARD_OF_COMMISSIONERS-rep-PERSON",
+"Republican primary",
+"Republican primary",
+0.00134811,
+0.00129236,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_B-rep-PITT",
+"Republican primary",
+"Republican primary",
+0.000372996,
+0.000377311,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-POLK_COUNTY_BOARD_OF_COMMISSIONERS-rep-POLK",
+"Republican primary",
+"Republican primary",
+0.00145513,
+0.00136925,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-RICHMOND_COUNTY_BOARD_OF_COMMISSIONERS-rep-RICHMOND",
+"Republican primary",
+"Republican primary",
+0.00170535,
+0.00160541,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-ROBESON",
+"Democratic primary",
+"Democratic primary",
+0.00104007,
+0.0010521,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-ROCKINGHAM_COUNTY_BOARD_OF_COMMISSIONERS-rep-ROCKINGHAM",
+"Republican primary",
+"Republican primary",
+0.000449473,
+0.000421828,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-RUTHERFORD",
+"Republican primary",
+"Republican primary",
+0.000199965,
+0.000202278,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-SAMPSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-SAMPSON",
+"Republican primary",
+"Republican primary",
+0.000942765,
+0.000953671,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000172915,
+0.000174915,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000171655,
+0.000173641,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-TRANSYLVANIA_COUNTY_BOARD_OF_COMMISSIONERS-rep-TRANSYLVANIA",
+"Republican primary",
+"Republican primary",
+0.000895369,
+0.0008403,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-VANCE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-VANCE",
+"Democratic primary",
+"Democratic primary",
+0.00382511,
+0.00386744,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-WAKE",
+"Democratic primary",
+"Democratic primary",
+0.000103432,
+0.000104628,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-WAKE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-WAKE",
+"Republican primary",
+"Republican primary",
+0.000131871,
+0.000133396,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-WARREN",
+"Democratic primary",
+"Democratic primary",
+0.000724972,
+0.000733358,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WAYNE",
+"Democratic primary",
+"Democratic primary",
+0.00156234,
+0.00158042,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-WAYNE",
+"Republican primary",
+"Republican primary",
+0.000813399,
+0.000822808,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-WAYNE",
+"Republican primary",
+"Republican primary",
+0.000952168,
+0.000963182,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-WILKES_COUNTY_BOARD_OF_COMMISSIONERS-rep-WILKES",
+"Republican primary",
+"Republican primary",
+0.00042947,
+0.000403055,
+"P"
+],
+[
+"2024-primary-NC-ncsbe-2024-03-05-YADKIN_COUNTY_BOARD_OF_COMMISSIONERS-rep-YADKIN",
+"Republican primary",
+"Republican primary",
+0.000704597,
+0.000661261,
+"P"
+],
+[
+"2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_01-MECKLENBURG",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+8.36733e-05,
+8.22551e-05,
+"P"
+],
+[
+"2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_02-MECKLENBURG",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+9.79323e-05,
+9.68639e-05,
+"P"
+],
+[
+"2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_04-MECKLENBURG",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.000112015,
+0.000110117,
+"P"
+],
+[
+"2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_05-MECKLENBURG",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+4.92938e-05,
+4.8756e-05,
+"P"
+],
+[
+"2025-local-NC-ncsbe-2025-11-04-CHARLOTTE_MECKLENBURG_BOARD_OF_EDUCATION_DISTRICT_06-MECKLENBURG",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.000112459,
+0.000110553,
+"P"
+],
+[
+"2025-local-NC-ncsbe-2025-11-04-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_04-DAVIDSON",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.0106477,
+0.0105453,
+"P"
+],
+[
+"2025-local-NC-ncsbe-2025-11-04-LEXINGTON_CITY_SCHOOLS_BOARD_OF_EDUCATION_WARD_06-DAVIDSON",
+"general (odd year: municipal)",
+"general (odd year: municipal)",
+0.00803126,
+0.0079516,
+"P"
+],
+[
+"2025-primary-NC-ncsbe-2025-09-09-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_01-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.00023736,
+0.000240558,
+"P"
+],
+[
+"2025-primary-NC-ncsbe-2025-09-09-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_04-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000264617,
+0.000268181,
+"P"
+],
+[
+"2025-primary-NC-ncsbe-2025-09-09-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_05-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000272415,
+0.000276084,
+"P"
+],
+[
+"2025-primary-NC-ncsbe-2025-09-09-CITY_OF_CHARLOTTE_CITY_COUNCIL_DISTRICT_06-rep-MECKLENBURG",
+"Republican primary",
+"Republican primary",
+0.00051678,
+0.000523741,
+"P"
+],
+[
+"2025-primary-NC-ncsbe-2025-09-09-CITY_OF_SANFORD_COUNCIL_MEMBER_WARD_03-dem-LEE",
+"Democratic primary",
+"Democratic primary",
+0.0138592,
+0.0140208,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-CLINTON_CITY_SCHOOLS_BOARD_OF_EDUCATION-SAMPSON",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00108291,
+0.00106501,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-DURHAM",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.000210021,
+0.00020655,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-DURHAM",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.000154667,
+0.00015211,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-DURHAM",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.0001291,
+0.000126966,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-DURHAM_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-DURHAM",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.000153145,
+0.000150613,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-EDGECOMBE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-EDGECOMBE",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00156172,
+0.00154493,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-EDGECOMBE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_07-EDGECOMBE",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00262641,
+0.00259903,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-FRANKLIN_COUNTY_BOARD_OF_EDUCATION_AT_LARGE_SEAT_07-FRANKLIN",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00026429,
+0.000259921,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-FRANKLIN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-FRANKLIN",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00109078,
+0.00107275,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-FRANKLIN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-FRANKLIN",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00145186,
+0.00142786,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-GATES",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00085491,
+0.000845717,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02__UNEXPIRED-GATES",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00108627,
+0.00106831,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_03-GATES",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.000825596,
+0.000816719,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-GATES_COUNTY_BOARD_OF_EDUCATION_DISTRICT_05-GATES",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.000853375,
+0.000844199,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-GRANVILLE_COUNTY_BOARD_OF_EDUCATION_DISTRICT_06-GRANVILLE",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.0014826,
+0.00146666,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-PERQUIMANS_COUNTY_BOARD_OF_EDUCATION-PERQUIMANS",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00148051,
+0.00145604,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-WARREN",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.000545504,
+0.000539639,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_02-WARREN",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.000722186,
+0.000710249,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_EDUCATION_DISTRICT_04-WARREN",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.000566292,
+0.000560203,
+"P"
+],
+[
+"2026-local-NC-ncsbe-2026-03-03-WATAUGA_COUNTY_BOARD_OF_EDUCATION_DISTRICT_01-WATAUGA",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+"election on 2026-03-03, not a November general (the source does not say its kind)",
+0.00239893,
+0.00236048,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ALEXANDER_COUNTY_BOARD_OF_COMMISSIONERS-rep-ALEXANDER",
+"Republican primary",
+"Republican primary",
+0.00155507,
+0.00147633,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ALLEGHANY_COUNTY_BOARD_OF_COMMISSIONERS-rep-ALLEGHANY",
+"Republican primary",
+"Republican primary",
+0.00420548,
+0.00400942,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ANSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-ANSON",
+"Republican primary",
+"Republican primary",
+0.00163067,
+0.00165073,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ASHE_COUNTY_BOARD_OF_COMMISSIONERS-rep-ASHE",
+"Republican primary",
+"Republican primary",
+0.000940675,
+0.000890687,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-AVERY_COUNTY_BOARD_OF_COMMISSIONERS-rep-AVERY",
+"Republican primary",
+"Republican primary",
+0.00256675,
+0.00244081,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BEAUFORT_COUNTY_SHERIFF-rep-BEAUFORT",
+"Republican primary",
+"Republican primary",
+null,
+6.04467e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BERTIE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-BERTIE",
+"Democratic primary",
+"Democratic primary",
+0.000541278,
+0.000547938,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BERTIE_COUNTY_SHERIFF-dem-BERTIE",
+"Democratic primary",
+"Democratic primary",
+null,
+0.000158148,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BLADEN_COUNTY_SHERIFF-dem-BLADEN",
+"Democratic primary",
+"Democratic primary",
+null,
+0.000242161,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BLADEN_COUNTY_SHERIFF-rep-BLADEN",
+"Republican primary",
+"Republican primary",
+null,
+0.000180652,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-BRUNSWICK",
+"Republican primary",
+"Republican primary",
+8.62122e-05,
+8.7273e-05,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BRUNSWICK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-BRUNSWICK",
+"Republican primary",
+"Republican primary",
+8.76474e-05,
+8.87258e-05,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BRUNSWICK_COUNTY_SHERIFF-rep-BRUNSWICK",
+"Republican primary",
+"Republican primary",
+null,
+2.49111e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-BUNCOMBE",
+"Democratic primary",
+"Democratic primary",
+0.000169878,
+0.000171968,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-BUNCOMBE_COUNTY_SHERIFF-rep-BUNCOMBE",
+"Republican primary",
+"Republican primary",
+null,
+4.76685e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CABARRUS_COUNTY_BOARD_OF_COMMISSIONERS-rep-CABARRUS",
+"Republican primary",
+"Republican primary",
+0.000455268,
+0.000431075,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CARTERET",
+"Republican primary",
+"Republican primary",
+0.000879825,
+0.000890651,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-CARTERET",
+"Republican primary",
+"Republican primary",
+0.000502119,
+0.000508297,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CARTERET_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-rep-CARTERET",
+"Republican primary",
+"Republican primary",
+0.000820111,
+0.000830201,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CARTERET_COUNTY_SHERIFF-rep-CARTERET",
+"Republican primary",
+"Republican primary",
+null,
+4.10354e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE__UNEXPIRED-dem-CASWELL",
+"Democratic primary",
+"Democratic primary",
+0.00101058,
+0.00102302,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE__UNEXPIRED-rep-CASWELL",
+"Republican primary",
+"Republican primary",
+0.00105369,
+0.00106666,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CASWELL_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-CASWELL",
+"Republican primary",
+"Republican primary",
+0.00363751,
+0.00368056,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CATAWBA_COUNTY_BOARD_OF_COMMISSIONERS-rep-CATAWBA",
+"Republican primary",
+"Republican primary",
+0.000416866,
+0.000394714,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CHATHAM_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-CHATHAM",
+"Democratic primary",
+"Democratic primary",
+0.000133523,
+0.000135166,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CHATHAM_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-dem-CHATHAM",
+"Democratic primary",
+"Democratic primary",
+0.000137131,
+0.000138819,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CHEROKEE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-CHEROKEE",
+"Republican primary",
+"Republican primary",
+0.000363547,
+0.00036802,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CITY_OF_MONROE_COUNCIL-rep-UNION",
+"Republican primary",
+"Republican primary",
+0.00273038,
+0.0025971,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CLAY_COUNTY_BOARD_OF_COMMISSIONERS-rep-CLAY",
+"Republican primary",
+"Republican primary",
+0.0026428,
+0.00251344,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CLAY_COUNTY_SHERIFF-rep-CLAY",
+"Republican primary",
+"Republican primary",
+null,
+0.000218133,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-COLUMBUS_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-dem-COLUMBUS",
+"Democratic primary",
+"Democratic primary",
+0.00863002,
+0.00872684,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-CRAVEN",
+"Republican primary",
+"Republican primary",
+0.00106303,
+0.00107611,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CRAVEN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-rep-CRAVEN",
+"Republican primary",
+"Republican primary",
+0.000938317,
+0.000949861,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CRAVEN_COUNTY_SHERIFF-rep-CRAVEN",
+"Republican primary",
+"Republican primary",
+null,
+6.03389e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-CURRITUCK",
+"Democratic primary",
+"Democratic primary",
+0.00199051,
+0.00201449,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000471132,
+0.000476929,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000471264,
+0.000477063,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-CURRITUCK_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-CURRITUCK",
+"Republican primary",
+"Republican primary",
+0.000492114,
+0.000498169,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-DARE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-DARE",
+"Republican primary",
+"Republican primary",
+0.000267365,
+0.000270655,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-DAVIDSON_COUNTY_SHERIFF-rep-DAVIDSON",
+"Republican primary",
+"Republican primary",
+null,
+3.18398e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-DUPLIN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-DUPLIN",
+"Republican primary",
+"Republican primary",
+0.00164989,
+0.00167019,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-DURHAM_COUNTY_SHERIFF-dem-DURHAM",
+"Democratic primary",
+"Democratic primary",
+null,
+8.7244e-06,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-EDGECOMBE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_06-dem-EDGECOMBE",
+"Democratic primary",
+"Democratic primary",
+0.00330789,
+0.00334718,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-FORSYTH",
+"Democratic primary",
+"Democratic primary",
+5.10932e-05,
+5.17218e-05,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-rep-FORSYTH",
+"Republican primary",
+"Republican primary",
+0.000121121,
+0.000122611,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-FORSYTH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_B-dem-FORSYTH",
+"Democratic primary",
+"Democratic primary",
+7.78307e-05,
+7.87883e-05,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-GASTON_COUNTY_BOARD_OF_COMMISSIONERS_DALLAS_TWP-rep-GASTON",
+"Republican primary",
+"Republican primary",
+0.000103048,
+0.000104316,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-GASTON_COUNTY_SHERIFF-rep-GASTON",
+"Republican primary",
+"Republican primary",
+null,
+3.00072e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-GRAHAM_COUNTY_BOARD_OF_COMMISSIONERS-rep-GRAHAM",
+"Republican primary",
+"Republican primary",
+0.00332826,
+0.0031688,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-GRANVILLE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-GRANVILLE",
+"Democratic primary",
+"Democratic primary",
+0.00193321,
+0.00195651,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-GREENE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-GREENE",
+"Democratic primary",
+"Democratic primary",
+0.001168,
+0.00118237,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-GUILFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-dem-GUILFORD",
+"Democratic primary",
+"Democratic primary",
+0.000230206,
+0.000233039,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-GUILFORD_COUNTY_SHERIFF-rep-GUILFORD",
+"Republican primary",
+"Republican primary",
+null,
+2.04582e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-HALIFAX_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-HALIFAX",
+"Democratic primary",
+"Democratic primary",
+0.000878941,
+0.000832234,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-HARNETT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-HARNETT",
+"Republican primary",
+"Republican primary",
+0.000985673,
+0.0009978,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-HAYWOOD_COUNTY_BOARD_OF_COMMISSIONERS-rep-HAYWOOD",
+"Republican primary",
+"Republican primary",
+0.000723547,
+0.000685098,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-HAYWOOD_COUNTY_SHERIFF-rep-HAYWOOD",
+"Republican primary",
+"Republican primary",
+null,
+6.54988e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-HENDERSON",
+"Republican primary",
+"Republican primary",
+0.000152274,
+0.000154148,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-HENDERSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-HENDERSON",
+"Republican primary",
+"Republican primary",
+0.000155849,
+0.000157767,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-HOKE_COUNTY_BOARD_OF_COMMISSIONERS-dem-HOKE",
+"Democratic primary",
+"Democratic primary",
+0.00136973,
+0.00129997,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-IREDELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-IREDELL",
+"Republican primary",
+"Republican primary",
+0.000456121,
+0.000431883,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-dem-JACKSON",
+"Democratic primary",
+"Democratic primary",
+0.000499134,
+0.000505275,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-JACKSON",
+"Republican primary",
+"Republican primary",
+0.000524543,
+0.000530997,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JACKSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-JACKSON",
+"Democratic primary",
+"Democratic primary",
+0.000501968,
+0.000508145,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JACKSON_COUNTY_SHERIFF-rep-JACKSON",
+"Republican primary",
+"Republican primary",
+null,
+0.000151135,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JOHNSTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+9.73673e-05,
+9.85653e-05,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JOHNSTON_COUNTY_SHERIFF-rep-JOHNSTON",
+"Republican primary",
+"Republican primary",
+null,
+2.79771e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JONES_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-JONES",
+"Democratic primary",
+"Democratic primary",
+0.007579,
+0.00766502,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JONES_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-JONES",
+"Democratic primary",
+"Democratic primary",
+0.0082499,
+0.00834287,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-JONES_COUNTY_SHERIFF-rep-JONES",
+"Republican primary",
+"Republican primary",
+null,
+0.000497855,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-LENOIR_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-LENOIR",
+"Republican primary",
+"Republican primary",
+0.00180639,
+0.00182819,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MACON_COUNTY_SHERIFF-rep-MACON",
+"Republican primary",
+"Republican primary",
+null,
+7.97444e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MADISON_COUNTY_BOARD_OF_COMMISSIONERS-rep-MADISON",
+"Republican primary",
+"Republican primary",
+0.00345736,
+0.00329238,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MCDOWELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-MCDOWELL",
+"Republican primary",
+"Republican primary",
+0.000966296,
+0.000914947,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+7.62344e-05,
+7.21833e-05,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+0.000105601,
+0.0001069,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-MECKLENBURG",
+"Democratic primary",
+"Democratic primary",
+9.3021e-05,
+9.41655e-05,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MITCHELL_COUNTY_BOARD_OF_COMMISSIONERS-rep-MITCHELL",
+"Republican primary",
+"Republican primary",
+0.00132402,
+0.0012565,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MITCHELL_COUNTY_SHERIFF-rep-MITCHELL",
+"Republican primary",
+"Republican primary",
+null,
+0.000115491,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-MOORE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_III-rep-MOORE",
+"Republican primary",
+"Republican primary",
+0.000153303,
+0.000155189,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-rep-NASH",
+"Republican primary",
+"Republican primary",
+0.00119714,
+0.00121187,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-rep-NASH",
+"Republican primary",
+"Republican primary",
+0.00116154,
+0.00117583,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-NORTHAMPTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-dem-NORTHAMPTON",
+"Democratic primary",
+"Democratic primary",
+0.000486978,
+0.00049297,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ONSLOW_COUNTY_BOARD_OF_COMMISSIONERS-rep-ONSLOW",
+"Republican primary",
+"Republican primary",
+0.000620902,
+0.000587907,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-ORANGE",
+"Democratic primary",
+"Democratic primary",
+6.34261e-05,
+6.42065e-05,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-ORANGE",
+"Democratic primary",
+"Democratic primary",
+0.000105914,
+0.000107217,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ORANGE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-ORANGE",
+"Democratic primary",
+"Democratic primary",
+0.000153527,
+0.000155416,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ORANGE_COUNTY_SHERIFF-dem-ORANGE",
+"Democratic primary",
+"Democratic primary",
+null,
+1.80819e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PASQUOTANK_COUNTY_SHERIFF-rep-PASQUOTANK",
+"Republican primary",
+"Republican primary",
+null,
+0.000127945,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.000274442,
+0.000277819,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.000262312,
+0.00026554,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.00026728,
+0.000270568,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PENDER_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04__UNEXPIRED-rep-PENDER",
+"Republican primary",
+"Republican primary",
+0.000258517,
+0.000261698,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PERSON_COUNTY_SHERIFF-rep-PERSON",
+"Republican primary",
+"Republican primary",
+null,
+0.000163126,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-PITT",
+"Democratic primary",
+"Democratic primary",
+0.000677799,
+0.000686139,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PITT_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-PITT",
+"Democratic primary",
+"Democratic primary",
+0.000868901,
+0.000879592,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-PITT_COUNTY_SHERIFF-dem-PITT",
+"Democratic primary",
+"Democratic primary",
+null,
+3.61355e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-RANDOLPH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-rep-RANDOLPH",
+"Republican primary",
+"Republican primary",
+0.000118131,
+0.000119584,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-ROBESON",
+"Democratic primary",
+"Democratic primary",
+0.00103742,
+0.00105019,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-ROBESON",
+"Republican primary",
+"Republican primary",
+0.00522117,
+0.00528193,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_08-dem-ROBESON",
+"Democratic primary",
+"Democratic primary",
+0.00277265,
+0.00280577,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_08-rep-ROBESON",
+"Republican primary",
+"Republican primary",
+0.00353774,
+0.00357965,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ROCKINGHAM_COUNTY_SHERIFF-dem-ROCKINGHAM",
+"Democratic primary",
+"Democratic primary",
+null,
+0.000114656,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-ROWAN_COUNTY_BOARD_OF_COMMISSIONERS-rep-ROWAN",
+"Republican primary",
+"Republican primary",
+0.00059504,
+0.000563419,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-RUTHERFORD_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-RUTHERFORD",
+"Republican primary",
+"Republican primary",
+0.000194442,
+0.000196834,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-SAMPSON_COUNTY_SHERIFF-rep-SAMPSON",
+"Republican primary",
+"Republican primary",
+null,
+7.74813e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-SCOTLAND_COUNTY_BOARD_OF_COMMISSIONERS_SPRING_HILL_TWP-rep-SCOTLAND",
+"Republican primary",
+"Republican primary",
+0.00078965,
+0.000799366,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-dem-STANLY",
+"Democratic primary",
+"Democratic primary",
+0.000944118,
+0.000955735,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.00036198,
+0.000366434,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000363704,
+0.000368179,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-STANLY_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-STANLY",
+"Republican primary",
+"Republican primary",
+0.000362918,
+0.000367384,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-STOKES_COUNTY_BOARD_OF_COMMISSIONERS-rep-STOKES",
+"Republican primary",
+"Republican primary",
+0.00123261,
+0.00119184,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-STOKES_COUNTY_SHERIFF-rep-STOKES",
+"Republican primary",
+"Republican primary",
+null,
+7.77304e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-SURRY_COUNTY_BOARD_OF_COMMISSIONERS_MOUNT_AIRY_DISTRICT-rep-SURRY",
+"Republican primary",
+"Republican primary",
+0.000147747,
+0.000149565,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-SURRY_COUNTY_SHERIFF-rep-SURRY",
+"Republican primary",
+"Republican primary",
+null,
+4.30131e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-SWAIN_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-dem-SWAIN",
+"Democratic primary",
+"Democratic primary",
+0.0017554,
+0.00177659,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-SWAIN_COUNTY_SHERIFF-dem-SWAIN",
+"Democratic primary",
+"Democratic primary",
+null,
+0.000547915,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-SWAIN_COUNTY_SHERIFF-rep-SWAIN",
+"Republican primary",
+"Republican primary",
+null,
+0.000346157,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-UNION_COUNTY_BOARD_OF_COMMISSIONERS-rep-UNION",
+"Republican primary",
+"Republican primary",
+0.000326735,
+0.000309372,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-VANCE_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-rep-VANCE",
+"Republican primary",
+"Republican primary",
+0.00473485,
+0.00479022,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WARREN",
+"Democratic primary",
+"Democratic primary",
+0.000590364,
+0.000597628,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-WARREN_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_03-dem-WARREN",
+"Democratic primary",
+"Democratic primary",
+0.000585834,
+0.000593042,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-WASHINGTON_COUNTY_SHERIFF-dem-WASHINGTON",
+"Democratic primary",
+"Democratic primary",
+null,
+0.000318777,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-WATAUGA_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WATAUGA",
+"Democratic primary",
+"Democratic primary",
+0.00142459,
+0.00144211,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-WAYNE_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE__UNEXPIRED-rep-WAYNE",
+"Republican primary",
+"Republican primary",
+0.000180136,
+0.000182352,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-WILSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-dem-WILSON",
+"Democratic primary",
+"Democratic primary",
+0.00181222,
+0.00183409,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-WILSON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_02-dem-WILSON",
+"Democratic primary",
+"Democratic primary",
+0.00172298,
+0.00174379,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-WILSON_COUNTY_SHERIFF-rep-WILSON",
+"Republican primary",
+"Republican primary",
+null,
+0.000167983,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-YADKIN_COUNTY_BOARD_OF_COMMISSIONERS-rep-YADKIN",
+"Republican primary",
+"Republican primary",
+0.00073235,
+0.000693433,
+"P"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-YADKIN_COUNTY_SHERIFF-rep-YADKIN",
+"Republican primary",
+"Republican primary",
+null,
+8.16156e-05,
+"N"
+],
+[
+"2026-primary-NC-ncsbe-2026-03-03-YANCEY_COUNTY_BOARD_OF_COMMISSIONERS-rep-YANCEY",
+"Republican primary",
+"Republican primary",
+0.0024337,
+0.00231379,
+"P"
+]
+]
+}
