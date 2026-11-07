@@ -29,3 +29,11 @@
 **Zach, 02:45.**
 
 > We’re waiting for some guidance on the midterms orchestrator. Hold off until then.
+
+**Orchestrator, 02:46.** "Understood, I'm holding. Nothing new starts until you say so. The one thread already running, Fable's break of the law draft, only writes a report, and it'll stop when that's done. I won't act on its report until you lift the hold. Tell me if you want it stopped now instead."
+
+**Zach, 02:54** (project chat, relayed).
+
+> All right, I've asked the midterms orchestrator to update the repo a little bit regarding design. I want you to employ all of the anything that you see there that's changed about design. We're going to follow the new design guidance. Some of it's new, some of it's not new. And then work autonomously.
+
+**Orchestrator, 02:55.** "The hold is lifted. I'm reading the midterms design update now, then I'll fold it into the law and carry on."

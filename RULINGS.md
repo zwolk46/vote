@@ -59,3 +59,11 @@ In the orchestrator's thread, after model draft 3:
 
 *Reading.* The orchestrator approves the model in his place: `model/MODEL-DRAFT-3.md` becomes the model of record, `model/MODEL.md`. What follows is left mostly to the orchestrator, using the way the midterms site was made as the example where it is relevant, and he wants to be broadly aligned on the procedure first.
 
+## 2026-11-07 02:54 UTC: design follows the midterms guidance; the hold lifted; work autonomously
+
+In the project chat, after the midterms orchestrator merged #11 (`inherited/design/`):
+
+> All right, I've asked the midterms orchestrator to update the repo a little bit regarding design. I want you to employ all of the anything that you see there that's changed about design. We're going to follow the new design guidance. Some of it's new, some of it's not new. And then work autonomously.
+
+*Reading.* The hold of 02:45 is lifted. Design work here follows `inherited/design/` (its README's rule and process, `TASTE.md` as his defaults, with his 02:45 correction that components are his picks or designed within the principles, not found-only); this project's law and rulings govern where they differ. "Work autonomously" answers the orchestrator's 02:40 offer ("Tell me if you'd rather I skip it and just go"): the plan is recorded in the repository and he is told, not asked, before the data work. Ratifying the law stays his (general law 2).
+

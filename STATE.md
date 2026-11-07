@@ -4,7 +4,7 @@
 
 ## Where things stand
 
-- **ON HOLD since 2026-11-07 02:45** at the maker's word, waiting for guidance from the midterms orchestrator. Next once lifted: fold the cold readings and B2's breaks into law draft 2 and bring it to him to ratify.
+- Hold of 02:45 lifted at 02:54 (RULINGS). Design follows `inherited/design/` (#11, from the midterms orchestrator). Work autonomously: the plan is recorded and he is told, not asked. Now: law draft 2 from the cold readings, B2's breaks and the design guidance; then to him to ratify.
 
 - Initialized on 2026-11-06 from `handoff/vote-importance/` in zwolk46/midterms (its PR #252), by the midterms orchestrator: system files, templates, `inherited/`, the starter site with Plex. `npm run build` and `npm test` (1 pass) clean.
 - Vercel: linked. Project `vote` (prj_C78MKoz1D80kgE2Bfz9mMmET3Ndo, team zachs-projects-74dd78e7), imported by the maker. Production deployment dpl_5azt1qjLZELKy2tUsxjUHhD9Sotx of `main` 80e6705 is READY [measured 2026-11-06 17:36 UTC]. Address: https://vote-rho-pearl.vercel.app. Vercel Authentication is on ("all_except_custom_domains"), so the vercel.app addresses ask visitors to sign in to Vercel; to settle before launch (midterms lesson 20: no link previews behind a login).
@@ -41,6 +41,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 ## Accounts and keys opened (no secrets here)
 
 ## Log (newest first; one line per turn)
+
+- 2026-11-07 02:57: the maker (project chat, 02:54): follow the new design guidance in `inherited/design/` (#11 merged to `main` by the midterms orchestrator; CLAUDE.md and `_COMMON` 16 now point design work there) "and then work autonomously". Hold lifted. Merged `main` into the branch. Next: gate #12, then law draft 2.
 
 - 2026-11-07 02:55: B2 done, PR #12 open (`law/BREAKS-draft-1.md`, 61 breaks, 20 that change what gets made). Not gated or acted on during the hold, as told to the maker. Its headline breaks for law draft 2: the end per race against a per-ballot cost and a verdict without B (#1, #2); the tie reading, where the orchestrator's 19:34 definition (the event) met his "I agree" (#16, worth a card); 2a fixes ex ante as law (#4); true source shuts out MEDSL and Klarner (#11); principle 9 not his (#8); 7c's "only three things" (#15); measures, the presidency's outcome, B in the ballot test (#12-14); 9a drops his qualifier (#9); 7a and 7b fix too early (#6, #7); missing audience, phone and desktop, p's drivers (#3, #18, #19); quotes and the source of "true things" (#57, #59).
 
