@@ -170,7 +170,7 @@ def main():
         rows, reasons = rows_from_record(level)
         ROWS[level] = rows
         full = fit(rows, YEARS)
-        rec = bt["fit"][level]
+        rec = bt["full_fit_shown_not_used"][level]   # since D2's #29 the full fit is kept under this key, shown and not used (read only)
         print(f"  {level}: {len(rows)} rows rebuilt from the record (skipped: {reasons}); the record's fit used {rec['n']}. "
               f"Full fit here: b_lean {full['b_lean']:.4f} (record {rec['b_lean']:.4f}), b_inc {full['b_inc']:.4f} ({rec['b_inc']:.4f}), "
               f"s_e {full['s_e']:.4f} ({rec['s_e']:.4f}), s_a {full['s_a']:.4f} ({rec['s_a']:.4f})")
@@ -178,9 +178,10 @@ def main():
     # ------------------------------------------------------------------ 4.1 governors
     print("4.1 The governors")
     rows = ROWS["governor"]
-    sd_a_rec = bt["national_sd"]["governor"]
+    sd_a_rec = (bt.get("national_sd") or {}).get("governor")   # since #29 backtest.json carries no leave-one-out national sd (read only)
     rmse, misses, full = loco_rmse(rows)
-    print(f"  national sd (root-mean-square leave-one-out miss of the national forecast): here {rmse:.5f}, record {sd_a_rec:.5f}")
+    print(f"  national sd (root-mean-square leave-one-out miss of the national forecast): here {rmse:.5f}, record "
+          + (f"{sd_a_rec:.5f}" if sd_a_rec is not None else "not in today's backtest.json (since #29 each year's national sd is k s_a sqrt(1 + z (Z'Z)^-1 z') in the file's model block)"))
     # the record's leave-one-cycle-out forecasts, reproduced
     means, sds, worst = [], [], 0.0
     folds = {}
@@ -297,8 +298,8 @@ def main():
     for level in ("senate", "house", "governor"):
         rows = ROWS[level]
         rmse, misses, full = loco_rmse(rows)
-        rec_sd = bt["national_sd"][level]
-        print(f"  {level}: national sd here {rmse:.4f} (record {rec_sd:.4f})")
+        rec_sd = (bt.get("national_sd") or {}).get(level)   # not in today's backtest.json (read only, as above)
+        print(f"  {level}: national sd here {rmse:.4f} (record " + (f"{rec_sd:.4f})" if rec_sd is not None else "not in today's backtest.json)"))
         print(f"      {'T':>4s} {'n':>4s} {'b_lean loco/exp':>16s} {'s_e loco/exp':>14s} {'nat fc loco/exp':>16s} {'sd_a (ii)':>9s} {'p exp/loco median (10-90%)':>27s} {'sum p ratio':>11s} {'with sd_a (ii)':>14s} {'site p affected':>15s}")
         exp_misses = []
         for T in [t for t in YEARS if t >= 2014]:

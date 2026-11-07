@@ -89,26 +89,35 @@ def main():
           "so the last digit of '1 in' can differ by one)")
     rep = open(os.path.join(L.ROOT, "data", "congress", "REPORT.md")).read()
     ctable = {}
-    for m in re.finditer(r"^\| (\d{4}) (Senate|House|governor) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \| (\d+) \| ([^|]+) \| ([^|]*)\|", rep, re.M):
-        ctable[(int(m.group(1)), m.group(2).lower())] = (m.group(8).strip(), m.group(9).strip())
+    # the table gained a count column (near-tie calibrated) and capitalises Governor since D2's #29-#53: five or six counts (read only)
+    for m in re.finditer(r"^\| (\d{4}) (Senate|House|Governor|governor) \| (?:\d+ \| ){5,6}([^|]+) \| ([^|]*)\|", rep, re.M):
+        ctable[(int(m.group(1)), m.group(2).lower())] = (m.group(3).strip(), m.group(4).strip())
     print(f"    {'year, level':16s} {'contest':22s} {'mean':>8s} {'sd':>8s} {'n':>10s} {'f(1/2)':>8s} {'p by hand':>10s} {'1 in':>14s} {'file':>14s}   REPORT")
     for level in ("senate", "house", "governor"):
         for path in L.congress_files(level):
             doc = L.load_json(path)
             y = doc["year"]
-            best = max((c for c in doc["contests"] if c["p"]["value"]), key=lambda c: c["p"]["value"])
+            with_p = [c for c in doc["contests"] if (c.get("p") or {}).get("value")]
+            if not with_p:   # since D2's #29 House 2006 carries no p (no lagged inputs); read only
+                print(f"    {y} {level}: no contest with p in the file")
+                continue
+            best = max(with_p, key=lambda c: c["p"]["value"])
             under = best["p"]["under"]
             if under.startswith("538"):
                 ver = under.split("(")[1].split(")")[0]
                 f = next(f for f in best["forecasts"] if f["by"] == "538" and f.get("version") == ver)["share"]
+                mult = 1.0
             else:
-                f = next(f for f in best["forecasts"] if f["by"] == "the model's own" and f["share"]["tails"] == "normal")["share"]
+                fc = next(f for f in best["forecasts"] if f["by"] == "the model's own" and f["share"]["tails"] == "normal")
+                f = fc["share"]
+                # since D2's #53 the House's own p carries the near-tie factor: p = f(1/2)/(2n) x the recorded multiplier (read only)
+                mult = (fc.get("calibration") or {}).get("multiplier", 1.0)
             n = best["p"]["n"]
             fh = normal_density_at_half(f["mean"], f["sd"])
-            p = fh / (2 * n)
+            p = fh / (2 * n) * mult
             rec = best["p"]["value"]
             rpt = ctable.get((y, level), ("?", ""))[0]
-            flag = "" if abs(p / rec - 1) < 2e-4 else "   <-- DIFFERS from the file"
+            flag = ("" if abs(p / rec - 1) < 2e-4 else "   <-- DIFFERS from the file") + (f"   (x {mult:.4f}, the near-tie multiplier)" if mult != 1.0 else "")
             print(f"    {str(y) + ' ' + level:16s} {best['id']:22s} {f['mean']:8.4f} {f['sd']:8.4f} {n:10,d} {fh:8.3f} {p:10.3e} {one_in(p):>14s} {one_in(rec):>14s}   {rpt}{flag}")
 
 

@@ -110,6 +110,9 @@ def main():
                     P = 1 if fi0["president_party"] == "D" else -1
                     M = 1 if fi0["midterm"] else 0
                     z = np.array([1.0, M * P, (1 - M) * P])
+                    if year % 2:
+                        # the odd years' blocks (#74) carry the plain term only: z = (1, 0, 0), as c25 checks
+                        z = np.array([1.0, 0.0, 0.0])
                     nat = float(z @ np.array(m["c"]))
                     nat_sd = m["k"] * m["s_a"] * math.sqrt(1.0 + float(z @ np.array(m["ZtZ_inv"]) @ z))
                     s_e = m["k"] * m["s_e_fitted"]
