@@ -136,3 +136,11 @@ In the orchestrator's thread, five minutes later:
 > For instance often simple headings (such as Senate or House or U.S. Senate or U.S. House, each as relevant to the context in which they’re presented and understood and for the purpose they serve) count as text that is necessary and proper to satisfy a bona fide purpose.
 
 *Reading.* The 04:32 cut is of explanatory prose, not of the words that tell a reader where they are. A simple heading that names what is shown, such as "Senate", "House", "U.S. Senate" or "U.S. House", serves a real purpose and stays. Its form fits its place: the short form where the context already says which country or level, the full form where it does not. Its entry in the text ledger is that purpose, in a word: it orients.
+
+## 2026-11-07 04:38 UTC: headings are judged by their purpose, and often fit (corrects the reading of 04:37)
+
+In the orchestrator's thread, after the orchestrator wrote that such headings are "text that stays":
+
+> It’s also not “text that stays”; for their purposes, OFTEN, they fit
+
+*Reading.* The 04:37 reading went too far. A heading has no standing pass: it is judged like any other text, by whether it serves a real purpose where it sits. Simple headings such as "Senate" or "U.S. House" often do, so the test usually keeps them; but where one does not serve its place, it goes. The reading of 04:37 is replaced by this one.

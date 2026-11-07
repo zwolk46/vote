@@ -51,6 +51,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 04:40: the maker, 04:38, corrected the 04:37 reading: headings have no standing pass; judged by purpose, and often fit. Recorded; X1 and X2 bullets replaced; X1 told.
+
 - 2026-11-07 04:40: M2 started 04:38 (cmsg_01FHkmcV6WaeZh9r5PfgnMbuCEUo7XmYgNjtfLdxDRBTML). D3 told: compact JSON, a sources table per file, size reported before a full commit, stop at ~100 MB; D1's fetch.py the one fetch. D1 told it is done, with the decisions on its open items. Workers now: X1, D3, M2 (+T1).
 
 - 2026-11-07 04:39: the maker, 04:37: simple headings ("Senate", "House", "U.S. Senate", "U.S. House", form fitted to context) are needed text; recorded as the 04:32 ruling's example; X1 and X2 amended ("Headings stay"); X1 told. #24 merged (04:32 ruling, M2 brief).
