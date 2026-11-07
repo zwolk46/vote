@@ -1780,3 +1780,83 @@ The record is the locality lines, which add up to the statewide count the page s
 
 **For the orchestrator:**
 - D2's report (`data/congress/REPORT.md`) is not changed here. Its figures for the governors' back-test now differ by the amounts above.
+
+## 31. Held totals: Oregon's abstract, Arizona's recount, the over-ballot test, M2's readings, the listed rows, Virginia's gate, and two of Klarner's districts (c38)
+
+*Added 2026-11-07 at 21:50 UTC, at the orchestrator's orders of 17:44, 18:49, 20:28, 20:30, 20:55, 21:03 and 21:21.* Every record that changed is listed in `data/local/moves-held-totals.json`, by group, each group with its reason. The tests are in `data/local/check-over-ballot.json` and `data/local/check-listed-rows.json`.
+
+**Why.** The orchestrator, 17:44: "read held contests' certified totals where the agency answers"; a statewide contest whose lines miss counties is held unless the state's own total is read, since a partial count shows the wrong n and can draw the wrong winner (16:47).
+
+**Oregon 2024's Supreme Court** (`pipeline/intake/or_sos.py`; `local_medsl._or_state`).
+- The source: the Secretary of State's abstract of votes of the 2024 general, from its records system (record 13735458), read 19:38 UTC. Every page is headed "November 5, 2024, General Election Abstract of Votes". The document prints no word "official" or "certified" [stated: the document].
+- **No mark.** One request to the records system's Record Viewer, 20:56:06 UTC, found the record titled "2024 November General Election Official Results(2).PDF" [stated: the page]. That is the uploaded file's name. Ruled 21:55: "the "(2)" shows that. 15:16 excludes a file name, and 19:49 asks for the document's or the linking page's own words. So the abstract carries no mark. P7 goes back to held as before, and the abstract's figures can stay in a note, unmarked."
+- So both positions stay held, as before this step. Each record's notes quote the abstract's figures, unmarked and not taken, and each hold's reason says the abstract carries no mark. The file's `sources.or_sos` names the abstract.
+  - Position 7: Bronson D James 1,212,011, Misc. 23,702; each candidate's 36 county lines add up to its Total line.
+  - Position 1: Stephen K Bushong 1,221,817, Misc. 26,077; its write-in line's county lines add up to 26,078, one more than its Total line.
+- Oregon 2022: no abstract of the 2022 general was found (two web searches of the state's hosts, 20:57 UTC), so none was requested and its one contest held in part stays held.
+
+**Arizona 2022's Attorney General** (`local_medsl.az_recount`).
+- MEDSL's general lines are the count before the statewide recount the margin set off. The record now says so: `result.count_stage` "count before the recount, certified count unread", with a note.
+- Unread: the Secretary of State (azsos.gov, 403, Cloudflare) and the Maricopa County Clerk of the Superior Court (403 at 21:02:40 UTC) refused. The court's order is found only as a copy on a third party's host. Ruled 21:03: "a third party's copy of the filing does not count here ... a count of record has to come from the body that certifies it or another body of the state."
+
+**The over-ballot test** (`local_medsl.over_ballot`; `local_volume.py ballots`, part 4; the order of 17:44: "Hold a one-seat contest whose votes exceed ballots cast, where the source gives them. Where it doesn't, hold one that exceeds the day's highest-vote statewide contest by more than 10%, and list for me any between 1.0x and 1.1x.").
+- **Ballots cast** are read from MEDSL's own lines, as in New Jersey's ruling of 11:16: a contest's votes, overvotes and undervotes, or its CONTEST TOTAL, or a line named as the ballots cast. A contest is bounded by other contests' lines only, never its own. A contest is tested against ballots where every one of its precincts has such a figure.
+- **The day's top contest** otherwise: the most votes among the state's other whole one-seat candidate contests that day, its whole statewide questions, and MEDSL's president and US Senate lines. A held contest is no one's top.
+  - *Questions are counted* (my reading, confirmed by the orchestrator at 21:55: "The comparator stands in for ballots cast, and a question on every ballot statewide stands in as well as an office does"). Without them, Montana 2022's Supreme Court seat 2 (440,378) is 1.11 times seat 1 (396,278); Legislative Referendum 131 (448,905) puts it at 0.98.
+- **Read:** MEDSL's counts only here. A state's own count read in their place (Indiana 2024, North Carolina, Idaho's statewide offices) is not tested in this step. The orchestrator, 21:55: "Test every count shown, whatever its source"; that comes in the next step. 2016 is read for its questions only and 2020's file holds local offices only, so neither has a contest to test.
+- **Found** [measured]:
+
+| Year | Read | Against ballots cast (highest) | Against the top contest | Held | Listed, 1.0 to 1.1 times |
+|---|---|---|---|---|---|
+| 2018 | 191 | 31 (Florida's Attorney General, 0.978) | 160 | Michigan's Supreme Court, 1.47 times the governor's; Ohio's Supreme Court, 1.60 | Illinois's Secretary of State, 4,570,842 against the governor's 4,560,012 (1.002) |
+| 2022 | 136 | 8 (Alabama's Attorney General, 0.989) | 128 | Hawaii's at-large trustee, 1.81; Michigan's Attorney General, 1.39 | Delaware's Attorney General, 319,206 against the Treasurer's 317,745 (1.005) |
+| 2024 | 81 | 15 (Utah's Attorney General, 0.948) | 66 | Texas's Supreme Court, 32,783,005 votes, 2.87 times the president's | none |
+
+- The four held before keep their holds, their reasons restated against the top contest. **Texas 2024 is new.** MEDSL files seven candidates under one office, "STATE SUPREME COURT JUSTICE", one seat: Blacklock, Devine, Bland, Weems, Jones, Goldstein and Roberson. That is three seats filed as one [inferred: 2.87 times]. It had no p before (too few like races), so no p is lost.
+- The two listed carry a note.
+
+**M2's readings** (`checks/M2-REPORT.md` §12.4; the orders of 18:13 and 20:30).
+- (a) The moves file of #90's towns and counties: its codes B and Q are worded as what they mark, and an amendment sentence is added to its `about`. No record changes.
+- (b) Idaho 2024's recalls (fix_questions rule 6). A recall's "AGAINST RECALLING" line, filed as a candidate's line, joins the question carrying the other answer, of the same date, office, subject and counties. It joins Latah County's recall of Judi Fuller, as M2 found, and Marsh Valley School District's recall of Kathy Egan, by the same rule. The two local records are gone; the two questions now carry both answers. Still no p: a local threshold is not read.
+- (c) North Carolina's Court of Appeals of 2008 ("Martin Seat") and 2010 ("Steelman Seat") are typed judge, not statewide judge: neither title nor the State Board's file gives a seat count of one (18:13: "one seat only where the contest's own title or the State Board names one seat, otherwise typed judge"). p stays 0.
+- (d) The "Town of" guard (`places.py`): a title that names another body after the town's name ("Library", "Fire", "Authority", "Sewer") is no longer counted whole by the town. It moves five 2024 questions: Poughkeepsie's library proposition (New York), and Barrington, Cumberland, Johnston and North Kingstown's questions (Rhode Island). They are counted by county; none had a p.
+- **Sixth pass (a): Arizona 2024's Corporation Commission** is one contest of 3 seats. MEDSL's file gives its rows 3 seats in 13 of the 15 counties (Santa Cruz's filed under districts 001 to 003). Maricopa's and Pima's rows give 1, but there the contest's votes, overvotes and undervotes are 2.99 times the president's (Maricopa 6,213,612 against 2,078,930; Pima 1,550,565 against 518,466) [measured]. The pieces cover all 15 counties, so they are joined (16:47). It is still not computed: too few like races of its class.
+- **Sixth pass (b): Michigan 2022.** M2's totals, 6,153,106 for the Attorney General and 4,432,378 for Governor, are the figures of #90 (6,153,017 and 4,432,311) plus MEDSL's "REJECTED" lines in Ottawa County (89 and 67), which fix_questions' rule 2 leaves out as not votes [measured]. After #95 dropped Michigan's total rows the record reads 6,146,375 against 4,424,918, 1.39 times, and stays held.
+
+**The listed rows** (`local_volume.listed_rows_summary`; `local_medsl.listed_rows`; the order of 20:28: "For each one, compute the record it falls in with and without the row. Where the difference is more than 0.5% of the record's total, add a note on the record ('a possible total row in the source, not dropped'). Otherwise the list in REPORT is enough.").
+- A row falls in the contest of MEDSL's counts of the same state, office, district, stage and dataverse whose counties hold the row's county; its votes are those of the contest's candidates it names. Rows of the federal dataverses are counted only.
+- [measured]: 
+
+| Year | Rows | In a record | In a contest that became no record | In no contest the build reads | Noted (records) |
+|---|---|---|---|---|---|
+| 2016 | 182 | 0 | 0 | 182 (candidate contests: 2016 is read for its questions only) | 0 |
+| 2018 | 142 | 6 | 5 (New York's governor and legislature) | 131 (New Jersey's Assembly 5, Camden: precincts named "... TOTAL", alone in the contest) | 1 (1) |
+| 2020 | 3 | 2 | 0 | 1 | 2 (2) |
+| 2022 | 22 | 4 | 10 | 8 | 1 (0: New Jersey's Assembly 12, no record) |
+| 2024 | 56 | 43 | 1 | 12 | 26 (24) |
+
+- **The 27 noted records.** 23 are rows equal to the rest of their contest with one candidate alone holding votes, so the contest's count is twice its precincts' (50% of it): 20 in New Jersey 2024's Bergen County, Yavapai's Board of Supervisors 1 and Cottonwood's council (Arizona 2024), Walthall's election commissioner (Mississippi 2024), and Kentucky 2018's Magistrate 4 (Hardin, C101). The others: Nebraska 2020's Western Community College board (5.7%) and Cuming County's power district (0.7%); Illinois 2024's Bureau/Henry/Stark superintendent, whose three "COUNTY TOTALS" rows carry all 231 of its votes.
+- No p rests on these counts: 6 have p 0 (one name for the seat), the 20 of Bergen are held already by New Jersey's county gate (Bergen's 2024 counts do not add up to the certified federal counts there), and Illinois's superintendent is not computed (write-ins against one name). The counts shown are the question.
+
+**Virginia's legislatures of 2023 and 2025** (the ruling of 18:49). Each record's gate now carries the ruling's words as RULED: "accepted as proposed, with the 9th Senate district of 2023 held". The four shortfall notes add "not explained (no source read says why)".
+
+**D2's report.** A dated line in `data/congress/REPORT.md` after its opening paragraph gives the Hawaii refit's figures (#96), D2's text left as written (20:55).
+
+**c38: two of Klarner's districts** (`pipeline/local.py c38`; the order of 21:21).
+- **Idaho 2022, Senate 1.** Klarner has Scott Herndon unopposed, 13,064, p 0. The state's canvass (cached by `intake/id_sos.py`; its legislative workbook, sheet "Leg Dist 1", DIST. TOTAL row) gives Herndon 13,064, as Klarner does, and "Steven R Johnson (W/I)" 9,025 [stated: the canvass]. MEDSL marks him a write-in too [measured]. So he was not on the ballot. He is added as a write-in, and the write-in rule applies (21:26: "Apply the existing write-in rule to it"): he has 69% of Herndon's votes, more than 10%, so p is not computed.
+- **Vermont 2018, Chittenden Senate** (six seats). Klarner's figures are 2.78 to 3.83 times MEDSL's, candidate by candidate: its total is 1,096,537, MEDSL's 310,430 [measured]. MEDSL's counts are taken where all 13 named candidates match one to one by surname, with MEDSL's write-in lines as the scattering, as for New Hampshire 2022. Vermont's election archive answered one request (21:35:09 UTC) with "Not Found", so no state count is read. p moves ×3.49 (2.33e-05 to 8.14e-05).
+- The district checks across every Klarner-MEDSL overlap (21:21, (a) and (b)) come next, as their own PR.
+
+**What moves** [measured: against bcd1ce9; stamps aside; `moves-held-totals.json`].
+- **p moved:** 1 (Vermont 2018 Chittenden, ×3.49).
+- **p no longer computed:** 1 (Idaho 2022's Senate 1, from 0).
+- **Records gone:** 2 (Idaho 2024's two recall lines, joined into their questions).
+- **Typed anew:** 2 (North Carolina's two Courts of Appeals).
+- **Reasons changed, p not computed before or after:** 15 (the four over-ballot holds restated, Texas's Supreme Court, Arizona's Corporation Commission, Oregon's two positions; the two recall questions; the five "Town of" questions, now counted by county).
+- **Notes only:** 30 local records (the 27 listed-row notes, the two over-ballot listings, and Arizona's Attorney General).
+- **Virginia:** the gate's RULED text on all 240 records of 2023 and 2025; "not explained" on the 4 with a shortfall note.
+- No other p moves: the fits that take Vermont 2018 and Idaho 2022 as rows move no p.
+
+**For the orchestrator:**
+- The 23 doubled one-candidate counts are noted, as ordered, and not dropped. No p depends on them, but each shows twice its precincts' count. Ruled 21:55 (3), for the next step: such a row is dropped as a subtotal where the county shows the same pattern in its other contests in the file, or where dropping it reproduces an independent count.
+- New Jersey 2018's Assembly 5 rows (131 precincts named "... TOTAL") fall in no record of MEDSL's: that year's legislature is Klarner's.

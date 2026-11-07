@@ -131,7 +131,7 @@ def load_klarner(raw=False):
     2022 counts from MEDSL's file where Klarner's are doubled (nh_2022), unless raw."""
     with open(os.path.join(KLARNER, "contests.jsonl")) as f:
         cs = [json.loads(line) for line in f]
-    return cs if raw else nh_2022(certified_votes(cs))
+    return cs if raw else c38(nh_2022(certified_votes(cs)))
 
 
 NH_COUNTY = {"belknap": "33001", "carroll": "33003", "cheshire": "33005", "coos": "33007", "grafton": "33009",
@@ -240,6 +240,121 @@ def nh_2022(contests):
             diff=("; " + "; ".join(f"{n}: {v:,} in Klarner's, {w:,} in MEDSL's" for n, v, w in diff)) if diff
             else "; this contest's figures are the same in both")
         NH_COUNT["MEDSL's counts, " + ("different from Klarner's" if diff else "the same as Klarner's")] += 1
+    return contests
+
+
+C38_COUNT = collections.Counter()
+ID_CANVASS = ("2022_General_Canvass.zip", "22 General Legislative - Precinct.xlsx")
+ID_SD1_NOTE = ("Idaho's canvass of the 2022 general (the Secretary of State's 'Canvass Files' for the general of "
+               "November 8, 2022, its legislative workbook, sheet 'Leg Dist 1', DIST. TOTAL row) gives {herndon} "
+               "{hv:,} votes, as Klarner's does, and {name} {wv:,}, marked '(W/I)' [stated: the canvass], which reads as "
+               "write-in [inferred]; MEDSL's file lists him too, with its own write-in mark, and Klarner's lists no one "
+               "beside {herndon} [measured]. So {name} was a write-in, not a name on the ballot: added here as one (the "
+               "orchestrator, 2026-11-07 21:21, from M2's check c38: \"Settle it by voteidaho.gov's canvass\"; 21:26: "
+               "\"A ... flag where MEDSL's other candidate is a write-in, by MEDSL's write-in mark or the state's (W/I), "
+               "is not a ballot opponent. Apply the existing write-in rule to it\")")
+VT_CHI_NOTE = ("Klarner's Vermont 2018 Chittenden Senate figures are {lo:.2f} to {hi:.2f} times MEDSL's, candidate by "
+               "candidate (its district total {k_tot:,} votes, MEDSL's {m_tot:,}) [measured]; M2's check c38: "
+               "\"impossible in a county of about 165,000 people\" [stated: M2]. MEDSL's counts, every one of the "
+               "contest's {n} named candidates matching one of MEDSL's by surname and MEDSL naming no other on the "
+               "ballot; its write-in lines as the scattering (the orchestrator, 2026-11-07 21:21: \"Use MEDSL's counts "
+               "where every candidate matches, marked, as for NH 2022, and settle by VT's Secretary of State if it "
+               "answers\"; the Secretary of State's election archive answered one request, 21:35:09 UTC, with "
+               "'Not Found', so no state count is read): {diff}")
+
+
+def c38(contests):
+    """M2's check c38 (the orchestrator, 2026-11-07 21:21): two of Klarner's contests whose counts its raw sources
+    contradict. (1) Idaho 2022 Senate district 1: Klarner has Scott Herndon unopposed; the state's canvass (pipeline/
+    intake/id_sos.py's cached file) adds Steven R Johnson, marked as a write-in, so he is added as one (party w), and the
+    write-in rule (WRITE_IN_STRONG) decides the route. The canvass's figure for Herndon must equal Klarner's (the
+    gate). (2) Vermont 2018 Chittenden Senate (six seats): Klarner's figures are several times MEDSL's; MEDSL's counts
+    in their place where every named candidate matches one to one, as nh_2022 does. Each contest gets `votes_source`
+    and a note; one that fails its test keeps Klarner's figures, and the build says so."""
+    import local_medsl as LM
+    import zipfile
+    C38_COUNT.clear()
+    by = {(c["state"], c["year"], c["etype"], c["sen"], c["dname"], str(c["dno"])): c for c in contests}
+    # (1) Idaho 2022 Senate 1
+    c = by.get(("ID", 2022, "g", 1, "", "1"))
+    zp = os.path.join(F.CACHE, "id_sos", "raw", ID_CANVASS[0])
+    if c is None or not os.path.exists(zp):
+        raise SystemExit("c38: Idaho 2022 Senate 1 or the canvass (pipeline/intake/id_sos.py) is missing")
+    import openpyxl
+    with zipfile.ZipFile(zp) as z:
+        name = next(n for n in z.namelist() if n.endswith(ID_CANVASS[1]))
+        import io
+        wb = openpyxl.load_workbook(io.BytesIO(z.read(name)), read_only=True, data_only=True)
+    rows = [r for r in wb["Leg Dist 1"].iter_rows(values_only=True)]
+    hdr = next(i for i, r in enumerate(rows) if r and "ST SEN" in r)
+    cols = [j for j in range(rows[hdr].index("ST SEN"), len(rows[hdr]))
+            if j == rows[hdr].index("ST SEN") or rows[hdr][j] is None]
+    cols = cols[:next((k for k in range(1, len(cols)) if cols[k] != cols[k - 1] + 1), len(cols))]
+    names = next(r for r in rows[hdr:] if r and r[0] == "Precinct")
+    tot = next(r for r in rows if r and r[0] == "DIST. TOTAL")
+    canv = [(str(names[j]).strip(), int(tot[j])) for j in cols if names[j]]
+    wi = [(n, v) for n, v in canv if n.endswith("(W/I)")]
+    named = [a for a in c["cands"] if not a["scattering"]]
+    ballot_ = [(n, v) for n, v in canv if not n.endswith("(W/I)")]
+    if len(named) == 1 and len(ballot_) == 1 and LM.name_key(ballot_[0][0])[0] == LM.name_key(named[0]["name"])[0] \
+            and ballot_[0][1] == named[0]["votes"] and len(wi) == 1:
+        wname, wv = wi[0][0].replace("(W/I)", "").strip(), wi[0][1]
+        t_ = wname.lower().split()
+        c["cands"].append({"name": f"{t_[-1]}, {' '.join(t_[:-1])}", "candid": None, "party": "w", "lines": ["write-in (the state's canvass)"],
+                           "votes": wv, "vote_missing": False, "outcome": "l", "exper": "none", "scattering": False})
+        with open(zp + ".meta.json") as f:
+            meta = json.load(f)
+        c["votes_source"] = {"source": "id_sos canvass", "file": f"{ID_CANVASS[0]} / {name} / Leg Dist 1",
+                             "url": meta["url"], "read_utc": meta["read_utc"], "sha256": meta["sha256"],
+                             "added": {wname: wv}}
+        c["certified_note"] = ID_SD1_NOTE.format(herndon=ballot_[0][0], hv=ballot_[0][1], name=wname, wv=wv)
+        C38_COUNT["ID 2022 Senate 1: the canvass's write-in added"] += 1
+    else:
+        raise SystemExit(f"c38: Idaho 2022 Senate 1: the canvass ({canv}) does not match Klarner's {named}")
+    # (2) Vermont 2018 Chittenden Senate
+    c = by.get(("VT", 2018, "g", 1, "chittenden", ""))
+    paths = glob.glob(os.path.join(F.CACHE, "medsl", "normalized", "2018", "VT-*.jsonl"))
+    if c is None or not paths:
+        raise SystemExit("c38: Vermont 2018 Chittenden or MEDSL's 2018 Vermont file is missing")
+    med = []
+    for p_ in paths:
+        with open(p_) as f:
+            med += [m for m in map(json.loads, f) if m["office"] == "STATE SENATE" and m.get("district") == "CHI"
+                    and m["stage"] == "GEN" and not m["special"]]
+    named = [a for a in c["cands"] if not a["scattering"]]
+    if len(med) != 1:
+        raise SystemExit(f"c38: Vermont 2018 Chittenden: {len(med)} MEDSL contests")
+    m = med[0]
+    mb = LM.ballot(m["candidates"])
+    pair, left = {}, list(mb)
+    for a in named:
+        hit = [x for x in left if LM.name_key(x["name"])[0] == LM.name_key(a["name"])[0]]
+        if len(hit) != 1:
+            break
+        pair[id(a)] = hit[0]
+        left.remove(hit[0])
+    if len(pair) != len(named) or left or m.get("magnitude") != c["eseats"]:
+        raise SystemExit("c38: Vermont 2018 Chittenden: Klarner's candidates do not match MEDSL's one to one")
+    ratios = [a["votes"] / pair[id(a)]["votes"] for a in named]
+    scat = sum(x["votes"] for x in m["candidates"] if x not in mb)
+    k_tot = sum(a["votes"] or 0 for a in c["cands"])
+    diff = []
+    for a in c["cands"]:
+        new = scat if a["scattering"] else pair[id(a)]["votes"]
+        diff.append((a["name"], a["votes"], new))
+        a["votes"] = new
+    kv = c.get("klarner") or {}
+    for side, key in (("d", "dvote"), ("r", "rvote")):
+        got = [a["votes"] for a in c["cands"] if a["party"] == side and not a["scattering"]]
+        if got and key in kv:
+            kv[key] = sum(got)
+    f_ = m["file"]
+    c["votes_source"] = {"source": "medsl", "file": f_["name"], "url": f_["url"], "read_utc": f_["read_utc"],
+                         "sha256": f_["sha256"], "klarner": {n: v for n, v, _ in diff}}
+    c["certified_note"] = VT_CHI_NOTE.format(
+        lo=min(ratios), hi=max(ratios), k_tot=k_tot, m_tot=sum(a["votes"] for a in c["cands"]), n=len(named),
+        diff="; ".join(f"{n}: {v:,} in Klarner's, {w:,} in MEDSL's" for n, v, w in diff))
+    C38_COUNT["VT 2018 Chittenden Senate: MEDSL's counts"] += 1
     return contests
 
 
