@@ -19,7 +19,10 @@ What it does, per file:
      within a state (two towns' "CITY COUNCIL"), so precincts are joined into one contest only where they share a
      named candidate; yes-or-no questions (measures, retentions) are one contest per question statewide when MEDSL
      files them as state questions, and per question and county when local, since a local question's wording does
-     not show which place holds it;
+     not show which place holds it. A county's own sum filed as a precinct ("COUNTY TOTAL", Idaho's 2022 file) is
+     dropped where the county's precincts add up to it (drop_county_totals; the orchestrator's rulings of 19:04 and
+     19:49), and so is a precinct of any name that equals, for two candidates or more, the county's other precincts
+     added up (drop_sum_rows; 19:49);
   4. checks: the rows read against the row count Dataverse records for the file, where it records one; and the
      presidency's totals by state and candidate against D1's certified totals in data/president/<year>.json.
 Writes $VOTE_CACHE/medsl/normalized/<year>/<ST>-<file id>.jsonl (one contest per line; a state can have two
@@ -370,6 +373,82 @@ def read_file(path, only_states=None):
         elif cell.get(mode, 0) is not None:
             cell[mode] = cell.get(mode, 0) + votes
     return agg, pres, house, n, states
+
+
+# The names a county's own sum is filed under beside its precincts, read in capitals: a name that ends in TOTAL or
+# TOTALS. "COUNTY TOTAL" (Idaho 2022, New Jersey 2022 and 2024), "TOTAL" (Oregon 2018, Mississippi 2022), "TOTALS"
+# (Michigan 2022), "MACKINAC COUNTY MICHIGAN - TOTAL" (Michigan 2022), "DISTRICT TOTAL" and "ATLANTIC TOTALS" (New
+# Jersey 2022), as pipeline/local_volume.py's scan of every file finds them equal to the precincts beside them (the
+# orchestrator, 19:49: "Apply the ID rule where it reproduces the parts exactly; list the rest for me"). A line is
+# dropped only where it equals its county's other precincts exactly, so a precinct so named that is a real one stays.
+COUNTY_TOTAL = re.compile(r"(^|[ _-])TOTALS?$")
+
+
+def drop_county_totals(agg):
+    """A county's own sum filed as a precinct beside the county's precincts: MEDSL's 2022 Idaho file
+    (2022-id-local-precinct-general.csv) gives each of its 44 counties a precinct named "COUNTY TOTAL" in nearly every
+    office, so that the county is counted twice [measured, data/local/REPORT.md section 29]. The orchestrator's ruling
+    of 2026-11-07 19:04: "apply the COUNTY TOTAL rule, marked, since it reproduces the canvass to the vote in every
+    county MEDSL has". The rule: a candidate's line in a precinct of that name is dropped where the same contest key,
+    county and candidate have lines in the county's other precincts and those add up to it; a line that is the
+    county's only one for its candidate stays (Lincoln County's Commissioner district 3, one name in the total alone);
+    a line whose precincts add up to something else stays too, and is counted, so that the check shows it.
+    agg is {key: {precinct key: {candidate key: {mode: votes}}}}, with the county code first in the precinct key.
+    Returns {"dropped": lines, "kept_alone": lines, "kept_unequal": lines}."""
+    out = collections.Counter()
+    for k, precincts in agg.items():
+        by_county = collections.defaultdict(list)
+        for pk in precincts:
+            by_county[pk[0]].append(pk)
+        for county, pks in by_county.items():
+            totals = [pk for pk in pks if COUNTY_TOTAL.search((pk[2] or "").strip().upper())]
+            for tk in totals:
+                for ck in list(precincts[tk]):
+                    others = [precincts[pk][ck] for pk in pks if pk not in totals and ck in precincts[pk]]
+                    if not others:
+                        out["kept_alone"] += 1
+                        continue
+                    if sum(resolve(m) or 0 for m in others) == (resolve(precincts[tk][ck]) or 0):
+                        del precincts[tk][ck]
+                        out["dropped"] += 1
+                    else:
+                        out["kept_unequal"] += 1
+                if not precincts[tk]:
+                    del precincts[tk]
+    return dict(out)
+
+
+def drop_sum_rows(agg):
+    """A total filed as a precinct under a precinct's own kind of name: the orchestrator's ruling of 2026-11-07 19:49
+    ("any row equal to the sum of the other rows for the same contest, county and candidate. Apply the ID rule where it
+    reproduces the parts exactly"). A precinct is dropped whole where, in one contest and county, each candidate's
+    votes in it equal that candidate's votes in the county's other precincts added up, at least two of its candidates
+    have votes, and at least two other precincts have votes: Camp Verde's council in Yavapai County, 2024, where
+    "AZURE (335.00)" equals the two precincts beside it for all six candidates (pipeline/local_volume.py's scan). A
+    one-candidate match is left in, since one count can equal two others by chance; the scan lists those. Runs after
+    drop_county_totals. Returns ({"dropped_rows": n, "lines": n}, [where: key, county, precinct])."""
+    out, where = collections.Counter(), []
+    for k, precincts in agg.items():
+        by_county = collections.defaultdict(list)
+        for pk in precincts:
+            by_county[pk[0]].append(pk)
+        for county, pks in by_county.items():
+            vals = {pk: {ck: resolve(m) or 0 for ck, m in precincts[pk].items()} for pk in pks}
+            live = [pk for pk in pks if any(vals[pk].values())]
+            if len(live) < 3:
+                continue
+            cands = {ck for pk in live for ck in vals[pk]}
+            tot = {ck: sum(vals[pk].get(ck, 0) for pk in live) for ck in cands}
+            for pk in live:
+                if sum(1 for v in vals[pk].values() if v) < 2:
+                    continue
+                if all(2 * vals[pk].get(ck, 0) == tot[ck] for ck in cands):
+                    out["dropped_rows"] += 1
+                    out["lines"] += len(precincts[pk])
+                    where.append({"key": [str(x) for x in k], "county": county, "precinct": pk[2]})
+                    del precincts[pk]
+                    break   # one per contest and county: the sums change once a row is gone
+    return dict(out), where
 
 
 def merge_statewide(agg):
@@ -831,6 +910,12 @@ def run(year, only=None):
             print(f"{fi['name']}: not read (older layout)", flush=True)
             continue
         agg, pres, house, n, states = read_file(path)
+        totals = drop_county_totals(agg)
+        totals_federal = drop_county_totals({**{("P", s): v for s, v in pres.items()},
+                                             **{("H", s): v for s, v in house.items()}})
+        sums, sums_where = drop_sum_rows(agg)
+        sums_federal, sums_federal_where = drop_sum_rows({**{("P", s): v for s, v in pres.items()},
+                                                          **{("H", s): v for s, v in house.items()}})
         moved = merge_statewide(agg)
         contests = []
         for k, precincts in agg.items():
@@ -851,7 +936,10 @@ def run(year, only=None):
                                        "rows_ok": (expected is None) or (expected == n),
                                        "contests": len(contests), "states": dict(states),
                                        "district_keys_joined_to_statewide": moved,
-                                       "legislative_pieces_without_district_joined": joined}
+                                       "legislative_pieces_without_district_joined": joined,
+                                       "county_total_lines": totals, "county_total_lines_federal": totals_federal,
+                                       "sum_rows": sums, "sum_rows_where": sums_where[:40],
+                                       "sum_rows_federal": sums_federal, "sum_rows_federal_where": sums_federal_where[:40]}
         checks["president"].update(check_president(year, president_totals(pres)))
         checks.setdefault("house_by_party", {}).update(check_house(year, house))
         checks.setdefault("house_by_county", {}).update(house_by_county(house))

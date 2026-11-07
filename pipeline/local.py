@@ -127,10 +127,120 @@ KLARNER_CODES = {
 # ------------------------------------------------------------------ inputs
 
 def load_klarner(raw=False):
-    """Klarner's contests; with North Carolina's certified counts where they win (certified_votes), unless raw."""
+    """Klarner's contests; with North Carolina's certified counts where they win (certified_votes) and New Hampshire's
+    2022 counts from MEDSL's file where Klarner's are doubled (nh_2022), unless raw."""
     with open(os.path.join(KLARNER, "contests.jsonl")) as f:
         cs = [json.loads(line) for line in f]
-    return cs if raw else certified_votes(cs)
+    return cs if raw else nh_2022(certified_votes(cs))
+
+
+NH_COUNTY = {"belknap": "33001", "carroll": "33003", "cheshire": "33005", "coos": "33007", "grafton": "33009",
+             "hillsborough": "33011", "merrimack": "33013", "rockingham": "33015", "strafford": "33017",
+             "sullivan": "33019"}
+NH_DOUBLED = ("Klarner's New Hampshire 2022 figures are doubled, in full in the Senate and in part in the House: its "
+              "Senate votes add up to {k_sen:,} over 24 one-seat districts, against {gov:,} votes for Governor that day "
+              "(D2's count), while MEDSL's add up to {m_sen:,}; every Klarner Senate figure is exactly twice MEDSL's "
+              "[measured, data/local/REPORT.md section 29]")
+NH_NOTE = NH_DOUBLED + ("; MEDSL's counts{rc} (the orchestrator's ruling of 2026-11-07 19:04: \"Use MEDSL's counts "
+                        "where every candidate matches by name, marked 'Klarner's figures are doubled; MEDSL's counts'\")"
+                        "{diff}")
+NH_HELD = NH_DOUBLED + ("; this contest's candidates do not all match MEDSL's by name, so neither count is relied on "
+                        "(the ruling of 19:04: \"Hold the rest\"): p is not computed, and it is left out of the fits")
+NH_COUNT = collections.Counter()
+
+
+def nh_2022(contests):
+    """New Hampshire's 2022 legislative generals: MEDSL's counts in place of Klarner's, which are doubled (NH_DOUBLED),
+    where every one of the contest's named candidates matches one of MEDSL's same district by surname and MEDSL names
+    no other; held (held_reason) otherwise. MEDSL's recount of a district, where its file holds one, is the count of
+    record (a recount's certified count stands for the contest: the orchestrator, 17:44). The Secretary of State's own
+    results refused us (19:02 UTC), so no state count is read. Each contest gets `votes_source` and a note."""
+    import local_medsl as LM
+    paths = glob.glob(os.path.join(F.CACHE, "medsl", "normalized", "2022", "NH-*.jsonl"))
+    if not paths:
+        raise SystemExit("MEDSL's 2022 New Hampshire file is not in the cache: run pipeline/intake/medsl_precinct.py "
+                         "2022 --states NH first")
+    med = []
+    for p_ in paths:
+        with open(p_) as f:
+            med += [m for m in map(json.loads, f) if m["office"] in ("STATE HOUSE", "STATE SENATE")
+                    and m["stage"] in ("GEN", "GEN RECOUNT") and not m["special"]]
+    gov_path = os.path.join(REPO, "data", "governor", "2022.json")
+    with open(gov_path) as f:
+        gov = next(sum(x["votes"] for x in c["result"]["candidates"]) for c in json.load(f)["contests"]
+                   if c["place"]["state"] == "NH" and not c.get("special"))
+    nh = [c for c in contests if c["state"] == "NH" and c["year"] == 2022 and c["etype"] == "g"]
+    k_sen = sum(a["votes"] or 0 for c in nh if c["sen"] == 1 for a in c["cands"])
+    m_sen = sum(x["votes"] for m in med if m["office"] == "STATE SENATE" and m["stage"] == "GEN" for x in m["candidates"])
+    words = {"k_sen": k_sen, "gov": gov, "m_sen": m_sen}
+    NH_COUNT.clear()
+
+    def sur(name):
+        return LM.name_key(name)[0]
+
+    def surs(name):   # MEDSL's New Hampshire House lines give a surname alone ("ST CLAIR", "CRETEAU MILLER") or
+        # a surname and initials ("SOUCY T", "FORTE SGI")
+        toks = [LM._letters(t) for t in name.upper().replace(".", " ").split()]
+        toks = [t for t in toks if t and t not in LM.SUFFIXES]
+        return {sur(name), "".join(toks[-2:]), "".join(toks), toks[0]} if toks else {sur(name)}
+
+    def same(ks, ms):   # Klarner's surnames and MEDSL's lines, one to one
+        if len(ks) != len(ms):
+            return None
+        left, pair = list(ms), {}
+        for k in ks:
+            hit = [x for x in left if k in surs(x["name"])]
+            if len(hit) != 1:
+                return None
+            pair[k] = hit[0]
+            left.remove(hit[0])
+        return pair
+    for c in nh:
+        dn = str(int(c["dno"])) if str(c["dno"]).isdigit() else None
+        office = "STATE SENATE" if c["sen"] == 1 else "STATE HOUSE"
+        named = [a for a in c["cands"] if not a["scattering"]]
+        want = [sur(a["name"]) for a in named]
+        hits = [m for m in med if m["office"] == office and LM.district_no(m["district"]) == dn
+                and (c["sen"] == 1 or NH_COUNTY.get(c["dname"]) in (m.get("counties") or []))
+                and same(want, LM.ballot(m["candidates"]))]
+        rc = [m for m in hits if m["stage"] == "GEN RECOUNT"]
+        hits = rc or hits
+        if len(hits) != 1 or len(set(want)) != len(want):
+            c["held_reason"] = NH_HELD.format(**words)
+            NH_COUNT["held: the candidates do not all match MEDSL's"] += 1
+            continue
+        m = hits[0]
+        mv = same(want, LM.ballot(m["candidates"]))
+        odd = [a["name"] for a in named if a["votes"] and not (0.98 <= mv[sur(a["name"])]["votes"] / a["votes"] <= 1.02
+                                                              or 0.49 <= mv[sur(a["name"])]["votes"] / a["votes"] <= 0.51)]
+        if odd:   # the two counts differ by more than the doubling: not the same count, so neither is relied on
+            c["held_reason"] = NH_HELD.format(**words).replace(
+                "this contest's candidates do not all match MEDSL's by name",
+                "MEDSL's count for " + ", ".join(odd) + " is neither Klarner's nor half of it (within 2%)")
+            NH_COUNT["held: MEDSL's count neither Klarner's nor half of it"] += 1
+            continue
+        scat = sum(x["votes"] for x in m["candidates"] if x not in LM.ballot(m["candidates"]))
+        diff = []
+        for a in c["cands"]:
+            new = scat if a["scattering"] else mv[sur(a["name"])]["votes"]
+            if a["votes"] != new:
+                diff.append((a["name"], a["votes"], new))
+            a["votes"] = new
+        kv = c.get("klarner") or {}
+        for side, key in (("d", "dvote"), ("r", "rvote")):
+            got = [a["votes"] for a in c["cands"] if a["party"] == side and not a["scattering"]]
+            if got and key in kv:
+                kv[key] = sum(got)
+        f_ = m["file"]
+        c["votes_source"] = {"source": "medsl", "file": f_["name"], "url": f_["url"], "read_utc": f_["read_utc"],
+                             "sha256": f_["sha256"], "klarner": {n: v for n, v, _ in diff},
+                             "recount": m["stage"] == "GEN RECOUNT"}
+        c["certified_note"] = NH_NOTE.format(
+            **words, rc=", its recount's" if m["stage"] == "GEN RECOUNT" else "",
+            diff=("; " + "; ".join(f"{n}: {v:,} in Klarner's, {w:,} in MEDSL's" for n, v, w in diff)) if diff
+            else "; this contest's figures are the same in both")
+        NH_COUNT["MEDSL's counts, " + ("different from Klarner's" if diff else "the same as Klarner's")] += 1
+    return contests
 
 
 CERTIFIED_NOTE = ("votes: the North Carolina State Board of Elections' certified counts ({file}), in place of "
@@ -275,7 +385,7 @@ def partisan_rows(contests):
     rows = []
     for c in contests:
         kv = c.get("klarner")
-        if not kv or c["etype"] not in ("g", "gs", "ssg") or c["eseats"] != 1:
+        if not kv or c["etype"] not in ("g", "gs", "ssg") or c["eseats"] != 1 or c.get("held_reason"):
             continue
         if any(a["vote_missing"] for a in c["cands"] if not a["scattering"]):
             continue
@@ -513,6 +623,8 @@ PRIMARY_PLURALITY = ("dp", "rp", "indepp", "workp", "conservativep", "liberp", "
 
 def structure(c):
     """(route, class key or reason) for a normalized Klarner contest."""
+    if c.get("held_reason"):   # New Hampshire's 2022 contests whose counts are not relied on (nh_2022)
+        return ("not computed", c["held_reason"])
     et = c["etype"]
     kv = c.get("klarner") or {}
     named = on_ballot(c["cands"])
@@ -942,7 +1054,7 @@ def build(out_dir, with_p=False, sample=False):
         total = sum(x["votes"] or 0 for x in cands)
         rec["result"] = {"candidates": cands, "total_votes": total, "source": "klarner"}
         if c.get("votes_source"):
-            rec["result"]["votes_source"] = "ncsbe"
+            rec["result"]["votes_source"] = c["votes_source"].get("source", "ncsbe")
         rec["forecasts"] = []
         p = {}
         notes = [c["certified_note"]] if c.get("certified_note") else []
