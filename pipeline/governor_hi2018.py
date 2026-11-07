@@ -62,8 +62,12 @@ EXPECT = {"(D) IGE / GREEN": 244934, "(R) TUPOLA / KERNS": 131719, "(G) BREWER /
 WAS = 137719
 NOTE = ("TUPOLA, ANDRIA's votes are the Office of Elections' certified count, 131,719 (its Statewide Summary, a "
         "certified text file); the dataset reads 137,719, which differs in one digit (the orchestrator's ruling of "
-        "2026-11-07 19:13; data/local/REPORT.md section 29). n and each p follow the certified count; D2's later fits "
-        "and Hawaii 2022's last-governor-race input still use the dataset's figure")
+        "2026-11-07 19:13; data/local/REPORT.md section 29). n and each p follow the certified count, and so do D2's "
+        "fits of later years and Hawaii 2022's last-governor-race input (the ruling of 19:49; section 30)")
+OLD_NOTE = "TUPOLA, ANDRIA's votes are the Office of Elections' certified count, 131,719"   # an earlier wording
+NOTE_LAST = ("the last governor race's Democratic share (Hawaii 2018) reads Tupola at the Office of Elections' "
+             "certified 131,719 in place of the dataset's 137,719 (pipeline/governor_hi2018.py; the orchestrator, "
+             "2026-11-07 19:49; data/local/REPORT.md section 30)")
 
 
 def _meta(name):
@@ -150,9 +154,12 @@ def last_race():
             if now is None or now[0] != 2018:
                 raise SystemExit(f"governor_hi2018.last_race: {rec['id']}'s last race now reads {now}")
             new = {"year": now[0], "share_D": now[1], "special": now[2], "source": now[3]}
-            if new != lg:
-                moves.append((rec["id"], lg["share_D"], now[1]))
+            if new != lg or NOTE_LAST not in rec["notes"]:
+                if new != lg:
+                    moves.append((rec["id"], lg["share_D"], now[1]))
                 rec["forecast_inputs"]["last_governor_race"] = new
+                if NOTE_LAST not in rec["notes"]:
+                    rec["notes"].append(NOTE_LAST)
                 lines[i] = "  " + json.dumps(rec, separators=(",", ":"), ensure_ascii=False) + ("," if comma else "")
                 hit = True
         if hit:
@@ -200,7 +207,7 @@ def main():
         moves.append((x["under"], was, x["value"]))
     p["n"] = n
     if NOTE not in rec["notes"]:
-        rec["notes"].append(NOTE)
+        rec["notes"] = [x for x in rec["notes"] if not x.startswith(OLD_NOTE)] + [NOTE]
     lines[at[0]] = "  " + json.dumps(rec, separators=(",", ":"), ensure_ascii=False) + ("," if comma else "")
     text = "\n".join(lines)
     if '"hi_oe": {' not in text:
