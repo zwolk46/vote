@@ -52,6 +52,8 @@ The session's egress policy refuses every scholarly, archive, data and news host
 
 ## Log (newest first; one line per turn)
 
+- 2026-11-07 08:08: OpenElections skipped for now (no licence, 'All rights reserved', mostly duplicates Klarner and MEDSL); D3 to fill IN, LA, NJ 2024 legislatures from each state's own certified results, gated, then local thresholds. Klarner NC replaced by certified for 2002, 2016, 2018 (2000, 2010 fail the gate, Klarner kept).
+
 - 2026-11-07 08:08: approved D3's NC like-race route for the State Board's other dates (D3-v1.1 on NC's own earlier years, from 2014; added classes D-vs-R and primaries by office and candidates; back-test 270.3 expected vs 281 seen, single-seat 115.3 vs 113, primaries 38.7 vs 38; factor rejected as it worsens 2019-26; 2,675 of 7,453 contested races get p).
 
 - 2026-11-07 08:06: #42 merged after D3 merged main (README: both sides kept). M2 second pass, early finding: 4 contests with p wrong by >2x from forecast_inputs.incumbency (2018 House NY-14 x2071, 2014 MI-11 x4.7, 2024 SD-AL x0.035, 2006 Senate UT x0.15; also 2006 AR-04, MI-07 without p): incumbency() keys Cha by last name, and FEC incumbent marks taken from non-D/R candidates; fits unaffected. Everything else in c8 reproduces to 1e-15. D2 asked for the narrow fix now (key by name, state, district, year; Cha's D/R coding; document f_half as calibrated). An exception to the three-worker cap, for a small correctness fix to wrong p; logged here for that reason.
