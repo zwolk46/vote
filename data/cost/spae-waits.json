@@ -1,0 +1,6878 @@
+{
+ "about": "Time in line to vote and how people voted, by state, from MIT's Survey of the Performance of American Elections (CC0 1.0): the survey's own answers, weighted by its state weights. See pipeline/intake/spae.py for the definitions.",
+ "years": {
+  "2008": {
+   "source": {
+    "name": "Survey of the Performance of American Elections 2008 (spae_2008.tab)",
+    "url": "https://doi.org/10.7910/DVN/1FYT4P",
+    "read_utc": "2026-11-07T07:17Z",
+    "licence": "CC0 1.0",
+    "mark": "measured",
+    "via": null,
+    "note": "file 2433003, 5101246 bytes, sha256 2abe17caefa0ea1f1f707319336dfb495c73fc9c687eaea316a892af75fff7c6; Dataverse dataset version 1.0, released 2013-03-19"
+   },
+   "file": "spae_2008.tab",
+   "weight": "weight",
+   "state_variable": "inputstate",
+   "line_variable": "q12",
+   "mode_variables": [
+    "q5",
+    "q5b"
+   ],
+   "top_category_minutes": 132.89,
+   "top_category_how": "mean of 295 readable written answers",
+   "respondents": 12000,
+   "states": {
+    "AL": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 362,
+     "wait_shares": {
+      "not at all": 0.4524,
+      "less than 10 minutes": 0.2663,
+      "10-30 minutes": 0.1525,
+      "31 minutes to 1 hour": 0.0816,
+      "more than 1 hour": 0.0472
+     },
+     "mean_minutes_midpoint": 14.33,
+     "se_minutes": 1.71,
+     "mean_minutes_lower_bound": 6.89,
+     "share_over_30_minutes": 0.1288,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 387,
+      "in person on Election Day": 0.9411,
+      "in person before Election Day": 0.0091,
+      "by mail or absentee": 0.0498
+     }
+    },
+    "AK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 169,
+     "wait_shares": {
+      "not at all": 0.4629,
+      "less than 10 minutes": 0.3751,
+      "10-30 minutes": 0.1427,
+      "31 minutes to 1 hour": 0.014,
+      "more than 1 hour": 0.0053
+     },
+     "mean_minutes_midpoint": 6.06,
+     "se_minutes": 0.99,
+     "mean_minutes_lower_bound": 2.18,
+     "share_over_30_minutes": 0.0193,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.6828,
+      "in person before Election Day": 0.2398,
+      "by mail or absentee": 0.0774
+     }
+    },
+    "AZ": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 175,
+     "wait_shares": {
+      "not at all": 0.4627,
+      "less than 10 minutes": 0.2085,
+      "10-30 minutes": 0.1489,
+      "31 minutes to 1 hour": 0.0849,
+      "more than 1 hour": 0.095
+     },
+     "mean_minutes_midpoint": 20.46,
+     "se_minutes": 3.73,
+     "mean_minutes_lower_bound": 9.82,
+     "share_over_30_minutes": 0.1799,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 386,
+      "in person on Election Day": 0.403,
+      "in person before Election Day": 0.0607,
+      "by mail or absentee": 0.5364
+     }
+    },
+    "AR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 178,
+     "wait_shares": {
+      "not at all": 0.3118,
+      "less than 10 minutes": 0.295,
+      "10-30 minutes": 0.1855,
+      "31 minutes to 1 hour": 0.1081,
+      "more than 1 hour": 0.0996
+     },
+     "mean_minutes_midpoint": 23.28,
+     "se_minutes": 3.06,
+     "mean_minutes_lower_bound": 11.18,
+     "share_over_30_minutes": 0.2077,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.5173,
+      "in person before Election Day": 0.4507,
+      "by mail or absentee": 0.032
+     }
+    },
+    "CA": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 201,
+     "wait_shares": {
+      "not at all": 0.573,
+      "less than 10 minutes": 0.228,
+      "10-30 minutes": 0.1378,
+      "31 minutes to 1 hour": 0.0356,
+      "more than 1 hour": 0.0256
+     },
+     "mean_minutes_midpoint": 8.9,
+     "se_minutes": 1.67,
+     "mean_minutes_lower_bound": 4.02,
+     "share_over_30_minutes": 0.0612,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 380,
+      "in person on Election Day": 0.5141,
+      "in person before Election Day": 0.0335,
+      "by mail or absentee": 0.4524
+     }
+    },
+    "CO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 73,
+     "wait_shares": {
+      "not at all": 0.5035,
+      "less than 10 minutes": 0.2273,
+      "10-30 minutes": 0.146,
+      "31 minutes to 1 hour": 0.0559,
+      "more than 1 hour": 0.0673
+     },
+     "mean_minutes_midpoint": 15.51,
+     "se_minutes": 3.78,
+     "mean_minutes_lower_bound": 7.23,
+     "share_over_30_minutes": 0.1232,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.1821,
+      "in person before Election Day": 0.2093,
+      "by mail or absentee": 0.6086
+     }
+    },
+    "CT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 181,
+     "wait_shares": {
+      "not at all": 0.4873,
+      "less than 10 minutes": 0.2649,
+      "10-30 minutes": 0.1515,
+      "31 minutes to 1 hour": 0.0735,
+      "more than 1 hour": 0.0228
+     },
+     "mean_minutes_midpoint": 10.69,
+     "se_minutes": 1.75,
+     "mean_minutes_lower_bound": 5.16,
+     "share_over_30_minutes": 0.0963,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.9328,
+      "in person before Election Day": 0.0034,
+      "by mail or absentee": 0.0637
+     }
+    },
+    "DE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 187,
+     "wait_shares": {
+      "not at all": 0.3992,
+      "less than 10 minutes": 0.296,
+      "10-30 minutes": 0.2027,
+      "31 minutes to 1 hour": 0.0605,
+      "more than 1 hour": 0.0416
+     },
+     "mean_minutes_midpoint": 13.78,
+     "se_minutes": 2.65,
+     "mean_minutes_lower_bound": 6.4,
+     "share_over_30_minutes": 0.1021,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.9584,
+      "in person before Election Day": 0.0135,
+      "by mail or absentee": 0.0281
+     }
+    },
+    "FL": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 302,
+     "wait_shares": {
+      "not at all": 0.3413,
+      "less than 10 minutes": 0.1895,
+      "10-30 minutes": 0.1911,
+      "31 minutes to 1 hour": 0.1082,
+      "more than 1 hour": 0.17
+     },
+     "mean_minutes_midpoint": 32.23,
+     "se_minutes": 3.53,
+     "mean_minutes_lower_bound": 15.46,
+     "share_over_30_minutes": 0.2782,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 386,
+      "in person on Election Day": 0.4036,
+      "in person before Election Day": 0.3928,
+      "by mail or absentee": 0.2036
+     }
+    },
+    "GA": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 346,
+     "wait_shares": {
+      "not at all": 0.263,
+      "less than 10 minutes": 0.1857,
+      "10-30 minutes": 0.2243,
+      "31 minutes to 1 hour": 0.1733,
+      "more than 1 hour": 0.1537
+     },
+     "mean_minutes_midpoint": 33.64,
+     "se_minutes": 2.94,
+     "mean_minutes_lower_bound": 16.84,
+     "share_over_30_minutes": 0.327,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 385,
+      "in person on Election Day": 0.4508,
+      "in person before Election Day": 0.4656,
+      "by mail or absentee": 0.0836
+     }
+    },
+    "HI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 138,
+     "wait_shares": {
+      "not at all": 0.4789,
+      "less than 10 minutes": 0.3503,
+      "10-30 minutes": 0.1481,
+      "31 minutes to 1 hour": 0.0227,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.74,
+     "se_minutes": 0.96,
+     "mean_minutes_lower_bound": 2.19,
+     "share_over_30_minutes": 0.0227,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.5332,
+      "in person before Election Day": 0.2159,
+      "by mail or absentee": 0.2508
+     }
+    },
+    "ID": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 149,
+     "wait_shares": {
+      "not at all": 0.5384,
+      "less than 10 minutes": 0.262,
+      "10-30 minutes": 0.1519,
+      "31 minutes to 1 hour": 0.0476,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.49,
+     "se_minutes": 0.89,
+     "mean_minutes_lower_bound": 3.0,
+     "share_over_30_minutes": 0.0476,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.6815,
+      "in person before Election Day": 0.1377,
+      "by mail or absentee": 0.1808
+     }
+    },
+    "IL": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 370,
+     "wait_shares": {
+      "not at all": 0.5633,
+      "less than 10 minutes": 0.2668,
+      "10-30 minutes": 0.0895,
+      "31 minutes to 1 hour": 0.061,
+      "more than 1 hour": 0.0194
+     },
+     "mean_minutes_midpoint": 8.44,
+     "se_minutes": 1.33,
+     "mean_minutes_lower_bound": 3.95,
+     "share_over_30_minutes": 0.0804,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 382,
+      "in person on Election Day": 0.7242,
+      "in person before Election Day": 0.2463,
+      "by mail or absentee": 0.0295
+     }
+    },
+    "IN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 183,
+     "wait_shares": {
+      "not at all": 0.2734,
+      "less than 10 minutes": 0.236,
+      "10-30 minutes": 0.2364,
+      "31 minutes to 1 hour": 0.1632,
+      "more than 1 hour": 0.0909
+     },
+     "mean_minutes_midpoint": 25.34,
+     "se_minutes": 2.83,
+     "mean_minutes_lower_bound": 12.88,
+     "share_over_30_minutes": 0.2541,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.7402,
+      "in person before Election Day": 0.2108,
+      "by mail or absentee": 0.0489
+     }
+    },
+    "IA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 148,
+     "wait_shares": {
+      "not at all": 0.5712,
+      "less than 10 minutes": 0.3099,
+      "10-30 minutes": 0.0943,
+      "31 minutes to 1 hour": 0.0182,
+      "more than 1 hour": 0.0064
+     },
+     "mean_minutes_midpoint": 5.11,
+     "se_minutes": 1.05,
+     "mean_minutes_lower_bound": 1.89,
+     "share_over_30_minutes": 0.0246,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.6216,
+      "in person before Election Day": 0.1585,
+      "by mail or absentee": 0.2199
+     }
+    },
+    "KS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 155,
+     "wait_shares": {
+      "not at all": 0.401,
+      "less than 10 minutes": 0.2962,
+      "10-30 minutes": 0.1793,
+      "31 minutes to 1 hour": 0.115,
+      "more than 1 hour": 0.0085
+     },
+     "mean_minutes_midpoint": 11.37,
+     "se_minutes": 1.58,
+     "mean_minutes_lower_bound": 5.87,
+     "share_over_30_minutes": 0.1235,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.5968,
+      "in person before Election Day": 0.2448,
+      "by mail or absentee": 0.1583
+     }
+    },
+    "KY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 179,
+     "wait_shares": {
+      "not at all": 0.3606,
+      "less than 10 minutes": 0.2777,
+      "10-30 minutes": 0.2619,
+      "31 minutes to 1 hour": 0.0822,
+      "more than 1 hour": 0.0177
+     },
+     "mean_minutes_midpoint": 12.67,
+     "se_minutes": 1.6,
+     "mean_minutes_lower_bound": 6.23,
+     "share_over_30_minutes": 0.0999,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.9296,
+      "in person before Election Day": 0.0328,
+      "by mail or absentee": 0.0376
+     }
+    },
+    "LA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 179,
+     "wait_shares": {
+      "not at all": 0.2791,
+      "less than 10 minutes": 0.2984,
+      "10-30 minutes": 0.2298,
+      "31 minutes to 1 hour": 0.1235,
+      "more than 1 hour": 0.0692
+     },
+     "mean_minutes_midpoint": 20.84,
+     "se_minutes": 2.65,
+     "mean_minutes_lower_bound": 10.28,
+     "share_over_30_minutes": 0.1927,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.7649,
+      "in person before Election Day": 0.2134,
+      "by mail or absentee": 0.0217
+     }
+    },
+    "ME": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 153,
+     "wait_shares": {
+      "not at all": 0.6006,
+      "less than 10 minutes": 0.277,
+      "10-30 minutes": 0.1014,
+      "31 minutes to 1 hour": 0.021,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.36,
+     "se_minutes": 0.7,
+     "mean_minutes_lower_bound": 1.67,
+     "share_over_30_minutes": 0.021,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.6786,
+      "in person before Election Day": 0.1452,
+      "by mail or absentee": 0.1762
+     }
+    },
+    "MD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 177,
+     "wait_shares": {
+      "not at all": 0.3198,
+      "less than 10 minutes": 0.2454,
+      "10-30 minutes": 0.1881,
+      "31 minutes to 1 hour": 0.1177,
+      "more than 1 hour": 0.1291
+     },
+     "mean_minutes_midpoint": 27.44,
+     "se_minutes": 3.35,
+     "mean_minutes_lower_bound": 13.27,
+     "share_over_30_minutes": 0.2468,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.9143,
+      "in person before Election Day": 0.0133,
+      "by mail or absentee": 0.0724
+     }
+    },
+    "MA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 182,
+     "wait_shares": {
+      "not at all": 0.5412,
+      "less than 10 minutes": 0.314,
+      "10-30 minutes": 0.0991,
+      "31 minutes to 1 hour": 0.0457,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.61,
+     "se_minutes": 0.94,
+     "mean_minutes_lower_bound": 2.41,
+     "share_over_30_minutes": 0.0457,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.9107,
+      "in person before Election Day": 0.0261,
+      "by mail or absentee": 0.0632
+     }
+    },
+    "MI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 137,
+     "wait_shares": {
+      "not at all": 0.303,
+      "less than 10 minutes": 0.2604,
+      "10-30 minutes": 0.2125,
+      "31 minutes to 1 hour": 0.1686,
+      "more than 1 hour": 0.0556
+     },
+     "mean_minutes_midpoint": 20.52,
+     "se_minutes": 2.66,
+     "mean_minutes_lower_bound": 10.69,
+     "share_over_30_minutes": 0.2242,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.7335,
+      "in person before Election Day": 0.0188,
+      "by mail or absentee": 0.2477
+     }
+    },
+    "MN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 176,
+     "wait_shares": {
+      "not at all": 0.51,
+      "less than 10 minutes": 0.2573,
+      "10-30 minutes": 0.125,
+      "31 minutes to 1 hour": 0.0922,
+      "more than 1 hour": 0.0155
+     },
+     "mean_minutes_midpoint": 10.0,
+     "se_minutes": 1.56,
+     "mean_minutes_lower_bound": 5.04,
+     "share_over_30_minutes": 0.1077,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.9004,
+      "in person before Election Day": 0.017,
+      "by mail or absentee": 0.0826
+     }
+    },
+    "MS": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 369,
+     "wait_shares": {
+      "not at all": 0.4824,
+      "less than 10 minutes": 0.2731,
+      "10-30 minutes": 0.1518,
+      "31 minutes to 1 hour": 0.0512,
+      "more than 1 hour": 0.0415
+     },
+     "mean_minutes_midpoint": 12.22,
+     "se_minutes": 1.96,
+     "mean_minutes_lower_bound": 5.59,
+     "share_over_30_minutes": 0.0927,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 388,
+      "in person on Election Day": 0.9389,
+      "in person before Election Day": 0.03,
+      "by mail or absentee": 0.0311
+     }
+    },
+    "MO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 173,
+     "wait_shares": {
+      "not at all": 0.319,
+      "less than 10 minutes": 0.2069,
+      "10-30 minutes": 0.1729,
+      "31 minutes to 1 hour": 0.1916,
+      "more than 1 hour": 0.1097
+     },
+     "mean_minutes_midpoint": 27.69,
+     "se_minutes": 3.32,
+     "mean_minutes_lower_bound": 14.25,
+     "share_over_30_minutes": 0.3013,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.8702,
+      "in person before Election Day": 0.0526,
+      "by mail or absentee": 0.0772
+     }
+    },
+    "MT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 124,
+     "wait_shares": {
+      "not at all": 0.5442,
+      "less than 10 minutes": 0.285,
+      "10-30 minutes": 0.1182,
+      "31 minutes to 1 hour": 0.0525,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.15,
+     "se_minutes": 1.03,
+     "mean_minutes_lower_bound": 2.81,
+     "share_over_30_minutes": 0.0525,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.5319,
+      "in person before Election Day": 0.1181,
+      "by mail or absentee": 0.3499
+     }
+    },
+    "NE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 150,
+     "wait_shares": {
+      "not at all": 0.5248,
+      "less than 10 minutes": 0.2623,
+      "10-30 minutes": 0.108,
+      "31 minutes to 1 hour": 0.0852,
+      "more than 1 hour": 0.0197
+     },
+     "mean_minutes_midpoint": 9.93,
+     "se_minutes": 1.8,
+     "mean_minutes_lower_bound": 4.9,
+     "share_over_30_minutes": 0.1049,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.6867,
+      "in person before Election Day": 0.1042,
+      "by mail or absentee": 0.2092
+     }
+    },
+    "NV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 164,
+     "wait_shares": {
+      "not at all": 0.3625,
+      "less than 10 minutes": 0.3288,
+      "10-30 minutes": 0.2161,
+      "31 minutes to 1 hour": 0.0652,
+      "more than 1 hour": 0.0274
+     },
+     "mean_minutes_midpoint": 12.54,
+     "se_minutes": 1.96,
+     "mean_minutes_lower_bound": 5.82,
+     "share_over_30_minutes": 0.0926,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.2605,
+      "in person before Election Day": 0.6194,
+      "by mail or absentee": 0.1201
+     }
+    },
+    "NH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 180,
+     "wait_shares": {
+      "not at all": 0.4706,
+      "less than 10 minutes": 0.3413,
+      "10-30 minutes": 0.1146,
+      "31 minutes to 1 hour": 0.0701,
+      "more than 1 hour": 0.0034
+     },
+     "mean_minutes_midpoint": 7.61,
+     "se_minutes": 1.0,
+     "mean_minutes_lower_bound": 3.52,
+     "share_over_30_minutes": 0.0735,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.9229,
+      "in person before Election Day": 0.0089,
+      "by mail or absentee": 0.0682
+     }
+    },
+    "NJ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 170,
+     "wait_shares": {
+      "not at all": 0.441,
+      "less than 10 minutes": 0.3912,
+      "10-30 minutes": 0.1098,
+      "31 minutes to 1 hour": 0.0489,
+      "more than 1 hour": 0.0091
+     },
+     "mean_minutes_midpoint": 7.56,
+     "se_minutes": 1.2,
+     "mean_minutes_lower_bound": 3.16,
+     "share_over_30_minutes": 0.058,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.9018,
+      "in person before Election Day": 0.0141,
+      "by mail or absentee": 0.084
+     }
+    },
+    "NM": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 148,
+     "wait_shares": {
+      "not at all": 0.4019,
+      "less than 10 minutes": 0.2541,
+      "10-30 minutes": 0.2236,
+      "31 minutes to 1 hour": 0.1007,
+      "more than 1 hour": 0.0197
+     },
+     "mean_minutes_midpoint": 12.9,
+     "se_minutes": 1.7,
+     "mean_minutes_lower_bound": 6.54,
+     "share_over_30_minutes": 0.1204,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.2399,
+      "in person before Election Day": 0.5203,
+      "by mail or absentee": 0.2398
+     }
+    },
+    "NY": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 365,
+     "wait_shares": {
+      "not at all": 0.4216,
+      "less than 10 minutes": 0.4042,
+      "10-30 minutes": 0.1119,
+      "31 minutes to 1 hour": 0.0355,
+      "more than 1 hour": 0.0268
+     },
+     "mean_minutes_midpoint": 9.42,
+     "se_minutes": 1.79,
+     "mean_minutes_lower_bound": 3.83,
+     "share_over_30_minutes": 0.0623,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 383,
+      "in person on Election Day": 0.9223,
+      "in person before Election Day": 0.0273,
+      "by mail or absentee": 0.0504
+     }
+    },
+    "NC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.3206,
+      "less than 10 minutes": 0.2069,
+      "10-30 minutes": 0.2096,
+      "31 minutes to 1 hour": 0.1871,
+      "more than 1 hour": 0.0759
+     },
+     "mean_minutes_midpoint": 23.72,
+     "se_minutes": 2.77,
+     "mean_minutes_lower_bound": 12.45,
+     "share_over_30_minutes": 0.263,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.386,
+      "in person before Election Day": 0.5157,
+      "by mail or absentee": 0.0983
+     }
+    },
+    "ND": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 141,
+     "wait_shares": {
+      "not at all": 0.5771,
+      "less than 10 minutes": 0.2442,
+      "10-30 minutes": 0.1577,
+      "31 minutes to 1 hour": 0.021,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.32,
+     "se_minutes": 0.93,
+     "mean_minutes_lower_bound": 2.23,
+     "share_over_30_minutes": 0.021,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.5384,
+      "in person before Election Day": 0.1936,
+      "by mail or absentee": 0.268
+     }
+    },
+    "OH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 151,
+     "wait_shares": {
+      "not at all": 0.2528,
+      "less than 10 minutes": 0.2902,
+      "10-30 minutes": 0.3059,
+      "31 minutes to 1 hour": 0.1404,
+      "more than 1 hour": 0.0107
+     },
+     "mean_minutes_midpoint": 15.3,
+     "se_minutes": 1.55,
+     "mean_minutes_lower_bound": 8.05,
+     "share_over_30_minutes": 0.1511,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.6228,
+      "in person before Election Day": 0.1598,
+      "by mail or absentee": 0.2174
+     }
+    },
+    "OK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 169,
+     "wait_shares": {
+      "not at all": 0.4168,
+      "less than 10 minutes": 0.1654,
+      "10-30 minutes": 0.1548,
+      "31 minutes to 1 hour": 0.1755,
+      "more than 1 hour": 0.0875
+     },
+     "mean_minutes_midpoint": 23.45,
+     "se_minutes": 2.9,
+     "mean_minutes_lower_bound": 12.24,
+     "share_over_30_minutes": 0.263,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 183,
+      "in person on Election Day": 0.8146,
+      "in person before Election Day": 0.1099,
+      "by mail or absentee": 0.0754
+     }
+    },
+    "OR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 6,
+     "wait_shares": {
+      "not at all": 0.4312,
+      "less than 10 minutes": 0.2986,
+      "10-30 minutes": 0.0,
+      "31 minutes to 1 hour": 0.2703,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 13.65,
+     "se_minutes": 9.32,
+     "mean_minutes_lower_bound": 8.38,
+     "share_over_30_minutes": 0.2703,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.0283,
+      "in person before Election Day": 0.0081,
+      "by mail or absentee": 0.9636
+     }
+    },
+    "PA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 180,
+     "wait_shares": {
+      "not at all": 0.3629,
+      "less than 10 minutes": 0.3035,
+      "10-30 minutes": 0.1924,
+      "31 minutes to 1 hour": 0.0823,
+      "more than 1 hour": 0.059
+     },
+     "mean_minutes_midpoint": 16.9,
+     "se_minutes": 2.36,
+     "mean_minutes_lower_bound": 8.01,
+     "share_over_30_minutes": 0.1413,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.9499,
+      "in person before Election Day": 0.0153,
+      "by mail or absentee": 0.0348
+     }
+    },
+    "RI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 183,
+     "wait_shares": {
+      "not at all": 0.5896,
+      "less than 10 minutes": 0.2837,
+      "10-30 minutes": 0.0905,
+      "31 minutes to 1 hour": 0.0281,
+      "more than 1 hour": 0.0081
+     },
+     "mean_minutes_midpoint": 5.57,
+     "se_minutes": 0.99,
+     "mean_minutes_lower_bound": 2.26,
+     "share_over_30_minutes": 0.0362,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.93,
+      "in person before Election Day": 0.0178,
+      "by mail or absentee": 0.0522
+     }
+    },
+    "SC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 156,
+     "wait_shares": {
+      "not at all": 0.0705,
+      "less than 10 minutes": 0.155,
+      "10-30 minutes": 0.1725,
+      "31 minutes to 1 hour": 0.2597,
+      "more than 1 hour": 0.3424
+     },
+     "mean_minutes_midpoint": 61.41,
+     "se_minutes": 4.44,
+     "mean_minutes_lower_bound": 30.32,
+     "share_over_30_minutes": 0.6021,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.7194,
+      "in person before Election Day": 0.1205,
+      "by mail or absentee": 0.1601
+     }
+    },
+    "SD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 176,
+     "wait_shares": {
+      "not at all": 0.626,
+      "less than 10 minutes": 0.2682,
+      "10-30 minutes": 0.0876,
+      "31 minutes to 1 hour": 0.0182,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.91,
+     "se_minutes": 0.74,
+     "mean_minutes_lower_bound": 1.44,
+     "share_over_30_minutes": 0.0182,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.7572,
+      "in person before Election Day": 0.1634,
+      "by mail or absentee": 0.0794
+     }
+    },
+    "TN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 179,
+     "wait_shares": {
+      "not at all": 0.2804,
+      "less than 10 minutes": 0.2741,
+      "10-30 minutes": 0.2903,
+      "31 minutes to 1 hour": 0.079,
+      "more than 1 hour": 0.0762
+     },
+     "mean_minutes_midpoint": 20.86,
+     "se_minutes": 2.83,
+     "mean_minutes_lower_bound": 9.93,
+     "share_over_30_minutes": 0.1552,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.3517,
+      "in person before Election Day": 0.6275,
+      "by mail or absentee": 0.0207
+     }
+    },
+    "TX": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 341,
+     "wait_shares": {
+      "not at all": 0.4124,
+      "less than 10 minutes": 0.345,
+      "10-30 minutes": 0.1699,
+      "31 minutes to 1 hour": 0.0617,
+      "more than 1 hour": 0.0109
+     },
+     "mean_minutes_midpoint": 9.35,
+     "se_minutes": 0.96,
+     "mean_minutes_lower_bound": 4.27,
+     "share_over_30_minutes": 0.0726,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 366,
+      "in person on Election Day": 0.3354,
+      "in person before Election Day": 0.615,
+      "by mail or absentee": 0.0497
+     }
+    },
+    "UT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 165,
+     "wait_shares": {
+      "not at all": 0.4085,
+      "less than 10 minutes": 0.244,
+      "10-30 minutes": 0.226,
+      "31 minutes to 1 hour": 0.0819,
+      "more than 1 hour": 0.0396
+     },
+     "mean_minutes_midpoint": 14.69,
+     "se_minutes": 2.2,
+     "mean_minutes_lower_bound": 7.17,
+     "share_over_30_minutes": 0.1215,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.5502,
+      "in person before Election Day": 0.3277,
+      "by mail or absentee": 0.1221
+     }
+    },
+    "VT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.744,
+      "less than 10 minutes": 0.2019,
+      "10-30 minutes": 0.0385,
+      "31 minutes to 1 hour": 0.0156,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.48,
+     "se_minutes": 0.63,
+     "mean_minutes_lower_bound": 0.87,
+     "share_over_30_minutes": 0.0156,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.7259,
+      "in person before Election Day": 0.1229,
+      "by mail or absentee": 0.1512
+     }
+    },
+    "VA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 175,
+     "wait_shares": {
+      "not at all": 0.2705,
+      "less than 10 minutes": 0.2027,
+      "10-30 minutes": 0.2222,
+      "31 minutes to 1 hour": 0.1906,
+      "more than 1 hour": 0.114
+     },
+     "mean_minutes_midpoint": 29.19,
+     "se_minutes": 3.18,
+     "mean_minutes_lower_bound": 14.97,
+     "share_over_30_minutes": 0.3046,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.8453,
+      "in person before Election Day": 0.0824,
+      "by mail or absentee": 0.0724
+     }
+    },
+    "WA": {
+     "n_respondents": 400,
+     "n_with_wait_answer": 52,
+     "wait_shares": {
+      "not at all": 0.4879,
+      "less than 10 minutes": 0.2342,
+      "10-30 minutes": 0.166,
+      "31 minutes to 1 hour": 0.0668,
+      "more than 1 hour": 0.0452
+     },
+     "mean_minutes_midpoint": 13.5,
+     "se_minutes": 3.87,
+     "mean_minutes_lower_bound": 6.44,
+     "share_over_30_minutes": 0.112,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 391,
+      "in person on Election Day": 0.13,
+      "in person before Election Day": 0.0132,
+      "by mail or absentee": 0.8569
+     }
+    },
+    "WV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 175,
+     "wait_shares": {
+      "not at all": 0.3158,
+      "less than 10 minutes": 0.313,
+      "10-30 minutes": 0.2172,
+      "31 minutes to 1 hour": 0.1193,
+      "more than 1 hour": 0.0347
+     },
+     "mean_minutes_midpoint": 15.89,
+     "se_minutes": 2.07,
+     "mean_minutes_lower_bound": 7.95,
+     "share_over_30_minutes": 0.154,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.6669,
+      "in person before Election Day": 0.3041,
+      "by mail or absentee": 0.029
+     }
+    },
+    "WI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 171,
+     "wait_shares": {
+      "not at all": 0.4717,
+      "less than 10 minutes": 0.3038,
+      "10-30 minutes": 0.1706,
+      "31 minutes to 1 hour": 0.0395,
+      "more than 1 hour": 0.0144
+     },
+     "mean_minutes_midpoint": 8.62,
+     "se_minutes": 1.52,
+     "mean_minutes_lower_bound": 3.79,
+     "share_over_30_minutes": 0.0539,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.763,
+      "in person before Election Day": 0.1341,
+      "by mail or absentee": 0.1029
+     }
+    },
+    "WY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 165,
+     "wait_shares": {
+      "not at all": 0.5281,
+      "less than 10 minutes": 0.3586,
+      "10-30 minutes": 0.0697,
+      "31 minutes to 1 hour": 0.0372,
+      "more than 1 hour": 0.0063
+     },
+     "mean_minutes_midpoint": 5.7,
+     "se_minutes": 1.29,
+     "mean_minutes_lower_bound": 2.23,
+     "share_over_30_minutes": 0.0435,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 196,
+      "in person on Election Day": 0.6829,
+      "in person before Election Day": 0.171,
+      "by mail or absentee": 0.1461
+     }
+    }
+   },
+   "states_missing": [
+    "DC"
+   ]
+  },
+  "2012": {
+   "source": {
+    "name": "Survey of the Performance of American Elections 2012 (MITU0017_OUTPUT.tab)",
+    "url": "https://doi.org/10.7910/DVN/WP8RHI",
+    "read_utc": "2026-11-07T07:17Z",
+    "licence": "CC0 1.0",
+    "mark": "measured",
+    "via": null,
+    "note": "file 2437448, 4348321 bytes, sha256 180b66eeb03b34e27a3fef5996adaacc438b52b0ba2f9a4aee69569807a6d27e; Dataverse dataset version 2.0, released 2013-06-12"
+   },
+   "file": "MITU0017_OUTPUT.tab",
+   "weight": "weight",
+   "state_variable": "regstate",
+   "line_variable": "q10",
+   "mode_variables": [
+    "q4"
+   ],
+   "top_category_minutes": 134.08,
+   "top_category_how": "mean of 181 readable written answers",
+   "respondents": 10200,
+   "states": {
+    "AL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 174,
+     "wait_shares": {
+      "not at all": 0.3697,
+      "less than 10 minutes": 0.3448,
+      "10-30 minutes": 0.2095,
+      "31 minutes to 1 hour": 0.0553,
+      "more than 1 hour": 0.0208
+     },
+     "mean_minutes_midpoint": 11.19,
+     "se_minutes": 1.75,
+     "mean_minutes_lower_bound": 5.06,
+     "share_over_30_minutes": 0.0761,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 183,
+      "in person on Election Day": 0.9479,
+      "in person before Election Day": 0.0,
+      "by mail or absentee": 0.0521
+     }
+    },
+    "AK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 165,
+     "wait_shares": {
+      "not at all": 0.6172,
+      "less than 10 minutes": 0.3037,
+      "10-30 minutes": 0.0569,
+      "31 minutes to 1 hour": 0.0222,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.66,
+     "se_minutes": 0.99,
+     "mean_minutes_lower_bound": 1.26,
+     "share_over_30_minutes": 0.0222,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.7694,
+      "in person before Election Day": 0.1407,
+      "by mail or absentee": 0.0899
+     }
+    },
+    "AZ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 67,
+     "wait_shares": {
+      "not at all": 0.4183,
+      "less than 10 minutes": 0.3695,
+      "10-30 minutes": 0.1361,
+      "31 minutes to 1 hour": 0.0555,
+      "more than 1 hour": 0.0207
+     },
+     "mean_minutes_midpoint": 9.84,
+     "se_minutes": 3.09,
+     "mean_minutes_lower_bound": 4.32,
+     "share_over_30_minutes": 0.0762,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.3235,
+      "in person before Election Day": 0.0586,
+      "by mail or absentee": 0.6178
+     }
+    },
+    "AR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 170,
+     "wait_shares": {
+      "not at all": 0.3018,
+      "less than 10 minutes": 0.3351,
+      "10-30 minutes": 0.2514,
+      "31 minutes to 1 hour": 0.0866,
+      "more than 1 hour": 0.0251
+     },
+     "mean_minutes_midpoint": 13.97,
+     "se_minutes": 2.43,
+     "mean_minutes_lower_bound": 6.71,
+     "share_over_30_minutes": 0.1117,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 174,
+      "in person on Election Day": 0.537,
+      "in person before Election Day": 0.4337,
+      "by mail or absentee": 0.0293
+     }
+    },
+    "CA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 95,
+     "wait_shares": {
+      "not at all": 0.4688,
+      "less than 10 minutes": 0.3564,
+      "10-30 minutes": 0.1538,
+      "31 minutes to 1 hour": 0.021,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.8,
+     "se_minutes": 1.16,
+     "mean_minutes_lower_bound": 2.19,
+     "share_over_30_minutes": 0.021,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.4919,
+      "in person before Election Day": 0.0082,
+      "by mail or absentee": 0.5
+     }
+    },
+    "CO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 67,
+     "wait_shares": {
+      "not at all": 0.3904,
+      "less than 10 minutes": 0.4703,
+      "10-30 minutes": 0.1144,
+      "31 minutes to 1 hour": 0.0177,
+      "more than 1 hour": 0.0073
+     },
+     "mean_minutes_midpoint": 6.41,
+     "se_minutes": 1.41,
+     "mean_minutes_lower_bound": 2.13,
+     "share_over_30_minutes": 0.025,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.2189,
+      "in person before Election Day": 0.1594,
+      "by mail or absentee": 0.6217
+     }
+    },
+    "CT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 171,
+     "wait_shares": {
+      "not at all": 0.44,
+      "less than 10 minutes": 0.3438,
+      "10-30 minutes": 0.1494,
+      "31 minutes to 1 hour": 0.0524,
+      "more than 1 hour": 0.0144
+     },
+     "mean_minutes_midpoint": 9.0,
+     "se_minutes": 1.71,
+     "mean_minutes_lower_bound": 3.98,
+     "share_over_30_minutes": 0.0668,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.8629,
+      "in person before Election Day": 0.0194,
+      "by mail or absentee": 0.1178
+     }
+    },
+    "DE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 190,
+     "wait_shares": {
+      "not at all": 0.5053,
+      "less than 10 minutes": 0.3547,
+      "10-30 minutes": 0.1261,
+      "31 minutes to 1 hour": 0.0139,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.92,
+     "se_minutes": 0.67,
+     "mean_minutes_lower_bound": 1.69,
+     "share_over_30_minutes": 0.0139,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.9833,
+      "in person before Election Day": 0.009,
+      "by mail or absentee": 0.0077
+     }
+    },
+    "DC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 178,
+     "wait_shares": {
+      "not at all": 0.0727,
+      "less than 10 minutes": 0.2888,
+      "10-30 minutes": 0.2532,
+      "31 minutes to 1 hour": 0.2454,
+      "more than 1 hour": 0.1399
+     },
+     "mean_minutes_midpoint": 36.31,
+     "se_minutes": 3.27,
+     "mean_minutes_lower_bound": 18.53,
+     "share_over_30_minutes": 0.3853,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.747,
+      "in person before Election Day": 0.2382,
+      "by mail or absentee": 0.0148
+     }
+    },
+    "FL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 131,
+     "wait_shares": {
+      "not at all": 0.1752,
+      "less than 10 minutes": 0.1588,
+      "10-30 minutes": 0.2793,
+      "31 minutes to 1 hour": 0.1704,
+      "more than 1 hour": 0.2163
+     },
+     "mean_minutes_midpoint": 43.05,
+     "se_minutes": 4.74,
+     "mean_minutes_lower_bound": 21.05,
+     "share_over_30_minutes": 0.3867,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.3666,
+      "in person before Election Day": 0.3616,
+      "by mail or absentee": 0.2718
+     }
+    },
+    "GA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 170,
+     "wait_shares": {
+      "not at all": 0.3444,
+      "less than 10 minutes": 0.199,
+      "10-30 minutes": 0.281,
+      "31 minutes to 1 hour": 0.1341,
+      "more than 1 hour": 0.0414
+     },
+     "mean_minutes_midpoint": 18.2,
+     "se_minutes": 2.26,
+     "mean_minutes_lower_bound": 9.45,
+     "share_over_30_minutes": 0.1755,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 179,
+      "in person on Election Day": 0.5373,
+      "in person before Election Day": 0.3872,
+      "by mail or absentee": 0.0755
+     }
+    },
+    "HI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 100,
+     "wait_shares": {
+      "not at all": 0.4551,
+      "less than 10 minutes": 0.3304,
+      "10-30 minutes": 0.171,
+      "31 minutes to 1 hour": 0.0435,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 7.03,
+     "se_minutes": 1.42,
+     "mean_minutes_lower_bound": 3.06,
+     "share_over_30_minutes": 0.0435,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.3797,
+      "in person before Election Day": 0.13,
+      "by mail or absentee": 0.4902
+     }
+    },
+    "ID": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 147,
+     "wait_shares": {
+      "not at all": 0.4263,
+      "less than 10 minutes": 0.3777,
+      "10-30 minutes": 0.1529,
+      "31 minutes to 1 hour": 0.0385,
+      "more than 1 hour": 0.0046
+     },
+     "mean_minutes_midpoint": 7.29,
+     "se_minutes": 1.07,
+     "mean_minutes_lower_bound": 3.0,
+     "share_over_30_minutes": 0.0431,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.6436,
+      "in person before Election Day": 0.1191,
+      "by mail or absentee": 0.2373
+     }
+    },
+    "IL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 181,
+     "wait_shares": {
+      "not at all": 0.4228,
+      "less than 10 minutes": 0.3527,
+      "10-30 minutes": 0.1371,
+      "31 minutes to 1 hour": 0.0673,
+      "more than 1 hour": 0.02
+     },
+     "mean_minutes_midpoint": 10.22,
+     "se_minutes": 1.87,
+     "mean_minutes_lower_bound": 4.66,
+     "share_over_30_minutes": 0.0873,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.6896,
+      "in person before Election Day": 0.2445,
+      "by mail or absentee": 0.0659
+     }
+    },
+    "IN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 171,
+     "wait_shares": {
+      "not at all": 0.3238,
+      "less than 10 minutes": 0.3296,
+      "10-30 minutes": 0.2033,
+      "31 minutes to 1 hour": 0.1245,
+      "more than 1 hour": 0.0189
+     },
+     "mean_minutes_midpoint": 13.85,
+     "se_minutes": 2.17,
+     "mean_minutes_lower_bound": 7.02,
+     "share_over_30_minutes": 0.1434,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 181,
+      "in person on Election Day": 0.7587,
+      "in person before Election Day": 0.1957,
+      "by mail or absentee": 0.0456
+     }
+    },
+    "IA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 130,
+     "wait_shares": {
+      "not at all": 0.5319,
+      "less than 10 minutes": 0.2931,
+      "10-30 minutes": 0.1237,
+      "31 minutes to 1 hour": 0.0236,
+      "more than 1 hour": 0.0277
+     },
+     "mean_minutes_midpoint": 8.72,
+     "se_minutes": 3.6,
+     "mean_minutes_lower_bound": 3.63,
+     "share_over_30_minutes": 0.0513,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.5473,
+      "in person before Election Day": 0.1536,
+      "by mail or absentee": 0.299
+     }
+    },
+    "KS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 158,
+     "wait_shares": {
+      "not at all": 0.3687,
+      "less than 10 minutes": 0.3277,
+      "10-30 minutes": 0.1975,
+      "31 minutes to 1 hour": 0.0806,
+      "more than 1 hour": 0.0255
+     },
+     "mean_minutes_midpoint": 12.63,
+     "se_minutes": 2.19,
+     "mean_minutes_lower_bound": 6.0,
+     "share_over_30_minutes": 0.1061,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.617,
+      "in person before Election Day": 0.2298,
+      "by mail or absentee": 0.1532
+     }
+    },
+    "KY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 172,
+     "wait_shares": {
+      "not at all": 0.3661,
+      "less than 10 minutes": 0.4292,
+      "10-30 minutes": 0.1449,
+      "31 minutes to 1 hour": 0.0526,
+      "more than 1 hour": 0.0071
+     },
+     "mean_minutes_midpoint": 8.37,
+     "se_minutes": 1.34,
+     "mean_minutes_lower_bound": 3.51,
+     "share_over_30_minutes": 0.0597,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 177,
+      "in person on Election Day": 0.8927,
+      "in person before Election Day": 0.0724,
+      "by mail or absentee": 0.0349
+     }
+    },
+    "LA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.2507,
+      "less than 10 minutes": 0.3225,
+      "10-30 minutes": 0.2363,
+      "31 minutes to 1 hour": 0.1149,
+      "more than 1 hour": 0.0757
+     },
+     "mean_minutes_midpoint": 21.65,
+     "se_minutes": 3.34,
+     "mean_minutes_lower_bound": 10.46,
+     "share_over_30_minutes": 0.1906,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 171,
+      "in person on Election Day": 0.7631,
+      "in person before Election Day": 0.18,
+      "by mail or absentee": 0.0569
+     }
+    },
+    "ME": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 145,
+     "wait_shares": {
+      "not at all": 0.5374,
+      "less than 10 minutes": 0.3836,
+      "10-30 minutes": 0.0697,
+      "31 minutes to 1 hour": 0.0093,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.73,
+     "se_minutes": 0.61,
+     "mean_minutes_lower_bound": 0.99,
+     "share_over_30_minutes": 0.0093,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.6246,
+      "in person before Election Day": 0.1493,
+      "by mail or absentee": 0.2262
+     }
+    },
+    "MD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 173,
+     "wait_shares": {
+      "not at all": 0.2272,
+      "less than 10 minutes": 0.1753,
+      "10-30 minutes": 0.261,
+      "31 minutes to 1 hour": 0.2252,
+      "more than 1 hour": 0.1114
+     },
+     "mean_minutes_midpoint": 31.16,
+     "se_minutes": 3.34,
+     "mean_minutes_lower_bound": 16.27,
+     "share_over_30_minutes": 0.3366,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.7305,
+      "in person before Election Day": 0.2208,
+      "by mail or absentee": 0.0487
+     }
+    },
+    "MA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 182,
+     "wait_shares": {
+      "not at all": 0.4623,
+      "less than 10 minutes": 0.2784,
+      "10-30 minutes": 0.2036,
+      "31 minutes to 1 hour": 0.0387,
+      "more than 1 hour": 0.017
+     },
+     "mean_minutes_midpoint": 9.48,
+     "se_minutes": 1.47,
+     "mean_minutes_lower_bound": 4.25,
+     "share_over_30_minutes": 0.0557,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.921,
+      "in person before Election Day": 0.0238,
+      "by mail or absentee": 0.0552
+     }
+    },
+    "MI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 131,
+     "wait_shares": {
+      "not at all": 0.1523,
+      "less than 10 minutes": 0.2324,
+      "10-30 minutes": 0.3687,
+      "31 minutes to 1 hour": 0.2239,
+      "more than 1 hour": 0.0227
+     },
+     "mean_minutes_midpoint": 21.66,
+     "se_minutes": 2.15,
+     "mean_minutes_lower_bound": 11.99,
+     "share_over_30_minutes": 0.2466,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 179,
+      "in person on Election Day": 0.6965,
+      "in person before Election Day": 0.0292,
+      "by mail or absentee": 0.2743
+     }
+    },
+    "MN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 172,
+     "wait_shares": {
+      "not at all": 0.5557,
+      "less than 10 minutes": 0.243,
+      "10-30 minutes": 0.1619,
+      "31 minutes to 1 hour": 0.0394,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.22,
+     "se_minutes": 0.99,
+     "mean_minutes_lower_bound": 2.84,
+     "share_over_30_minutes": 0.0394,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.8873,
+      "in person before Election Day": 0.0104,
+      "by mail or absentee": 0.1023
+     }
+    },
+    "MS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 167,
+     "wait_shares": {
+      "not at all": 0.4244,
+      "less than 10 minutes": 0.366,
+      "10-30 minutes": 0.1427,
+      "31 minutes to 1 hour": 0.0669,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 7.69,
+     "se_minutes": 1.08,
+     "mean_minutes_lower_bound": 3.5,
+     "share_over_30_minutes": 0.0669,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 172,
+      "in person on Election Day": 0.9095,
+      "in person before Election Day": 0.067,
+      "by mail or absentee": 0.0235
+     }
+    },
+    "MO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 168,
+     "wait_shares": {
+      "not at all": 0.3234,
+      "less than 10 minutes": 0.3264,
+      "10-30 minutes": 0.2693,
+      "31 minutes to 1 hour": 0.0595,
+      "more than 1 hour": 0.0213
+     },
+     "mean_minutes_midpoint": 12.56,
+     "se_minutes": 1.88,
+     "mean_minutes_lower_bound": 5.82,
+     "share_over_30_minutes": 0.0808,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 183,
+      "in person on Election Day": 0.8725,
+      "in person before Election Day": 0.058,
+      "by mail or absentee": 0.0695
+     }
+    },
+    "MT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 88,
+     "wait_shares": {
+      "not at all": 0.3862,
+      "less than 10 minutes": 0.2889,
+      "10-30 minutes": 0.1624,
+      "31 minutes to 1 hour": 0.1088,
+      "more than 1 hour": 0.0537
+     },
+     "mean_minutes_midpoint": 16.78,
+     "se_minutes": 4.77,
+     "mean_minutes_lower_bound": 8.22,
+     "share_over_30_minutes": 0.1625,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.4769,
+      "in person before Election Day": 0.0274,
+      "by mail or absentee": 0.4958
+     }
+    },
+    "NE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 141,
+     "wait_shares": {
+      "not at all": 0.4238,
+      "less than 10 minutes": 0.4427,
+      "10-30 minutes": 0.0952,
+      "31 minutes to 1 hour": 0.0383,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.84,
+     "se_minutes": 1.0,
+     "mean_minutes_lower_bound": 2.14,
+     "share_over_30_minutes": 0.0383,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.6967,
+      "in person before Election Day": 0.0504,
+      "by mail or absentee": 0.2529
+     }
+    },
+    "NV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 168,
+     "wait_shares": {
+      "not at all": 0.4086,
+      "less than 10 minutes": 0.3302,
+      "10-30 minutes": 0.1982,
+      "31 minutes to 1 hour": 0.0631,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 8.45,
+     "se_minutes": 1.18,
+     "mean_minutes_lower_bound": 3.94,
+     "share_over_30_minutes": 0.0631,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.2753,
+      "in person before Election Day": 0.6509,
+      "by mail or absentee": 0.0738
+     }
+    },
+    "NH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 182,
+     "wait_shares": {
+      "not at all": 0.4089,
+      "less than 10 minutes": 0.2724,
+      "10-30 minutes": 0.2328,
+      "31 minutes to 1 hour": 0.0713,
+      "more than 1 hour": 0.0146
+     },
+     "mean_minutes_midpoint": 11.18,
+     "se_minutes": 1.51,
+     "mean_minutes_lower_bound": 5.41,
+     "share_over_30_minutes": 0.0859,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.9455,
+      "in person before Election Day": 0.0,
+      "by mail or absentee": 0.0545
+     }
+    },
+    "NJ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 164,
+     "wait_shares": {
+      "not at all": 0.4378,
+      "less than 10 minutes": 0.4594,
+      "10-30 minutes": 0.0882,
+      "31 minutes to 1 hour": 0.0146,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.72,
+     "se_minutes": 0.69,
+     "mean_minutes_lower_bound": 1.33,
+     "share_over_30_minutes": 0.0146,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.8932,
+      "in person before Election Day": 0.0381,
+      "by mail or absentee": 0.0688
+     }
+    },
+    "NM": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 158,
+     "wait_shares": {
+      "not at all": 0.5999,
+      "less than 10 minutes": 0.3088,
+      "10-30 minutes": 0.0572,
+      "31 minutes to 1 hour": 0.034,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.22,
+     "se_minutes": 0.84,
+     "mean_minutes_lower_bound": 1.63,
+     "share_over_30_minutes": 0.034,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.35,
+      "in person before Election Day": 0.4913,
+      "by mail or absentee": 0.1586
+     }
+    },
+    "NY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 166,
+     "wait_shares": {
+      "not at all": 0.4128,
+      "less than 10 minutes": 0.3855,
+      "10-30 minutes": 0.134,
+      "31 minutes to 1 hour": 0.0391,
+      "more than 1 hour": 0.0286
+     },
+     "mean_minutes_midpoint": 10.21,
+     "se_minutes": 1.86,
+     "mean_minutes_lower_bound": 4.27,
+     "share_over_30_minutes": 0.0677,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.8715,
+      "in person before Election Day": 0.0133,
+      "by mail or absentee": 0.1152
+     }
+    },
+    "NC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 171,
+     "wait_shares": {
+      "not at all": 0.2843,
+      "less than 10 minutes": 0.3205,
+      "10-30 minutes": 0.2523,
+      "31 minutes to 1 hour": 0.1349,
+      "more than 1 hour": 0.008
+     },
+     "mean_minutes_midpoint": 13.79,
+     "se_minutes": 1.52,
+     "mean_minutes_lower_bound": 7.19,
+     "share_over_30_minutes": 0.1429,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.4261,
+      "in person before Election Day": 0.4853,
+      "by mail or absentee": 0.0886
+     }
+    },
+    "ND": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 101,
+     "wait_shares": {
+      "not at all": 0.5084,
+      "less than 10 minutes": 0.2671,
+      "10-30 minutes": 0.1757,
+      "31 minutes to 1 hour": 0.0433,
+      "more than 1 hour": 0.0056
+     },
+     "mean_minutes_midpoint": 7.54,
+     "se_minutes": 1.53,
+     "mean_minutes_lower_bound": 3.43,
+     "share_over_30_minutes": 0.0489,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 168,
+      "in person on Election Day": 0.4115,
+      "in person before Election Day": 0.183,
+      "by mail or absentee": 0.4054
+     }
+    },
+    "OH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 138,
+     "wait_shares": {
+      "not at all": 0.3693,
+      "less than 10 minutes": 0.3555,
+      "10-30 minutes": 0.1551,
+      "31 minutes to 1 hour": 0.1098,
+      "more than 1 hour": 0.0103
+     },
+     "mean_minutes_midpoint": 11.2,
+     "se_minutes": 1.58,
+     "mean_minutes_lower_bound": 5.57,
+     "share_over_30_minutes": 0.1201,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.5341,
+      "in person before Election Day": 0.2008,
+      "by mail or absentee": 0.2651
+     }
+    },
+    "OK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 174,
+     "wait_shares": {
+      "not at all": 0.2921,
+      "less than 10 minutes": 0.3092,
+      "10-30 minutes": 0.2347,
+      "31 minutes to 1 hour": 0.1233,
+      "more than 1 hour": 0.0406
+     },
+     "mean_minutes_midpoint": 17.23,
+     "se_minutes": 2.28,
+     "mean_minutes_lower_bound": 8.61,
+     "share_over_30_minutes": 0.1639,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.8675,
+      "in person before Election Day": 0.0805,
+      "by mail or absentee": 0.052
+     }
+    },
+    "OR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 9,
+     "wait_shares": {
+      "not at all": 0.5342,
+      "less than 10 minutes": 0.4658,
+      "10-30 minutes": 0.0,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.33,
+     "se_minutes": 1.11,
+     "mean_minutes_lower_bound": 0.0,
+     "share_over_30_minutes": 0.0,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.0373,
+      "in person before Election Day": 0.0325,
+      "by mail or absentee": 0.9303
+     }
+    },
+    "PA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 175,
+     "wait_shares": {
+      "not at all": 0.4426,
+      "less than 10 minutes": 0.3067,
+      "10-30 minutes": 0.1589,
+      "31 minutes to 1 hour": 0.0846,
+      "more than 1 hour": 0.0072
+     },
+     "mean_minutes_midpoint": 9.48,
+     "se_minutes": 1.56,
+     "mean_minutes_lower_bound": 4.64,
+     "share_over_30_minutes": 0.0918,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.9546,
+      "in person before Election Day": 0.0,
+      "by mail or absentee": 0.0454
+     }
+    },
+    "RI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 177,
+     "wait_shares": {
+      "not at all": 0.322,
+      "less than 10 minutes": 0.3306,
+      "10-30 minutes": 0.2564,
+      "31 minutes to 1 hour": 0.0735,
+      "more than 1 hour": 0.0175
+     },
+     "mean_minutes_midpoint": 12.43,
+     "se_minutes": 1.88,
+     "mean_minutes_lower_bound": 5.89,
+     "share_over_30_minutes": 0.091,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 181,
+      "in person on Election Day": 0.963,
+      "in person before Election Day": 0.0196,
+      "by mail or absentee": 0.0175
+     }
+    },
+    "SC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 160,
+     "wait_shares": {
+      "not at all": 0.198,
+      "less than 10 minutes": 0.2467,
+      "10-30 minutes": 0.266,
+      "31 minutes to 1 hour": 0.2203,
+      "more than 1 hour": 0.0689
+     },
+     "mean_minutes_midpoint": 25.71,
+     "se_minutes": 2.73,
+     "mean_minutes_lower_bound": 13.63,
+     "share_over_30_minutes": 0.2892,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 176,
+      "in person on Election Day": 0.8296,
+      "in person before Election Day": 0.103,
+      "by mail or absentee": 0.0674
+     }
+    },
+    "SD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 169,
+     "wait_shares": {
+      "not at all": 0.6078,
+      "less than 10 minutes": 0.2723,
+      "10-30 minutes": 0.1,
+      "31 minutes to 1 hour": 0.0194,
+      "more than 1 hour": 0.0006
+     },
+     "mean_minutes_midpoint": 4.31,
+     "se_minutes": 0.79,
+     "mean_minutes_lower_bound": 1.63,
+     "share_over_30_minutes": 0.02,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.6484,
+      "in person before Election Day": 0.2794,
+      "by mail or absentee": 0.0722
+     }
+    },
+    "TN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 171,
+     "wait_shares": {
+      "not at all": 0.3015,
+      "less than 10 minutes": 0.3214,
+      "10-30 minutes": 0.2292,
+      "31 minutes to 1 hour": 0.134,
+      "more than 1 hour": 0.0139
+     },
+     "mean_minutes_midpoint": 14.08,
+     "se_minutes": 1.73,
+     "mean_minutes_lower_bound": 7.28,
+     "share_over_30_minutes": 0.1479,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 176,
+      "in person on Election Day": 0.4065,
+      "in person before Election Day": 0.5649,
+      "by mail or absentee": 0.0286
+     }
+    },
+    "TX": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 174,
+     "wait_shares": {
+      "not at all": 0.4041,
+      "less than 10 minutes": 0.2284,
+      "10-30 minutes": 0.2686,
+      "31 minutes to 1 hour": 0.0684,
+      "more than 1 hour": 0.0305
+     },
+     "mean_minutes_midpoint": 13.69,
+     "se_minutes": 2.38,
+     "mean_minutes_lower_bound": 6.64,
+     "share_over_30_minutes": 0.0989,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.3572,
+      "in person before Election Day": 0.5689,
+      "by mail or absentee": 0.0738
+     }
+    },
+    "UT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 144,
+     "wait_shares": {
+      "not at all": 0.4038,
+      "less than 10 minutes": 0.2897,
+      "10-30 minutes": 0.2381,
+      "31 minutes to 1 hour": 0.0538,
+      "more than 1 hour": 0.0147
+     },
+     "mean_minutes_midpoint": 10.6,
+     "se_minutes": 2.0,
+     "mean_minutes_lower_bound": 4.93,
+     "share_over_30_minutes": 0.0685,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.5513,
+      "in person before Election Day": 0.2523,
+      "by mail or absentee": 0.1965
+     }
+    },
+    "VT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 158,
+     "wait_shares": {
+      "not at all": 0.7609,
+      "less than 10 minutes": 0.1935,
+      "10-30 minutes": 0.0425,
+      "31 minutes to 1 hour": 0.0032,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 1.96,
+     "se_minutes": 0.44,
+     "mean_minutes_lower_bound": 0.52,
+     "share_over_30_minutes": 0.0032,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.6773,
+      "in person before Election Day": 0.1522,
+      "by mail or absentee": 0.1705
+     }
+    },
+    "VA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 172,
+     "wait_shares": {
+      "not at all": 0.1883,
+      "less than 10 minutes": 0.2929,
+      "10-30 minutes": 0.2402,
+      "31 minutes to 1 hour": 0.1991,
+      "more than 1 hour": 0.0795
+     },
+     "mean_minutes_midpoint": 25.89,
+     "se_minutes": 2.8,
+     "mean_minutes_lower_bound": 13.35,
+     "share_over_30_minutes": 0.2786,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.8039,
+      "in person before Election Day": 0.1223,
+      "by mail or absentee": 0.0739
+     }
+    },
+    "WA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 7,
+     "wait_shares": {
+      "not at all": 0.6128,
+      "less than 10 minutes": 0.3149,
+      "10-30 minutes": 0.0723,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.02,
+     "se_minutes": 1.68,
+     "mean_minutes_lower_bound": 0.72,
+     "share_over_30_minutes": 0.0,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.0118,
+      "in person before Election Day": 0.0256,
+      "by mail or absentee": 0.9626
+     }
+    },
+    "WV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 169,
+     "wait_shares": {
+      "not at all": 0.3871,
+      "less than 10 minutes": 0.3064,
+      "10-30 minutes": 0.2255,
+      "31 minutes to 1 hour": 0.0787,
+      "more than 1 hour": 0.0024
+     },
+     "mean_minutes_midpoint": 9.9,
+     "se_minutes": 1.5,
+     "mean_minutes_lower_bound": 4.83,
+     "share_over_30_minutes": 0.0811,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 175,
+      "in person on Election Day": 0.6835,
+      "in person before Election Day": 0.2909,
+      "by mail or absentee": 0.0255
+     }
+    },
+    "WI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 167,
+     "wait_shares": {
+      "not at all": 0.4123,
+      "less than 10 minutes": 0.3793,
+      "10-30 minutes": 0.1664,
+      "31 minutes to 1 hour": 0.0284,
+      "more than 1 hour": 0.0137
+     },
+     "mean_minutes_midpoint": 8.33,
+     "se_minutes": 1.36,
+     "mean_minutes_lower_bound": 3.36,
+     "share_over_30_minutes": 0.0421,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.6764,
+      "in person before Election Day": 0.2226,
+      "by mail or absentee": 0.101
+     }
+    },
+    "WY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 169,
+     "wait_shares": {
+      "not at all": 0.5972,
+      "less than 10 minutes": 0.2643,
+      "10-30 minutes": 0.1215,
+      "31 minutes to 1 hour": 0.017,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.52,
+     "se_minutes": 0.84,
+     "mean_minutes_lower_bound": 1.74,
+     "share_over_30_minutes": 0.017,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.8408,
+      "in person before Election Day": 0.0853,
+      "by mail or absentee": 0.0739
+     }
+    }
+   },
+   "states_missing": []
+  },
+  "2014": {
+   "source": {
+    "name": "Survey of the Performance of American Elections 2014 (MITU0019_OUTPUT_50state_1.tab)",
+    "url": "https://doi.org/10.7910/DVN/28979",
+    "read_utc": "2026-11-07T07:17Z",
+    "licence": "CC0 1.0",
+    "mark": "measured",
+    "via": null,
+    "note": "file 2531942, 4900107 bytes, sha256 6fc15ea733fe8d5e9b3318e2d5de7a9e3b8deef5a2f23e9603b5a7795ea8b60a; Dataverse dataset version 1.0, released 2015-02-05"
+   },
+   "file": "MITU0019_OUTPUT_50state_1.tab",
+   "weight": "weight",
+   "state_variable": "inputstate",
+   "line_variable": "Q13",
+   "mode_variables": [
+    "Q4"
+   ],
+   "top_category_minutes": 90.0,
+   "top_category_how": "90 assumed (11 readable written answers, under 30)",
+   "respondents": 10200,
+   "states": {
+    "AL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 153,
+     "wait_shares": {
+      "not at all": 0.6297,
+      "less than 10 minutes": 0.2886,
+      "10-30 minutes": 0.0529,
+      "31 minutes to 1 hour": 0.0288,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.8,
+     "se_minutes": 1.11,
+     "mean_minutes_lower_bound": 1.42,
+     "share_over_30_minutes": 0.0288,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 158,
+      "in person on Election Day": 0.9753,
+      "in person before Election Day": 0.0038,
+      "by mail or absentee": 0.0208
+     }
+    },
+    "AK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 155,
+     "wait_shares": {
+      "not at all": 0.4969,
+      "less than 10 minutes": 0.3809,
+      "10-30 minutes": 0.121,
+      "31 minutes to 1 hour": 0.0012,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.38,
+     "se_minutes": 0.69,
+     "mean_minutes_lower_bound": 1.25,
+     "share_over_30_minutes": 0.0012,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.7049,
+      "in person before Election Day": 0.1528,
+      "by mail or absentee": 0.1423
+     }
+    },
+    "AZ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 53,
+     "wait_shares": {
+      "not at all": 0.6158,
+      "less than 10 minutes": 0.2424,
+      "10-30 minutes": 0.0708,
+      "31 minutes to 1 hour": 0.071,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.82,
+     "se_minutes": 2.99,
+     "mean_minutes_lower_bound": 2.91,
+     "share_over_30_minutes": 0.071,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 179,
+      "in person on Election Day": 0.3006,
+      "in person before Election Day": 0.0044,
+      "by mail or absentee": 0.695
+     }
+    },
+    "AR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 165,
+     "wait_shares": {
+      "not at all": 0.359,
+      "less than 10 minutes": 0.3823,
+      "10-30 minutes": 0.228,
+      "31 minutes to 1 hour": 0.0306,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 7.85,
+     "se_minutes": 0.92,
+     "mean_minutes_lower_bound": 3.23,
+     "share_over_30_minutes": 0.0306,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 171,
+      "in person on Election Day": 0.4878,
+      "in person before Election Day": 0.4703,
+      "by mail or absentee": 0.0419
+     }
+    },
+    "CA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 67,
+     "wait_shares": {
+      "not at all": 0.706,
+      "less than 10 minutes": 0.161,
+      "10-30 minutes": 0.1193,
+      "31 minutes to 1 hour": 0.0137,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.81,
+     "se_minutes": 1.05,
+     "mean_minutes_lower_bound": 1.62,
+     "share_over_30_minutes": 0.0137,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 178,
+      "in person on Election Day": 0.3756,
+      "in person before Election Day": 0.0364,
+      "by mail or absentee": 0.588
+     }
+    },
+    "CO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 31,
+     "wait_shares": {
+      "not at all": 0.6186,
+      "less than 10 minutes": 0.2928,
+      "10-30 minutes": 0.0632,
+      "31 minutes to 1 hour": 0.0255,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.88,
+     "se_minutes": 1.42,
+     "mean_minutes_lower_bound": 1.42,
+     "share_over_30_minutes": 0.0255,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.0537,
+      "in person before Election Day": 0.0857,
+      "by mail or absentee": 0.8606
+     }
+    },
+    "CT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.6403,
+      "less than 10 minutes": 0.3089,
+      "10-30 minutes": 0.026,
+      "31 minutes to 1 hour": 0.0248,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.18,
+     "se_minutes": 0.88,
+     "mean_minutes_lower_bound": 1.03,
+     "share_over_30_minutes": 0.0248,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.8879,
+      "in person before Election Day": 0.0111,
+      "by mail or absentee": 0.1009
+     }
+    },
+    "DE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 147,
+     "wait_shares": {
+      "not at all": 0.6352,
+      "less than 10 minutes": 0.3045,
+      "10-30 minutes": 0.0603,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.73,
+     "se_minutes": 0.57,
+     "mean_minutes_lower_bound": 0.6,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 158,
+      "in person on Election Day": 0.9211,
+      "in person before Election Day": 0.0233,
+      "by mail or absentee": 0.0556
+     }
+    },
+    "DC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 158,
+     "wait_shares": {
+      "not at all": 0.3877,
+      "less than 10 minutes": 0.3749,
+      "10-30 minutes": 0.2178,
+      "31 minutes to 1 hour": 0.0196,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 7.11,
+     "se_minutes": 1.06,
+     "mean_minutes_lower_bound": 2.79,
+     "share_over_30_minutes": 0.0196,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 167,
+      "in person on Election Day": 0.7191,
+      "in person before Election Day": 0.2243,
+      "by mail or absentee": 0.0566
+     }
+    },
+    "FL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 121,
+     "wait_shares": {
+      "not at all": 0.6013,
+      "less than 10 minutes": 0.2665,
+      "10-30 minutes": 0.097,
+      "31 minutes to 1 hour": 0.0326,
+      "more than 1 hour": 0.0026
+     },
+     "mean_minutes_midpoint": 4.97,
+     "se_minutes": 1.12,
+     "mean_minutes_lower_bound": 2.14,
+     "share_over_30_minutes": 0.0352,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 175,
+      "in person on Election Day": 0.3754,
+      "in person before Election Day": 0.2734,
+      "by mail or absentee": 0.3511
+     }
+    },
+    "GA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 161,
+     "wait_shares": {
+      "not at all": 0.3142,
+      "less than 10 minutes": 0.486,
+      "10-30 minutes": 0.1477,
+      "31 minutes to 1 hour": 0.052,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 7.73,
+     "se_minutes": 1.37,
+     "mean_minutes_lower_bound": 3.09,
+     "share_over_30_minutes": 0.052,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 174,
+      "in person on Election Day": 0.5146,
+      "in person before Election Day": 0.3975,
+      "by mail or absentee": 0.088
+     }
+    },
+    "HI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 85,
+     "wait_shares": {
+      "not at all": 0.5196,
+      "less than 10 minutes": 0.3799,
+      "10-30 minutes": 0.1005,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.91,
+     "se_minutes": 0.76,
+     "mean_minutes_lower_bound": 1.0,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 175,
+      "in person on Election Day": 0.4216,
+      "in person before Election Day": 0.1335,
+      "by mail or absentee": 0.4448
+     }
+    },
+    "ID": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 136,
+     "wait_shares": {
+      "not at all": 0.653,
+      "less than 10 minutes": 0.3187,
+      "10-30 minutes": 0.0203,
+      "31 minutes to 1 hour": 0.008,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.36,
+     "se_minutes": 0.46,
+     "mean_minutes_lower_bound": 0.45,
+     "share_over_30_minutes": 0.008,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 171,
+      "in person on Election Day": 0.7619,
+      "in person before Election Day": 0.0469,
+      "by mail or absentee": 0.1912
+     }
+    },
+    "IL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 144,
+     "wait_shares": {
+      "not at all": 0.639,
+      "less than 10 minutes": 0.2226,
+      "10-30 minutes": 0.1198,
+      "31 minutes to 1 hour": 0.0129,
+      "more than 1 hour": 0.0056
+     },
+     "mean_minutes_midpoint": 4.6,
+     "se_minutes": 0.94,
+     "mean_minutes_lower_bound": 1.94,
+     "share_over_30_minutes": 0.0185,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 162,
+      "in person on Election Day": 0.568,
+      "in person before Election Day": 0.3367,
+      "by mail or absentee": 0.0953
+     }
+    },
+    "IN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 145,
+     "wait_shares": {
+      "not at all": 0.5464,
+      "less than 10 minutes": 0.3183,
+      "10-30 minutes": 0.1013,
+      "31 minutes to 1 hour": 0.0264,
+      "more than 1 hour": 0.0076
+     },
+     "mean_minutes_midpoint": 5.49,
+     "se_minutes": 1.02,
+     "mean_minutes_lower_bound": 2.29,
+     "share_over_30_minutes": 0.034,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 154,
+      "in person on Election Day": 0.7651,
+      "in person before Election Day": 0.1457,
+      "by mail or absentee": 0.0892
+     }
+    },
+    "IA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 120,
+     "wait_shares": {
+      "not at all": 0.6547,
+      "less than 10 minutes": 0.2743,
+      "10-30 minutes": 0.071,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.79,
+     "se_minutes": 0.61,
+     "mean_minutes_lower_bound": 0.71,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 178,
+      "in person on Election Day": 0.4731,
+      "in person before Election Day": 0.1358,
+      "by mail or absentee": 0.3911
+     }
+    },
+    "KS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 157,
+     "wait_shares": {
+      "not at all": 0.4989,
+      "less than 10 minutes": 0.3649,
+      "10-30 minutes": 0.1249,
+      "31 minutes to 1 hour": 0.0114,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.83,
+     "se_minutes": 0.78,
+     "mean_minutes_lower_bound": 1.6,
+     "share_over_30_minutes": 0.0114,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.6634,
+      "in person before Election Day": 0.2049,
+      "by mail or absentee": 0.1317
+     }
+    },
+    "KY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 170,
+     "wait_shares": {
+      "not at all": 0.3911,
+      "less than 10 minutes": 0.4236,
+      "10-30 minutes": 0.1316,
+      "31 minutes to 1 hour": 0.0537,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 7.17,
+     "se_minutes": 1.36,
+     "mean_minutes_lower_bound": 2.98,
+     "share_over_30_minutes": 0.0537,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 177,
+      "in person on Election Day": 0.907,
+      "in person before Election Day": 0.06,
+      "by mail or absentee": 0.033
+     }
+    },
+    "LA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.3546,
+      "less than 10 minutes": 0.4594,
+      "10-30 minutes": 0.1525,
+      "31 minutes to 1 hour": 0.0335,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.85,
+     "se_minutes": 0.89,
+     "mean_minutes_lower_bound": 2.56,
+     "share_over_30_minutes": 0.0335,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 168,
+      "in person on Election Day": 0.7842,
+      "in person before Election Day": 0.1881,
+      "by mail or absentee": 0.0277
+     }
+    },
+    "ME": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 153,
+     "wait_shares": {
+      "not at all": 0.4722,
+      "less than 10 minutes": 0.3674,
+      "10-30 minutes": 0.144,
+      "31 minutes to 1 hour": 0.0164,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.46,
+     "se_minutes": 0.74,
+     "mean_minutes_lower_bound": 1.95,
+     "share_over_30_minutes": 0.0164,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.7471,
+      "in person before Election Day": 0.0922,
+      "by mail or absentee": 0.1608
+     }
+    },
+    "MD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 161,
+     "wait_shares": {
+      "not at all": 0.5752,
+      "less than 10 minutes": 0.2741,
+      "10-30 minutes": 0.1373,
+      "31 minutes to 1 hour": 0.0134,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.72,
+     "se_minutes": 0.82,
+     "mean_minutes_lower_bound": 1.79,
+     "share_over_30_minutes": 0.0134,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 170,
+      "in person on Election Day": 0.7298,
+      "in person before Election Day": 0.2245,
+      "by mail or absentee": 0.0458
+     }
+    },
+    "MA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 168,
+     "wait_shares": {
+      "not at all": 0.6761,
+      "less than 10 minutes": 0.2421,
+      "10-30 minutes": 0.0771,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0047
+     },
+     "mean_minutes_midpoint": 3.18,
+     "se_minutes": 0.63,
+     "mean_minutes_lower_bound": 1.05,
+     "share_over_30_minutes": 0.0047,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.9119,
+      "in person before Election Day": 0.0323,
+      "by mail or absentee": 0.0558
+     }
+    },
+    "MI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 112,
+     "wait_shares": {
+      "not at all": 0.527,
+      "less than 10 minutes": 0.4257,
+      "10-30 minutes": 0.0243,
+      "31 minutes to 1 hour": 0.023,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.65,
+     "se_minutes": 0.81,
+     "mean_minutes_lower_bound": 0.95,
+     "share_over_30_minutes": 0.023,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 165,
+      "in person on Election Day": 0.7162,
+      "in person before Election Day": 0.0118,
+      "by mail or absentee": 0.272
+     }
+    },
+    "MN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 156,
+     "wait_shares": {
+      "not at all": 0.7149,
+      "less than 10 minutes": 0.2198,
+      "10-30 minutes": 0.0581,
+      "31 minutes to 1 hour": 0.0071,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.58,
+     "se_minutes": 0.53,
+     "mean_minutes_lower_bound": 0.8,
+     "share_over_30_minutes": 0.0071,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 172,
+      "in person on Election Day": 0.8406,
+      "in person before Election Day": 0.0734,
+      "by mail or absentee": 0.086
+     }
+    },
+    "MS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 148,
+     "wait_shares": {
+      "not at all": 0.6706,
+      "less than 10 minutes": 0.2943,
+      "10-30 minutes": 0.0229,
+      "31 minutes to 1 hour": 0.0122,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.48,
+     "se_minutes": 0.62,
+     "mean_minutes_lower_bound": 0.61,
+     "share_over_30_minutes": 0.0122,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 152,
+      "in person on Election Day": 0.8854,
+      "in person before Election Day": 0.0957,
+      "by mail or absentee": 0.0189
+     }
+    },
+    "MO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 153,
+     "wait_shares": {
+      "not at all": 0.6133,
+      "less than 10 minutes": 0.3055,
+      "10-30 minutes": 0.0779,
+      "31 minutes to 1 hour": 0.0033,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.23,
+     "se_minutes": 0.67,
+     "mean_minutes_lower_bound": 0.88,
+     "share_over_30_minutes": 0.0033,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 159,
+      "in person on Election Day": 0.8995,
+      "in person before Election Day": 0.071,
+      "by mail or absentee": 0.0295
+     }
+    },
+    "MT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 75,
+     "wait_shares": {
+      "not at all": 0.6244,
+      "less than 10 minutes": 0.2595,
+      "10-30 minutes": 0.1025,
+      "31 minutes to 1 hour": 0.0136,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.96,
+     "se_minutes": 1.29,
+     "mean_minutes_lower_bound": 1.45,
+     "share_over_30_minutes": 0.0136,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.4014,
+      "in person before Election Day": 0.0454,
+      "by mail or absentee": 0.5532
+     }
+    },
+    "NE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 130,
+     "wait_shares": {
+      "not at all": 0.5831,
+      "less than 10 minutes": 0.3306,
+      "10-30 minutes": 0.0779,
+      "31 minutes to 1 hour": 0.0084,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.59,
+     "se_minutes": 0.64,
+     "mean_minutes_lower_bound": 1.04,
+     "share_over_30_minutes": 0.0084,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 174,
+      "in person on Election Day": 0.7107,
+      "in person before Election Day": 0.0934,
+      "by mail or absentee": 0.1959
+     }
+    },
+    "NV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 152,
+     "wait_shares": {
+      "not at all": 0.6196,
+      "less than 10 minutes": 0.3067,
+      "10-30 minutes": 0.0737,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.01,
+     "se_minutes": 0.74,
+     "mean_minutes_lower_bound": 0.74,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.3743,
+      "in person before Election Day": 0.5857,
+      "by mail or absentee": 0.0401
+     }
+    },
+    "NH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 170,
+     "wait_shares": {
+      "not at all": 0.5158,
+      "less than 10 minutes": 0.325,
+      "10-30 minutes": 0.1355,
+      "31 minutes to 1 hour": 0.0238,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.4,
+     "se_minutes": 1.05,
+     "mean_minutes_lower_bound": 2.09,
+     "share_over_30_minutes": 0.0238,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.8952,
+      "in person before Election Day": 0.0192,
+      "by mail or absentee": 0.0855
+     }
+    },
+    "NJ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 136,
+     "wait_shares": {
+      "not at all": 0.7213,
+      "less than 10 minutes": 0.2365,
+      "10-30 minutes": 0.0422,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.03,
+     "se_minutes": 0.4,
+     "mean_minutes_lower_bound": 0.42,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 165,
+      "in person on Election Day": 0.7953,
+      "in person before Election Day": 0.0116,
+      "by mail or absentee": 0.193
+     }
+    },
+    "NM": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 154,
+     "wait_shares": {
+      "not at all": 0.5599,
+      "less than 10 minutes": 0.2533,
+      "10-30 minutes": 0.15,
+      "31 minutes to 1 hour": 0.0242,
+      "more than 1 hour": 0.0126
+     },
+     "mean_minutes_midpoint": 6.49,
+     "se_minutes": 1.3,
+     "mean_minutes_lower_bound": 3.0,
+     "share_over_30_minutes": 0.0368,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.3462,
+      "in person before Election Day": 0.4756,
+      "by mail or absentee": 0.1782
+     }
+    },
+    "NY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 140,
+     "wait_shares": {
+      "not at all": 0.5181,
+      "less than 10 minutes": 0.3915,
+      "10-30 minutes": 0.0766,
+      "31 minutes to 1 hour": 0.0039,
+      "more than 1 hour": 0.0099
+     },
+     "mean_minutes_midpoint": 4.55,
+     "se_minutes": 1.01,
+     "mean_minutes_lower_bound": 1.48,
+     "share_over_30_minutes": 0.0138,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 151,
+      "in person on Election Day": 0.9115,
+      "in person before Election Day": 0.0216,
+      "by mail or absentee": 0.0669
+     }
+    },
+    "NC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 144,
+     "wait_shares": {
+      "not at all": 0.4055,
+      "less than 10 minutes": 0.3396,
+      "10-30 minutes": 0.1797,
+      "31 minutes to 1 hour": 0.0479,
+      "more than 1 hour": 0.0272
+     },
+     "mean_minutes_midpoint": 9.9,
+     "se_minutes": 1.58,
+     "mean_minutes_lower_bound": 4.92,
+     "share_over_30_minutes": 0.0751,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.4499,
+      "in person before Election Day": 0.4254,
+      "by mail or absentee": 0.1247
+     }
+    },
+    "ND": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 112,
+     "wait_shares": {
+      "not at all": 0.5316,
+      "less than 10 minutes": 0.3599,
+      "10-30 minutes": 0.0868,
+      "31 minutes to 1 hour": 0.0216,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.51,
+     "se_minutes": 1.04,
+     "mean_minutes_lower_bound": 1.54,
+     "share_over_30_minutes": 0.0216,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 159,
+      "in person on Election Day": 0.5639,
+      "in person before Election Day": 0.2003,
+      "by mail or absentee": 0.2357
+     }
+    },
+    "OH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 108,
+     "wait_shares": {
+      "not at all": 0.6321,
+      "less than 10 minutes": 0.3049,
+      "10-30 minutes": 0.0493,
+      "31 minutes to 1 hour": 0.0136,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.12,
+     "se_minutes": 0.66,
+     "mean_minutes_lower_bound": 0.92,
+     "share_over_30_minutes": 0.0136,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 160,
+      "in person on Election Day": 0.5831,
+      "in person before Election Day": 0.0765,
+      "by mail or absentee": 0.3404
+     }
+    },
+    "OK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 147,
+     "wait_shares": {
+      "not at all": 0.6076,
+      "less than 10 minutes": 0.337,
+      "10-30 minutes": 0.0385,
+      "31 minutes to 1 hour": 0.0051,
+      "more than 1 hour": 0.0118
+     },
+     "mean_minutes_midpoint": 3.74,
+     "se_minutes": 1.14,
+     "mean_minutes_lower_bound": 1.25,
+     "share_over_30_minutes": 0.0169,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 159,
+      "in person on Election Day": 0.8323,
+      "in person before Election Day": 0.1268,
+      "by mail or absentee": 0.041
+     }
+    },
+    "OR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 9,
+     "wait_shares": {
+      "not at all": 0.6562,
+      "less than 10 minutes": 0.1444,
+      "10-30 minutes": 0.0,
+      "31 minutes to 1 hour": 0.1994,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 9.69,
+     "se_minutes": 7.53,
+     "mean_minutes_lower_bound": 6.18,
+     "share_over_30_minutes": 0.1994,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.0195,
+      "in person before Election Day": 0.0129,
+      "by mail or absentee": 0.9676
+     }
+    },
+    "PA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 153,
+     "wait_shares": {
+      "not at all": 0.7794,
+      "less than 10 minutes": 0.1858,
+      "10-30 minutes": 0.0349,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 1.63,
+     "se_minutes": 0.34,
+     "mean_minutes_lower_bound": 0.35,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.9006,
+      "in person before Election Day": 0.0,
+      "by mail or absentee": 0.0994
+     }
+    },
+    "RI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 161,
+     "wait_shares": {
+      "not at all": 0.5897,
+      "less than 10 minutes": 0.3743,
+      "10-30 minutes": 0.036,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.59,
+     "se_minutes": 0.4,
+     "mean_minutes_lower_bound": 0.36,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 169,
+      "in person on Election Day": 0.9608,
+      "in person before Election Day": 0.0035,
+      "by mail or absentee": 0.0357
+     }
+    },
+    "SC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 142,
+     "wait_shares": {
+      "not at all": 0.2996,
+      "less than 10 minutes": 0.4586,
+      "10-30 minutes": 0.1764,
+      "31 minutes to 1 hour": 0.0654,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 8.77,
+     "se_minutes": 1.21,
+     "mean_minutes_lower_bound": 3.79,
+     "share_over_30_minutes": 0.0654,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 151,
+      "in person on Election Day": 0.8709,
+      "in person before Election Day": 0.0789,
+      "by mail or absentee": 0.0502
+     }
+    },
+    "SD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 164,
+     "wait_shares": {
+      "not at all": 0.715,
+      "less than 10 minutes": 0.2504,
+      "10-30 minutes": 0.0346,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 1.94,
+     "se_minutes": 0.38,
+     "mean_minutes_lower_bound": 0.35,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 175,
+      "in person on Election Day": 0.7569,
+      "in person before Election Day": 0.2034,
+      "by mail or absentee": 0.0397
+     }
+    },
+    "TN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 153,
+     "wait_shares": {
+      "not at all": 0.4815,
+      "less than 10 minutes": 0.3044,
+      "10-30 minutes": 0.1806,
+      "31 minutes to 1 hour": 0.0174,
+      "more than 1 hour": 0.0161
+     },
+     "mean_minutes_midpoint": 7.36,
+     "se_minutes": 1.63,
+     "mean_minutes_lower_bound": 3.31,
+     "share_over_30_minutes": 0.0335,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 157,
+      "in person on Election Day": 0.5347,
+      "in person before Election Day": 0.4191,
+      "by mail or absentee": 0.0463
+     }
+    },
+    "TX": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 142,
+     "wait_shares": {
+      "not at all": 0.5217,
+      "less than 10 minutes": 0.2717,
+      "10-30 minutes": 0.1258,
+      "31 minutes to 1 hour": 0.0717,
+      "more than 1 hour": 0.0091
+     },
+     "mean_minutes_midpoint": 7.92,
+     "se_minutes": 1.98,
+     "mean_minutes_lower_bound": 4.03,
+     "share_over_30_minutes": 0.0808,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 157,
+      "in person on Election Day": 0.3585,
+      "in person before Election Day": 0.5378,
+      "by mail or absentee": 0.1037
+     }
+    },
+    "UT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 103,
+     "wait_shares": {
+      "not at all": 0.4405,
+      "less than 10 minutes": 0.3733,
+      "10-30 minutes": 0.1216,
+      "31 minutes to 1 hour": 0.0559,
+      "more than 1 hour": 0.0087
+     },
+     "mean_minutes_midpoint": 7.6,
+     "se_minutes": 1.34,
+     "mean_minutes_lower_bound": 3.47,
+     "share_over_30_minutes": 0.0646,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 168,
+      "in person on Election Day": 0.4718,
+      "in person before Election Day": 0.15,
+      "by mail or absentee": 0.3783
+     }
+    },
+    "VT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 141,
+     "wait_shares": {
+      "not at all": 0.7785,
+      "less than 10 minutes": 0.1871,
+      "10-30 minutes": 0.0344,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 1.62,
+     "se_minutes": 0.37,
+     "mean_minutes_lower_bound": 0.34,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 158,
+      "in person on Election Day": 0.7499,
+      "in person before Election Day": 0.1215,
+      "by mail or absentee": 0.1286
+     }
+    },
+    "VA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 153,
+     "wait_shares": {
+      "not at all": 0.6709,
+      "less than 10 minutes": 0.2694,
+      "10-30 minutes": 0.0501,
+      "31 minutes to 1 hour": 0.0096,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.78,
+     "se_minutes": 0.56,
+     "mean_minutes_lower_bound": 0.8,
+     "share_over_30_minutes": 0.0096,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.9044,
+      "in person before Election Day": 0.0385,
+      "by mail or absentee": 0.0571
+     }
+    },
+    "WA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 7,
+     "wait_shares": {
+      "not at all": 0.4907,
+      "less than 10 minutes": 0.4522,
+      "10-30 minutes": 0.0571,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.4,
+     "se_minutes": 1.51,
+     "mean_minutes_lower_bound": 0.57,
+     "share_over_30_minutes": 0.0,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 172,
+      "in person on Election Day": 0.0192,
+      "in person before Election Day": 0.0323,
+      "by mail or absentee": 0.9485
+     }
+    },
+    "WV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 150,
+     "wait_shares": {
+      "not at all": 0.5995,
+      "less than 10 minutes": 0.2809,
+      "10-30 minutes": 0.1197,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.8,
+     "se_minutes": 0.6,
+     "mean_minutes_lower_bound": 1.2,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 154,
+      "in person on Election Day": 0.6951,
+      "in person before Election Day": 0.2675,
+      "by mail or absentee": 0.0374
+     }
+    },
+    "WI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 161,
+     "wait_shares": {
+      "not at all": 0.5857,
+      "less than 10 minutes": 0.3624,
+      "10-30 minutes": 0.0519,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.85,
+     "se_minutes": 0.41,
+     "mean_minutes_lower_bound": 0.52,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 176,
+      "in person on Election Day": 0.753,
+      "in person before Election Day": 0.1756,
+      "by mail or absentee": 0.0714
+     }
+    },
+    "WY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 164,
+     "wait_shares": {
+      "not at all": 0.6027,
+      "less than 10 minutes": 0.3458,
+      "10-30 minutes": 0.0469,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0046
+     },
+     "mean_minutes_midpoint": 3.08,
+     "se_minutes": 0.55,
+     "mean_minutes_lower_bound": 0.74,
+     "share_over_30_minutes": 0.0046,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 183,
+      "in person on Election Day": 0.7782,
+      "in person before Election Day": 0.1315,
+      "by mail or absentee": 0.0903
+     }
+    }
+   },
+   "states_missing": []
+  },
+  "2016": {
+   "source": {
+    "name": "Survey of the Performance of American Elections 2016 (MITU0022_OUTPUT.tab)",
+    "url": "https://doi.org/10.7910/DVN/Y38VIQ",
+    "read_utc": "2026-11-07T07:17Z",
+    "licence": "CC0 1.0",
+    "mark": "measured",
+    "via": null,
+    "note": "file 3012345, 4530717 bytes, sha256 4a5ad4499ac95f302c972203fa0248300e55f7e4dd584015bfea4be45ea94334; Dataverse dataset version 1.0, released 2017-06-16"
+   },
+   "file": "MITU0022_OUTPUT.tab",
+   "weight": "weight",
+   "state_variable": "inputstate",
+   "line_variable": "Q13",
+   "mode_variables": [
+    "Q4"
+   ],
+   "top_category_minutes": 115.38,
+   "top_category_how": "mean of 132 readable written answers",
+   "respondents": 10200,
+   "states": {
+    "AL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 175,
+     "wait_shares": {
+      "not at all": 0.3473,
+      "less than 10 minutes": 0.3087,
+      "10-30 minutes": 0.2266,
+      "31 minutes to 1 hour": 0.079,
+      "more than 1 hour": 0.0384
+     },
+     "mean_minutes_midpoint": 14.06,
+     "se_minutes": 1.97,
+     "mean_minutes_lower_bound": 7.02,
+     "share_over_30_minutes": 0.1174,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.9226,
+      "in person before Election Day": 0.0494,
+      "by mail or absentee": 0.028
+     }
+    },
+    "AK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 160,
+     "wait_shares": {
+      "not at all": 0.3748,
+      "less than 10 minutes": 0.4034,
+      "10-30 minutes": 0.1961,
+      "31 minutes to 1 hour": 0.0257,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 7.1,
+     "se_minutes": 1.01,
+     "mean_minutes_lower_bound": 2.76,
+     "share_over_30_minutes": 0.0257,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 183,
+      "in person on Election Day": 0.6212,
+      "in person before Election Day": 0.2488,
+      "by mail or absentee": 0.13
+     }
+    },
+    "AZ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 66,
+     "wait_shares": {
+      "not at all": 0.4645,
+      "less than 10 minutes": 0.1804,
+      "10-30 minutes": 0.1729,
+      "31 minutes to 1 hour": 0.1426,
+      "more than 1 hour": 0.0394
+     },
+     "mean_minutes_midpoint": 15.33,
+     "se_minutes": 3.4,
+     "mean_minutes_lower_bound": 8.52,
+     "share_over_30_minutes": 0.182,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.3288,
+      "in person before Election Day": 0.039,
+      "by mail or absentee": 0.6322
+     }
+    },
+    "AR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 170,
+     "wait_shares": {
+      "not at all": 0.2957,
+      "less than 10 minutes": 0.313,
+      "10-30 minutes": 0.2337,
+      "31 minutes to 1 hour": 0.1166,
+      "more than 1 hour": 0.041
+     },
+     "mean_minutes_midpoint": 16.21,
+     "se_minutes": 1.96,
+     "mean_minutes_lower_bound": 8.41,
+     "share_over_30_minutes": 0.1576,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 177,
+      "in person on Election Day": 0.3171,
+      "in person before Election Day": 0.6534,
+      "by mail or absentee": 0.0296
+     }
+    },
+    "CA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 76,
+     "wait_shares": {
+      "not at all": 0.4391,
+      "less than 10 minutes": 0.2908,
+      "10-30 minutes": 0.1573,
+      "31 minutes to 1 hour": 0.0777,
+      "more than 1 hour": 0.0352
+     },
+     "mean_minutes_midpoint": 12.15,
+     "se_minutes": 2.8,
+     "mean_minutes_lower_bound": 6.09,
+     "share_over_30_minutes": 0.1129,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.4337,
+      "in person before Election Day": 0.0316,
+      "by mail or absentee": 0.5347
+     }
+    },
+    "CO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 39,
+     "wait_shares": {
+      "not at all": 0.642,
+      "less than 10 minutes": 0.2127,
+      "10-30 minutes": 0.0483,
+      "31 minutes to 1 hour": 0.0621,
+      "more than 1 hour": 0.0349
+     },
+     "mean_minutes_midpoint": 8.86,
+     "se_minutes": 4.14,
+     "mean_minutes_lower_bound": 4.51,
+     "share_over_30_minutes": 0.097,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.0788,
+      "in person before Election Day": 0.138,
+      "by mail or absentee": 0.7831
+     }
+    },
+    "CT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 177,
+     "wait_shares": {
+      "not at all": 0.4289,
+      "less than 10 minutes": 0.3952,
+      "10-30 minutes": 0.1472,
+      "31 minutes to 1 hour": 0.0287,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.21,
+     "se_minutes": 0.84,
+     "mean_minutes_lower_bound": 2.36,
+     "share_over_30_minutes": 0.0287,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.9431,
+      "in person before Election Day": 0.0309,
+      "by mail or absentee": 0.026
+     }
+    },
+    "DE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 182,
+     "wait_shares": {
+      "not at all": 0.4472,
+      "less than 10 minutes": 0.417,
+      "10-30 minutes": 0.1277,
+      "31 minutes to 1 hour": 0.0081,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.0,
+     "se_minutes": 0.58,
+     "mean_minutes_lower_bound": 1.53,
+     "share_over_30_minutes": 0.0081,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.9214,
+      "in person before Election Day": 0.0375,
+      "by mail or absentee": 0.0411
+     }
+    },
+    "DC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 176,
+     "wait_shares": {
+      "not at all": 0.3434,
+      "less than 10 minutes": 0.2609,
+      "10-30 minutes": 0.2041,
+      "31 minutes to 1 hour": 0.1268,
+      "more than 1 hour": 0.0648
+     },
+     "mean_minutes_midpoint": 18.57,
+     "se_minutes": 2.5,
+     "mean_minutes_lower_bound": 9.86,
+     "share_over_30_minutes": 0.1916,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.5921,
+      "in person before Election Day": 0.2995,
+      "by mail or absentee": 0.1084
+     }
+    },
+    "FL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 109,
+     "wait_shares": {
+      "not at all": 0.4352,
+      "less than 10 minutes": 0.3237,
+      "10-30 minutes": 0.1927,
+      "31 minutes to 1 hour": 0.038,
+      "more than 1 hour": 0.0104
+     },
+     "mean_minutes_midpoint": 8.38,
+     "se_minutes": 1.55,
+     "mean_minutes_lower_bound": 3.73,
+     "share_over_30_minutes": 0.0484,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.2579,
+      "in person before Election Day": 0.3452,
+      "by mail or absentee": 0.397
+     }
+    },
+    "GA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.2854,
+      "less than 10 minutes": 0.2777,
+      "10-30 minutes": 0.285,
+      "31 minutes to 1 hour": 0.0975,
+      "more than 1 hour": 0.0544
+     },
+     "mean_minutes_midpoint": 17.75,
+     "se_minutes": 2.28,
+     "mean_minutes_lower_bound": 9.14,
+     "share_over_30_minutes": 0.1519,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.4167,
+      "in person before Election Day": 0.4923,
+      "by mail or absentee": 0.0911
+     }
+    },
+    "HI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 85,
+     "wait_shares": {
+      "not at all": 0.4479,
+      "less than 10 minutes": 0.3196,
+      "10-30 minutes": 0.2218,
+      "31 minutes to 1 hour": 0.0108,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.52,
+     "se_minutes": 1.39,
+     "mean_minutes_lower_bound": 2.55,
+     "share_over_30_minutes": 0.0108,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.3241,
+      "in person before Election Day": 0.1159,
+      "by mail or absentee": 0.56
+     }
+    },
+    "ID": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 171,
+     "wait_shares": {
+      "not at all": 0.3804,
+      "less than 10 minutes": 0.3639,
+      "10-30 minutes": 0.1919,
+      "31 minutes to 1 hour": 0.0591,
+      "more than 1 hour": 0.0047
+     },
+     "mean_minutes_midpoint": 8.86,
+     "se_minutes": 1.21,
+     "mean_minutes_lower_bound": 4.03,
+     "share_over_30_minutes": 0.0638,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.7206,
+      "in person before Election Day": 0.1724,
+      "by mail or absentee": 0.107
+     }
+    },
+    "IL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.4911,
+      "less than 10 minutes": 0.333,
+      "10-30 minutes": 0.1236,
+      "31 minutes to 1 hour": 0.0454,
+      "more than 1 hour": 0.0068
+     },
+     "mean_minutes_midpoint": 6.97,
+     "se_minutes": 1.21,
+     "mean_minutes_lower_bound": 3.05,
+     "share_over_30_minutes": 0.0522,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.5512,
+      "in person before Election Day": 0.3359,
+      "by mail or absentee": 0.113
+     }
+    },
+    "IN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 168,
+     "wait_shares": {
+      "not at all": 0.219,
+      "less than 10 minutes": 0.3583,
+      "10-30 minutes": 0.2692,
+      "31 minutes to 1 hour": 0.095,
+      "more than 1 hour": 0.0585
+     },
+     "mean_minutes_midpoint": 18.2,
+     "se_minutes": 2.02,
+     "mean_minutes_lower_bound": 9.15,
+     "share_over_30_minutes": 0.1535,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.6707,
+      "in person before Election Day": 0.2808,
+      "by mail or absentee": 0.0486
+     }
+    },
+    "IA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 125,
+     "wait_shares": {
+      "not at all": 0.6189,
+      "less than 10 minutes": 0.2228,
+      "10-30 minutes": 0.1125,
+      "31 minutes to 1 hour": 0.0457,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.42,
+     "se_minutes": 1.02,
+     "mean_minutes_lower_bound": 2.54,
+     "share_over_30_minutes": 0.0457,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.449,
+      "in person before Election Day": 0.2188,
+      "by mail or absentee": 0.3322
+     }
+    },
+    "KS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 151,
+     "wait_shares": {
+      "not at all": 0.4501,
+      "less than 10 minutes": 0.3646,
+      "10-30 minutes": 0.1487,
+      "31 minutes to 1 hour": 0.0366,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.44,
+     "se_minutes": 0.95,
+     "mean_minutes_lower_bound": 2.62,
+     "share_over_30_minutes": 0.0366,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.4518,
+      "in person before Election Day": 0.3335,
+      "by mail or absentee": 0.2146
+     }
+    },
+    "KY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 173,
+     "wait_shares": {
+      "not at all": 0.4854,
+      "less than 10 minutes": 0.3459,
+      "10-30 minutes": 0.0905,
+      "31 minutes to 1 hour": 0.0615,
+      "more than 1 hour": 0.0167
+     },
+     "mean_minutes_midpoint": 8.24,
+     "se_minutes": 1.46,
+     "mean_minutes_lower_bound": 3.81,
+     "share_over_30_minutes": 0.0782,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 183,
+      "in person on Election Day": 0.9077,
+      "in person before Election Day": 0.0472,
+      "by mail or absentee": 0.0451
+     }
+    },
+    "LA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 165,
+     "wait_shares": {
+      "not at all": 0.2764,
+      "less than 10 minutes": 0.423,
+      "10-30 minutes": 0.1726,
+      "31 minutes to 1 hour": 0.0991,
+      "more than 1 hour": 0.0289
+     },
+     "mean_minutes_midpoint": 13.37,
+     "se_minutes": 1.99,
+     "mean_minutes_lower_bound": 6.53,
+     "share_over_30_minutes": 0.128,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 176,
+      "in person on Election Day": 0.712,
+      "in person before Election Day": 0.2458,
+      "by mail or absentee": 0.0422
+     }
+    },
+    "ME": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 151,
+     "wait_shares": {
+      "not at all": 0.5968,
+      "less than 10 minutes": 0.2789,
+      "10-30 minutes": 0.0981,
+      "31 minutes to 1 hour": 0.0262,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.54,
+     "se_minutes": 0.98,
+     "mean_minutes_lower_bound": 1.79,
+     "share_over_30_minutes": 0.0262,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.6766,
+      "in person before Election Day": 0.1386,
+      "by mail or absentee": 0.1848
+     }
+    },
+    "MD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 170,
+     "wait_shares": {
+      "not at all": 0.303,
+      "less than 10 minutes": 0.2853,
+      "10-30 minutes": 0.2296,
+      "31 minutes to 1 hour": 0.1281,
+      "more than 1 hour": 0.054
+     },
+     "mean_minutes_midpoint": 18.01,
+     "se_minutes": 2.22,
+     "mean_minutes_lower_bound": 9.51,
+     "share_over_30_minutes": 0.1821,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.5688,
+      "in person before Election Day": 0.3627,
+      "by mail or absentee": 0.0685
+     }
+    },
+    "MA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 176,
+     "wait_shares": {
+      "not at all": 0.5699,
+      "less than 10 minutes": 0.3227,
+      "10-30 minutes": 0.0713,
+      "31 minutes to 1 hour": 0.0222,
+      "more than 1 hour": 0.0138
+     },
+     "mean_minutes_midpoint": 5.64,
+     "se_minutes": 1.27,
+     "mean_minutes_lower_bound": 2.23,
+     "share_over_30_minutes": 0.036,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.5449,
+      "in person before Election Day": 0.3868,
+      "by mail or absentee": 0.0683
+     }
+    },
+    "MI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 119,
+     "wait_shares": {
+      "not at all": 0.3405,
+      "less than 10 minutes": 0.4155,
+      "10-30 minutes": 0.1499,
+      "31 minutes to 1 hour": 0.0572,
+      "more than 1 hour": 0.037
+     },
+     "mean_minutes_midpoint": 11.91,
+     "se_minutes": 2.26,
+     "mean_minutes_lower_bound": 5.49,
+     "share_over_30_minutes": 0.0942,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 179,
+      "in person on Election Day": 0.6917,
+      "in person before Election Day": 0.0096,
+      "by mail or absentee": 0.2987
+     }
+    },
+    "MN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 168,
+     "wait_shares": {
+      "not at all": 0.5173,
+      "less than 10 minutes": 0.3172,
+      "10-30 minutes": 0.119,
+      "31 minutes to 1 hour": 0.0249,
+      "more than 1 hour": 0.0215
+     },
+     "mean_minutes_midpoint": 7.57,
+     "se_minutes": 1.66,
+     "mean_minutes_lower_bound": 3.25,
+     "share_over_30_minutes": 0.0464,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.711,
+      "in person before Election Day": 0.165,
+      "by mail or absentee": 0.1241
+     }
+    },
+    "MS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 175,
+     "wait_shares": {
+      "not at all": 0.4582,
+      "less than 10 minutes": 0.3377,
+      "10-30 minutes": 0.1557,
+      "31 minutes to 1 hour": 0.0318,
+      "more than 1 hour": 0.0166
+     },
+     "mean_minutes_midpoint": 8.15,
+     "se_minutes": 1.26,
+     "mean_minutes_lower_bound": 3.54,
+     "share_over_30_minutes": 0.0484,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 181,
+      "in person on Election Day": 0.9193,
+      "in person before Election Day": 0.0598,
+      "by mail or absentee": 0.0209
+     }
+    },
+    "MO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 175,
+     "wait_shares": {
+      "not at all": 0.3107,
+      "less than 10 minutes": 0.369,
+      "10-30 minutes": 0.141,
+      "31 minutes to 1 hour": 0.1497,
+      "more than 1 hour": 0.0297
+     },
+     "mean_minutes_midpoint": 14.82,
+     "se_minutes": 1.88,
+     "mean_minutes_lower_bound": 7.83,
+     "share_over_30_minutes": 0.1794,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.8812,
+      "in person before Election Day": 0.0624,
+      "by mail or absentee": 0.0564
+     }
+    },
+    "MT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 73,
+     "wait_shares": {
+      "not at all": 0.538,
+      "less than 10 minutes": 0.2915,
+      "10-30 minutes": 0.1202,
+      "31 minutes to 1 hour": 0.0417,
+      "more than 1 hour": 0.0086
+     },
+     "mean_minutes_midpoint": 6.73,
+     "se_minutes": 1.84,
+     "mean_minutes_lower_bound": 3.01,
+     "share_over_30_minutes": 0.0503,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 194,
+      "in person on Election Day": 0.3064,
+      "in person before Election Day": 0.0648,
+      "by mail or absentee": 0.6288
+     }
+    },
+    "NE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 129,
+     "wait_shares": {
+      "not at all": 0.3558,
+      "less than 10 minutes": 0.5247,
+      "10-30 minutes": 0.0524,
+      "31 minutes to 1 hour": 0.0448,
+      "more than 1 hour": 0.0223
+     },
+     "mean_minutes_midpoint": 8.27,
+     "se_minutes": 1.58,
+     "mean_minutes_lower_bound": 3.25,
+     "share_over_30_minutes": 0.0671,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.5783,
+      "in person before Election Day": 0.1083,
+      "by mail or absentee": 0.3134
+     }
+    },
+    "NV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.3922,
+      "less than 10 minutes": 0.3451,
+      "10-30 minutes": 0.1441,
+      "31 minutes to 1 hour": 0.0986,
+      "more than 1 hour": 0.02
+     },
+     "mean_minutes_midpoint": 11.35,
+     "se_minutes": 1.62,
+     "mean_minutes_lower_bound": 5.7,
+     "share_over_30_minutes": 0.1186,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.3023,
+      "in person before Election Day": 0.5842,
+      "by mail or absentee": 0.1135
+     }
+    },
+    "NH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 184,
+     "wait_shares": {
+      "not at all": 0.4966,
+      "less than 10 minutes": 0.3623,
+      "10-30 minutes": 0.1115,
+      "31 minutes to 1 hour": 0.0296,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.37,
+     "se_minutes": 0.74,
+     "mean_minutes_lower_bound": 2.03,
+     "share_over_30_minutes": 0.0296,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 196,
+      "in person on Election Day": 0.9038,
+      "in person before Election Day": 0.0366,
+      "by mail or absentee": 0.0596
+     }
+    },
+    "NJ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 152,
+     "wait_shares": {
+      "not at all": 0.3467,
+      "less than 10 minutes": 0.4463,
+      "10-30 minutes": 0.1687,
+      "31 minutes to 1 hour": 0.0327,
+      "more than 1 hour": 0.0056
+     },
+     "mean_minutes_midpoint": 7.72,
+     "se_minutes": 1.03,
+     "mean_minutes_lower_bound": 3.04,
+     "share_over_30_minutes": 0.0383,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.7685,
+      "in person before Election Day": 0.0474,
+      "by mail or absentee": 0.1842
+     }
+    },
+    "NM": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 167,
+     "wait_shares": {
+      "not at all": 0.439,
+      "less than 10 minutes": 0.3805,
+      "10-30 minutes": 0.1553,
+      "31 minutes to 1 hour": 0.0253,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.15,
+     "se_minutes": 0.8,
+     "mean_minutes_lower_bound": 2.34,
+     "share_over_30_minutes": 0.0253,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.3039,
+      "in person before Election Day": 0.582,
+      "by mail or absentee": 0.1141
+     }
+    },
+    "NY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 173,
+     "wait_shares": {
+      "not at all": 0.3708,
+      "less than 10 minutes": 0.3283,
+      "10-30 minutes": 0.2641,
+      "31 minutes to 1 hour": 0.0327,
+      "more than 1 hour": 0.0042
+     },
+     "mean_minutes_midpoint": 8.88,
+     "se_minutes": 0.96,
+     "mean_minutes_lower_bound": 3.91,
+     "share_over_30_minutes": 0.0369,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.9325,
+      "in person before Election Day": 0.0071,
+      "by mail or absentee": 0.0604
+     }
+    },
+    "NC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 165,
+     "wait_shares": {
+      "not at all": 0.3223,
+      "less than 10 minutes": 0.2682,
+      "10-30 minutes": 0.284,
+      "31 minutes to 1 hour": 0.0844,
+      "more than 1 hour": 0.0411
+     },
+     "mean_minutes_midpoint": 15.56,
+     "se_minutes": 1.98,
+     "mean_minutes_lower_bound": 7.92,
+     "share_over_30_minutes": 0.1255,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 179,
+      "in person on Election Day": 0.3477,
+      "in person before Election Day": 0.5827,
+      "by mail or absentee": 0.0697
+     }
+    },
+    "ND": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 134,
+     "wait_shares": {
+      "not at all": 0.4902,
+      "less than 10 minutes": 0.3418,
+      "10-30 minutes": 0.0987,
+      "31 minutes to 1 hour": 0.0462,
+      "more than 1 hour": 0.023
+     },
+     "mean_minutes_midpoint": 8.42,
+     "se_minutes": 2.39,
+     "mean_minutes_lower_bound": 3.8,
+     "share_over_30_minutes": 0.0692,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.5007,
+      "in person before Election Day": 0.2521,
+      "by mail or absentee": 0.2473
+     }
+    },
+    "OH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 121,
+     "wait_shares": {
+      "not at all": 0.3709,
+      "less than 10 minutes": 0.3955,
+      "10-30 minutes": 0.1518,
+      "31 minutes to 1 hour": 0.0817,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 8.69,
+     "se_minutes": 1.15,
+     "mean_minutes_lower_bound": 4.05,
+     "share_over_30_minutes": 0.0817,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.4359,
+      "in person before Election Day": 0.2117,
+      "by mail or absentee": 0.3524
+     }
+    },
+    "OK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 161,
+     "wait_shares": {
+      "not at all": 0.3176,
+      "less than 10 minutes": 0.3553,
+      "10-30 minutes": 0.1413,
+      "31 minutes to 1 hour": 0.1175,
+      "more than 1 hour": 0.0682
+     },
+     "mean_minutes_midpoint": 17.76,
+     "se_minutes": 2.41,
+     "mean_minutes_lower_bound": 9.15,
+     "share_over_30_minutes": 0.1857,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.8004,
+      "in person before Election Day": 0.1047,
+      "by mail or absentee": 0.0949
+     }
+    },
+    "OR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 13,
+     "wait_shares": {
+      "not at all": 0.7925,
+      "less than 10 minutes": 0.1575,
+      "10-30 minutes": 0.0,
+      "31 minutes to 1 hour": 0.0499,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.03,
+     "se_minutes": 2.25,
+     "mean_minutes_lower_bound": 1.55,
+     "share_over_30_minutes": 0.0499,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.0385,
+      "in person before Election Day": 0.0376,
+      "by mail or absentee": 0.9239
+     }
+    },
+    "PA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 175,
+     "wait_shares": {
+      "not at all": 0.3258,
+      "less than 10 minutes": 0.3475,
+      "10-30 minutes": 0.2011,
+      "31 minutes to 1 hour": 0.1205,
+      "more than 1 hour": 0.0051
+     },
+     "mean_minutes_midpoint": 11.77,
+     "se_minutes": 1.3,
+     "mean_minutes_lower_bound": 6.05,
+     "share_over_30_minutes": 0.1256,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.9436,
+      "in person before Election Day": 0.0098,
+      "by mail or absentee": 0.0466
+     }
+    },
+    "RI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 171,
+     "wait_shares": {
+      "not at all": 0.3023,
+      "less than 10 minutes": 0.4775,
+      "10-30 minutes": 0.1806,
+      "31 minutes to 1 hour": 0.0247,
+      "more than 1 hour": 0.0149
+     },
+     "mean_minutes_midpoint": 8.83,
+     "se_minutes": 1.32,
+     "mean_minutes_lower_bound": 3.46,
+     "share_over_30_minutes": 0.0396,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.8778,
+      "in person before Election Day": 0.0384,
+      "by mail or absentee": 0.0839
+     }
+    },
+    "SC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 161,
+     "wait_shares": {
+      "not at all": 0.2092,
+      "less than 10 minutes": 0.3176,
+      "10-30 minutes": 0.2707,
+      "31 minutes to 1 hour": 0.1254,
+      "more than 1 hour": 0.0771
+     },
+     "mean_minutes_midpoint": 21.54,
+     "se_minutes": 2.41,
+     "mean_minutes_lower_bound": 11.22,
+     "share_over_30_minutes": 0.2025,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.7208,
+      "in person before Election Day": 0.1641,
+      "by mail or absentee": 0.1151
+     }
+    },
+    "SD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 172,
+     "wait_shares": {
+      "not at all": 0.5659,
+      "less than 10 minutes": 0.2907,
+      "10-30 minutes": 0.1191,
+      "31 minutes to 1 hour": 0.0244,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.93,
+     "se_minutes": 0.88,
+     "mean_minutes_lower_bound": 1.95,
+     "share_over_30_minutes": 0.0244,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.6391,
+      "in person before Election Day": 0.284,
+      "by mail or absentee": 0.0769
+     }
+    },
+    "TN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 167,
+     "wait_shares": {
+      "not at all": 0.285,
+      "less than 10 minutes": 0.4019,
+      "10-30 minutes": 0.2373,
+      "31 minutes to 1 hour": 0.0759,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 10.17,
+     "se_minutes": 0.97,
+     "mean_minutes_lower_bound": 4.73,
+     "share_over_30_minutes": 0.0759,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 174,
+      "in person on Election Day": 0.3115,
+      "in person before Election Day": 0.652,
+      "by mail or absentee": 0.0366
+     }
+    },
+    "TX": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 150,
+     "wait_shares": {
+      "not at all": 0.3457,
+      "less than 10 minutes": 0.3396,
+      "10-30 minutes": 0.2073,
+      "31 minutes to 1 hour": 0.0747,
+      "more than 1 hour": 0.0328
+     },
+     "mean_minutes_midpoint": 12.99,
+     "se_minutes": 1.92,
+     "mean_minutes_lower_bound": 6.35,
+     "share_over_30_minutes": 0.1075,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 171,
+      "in person on Election Day": 0.2014,
+      "in person before Election Day": 0.6682,
+      "by mail or absentee": 0.1304
+     }
+    },
+    "UT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 68,
+     "wait_shares": {
+      "not at all": 0.23,
+      "less than 10 minutes": 0.1941,
+      "10-30 minutes": 0.3283,
+      "31 minutes to 1 hour": 0.2006,
+      "more than 1 hour": 0.047
+     },
+     "mean_minutes_midpoint": 21.98,
+     "se_minutes": 3.08,
+     "mean_minutes_lower_bound": 12.32,
+     "share_over_30_minutes": 0.2476,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 190,
+      "in person on Election Day": 0.2294,
+      "in person before Election Day": 0.1448,
+      "by mail or absentee": 0.6258
+     }
+    },
+    "VT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 157,
+     "wait_shares": {
+      "not at all": 0.7589,
+      "less than 10 minutes": 0.1855,
+      "10-30 minutes": 0.0556,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.04,
+     "se_minutes": 0.46,
+     "mean_minutes_lower_bound": 0.56,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.648,
+      "in person before Election Day": 0.2263,
+      "by mail or absentee": 0.1257
+     }
+    },
+    "VA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 171,
+     "wait_shares": {
+      "not at all": 0.3363,
+      "less than 10 minutes": 0.366,
+      "10-30 minutes": 0.197,
+      "31 minutes to 1 hour": 0.0789,
+      "more than 1 hour": 0.0218
+     },
+     "mean_minutes_midpoint": 11.83,
+     "se_minutes": 1.58,
+     "mean_minutes_lower_bound": 5.72,
+     "share_over_30_minutes": 0.1007,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.8093,
+      "in person before Election Day": 0.1087,
+      "by mail or absentee": 0.082
+     }
+    },
+    "WA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 17,
+     "wait_shares": {
+      "not at all": 0.224,
+      "less than 10 minutes": 0.3663,
+      "10-30 minutes": 0.3699,
+      "31 minutes to 1 hour": 0.0397,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 11.02,
+     "se_minutes": 2.57,
+     "mean_minutes_lower_bound": 4.93,
+     "share_over_30_minutes": 0.0397,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.075,
+      "in person before Election Day": 0.0111,
+      "by mail or absentee": 0.9139
+     }
+    },
+    "WV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 167,
+     "wait_shares": {
+      "not at all": 0.3601,
+      "less than 10 minutes": 0.4153,
+      "10-30 minutes": 0.1987,
+      "31 minutes to 1 hour": 0.0209,
+      "more than 1 hour": 0.0051
+     },
+     "mean_minutes_midpoint": 7.57,
+     "se_minutes": 0.9,
+     "mean_minutes_lower_bound": 2.94,
+     "share_over_30_minutes": 0.026,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 178,
+      "in person on Election Day": 0.6027,
+      "in person before Election Day": 0.3254,
+      "by mail or absentee": 0.0719
+     }
+    },
+    "WI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 162,
+     "wait_shares": {
+      "not at all": 0.4689,
+      "less than 10 minutes": 0.3526,
+      "10-30 minutes": 0.1495,
+      "31 minutes to 1 hour": 0.0225,
+      "more than 1 hour": 0.0065
+     },
+     "mean_minutes_midpoint": 6.52,
+     "se_minutes": 1.11,
+     "mean_minutes_lower_bound": 2.58,
+     "share_over_30_minutes": 0.029,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.5769,
+      "in person before Election Day": 0.3327,
+      "by mail or absentee": 0.0904
+     }
+    },
+    "WY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 158,
+     "wait_shares": {
+      "not at all": 0.5071,
+      "less than 10 minutes": 0.2966,
+      "10-30 minutes": 0.1548,
+      "31 minutes to 1 hour": 0.0414,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.44,
+     "se_minutes": 1.11,
+     "mean_minutes_lower_bound": 2.83,
+     "share_over_30_minutes": 0.0414,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.657,
+      "in person before Election Day": 0.193,
+      "by mail or absentee": 0.15
+     }
+    }
+   },
+   "states_missing": []
+  },
+  "2020": {
+   "source": {
+    "name": "Survey of the Performance of American Elections 2020 (MITU0031_OUTPUT2.tab)",
+    "url": "https://doi.org/10.7910/DVN/FSGX7Z",
+    "read_utc": "2026-11-07T07:17Z",
+    "licence": "CC0 1.0",
+    "mark": "measured",
+    "via": null,
+    "note": "file 4461637, 9370121 bytes, sha256 30602cc2ccc4a4515b1c513824cd26d8c2ca6238e562d74183640e730ce9f5ef; Dataverse dataset version 1.0, released 2021-03-29"
+   },
+   "file": "MITU0031_OUTPUT2.tab",
+   "weight": "weight",
+   "state_variable": "inputstate",
+   "line_variable": "Q14",
+   "mode_variables": [
+    "Q4"
+   ],
+   "top_category_minutes": 127.3,
+   "top_category_how": "mean of 423 readable written answers",
+   "respondents": 18200,
+   "states": {
+    "AL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 142,
+     "wait_shares": {
+      "not at all": 0.2819,
+      "less than 10 minutes": 0.2416,
+      "10-30 minutes": 0.2264,
+      "31 minutes to 1 hour": 0.1738,
+      "more than 1 hour": 0.0763
+     },
+     "mean_minutes_midpoint": 23.27,
+     "se_minutes": 2.83,
+     "mean_minutes_lower_bound": 12.23,
+     "share_over_30_minutes": 0.2501,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 178,
+      "in person on Election Day": 0.7728,
+      "in person before Election Day": 0.0351,
+      "by mail or absentee": 0.1921
+     }
+    },
+    "AK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 111,
+     "wait_shares": {
+      "not at all": 0.3052,
+      "less than 10 minutes": 0.372,
+      "10-30 minutes": 0.1584,
+      "31 minutes to 1 hour": 0.1473,
+      "more than 1 hour": 0.0171
+     },
+     "mean_minutes_midpoint": 13.83,
+     "se_minutes": 2.05,
+     "mean_minutes_lower_bound": 7.18,
+     "share_over_30_minutes": 0.1644,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 179,
+      "in person on Election Day": 0.4051,
+      "in person before Election Day": 0.2589,
+      "by mail or absentee": 0.3361
+     }
+    },
+    "AZ": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 219,
+     "wait_shares": {
+      "not at all": 0.3674,
+      "less than 10 minutes": 0.2897,
+      "10-30 minutes": 0.2414,
+      "31 minutes to 1 hour": 0.0802,
+      "more than 1 hour": 0.0212
+     },
+     "mean_minutes_midpoint": 12.59,
+     "se_minutes": 1.5,
+     "mean_minutes_lower_bound": 6.17,
+     "share_over_30_minutes": 0.1014,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 955,
+      "in person on Election Day": 0.1259,
+      "in person before Election Day": 0.1119,
+      "by mail or absentee": 0.7622
+     }
+    },
+    "AR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 163,
+     "wait_shares": {
+      "not at all": 0.284,
+      "less than 10 minutes": 0.4073,
+      "10-30 minutes": 0.2077,
+      "31 minutes to 1 hour": 0.0773,
+      "more than 1 hour": 0.0237
+     },
+     "mean_minutes_midpoint": 12.69,
+     "se_minutes": 1.76,
+     "mean_minutes_lower_bound": 5.9,
+     "share_over_30_minutes": 0.101,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.2147,
+      "in person before Election Day": 0.678,
+      "by mail or absentee": 0.1072
+     }
+    },
+    "CA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 37,
+     "wait_shares": {
+      "not at all": 0.4404,
+      "less than 10 minutes": 0.337,
+      "10-30 minutes": 0.1625,
+      "31 minutes to 1 hour": 0.0417,
+      "more than 1 hour": 0.0184
+     },
+     "mean_minutes_midpoint": 9.16,
+     "se_minutes": 2.78,
+     "mean_minutes_lower_bound": 4.02,
+     "share_over_30_minutes": 0.0601,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 183,
+      "in person on Election Day": 0.1112,
+      "in person before Election Day": 0.0719,
+      "by mail or absentee": 0.817
+     }
+    },
+    "CO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 26,
+     "wait_shares": {
+      "not at all": 0.3173,
+      "less than 10 minutes": 0.4635,
+      "10-30 minutes": 0.1502,
+      "31 minutes to 1 hour": 0.069,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 8.43,
+     "se_minutes": 2.31,
+     "mean_minutes_lower_bound": 3.64,
+     "share_over_30_minutes": 0.069,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.0707,
+      "in person before Election Day": 0.0699,
+      "by mail or absentee": 0.8594
+     }
+    },
+    "CT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 99,
+     "wait_shares": {
+      "not at all": 0.2369,
+      "less than 10 minutes": 0.353,
+      "10-30 minutes": 0.2489,
+      "31 minutes to 1 hour": 0.1189,
+      "more than 1 hour": 0.0423
+     },
+     "mean_minutes_midpoint": 17.48,
+     "se_minutes": 3.33,
+     "mean_minutes_lower_bound": 8.72,
+     "share_over_30_minutes": 0.1612,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.527,
+      "in person before Election Day": 0.0,
+      "by mail or absentee": 0.473
+     }
+    },
+    "DE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 121,
+     "wait_shares": {
+      "not at all": 0.1304,
+      "less than 10 minutes": 0.0934,
+      "10-30 minutes": 0.3351,
+      "31 minutes to 1 hour": 0.2879,
+      "more than 1 hour": 0.1532
+     },
+     "mean_minutes_midpoint": 39.63,
+     "se_minutes": 3.73,
+     "mean_minutes_lower_bound": 21.47,
+     "share_over_30_minutes": 0.4411,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.6427,
+      "in person before Election Day": 0.0411,
+      "by mail or absentee": 0.3161
+     }
+    },
+    "DC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 56,
+     "wait_shares": {
+      "not at all": 0.5619,
+      "less than 10 minutes": 0.1566,
+      "10-30 minutes": 0.2325,
+      "31 minutes to 1 hour": 0.0332,
+      "more than 1 hour": 0.016
+     },
+     "mean_minutes_midpoint": 8.96,
+     "se_minutes": 2.4,
+     "mean_minutes_lower_bound": 4.31,
+     "share_over_30_minutes": 0.0492,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.0884,
+      "in person before Election Day": 0.2087,
+      "by mail or absentee": 0.7029
+     }
+    },
+    "FL": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 490,
+     "wait_shares": {
+      "not at all": 0.3241,
+      "less than 10 minutes": 0.2516,
+      "10-30 minutes": 0.2239,
+      "31 minutes to 1 hour": 0.1597,
+      "more than 1 hour": 0.0407
+     },
+     "mean_minutes_midpoint": 18.1,
+     "se_minutes": 1.4,
+     "mean_minutes_lower_bound": 9.63,
+     "share_over_30_minutes": 0.2004,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 945,
+      "in person on Election Day": 0.1829,
+      "in person before Election Day": 0.3393,
+      "by mail or absentee": 0.4778
+     }
+    },
+    "GA": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 614,
+     "wait_shares": {
+      "not at all": 0.2225,
+      "less than 10 minutes": 0.2742,
+      "10-30 minutes": 0.2681,
+      "31 minutes to 1 hour": 0.1402,
+      "more than 1 hour": 0.095
+     },
+     "mean_minutes_midpoint": 25.14,
+     "se_minutes": 1.72,
+     "mean_minutes_lower_bound": 12.73,
+     "share_over_30_minutes": 0.2352,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 932,
+      "in person on Election Day": 0.2443,
+      "in person before Election Day": 0.447,
+      "by mail or absentee": 0.3087
+     }
+    },
+    "HI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 13,
+     "wait_shares": {
+      "not at all": 0.1812,
+      "less than 10 minutes": 0.3011,
+      "10-30 minutes": 0.3921,
+      "31 minutes to 1 hour": 0.036,
+      "more than 1 hour": 0.0897
+     },
+     "mean_minutes_midpoint": 22.38,
+     "se_minutes": 10.4,
+     "mean_minutes_lower_bound": 10.42,
+     "share_over_30_minutes": 0.1257,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 181,
+      "in person on Election Day": 0.0277,
+      "in person before Election Day": 0.0621,
+      "by mail or absentee": 0.9102
+     }
+    },
+    "ID": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 76,
+     "wait_shares": {
+      "not at all": 0.3552,
+      "less than 10 minutes": 0.3746,
+      "10-30 minutes": 0.2093,
+      "31 minutes to 1 hour": 0.0609,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 8.8,
+     "se_minutes": 1.45,
+     "mean_minutes_lower_bound": 3.98,
+     "share_over_30_minutes": 0.0609,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.3114,
+      "in person before Election Day": 0.1374,
+      "by mail or absentee": 0.5512
+     }
+    },
+    "IL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 99,
+     "wait_shares": {
+      "not at all": 0.3654,
+      "less than 10 minutes": 0.2477,
+      "10-30 minutes": 0.2316,
+      "31 minutes to 1 hour": 0.1209,
+      "more than 1 hour": 0.0344
+     },
+     "mean_minutes_midpoint": 15.68,
+     "se_minutes": 3.27,
+     "mean_minutes_lower_bound": 8.12,
+     "share_over_30_minutes": 0.1553,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.2537,
+      "in person before Election Day": 0.3023,
+      "by mail or absentee": 0.444
+     }
+    },
+    "IN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 141,
+     "wait_shares": {
+      "not at all": 0.2401,
+      "less than 10 minutes": 0.2649,
+      "10-30 minutes": 0.1774,
+      "31 minutes to 1 hour": 0.1695,
+      "more than 1 hour": 0.1481
+     },
+     "mean_minutes_midpoint": 31.36,
+     "se_minutes": 4.21,
+     "mean_minutes_lower_bound": 15.92,
+     "share_over_30_minutes": 0.3176,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 192,
+      "in person on Election Day": 0.3956,
+      "in person before Election Day": 0.4034,
+      "by mail or absentee": 0.201
+     }
+    },
+    "IA": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 473,
+     "wait_shares": {
+      "not at all": 0.4102,
+      "less than 10 minutes": 0.3105,
+      "10-30 minutes": 0.2077,
+      "31 minutes to 1 hour": 0.052,
+      "more than 1 hour": 0.0196
+     },
+     "mean_minutes_midpoint": 10.54,
+     "se_minutes": 1.0,
+     "mean_minutes_lower_bound": 4.87,
+     "share_over_30_minutes": 0.0716,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 935,
+      "in person on Election Day": 0.361,
+      "in person before Election Day": 0.174,
+      "by mail or absentee": 0.465
+     }
+    },
+    "KS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 89,
+     "wait_shares": {
+      "not at all": 0.3658,
+      "less than 10 minutes": 0.2791,
+      "10-30 minutes": 0.2695,
+      "31 minutes to 1 hour": 0.0856,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 10.64,
+     "se_minutes": 1.55,
+     "mean_minutes_lower_bound": 5.35,
+     "share_over_30_minutes": 0.0856,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.2657,
+      "in person before Election Day": 0.2693,
+      "by mail or absentee": 0.465
+     }
+    },
+    "KY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 118,
+     "wait_shares": {
+      "not at all": 0.3315,
+      "less than 10 minutes": 0.4955,
+      "10-30 minutes": 0.1412,
+      "31 minutes to 1 hour": 0.0319,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.73,
+     "se_minutes": 0.87,
+     "mean_minutes_lower_bound": 2.4,
+     "share_over_30_minutes": 0.0319,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 181,
+      "in person on Election Day": 0.2022,
+      "in person before Election Day": 0.474,
+      "by mail or absentee": 0.3239
+     }
+    },
+    "LA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 161,
+     "wait_shares": {
+      "not at all": 0.1726,
+      "less than 10 minutes": 0.4167,
+      "10-30 minutes": 0.2159,
+      "31 minutes to 1 hour": 0.154,
+      "more than 1 hour": 0.0408
+     },
+     "mean_minutes_midpoint": 18.52,
+     "se_minutes": 2.29,
+     "mean_minutes_lower_bound": 9.38,
+     "share_over_30_minutes": 0.1948,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.5129,
+      "in person before Election Day": 0.3503,
+      "by mail or absentee": 0.1368
+     }
+    },
+    "ME": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 101,
+     "wait_shares": {
+      "not at all": 0.4387,
+      "less than 10 minutes": 0.3281,
+      "10-30 minutes": 0.1684,
+      "31 minutes to 1 hour": 0.0403,
+      "more than 1 hour": 0.0245
+     },
+     "mean_minutes_midpoint": 9.93,
+     "se_minutes": 2.07,
+     "mean_minutes_lower_bound": 4.4,
+     "share_over_30_minutes": 0.0648,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.329,
+      "in person before Election Day": 0.2012,
+      "by mail or absentee": 0.4698
+     }
+    },
+    "MD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 77,
+     "wait_shares": {
+      "not at all": 0.216,
+      "less than 10 minutes": 0.2301,
+      "10-30 minutes": 0.2308,
+      "31 minutes to 1 hour": 0.1975,
+      "more than 1 hour": 0.1257
+     },
+     "mean_minutes_midpoint": 30.66,
+     "se_minutes": 4.62,
+     "mean_minutes_lower_bound": 15.97,
+     "share_over_30_minutes": 0.3232,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.1188,
+      "in person before Election Day": 0.279,
+      "by mail or absentee": 0.6022
+     }
+    },
+    "MA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 103,
+     "wait_shares": {
+      "not at all": 0.5362,
+      "less than 10 minutes": 0.2577,
+      "10-30 minutes": 0.1645,
+      "31 minutes to 1 hour": 0.0417,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.45,
+     "se_minutes": 1.23,
+     "mean_minutes_lower_bound": 2.94,
+     "share_over_30_minutes": 0.0417,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 191,
+      "in person on Election Day": 0.2762,
+      "in person before Election Day": 0.2493,
+      "by mail or absentee": 0.4745
+     }
+    },
+    "MI": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 368,
+     "wait_shares": {
+      "not at all": 0.246,
+      "less than 10 minutes": 0.2888,
+      "10-30 minutes": 0.2965,
+      "31 minutes to 1 hour": 0.1225,
+      "more than 1 hour": 0.0463
+     },
+     "mean_minutes_midpoint": 18.78,
+     "se_minutes": 1.55,
+     "mean_minutes_lower_bound": 9.54,
+     "share_over_30_minutes": 0.1688,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 945,
+      "in person on Election Day": 0.3577,
+      "in person before Election Day": 0.0737,
+      "by mail or absentee": 0.5686
+     }
+    },
+    "MN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 95,
+     "wait_shares": {
+      "not at all": 0.3466,
+      "less than 10 minutes": 0.3775,
+      "10-30 minutes": 0.1558,
+      "31 minutes to 1 hour": 0.0649,
+      "more than 1 hour": 0.0552
+     },
+     "mean_minutes_midpoint": 14.95,
+     "se_minutes": 3.35,
+     "mean_minutes_lower_bound": 6.88,
+     "share_over_30_minutes": 0.1201,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.3161,
+      "in person before Election Day": 0.1794,
+      "by mail or absentee": 0.5045
+     }
+    },
+    "MS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 156,
+     "wait_shares": {
+      "not at all": 0.3298,
+      "less than 10 minutes": 0.2795,
+      "10-30 minutes": 0.1882,
+      "31 minutes to 1 hour": 0.1215,
+      "more than 1 hour": 0.081
+     },
+     "mean_minutes_midpoint": 20.94,
+     "se_minutes": 2.74,
+     "mean_minutes_lower_bound": 10.51,
+     "share_over_30_minutes": 0.2025,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 177,
+      "in person on Election Day": 0.7849,
+      "in person before Election Day": 0.1177,
+      "by mail or absentee": 0.0973
+     }
+    },
+    "MO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 154,
+     "wait_shares": {
+      "not at all": 0.3221,
+      "less than 10 minutes": 0.2201,
+      "10-30 minutes": 0.2422,
+      "31 minutes to 1 hour": 0.1456,
+      "more than 1 hour": 0.0699
+     },
+     "mean_minutes_midpoint": 21.4,
+     "se_minutes": 2.64,
+     "mean_minutes_lower_bound": 11.13,
+     "share_over_30_minutes": 0.2155,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.6322,
+      "in person before Election Day": 0.193,
+      "by mail or absentee": 0.1748
+     }
+    },
+    "MT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 18,
+     "wait_shares": {
+      "not at all": 0.611,
+      "less than 10 minutes": 0.2871,
+      "10-30 minutes": 0.1019,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.47,
+     "se_minutes": 1.44,
+     "mean_minutes_lower_bound": 1.02,
+     "share_over_30_minutes": 0.0,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.0533,
+      "in person before Election Day": 0.0601,
+      "by mail or absentee": 0.8866
+     }
+    },
+    "NE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 72,
+     "wait_shares": {
+      "not at all": 0.3158,
+      "less than 10 minutes": 0.4605,
+      "10-30 minutes": 0.1697,
+      "31 minutes to 1 hour": 0.0264,
+      "more than 1 hour": 0.0276
+     },
+     "mean_minutes_midpoint": 10.4,
+     "se_minutes": 2.36,
+     "mean_minutes_lower_bound": 4.17,
+     "share_over_30_minutes": 0.054,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.3737,
+      "in person before Election Day": 0.0427,
+      "by mail or absentee": 0.5836
+     }
+    },
+    "NV": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 463,
+     "wait_shares": {
+      "not at all": 0.2251,
+      "less than 10 minutes": 0.2225,
+      "10-30 minutes": 0.2984,
+      "31 minutes to 1 hour": 0.1845,
+      "more than 1 hour": 0.0695
+     },
+     "mean_minutes_midpoint": 24.23,
+     "se_minutes": 1.61,
+     "mean_minutes_lower_bound": 12.88,
+     "share_over_30_minutes": 0.254,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 937,
+      "in person on Election Day": 0.1475,
+      "in person before Election Day": 0.3395,
+      "by mail or absentee": 0.513
+     }
+    },
+    "NH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 118,
+     "wait_shares": {
+      "not at all": 0.3239,
+      "less than 10 minutes": 0.3099,
+      "10-30 minutes": 0.2747,
+      "31 minutes to 1 hour": 0.0859,
+      "more than 1 hour": 0.0055
+     },
+     "mean_minutes_midpoint": 11.61,
+     "se_minutes": 1.49,
+     "mean_minutes_lower_bound": 5.74,
+     "share_over_30_minutes": 0.0914,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 197,
+      "in person on Election Day": 0.6315,
+      "in person before Election Day": 0.0275,
+      "by mail or absentee": 0.341
+     }
+    },
+    "NJ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 18,
+     "wait_shares": {
+      "not at all": 0.3077,
+      "less than 10 minutes": 0.1933,
+      "10-30 minutes": 0.1822,
+      "31 minutes to 1 hour": 0.3169,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 18.87,
+     "se_minutes": 6.01,
+     "mean_minutes_lower_bound": 11.64,
+     "share_over_30_minutes": 0.3169,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.1118,
+      "in person before Election Day": 0.0271,
+      "by mail or absentee": 0.8611
+     }
+    },
+    "NM": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 116,
+     "wait_shares": {
+      "not at all": 0.2697,
+      "less than 10 minutes": 0.311,
+      "10-30 minutes": 0.2159,
+      "31 minutes to 1 hour": 0.1124,
+      "more than 1 hour": 0.091
+     },
+     "mean_minutes_midpoint": 22.52,
+     "se_minutes": 3.78,
+     "mean_minutes_lower_bound": 11.1,
+     "share_over_30_minutes": 0.2034,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 194,
+      "in person on Election Day": 0.1675,
+      "in person before Election Day": 0.4414,
+      "by mail or absentee": 0.3911
+     }
+    },
+    "NY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 129,
+     "wait_shares": {
+      "not at all": 0.2808,
+      "less than 10 minutes": 0.2919,
+      "10-30 minutes": 0.1836,
+      "31 minutes to 1 hour": 0.1173,
+      "more than 1 hour": 0.1263
+     },
+     "mean_minutes_midpoint": 26.49,
+     "se_minutes": 3.6,
+     "mean_minutes_lower_bound": 13.05,
+     "share_over_30_minutes": 0.2436,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.4421,
+      "in person before Election Day": 0.2477,
+      "by mail or absentee": 0.3102
+     }
+    },
+    "NC": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 702,
+     "wait_shares": {
+      "not at all": 0.3446,
+      "less than 10 minutes": 0.2532,
+      "10-30 minutes": 0.2385,
+      "31 minutes to 1 hour": 0.1269,
+      "more than 1 hour": 0.0368
+     },
+     "mean_minutes_midpoint": 16.43,
+     "se_minutes": 1.02,
+     "mean_minutes_lower_bound": 8.52,
+     "share_over_30_minutes": 0.1637,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 949,
+      "in person on Election Day": 0.1943,
+      "in person before Election Day": 0.5719,
+      "by mail or absentee": 0.2338
+     }
+    },
+    "ND": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 78,
+     "wait_shares": {
+      "not at all": 0.5113,
+      "less than 10 minutes": 0.2298,
+      "10-30 minutes": 0.2232,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0357
+     },
+     "mean_minutes_midpoint": 10.16,
+     "se_minutes": 3.2,
+     "mean_minutes_lower_bound": 4.38,
+     "share_over_30_minutes": 0.0357,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 177,
+      "in person on Election Day": 0.2402,
+      "in person before Election Day": 0.2679,
+      "by mail or absentee": 0.4918
+     }
+    },
+    "OH": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 517,
+     "wait_shares": {
+      "not at all": 0.3114,
+      "less than 10 minutes": 0.264,
+      "10-30 minutes": 0.2197,
+      "31 minutes to 1 hour": 0.1477,
+      "more than 1 hour": 0.0573
+     },
+     "mean_minutes_midpoint": 19.65,
+     "se_minutes": 1.46,
+     "mean_minutes_lower_bound": 10.21,
+     "share_over_30_minutes": 0.205,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 944,
+      "in person on Election Day": 0.3388,
+      "in person before Election Day": 0.2367,
+      "by mail or absentee": 0.4245
+     }
+    },
+    "OK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 128,
+     "wait_shares": {
+      "not at all": 0.21,
+      "less than 10 minutes": 0.2861,
+      "10-30 minutes": 0.1918,
+      "31 minutes to 1 hour": 0.1499,
+      "more than 1 hour": 0.1622
+     },
+     "mean_minutes_midpoint": 32.66,
+     "se_minutes": 5.08,
+     "mean_minutes_lower_bound": 16.3,
+     "share_over_30_minutes": 0.3121,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.6084,
+      "in person before Election Day": 0.0912,
+      "by mail or absentee": 0.3004
+     }
+    },
+    "OR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 6,
+     "wait_shares": {
+      "not at all": 0.3712,
+      "less than 10 minutes": 0.1599,
+      "10-30 minutes": 0.1602,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.3088
+     },
+     "mean_minutes_midpoint": 43.31,
+     "se_minutes": 28.48,
+     "mean_minutes_lower_bound": 20.13,
+     "share_over_30_minutes": 0.3088,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.0117,
+      "in person before Election Day": 0.0262,
+      "by mail or absentee": 0.962
+     }
+    },
+    "PA": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 515,
+     "wait_shares": {
+      "not at all": 0.2539,
+      "less than 10 minutes": 0.2957,
+      "10-30 minutes": 0.2357,
+      "31 minutes to 1 hour": 0.1315,
+      "more than 1 hour": 0.0832
+     },
+     "mean_minutes_midpoint": 22.7,
+     "se_minutes": 1.62,
+     "mean_minutes_lower_bound": 11.43,
+     "share_over_30_minutes": 0.2147,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 962,
+      "in person on Election Day": 0.5165,
+      "in person before Election Day": 0.0333,
+      "by mail or absentee": 0.4502
+     }
+    },
+    "RI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 89,
+     "wait_shares": {
+      "not at all": 0.3712,
+      "less than 10 minutes": 0.2657,
+      "10-30 minutes": 0.1896,
+      "31 minutes to 1 hour": 0.1734,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 12.92,
+     "se_minutes": 2.5,
+     "mean_minutes_lower_bound": 7.27,
+     "share_over_30_minutes": 0.1734,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 176,
+      "in person on Election Day": 0.278,
+      "in person before Election Day": 0.2496,
+      "by mail or absentee": 0.4724
+     }
+    },
+    "SC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 140,
+     "wait_shares": {
+      "not at all": 0.1389,
+      "less than 10 minutes": 0.2107,
+      "10-30 minutes": 0.2231,
+      "31 minutes to 1 hour": 0.2526,
+      "more than 1 hour": 0.1747
+     },
+     "mean_minutes_midpoint": 39.13,
+     "se_minutes": 4.93,
+     "mean_minutes_lower_bound": 20.55,
+     "share_over_30_minutes": 0.4273,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 194,
+      "in person on Election Day": 0.4493,
+      "in person before Election Day": 0.2779,
+      "by mail or absentee": 0.2728
+     }
+    },
+    "SD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 126,
+     "wait_shares": {
+      "not at all": 0.4609,
+      "less than 10 minutes": 0.3509,
+      "10-30 minutes": 0.1284,
+      "31 minutes to 1 hour": 0.0402,
+      "more than 1 hour": 0.0196
+     },
+     "mean_minutes_midpoint": 8.62,
+     "se_minutes": 1.73,
+     "mean_minutes_lower_bound": 3.7,
+     "share_over_30_minutes": 0.0598,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.4124,
+      "in person before Election Day": 0.284,
+      "by mail or absentee": 0.3036
+     }
+    },
+    "TN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 159,
+     "wait_shares": {
+      "not at all": 0.1699,
+      "less than 10 minutes": 0.3152,
+      "10-30 minutes": 0.3134,
+      "31 minutes to 1 hour": 0.1542,
+      "more than 1 hour": 0.0473
+     },
+     "mean_minutes_midpoint": 20.8,
+     "se_minutes": 2.38,
+     "mean_minutes_lower_bound": 10.75,
+     "share_over_30_minutes": 0.2015,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 189,
+      "in person on Election Day": 0.1867,
+      "in person before Election Day": 0.6349,
+      "by mail or absentee": 0.1785
+     }
+    },
+    "TX": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 156,
+     "wait_shares": {
+      "not at all": 0.3069,
+      "less than 10 minutes": 0.305,
+      "10-30 minutes": 0.2556,
+      "31 minutes to 1 hour": 0.0997,
+      "more than 1 hour": 0.0327
+     },
+     "mean_minutes_midpoint": 15.29,
+     "se_minutes": 1.98,
+     "mean_minutes_lower_bound": 7.61,
+     "share_over_30_minutes": 0.1324,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 181,
+      "in person on Election Day": 0.1528,
+      "in person before Election Day": 0.7376,
+      "by mail or absentee": 0.1096
+     }
+    },
+    "UT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 26,
+     "wait_shares": {
+      "not at all": 0.2112,
+      "less than 10 minutes": 0.4251,
+      "10-30 minutes": 0.3297,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.034
+     },
+     "mean_minutes_midpoint": 13.05,
+     "se_minutes": 4.3,
+     "mean_minutes_lower_bound": 5.34,
+     "share_over_30_minutes": 0.034,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 195,
+      "in person on Election Day": 0.056,
+      "in person before Election Day": 0.0752,
+      "by mail or absentee": 0.8688
+     }
+    },
+    "VT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 47,
+     "wait_shares": {
+      "not at all": 0.3601,
+      "less than 10 minutes": 0.4809,
+      "10-30 minutes": 0.1398,
+      "31 minutes to 1 hour": 0.0191,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.06,
+     "se_minutes": 1.22,
+     "mean_minutes_lower_bound": 1.99,
+     "share_over_30_minutes": 0.0191,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.256,
+      "in person before Election Day": 0.0208,
+      "by mail or absentee": 0.7232
+     }
+    },
+    "VA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 115,
+     "wait_shares": {
+      "not at all": 0.4339,
+      "less than 10 minutes": 0.2278,
+      "10-30 minutes": 0.2168,
+      "31 minutes to 1 hour": 0.0935,
+      "more than 1 hour": 0.0281
+     },
+     "mean_minutes_midpoint": 13.26,
+     "se_minutes": 2.35,
+     "mean_minutes_lower_bound": 6.75,
+     "share_over_30_minutes": 0.1216,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 187,
+      "in person on Election Day": 0.2751,
+      "in person before Election Day": 0.3585,
+      "by mail or absentee": 0.3664
+     }
+    },
+    "WA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 6,
+     "wait_shares": {
+      "not at all": 0.0,
+      "less than 10 minutes": 0.571,
+      "10-30 minutes": 0.2001,
+      "31 minutes to 1 hour": 0.2289,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 17.16,
+     "se_minutes": 6.65,
+     "mean_minutes_lower_bound": 9.1,
+     "share_over_30_minutes": 0.2289,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 193,
+      "in person on Election Day": 0.0163,
+      "in person before Election Day": 0.0334,
+      "by mail or absentee": 0.9504
+     }
+    },
+    "WV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 123,
+     "wait_shares": {
+      "not at all": 0.3215,
+      "less than 10 minutes": 0.3887,
+      "10-30 minutes": 0.1865,
+      "31 minutes to 1 hour": 0.0648,
+      "more than 1 hour": 0.0384
+     },
+     "mean_minutes_midpoint": 13.48,
+     "se_minutes": 2.65,
+     "mean_minutes_lower_bound": 6.18,
+     "share_over_30_minutes": 0.1032,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 181,
+      "in person on Election Day": 0.44,
+      "in person before Election Day": 0.3052,
+      "by mail or absentee": 0.2548
+     }
+    },
+    "WI": {
+     "n_respondents": 1000,
+     "n_with_wait_answer": 462,
+     "wait_shares": {
+      "not at all": 0.341,
+      "less than 10 minutes": 0.325,
+      "10-30 minutes": 0.2236,
+      "31 minutes to 1 hour": 0.0955,
+      "more than 1 hour": 0.015
+     },
+     "mean_minutes_midpoint": 12.3,
+     "se_minutes": 0.91,
+     "mean_minutes_lower_bound": 6.1,
+     "share_over_30_minutes": 0.1105,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 950,
+      "in person on Election Day": 0.3416,
+      "in person before Election Day": 0.1809,
+      "by mail or absentee": 0.4775
+     }
+    },
+    "WY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 113,
+     "wait_shares": {
+      "not at all": 0.4468,
+      "less than 10 minutes": 0.3317,
+      "10-30 minutes": 0.1298,
+      "31 minutes to 1 hour": 0.0863,
+      "more than 1 hour": 0.0055
+     },
+     "mean_minutes_midpoint": 8.83,
+     "se_minutes": 1.61,
+     "mean_minutes_lower_bound": 4.3,
+     "share_over_30_minutes": 0.0918,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.497,
+      "in person before Election Day": 0.2214,
+      "by mail or absentee": 0.2816
+     }
+    }
+   },
+   "states_missing": []
+  },
+  "2022": {
+   "source": {
+    "name": "Survey of the Performance of American Elections 2022 (MITU0042_OUTPUT_0120.tab)",
+    "url": "https://doi.org/10.7910/DVN/SPU2XP",
+    "read_utc": "2026-11-07T07:17Z",
+    "licence": "CC0 1.0",
+    "mark": "measured",
+    "via": null,
+    "note": "file 7103004, 6915457 bytes, sha256 8656311b2db78babd4956f5b65b2cb1cf4f21d69c6f2e1e86ca4a0121af00ecc; Dataverse dataset version 1.0, released 2023-05-19"
+   },
+   "file": "MITU0042_OUTPUT_0120.tab",
+   "weight": "weight_stacked",
+   "state_variable": "inputstate",
+   "line_variable": "Q12",
+   "mode_variables": [
+    "Q4"
+   ],
+   "top_category_minutes": 90.0,
+   "top_category_how": "90 assumed (24 readable written answers, under 30)",
+   "respondents": 10200,
+   "states": {
+    "AL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 148,
+     "wait_shares": {
+      "not at all": 0.5989,
+      "less than 10 minutes": 0.3264,
+      "10-30 minutes": 0.0606,
+      "31 minutes to 1 hour": 0.0142,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.48,
+     "se_minutes": 0.65,
+     "mean_minutes_lower_bound": 1.05,
+     "share_over_30_minutes": 0.0142,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 157,
+      "in person on Election Day": 0.9256,
+      "in person before Election Day": 0.029,
+      "by mail or absentee": 0.0453
+     }
+    },
+    "AK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 115,
+     "wait_shares": {
+      "not at all": 0.5245,
+      "less than 10 minutes": 0.3384,
+      "10-30 minutes": 0.0984,
+      "31 minutes to 1 hour": 0.0387,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.4,
+     "se_minutes": 1.28,
+     "mean_minutes_lower_bound": 2.18,
+     "share_over_30_minutes": 0.0387,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 176,
+      "in person on Election Day": 0.5525,
+      "in person before Election Day": 0.2099,
+      "by mail or absentee": 0.2377
+     }
+    },
+    "AZ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 37,
+     "wait_shares": {
+      "not at all": 0.2741,
+      "less than 10 minutes": 0.3061,
+      "10-30 minutes": 0.2036,
+      "31 minutes to 1 hour": 0.1914,
+      "more than 1 hour": 0.0248
+     },
+     "mean_minutes_midpoint": 16.45,
+     "se_minutes": 3.43,
+     "mean_minutes_lower_bound": 9.46,
+     "share_over_30_minutes": 0.2162,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 182,
+      "in person on Election Day": 0.1909,
+      "in person before Election Day": 0.0465,
+      "by mail or absentee": 0.7626
+     }
+    },
+    "AR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 144,
+     "wait_shares": {
+      "not at all": 0.4972,
+      "less than 10 minutes": 0.2877,
+      "10-30 minutes": 0.1524,
+      "31 minutes to 1 hour": 0.0555,
+      "more than 1 hour": 0.0072
+     },
+     "mean_minutes_midpoint": 7.63,
+     "se_minutes": 1.21,
+     "mean_minutes_lower_bound": 3.68,
+     "share_over_30_minutes": 0.0627,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.2946,
+      "in person before Election Day": 0.6151,
+      "by mail or absentee": 0.0903
+     }
+    },
+    "CA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 42,
+     "wait_shares": {
+      "not at all": 0.364,
+      "less than 10 minutes": 0.2719,
+      "10-30 minutes": 0.2585,
+      "31 minutes to 1 hour": 0.0931,
+      "more than 1 hour": 0.0125
+     },
+     "mean_minutes_midpoint": 11.84,
+     "se_minutes": 2.53,
+     "mean_minutes_lower_bound": 6.22,
+     "share_over_30_minutes": 0.1056,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 159,
+      "in person on Election Day": 0.132,
+      "in person before Election Day": 0.0887,
+      "by mail or absentee": 0.7793
+     }
+    },
+    "CO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 21,
+     "wait_shares": {
+      "not at all": 0.5314,
+      "less than 10 minutes": 0.22,
+      "10-30 minutes": 0.0243,
+      "31 minutes to 1 hour": 0.2243,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 11.68,
+     "se_minutes": 4.49,
+     "mean_minutes_lower_bound": 7.2,
+     "share_over_30_minutes": 0.2243,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.0882,
+      "in person before Election Day": 0.0475,
+      "by mail or absentee": 0.8643
+     }
+    },
+    "CT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 127,
+     "wait_shares": {
+      "not at all": 0.557,
+      "less than 10 minutes": 0.3841,
+      "10-30 minutes": 0.0589,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.1,
+     "se_minutes": 0.42,
+     "mean_minutes_lower_bound": 0.59,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 171,
+      "in person on Election Day": 0.7416,
+      "in person before Election Day": 0.019,
+      "by mail or absentee": 0.2394
+     }
+    },
+    "DE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 130,
+     "wait_shares": {
+      "not at all": 0.504,
+      "less than 10 minutes": 0.2932,
+      "10-30 minutes": 0.1733,
+      "31 minutes to 1 hour": 0.0295,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.26,
+     "se_minutes": 1.09,
+     "mean_minutes_lower_bound": 2.65,
+     "share_over_30_minutes": 0.0295,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 166,
+      "in person on Election Day": 0.6791,
+      "in person before Election Day": 0.1437,
+      "by mail or absentee": 0.1772
+     }
+    },
+    "DC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 73,
+     "wait_shares": {
+      "not at all": 0.3843,
+      "less than 10 minutes": 0.2711,
+      "10-30 minutes": 0.1951,
+      "31 minutes to 1 hour": 0.1461,
+      "more than 1 hour": 0.0034
+     },
+     "mean_minutes_midpoint": 12.14,
+     "se_minutes": 2.79,
+     "mean_minutes_lower_bound": 6.69,
+     "share_over_30_minutes": 0.1495,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 174,
+      "in person on Election Day": 0.3138,
+      "in person before Election Day": 0.1222,
+      "by mail or absentee": 0.5641
+     }
+    },
+    "FL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 89,
+     "wait_shares": {
+      "not at all": 0.5876,
+      "less than 10 minutes": 0.2396,
+      "10-30 minutes": 0.0662,
+      "31 minutes to 1 hour": 0.087,
+      "more than 1 hour": 0.0196
+     },
+     "mean_minutes_midpoint": 8.2,
+     "se_minutes": 1.95,
+     "mean_minutes_lower_bound": 4.53,
+     "share_over_30_minutes": 0.1066,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 170,
+      "in person on Election Day": 0.2837,
+      "in person before Election Day": 0.3169,
+      "by mail or absentee": 0.3994
+     }
+    },
+    "GA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 116,
+     "wait_shares": {
+      "not at all": 0.3476,
+      "less than 10 minutes": 0.3144,
+      "10-30 minutes": 0.24,
+      "31 minutes to 1 hour": 0.0914,
+      "more than 1 hour": 0.0066
+     },
+     "mean_minutes_midpoint": 11.08,
+     "se_minutes": 1.52,
+     "mean_minutes_lower_bound": 5.63,
+     "share_over_30_minutes": 0.098,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 153,
+      "in person on Election Day": 0.2851,
+      "in person before Election Day": 0.5398,
+      "by mail or absentee": 0.1751
+     }
+    },
+    "HI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 17,
+     "wait_shares": {
+      "not at all": 0.0644,
+      "less than 10 minutes": 0.2818,
+      "10-30 minutes": 0.5163,
+      "31 minutes to 1 hour": 0.1375,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 17.92,
+     "se_minutes": 3.83,
+     "mean_minutes_lower_bound": 9.43,
+     "share_over_30_minutes": 0.1375,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 179,
+      "in person on Election Day": 0.0913,
+      "in person before Election Day": 0.0446,
+      "by mail or absentee": 0.8641
+     }
+    },
+    "ID": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 105,
+     "wait_shares": {
+      "not at all": 0.5098,
+      "less than 10 minutes": 0.3079,
+      "10-30 minutes": 0.0966,
+      "31 minutes to 1 hour": 0.0398,
+      "more than 1 hour": 0.0459
+     },
+     "mean_minutes_midpoint": 9.39,
+     "se_minutes": 2.26,
+     "mean_minutes_lower_bound": 4.95,
+     "share_over_30_minutes": 0.0857,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 168,
+      "in person on Election Day": 0.5479,
+      "in person before Election Day": 0.1139,
+      "by mail or absentee": 0.3382
+     }
+    },
+    "IL": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 119,
+     "wait_shares": {
+      "not at all": 0.549,
+      "less than 10 minutes": 0.2869,
+      "10-30 minutes": 0.1157,
+      "31 minutes to 1 hour": 0.0431,
+      "more than 1 hour": 0.0053
+     },
+     "mean_minutes_midpoint": 6.16,
+     "se_minutes": 1.22,
+     "mean_minutes_lower_bound": 2.81,
+     "share_over_30_minutes": 0.0484,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 177,
+      "in person on Election Day": 0.4767,
+      "in person before Election Day": 0.2095,
+      "by mail or absentee": 0.3138
+     }
+    },
+    "IN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 130,
+     "wait_shares": {
+      "not at all": 0.4174,
+      "less than 10 minutes": 0.4085,
+      "10-30 minutes": 0.1087,
+      "31 minutes to 1 hour": 0.0629,
+      "more than 1 hour": 0.0025
+     },
+     "mean_minutes_midpoint": 7.27,
+     "se_minutes": 1.33,
+     "mean_minutes_lower_bound": 3.19,
+     "share_over_30_minutes": 0.0654,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.4856,
+      "in person before Election Day": 0.3068,
+      "by mail or absentee": 0.2075
+     }
+    },
+    "IA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 131,
+     "wait_shares": {
+      "not at all": 0.5914,
+      "less than 10 minutes": 0.3274,
+      "10-30 minutes": 0.0536,
+      "31 minutes to 1 hour": 0.0215,
+      "more than 1 hour": 0.0061
+     },
+     "mean_minutes_midpoint": 4.22,
+     "se_minutes": 0.85,
+     "mean_minutes_lower_bound": 1.57,
+     "share_over_30_minutes": 0.0276,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 177,
+      "in person on Election Day": 0.6076,
+      "in person before Election Day": 0.1567,
+      "by mail or absentee": 0.2358
+     }
+    },
+    "KS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 131,
+     "wait_shares": {
+      "not at all": 0.5461,
+      "less than 10 minutes": 0.3311,
+      "10-30 minutes": 0.0937,
+      "31 minutes to 1 hour": 0.0291,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.84,
+     "se_minutes": 0.74,
+     "mean_minutes_lower_bound": 1.84,
+     "share_over_30_minutes": 0.0291,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 173,
+      "in person on Election Day": 0.4563,
+      "in person before Election Day": 0.3693,
+      "by mail or absentee": 0.1744
+     }
+    },
+    "KY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 142,
+     "wait_shares": {
+      "not at all": 0.3739,
+      "less than 10 minutes": 0.328,
+      "10-30 minutes": 0.2154,
+      "31 minutes to 1 hour": 0.0778,
+      "more than 1 hour": 0.0048
+     },
+     "mean_minutes_midpoint": 9.88,
+     "se_minutes": 1.22,
+     "mean_minutes_lower_bound": 4.86,
+     "share_over_30_minutes": 0.0826,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.63,
+      "in person before Election Day": 0.2549,
+      "by mail or absentee": 0.1151
+     }
+    },
+    "LA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 136,
+     "wait_shares": {
+      "not at all": 0.4225,
+      "less than 10 minutes": 0.4527,
+      "10-30 minutes": 0.1012,
+      "31 minutes to 1 hour": 0.0128,
+      "more than 1 hour": 0.0107
+     },
+     "mean_minutes_midpoint": 5.83,
+     "se_minutes": 1.11,
+     "mean_minutes_lower_bound": 2.05,
+     "share_over_30_minutes": 0.0235,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 158,
+      "in person on Election Day": 0.5863,
+      "in person before Election Day": 0.2797,
+      "by mail or absentee": 0.1341
+     }
+    },
+    "ME": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 122,
+     "wait_shares": {
+      "not at all": 0.6299,
+      "less than 10 minutes": 0.2916,
+      "10-30 minutes": 0.0694,
+      "31 minutes to 1 hour": 0.0091,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.26,
+     "se_minutes": 0.63,
+     "mean_minutes_lower_bound": 0.98,
+     "share_over_30_minutes": 0.0091,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 186,
+      "in person on Election Day": 0.5639,
+      "in person before Election Day": 0.128,
+      "by mail or absentee": 0.3081
+     }
+    },
+    "MD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 86,
+     "wait_shares": {
+      "not at all": 0.3998,
+      "less than 10 minutes": 0.357,
+      "10-30 minutes": 0.1846,
+      "31 minutes to 1 hour": 0.0586,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 8.12,
+     "se_minutes": 1.25,
+     "mean_minutes_lower_bound": 3.66,
+     "share_over_30_minutes": 0.0586,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 179,
+      "in person on Election Day": 0.3197,
+      "in person before Election Day": 0.1985,
+      "by mail or absentee": 0.4818
+     }
+    },
+    "MA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 101,
+     "wait_shares": {
+      "not at all": 0.6734,
+      "less than 10 minutes": 0.2582,
+      "10-30 minutes": 0.0641,
+      "31 minutes to 1 hour": 0.0043,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.77,
+     "se_minutes": 0.66,
+     "mean_minutes_lower_bound": 0.77,
+     "share_over_30_minutes": 0.0043,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 171,
+      "in person on Election Day": 0.4564,
+      "in person before Election Day": 0.1428,
+      "by mail or absentee": 0.4008
+     }
+    },
+    "MI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 82,
+     "wait_shares": {
+      "not at all": 0.5364,
+      "less than 10 minutes": 0.2692,
+      "10-30 minutes": 0.1708,
+      "31 minutes to 1 hour": 0.0236,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.82,
+     "se_minutes": 1.02,
+     "mean_minutes_lower_bound": 2.44,
+     "share_over_30_minutes": 0.0236,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 165,
+      "in person on Election Day": 0.4991,
+      "in person before Election Day": 0.0529,
+      "by mail or absentee": 0.448
+     }
+    },
+    "MN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 139,
+     "wait_shares": {
+      "not at all": 0.6289,
+      "less than 10 minutes": 0.2859,
+      "10-30 minutes": 0.0676,
+      "31 minutes to 1 hour": 0.0176,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.57,
+     "se_minutes": 0.7,
+     "mean_minutes_lower_bound": 1.22,
+     "share_over_30_minutes": 0.0176,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 178,
+      "in person on Election Day": 0.6074,
+      "in person before Election Day": 0.1628,
+      "by mail or absentee": 0.2297
+     }
+    },
+    "MS": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 143,
+     "wait_shares": {
+      "not at all": 0.4983,
+      "less than 10 minutes": 0.393,
+      "10-30 minutes": 0.0927,
+      "31 minutes to 1 hour": 0.016,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.54,
+     "se_minutes": 0.7,
+     "mean_minutes_lower_bound": 1.42,
+     "share_over_30_minutes": 0.016,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 153,
+      "in person on Election Day": 0.8726,
+      "in person before Election Day": 0.0553,
+      "by mail or absentee": 0.0721
+     }
+    },
+    "MO": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 147,
+     "wait_shares": {
+      "not at all": 0.4741,
+      "less than 10 minutes": 0.3495,
+      "10-30 minutes": 0.1627,
+      "31 minutes to 1 hour": 0.0137,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.62,
+     "se_minutes": 0.73,
+     "mean_minutes_lower_bound": 2.05,
+     "share_over_30_minutes": 0.0137,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 163,
+      "in person on Election Day": 0.8193,
+      "in person before Election Day": 0.1185,
+      "by mail or absentee": 0.0622
+     }
+    },
+    "MT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 42,
+     "wait_shares": {
+      "not at all": 0.5323,
+      "less than 10 minutes": 0.4266,
+      "10-30 minutes": 0.0324,
+      "31 minutes to 1 hour": 0.0088,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.17,
+     "se_minutes": 0.68,
+     "mean_minutes_lower_bound": 0.6,
+     "share_over_30_minutes": 0.0088,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 188,
+      "in person on Election Day": 0.2352,
+      "in person before Election Day": 0.0429,
+      "by mail or absentee": 0.7219
+     }
+    },
+    "NE": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 93,
+     "wait_shares": {
+      "not at all": 0.6923,
+      "less than 10 minutes": 0.2301,
+      "10-30 minutes": 0.062,
+      "31 minutes to 1 hour": 0.0157,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.1,
+     "se_minutes": 0.85,
+     "mean_minutes_lower_bound": 1.11,
+     "share_over_30_minutes": 0.0157,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 169,
+      "in person on Election Day": 0.5516,
+      "in person before Election Day": 0.0797,
+      "by mail or absentee": 0.3687
+     }
+    },
+    "NV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 86,
+     "wait_shares": {
+      "not at all": 0.5317,
+      "less than 10 minutes": 0.1959,
+      "10-30 minutes": 0.1861,
+      "31 minutes to 1 hour": 0.0304,
+      "more than 1 hour": 0.0558
+     },
+     "mean_minutes_midpoint": 11.09,
+     "se_minutes": 3.25,
+     "mean_minutes_lower_bound": 6.15,
+     "share_over_30_minutes": 0.0862,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 184,
+      "in person on Election Day": 0.2266,
+      "in person before Election Day": 0.2859,
+      "by mail or absentee": 0.4875
+     }
+    },
+    "NH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 158,
+     "wait_shares": {
+      "not at all": 0.4725,
+      "less than 10 minutes": 0.4161,
+      "10-30 minutes": 0.1115,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.31,
+     "se_minutes": 0.54,
+     "mean_minutes_lower_bound": 1.11,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.8435,
+      "in person before Election Day": 0.0304,
+      "by mail or absentee": 0.1261
+     }
+    },
+    "NJ": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 103,
+     "wait_shares": {
+      "not at all": 0.4463,
+      "less than 10 minutes": 0.433,
+      "10-30 minutes": 0.043,
+      "31 minutes to 1 hour": 0.0777,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.52,
+     "se_minutes": 2.67,
+     "mean_minutes_lower_bound": 2.84,
+     "share_over_30_minutes": 0.0777,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 170,
+      "in person on Election Day": 0.5961,
+      "in person before Election Day": 0.0732,
+      "by mail or absentee": 0.3307
+     }
+    },
+    "NM": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 129,
+     "wait_shares": {
+      "not at all": 0.6124,
+      "less than 10 minutes": 0.1915,
+      "10-30 minutes": 0.1961,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.88,
+     "se_minutes": 0.91,
+     "mean_minutes_lower_bound": 1.96,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 178,
+      "in person on Election Day": 0.1687,
+      "in person before Election Day": 0.5055,
+      "by mail or absentee": 0.3258
+     }
+    },
+    "NY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 119,
+     "wait_shares": {
+      "not at all": 0.5117,
+      "less than 10 minutes": 0.2566,
+      "10-30 minutes": 0.1818,
+      "31 minutes to 1 hour": 0.0347,
+      "more than 1 hour": 0.0153
+     },
+     "mean_minutes_midpoint": 7.86,
+     "se_minutes": 1.7,
+     "mean_minutes_lower_bound": 3.81,
+     "share_over_30_minutes": 0.05,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 159,
+      "in person on Election Day": 0.5558,
+      "in person before Election Day": 0.2382,
+      "by mail or absentee": 0.206
+     }
+    },
+    "NC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 141,
+     "wait_shares": {
+      "not at all": 0.5001,
+      "less than 10 minutes": 0.3626,
+      "10-30 minutes": 0.1114,
+      "31 minutes to 1 hour": 0.0259,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.21,
+     "se_minutes": 1.03,
+     "mean_minutes_lower_bound": 1.92,
+     "share_over_30_minutes": 0.0259,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.307,
+      "in person before Election Day": 0.5618,
+      "by mail or absentee": 0.1313
+     }
+    },
+    "ND": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 94,
+     "wait_shares": {
+      "not at all": 0.4785,
+      "less than 10 minutes": 0.2676,
+      "10-30 minutes": 0.1747,
+      "31 minutes to 1 hour": 0.0365,
+      "more than 1 hour": 0.0427
+     },
+     "mean_minutes_midpoint": 10.32,
+     "se_minutes": 2.52,
+     "mean_minutes_lower_bound": 5.44,
+     "share_over_30_minutes": 0.0792,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 165,
+      "in person on Election Day": 0.5243,
+      "in person before Election Day": 0.1355,
+      "by mail or absentee": 0.3402
+     }
+    },
+    "OH": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 112,
+     "wait_shares": {
+      "not at all": 0.4934,
+      "less than 10 minutes": 0.3632,
+      "10-30 minutes": 0.1122,
+      "31 minutes to 1 hour": 0.0312,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 5.46,
+     "se_minutes": 0.99,
+     "mean_minutes_lower_bound": 2.09,
+     "share_over_30_minutes": 0.0312,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 169,
+      "in person on Election Day": 0.5606,
+      "in person before Election Day": 0.1707,
+      "by mail or absentee": 0.2687
+     }
+    },
+    "OK": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 138,
+     "wait_shares": {
+      "not at all": 0.4194,
+      "less than 10 minutes": 0.4014,
+      "10-30 minutes": 0.1228,
+      "31 minutes to 1 hour": 0.0466,
+      "more than 1 hour": 0.0098
+     },
+     "mean_minutes_midpoint": 7.44,
+     "se_minutes": 1.25,
+     "mean_minutes_lower_bound": 3.26,
+     "share_over_30_minutes": 0.0564,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 164,
+      "in person on Election Day": 0.7566,
+      "in person before Election Day": 0.1366,
+      "by mail or absentee": 0.1067
+     }
+    },
+    "OR": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 6,
+     "wait_shares": {
+      "not at all": 0.1804,
+      "less than 10 minutes": 0.3082,
+      "10-30 minutes": 0.3988,
+      "31 minutes to 1 hour": 0.1127,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 14.59,
+     "se_minutes": 5.19,
+     "mean_minutes_lower_bound": 7.48,
+     "share_over_30_minutes": 0.1127,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 180,
+      "in person on Election Day": 0.032,
+      "in person before Election Day": 0.0154,
+      "by mail or absentee": 0.9526
+     }
+    },
+    "PA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 114,
+     "wait_shares": {
+      "not at all": 0.5632,
+      "less than 10 minutes": 0.3566,
+      "10-30 minutes": 0.0706,
+      "31 minutes to 1 hour": 0.0096,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.63,
+     "se_minutes": 0.7,
+     "mean_minutes_lower_bound": 1.0,
+     "share_over_30_minutes": 0.0096,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 176,
+      "in person on Election Day": 0.6696,
+      "in person before Election Day": 0.0114,
+      "by mail or absentee": 0.319
+     }
+    },
+    "RI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 139,
+     "wait_shares": {
+      "not at all": 0.6379,
+      "less than 10 minutes": 0.2399,
+      "10-30 minutes": 0.1139,
+      "31 minutes to 1 hour": 0.0082,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.85,
+     "se_minutes": 0.67,
+     "mean_minutes_lower_bound": 1.4,
+     "share_over_30_minutes": 0.0082,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 173,
+      "in person on Election Day": 0.5777,
+      "in person before Election Day": 0.2357,
+      "by mail or absentee": 0.1866
+     }
+    },
+    "SC": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 152,
+     "wait_shares": {
+      "not at all": 0.3207,
+      "less than 10 minutes": 0.3933,
+      "10-30 minutes": 0.2115,
+      "31 minutes to 1 hour": 0.0744,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 9.55,
+     "se_minutes": 1.09,
+     "mean_minutes_lower_bound": 4.42,
+     "share_over_30_minutes": 0.0744,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 166,
+      "in person on Election Day": 0.6108,
+      "in person before Election Day": 0.33,
+      "by mail or absentee": 0.0592
+     }
+    },
+    "SD": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 155,
+     "wait_shares": {
+      "not at all": 0.5779,
+      "less than 10 minutes": 0.3341,
+      "10-30 minutes": 0.0606,
+      "31 minutes to 1 hour": 0.0097,
+      "more than 1 hour": 0.0177
+     },
+     "mean_minutes_midpoint": 4.91,
+     "se_minutes": 1.23,
+     "mean_minutes_lower_bound": 1.97,
+     "share_over_30_minutes": 0.0274,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 175,
+      "in person on Election Day": 0.6282,
+      "in person before Election Day": 0.2666,
+      "by mail or absentee": 0.1052
+     }
+    },
+    "TN": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 135,
+     "wait_shares": {
+      "not at all": 0.347,
+      "less than 10 minutes": 0.3315,
+      "10-30 minutes": 0.2089,
+      "31 minutes to 1 hour": 0.1019,
+      "more than 1 hour": 0.0106
+     },
+     "mean_minutes_midpoint": 11.38,
+     "se_minutes": 1.57,
+     "mean_minutes_lower_bound": 5.89,
+     "share_over_30_minutes": 0.1125,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 147,
+      "in person on Election Day": 0.4267,
+      "in person before Election Day": 0.5271,
+      "by mail or absentee": 0.0462
+     }
+    },
+    "TX": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 138,
+     "wait_shares": {
+      "not at all": 0.4216,
+      "less than 10 minutes": 0.3019,
+      "10-30 minutes": 0.1805,
+      "31 minutes to 1 hour": 0.076,
+      "more than 1 hour": 0.02
+     },
+     "mean_minutes_midpoint": 10.34,
+     "se_minutes": 1.57,
+     "mean_minutes_lower_bound": 5.36,
+     "share_over_30_minutes": 0.096,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 162,
+      "in person on Election Day": 0.3364,
+      "in person before Election Day": 0.5553,
+      "by mail or absentee": 0.1084
+     }
+    },
+    "UT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 23,
+     "wait_shares": {
+      "not at all": 0.5094,
+      "less than 10 minutes": 0.2189,
+      "10-30 minutes": 0.2013,
+      "31 minutes to 1 hour": 0.0703,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 8.29,
+     "se_minutes": 2.56,
+     "mean_minutes_lower_bound": 4.19,
+     "share_over_30_minutes": 0.0703,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 170,
+      "in person on Election Day": 0.1463,
+      "in person before Election Day": 0.0351,
+      "by mail or absentee": 0.8186
+     }
+    },
+    "VT": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 61,
+     "wait_shares": {
+      "not at all": 0.6983,
+      "less than 10 minutes": 0.2325,
+      "10-30 minutes": 0.0691,
+      "31 minutes to 1 hour": 0.0,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 2.55,
+     "se_minutes": 0.8,
+     "mean_minutes_lower_bound": 0.69,
+     "share_over_30_minutes": 0.0,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 185,
+      "in person on Election Day": 0.3645,
+      "in person before Election Day": 0.0427,
+      "by mail or absentee": 0.5928
+     }
+    },
+    "VA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 139,
+     "wait_shares": {
+      "not at all": 0.6306,
+      "less than 10 minutes": 0.299,
+      "10-30 minutes": 0.0623,
+      "31 minutes to 1 hour": 0.008,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 3.1,
+     "se_minutes": 0.53,
+     "mean_minutes_lower_bound": 0.87,
+     "share_over_30_minutes": 0.008,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 167,
+      "in person on Election Day": 0.4597,
+      "in person before Election Day": 0.2778,
+      "by mail or absentee": 0.2625
+     }
+    },
+    "WA": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 11,
+     "wait_shares": {
+      "not at all": 0.2606,
+      "less than 10 minutes": 0.0,
+      "10-30 minutes": 0.6273,
+      "31 minutes to 1 hour": 0.112,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 17.59,
+     "se_minutes": 4.2,
+     "mean_minutes_lower_bound": 9.75,
+     "share_over_30_minutes": 0.112,
+     "thin": true,
+     "mode_shares_survey": {
+      "n": 177,
+      "in person on Election Day": 0.0496,
+      "in person before Election Day": 0.0102,
+      "by mail or absentee": 0.9402
+     }
+    },
+    "WV": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 139,
+     "wait_shares": {
+      "not at all": 0.5604,
+      "less than 10 minutes": 0.2447,
+      "10-30 minutes": 0.1311,
+      "31 minutes to 1 hour": 0.0638,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 6.72,
+     "se_minutes": 1.26,
+     "mean_minutes_lower_bound": 3.29,
+     "share_over_30_minutes": 0.0638,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 151,
+      "in person on Election Day": 0.6589,
+      "in person before Election Day": 0.2905,
+      "by mail or absentee": 0.0506
+     }
+    },
+    "WI": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 118,
+     "wait_shares": {
+      "not at all": 0.3765,
+      "less than 10 minutes": 0.3875,
+      "10-30 minutes": 0.1823,
+      "31 minutes to 1 hour": 0.0475,
+      "more than 1 hour": 0.0062
+     },
+     "mean_minutes_midpoint": 8.28,
+     "se_minutes": 1.2,
+     "mean_minutes_lower_bound": 3.67,
+     "share_over_30_minutes": 0.0537,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 176,
+      "in person on Election Day": 0.5169,
+      "in person before Election Day": 0.1666,
+      "by mail or absentee": 0.3165
+     }
+    },
+    "WY": {
+     "n_respondents": 200,
+     "n_with_wait_answer": 131,
+     "wait_shares": {
+      "not at all": 0.5765,
+      "less than 10 minutes": 0.3007,
+      "10-30 minutes": 0.1035,
+      "31 minutes to 1 hour": 0.0193,
+      "more than 1 hour": 0.0
+     },
+     "mean_minutes_midpoint": 4.44,
+     "se_minutes": 0.8,
+     "mean_minutes_lower_bound": 1.63,
+     "share_over_30_minutes": 0.0193,
+     "thin": false,
+     "mode_shares_survey": {
+      "n": 165,
+      "in person on Election Day": 0.6432,
+      "in person before Election Day": 0.187,
+      "by mail or absentee": 0.1698
+     }
+    }
+   },
+   "states_missing": []
+  }
+ },
+ "gated": {
+  "2024": {
+   "doi": "https://doi.org/10.7910/DVN/GWBAP5",
+   "why": "data files need a Dataverse Guestbook response (name and email); not filled (law 10); MIT Election Lab's pages link only to this record"
+  }
+ },
+ "unread": [
+  {
+   "what": "SPAE 2024 microdata",
+   "reason": "data files need a Dataverse Guestbook response (name and email); not filled (law 10); MIT Election Lab's pages link only to this record"
+  },
+  {
+   "what": "the 2014 ten-state oversample (doi:10.7910/DVN/28981)",
+   "reason": "separately weighted; not combined with the 50-state sample"
+  }
+ ]
+}
