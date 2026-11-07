@@ -242,6 +242,17 @@
 - The site lists no write-in lines. So `p = 0` for an unopposed race is not checked against a strong write-in, as it is for MEDSL's.
 - `question.subject` is the question's ballot text, as the site gives it.
 
+**From Louisiana's official results, 2024** (`pipeline/intake/la_sos.py`, `pipeline/local_la.py`; `data/local/2024/LA.json`, `data/measure/2024/LA.json`):
+- **The source.** `result.source` is `la_sos`: the Secretary of State's results site, one workbook for each of 2024's four dates, each marked official on the site's list of elections. It matches D1's and D2's certified federal counts, so it takes the place of MEDSL's Louisiana file, which counts Election Day only and is held back (`data/local/check-la.json`; REPORT §12). The presidency and Congress stay D1's and D2's. The parties' own committees are left out.
+- **`election`: which round, in words** [inferred: from the four dates and the contests the source repeats]:
+  - `first round: Louisiana's primary, its general election followed on <date>` or `first round: Louisiana's primary, decided in it (no general election of this contest followed)` marks a contest on a primary date (2024-03-23, 2024-11-05). Its p is not computed (model section 7). Its candidates on the general's ballot have `won` `"to runoff"`.
+  - `deciding round after an earlier round on <date> (Louisiana's general election after its primary)` marks a contest on a general date (2024-04-27, 2024-12-07) whose primary held the same contest. It takes the routes' classes.
+  - One contest on a general date has no primary in the source, and says so.
+- **`id`** ends with the contest's date, because one contest has a primary and a general in the same year.
+- **`party`**: the site's codes, read into the files' usual values: `D`, `R`, `libertarian`, `green`, `independent`, `no party` (its `NOPTY`) and `other`.
+- **`place.counties`**: parish FIPS codes, from the county_name and county_fips columns of MEDSL's 2024 Louisiana file (the `fips` source block).
+- **Names.** `office` and `question.title` are the source's titles in title case, with its ` -- ` read as a comma ("Mayor, Town Of Melville"). A recall's answers read `FOR RECALL` and `AGAINST RECALL`.
+
 ## Fields added by D4 (the cost of voting and how ballots are cast: `data/cost/`; each state's tie and recount law, `data/law/`, below)
 
 **Marks.** Every number is [measured] (read here from the source's own file), [stated] (as a compilation or an agency guide says), [inferred] (my arithmetic or reading, said in the field's note) or [vendor claim]. **A `source` block** is as D2's: `name`, `url`, `read_utc`, `licence`, `mark`, `via`, `note` (bytes and sha256). Intake scripts, one per source, are in `pipeline/intake/`; `data/cost/REPORT.md` says what each gives and does not.
