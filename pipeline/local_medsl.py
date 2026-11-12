@@ -157,11 +157,17 @@ def coverage_gate(contests, year):
         st, county = k.split("|")
         by_state[st][county] = v
     COVERAGE_COUNT.clear()
+    # a contest with votes in 90% or more of the counties the state's contests have (as statewide_short reads one):
+    # New York 2024's Proposal One misses whole counties' rows, so it is not whole_state, but it is the state's
+    allc = collections.defaultdict(set)
+    for m in contests:
+        allc[m.get("state")].update(x for x in (m.get("counties") or []) if re.fullmatch(r"\d{5}", x or ""))
     for m in contests:
         if m.get("source", "medsl") != "medsl" or m.get("state_votes") or (m.get("volume_gate") or {}).get("held"):
             continue
         st = m.get("state")
-        if m.get("whole_state"):
+        if m.get("whole_state") or (len(allc[st]) > 1 and len(allc[st] & set(m.get("counties") or []))
+                                    >= 0.9 * len(allc[st])):
             e = {k.upper(): v for k, v in sw.get(st, {}).items()}.get(
                 f"{m.get('office')}|{m.get('district') or ''}".upper())
             if not e:

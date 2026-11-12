@@ -513,9 +513,10 @@ def check():
            for sen in (0, 1)}
 
     def all_up(sen, year):   # a chamber with all its seats up: its districts this year at least 90% of its most
-        u = ups[sen]
+        u = ups[sen]         # on the same lines (2012-2020, or 2022 with 2012-2020): Vermont's chambers of 2022 have
+        last = 2021 if year < 2022 else 2023   # 16 and 109 districts to 13 and 81 before (81% and 74%) [measured]
         return {st for (st, y) in u if y == year and u[(st, y)] >= 0.9 * max(u.get((st, y_), 0)
-                                                                              for y_ in range(2012, 2023, 2))}
+                                                                              for y_ in range(2012, last, 2))}
     for year in YEARS:
         cov = coverage(year)
         # an upper chamber with all its seats up this year (its districts this year at least 90% of its most in
