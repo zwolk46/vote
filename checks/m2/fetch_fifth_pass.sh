@@ -1,5 +1,5 @@
 #!/bin/sh
-# Fetches, for the fifth pass (c34, c35, c36), the sources the checks read: MEDSL's precinct files for the state-years
+# Fetches, for the fifth pass (c34, c35, c36) and the seventh's volume check (c38), the sources the checks read: MEDSL's precinct files for the state-years
 # the three PRs changed (2022 and 2024 from Harvard Dataverse, the sets pipeline/intake/medsl_precinct.py names, in
 # their original form where Dataverse ingested them; 2016's local set; 2018's per-state zips and 2020's local zip from
 # MEDSL's own GitHub repositories by a blob-less git clone and `git show`, as the pipeline reads them), North
@@ -16,9 +16,11 @@ import json, os, re, sys
 D = sys.argv[1]
 out = []
 # Dataverse's file lists of the 2024 and 2022 sets (fetched 2026-11-07 16:58 UTC into dv_<DOI>.json; kept)
-need = {"NYTPDU": ["al", "az", "ga", "ia", "ky", "mi", "mn", "mt", "nd", "nm", "nv", "ny", "oh", "or", "sc", "sd", "tx", "ut", "wa", "wv", "id", "ar", "ms", "co", "hi"],
+need = {"NYTPDU": ["al", "az", "ga", "ia", "ky", "mi", "mn", "mt", "nd", "nm", "nv", "ny", "oh", "or", "sc", "sd", "tx", "ut", "wa", "wv", "id", "ar", "ms", "co", "hi",
+                   "ak", "ca", "ct", "dc", "de", "fl", "il", "ks", "ma", "md", "me", "mo", "nc", "ne", "nh", "nj", "ok", "pa", "ri", "tn", "va", "vt", "wi", "wy", "in"],
         "UYQIEP": ["2022-ar-local", "mn22", "mt22", "2022-nd-local", "nm22", "NV-", "oh22", "ok22", "sd22", "ky22", "2022-wa-local",
-                   "2022-az-local", "2022-id-local", "2022-mi-local", "ny22", "or22", "ga22", "HI-", "il22", "colorado"]}   # the last nine: the sixth pass (#90)
+                   "2022-az-local", "2022-id-local", "2022-mi-local", "ny22", "or22", "ga22", "HI-", "il22", "colorado",   # the sixth pass (#90)
+                   "RI-", "WY-", "ak22", "fl22", "mo22", "ne22", "south_carolina", "nh22"]}   # the seventh pass's volume check (c38): every 2022 and 2024 file a p rests on, and 2024's Indiana
 for doi, states in need.items():
     d = json.load(open(os.path.join(D, f"dv_{doi}.json")))
     for f in d["data"]["latestVersion"]["files"]:
@@ -68,5 +70,6 @@ one() {   # repo commit path
   git -C "$d" show "$2:$3" > "$D/medsl/$(basename "$3")" && echo "medsl	$(date -u +%H:%M:%S)	https://github.com/$1/blob/$2/$3	$D/medsl/$(basename "$3")	$(sha256sum "$D/medsl/$(basename "$3")" | cut -c1-64)" >> "$D/index.txt"
   sleep 5
 }
-for st in al ar ga ia il mi mn mt nd nm nv oh ok sd tx wv ny co hi; do one MEDSL/2018-elections-official 42055b11dcd5477bc125cdec5a18fbcc60fb6bed "individual_states/2018-$st-precinct-general.zip"; done
+# from ct on: the seventh pass (c38), every 2018 file a p rests on
+for st in al ar ga ia il mi mn mt nd nm nv oh ok sd tx wv ny co hi ct dc de fl id ks ky md me mo ms ne nh nj ri sc va vt wy; do one MEDSL/2018-elections-official 42055b11dcd5477bc125cdec5a18fbcc60fb6bed "individual_states/2018-$st-precinct-general.zip"; done
 echo "### done $(date -u +%H:%M:%S)" >> "$D/index.txt"
