@@ -507,7 +507,8 @@ def all_raw_files():
 
 
 # ------------------------------------------------------------------------------------------ the eighth pass
-BALLOT_LINE = re.compile(r"^(CONTEST TOTAL|BALLOTS CAST|TOTAL BALLOTS( CAST)?|VOTES CAST|TOTAL VOTES CAST|CAST VOTES|BALLOTS)$")
+BALLOT_LINE = re.compile(r"^(BALLOTS CAST( ?-? ?TOTAL)?|TOTAL BALLOTS( CAST)?|NUMBER OF BALLOTS CAST|BALLOTS)$")   # named as the ballots cast
+TOTAL_LINE = re.compile(r"^(CONTEST TOTAL|TOTAL VOTES CAST|VOTES CAST|CAST VOTES)$")   # a contest's own total line
 OVER_LINE = re.compile(r"^(OVER ?VOTES?|TIMES OVER VOTED)$")
 UNDER_LINE = re.compile(r"^(UNDER ?VOTES?|TIMES UNDER VOTED|BLANK VOTES?|BLANKS?|TIMES BLANK VOTED)$")
 STATEWIDE_DISTRICTS = {"", "STATEWIDE", "STATE", "AT LARGE", "AT-LARGE", "ATLARGE", "ALL", "0", "000", "NA", "N/A", "NONE", "STATE WIDE"}
@@ -524,10 +525,19 @@ def ballots_summary(path, year):
                    same with every row;
       answers      True where every name is a ballot answer (a question);
       magnitudes, precincts (keys with a row), rows;
-      ballots      the ballots cast in the contest's precincts as the file gives them: per precinct, a line named as
-                   the ballots cast or the contest's total (BALLOT_LINE), else the candidates' votes plus the overvote
-                   and undervote lines where the precinct has both; summed over the precincts that have a figure
-                   (sum), with their count (with_figure) and the kinds of figure seen.
+      ballots      the contest's own figure per precinct, summed over the precincts that have one (sum, with_figure,
+                   kinds): a line named as the ballots cast (BALLOT_LINE), else its total line (TOTAL_LINE), else the
+                   candidates' votes plus the overvote and undervote lines where the precinct has both;
+      live         "county|jurisdiction|precinct" -> the candidates' votes there (precincts with votes, subtotal rows
+                   left out), for the bound below;
+      counties     the counties with votes.
+    And, for the whole file, bounds: "ST|date" -> "county|jurisdiction|precinct" -> [[figure, contest key] for the two
+    largest figures of the precinct's one-seat contests of any dataverse (votes + overvotes + undervotes where the
+    precinct has both, or the contest's total line), the largest line named as the ballots cast or null]; the
+    orchestrator's reading of 2026-11-07 11:16 and 17:44 (3), as D3's REPORT section 31 states it: a contest's ballots
+    cast in a precinct are another contest's votes with its over- and undervotes, or its contest total, or a line the
+    file names as the ballots cast, the largest of these, never its own lines; counties_of_day: "ST|date" -> the count
+    of counties with a one-seat contest's votes.
     A row marked special goes under the district with ' SPECIAL' added, as in volume_summary."""
     os.makedirs(DERIVED, exist_ok=True)
     out_path = os.path.join(DERIVED, os.path.basename(path) + ".ballots.json")
@@ -547,7 +557,10 @@ def ballots_summary(path, year):
         span[(dv, (r.get("office") or "").strip().upper(), (r.get("district") or "").strip().upper())].add(county)
     wide = {k for k, cs in span.items() if k[2] in STATEWIDE_DISTRICTS or (all_counties and len(cs) >= 0.5 * len(all_counties))}
     cells = {}       # key -> {pk: {cand: {mode: votes}}}  (candidates)
-    meta = {}        # key -> {pk: {kind: {mode: votes}}}   (ballot, over, under lines)
+    meta = {}        # key -> {pk: {kind: {mode: votes}}}   (ballot, total, over, under lines)
+    one = {}         # (st, date) -> pk -> contest key -> {part: {mode: votes}}  (every one-seat contest, for the bounds)
+    named = {}       # (st, date) -> pk -> {mode: votes} of the largest line named as the ballots cast
+    day_counties = collections.defaultdict(set)
     mags = collections.defaultdict(set)
     nrows = collections.Counter()
     n = 0
@@ -558,7 +571,12 @@ def ballots_summary(path, year):
             continue
         dv = (r.get("dataverse") or "").strip().upper()
         district = (r.get("district") or "").strip().upper()
-        if (dv, (r.get("office") or "").strip().upper(), district) not in wide:
+        office_ = (r.get("office") or "").strip().upper()
+        is_wide = (dv, office_, district) in wide
+        mag = (r.get("magnitude") or "").strip()
+        cand_ = (r.get("candidate") or "").strip().upper()
+        is_one = mag in ("1", "1.0")
+        if not is_wide and not is_one and not BALLOT_LINE.match(cand_):
             continue
         if year == 2016:
             st = r.get("state_postal", "")
@@ -574,7 +592,7 @@ def ballots_summary(path, year):
         if (r.get("special") or "").strip().upper() in ("TRUE", "T", "1", "YES"):
             district += " SPECIAL"
         key = (st, date, dv, office, district)
-        cand = (r.get("candidate") or "").strip().upper()
+        cand = cand_
         try:
             votes = int(float(r.get("votes") or ""))
         except ValueError:
@@ -583,18 +601,31 @@ def ballots_summary(path, year):
         kind = None
         if BALLOT_LINE.match(cand):
             kind = "ballots"
+        elif TOTAL_LINE.match(cand):
+            kind = "total"
         elif OVER_LINE.match(cand):
             kind = "over"
         elif UNDER_LINE.match(cand):
             kind = "under"
-        if kind:
-            cell = meta.setdefault(key, {}).setdefault(pk, {}).setdefault(kind, {})
         elif is_meta(cand):
             continue
+        if kind == "ballots":
+            cell = named.setdefault((st, date), {}).setdefault(pk, {}).setdefault((office, cand), {})
+            cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
+        if is_one:
+            pk_s = "|".join(pk)
+            cell = one.setdefault((st, date), {}).setdefault(pk_s, {}).setdefault("|".join(key), {}).setdefault(kind or "votes", {})
+            cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
+            if not kind and votes:
+                day_counties[(st, date)].add(pk[0])
+        if not is_wide:
+            continue
+        if kind:
+            cell = meta.setdefault(key, {}).setdefault(pk, {}).setdefault(kind, {})
         else:
             cell = cells.setdefault(key, {}).setdefault(pk, {}).setdefault(cand, {})
         cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
-        mags[key].add((r.get("magnitude") or "").strip())
+        mags[key].add(mag)
         nrows[key] += 1
     out_c = {}
     for key, precincts in cells.items():
@@ -609,6 +640,7 @@ def ballots_summary(path, year):
         subs = _subtotal_rows(resolved)
         cands, cands_all = collections.Counter(), collections.Counter()
         b_sum, with_fig, kinds = 0, 0, collections.Counter()
+        live, counties = {}, set()
         for pk, rv in resolved.items():
             for c, v in rv.items():
                 cands_all[c] += v
@@ -616,12 +648,18 @@ def ballots_summary(path, year):
                     cands[c] += v
             if pk in subs:
                 continue
+            v_ = sum(rv.values())
+            if v_:
+                live["|".join(pk)] = v_
+                counties.add(pk[0])
             m = {k: _resolve(mm) for k, mm in meta.get(key, {}).get(pk, {}).items()}
             fig = None
             if m.get("ballots") is not None:
                 fig, k_ = m["ballots"], "ballots line"
+            elif m.get("total") is not None:
+                fig, k_ = m["total"], "total line"
             elif m.get("over") is not None and m.get("under") is not None:
-                fig, k_ = sum(rv.values()) + m["over"] + m["under"], "votes + over + under"
+                fig, k_ = v_ + m["over"] + m["under"], "votes + over + under"
             if fig is not None:
                 b_sum += fig
                 with_fig += 1
@@ -629,9 +667,37 @@ def ballots_summary(path, year):
         names = [c for c in cands_all if c]
         out_c["|".join(key)] = {"cands": dict(cands), "cands_all": dict(cands_all), "answers": bool(names) and all(answer_of(c) for c in names),
                                 "magnitudes": sorted(mags[key]), "precincts": len(resolved), "subtotal_rows": len(subs), "rows": nrows[key],
-                                "ballots": {"sum": b_sum, "with_figure": with_fig, "kinds": dict(kinds)}}
+                                "ballots": {"sum": b_sum, "with_figure": with_fig, "kinds": dict(kinds)},
+                                "live": live, "counties": len(counties)}
+    bounds = {}
+    for sd, pks in one.items():
+        b_sd = {}
+        for pk_s, contests in pks.items():
+            figs = []
+            for ck, parts in contests.items():
+                pr = {k: _resolve(mm) for k, mm in parts.items()}
+                f_ = []
+                if pr.get("over") is not None and pr.get("under") is not None:
+                    f_.append((pr.get("votes") or 0) + pr["over"] + pr["under"])
+                if pr.get("total") is not None:
+                    f_.append(pr["total"])
+                if f_:
+                    figs.append([max(f_), ck])
+            figs.sort(key=lambda x: -x[0])
+            b_sd[pk_s] = figs[:2] + [None]
+        bounds["|".join(sd)] = b_sd
+    for sd, pks in named.items():
+        b_sd = bounds.setdefault("|".join(sd), {})
+        for pk, lines_ in pks.items():
+            vals = [v for v in (_resolve(mm) for mm in lines_.values()) if v is not None]
+            if not vals:
+                continue
+            pk_s = "|".join(pk)
+            b_sd.setdefault(pk_s, [None])
+            b_sd[pk_s][-1] = max(vals)
     out = {"file": os.path.basename(path), "sha256": sha, "rows": n, "year": year, "counties_all": len(all_counties),
-           "contests": out_c, "spans": {"|".join(k): len(span[k]) for k in wide}}
+           "contests": out_c, "spans": {"|".join(k): len(span[k]) for k in wide}, "bounds": bounds,
+           "counties_of_day": {"|".join(sd): len(cs) for sd, cs in day_counties.items()}}
     with open(out_path, "w") as f:
         json.dump(out, f)
     return out
