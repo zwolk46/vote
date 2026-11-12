@@ -1,5 +1,7 @@
 # Begin
 
+**If this project has already run (`STATE.md` has a log), this file is history: follow `RESTART.md` instead.** *Reason:* this file started the first project on 2026-11-06; a restart resumes the work instead of beginning it.
+
 *This repository was initialized on 2026-11-06 by the midterms orchestrator, at the maker's ask (`inherited/MAKER-ASK.md`; his 17:22 UTC follow-up: "ideally we get to the point where things are already initialized and I just start brainstorming"). The system's files, the starter site and its Vercel project are in place. What is left is the brainstorm.*
 
 ## The coordinator, on the maker's first message

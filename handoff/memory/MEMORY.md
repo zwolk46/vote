@@ -1,0 +1,16 @@
+# Vote project
+- Orchestrator thread: "Orchestrate the vote site" (cmsg_01FHkmcV6WaeZh9r5PfgnMbuGmNcLgzp1vbf5yXQkbDeFE). It runs the project; see the project instructions.
+- Site on Vercel (vote-rho-pearl.vercel.app); not a focus yet.
+- Default env set to env_01AQ9y8ebdzAowmcGvGwaJv2 (with network access) on 2026-11-07.
+- Research threads (Sonnet, xhigh): R1 cmsg_01FHkmcV6WaeZh9r5PfgnMbuRs1MsHFcx52S5cs3G7KGqi, R2 cmsg_01FHkmcV6WaeZh9r5PfgnMbu3xZtd21ubVrGUYDp2kbAgS, R3 cmsg_01FHkmcV6WaeZh9r5PfgnMbuUzCCyKoDkvHBJUEBfyBUaz, R4 cmsg_01FHkmcV6WaeZh9r5PfgnMbuRvzixaxJf3jzexyru6LtHo.
+- Tracker artifact "Vote Work": https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH
+- Workers (2026-11-07): B2 break law cmsg_01FHkmcV6WaeZh9r5PfgnMbuCtPmSab848QZ6xppDXay7H; T1 tracker cmsg_01FHkmcV6WaeZh9r5PfgnMbuByWBE5rw5LTK6xKGeqevgf; D1 president cmsg_01FHkmcV6WaeZh9r5PfgnMbuCWdWPRkhAafpzm5UUF9z22; D2 congress cmsg_01FHkmcV6WaeZh9r5PfgnMbu4yiCuHbbX3iQD4KYFb7W48; X1 design cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh; D3 local cmsg_01FHkmcV6WaeZh9r5PfgnMbuVThyXDPxVFHnA4YqgssTSs; M2 check computed p cmsg_01FHkmcV6WaeZh9r5PfgnMbuCEUo7XmYgNjtfLdxDRBTML; D4 costs/tie laws cmsg_01FHkmcV6WaeZh9r5PfgnMbuGA4pBoUJj1By51aSAkx3E9.
+- Zach's preference: wants to work autonomously, watching the tracker; law treated as ratified unless he says otherwise.
+- [[d2-congress-data]]: D2's Senate/House/governor data 2006-2024, 538 rule, open findings.
+- Presidential data (D1): PR #23 merged; 538 rules and file quirks in [[vote-president-data]] (vote-president-data.md).
+- [[d3-local-data]]: D3 state legislative, local and measure data: Klarner (#25), MEDSL 2022/2024 (#28), MEDSL 2018/2020 via GitHub + local p (#30), method D3-v1.1, gates, open items.
+- [[m2-check-computed-p]]: M2's independent check of every p at every level — report `checks/M2-REPORT.md` (§10–13 the third to sixth passes), scripts `checks/m2/c1-c37`, PRs #69, #89, #91 merged; open readings for the orchestrator. Tools and caches: [[m2-fifth-pass-tools]]; the seventh pass's brief (NJ legislatures #92, volume check of the inputs): [[m2-seventh-pass-brief]].
+- [[d4-cost-and-law]]: D4 costs (data/cost) and state tie/recount law (data/law): PRs #40, #41, #43, #50, counts, tools, refusals (IL, PA, WI, NM, TN code site), NJ tree ruling.
+- [[sld-population]]: state legislative district populations 2024/2022 from Census CD119/CD118 (PR #71), matching rules and gaps.
+- [[d2-odd-governors]]: D2's odd-year governors KY/LA/MS/NJ/VA 1977-2025 (PRs #74, #76): sources, gates, KY/MS 2023 refused, which get p, plain route, lean note, gaps.
+- [[d2-governor-incumbency]]: D2's check of every governor incumbency code (PR #78): 17 fixes under the 13:43 successor rule, rosters read/refused, the House keeps level (switch test, band beside).

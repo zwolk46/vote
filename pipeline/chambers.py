@@ -87,12 +87,22 @@ SQRT2 = math.sqrt(2.0)
 
 
 # ----------------------------------------------------------------------------- inputs
+CHA = "cha/normalized/contests.json"
+
+
 def _load(rel):
     p = os.path.join(cc.CACHE, rel)
     if not os.path.exists(p):
         raise SystemExit(f"missing {p}: run the intake script that writes it (see pipeline/intake/)")
     with open(p) as f:
-        return json.load(f)
+        d = json.load(f)
+    if rel == CHA:
+        # Hawaii 2018's governor at the Office of Elections' certified count (Tupola 131,719; the dataset reads
+        # 137,719), so that every fit, back-test and last-race index takes it (the orchestrator, 2026-11-07 19:49,
+        # item 2: "Rerun its governor build so the 2020+ fits and HI 2022's input take 131,719"; D3)
+        import governor_hi2018 as GH
+        GH.fix_cha(d["contests"])
+    return d
 
 
 def presidential_shares():
@@ -189,7 +199,7 @@ def last_governor_index():
     2021's last race was taken as 2013, though 2017 is in the record (data/governor/2017.json)."""
     out = {}
     in_cha = set()
-    for c in _load("cha/normalized/contests.json")["contests"]:
+    for c in _load(CHA)["contests"]:
         if c["office"] != "governor":
             continue
         in_cha.add((c["year"], c["state"]))
@@ -362,7 +372,7 @@ def fit_rows(inc_codes=INC_CODES):
     every level; the Senate also 1982-2004 from MEDSL (medsl_senate_rows). A governor's row carries the state's
     last governor race (last_governor_race). A nominee of 2006-2024 is an incumbent where Cha's code is one of
     inc_codes (of record: 1 only; inc_test tries the others), with the governors' codes governor_incumbency fixes."""
-    cha = GI.fix_cha(_load("cha/normalized/contests.json")["contests"])
+    cha = GI.fix_cha(_load(CHA)["contests"])
     dbx = _load("downballot/normalized/pres_by_cd.json")
     db = dbx["lean_inputs"]
     ps = presidential_shares()
@@ -934,7 +944,7 @@ def senate_not_up(year):
     term ends at the new Congress (next_up = t) do not count; a special held earlier in year t
     (OFF_DATE_SPECIALS) holds its seat in November. Returns ({(state, class): (year, caucus, name, source
     key)}, the set of seats up)."""
-    cha = _load("cha/normalized/contests.json")["contests"]
+    cha = _load(CHA)["contests"]
 
     def cls(y):
         return {2: 1, 4: 2, 0: 3}[y % 6]
@@ -999,7 +1009,7 @@ def division_check(d, level, year, held):
     division the new Congress opened with (pipeline/intake/party_divisions.py)."""
     div = _load("divisions/normalized/divisions.json")
     n = str((year - 1788) // 2 + 1)
-    cha = _load("cha/normalized/contests.json")["contests"]
+    cha = _load(CHA)["contests"]
     won = {"D": 0, "R": 0, "other": 0, "no winner in the check source": 0}
     for c in d["contests"]:
         st2 = c.get("stage_two") or {}
@@ -1934,7 +1944,7 @@ def sitting_governor(state, t):
     a nominee is the incumbent where his or her last name is this winner's (inferred: it assumes the winner still held
     the office on election day)."""
     best = None
-    for c in _load("cha/normalized/contests.json")["contests"]:
+    for c in _load(CHA)["contests"]:
         if c["office"] != "governor" or c["state"] != state or c["year"] >= t or c["special"]:
             continue
         key = (c["year"], bool(c["runoff"]))
@@ -1982,7 +1992,7 @@ def odd_governor_rows(inc_codes=INC_CODES):
     states' own files (state_gov_contests: New Jersey and Virginia 2025, the orchestrator, 12:35), by the same rules,
     incumbency inferred (state_gov_incumbency). Cha's codes and Algara and Amlani's seat statuses carry the fixes of
     governor_incumbency."""
-    cha = GI.fix_cha(_load("cha/normalized/contests.json")["contests"])
+    cha = GI.fix_cha(_load(CHA)["contests"])
     ps, pres, gov = presidential_shares(), presidents(), last_governor_index()
     rows, skipped, in_cha = [], {}, set()
 
@@ -2557,7 +2567,7 @@ def not_in_control(c, level, year):
         return ("held before November; its winner holds the seat in November and is counted among the seats not "
                 "up. " + OFF_DATE_SPECIALS[(year, c["place"]["state"])])
     if level == "senate" and c["special"]:
-        nu = [x for x in _load("cha/normalized/contests.json")["contests"] if x["year"] == year and
+        nu = [x for x in _load(CHA)["contests"] if x["year"] == year and
               x["office"] == "senate" and x["state"] == c["place"]["state"] and x["special"]]
         if nu and nu[0].get("next_up") and nu[0]["next_up"] <= year:
             return "the term ends when the new Senate meets; not part of control"

@@ -1,0 +1,47 @@
+sep ok 200 99353 text/html https://plato.stanford.edu/entries/voting/ 
+edlin_nber ok 200 207289 application/pdf https://www.nber.org/system/files/working_papers/w13562/w13562.pdf 
+gkb98 ok 200 240416 application/pdf https://gking.harvard.edu/files/estimatprob.pdf 
+geys ok 200 154351 application/pdf https://www.uh.edu/hobby/eitm/_docs/past-lectures/2014-lectures/jeremy-gilmore/rational-theories-of-voter-turnout.pdf 
+sanders HTTP-404 404 38075 text/html; charset=UTF-8 https://newschoolhistories.org/wp-content/uploads/2018/04/sanders_onvoting.pdf 
+dowding REFUSED 403 5396 text/html; charset=UTF-8 https://core.ac.uk/download/156636542.pdf 
+arxiv2510 ok 200 249427 application/pdf https://arxiv.org/pdf/2510.24344 
+salka HTTP-404 404 0 text/html; charset=UTF-8 https://www.wpsanet.org/papers/docs/WPSA%20-%20Salka%202017.pdf 
+gse2008 ok 200 165322 application/pdf https://www.stat.berkeley.edu/~aldous/157/Papers/vote.pdf 
+barnett ok 200 341275 application/pdf https://philosophersannual.org/40articles/barnett-why.pdf 
+kagan ok 200 127920 application/pdf https://pdf.stafforini.com/kagan-2011-make-difference.pdf 
+fulecA REFUSED 403 5394 text/html; charset=UTF-8 https://philarchive.org/archive/FULECA 
+spae2020 ok 200 5354242 application/pdf https://electionlab.mit.edu/sites/default/files/2021-03/HowWeVotedIn2020-March2021.pdf 
+pew2012 REFUSED 403 5637 text/html; charset=UTF-8 https://www.pew.org/en/research-and-analysis/articles/2012/12/10/new-data-on-lines-at-the-polls 
+umn_stewart ok 200 74425 text/html; charset=UTF-8 https://electionacademy.lib.umn.edu/2016/12/15/charles-stewart-this-just-in-lines-at-the-polls-shorter-in-2016-than 
+iza5854 ok 200 181714 application/pdf https://docs.iza.org/dp5854.pdf 
+cantoni ok 200 2145114 application/pdf;charset=UTF-8 https://cris.unibo.it/bitstream/11585/801478/9/app.20180306_copyright.pdf 
+bls REFUSED 403 1325 text/html https://www.bls.gov/news.release/empsit.nr0.htm 
+census ok 200 623061 application/pdf https://www.census.gov/content/dam/Census/library/publications/2022/demo/p20-585.pdf 
+riviere HTTP-000 000 0  https://repository.royalholloway.ac.uk/items/60802168-c229-3784-da90-256e3b2f72a9/1/dpe0306.pdf curl: (60) SSL certificate problem: unable to get local issuer certificate
+More details here: https://curl.se/docs/sslce
+kselman ok 200 2995630 application/pdf;charset=UTF-8 https://dukespace.lib.duke.edu/server/api/core/bitstreams/672a2c09-26d4-4f6b-923a-7b2da6ccdd60/content 
+votehub REFUSED 403 5637 text/html; charset=UTF-8 https://votehub.com/2026/09/10/votehubs-voter-power-index-finding-2026s-most-impactful-ballots/ 
+scispace ok 200 94564 application/pdf https://scispace.com/pdf/two-egocentric-sources-of-the-decision-to-vote-the-voter-s-x8k3uughbj.pdf 
+greatergood ok 200 85525 text/html; charset=UTF-8 https://greatergood.berkeley.edu/article/item/altruistic_electorate 
+feddersen ok 200 367535 application/pdf https://www.kellogg.northwestern.edu/faculty/fedderse/homepage/papers/duty4-15-02.pdf 
+jesp ok 200 627335 text/html; charset=utf-8 https://www.jesp.org/paper/36346f73-90e0-81d0-86e6-d03e516d0052 
+soton REFUSED 403 2382 text/html; charset=utf-8 https://eprints.soton.ac.uk/32947 
+caltech_pr ok 200 64087 text/html; charset=utf-8 https://authors.library.caltech.edu/records/4a0yh-86s96 
+discourse ok 200 68862 text/html; charset=UTF-8 https://www.discourse.net/2012/11/wasted-time-in-line-for-early-voting-cost-floridians-up-to-190-million/ 
+phys HTTP-400 400 1927 text/html https://phys.org/news/2018-10-scrutinizes-effort-vote-state.pdf 
+niu ok 200 60424 text/html; charset=UTF-8 https://newsroom.niu.edu/study-states-with-all-vote-by-mail-process-make-it-easiest-on-voters/ 
+wiki_covi ok 200 133854 text/html; charset=UTF-8 https://en.wikipedia.org/wiki/Cost_of_Voting_Index 
+bvsalud REFUSED 403 1183 text/html https://search.bvsalud.org/global-literature-on-novel-coronavirus-2019-ncov/resource/en/covidwho-2070074 
+opact HTTP-000 000 0  https://opact.sdu.edu.tr/vufind/SummonRecord/FETCH-LOGICAL-c363t-c3fb87c8733304e3ad34740cc19e8f1eb9e39340c982f7d4367bd90485cc21743 curl: (35) Recv failure: Connection reset by peer
+cup_ro1968 ok 200 791066 text/html; charset=utf-8 https://www.cambridge.org/core/journals/american-political-science-review/article/abs/theory-of-the-calculus-of-vo 
+edlin_nberpage ok 200 89328 text/html; charset=UTF-8 https://www.nber.org/papers/w13562 
+chen_haggag ok 200 7972657 application/pdf https://arxiv.org/pdf/1909.00024 
+spae2022 ok 200 21982915 application/pdf https://electionlab.mit.edu/sites/default/files/2023-05/HowWeVotedIn2022.pdf 
+wiki_paradox ok 200 176589 text/html; charset=UTF-8 https://en.wikipedia.org/wiki/Paradox_of_voting 
+cup_ff1974 ok 200 796273 text/html; charset=utf-8 https://www.cambridge.org/core/journals/american-political-science-review/article/abs/paradox-of-not-voting-a-deci 
+mulligan_hunter ok 200 520520 application/pdf https://www.nber.org/system/files/working_papers/w8590/w8590.pdf 
+spae2024 ok 200 20170279 application/pdf https://electionlab.mit.edu/sites/default/files/2025-07/HowWeVotedIn2024.pdf 
+cup_bm2011 ok 200 901458 text/html; charset=utf-8 https://www.cambridge.org/core/journals/american-political-science-review/article/abs/turning-out-to-vote-the-cost 
+coate_conlin ok 200 507894 application/pdf https://www.nber.org/system/files/working_papers/w8720/w8720.pdf 
+cup_goldman ok 200 813102 text/html; charset=utf-8 https://www.cambridge.org/core/journals/social-philosophy-and-policy/article/abs/why-citizens-should-vote-a-causal 
+cup_gerber ok 200 929127 text/html; charset=utf-8 https://www.cambridge.org/core/journals/british-journal-of-political-science/article/abs/why-people-vote-estimatin 
