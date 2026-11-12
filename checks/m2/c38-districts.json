@@ -1,0 +1,4491 @@
+{
+ "what": "every state legislative district matched between Klarner's contest file and a MEDSL precinct file whose votes differ by more than 5% (by the two parties' lines where both carry 80% of the district, else every vote) or stand at exactly twice the other side; the seventh pass's c38_input_volume.py, section 38.3; evidence for D3's reconciliation, not data",
+ "districts": [
+  {
+   "year": 2016,
+   "state": "AK",
+   "chamber": "state-lower",
+   "district": "40",
+   "klarner": 2984,
+   "medsl": 3816,
+   "by": "all",
+   "off": -0.218,
+   "medsl_codes": [
+    "40"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "40",
+   "p_rests_on": {
+    "klarner": 38
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "14",
+   "klarner": 11258,
+   "medsl": 5867,
+   "by": "D+R",
+   "off": 0.9189,
+   "medsl_codes": [
+    "14"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "14",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "18",
+   "klarner": 11587,
+   "medsl": 6499,
+   "by": "D+R",
+   "off": 0.7829,
+   "medsl_codes": [
+    "18"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "18",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "29",
+   "klarner": 7922,
+   "medsl": 1078,
+   "by": "all",
+   "off": 6.3488,
+   "medsl_codes": [
+    "29"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "29",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "33",
+   "klarner": 12155,
+   "medsl": 2683,
+   "by": "all",
+   "off": 3.5304,
+   "medsl_codes": [
+    "33"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "33",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "42",
+   "klarner": 8722,
+   "medsl": 3622,
+   "by": "D+R",
+   "off": 1.4081,
+   "medsl_codes": [
+    "42"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "42",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "49",
+   "klarner": 9950,
+   "medsl": 5539,
+   "by": "D+R",
+   "off": 0.7964,
+   "medsl_codes": [
+    "49"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "49",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "77",
+   "klarner": 10184,
+   "medsl": 7133,
+   "by": "all",
+   "off": 0.4277,
+   "medsl_codes": [
+    "77"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "77",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "9",
+   "klarner": 6519,
+   "medsl": 15327,
+   "by": "D+R",
+   "off": -0.5747,
+   "medsl_codes": [
+    "9"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "9",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": 169801,
+   "medsl": 119237,
+   "by": "D+R",
+   "off": 0.4241,
+   "medsl_codes": [
+    "1"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "1",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "12",
+   "klarner": 133278,
+   "medsl": 1179,
+   "by": "D+R",
+   "off": 112.0433,
+   "medsl_codes": [
+    "12"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "12",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "13",
+   "klarner": 121947,
+   "medsl": 37901,
+   "by": "D+R",
+   "off": 2.2175,
+   "medsl_codes": [
+    "13"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "13",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "16",
+   "klarner": 153271,
+   "medsl": 55959,
+   "by": "D+R",
+   "off": 1.739,
+   "medsl_codes": [
+    "16"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "16",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "4",
+   "klarner": 57549,
+   "medsl": 38247,
+   "by": "D+R",
+   "off": 0.5047,
+   "medsl_codes": [
+    "4"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "4",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "5",
+   "klarner": 117492,
+   "medsl": 109693,
+   "by": "D+R",
+   "off": 0.0711,
+   "medsl_codes": [
+    "5"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "5",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "6",
+   "klarner": 140859,
+   "medsl": 82301,
+   "by": "D+R",
+   "off": 0.7115,
+   "medsl_codes": [
+    "6"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "6",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "7",
+   "klarner": 78659,
+   "medsl": 62982,
+   "by": "D+R",
+   "off": 0.2489,
+   "medsl_codes": [
+    "7"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "7",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "1",
+   "klarner": 87011,
+   "medsl": 60665,
+   "by": "D+R",
+   "off": 0.4343,
+   "medsl_codes": [
+    "1"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "1",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "12",
+   "klarner": 106534,
+   "medsl": 987,
+   "by": "D+R",
+   "off": 106.9372,
+   "medsl_codes": [
+    "12"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "12",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "13",
+   "klarner": 62124,
+   "medsl": 18888,
+   "by": "D+R",
+   "off": 2.2891,
+   "medsl_codes": [
+    "13"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "13",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "16",
+   "klarner": 86276,
+   "medsl": 31925,
+   "by": "D+R",
+   "off": 1.7025,
+   "medsl_codes": [
+    "16"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "16",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "4",
+   "klarner": 37668,
+   "medsl": 25163,
+   "by": "D+R",
+   "off": 0.497,
+   "medsl_codes": [
+    "4"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "4",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2016,
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "145",
+   "klarner": 6423,
+   "medsl": 5203,
+   "by": "D+R",
+   "off": 0.2345,
+   "medsl_codes": [
+    "145"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "145",
+   "p_rests_on": {
+    "klarner": 151
+   }
+  },
+  {
+   "year": 2016,
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "52",
+   "klarner": 10837,
+   "medsl": 11424,
+   "by": "all",
+   "off": -0.0514,
+   "medsl_codes": [
+    "52"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "52",
+   "p_rests_on": {
+    "klarner": 151
+   }
+  },
+  {
+   "year": 2016,
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "90",
+   "klarner": 11911,
+   "medsl": 23233,
+   "by": "all",
+   "off": -0.4873,
+   "medsl_codes": [
+    "90"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "90",
+   "p_rests_on": {
+    "klarner": 151
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "18",
+   "klarner": 26342,
+   "medsl": 10911,
+   "by": "D+R",
+   "off": 1.4143,
+   "medsl_codes": [
+    "18"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "18",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "23",
+   "klarner": 22471,
+   "medsl": 10524,
+   "by": "D+R",
+   "off": 1.1352,
+   "medsl_codes": [
+    "23"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "23",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "30",
+   "klarner": 26548,
+   "medsl": 23608,
+   "by": "D+R",
+   "off": 0.1245,
+   "medsl_codes": [
+    "30"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "30",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "31",
+   "klarner": 23226,
+   "medsl": 8639,
+   "by": "D+R",
+   "off": 1.6885,
+   "medsl_codes": [
+    "31"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "31",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "32",
+   "klarner": 29529,
+   "medsl": 24049,
+   "by": "D+R",
+   "off": 0.2279,
+   "medsl_codes": [
+    "32"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "32",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "42",
+   "klarner": 26335,
+   "medsl": 27821,
+   "by": "D+R",
+   "off": -0.0534,
+   "medsl_codes": [
+    "42"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "42",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "47",
+   "klarner": 30299,
+   "medsl": 23427,
+   "by": "D+R",
+   "off": 0.2933,
+   "medsl_codes": [
+    "47"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "47",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "54",
+   "klarner": 24331,
+   "medsl": 20086,
+   "by": "all",
+   "off": 0.2113,
+   "medsl_codes": [
+    "54"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "54",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "55",
+   "klarner": 26597,
+   "medsl": 24189,
+   "by": "D+R",
+   "off": 0.0995,
+   "medsl_codes": [
+    "55"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "55",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "58",
+   "klarner": 28829,
+   "medsl": 19213,
+   "by": "D+R",
+   "off": 0.5005,
+   "medsl_codes": [
+    "58"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "58",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "61",
+   "klarner": 19816,
+   "medsl": 21444,
+   "by": "all",
+   "off": -0.0759,
+   "medsl_codes": [
+    "61"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "61",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "93",
+   "klarner": 27330,
+   "medsl": 25159,
+   "by": "D+R",
+   "off": 0.0863,
+   "medsl_codes": [
+    "93"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "93",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "36",
+   "klarner": 50094,
+   "medsl": 45094,
+   "by": "D+R",
+   "off": 0.1109,
+   "medsl_codes": [
+    "36"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "36",
+   "p_rests_on": {
+    "klarner": 25
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "19",
+   "klarner": 18069,
+   "medsl": 19438,
+   "by": "all",
+   "off": -0.0704,
+   "medsl_codes": [
+    "19"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "19",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "20",
+   "klarner": 14701,
+   "medsl": 13332,
+   "by": "D+R",
+   "off": 0.1027,
+   "medsl_codes": [
+    "20"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "20",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "28",
+   "klarner": 16807,
+   "medsl": 349,
+   "by": "all",
+   "off": 47.1576,
+   "medsl_codes": [
+    "28"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "28",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "32",
+   "klarner": 15243,
+   "medsl": 16398,
+   "by": "all",
+   "off": -0.0704,
+   "medsl_codes": [
+    "32"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "32",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "34",
+   "klarner": 19596,
+   "medsl": 21078,
+   "by": "all",
+   "off": -0.0703,
+   "medsl_codes": [
+    "34"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "34",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "35",
+   "klarner": 13913,
+   "medsl": 14664,
+   "by": "all",
+   "off": -0.0512,
+   "medsl_codes": [
+    "35"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "35",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "67",
+   "klarner": 9232,
+   "medsl": 14777,
+   "by": "all",
+   "off": -0.3752,
+   "medsl_codes": [
+    "67"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "67",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "99",
+   "klarner": 16884,
+   "medsl": 14179,
+   "by": "D+R",
+   "off": 0.1908,
+   "medsl_codes": [
+    "99"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "99",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "19",
+   "klarner": 63240,
+   "medsl": 76586,
+   "by": "all",
+   "off": -0.1743,
+   "medsl_codes": [
+    "19"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "19",
+   "p_rests_on": {
+    "klarner": 19
+   }
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "33",
+   "klarner": 41020,
+   "medsl": 34588,
+   "by": "D+R",
+   "off": 0.186,
+   "medsl_codes": [
+    "33"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "33",
+   "p_rests_on": {
+    "klarner": 19
+   }
+  },
+  {
+   "year": 2016,
+   "state": "MA",
+   "chamber": "state-lower",
+   "district": "ESSEX12",
+   "klarner": 28262,
+   "medsl": 16480,
+   "by": "D+R",
+   "off": 0.7149,
+   "medsl_codes": [
+    "12th Essex"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "essex 12",
+   "p_rests_on": {
+    "klarner": 160
+   }
+  },
+  {
+   "year": 2016,
+   "state": "MA",
+   "chamber": "state-lower",
+   "district": "PLYMOUTH9",
+   "klarner": 16627,
+   "medsl": 12091,
+   "by": "D+R",
+   "off": 0.3752,
+   "medsl_codes": [
+    "9th Plymouth"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "plymouth 9",
+   "p_rests_on": {
+    "klarner": 160
+   }
+  },
+  {
+   "year": 2016,
+   "state": "MA",
+   "chamber": "state-lower",
+   "district": "WORCESTER3",
+   "klarner": 22599,
+   "medsl": 13498,
+   "by": "D+R",
+   "off": 0.6742,
+   "medsl_codes": [
+    "3rd Worcester"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "worcester 3",
+   "p_rests_on": {
+    "klarner": 160
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "132",
+   "klarner": 5121,
+   "medsl": 4242,
+   "by": "D+R",
+   "off": 0.2072,
+   "medsl_codes": [
+    "132"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "132",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "136",
+   "klarner": 4631,
+   "medsl": 48,
+   "by": "D+R",
+   "off": 95.4792,
+   "medsl_codes": [
+    "136"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "136",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "16",
+   "klarner": 5501,
+   "medsl": 178,
+   "by": "D+R",
+   "off": 29.9045,
+   "medsl_codes": [
+    "16"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "16",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "27",
+   "klarner": 5702,
+   "medsl": 4966,
+   "by": "D+R",
+   "off": 0.1482,
+   "medsl_codes": [
+    "27"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "27",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "32",
+   "klarner": 4184,
+   "medsl": 3906,
+   "by": "D+R",
+   "off": 0.0712,
+   "medsl_codes": [
+    "32"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "32",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "4",
+   "klarner": 5649,
+   "medsl": 1613,
+   "by": "D+R",
+   "off": 2.5022,
+   "medsl_codes": [
+    "4"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "4",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "42",
+   "klarner": 4735,
+   "medsl": 5714,
+   "by": "D+R",
+   "off": -0.1713,
+   "medsl_codes": [
+    "42"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "42",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "51",
+   "klarner": 4636,
+   "medsl": 2755,
+   "by": "D+R",
+   "off": 0.6828,
+   "medsl_codes": [
+    "51"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "51",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "64",
+   "klarner": 5129,
+   "medsl": 3487,
+   "by": "D+R",
+   "off": 0.4709,
+   "medsl_codes": [
+    "64"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "64",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": 4857,
+   "medsl": 767,
+   "by": "all",
+   "off": 5.3325,
+   "medsl_codes": [
+    "80"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "80",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "97",
+   "klarner": 5349,
+   "medsl": 3844,
+   "by": "D+R",
+   "off": 0.3915,
+   "medsl_codes": [
+    "97"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "97",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "11",
+   "klarner": 23085,
+   "medsl": 3913,
+   "by": "D+R",
+   "off": 4.8996,
+   "medsl_codes": [
+    "11"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "11",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "15",
+   "klarner": 19670,
+   "medsl": 8864,
+   "by": "all",
+   "off": 1.2191,
+   "medsl_codes": [
+    "15"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "15",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "20",
+   "klarner": 21261,
+   "medsl": 11610,
+   "by": "D+R",
+   "off": 0.8313,
+   "medsl_codes": [
+    "20"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "20",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "24",
+   "klarner": 24889,
+   "medsl": 3387,
+   "by": "D+R",
+   "off": 6.3484,
+   "medsl_codes": [
+    "24"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "24",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "25",
+   "klarner": 26793,
+   "medsl": 2653,
+   "by": "D+R",
+   "off": 9.0991,
+   "medsl_codes": [
+    "25"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "25",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "29",
+   "klarner": 21880,
+   "medsl": 13884,
+   "by": "all",
+   "off": 0.5759,
+   "medsl_codes": [
+    "29"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "29",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "30",
+   "klarner": 24581,
+   "medsl": 9586,
+   "by": "D+R",
+   "off": 1.5643,
+   "medsl_codes": [
+    "30"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "30",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "31",
+   "klarner": 21375,
+   "medsl": 10705,
+   "by": "D+R",
+   "off": 0.9967,
+   "medsl_codes": [
+    "31"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "31",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "33",
+   "klarner": 19594,
+   "medsl": 9883,
+   "by": "D+R",
+   "off": 0.9826,
+   "medsl_codes": [
+    "33"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "33",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "7",
+   "klarner": 23694,
+   "medsl": 4309,
+   "by": "D+R",
+   "off": 4.4987,
+   "medsl_codes": [
+    "7"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "7",
+   "p_rests_on": {
+    "klarner": 34
+   }
+  },
+  {
+   "year": 2016,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "11",
+   "klarner": 36480,
+   "medsl": 94923,
+   "by": "D+R",
+   "off": -0.6157,
+   "medsl_codes": [
+    "11"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "11",
+   "p_rests_on": {
+    "klarner": 110
+   }
+  },
+  {
+   "year": 2016,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "28",
+   "klarner": 34194,
+   "medsl": 67519,
+   "by": "D+R",
+   "off": -0.4936,
+   "medsl_codes": [
+    "28"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "28",
+   "p_rests_on": {
+    "klarner": 110
+   }
+  },
+  {
+   "year": 2016,
+   "state": "MT",
+   "chamber": "state-upper",
+   "district": "26",
+   "klarner": 7638,
+   "medsl": 13461,
+   "by": "D+R",
+   "off": -0.4326,
+   "medsl_codes": [
+    "26"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "26",
+   "p_rests_on": {
+    "klarner": 25
+   }
+  },
+  {
+   "year": 2016,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "8",
+   "klarner": 14747,
+   "medsl": 13153,
+   "by": "D+R",
+   "off": 0.1212,
+   "medsl_codes": [
+    "8"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "8",
+   "p_rests_on": {
+    "klarner": 24
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "107",
+   "klarner": 54504,
+   "medsl": 48163,
+   "by": "all",
+   "off": 0.1317,
+   "medsl_codes": [
+    "107"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "107",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "117",
+   "klarner": 37418,
+   "medsl": 39,
+   "by": "all",
+   "off": 958.4359,
+   "medsl_codes": [
+    "117"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "117",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "125",
+   "klarner": 50680,
+   "medsl": 58220,
+   "by": "all",
+   "off": -0.1295,
+   "medsl_codes": [
+    "125"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "125",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "17",
+   "klarner": 57728,
+   "medsl": 81295,
+   "by": "all",
+   "off": -0.2899,
+   "medsl_codes": [
+    "17"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "17",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "18",
+   "klarner": 42041,
+   "medsl": 37011,
+   "by": "D+R",
+   "off": 0.1359,
+   "medsl_codes": [
+    "18"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "18",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "33",
+   "klarner": 44662,
+   "medsl": 40212,
+   "by": "D+R",
+   "off": 0.1107,
+   "medsl_codes": [
+    "33"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "33",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "42",
+   "klarner": 37941,
+   "medsl": 34379,
+   "by": "D+R",
+   "off": 0.1036,
+   "medsl_codes": [
+    "42"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "42",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "44",
+   "klarner": 40700,
+   "medsl": 34779,
+   "by": "D+R",
+   "off": 0.1702,
+   "medsl_codes": [
+    "44"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "44",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "51",
+   "klarner": 27469,
+   "medsl": 24181,
+   "by": "D+R",
+   "off": 0.136,
+   "medsl_codes": [
+    "51"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "51",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "52",
+   "klarner": 62724,
+   "medsl": 57578,
+   "by": "D+R",
+   "off": 0.0894,
+   "medsl_codes": [
+    "52"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "52",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "62",
+   "klarner": 44451,
+   "medsl": 47155,
+   "by": "all",
+   "off": -0.0573,
+   "medsl_codes": [
+    "62"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "62",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "63",
+   "klarner": 34559,
+   "medsl": 36970,
+   "by": "all",
+   "off": -0.0652,
+   "medsl_codes": [
+    "63"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "63",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "64",
+   "klarner": 34533,
+   "medsl": 36884,
+   "by": "all",
+   "off": -0.0637,
+   "medsl_codes": [
+    "64"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "64",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "67",
+   "klarner": 60992,
+   "medsl": 52482,
+   "by": "D+R",
+   "off": 0.1622,
+   "medsl_codes": [
+    "67"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "67",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "68",
+   "klarner": 42679,
+   "medsl": 38759,
+   "by": "D+R",
+   "off": 0.1011,
+   "medsl_codes": [
+    "68"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "68",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "70",
+   "klarner": 48497,
+   "medsl": 45048,
+   "by": "D+R",
+   "off": 0.0766,
+   "medsl_codes": [
+    "70"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "70",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "71",
+   "klarner": 46699,
+   "medsl": 43183,
+   "by": "D+R",
+   "off": 0.0814,
+   "medsl_codes": [
+    "71"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "71",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "73",
+   "klarner": 56073,
+   "medsl": 61182,
+   "by": "all",
+   "off": -0.0835,
+   "medsl_codes": [
+    "73"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "73",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "74",
+   "klarner": 47241,
+   "medsl": 51559,
+   "by": "all",
+   "off": -0.0837,
+   "medsl_codes": [
+    "74"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "74",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "75",
+   "klarner": 54648,
+   "medsl": 58545,
+   "by": "all",
+   "off": -0.0666,
+   "medsl_codes": [
+    "75"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "75",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "76",
+   "klarner": 55160,
+   "medsl": 58574,
+   "by": "all",
+   "off": -0.0583,
+   "medsl_codes": [
+    "76"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "76",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "12",
+   "klarner": 95737,
+   "medsl": 82328,
+   "by": "D+R",
+   "off": 0.1629,
+   "medsl_codes": [
+    "12"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "12",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "13",
+   "klarner": 69058,
+   "medsl": 59896,
+   "by": "D+R",
+   "off": 0.153,
+   "medsl_codes": [
+    "13"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "13",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "20",
+   "klarner": 95978,
+   "medsl": 90272,
+   "by": "D+R",
+   "off": 0.0632,
+   "medsl_codes": [
+    "20"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "20",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "22",
+   "klarner": 62033,
+   "medsl": 65589,
+   "by": "all",
+   "off": -0.0542,
+   "medsl_codes": [
+    "22"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "22",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "24",
+   "klarner": 107357,
+   "medsl": 114350,
+   "by": "all",
+   "off": -0.0612,
+   "medsl_codes": [
+    "24"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "24",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "28",
+   "klarner": 134905,
+   "medsl": 144528,
+   "by": "all",
+   "off": -0.0666,
+   "medsl_codes": [
+    "28"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "28",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "29",
+   "klarner": 62352,
+   "medsl": 87974,
+   "by": "D+R",
+   "off": -0.2912,
+   "medsl_codes": [
+    "29"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "29",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "5",
+   "klarner": 146291,
+   "medsl": 235646,
+   "by": "all",
+   "off": -0.3792,
+   "medsl_codes": [
+    "5"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "5",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "53",
+   "klarner": 82524,
+   "medsl": 168609,
+   "by": "D+R",
+   "off": -0.5106,
+   "medsl_codes": [
+    "53"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "53",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2016,
+   "state": "SC",
+   "chamber": "state-lower",
+   "district": "109",
+   "klarner": 11126,
+   "medsl": 9265,
+   "by": "D+R",
+   "off": 0.2009,
+   "medsl_codes": [
+    "109"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "109",
+   "p_rests_on": {
+    "klarner": 124
+   }
+  },
+  {
+   "year": 2016,
+   "state": "SC",
+   "chamber": "state-lower",
+   "district": "113",
+   "klarner": 10617,
+   "medsl": 9104,
+   "by": "D+R",
+   "off": 0.1662,
+   "medsl_codes": [
+    "113"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "113",
+   "p_rests_on": {
+    "klarner": 124
+   }
+  },
+  {
+   "year": 2016,
+   "state": "SD",
+   "chamber": "state-lower",
+   "district": "19",
+   "klarner": 17297,
+   "medsl": 14519,
+   "by": "D+R",
+   "off": 0.1913,
+   "medsl_codes": [
+    "19"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "19",
+   "p_rests_on": {
+    "klarner": 37
+   }
+  },
+  {
+   "year": 2016,
+   "state": "SD",
+   "chamber": "state-lower",
+   "district": "27",
+   "klarner": 10835,
+   "medsl": 8216,
+   "by": "D+R",
+   "off": 0.3188,
+   "medsl_codes": [
+    "27"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "27",
+   "p_rests_on": {
+    "klarner": 37
+   }
+  },
+  {
+   "year": 2016,
+   "state": "SD",
+   "chamber": "state-lower",
+   "district": "35",
+   "klarner": 13758,
+   "medsl": 9478,
+   "by": "D+R",
+   "off": 0.4516,
+   "medsl_codes": [
+    "35"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "35",
+   "p_rests_on": {
+    "klarner": 37
+   }
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": 13601,
+   "medsl": 14457,
+   "by": "all",
+   "off": -0.0592,
+   "medsl_codes": [
+    "1"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "1",
+   "p_rests_on": {
+    "klarner": 75
+   }
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "29",
+   "klarner": 16066,
+   "medsl": 15106,
+   "by": "D+R",
+   "off": 0.0636,
+   "medsl_codes": [
+    "29"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "29",
+   "p_rests_on": {
+    "klarner": 75
+   }
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "3",
+   "klarner": 13325,
+   "medsl": 4855,
+   "by": "D+R",
+   "off": 1.7446,
+   "medsl_codes": [
+    "3"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "3",
+   "p_rests_on": {
+    "klarner": 75
+   }
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "34",
+   "klarner": 12043,
+   "medsl": 11342,
+   "by": "D+R",
+   "off": 0.0618,
+   "medsl_codes": [
+    "34"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "34",
+   "p_rests_on": {
+    "klarner": 75
+   }
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-upper",
+   "district": "19",
+   "klarner": 37375,
+   "medsl": 41390,
+   "by": "D+R",
+   "off": -0.097,
+   "medsl_codes": [
+    "19"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "19",
+   "p_rests_on": {
+    "klarner": 15
+   }
+  },
+  {
+   "year": 2016,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "39",
+   "klarner": 121913,
+   "medsl": 98581,
+   "by": "D+R",
+   "off": 0.2367,
+   "medsl_codes": [
+    "39"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "39",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2018,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "18",
+   "klarner": 142823,
+   "medsl": 187092,
+   "by": "D+R",
+   "off": -0.2366,
+   "medsl_codes": [
+    "018"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "18",
+   "p_rests_on": {
+    "klarner": 30
+   }
+  },
+  {
+   "year": 2018,
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": 441,
+   "medsl": 4419,
+   "by": "D+R",
+   "off": -0.9002,
+   "medsl_codes": [
+    "001"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "1",
+   "p_rests_on": {
+    "klarner": 151
+   }
+  },
+  {
+   "year": 2018,
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "36",
+   "klarner": 57841,
+   "medsl": 180597,
+   "by": "D+R",
+   "off": -0.6797,
+   "medsl_codes": [
+    "036"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "36",
+   "p_rests_on": {
+    "klarner": 120
+   }
+  },
+  {
+   "year": 2018,
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "40",
+   "klarner": 58557,
+   "medsl": 228549,
+   "by": "D+R",
+   "off": -0.7438,
+   "medsl_codes": [
+    "040"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "40",
+   "p_rests_on": {
+    "klarner": 120
+   }
+  },
+  {
+   "year": 2018,
+   "state": "KS",
+   "chamber": "state-lower",
+   "district": "117",
+   "klarner": 7974,
+   "medsl": 7173,
+   "by": "D+R",
+   "off": 0.1117,
+   "medsl_codes": [
+    "117"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "117",
+   "p_rests_on": {
+    "klarner": 125
+   }
+  },
+  {
+   "year": 2018,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "54",
+   "klarner": 13401,
+   "medsl": 10360,
+   "by": "all",
+   "off": 0.2935,
+   "medsl_codes": [
+    "054"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "54",
+   "p_rests_on": {
+    "klarner": 96
+   }
+  },
+  {
+   "year": 2018,
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "38",
+   "klarner": 37998,
+   "medsl": 35669,
+   "by": "all",
+   "off": 0.0653,
+   "medsl_codes": [
+    "038"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "38",
+   "p_rests_on": {
+    "klarner": 19
+   }
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "101",
+   "klarner": 4056,
+   "medsl": 1542,
+   "by": "D+R",
+   "off": 1.6304,
+   "medsl_codes": [
+    "101"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "101",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "114",
+   "klarner": 4029,
+   "medsl": 5058,
+   "by": "all",
+   "off": -0.2034,
+   "medsl_codes": [
+    "114"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "114",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "119",
+   "klarner": 3950,
+   "medsl": 1753,
+   "by": "all",
+   "off": 1.2533,
+   "medsl_codes": [
+    "119"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "119",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "121",
+   "klarner": 3351,
+   "medsl": 5494,
+   "by": "all",
+   "off": -0.3901,
+   "medsl_codes": [
+    "121"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "121",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "125",
+   "klarner": 3164,
+   "medsl": 2372,
+   "by": "D+R",
+   "off": 0.3339,
+   "medsl_codes": [
+    "125"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "125",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "61",
+   "klarner": 2578,
+   "medsl": 3511,
+   "by": "all",
+   "off": -0.2657,
+   "medsl_codes": [
+    "061"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "61",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "5",
+   "klarner": 14644,
+   "medsl": 20499,
+   "by": "D+R",
+   "off": -0.2856,
+   "medsl_codes": [
+    "005"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "5",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "102",
+   "klarner": 53561,
+   "medsl": 48441,
+   "by": "D+R",
+   "off": 0.1057,
+   "medsl_codes": [
+    "102"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "102",
+   "p_rests_on": {
+    "klarner": 149
+   }
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "126",
+   "klarner": 53822,
+   "medsl": 47194,
+   "by": "D+R",
+   "off": 0.1404,
+   "medsl_codes": [
+    "126"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "126",
+   "p_rests_on": {
+    "klarner": 149
+   }
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "132",
+   "klarner": 38269,
+   "medsl": 35271,
+   "by": "D+R",
+   "off": 0.085,
+   "medsl_codes": [
+    "132"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "132",
+   "p_rests_on": {
+    "klarner": 149
+   }
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "145",
+   "klarner": 31884,
+   "medsl": 24927,
+   "by": "D+R",
+   "off": 0.2791,
+   "medsl_codes": [
+    "145"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "145",
+   "p_rests_on": {
+    "klarner": 149
+   }
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "9",
+   "klarner": 118829,
+   "medsl": 110580,
+   "by": "D+R",
+   "off": 0.0746,
+   "medsl_codes": [
+    "009"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "9",
+   "p_rests_on": {
+    "klarner": 62
+   }
+  },
+  {
+   "year": 2018,
+   "state": "OH",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": 42255,
+   "medsl": 48429,
+   "by": "D+R",
+   "off": -0.1275,
+   "medsl_codes": [
+    "080"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "80",
+   "p_rests_on": {
+    "klarner": 99
+   }
+  },
+  {
+   "year": 2018,
+   "state": "RI",
+   "chamber": "state-lower",
+   "district": "73",
+   "klarner": 4058,
+   "medsl": 3852,
+   "by": "D+R",
+   "off": 0.0535,
+   "medsl_codes": [
+    "073"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "73",
+   "p_rests_on": {
+    "klarner": 75
+   }
+  },
+  {
+   "year": 2018,
+   "state": "SC",
+   "chamber": "state-lower",
+   "district": "80",
+   "klarner": 9722,
+   "medsl": 2794,
+   "by": "D+R",
+   "off": 2.4796,
+   "medsl_codes": [
+    "080"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "80",
+   "p_rests_on": {
+    "klarner": 124
+   }
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-lower",
+   "district": "RUTLAND6",
+   "klarner": 5469,
+   "medsl": 4527,
+   "by": "D+R",
+   "off": 0.2081,
+   "medsl_codes": [
+    "RUT-6"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "rutland 6",
+   "p_rests_on": {
+    "klarner": 104
+   }
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "BENNINGTON",
+   "klarner": 27845,
+   "medsl": 20259,
+   "by": "D+R",
+   "off": 0.3745,
+   "medsl_codes": [
+    "BEN"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "bennington ",
+   "p_rests_on": {
+    "klarner": 13
+   }
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "CHITTENDEN",
+   "klarner": 1020473,
+   "medsl": 256558,
+   "by": "D+R",
+   "off": 2.9776,
+   "medsl_codes": [
+    "CHI"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "chittenden ",
+   "p_rests_on": {
+    "klarner": 13
+   }
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "FRANKLIN",
+   "klarner": 34612,
+   "medsl": 29863,
+   "by": "D+R",
+   "off": 0.159,
+   "medsl_codes": [
+    "FRA"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "franklin ",
+   "p_rests_on": {
+    "klarner": 13
+   }
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "GRANDISLE",
+   "klarner": 13903,
+   "medsl": 8253,
+   "by": "D+R",
+   "off": 0.6846,
+   "medsl_codes": [
+    "GI"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "grandisle ",
+   "p_rests_on": {
+    "klarner": 13
+   }
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "RUTLAND",
+   "klarner": 103751,
+   "medsl": 60144,
+   "by": "D+R",
+   "off": 0.725,
+   "medsl_codes": [
+    "RUT"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "rutland ",
+   "p_rests_on": {
+    "klarner": 13
+   }
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "WINDHAM",
+   "klarner": 44395,
+   "medsl": 25970,
+   "by": "D+R",
+   "off": 0.7095,
+   "medsl_codes": [
+    "WDH"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "windham ",
+   "p_rests_on": {
+    "klarner": 13
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "22",
+   "klarner": 8634,
+   "medsl": 4534,
+   "by": "D+R",
+   "off": 0.9043,
+   "medsl_codes": [
+    "022"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "22",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "35",
+   "klarner": 5782,
+   "medsl": 13663,
+   "by": "D+R",
+   "off": -0.5768,
+   "medsl_codes": [
+    "035"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "35",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "39",
+   "klarner": 7686,
+   "medsl": 1345,
+   "by": "all",
+   "off": 4.7145,
+   "medsl_codes": [
+    "039"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "39",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "5",
+   "klarner": 8388,
+   "medsl": 12471,
+   "by": "D+R",
+   "off": -0.3274,
+   "medsl_codes": [
+    "005"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "5",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "6",
+   "klarner": 9551,
+   "medsl": 19447,
+   "by": "D+R",
+   "off": -0.5089,
+   "medsl_codes": [
+    "006"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "6",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "62",
+   "klarner": 7741,
+   "medsl": 3419,
+   "by": "D+R",
+   "off": 1.2641,
+   "medsl_codes": [
+    "062"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "62",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "69",
+   "klarner": 9168,
+   "medsl": 10903,
+   "by": "D+R",
+   "off": -0.1591,
+   "medsl_codes": [
+    "069"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "69",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "73",
+   "klarner": 13147,
+   "medsl": 5266,
+   "by": "D+R",
+   "off": 1.4966,
+   "medsl_codes": [
+    "073"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "73",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "85",
+   "klarner": 8564,
+   "medsl": 12664,
+   "by": "D+R",
+   "off": -0.3238,
+   "medsl_codes": [
+    "085"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "85",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "94",
+   "klarner": 8190,
+   "medsl": 14531,
+   "by": "D+R",
+   "off": -0.4364,
+   "medsl_codes": [
+    "094"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "94",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "95",
+   "klarner": 7267,
+   "medsl": 15736,
+   "by": "D+R",
+   "off": -0.5382,
+   "medsl_codes": [
+    "095"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "95",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "98",
+   "klarner": 8962,
+   "medsl": 4879,
+   "by": "D+R",
+   "off": 0.8369,
+   "medsl_codes": [
+    "098"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "98",
+   "p_rests_on": {
+    "klarner": 100
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "18",
+   "klarner": 26015,
+   "medsl": 4383,
+   "by": "D+R",
+   "off": 4.9354,
+   "medsl_codes": [
+    "018"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "18",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "2",
+   "klarner": 26257,
+   "medsl": 17791,
+   "by": "D+R",
+   "off": 0.4759,
+   "medsl_codes": [
+    "002"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "2",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "27",
+   "klarner": 18506,
+   "medsl": 26972,
+   "by": "D+R",
+   "off": -0.3139,
+   "medsl_codes": [
+    "027"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "27",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "28",
+   "klarner": 28656,
+   "medsl": 50288,
+   "by": "D+R",
+   "off": -0.4302,
+   "medsl_codes": [
+    "028"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "28",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "6",
+   "klarner": 30760,
+   "medsl": 21453,
+   "by": "D+R",
+   "off": 0.4338,
+   "medsl_codes": [
+    "006"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "6",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "9",
+   "klarner": 18912,
+   "medsl": 14649,
+   "by": "D+R",
+   "off": 0.291,
+   "medsl_codes": [
+    "009"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "9",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "22",
+   "klarner": 10896,
+   "medsl": 24898,
+   "by": "all",
+   "off": -0.5624,
+   "medsl_codes": [
+    "022"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "22",
+   "p_rests_on": {
+    "klarner": 29
+   }
+  },
+  {
+   "year": 2022,
+   "state": "ID",
+   "chamber": "state-lower",
+   "district": "28",
+   "klarner": 26072,
+   "medsl": 22626,
+   "by": "D+R",
+   "off": 0.1523,
+   "medsl_codes": [
+    "28A",
+    "28B"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "28",
+   "p_rests_on": {
+    "klarner": 70
+   }
+  },
+  {
+   "year": 2022,
+   "state": "ID",
+   "chamber": "state-upper",
+   "district": "1",
+   "klarner": 13064,
+   "medsl": 22089,
+   "by": "all",
+   "off": -0.4086,
+   "medsl_codes": [
+    "001"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "1",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "IL",
+   "chamber": "state-lower",
+   "district": "2",
+   "klarner": 16412,
+   "medsl": 55598,
+   "by": "D+R",
+   "off": -0.7048,
+   "medsl_codes": [
+    "002"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "2",
+   "p_rests_on": {
+    "klarner": 118
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "27",
+   "klarner": 42108,
+   "medsl": 36008,
+   "by": "D+R",
+   "off": 0.1694,
+   "medsl_codes": [
+    "027"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "27",
+   "p_rests_on": {
+    "klarner": 110
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "38",
+   "klarner": 42009,
+   "medsl": 37608,
+   "by": "D+R",
+   "off": 0.117,
+   "medsl_codes": [
+    "038"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "38",
+   "p_rests_on": {
+    "klarner": 110
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "43",
+   "klarner": 43691,
+   "medsl": 32153,
+   "by": "D+R",
+   "off": 0.3588,
+   "medsl_codes": [
+    "043"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "43",
+   "p_rests_on": {
+    "klarner": 110
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "63",
+   "klarner": 43648,
+   "medsl": 22966,
+   "by": "D+R",
+   "off": 0.9005,
+   "medsl_codes": [
+    "063"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "63",
+   "p_rests_on": {
+    "klarner": 110
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "99",
+   "klarner": 41575,
+   "medsl": 36728,
+   "by": "D+R",
+   "off": 0.132,
+   "medsl_codes": [
+    "099"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "99",
+   "p_rests_on": {
+    "klarner": 110
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "10",
+   "klarner": 89185,
+   "medsl": 64380,
+   "by": "D+R",
+   "off": 0.3853,
+   "medsl_codes": [
+    "010"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "10",
+   "p_rests_on": {
+    "klarner": 38
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "12",
+   "klarner": 125140,
+   "medsl": 116345,
+   "by": "D+R",
+   "off": 0.0756,
+   "medsl_codes": [
+    "012"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "12",
+   "p_rests_on": {
+    "klarner": 38
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "3",
+   "klarner": 71490,
+   "medsl": 30412,
+   "by": "all",
+   "off": 1.3507,
+   "medsl_codes": [
+    "003"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "3",
+   "p_rests_on": {
+    "klarner": 38
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "35",
+   "klarner": 116351,
+   "medsl": 92482,
+   "by": "D+R",
+   "off": 0.2581,
+   "medsl_codes": [
+    "035"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "35",
+   "p_rests_on": {
+    "klarner": 38
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MN",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": 35118,
+   "medsl": 31029,
+   "by": "D+R",
+   "off": 0.1318,
+   "medsl_codes": [
+    "10A",
+    "10B"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "10",
+   "p_rests_on": {
+    "klarner": 134
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MN",
+   "chamber": "state-lower",
+   "district": "17",
+   "klarner": 35042,
+   "medsl": 29383,
+   "by": "D+R",
+   "off": 0.1926,
+   "medsl_codes": [
+    "17B",
+    "17A"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "17",
+   "p_rests_on": {
+    "klarner": 134
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MN",
+   "chamber": "state-lower",
+   "district": "29",
+   "klarner": 34578,
+   "medsl": 28463,
+   "by": "D+R",
+   "off": 0.2148,
+   "medsl_codes": [
+    "29A",
+    "29B"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "29",
+   "p_rests_on": {
+    "klarner": 134
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MN",
+   "chamber": "state-upper",
+   "district": "9",
+   "klarner": 36932,
+   "medsl": 40439,
+   "by": "all",
+   "off": -0.0867,
+   "medsl_codes": [
+    "009"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "9",
+   "p_rests_on": {
+    "klarner": 67
+   }
+  },
+  {
+   "year": 2022,
+   "state": "MO",
+   "chamber": "state-lower",
+   "district": "129",
+   "klarner": 12106,
+   "medsl": 11210,
+   "by": "D+R",
+   "off": 0.0799,
+   "medsl_codes": [
+    "129"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "129",
+   "p_rests_on": {
+    "klarner": 163
+   }
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "15",
+   "klarner": 8180,
+   "medsl": 6565,
+   "by": "D+R",
+   "off": 0.246,
+   "medsl_codes": [
+    "015"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "15",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "29",
+   "klarner": 10536,
+   "medsl": 8804,
+   "by": "D+R",
+   "off": 0.1967,
+   "medsl_codes": [
+    "029"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "29",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "3",
+   "klarner": 5590,
+   "medsl": 4563,
+   "by": "D+R",
+   "off": 0.2251,
+   "medsl_codes": [
+    "003"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "3",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "31",
+   "klarner": 7998,
+   "medsl": 6638,
+   "by": "D+R",
+   "off": 0.2049,
+   "medsl_codes": [
+    "031"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "31",
+   "p_rests_on": {
+    "klarner": 35
+   }
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-upper",
+   "district": "11",
+   "klarner": 3627,
+   "medsl": 3879,
+   "by": "all",
+   "off": -0.065,
+   "medsl_codes": [
+    "011"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "11",
+   "p_rests_on": {
+    "klarner": 32
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "1",
+   "klarner": 47934,
+   "medsl": 23967,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "001"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "1",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "10",
+   "klarner": 52330,
+   "medsl": 26165,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "010"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "10",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "11",
+   "klarner": 55822,
+   "medsl": 27911,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "011"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "11",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "12",
+   "klarner": 55880,
+   "medsl": 27940,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "012"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "12",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "13",
+   "klarner": 35528,
+   "medsl": 17764,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "013"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "13",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "14",
+   "klarner": 49528,
+   "medsl": 24764,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "014"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "14",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "15",
+   "klarner": 51392,
+   "medsl": 25696,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "015"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "15",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "16",
+   "klarner": 50554,
+   "medsl": 25277,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "016"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "16",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "17",
+   "klarner": 52378,
+   "medsl": 26189,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "017"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "17",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "18",
+   "klarner": 37870,
+   "medsl": 18935,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "018"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "18",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "19",
+   "klarner": 30286,
+   "medsl": 15143,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "019"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "19",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "2",
+   "klarner": 54718,
+   "medsl": 27359,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "002"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "2",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "20",
+   "klarner": 34062,
+   "medsl": 17031,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "020"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "20",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "21",
+   "klarner": 40168,
+   "medsl": 20084,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "021"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "21",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "22",
+   "klarner": 53098,
+   "medsl": 26549,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "022"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "22",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "23",
+   "klarner": 55932,
+   "medsl": 27966,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "023"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "23",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "24",
+   "klarner": 64656,
+   "medsl": 32255,
+   "by": "D+R",
+   "off": 1.0045,
+   "medsl_codes": [
+    "024"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "24",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "3",
+   "klarner": 59290,
+   "medsl": 29645,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "003"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "3",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "4",
+   "klarner": 50172,
+   "medsl": 25086,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "004"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "4",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "5",
+   "klarner": 55850,
+   "medsl": 27925,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "005"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "5",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "6",
+   "klarner": 47202,
+   "medsl": 23601,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "006"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "6",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "7",
+   "klarner": 49118,
+   "medsl": 24559,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "007"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "7",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "8",
+   "klarner": 49200,
+   "medsl": 24600,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "008"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "8",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "9",
+   "klarner": 52394,
+   "medsl": 26197,
+   "by": "D+R",
+   "off": 1.0,
+   "medsl_codes": [
+    "009"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "9",
+   "p_rests_on": {
+    "medsl": 24
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NM",
+   "chamber": "state-lower",
+   "district": "15",
+   "klarner": 11960,
+   "medsl": 12594,
+   "by": "all",
+   "off": -0.0503,
+   "medsl_codes": [
+    "015"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "15",
+   "p_rests_on": {
+    "klarner": 70
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NM",
+   "chamber": "state-lower",
+   "district": "53",
+   "klarner": 11267,
+   "medsl": 6341,
+   "by": "D+R",
+   "off": 0.7768,
+   "medsl_codes": [
+    "053"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "53",
+   "p_rests_on": {
+    "klarner": 70
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "101",
+   "klarner": 48701,
+   "medsl": 53175,
+   "by": "D+R",
+   "off": -0.0841,
+   "medsl_codes": [
+    "101"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "101",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "102",
+   "klarner": 58014,
+   "medsl": 63534,
+   "by": "D+R",
+   "off": -0.0869,
+   "medsl_codes": [
+    "102"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "102",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "103",
+   "klarner": 60159,
+   "medsl": 65073,
+   "by": "D+R",
+   "off": -0.0755,
+   "medsl_codes": [
+    "103"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "103",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "113",
+   "klarner": 55107,
+   "medsl": 94861,
+   "by": "D+R",
+   "off": -0.4191,
+   "medsl_codes": [
+    "113"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "113",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "121",
+   "klarner": 41413,
+   "medsl": 55351,
+   "by": "D+R",
+   "off": -0.2518,
+   "medsl_codes": [
+    "121"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "121",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "122",
+   "klarner": 49258,
+   "medsl": 57542,
+   "by": "D+R",
+   "off": -0.144,
+   "medsl_codes": [
+    "122"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "122",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "129",
+   "klarner": 24143,
+   "medsl": 33533,
+   "by": "all",
+   "off": -0.28,
+   "medsl_codes": [
+    "129"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "129",
+   "p_rests_on": {
+    "klarner": 150
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "51",
+   "klarner": 119446,
+   "medsl": 148973,
+   "by": "D+R",
+   "off": -0.1982,
+   "medsl_codes": [
+    "051"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "51",
+   "p_rests_on": {
+    "klarner": 63
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "53",
+   "klarner": 86372,
+   "medsl": 91881,
+   "by": "D+R",
+   "off": -0.06,
+   "medsl_codes": [
+    "053"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "53",
+   "p_rests_on": {
+    "klarner": 63
+   }
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "56",
+   "klarner": 95390,
+   "medsl": 61909,
+   "by": "D+R",
+   "off": 0.5408,
+   "medsl_codes": [
+    "056"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "56",
+   "p_rests_on": {
+    "klarner": 63
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "1",
+   "klarner": 135424,
+   "medsl": 83279,
+   "by": "all",
+   "off": 0.6261,
+   "medsl_codes": [
+    "001"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "1",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "10",
+   "klarner": 149161,
+   "medsl": 85347,
+   "by": "D+R",
+   "off": 0.7477,
+   "medsl_codes": [
+    "010"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "10",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "12",
+   "klarner": 98286,
+   "medsl": 20484,
+   "by": "D+R",
+   "off": 3.7982,
+   "medsl_codes": [
+    "012"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "12",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "15",
+   "klarner": 35240,
+   "medsl": 12996,
+   "by": "D+R",
+   "off": 1.7116,
+   "medsl_codes": [
+    "015"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "15",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "16",
+   "klarner": 109652,
+   "medsl": 61289,
+   "by": "D+R",
+   "off": 0.7891,
+   "medsl_codes": [
+    "016"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "16",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "17",
+   "klarner": 138591,
+   "medsl": 126337,
+   "by": "D+R",
+   "off": 0.097,
+   "medsl_codes": [
+    "017"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "17",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "19",
+   "klarner": 128172,
+   "medsl": 118721,
+   "by": "D+R",
+   "off": 0.0796,
+   "medsl_codes": [
+    "019"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "19",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "2",
+   "klarner": 79826,
+   "medsl": 168378,
+   "by": "D+R",
+   "off": -0.5259,
+   "medsl_codes": [
+    "002"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "2",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "20",
+   "klarner": 101457,
+   "medsl": 91249,
+   "by": "D+R",
+   "off": 0.1119,
+   "medsl_codes": [
+    "020"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "20",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "24",
+   "klarner": 162516,
+   "medsl": 303979,
+   "by": "D+R",
+   "off": -0.4654,
+   "medsl_codes": [
+    "024"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "24",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "27",
+   "klarner": 116109,
+   "medsl": 208059,
+   "by": "D+R",
+   "off": -0.4419,
+   "medsl_codes": [
+    "027"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "27",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "32",
+   "klarner": 114442,
+   "medsl": 57677,
+   "by": "D+R",
+   "off": 0.9842,
+   "medsl_codes": [
+    "032"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "32",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "35",
+   "klarner": 148604,
+   "medsl": 31118,
+   "by": "D+R",
+   "off": 3.7755,
+   "medsl_codes": [
+    "035"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "35",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "7",
+   "klarner": 108456,
+   "medsl": 62511,
+   "by": "D+R",
+   "off": 0.735,
+   "medsl_codes": [
+    "007"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "7",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "9",
+   "klarner": 92031,
+   "medsl": 34490,
+   "by": "D+R",
+   "off": 1.6683,
+   "medsl_codes": [
+    "009"
+   ],
+   "klarner_rows": 2,
+   "klarner_code": "9",
+   "p_rests_on": {
+    "klarner": 98
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "15",
+   "klarner": 23123,
+   "medsl": 28445,
+   "by": "D+R",
+   "off": -0.1871,
+   "medsl_codes": [
+    "015"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "15",
+   "p_rests_on": {
+    "klarner": 25
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "26",
+   "klarner": 75168,
+   "medsl": 35472,
+   "by": "D+R",
+   "off": 1.1191,
+   "medsl_codes": [
+    "026"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "26",
+   "p_rests_on": {
+    "klarner": 25
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "8",
+   "klarner": 56768,
+   "medsl": 41617,
+   "by": "all",
+   "off": 0.3641,
+   "medsl_codes": [
+    "008"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "8",
+   "p_rests_on": {
+    "klarner": 25
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "19",
+   "klarner": 2122,
+   "medsl": 3050,
+   "by": "all",
+   "off": -0.3043,
+   "medsl_codes": [
+    "019"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "19",
+   "p_rests_on": {
+    "klarner": 60
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "25",
+   "klarner": 2585,
+   "medsl": 2925,
+   "by": "all",
+   "off": -0.1162,
+   "medsl_codes": [
+    "025"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "25",
+   "p_rests_on": {
+    "klarner": 60
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "35",
+   "klarner": 2465,
+   "medsl": 2595,
+   "by": "all",
+   "off": -0.0501,
+   "medsl_codes": [
+    "035"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "35",
+   "p_rests_on": {
+    "klarner": 60
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "51",
+   "klarner": 3631,
+   "medsl": 3900,
+   "by": "all",
+   "off": -0.069,
+   "medsl_codes": [
+    "051"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "51",
+   "p_rests_on": {
+    "klarner": 60
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-upper",
+   "district": "1",
+   "klarner": 4785,
+   "medsl": 6365,
+   "by": "all",
+   "off": -0.2482,
+   "medsl_codes": [
+    "001"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "1",
+   "p_rests_on": {
+    "klarner": 16
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-upper",
+   "district": "19",
+   "klarner": 5538,
+   "medsl": 5901,
+   "by": "all",
+   "off": -0.0615,
+   "medsl_codes": [
+    "019"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "19",
+   "p_rests_on": {
+    "klarner": 16
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-upper",
+   "district": "25",
+   "klarner": 4365,
+   "medsl": 4904,
+   "by": "all",
+   "off": -0.1099,
+   "medsl_codes": [
+    "025"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "25",
+   "p_rests_on": {
+    "klarner": 16
+   }
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-upper",
+   "district": "29",
+   "klarner": 4402,
+   "medsl": 4814,
+   "by": "all",
+   "off": -0.0856,
+   "medsl_codes": [
+    "029"
+   ],
+   "klarner_rows": 1,
+   "klarner_code": "29",
+   "p_rests_on": {
+    "klarner": 16
+   }
+  }
+ ]
+}

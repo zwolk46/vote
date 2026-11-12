@@ -41,8 +41,10 @@ KLARNER_SHA = "21cbaeacd12e4a7b487d289157ddebd99340f056df1ce9bc4329aa1dc6ad39fc"
 # results [stated]; D3 reads the sitting president's party as that party (REPORT section 2; pipeline/local.py
 # president_party: e = 4 ((t - 1) // 4)).
 WON = {1964: 1, 1968: -1, 1972: -1, 1976: 1, 1980: -1, 1984: -1, 1988: -1, 1992: 1, 1996: 1, 2000: -1, 2004: -1,
-       2008: 1, 2012: 1, 2016: -1, 2020: 1}
-PRES = {t: WON[4 * ((t - 1) // 4)] for t in range(1965, 2025) if 4 * ((t - 1) // 4) in WON}
+       2008: 1, 2012: 1, 2016: -1, 2020: 1,
+       2024: -1}  # added in the seventh pass for 2025's odd-year legislatures (#92, #93); R [stated: D3's record names the
+# National Archives' 2024 page; c40 derives the same sign from D1's 2024 state votes added up]
+PRES = {t: WON[4 * ((t - 1) // 4)] for t in range(1965, 2026) if 4 * ((t - 1) // 4) in WON}
 COLS = ["B", "C", "A_last", "A_inc", "A_lean", "B_unopposed", "B_inc", "B_lean", "C_inc", "C_lean", "lean_missing"]
 MIN_EARLIER = 3
 MEDSL_YEARS = (2018, 2020, 2022, 2024)
