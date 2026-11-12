@@ -9,7 +9,7 @@
 - [[d2-congress-data]]: D2's Senate/House/governor data 2006-2024, 538 rule, open findings.
 - Presidential data (D1): PR #23 merged; 538 rules and file quirks in [[vote-president-data]] (vote-president-data.md).
 - [[d3-local-data]]: D3 state legislative, local and measure data: Klarner (#25), MEDSL 2022/2024 (#28), MEDSL 2018/2020 via GitHub + local p (#30), method D3-v1.1, gates, open items.
-- [[m2-check-computed-p]]: M2's independent check of every p at every level — report `checks/M2-REPORT.md` (§10–13 the third to sixth passes), scripts `checks/m2/c1-c37`, PRs #69, #89, #91 merged; open readings for the orchestrator. Tools and caches: [[m2-fifth-pass-tools]]; the seventh pass's brief (NJ legislatures #92, volume check of the inputs): [[m2-seventh-pass-brief]].
+- [[m2-check-computed-p]]: M2's independent check of every p at every level — report `checks/M2-REPORT.md` (§10–14 the third to seventh passes), scripts `checks/m2/c1-c40`, PRs #69, #89, #91, #94, #99 merged (eighth pass from 346273e); open readings for the orchestrator. Tools and caches: [[m2-fifth-pass-tools]]; the seventh pass's brief (NJ legislatures #92, volume check of the inputs): [[m2-seventh-pass-brief]].
 - [[d4-cost-and-law]]: D4 costs (data/cost) and state tie/recount law (data/law): PRs #40, #41, #43, #50, counts, tools, refusals (IL, PA, WI, NM, TN code site), NJ tree ruling.
 - [[sld-population]]: state legislative district populations 2024/2022 from Census CD119/CD118 (PR #71), matching rules and gaps.
 - [[d2-odd-governors]]: D2's odd-year governors KY/LA/MS/NJ/VA 1977-2025 (PRs #74, #76): sources, gates, KY/MS 2023 refused, which get p, plain route, lean note, gaps.
