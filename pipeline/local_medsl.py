@@ -125,6 +125,7 @@ COVERAGE_STATEWIDE_NOTE = ("MEDSL's {year} rows of this statewide contest miss p
 COVERAGE_ASKED = {("NY", "36055"): "; Monroe County's Board of Elections answered the one request allowed, for its 2024 "
                                    "certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found'"}
 COVERAGE_COUNT = collections.Counter()
+COVER_GAP = 0.02   # as local_districts.COVER_GAP (the orchestrator, 22:26 (a))
 FAMILY_WORDS = {"lower": "the lower chamber's", "upper": "the upper chamber's", "us_house": "the US House's"}
 
 
@@ -139,7 +140,8 @@ def coverage_gate(contests, year):
     1. a county where the US House's rows (by district) miss more than 2% of the precincts of the county's top
        contest, holding more than 2% of its votes (incomplete_counties): each MEDSL contest below the whole state
        whose area includes it is held, unless its own rows are in the county's precincts (within 2%: its district is
-       the county, and its rows are not missing there; whole_contests);
+       the county, and its rows are not missing there; whole_contests), or it is a legislative seat whose chamber's
+       rows miss 2% or less of the county's precincts (22:26 (a));
     2. a statewide contest whose own rows miss more than 2% of a county's precincts (statewide_short) is held.
     Both through volume_gate's record, unless a state's own count stands for the contest. Why: the orchestrator,
     22:19 item 1 (New York 2024's Monroe County)."""
@@ -181,8 +183,13 @@ def coverage_gate(contests, year):
             key = f"{m.get('office')}|{m.get('district') or ''}".upper()
             # a county where the contest's own rows are in every precinct (within 2%) does not hold it: there its
             # district is the county, and its rows are not missing in it (22:19 item 1) [worker D3's reading]
+            chamber = {0: "lower", 1: "upper"}.get(LEG.get((m.get("office") or "").upper()))
+            # a legislative seat: its chamber's own rows are measured in the county (22:26 (a)), so the county holds
+            # it only where those rows miss more than 2% of the county's precincts (MEDSL's 2024 Monroe County: the
+            # Assembly's miss 181 of 655, the Senate's 1) [measured]
             inside = sorted(c for c in set(b or {}) & set(m.get("counties") or [])
-                            if key not in {w.upper() for w in b[c].get("whole_contests", [])})
+                            if key not in {w.upper() for w in b[c].get("whole_contests", [])}
+                            and (chamber is None or b[c].get(chamber, 0) / max(1, b[c]["precincts"]) > COVER_GAP))
             if not inside:
                 continue
             held = COVERAGE_HELD.format(year=year, gaps="; ".join(_short_words(c, b[c]) for c in inside),

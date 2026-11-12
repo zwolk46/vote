@@ -222,7 +222,7 @@ def test(kc, m, pr=None, b_test=True):
 
 
 COVER_GAP = 0.02      # the orchestrator, 22:26 (a): the chamber's rows missing beyond 2% of a county's precincts
-COVER_VERSION = 10
+COVER_VERSION = 11
 COVER_YEARS = {2016: (2016, 2018), 2018: (2016, 2018), 2022: (2022, 2024), 2024: (2022, 2024)}   # MEDSL's files on the same lines
 
 
@@ -246,6 +246,22 @@ def _cover_family(office, district):
         d = _dkey(district)    # Arizona, files 9 of its 35 precincts' US House rows with no district) [measured]
         return None if d and (not d.lstrip("0") or d in ("AT-LARGE", "AT LARGE", "STATEWIDE")) else ("US HOUSE",)
     return None
+
+
+def _loose(diff, have, ps):
+    """The precincts of `diff` whose rows the family has under another jurisdiction code or a joined name, taken out:
+    a precinct name the county's top contest gives only once that the family has under any code, or one of its
+    '/'-joined parts that the family names whole or as a part. MEDSL's 2024 Maine file codes one place's precinct
+    apart across contests (blank, the county's code, the town's) and files an unorganized township alone in one
+    contest and joined to a town in another ('T7 SD TWP', 'GOULDSBORO/T7 SD TWP') [measured]. A name the top
+    contest gives more than once (a 'PRECINCT 1' in several towns) is not matched so."""
+    if not diff or not have:
+        return diff
+    once = collections.Counter(q[1] for q in ps)
+    names = {q[1] for q in have}
+    parts = names | {x.strip() for q in have for x in q[1].split("/") if x.strip()}
+    return {q for q in diff if once[q[1]] > 1 or not (
+        q[1] in names or any(x.strip() in parts for x in q[1].split("/") if x.strip()))}
 
 
 def _coverage_file(path, year, out):
@@ -317,7 +333,7 @@ def _coverage_file(path, year, out):
         counts, since a file can name the same precinct apart in two contests (MEDSL's 2018 Virginia files add '(08)'
         to a question's absentee precincts) [measured]; then the set difference's size and its votes in the top
         contest (scaled by the first over the second where they differ, in local_districts.check)."""
-        diff = ps - have
+        diff = _loose(ps - have, have, ps)
         n = min(len(diff), max(0, len(ps) - len(have))) if have else len(ps)
         return [n, len(diff), sum(tv[q] for q in diff)]
 
