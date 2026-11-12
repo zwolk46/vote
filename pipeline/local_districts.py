@@ -222,7 +222,7 @@ def test(kc, m, pr=None, b_test=True):
 
 
 COVER_GAP = 0.02      # the orchestrator, 22:26 (a): the chamber's rows missing beyond 2% of a county's precincts
-COVER_VERSION = 8
+COVER_VERSION = 10
 COVER_YEARS = {2016: (2016, 2018), 2018: (2016, 2018), 2022: (2022, 2024), 2024: (2022, 2024)}   # MEDSL's files on the same lines
 
 
@@ -242,9 +242,9 @@ NOT_A_CONTEST = re.compile(r"\bSTRAIGHT PARTY\b|^REGISTERED VOTERS\b|\bBALLOTS C
 def _cover_family(office, district):
     """The contests on every ballot below the state's: the US House by its districts (an at-large seat is statewide),
     and each chamber of the legislature (keyed apart)."""
-    if office == "US HOUSE":
-        d = _dkey(district)
-        return ("US HOUSE",) if d and d.lstrip("0") and d not in ("AT-LARGE", "AT LARGE", "STATEWIDE") else None
+    if office == "US HOUSE":   # a row with no district is still the precinct's row (MEDSL's 2022 Santa Cruz County,
+        d = _dkey(district)    # Arizona, files 9 of its 35 precincts' US House rows with no district) [measured]
+        return None if d and (not d.lstrip("0") or d in ("AT-LARGE", "AT LARGE", "STATEWIDE")) else ("US HOUSE",)
     return None
 
 
@@ -260,8 +260,12 @@ def _coverage_file(path, year, out):
     fam = collections.defaultdict(lambda: collections.defaultdict(set))   # (st, county) -> family -> precincts
     questions = set()   # contests answered yes or no: a file can name their precincts apart (Virginia 2018)
     for r in P._rows(path):
-        if (r.get("stage") or "").upper() != "GEN" or (r.get("special") or "").upper() == "TRUE":
+        if (r.get("stage") or "").upper() != "GEN":
             continue
+        # a special contest's rows still show the file holds the precinct's rows for its family, though it is never
+        # the top contest: MEDSL's 2024 Texas file marks the regular TX-18 contest special, so 240 Harris County
+        # precincts would otherwise have no US House row [measured]
+        special = (r.get("special") or "").strip().upper() == "TRUE"
         cand = (r.get("candidate") or "").strip()
         if P.is_meta(cand):
             continue
@@ -273,8 +277,17 @@ def _coverage_file(path, year, out):
             continue
         st = r.get("state_po") or r.get("state_postal") or ""
         county = P.fips5(r.get("county_fips") or "")
-        pk = (r.get("jurisdiction_fips") or r.get("jurisdiction") or "", prec)
+        # a precinct by its name with case and spacing folded: MEDSL's 2024 Maine file names Hancock County's precincts
+        # in capitals in some contests and not in others ('SWAN'S ISLAND', "Swan's Island") [measured]
+        pk = (" ".join((r.get("jurisdiction_fips") or r.get("jurisdiction") or "").upper().split()),
+              " ".join(prec.upper().split()))
         m = M.relabel({"office": office, "district": r.get("district") or ""})
+        if special:
+            if m["office"] in M.LEG and _dkey(m["district"]):
+                fam[(st, county)][("LEG", M.LEG[m["office"]])].add(pk)
+            elif _cover_family(m["office"], m["district"]):
+                fam[(st, county)][_cover_family(m["office"], m["district"])].add(pk)
+            continue
         try:
             v = int(float(r.get("votes") or 0))
         except ValueError:
@@ -331,6 +344,14 @@ def _coverage_file(path, year, out):
             rec["families"][name] = [len(have)] + short(ps, tv, have)
             if name != "us_house":
                 rec[name + "_missing"] = rec["families"][name][1]
+            elif ps and have and rec["families"][name][1] / len(ps) > COVER_GAP:   # for the reader: what is missing
+                rec["us_house_eg"] = {"missing": sorted(" / ".join(q) for q in ps - have)[:8],
+                                      "have": sorted(" / ".join(q) for q in have)[:4]}
+                # the contests whose own rows are in the top contest's precincts (within 2%): their district is the
+                # county, and their rows are not missing in it (22:19 item 1: "any contest whose rows are missing in
+                # part of its district"); MEDSL's 2024 Monroe County Clerk has rows in all 655 precincts [measured]
+                rec["whole_contests"] = sorted(f"{k[0]}|{k[1]}" for k in votes
+                                               if short(ps, tv, set(votes[k]))[0] / len(ps) <= COVER_GAP)
         # 22:19 item 1 for a statewide contest (rows in 90% of the state's counties): the precincts of the county's
         # top contest its rows miss, where that is more than 2% of them (New York 2024's Proposal One has rows in 31 of
         # Monroe County's 655 precincts) [measured]
@@ -576,7 +597,9 @@ def check():
             if st not in skip and have and n / n_p > COVER_GAP and x is not None and x > COVER_GAP:
                 inc[k] = {"precincts": n_p, "top": v["top"], "top_votes": v["top_votes"],
                           "short": [["us_house", n, x]],
-                          "lower": v["families"]["lower"][1], "upper": v["families"]["upper"][1]}
+                          "lower": v["families"]["lower"][1], "upper": v["families"]["upper"][1],
+                          "missing_eg": v.get("us_house_eg", {}).get("missing", []),
+                          "whole_contests": v.get("whole_contests", [])}
             for key, (n, nd, votes) in v.get("statewide_short", {}).items():
                 x = share(v, n, nd, votes)
                 if x is not None and x > COVER_GAP:
@@ -601,7 +624,9 @@ def check():
         "precincts and the US House's 200, M2's seventh pass; the orchestrator, 22:19 item 1). Precincts missed are "
         "counted as the set difference but no more than the difference in counts, since a file can name one precinct "
         "apart in two contests, and their votes are the set difference's scaled by the ratio of the two [worker D3's "
-        "reading]. 2020 untested: MEDSL's file holds local offices only")
+        "reading]. whole_contests: the contests whose own rows are in the county's precincts (within 2%), so their "
+        "district is the county and their rows are not missing in it: not held by the county [worker D3's reading]. "
+        "missing_eg: up to eight of the precincts missed. 2020 untested: MEDSL's file holds local offices only")
     out["statewide_short"]["about"] = (
         "statewide contests (rows in 90% of the state's counties) whose rows miss more than 2% of a county's top "
         "contest's precincts, holding more than 2% of its votes: state -> office|district -> counties -> county -> "

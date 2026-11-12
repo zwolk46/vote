@@ -105,12 +105,13 @@ def load(year):
 
 
 COVERAGE_HELD = ("MEDSL's {year} file is short in {gaps} [measured: pipeline/local_districts.py coverage, "
-                 "data/local/check-districts.json incomplete_counties]: there the rows of a contest on every ballot "
-                 "below the state's miss part of the precincts the county's other contests have, so this contest's "
-                 "area includes precincts whose district-level and local rows the file lacks, its count is "
-                 "incomplete, and no certified count is read{asked} (the orchestrator, 2026-11-07 22:19, from M2's "
-                 "seventh pass: \"Treat any contest whose rows are missing in part of its district as incomplete: held, "
-                 "no p, unless a certified count is read\"); p not computed")
+                 "data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the "
+                 "precincts the county's other contests have, and this contest's own rows are in only part of the "
+                 "county's precincts, so the file cannot show that they are not missing in part of its district (in "
+                 "Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, "
+                 "M2's seventh pass); held as incomplete, and no certified count is read{asked} (the orchestrator, "
+                 "2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: "
+                 "held, no p, unless a certified count is read\"); p not computed")
 COVERAGE_STATEWIDE = ("MEDSL's {year} rows of this statewide contest miss part of the precincts the county's other "
                       "contests have, in {gaps} [measured: pipeline/local_districts.py coverage, "
                       "data/local/check-districts.json statewide_short], so its count is incomplete, and the state's own "
@@ -135,9 +136,10 @@ def _short_words(c, v):
 
 def coverage_gate(contests, year):
     """MEDSL's own coverage, county by county (local_districts.py coverage; data/local/check-districts.json):
-    1. a county where the rows of a contest on every ballot below the state's (a chamber all up that year, the US
-       House by district) miss more than 2% of the precincts of the county's top contest (incomplete_counties): each
-       MEDSL contest below the whole state whose area includes it is held;
+    1. a county where the US House's rows (by district) miss more than 2% of the precincts of the county's top
+       contest, holding more than 2% of its votes (incomplete_counties): each MEDSL contest below the whole state
+       whose area includes it is held, unless its own rows are in the county's precincts (within 2%: its district is
+       the county, and its rows are not missing there; whole_contests);
     2. a statewide contest whose own rows miss more than 2% of a county's precincts (statewide_short) is held.
     Both through volume_gate's record, unless a state's own count stands for the contest. Why: the orchestrator,
     22:19 item 1 (New York 2024's Monroe County)."""
@@ -158,7 +160,8 @@ def coverage_gate(contests, year):
             continue
         st = m.get("state")
         if m.get("whole_state"):
-            e = sw.get(st, {}).get(f"{m.get('office')}|{m.get('district') or ''}")
+            e = {k.upper(): v for k, v in sw.get(st, {}).items()}.get(
+                f"{m.get('office')}|{m.get('district') or ''}".upper())
             if not e:
                 continue
             short = e["counties"]
@@ -175,7 +178,11 @@ def coverage_gate(contests, year):
             kind = "statewide, held"
         else:
             b = by_state.get(st)
-            inside = sorted(set(b or {}) & set(m.get("counties") or []))
+            key = f"{m.get('office')}|{m.get('district') or ''}".upper()
+            # a county where the contest's own rows are in every precinct (within 2%) does not hold it: there its
+            # district is the county, and its rows are not missing in it (22:19 item 1) [worker D3's reading]
+            inside = sorted(c for c in set(b or {}) & set(m.get("counties") or [])
+                            if key not in {w.upper() for w in b[c].get("whole_contests", [])})
             if not inside:
                 continue
             held = COVERAGE_HELD.format(year=year, gaps="; ".join(_short_words(c, b[c]) for c in inside),
