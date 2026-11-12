@@ -1,1 +1,507 @@
-{"exported_utc": "2026-11-07T22:20Z", "artifact": "https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH", "collection": "tasks", "note": "Every row of the Vote Work tracker at export time, keyed by doc id. To restore on a new account: publish tracker/vote-work.html as a new artifact with the db capability, then write each row with ArtifactData set (collection tasks, doc_id = key, data = the row without its version fields).", "rows": {"calc-core": {"o": 40, "s": "done", "t": "The calculation of one contest's importance, built and tested against the model"}, "check-computed-chances": {"link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md", "linkLabel": "Read", "o": 60, "s": "done", "t": "Check: every computed chance recomputed by an independent checker"}, "check-congress-recheck": {"link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md", "linkLabel": "Read", "o": 61, "s": "done", "t": "Check: second pass over the Senate, House, governor and local chances"}, "check-eighth-pass": {"o": 67, "s": "doing", "t": "Check: eighth pass over the chances on the Hawaii governor refit and the held-totals work, then the district-by-district vote-total checks once they land"}, "check-fifth-pass": {"link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md", "linkLabel": "Read", "o": 64, "s": "done", "t": "Check: fifth pass over the chances on the towns and counties, statewide officers, and statewide judges and commission seats: all reproduce"}, "check-fourth-pass": {"link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md", "linkLabel": "Read", "o": 63, "s": "done", "t": "Check: fourth pass over the chances on the statewide-questions work (joined from local, certified counts, one-county titles): all reproduce, and every list of moves equals the check's own"}, "check-seventh-pass": {"link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md", "linkLabel": "Read", "o": 66, "s": "done", "t": "Check: seventh pass over the chances on the New Jersey and Virginia legislatures and the vote-total fixes, with a new check of each contest's vote total against a count from another file: every change reproduces, and the faults it found in the older legislature file went to the local data work"}, "check-sixth-pass": {"link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md", "linkLabel": "Read", "o": 65, "s": "done", "t": "Check: sixth pass over the chances on the work that put statewide results in pieces back together and re-typed North Dakota's courts; all of it reproduced, two readings passed on to the next data piece"}, "check-third-pass": {"link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md", "linkLabel": "Read", "o": 62, "s": "done", "t": "Check: third pass over the chances on the files through 14:37 UTC: every one reproduces, none off by more than a factor of two"}, "data-2023-feeds": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 75, "s": "done", "t": "Data: 2023 results now feed the comparisons for later years: 141 local chances for 2024 raised, 62 newly worked out, 43 statewide measures slightly lowered; two Louisiana ties marked"}, "data-congress-earlier": {"o": 55, "s": "todo", "t": "Data: Senate and House before 2006"}, "data-congress-fix": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 54, "s": "done", "t": "Data: four Senate and House chances the check found wrong, being fixed"}, "data-congress-lean-note": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 68, "s": "done", "t": "Data: the near-even note taken off every Senate and governor chance (it failed the vote-count test); kept on the House and on statewide measures"}, "data-congress-refine": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 50, "s": "done", "t": "Data: Senate, House and governor chances refined: heavier tails and a pull toward an even race, tested on earlier years"}, "data-congress-restore": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 47, "s": "done", "t": "Data: governors back to 1978, the House of 2008 to 2012 restored, and each level's spread calibrated"}, "data-congress-round6": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 56, "s": "done", "t": "Data: Senate, House and governor chances: mis-read House races and special elections fixed, and the last round retaken under the stricter test"}, "data-congress-round7": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 58, "s": "done", "t": "Data: the Senate and House near-tie factor retaken under the stricter test (House stands, Senate's taken out), and a note on each governor chance"}, "data-congress-round8": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 61, "s": "done", "t": "Data: Senate, House and governor chances: recent-years spread and incumbency variants tested (neither adopted), a near-even note on House and Senate chances, FEC 2004 added"}, "data-congress": {"link": "https://github.com/zwolk46/vote/blob/main/data/sources/congress.md", "linkLabel": "Read", "o": 41, "s": "done", "t": "Data: Senate, House and governors, 2006 to 2024, with control of each chamber"}, "data-cost-inputs": {"link": "https://github.com/zwolk46/vote/blob/main/data/cost/REPORT.md", "linkLabel": "Read", "o": 51, "s": "done", "t": "Data: the cost of voting by state (time in line, wages) and the share of ballots cast by mail"}, "data-cost-spae-check": {"link": "https://github.com/zwolk46/vote/blob/main/data/cost/REPORT.md", "linkLabel": "Read", "o": 55, "s": "done", "t": "Data: a check of 2020's jump in time in line against the questionnaire and MIT's own figures"}, "data-cost": {"link": "https://github.com/zwolk46/vote/blob/main/data/law/REPORT.md", "linkLabel": "Read", "o": 52, "s": "done", "t": "Data: every state's tie and recount law"}, "data-governor-refit": {"link": "https://github.com/zwolk46/vote/pull/96", "linkLabel": "Read", "o": 91, "s": "done", "t": "Data: governor chances refitted with Hawaii's corrected 2018 count; the state sources were refetched from the same hosts and the earlier build reproduced exactly first; 59 governor chances moved by at most 1.3 percent, no verdict changed"}, "data-governors-2025": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 76, "s": "done", "t": "Data: New Jersey and Virginia 2025 governors from the states' certified results, with their chances; Rhode Island 2010 added; Kentucky and Mississippi 2023 could not be read from official sources"}, "data-governors-odd-year-1977-2023": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 74, "s": "done", "t": "Data: governors elected in odd years, 1977 to 2023: 60 contests, a chance worked out for 29 (marked as possibly low)"}, "data-governors-odd-year": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 72, "s": "done", "t": "Data: governors' incumbent labels checked against the record: 17 fixed, 387 governor chances moved slightly; the House's near-tie rule stays as it was"}, "data-held-totals": {"link": "https://github.com/zwolk46/vote/pull/97", "linkLabel": "Read", "o": 92, "s": "done", "t": "Data: contests held for a missing total re-read; Oregon 2024 judicial seats read and still held (the file carries no mark showing it is official), Arizona's 2022 Attorney General stays on the count before the recount, Vermont 2018's Chittenden county now uses the other source's counts (its chance rose about 3.5 times), Idaho 2022 Senate district 1 retyped with a write-in so no chance is computed; one chance moved, one lost, none gained"}, "data-indiana": {"link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md", "linkLabel": "Read", "o": 60, "s": "done", "t": "Data: Indiana's 2024 legislature, local races and questions, from the state's own certified file"}, "data-law-local": {"link": "https://github.com/zwolk46/vote/blob/main/data/law/REPORT.md", "linkLabel": "Read", "o": 59, "s": "done", "t": "Data: the tie and recount rules for local races, state by state"}, "data-lean-notes-local": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 78, "s": "done", "t": "Data: the near-even note on ballot questions retaken under the revised test: kept on statewide measures and some North Carolina questions, none added elsewhere"}, "data-local-2022-24": {"link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md", "linkLabel": "Read", "o": 44, "s": "done", "t": "Data: 2024 state legislative races, state offices and local races of 2018 to 2024, with the chance of each"}, "data-local-certified": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 82, "s": "done", "t": "Data: where a state publishes certified totals for one of those statewide questions, they are the count used (Alabama 2020's six, Washington 2024's four); no chance moved"}, "data-local-fixes-2": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 79, "s": "done", "t": "Data: fixes from the check: a missing Virginia 2018 special election put back, 176 superintendents re-sorted as officers (1,720 chances moved slightly)"}, "data-local-fixes": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 63, "s": "done", "t": "Data: local and state legislative chances corrected after the check: sums kept exact, two local adjustments taken out, races paired by the ballot"}, "data-local-judges-commissions": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 86, "s": "done", "t": "Data: 142 statewide judges and 16 more statewide officers (commission seats, a Montana clerk) filed by what the contest elects; New Mexico 2022 commission districts set; stray Illinois 2018 lines held; 21 chances lost where the pool is too small or the count unclear, none moved"}, "data-local-nc-fix": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 62, "s": "done", "t": "Data: North Carolina contests with a placeless name read one per county, and each party-split chance marked as district-wide or chamber-wide"}, "data-local-nc-rounds": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 64, "s": "done", "t": "Data: North Carolina's November deciding rounds after an earlier round now get a chance (64), and the old North Carolina adjustment taken out"}, "data-local-one-county": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 83, "s": "done", "t": "Data: one-county ballot titles: 722 of 3,972 counted whole using the Census place-by-county file, the rest held (no place named, districts, retentions, guards); none gets a chance yet, and Louisiana's 304 local chances of 2024 moved up about 4 percent"}, "data-local-size-test": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 65, "s": "done", "t": "Data: close local and legislative races sorted by size of electorate and tested; no change adopted, so no chance moves"}, "data-local-split-results": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 87, "s": "done", "t": "Data: statewide results that came in pieces: 8 joined to cover every county (Washington's 2022 Secretary of State now has a winner), 15 held where counties are missing; North Dakota's 8 mislabeled court lines replaced by 22 district judgeships; Michigan Supreme Court held, seat count unread; 3 chances gained, 2 lost, none moved"}, "data-local-statewide-joined": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 81, "s": "done", "t": "Data: the 35 statewide questions the source had filed as local now count with the statewide ones, each found on its state's own list (one new chance, Montana 2020); 132 statewide chances of 2022 and 2024 moved, typically up about 12 percent"}, "data-local-statewide-officers": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 85, "s": "done", "t": "Data: every single-seat statewide executive office (governor, secretary of state and the like) now filed as a statewide officer, 359 records (385 with the superintendents); no chance moved"}, "data-local-thresholds": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 77, "s": "done", "t": "Data: the vote needed to pass local ballot questions, read from state law for North Carolina and Louisiana: 800 local questions now have a chance"}, "data-local-towns-counties": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 84, "s": "done", "t": "Data: 165 towns and townships and 134 counties' own questions counted whole (1,021 whole questions in all); the check's three readings fixed (a count of moved chances, 26 state superintendents re-typed, the vote test in whole votes); no chance moved"}, "data-local": {"link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md", "linkLabel": "Read", "o": 50, "s": "doing", "t": "Data: now a district-by-district comparison of the two legislature sources wherever they overlap (145 flags in 2018 and 312 in 2022 to settle, each tested against a state count where one exists); then Virginia's 2023 local contests"}, "data-louisiana-2023": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 70, "s": "done", "t": "Data: Louisiana 2023 from the state's own files: 1,024 contests, all checked against the state's posted totals, with the chance of each where it can be worked out"}, "data-louisiana": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 66, "s": "done", "t": "Data: Louisiana 2024 from the Secretary of State's own official files: 312 local contests and 241 party committee contests, with the chance of each where it can be worked out"}, "data-measure-rules": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 80, "s": "done", "t": "Data: the vote needed to pass each statewide ballot measure, read from the ballot texts and state law: 67 more statewide measures now have a chance (132 in all)"}, "data-measures": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 49, "s": "done", "t": "Data: statewide ballot measures, the rule that decides each, and the chance of each where it can be worked out"}, "data-nc-rounds-fix": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 71, "s": "done", "t": "Data: North Carolina's first and second rounds matched by county as well as name: 374 round labels corrected, 461 chances moved slightly"}, "data-nc": {"link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md", "linkLabel": "Read", "o": 53, "s": "done", "t": "Data: every North Carolina contest since 2000, from the State Board of Elections, with the chance of each where it can be worked out"}, "data-new-jersey": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 67, "s": "done", "t": "Data: New Jersey 2024: the state's own federal results match; 985 local offices and 40 ballot questions from the county-level file passed the checks and are in, the rest held"}, "data-nj-legislatures": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 88, "s": "done", "t": "Data: New Jersey's 2023 and 2025 legislatures from the state's official lists, 121 records, 120 with a chance; the 2023 results feed the later years' fits, so 4,548 chances moved slightly (under 7 percent); no verdict changed"}, "data-office-types": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 73, "s": "done", "t": "Data: local offices sorted by what the office really is (police jurors, magistrates, levy courts, court clerks, township trustees): 7,638 records retyped, chances for 5,976 adjusted"}, "data-population-leg": {"link": "https://github.com/zwolk46/vote/blob/main/data/population/state-legislative-2024.json", "linkLabel": "Read", "o": 69, "s": "done", "t": "Data: how many people live in each state legislative district, on the 2022 and 2024 lines (Census Bureau), for about 96% of districts"}, "data-president": {"link": "https://github.com/zwolk46/vote/blob/main/data/sources/president.md", "linkLabel": "Read", "o": 42, "s": "done", "t": "Data: the presidency by state, 1976 to 2024, with the Electoral College stage"}, "data-redo-congress": {"link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md", "linkLabel": "Read", "o": 46, "s": "done", "t": "Data: Senate, House and governor chances redone after the independent check"}, "data-redo-president": {"link": "https://github.com/zwolk46/vote/blob/main/data/president/REPORT.md", "linkLabel": "Read", "o": 48, "s": "done", "t": "Data: the presidency's chances redone after the independent check"}, "data-state-leg": {"link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md", "linkLabel": "Read", "o": 43, "s": "done", "t": "Data: every state legislative race, 1967 to 2022, with the chance of each"}, "data-va-legislatures": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 89, "s": "done", "t": "Data: Virginia's 2023 and 2025 legislatures, 240 records (229 with a chance), read from the state's election site before it blocked us; one contest held over a write-in mismatch; 4,411 later chances moved slightly (under 6 percent); no verdict changed"}, "data-volume-check": {"link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md", "linkLabel": "Read", "o": 90, "s": "done", "t": "Data: vote totals of every state-year checked against a second source; Idaho 2022's doubled rows dropped, New Hampshire 2022 taken from the file that counted right, Hawaii's 2018 governor count corrected (131,719 by the state's certified summary); New Jersey 2018 (two counties), New York 2018 and Maine 2016 local questions held; 4,860 chances moved, 22 New Hampshire House chances held"}, "design-explainer-b-smooth": {"link": "https://vote-git-claude-project-thread-o-f3f92e-zachs-projects-74dd78e7.vercel.app/?page=how&v=b", "linkLabel": "Preview", "o": 47, "s": "done", "t": "How it works: version B's first step now changes smoothly even on slow phones (open the preview to see it)"}, "design-explainer-b": {"link": "https://vote-git-claude-project-thread-o-f3f92e-zachs-projects-74dd78e7.vercel.app/?page=how&v=b", "linkLabel": "Preview", "o": 46, "s": "doing", "t": "How it works: the explainer, version B, one picture that changes step by step (waiting on your pick)"}, "design-explainer": {"link": "https://vote-git-claude-project-thread-o-f3f92e-zachs-projects-74dd78e7.vercel.app/?page=how&v=a", "linkLabel": "Preview", "o": 45, "s": "doing", "t": "How it works: the explainer, version A, one picture that changes as you scroll (waiting on your pick)"}, "design-first-screen-a": {"link": "https://vote-git-claude-project-thread-o-6fbb1a-zachs-projects-74dd78e7.vercel.app/?v=a", "linkLabel": "Preview", "o": 31, "s": "doing", "t": "Design: first screen, version A, every contest on one ruler, now showing the real contests (waiting on your pick)"}, "design-first-screen-b": {"link": "https://vote-git-claude-project-thread-o-6fbb1a-zachs-projects-74dd78e7.vercel.app/?v=b", "linkLabel": "Preview", "o": 32, "s": "doing", "t": "Design: first screen, version B, your ballot line by line, now showing the real contests (waiting on your pick)"}, "design-first-screen": {"o": 33, "s": "done", "t": "Design: first screen, version C (one in N): dropped after the phone check"}, "design-legislature-per-person": {"o": 35, "s": "done", "t": "Design: state legislature races now shown per person on the first screen, from the Census populations (both versions and both explainers)"}, "design-real-data": {"o": 34, "s": "done", "t": "Design: both first screens and both explainers now carry the real contests (open any preview below); your two picks are still open"}, "design-spec": {"link": "https://github.com/zwolk46/vote/blob/main/design/DESIGN-SPEC.md", "linkLabel": "Read", "o": 25, "s": "done", "t": "Design: how the whole site looks, reads and moves, written down"}, "law": {"link": "https://github.com/zwolk46/vote/blob/main/LAW.md", "linkLabel": "Read", "o": 20, "s": "done", "t": "The law for the site, in force as if ratified"}, "model": {"link": "https://github.com/zwolk46/vote/blob/main/model/MODEL.md", "linkLabel": "Read", "o": 10, "s": "done", "t": "The model: how one vote's importance is worked out"}, "plan": {"link": "https://github.com/zwolk46/vote/blob/main/plan/PLAN.md", "linkLabel": "Read", "o": 30, "s": "done", "t": "The plan: phases, data, design, and who does what"}}}
+{
+ "exported_utc": "2026-11-12T23:20Z",
+ "artifact": "https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH",
+ "collection": "tasks",
+ "note": "Every row of the Vote Work tracker at export time, keyed by doc id. To restore on a new account: publish tracker/vote-work.html as a new artifact with the db capability, then write each row with ArtifactData set (collection tasks, doc_id = key, data = the row without its version fields).",
+ "rows": {
+  "calc-core": {
+   "o": 40,
+   "s": "done",
+   "t": "The calculation of one contest's importance, built and tested against the model"
+  },
+  "check-computed-chances": {
+   "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
+   "linkLabel": "Read",
+   "o": 60,
+   "s": "done",
+   "t": "Check: every computed chance recomputed by an independent checker"
+  },
+  "check-congress-recheck": {
+   "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
+   "linkLabel": "Read",
+   "o": 61,
+   "s": "done",
+   "t": "Check: second pass over the Senate, House, governor and local chances"
+  },
+  "check-eighth-pass": {
+   "o": 67,
+   "s": "doing",
+   "t": "Check: eighth pass over the chances on the Hawaii governor refit and the held-totals work, then the district-by-district vote-total checks once they land"
+  },
+  "check-fifth-pass": {
+   "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
+   "linkLabel": "Read",
+   "o": 64,
+   "s": "done",
+   "t": "Check: fifth pass over the chances on the towns and counties, statewide officers, and statewide judges and commission seats: all reproduce"
+  },
+  "check-fourth-pass": {
+   "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
+   "linkLabel": "Read",
+   "o": 63,
+   "s": "done",
+   "t": "Check: fourth pass over the chances on the statewide-questions work (joined from local, certified counts, one-county titles): all reproduce, and every list of moves equals the check's own"
+  },
+  "check-seventh-pass": {
+   "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
+   "linkLabel": "Read",
+   "o": 66,
+   "s": "done",
+   "t": "Check: seventh pass over the chances on the New Jersey and Virginia legislatures and the vote-total fixes, with a new check of each contest's vote total against a count from another file: every change reproduces, and the faults it found in the older legislature file went to the local data work"
+  },
+  "check-sixth-pass": {
+   "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
+   "linkLabel": "Read",
+   "o": 65,
+   "s": "done",
+   "t": "Check: sixth pass over the chances on the work that put statewide results in pieces back together and re-typed North Dakota's courts; all of it reproduced, two readings passed on to the next data piece"
+  },
+  "check-third-pass": {
+   "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
+   "linkLabel": "Read",
+   "o": 62,
+   "s": "done",
+   "t": "Check: third pass over the chances on the files through 14:37 UTC: every one reproduces, none off by more than a factor of two"
+  },
+  "data-2023-feeds": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 75,
+   "s": "done",
+   "t": "Data: 2023 results now feed the comparisons for later years: 141 local chances for 2024 raised, 62 newly worked out, 43 statewide measures slightly lowered; two Louisiana ties marked"
+  },
+  "data-congress-earlier": {
+   "o": 55,
+   "s": "todo",
+   "t": "Data: Senate and House before 2006"
+  },
+  "data-congress-fix": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 54,
+   "s": "done",
+   "t": "Data: four Senate and House chances the check found wrong, being fixed"
+  },
+  "data-congress-lean-note": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 68,
+   "s": "done",
+   "t": "Data: the near-even note taken off every Senate and governor chance (it failed the vote-count test); kept on the House and on statewide measures"
+  },
+  "data-congress-refine": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 50,
+   "s": "done",
+   "t": "Data: Senate, House and governor chances refined: heavier tails and a pull toward an even race, tested on earlier years"
+  },
+  "data-congress-restore": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 47,
+   "s": "done",
+   "t": "Data: governors back to 1978, the House of 2008 to 2012 restored, and each level's spread calibrated"
+  },
+  "data-congress-round6": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 56,
+   "s": "done",
+   "t": "Data: Senate, House and governor chances: mis-read House races and special elections fixed, and the last round retaken under the stricter test"
+  },
+  "data-congress-round7": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 58,
+   "s": "done",
+   "t": "Data: the Senate and House near-tie factor retaken under the stricter test (House stands, Senate's taken out), and a note on each governor chance"
+  },
+  "data-congress-round8": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 61,
+   "s": "done",
+   "t": "Data: Senate, House and governor chances: recent-years spread and incumbency variants tested (neither adopted), a near-even note on House and Senate chances, FEC 2004 added"
+  },
+  "data-congress": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/sources/congress.md",
+   "linkLabel": "Read",
+   "o": 41,
+   "s": "done",
+   "t": "Data: Senate, House and governors, 2006 to 2024, with control of each chamber"
+  },
+  "data-cost-inputs": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/cost/REPORT.md",
+   "linkLabel": "Read",
+   "o": 51,
+   "s": "done",
+   "t": "Data: the cost of voting by state (time in line, wages) and the share of ballots cast by mail"
+  },
+  "data-cost-spae-check": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/cost/REPORT.md",
+   "linkLabel": "Read",
+   "o": 55,
+   "s": "done",
+   "t": "Data: a check of 2020's jump in time in line against the questionnaire and MIT's own figures"
+  },
+  "data-cost": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/law/REPORT.md",
+   "linkLabel": "Read",
+   "o": 52,
+   "s": "done",
+   "t": "Data: every state's tie and recount law"
+  },
+  "data-governor-refit": {
+   "link": "https://github.com/zwolk46/vote/pull/96",
+   "linkLabel": "Read",
+   "o": 91,
+   "s": "done",
+   "t": "Data: governor chances refitted with Hawaii's corrected 2018 count; the state sources were refetched from the same hosts and the earlier build reproduced exactly first; 59 governor chances moved by at most 1.3 percent, no verdict changed"
+  },
+  "data-governors-2025": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 76,
+   "s": "done",
+   "t": "Data: New Jersey and Virginia 2025 governors from the states' certified results, with their chances; Rhode Island 2010 added; Kentucky and Mississippi 2023 could not be read from official sources"
+  },
+  "data-governors-odd-year-1977-2023": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 74,
+   "s": "done",
+   "t": "Data: governors elected in odd years, 1977 to 2023: 60 contests, a chance worked out for 29 (marked as possibly low)"
+  },
+  "data-governors-odd-year": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 72,
+   "s": "done",
+   "t": "Data: governors' incumbent labels checked against the record: 17 fixed, 387 governor chances moved slightly; the House's near-tie rule stays as it was"
+  },
+  "data-held-totals": {
+   "link": "https://github.com/zwolk46/vote/pull/97",
+   "linkLabel": "Read",
+   "o": 92,
+   "s": "done",
+   "t": "Data: contests held for a missing total re-read; Oregon 2024 judicial seats read and still held (the file carries no mark showing it is official), Arizona's 2022 Attorney General stays on the count before the recount, Vermont 2018's Chittenden county now uses the other source's counts (its chance rose about 3.5 times), Idaho 2022 Senate district 1 retyped with a write-in so no chance is computed; one chance moved, one lost, none gained"
+  },
+  "data-indiana": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md",
+   "linkLabel": "Read",
+   "o": 60,
+   "s": "done",
+   "t": "Data: Indiana's 2024 legislature, local races and questions, from the state's own certified file"
+  },
+  "data-law-local": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/law/REPORT.md",
+   "linkLabel": "Read",
+   "o": 59,
+   "s": "done",
+   "t": "Data: the tie and recount rules for local races, state by state"
+  },
+  "data-lean-notes-local": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 78,
+   "s": "done",
+   "t": "Data: the near-even note on ballot questions retaken under the revised test: kept on statewide measures and some North Carolina questions, none added elsewhere"
+  },
+  "data-local-2022-24": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md",
+   "linkLabel": "Read",
+   "o": 44,
+   "s": "done",
+   "t": "Data: 2024 state legislative races, state offices and local races of 2018 to 2024, with the chance of each"
+  },
+  "data-local-certified": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 82,
+   "s": "done",
+   "t": "Data: where a state publishes certified totals for one of those statewide questions, they are the count used (Alabama 2020's six, Washington 2024's four); no chance moved"
+  },
+  "data-local-fixes-2": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 79,
+   "s": "done",
+   "t": "Data: fixes from the check: a missing Virginia 2018 special election put back, 176 superintendents re-sorted as officers (1,720 chances moved slightly)"
+  },
+  "data-local-fixes": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 63,
+   "s": "done",
+   "t": "Data: local and state legislative chances corrected after the check: sums kept exact, two local adjustments taken out, races paired by the ballot"
+  },
+  "data-local-judges-commissions": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 86,
+   "s": "done",
+   "t": "Data: 142 statewide judges and 16 more statewide officers (commission seats, a Montana clerk) filed by what the contest elects; New Mexico 2022 commission districts set; stray Illinois 2018 lines held; 21 chances lost where the pool is too small or the count unclear, none moved"
+  },
+  "data-local-nc-fix": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 62,
+   "s": "done",
+   "t": "Data: North Carolina contests with a placeless name read one per county, and each party-split chance marked as district-wide or chamber-wide"
+  },
+  "data-local-nc-rounds": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 64,
+   "s": "done",
+   "t": "Data: North Carolina's November deciding rounds after an earlier round now get a chance (64), and the old North Carolina adjustment taken out"
+  },
+  "data-local-one-county": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 83,
+   "s": "done",
+   "t": "Data: one-county ballot titles: 722 of 3,972 counted whole using the Census place-by-county file, the rest held (no place named, districts, retentions, guards); none gets a chance yet, and Louisiana's 304 local chances of 2024 moved up about 4 percent"
+  },
+  "data-local-size-test": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 65,
+   "s": "done",
+   "t": "Data: close local and legislative races sorted by size of electorate and tested; no change adopted, so no chance moves"
+  },
+  "data-local-split-results": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 87,
+   "s": "done",
+   "t": "Data: statewide results that came in pieces: 8 joined to cover every county (Washington's 2022 Secretary of State now has a winner), 15 held where counties are missing; North Dakota's 8 mislabeled court lines replaced by 22 district judgeships; Michigan Supreme Court held, seat count unread; 3 chances gained, 2 lost, none moved"
+  },
+  "data-local-statewide-joined": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 81,
+   "s": "done",
+   "t": "Data: the 35 statewide questions the source had filed as local now count with the statewide ones, each found on its state's own list (one new chance, Montana 2020); 132 statewide chances of 2022 and 2024 moved, typically up about 12 percent"
+  },
+  "data-local-statewide-officers": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 85,
+   "s": "done",
+   "t": "Data: every single-seat statewide executive office (governor, secretary of state and the like) now filed as a statewide officer, 359 records (385 with the superintendents); no chance moved"
+  },
+  "data-local-thresholds": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 77,
+   "s": "done",
+   "t": "Data: the vote needed to pass local ballot questions, read from state law for North Carolina and Louisiana: 800 local questions now have a chance"
+  },
+  "data-local-towns-counties": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 84,
+   "s": "done",
+   "t": "Data: 165 towns and townships and 134 counties' own questions counted whole (1,021 whole questions in all); the check's three readings fixed (a count of moved chances, 26 state superintendents re-typed, the vote test in whole votes); no chance moved"
+  },
+  "data-local": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md",
+   "linkLabel": "Read",
+   "o": 50,
+   "s": "doing",
+   "t": "Data: now a district-by-district comparison of the two legislature sources wherever they overlap (145 flags in 2018 and 312 in 2022 to settle, each tested against a state count where one exists); then Virginia's 2023 local contests"
+  },
+  "data-louisiana-2023": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 70,
+   "s": "done",
+   "t": "Data: Louisiana 2023 from the state's own files: 1,024 contests, all checked against the state's posted totals, with the chance of each where it can be worked out"
+  },
+  "data-louisiana": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 66,
+   "s": "done",
+   "t": "Data: Louisiana 2024 from the Secretary of State's own official files: 312 local contests and 241 party committee contests, with the chance of each where it can be worked out"
+  },
+  "data-measure-rules": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 80,
+   "s": "done",
+   "t": "Data: the vote needed to pass each statewide ballot measure, read from the ballot texts and state law: 67 more statewide measures now have a chance (132 in all)"
+  },
+  "data-measures": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 49,
+   "s": "done",
+   "t": "Data: statewide ballot measures, the rule that decides each, and the chance of each where it can be worked out"
+  },
+  "data-nc-rounds-fix": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 71,
+   "s": "done",
+   "t": "Data: North Carolina's first and second rounds matched by county as well as name: 374 round labels corrected, 461 chances moved slightly"
+  },
+  "data-nc": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md",
+   "linkLabel": "Read",
+   "o": 53,
+   "s": "done",
+   "t": "Data: every North Carolina contest since 2000, from the State Board of Elections, with the chance of each where it can be worked out"
+  },
+  "data-new-jersey": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 67,
+   "s": "done",
+   "t": "Data: New Jersey 2024: the state's own federal results match; 985 local offices and 40 ballot questions from the county-level file passed the checks and are in, the rest held"
+  },
+  "data-nj-legislatures": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 88,
+   "s": "done",
+   "t": "Data: New Jersey's 2023 and 2025 legislatures from the state's official lists, 121 records, 120 with a chance; the 2023 results feed the later years' fits, so 4,548 chances moved slightly (under 7 percent); no verdict changed"
+  },
+  "data-office-types": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 73,
+   "s": "done",
+   "t": "Data: local offices sorted by what the office really is (police jurors, magistrates, levy courts, court clerks, township trustees): 7,638 records retyped, chances for 5,976 adjusted"
+  },
+  "data-population-leg": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/population/state-legislative-2024.json",
+   "linkLabel": "Read",
+   "o": 69,
+   "s": "done",
+   "t": "Data: how many people live in each state legislative district, on the 2022 and 2024 lines (Census Bureau), for about 96% of districts"
+  },
+  "data-president": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/sources/president.md",
+   "linkLabel": "Read",
+   "o": 42,
+   "s": "done",
+   "t": "Data: the presidency by state, 1976 to 2024, with the Electoral College stage"
+  },
+  "data-redo-congress": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/congress/REPORT.md",
+   "linkLabel": "Read",
+   "o": 46,
+   "s": "done",
+   "t": "Data: Senate, House and governor chances redone after the independent check"
+  },
+  "data-redo-president": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/president/REPORT.md",
+   "linkLabel": "Read",
+   "o": 48,
+   "s": "done",
+   "t": "Data: the presidency's chances redone after the independent check"
+  },
+  "data-state-leg": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/sources/local.md",
+   "linkLabel": "Read",
+   "o": 43,
+   "s": "done",
+   "t": "Data: every state legislative race, 1967 to 2022, with the chance of each"
+  },
+  "data-va-legislatures": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 89,
+   "s": "done",
+   "t": "Data: Virginia's 2023 and 2025 legislatures, 240 records (229 with a chance), read from the state's election site before it blocked us; one contest held over a write-in mismatch; 4,411 later chances moved slightly (under 6 percent); no verdict changed"
+  },
+  "data-volume-check": {
+   "link": "https://github.com/zwolk46/vote/blob/main/data/local/REPORT.md",
+   "linkLabel": "Read",
+   "o": 90,
+   "s": "done",
+   "t": "Data: vote totals of every state-year checked against a second source; Idaho 2022's doubled rows dropped, New Hampshire 2022 taken from the file that counted right, Hawaii's 2018 governor count corrected (131,719 by the state's certified summary); New Jersey 2018 (two counties), New York 2018 and Maine 2016 local questions held; 4,860 chances moved, 22 New Hampshire House chances held"
+  },
+  "design-explainer-b-smooth": {
+   "link": "https://vote-git-claude-project-thread-o-f3f92e-zachs-projects-74dd78e7.vercel.app/?page=how&v=b",
+   "linkLabel": "Preview",
+   "o": 47,
+   "s": "done",
+   "t": "How it works: version B's first step now changes smoothly even on slow phones (open the preview to see it)"
+  },
+  "design-explainer-b": {
+   "link": "https://vote-git-claude-project-thread-o-f3f92e-zachs-projects-74dd78e7.vercel.app/?page=how&v=b",
+   "linkLabel": "Preview",
+   "o": 46,
+   "s": "doing",
+   "t": "How it works: the explainer, version B, one picture that changes step by step (waiting on your pick)"
+  },
+  "design-explainer": {
+   "link": "https://vote-git-claude-project-thread-o-f3f92e-zachs-projects-74dd78e7.vercel.app/?page=how&v=a",
+   "linkLabel": "Preview",
+   "o": 45,
+   "s": "doing",
+   "t": "How it works: the explainer, version A, one picture that changes as you scroll (waiting on your pick)"
+  },
+  "design-first-screen-a": {
+   "link": "https://vote-git-claude-project-thread-o-6fbb1a-zachs-projects-74dd78e7.vercel.app/?v=a",
+   "linkLabel": "Preview",
+   "o": 31,
+   "s": "doing",
+   "t": "Design: first screen, version A, every contest on one ruler, now showing the real contests (waiting on your pick)"
+  },
+  "design-first-screen-b": {
+   "link": "https://vote-git-claude-project-thread-o-6fbb1a-zachs-projects-74dd78e7.vercel.app/?v=b",
+   "linkLabel": "Preview",
+   "o": 32,
+   "s": "doing",
+   "t": "Design: first screen, version B, your ballot line by line, now showing the real contests (waiting on your pick)"
+  },
+  "design-first-screen": {
+   "o": 33,
+   "s": "done",
+   "t": "Design: first screen, version C (one in N): dropped after the phone check"
+  },
+  "design-legislature-per-person": {
+   "o": 35,
+   "s": "done",
+   "t": "Design: state legislature races now shown per person on the first screen, from the Census populations (both versions and both explainers)"
+  },
+  "design-real-data": {
+   "o": 34,
+   "s": "done",
+   "t": "Design: both first screens and both explainers now carry the real contests (open any preview below); your two picks are still open"
+  },
+  "design-spec": {
+   "link": "https://github.com/zwolk46/vote/blob/main/design/DESIGN-SPEC.md",
+   "linkLabel": "Read",
+   "o": 25,
+   "s": "done",
+   "t": "Design: how the whole site looks, reads and moves, written down"
+  },
+  "law": {
+   "link": "https://github.com/zwolk46/vote/blob/main/LAW.md",
+   "linkLabel": "Read",
+   "o": 20,
+   "s": "done",
+   "t": "The law for the site, in force as if ratified"
+  },
+  "model": {
+   "link": "https://github.com/zwolk46/vote/blob/main/model/MODEL.md",
+   "linkLabel": "Read",
+   "o": 10,
+   "s": "done",
+   "t": "The model: how one vote's importance is worked out"
+  },
+  "plan": {
+   "link": "https://github.com/zwolk46/vote/blob/main/plan/PLAN.md",
+   "linkLabel": "Read",
+   "o": 30,
+   "s": "done",
+   "t": "The plan: phases, data, design, and who does what"
+  }
+ }
+}
