@@ -1,6 +1,6 @@
 # Every word the maker has written in this project
 
-*Zach (GitHub `zwolk46`) is the maker. This file holds every message he wrote in the claude.ai project "Vote" from 2026-11-06 17:34 to 2026-11-07 22:09 UTC, verbatim, in time order. It also holds every choice he made on a decision card, and the cards still open. It was gathered on 2026-11-07 by the orchestrator, ahead of a possible move to another account. Sources: the project chat and every one of the project's 16 threads, read whole through the project's own message tools. Zach wrote in three places only: the project chat, the orchestrator's thread and the design thread.*
+*Zach (GitHub `zwolk46`) is the maker. This file holds every message he wrote in the claude.ai project "Vote" from 2026-11-06 17:34 to 2026-11-13 12:36 UTC, verbatim, in time order. It also holds every choice he made on a decision card, and the cards still open. It was gathered on 2026-11-07 by the orchestrator, ahead of a possible move to another account. Sources: the project chat and every one of the project's 16 threads, read whole through the project's own message tools. Zach wrote in three places only: the project chat, the orchestrator's thread and the design thread.*
 
 *Rulings drawn from these words are in `RULINGS.md`, dated and quoted. Where this file and `RULINGS.md` differ in a word, this file is the record, because it is the message as he sent it. Curly quotes, his typos and his capitals are kept as he typed them.*
 
@@ -155,6 +155,12 @@
 *Message id `cmsg_01FHkmcV6WaeZh9r5PfgnMbuKGNuW3axfjwbNGE1rpGiMt`.*
 
 > We’re also approaching the weekly usage limit, so I want all of my comments saved such that if maybe I purchase another account I can continue this project there by just pointing at the repo. That might mean opening another analogous project there with blank memory and instructions and no standing instructions yet. I want as little as I have to do as possible to be able to set that up, and I want this repo prepared for the abrupt stop.
+
+### 2026-11-13 12:36:24 UTC, project chat
+
+*Message id `cmsg_01FHkmcV6WaeZh9r5PfgnMbuQhSpDvJvwhqGNb3giBNnFd`.*
+
+> Stop any processes that run on a schedule in the background, whatever makes Vercel send me emails
 
 ## His choices on decision cards
 

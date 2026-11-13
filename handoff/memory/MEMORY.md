@@ -15,3 +15,4 @@
 - [[d2-odd-governors]]: D2's odd-year governors KY/LA/MS/NJ/VA 1977-2025 (PRs #74, #76): sources, gates, KY/MS 2023 refused, which get p, plain route, lean note, gaps.
 - [[d2-governor-incumbency]]: D2's check of every governor incumbency code (PR #78): 17 fixes under the 13:43 successor rule, rosters read/refused, the House keeps level (switch test, band beside).
 - [[vote-restart]]: restart from the repo alone (RESTART.md, handoff/), Zach 2026-11-07 22:09; keep it current every turn.
+- [[vote-no-schedules]]: Zach 11-13 12:36: no scheduled tasks; Vercel branch previews and bot comments off (vercel.json, #121).

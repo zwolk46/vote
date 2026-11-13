@@ -152,3 +152,11 @@ In the project chat:
 > We’re also approaching the weekly usage limit, so I want all of my comments saved such that if maybe I purchase another account I can continue this project there by just pointing at the repo. That might mean opening another analogous project there with blank memory and instructions and no standing instructions yet. I want as little as I have to do as possible to be able to set that up, and I want this repo prepared for the abrupt stop.
 
 *Reading.* Everything a new project needs lives in this repository and is pushed as it happens. That covers his words, the project instructions, the state, the memory, the tracker's rows and each worker's resume note. A new project in another account must be able to resume from it, with blank memory and no instructions. Its first step is `RESTART.md`, and his part is the least it can be: connect GitHub, make the project with a Full-network environment, and paste one message. Every message of his is kept verbatim in `handoff/MAKER-WORDS.md`, and every later one is added as it comes.
+
+## 2026-11-13 12:36 UTC: nothing runs on a schedule, and Vercel sends no email
+
+In the project chat:
+
+> Stop any processes that run on a schedule in the background, whatever makes Vercel send me emails
+
+*Reading.* No thread of this project sets a scheduled task (a reminder to itself, a recurring check, a deadline that wakes a thread) until he allows it again; threads act when a message wakes them. The emails were GitHub's notices of vercel[bot]'s comment on each pull request, made for each branch preview, so agents' branches make no Vercel deployment and Vercel for GitHub posts no comment (`vercel.json`: `git.deploymentEnabled` `{"claude/**": false}`, `github.silent` true); `main` still deploys to production. A preview needed later is turned on again by changing that file through a pull request, with his word, since previews were what emailed him. The orchestrator's deadline of 11:30 for starting the pages is withdrawn: the pages wait on his picks.
