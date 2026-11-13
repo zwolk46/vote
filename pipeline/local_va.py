@@ -22,8 +22,12 @@ What the file holds [measured: the cached Media Export, export-2023-Nov-Gen.json
     winners are the leading candidates for the seats [inferred], and the record says so (the orchestrator, 18:32: "a
     figure resting on a page we saw and one resting on a rule we applied must look different in the record").
   - no candidate's party in any local contest: the file's politicalParty is empty for every local option and the
-    page prints none [measured]. The record shows no party, and the method's class reads "party not given in the
-    source" (pipeline/local_medsl.py PARTY_NOT_GIVEN), never "nonpartisan".
+    page prints none [measured]: the Code of Virginia gives a candidate's party on the ballot for federal, statewide
+    and General Assembly offices only (section 24.2-613 B, CODE_613). The record shows no party, and the method's
+    class reads "party not given in the source" (pipeline/local_medsl.py PARTY_NOT_GIVEN), its reason naming that
+    section; except a school board's contests, whose candidates the Code has "nominated only by petition" (section
+    22.1-57.3 E, CODE_NONPARTISAN), so no party nominates them: classed nonpartisan and pooled with the nonpartisan
+    like races of their office and seats (the orchestrator, 2026-11-13 00:55 (c) and 07:48).
   - three kinds of option: an option the file numbers ("cs" and a number) is a name on the ballot; "wi-" and the
     contest's number is the write-in line; an option the file keys by a name ("TakeraN.Walker-3-") is a write-in
     candidate counted by name: the two such options in contests the page shows (Brodnax's and Scottsville's councils)
@@ -77,17 +81,123 @@ from intake import va_elect as VA  # noqa: E402
 import local as L  # noqa: E402
 import local_va_leg as VAL  # noqa: E402
 
-YEARS = (2023,)
+YEARS = (2023, 2025)   # 2025: the orchestrator, 2026-11-13 00:55 (e): "2025's 564 local contests from the cache, same
+#                        gate and rulings, own PR. Scope is every level"
 SOURCE_KEY = "va_elect"
-EXPORT = {2023: f"{VA.RAW}/export-{VA.ELECTION[2023]}.json"}
+EXPORT = {y: f"{VA.RAW}/export-{VA.ELECTION[y]}.json" for y in YEARS}
 MEDSL_FIPS_FILE = os.path.join("medsl", "raw", "2024-13731156-2024-va-precinct-general.csv")
 CHECK = os.path.join(L.REPO, "data", "local", "check-va-local.json")
 OVER_LINE = 1.10   # pipeline/local_medsl.py OVER_TOP: a small excess over another contest can be real
+OVER_LINE_UNOPPOSED = 1.50   # against an unopposed comparator (the orchestrator, 2026-11-13 00:55 (b), OVER_UNOPPOSED)
+# (b) The orchestrator, 2026-11-13 00:55: "A refinement at every level. An unopposed comparator undercounts ballots by
+# roll-off, often 10 to 30%. Against one, list up to 1.5 and hold only above 1.5; a two-seat race filed as one still
+# reads near 2.0 and is caught. So Halifax's and Cumberland's sheriffs and Norton's clerk are listed, the comparator
+# named in the note." A contest is read, as before, against its locality's highest-vote figure; where that figure is
+# unopposed, it is held only above OVER_LINE_UNOPPOSED and listed between 1 and that line, and the note names the
+# figure as unopposed. A figure is unopposed where its contest has no more names on the ballot than seats (write-in
+# lines aside), and a
+# chamber's lines summed are unopposed where any of the chamber's contests in the locality is [worker D3's reading:
+# its voters there who skip that contest are missing from the sum].
+
+# (c) The orchestrator, 2026-11-13 00:55: "The 519 stay without p, reason "party not given in the source". Like races
+# must be like in party status. Pooling a race of unknown party with partisan or nonpartisan ones uses another kind of
+# race's spread. One exception: where the Code of Virginia puts an office on the ballot without party (school board,
+# for one), read that section once at law.lis.virginia.gov and name it." Read once (2026-11-13 07:42:41 UTC): the
+# Code's Form of ballot, whose subsection B gives a candidate's party on the ballot for three kinds of office alone
+# (CODE_613["words"]) [stated], so every local office is on the ballot without party. That reached all 519, and the
+# orchestrator narrowed the rule (07:48): "a contest is nonpartisan only where the Code says parties may not nominate
+# for that office. Being unlabeled on the ballot is not enough. You may read up to two more sections at
+# law.lis.virginia.gov: the one on how school board candidates are nominated, and the one on soil and water
+# conservation directors. Name each section and quote its words. Where a section bars party nomination, class that
+# office's contests nonpartisan and pool them with nonpartisan like races of the same office and seats ... Every other
+# office stays "party not given in the source", with § 24.2-613 B named in the reason as why the source prints no
+# party." Read, one request each, the article page that holds the section (2026-11-13 07:50):
+#   - school boards: section 22.1-57.3 E (Election of school board members): "In order to have their names placed on
+#     the ballot, all candidates shall be nominated only by petition as provided by general law pursuant to
+#     § 24.2-506." [stated] "Only by petition" leaves no party nomination, so a school board's contests are
+#     nonpartisan [worker D3's reading of "bars"];
+#   - soil and water conservation directors: section 10.1-523 A (Nominating petitions): "nominating petitions,
+#     statements of qualifications, and declarations of candidacy shall be filed with the general registrar ... to
+#     nominate candidates for elected directors of such districts" [stated]. It names petitions as the way to
+#     nominate, but not as the only way, and says nothing of parties, so it is not read as a bar [worker D3's
+#     reading; for the orchestrator]: the directors' contests stay "party not given in the source".
+CODE_613 = {"section": "Code of Virginia, section 24.2-613 (Form of ballot), subsection B",
+            "url": "https://law.lis.virginia.gov/vacode/title24.2/chapter6/section24.2-613/",
+            "cache": os.path.join("va_code", "section24.2-613.html"),
+            "words": "For elections for federal, statewide, and General Assembly offices only, each candidate who has "
+                     "been nominated by a political party or in a primary election shall be identified by the name of "
+                     "his political party."}
+CODE_NONPARTISAN = {
+    "school board": {"section": "Code of Virginia, section 22.1-57.3 (Election of school board members; election of "
+                                "tie breaker), subsection E",
+                     "url": "https://law.lis.virginia.gov/vacodefull/title22.1/chapter5/article7/",
+                     "cache": os.path.join("va_code", "title22.1-chapter5-article7.html"),
+                     "words": "In order to have their names placed on the ballot, all candidates shall be nominated "
+                              "only by petition as provided by general law pursuant to § 24.2-506.",
+                     "match": re.compile(r"\bSCHOOL BOARD\b", re.I)}}
+CODE_READ_NOT_BAR = {"section": "Code of Virginia, section 10.1-523 (Nominating petitions; posting of notice), "
+                                "subsection A",
+                     "url": "https://law.lis.virginia.gov/vacodefull/title10.1/chapter5/article3/",
+                     "cache": os.path.join("va_code", "title10.1-chapter5-article3.html"),
+                     "words": "to nominate candidates for elected directors of such districts"}
+WHY_NO_PARTY = ("the source prints no party because the Code of Virginia, section 24.2-613 B, gives a candidate's "
+                "party on the ballot \"For elections for federal, statewide, and General Assembly offices only\" "
+                "({url}, read {read}, sha256 {sha}) [stated]; the ballot's label is not the office's party status, so "
+                "the contest is not pooled with partisan or nonpartisan races (the orchestrator, 2026-11-13 07:48)")
+# The orchestrator, 2026-11-13 08:07: "VA 2025's "Chairman School Board" goes with the school boards. § 22.1-57.3:3 B
+# makes the chairman the at-large member elected under § 22.1-57.3, so subsection E's petition-only rule reaches it."
+# Section 22.1-57.3:3 is printed on the article page read for section 22.1-57.3 (its sha256 is checked with E's words).
+# Its subsection A confines it to counties with the county executive form that border an urban county executive
+# county [stated], which Prince William (2023's chairman) is and Page (2025's) is not [inferred]; Page's chairman is
+# read as a member of its elected school board, elected under section 22.1-57.3, so E reaches it all the same
+# [inferred; for the orchestrator].
+CHAIR_SCHOOL = re.compile(r"\bCHAIRMAN\b.*\bSCHOOL BOARD\b", re.I)
+CHAIR_WORDS = ("The member of the school board who is elected at large at the initial or any subsequent election shall "
+               "be the chairman of the school board during his term of office")
+CHAIR_NOTE = ("the chairman of the school board is a member of the elected school board, elected under section "
+              "22.1-57.3, so its subsection E reaches the chairman's contest: in the counties section 22.1-57.3:3 "
+              "governs, its subsection B says \"{words}\" [stated], and elsewhere the chairman elected by the voters is "
+              "read as the at-large member [inferred] (the orchestrator, 2026-11-13 08:07)")
+NONPARTISAN_NOTE = ("nonpartisan: the {section} says \"{words}\" ({url}, read {read}, sha256 {sha}) "
+                    "[stated], so no party nominates for this office; classed nonpartisan and pooled with the "
+                    "nonpartisan like races of its office and seats (the orchestrator, 2026-11-13 00:55 (c) and "
+                    "07:48)")
+
+
+def _code_text(entry):
+    """The cached page's text, tags and whitespace aside, and its meta; a SystemExit if it lacks the words quoted."""
+    import html as _html
+    m = F.meta(entry["cache"])
+    with open(os.path.join(F.CACHE, entry["cache"]), encoding="utf-8") as f:
+        text = " ".join(_html.unescape(re.sub(r"<[^>]+>", " ", f.read())).split())
+    text = re.sub(r" ([.,;:])", r"\1", text)   # a linked section number leaves a space before its stop
+    if entry["words"] not in text:
+        raise SystemExit(f"local_va: the cached {entry['section']} does not hold the words quoted")
+    return text, m
+
+
+def code_reads():
+    """(why the source prints no party, {office type: (match, its note)}), from the sections as read."""
+    _, m = _code_text(CODE_613)
+    why = WHY_NO_PARTY.format(url=CODE_613["url"], read=m["read_utc"], sha=m["sha256"])
+    _code_text(CODE_READ_NOT_BAR)
+    nonp = {}
+    for k, e in CODE_NONPARTISAN.items():
+        text, me = _code_text(e)
+        if k == "school board" and CHAIR_WORDS not in text:
+            raise SystemExit("local_va: the cached school board article does not hold section 22.1-57.3:3 B's words")
+        nonp[k] = (e["match"], NONPARTISAN_NOTE.format(section=e["section"], words=e["words"], url=e["url"],
+                                                       read=me["read_utc"], sha=me["sha256"]))
+    return why, nonp
+
+
 BALLOT_ID = re.compile(r"cs\d+")
 WRITE_IN_ID = re.compile(r"wi-")
 SPECIAL = re.compile(r"\bSPECIAL\b", re.I)
-GATE_BY = "within the certifying source (no federal or statewide contest on the ballot)"
-RULED = "proposed by worker D3, 2026-11-13; for the orchestrator's ruling"
+GATE_BY = VAL.GATE_BY   # 2023: no federal or statewide contest on the ballot; 2025: its Governor equal to D2's
+RULED = ("proposed by worker D3; the orchestrator, 2026-11-13 00:55 (a): \"Agreed as proposed: the legislature's gate, "
+         "plus the over-ballot test per locality against the ballot's highest-vote contest (held above 1.1, listed "
+         "above 1.0)\"; (b): against an unopposed one, held above 1.5 and listed up to it")
 WINNER_NOTE = ("the winners are the leading candidates for the seats [inferred]: the Department's file marks no "
                "winner, and its results page as read shows the contests on more than one locality's ballot, not this "
                "one, so no 'Winner' mark of it was seen")
@@ -137,6 +247,9 @@ def _title(name, localities):
     return office, "" if names <= {_key(x) for x in localities} else inner
 
 
+WINNER_NOTE_UNSHOWN = ("the winners are the leading candidates for the seats [inferred]: the Department's file marks "
+                       "no winner, and its results page as read (its first 50 contests) does not show this one, so no "
+                       "'Winner' mark of it was seen")
 NAMED_NOTE = ("the file keys {who} by a name, not by a ballot number: read as a write-in counted by name [inferred], "
               "as the page confirms in the two contests it shows with such options (Brodnax's and Scottsville's "
               "councils, each beside an 'Adjudicated Write-Ins' line of the same votes)")
@@ -150,7 +263,7 @@ def _option(o):
     oid = o["id"]
     kind = "ballot" if BALLOT_ID.fullmatch(oid) else "write-in line" if WRITE_IN_ID.match(oid) else \
         "write-in by name" if not oid.startswith("bms") else "question"
-    return {"name": o["name"].strip(), "votes": o["voteCount"], "kind": kind}
+    return {"name": o["name"].strip(), "votes": o["voteCount"], "kind": kind, "party": o.get("politicalParty")}
 
 
 def _read(year):
@@ -175,6 +288,8 @@ def _read(year):
         b0 = parts[0][1]
         if iid in state_items and b0["name"].startswith("Member, "):
             continue   # the legislature: pipeline/local_va_leg.py
+        if iid in state_items and " ".join(b0["name"].split()).upper() == "GOVERNOR":
+            continue   # D2's (data/governor/2025.json), against which the year is gated
         shared = iid in state_items
         if not shared and len(parts) != 1:
             raise SystemExit(f"local_va {year}: {b0['name']} is on {len(parts)} localities' lists, not the state's")
@@ -186,7 +301,10 @@ def _read(year):
              "office_title": office,
              "seats": b0["voteFor"], "question": b0["contestType"] == "BallotMeasure",
              "special": bool(SPECIAL.search(b0["name"])), "localities": lids,
-             "counties": sorted("51" + i for i in lids), "options": opts, "shared": shared}
+             "counties": sorted("51" + i for i in lids), "options": opts, "shared": shared,
+             # a statewide office (2025's Lieutenant Governor and Attorney General), on every locality's ballot: the
+             # state's other offices are written with the local records, as MEDSL's are (local_medsl.is_local_level)
+             "statewide": shared and len(parts) == len(x["localResults"])}
         why, notes, ok = [], [], {}
         if shared:
             n = norm[sb["name"].strip()]
@@ -194,19 +312,32 @@ def _read(year):
             won = {o["name"] for o in n["options"] if o.get("winner_marked")}
             for o in opts:
                 o["winner_marked"] = o["name"] in won
-            ok["page_equal"], ok["parts_add_up"] = n["page"]["equal"], n["parts_add_up"]
-            if not n["page"]["equal"]:
+            shown = n["page"]["shown"]
+            ok["page_equal"], ok["parts_add_up"] = n["page"]["equal"] if shown else None, n["parts_add_up"]
+            if shown and not n["page"]["equal"]:
                 why.append("the page shows other candidates or votes than the file holds")
             if not n["parts_add_up"]:
                 why.append("its locality lines count " + "; ".join(
                     f"{e['votes']:,} votes for {e['name']} (in {', '.join(e['localities'])})"
                     for e in n["extra_in_localities"]) + ", whom its statewide count does not hold"
                     if n["extra_in_localities"] else "its locality lines do not add up to its statewide count")
-            a, _, t = (n["page"]["localities_reporting"] or "/").partition("/")
-            ok["all_reporting"] = a == t == str(n["localities"])
-            if not ok["all_reporting"]:
-                why.append(f"the page prints 'Localities reporting {n['page']['localities_reporting']}', and the "
-                           f"file has {n['localities']} locality lines")
+            if shown:
+                a, _, t = (n["page"]["localities_reporting"] or "/").partition("/")
+                ok["all_reporting"] = a == t == str(n["localities"])
+                if not ok["all_reporting"]:
+                    why.append(f"the page prints 'Localities reporting {n['page']['localities_reporting']}', and the "
+                               f"file has {n['localities']} locality lines")
+            else:   # 2025's page as read shows its first 50 contests: (c) as for a one-locality contest, line by line
+                ok["all_reporting"] = all(b_["precinctsReporting"] == b_["precinctsParticipating"] and full[lr_["id"]]
+                                          for lr_, b_ in parts)
+                if not ok["all_reporting"]:
+                    why.append("not all reporting in " + ", ".join(
+                        f"{lr_['name'].title()} ({b_['precinctsReporting']} of {b_['precinctsParticipating']} "
+                        f"precincts, its groups {[s['status'] for s in lr_['reportingStatuses']]})"
+                        for lr_, b_ in parts if not (b_["precinctsReporting"] == b_["precinctsParticipating"]
+                                                     and full[lr_["id"]])))
+                if not c["question"]:
+                    notes.append(WINNER_NOTE_UNSHOWN)
             short = n["precincts_short"]
         else:
             lr, b = parts[0]
@@ -227,23 +358,29 @@ def _read(year):
             v = sum(o["voteCount"] for o in b["ballotOptions"])
             mine = v / (b["voteFor"] or 1) if not c["question"] else v
             others = [t for t in tops[lr["id"]] if t[2] != iid]
-            top, name, _ = max(others) if others else (None, None, None)
+            top, name, _, un = max(others) if others else (None, None, None, False)
             r = mine / top if top else None
-            over.append({"locality": lr["name"].title(), "votes_per_seat": round(mine, 1), "top": top, "top_name": name,
+            over.append({"locality": lr["name"].title(), "votes_per_seat": round(mine, 1), "top": top,
+                         "top_name": name, "top_unopposed": un, "line": OVER_LINE_UNOPPOSED if un else OVER_LINE,
                          "ratio": None if r is None else round(r, 4)})
-        worst = max((o for o in over if o["ratio"] is not None), key=lambda o: o["ratio"], default=None)
+        read_ = [o for o in over if o["ratio"] is not None]
+        # the locality line shown: one over its line if any (the furthest over it), else the highest ratio
+        worst = max(read_, key=lambda o: (o["ratio"] > o["line"], o["ratio"] / o["line"] if o["ratio"] > o["line"]
+                                          else o["ratio"]), default=None)
         c["over_ballot"] = {"worst": worst, "verdict": "untested" if worst is None else
-                            "held" if worst["ratio"] > OVER_LINE else "listed" if worst["ratio"] > 1 else "passes"}
+                            "held" if worst["ratio"] > worst["line"] else "listed" if worst["ratio"] > 1 else "passes"}
+        if worst is not None:
+            unop = (f", unopposed (an unopposed contest loses its voters who skip it, so the line against it is "
+                    f"{OVER_LINE_UNOPPOSED} times: the orchestrator, 2026-11-13 00:55 (b))" if worst["top_unopposed"]
+                    else "")
+            what = (f"its {worst['votes_per_seat']:,.0f} votes for each seat in {worst['locality']} are "
+                    f"{worst['ratio']:.3f} times the {worst['top']:,} of {worst['top_name']}, the highest-vote "
+                    f"contest of that locality's whole ballot{unop}")
         if c["over_ballot"]["verdict"] == "held":
-            why.append(f"its {worst['votes_per_seat']:,.0f} votes for each seat in {worst['locality']} are "
-                       f"{worst['ratio']:.2f} times the {worst['top']:,} of {worst['top_name']}, the highest-vote "
-                       f"contest of that locality's whole ballot, more than the {OVER_LINE} times a count can reach "
-                       f"[measured]")
+            why.append(f"{what}: more than the {worst['line']} times a count can reach [measured]")
         elif c["over_ballot"]["verdict"] == "listed":
-            notes.append(f"the over-ballot test within the locality: its {worst['votes_per_seat']:,.0f} votes for each "
-                         f"seat in {worst['locality']} are {worst['ratio']:.3f} times the {worst['top']:,} of "
-                         f"{worst['top_name']}, the highest-vote contest of that locality's whole ballot; between 1.0 "
-                         f"and {OVER_LINE} times, which can be real, so kept and listed [measured]")
+            notes.append(f"the over-ballot test within the locality: {what}; between 1.0 and {worst['line']} times, "
+                         f"which can be real, so kept and listed [measured]")
         if short:
             notes.append("the precinct lines do not add up to the locality line for "
                          + "; ".join(f"{s['option']} in {s['locality']} ({s['precincts']:,} against "
@@ -286,15 +423,19 @@ def _tops(lr):
     A contest of several seats is no figure (a voter may use fewer votes than seats), nor is one of part of the
     locality."""
     n = max(b["precinctsParticipating"] or 0 for b in lr["ballotItems"])
-    out, cham = [], collections.Counter()
+    out, cham, cham_un = [], collections.Counter(), set()
     for b in lr["ballotItems"]:
         v = sum(o["voteCount"] for o in b["ballotOptions"])
+        names = sum(1 for o in b["ballotOptions"] if BALLOT_ID.fullmatch(o["id"]))
+        unopposed = b["contestType"] != "BallotMeasure" and names <= (b["voteFor"] or 1)   # (b)
         m = LEG_TITLE.match(b["name"])
         if m:
             cham[m.group(1)] += v
+            if unopposed:
+                cham_un.add(m.group(1))
         elif (b["voteFor"] == 1 or b["contestType"] == "BallotMeasure") and b["precinctsParticipating"] == n:
-            out.append((v, " ".join(b["name"].split()), b["id"]))
-    out += [(v, f"{POSS[ch]} lines in {lr['name'].title()}, summed", None) for ch, v in cham.items()]
+            out.append((v, " ".join(b["name"].split()), b["id"], unopposed))
+    out += [(v, f"{POSS[ch]} lines in {lr['name'].title()}, summed", None, ch in cham_un) for ch, v in cham.items()]
     return out
 
 
@@ -312,7 +453,7 @@ def _year_gate(year):
 
 def _gate_record(c, year):
     g = _year_gate(year)
-    rec = {"by": GATE_BY, "ruled": RULED, "official": g[0],
+    rec = {"by": GATE_BY[year], "ruled": RULED, "official": g[0],
            "official_how": "the results site's page of the election, rendered, headed 'OFFICIAL RESULTS', and linked "
                            "from the Department's results page by its Election Results Directory",
            "shared": c["shared"], "page_equal": c["checks"]["page_equal"],
@@ -331,6 +472,7 @@ def medsl_shape(year):
         return None
     _, meta = load_export(year)
     g = _year_gate(year)
+    why_no_party, nonp = code_reads()
     out = []
     for c in read(year):
         held = (f"held by the gate: {g[1]}" if not g[0] else f"held by the gate: {c['held']}" if c["held"] else None)
@@ -349,12 +491,23 @@ def medsl_shape(year):
             continue
         cands = []
         for o in c["options"]:
-            x = {"name": o["name"], "votes": o["votes"], "as_named": True, "party": None,
+            x = {"name": o["name"], "votes": o["votes"], "as_named": True,
+                 "party": VAL.PARTY.get(o["party"] or "", (o["party"] or "").upper()) if c["statewide"] else None,
                  "writein": o["kind"] != "ballot"}
             if c["shared"]:
                 x["won_marked"] = True if o["winner_marked"] else None
             cands.append(x)
-        out.append(dict(base, magnitude=c["seats"], question=False, candidates=cands, party_not_given=True))
+        hit = [note for match, note in nonp.values() if match.search(c["office"])]
+        if hit and CHAIR_SCHOOL.search(c["office"]):
+            hit.append(CHAIR_NOTE.format(words=CHAIR_WORDS))
+        if c["statewide"]:   # a statewide office's ballot names its candidates' parties (section 24.2-613 B)
+            out.append(dict(base, magnitude=c["seats"], question=False, candidates=cands, dataverse="STATE"))
+        elif hit:
+            out.append(dict(base, magnitude=c["seats"], question=False, candidates=cands, party_not_given=False,
+                            notes=list(base.get("notes") or []) + hit))
+        else:
+            out.append(dict(base, magnitude=c["seats"], question=False, candidates=cands, party_not_given=True,
+                            party_not_given_why=why_no_party))
     return out
 
 
@@ -365,12 +518,13 @@ def source_block(year):
             f"sha256 {fp['sha256']}; headed {res['official_text']!r}) and its 'Media Export' file ({fx['url']}, "
             f"finished {fx['finished_utc']}, sha256 {fx['sha256']}, created {res['export_created_utc'][:19]}Z), "
             f"read by pipeline/intake/va_elect.py before the Department refused us (2026-11-07 18:27:48 UTC; nothing "
-            f"is requested from it again). Gate {GATE_BY} (pipeline/local_va.py; data/local/check-va-local.json), "
+            f"is requested from it again). Gate {GATE_BY[year]} (pipeline/local_va.py; data/local/check-va-local.json), "
             f"proposed: the page headed 'OFFICIAL RESULTS' and linked from the Department's results page, the figures "
             f"it shows the file's, a shared contest's locality lines adding up to its statewide count and as many as "
             f"the page prints, a one-locality contest all reporting, and the over-ballot test within each locality. "
-            f"The file gives no party for any local candidate, and marks no winner; the page marks the shared "
-            f"contests' winners")
+            f"The file gives no party for any local candidate (the Code of Virginia, section 24.2-613 B, prints a "
+            f"party on the ballot for federal, statewide and General Assembly offices only), and marks no winner; the "
+            f"page marks the shared contests' winners")
     return F.source(f"Virginia Department of Elections, results of the {res['name']}, {res['date']}: local offices "
                     f"and questions", fp["url"], fx["read_utc"], VA.LICENCE, mark="stated",
                     via="pipeline/intake/va_elect.py", note=note, sha256=fx["sha256"])

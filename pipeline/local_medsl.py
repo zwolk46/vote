@@ -44,11 +44,17 @@ MEASURE_YEARS = (2016,) + YEARS   # 2016: MEDSL's older sets, read for their que
 # years, and, like every other year, feed the later years' like races and measures, the back-tests and the
 # robustness test (the orchestrator, 11:56: "earlier cycles only means every earlier contest, and leaving one year
 # out would be an exception with no reason behind it"); data/local/REPORT.md section 16.
-ODD_YEARS = (2023,)
+# 2025: Virginia's local contests and its Lieutenant Governor and Attorney General (pipeline/local_va.py; the
+# orchestrator, 2026-11-13 00:55 (e): "2025's 564 local contests from the cache, same gate and rulings, own PR").
+ODD_YEARS = (2023, 2025)
 ODD_PARTISAN = ("a race between a Democrat and a Republican: the transferred route (a) gives p only in a year whose own "
                 "back-test on that year's local races holds its 50% interval within 40-60% (the orchestrator, "
-                "2026-11-07 06:16); this year's local races in the sources taken in are Louisiana's alone, too few "
-                "for that back-test [inferred], so p is not computed")
+                "2026-11-07 06:16); {who}, too few for that back-test [inferred], so p is not computed")
+ODD_PARTISAN_WHO = {2023: "this year's local races between a Democrat and a Republican in the sources taken in are "
+                          "Louisiana's alone (Virginia's local offices print no party, pipeline/local_va.py)",
+                    2025: "this year's races between a Democrat and a Republican in the sources taken in are "
+                          "Virginia's Lieutenant Governor and Attorney General alone (its local offices print no "
+                          "party, pipeline/local_va.py)"}
 KLARNER_CHECKED = (2018, 2022)   # years whose MEDSL legislative returns are checked against Klarner's, the record
 GITHUB_YEARS = {2018: "MEDSL/2018-elections-official", 2020: "MEDSL/2020-elections-official"}
 
@@ -996,6 +1002,12 @@ def write_listed(year):
 
 
 OVER_TOP = 1.10   # where the file gives no ballots cast: above this many times the day's highest-vote statewide contest
+# (b) The orchestrator, 2026-11-13 00:55: "A refinement at every level. An unopposed comparator undercounts ballots by
+# roll-off, often 10 to 30%. Against one, list up to 1.5 and hold only above 1.5; a two-seat race filed as one still
+# reads near 2.0 and is caught." Where the day's highest-vote statewide contest has no more names on the ballot than
+# its one seat (write-ins aside), the line is OVER_UNOPPOSED. A question is not unopposed, nor are MEDSL's president and
+# US Senate lines [measured: no US Senate contest of 2018, 2022 or 2024 in data/senate has one name on the ballot].
+OVER_UNOPPOSED = 1.50
 OVER_EXPECTED = {2018: {("MI", "JUSTICE OF THE SUPREME COURT"), ("OH", "JUSTICE OF THE SUPREME COURT")},
                  2022: {("HI", "AT-LARGE TRUSTEE"), ("MI", "ATTORNEY GENERAL")},
                  2024: {("TX", "STATE SUPREME COURT JUSTICE")}}
@@ -1070,36 +1082,42 @@ def over_ballot(contests, year, whole):
                 b = sum(r["ballots_cast"] for r in rs)
                 res[id(m)] = ("ballots cast", b, "the ballots cast in its precincts as MEDSL's file gives them", v / b)
                 continue
-            tops = [(votes(o), f"{o['office'].title()}" + (f" ({o['district']})" if o.get("district") else ""))
+            tops = [(votes(o), f"{o['office'].title()}" + (f" ({o['district']})" if o.get("district") else ""),
+                     len(ballot(o["candidates"])) <= 1)
                     for o in one if o is not m and id(o) not in over and o["state"] == m["state"]
                     and o["date"] == m["date"]]
-            tops += [(votes(o), f"{o['office'].title()} (a question)") for o in asked
+            tops += [(votes(o), f"{o['office'].title()} (a question)", False) for o in asked
                      if o["state"] == m["state"] and o["date"] == m["date"]]
-            tops += [(t["votes"], f"{t['office'].title()} (MEDSL's {t['dataverse'].lower()} lines)")
+            tops += [(t["votes"], f"{t['office'].title()} (MEDSL's {t['dataverse'].lower()} lines)", False)
                      for t in federal.get(f"{m['state']} {m['date']}", [])]
             if not tops:
                 res[id(m)] = ("untested", None, "no other statewide contest of one seat that day", None)
                 continue
-            t_, name = max(tops)
-            res[id(m)] = ("top", t_, name, v / t_)
+            t_, name, un = max(tops)
+            res[id(m)] = ("top", t_, name, v / t_, un)
         new = {id(m) for m in read if (res[id(m)][0] == "ballots cast" and res[id(m)][3] > 1)
-               or (res[id(m)][0] == "top" and res[id(m)][3] > OVER_TOP)}
+               or (res[id(m)][0] == "top" and res[id(m)][3] > (OVER_UNOPPOSED if res[id(m)][4] else OVER_TOP))}
         if new == over:
             break
         over = new
     found = set()
     for m in read:
-        kind, b, name, r = res[id(m)]
+        kind, b, name, r = res[id(m)][:4]
+        un = kind == "top" and res[id(m)][4]
+        line = OVER_UNOPPOSED if un else OVER_TOP
         v = votes(m)
         verdict = "held" if id(m) in over else ("listed" if kind == "top" and r > 1 else "passes")
         rows_out.append({"state": m["state"], "office": m["office"], "district": m.get("district") or None, "votes": v,
                          "against": kind, "figure": b, "of": name, "ratio": None if r is None else round(r, 4),
-                         "verdict": verdict})
+                         "verdict": verdict, **({"top_unopposed": un} if kind == "top" else {})})
         if verdict == "listed":
             m["notes"] = (m.get("notes") or []) + [
                 f"the over-ballot test: the contest's {v:,} votes in MEDSL's file are {r:.3f} times the {b:,} of "
-                f"{name}, the day's highest-vote statewide contest; between 1.0 and 1.1 times, which can be real, so "
-                f"kept and listed (the orchestrator, 17:44) [measured]"]
+                f"{name}, the day's highest-vote statewide contest"
+                + (", unopposed (an unopposed contest loses its voters who skip it: the orchestrator, 2026-11-13 "
+                   "00:55 (b))" if un else "")
+                + f"; between 1.0 and {line} times, which can be real, so kept and listed (the orchestrator, 17:44) "
+                  f"[measured]"]
         state_count = bool(m.get("state_votes")) or m.get("source", "medsl") != "medsl"
         if verdict == "held" and state_count:
             src = (m.get("state_votes") or {}).get("source") or m.get("source")
@@ -1124,8 +1142,8 @@ def over_ballot(contests, year, whole):
                     f"have [measured]")
         else:
             fact = (f"the contest's {v:,} votes in MEDSL's file are {r:.2f} times the {b:,} of {name}, the day's "
-                    f"highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the "
-                    f"file gives no ballots cast for it) [measured]")
+                    f"highest-vote statewide contest{', unopposed' if un else ''}, more than the {line} times a "
+                    f"contest of one seat can reach (the file gives no ballots cast for it) [measured]")
         if m.get("held_reason"):
             m["held_reason"] += "; and " + fact
         else:
@@ -1163,8 +1181,8 @@ def over_ballot(contests, year, whole):
     chk["about"] = ("the over-ballot test (pipeline/local_medsl.py over_ballot; the orchestrator's order of "
                     "2026-11-07 17:44 (3)): every statewide contest of one seat in MEDSL's files the local files take, "
                     "its votes against the ballots cast where the file gives them, else against the day's "
-                    "highest-vote statewide contest; held above 1, or above 1.1 against the top contest; listed "
-                    "between 1.0 and 1.1")
+                    "highest-vote statewide contest; held above 1, or above 1.1 against the top contest (1.5 where it "
+                    "is unopposed: the orchestrator, 2026-11-13 00:55 (b)); listed between 1.0 and that line")
     chk["untested_years"] = yb and V._load_check()["ballots"].get("untested")
     chk[str(year)] = sorted(rows_out, key=lambda x: (x["state"], x["office"], x["district"] or ""))
     with open(OVER_CHECK, "w") as f:
@@ -1963,8 +1981,9 @@ def class_p(rec, c, route, key, train, dens, cache_key, commit, with_p, counts, 
     f, N, h, kin = dens[cache_key]
     if f is None:
         counts[f"{label}: not computed, too few like races"] += 1
+        why = c.get("party_not_given_why")   # Virginia: why its source prints no party (pipeline/local_va.py)
         return {"not_computed": f"fewer than {L.MIN_CLASS} like races in earlier years in the sources taken in "
-                                f"({N}) for the class '{key}'"}
+                                f"({N}) for the class '{key}'" + (f"; {why}" if why else "")}
     fc = {"by": "the model's own", "method": L.METHOD, "route": route, "class": key, "like_races": N,
           "window": [round(0.5 - h, 2), round(0.5 + h, 2)], "in_window": kin, "q": round(f * 2 * h, 5),
           "source": "model"}
@@ -3197,7 +3216,7 @@ def build(out_dir, with_p=True):
                 p = {"value": 0.0, "event": 0.0, "reason": key}
                 counts[f"local {year}: p = 0"] += 1
             elif route == "partisan" and year in ODD_YEARS:
-                p["not_computed"] = ODD_PARTISAN
+                p["not_computed"] = ODD_PARTISAN.format(who=ODD_PARTISAN_WHO[year])
                 counts[f"local {year}: not computed, D against R, no back-test of the year"] += 1
             elif route == "partisan":
                 p = local_partisan_p(rec, c, lp[year], bool(bt.get(year, {}).get("computed")),

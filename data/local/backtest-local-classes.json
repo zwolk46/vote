@@ -58,21 +58,26 @@
    "seen_over_expected": 0.191
   },
   "2023": {
-   "contests": 18,
-   "expected_in_window": 1.1,
-   "seen_in_window": 4,
+   "contests": 176,
+   "expected_in_window": 21.5,
+   "seen_in_window": 15,
    "by_office_type": {
+    "class, local school board": {
+     "contests": 158,
+     "expected": 20.4,
+     "seen": 11
+    },
     "class, local council, commission or board": {
      "contests": 18,
      "expected": 1.1,
      "seen": 4
     }
    },
-   "seen_over_expected": 3.636
+   "seen_over_expected": 0.698
   },
   "2024": {
    "contests": 2374,
-   "expected_in_window": 291.0,
+   "expected_in_window": 283.9,
    "seen_in_window": 204,
    "by_office_type": {
     "class, local council, commission or board": {
@@ -82,7 +87,7 @@
     },
     "class, local school board": {
      "contests": 756,
-     "expected": 107.0,
+     "expected": 99.9,
      "seen": 78
     },
     "class, local special district": {
@@ -111,7 +116,30 @@
      "seen": 1
     }
    },
-   "seen_over_expected": 0.701
+   "seen_over_expected": 0.719
+  },
+  "2025": {
+   "contests": 127,
+   "expected_in_window": 11.0,
+   "seen_in_window": 8,
+   "by_office_type": {
+    "class, local council, commission or board": {
+     "contests": 62,
+     "expected": 3.9,
+     "seen": 3
+    },
+    "class, local school board": {
+     "contests": 61,
+     "expected": 6.2,
+     "seen": 5
+    },
+    "boundary, local school board": {
+     "contests": 4,
+     "expected": 0.8,
+     "seen": 0
+    }
+   },
+   "seen_over_expected": 0.727
   }
  }
 }
