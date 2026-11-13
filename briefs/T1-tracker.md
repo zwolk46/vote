@@ -35,7 +35,7 @@ Read in this order each time you wake, and change only what has changed:
 
 ## When you wake
 
-- **Amended 2026-11-13 12:45 UTC: schedule nothing.** The maker, 12:36: "Stop any processes that run on a schedule in the background" (`RULINGS.md`). Update the tracker only when a message wakes you, then end the turn; the two lines below stand suspended until he allows schedules again. *Reason:* his word.
+- **Amended 2026-11-13 12:45 UTC: schedule nothing.** The maker, 12:36: "Stop any processes that run on a schedule in the background" (`RULINGS.md`). Update the tracker only when a message wakes you, then end the turn; the struck line below stands suspended until he allows schedules again. *Reason:* his word.
 - ~~After each pass, schedule your next wake with `send_later` (load it with ToolSearch): **15 minutes** while any worker thread is working; after three passes in a row with nothing to change, **30**, then **60**. Go back to 15 as soon as something changes. *Reason:* he watches while work runs; a pass that finds nothing still spends his usage (OPERATIONS §4).~~
 - When no worker thread is working and nothing is waiting to be shown, schedule nothing and stop. The orchestrator messages you when work starts again. *Reason:* no scheduled checks without an end (OPERATIONS §4).
 - A pass that changes nothing writes nothing.
