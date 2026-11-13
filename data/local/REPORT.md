@@ -1860,3 +1860,145 @@ The record is the locality lines, which add up to the statewide count the page s
 **For the orchestrator:**
 - The 23 doubled one-candidate counts are noted, as ordered, and not dropped. No p depends on them, but each shows twice its precincts' count. Ruled 21:55 (3), for the next step: such a row is dropped as a subtotal where the county shows the same pattern in its other contests in the file, or where dropping it reproduces an independent count.
 - New Jersey 2018's Assembly 5 rows (131 precincts named "... TOTAL") fall in no record of MEDSL's: that year's legislature is Klarner's.
+
+## 32. District checks: Klarner's legislatures beside MEDSL's, MEDSL's own coverage, the coarse tier, and the 21:55 items
+
+*Added 2026-11-13 at 00:20 UTC, at the orchestrator's orders of 2026-11-07 21:21, 21:26, 21:55, 22:19, 22:26 and 22:42. The thread stopped at 23:31 that night on a usage limit and resumed on 2026-11-12 at 23:07; nothing was fetched in between.* The checks are in `data/local/check-districts.json` and `data/local/check-districts-m2.json` (`pipeline/local_districts.py`); every record that changed is in `data/local/moves-district-checks.json`.
+
+**Why.** The orchestrator, 21:21: "(a) flag any district whose ratio is off 1 by more than 3%; (b) flag any Klarner record coded uncontested where MEDSL shows another candidate with votes beyond scattered write-ins. Settle each by the state where it answers. Where it doesn't, use the 19:04 rules." 21:26: a write-in opponent is not a ballot opponent (the write-in rule); settle from the state only where its file is cached or it answers one request; "List every flag with its outcome, and count the p moved, lost and gained by level and year"; run every overlap year.
+
+**The check** (`local_districts.py check`). Each of Klarner's general contests of 2016, 2018 and 2022 (the years MEDSL also holds a legislature; 2020's file is local offices only) is matched to the MEDSL contest of its state and chamber that names all its candidates by surname, district number and New Hampshire's county breaking ties. Candidates are paired one to one; a candidate's fusion lines are summed; write-in totals, "ALL OTHERS", blanks and voids are not candidates, nor are New York 2016's ballot-kind lines ("Affidavit", "Absentee/Military"). Klarner's contests are read as the build reads them (North Carolina's Board counts, New Hampshire 2022, c38), so a district those fixes settled is listed as settled.
+
+| Year | Tested | Flags | Unmatched or not paired apart (untested) |
+|---|---|---|---|
+| 2016 | 4,631 | 155 | 905 |
+| 2018 | 4,978 | 76 | 403 |
+| 2022 | 5,080 | 130 | 580 |
+
+**MEDSL's own coverage** (the orchestrator, 22:26: "(a) in each county of the district, compare the chamber's MEDSL precinct rows with the precincts of the day's top contest; if MEDSL lacks the chamber's rows in any county of the district beyond 2% of that county's precincts, MEDSL does not cover the district. (b) There, a Klarner count above MEDSL's stays, with a note naming the counties and the share missing. (c) A Klarner count below MEDSL's partial count: the 19:04 rule. (d) Where MEDSL covers the district, the 19:04 rule. (e) A district with no MEDSL rows at all is untested, not held. List the counts under (b) to (e) by state and year in the PR.") `local_districts.coverage(year)` reads every MEDSL file of the year county by county (`COVER_VERSION` 12, cached in `$VOTE_CACHE/volume/normalized/coverage-<year>.json`).
+- *The top contest* is the candidate contest with votes in the most precincts (a question only where a county has none), since MEDSL's 2018 Virginia file names a question's absentee precincts apart [measured]. A precinct's votes are its TOTAL mode's or its other modes' sum, whichever is more: a file can give both, or give one candidate a TOTAL line of 0 beside another's modes (Delaware 2018's US Senate in New Castle County) [measured].
+- *Lines that are no contest* are left out: straight party, registered voters, ballots cast, turnout, voting statistics (Wayne County, Michigan, 2022 files "STRAIGHT PARTY" in 1,253 precincts, more than any contest's 1,069) [measured].
+- *Precincts missed* are the set difference, but no more than the difference in counts, since a file can name one precinct apart in two contests. Names are folded for case and spacing, and a name the top contest gives once is matched under another jurisdiction code or as a '/'-joined part (Maine 2024 codes one town's precinct three ways and files an unorganized township alone in one contest and joined to a town in another) [measured].
+- *A special contest's rows* count for its family, though never as the top contest: Texas 2024 files the regular TX-18 contest as special, which left 240 Harris County precincts without a US House row [measured].
+- *A chamber's row with no district* is missing (22:42 item 4, Maricopa 2016); a US House row with no district is not (Santa Cruz County, Arizona, 2022, files 9 of its 35 precincts' US House rows so) [measured].
+- *Staggered upper chambers* (22:42 item 3: "the other chamber's rows, or the top contest; not covered means untested"): a chamber is all up where its districts that year are at least 90% of its most on the same lines (2012-2020; 2022 against 2012-2022). Vermont's 2022 chambers have 16 and 109 districts to 13 and 81 before [measured], so they are read against their own lines. Flags read so: 2018 Illinois's Senate, 1 flag by the House's rows; no district was left untested by the top contest.
+
+**Counts under (b) to (e), by state and year** [measured]. (b) kept with a note; (c) a Klarner count below MEDSL's partial count, by the 19:04 rule; (d) MEDSL covers the district, by the 19:04 rule (held at a gap of 5% or more, noted under it); (e) untested: no MEDSL contest of the chamber names all the district's candidates, or several do, or the candidates do not pair one to one (most are seats left off the ballot unopposed: Florida, Oklahoma, Texas, Arkansas, West Virginia 2022). The other outcomes: the write-in rule (a (b) flag whose other candidates are all write-ins, added as write-ins), settled by the state (Idaho's 2022 canvass, cached), settled earlier (New Hampshire 2022).
+
+| Year | State | (b) kept | (c) held | (c) noted | (d) held | (d) noted | (e) untested | Write-in rule | Other |
+|---|---|---|---|---|---|---|---|---|---|
+| 2016 | AR |  | 2 |  |  |  | 87 |  |  |
+| 2016 | AZ | 13 |  |  |  |  | 3 |  |  |
+| 2016 | CT |  | 1 |  |  |  | 9 |  |  |
+| 2016 | DE |  |  |  |  |  | 48 |  |  |
+| 2016 | FL |  | 1 |  |  |  | 82 |  |  |
+| 2016 | GA |  |  |  | 1 | 1 | 2 |  |  |
+| 2016 | HI |  | 1 |  |  |  | 27 |  |  |
+| 2016 | ID |  |  |  |  |  | 33 |  |  |
+| 2016 | IL |  |  |  |  |  | 16 |  |  |
+| 2016 | IN | 8 | 1 |  | 23 | 5 | 9 |  |  |
+| 2016 | KS | 17 |  |  |  |  | 7 |  |  |
+| 2016 | KY | 6 | 2 |  | 4 | 5 | 2 |  |  |
+| 2016 | MA |  |  |  | 1 |  | 25 |  |  |
+| 2016 | ME | 20 | 1 |  |  |  | 140 |  |  |
+| 2016 | MI |  |  |  | 2 |  | 1 |  |  |
+| 2016 | MT |  | 1 |  |  |  |  |  |  |
+| 2016 | NC |  |  |  |  |  | 10 |  |  |
+| 2016 | NE |  |  |  |  | 1 | 1 |  |  |
+| 2016 | NH |  |  |  |  |  | 204 |  |  |
+| 2016 | NY | 17 | 4 | 2 | 1 |  | 6 | 2 |  |
+| 2016 | OK |  |  |  |  |  | 34 |  |  |
+| 2016 | RI |  |  |  |  |  | 11 |  |  |
+| 2016 | SC |  |  |  | 2 | 2 |  |  |  |
+| 2016 | TX |  |  |  |  |  | 99 |  |  |
+| 2016 | UT | 3 | 1 |  | 2 | 1 | 5 |  |  |
+| 2016 | WV |  |  |  | 1 |  | 1 |  |  |
+| **2016** | **all** | **84** | **15** | **2** | **37** | **15** | **905** | **2** |  |
+| 2018 | AL |  |  |  |  | 1 |  |  |  |
+| 2018 | AR |  |  |  |  |  | 67 |  |  |
+| 2018 | CT |  |  |  | 1 | 1 | 8 |  |  |
+| 2018 | DE |  |  |  |  |  | 2 | 2 |  |
+| 2018 | FL |  |  |  |  |  | 50 |  |  |
+| 2018 | HI |  |  |  |  |  | 37 |  |  |
+| 2018 | IL |  |  | 1 |  | 1 | 3 |  |  |
+| 2018 | IN | 4 |  |  | 4 | 2 | 6 |  |  |
+| 2018 | KS |  |  |  | 1 |  | 2 |  |  |
+| 2018 | KY |  |  |  |  | 1 | 11 |  |  |
+| 2018 | MA |  |  |  |  | 1 | 2 |  |  |
+| 2018 | ME |  |  |  | 5 |  | 14 |  |  |
+| 2018 | NY | 3 |  | 2 | 1 |  | 77 |  |  |
+| 2018 | OH |  | 1 |  | 1 |  | 2 |  |  |
+| 2018 | OK |  |  |  |  |  | 35 |  |  |
+| 2018 | OR |  |  |  | 1 |  | 1 |  |  |
+| 2018 | SC | 1 |  |  |  |  | 1 |  |  |
+| 2018 | TN |  |  |  |  |  | 1 | 3 |  |
+| 2018 | TX |  |  |  |  |  | 19 |  |  |
+| 2018 | UT | 1 |  | 1 | 1 |  | 7 |  |  |
+| 2018 | VT |  |  |  | 4 |  | 25 | 31 |  |
+| **2018** | **all** | **9** | **1** | **4** | **19** | **7** | **403** | **36** |  |
+| 2022 | AR | 1 |  |  | 1 |  | 9 |  |  |
+| 2022 | AZ |  |  |  |  |  | 7 | 4 |  |
+| 2022 | CA |  |  |  |  |  | 21 |  |  |
+| 2022 | FL |  |  |  |  |  | 72 |  |  |
+| 2022 | IA | 1 |  |  |  |  | 1 |  |  |
+| 2022 | ID |  |  |  |  |  | 4 |  | settled by the state 2 |
+| 2022 | IN | 36 |  |  | 11 |  | 56 |  |  |
+| 2022 | MA |  |  |  |  |  | 13 |  |  |
+| 2022 | ME |  |  |  |  | 1 | 3 |  |  |
+| 2022 | MI | 3 |  |  | 7 | 1 | 5 |  |  |
+| 2022 | MO |  |  |  | 1 |  |  |  |  |
+| 2022 | ND |  |  |  |  |  | 18 |  |  |
+| 2022 | NH |  |  |  |  |  | 28 |  | settled earlier 2 |
+| 2022 | NM |  |  |  | 1 |  | 3 |  |  |
+| 2022 | NY | 1 | 2 |  | 5 | 1 | 6 | 1 |  |
+| 2022 | OK |  |  |  |  |  | 93 |  |  |
+| 2022 | PA |  |  |  |  | 2 | 2 |  |  |
+| 2022 | TX |  | 1 |  |  |  | 80 |  |  |
+| 2022 | VT |  |  |  | 1 | 14 | 8 | 29 |  |
+| 2022 | WA | 1 |  |  |  |  | 2 |  |  |
+| 2022 | WV |  |  |  |  |  | 100 |  |  |
+| **2022** | **all** | **43** | **3** | **0** | **27** | **19** | **580** | **34** | settled by the state 2, settled earlier 2 |
+
+Rows list each state with a flag, or with 10 or more districts untested.
+
+- **(b): 136 districts kept** (84, 9 and 43). Arizona 2016's 13 are Maricopa's (10), Coconino's (2) and La Paz's (1): their rows give no district, so all their precincts count as missing (22:42 item 4). Indiana 2022's 36: MEDSL's 2022 Indiana file is short (§29: -57%).
+
+**The comparison with M2's list** (22:19 item 2: "Compare these flags with M2's `checks/m2/c38-districts.json` (249 districts 5% or more off) and list each difference with its reason"; M2's list read from PR #99's head, c2f02ff, not yet merged). `check-districts-m2.json` gives each of the 249 a status and reason, and lists the flags not on M2's list by kind.
+- On both lists: 108 (67, 17, 24).
+- M2's alone, 141: within 3% here on the named candidates, 80 (M2 sums MEDSL's rows by D+R (55) or by every line (25), where this check sums the named candidates' lines: so New York's and Connecticut's fusion lines, Washington's same-party pairs, and write-in and scattering lines count apart [inferred from the method; each district's two sums are in the file]); unmatched here, 32 (no MEDSL contest names all the candidates; M2 matches by the district's code); settled before this check, 26 (the build's own fixes, which M2's raw read does not see: New Hampshire 2022's names and doubling, North Carolina's Board counts); not paired one to one, 2; matched to several, 1.
+- Here alone, 252: (a) off 3% to 5%, under M2's 5% line, 25; (a) off 5% or more on the named candidates where M2's D+R or every-vote sum, or its match by code, is not, 128; (b) only, 99 (M2 does not test an uncontested record).
+
+**The coarse tier** (22:42 items 1 and 2; `pipeline/local.py coarse_tier`). A district's votes (its post with the most) against its seats' share of the state's turnout that day (D1's or D2's certified count).
+- *Idaho 1984-1990*: one post per district adds to 1.65 to 1.89 times the turnout. "Hold every post of a district whose votes exceed 2x its seats' share of turnout." The 2x line gives seven districts each year, not the six the ruling names: 4, 8, 13, 21, 25, 29 and 33. Their 21 posts a year are held (14 House, 7 Senate; 84 in all). The other 420 posts keep their p, each with a note giving the chamber's ratio, the districts held and its own ratio, at most 1.60. No Idaho count before 1994 was found (the Secretary of State's canvass starts in 1994, its pages in 1998), so no request was made.
+- *South Carolina's Senate, 1976 and 1980*: its 46 seats are 16 districts' numbered posts, each voter voting once in each post; one post per district adds to 0.91 and 0.88 times the presidential vote. No hold; each of the 92 seats carries the note.
+
+**MEDSL's coverage gate** (22:19 item 1: "Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read"; `local_medsl.coverage_gate`).
+- *The county gate* (`incomplete_counties`): a county whose US House rows miss more than 2% of its precincts, holding more than 2% of its top contest's votes. It is read from the US House's rows alone, since Florida, Oklahoma, Texas and Kansas 2022 leave unopposed legislative seats off the ballot or the file; a state that left a US House seat off the ballot (D2's record: no votes) is not read. A MEDSL contest below the state whose area includes such a county is held, unless its own rows are in the county's precincts (within 2%; `whole_contests`: its district is the county, and its rows are not missing there), or it is a legislative seat whose own chamber's rows miss 2% or less of the county's precincts (22:26 (a)) [my readings].
+- Monroe County, New York, 2024: the US House's rows miss 196 of its 655 precincts (28.6% of the votes), the Assembly's 181, the Senate's 1 [measured] (M2: 200 of 659 and 185, its count of precincts). Held: the Assembly's districts 130 and 133 to 139 (8 records; 134 and 139 had p 0), Irondequoit's and Pittsford's town contests and Greece's and Rush's questions (no p before). The seven local contests with one name on the ballot (the City Court Judge, Brighton, Hamlin, Parma, Rush, Sweden, Wheatland) keep p 0, as every held one-name local contest does (127 records before this step): their p rests on the ballot's one name, not on the count (`local_medsl`, route zero). A held legislative seat loses its p 0 (districts 134 and 139), as before this step. The county's Clerk, Court Judge and Family Court (rows in all 655) and the Senate's districts 54, 55 and 56 are not held. Monroe's Board of Elections answered the one request allowed (its 2024 certification, monroecounty.gov) with "Page Not Found" at 22:30:04 UTC on 2026-11-07; Ontario's board was not asked, since no p of MEDSL's rests on Ontario (its US House rows are whole, 92 of 92).
+- The other counties caught: 
+  - 2018: Kennebec County, Maine (the US House's rows miss 17 of its 30 precincts, 37% of the votes): its County Commissioner 2 and District Attorney 4 are held (no p before). Dutchess, Herkimer, Montgomery, Rensselaer and Westchester Counties, New York: New York 2018 is held already (§29), so no record changes.
+  - 2022: Barry County, Michigan (2 of 26 precincts, 2.9%: two precinct names misspelt in the US House's rows, 'CARLETON' and 'PRECINCNT') and Midland County (38 of 44, 89%); Ulster County, New York (69 of 164, 37%). No record changes: the records there are statewide contests, read by the statewide test, or are held already.
+  - 2024: Cass County (21 of 36, 57%) and Union County (1 of 11, 2.7%: a joint-school precinct), Indiana: no record changes, since Indiana 2024's records are the state's own counts (`in_enr`).
+- *Statewide contests* (`statewide_short`): a contest with rows in 90% or more of a state's counties whose rows miss more than 2% of a county's precincts. Its district is the state, so it is held where the votes missed are more than 2% of the state's (the counties' top contests summed), and noted otherwise [my reading]. Held: New York 2024's Proposal One (the rows miss 624 of Monroe County's 655 precincts, 3.81% of the state's votes; p 9.9e-08 before). Noted, at 2% of the state's votes or less: 33 records (1 in 2018, 14 in 2022, 18 in 2024: Michigan, Minnesota, Nevada, Oregon and Washington). The list's other held entries (Connecticut's registrars, one contest per town; Hawaii's, New Hampshire's and Rhode Island's US House districts; New Hampshire's commissioner district 3, one per county) reach 90% of a state's counties without being one contest, and hold no record. Delaware 2018's US Senate, Attorney General and US House were listed until the TOTAL lines of 0 were read (above); none is now.
+
+**The 21:55 items.**
+- (2) "Test every count shown, whatever its source." The over-ballot test now reads the state's own counts too (North Carolina's Board, Idaho's statewide offices, Indiana 2024, North Dakota's Auditor): 31 more contests (4 in 2018, 12 in 2022, 15 in 2024), none held. Listed between 1.0 and 1.1 times, each with a note: Idaho 2022's Attorney General (Idaho's count, 1.004 times the Lieutenant Governor's) and Indiana 2024's Attorney General (1.094 times Public Question 1). A failing state count would stop the build until re-read (`STATE_OVER_REREAD`); none failed.
+- (3) Subtotal rows: 22 one-candidate rows equal to the rest of their contest in the county are dropped where the county shows the pattern in another contest of the file: Bergen County, New Jersey, 2024 (20 rows; its records are held already by New Jersey's county gate) and Yavapai County, Arizona, 2024 (2: Board of Supervisors 1 and Cottonwood's council, now counted once). A lone match stays with its note.
+- (4) Oregon's 2024 Supreme Court positions 1 and 7 are typed statewide judge by the seat (`statewide_seat`); both stay held.
+
+**22:19 item 4.** North Carolina's Board years 2000 and 2010, at -0.7% against the president's lines, keep their p; each record's note cites the 19:04 rule (1,109 records, 26 of them questions).
+
+**What moves** [measured: against fd0af11; stamps aside; `moves-district-checks.json`].
+- **p no longer computed: 197.** State legislatures: Idaho 1984-1990, 84 (the coarse tier); the district checks, 104 (2016: 45 House, 7 Senate; 2018: 15 House and 7 Senate, two of the House's Vermont's seats whose write-in candidate has 69% and 11% of the winner's votes, now added under the write-in rule; 2022: 14 and 16); Monroe County's Assembly of 2024, 8. Questions: New York 2024's Proposal One, 1.
+- **p moved by more than 1%: 441** (316 House, 125 Senate; 121 by more than 3%, from x0.857 to x1.195). Those over 3% move with their chamber's lean, read from districts now held [measured: one record of each state and year]; the others by the same path [inferred]: Georgia, Indiana and Massachusetts 2018 House; Kentucky and New York 2018 Senate; Indiana 2020 Senate; Arkansas, Indiana and Vermont 2024 Senate; New York 2024 House.
+- **p moved by 1% or less: 72,058** (local 1,812; House 53,952; Senate 16,294; x0.9901 to x1.0099): the fits lose the held districts. Counted by level and year in the file, not listed.
+- **Not computed before or after, the reason changed: 6** (Kennebec's two, Monroe's two town contests and two questions).
+- **Typed anew: 2** (Oregon's positions 1 and 7, statewide judge).
+- **Notes:** 1,109 North Carolina records (19:04); 420 Idaho and 92 South Carolina seats (the coarse tier); 33 statewide notes; 22 subtotal notes; 2 over-ballot listings; the kept (b) and noted flags' notes on Klarner's records.
+
+**For the orchestrator.**
+- Idaho's 2x line gives seven districts a year, not six; built as the rule reads.
+- The county gate is read from the US House's rows, with countywide contests whose own rows are whole and legislative seats whose own chamber's rows are whole released; statewide contests are held only past 2% of the state's votes. These are my readings of 22:19 item 1 and 22:26 (a).
+- Name artifacts that survive the matching (Barry County, Michigan, 2022: two precincts misspelt, 2.9% of its votes; Union County, Indiana, 2024: one joint-school precinct, 2.7%) stay on the county list as the rule reads; no record rests on them.
+- Ontario County was not asked; no p rests on it.
+- A held legislative seat with one name loses its p 0 while a held local one keeps it: a difference between the two builds that predates this step.

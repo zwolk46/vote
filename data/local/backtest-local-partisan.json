@@ -11,7 +11,7 @@
     "no US House vote for a county in the previous general's returns": 8
    },
    "in_intervals_50_80_95": {
-    "50": 0.522,
+    "50": 0.521,
     "80": 0.833,
     "95": 0.956
    },
@@ -20,10 +20,10 @@
     "seen": 49
    },
    "within_100_votes": {
-    "expected": 46.2,
+    "expected": 46.3,
     "seen": 43
    },
-   "mean_forecast_minus_outcome": 0.0283,
+   "mean_forecast_minus_outcome": 0.0284,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
      244,
@@ -35,7 +35,7 @@
     ],
     "judge": [
      39,
-     0.564
+     0.538
     ],
     "mayor or executive": [
      10,
@@ -91,10 +91,10 @@
     "seen": 54
    },
    "within_100_votes": {
-    "expected": 51.7,
+    "expected": 51.8,
     "seen": 43
    },
-   "mean_forecast_minus_outcome": 0.0294,
+   "mean_forecast_minus_outcome": 0.0295,
    "in_50_interval_by_office_type": {
     "clerk, treasurer or other county officer": [
      203,
