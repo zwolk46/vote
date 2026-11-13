@@ -39,7 +39,7 @@ Nothing else is needed from you. The coordinator and the new orchestrator do the
 
 | Worker | Brief | Model, effort | Old branch | At the stop | On restart |
 |---|---|---|---|---|---|
-| D3, local, legislative and measure data | `briefs/D3-data-local.md` | Opus 5.5, xhigh | `claude/project-thread-sl6m2f` | #100 (district checks) merged 2026-11-13 as d680bd4. Next: VA 2023 local, then item 5 with DC 2018 at-large, and the held one-name ruling of 2026-11-13 (`STATE.md` log). | **restart** |
+| D3, local, legislative and measure data | `briefs/D3-data-local.md` | Opus 5.5, xhigh | `claude/project-thread-sl6m2f` | #100 (district checks) and #101 (held one-name, VA 2023 local) merged 2026-11-13. Next: item 5 with DC 2018 at-large, then the rulings of 2026-11-13 ~01:00 (unopposed comparator, VA nonpartisan offices, write-in test) with 2025 local (`STATE.md` log). | **restart** |
 | M2, independent check of every p | `briefs/M2-check-computed-p.md` | Fable 5.1, xhigh | `claude/project-thread-pbr8zl` | Seventh pass merged as #99 (346273e, 2026-11-12). Eighth pass under way, end fixed at `346273e`: #96, #97, c15's pools brought to the seventh pass's rules, then D3's district-checks PR when it lands. | **restart** |
 | X1, design | `briefs/X1-design.md` | Opus 5.5, xhigh | `claude/project-thread-ozfwbq-options`, `claude/project-thread-ozfwbq-explainer` | Holding for Zach's two picks, with both options carrying real data. | **restart once he picks** |
 | T1, tracker | `briefs/T1-tracker.md` | Sonnet 5.5, xhigh | none | Kept the old tracker's rows. | **restart** after section 6, pointing the brief at the new tracker's link |
