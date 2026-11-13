@@ -7172,3 +7172,628 @@ M2 checks (section 18, its own run): 2026-11-13T05:29Z, repository HEAD 05af090f
     78a82f2: Indiana 2016 House records with p and a two-party share: 54; mean share_first 0.4556
     72d1d60: Indiana 2016 House records with p and a two-party share: 72; mean share_first 0.4334
 
+M2 checks (section 19, its own run): 2026-11-13T08:46Z, repository HEAD d2bdd09e, python3 3.13.18
+##### c47_governor_counts
+c47: section 19, part one; b350d5e -> b35fede; sections [1, 2, 3, 4]
+
+====================================================================================================
+47.1 moves-governor-counts.json against my own diff of every governor, House and Senate record, b350d5e -> b35fede
+====================================================================================================
+  the file: 1,156 rows (1,156 ids), against b285fbe (the code alone; its data main's at 72d1d60, which equal b350d5e's D2 files: my diff is main to main); stamp_only 3396; columns ['id', 'file', 'p under', 'p before', 'p after', 'ratio', 'ratios of the p beside', 'codes']
+  its codes: {"P": "p moved", "L": "p no longer computed", "N": "p newly computed", "A": "a p beside it moved", "B": "p unchanged, its block changed", "F": "its forecasts changed", "I": "its forecast inputs changed", "Q": "its notes changed", "O": "other fields", "G": "gained", "X": "lost", "file_blocks": "each file's own blocks outside its contests (the model, the tests it reports): [path, before, after]"}
+  D2 data files changed: 53 {'governor': 37, 'house': 9, 'senate': 7}
+  my diff, by level and codes: governor A,F,B 59; governor A,F,I,Q,B 2; governor I,B 7; governor I,Q,B 1; governor P,A,F 117; governor P,A,F,I,Q 2; governor P,A,F,O 1; governor P,A,F,Q 3; governor P,A,F,Q,O 3; governor P,A,Q,O 1; governor Q 1; house B 390; house O 1; house P,A 346; senate B 222
+  records whose only difference is a stamp (commit, read_utc), left out as the file does: 3,241 (the file's stamp_only 3396)
+  rows whose codes I share (B, F and O read as one kind): 1,155 of 1,156 ids in my diff; differing: 1; ids in my diff but not in the file: 0 ; in the file but not in my diff: 0 []
+  p before/after other than the record's: 0; ratios off the record's: 0; the p beside's ratios off: 0
+    mine P,A,F,Q theirs L,A,F,Q governor: 1
+    e.g. 2012-governor-WV: mine ['P', 'A', 'F', 'Q'], theirs ['L', 'A', 'F', 'Q']; differs in ['forecasts[0].as_of', 'forecasts[0].by', 'forecasts[0].convention', 'forecasts[0].method', 'forecasts[0].p_published', 'forecasts[0].published']
+
+  the counts (the orchestrator, 07:38: 'My compare against main: 1 lost, 9 gained, 14,997 moved'; D3's message: '14,525 moved plus 187 governor'):
+    the file's P (p of record moved), by level: {'governor': 126, 'house': 346}; mine: {'governor': 127, 'house': 346}
+    the file's L: {'governor': 1} (mine X/L {}); the file's A (a p beside moved) without P: {'governor': 62, 'house': 0, 'senate': 0}
+    moves-district-checks-3.json: P by level {'local': 1483, 'state-lower': 10183, 'state-upper': 2859} = 14,525; N {'state-lower': 6, 'state-upper': 3} = 9; L {}
+    so: D3's 14,525 = the district file's P; the orchestrator's 14,997 = 14,525 + governor P 126 + House P 346 = 14,997; his 1 lost = West Virginia 2012 (L); his 9 gained = the district file's N (9)
+    D3's '187 governor p of record move' (REPORT section 35) = the governor rows with P or A, the L row (West Virginia 2012, which carries A too) aside: 187 = P 126 + A without P 61 (the 2018 and 2022 records whose p of record is 538's, unchanged, and whose model's-own p beside moved); the p of record that moved are 126, so the section's '187' counts the p beside too [measured]
+    the governor P rows' ratios: from 0.915789 (2018-governor-NY) to 1.013405 (2020-governor-ND); beyond 1%: 17 [('2018-governor-NY', 0.915789), ('2008-governor-UT', 0.951457), ('2016-governor-UT', 0.966823), ('2018-governor-CT', 0.967836), ('2024-governor-MT', 0.983092), ('2024-governor-UT', 0.983095), ('2016-governor-NC', 0.984051), ('2016-governor-WV', 0.984283), ('2014-governor-WY', 0.985538), ('2014-governor-OK', 0.985735), ('2024-governor-WV', 0.986542), ('2014-governor-ID', 0.986687), ('2024-governor-ND', 0.987908), ('2014-governor-AL', 0.988757), ('2024-governor-IN', 0.988859), ('2016-governor-WA', 1.010734), ('2020-governor-ND', 1.013405)]; within 1%: 109 (D3: '170 of the 187 are within 1%': 170 = 109 P within 1% + the 61 A-only rows: True); over 2x either way: []
+    the House's and Senate's P rows: 346 ({'data/house/2012.json': 346}); the largest move 2.10e-05 (2012-house-WY-AL) (D3: 'by 0.002% at most'): the largest is 0.0021%, D3 rounded
+
+  the files' own blocks: the file lists 46; my diff finds 46 files with a block leaf changed; same set: True; mine not theirs []; theirs not mine []
+    governor: 7 file(s) differ in ['model.b_inc', 'model.b_lag', 'model.b_lean', 'model.c[]', 'model.calibration', 'model.k', 'model.national_forecast', 'model.national_sd']
+    governor: 2 file(s) differ in ['model.b_inc', 'model.b_lag', 'model.b_lean', 'model.c[]', 'model.calibration', 'model.k', 'model.national_forecast', 'model.national_sd']
+    governor: 4 file(s) differ in ['model.b_inc', 'model.b_lag', 'model.b_lean', 'model.c[]', 'model.calibration', 'model.k', 'model.national_forecast', 'model.national_sd']
+    governor: 1 file(s) differ in ['model.b_inc', 'model.b_lag', 'model.b_lean', 'model.c[]', 'model.calibration', 'model.k', 'model.national_forecast', 'model.national_sd']
+    governor: 1 file(s) differ in ['model.b_inc', 'model.b_lag', 'model.b_lean', 'model.c[]', 'model.calibration', 'model.k', 'model.national_forecast', 'model.national_sd']
+    governor: 2 file(s) differ in ['model.b_inc', 'model.b_lag', 'model.b_lean', 'model.c[]', 'model.calibration', 'model.k', 'model.national_forecast', 'model.national_sd']
+    governor: 12 file(s) differ in ['model.odd_year']
+    governor: 1 file(s) differ in ['sources.ut_lg']
+    house: 9 file(s) differ in ['model.near_tie']
+    senate: 7 file(s) differ in ['model.near_tie']
+    data/governor/2014.json: model.b_inc 0.08053119 -> 0.08065140; model.b_lag 0.06841193 -> 0.06743435; model.b_lean 0.28931464 -> 0.29171054; model.c[0] 0.00539092 -> 0.00507137; model.c[1] -0.0216111 -> -0.0216368; model.c[2] -0.0132487 -> -0.0140347; model.calibration.k 0.97244209 -> 0.97316721; model.calibration.races 307 -> 306; model.k 0.97244209 -> 0.97316721; model.national_forecast -0.0162202 -> -0.0165654; model.national_sd 0.02289120 -> 0.02304963; model.races 400 -> 399; model.rho 0.07431305 -> 0.07511621; model.s_a 0.02166515 -> 0.02179883; model.s_e 0.08079197 -> 0.08087992; model.s_e_fitted 0.08308153 -> 0.08311000; model.sd 0.08397232 -> 0.08410022
+    data/governor/2020.json: model.b_inc 0.07355290 -> 0.07359030; model.b_lag 0.09958953 -> 0.09842993; model.b_lean 0.28687960 -> 0.28790390; model.c[0] 0.00371393 -> 0.00344888; model.c[1] -0.0216960 -> -0.0216563; model.c[2] -0.0139616 -> -0.0145834; model.calibration.k 0.93494890 -> 0.93540156; model.calibration.races 390 -> 389; model.k 0.93494890 -> 0.93540156; model.national_forecast 0.01767557 -> 0.01803235; model.national_sd 0.02029575 -> 0.02037985; model.races 483 -> 482; model.rho 0.06787306 -> 0.06829672; model.s_a 0.02026186 -> 0.02033596; model.s_e 0.07521320 -> 0.07527311; model.s_e_fitted 0.08044632 -> 0.08047144; model.sd 0.07790342 -> 0.07798320
+    data/governor/2024.json: model.b_inc 0.07313521 -> 0.07316588; model.b_lag 0.11562294 -> 0.11459053; model.b_lean 0.30137358 -> 0.30235071; model.c[0] 0.00095712 -> 0.00068609; model.c[1] -0.0218116 -> -0.0217487; model.c[2] -0.0074605 -> -0.0080598; model.calibration.k 0.92932813 -> 0.92979618; model.calibration.races 437 -> 436; model.k 0.92932813 -> 0.92979618; model.national_forecast -0.0065033 -> -0.0073737; model.national_sd 0.02454500 -> 0.02465434; model.races 530 -> 529; model.rho 0.10011406 -> 0.10077688; model.s_a 0.02470574 -> 0.02480331; model.s_e 0.07358838 -> 0.07364558; model.s_e_fitted 0.07918450 -> 0.07920615; model.sd 0.07757388 -> 0.07766278
+
+====================================================================================================
+47.2 The counts against the sources, read apart: Connecticut's page, Utah's workbook, West Virginia's page, Indiana's archive, Algara and Amlani, MEDSL
+====================================================================================================
+  ct:contest3781: http 200 at 07:46:05 UTC, 125260 bytes, sha256 87a79d3c2ce7d8d6...
+  ut:2008gen: http 200 at 07:46:05 UTC, 230400 bytes, sha256 ef6a69049aadf2ff...
+  wv:2012statewide: http 200 at 07:46:07 UTC, 431669 bytes, sha256 45a9a7d3fb5d024a...
+  mo:2008: http 403 at 07:46:07 UTC, 5599 bytes, sha256 e101a74978d6d438...
+  mo:2012: http 403 at 07:46:07 UTC, 5575 bytes, sha256 6eaa308471364a48...
+  mo:2016: http 403 at 07:46:07 UTC, 5668 bytes, sha256 fe9b23d50b885521...
+  aa:dataset: http 200 at 07:44:58 UTC, 23013 bytes, sha256 83212dd35fb49960...
+  aa:rdata: http 200 at 07:46:11 UTC, 1875640 bytes, sha256 437bb3e821b897ec...
+  Missouri's Secretary of State answered 403 to each of the three PDFs (one request each, six seconds apart; not asked again): its returns are read here from the records' notes and D3's REPORT alone [stated]; New York's State Board and Maine's Secretary of State are not asked (refused earlier)
+
+  Algara and Amlani's file: md5 aad6adc36018578244edc77a7f520c41 (equals the dataset's listing aad6adc36018578244edc77a7f520c41); objects ['.Random.seed', 'gov_elections_release']; 149,324 rows, columns ['election_id', 'election_year', 'fips', 'county_name', 'state', 'sfips', 'office', 'election_type', 'seat_status', 'democratic_raw_votes', 'dem_nominee', 'republican_raw_votes', 'rep_nominee', 'gov_raw_county_vote_totals_two_party', 'raw_county_vote_totals', 'county_first_date']...; election types {'G': 149324}; years 1865-2020
+
+  Connecticut's page (electionhistory.ct.gov/contest/3781), its data as served: office Governor, State of Connecticut, event 2018-11-06, contest {'id': '3781', 'nSeats': 1, 'verifiedAt': '2020-11-17T06:35:18Z', 'eventTypeDisplayName': 'General', 'hasWinners': True}; words on the page: {'Statement of Vote 2018': True, 'Official Sources': True, 'data entry errors that have been preserved': True, 'discrepancies in precinct reporting in the Town of Woodstock': True}
+    Ned Lamont and Susan Bysiewicz: 694,510 = lines [('Democratic', 676649), ('Working Families', 17861)] (sum ok); write-in False; winner True
+    Bob Stefanowski and Joe Markley: 650,138 = lines [('Republican', 624750), ('Independent', 25388)] (sum ok); write-in False; winner False
+    Oz Griebel and Monty E. Frank: 54,741 = lines [('Griebel Frank for CT', 54741)] (sum ok); write-in False; winner False
+    Rodney Hanscomb and Jeffrey Thibeault: 6,086 = lines [('Libertarian', 6086)] (sum ok); write-in False; winner False
+    Mark Stewart Greenstein and John Demitrus: 1,254 = lines [('Amigo Constitution Liberty', 1254)] (sum ok); write-in False; winner False
+    Lee Whitnum and Jacey Wyatt: 74 = lines [('Write In', 74)] (sum ok); write-in False; winner False
+    the candidates' sum 1,406,803; the page's total rows (pseudocandidates) [('Total Votes Cast', 1406803), ('Total Ballots Cast', 1406803)]; equal: True; the page's other integers {}; named totals in the JSON []
+
+  2018-governor-CT: the Secretary of the State's count, every line [stated: the page]
+    before: [('LAMONT, EDWARD M. (NED)', 'D', 676649), ('STEFANOWSKI, BOB', 'R', 624750), ('GRIEBEL, R. NELSON (OZ)', 'I', 54741), ('HANSCOMB, RODNEY', 'Lbt', 6086), ('GREENSTEIN, MARK STEWART', 'ACL', 1254)] total 1,363,480; source Cha, Kuriwaki and Snyder, Candidates in American General Ele... mark stated
+    after:  [('LAMONT, EDWARD M. (NED)', 'D', 694510, [('Democratic', 676649), ('Working Families', 17861)]), ('STEFANOWSKI, BOB', 'R', 650138, [('Republican', 624750), ('Independent', 25388)]), ('GRIEBEL, R. NELSON (OZ)', 'I', 54741, ''), ('HANSCOMB, RODNEY', 'Lbt', 6086, ''), ('GREENSTEIN, MARK STEWART', 'ACL', 1254, ''), ('WHITNUM, LEE', 'W-I', 74, '')] total 1,406,803
+            source Connecticut Secretary of the State, Election History: 2018 Nov 6, General Election, Govern...; url https://electionhistory.ct.gov/contest/3781; mark official (the page lists the count under 'Official Sources': 'Statement of Vote 2018', page 7)
+            total = sum of candidates: True; lines sum to votes: True
+    the source's figures against the record after: {'LAMONT, EDWARD M. (NED)': (694510, 694510, True), 'STEFANOWSKI, BOB': (650138, 650138, True), 'GRIEBEL, R. NELSON (OZ)': (54741, 54741, True), 'WHITNUM, LEE': (74, 74, True)}; all equal: True
+    two_party before [676649, 624750] n 1,301,398 share 0.51994; after [694510, 650138] n 1,344,647 share 0.516499; n = sum - 1: True; share = first/sum: True
+    p: before 3.643252e-06 (n 1301398) -> after 3.526071e-06 (n 1344647); ratio 0.967836; n before/after 0.967836; p.n = two_party's n: True
+      538 (lite), normal with the sd implied b before 3.643252e-06 after 3.526071e-06; before's f_half at after's n 3.526071e-06 = after; f_half unchanged: True
+      538 (deluxe), normal with the implied sd before 3.499116e-06 after 3.386571e-06; before's f_half at after's n 3.386571e-06 = after; f_half unchanged: True
+      538 (classic), normal with the implied s before 3.400059e-06 after 3.290700e-06; before's f_half at after's n 3.290700e-06 = after; f_half unchanged: True
+      the model's own (D2-v3 (with the last go before 1.615474e-06 after 1.563719e-06; before's f_half at after's n 1.563515e-06 != after (the forecast moved too); f_half unchanged: False
+      the model's own (D2-v3 (with the last go before 1.765187e-06 after 1.711170e-06; before's f_half at after's n 1.708411e-06 != after (the forecast moved too); f_half unchanged: False
+    ballot.others: before 3 after 3 (candidates after neither D, R nor W-I: 3)
+    the count note: 1; the source's figures in it: {694510: True, 650138: True, 54741: False, 74: True}; Cha's note kept: False
+    Algara and Amlani, Connecticut 2018 over 8 counties: D 694,510 R 650,138 (Lamont, Ned /  Stefanowski, Bob); equal to the page's lines summed: True
+    MEDSL's 2018 Connecticut file, my summary (lines summed under the name): {'NED LAMONT AND SUSAN BYSIEWICZ': 694509, 'BOB STEFANOWSKI AND JOE MARKLEY': 650132, 'OZ GRIEBEL AND MONTE E FRANK': 54741}; counties 8 (D3: 694,509 and 650,132 every line summed)
+
+  Algara and Amlani, New York 2018 over 62 counties (0 D / 0 R rows missing): D 3,635,340 R 2,207,602 (Cuomo, Andrew /  Molinaro, Marcus); county totals 6,104,477
+
+  2018-governor-NY: Algara and Amlani's county returns, every line [measured: my sums]
+    before: [('CUOMO, ANDREW M.', 'D', 3424416), ('MOLINARO, MARCUS J. (MARC)', 'R', 1926485), ('HAWKINS, HOWIE', 'Grn', 103946), ('SHARPE, LARRY', 'Lbt', 95033), ('MINER, STEPHANIE A.', 'Save Amer Movement', 55441)] total 5,605,321; source Cha, Kuriwaki and Snyder, Candidates in American General Ele... mark stated
+    after:  [('CUOMO, ANDREW M.', 'D', 3635340, ''), ('MOLINARO, MARCUS J. (MARC)', 'R', 2207602, ''), ('HAWKINS, HOWIE', 'Grn', 103946, ''), ('SHARPE, LARRY', 'Lbt', 95033, ''), ('MINER, STEPHANIE A.', 'Save Amer Movement', 55441, '')] total 6,097,362
+            source Algara and Amlani, Replication Data for: Partisanship & Nationalization in American Electi...; url https://dataverse.harvard.edu/api/access/datafile/5028535; mark stated
+            total = sum of candidates: True; lines sum to votes: True
+    the source's figures against the record after: {'CUOMO, ANDREW M.': (3635340, 3635340, True), 'MOLINARO, MARCUS J. (MARC)': (2207602, 2207602, True)}; all equal: True
+    two_party before [3424416, 1926485] n 5,350,900 share 0.63997; after [3635340, 2207602] n 5,842,941 share 0.622176; n = sum - 1: True; share = first/sum: True
+    p: before 9.419356e-08 (n 5350900) -> after 8.626141e-08 (n 5842941); ratio 0.915789; n before/after 0.915789; p.n = two_party's n: True
+      538 (lite), normal with the sd implied b before 9.419356e-08 after 8.626141e-08; before's f_half at after's n 8.626141e-08 = after; f_half unchanged: True
+      538 (deluxe), normal with the implied sd before 3.371875e-08 after 3.087925e-08; before's f_half at after's n 3.087925e-08 = after; f_half unchanged: True
+      538 (classic), normal with the implied s before 4.740105e-08 after 4.340935e-08; before's f_half at after's n 4.340935e-08 = after; f_half unchanged: True
+      the model's own (D2-v3 (with the last go before 1.025831e-07 after 9.411217e-08; before's f_half at after's n 9.394441e-08 != after (the forecast moved too); f_half unchanged: False
+      the model's own (D2-v3 (with the last go before 6.184608e-08 after 5.673984e-08; before's f_half at after's n 5.663795e-08 != after (the forecast moved too); f_half unchanged: False
+    ballot.others: before 3 after 3 (candidates after neither D, R nor W-I: 3)
+    the count note: 1; the source's figures in it: {3635340: True, 2207602: True}; Cha's note kept: True
+    MEDSL's 2018 New York file, my summary: {'ANDREW M CUOMO': 3286344, 'MARC MOLINARO': 1866153, 'HOWIE HAWKINS': 94460}; counties 57 of 62; Cuomo's lines summed 0.9040 of Algara and Amlani's; Cha's own-line figures 3,424,416 and 1,926,485 [stated: the note] are 0.9420 and 0.8727 of them
+
+  Indiana's 2024 archive (my copy of the seventh pass, enr.indianavoters.in.gov/archive/2024General): Governor & Lt. Governor; settings {'Certified': 'T', 'CurrentElection': '11/05/2024', 'WriteTime': '2025-04-17T18:32:33.447'}; written 2025-04-17T18:31:53.5
+    ('Mike Braun & Micah  Beckwith', 'R', 1566081, False)
+    ('Jennifer G. McCormick & Terry  Goodin', 'D', 1183741, False)
+    ('Donald Rainwater & Tonya  Hudson', 'L', 129781, False)
+    ('Christopher Ryan Stried (W/I)', 'I', 52, True)
+
+  2024-governor-IN: the archive's certified count (settings 'Certified': 'T') [stated]
+    before: [('BRAUN, MIKE', 'R', 1561279), ('MCCORMICK, JENIFFER', 'D', 1179967)] total 2,741,246; source Cha, Kuriwaki and Snyder, Candidates in American General Ele... mark stated
+    after:  [('BRAUN, MIKE', 'R', 1566081, ''), ('MCCORMICK, JENIFFER', 'D', 1183741, ''), ('RAINWATER, DONALD', 'Lbt', 129781, ''), ('STRIED, CHRISTOPHER RYAN', 'W-I', 52, '')] total 2,879,655
+            source Indiana Election Division, results archive of the 2024 General Election (Governor & Lt. Go...; url https://enr.indianavoters.in.gov/archive/2024General/; mark certified (the archive's settings say "Certified": "T", version 20241213_160047)
+            total = sum of candidates: True; lines sum to votes: True
+    the source's figures against the record after: {'BRAUN, MIKE': (1566081, 1566081, True), 'MCCORMICK, JENIFFER': (1183741, 1183741, True), 'RAINWATER, DONALD': (129781, 129781, True), 'STRIED, CHRISTOPHER RYAN': (52, 52, True)}; all equal: True
+    two_party before [1561279, 1179967] n 2,741,245 share 0.569551; after [1566081, 1183741] n 2,749,821 share 0.569521; n = sum - 1: True; share = first/sum: True
+    p: before 7.361941e-07 (n 2741245) -> after 7.279921e-07 (n 2749821); ratio 0.988859; n before/after 0.996881; p.n = two_party's n: True
+      the model's own (D2-v3 (with the last go before 7.361941e-07 after 7.279921e-07; before's f_half at after's n 7.338981e-07 != after (the forecast moved too); f_half unchanged: False
+      the model's own (D2-v3 (with the last go before 7.249319e-07 after 7.118677e-07; before's f_half at after's n 7.226710e-07 != after (the forecast moved too); f_half unchanged: False
+    ballot.others: before 0 after 1 (candidates after neither D, R nor W-I: 1)
+    the count note: 1; the source's figures in it: {1566081: True, 1183741: True, 129781: True, 52: True}; Cha's note kept: False
+
+  Utah's 2008 workbook (vote.utah.gov .../2008Gen.xls): sheets ['President', 'U S House', 'Governor', 'Attorney Gen', 'Treasurer', 'Auditor', 'Senate Multi County', 'Senate Single County', 'House Multi County', 'House Single County', 'School Board', 'Judges', 'Amendments', 'straight party']; the Governor sheet's header ['COUNTY', 'REGISTERED VOTERS', 'VOTES CAST', 'PERCENTAGE', 'Huntsman & Herbert "R"', 'Springmeyer & Valdez "D"', 'Schanze & Hobbs "L"', 'Doughton (Write in)', '']; its Total row {'COUNTY': 'Total', 'REGISTERED VOTERS': 1432525.0, 'VOTES CAST': 971185.0, 'PERCENTAGE': 0.6779532643409365, 'Huntsman & Herbert "R"': 734049.0, 'Springmeyer & Valdez "D"': 186503.0, 'Schanze & Hobbs "L"': 24820.0, 'Doughton (Write in)': 153.0}; 30 county rows; words 'certif'/'official'/'canvass'/'abstract' anywhere in the workbook: none
+
+  2008-governor-UT: the Lieutenant Governor's workbook, Total row; no mark [stated]; Algara and Amlani agree (two witnesses)
+    before: [('HUNTSMAN, JON M., JR.', 'R', 700565), ('SPRINGMEYER, BOB', 'D', 175301), ('SCHANZE, DELL (SUPERDELL)', 'Lbt', 23449)] total 899,315; source Cha, Kuriwaki and Snyder, Candidates in American General Ele... mark stated
+    after:  [('HUNTSMAN, JON M., JR.', 'R', 734049, ''), ('SPRINGMEYER, BOB', 'D', 186503, ''), ('SCHANZE, DELL (SUPERDELL)', 'Lbt', 24820, ''), ('DOUGHTON', 'W-I', 153, '')] total 945,525
+            source Utah Lieutenant Governor, 2008 General (the workbook its historical election results page ...; url https://vote.utah.gov/wp-content/uploads/2023/09/2008Gen.xls; mark stated (the workbook bears no certified or official mark; it stands with Algara and Amlani's county returns, equal to it
+            total = sum of candidates: True; lines sum to votes: True
+    the source's figures against the record after: {'HUNTSMAN, JON M., JR.': (734049, 734049, True), 'SPRINGMEYER, BOB': (186503, 186503, True), 'SCHANZE, DELL (SUPERDELL)': (24820, 24820, True), 'DOUGHTON': (153, 153, True)}; all equal: True
+    two_party before [700565, 175301] n 875,865 share 0.799854; after [734049, 186503] n 920,551 share 0.797401; n = sum - 1: True; share = first/sum: True
+    p: before 1.110251e-06 (n 875865) -> after 1.056357e-06 (n 920551); ratio 0.951457; n before/after 0.951457; p.n = two_party's n: True
+      the model's own (D2-v3 (with the last go before 1.110251e-06 after 1.056357e-06; before's f_half at after's n 1.056357e-06 = after; f_half unchanged: True
+      the model's own (D2-v3 (with the last go before 7.345004e-07 after 6.988458e-07; before's f_half at after's n 6.988458e-07 = after; f_half unchanged: True
+    ballot.others: before 1 after 1 (candidates after neither D, R nor W-I: 1)
+    the count note: 1; the source's figures in it: {734049: True, 186503: True, 24820: True, 153: True}; Cha's note kept: False
+    the record's names: ['HUNTSMAN, JON M., JR.', 'SPRINGMEYER, BOB', 'SCHANZE, DELL (SUPERDELL)', 'DOUGHTON'] (the figures above are matched by surname below)
+    by surname: Huntsman 734049 = 734049: True; Springmeyer 186503 = 186503: True; Schanze 24820 = 24820: True; Doughton 153 = 153: True
+    Algara and Amlani, Utah 2008 over 29 counties: D 186,503 R 734,049 (Springmeyer, Bob / Huntsman, Jon Jr.); equal to the workbook's Total row: True; within 0.4% by candidate (the two-witness rule): True; Cha's 700,565 / 175,301 [stated] under the workbook by 0.0456 / 0.0601
+
+  West Virginia's 2012 page (apps.sos.wv.gov, statewide, eid 13): governor [('EARL RAY TOMBLIN', 'Democrat', 335468, 50.49), ('BILL MALONEY', 'Republican', 303291, 45.65), ('JESSE JOHNSON', 'Mountain', 16787, 2.53), ('DAVID MORAN', 'Libertarian', 8909, 1.34), ('NATALIE E. TENNANT', 'Democrat', 398463, 62.4), ('BRIAN SAVILLA', 'Republican', 240080, 37.6), ('GLEN B. GAINER III', 'Democrat', 355610, 57.4), ('LARRY V. FAIRCLOTH', 'Republican', 263959, 42.6)]; 'Official Total Votes' 664455; precincts (number, reporting) (1892, 1846); words {'should not be relied on as official results until certified': True, 'Results do not include write-in candidate information': True, 'Official Results': True}; heading 'Official Results' True; the segment: Governor Contest Code: DA Candidate Party Votes Percentage State Total EARL RAY TOMBLIN Democrat 335,468 50.49% 335,468 BILL MALONEY Republican 303,291 45.65% 303,291 JESSE JOHNSON Mountain 16,787 2.53% 16,787 DAVID MORAN Libertarian 8,909 1.34% 8,909 Official Total Votes: 664,455 Back To Top Secret
+    Algara and Amlani, West Virginia 2012 over 55 counties: D 335,468 R 303,291; equal to the page: True (so a copy of it, not a second witness: D3's reading [stated])
+
+  2012-governor-WV: held: the record keeps Cha's count [stated: the figures are Cha's as the record before carries them]
+    before: [('TOMBLIN, EARL RAY', 'D', 297207), ('MALONEY, WILLIAM (BILL)', 'R', 273130), ('JOHNSON, JESSE CLARENCE, JR.', 'Mountain', 15179), ('MORAN, DAVID D. (DAVE)', 'Lbt', 7934)] total 593,450; source Cha, Kuriwaki and Snyder, Candidates in American General Ele... mark stated
+    after:  [('TOMBLIN, EARL RAY', 'D', 297207, ''), ('MALONEY, WILLIAM (BILL)', 'R', 273130, ''), ('JOHNSON, JESSE CLARENCE, JR.', 'Mountain', 15179, ''), ('MORAN, DAVID D. (DAVE)', 'Lbt', 7934, '')] total 593,450
+            source Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:...; url https://doi.org/10.7910/DVN/DGDRDT; mark stated
+            total = sum of candidates: True; lines sum to votes: True
+    the source's figures against the record after: {'TOMBLIN, EARL RAY': (297207, 297207, True), 'MALONEY, WILLIAM (BILL)': (273130, 273130, True), 'JOHNSON, JESSE CLARENCE, JR.': (15179, 15179, True), 'MORAN, DAVID D. (DAVE)': (7934, 7934, True)}; all equal: True
+    two_party before [297207, 273130] n 570,336 share 0.521108; after [297207, 273130] n 570,336 share 0.521108; n = sum - 1: True; share = first/sum: True
+    p before 3.7693272258410644e-06 after None; after's reason: held (the orchestrator, 2026-11-13 06:52, under 19:04): the record's count, Cha, Kuriwaki and Snyder's, stands against one other count, the West Virginia Secretary of State's results page, which says its results "should not be relied on as official results until certified" and reports 1,846 of 1,892
+    ballot.others: before 2 after 2 (candidates after neither D, R nor W-I: 2)
+    the count note: 1; the source's figures in it: {297207: True, 273130: True, 15179: True, 7934: True}; Cha's note kept: True
+    Cha's figures under the page's: TOMBLIN 0.1141, MALONEY 0.0994, JOHNSON 0.0958, MORAN 0.1094
+    after: model's-own forecasts 0 (before 2); p.not_computed begins 'held (the orchestrator, 2026-11-13 06:52, under 19:04): the record's count, Cha, Kuriwaki ...'; the page's figures in the note: False; the three sentences quoted: ['should not be relied on as official results until certified', 'Official Results']
+
+  the last-race inputs that read these counts:
+    West Virginia 2011 (Cha: 1 contest, special True): [('BERTRAM, HARRY V.', 'Other', 1111), ('TOMBLIN, EARL RAY', 'D', 149202), ('INGELS, MARLA DEE', 'I', 2875)]; D's two-party share 0.5129719657014763
+    2022-governor-CT: before {'year': 2018, 'share_D': 0.5199396956659718, 'special': False, 'source': 'cha'}; after {'year': 2018, 'share_D': 0.5164994853671742, 'special': False, 'source': 'cha'}; expected year 2018 share 0.516499: True; p 2.348386e-07 -> 2.348386e-07 (x1.000000); the model's own beside: [1.0, 1.0, 1.00608, 1.011325]
+    2022-governor-NY: before {'year': 2018, 'share_D': 0.6399699788876677, 'special': False, 'source': 'cha'}; after {'year': 2018, 'share_D': 0.6221762940655581, 'special': False, 'source': 'cha'}; expected year 2018 share 0.622176: True; p 3.161856e-07 -> 3.161856e-07 (x1.000000); the model's own beside: [1.0, 1.0, 1.005062, 1.014228]
+    2010-governor-UT-special: before {'year': 2008, 'share_D': 0.20014591273094287, 'special': False, 'source': 'cha'}; after {'year': 2008, 'share_D': 0.20259909271828208, 'special': False, 'source': 'cha'}; expected year 2008 share 0.202599: True; p 2.575910e-06 -> 2.581627e-06 (x1.002220); the model's own beside: [1.00376]
+    2016-governor-WV: before {'year': 2012, 'share_D': 0.5211076959762386, 'special': False, 'source': 'cha'}; after {'year': 2011, 'share_D': 0.5129719657014763, 'special': True, 'source': 'cha'}; expected year 2011 share 0.512972: True; p 3.121199e-06 -> 3.072144e-06 (x0.984283); the model's own beside: [0.968648]
+
+  Hawaii 2018: two_party n before 376,653 after 376,652 (= sum - 1: True); p 6.566280e-07 -> 6.566297e-07 (x1.00000265; n ratio 1.00000265)
+
+  Missouri 2008, 2012, 2016 (the Secretary of State's PDFs refused to me; the records' notes and A&A read):
+    2008-governor-MO: record D 1,680,611 R 1,136,364 (before the same: True); A&A over 115 counties D 1,560,588 (-0.0714) R 1,110,048 (-0.0232); p None -> None; note added: 1 the count (pipeline/governor_counts.py): Missouri's official returns (Official Election Returns ... As announced by the Board of State Canvassers on Tuesday, De...
+    2012-governor-MO: record D 1,494,056 R 1,160,265 (before the same: True); A&A over 115 counties D 1,386,582 (-0.0719) R 1,136,459 (-0.0205); p 6.365946361512867e-07 -> 6.368138028804485e-07; note added: 1 the count (pipeline/governor_counts.py): Missouri's official returns (Official Election Returns ... As announced by the Board of State Canvassers on Wednesday, ...
+    2016-governor-MO: record D 1,277,360 R 1,433,397 (before the same: True); A&A over 115 counties D 1,179,024 (-0.0770) R 1,408,113 (-0.0176); p 8.697540566046861e-07 -> 8.651311237892341e-07; note added: 1 the count (pipeline/governor_counts.py): Missouri's official returns (Missouri Office of Secretary of State / OFFICIAL RESULTS / General Election - November 8, ...
+    A&A's Missouri 2016 rows named Kansas City: [] (D3: the shortfall is Kansas City's own rows, Koster 98,336 / Greitens 25,284: Koster's gap 98,336, Greitens's 25,284)
+
+  Maine 2010: A&A over 16 counties D 109,087 (+0.0551 of the record's Mitchell 103,387) R 217,862 (-0.0009 of LePage 218,065); the deciding pair ['LEPAGE, PAUL R.', 'CUTLER, ELIOT R.']; p before None after None; note: ["the count (pipeline/governor_counts.py): Algara and Amlani's county returns give Mitchell 109,087 against this record's 103,387 (+5.5%) and LePage 217,862 against 218,065 (-0.1%), and name no other ca"]
+
+====================================================================================================
+47.3 My own refit with the four counts and West Virginia 2012 out, against the model blocks before and after
+====================================================================================================
+  rows 5,047 (c9's; Hawaii 2018's certified figures applied on load: [('2018-governor-HI', 'y, n2', (0.6400942890817529, 382653), (0.650290851260975, 376653)), ('2022-governor-HI', 'lag', 0.6400942890817529, 0.650290851260975)])
+    ('2012-governor-WV', 'dropped from the fit', 0.5211076959762386, None)
+    ('2018-governor-CT', 'y, n2', (0.5199396956659718, 1301399), (0.5164994853671742, 1344648))
+    ('2022-governor-CT', 'lag', 0.5199396956659718, 0.5164994853671742)
+    ('2018-governor-NY', 'y, n2', (0.6399699788876677, 5350901), (0.6221762940655581, 5842942))
+    ('2022-governor-NY', 'lag', 0.6399699788876677, 0.6221762940655581)
+    ('2024-governor-IN', 'y, n2', (0.43044914611822505, 2741246), (0.4304791364677423, 2749822))
+    ('2008-governor-UT', 'y, n2', (0.20014591273094287, 875866), (0.20259909271828208, 920552))
+    ('2010-governor-UT-special', 'lag', 0.20014591273094287, 0.20259909271828208)
+    ('2016-governor-WV', 'lag (2012 held -> 2011 special)', 0.5211076959762386, 0.5129719657014763)
+  governor rows before 543, after 542; the 2014 fit's rows (year < 2014, D2's fit window from 1978): before 402 after 401 (D3: '399 races where there were 400')
+
+  year   terms          b_lean      b_inc      b_lag        s_e        s_a         c0         c1         c2          k
+  2010   before, mine   0.230442   0.080869   0.070458   0.084036   0.021745   0.006691  -0.017695  -0.011767   0.992080
+         block        0.230442   0.080869   0.070458   0.084036   0.021745   0.006691  -0.017695  -0.011767   0.992080
+         rel diff   largest 1.2e-06 (c0); fit races mine 355 / the block's 355
+  2012   before, mine   0.278358   0.081416   0.051045   0.081601   0.022566   0.005696  -0.021368  -0.012539   0.978555
+         block        0.278358   0.081416   0.051045   0.081601   0.022566   0.005696  -0.021368  -0.012539   0.978555
+         rel diff   largest 1.6e-06 (c0); fit races mine 389 / the block's 389
+  2014   before, mine   0.289315   0.080531   0.068412   0.080792   0.021665   0.005391  -0.021611  -0.013249   0.972442
+         block        0.289315   0.080531   0.068412   0.080792   0.021665   0.005391  -0.021611  -0.013249   0.972442
+         rel diff   largest 1.6e-06 (c0); fit races mine 400 / the block's 400
+  2016   before, mine   0.273539   0.075824   0.077746   0.078654   0.021200   0.004802  -0.022640  -0.012787   0.957907
+         block        0.273539   0.075824   0.077746   0.078654   0.021200   0.004802  -0.022640  -0.012787   0.957907
+         rel diff   largest 1.6e-06 (c0); fit races mine 435 / the block's 435
+  2018   before, mine   0.272974   0.074144   0.093485   0.079081   0.020668   0.004064  -0.022832  -0.013937   0.960470
+         block        0.272973   0.074144   0.093485   0.079081   0.020668   0.004064  -0.022832  -0.013937   0.960470
+         rel diff   largest 1.9e-06 (c0); fit races mine 447 / the block's 447
+  2020   before, mine   0.286880   0.073553   0.099590   0.075213   0.020262   0.003714  -0.021696  -0.013962   0.934949
+         block        0.286880   0.073553   0.099590   0.075213   0.020262   0.003714  -0.021696  -0.013962   0.934949
+         rel diff   largest 2.1e-06 (c0); fit races mine 483 / the block's 483
+  2022   before, mine   0.279884   0.074100   0.104848   0.075047   0.025573   0.000315  -0.022020  -0.007334   0.939199
+         block        0.279884   0.074100   0.104848   0.075047   0.025573   0.000315  -0.022020  -0.007334   0.939199
+         rel diff   largest 1.8e-05 (c0); fit races mine 494 / the block's 494
+  2024   before, mine   0.301374   0.073135   0.115623   0.073588   0.024706   0.000957  -0.021812  -0.007461   0.929328
+         block        0.301374   0.073135   0.115623   0.073588   0.024706   0.000957  -0.021812  -0.007461   0.929328
+         rel diff   largest 6.5e-06 (c0); fit races mine 530 / the block's 530
+  2010   after, mine   0.230243   0.080856   0.070474   0.084001   0.021752   0.006701  -0.017692  -0.011795   0.991849
+         block        0.230243   0.080856   0.070474   0.084001   0.021752   0.006701  -0.017692  -0.011795   0.991849
+         rel diff   largest 1.2e-06 (c0); fit races mine 355 / the block's 355
+  2012   after, mine   0.278211   0.081406   0.051020   0.081573   0.022575   0.005706  -0.021367  -0.012568   0.978386
+         block        0.278211   0.081406   0.051020   0.081573   0.022575   0.005706  -0.021367  -0.012568   0.978386
+         rel diff   largest 1.6e-06 (c0); fit races mine 389 / the block's 389
+  2014   after, mine   0.291711   0.080651   0.067434   0.080880   0.021799   0.005071  -0.021637  -0.014035   0.973167
+         block        0.291711   0.080651   0.067434   0.080880   0.021799   0.005071  -0.021637  -0.014035   0.973167
+         rel diff   largest 1.7e-06 (c0); fit races mine 399 / the block's 399
+  2016   after, mine   0.275545   0.075920   0.076834   0.078732   0.021304   0.004511  -0.022630  -0.013534   0.958516
+         block        0.275545   0.075920   0.076834   0.078732   0.021304   0.004511  -0.022630  -0.013534   0.958516
+         rel diff   largest 1.7e-06 (c0); fit races mine 434 / the block's 434
+  2018   after, mine   0.274900   0.074251   0.092384   0.079156   0.020728   0.003834  -0.022820  -0.014560   0.961015
+         block        0.274900   0.074251   0.092384   0.079156   0.020728   0.003834  -0.022820  -0.014560   0.961015
+         rel diff   largest 2.0e-06 (c0); fit races mine 446 / the block's 446
+  2020   after, mine   0.287904   0.073590   0.098430   0.075273   0.020336   0.003449  -0.021656  -0.014583   0.935402
+         block        0.287904   0.073590   0.098430   0.075273   0.020336   0.003449  -0.021656  -0.014583   0.935402
+         rel diff   largest 2.3e-06 (c0); fit races mine 482 / the block's 482
+  2022   after, mine   0.280855   0.074134   0.103730   0.075115   0.025673   0.000037  -0.021982  -0.007921   0.939753
+         block        0.280855   0.074134   0.103730   0.075115   0.025673   0.000037  -0.021982  -0.007921   0.939753
+         rel diff   largest 1.5e-04 (c0); fit races mine 493 / the block's 493
+  2024   after, mine   0.302351   0.073166   0.114591   0.073646   0.024803   0.000686  -0.021749  -0.008060   0.929796
+         block        0.302351   0.073166   0.114591   0.073646   0.024803   0.000686  -0.021749  -0.008060   0.929796
+         rel diff   largest 9.0e-06 (c0); fit races mine 529 / the block's 529
+
+  the change before -> after, the blocks' against my fits' (a sign and size test of the refit):
+    2010: b_lean block -1.99e-04 mine -1.99e-04; b_inc block -1.34e-05 mine -1.34e-05; b_lag block +1.59e-05 mine +1.59e-05; s_e block -3.54e-05 mine -3.54e-05; s_a block +6.93e-06 mine +6.93e-06; c0 block +9.97e-06 mine +9.97e-06; c1 block +2.55e-06 mine +2.55e-06; k block -2.30e-04 mine -2.30e-04
+    2012: b_lean block -1.47e-04 mine -1.47e-04; b_inc block -1.00e-05 mine -1.00e-05; b_lag block -2.46e-05 mine -2.46e-05; s_e block -2.78e-05 mine -2.78e-05; s_a block +9.43e-06 mine +9.43e-06; c0 block +1.01e-05 mine +1.01e-05; c1 block +7.71e-07 mine +7.71e-07; k block -1.69e-04 mine -1.69e-04
+    2014: b_lean block +2.40e-03 mine +2.40e-03; b_inc block +1.20e-04 mine +1.20e-04; b_lag block -9.78e-04 mine -9.78e-04; s_e block +8.80e-05 mine +8.80e-05; s_a block +1.34e-04 mine +1.34e-04; c0 block -3.20e-04 mine -3.20e-04; c1 block -2.57e-05 mine -2.57e-05; k block +7.25e-04 mine +7.25e-04
+    2016: b_lean block +2.01e-03 mine +2.01e-03; b_inc block +9.61e-05 mine +9.61e-05; b_lag block -9.12e-04 mine -9.12e-04; s_e block +7.78e-05 mine +7.78e-05; s_a block +1.04e-04 mine +1.04e-04; c0 block -2.91e-04 mine -2.91e-04; c1 block +1.03e-05 mine +1.03e-05; k block +6.09e-04 mine +6.09e-04
+    2018: b_lean block +1.93e-03 mine +1.93e-03; b_inc block +1.07e-04 mine +1.07e-04; b_lag block -1.10e-03 mine -1.10e-03; s_e block +7.56e-05 mine +7.56e-05; s_a block +5.99e-05 mine +5.99e-05; c0 block -2.29e-04 mine -2.29e-04; c1 block +1.20e-05 mine +1.20e-05; k block +5.44e-04 mine +5.44e-04
+    2020: b_lean block +1.02e-03 mine +1.02e-03; b_inc block +3.74e-05 mine +3.74e-05; b_lag block -1.16e-03 mine -1.16e-03; s_e block +5.99e-05 mine +5.99e-05; s_a block +7.41e-05 mine +7.41e-05; c0 block -2.65e-04 mine -2.65e-04; c1 block +3.96e-05 mine +3.96e-05; k block +4.53e-04 mine +4.53e-04
+    2022: b_lean block +9.71e-04 mine +9.71e-04; b_inc block +3.44e-05 mine +3.44e-05; b_lag block -1.12e-03 mine -1.12e-03; s_e block +6.75e-05 mine +6.75e-05; s_a block +1.00e-04 mine +1.00e-04; c0 block -2.78e-04 mine -2.78e-04; c1 block +3.80e-05 mine +3.80e-05; k block +5.54e-04 mine +5.54e-04
+    2024: b_lean block +9.77e-04 mine +9.77e-04; b_inc block +3.07e-05 mine +3.07e-05; b_lag block -1.03e-03 mine -1.03e-03; s_e block +5.72e-05 mine +5.72e-05; s_a block +9.76e-05 mine +9.76e-05; c0 block -2.71e-04 mine -2.71e-04; c1 block +6.29e-05 mine +6.29e-05; k block +4.68e-04 mine +4.68e-04
+    signs: {'same sign': 64}
+
+  the moved governor p of the even years, the ratio after/before from my fits (the forecast's f_half and the record's n) against the file's:
+    before 2010 (no fit of mine; the record's own forecast below)               1
+    odd year (c25's route; below)                                               13
+    ("the model's own", 'within 1e-4', 'same direction')                        109
+    ('538 of record: n alone', 'within 1e-4', 'same direction')                 3
+    2010-governor-NM: file x1.000366, mine x1.000366 (n alone x1.000000)
+    2016-governor-IN: file x0.993714, mine x0.993714 (n alone x1.000000)
+    2010-governor-FL: file x1.000407, mine x1.000407 (n alone x1.000000)
+    2010-governor-OH: file x1.000060, mine x1.000060 (n alone x1.000000)
+    2010-governor-UT-special: file x1.002220, mine x1.002220 (n alone x1.000000)
+    2010-governor-OK: file x1.000597, mine x1.000597 (n alone x1.000000)
+    2010-governor-OR: file x1.000381, mine x1.000381 (n alone x1.000000)
+    2014-governor-IL: file x1.000839, mine x1.000839 (n alone x1.000000)
+
+  the odd years' and 2008's moved p: p recomputed from each record's own forecast (density: f(1/2)/(2n)) before and after:
+    2008-governor-UT: before p 1.110251e-06 (from its forecast 1.110251e-06; mean 0.387074 sd 0.085172; n 875,865) -> after 1.056357e-06 (from its forecast 1.056357e-06; mean 0.387074 sd 0.085172; n 920,551); ratio 0.951457
+    2009-governor-NJ: before p 5.178218e-07 (from its forecast 5.178218e-07; mean 0.600809 sd 0.086940; n 2,262,175) -> after 5.178267e-07 (from its forecast 5.178267e-07; mean 0.600798 sd 0.086906; n 2,262,175); ratio 1.000009
+    2009-governor-VA: before p 1.153161e-06 (from its forecast 1.153161e-06; mean 0.507400 sd 0.086940; n 1,982,431) -> after 1.153592e-06 (from its forecast 1.153592e-06; mean 0.507412 sd 0.086906; n 1,982,431); ratio 1.000374
+    2011-governor-KY: before p 2.453661e-06 (from its forecast 2.453661e-06; mean 0.558142 sd 0.084712; n 758,278) -> after 2.453738e-06 (from its forecast 2.453738e-06; mean 0.558158 sd 0.084686; n 758,278); ratio 1.000031
+    2013-governor-NJ: before p 9.097358e-07 (from its forecast 9.097358e-07; mean 0.443633 sd 0.083643; n 2,088,909) -> after 9.071384e-07 (from its forecast 9.071384e-07; mean 0.443378 sd 0.083767; n 2,088,909); ratio 0.997145
+    2013-governor-VA: before p 1.144727e-06 (from its forecast 1.144727e-06; mean 0.499322 sd 0.083643; n 2,083,212) -> after 1.143004e-06 (from its forecast 1.143004e-06; mean 0.499086 sd 0.083767; n 2,083,212); ratio 0.998495
+    2015-governor-KY: before p 2.506391e-06 (from its forecast 2.506391e-06; mean 0.476456 sd 0.081368; n 937,993) -> after 2.497453e-06 (from its forecast 2.497453e-06; mean 0.475791 sd 0.081472; n 937,993); ratio 0.996434
+    2017-governor-NJ: before p 1.152603e-06 (from its forecast 1.152603e-06; mean 0.510281 sd 0.081655; n 2,102,692) -> after 1.151321e-06 (from its forecast 1.151321e-06; mean 0.510293 sd 0.081746; n 2,102,692); ratio 0.998887
+    2017-governor-VA: before p 9.382918e-07 (from its forecast 9.382918e-07; mean 0.509873 sd 0.081655; n 2,584,549) -> after 9.375551e-07 (from its forecast 9.375551e-07; mean 0.509661 sd 0.081746; n 2,584,549); ratio 0.999215
+    2019-governor-KY: before p 5.220450e-07 (from its forecast 5.220450e-07; mean 0.377371 sd 0.077673; n 1,414,643) -> after 5.183582e-07 (from its forecast 5.183582e-07; mean 0.376949 sd 0.077751; n 1,414,643); ratio 0.992938
+    2021-governor-NJ: before p 4.491325e-07 (from its forecast 4.491325e-07; mean 0.598225 sd 0.078965; n 2,594,655) -> after 4.513308e-07 (from its forecast 4.513308e-07; mean 0.597957 sd 0.079063; n 2,594,655); ratio 1.004894
+    2021-governor-VA: before p 7.636301e-07 (from its forecast 7.636301e-07; mean 0.513122 sd 0.078965; n 3,262,627) -> after 7.631789e-07 (from its forecast 7.631789e-07; mean 0.512822 sd 0.079063; n 3,262,627); ratio 0.999409
+    2025-governor-NJ: before p 7.656022e-07 (from its forecast 7.656022e-07; mean 0.512694 sd 0.077565; n 3,314,314) -> after 7.653318e-07 (from its forecast 7.653318e-07; mean 0.512480 sd 0.077629; n 3,314,314); ratio 0.999647
+    2025-governor-VA: before p 7.454581e-07 (from its forecast 7.454581e-07; mean 0.509035 sd 0.077565; n 3,426,442) -> after 7.450629e-07 (from its forecast 7.450629e-07; mean 0.508846 sd 0.077629; n 3,426,442); ratio 0.99947
+    1985.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    1987.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    1989.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    1991.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    1993.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    1995.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    1997.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    1999.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    2001.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    2003.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    2005.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    2007.json: model.odd_year.midterm_term.mean_log_score_gain 0.0568054 -> 0.0565951
+    2009.json: model.b_inc 0.0808694 -> 0.0808560; model.b_lag 0.0704581 -> 0.0704740; model.b_lean 0.2304422 -> 0.2302431; model.c[0] 0.0066909 -> 0.0067008; model.c[1] -0.017694 -> -0.017692 ... (16 leaves)
+    2011.json: model.b_inc 0.0814159 -> 0.0814059; model.b_lag 0.0510446 -> 0.0510200; model.b_lean 0.2783582 -> 0.2782108; model.c[0] 0.0056963 -> 0.0057064; model.c[1] -0.021367 -> -0.021366 ... (16 leaves)
+    2013.json: model.b_inc 0.0805311 -> 0.0806514; model.b_lag 0.0684119 -> 0.0674343; model.b_lean 0.2893146 -> 0.2917105; model.c[0] 0.0053909 -> 0.0050713; model.c[1] -0.021611 -> -0.021636 ... (18 leaves)
+    2015.json: model.b_inc 0.0758239 -> 0.0759200; model.b_lag 0.0777459 -> 0.0768337; model.b_lean 0.2735390 -> 0.2755450; model.c[0] 0.0048023 -> 0.0045112; model.c[1] -0.022640 -> -0.022629 ... (18 leaves)
+    2017.json: model.b_inc 0.0741439 -> 0.0742512; model.b_lag 0.0934850 -> 0.0923838; model.b_lean 0.2729734 -> 0.2749003; model.c[0] 0.0040635 -> 0.0038344; model.c[1] -0.022831 -> -0.022819 ... (18 leaves)
+    2019.json: model.b_inc 0.0735529 -> 0.0735903; model.b_lag 0.0995895 -> 0.0984299; model.b_lean 0.2868796 -> 0.2879039; model.c[0] 0.0037139 -> 0.0034488; model.c[1] -0.021696 -> -0.021656 ... (18 leaves)
+    2021.json: model.b_inc 0.0740995 -> 0.0741339; model.b_lag 0.1048483 -> 0.1037299; model.b_lean 0.2798835 -> 0.2808546; model.c[0] 0.0003151 -> 3.7392856; model.c[1] -0.022020 -> -0.021982 ... (18 leaves)
+    2023.json: model.b_inc 0.0731352 -> 0.0731658; model.b_lag 0.1156229 -> 0.1145905; model.b_lean 0.3013735 -> 0.3023507; model.c[0] 0.0009571 -> 0.0006860; model.c[1] -0.021811 -> -0.021748 ... (18 leaves)
+    2025.json: model.b_inc 0.0724592 -> 0.0724874; model.b_lag 0.1329803 -> 0.1320033; model.b_lean 0.2952619 -> 0.2961891; model.c[0] -0.000579 -> -0.000811; model.c[1] -0.021972 -> -0.021909 ... (18 leaves)
+
+  the House's and Senate's p of record moved: 346 rows {'data/house/2012.json': 346}; ratios from 0.999979 to 0.999981; all within 0.002%: False; the p beside's ratios (not of record), the farthest from 1: (2.1000000000048757e-05, '2012-house-WY-AL')
+  data/house/2012.json's block: 5 leaves changed: model.near_tie.beside.switch_test.count_49_51.expected 85.834971 -> 85.905437; model.near_tie.beside.switch_test.count_49_51.record_expected 87.528270 -> 87.528053; model.near_tie.beside.switch_test.mean_log_score_gain 3.0229322 -> 4.5121581; model.near_tie.expected 55.777252 -> 55.778362; model.near_tie.factor 1.0819555 -> 1.0819324
+
+====================================================================================================
+47.4 The fusion scan: every record's lines against its votes; check-fusion.json's counts; Klarner's lines; the governor second count
+====================================================================================================
+  check-fusion.json: the fusion scan (pipeline/check_fusion.py; the orchestrator, 2026-11-13 04:44): by level and source, the records with a candidate on several party lines, how many count the candidate over every line (summed) and which count one line (one_line); then a second count of every governor 2006-2020 that Al...
+  house: records 4,411; with a candidate's party naming several lines ('/', the FEC's): 434 {'NY': 262, 'CT': 42, 'OR': 31, 'AZ': 20, 'CA': 12, 'SC': 11}; with `lines`: 0 {}; lines not summing to the votes: []
+    the file: FEC: records 434, summed 434, one_line [], by_state {'NY': 262, 'CT': 42, 'OR': 31, 'AZ': 20, 'CA': 12, 'SC': 11}
+  senate: records 351; with a candidate's party naming several lines ('/', the FEC's): 42 {'NY': 8, 'CT': 7, 'OR': 5, 'TN': 3, 'VT': 3, 'AZ': 3}; with `lines`: 0 {}; lines not summing to the votes: []
+    the file: FEC: records 42, summed 42, one_line [], by_state {'NY': 8, 'CT': 7, 'OR': 5, 'TN': 3, 'VT': 3, 'AZ': 3}
+  president: records 688; with a candidate's party naming several lines ('/', the FEC's): 1 {'NY': 1}; with `lines`: 0 {}; lines not summing to the votes: []
+    the file: the FEC's tables give each nominee's votes over every line (pipeline/intake/fec_federal_elections.py: 'summed over the party lines they ran on'); the 2024 check of MEDSL's precincts against them (loca
+  governor: records 625; with a candidate's party naming several lines ('/', the FEC's): 0 {}; (',', Cha's party_formal, the source Cha's): 4 {'NY': 3, 'CT': 1}; with `lines`: 1 {'CT': 1}; lines not summing to the votes: []
+    the file: Cha, Kuriwaki and Snyder (party_formal names the lines, votes summed): records 4, summed 4, one_line [], by_state {'NY': 3, 'CT': 1}
+    the file: the state's count by line (pipeline/governor_counts.py): records 1, summed 1, one_line [], by_state {'CT': 1}
+  state-lower: records 131,545; with a candidate on several party lines (D3's rule copied: more than one line with a party): 213 (267 candidates, 610 lines) {'NY': 122, 'CT': 85, 'OR': 4, 'AR': 1, 'TX': 1}; not summing: 0 []; the file: records 213, summed 213, one_line [], by_state {'NY': 122, 'CT': 85, 'OR': 4, 'AR': 1, 'TX': 1}; equal: True
+    candidates with any `lines` list of two or more (a line without a party, or a second spelling, too): 328; of them not summing to the votes: 0 [] (outside D3's rule, which counts party lines)
+  state-upper: records 35,969; with a candidate on several party lines (D3's rule copied: more than one line with a party): 86 (121 candidates, 292 lines) {'NY': 54, 'CT': 27, 'OR': 3, 'AZ': 1, 'UT': 1}; not summing: 0 []; the file: records 86, summed 86, one_line [], by_state {'NY': 54, 'CT': 27, 'OR': 3, 'AZ': 1, 'UT': 1}; equal: True
+    candidates with any `lines` list of two or more (a line without a party, or a second spelling, too): 152; of them not summing to the votes: 0 [] (outside D3's rule, which counts party lines)
+  local: records 60,052; with a candidate on several party lines (D3's rule copied: more than one line with a party): 353 (504 candidates, 1123 lines) {'NY': 303, 'CT': 24, 'SC': 8, 'AR': 6, 'OR': 5, 'MS': 2, 'KY': 1, 'ID': 1}; not summing: 0 []; the file: records 353, summed 353, one_line [], by_state {'NY': 303, 'CT': 24, 'SC': 8, 'AR': 6, 'OR': 5, 'MS': 2}; equal: True
+    candidates with any `lines` list of two or more (a line without a party, or a second spelling, too): 577; of them not summing to the votes: 9 [('2024-local-AZ-CORPORATION_COMMISSIONER', 'Rachel Walden', 1524902, 425200, ['R', None]), ('2024-local-AZ-CORPORATION_COMMISSIONER', 'Rene Lopez', 1481332, 408453, ['R', None]), ('2024-local-AZ-CORPORATION_COMMISSIONER', 'Lea Marquez Peterson', 1440043, 394814, ['R', None]), ('2024-local-AZ-CORPORATION_COMMISSIONER', 'Ylenia Aguilar', 1336722, 249842, ['D', None])] ... (outside D3's rule, which counts party lines)
+  measure: records 9,550; with a candidate on several party lines (D3's rule copied: more than one line with a party): 0 (0 candidates, 0 lines) {}; not summing: 0 []; the file: records None, summed None, one_line None, by_state {}; equal: False
+  primary: records 30,672; with a candidate on several party lines (D3's rule copied: more than one line with a party): 0 (0 candidates, 0 lines) {}; not summing: 0 []; the file: records None, summed None, one_line None, by_state {}; equal: False
+
+  Klarner's candidate file: {'rows': 418894, 'etypes': {'g': 360329, 'dp': 16987, 'rp': 10753, 'dpfsettled': 9779, 'dpfunsettled': 4672, 'rpfsettled': 3553, 'lafsettled': 2563, 'dprunoff': 2444}, 'every contest': {'contests': 6659, 'candidates': 8810, 'by_sid': {'32': 5180, '7': 1216, '29': 151, '40': 55, '10': 18, '8': 11}}, 'general type (etype not dp*, rp*, ttp*)': {'contests': 6654, 'candidates': 8805, 'by_sid': {'32': 5180, '7': 1216, '29': 151, '40': 55, '10': 18, '8': 11}}}
+    the file's klarner block: {"source": "Klarner's state legislative returns (pipeline/intake/klarner_state_legislative.py)", "how": "one row a candidate and line in the source; the intake adds a candidate's rows by candidate id (a['votes'] += v) and keeps the lines' names in lines, so every record built from them counts every line", "contests": 6659, "candidates": 8810, "by_state": {"NY": 5180, "CT": 1216, "NH": 151, "SC": 5
+
+  the governor second count (the file: 'the record's two nominees against Algara and Amlani's county returns summed; listed where either differs by more than the line' 0.005):
+    the file: compared 198, line 0.005, listed [('2012-governor-WV', [('D', 297207, 335468, 0.12874), ('R', 273130, 303291, 0.11043)]), ('2016-governor-MO', [('D', 1277360, 1179024, -0.07698), ('R', 1433397, 1408113, -0.01764)]), ('2012-governor-MO', [('D', 1494056, 1386582, -0.07193), ('R', 1160265, 1136459, -0.02052)]), ('2008-governor-MO', [('D', 1680611, 1560588, -0.07142), ('R', 1136364, 1110048, -0.02316)]), ('2010-governor-ME', [('D', 103387, 109087, 0.05513), ('R', 218065, 217862, -0.00093)]), ('2018-governor-ME', [('D', 320962, 318984, -0.00616), ('R', 272311, 272034, -0.00102)])]
+    mine: compared 203 (skipped {'outside 2006-2020': 417, 'no A&A rows': 5}); of them with a nominee's party other than plain D or R (DFL, or Cha's party_formal naming lines): 8 [('2006-governor-MN', ('DFL', 'R')), ('2006-governor-NY', ('D,Indep,WF', 'R,C')), ('2010-governor-CT', ('D,Wk Fam', 'R')), ('2010-governor-MN', ('DFL', 'R')), ('2010-governor-NY', ('D,WF,Indep', 'R,C,Taxp')), ('2014-governor-MN', ('DFL', 'R')), ('2014-governor-NY', ('D,WF,Indep', 'R,C,SCC')), ('2018-governor-MN', ('DFL', 'R'))] (D3's 198 compared against my 203: the difference lies among these, his reader of A&A's normalized file matching the nominees its own way [inferred])
+    listed 6:
+      ('2008-governor-MO', 1680611, 1560588, -0.07142, 1136364, 1110048, -0.02316, 115)
+      ('2010-governor-ME', 103387, 109087, 0.05513, 218065, 217862, -0.00093, 16)
+      ('2012-governor-MO', 1494056, 1386582, -0.07193, 1160265, 1136459, -0.02052, 115)
+      ('2012-governor-WV', 297207, 335468, 0.12874, 273130, 303291, 0.11043, 55)
+      ('2016-governor-MO', 1277360, 1179024, -0.07698, 1433397, 1408113, -0.01764, 115)
+      ('2018-governor-ME', 320962, 318984, -0.00616, 272311, 272034, -0.00102, 16)
+    the same set as the file's: True; mine not the file's []; the file's not mine []
+    of the 203 compared, within 0.1%: 192, 0.1-0.5%: 5; the four records whose counts #109 took now equal A&A: [('2018-governor-CT', {'D': 0.0, 'R': 0.0}), ('2018-governor-NY', {'D': 0.0, 'R': 0.0}), ('2008-governor-UT', {'D': 0.0, 'R': 0.0})]
+
+##### c48_district_checks_3
+c48: section 19, second part; b350d5e -> b35fede; sections [1, 2, 3, 4, 5, 6, 7]
+
+====================================================================================================
+48.1 moves-district-checks-3.json against my own diff of every D3 record, b350d5e -> b35fede
+====================================================================================================
+  the file: 15,669 rows, 15,669 ids, against 0094391 (the code alone, its data main's at 72d1d60, which equal b350d5e's D3 files; my diff is main to main)
+  its summary: {"local B: p unchanged, its block changed": 318, "local O: other fields: forecasts": 2, "local P: p moved": 1483, "local R: not computed before or after, the reason changed": 2, "state-lower B: p unchanged, its block changed": 542, "state-lower N: new p": 6, "state-lower P: p moved": 10183, "state-lower Q: a note's words changed": 52, "state-upper B: p unchanged, its block changed": 210, "state-upper N: new p": 3, "state-upper P: p moved": 2859, "state-upper Q: a note's words changed": 19}
+  data files changed: 487; D3's record files: 420 {'local': 51, 'state-lower': 188, 'state-upper': 181}; D2's: 53 (c47); other: ['data/README.md', 'data/congress/backtest-governor-odd.json', 'data/congress/backtest.json', 'data/congress/check-totals.json', 'data/congress/history.json', 'data/local/REPORT.md', 'data/local/calibration-local.json', 'data/local/check-districts-m2.json', 'data/local/check-districts.json', 'data/local/check-fusion.json', 'data/local/check-over-ballot.json', 'data/local/check-volume.json', 'data/local/moves-district-checks-3.json', 'data/local/moves-governor-counts.json']
+  my diff, by level and code (p moved within 1% and nothing else counted apart): local B 318; local O 2; local R 2; state-lower B 542; state-lower N 6; state-lower P 5; state-lower Q 45; state-upper B 210; state-upper N 3; state-upper P 11; state-upper Q 16
+  rows whose code I share: 1160 of 1160 ids listed in my diff; codes differing: 0; ids in my diff but not in the file: 0; ids in the file but not in my diff: 0 []
+  p before/after other than the record's: 0; ratios off by more than 1.5e-4: 0; records differing in p.commit alone: 104
+  p moved within 1% and nothing else, by level and year (mine; the file lists every P row apart): 14509 in 19 cells: local 2020 531; local 2024 952; state-lower 2017 59; state-lower 2018 2619; state-lower 2019 89; state-lower 2020 2516; state-lower 2021 90; state-lower 2022 2174; state-lower 2023 58; state-lower 2024 2490; state-lower 2025 83; state-upper 2017 36; state-upper 2018 719; state-upper 2019 34; state-upper 2020 721; state-upper 2021 36; state-upper 2022 618; state-upper 2023 62; state-upper 2024 622
+  p moved (every P in my diff): 14525; over 2x either way: 0 []; extremes: min 0.9762 2018-state-upper-IN-21, max 1.1109 2016-state-upper-IN-36
+  bands: {'within 0.1%': 14332, '0.1-1%': 179, '1-10%': 13, 'beyond 10%': 1}; the file's P rows: 14,525 (the orchestrator: 14,997 moved in all, 14,525 here)
+  beyond 1%: 14 (D3's message: 14): 2018-state-upper-IN-21 x0.9762; 2018-state-upper-IN-49 x0.9762; 2018-state-upper-IN-31 x0.9762; 2018-state-upper-IN-22 x0.9762; 2018-state-upper-IN-11 x0.9833; 2018-state-upper-IN-17 x0.9833; 2018-state-upper-IN-26 x0.9833; 2020-state-lower-IN-78 x0.9892; 2020-state-lower-IN-64 x0.9892; 2020-state-lower-IN-83 x0.9892; 2018-state-upper-IN-25 x1.0191; 2018-state-upper-IN-4 x1.0192; 2018-state-upper-WV-4__seat_2 x1.0194; 2016-state-upper-IN-36 x1.1109
+  new p (9; the orchestrator: 9 gained): 2016-state-lower-IN-75 9.593e-06 (the model's own (D3-v1.1), nor; was: MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district); 2016-state-lower-KY-28 2.979e-05 (the model's own (D3-v1.1), nor; was: MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district); 2016-state-lower-KY-33 5.276e-05 (the model's own (D3-v1.1), nor; was: MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district); 2016-state-upper-WV-5__seat_1 1.586e-05 (the model's own (D3-v1.1), nor; was: MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district); 2018-state-lower-IN-32 4.132e-06 (the model's own (D3-v1.1), nor; was: MEDSL's precinct file (2018-in-precinct-general.zip) gives this district's 2 nam); 2018-state-upper-VT-Grandisle 0.000e+00 (None; was: MEDSL's precinct file (2018-vt-precinct-general.zip) gives this district's 1 nam); 2018-state-upper-VT-Windham 1.166e-04 (the model's own (D3-v1.1), lik; was: MEDSL's precinct file (2018-vt-precinct-general.zip) gives this district's 6 nam); 2022-state-lower-IN-23 0.000e+00 (None; was: MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's); 2022-state-lower-IN-66 2.514e-05 (the model's own (D3-v1.1), nor; was: MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's)
+  p lost (0): []
+  the moves beyond 1%: what else changed in the record
+    2018-state-upper-IN-21: x0.9762; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('buck, james r (jim)', 29797), ('fivecoate, christina', 15733)] after [('buck, james r (jim)', 29797), ('fivecoate, christina', 15733)]; n 45529 -> 45529
+    2018-state-upper-IN-49: x0.9762; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('tomes, james', 28895), ('hardcastle, edie', 16276)] after [('tomes, james', 28895), ('hardcastle, edie', 16276)]; n 45170 -> 45170
+    2018-state-upper-IN-31: x0.9762; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('merritt, james w, jr', 30221), ('camp, derek', 28612)] after [('merritt, james w, jr', 30221), ('camp, derek', 28612)]; n 58832 -> 58832
+    2018-state-upper-IN-22: x0.9762; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('alting, ronnie j', 20727), ('shipley, sheryl', 16721)] after [('alting, ronnie j', 20727), ('shipley, sheryl', 16721)]; n 37447 -> 37447
+    2018-state-upper-IN-11: x0.9833; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('rogers, linda', 27089), ('liptrap, ed', 17179)] after [('rogers, linda', 27089), ('liptrap, ed', 17179)]; n 44267 -> 44267
+    2018-state-upper-IN-17: x0.9833; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('zay, andy', 30320), ('snyder, gary l', 11911)] after [('zay, andy', 30320), ('snyder, gary l', 11911)]; n 42230 -> 42230
+    2018-state-upper-IN-26: x0.9833; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('gaskill, mike', 27647), ('cravens, dave', 18556), ('noland, greg', 1625)] after [('gaskill, mike', 27647), ('cravens, dave', 18556), ('noland, greg', 1625)]; n 46202 -> 46202
+    2020-state-lower-IN-78: x0.9892; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1119, -0.1135]}; votes before [('sullivan, holli', 20273), ('pauley, tonda a', 11453)] after [('sullivan, holli', 20273), ('pauley, tonda a', 11453)]; n 31725 -> 31725
+    2020-state-lower-IN-64: x0.9892; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1119, -0.1135]}; votes before [('hostettler, matt', 25191), ('gamroth, ian r', 7986)] after [('hostettler, matt', 25191), ('gamroth, ian r', 7986)]; n 33176 -> 33176
+    2020-state-lower-IN-83: x0.9892; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1119, -0.1135]}; votes before [('judy, christopher n', 24783), ('bienz, michael', 11953), ('eicholtz, jason', 1578)] after [('judy, christopher n', 24783), ('bienz, michael', 11953), ('eicholtz, jason', 1578)]; n 36735 -> 36735
+    2018-state-upper-IN-25: x1.0191; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('lanane, timothy s (tim)', 19577), ('ali, zaki', 16640), ('jozwiak, robert r (roofer)', 1517)] after [('lanane, timothy s (tim)', 19577), ('ali, zaki', 16640), ('jozwiak, robert r (roofer)', 1517)]; n 36216 -> 36216
+    2018-state-upper-IN-4: x1.0192; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.1472, -0.1514]}; votes before [('tallian, karen', 26762), ('stultz, cole', 17557)] after [('tallian, karen', 26762), ('stultz, cole', 17557)]; n 44318 -> 44318
+    2018-state-upper-WV-4__seat_2: x1.0194; differs in ['forecast_inputs.lean', 'forecasts.share']; forecast inputs changed: {"lean": [-0.028, -0.0208]}; votes before [('tarr, eric j', 18885), ('prim, brian', 13583), ('grady, amy n', 4005)] after [('tarr, eric j', 18885), ('prim, brian', 13583), ('grady, amy n', 4005)]; n 32467 -> 32467
+    2016-state-upper-IN-36: x1.1109; differs in ['notes', 'result.candidates,total_votes,votes_source', 'two_party.n_other_voters,share_first,votes']; forecast inputs changed: {}; votes before [('sandlin, jack e', 26710), ('gorman, sean', 23384)] after [('sandlin, jack e', 26710), ('gorman, sean', 18384)]; n 50093 -> 45093
+
+====================================================================================================
+48.2 Indiana 2016: Senate 36 on MEDSL's count; the settle test by candidate and the 0.4% two-witness rule on every record, against D3's flags
+====================================================================================================
+  the archive (my copy, section 18): 25 Senate and 100 House contests; its settings have no 'Certified' field [measured in section 18: D3's STATE_MARKED (IN, 2016) False]
+  D3's Indiana 2016 flags: 23 {"settled by the state: Klarner's count stands": 22, "settled by the state: MEDSL's count stands": 1}; at b350d5e: {"settled by the state: Klarner's count stands": 39, 'held': 1, 'kept: MEDSL does not cover the district': 1}
+  D3's two_against_state list: [('2016-IN-lower--4--', "two counts agree against the state's: Klarner's count stands"), ('2016-IN-lower--25--', "two counts agree against the state's: Klarner's count stands"), ('2016-IN-lower--38--', "two counts agree against the state's: Klarner's count stands"), ('2016-IN-lower--39--', "two counts agree against the state's: Klarner's count stands"), ('2016-IN-lower--75--', "two counts agree against the state's: Klarner's count stands"), ('2016-IN-lower--77--', "two counts agree against the state's: Klarner's count stands")]
+  Senate 36 (the pool with my spelling decisions applied: MEDSL's 'JACK SANDLIN' and 'JACK E. SANDLIN' lines, 4,676 and 22,034 in my volume summary): before [('sandlin, jack e', 26710), ('gorman, sean', 23384)] (source klarner, votes_source None); after [('sandlin, jack e', 26710), ('gorman, sean', 18384)] (votes_source medsl); p 5.15111e-05 -> 5.72228e-05 (x1.1109); n 50093 -> 45093
+    my MEDSL pairs: [('sandlin, jack e', 26710, 'JACK E. SANDLIN', 26710), ('gorman, sean', 23384, 'SEAN GORMAN', 18384)]; ratio 0.9001876472232203; the archive: [('Jack E Sandlin', 26696, False), ('Sean Gorman', 18375, False)]
+    D3's flag: outcome settled by the state: MEDSL's count stands; pairs [['gorman, sean', 23384, 'Sean Gorman', 18384], ['sandlin, jack e', 26710, 'Jack E. Sandlin', 26710]]; note: ['MEDSL\'s precinct file (2016-3345337-2016-precinct-state.csv) gives this district\'s 2 named candidates 45,094 votes against Klarner\'s 50,094, -10.0% [measured: pipeline/local_districts.py]; the state\'s published results agree with MEDSL\'s, candidate by candidate, and not with Klarner\'s (Indiana\'s results archive of the 2016 general, https://enr.indianavoters.in.gov/archive/2016General/data/settings.json, read 2026-11-13T01:12Z, sha256 f1f490fa8112e0bf19e96aaa9ef4a62bd4390341a68f97d5af70cc3042268e4a: sandlin, jack e: 26,696 in the state\'s, 26,710 in MEDSL\'s, 26,710 in Klarner\'s; gorman, sean: 18,375 in the state\'s, 18,384 in MEDSL\'s, 23,384 in Klarner\'s), so MEDSL\'s count stands (the orchestrato
+
+  every Indiana 2016 record, the settle test by candidate (D3's settle_agree copied) and D3's flags:
+    ('flagged', "settled by the state: Klarner's count stands", 'settle by candidate: klarner')                    22
+    ('flagged', "settled by the state: MEDSL's count stands", 'settle by candidate: medsl')                        1
+    ('not flagged', 'settle by candidate: None', '')                                                               4
+    ('not flagged', 'settle by candidate: klarner', '')                                                            98
+  the flagged records, D3's outcome beside my settle-by-candidate result (klarner: the state agrees with Klarner on every candidate; medsl: with MEDSL; None: neither):
+    2016-IN-lower--18--        D3 settled by the state: Klarner's count stands               ratio 0.41421  mine klarner  two_against False ok
+    2016-IN-lower--19--        D3 settled by the state: Klarner's count stands               ratio 0.55463  mine klarner  two_against False ok
+    2016-IN-lower--23--        D3 settled by the state: Klarner's count stands               ratio 0.46834  mine klarner  two_against False ok
+    2016-IN-lower--27--        D3 settled by the state: Klarner's count stands               ratio 0.96749  mine klarner  two_against False ok
+    2016-IN-lower--30--        D3 settled by the state: Klarner's count stands               ratio 0.88926  mine klarner  two_against False ok
+    2016-IN-lower--31--        D3 settled by the state: Klarner's count stands               ratio 0.37195  mine klarner  two_against False ok
+    2016-IN-lower--32--        D3 settled by the state: Klarner's count stands               ratio 0.81442  mine klarner  two_against False ok
+    2016-IN-lower--33--        D3 settled by the state: Klarner's count stands               ratio 0.99972  mine klarner  two_against False ok
+    2016-IN-lower--41--        D3 settled by the state: Klarner's count stands               ratio 0.90654  mine klarner  two_against False ok
+    2016-IN-lower--44--        D3 settled by the state: Klarner's count stands               ratio 0.84523  mine klarner  two_against False ok
+    2016-IN-lower--46--        D3 settled by the state: Klarner's count stands               ratio 0.95682  mine klarner  two_against False ok
+    2016-IN-lower--47--        D3 settled by the state: Klarner's count stands               ratio 0.77319  mine klarner  two_against False ok
+    2016-IN-lower--52--        D3 settled by the state: Klarner's count stands               ratio 0.56364  mine klarner  two_against False ok
+    2016-IN-lower--54--        D3 settled by the state: Klarner's count stands               ratio 0.82553  mine klarner  two_against False ok
+    2016-IN-lower--55--        D3 settled by the state: Klarner's count stands               ratio 0.90946  mine klarner  two_against False ok
+    2016-IN-lower--62--        D3 settled by the state: Klarner's count stands               ratio 0.9627   mine klarner  two_against False ok
+    2016-IN-lower--63--        D3 settled by the state: Klarner's count stands               ratio 0.92667  mine klarner  two_against False ok
+    2016-IN-lower--68--        D3 settled by the state: Klarner's count stands               ratio 0.84807  mine klarner  two_against False ok
+    2016-IN-lower--73--        D3 settled by the state: Klarner's count stands               ratio 0.93015  mine klarner  two_against False ok
+    2016-IN-lower--93--        D3 settled by the state: Klarner's count stands               ratio 0.92056  mine klarner  two_against False ok
+    2016-IN-upper--18--        D3 settled by the state: Klarner's count stands               ratio 1.0      mine klarner  two_against False ok
+    2016-IN-upper--36--        D3 settled by the state: MEDSL's count stands                 ratio 0.90019  mine medsl    two_against False ok
+    2016-IN-upper--9--         D3 settled by the state: Klarner's count stands               ratio 0.53296  mine klarner  two_against False ok
+
+  the two-witness rule (two_against_state copied) on every record: mine 6 [('2016-IN-lower--25--', 'not flagged'), ('2016-IN-lower--38--', 'not flagged'), ('2016-IN-lower--39--', 'not flagged'), ('2016-IN-lower--4--', 'not flagged'), ('2016-IN-lower--75--', 'not flagged'), ('2016-IN-lower--77--', 'not flagged')]; D3's 6; same set: True
+    2016-IN-lower--25--: mine too; matched True; MEDSL pairs [('lehe, donald j', 19273, 'DONALD J. LEHE', 19273), ('oakelfuller, maurice o', 6948, 'MAURICE FULLER', 6948), ('voorhies, franklyn', 1731, 'FRANKLYN VOORHIES', 1731)]; the state's [('Donald J. Lehe', 19202), ('Maurice O. Fuller', 6914), ('Franklyn Voorhies', 1728)]; settle klarner
+    2016-IN-lower--38--: mine too; matched True; MEDSL pairs [('vannatter, heath r', 18623, 'HEATH VANNATTER', 18624), ('burns, jason', 6303, 'JASON BURNS', 6303)]; the state's [('Heath Vannatter', 16700), ('Jason Burns', 8225)]; settle None
+    2016-IN-lower--39--: mine too; matched True; MEDSL pairs [('torr, gerald r (jerry)', 23591, 'JERRY TORR', 23590), ('russ, david b', 12640, 'DAVID B. RUSS', 12638)]; the state's [('Jerry Torr', 22362), ('David B. Russ', 12638)]; settle None
+    2016-IN-lower--4--: mine too; matched True; MEDSL pairs [('soliday, edmund l', 17272, 'ED SOLIDAY', 17258), ('mishlerfish, pamela', 14311, 'PAM FISH', 14294)]; the state's [('Edmond Soliday', 17198), ('Pamela Mishler Fish', 14247)]; settle klarner
+    2016-IN-lower--75--: mine too; matched True; MEDSL pairs [('bacon, ronald', 21146, 'RON BACON', 21147), ('rapp, james a', 9429, 'JAMES (PETE) RAPP', 9429)]; the state's [('Ron Bacon', 19765), ('James (Pete) Rapp', 9429)]; settle None
+    2016-IN-lower--77--: mine too; matched True; MEDSL pairs [('hatfield, ryan d', 12616, 'RYAN HATFIELD', 12616), ('kincaid, johnny', 8614, 'JOHNNY KINCAID', 8614)]; the state's [('Ryan Hatfield', 12444), ('Johnny Kincaid', 8571)]; settle klarner
+  2016-IN-lower--75--: p None -> 9.59264e-06; D3's outcome None (before held); after's reason/note: None | ["Klarner's count and MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) agree candidate by candidate within 0.4% (bacon, ronald: 21,146 in Klarner's, 21,147 in MEDSL's; rapp, james a: 9,429 i"]
+  2016-IN-lower--38--: p 6.53878e-06 -> 6.53878e-06; D3's outcome None (before settled by the state: Klarner's count stands); after's reason/note: None | ["Klarner's count and MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) agree candidate by candidate within 0.4% (vannatter, heath r: 18,623 in Klarner's, 18,624 in MEDSL's; burns, jason: 6,3"]
+  2016-IN-lower--39--: p 1.65702e-06 -> 1.65702e-06; D3's outcome None (before None); after's reason/note: None | ["Klarner's count and MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) agree candidate by candidate within 0.4% (torr, gerald r (jerry): 23,591 in Klarner's, 23,590 in MEDSL's; russ, david b"]
+
+  Utah 2016 (the canvass's multi-county Senate page, TOTAL row by name: {'Jake Anderegg': 39094, 'David (Dave) Lifferth': 10, 'Curt Bramble': 21489, 'Jason Christensen': 5092, 'Deana Froerer': 16381, 'Allen M. Christensen': 20994, 'Michael Joseph': 1, 'Gregg Buxton': 24296, 'Alan G. Yorgason': 10757, 'Steve Hartwick': 13953, 'Todd Weiler': 29883, 'Ralph Okerlund': 33338, 'Lyle W. Hillyard': 30288, 'David P. Hinkins': 26199, 'Heidi Redd': 11626}); D3's Utah flags: [('2016-UT-lower--1--', 'held'), ('2016-UT-lower--29--', 'held'), ('2016-UT-lower--3--', 'kept: MEDSL does not cover the district'), ('2016-UT-lower--34--', 'held'), ('2016-UT-lower--73--', 'noted'), ('2016-UT-upper--19--', "settled by the state: Klarner's count stands"), ('2016-UT-upper--20--', "settled by the state: Klarner's count stands"), ('2016-UT-upper--23--', "settled by the state: Klarner's count stands")]
+    2016-UT-lower--1--: [('sandall, scott', 11268, [], []), ('phipps, sherry', 2333, [], [])]
+    2016-UT-lower--29--: [('perry, lee b', 13315, [], []), ('urrea, angela b', 2751, [], [])]
+    2016-UT-lower--3--: [('potter, val k', 13325, [], [])]
+    2016-UT-lower--34--: [('kwan, karen', 6558, [], []), ('jensen, macade', 5485, [], [])]
+    2016-UT-lower--73--: [('noel, michael', 10193, [], []), ('markham, ty', 5043, [], [])]
+    2016-UT-upper--19--: [('christensen, allen m', 20994, [('Jason Christensen', 5092), ('Allen M. Christensen', 20994)], [-0.7575, 0.0]), ('froerer, deana', 16381, [('Deana Froerer', 16381)], [0.0]), ('seguin, michael j', 1, [], [])]
+    2016-UT-upper--20--: [('buxton, david g', 24296, [('Gregg Buxton', 24296)], [0.0]), ('yorgason, alan g', 10757, [('Alan G. Yorgason', 10757)], [0.0])]
+    2016-UT-upper--23--: [('weiler, todd', 29883, [('Todd Weiler', 29883)], [0.0]), ('hartwick, steve', 13953, [('Steve Hartwick', 13953)], [0.0])]
+
+====================================================================================================
+48.3 The spelling pairs: D3's _spelled_alike and _given copied on my MEDSL contests; each line's precincts from the raw files; against D3's list
+====================================================================================================
+  D3's list: MEDSL's lines of one contest spelled alike, their names sharing a surname and a given name or nickname: summed into one candidate's count where no precinct gives both lines votes, a row named as a tot...; by year [('2016', 97), ('2018', 5), ('2022', 5)]
+
+  2016: my pairs 97 in 97 groups ({'AZ': 1, 'GA': 1, 'IN': 33, 'KS': 36, 'KY': 15, 'MI': 1, 'NY': 6, 'SC': 1, 'WV': 3}); D3's rows 97 ({'AZ': 1, 'GA': 1, 'IN': 33, 'KS': 36, 'KY': 15, 'MI': 1, 'NY': 6, 'SC': 1, 'WV': 3}); same groups: True; mine not D3's 0 []; D3's not mine 0 []
+    ('NY', 'state-upper', '58'): mine {'lines': [['LESLIE BURKE', 34036, 141, ['36097', '36101', '36109']], ['LESLIE DANKS BURKE', 17371, 106, ['36015', '36122']]], 'summed': True, 'why_not': None, 'pairs': 1}; D3 {'lines': [['Leslie Danks Burke', 17371, 106, ['36015', '36122']], ['Leslie Burke', 35115, 141, ['36097', '36101', '36109']]], 'summed': True, 'why_not': None}
+    ('names same', 'votes DIFFER', 'precincts and counties same', 'decision same'): 1
+    ('names same', 'votes same', 'precincts and counties same', 'decision same'): 96
+    mine summed 86, not summed 11 ({'a line has votes only on a row named as a total': 9, 'a precinct gives both lines votes': 2}); D3 summed 86, not 11 ({'a line has votes only on a row named as a total': 9, 'a precinct gives both lines votes': 2})
+    the summed lines' totals found as a candidate's votes in a record of the district at b35fede: 62 of 86; not found: 24 [(('AZ', 'state-lower', '4', frozenset({'CHARLENE R. FERNANDEZ', 'CHARLENE FERNANDEZ'})), 'CHARLENE FERNANDEZ', 19643), (('IN', 'state-lower', '31', frozenset({'KEVIN MAHAN', 'KEVIN A. MAHAN'})), 'KEVIN MAHAN', 6078), (('IN', 'state-lower', '41', frozenset({'HOWARD JOSEPH POLLCHIK', 'HOWARD POLLCHIK'})), 'HOWARD JOSEPH POLLCHIK', 2735), (('IN', 'state-lower', '28', frozenset({'JEFFREY A. THOMPSON', 'JEFFREY THOMPSON'})), 'JEFFREY THOMPSON', 27985), (('IN', 'state-lower', '38', frozenset({'HEATH VANNATTER', 'HEATH VAN NATTER'})), 'HEATH VANNATTER', 18624), (('IN', 'state-lower', '23', frozenset({'WILLIAM C. FRIEND', 'WILLIAM FRIEND'})), 'WILLIAM FRIEND', 7111)] (a Klarner record keeps Klarner's count unless MEDSL's is taken, so a summed MEDSL line shows in the record only where MEDSL's count stands)
+
+  2018: my pairs 13 in 13 groups ({'CT': 1, 'IN': 7, 'RI': 1, 'VT': 4}); D3's rows 5 ({'IN': 1, 'VT': 4}); same groups: False; mine not D3's 8 [('CT', 'state-lower', '17'), ('IN', 'state-lower', '38'), ('IN', 'state-lower', '50'), ('IN', 'state-lower', '55'), ('IN', 'state-lower', '76'), ('IN', 'state-upper', '27'), ('IN', 'state-upper', '43'), ('RI', 'state-lower', '73')]; D3's not mine 0 []
+    ('names same', 'votes same', 'precincts and counties same', 'decision same'): 5
+    only mine: ('CT', 'state-lower', '17'): {'lines': [['LESLEE HILL', 6004, 3, ['09003']], ['LESLEE B HILL', 274, 3, ['09003']]], 'summed': False, 'why_not': 'a precinct gives both lines votes', 'pairs': 1}
+    only mine: ('IN', 'state-lower', '38'): {'lines': [['THOMAS "TOM" HEDDE', 3492, 46, ['18015', '18017', '18023']], ['THOMAS HEDDE', 3046, 23, ['18067']]], 'summed': True, 'why_not': None, 'pairs': 1}
+    only mine: ('IN', 'state-lower', '50'): {'lines': [['DANIEL J "DAN" LEONARD', 12105, 40, ['18069', '18179']], ['DAN LEONARD', 3991, 17, ['18003']]], 'summed': True, 'why_not': None, 'pairs': 1}
+    only mine: ('IN', 'state-lower', '55'): {'lines': [['CINDY MEYER ZIEMKE', 13017, 57, ['18031', '18041', '18047', '18139']], ['CINDY ZIEMKE', 2540, 7, ['18137']]], 'summed': True, 'why_not': None, 'pairs': 1}
+    only mine: ('IN', 'state-lower', '76'): {'lines': [['STEVE FOLZ', 6184, 33, ['18163']], ['STEPHEN "STEVE" FOLZ', 3950, 28, ['18129']]], 'summed': True, 'why_not': None, 'pairs': 1}
+    only mine: ('IN', 'state-upper', '27'): {'lines': [['JEROME "JAKE" HOOG', 10526, 96, ['18029', '18041', '18135', '18161', '18177']], ['JEROME HOOG', 1104, 14, ['18047']]], 'summed': True, 'why_not': None, 'pairs': 1}
+    only mine: ('IN', 'state-upper', '43'): {'lines': [['CLYDE A "CHIP" PERFECT JR', 30538, 103, ['18005', '18029', '18031', '18071', '18079', '18115']], ['CLYDE PERFECT', 4971, 18, ['18137']]], 'summed': True, 'why_not': None, 'pairs': 1}
+    only mine: ('RI', 'state-lower', '73'): {'lines': [['DAVID A QUIROA', 812, 5, ['44005']], ['DAVID A QUIROA JR', 206, 5, ['44005']]], 'summed': False, 'why_not': 'a precinct gives both lines votes', 'pairs': 1}
+    mine summed 11, not summed 2 ({'a precinct gives both lines votes': 2}); D3 summed 5, not 0 ({})
+    the summed lines' totals found as a candidate's votes in a record of the district at b35fede: 4 of 11; not found: 7 [(('IN', 'state-lower', '32', frozenset({'TONY COOK', 'ANTHONY J "TONY" COOK'})), 'TONY COOK', 17995), (('IN', 'state-upper', '27', frozenset({'JEROME HOOG', 'JEROME "JAKE" HOOG'})), 'JEROME "JAKE" HOOG', 11630), (('IN', 'state-lower', '55', frozenset({'CINDY MEYER ZIEMKE', 'CINDY ZIEMKE'})), 'CINDY MEYER ZIEMKE', 15557), (('VT', 'state-lower', 'ADD-3', frozenset({'CHARLES R JOHNSON', 'CHARLES JOHNSON'})), 'CHARLES JOHNSON', 2), (('VT', 'state-lower', 'ORL-1', frozenset({'LAURA POTTER', 'LAURA S POTTER'})), 'LAURA POTTER', 2), (('VT', 'state-upper', 'BEN', frozenset({'LINDA SULLIVAN', 'LINDA JOY SULLIVAN'})), 'LINDA SULLIVAN', 5)] (a Klarner record keeps Klarner's count unless MEDSL's is taken, so a summed MEDSL line shows in the record only where MEDSL's count stands)
+
+  2022: my pairs 5 in 5 groups ({'VT': 5}); D3's rows 5 ({'VT': 5}); same groups: False; mine not D3's 2 [('VT', 'state-lower', ''), ('VT', 'state-upper', '')]; D3's not mine 2 [('VT', 'state-lower', 'ORA WAS ADD'), ('VT', 'state-upper', 'ADD 1')]
+    ('names same', 'votes same', 'precincts and counties same', 'decision same'): 3
+    only mine: ('VT', 'state-lower', ''): {'lines': [['H BROOKE PAIGE', 6, 5, ['50001', '50005', '50007', '50023']], ['BROOKE PAIGE', 1, 1, ['50007']]], 'summed': False, 'why_not': 'a precinct gives both lines votes', 'pairs': 1}
+    only D3: ('VT', 'state-lower', 'ORA WAS ADD'): {'state': 'VT', 'chamber': 'state-lower', 'district': 'ORA WAS ADD', 'lines': [['H BROOKE PAIGE', 6, 0, []], ['BROOKE PAIGE', 1, 0, []]], 'summed': False, 'why_not': "a line is not found in MEDSL's raw file"}
+    only mine: ('VT', 'state-upper', ''): {'lines': [['H BROOKE PAIGE', 6, 4, ['50003', '50007', '50023']], ['H. BROOKE PAIGE', 2, 1, ['50003']]], 'summed': True, 'why_not': None, 'pairs': 1}
+    only D3: ('VT', 'state-upper', 'ADD 1'): {'state': 'VT', 'chamber': 'state-upper', 'district': 'ADD 1', 'lines': [['H BROOKE PAIGE', 6, 0, []], ['H. BROOKE PAIGE', 2, 0, []]], 'summed': False, 'why_not': "a line is not found in MEDSL's raw file"}
+    mine summed 2, not summed 3 ({'a precinct gives both lines votes': 3}); D3 summed 1, not 4 ({"a line is not found in MEDSL's raw file": 2, 'a precinct gives both lines votes': 2})
+    the summed lines' totals found as a candidate's votes in a record of the district at b35fede: 0 of 2; not found: 2 [(('VT', 'state-lower', 'WDR 1', frozenset({'DANA COLSON JR', 'DANA COLSON JR.'})), 'DANA COLSON JR', 7), (('VT', 'state-upper', '', frozenset({'H. BROOKE PAIGE', 'H BROOKE PAIGE'})), 'H BROOKE PAIGE', 8)] (a Klarner record keeps Klarner's count unless MEDSL's is taken, so a summed MEDSL line shows in the record only where MEDSL's count stands)
+
+====================================================================================================
+48.4 Over-seats on every record: D3's district_ballots copied on every record of 2016, 2018 and 2022 at the BEFORE commit (Klarner's count), against D3's
+====================================================================================================
+
+  2016: raw files 1 (8,146,112 rows); D3: tested 2882, over [], not read {}; flags with over_seats read 14, not read 15 ({"no statewide contest reaches the district's precincts": 15})
+    counties with rows but no contest's votes (D3's 'blank'): {}
+    records 5,547: {"no ballots (no wide contest reaches the district's precincts, or no precinct)": 4163, "unmatched by D3's matcher (my copy)": 637, 'read': 747}
+    my ballots against D3's on his flags with over_seats read: {'precincts and ballots equal': 14}; e.g. []
+    mine over 1.1 (Klarner's paired count over seats x ballots): 4; D3's over list: 0
+      2016-state-lower-IN-31 (31): seats 1, precincts 19, ballots 8,641 (by ['GOVERNOR']); Klarner 23,226 x2.6879, MEDSL 8,639 x0.9998 (MEDSL/Klarner x0.372); D3's flag: not covered (settled by the state: Klarner's count st); the record after: votes_source None, p 2.12621e-05; counties of MEDSL's district precincts ['18009', '18035', '18179']
+      2016-state-lower-UT-3 (3): seats 1, precincts 12, ballots 5,925 (by ['GOVERNOR']); Klarner 13,325 x2.2489, MEDSL 4,855 x0.8194 (MEDSL/Klarner x0.3644); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['49005']
+      2016-state-lower-IN-32 (32): seats 1, precincts 45, ballots 24,683 (by ['GOVERNOR']); Klarner 29,529 x1.1963, MEDSL 24,049 x0.9743 (MEDSL/Klarner x0.8144); D3's flag: not covered (settled by the state: Klarner's count st); the record after: votes_source None, p 4.28346e-05; counties of MEDSL's district precincts ['18035', '18057', '18067', '18095', '18159']
+      2016-state-lower-IN-30 (30): seats 1, precincts 53, ballots 23,921 (by ['GOVERNOR']); Klarner 26,548 x1.1098, MEDSL 23,608 x0.9869 (MEDSL/Klarner x0.8893); D3's flag: not covered (settled by the state: Klarner's count st); the record after: votes_source None, p 4.8062e-05; counties of MEDSL's district precincts ['18067']
+    why D3's list lacks mine: {"D3's flag: not covered": 4}
+
+  2018: raw files 44 (13,103,093 rows); D3: tested 4219, over [('VT', 'state-upper', ('grandisle', '')), ('VT', 'state-upper', ('rutland', '')), ('VT', 'state-upper', ('windham', ''))], not read {"IN": {"counties": ["18175"], "records": 101, "flagged": ["2018-IN-lower--13--", "2018-IN-lower--58--", "2018-IN-lower--68--", "2018-IN-lower--100--", "2018-IN-upper--47--"]}}; flags with over_seats read 63, not read 14 ({"no statewide contest reaches the district's precincts": 9, "MEDSL's file has rows but no contest's votes in county 18175": 5})
+    counties with rows but no contest's votes (D3's 'blank'): {'IN': ['18175']}
+    records 4,776: {'no raw file of the state': 7, 'read': 3111, "unmatched by D3's matcher (my copy)": 427, "no ballots (no wide contest reaches the district's precincts, or no precinct)": 1236, "the district's key has no precincts in the pass": 2}
+    my ballots against D3's on his flags with over_seats read: {'precincts and ballots equal': 57, "D3 not read: MEDSL's file has rows but no contest's votes in co": 4, "klarner_x equal once the write-ins below the strong line are left out, as D3's pairs leave them": 24, "klarner_x differs (Klarner's paired sum or the seats)": 3}; e.g. [('2018-state-lower-VT-Chittenden_6__position_7', 'mine x', 0.6992, 0.69, 4184, 2, 'D3', 0.5413, 3239, 2), ('2018-state-lower-VT-Windsor_2', 'mine x', 0.7897, 0.7357, 1431, 1, 'D3', 0.6656, 1206, 1), ('2018-state-upper-VT-Rutland', 'mine x', 0.8397, 0.8397, 60144, 3, 'D3', 1.4485, 103751, 3)]
+    mine over 1.1 (Klarner's paired count over seats x ballots): 8; D3's over list: 3
+      2018-state-upper-IN-31 (031): seats 1, precincts 40, ballots 26,666 (by ['US SENATE']); Klarner 58,833 x2.2063, MEDSL 26,335 x0.9876 (MEDSL/Klarner x0.4476); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 7.35268e-06; counties of MEDSL's district precincts ['18057']
+      2018-state-upper-IN-29 (029): seats 1, precincts 40, ballots 28,469 (by ['US SENATE']); Klarner 56,377 x1.9803, MEDSL 28,195 x0.9904 (MEDSL/Klarner x0.5001); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 3.88231e-05; counties of MEDSL's district precincts ['18011', '18057']
+      2018-state-upper-VT-Grandisle (GI): seats 1, precincts 6, ballots 9,676 (by ['ATTORNEY GENERAL', 'AUDITOR OF ACCOUNTS', 'GOVERNOR']); Klarner 13,903 x1.4369, MEDSL 8,253 x0.8529 (MEDSL/Klarner x0.5936); D3 lists it over; the record after: votes_source medsl, p 0.0; counties of MEDSL's district precincts ['50007', '50013']
+      2018-state-upper-VT-Windham (WDH): seats 2, precincts 24, ballots 17,450 (by ['ATTORNEY GENERAL', 'AUDITOR OF ACCOUNTS', 'GOVERNOR']); Klarner 49,685 x1.4236, MEDSL 29,067 x0.8329 (MEDSL/Klarner x0.585); D3 lists it over; the record after: votes_source medsl, p 0.000116586; counties of MEDSL's district precincts ['50025']
+      2018-state-lower-IN-73 (073): seats 1, precincts 32, ballots 12,669 (by ['US SENATE']); Klarner 17,824 x1.4069, MEDSL 10,044 x0.7928 (MEDSL/Klarner x0.5635); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18019', '18061', '18071', '18093', '18117']
+      2018-state-lower-IN-75 (075): seats 1, precincts 48, ballots 19,567 (by ['US SENATE']); Klarner 26,354 x1.3469, MEDSL 19,142 x0.9783 (MEDSL/Klarner x0.7263); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 1.34602e-05; counties of MEDSL's district precincts ['18125', '18147', '18173']
+      2018-state-upper-IN-49 (049): seats 1, precincts 81, ballots 34,886 (by ['US SENATE']); Klarner 45,171 x1.2948, MEDSL 34,545 x0.9902 (MEDSL/Klarner x0.7648); D3: not read, the state's file has a blank county; the record after: votes_source None, p 9.57655e-06; counties of MEDSL's district precincts ['18051', '18163']
+      2018-state-upper-IN-47 (047): seats 1, precincts 113, ballots 38,907 (by ['US SENATE']); Klarner 47,917 x1.2316, MEDSL 38,554 x0.9909 (MEDSL/Klarner x0.8046); D3's flag: over-seats not read (MEDSL's file has rows but no contest's votes ); the record after: votes_source None, p None; counties of MEDSL's district precincts ['18025', '18037', '18061', '18117', '18123']
+    why D3's list lacks mine: {"D3's flag: not covered": 4, 'D3 lists it over': 2, "D3: not read, the state's file has a blank county": 1, "D3's flag: over-seats not read": 1}
+    2018-VT-upper-grandisle---: Klarner 13,903 -> MEDSL 8,253; p None -> 0.0; D3's over row {"outcome_before": "held", "precincts": 6, "ballots": 9676, "klarner_x": 1.4369, "medsl_x": 0.8529, "outcome": "MEDSL taken"}
+    2018-VT-upper-windham---: Klarner 49,685 -> MEDSL 29,067; p None -> 0.000116586; D3's over row {"outcome_before": "held", "precincts": 24, "ballots": 17450, "klarner_x": 1.4236, "medsl_x": 0.8329, "outcome": "MEDSL taken"}
+    2018-VT-upper-rutland---: Klarner 60,144 -> MEDSL 60,144; p 0.000297822 -> 0.000297822; D3's over row {"outcome_before": "held", "precincts": 31, "ballots": 23875, "klarner_x": 1.4485, "medsl_x": 0.8397, "outcome": "MEDSL taken"}
+    Indiana 2018's file: counties with rows 92, with a contest's votes 91; blank ['18175'] (D3: 18175, Washington County, 'BALLOTS CAST' rows alone; 101 records not read, Senate 47 among them)
+    Indiana 2018 records: 125; D3's not_read by_state IN records 101 (the records whose match was covered; the rest untested for other reasons)
+
+  2022: raw files 41 (10,567,506 rows); D3: tested 3907, over [], not read {}; flags with over_seats read 61, not read 6 ({"no statewide contest reaches the district's precincts": 6})
+    counties with rows but no contest's votes (D3's 'blank'): {'IN': ['18017', '18027', '18105', '18143']}
+    records 4,934: {'read': 2747, "no ballots (no wide contest reaches the district's precincts, or no precinct)": 1537, "unmatched by D3's matcher (my copy)": 649, "the district's key has no precincts in the pass": 1, 'no raw file of the state': 6}
+    my ballots against D3's on his flags with over_seats read: {'precincts and ballots equal': 59, "klarner_x differs (Klarner's paired sum or the seats)": 2, "klarner_x equal once the write-ins below the strong line are left out, as D3's pairs leave them": 10}; e.g. [('2022-state-lower-AZ-22', 'mine x', 0.5838, 0.5393, 52610, 2, 'D3', 0.5613, 50580, 2), ('2022-state-upper-AZ-14', 'mine x', 0.6851, 0.6441, 68700, 1, 'D3', 0.6599, 66179, 1)]
+    mine over 1.1 (Klarner's paired count over seats x ballots): 35; D3's over list: 0
+      2022-state-lower-IN-56 (056): seats 1, precincts 1, ballots 194 (by ['US SENATE']); Klarner 16,821 x86.7062, MEDSL 195 x1.0052 (MEDSL/Klarner x0.0116); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 3.11272e-05; counties of MEDSL's district precincts ['18065']
+      2022-state-upper-IN-38 (038): seats 1, precincts 5, ballots 1,544 (by ['US SENATE']); Klarner 27,510 x17.8174, MEDSL 1,250 x0.8096 (MEDSL/Klarner x0.0454); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18153']
+      2022-state-upper-IN-48 (048): seats 1, precincts 18, ballots 3,645 (by ['US SENATE']); Klarner 45,020 x12.3512, MEDSL 3,662 x1.0047 (MEDSL/Klarner x0.0813); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 9.61562e-06; counties of MEDSL's district precincts ['18125']
+      2022-state-lower-IN-75 (075): seats 1, precincts 15, ballots 2,801 (by ['US SENATE']); Klarner 21,042 x7.5123, MEDSL 2,804 x1.0011 (MEDSL/Klarner x0.1333); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 2.48828e-05; counties of MEDSL's district precincts ['18125']
+      2022-state-lower-WA-35__seat_1 (035): seats 1, precincts 25, ballots 15,758 (by ['US SENATE']); Klarner 74,397 x4.7212, MEDSL 15,559 x0.9874 (MEDSL/Klarner x0.2091); MEDSL's count off Klarner's by more than 3% (x0.2091) and no flag of D3's: his pool differs here; the record after: votes_source None, p 1.20843e-05; counties of MEDSL's district precincts ['53035']
+      2022-state-lower-WA-35__seat_2 (035): seats 1, precincts 25, ballots 15,758 (by ['US SENATE']); Klarner 74,207 x4.7092, MEDSL 15,559 x0.9874 (MEDSL/Klarner x0.2097); MEDSL's count off Klarner's by more than 3% (x0.2097) and no flag of D3's: his pool differs here; the record after: votes_source None, p 2.30972e-05; counties of MEDSL's district precincts ['53035']
+      2022-state-lower-IN-33 (033): seats 1, precincts 11, ballots 5,348 (by ['US SENATE']); Klarner 19,861 x3.7137, MEDSL 5,316 x0.994 (MEDSL/Klarner x0.2677); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 2.63625e-05; counties of MEDSL's district precincts ['18035', '18065']
+      2022-state-lower-IN-53 (053): seats 1, precincts 10, ballots 4,308 (by ['US SENATE']); Klarner 15,978 x3.7089, MEDSL 3,547 x0.8234 (MEDSL/Klarner x0.222); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18095']
+      2022-state-upper-IN-14 (014): seats 1, precincts 29, ballots 8,631 (by ['US SENATE']); Klarner 29,030 x3.3635, MEDSL 8,637 x1.0007 (MEDSL/Klarner x0.2975); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 4.84996e-05; counties of MEDSL's district precincts ['18033']
+      2022-state-upper-IN-47 (047): seats 1, precincts 45, ballots 13,832 (by ['US SENATE']); Klarner 43,363 x3.135, MEDSL 13,894 x1.0045 (MEDSL/Klarner x0.3204); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 3.22541e-05; counties of MEDSL's district precincts ['18061']
+      2022-state-upper-IN-49 (049): seats 1, precincts 34, ballots 8,727 (by ['US SENATE']); Klarner 26,320 x3.0159, MEDSL 7,140 x0.8182 (MEDSL/Klarner x0.2713); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18129']
+      2022-state-lower-IN-25 (025): seats 1, precincts 14, ballots 8,025 (by ['US SENATE']); Klarner 23,467 x2.9242, MEDSL 7,990 x0.9956 (MEDSL/Klarner x0.3405); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 6.48236e-05; counties of MEDSL's district precincts ['18063']
+      2022-state-lower-IN-83 (083): seats 1, precincts 19, ballots 6,227 (by ['US SENATE']); Klarner 17,676 x2.8386, MEDSL 5,192 x0.8338 (MEDSL/Klarner x0.2937); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18183']
+      2022-state-lower-IN-41 (041): seats 1, precincts 33, ballots 6,019 (by ['US SENATE']); Klarner 17,025 x2.8285, MEDSL 5,994 x0.9958 (MEDSL/Klarner x0.3521); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 8.93533e-05; counties of MEDSL's district precincts ['18023']
+      2022-state-lower-IN-88 (088): seats 1, precincts 17, ballots 9,835 (by ['US SENATE']); Klarner 24,573 x2.4985, MEDSL 9,789 x0.9953 (MEDSL/Klarner x0.3984); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 2.13071e-05; counties of MEDSL's district precincts ['18057', '18095']
+      2022-state-upper-IN-29 (029): seats 1, precincts 27, ballots 18,021 (by ['US SENATE']); Klarner 43,870 x2.4344, MEDSL 17,984 x0.9979 (MEDSL/Klarner x0.4099); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 3.68987e-05; counties of MEDSL's district precincts ['18057']
+      2022-state-lower-IN-76 (076): seats 1, precincts 34, ballots 8,727 (by ['US SENATE']); Klarner 20,897 x2.3945, MEDSL 8,725 x0.9998 (MEDSL/Klarner x0.4175); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 2.75036e-05; counties of MEDSL's district precincts ['18129']
+      2022-state-lower-IN-64 (064): seats 1, precincts 18, ballots 7,506 (by ['US SENATE']); Klarner 17,048 x2.2712, MEDSL 6,013 x0.8011 (MEDSL/Klarner x0.3527); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18083']
+      2022-state-lower-IN-51 (051): seats 1, precincts 16, ballots 6,599 (by ['US SENATE']); Klarner 14,227 x2.1559, MEDSL 6,553 x0.993 (MEDSL/Klarner x0.4606); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 3.6803e-05; counties of MEDSL's district precincts ['18087']
+      2022-state-lower-AR-62 (062): seats 1, precincts 28, ballots 3,947 (by ['US SENATE']); Klarner 7,741 x1.9612, MEDSL 3,419 x0.8662 (MEDSL/Klarner x0.4417); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 6.13666e-05; counties of MEDSL's district precincts ['05001', '05041', '05077', '05095', '05123']
+      2022-state-upper-IN-27 (027): seats 1, precincts 63, ballots 19,994 (by ['US SENATE']); Klarner 36,593 x1.8302, MEDSL 19,962 x0.9984 (MEDSL/Klarner x0.5455); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 1.18301e-05; counties of MEDSL's district precincts ['18047', '18065', '18161']
+      2022-state-lower-WA-32__seat_2 (032): seats 1, precincts 111, ballots 35,258 (by ['US SENATE']); Klarner 63,404 x1.7983, MEDSL 34,076 x0.9665 (MEDSL/Klarner x0.5374); MEDSL's count off Klarner's by more than 3% (x0.5374) and no flag of D3's: his pool differs here; the record after: votes_source None, p 1.84616e-05; counties of MEDSL's district precincts ['53033']
+      2022-state-lower-WA-32__seat_1 (032): seats 1, precincts 111, ballots 35,258 (by ['US SENATE']); Klarner 62,193 x1.7639, MEDSL 33,549 x0.9515 (MEDSL/Klarner x0.5394); MEDSL's count off Klarner's by more than 3% (x0.5394) and no flag of D3's: his pool differs here; the record after: votes_source None, p 2.73503e-06; counties of MEDSL's district precincts ['53033']
+      2022-state-lower-WA-10__seat_2 (010): seats 1, precincts 90, ballots 42,955 (by ['US SENATE']); Klarner 74,622 x1.7372, MEDSL 42,720 x0.9945 (MEDSL/Klarner x0.5725); MEDSL's count off Klarner's by more than 3% (x0.5725) and no flag of D3's: his pool differs here; the record after: votes_source None, p 1.56862e-05; counties of MEDSL's district precincts ['53029']
+      2022-state-lower-WA-10__seat_1 (010): seats 1, precincts 90, ballots 42,955 (by ['US SENATE']); Klarner 74,539 x1.7353, MEDSL 42,627 x0.9924 (MEDSL/Klarner x0.5719); MEDSL's count off Klarner's by more than 3% (x0.5719) and no flag of D3's: his pool differs here; the record after: votes_source None, p 1.20613e-05; counties of MEDSL's district precincts ['53029']
+      2022-state-lower-WA-1__seat_1 (001): seats 1, precincts 109, ballots 42,611 (by ['US SENATE']); Klarner 67,783 x1.5907, MEDSL 41,609 x0.9765 (MEDSL/Klarner x0.6139); MEDSL's count off Klarner's by more than 3% (x0.6139) and no flag of D3's: his pool differs here; the record after: votes_source None, p 1.72689e-05; counties of MEDSL's district precincts ['53033']
+      2022-state-lower-WA-1__seat_2 (001): seats 1, precincts 109, ballots 42,611 (by ['US SENATE']); Klarner 67,641 x1.5874, MEDSL 41,602 x0.9763 (MEDSL/Klarner x0.615); MEDSL's count off Klarner's by more than 3% (x0.615) and no flag of D3's: his pool differs here; the record after: votes_source None, p 1.73052e-05; counties of MEDSL's district precincts ['53033']
+      2022-state-upper-IN-19 (019): seats 1, precincts 47, ballots 18,096 (by ['US SENATE']); Klarner 27,865 x1.5398, MEDSL 14,966 x0.827 (MEDSL/Klarner x0.5371); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18001', '18179']
+      2022-state-upper-NY-56 (056): seats 1, precincts 233, ballots 62,723 (by ['US SENATE']); Klarner 95,390 x1.5208, MEDSL 61,909 x0.987 (MEDSL/Klarner x0.649); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 1.1005e-05; counties of MEDSL's district precincts ['36055']
+      2022-state-lower-IN-70 (070): seats 1, precincts 50, ballots 16,701 (by ['US SENATE']); Klarner 24,032 x1.439, MEDSL 16,726 x1.0015 (MEDSL/Klarner x0.696); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 2.17868e-05; counties of MEDSL's district precincts ['18019', '18061']
+      2022-state-lower-IN-52 (052): seats 1, precincts 39, ballots 11,732 (by ['US SENATE']); Klarner 16,386 x1.3967, MEDSL 10,825 x0.9227 (MEDSL/Klarner x0.6606); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 1.03813e-05; counties of MEDSL's district precincts ['18033']
+      2022-state-lower-IN-19 (019): seats 1, precincts 38, ballots 18,754 (by ['US SENATE']); Klarner 23,267 x1.2406, MEDSL 18,667 x0.9954 (MEDSL/Klarner x0.8023); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 2.25032e-05; counties of MEDSL's district precincts ['18089']
+      2022-state-upper-AR-9 (009): seats 1, precincts 35, ballots 15,845 (by ['US SENATE']); Klarner 18,912 x1.1936, MEDSL 14,649 x0.9245 (MEDSL/Klarner x0.7746); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 8.05119e-05; counties of MEDSL's district precincts ['05035', '05077', '05123']
+      2022-state-lower-IN-68 (068): seats 1, precincts 46, ballots 14,584 (by ['US SENATE']); Klarner 16,543 x1.1343, MEDSL 12,893 x0.8841 (MEDSL/Klarner x0.7794); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18029', '18077']
+      2022-state-lower-IN-67 (067): seats 1, precincts 44, ballots 15,302 (by ['US SENATE']); Klarner 16,855 x1.1015, MEDSL 12,129 x0.7926 (MEDSL/Klarner x0.7196); D3's flag: not covered (kept: MEDSL does not cover the district); the record after: votes_source None, p 0.0; counties of MEDSL's district precincts ['18031', '18077', '18079']
+    why D3's list lacks mine: {"D3's flag: not covered": 27, "MEDSL's count off Klarner's by more than 3%: his pool differs here": 8}
+
+====================================================================================================
+48.5 The zero-row counties: Indiana 2022's Cass, Daviess, Scott and Monroe; Kentucky 2016's Jefferson; the records' outcomes
+====================================================================================================
+  2016 KY county 21111 (2016-precinct-state.csv): rows 5,256, votes 494,702, precincts (most in an office) 165; offices 25; legislative rows [('STATE HOUSE|28', [56, 349, 28]), ('STATE HOUSE|29', [99, 18675, 36]), ('STATE HOUSE|30', [203, 16968, 42]), ('STATE HOUSE|31', [153, 21540, 38]), ('STATE HOUSE|32', [113, 16398, 54]), ('STATE HOUSE|33', [148, 21746, 36]), ('STATE HOUSE|34', [143, 21078, 55]), ('STATE HOUSE|35', [140, 14664, 53])]
+    offices with any votes: [('STATE HOUSE|29', 18675), ('STATE SENATE|19', 76586), ('SCHOOL BOARD 4|', 206), ('STATE SENATE|35', 36657), ('SCHOOL BOARD 7|', 704), ('STATE HOUSE|30', 16968), ('STATE HOUSE|38', 15295), ('STATE SENATE|37', 32794)]
+  2016-KY-lower--28--: p None -> 2.97932e-05; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['21111', 'zero', None]] (by the lower chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 349 votes against Klarner's 16,807, -97.9%, but the file l"]
+  2016-KY-lower--33--: p None -> 5.27554e-05; D3's outcome noted; coverage gaps None (by None); the record's reason/note:  | []
+  2022 IN county 18017 (2022-in-local-precinct-general.csv): rows 1,028, votes 0, precincts (most in an office) 33; offices 59; legislative rows [('STATE HOUSE|23', [29, 0, 29]), ('STATE HOUSE|38', [4, 0, 4])]
+    offices with any votes: []
+  2022 IN county 18027 (2022-in-local-precinct-general.csv): rows 953, votes 0, precincts (most in an office) 28; offices 45; legislative rows [('STATE HOUSE|45', [10, 0, 5]), ('STATE HOUSE|63', [46, 0, 23]), ('STATE SENATE|39', [28, 0, 28])]
+    offices with any votes: []
+  2022 IN county 18105 (2022-in-local-precinct-general.csv): rows 249, votes 0, precincts (most in an office) 83; offices 1; legislative rows []
+    offices with any votes: []
+  2022 IN county 18143 (2022-in-local-precinct-general.csv): rows 584, votes 0, precincts (most in an office) 16; offices 32; legislative rows [('STATE HOUSE|66', [18, 0, 9]), ('STATE HOUSE|69', [14, 0, 7]), ('STATE SENATE|43', [16, 0, 16])]
+    offices with any votes: []
+  2022-IN-lower--23--: p None -> 0.0; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['18017', 'zero', 0.5598]] (by the lower chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 6,549 votes against Klarner's 12,346, -47.0%, but the file la"]
+  2022-IN-lower--66--: p None -> 2.51421e-05; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['18143', 'zero', 0.2398]] (by the lower chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 16,948 votes against Klarner's 20,825, -18.6%, but the file "]
+  2022-IN-lower--38--: p 0.0 -> 0.0; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['18159', 'census', 0.2577], ['18015', None, None], ['18017', 'zero', 0.0618], ['18157', None, None]] (by the lower chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 7,008 votes against Klarner's 19,183, -63.5%, but the file la"]
+  2022-IN-lower--45--: p 8.85138e-06 -> 8.85138e-06; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['18027', 'zero', 0.0674], ['18055', None, None], ['18167', None, None]] (by the lower chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 8,469 votes against Klarner's 19,218, -55.9%, but the file l"]
+  2022-IN-lower--63--: p 2.76701e-05 -> 2.76708e-05; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['18027', 'zero', 0.4259], ['18037', None, None]] (by the lower chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 4,299 votes against Klarner's 18,922, -77.3%, but the file l"]
+  2022-IN-lower--69--: p 3.07968e-05 -> 3.07976e-05; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['18071', None, None], ['18143', 'zero', 0.136], ['18175', None, None]] (by the lower chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 339 votes against Klarner's 17,001, -98.0%, but the file lac"]
+  2022-IN-upper--39--: p 0.0 -> 0.0; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['18055', 'census', 0.2192], ['18119', 'census', 0.0446], ['18027', 'zero', 0.2239]] (by the upper chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 14,939 votes against Klarner's 31,128, -52.0%, but the file l"]
+  2022-IN-upper--43--: p 0.0 -> 0.0; D3's outcome kept: MEDSL does not cover the district; coverage gaps [['18115', 'census', 0.0521], ['18155', 'census', 0.1126], ['18079', 16, 25], ['18143', 'zero', 0.1733]] (by the upper chamber's rows); the record's reason/note:  | ["MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 22,201 votes against Klarner's 30,804, -27.9%, but the file l"]
+
+====================================================================================================
+48.6 DC 2018: check-volume.json's DC rows at the Board's 231,700; the Board's certified PDF read apart; the wards
+====================================================================================================
+  the Board's PDF (fetched in section 18, 112,145 bytes), its first page's columns ['  Candidate/Contest                    Ward 1   Ward 2    Ward 3   Ward 4   Ward 5   Ward 6   Ward 7   Ward 8        Total']: 'Registered Voters' CityWide [63517, 49772, 58251, 62735, 68126, 81208, 58713, 58189, 500511]; 'Ballots Cast' CityWide [30636, 23060, 32312, 31804, 30770, 41256, 23323, 18539, 231700] (wards 1 to 8, then the city: 231,700; the wards sum to 231,700)
+
+  check-volume.json at b350d5e: '231700' appears 1 times, '462964' 3; DC rows with ballots_cast: 14 (years {'2018': 12, '2024': 2}); their ballots_cast values {462964: 3, 61188: 2, 64500: 2, 61522: 2, 82446: 2, 231700: 1, 328427: 2}; ballots_cast_source: {'None': 14}
+    2018 ATTORNEY GENERAL STATEWIDE: votes 223,625 precincts 143 ballots_cast 462,964 ratio 0.483; the PDF's 231,700 differs
+    2018 CHAIRMAN OF THE DC COUNCIL STATEWIDE: votes 222,863 precincts 143 ballots_cast 462,964 ratio 0.481; the PDF's 231,700 differs
+    2018 DC COUNCILMEMBER 001: votes 29,761 precincts 15 ballots_cast 61,188 ratio 0.486; the PDF's 30,636 differs
+    2018 DC COUNCILMEMBER 003: votes 31,604 precincts 18 ballots_cast 64,500 ratio 0.490; the PDF's 32,312 differs
+    2018 DC COUNCILMEMBER 005: votes 29,951 precincts 18 ballots_cast 61,522 ratio 0.487; the PDF's 30,770 differs
+    2018 DC COUNCILMEMBER 006: votes 40,520 precincts 19 ballots_cast 82,446 ratio 0.491; the PDF's 41,256 differs
+    2018 DC COUNCILMEMBER AT-LARGE: votes 342,188 precincts 143 ballots_cast 231,700 ratio 1.477; the PDF's 231,700 EQUAL
+    2018 MAYOR STATEWIDE: votes 224,658 precincts 143 ballots_cast 462,964 ratio 0.485; the PDF's 231,700 differs
+    2018 STATE BOARD OF EDUCATION 001: votes 27,423 precincts 15 ballots_cast 61,188 ratio 0.448; the PDF's 30,636 differs
+    2018 STATE BOARD OF EDUCATION 003: votes 27,751 precincts 18 ballots_cast 64,500 ratio 0.430; the PDF's 32,312 differs
+    2018 STATE BOARD OF EDUCATION 005: votes 27,827 precincts 18 ballots_cast 61,522 ratio 0.452; the PDF's 30,770 differs
+    2018 STATE BOARD OF EDUCATION 006: votes 36,907 precincts 19 ballots_cast 82,446 ratio 0.448; the PDF's 41,256 differs
+    2024 AT-LARGE MEMBER OF THE STATE BOARD OF EDUCATION STATEWIDE: votes 235,683 precincts 144 ballots_cast 328,427 ratio 0.718
+    2024 INITIATIVE 83 : votes 291,293 precincts 144 ballots_cast 328,427 ratio 0.887
+    2018-local-DC-DC_COUNCILMEMBER-AT_LARGE: seats 2; p None; reason two seats, of which the majority party may hold only one (the orchestrator, 2026-11-13 00:17), so it is not a plain race for the top two and no route of the met
+
+  check-volume.json at b35fede: '231700' appears 8 times, '462964' 0; DC rows with ballots_cast: 14 (years {'2018': 12, '2024': 2}); their ballots_cast values {231700: 4, 30636: 2, 32312: 2, 30770: 2, 41256: 2, 328427: 2}; ballots_cast_source: {"the DC Board of Elections' certified results (https://electionresults.dcboe.org/": 4, 'None': 10}
+    2018 ATTORNEY GENERAL STATEWIDE: votes 223,625 precincts 143 ballots_cast 231,700 ratio 0.965 ballots_cast_rows 231700; the PDF's 231,700 EQUAL
+    2018 CHAIRMAN OF THE DC COUNCIL STATEWIDE: votes 222,863 precincts 143 ballots_cast 231,700 ratio 0.962 ballots_cast_rows 231700; the PDF's 231,700 EQUAL
+    2018 DC COUNCILMEMBER 001: votes 29,761 precincts 15 ballots_cast 30,636 ratio 0.971; the PDF's 30,636 EQUAL
+    2018 DC COUNCILMEMBER 003: votes 31,604 precincts 18 ballots_cast 32,312 ratio 0.978; the PDF's 32,312 EQUAL
+    2018 DC COUNCILMEMBER 005: votes 29,951 precincts 18 ballots_cast 30,770 ratio 0.973; the PDF's 30,770 EQUAL
+    2018 DC COUNCILMEMBER 006: votes 40,520 precincts 19 ballots_cast 41,256 ratio 0.982; the PDF's 41,256 EQUAL
+    2018 DC COUNCILMEMBER AT-LARGE: votes 342,188 precincts 143 ballots_cast 231,700 ratio 1.477 ballots_cast_rows 231700; the PDF's 231,700 EQUAL
+    2018 MAYOR STATEWIDE: votes 224,658 precincts 143 ballots_cast 231,700 ratio 0.970 ballots_cast_rows 231700; the PDF's 231,700 EQUAL
+    2018 STATE BOARD OF EDUCATION 001: votes 27,423 precincts 15 ballots_cast 30,636 ratio 0.895; the PDF's 30,636 EQUAL
+    2018 STATE BOARD OF EDUCATION 003: votes 27,751 precincts 18 ballots_cast 32,312 ratio 0.859; the PDF's 32,312 EQUAL
+    2018 STATE BOARD OF EDUCATION 005: votes 27,827 precincts 18 ballots_cast 30,770 ratio 0.904; the PDF's 30,770 EQUAL
+    2018 STATE BOARD OF EDUCATION 006: votes 36,907 precincts 19 ballots_cast 41,256 ratio 0.895; the PDF's 41,256 EQUAL
+    2024 AT-LARGE MEMBER OF THE STATE BOARD OF EDUCATION STATEWIDE: votes 235,683 precincts 144 ballots_cast 328,427 ratio 0.718
+    2024 INITIATIVE 83 : votes 291,293 precincts 144 ballots_cast 328,427 ratio 0.887
+    2018-local-DC-DC_COUNCILMEMBER-AT_LARGE: seats 2; p None; reason two seats, of which the majority party may hold only one (the orchestrator, 2026-11-13 00:17), so it is not a plain race for the top two and no route of the met
+
+====================================================================================================
+48.7 New York 2018's at-large reasons from MEDSL's governor lines; the forecast inputs behind the moves beyond 1%
+====================================================================================================
+  MEDSL's 2018 New York governor rows: modes {'TOTAL': 177122, 'ELECTION DAY': 2119, 'ABSENTEE': 2119}; counties 57
+    ANDREW M CUOMO: every line 3,286,344 {'DEMOCRAT': 3098235, 'WORKING FAMILIES': 105670, 'INDEPENDENCE': 58578, "WOMEN'S EQUALITY": 23861}
+    MARC MOLINARO: every line 1,866,153 {'REPUBLICAN': 1622796, 'CONSERVATIVE': 217093, 'REFORM': 24320, 'GREEN': 1944}
+    STATE BALLOTS: every line 1,680,975 {'': 1680975}
+    ELIGIBLE: every line 115,471 {'': 115471}
+    HOWIE HAWKINS: every line 94,460 {'GREEN': 94460}
+    LARRY SHARPE: every line 85,827 {'LIBERTARIAN': 85827}
+  the record at b350d5e (total 5,605,321): CUOMO, ANDREW M. (D) 3,424,416: MEDSL's lines summed 3,286,344 = 95.97%, own line 3,098,235 = 90.48%; MOLINARO, MARCUS J. (MARC) (R) 1,926,485: MEDSL's lines summed 1,866,153 = 96.87%, own line 1,622,796 = 84.24%; the worst: CUOMO, ANDREW M. 95.97% (own line 90.48%)
+  the record at b35fede (total 6,097,362): CUOMO, ANDREW M. (D) 3,635,340: MEDSL's lines summed 3,286,344 = 90.40%, own line 3,098,235 = 85.22%; MOLINARO, MARCUS J. (MARC) (R) 2,207,602: MEDSL's lines summed 1,866,153 = 84.53%, own line 1,622,796 = 73.51%; the worst: MOLINARO, MARCUS J. (MARC) 84.53% (own line 73.51%)
+  2018-local-NY-COMPTROLLER: before 'MEDSL's 2018 New York precincts add up to 95.97% of D2's certified count for governor (the party lines summed; on each candidate's...'; after 'MEDSL's 2018 New York precincts add up to 84.53% of the record's count for governor (each nominee's every line, from Algara and Amlani's county returns) (the party lines ...'
+  2018-local-NY-ATTORNEY_GENERAL: before 'MEDSL's 2018 New York precincts add up to 95.97% of D2's certified count for governor (the party lines summed; on each candidate's...'; after 'MEDSL's 2018 New York precincts add up to 84.53% of the record's count for governor (each nominee's every line, from Algara and Amlani's county returns) (the party lines ...'
+  (D3's 95.97% before and 84.53% / 73.51% after are the worst nominee's figures above: Cuomo's before, Molinaro's after, the record's count for governor having grown by his other lines)
+
