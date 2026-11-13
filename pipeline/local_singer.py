@@ -31,9 +31,25 @@ The gates, as for every second source (the orchestrator, "the same gates"):
      general contests against Singer's: (a) the ratio of the paired candidates' votes off 1 by more than 3%; (b) a
      Klarner contest with no more names than seats where Singer names another candidate with votes. Each flag's
      outcome by local_districts' rules where they need no further source (settled earlier; doubled; the write-in rule;
-     held at a gap of 5% or more, noted under it: 21:26 and 19:04). The build does not read this file yet: the
-     outcomes are put to the orchestrator first, since holding or noting a Klarner record on a third party's count is
-     a step the rules of section 32 took for MEDSL alone.
+     held at a gap of 5% or more, noted under it: 21:26 and 19:04). pipeline/local.py's singer_checks applies them.
+
+The orchestrator's rulings of 2026-11-13 10:44 UTC on the 25 flags (all (a)), verbatim in part: "(a) Yes: section 32's
+rules act on Singer's count exactly as on MEDSL's ... Which count erred is [inferred] in all four cases (Montana's 10,000
+as much as Maine's towns), and an inference settles nothing (19:04). Why: the rules must be the same whichever source is
+short, or a reading of which is likelier would decide p. So MT is held unless the state settles it (below); ME 15 held,
+2 noted; NY 2 held, 1 noted; AZ 2 noted. Each note gives both counts and your reason, marked [inferred]." The one
+exception, 22:26 (b), measures Singer's coverage only where its Maine file has rows below the district (towns): its
+Maine legislative rows are by county [measured], so "there is nothing to measure and the holds stand". "(b) Montana:
+yes, one request to the Secretary of State at sosmt.gov for its 2020 general canvass of the legislature (index pages
+followed to reach the one file count as one request). If it agrees with Singer on House 3, 19 and 84, they take that
+count with Klarner's figures in a note, as Indiana Senate 36 took MEDSL's; if with Klarner, Klarner's stands; refused or
+unread, they stay held." "The five gate failures (KS, MO, OH, UT, WY): their Singer rows witness nothing, so those
+records are untested, not held, as with MEDSL's gate."
+
+Montana's request (one, 10:44), in $VOTE_CACHE/mt_sos/raw/ with .meta.json: the Secretary of State's results page
+https://sosmt.gov/elections/results/ (read to find the link) and the file its "2020 General ... Legislative" link
+names, https://sosmt.gov/wp-content/uploads/State_Canvass_Legislative.pdf ("2020 LEGISLATIVE GENERAL ELECTION
+CANVASS", 24 pages). mt_canvass checks its sha256 against the log before reading it with pdftotext.
 
 Counting: each line's 'total' vote type (every line of every file has one [measured]); a contest's votes are those of
 its deepest reporting units (a county, or a state's other subdivision), where a file also gives the jurisdiction's own
@@ -43,6 +59,7 @@ out, write-in totals kept as write-in lines.
 Run:  VOTE_CACHE=/tmp/vote-cache python3 -I pipeline/local_singer.py normalize
       VOTE_CACHE=/tmp/vote-cache python3 -I pipeline/local_singer.py gate      (prints; check writes it)
       VOTE_CACHE=/tmp/vote-cache python3 -I pipeline/local_singer.py check     (writes data/local/check-2020-singer.json)
+      VOTE_CACHE=/tmp/vote-cache python3 -I pipeline/local_singer.py mt        (prints Montana's canvass, as read)
 """
 import collections
 import csv
@@ -51,6 +68,7 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -76,6 +94,26 @@ WRITE_IN_TOTAL = re.compile(r"^(WRITE[- ]?INS?( \(MISCELLANEOUS\))?|OTHER WRITE-
                             re.I)   # "Misc.": Oregon's write-ins, as its own results name them [inferred]
 WRITE_IN = re.compile(r"\(WRITE[- ]?IN\)|\(WRITE IN\)|^WRITE-IN - ", re.I)
 LEG = re.compile(r"^([A-Z]{2}) (House|Senate) District (.+?)(?: Position (\d+))?$")
+# Montana's 2020 legislative canvass (the 10:44 request)
+MT_RAW = os.path.join(F.CACHE, "mt_sos", "raw")
+MT_FILE = "2020-general-State_Canvass_Legislative.pdf"
+MT_SOURCE = "Montana Secretary of State, 2020 Legislative General Election Canvass"
+MT_HEAD = re.compile(r"^(HD|SD) (\d+) Total$")
+MT_LINE = re.compile(r"^([A-Za-z][A-Za-z ]*?) ((?:\d+ )*\d+)$")   # a party, its counties' votes and the total
+MT_PAGE = re.compile(r"^(MONTANA SECRETARY OF STATE|2020 LEGISLATIVE GENERAL ELECTION CANVASS)")
+# Why D3 reads each state's flags as it does, for the notes (the orchestrator, 10:44: "Each note gives both counts and
+# your reason, marked [inferred]"). An inference settles nothing: the rules hold or note either way.
+WHY = {
+    "MT": "Klarner's figure for one candidate is exactly 10,000 above Singer's, and the others' equal, which reads as a "
+          "keying error in Klarner's",
+    "ME": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal "
+          "gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by "
+          "county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it "
+          "gives only district totals, there is nothing to measure and the holds stand\")",
+    "NY": "Singer's counts are short for every candidate while its file's New York federal counts pass the federal gate, "
+          "so its source likely lacks part of these contests' ballots",
+    "AZ": "Singer's file names the write-in candidates Klarner counts but gives each 0 votes, so its source likely "
+          "leaves out Arizona's write-in counts"}
 DEM = re.compile(r"^DEMOCRATIC( PARTY)?$|^DEMOCRATIC-FARMER-LABOR( PARTY)?$|^DEM$", re.I)
 REP = re.compile(r"^REPUBLICAN( PARTY)?$|^REP$", re.I)
 
@@ -306,6 +344,76 @@ def outcome(kc, t):
     return {"outcome": "held" if g >= LD.HOLD_GAP else "noted", "gap": round(g, 5)}
 
 
+def mt_canvass():
+    """Montana's 2020 legislative canvass, as read: {("HD"|"SD", number): [{party, name, total, counties}]}. Its sha256
+    is checked against the request's log first. Each district's block is its header ("HD 03 Total"), its counties, then
+    each candidate's party line (the counties' votes and the total) with the name below; every candidate's counties add
+    up to its total [measured: this reader stops otherwise]."""
+    path = os.path.join(MT_RAW, MT_FILE)
+    with open(path + ".meta.json") as f:
+        meta = json.load(f)
+    with open(path, "rb") as f:
+        if hashlib.sha256(f.read()).hexdigest() != meta["sha256"]:
+            raise SystemExit(f"{path}: sha256 differs from its .meta.json")
+    txt = subprocess.run(["pdftotext", "-layout", path, "-"], capture_output=True, check=True).stdout.decode("utf-8")
+    out, cur, cand = {}, None, None
+    for line in txt.splitlines():
+        s = re.sub(r"\s+", " ", line.replace("\f", "")).strip()
+        if not s or MT_PAGE.match(s):
+            continue
+        m = MT_HEAD.match(s)
+        if m:
+            cur, cand = (m.group(1), int(m.group(2))), None
+            if cur in out:
+                raise SystemExit(f"mt_canvass: {cur} twice")
+            out[cur] = []
+            continue
+        m = MT_LINE.match(s)
+        if m and cur:
+            nums = [int(x) for x in m.group(2).split()]
+            if len(nums) > 1 and sum(nums[:-1]) != nums[-1]:
+                raise SystemExit(f"mt_canvass: {cur} {s}: the counties do not add up to the total")
+            cand = {"party": m.group(1), "counties": nums[:-1], "total": nums[-1], "name": ""}
+            out[cur].append(cand)
+            continue
+        if cand is not None:
+            cand["name"] = (cand["name"] + " " + s).strip()
+    return out, meta
+
+
+def settle_mt(flags):
+    """The 10:44 ruling (b) on Montana's flags: the state's canvass against both counts, candidate by candidate. With
+    Singer's on every candidate and not Klarner's: "settled by the state: Singer's count stands"; with Klarner's:
+    "settled by the state: Klarner's count stands"; else the hold stands. The canvass's legislative report gives the
+    ballot's candidates only (its write-ins are in a separate report, not read), so a record whose counts carry a
+    write-in is not settled by it."""
+    import local_districts as LD
+    mt = [f for f in flags if f["state"] == "MT" and f["outcome"] == "held"]
+    if not mt:
+        return
+    canvass, meta = mt_canvass()
+    for f in mt:
+        lines = canvass.get(("SD" if f["chamber"] == "state-upper" else "HD", int(f["dno"])), [])
+        pairs, ok = [], len(lines) == len(f["pairs"]) and not f["singer_write_ins"]
+        for kname, kv, sname, sv in f["pairs"]:
+            hit = [x for x in lines if LD._sur(x["name"]) == LD._sur(kname)]
+            if len(hit) != 1:
+                ok = False
+                continue
+            pairs.append([kname, kv, sv, hit[0]["name"], hit[0]["total"]])
+        sc = {"source": MT_SOURCE, "file": MT_FILE, "url": meta["url"], "read_utc": meta["read_utc"],
+              "sha256": meta["sha256"], "pairs": pairs, "write_ins": []}
+        f["outcome_by_rule"] = f["outcome"]
+        if ok and all(d == s for _, k, s, _, d in pairs) and any(d != k for _, k, s, _, d in pairs):
+            f["outcome"] = "settled by the state: Singer's count stands"
+        elif ok and all(d == k for _, k, s, _, d in pairs):
+            f["outcome"] = "settled by the state: Klarner's count stands"
+        else:
+            del f["outcome_by_rule"]
+            f["state_unsettled"] = True
+        f["state_count"] = sc
+
+
 def check():
     import local as L
     import local_districts as LD
@@ -360,11 +468,18 @@ def check():
         f.update(outcome(kc, t))
         del t["medsl"]
         f.update(t)
+        f["file"] = f"{kc['state']}_tabular.tsv"
+        if f["outcome"] in ("held", "noted"):
+            if kc["state"] not in WHY:
+                raise SystemExit(f"check: {f['id']}: no reason written for {kc['state']}'s flags (WHY)")
+            f["why"] = WHY[kc["state"]]
         flags.append(f)
+    settle_mt(flags)
+    for f in flags:
         tallies[f"flag {'+'.join(f['flags'])}: {f['outcome']}"] += 1
     out = {"about": "Klarner's 2020 legislative districts beside Singer's 2020 official results, one by one "
-                    "(pipeline/local_singer.py; the orchestrator, 2026-11-13 09:23 and 10:33; data/local/REPORT.md "
-                    "section 39). The build does not read it yet: the flags' outcomes await the orchestrator.",
+                    "(pipeline/local_singer.py; the orchestrator, 2026-11-13 09:23, 10:33 and 10:44; "
+                    "data/local/REPORT.md section 39). pipeline/local.py's singer_checks applies each flag's outcome.",
            "source": dict(SOURCE, read_utc=_meta("RV80FW-original.zip")["read_utc"],
                           sha256=_meta("RV80FW-original.zip")["sha256"],
                           record_read_utc=_meta("RV80FW-dataset.json")["read_utc"]),
@@ -393,6 +508,11 @@ def main():
                                                              or x[6] != "by name"][:5])
     elif cmd == "check":
         check()
+    elif cmd == "mt":
+        cv, meta = mt_canvass()
+        print(meta["url"], meta["read_utc"], meta["sha256"], len(cv), "districts")
+        for k in sorted(cv):
+            print(*k, "; ".join(f"{x['name']} ({x['party']}) {x['total']:,}" for x in cv[k]))
     else:
         raise SystemExit(__doc__)
 

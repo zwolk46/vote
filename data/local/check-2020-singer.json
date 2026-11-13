@@ -1,5 +1,5 @@
 {
- "about": "Klarner's 2020 legislative districts beside Singer's 2020 official results, one by one (pipeline/local_singer.py; the orchestrator, 2026-11-13 09:23 and 10:33; data/local/REPORT.md section 39). The build does not read it yet: the flags' outcomes await the orchestrator.",
+ "about": "Klarner's 2020 legislative districts beside Singer's 2020 official results, one by one (pipeline/local_singer.py; the orchestrator, 2026-11-13 09:23, 10:33 and 10:44; data/local/REPORT.md section 39). pipeline/local.py's singer_checks applies each flag's outcome.",
  "source": {
   "name": "Stephanie Frank Singer, US 2020 General Official Election Results in Tabular Format, Harvard Dataverse doi:10.7910/DVN/RV80FW, v1.0, released 2021-08-27",
   "url": "https://doi.org/10.7910/DVN/RV80FW",
@@ -8835,8 +8835,9 @@
  "tallies": {
   "a Singer contest that several districts match, not paired apart": 15,
   "candidates not paired": 1,
-  "flag a: held": 20,
+  "flag a: held": 17,
   "flag a: noted": 5,
+  "flag a: settled by the state: Singer's count stands": 3,
   "tested": 3880,
   "unmatched": 136
  },
@@ -11932,7 +11933,9 @@
    "b_tested": true,
    "singer": 186913,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "AZ_tabular.tsv",
+   "why": "Singer's file names the write-in candidates Klarner counts but gives each 0 votes, so its source likely leaves out Arizona's write-in counts"
   },
   {
    "id": "2020-AZ-upper--16--",
@@ -11983,7 +11986,9 @@
    "b_tested": true,
    "singer": 94913,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "AZ_tabular.tsv",
+   "why": "Singer's file names the write-in candidates Klarner counts but gives each 0 votes, so its source likely leaves out Arizona's write-in counts"
   },
   {
    "id": "2020-ME-lower--111--",
@@ -12016,7 +12021,9 @@
    "b_tested": true,
    "singer": 3496,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--112--",
@@ -12055,7 +12062,9 @@
    "b_tested": true,
    "singer": 4441,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--114--",
@@ -12094,7 +12103,9 @@
    "b_tested": true,
    "singer": 2085,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--119--",
@@ -12133,7 +12144,9 @@
    "b_tested": true,
    "singer": 4170,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--120--",
@@ -12178,7 +12191,9 @@
    "b_tested": true,
    "singer": 3972,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--121--",
@@ -12217,7 +12232,9 @@
    "b_tested": true,
    "singer": 2700,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--122--",
@@ -12256,7 +12273,9 @@
    "b_tested": true,
    "singer": 304,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--136--",
@@ -12295,7 +12314,9 @@
    "b_tested": true,
    "singer": 4342,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--137--",
@@ -12334,7 +12355,9 @@
    "b_tested": true,
    "singer": 4106,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--138--",
@@ -12373,7 +12396,9 @@
    "b_tested": true,
    "singer": 3515,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--144--",
@@ -12412,7 +12437,9 @@
    "b_tested": true,
    "singer": 3986,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--145--",
@@ -12451,7 +12478,9 @@
    "b_tested": true,
    "singer": 4077,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--148--",
@@ -12490,7 +12519,9 @@
    "b_tested": true,
    "singer": 3907,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--149--",
@@ -12523,7 +12554,9 @@
    "b_tested": true,
    "singer": 352,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-lower--151--",
@@ -12562,7 +12595,9 @@
    "b_tested": true,
    "singer": 2111,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-upper--17--",
@@ -12601,7 +12636,9 @@
    "b_tested": true,
    "singer": 21071,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-ME-upper--5--",
@@ -12640,7 +12677,9 @@
    "b_tested": true,
    "singer": 17632,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "ME_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's Maine federal counts are whole (the federal gate), so its file likely lacks some towns' votes in these contests; its Maine legislative rows are by county, so the towns missing cannot be measured (the orchestrator, 2026-11-13 10:44, on 22:26 (b): \"If it gives only district totals, there is nothing to measure and the holds stand\")"
   },
   {
    "id": "2020-MT-lower--19--",
@@ -12653,7 +12692,7 @@
    "flags": [
     "a"
    ],
-   "outcome": "held",
+   "outcome": "settled by the state: Singer's count stands",
    "gap": 0.66445,
    "matched": true,
    "pairs": [
@@ -12679,7 +12718,34 @@
    "b_tested": true,
    "singer": 5050,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "MT_tabular.tsv",
+   "why": "Klarner's figure for one candidate is exactly 10,000 above Singer's, and the others' equal, which reads as a keying error in Klarner's",
+   "outcome_by_rule": "held",
+   "state_count": {
+    "source": "Montana Secretary of State, 2020 Legislative General Election Canvass",
+    "file": "2020-general-State_Canvass_Legislative.pdf",
+    "url": "https://sosmt.gov/wp-content/uploads/State_Canvass_Legislative.pdf",
+    "read_utc": "2026-11-13T10:47:06Z",
+    "sha256": "3e6f8ba183389121a1c7e3a118b5b01869d9f0e30145ad8724ceabfd22c1947a",
+    "pairs": [
+     [
+      "schultz, george a",
+      762,
+      762,
+      "GEORGE ANTHONY SCHULTZ",
+      762
+     ],
+     [
+      "mckamey, wendy",
+      14288,
+      4288,
+      "WENDY MCKAMEY",
+      4288
+     ]
+    ],
+    "write_ins": []
+   }
   },
   {
    "id": "2020-MT-lower--3--",
@@ -12692,7 +12758,7 @@
    "flags": [
     "a"
    ],
-   "outcome": "held",
+   "outcome": "settled by the state: Singer's count stands",
    "gap": 0.62582,
    "matched": true,
    "pairs": [
@@ -12718,7 +12784,34 @@
    "b_tested": true,
    "singer": 5979,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "MT_tabular.tsv",
+   "why": "Klarner's figure for one candidate is exactly 10,000 above Singer's, and the others' equal, which reads as a keying error in Klarner's",
+   "outcome_by_rule": "held",
+   "state_count": {
+    "source": "Montana Secretary of State, 2020 Legislative General Election Canvass",
+    "file": "2020-general-State_Canvass_Legislative.pdf",
+    "url": "https://sosmt.gov/wp-content/uploads/State_Canvass_Legislative.pdf",
+    "read_utc": "2026-11-13T10:47:06Z",
+    "sha256": "3e6f8ba183389121a1c7e3a118b5b01869d9f0e30145ad8724ceabfd22c1947a",
+    "pairs": [
+     [
+      "powers, debo",
+      12393,
+      2393,
+      "DEBO POWERS",
+      2393
+     ],
+     [
+      "mitchell, braxton",
+      3586,
+      3586,
+      "BRAXTON MITCHELL",
+      3586
+     ]
+    ],
+    "write_ins": []
+   }
   },
   {
    "id": "2020-MT-lower--84--",
@@ -12731,7 +12824,7 @@
    "flags": [
     "a"
    ],
-   "outcome": "held",
+   "outcome": "settled by the state: Singer's count stands",
    "gap": 0.62208,
    "matched": true,
    "pairs": [
@@ -12757,7 +12850,34 @@
    "b_tested": true,
    "singer": 6075,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "MT_tabular.tsv",
+   "why": "Klarner's figure for one candidate is exactly 10,000 above Singer's, and the others' equal, which reads as a keying error in Klarner's",
+   "outcome_by_rule": "held",
+   "state_count": {
+    "source": "Montana Secretary of State, 2020 Legislative General Election Canvass",
+    "file": "2020-general-State_Canvass_Legislative.pdf",
+    "url": "https://sosmt.gov/wp-content/uploads/State_Canvass_Legislative.pdf",
+    "read_utc": "2026-11-13T10:47:06Z",
+    "sha256": "3e6f8ba183389121a1c7e3a118b5b01869d9f0e30145ad8724ceabfd22c1947a",
+    "pairs": [
+     [
+      "dunwell, mary a",
+      3256,
+      3256,
+      "MARY ANN DUNWELL",
+      3256
+     ],
+     [
+      "hull, charlie",
+      12819,
+      2819,
+      "CHARLIE HULL",
+      2819
+     ]
+    ],
+    "write_ins": []
+   }
   },
   {
    "id": "2020-NY-lower--1--",
@@ -12796,7 +12916,9 @@
    "b_tested": true,
    "singer": 67083,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "NY_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's New York federal counts pass the federal gate, so its source likely lacks part of these contests' ballots"
   },
   {
    "id": "2020-NY-lower--3--",
@@ -12841,7 +12963,9 @@
    "b_tested": true,
    "singer": 48084,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "NY_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's New York federal counts pass the federal gate, so its source likely lacks part of these contests' ballots"
   },
   {
    "id": "2020-NY-lower--5--",
@@ -12880,7 +13004,9 @@
    "b_tested": true,
    "singer": 54292,
    "singer_write_ins": 0,
-   "singer_ballot_unpaired": 0
+   "singer_ballot_unpaired": 0,
+   "file": "NY_tabular.tsv",
+   "why": "Singer's counts are short for every candidate while its file's New York federal counts pass the federal gate, so its source likely lacks part of these contests' ballots"
   }
  ]
 }
