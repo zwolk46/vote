@@ -39,8 +39,8 @@ Nothing else is needed from you. The coordinator and the new orchestrator do the
 
 | Worker | Brief | Model, effort | Old branch | At the stop | On restart |
 |---|---|---|---|---|---|
-| D3, local, legislative and measure data | `briefs/D3-data-local.md` | Opus 5.5, xhigh | `claude/project-thread-sl6m2f` | #100 to #115 merged by 2026-11-13 (#115: the recount zone beside p). Next: Singer's 2020 results (CC0), its own PR, then its final report. | **restart** |
-| M2, independent check of every p | `briefs/M2-check-computed-p.md` | Fable 5.1, xhigh | `claude/project-thread-pbr8zl` | Eighth pass merged as #102, #104, #105, #108, #110 and #114 (2026-11-13: #96 to #113 checked). §21 on #115 merged as #117. Next: §22 on D3's Singer 2020 PR. | **restart** |
+| D3, local, legislative and measure data | `briefs/D3-data-local.md` | Opus 5.5, xhigh | `claude/project-thread-sl6m2f` | #100 to #118 merged by 2026-11-13 (#115: the recount zone beside p; #118: Singer's 2020 results). Next: its final report, then rest. | **restart** |
+| M2, independent check of every p | `briefs/M2-check-computed-p.md` | Fable 5.1, xhigh | `claude/project-thread-pbr8zl` | Eighth pass merged as #102, #104, #105, #108, #110 and #114 (2026-11-13: #96 to #113 checked). §21 on #115 merged as #117. Next: §22 on #118 (end 4debd7e). | **restart** |
 | X1, design | `briefs/X1-design.md` | Opus 5.5, xhigh | `claude/project-thread-ozfwbq-options`, `claude/project-thread-ozfwbq-explainer` | Holding for Zach's two picks, with both options carrying real data. | **restart once he picks** |
 | T1, tracker | `briefs/T1-tracker.md` | Sonnet 5.5, xhigh | none | Kept the old tracker's rows. | **restart** after section 6, pointing the brief at the new tracker's link |
 | D1, D2, D4, R1 to R4, B1, B2, M1 | their briefs | as named | as in `handoff/memory/` | Done, merged and stopped. | no |
