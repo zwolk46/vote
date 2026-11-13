@@ -222,7 +222,7 @@ def test(kc, m, pr=None, b_test=True):
 
 
 COVER_GAP = 0.02      # the orchestrator, 22:26 (a): the chamber's rows missing beyond 2% of a county's precincts
-COVER_VERSION = 11
+COVER_VERSION = 12
 COVER_YEARS = {2016: (2016, 2018), 2018: (2016, 2018), 2022: (2022, 2024), 2024: (2022, 2024)}   # MEDSL's files on the same lines
 
 
@@ -266,7 +266,7 @@ def _loose(diff, have, ps):
 
 def _coverage_file(path, year, out):
     """One raw MEDSL file's rows, county by county: the precincts with votes in each general contest (each precinct's
-    votes by its TOTAL mode where it has one), each chamber's precincts, the US House's, and the counties of each
+    votes: its TOTAL mode's or its other modes' sum, whichever is more), each chamber's precincts, the US House's, and the counties of each
     chamber's districts (into `out`)."""
     import local_medsl as M
     import local_volume as V
@@ -339,9 +339,12 @@ def _coverage_file(path, year, out):
 
     for (st, county), cs in per.items():
         votes = {}
-        for k, c in cs.items():   # a precinct's votes: its TOTAL mode's where it has one, else its modes' sum
+        for k, c in cs.items():
+            # a precinct's votes: its TOTAL mode's or its other modes' sum, whichever is more, since a file can give
+            # both (the other modes then add up to the TOTAL), or give one candidate a TOTAL line of 0 beside another's
+            # modes (MEDSL's 2018 Delaware file: US Senate, New Castle County) [measured]
             t = tot[(st, county)].get(k, {})
-            votes[k] = {q: (t[q] if q in t else n) for q, n in c.items() if (t[q] if q in t else n) > 0}
+            votes[k] = {q: max(t.get(q, 0), n - t.get(q, 0)) for q, n in c.items() if max(t.get(q, 0), n - t.get(q, 0)) > 0}
         # the top contest: the candidate contest with votes in the most precincts (a question only where the county
         # has no candidate contest), since MEDSL's 2018 Virginia file names a question's absentee precincts apart,
         # one per congressional district [measured]
