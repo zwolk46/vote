@@ -183,6 +183,8 @@ def coverage_gate(contests, year):
                 COVERAGE_COUNT[f"{st} statewide, noted"] += 1
                 continue
             held = COVERAGE_STATEWIDE.format(year=year, gaps=gaps, asked=asked)
+            if m.get("held_reason"):   # held already for another reason (Michigan 2022's Attorney General, its seat
+                held = f"{m['held_reason']}; also, {held}"   # count unread): both reasons are kept
             kind = "statewide, held"
         else:
             b = by_state.get(st)
