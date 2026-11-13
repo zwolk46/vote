@@ -57,6 +57,8 @@ The exact questions, options and recommendations are in `handoff/MAKER-WORDS.md`
 
 One older ask also stands, and a Full-network environment settles it: web.archive.org, for 538's past forecasts (`plan/PLAN.md` §5).
 
+Two source questions wait for him, to be put together when he next writes, not as urgent cards (2026-11-13): MEDSL's 2018 and 2020 Dataverse sets sit behind a guestbook form, an outsider's ask that only he can answer; and Jones's Virginia Election Data 1969–2026 (Dataverse BAQ69D) is CC BY-SA, whose share-alike term would bind the site's licence. *Reason:* both bind the site to an outsider's terms (CLAUDE.md, "Money and outsiders only on the maker's word").
+
 ## 6. The tracker
 
 Zach watched the work in the artifact "Vote Work" (old link https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH, which belongs to the old account). To bring it back:
