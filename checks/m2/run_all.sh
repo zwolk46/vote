@@ -27,6 +27,8 @@
 # c40 (the PR checks of the seventh pass: #92 New Jersey's legislatures, #93 Virginia's, #95 the volume fixes) reads the five
 # New Jersey Official Lists fetch_seventh_pass.sh fetches (pdftotext -layout), Klarner's contest file, and the records at the
 # four main commits around the PRs, checked out once as detached worktrees under ~/.cache/vote-m2/seventh/wt/ (git worktree).
+# c45 (section 17: Virginia 2023's gate whole from D3's copies of the Department's files, ~/.cache/vote-m2/eighth/src/va-2023/,
+# placed by D3 in /mnt/project-files/d3/va-2023/; nothing requested from Virginia) has its own run appended to OUTPUT.txt.
 # c43 (#100, D3's district checks: the moves, the 141 districts, the coverage rule from the raw files, Idaho's coarse tier,
 # the flags' outcomes, the over-ballot rows; the records at 346273e and d680bd4) and c44 (#101: the held one-name records and
 # Virginia 2023's local records; d680bd4 and 4831b16) are section 16's, with their own run appended to OUTPUT.txt
@@ -51,7 +53,7 @@ OUT=checks/m2/OUTPUT.txt
            c8_recompute2 c9_fit2 c10_backtest2 c11_k_reading c12_control2 c13_governors2 c14_d3_recompute c15_d3_refit \
            c16_notes c18_louisiana c19_deciding_rounds c20_sizebins c21_new_jersey c22_louisiana_2023 c23_nc_rounds_by_place c24_office_types c25_odd_governors c26_feed_2023 c27_local_thresholds c28_governor_codes c29_fixes_c24 c30_ballot_texts c31_statewide_filed_local c32_certified_count c33_one_county \
            c34_towns_counties c35_statewide_officers c36_courts_commissions c37_statewide_pieces c38_input_volume c39_volume_compare c40_pr_checks \
-           c41_governor_refit c42_held_totals c43_district_checks c44_one_name_va; do
+           c41_governor_refit c42_held_totals c43_district_checks c44_one_name_va c45_va_gate; do
     echo "##### $s"
     python3 -I checks/m2/$s.py 2>&1 || echo "### $s exited with $?"
     echo
