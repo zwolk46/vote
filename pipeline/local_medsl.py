@@ -183,6 +183,8 @@ def coverage_gate(contests, year):
                 COVERAGE_COUNT[f"{st} statewide, noted"] += 1
                 continue
             held = COVERAGE_STATEWIDE.format(year=year, gaps=gaps, asked=asked)
+            if m.get("held_reason"):   # held already for another reason (Michigan 2022's Attorney General, its seat
+                held = f"{m['held_reason']}; also, {held}"   # count unread): both reasons are kept
             kind = "statewide, held"
         else:
             b = by_state.get(st)
@@ -351,6 +353,45 @@ MI_SC_UNREAD = {
            "2026-11-07 16:56 UTC; neither states how many seats each contest filled (the Secretary of State's results "
            "refused; the Michigan Manual answered 403), so p is not computed, no winner is marked, and the contests "
            "are kept out of every pool")}
+
+
+# A seat count read from the state's own certified results where MEDSL's file gives one seat (the orchestrator,
+# 2026-11-13 00:17, on M2's eighth pass: "give the record its seat count of 2, from the DC Board of Elections'
+# certified 2018 results ... Keep it not computed ... The over-ballot test then reads it per seat". Reason: every count
+# shown is tested (21:55), and a count that fails only for a missing seat count reads as an error when it is not one).
+DC_BOE_2018 = ("https://electionresults.dcboe.org/Downloads/Reports/November_6_2018_General_Election_Certified_"
+               "Results.pdf")
+SEATS_READ = {2018: {("DC", "DC COUNCILMEMBER", "AT-LARGE"): {
+    "seats": 2,
+    "votes": 342188, "over": 90, "under": 120686, "ballots_cast": 231700,
+    "seats_note": ("two seats, from the DC Board of Elections' certified results (" + DC_BOE_2018 + ", headed "
+                   "'District of Columbia - Board of Elections / November, 6 2018 General Election - Certified "
+                   "Results', read 2026-11-13 01:31 UTC, sha256 0d095fd26e5da815d4a9bb3dc9389552422e253eac092a08253c0599"
+                   "ca7448cf): its 'AT-LARGE MEMBER OF THE COUNCIL' gives 342,188 votes to its candidates and write-ins, "
+                   "90 over votes and 120,686 under votes, 462,964 in all, which is two for each of the 231,482 marks "
+                   "and blanks of its Mayor's contest and 2.0 times its 231,700 'Ballots Cast', so each voter had two "
+                   "votes [measured]; the page does not print a number to vote for; MEDSL's file gives one seat"),
+    "no_route": ("two seats, of which the majority party may hold only one (the orchestrator, 2026-11-13 00:17), so it "
+                 "is not a plain race for the top two and no route of the method fits: p is not computed")}}}
+
+
+def seats_read(contests, year):
+    """SEATS_READ: the seat count from the state's results, the reason p is not computed (local_structure reads
+    no_route), and the figures the over-ballot test reads per seat. Each entry must find its one contest, with the
+    certified counts equal to MEDSL's, or the build stops."""
+    for (st, office, dist), e in SEATS_READ.get(year, {}).items():
+        hits = [m for m in contests if m["state"] == st and m["office"] == office and (m.get("district") or "") == dist
+                and m.get("stage") == "GEN" and not m["question"]]
+        if len(hits) != 1:
+            raise SystemExit(f"seats_read: {year} {st} {office} {dist}: {len(hits)} contests")
+        m = hits[0]
+        if m.get("magnitude") != 1 or sum(x["votes"] for x in m["candidates"]) != e["votes"]:
+            raise SystemExit(f"seats_read: {year} {st} {office} {dist}: MEDSL's seats or votes differ from the entry")
+        m["magnitude"] = e["seats"]
+        m["seats_note"] = e["seats_note"]
+        m["no_route"] = e["no_route"]
+        m["seats_read"] = e
+        PIECES[year][f"{st}: a seat count read from the state's certified results"] += 1
 
 
 def _sw_kind(m):
@@ -826,6 +867,7 @@ def statewide_pieces(contests, year):
         for m in hits:   # MEDSL's count stays for the type (a statewide contest for a supreme court seat); unread
             _hold(m, MI_SC_UNREAD[year], "MI Supreme Court, seat count unread", year)
             m["seats_note"] = "unread: MEDSL's file gives one seat, which no page read confirms (held_reason)"
+    seats_read(contests, year)
     over_ballot(contests, year, whole)
     return contests
 
@@ -1087,6 +1129,27 @@ def over_ballot(contests, year, whole):
                      f"computed, no winner is marked, and it is kept out of every pool", "votes over the ballots", year)
             m["seats_note"] = "unread: MEDSL's file gives one seat, which its own counts contradict (held_reason)"
         found.add((m["state"], m["office"]))
+    for m in contests:   # a seat count read from the state's results (SEATS_READ): read per seat, and listed
+        e = m.get("seats_read")
+        if not e:
+            continue
+        rs, v, k = rows(m), votes(m), m["magnitude"]
+        if not (rs and all(r is not None and r["ballots_cast"] is not None for r in rs)):
+            raise SystemExit(f"over_ballot: {year}: {m['state']} {m['office']}: no ballots cast for the per-seat read")
+        b = sum(r["ballots_cast"] for r in rs)
+        r = v / (k * b)
+        if r > 1:
+            raise SystemExit(f"over_ballot: {year}: {m['state']} {m['office']}: over its ballots even per seat")
+        rows_out.append({"state": m["state"], "office": m["office"], "district": m.get("district") or None,
+                         "votes": v, "against": "ballots cast", "figure": b,
+                         "of": "the ballots cast in its precincts as MEDSL's file gives them", "seats": k,
+                         "ratio": round(v / b, 4), "ratio_per_seat": round(r, 4),
+                         "verdict": f"listed: a contest of {k} seats (SEATS_READ), explained by its seats"})
+        m["notes"] = (m.get("notes") or []) + [
+            f"the over-ballot test, read per seat: the contest's {v:,} votes in MEDSL's file are {v / b:.3f} times the "
+            f"{b:,} ballots cast in its precincts as the file gives them, and {r:.3f} times its {k} seats times those "
+            f"ballots; a contest of {k} seats (seats_note), so explained by its seats, and listed (the orchestrator, "
+            f"2026-11-13 00:17) [measured]"]
     try:
         with open(OVER_CHECK) as f:
             chk = json.load(f)
@@ -2691,6 +2754,8 @@ def local_structure(m):
         return ("not computed", m["held_round"])
     if m.get("held_reason"):   # a contest the source's own lines cannot settle (known_contests)
         return ("not computed", m["held_reason"])
+    if m.get("no_route"):   # a seat count read from the state's results, with a rule no route fits (SEATS_READ)
+        return ("not computed", m["no_route"])
     if k is None:
         return ("not computed", "the number of seats is not verified in the source (MEDSL's magnitude is empty)")
     if m["special"]:

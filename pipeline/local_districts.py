@@ -87,20 +87,97 @@ def medsl_contests(year):
                 groups[(st, 1 if "SENAT" in off else 0, dist)].append(
                     {"name": cand, "votes": v, "party": party or None, "writein": wi.upper() == "TRUE"})
         for (st, sen, dist), cs in groups.items():
-            out.append({"state": st, "sen": sen, "district": dist, "counties": [], "candidates": _merge_lines(cs),
+            named = [x for x in cs if x["name"].strip() or not (x["party"] or "").strip()]
+            nameless = [{"party": x["party"], "votes": x["votes"], "counties": []} for x in cs
+                        if not x["name"].strip() and (x["party"] or "").strip()]
+            out.append({"state": st, "sen": sen, "district": dist, "counties": [],
+                        "candidates": _attach_nameless(_merge_lines(named), nameless),
                         "file": scan["file"], "stage": "GEN"})
         return out
+    nl = nameless_lines(year)
     for p in sorted(glob.glob(os.path.join(NORM, str(year), "*.jsonl"))):
         with open(p) as f:
             for line in f:
                 m = M.relabel(json.loads(line))
                 if m["office"] not in M.LEG or m["stage"] not in ("GEN", "GEN RECOUNT") or m["special"]:
                     continue
+                lines = nl.get(f"{m['state']}|{M.LEG[m['office']]}|{_dkey(m['district'])}", [])
                 out.append({"state": m["state"], "sen": M.LEG[m["office"]], "district": m["district"],
-                            "counties": m.get("counties") or [], "candidates": _merge_lines(m["candidates"]),
+                            "counties": sorted(set(m.get("counties") or []) | {c for x in lines for c in x["counties"]
+                                                                                 if x.get("attached")}),
+                            "candidates": _attach_nameless(_merge_lines(m["candidates"]), lines),
                             "file": m["file"]["name"], "stage": m["stage"], "post": m.get("post"),
                             "magnitude": m.get("magnitude")})
     return out
+
+
+def _attach_nameless(cands, lines):
+    """MEDSL's lines with a party and no name added to the one candidate of the contest who holds that party (the
+    orchestrator, 2026-11-13: "a nameless line whose party is held by one candidate in the contest matches that
+    candidate"); a line whose party no candidate, or several, hold is left out, as a nameless line was before. Each
+    line is marked attached or not, and the candidate keeps what was added (nameless_added)."""
+    for x in lines:
+        hold = [c for c in cands if (c.get("party") or "").strip().upper() == x["party"].strip().upper()
+                and c["name"].strip() and not c.get("writein")]
+        x["attached"] = len(hold) == 1
+        if x["attached"]:
+            c = hold[0]
+            c["votes"] = (c["votes"] or 0) + x["votes"]
+            c["lines"] += 1
+            c.setdefault("nameless_added", []).append([x["party"], x["votes"], x["counties"]])
+    return cands
+
+
+def nameless_lines(year):
+    """MEDSL's legislative lines with a party and no candidate's name, from each raw file of `year` (the normalized
+    files leave them out, as lines that name no one): {"ST|sen|district key": [{party, votes, counties}]}, a precinct's
+    votes its TOTAL mode's or its other modes' sum, whichever is more. Cached in $VOTE_CACHE/volume/normalized/
+    nameless-<year>.json by the files' sha256."""
+    import local_medsl as M
+    import local_volume as V
+    import medsl_precinct as P
+    files = [p_ for _, p_ in V.raw_files(year) if p_]
+    shas = []
+    for p_ in files:
+        with open(p_ + ".meta.json") as f:
+            shas.append(json.load(f).get("sha256"))
+    cp = os.path.join(V.VNORM, f"nameless-{year}.json")
+    if os.path.exists(cp):
+        with open(cp) as f:
+            d = json.load(f)
+        if d.get("sha256s") == shas:
+            return d["lines"]
+    tot = collections.defaultdict(collections.Counter)
+    oth = collections.defaultdict(collections.Counter)
+    for p_ in files:
+        for r in P._rows(p_):
+            if (r.get("candidate") or "").strip() or (r.get("stage") or "").upper() not in ("GEN", "GEN RECOUNT") or \
+                    (r.get("special") or "").strip().upper() == "TRUE":
+                continue
+            party = (r.get("party_simplified") or "").strip()
+            if not party:
+                continue
+            m = M.relabel({"office": (r.get("office") or "").strip().upper(), "district": r.get("district") or ""})
+            if m["office"] not in M.LEG or not _dkey(m["district"]):
+                continue
+            st = r.get("state_po") or r.get("state_postal") or ""
+            county = P.fips5(r.get("county_fips") or "")
+            k = (f"{st}|{M.LEG[m['office']]}|{_dkey(m['district'])}", party, county, r.get("jurisdiction_fips") or "",
+                 _pnorm(r.get("precinct") or ""))
+            try:
+                v = int(float(r.get("votes") or 0))
+            except ValueError:
+                v = 0
+            (tot if (r.get("mode") or "").strip().upper() == "TOTAL" else oth)[k[:2]][k[2:]] += v
+    lines = collections.defaultdict(list)
+    for kp in sorted(set(tot) | set(oth)):
+        ps = set(tot[kp]) | set(oth[kp])
+        v = sum(max(tot[kp].get(q, 0), oth[kp].get(q, 0)) for q in ps)
+        if v:
+            lines[kp[0]].append({"party": kp[1], "votes": v, "counties": sorted({q[0] for q in ps})})
+    with open(cp, "w") as f:
+        json.dump({"sha256s": shas, "lines": lines}, f)
+    return lines
 
 
 GENERIC = re.compile(r"^\s*$|^OTHERS?$|\bALL OTHERS\b|SCATTER|\bVOIDS?\b|\bBLANKS?\b|FEDERAL BALLOTS|\bTOTALS?\b|"
@@ -142,20 +219,90 @@ def _is_write_in(x):
     return bool(x.get("writein")) or bool(WRITE_IN_MARK.search(x["name"]))
 
 
+def _named(kc):
+    """Klarner's named candidates a match must find: every one but a write-in line (party w) under the write-in rule's
+    strong threshold, WRITE_IN_STRONG of the last winner's votes (pipeline/local.py), which MEDSL's file may leave out
+    (the orchestrator, 2026-11-13: "A write-in line under the write-in rule's strong threshold does not block a
+    match"; Utah 2016's Senate 19 has a 1-vote write-in, Seguin, that MEDSL does not name) [stated]."""
+    import local as L
+    named = [a for a in kc["cands"] if not a["scattering"]]
+    ballot = sorted([a for a in named if a["party"] != "w"], key=lambda a: -(a["votes"] or 0))
+    k = kc["eseats"] or 1
+    last = (ballot[k - 1]["votes"] or 0) if len(ballot) >= k else 0
+    return [a for a in named if not (a["party"] == "w" and (a["votes"] or 0) < max(1, L.WRITE_IN_STRONG * last))]
+
+
+PART_MIN = 3   # a compound surname's part is matched only from three letters, and with the first initial
+
+
+def _part(s, t):
+    """Whether one surname key is a part of the other, a compound or hyphenated surname (the orchestrator,
+    2026-11-13: "A compound or hyphenated surname matches on any of its parts"): Klarner runs a compound surname's
+    parts together ('mazzariellohooker, cheryl m'), MEDSL may give one part ('CHERYL HOOKER', Vermont 2018's Rutland
+    Senate) or join them with a hyphen, which the key drops, so a part is the other key's start or end [measured]."""
+    if s == t:
+        return True
+    a, b = (s, t) if len(s) < len(t) else (t, s)
+    return len(a) >= PART_MIN and (b.startswith(a) or b.endswith(a))
+
+
+def _finds(key, keys):
+    """Whether a (surname, initial) key is among a contest's keys: the surname alike, or a part of a compound one with
+    the same first initial."""
+    s, i = key
+    return any(s == t for t, _ in keys) or any(_part(s, t) and i and i == j for t, j in keys)
+
+
+def _last_line(m, seats):
+    lines = sorted((x["votes"] or 0 for x in m["candidates"] if not _generic(x)), reverse=True)
+    return lines[seats - 1] if len(lines) >= seats else 0
+
+
+def _ballot_sized(kc, m):
+    """Whether MEDSL's contest m gives each of Klarner's candidates with a ballot-sized count (at least WRITE_IN_STRONG
+    of Klarner's last winner) a line of ballot size in m too (at least WRITE_IN_STRONG of m's last winner): a contest
+    that names them only in write-in lines is another district's (Vermont 2018: Essex-Orleans's write-in lines name
+    all four of Franklin's candidates, with 1 to 3 votes each) [measured]. The mirror of the 2026-11-13 rule that a
+    write-in line under the strong threshold does not block a match: neither does it make one [worker D3's
+    reading]."""
+    import local as L
+    pr = pair(kc, m)
+    if pr is None:
+        return False
+    k = kc["eseats"] or 1
+    ballot = L.on_ballot(kc["cands"])
+    kl = (ballot[k - 1]["votes"] or 0) if len(ballot) >= k else 0
+    ml = _last_line(m, k)
+    return all((pr[id(a)]["votes"] or 0) >= L.WRITE_IN_STRONG * ml for a in ballot
+               if id(a) in pr and (a["votes"] or 0) >= L.WRITE_IN_STRONG * kl)
+
+
+_KEYS = {}
+
+
+def _keys_of(m):
+    """A MEDSL contest's surnames and (surname, initial) keys, kept once per contest."""
+    import local_medsl as M
+    if id(m) not in _KEYS:
+        ms = set()
+        for x in m["candidates"]:
+            ms |= M.name_keys(x["name"])
+        _KEYS[id(m)] = ({t for t, _ in ms}, ms, m)
+    return _KEYS[id(m)][:2]
+
+
 def match(kc, pool):
-    """The MEDSL contests that name every named candidate of Klarner's contest kc."""
+    """The MEDSL contests that name every named candidate of Klarner's contest kc (but a weak write-in, _named)."""
     import local as L
     import local_medsl as M
-    named = [a for a in kc["cands"] if not a["scattering"]]
-    ks = [_sur(a["name"]) for a in named]
-    if not ks or not all(ks):
+    named = _named(kc)
+    ks = [M.name_key(a["name"]) for a in named]
+    if not ks or not all(k[0] for k in ks):
         return []
     hits = []
     for m in pool.get((kc["state"], kc["sen"]), []):
-        ms = set()
-        for x in m["candidates"]:
-            ms |= _surs(x["name"])
-        if all(s in ms for s in ks):
+        surs, ms = _keys_of(m)
+        if all(k[0] in surs or _finds(k, ms) for k in ks):
             hits.append(m)
     if len(hits) > 1 and str(kc["dno"]).isdigit():
         h = [m for m in hits if M.district_no(re.sub(r"\D", "", m["district"] or "") or None) == str(int(kc["dno"]))]
@@ -166,24 +313,43 @@ def match(kc, pool):
     if len(hits) > 1:
         rc = [m for m in hits if m["stage"] == "GEN RECOUNT"]
         hits = rc if len(rc) == 1 else hits
+    if len(hits) > 1:
+        h = [m for m in hits if _ballot_sized(kc, m)]
+        hits = h or hits
     return hits
 
 
 def pair(kc, m):
-    """{id(Klarner candidate): MEDSL candidate}, one to one by surname (first initial where it repeats)."""
+    """{id(Klarner candidate): MEDSL candidate}, one to one by surname (first initial where it repeats; a compound
+    surname's part, _finds, where no surname is alike). A weak write-in (not in _named) is paired where MEDSL names it
+    and left out where it does not."""
     import local_medsl as M
     named = [a for a in kc["cands"] if not a["scattering"]]
+    must = {id(a) for a in _named(kc)}
     left = [x for x in m["candidates"] if not _generic(x)]
     out = {}
     for a in sorted(named, key=lambda a: -(a["votes"] or 0)):
         s, i = M.name_key(a["name"])
         hit = [x for x in left if s in _surs(x["name"])]
+        if not hit:   # a compound surname's part
+            hit = [x for x in left if _finds((s, i), M.name_keys(x["name"]))]
+        else:
+            # beside a whole one, a part only where it is the same name on two lines, its surnames among the whole
+            # one's (Kentucky 2016's House 41: Klarner's "Woodson Scott", MEDSL's "Attica Scott" with Klarner's
+            # 13,257 and "Attica Woodson SCOTT" with 434 on one row named "Cumulative:" [measured]), so the larger
+            # line below; a part of another name is not (Vermont 2016 files its House in one contest, where a part
+            # would reach other districts' candidates)
+            whole = set().union(*(_surs(x["name"]) for x in hit))
+            hit += [x for x in left if x not in hit and _finds((s, i), M.name_keys(x["name"]))
+                    and _surs(x["name"]) <= whole]
         if len(hit) > 1:
             hit = [x for x in hit if M.name_key(x["name"])[1] == i] or hit
         if len(hit) > 1:   # one name in several lines (fusion, or a recount's): the line with the most votes
             hit = [max(hit, key=lambda x: x["votes"] or 0)]
         if not hit:
-            return None
+            if id(a) in must:
+                return None
+            continue
         out[id(a)] = hit[0]
         left.remove(hit[0])
     return out
@@ -196,14 +362,16 @@ def test(kc, m, pr=None, b_test=True):
     pr = pr if pr is not None else pair(kc, m)
     if pr is None:
         return {"matched": False}
-    named = [a for a in kc["cands"] if not a["scattering"]]
+    import local_medsl as M
+    allnamed = [a for a in kc["cands"] if not a["scattering"]]
+    named = [a for a in allnamed if id(a) in pr]   # a weak write-in MEDSL does not name is left out of both sums
     kv = sum(a["votes"] or 0 for a in named if a["votes"])
     mv = sum(pr[id(a)]["votes"] or 0 for a in named if a["votes"])
     used = {id(x) for x in pr.values()}
     others = [x for x in m["candidates"] if id(x) not in used and not _generic(x) and (x["votes"] or 0) > 0]
     # a name that is one of Klarner's in another line (a fusion line, a recount's line) is not another candidate
-    ksur = {_sur(a["name"]) for a in named}
-    others = [x for x in others if not (_surs(x["name"]) & ksur)]
+    kkeys = {M.name_key(a["name"]) for a in allnamed}
+    others = [x for x in others if not any(_finds(k, M.name_keys(x["name"])) for k in kkeys)]
     unopposed = len(L.on_ballot(kc["cands"])) <= (kc["eseats"] or 1)
     ratio = mv / kv if kv else None
     # MEDSL's write-in lines not paired (its write-in totals, scattering, and named write-ins): the scattering, should
@@ -222,7 +390,7 @@ def test(kc, m, pr=None, b_test=True):
 
 
 COVER_GAP = 0.02      # the orchestrator, 22:26 (a): the chamber's rows missing beyond 2% of a county's precincts
-COVER_VERSION = 12
+COVER_VERSION = 15   # 14: the precinct names joined are kept; 15: joined more strictly, and a question by its votes
 COVER_YEARS = {2016: (2016, 2018), 2018: (2016, 2018), 2022: (2022, 2024), 2024: (2022, 2024)}   # MEDSL's files on the same lines
 
 
@@ -264,6 +432,78 @@ def _loose(diff, have, ps):
         q[1] in names or any(x.strip() in parts for x in q[1].split("/") if x.strip()))}
 
 
+def _pnorm(prec):
+    """A precinct's name with case and spacing folded, and the spreadsheet carriage return MEDSL's 2022 Michigan file
+    leaves in some names ('CHARTER TOWNSHIP OF CANTON,_X000D_PRECINCT 1') read as a space [measured]."""
+    return " ".join(prec.upper().replace("_X000D_", " ").split())
+
+
+# words that name no place and no unit, left out of a precinct name before names are matched: 'CITY', 'VILLAGE',
+# 'TOWNSHIP' and 'WARD' are kept, since a city and a township of one name are two places in Michigan and Kansas
+# ('CITY OF MILAN' and 'MILAN TOWNSHIP', 'LONE ELM CITY' and 'LONE ELM TOWNSHIP' [measured]); 'TWP' is read as
+# 'TOWNSHIP', and Michigan's ', A MICHIGAN CITY' after a village's name is left out
+P_GENERIC = {"THE", "OF", "CHARTER", "PRECINCT", "PCT", "AND"}
+P_SAME = {"TWP": "TOWNSHIP"}
+
+
+def _edits(a, b, cap=2):
+    """Levenshtein distance, stopped above cap."""
+    if abs(len(a) - len(b)) > cap:
+        return cap + 1
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i]
+        for j, cb in enumerate(b, 1):
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb)))
+        if min(cur) > cap:
+            return cap + 1
+        prev = cur
+    return prev[-1]
+
+
+def _pcore(name):
+    """A precinct name's words, sorted, and its numbers: the words that name no place and no unit ('OF', 'CHARTER',
+    'PRECINCT', and a misspelling of it within two letters, 'PRECICNT') left out, and leading zeros dropped."""
+    name = re.sub(r",? A MICHIGAN CITY\b", "", name)
+    toks = re.findall(r"[A-Z]+|\d+", name)
+    nums = tuple(str(int(t)) for t in toks if t.isdigit())
+    words = tuple(sorted(P_SAME.get(t, t) for t in toks if not t.isdigit() and t not in P_GENERIC
+                         and not (len(t) >= 6 and _edits(t, "PRECINCT") <= 2)))
+    return words, nums
+
+
+def precinct_equivalences(ps, names):
+    """{a precinct key some contest gives: the top contest's key for it}, in one county: a name the top contest lacks
+    is joined to the one top-contest name with the same jurisdiction code and numbers whose words (_pcore) are the
+    same, or one word apart by one letter, both words of six letters or more ('BROWNSTON' for 'BROWNSTOWN',
+    'FOODHILLS' for 'FOOTHILLS') [worker D3's rule]. A name with several such matches, or none, is left apart. A first
+    rule also joined words two letters apart and a name whose words held the other's: it joined 'CITY OF DEARBORN'
+    to 'CITY OF DEARBORN HEIGHTS', Detroit's absent voter counting boards ('AVCB 100') to its precincts, 'EAST' to
+    'WEST' and 'PART A' to 'PART B' [measured], so it was narrowed."""
+    extra = {q for q in names if q not in ps}
+    if not extra:
+        return {}
+    lone = collections.defaultdict(list)
+    for c in ps:
+        w, n = _pcore(c[1])
+        lone[(c[0], n)].append((c, w))
+    out = {}
+    for q in sorted(extra):
+        w, n = _pcore(q[1])
+
+        def near(cw):   # the same words, or one word apart by one letter, both of six letters or more
+            if cw == w:
+                return True
+            a, b = collections.Counter(cw), collections.Counter(w)
+            da, db = list((a - b).elements()), list((b - a).elements())
+            return (len(da) == len(db) == 1 and min(len(da[0]), len(db[0])) >= 6
+                    and _edits(da[0], db[0], 1) <= 1)
+        hit = [c for c, cw in lone.get((q[0], n), []) if near(cw)]
+        if len(hit) == 1:
+            out[q] = hit[0]
+    return out
+
+
 def _coverage_file(path, year, out):
     """One raw MEDSL file's rows, county by county: the precincts with votes in each general contest (each precinct's
     votes: its TOTAL mode's or its other modes' sum, whichever is more), each chamber's precincts, the US House's, and the counties of each
@@ -274,7 +514,11 @@ def _coverage_file(path, year, out):
     per = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))   # (st, county) -> contest -> pk
     tot = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))   # the same, TOTAL mode only
     fam = collections.defaultdict(lambda: collections.defaultdict(set))   # (st, county) -> family -> precincts
-    questions = set()   # contests answered yes or no: a file can name their precincts apart (Virginia 2018)
+    # contests answered yes or no: a file can name their precincts apart (Virginia 2018); a question is a contest
+    # whose answer lines hold most of its votes, since a candidate contest can carry a line named like an answer
+    # (MEDSL's 2022 Michigan file: 'REJECTED' lines in Ottawa County's governor and Secretary of State rows, which
+    # made those contests questions for every county and Wayne's top contest a US House seat) [measured]
+    ans_v, all_v = collections.Counter(), collections.Counter()
     for r in P._rows(path):
         if (r.get("stage") or "").upper() != "GEN":
             continue
@@ -283,7 +527,10 @@ def _coverage_file(path, year, out):
         # precincts would otherwise have no US House row [measured]
         special = (r.get("special") or "").strip().upper() == "TRUE"
         cand = (r.get("candidate") or "").strip()
-        if P.is_meta(cand):
+        # a line with a party and no name is a candidate's line (the orchestrator, 2026-11-13: "a nameless line whose
+        # party is held by one candidate in the contest matches that candidate"; MEDSL's 2022 Wayne County, Michigan,
+        # files its State Senate 3 and 10 lines so) [measured]
+        if P.is_meta(cand) and not (cand == "" and (r.get("party_simplified") or "").strip()):
             continue
         prec = r.get("precinct") or ""
         if V.AGG_NAME.search(prec) or P.COUNTY_TOTAL.search(prec.strip().upper()):
@@ -294,9 +541,9 @@ def _coverage_file(path, year, out):
         st = r.get("state_po") or r.get("state_postal") or ""
         county = P.fips5(r.get("county_fips") or "")
         # a precinct by its name with case and spacing folded: MEDSL's 2024 Maine file names Hancock County's precincts
-        # in capitals in some contests and not in others ('SWAN'S ISLAND', "Swan's Island") [measured]
-        pk = (" ".join((r.get("jurisdiction_fips") or r.get("jurisdiction") or "").upper().split()),
-              " ".join(prec.upper().split()))
+        # in capitals in some contests and not in others ('SWAN'S ISLAND', "Swan's Island") [measured]; spelled apart
+        # across contests, it is joined by precinct_equivalences below
+        pk = (" ".join((r.get("jurisdiction_fips") or r.get("jurisdiction") or "").upper().split()), _pnorm(prec))
         m = M.relabel({"office": office, "district": r.get("district") or ""})
         if special:
             if m["office"] in M.LEG and _dkey(m["district"]):
@@ -319,12 +566,14 @@ def _coverage_file(path, year, out):
             fam[(st, county)][f_].add(pk)
         k = (m["office"], r.get("district") or "", (r.get("dataverse") or "").upper())
         per[(st, county)][k][pk] += v
+        all_v[k] += max(v, 0)
         if cand.upper() in P.ANSWERS:
-            questions.add(k)
+            ans_v[k] += max(v, 0)
         if (r.get("mode") or "").strip().upper() == "TOTAL":
             tot[(st, county)][k][pk] += v
     if year not in out["years_counted"]:
         return
+    questions = {k for k in ans_v if ans_v[k] > 0.5 * all_v[k]}
     n_c = collections.Counter(st for st, _ in per)
     spread = collections.Counter((st, k) for (st, _), cs in per.items() for k, c in cs.items() if any(c.values()))
 
@@ -352,6 +601,14 @@ def _coverage_file(path, year, out):
         top = max(tops, key=lambda k: (len(votes[k]), sum(votes[k].values()))) if tops else None
         tv = votes[top] if top else {}
         ps = set(tv)
+        # names spelled apart from the top contest's, joined to them (the orchestrator, 2026-11-13: "Normalize
+        # precinct names before the gate's match, list each equivalence, and recompute every county")
+        eq = precinct_equivalences(ps, set().union(*[set(v) for v in votes.values()], *fam[(st, county)].values()))
+        if eq:
+            out.setdefault("equivalences", {}).setdefault(str(year), {})[f"{st}|{county}"] = sorted(
+                [" / ".join(a), " / ".join(b)] for a, b in eq.items())
+            votes = {k: {eq.get(q, q): n for q, n in v.items()} for k, v in votes.items()}
+            fam[(st, county)] = {f_: {eq.get(q, q) for q in v} for f_, v in fam[(st, county)].items()}
         fs = fam[(st, county)]
         rec = {"top": " ".join(x for x in top if x) if top else None, "precincts": len(ps),
                "top_votes": sum(tv.values())}
@@ -411,10 +668,56 @@ def coverage(year):
     for y, p_ in files:
         _coverage_file(p_, y, out)
     d = {"version": COVER_VERSION, "sha256s": shas, "files": [os.path.basename(p_) for _, p_ in files],
-         "districts": {k: sorted(v) for k, v in out["districts"].items()}, "counties": out["counties"]}
+         "districts": {k: sorted(v) for k, v in out["districts"].items()}, "counties": out["counties"],
+         "equivalences": out.get("equivalences", {})}
     with open(out_p, "w") as f:
         json.dump(d, f)
     return d
+
+
+CENSUS_BEF = os.path.join(F.CACHE, "census-sld", "raw")
+CENSUS_NORM = os.path.join(F.CACHE, "census-sld", "normalized", "counties-2022.json")
+CENSUS_YEARS = (2022,)   # the lines the Census's 2022 block equivalency files hold
+CENSUS_VERSION = 2   # the cache holds each county's block count
+
+
+def census_counties():
+    """The counties of each state legislative district on the 2022 lines, from the Census's 2022 State Legislative
+    Block Equivalency Files (sldu_2022.zip and sldl_2022.zip: each block's GEOID, whose first five digits are its
+    county, and its district; fetched once, 2026-11-13, cached): {"ST|sen|district number": {county: the district's
+    blocks there}} (the orchestrator,
+    2026-11-13: "a district's counties are its MEDSL rows plus the Census's 2020 SLD-to-county relationship for its
+    lines, one fetch, cached"). Districts the Census codes with letters (not a number) are left out [worker D3's
+    choice: MEDSL's names for them are not the Census's codes]."""
+    if os.path.exists(CENSUS_NORM):
+        with open(CENSUS_NORM) as f:
+            d = json.load(f)
+        if d.get("version") == CENSUS_VERSION:
+            return d["districts"]
+    out = collections.defaultdict(collections.Counter)
+    metas = {}
+    for chamber, sen in (("sldu", 1), ("sldl", 0)):
+        zp = os.path.join(CENSUS_BEF, f"{chamber}_2022.zip")
+        with open(zp + ".meta.json") as f:
+            metas[chamber] = json.load(f)
+        with zipfile.ZipFile(zp) as z:
+            for member in z.namelist():
+                if not member.endswith(".txt"):   # the zip's 0_ReadMe.pdf
+                    continue
+                st = member.split("_")[1]   # '26_MI_SLDU22.txt'
+
+                with z.open(member) as raw:
+                    for line in io.TextIOWrapper(raw, encoding="latin-1"):
+                        g, _, d = line.strip().partition(",")
+                        if not g.isdigit() or not d.strip().isdigit():
+                            continue
+                        out[f"{st}|{sen}|{int(d)}"][g[:5]] += 1
+    os.makedirs(os.path.dirname(CENSUS_NORM), exist_ok=True)
+    d = {"version": CENSUS_VERSION, "sources": metas,
+         "districts": {k: dict(sorted(v.items())) for k, v in sorted(out.items())}}
+    with open(CENSUS_NORM, "w") as f:
+        json.dump(d, f)
+    return d["districts"]
 
 
 def district_cover(kc, m, year, cov, full_upper):
@@ -424,11 +727,19 @@ def district_cover(kc, m, year, cov, full_upper):
     st, sen = kc["state"], kc["sen"]
     up_upper, up_lower = full_upper
     counties = set(cov["districts"].get(f"{st}|{sen}|{_dkey(m['district'])}", [])) | set(m.get("counties") or [])
+    # 2022's lines: the Census's counties of the district too; one where MEDSL's file has no row of the district is
+    # missing (the orchestrator, 2026-11-13: "A listed county with no rows for the district counts as missing")
+    blocks = census_counties().get(f"{st}|{sen}|{_dkey(m['district'])}", {}) \
+        if year in CENSUS_YEARS and _dkey(m["district"]).isdigit() else {}
+    census = set(blocks)
+    rows_in = set(counties)   # the counties where MEDSL's files have rows of the district
     # the chamber's own rows; a staggered chamber by the other's, where that one is all up; neither all up: the day's
     # top contest stands in, and a county it lacks leaves the district untested (the orchestrator, 22:42 (3))
     own, other = (up_upper, up_lower) if sen else (up_lower, up_upper)
     ch = ("upper" if sen else "lower") if st in own else ("lower" if sen else "upper") if st in other else "top"
-    gaps = []
+    # a Census county's gap carries the share of the district's blocks that lie in it (a block may hold no one; the
+    # files give no population), so a sliver can be told from a part [measured: the block counts]
+    gaps = [[county, "census", round(blocks[county] / sum(blocks.values()), 4)] for county in sorted(census - rows_in)]
     for county in sorted(counties):
         rec = cov["counties"].get(f"{st}|{county}")
         if rec is None:   # the county has no row of this year's file at all
@@ -439,7 +750,153 @@ def district_cover(kc, m, year, cov, full_upper):
     by = (f"the {ch} chamber's rows" + ("" if ch == ("upper" if sen else "lower") else
                                         f" (the {'upper' if sen else 'lower'} chamber is staggered)")
           if ch != "top" else "the day's top contest (neither chamber is all up)")
-    return {"counties": sorted(counties), "gaps": gaps, "by": by, "untested": ch == "top" and bool(gaps)}
+    return {"counties": sorted(counties | census), "gaps": gaps, "by": by, "untested": ch == "top" and bool(gaps),
+            "census_counties": sorted(census) if census else None}
+
+
+OVER_SEATS = 1.10   # a count over its seats times the ballots, by more than the over-ballot test's line (10%)
+STATEWIDE_SPREAD = 0.9   # a statewide contest: rows in 90% of the state's precincts with any row
+
+
+TOP_OFFICES = {"PRESIDENT", "US PRESIDENT", "US SENATE", "U.S. SENATE", "GOVERNOR"}
+
+
+def _statewide_one_seat(r, office):
+    """A row of a statewide contest of one seat: MEDSL's president and US Senate lines, or a state office its file
+    marks statewide (district STATEWIDE) with one seat; in a file without dataverse (2016's), the president, the US
+    Senate and the governor by name. A county's office in every county is not one (Vermont 2018's assistant judges,
+    two a county, which MEDSL files with one seat and an empty district) [measured: Rutland]."""
+    dv = (r.get("dataverse") or "").strip().upper()
+    if not dv:
+        return office in TOP_OFFICES
+    if dv in ("PRESIDENT", "SENATE"):
+        return True
+    return dv == "STATE" and (r.get("district") or "").strip().upper() == "STATEWIDE" and \
+        (r.get("magnitude") or "1").strip() in ("1", "1.0")
+
+
+def district_ballots(path, wants):
+    """The ballots of MEDSL districts, from one raw file: {(state, sen, district key): [precincts with the district's
+    rows, ballots]}, a precinct's ballots being its votes in the statewide candidate contest of one seat with the most
+    there (_statewide_one_seat, with rows in STATEWIDE_SPREAD of the state's precincts; a precinct's votes in a contest
+    are its TOTAL mode's
+    or its other modes' sum, whichever is more, as coverage counts them). A district whose precincts no statewide
+    contest reaches is left out. `wants`: the (state, sen, district key) to read. Read only where MEDSL's file covers
+    the district (district_cover: no county missing the chamber's rows), so its precincts are the district's [worker
+    D3's reading; M2 read Vermont 2018's Rutland so: "MEDSL's Rutland governor rows hold 24,483 ballots on all 32
+    precincts"]."""
+    import local_medsl as M
+    import local_volume as V
+    import medsl_precinct as P
+    states = {w[0] for w in wants}
+    tot = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))   # st -> contest -> pk
+    oth = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))
+    dist = collections.defaultdict(set)
+    for r in P._rows(path):
+        st = r.get("state_po") or r.get("state_postal") or ""
+        if st not in states or (r.get("stage") or "").upper() != "GEN" or \
+                (r.get("special") or "").strip().upper() == "TRUE":
+            continue
+        cand = (r.get("candidate") or "").strip()
+        prec = r.get("precinct") or ""
+        if P.is_meta(cand) or V.AGG_NAME.search(prec) or P.COUNTY_TOTAL.search(prec.strip().upper()):
+            continue
+        office = (r.get("office") or "").strip().upper()
+        if NOT_A_CONTEST.search(office):
+            continue
+        pk = (P.fips5(r.get("county_fips") or ""),
+              " ".join((r.get("jurisdiction_fips") or r.get("jurisdiction") or "").upper().split()),
+              " ".join(prec.upper().split()))
+        m = M.relabel({"office": office, "district": r.get("district") or ""})
+        if m["office"] in M.LEG:
+            k = (st, M.LEG[m["office"]], _dkey(m["district"]))
+            if k in wants:
+                dist[k].add(pk)
+            continue
+        if cand.upper() in P.ANSWERS or not _statewide_one_seat(r, office):
+            continue
+        try:
+            v = int(float(r.get("votes") or 0))
+        except ValueError:
+            v = 0
+        key = (office, r.get("district") or "")
+        (tot if (r.get("mode") or "").strip().upper() == "TOTAL" else oth)[st][key][pk] += v
+    out = {}
+    for st in states:
+        keys = set(tot[st]) | set(oth[st])
+        votes = {k: {q: max(tot[st][k].get(q, 0), oth[st][k].get(q, 0)) for q in set(tot[st][k]) | set(oth[st][k])}
+                 for k in keys}
+        allp = set().union(*[set(v) for v in votes.values()]) if votes else set()
+        wide = [k for k in keys if allp and len(votes[k]) >= STATEWIDE_SPREAD * len(allp)]
+        for k in [w for w in wants if w[0] == st]:
+            ps = dist.get(k, set())
+            if not ps or not wide:
+                continue
+            b = [max(votes[c].get(q, 0) for c in wide) for q in ps]
+            if all(b):
+                out[k] = [len(ps), sum(b), sorted({c[0] for c in wide if any(votes[c].get(q) for q in ps)})]
+    return out
+
+
+OVER_MARK = "Klarner's count is over its seats times the ballots; MEDSL's counts"
+
+
+def _raw_path(year, name):
+    import local_volume as V
+    if year == 2016:
+        return os.path.join(V.RAWDIR, V.STATE_2016)
+    hit = [p_ for n, p_ in V.raw_files(year) if p_ and (n == name or os.path.basename(p_).endswith(name))]
+    return hit[0] if hit else None
+
+
+# The records the ruling names, which take MEDSL's counts when the facts match (the orchestrator, 2026-11-13 01:15
+# (3): "For Rutland ... Treat it as #97 treated Chittenden if the facts match: MEDSL taken where it passes every test,
+# and p on MEDSL's count, listed. If any fact differs, hold it and tell me which"). Every other held flag gets the
+# figures only, and stays held: a district's MEDSL precincts are its whole only where its counties are known, and
+# before 2022's lines no source read gives them (Indiana 2018's Senate 47: MEDSL's rows are in five counties, and
+# Klarner's count is 1.23 times their ballots, which a county missing from the rows would explain) [worker D3's
+# reading; for the orchestrator].
+OVER_SEATS_RULED = {"2018-VT-upper-rutland---"}
+
+
+def over_seats_pass(year, flags, tallies):
+    """The orchestrator, 2026-11-13: "A count over seats times ballots, like Rutland's, cannot be right whatever the
+    coverage"; Rutland is to be treated as #97 treated Chittenden "if the facts match: MEDSL taken where it passes
+    every test". A held flag whose Klarner count is above MEDSL's, in a district MEDSL's file covers (no county missing
+    the chamber's rows), is set against the district's ballots (district_ballots): Klarner's count over its seats times
+    the ballots by more than OVER_SEATS, with MEDSL's within them, every candidate paired and no other name on MEDSL's
+    ballot, takes MEDSL's counts, marked OVER_MARK, in the records the ruling names (OVER_SEATS_RULED); otherwise it
+    stays held, the figures beside ("over": Klarner's count over its seats times the ballots)."""
+    todo = [f for f in flags if f["outcome"] == "held" and "a" in f["flags"] and f["ratio"] is not None
+            and f["ratio"] < 1 and f.get("covered")]
+    by_file = collections.defaultdict(list)
+    for f in todo:
+        by_file[f["medsl_file"]].append(f)
+    for name, fs in sorted(by_file.items()):
+        path = _raw_path(year, name)
+        if not path:
+            continue
+        wants = {(f["state"], 1 if f["chamber"] == "state-upper" else 0, _dkey(f["medsl_district"])) for f in fs}
+        got = district_ballots(path, wants)
+        for f in fs:
+            b = got.get((f["state"], 1 if f["chamber"] == "state-upper" else 0, _dkey(f["medsl_district"])))
+            if not b:
+                f["over_seats"] = {"read": False, "why": "no statewide contest reaches the district's precincts"}
+                continue
+            seats = f["eseats"] or 1
+            xk, xm = f["klarner"] / (seats * b[1]), f["medsl"] / (seats * b[1])
+            f["over_seats"] = {"read": True, "precincts": b[0], "ballots": b[1], "by": b[2], "seats": seats,
+                               "klarner_per_ballot": round(f["klarner"] / b[1], 3),
+                               "medsl_per_ballot": round(f["medsl"] / b[1], 3),
+                               "klarner_x": round(xk, 4), "medsl_x": round(xm, 4)}
+            f["over_seats"]["over"] = xk > OVER_SEATS
+            if f["id"] in OVER_SEATS_RULED and xk > OVER_SEATS and xm <= 1 and \
+                    not [x for x in f["others"] if not x["write_in"]] and all(p_[1] and p_[3] for p_ in f["pairs"]):
+                tallies[f"flag {'+'.join(f['flags'])}: held"] -= 1
+                f["outcome"], f["mark"] = "MEDSL taken", OVER_MARK
+                tallies[f"flag {'+'.join(f['flags'])}: MEDSL taken (over seats times ballots)"] += 1
+    for k in [k for k, v in tallies.items() if v == 0]:
+        del tallies[k]
 
 
 def klarner_id(kc):
@@ -480,6 +937,144 @@ def id_canvass():
     return out
 
 
+UT_CANVASS = os.path.join(F.CACHE, "ut_lg", "raw", "2016-General-Election-Statewide-Canvass-3.pdf")
+IN_ARCHIVE = os.path.join(F.CACHE, "in_enr", "raw", "2016General")
+
+
+def _cols(line, pat=r"\S+(?: \S+)*"):
+    """The pieces of a pdftotext -layout line split on two or more spaces, with their columns."""
+    return [(m.start(), m.group(0)) for m in re.finditer(pat, line)]
+
+
+def ut_2016_senate():
+    """Utah's 2016 statewide canvass (vote.utah.gov, one request on 2026-11-13; cached by worker D3), its State Senate
+    pages: {district: [{name, votes, write_in}]}. Each page has a row of district headings (a heading can wrap onto
+    the line above and below), one row of candidates' names, one of their parties ('(Write-in)' marks a write-in),
+    a TOTAL row and a 'Contest Sum' row. The TOTAL row's figures are split into runs that add up to each contest sum
+    in turn, the headings ordered by column give the districts, and the names pair with the figures by order; a page
+    whose counts do not line up so is not read [worker D3's reading of the layout]."""
+    import subprocess
+    if not os.path.exists(UT_CANVASS):
+        return None
+    txt = subprocess.run(["pdftotext", "-layout", UT_CANVASS, "-"], capture_output=True, text=True, check=True).stdout
+    out = {}
+    for page in txt.split("\f"):
+        lines = page.split("\n")
+        if not any("Utah Senate - District" in x or re.search(r"Utah Senate -\s*$", x) for x in lines[:3]):
+            continue
+        try:
+            i_tot = next(i for i, x in enumerate(lines) if x.strip().startswith("TOTAL"))
+            i_sum = next(i for i, x in enumerate(lines) if x.strip().startswith("Contest Sum"))
+            i_cty = next(i for i, x in enumerate(lines) if x.strip() == "County")
+        except StopIteration:
+            continue
+        heads = []   # (column, district) from the heading rows, wrapped ones by their 'District N' line below
+        for j in range(0, i_cty):
+            for c, piece in _cols(lines[j], r"Utah Senate - District \d+|District \d+|Utah Senate -"):
+                mt = re.search(r"District (\d+)", piece)
+                if piece.startswith("Utah Senate - District"):
+                    heads.append((c, mt.group(1)))
+                elif piece == "Utah Senate -":
+                    below = [p_ for jj in (j + 1, j + 2) if jj < i_cty
+                             for c2, p_ in _cols(lines[jj], r"District \d+") if abs(c2 - c) <= 4]
+                    if below:
+                        heads.append((c, re.search(r"\d+", below[0]).group(0)))
+        heads.sort()
+        names = [p_ for _, p_ in _cols(lines[i_cty - 1])]
+        parties = [p_ for _, p_ in _cols(lines[i_cty + 1])]
+        vals = [int(x.replace(",", "")) for x in re.findall(r"[\d,]+", lines[i_tot].split("TOTAL", 1)[1])]
+        sums = [int(x.replace(",", "")) for x in re.findall(r"[\d,]+", lines[i_sum].split("Contest Sum", 1)[1])]
+        if not (len(names) == len(parties) == len(vals)) or len(sums) != len(heads):
+            continue
+        k, runs = 0, []
+        for tgt in sums:
+            j, acc = k, 0
+            while j < len(vals) and acc < tgt:
+                acc += vals[j]
+                j += 1
+            if acc != tgt:
+                break
+            runs.append((k, j))
+            k = j
+        if len(runs) != len(sums) or k != len(vals):
+            continue
+        for (a, b), (_, d) in zip(runs, heads):
+            out[d] = [{"name": (names[i] + " " + parties[i].replace("(Write-in)", "")).strip()
+                       if "Write-in" in parties[i] else names[i], "votes": vals[i], "write_in": "Write-in" in parties[i]}
+                      for i in range(a, b)]
+    return out
+
+
+def in_2016():
+    """Indiana's results archive of the 2016 general (enr.indianavoters.in.gov/archive/2016General, read by worker D3 on
+    2026-11-13 through pipeline/intake/in_enr.py's reader: settings.json, the category list and the State Senator and
+    State Representative files): {(sen, district): [{name, votes, write_in}]}; '(W/I)' marks a write-in."""
+    out = {}
+    for sen, fn in ((1, "OffCatC_1766_A.json"), (0, "OffCatC_1787_A.json")):
+        p_ = os.path.join(IN_ARCHIVE, fn)
+        if not os.path.exists(p_):
+            return None
+        with open(p_, encoding="utf-8-sig") as f:
+            d = json.load(f)
+        d = d.get("Root", d)
+        races = (d.get("StatewideSummary") or {}).get("Race") or []
+        for r in races if isinstance(races, list) else [races]:
+            mt = re.search(r"District 0*(\d+)$", r["OFFICE_TITLE"].strip())
+            cs = (r.get("Candidates") or {}).get("Candidate") or []
+            if mt:
+                out[(sen, mt.group(1))] = [{"name": x["NAME_ON_BALLOT"].replace("(W/I)", "").strip(),
+                                            "votes": int(x.get("TOTAL") or 0), "write_in": "(W/I)" in x["NAME_ON_BALLOT"]}
+                                           for x in (cs if isinstance(cs, list) else [cs])]
+    return out
+
+
+STATE_FILES = {
+    ("UT", 2016): ("Utah's 2016 statewide canvass", "vote.utah.gov", UT_CANVASS),
+    ("IN", 2016): ("Indiana's results archive of the 2016 general", "enr.indianavoters.in.gov", IN_ARCHIVE)}
+STATE_CACHE = {}
+
+
+def settle_agree(kc, t):
+    """A flag settled by the state's published results agreeing with Klarner's (the orchestrator, 2026-11-13: "Settling
+    a flag needs only the state's own count agreeing with one source ... the notes say 'the state's published results
+    agree' and never 'certified'"): the state's district names each of Klarner's ballot candidates once by surname,
+    no other ballot name, and its ballot candidates add up to Klarner's within RATIO_OFF. Klarner's counts stand."""
+    import local as L
+    import local_medsl as M
+    key = (kc["state"], kc["year"])
+    if key not in STATE_FILES or not str(kc["dno"]).isdigit():
+        return None
+    if key not in STATE_CACHE:
+        STATE_CACHE[key] = ut_2016_senate() if key == ("UT", 2016) else in_2016()
+    d = STATE_CACHE[key]
+    if not d:
+        return None
+    cs = d.get(str(int(kc["dno"]))) if key == ("UT", 2016) and kc["sen"] else \
+        d.get((kc["sen"], str(int(kc["dno"])))) if key == ("IN", 2016) else None
+    if not cs:
+        return None
+    ballot = L.on_ballot(kc["cands"])
+    sb = [x for x in cs if not x["write_in"]]
+    pairs = []
+    for a in ballot:
+        hit = [x for x in sb if _finds(M.name_key(a["name"]), M.name_keys(x["name"]))]
+        if len(hit) != 1:
+            return None
+        pairs.append([a["name"], a["votes"], hit[0]["name"], hit[0]["votes"]])
+    if len(sb) != len(ballot):
+        return None
+    kv, sv = sum(p_[1] or 0 for p_ in pairs), sum(p_[3] for p_ in pairs)
+    if not kv or abs(sv / kv - 1) > RATIO_OFF:
+        return None
+    name, host, path = STATE_FILES[key]
+    meta_p = (path + ".meta.json") if os.path.isfile(path) else os.path.join(path, "settings.json.meta.json")
+    with open(meta_p) as f:
+        meta = json.load(f)
+    return {"source": name, "host": host, "url": meta.get("url"), "read_utc": meta.get("finished_utc") or
+            meta.get("read_utc"), "sha256": meta.get("sha256"), "pairs": pairs, "ratio": round(sv / kv, 5),
+            "write_ins": [[x["name"], x["votes"]] for x in cs if x["write_in"]]}
+
+
 def settle_id(kc, t, canv):
     """Idaho 2022 from the state's canvass: the column naming Klarner's candidates; its counts and its write-in
     marks."""
@@ -509,7 +1104,8 @@ def check():
     canv = id_canvass()
     out = {"about": ("Klarner's legislative districts beside MEDSL's, one by one (pipeline/local_districts.py; the "
                      "orchestrator's orders of 2026-11-07 21:21 and 21:26; data/local/REPORT.md section 32)"),
-           "rules": {"ratio_off_over": RATIO_OFF, "held_at_or_over": HOLD_GAP, "doubled_within": DOUBLE_TOL},
+           "rules": {"ratio_off_over": RATIO_OFF, "held_at_or_over": HOLD_GAP, "doubled_within": DOUBLE_TOL,
+                     "over_seats_held_over": OVER_SEATS, "compound_part_min": PART_MIN},
            "years": {}}
     ups = {sen: collections.Counter((st, y) for st, y, _, _ in {(c["state"], c["year"], c["dname"], c["dno"])
                                                                 for c in cs if c["etype"] == "g" and c["sen"] == sen})
@@ -547,6 +1143,24 @@ def check():
         groups = collections.defaultdict(list)
         for kc, m in found:
             groups[id(m)].append(kc)
+        # where one of them has the contest's own district number and the others other numbers, the contest is that
+        # one's: the others matched it by a name alone (Hawaii 2016's House 51, unopposed, on House 36's contest)
+        # [worker D3's reading]
+        by_id = {id(m): m for _, m in found}
+        drop = set()
+        for gid, ks in groups.items():
+            md = _dkey(by_id[gid]["district"])
+            if len(ks) < 2 or not md.isdigit() or not all(str(k_["dno"] or "").isdigit() for k_ in ks):
+                continue
+            own_ = [k_ for k_ in ks if int(k_["dno"]) == int(md)]
+            if len(own_) == 1 and all(int(k_["dno"]) != int(md) for k_ in ks if k_ is not own_[0]):
+                for k_ in ks:
+                    if k_ is not own_[0]:
+                        drop.add(id(k_))
+                        tallies["matched only to another district's contest"] += 1
+                        status[klarner_id(k_)] = ["matched only to another district's contest", by_id[gid]["district"]]
+                groups[gid] = own_
+        found = [(kc, m) for kc, m in found if id(kc) not in drop]
         shared = collections.Counter()
         for kc, m in found:
             pr, b_test = None, True
@@ -578,6 +1192,7 @@ def check():
             f.update(outcome(kc, t, year, canv, district_cover(kc, m, year, cov, full_upper)))
             flags.append(f)
             tallies[f"flag {'+'.join(f['flags'])}: {f['outcome']}"] += 1
+        over_seats_pass(year, flags, tallies)
         out["years"][str(year)] = {"tallies": dict(sorted(tallies.items())), "shared_by_state": dict(sorted(shared.items())),
                                    "flags": sorted(flags, key=lambda f: (f["state"], f["chamber"], f["id"]))}
         print(year, dict(sorted(tallies.items())))
@@ -634,6 +1249,16 @@ def check():
         out["incomplete_counties"][str(year)] = inc
         out["incomplete_counties"]["off_ballot_" + str(year)] = off_ballot
         out["statewide_short"][str(year)] = sw
+    # the precinct names joined to the top contest's before the gate's match (the orchestrator, 2026-11-13 01:04 (1):
+    # "Normalize precinct names before the gate's match, list each equivalence, and recompute every county")
+    out["precinct_equivalences"] = {
+        "about": ("by the year of MEDSL's file and state|county: [the name as a contest's rows give it, the top "
+                  "contest's name it is joined to], each 'jurisdiction / precinct'; a name in no row of the county's "
+                  "top contest joins the one top-contest name with the same jurisdiction code and the same numbers, "
+                  "where their words are equal or, both six letters or more, within two letters' edits or one's words "
+                  "among the other's, generic words aside (local_districts.precinct_equivalences)")}
+    for y in (2016, 2018, 2022, 2024):
+        out["precinct_equivalences"][str(y)] = coverage(y).get("equivalences", {}).get(str(y), {})
     out["incomplete_counties"]["about"] = (
         "counties where the US House's rows (by district, where the county has any) miss more than 2% of the precincts "
         "of the county's top contest (the most precincts with votes), holding more than 2% of its votes: [family, "
@@ -661,6 +1286,67 @@ def check():
     return out
 
 
+# A district whose count all of MEDSL's lines confirm, with one candidate's votes on the file's WRITE-IN line, where
+# no source read says whether that candidate was on the ballot (the orchestrator, 2026-11-13 01:04 (3), on M2's
+# reading of Michigan 2022: "The count is confirmed. Before p returns, read whether Corcoran was on the ballot; if he
+# was a write-in, the write-in rule applies"; Michigan's Secretary of State refused on 11-07 and Wayne County's Clerk
+# gave an empty reply at 01:25:44 UTC on 11-13, so it is not read). {Klarner id: (the candidate, Klarner's surname key)}.
+# A district whose gap one county's own official results fill (the orchestrator, 2026-11-13 01:15 (1): "For HD27, SD12
+# and HD99, one request each to the clerk of the county where the gap lies, if you can tell which"; a county clerk is
+# another agency than the Secretary of State, which refused). Michigan 2022's House 99: MEDSL's lines are in six
+# counties, and in Arenac (26011) its 2,160 for Mike Hoadley are 0.30 of the governor's votes in the same precincts,
+# against 0.95 to 0.98 in the other five [measured], so the gap lies in Arenac; its clerk's file, headed "Official",
+# gives Kenneth A. Kish (DEM) 2,160 and Mike Hoadley (REP) 4,847, and 15 unresolved write-ins [stated: the file]. MEDSL
+# files Kish's Arenac figure under Hoadley's name and lacks Hoadley's. {Klarner id: the reading}.
+COUNTY_READ = {"2022-MI-lower--99--": {
+    "county": "26011", "clerk": "Arenac County Clerk",
+    "url": "https://arenaccountymi.gov/docs/Clerk/Election%20Results/2022/Official%20Nov%208,%202022%20Election"
+           "SummaryReportRPT.pdf",
+    "read_utc": "2026-11-13T02:22:25Z",
+    "sha256": "113c24ce1c2bb601ae1f3d64f046db1b72b28f7e2545b7bc5707b302c10a270d",
+    "title": "Election Summary Report, General Election, Arenac County, Michigan, November 08, 2022, Official",
+    "official": {"kish": 2160, "hoadley": 4847}, "write_ins": 15,
+    "medsl_in_county": {"kish": 0, "hoadley": 2160}}}
+
+
+def county_read(kc, t):
+    """For COUNTY_READ: MEDSL's lines with the county's own official figures in place of MEDSL's for that county; if
+    each candidate's sum then equals Klarner's, Klarner's count stands; else the build stops."""
+    e = COUNTY_READ[klarner_id(kc)]
+    pairs = []
+    for p_ in t["pairs"]:
+        sur = p_[0].split(",")[0].strip()
+        if sur not in e["official"]:
+            raise SystemExit(f"county_read: {klarner_id(kc)}: {sur} is not in the county's reading")
+        with_county = p_[3] - e["medsl_in_county"][sur] + e["official"][sur]
+        if with_county != p_[1]:
+            raise SystemExit(f"county_read: {klarner_id(kc)}: {sur}: {with_county} against Klarner's {p_[1]}")
+        pairs.append([p_[0], p_[1], p_[3], with_county])
+    return {"outcome": "settled by the county: Klarner's count stands", "by": e["clerk"],
+            "county_count": {k: e[k] for k in ("county", "clerk", "url", "read_utc", "sha256", "title", "official",
+                                                 "write_ins", "medsl_in_county")}, "county_pairs": pairs}
+
+
+BALLOT_UNREAD = {"2022-MI-lower--10--": ("Mark Corcoran", "corcoran")}
+BALLOT_UNREAD_TOL = 0.01   # all of MEDSL's lines, the WRITE-IN line with them, within 1% of Klarner's count
+
+
+def ballot_unread(kc, t):
+    """For BALLOT_UNREAD: the figures, if the WRITE-IN line makes up the candidate's gap and all lines confirm Klarner's
+    count; else the build stops (the record is not the one the ruling read)."""
+    who, key = BALLOT_UNREAD[klarner_id(kc)]
+    pr = [p_ for p_ in t["pairs"] if p_[0].split(",")[0].strip() == key]
+    if len(pr) != 1:
+        raise SystemExit(f"ballot_unread: {klarner_id(kc)}: {who} not paired once")
+    all_lines = t["medsl"] + t["medsl_write_ins"]
+    gap = pr[0][1] - pr[0][3]
+    if abs(all_lines / t["klarner"] - 1) > BALLOT_UNREAD_TOL or abs(t["medsl_write_ins"] / gap - 1) > 0.05:
+        raise SystemExit(f"ballot_unread: {klarner_id(kc)}: the WRITE-IN line no longer makes up {who}'s votes")
+    return {"outcome": "held: whether a candidate was on the ballot is not read", "who": who,
+            "klarner_votes": pr[0][1], "medsl_named": pr[0][3], "write_in_line": t["medsl_write_ins"],
+            "all_lines": all_lines}
+
+
 def outcome(kc, t, year, canv, cover=None):
     """The outcome of a flagged district (OUTCOMES in the module's docstring), and what the build does."""
     src = (kc.get("votes_source") or {}).get("source")
@@ -672,6 +1358,13 @@ def outcome(kc, t, year, canv, cover=None):
         s = settle_id(kc, t, canv)
         if s:
             return {"outcome": "settled by the state", "by": "Idaho's 2022 canvass (cached)", "state_count": s}
+    s_ = settle_agree(kc, t)
+    if s_:
+        return {"outcome": "settled by the state: Klarner's count stands", "by": s_["source"], "state_count": s_}
+    if klarner_id(kc) in BALLOT_UNREAD:
+        return ballot_unread(kc, t)
+    if klarner_id(kc) in COUNTY_READ:
+        return county_read(kc, t)
     r = t["ratio"]
     ballot_others = [x for x in t["others"] if not x["write_in"]]
     voted = [p for p in t["pairs"] if p[1]]
@@ -765,7 +1458,10 @@ def compare(m2_path):
                        "matched to several": "several MEDSL contests name all its candidates; untested here",
                        "shared, not paired apart": "MEDSL files several districts' lines as one contest whose "
                                                    "candidates do not pair apart; untested here",
-                       "candidates not paired": "its candidates do not pair one to one; untested here"}.get(
+                       "candidates not paired": "its candidates do not pair one to one; untested here",
+                       "matched only to another district's contest": "the one MEDSL contest that names its candidates "
+                                                                     "is another district's, by its number; untested "
+                                                                     "here"}.get(
                     st_[0][0], st_[0][0])
         tally[kind] += 1
         rows.append({"year": r["year"], "state": r["state"], "chamber": r["chamber"], "district": r["klarner_code"],

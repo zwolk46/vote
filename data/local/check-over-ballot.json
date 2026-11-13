@@ -507,6 +507,19 @@
    "votes": 1356435
   },
   {
+   "against": "ballots cast",
+   "district": "AT-LARGE",
+   "figure": 231700,
+   "of": "the ballots cast in its precincts as MEDSL's file gives them",
+   "office": "DC COUNCILMEMBER",
+   "ratio": 1.4769,
+   "ratio_per_seat": 0.7384,
+   "seats": 2,
+   "state": "DC",
+   "verdict": "listed: a contest of 2 seats (SEATS_READ), explained by its seats",
+   "votes": 342188
+  },
+  {
    "against": "top",
    "district": "STATEWIDE",
    "figure": 362606,
