@@ -589,7 +589,7 @@
    "state": "VT",
    "reasons": [
     "Klarner vs MEDSL state-lower +0.4%, 1 districts off >5%, worst RUTLAND6: 5,469 vs 4,527 (+20.81%) by D+R (p {'klarner': 104})",
-    "Klarner vs MEDSL state-upper +151.1%, 6 districts off >5%, worst CHITTENDEN: 1,020,473 vs 256,558 (+297.76%) by D+R (p {'klarner': 13})"
+    "Klarner vs MEDSL state-upper +151.1%, 6 districts off >5%, worst CHITTENDEN: 1,020,473 vs 256,558 (+297.76%) by D+R (p {'klarner': 12, 'medsl': 1})"
    ]
   },
   {
@@ -655,7 +655,7 @@
    "state": "ID",
    "reasons": [
     "Klarner vs MEDSL state-lower +0.3%, 1 districts off >5%, MEDSL raw 2x in 18, worst 28: 26,072 vs 22,626 (+15.23%) by D+R (p {'klarner': 70})",
-    "Klarner vs MEDSL state-upper -1.7%, 1 districts off >5%, MEDSL raw 2x in 18, worst 1: 13,064 vs 22,089 (-40.86%) by all (p {'klarner': 35})"
+    "Klarner vs MEDSL state-upper -1.7%, 1 districts off >5%, MEDSL raw 2x in 18, worst 1: 13,064 vs 22,089 (-40.86%) by all (p {'klarner': 34})"
    ]
   },
   {
