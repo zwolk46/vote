@@ -54,5 +54,14 @@ case "$1" in
     mkdir -p "$D/recount"
     fetch recount:vtp_wp11 "https://vote.caltech.edu/documents/133/vtp_wp11.pdf" "$D/recount/vtp_wp11.pdf" || exit 1; sleep 6
     fetch recount:fairvote "https://fairvote.org/report/election-recounts-2024/" "$D/recount/fairvote-election-recounts-2024.html";;
+  singer_record)  # section 22, D3's #118: Singer's dataset record (Harvard Dataverse doi:10.7910/DVN/RV80FW), one request; read for its licence, guestbook and file md5s before the files are asked for
+    mkdir -p "$D/singer"
+    fetch singer:record "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/RV80FW" "$D/singer/RV80FW-dataset.json";;
+  singer_files)  # section 22: the dataset's 56 files as Dataverse's one download in their original format (as D3 read them, 10:34), one request, after the record showed no guestbook and CC0
+    mkdir -p "$D/singer"
+    fetch singer:original "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/RV80FW&format=original" "$D/singer/RV80FW-original.zip";;
+  mt_sos)  # section 22: Montana's 2020 legislative general canvass as D3's #118 read it (data/local/REPORT.md section 39; the file its results page's "2020 General ... Legislative" link names), one request
+    mkdir -p "$D/mt_sos"
+    fetch mt:canvass2020 "https://sosmt.gov/wp-content/uploads/State_Canvass_Legislative.pdf" "$D/mt_sos/State_Canvass_Legislative.pdf";;
 esac
 echo "### done $1"
