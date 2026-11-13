@@ -1,0 +1,8812 @@
+{
+"what": "New Jersey's Official Lists of 2023 and 2025 (State Senate, General Assembly; 2025's Senate 35th district), as c40_pr_checks.py reads them with pdftotext -layout: each contest's heading counties, each candidate's county lines (county, slogan, votes), Total, (w) and * marks, the contest Total",
+"lists": {
+"2023-state-lower": [
+{
+"district": 1,
+"counties": [
+"ATLANTIC (part)",
+"CAPE MAY",
+"CUMBERLAND (part)"
+],
+"total": 88064,
+"cands": [
+{
+"name": "ERIK SIMONSEN",
+"party": "Republican",
+"total": 27976,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+1167
+],
+[
+"CAPE MAY",
+"REPUBLICAN",
+16995
+],
+[
+"CUMBERLAND",
+"REPUBLICAN",
+9814
+]
+]
+},
+{
+"name": "ANTWAN MCCLELLAN",
+"party": "Republican",
+"total": 27603,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+1145
+],
+[
+"CAPE MAY",
+"REPUBLICAN",
+16773
+],
+[
+"CUMBERLAND",
+"REPUBLICAN",
+9685
+]
+]
+},
+{
+"name": "DAMITA WHITE-MORRIS",
+"party": "Democratic",
+"total": 16257,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+520
+],
+[
+"CAPE MAY",
+"DEMOCRATIC",
+8052
+],
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+7685
+]
+]
+},
+{
+"name": "EDDIE L. BONNER",
+"party": "Democratic",
+"total": 16228,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+541
+],
+[
+"CAPE MAY",
+"DEMOCRATIC",
+8042
+],
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+7645
+]
+]
+}
+]
+},
+{
+"district": 2,
+"counties": [
+"ATLANTIC (part)"
+],
+"total": 92517,
+"cands": [
+{
+"name": "DON GUARDIAN",
+"party": "Republican",
+"total": 26675,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+26675
+]
+]
+},
+{
+"name": "CLAIRE SWIFT",
+"party": "Republican",
+"total": 25460,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+25460
+]
+]
+},
+{
+"name": "ELIZABETH \"LISA\" BENDER",
+"party": "Democratic",
+"total": 20547,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+20547
+]
+]
+},
+{
+"name": "ALPHONSO HARRELL",
+"party": "Democratic",
+"total": 19835,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+19835
+]
+]
+}
+]
+},
+{
+"district": 3,
+"counties": [
+"CUMBERLAND (part)",
+"GLOUCESTER (part)",
+"SALEM"
+],
+"total": 120600,
+"cands": [
+{
+"name": "HEATHER SIMMONS",
+"party": "Democratic",
+"total": 30861,
+"w": true,
+"star": false,
+"lines": [
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+1592
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+22937
+],
+[
+"SALEM",
+"DEMOCRATIC",
+6332
+]
+]
+},
+{
+"name": "DAVE BAILEY JR.",
+"party": "Democratic",
+"total": 30737,
+"w": true,
+"star": false,
+"lines": [
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+1627
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+22224
+],
+[
+"SALEM",
+"DEMOCRATIC",
+6886
+]
+]
+},
+{
+"name": "BETHANNE MCCARTHY PATRICK",
+"party": "Republican",
+"total": 29522,
+"w": false,
+"star": true,
+"lines": [
+[
+"CUMBERLAND",
+"REPUBLICAN",
+2801
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+18300
+],
+[
+"SALEM",
+"REPUBLICAN",
+8421
+]
+]
+},
+{
+"name": "THOMAS J. TEDESCO JR.",
+"party": "Republican",
+"total": 29480,
+"w": false,
+"star": false,
+"lines": [
+[
+"CUMBERLAND",
+"REPUBLICAN",
+2857
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+18434
+],
+[
+"SALEM",
+"REPUBLICAN",
+8189
+]
+]
+}
+]
+},
+{
+"district": 4,
+"counties": [
+"ATLANTIC (part)",
+"CAMDEN (part)",
+"GLOUCESTER (part)"
+],
+"total": 113565,
+"cands": [
+{
+"name": "DAN HUTCHISON",
+"party": "Democratic",
+"total": 30116,
+"w": true,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+902
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+16367
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+12847
+]
+]
+},
+{
+"name": "CODY D. MILLER",
+"party": "Democratic",
+"total": 29770,
+"w": true,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+906
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+16007
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+12857
+]
+]
+},
+{
+"name": "MATTHEW P. WALKER",
+"party": "Republican",
+"total": 25881,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+1649
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+11071
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+13161
+]
+]
+},
+{
+"name": "AMANDA ESPOSITO",
+"party": "Republican",
+"total": 26653,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+1632
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+11381
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+13640
+]
+]
+},
+{
+"name": "MAUREEN DUKES PENROSE",
+"party": "CONSERVATIVES SOUTH JERSEY",
+"total": 1145,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"CONSERVATIVES SOUTH JERSEY",
+42
+],
+[
+"CAMDEN",
+"CONSERVATIVES SOUTH JERSEY",
+567
+],
+[
+"GLOUCESTER",
+"CONSERVATIVES SOUTH JERSEY",
+536
+]
+]
+}
+]
+},
+{
+"district": 5,
+"counties": [
+"CAMDEN (part)",
+"GLOUCESTER (part)"
+],
+"total": 74135,
+"cands": [
+{
+"name": "WILLIAM F. MOEN JR.",
+"party": "Democratic",
+"total": 25757,
+"w": true,
+"star": true,
+"lines": [
+[
+"CAMDEN",
+"DEMOCRATIC",
+20137
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+5620
+]
+]
+},
+{
+"name": "WILLIAM W. SPEARMAN",
+"party": "Democratic",
+"total": 25944,
+"w": true,
+"star": true,
+"lines": [
+[
+"CAMDEN",
+"DEMOCRATIC",
+20218
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+5726
+]
+]
+},
+{
+"name": "JOE MILLER",
+"party": "Republican",
+"total": 11386,
+"w": false,
+"star": false,
+"lines": [
+[
+"CAMDEN",
+"REPUBLICAN",
+7463
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+3923
+]
+]
+},
+{
+"name": "YALINDA PAGAN",
+"party": "Republican",
+"total": 11048,
+"w": false,
+"star": false,
+"lines": [
+[
+"CAMDEN",
+"REPUBLICAN",
+7264
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+3784
+]
+]
+}
+]
+},
+{
+"district": 6,
+"counties": [
+"BURLINGTON (part)",
+"CAMDEN (part)"
+],
+"total": 98914,
+"cands": [
+{
+"name": "LOUIS D. GREENWALD",
+"party": "Democratic",
+"total": 34717,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+1554
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+33163
+]
+]
+},
+{
+"name": "PAMELA R. LAMPITT",
+"party": "Democratic",
+"total": 34185,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+1546
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+32639
+]
+]
+},
+{
+"name": "DANIELLE M. BARRY",
+"party": "Republican",
+"total": 15067,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+1003
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+14064
+]
+]
+},
+{
+"name": "BRIAN MCRORY",
+"party": "Republican",
+"total": 14945,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+1000
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+13945
+]
+]
+}
+]
+},
+{
+"district": 7,
+"counties": [
+"BURLINGTON (part)"
+],
+"total": 97262,
+"cands": [
+{
+"name": "HERBERT C. CONAWAY JR.",
+"party": "Democratic",
+"total": 32608,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+32608
+]
+]
+},
+{
+"name": "CAROL MURPHY",
+"party": "Democratic",
+"total": 31936,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+31936
+]
+]
+},
+{
+"name": "DOUGLAS F. DILLON",
+"party": "Republican",
+"total": 16368,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+16368
+]
+]
+},
+{
+"name": "EILEEN BLEISTINE",
+"party": "Republican",
+"total": 16350,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+16350
+]
+]
+}
+]
+},
+{
+"district": 8,
+"counties": [
+"ATLANTIC (part)",
+"BURLINGTON (part)"
+],
+"total": 110339,
+"cands": [
+{
+"name": "MICHAEL TORRISSI JR.",
+"party": "Republican",
+"total": 27881,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+4055
+],
+[
+"BURLINGTON",
+"REPUBLICAN",
+23826
+]
+]
+},
+{
+"name": "ANDREA KATZ",
+"party": "Democratic",
+"total": 27636,
+"w": true,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+2039
+],
+[
+"BURLINGTON",
+"DEMOCRATIC",
+25597
+]
+]
+},
+{
+"name": "ANTHONY ANGELOZZI",
+"party": "Democratic",
+"total": 27438,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+2209
+],
+[
+"BURLINGTON",
+"DEMOCRATIC",
+25229
+]
+]
+},
+{
+"name": "BRANDON E. UMBA",
+"party": "Republican",
+"total": 27384,
+"w": false,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+3727
+],
+[
+"BURLINGTON",
+"REPUBLICAN",
+23657
+]
+]
+}
+]
+},
+{
+"district": 9,
+"counties": [
+"OCEAN (part)"
+],
+"total": 110459,
+"cands": [
+{
+"name": "BRIAN E. RUMPF",
+"party": "Republican",
+"total": 37559,
+"w": true,
+"star": true,
+"lines": [
+[
+"OCEAN",
+"REPUBLICAN",
+37559
+]
+]
+},
+{
+"name": "GREGORY E. MYHRE",
+"party": "Republican",
+"total": 36342,
+"w": true,
+"star": false,
+"lines": [
+[
+"OCEAN",
+"REPUBLICAN",
+36342
+]
+]
+},
+{
+"name": "JOSEPH ATURA",
+"party": "Democratic",
+"total": 17205,
+"w": false,
+"star": false,
+"lines": [
+[
+"OCEAN",
+"DEMOCRATIC",
+17205
+]
+]
+},
+{
+"name": "SARAH \"SALLY\" COLLINS",
+"party": "Democratic",
+"total": 18374,
+"w": false,
+"star": false,
+"lines": [
+[
+"OCEAN",
+"DEMOCRATIC",
+18374
+]
+]
+},
+{
+"name": "BARRY BENDAR",
+"party": "Green Party",
+"total": 979,
+"w": false,
+"star": false,
+"lines": [
+[
+"OCEAN",
+"GREEN PARTY",
+979
+]
+]
+}
+]
+},
+{
+"district": 10,
+"counties": [
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 105390,
+"cands": [
+{
+"name": "GREGORY P. MCGUCKIN",
+"party": "Republican",
+"total": 34805,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+4218
+],
+[
+"OCEAN",
+"REPUBLICAN",
+30587
+]
+]
+},
+{
+"name": "PAUL KANITRA",
+"party": "Republican",
+"total": 34098,
+"w": true,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+4173
+],
+[
+"OCEAN",
+"REPUBLICAN",
+29925
+]
+]
+},
+{
+"name": "JOHN LAMACCHIA",
+"party": "Democratic",
+"total": 17958,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+2224
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+15734
+]
+]
+},
+{
+"name": "EMMA MAMMANO",
+"party": "Democratic",
+"total": 18529,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+2291
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+16238
+]
+]
+}
+]
+},
+{
+"district": 11,
+"counties": [
+"MONMOUTH (part)"
+],
+"total": 111896,
+"cands": [
+{
+"name": "MARGIE M. DONLON",
+"party": "Democratic",
+"total": 32005,
+"w": true,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+32005
+]
+]
+},
+{
+"name": "LUANNE M. PETERPAUL",
+"party": "Democratic",
+"total": 31636,
+"w": true,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+31636
+]
+]
+},
+{
+"name": "MARILYN PIPERNO",
+"party": "Republican",
+"total": 24230,
+"w": false,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+24230
+]
+]
+},
+{
+"name": "KIM EULNER",
+"party": "Republican",
+"total": 24025,
+"w": false,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+24025
+]
+]
+}
+]
+},
+{
+"district": 12,
+"counties": [
+"BURLINGTON (part)",
+"MIDDLESEX (part)",
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 88192,
+"cands": [
+{
+"name": "ROBERT D. CLIFTON",
+"party": "Republican",
+"total": 28200,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+711
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+9303
+],
+[
+"MONMOUTH",
+"REPUBLICAN",
+9731
+],
+[
+"OCEAN",
+"REPUBLICAN",
+8455
+]
+]
+},
+{
+"name": "ALEX SAUICKIE",
+"party": "Republican",
+"total": 27061,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+692
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+8998
+],
+[
+"MONMOUTH",
+"REPUBLICAN",
+9509
+],
+[
+"OCEAN",
+"REPUBLICAN",
+7862
+]
+]
+},
+{
+"name": "PAUL SARTI",
+"party": "Democratic",
+"total": 16767,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+366
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+6542
+],
+[
+"MONMOUTH",
+"DEMOCRATIC",
+5835
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+4024
+]
+]
+},
+{
+"name": "RAYA ARBIOL",
+"party": "Democratic",
+"total": 16164,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+355
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+6414
+],
+[
+"MONMOUTH",
+"DEMOCRATIC",
+5763
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+3632
+]
+]
+}
+]
+},
+{
+"district": 13,
+"counties": [
+"MONMOUTH (part)"
+],
+"total": 106554,
+"cands": [
+{
+"name": "GERARD SCHARFENBERGER",
+"party": "Republican",
+"total": 30474,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+30474
+]
+]
+},
+{
+"name": "VICTORIA A. FLYNN",
+"party": "Republican",
+"total": 30744,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+30744
+]
+]
+},
+{
+"name": "DANIELLE MASTROPIERO",
+"party": "Democratic",
+"total": 22440,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+22440
+]
+]
+},
+{
+"name": "PAUL ESCHELBACH",
+"party": "Democratic",
+"total": 21655,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+21655
+]
+]
+},
+{
+"name": "JOHN MORRISON",
+"party": "Libertarian Party",
+"total": 1241,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"LIBERTARIAN PARTY",
+1241
+]
+]
+}
+]
+},
+{
+"district": 14,
+"counties": [
+"MERCER (part)",
+"MIDDLESEX (part)"
+],
+"total": 108421,
+"cands": [
+{
+"name": "WAYNE P. DEANGELO",
+"party": "Democratic",
+"total": 32843,
+"w": true,
+"star": true,
+"lines": [
+[
+"MERCER",
+"DEMOCRATIC",
+19549
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+13294
+]
+]
+},
+{
+"name": "TENNILLE R. MCCOY",
+"party": "Democratic",
+"total": 31181,
+"w": true,
+"star": false,
+"lines": [
+[
+"MERCER",
+"DEMOCRATIC",
+18180
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+13001
+]
+]
+},
+{
+"name": "ADAM J. ELIAS",
+"party": "Republican",
+"total": 22223,
+"w": false,
+"star": false,
+"lines": [
+[
+"MERCER",
+"REPUBLICAN",
+12960
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+9263
+]
+]
+},
+{
+"name": "SKYE GILMARTIN",
+"party": "Republican",
+"total": 22174,
+"w": false,
+"star": false,
+"lines": [
+[
+"MERCER",
+"REPUBLICAN",
+13091
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+9083
+]
+]
+}
+]
+},
+{
+"district": 15,
+"counties": [
+"HUNTERDON (part)",
+"MERCER (part)"
+],
+"total": 65362,
+"cands": [
+{
+"name": "VERLINA REYNOLDS-JACKSON",
+"party": "Democratic",
+"total": 27322,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+4083
+],
+[
+"MERCER",
+"DEMOCRATIC",
+23239
+]
+]
+},
+{
+"name": "ANTHONY S. VERRELLI",
+"party": "Democratic",
+"total": 27669,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+4297
+],
+[
+"MERCER",
+"DEMOCRATIC",
+23372
+]
+]
+},
+{
+"name": "MICHEL F. HURTADO",
+"party": "Republican",
+"total": 10371,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+3391
+],
+[
+"MERCER",
+"REPUBLICAN",
+6980
+]
+]
+}
+]
+},
+{
+"district": 16,
+"counties": [
+"HUNTERDON (part)",
+"MERCER (part)",
+"MIDDLESEX (part)",
+"SOMERSET (part)"
+],
+"total": 120663,
+"cands": [
+{
+"name": "ROY FREIMAN",
+"party": "Democratic",
+"total": 34188,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+9352
+],
+[
+"MERCER",
+"DEMOCRATIC",
+5907
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+6524
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+12405
+]
+]
+},
+{
+"name": "MITCHELLE DRULIS",
+"party": "Democratic",
+"total": 33624,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+9232
+],
+[
+"MERCER",
+"DEMOCRATIC",
+5811
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+6418
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+12163
+]
+]
+},
+{
+"name": "ROSS TRAPHAGEN",
+"party": "Republican",
+"total": 26293,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+11224
+],
+[
+"MERCER",
+"REPUBLICAN",
+1320
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+3268
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+10481
+]
+]
+},
+{
+"name": "GRACE ZHANG",
+"party": "Republican",
+"total": 26558,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+11056
+],
+[
+"MERCER",
+"REPUBLICAN",
+1428
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+3417
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+10657
+]
+]
+}
+]
+},
+{
+"district": 17,
+"counties": [
+"MIDDLESEX (part)",
+"SOMERSET (part)"
+],
+"total": 55467,
+"cands": [
+{
+"name": "JOSEPH DANIELSEN",
+"party": "Democratic",
+"total": 20064,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+10506
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+9558
+]
+]
+},
+{
+"name": "KEVIN P. EGAN",
+"party": "Democratic",
+"total": 20159,
+"w": true,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+10639
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+9520
+]
+]
+},
+{
+"name": "SUSAN HUCKO",
+"party": "Republican",
+"total": 7771,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+3939
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+3832
+]
+]
+},
+{
+"name": "DHIMANT G. PATEL",
+"party": "Republican",
+"total": 7473,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+3781
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+3692
+]
+]
+}
+]
+},
+{
+"district": 18,
+"counties": [
+"MIDDLESEX (part)"
+],
+"total": 74078,
+"cands": [
+{
+"name": "ROBERT J. KARABINCHAK",
+"party": "Democratic",
+"total": 23362,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+23362
+]
+]
+},
+{
+"name": "STERLEY S. STANLEY",
+"party": "Democratic",
+"total": 23236,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+23236
+]
+]
+},
+{
+"name": "TERESA A. HUTCHISON",
+"party": "Republican",
+"total": 13861,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+13861
+]
+]
+},
+{
+"name": "JOSEPH C. WOLAK",
+"party": "Republican",
+"total": 13619,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+13619
+]
+]
+}
+]
+},
+{
+"district": 19,
+"counties": [
+"MIDDLESEX (part)"
+],
+"total": 59917,
+"cands": [
+{
+"name": "CRAIG J. COUGHLIN",
+"party": "Democratic",
+"total": 18808,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+18808
+]
+]
+},
+{
+"name": "YVONNE LOPEZ",
+"party": "Democratic",
+"total": 18254,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+18254
+]
+]
+},
+{
+"name": "SAM RAVAL",
+"party": "Republican",
+"total": 10740,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+10740
+]
+]
+},
+{
+"name": "MARILYN COLON",
+"party": "Republican",
+"total": 11496,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+11496
+]
+]
+},
+{
+"name": "DAVID DIEZ",
+"party": "Libertarian Party",
+"total": 619,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"LIBERTARIAN PARTY",
+619
+]
+]
+}
+]
+},
+{
+"district": 20,
+"counties": [
+"UNION (part)"
+],
+"total": 28764,
+"cands": [
+{
+"name": "ANNETTE QUIJANO",
+"party": "Democratic",
+"total": 12280,
+"w": true,
+"star": true,
+"lines": [
+[
+"UNION",
+"DEMOCRATIC",
+12280
+]
+]
+},
+{
+"name": "REGINALD W. ATKINS",
+"party": "Democratic",
+"total": 12104,
+"w": true,
+"star": true,
+"lines": [
+[
+"UNION",
+"DEMOCRATIC",
+12104
+]
+]
+},
+{
+"name": "RAMON HERNANDEZ",
+"party": "Republican",
+"total": 4380,
+"w": false,
+"star": false,
+"lines": [
+[
+"UNION",
+"REPUBLICAN",
+4380
+]
+]
+}
+]
+},
+{
+"district": 21,
+"counties": [
+"MIDDLESEX (part)",
+"MORRIS (part)",
+"SOMERSET (part)",
+"UNION (part)"
+],
+"total": 127011,
+"cands": [
+{
+"name": "NANCY MU\u00d1OZ",
+"party": "Republican",
+"total": 33146,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+2012
+],
+[
+"MORRIS",
+"REPUBLICAN",
+4065
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+10223
+],
+[
+"UNION",
+"REPUBLICAN",
+16846
+]
+]
+},
+{
+"name": "MICHELE MATSIKOUDIS",
+"party": "Republican",
+"total": 32607,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+1996
+],
+[
+"MORRIS",
+"REPUBLICAN",
+4026
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+10077
+],
+[
+"UNION",
+"REPUBLICAN",
+16508
+]
+]
+},
+{
+"name": "ELIZABETH GRANER",
+"party": "Democratic",
+"total": 30643,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+1597
+],
+[
+"MORRIS",
+"DEMOCRATIC",
+3945
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+8519
+],
+[
+"UNION",
+"DEMOCRATIC",
+16582
+]
+]
+},
+{
+"name": "CHRIS WEBER",
+"party": "Democratic",
+"total": 30615,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+1597
+],
+[
+"MORRIS",
+"DEMOCRATIC",
+3946
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+8432
+],
+[
+"UNION",
+"DEMOCRATIC",
+16640
+]
+]
+}
+]
+},
+{
+"district": 22,
+"counties": [
+"SOMERSET (part)",
+"UNION (part)"
+],
+"total": 71192,
+"cands": [
+{
+"name": "JAMES J. KENNEDY",
+"party": "Democratic",
+"total": 23123,
+"w": true,
+"star": true,
+"lines": [
+[
+"SOMERSET",
+"DEMOCRATIC",
+1612
+],
+[
+"UNION",
+"DEMOCRATIC",
+21511
+]
+]
+},
+{
+"name": "LINDA S. CARTER",
+"party": "Democratic",
+"total": 23710,
+"w": true,
+"star": true,
+"lines": [
+[
+"SOMERSET",
+"DEMOCRATIC",
+1676
+],
+[
+"UNION",
+"DEMOCRATIC",
+22034
+]
+]
+},
+{
+"name": "LISA M. FABRIZIO",
+"party": "Republican",
+"total": 12272,
+"w": false,
+"star": false,
+"lines": [
+[
+"SOMERSET",
+"REPUBLICAN",
+716
+],
+[
+"UNION",
+"REPUBLICAN",
+11556
+]
+]
+},
+{
+"name": "PATRICIA QUATTROCCHI",
+"party": "Republican",
+"total": 12087,
+"w": false,
+"star": false,
+"lines": [
+[
+"SOMERSET",
+"REPUBLICAN",
+690
+],
+[
+"UNION",
+"REPUBLICAN",
+11397
+]
+]
+}
+]
+},
+{
+"district": 23,
+"counties": [
+"HUNTERDON (part)",
+"SOMERSET (part)",
+"WARREN (part)"
+],
+"total": 105587,
+"cands": [
+{
+"name": "JOHN DIMAIO",
+"party": "Republican",
+"total": 31122,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+6704
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+11811
+],
+[
+"WARREN",
+"REPUBLICAN",
+12607
+]
+]
+},
+{
+"name": "ERIK PETERSON",
+"party": "Republican",
+"total": 30366,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+6637
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+11643
+],
+[
+"WARREN",
+"REPUBLICAN",
+12086
+]
+]
+},
+{
+"name": "TYLER POWELL",
+"party": "Democratic",
+"total": 22118,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+4395
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+10818
+],
+[
+"WARREN",
+"DEMOCRATIC",
+6905
+]
+]
+},
+{
+"name": "GUY CITRON",
+"party": "Democratic",
+"total": 21981,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+4420
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+10750
+],
+[
+"WARREN",
+"DEMOCRATIC",
+6811
+]
+]
+}
+]
+},
+{
+"district": 24,
+"counties": [
+"MORRIS (part)",
+"SUSSEX",
+"WARREN (part)"
+],
+"total": 89074,
+"cands": [
+{
+"name": "DAWN FANTASIA",
+"party": "Republican",
+"total": 31994,
+"w": true,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+10378
+],
+[
+"SUSSEX",
+"REPUBLICAN",
+20348
+],
+[
+"WARREN",
+"REPUBLICAN",
+1268
+]
+]
+},
+{
+"name": "MICHAEL INGANAMORT",
+"party": "Republican",
+"total": 31174,
+"w": true,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+10745
+],
+[
+"SUSSEX",
+"REPUBLICAN",
+19164
+],
+[
+"WARREN",
+"REPUBLICAN",
+1265
+]
+]
+},
+{
+"name": "BARAMDAI \"ALICIA\" SHARMA",
+"party": "Democratic",
+"total": 18722,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+7274
+],
+[
+"SUSSEX",
+"DEMOCRATIC",
+10605
+],
+[
+"WARREN",
+"DEMOCRATIC",
+843
+]
+]
+},
+{
+"name": "VERONICA FERNANDEZ",
+"party": "END THE CORRUPTION!",
+"total": 7184,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"END THE CORRUPTION!",
+1699
+],
+[
+"SUSSEX",
+"END THE CORRUPTION!",
+5189
+],
+[
+"WARREN",
+"END THE CORRUPTION!",
+296
+]
+]
+}
+]
+},
+{
+"district": 25,
+"counties": [
+"MORRIS (part)",
+"PASSAIC (part)"
+],
+"total": 101180,
+"cands": [
+{
+"name": "AURA K. DUNN",
+"party": "Republican",
+"total": 26717,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+22794
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+3923
+]
+]
+},
+{
+"name": "CHRISTIAN E. BARRANCO",
+"party": "Republican",
+"total": 25988,
+"w": true,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+22062
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+3926
+]
+]
+},
+{
+"name": "JONATHAN TORRES",
+"party": "Democratic",
+"total": 24055,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+21904
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+2151
+]
+]
+},
+{
+"name": "DIANE SALVATORE",
+"party": "Democratic",
+"total": 24420,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+22232
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+2188
+]
+]
+}
+]
+},
+{
+"district": 26,
+"counties": [
+"MORRIS (part)",
+"PASSAIC (part)"
+],
+"total": 98202,
+"cands": [
+{
+"name": "JAY WEBBER",
+"party": "Republican",
+"total": 28146,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+21741
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+6405
+]
+]
+},
+{
+"name": "BRIAN BERGEN",
+"party": "Republican",
+"total": 27831,
+"w": true,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+21469
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+6362
+]
+]
+},
+{
+"name": "WALTER MIELARCZYK",
+"party": "Democratic",
+"total": 20962,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+16113
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+4849
+]
+]
+},
+{
+"name": "JOHN VON ACHEN",
+"party": "Democratic",
+"total": 21263,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+16333
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+4930
+]
+]
+}
+]
+},
+{
+"district": 27,
+"counties": [
+"ESSEX (part)",
+"PASSAIC (part)"
+],
+"total": 78196,
+"cands": [
+{
+"name": "ROSY BAGOLIE",
+"party": "Democratic",
+"total": 27303,
+"w": true,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+21528
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+5775
+]
+]
+},
+{
+"name": "ALIXON COLLAZOS-GILL",
+"party": "Democratic",
+"total": 27245,
+"w": true,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+21474
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+5771
+]
+]
+},
+{
+"name": "IRENE DEVITA",
+"party": "Republican",
+"total": 11916,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+7515
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+4401
+]
+]
+},
+{
+"name": "MICHAEL G. MECCA JR.",
+"party": "Republican",
+"total": 11732,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+7293
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+4439
+]
+]
+}
+]
+},
+{
+"district": 28,
+"counties": [
+"ESSEX (part)",
+"UNION (part)"
+],
+"total": 41233,
+"cands": [
+{
+"name": "CLEOPATRA G. TUCKER",
+"party": "Democratic",
+"total": 19094,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+16776
+],
+[
+"UNION",
+"DEMOCRATIC",
+2318
+]
+]
+},
+{
+"name": "GARNET R. HALL",
+"party": "Democratic",
+"total": 18637,
+"w": true,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+16372
+],
+[
+"UNION",
+"DEMOCRATIC",
+2265
+]
+]
+},
+{
+"name": "JOY FREEMAN",
+"party": "Republican",
+"total": 1902,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+1501
+],
+[
+"UNION",
+"REPUBLICAN",
+401
+]
+]
+},
+{
+"name": "WILLIE S. JETTI",
+"party": "Republican",
+"total": 1600,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+1243
+],
+[
+"UNION",
+"REPUBLICAN",
+357
+]
+]
+}
+]
+},
+{
+"district": 29,
+"counties": [
+"ESSEX (part)",
+"HUDSON (part)"
+],
+"total": 17624,
+"cands": [
+{
+"name": "ELIANA PINTOR MARIN",
+"party": "Democratic",
+"total": 7488,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+6721
+],
+[
+"HUDSON",
+"DEMOCRATIC",
+767
+]
+]
+},
+{
+"name": "SHANIQUE SPEIGHT",
+"party": "Democratic",
+"total": 7409,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+6682
+],
+[
+"HUDSON",
+"DEMOCRATIC",
+727
+]
+]
+},
+{
+"name": "NOBLE MILTON",
+"party": "Republican",
+"total": 1308,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+1104
+],
+[
+"HUDSON",
+"REPUBLICAN",
+204
+]
+]
+},
+{
+"name": "ORLANDO MENDEZ",
+"party": "Republican",
+"total": 1419,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+1208
+],
+[
+"HUDSON",
+"REPUBLICAN",
+211
+]
+]
+}
+]
+},
+{
+"district": 30,
+"counties": [
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 93876,
+"cands": [
+{
+"name": "SEAN T. KEAN",
+"party": "Republican",
+"total": 37450,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+14875
+],
+[
+"OCEAN",
+"REPUBLICAN",
+22575
+]
+]
+},
+{
+"name": "ALEXANDER \"AVI\" SCHNALL",
+"party": "Democratic",
+"total": 29482,
+"w": true,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+6437
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+23045
+]
+]
+},
+{
+"name": "EDWARD H. THOMSON",
+"party": "Republican",
+"total": 18076,
+"w": false,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+14572
+],
+[
+"OCEAN",
+"REPUBLICAN",
+3504
+]
+]
+},
+{
+"name": "SALVATORE \"SAL\" FRASCINO",
+"party": "Democratic",
+"total": 8868,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+6841
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+2027
+]
+]
+}
+]
+},
+{
+"district": 31,
+"counties": [
+"HUDSON (part)"
+],
+"total": 37443,
+"cands": [
+{
+"name": "WILLIAM B. SAMPSON",
+"party": "Democratic",
+"total": 12883,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+12883
+]
+]
+},
+{
+"name": "BARBARA MCCANN STAMATO",
+"party": "Democratic",
+"total": 13003,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+13003
+]
+]
+},
+{
+"name": "SYDNEY J. FERREIRA",
+"party": "Republican",
+"total": 4237,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+4237
+]
+]
+},
+{
+"name": "ANGELIQUE M. DIAZ",
+"party": "Republican",
+"total": 4153,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+4153
+]
+]
+},
+{
+"name": "MARY JANE DESMOND",
+"party": "LEADERSHIP EXPERIENCE VALUES",
+"total": 1724,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"LEADERSHIP EXPERIENCE VALUES",
+1724
+]
+]
+},
+{
+"name": "NOEMI VELAZQUEZ",
+"party": "LEADERSHIP EXPERIENCE VALUES",
+"total": 1443,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"LEADERSHIP EXPERIENCE VALUES",
+1443
+]
+]
+}
+]
+},
+{
+"district": 32,
+"counties": [
+"HUDSON (part)"
+],
+"total": 33253,
+"cands": [
+{
+"name": "JOHN ALLEN",
+"party": "Democratic",
+"total": 14391,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+14391
+]
+]
+},
+{
+"name": "JESSICA RAMIREZ",
+"party": "Democratic",
+"total": 15197,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+15197
+]
+]
+},
+{
+"name": "ROBERT RAMOS",
+"party": "Republican",
+"total": 3665,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+3665
+]
+]
+}
+]
+},
+{
+"district": 33,
+"counties": [
+"HUDSON (part)"
+],
+"total": 51461,
+"cands": [
+{
+"name": "JULIO MARENCO",
+"party": "Democratic",
+"total": 24956,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+24956
+]
+]
+},
+{
+"name": "GABRIEL RODRIGUEZ",
+"party": "Democratic",
+"total": 25384,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+25384
+]
+]
+},
+{
+"name": "LEA SHERMAN",
+"party": "Socialist Workers Party",
+"total": 1121,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"SOCIALIST WORKERS PARTY",
+1121
+]
+]
+}
+]
+},
+{
+"district": 34,
+"counties": [
+"ESSEX (part)"
+],
+"total": 47411,
+"cands": [
+{
+"name": "CARMEN MORALES",
+"party": "Democratic",
+"total": 18173,
+"w": true,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+18173
+]
+]
+},
+{
+"name": "MICHAEL VENEZIA",
+"party": "Democratic",
+"total": 18400,
+"w": true,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+18400
+]
+]
+},
+{
+"name": "CLENARD H. CHILDRESS JR.",
+"party": "Republican",
+"total": 5241,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+5241
+]
+]
+},
+{
+"name": "JAMES MCGUIRE",
+"party": "Republican",
+"total": 5597,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+5597
+]
+]
+}
+]
+},
+{
+"district": 35,
+"counties": [
+"BERGEN (part)",
+"PASSAIC (part)"
+],
+"total": 24534,
+"cands": [
+{
+"name": "SHAVONDA E. SUMTER",
+"party": "Democratic",
+"total": 12214,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+2988
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+9226
+]
+]
+},
+{
+"name": "BENJIE E. WIMBERLY",
+"party": "Democratic",
+"total": 12320,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+2976
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+9344
+]
+]
+}
+]
+},
+{
+"district": 36,
+"counties": [
+"BERGEN (part)",
+"PASSAIC (part)"
+],
+"total": 59607,
+"cands": [
+{
+"name": "GARY SCHAER",
+"party": "Democratic",
+"total": 18072,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+14631
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+3441
+]
+]
+},
+{
+"name": "CLINTON CALABRESE",
+"party": "Democratic",
+"total": 18228,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+15038
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+3190
+]
+]
+},
+{
+"name": "CRAIG AURIEMMA",
+"party": "Republican",
+"total": 11761,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+11037
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+724
+]
+]
+},
+{
+"name": "JOSEPH VISO",
+"party": "Republican",
+"total": 11546,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+10707
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+839
+]
+]
+}
+]
+},
+{
+"district": 37,
+"counties": [
+"BERGEN (part)"
+],
+"total": 74084,
+"cands": [
+{
+"name": "SHAMA A. HAIDER",
+"party": "Democratic",
+"total": 25943,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+25943
+]
+]
+},
+{
+"name": "ELLEN J. PARK",
+"party": "Democratic",
+"total": 26942,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+26942
+]
+]
+},
+{
+"name": "ROBERT BEDOYA",
+"party": "Republican",
+"total": 10673,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+10673
+]
+]
+},
+{
+"name": "KATHERINE A. LEBOVICS",
+"party": "Republican",
+"total": 10526,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+10526
+]
+]
+}
+]
+},
+{
+"district": 38,
+"counties": [
+"BERGEN (part)"
+],
+"total": 98028,
+"cands": [
+{
+"name": "LISA SWAIN",
+"party": "Democratic",
+"total": 27717,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+27717
+]
+]
+},
+{
+"name": "CHRIS TULLY",
+"party": "Democratic",
+"total": 27304,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+27304
+]
+]
+},
+{
+"name": "GAIL HORTON",
+"party": "Republican",
+"total": 21517,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+21517
+]
+]
+},
+{
+"name": "BARRY C. WILKES",
+"party": "Republican",
+"total": 21490,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+21490
+]
+]
+}
+]
+},
+{
+"district": 39,
+"counties": [
+"BERGEN (part)"
+],
+"total": 122630,
+"cands": [
+{
+"name": "ROBERT J. AUTH",
+"party": "Republican",
+"total": 33061,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+33061
+]
+]
+},
+{
+"name": "JOHN V. AZZARITI JR.",
+"party": "Republican",
+"total": 32340,
+"w": true,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+32340
+]
+]
+},
+{
+"name": "DAMON J. ENGLESE",
+"party": "Democratic",
+"total": 28183,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+28183
+]
+]
+},
+{
+"name": "JOHN F. VITALE",
+"party": "Democratic",
+"total": 29046,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+29046
+]
+]
+}
+]
+},
+{
+"district": 40,
+"counties": [
+"BERGEN (part)",
+"ESSEX (part)",
+"PASSAIC (part)"
+],
+"total": 102393,
+"cands": [
+{
+"name": "CHRISTOPHER P. DEPHILLIPS",
+"party": "Republican",
+"total": 28601,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+6975
+],
+[
+"ESSEX",
+"REPUBLICAN",
+7472
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+14154
+]
+]
+},
+{
+"name": "AL BARLAS",
+"party": "Republican",
+"total": 27638,
+"w": true,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+6611
+],
+[
+"ESSEX",
+"REPUBLICAN",
+7228
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+13799
+]
+]
+},
+{
+"name": "GIOVANNA IRIZARRY",
+"party": "Democratic",
+"total": 22952,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+6580
+],
+[
+"ESSEX",
+"DEMOCRATIC",
+6833
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+9539
+]
+]
+},
+{
+"name": "JENNIFER MARRINAN",
+"party": "Democratic",
+"total": 23202,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+6715
+],
+[
+"ESSEX",
+"DEMOCRATIC",
+6885
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+9602
+]
+]
+}
+]
+}
+],
+"2023-state-upper": [
+{
+"district": 1,
+"counties": [
+"ATLANTIC (part)",
+"CAPE MAY",
+"CUMBERLAND (part)"
+],
+"total": 45158,
+"cands": [
+{
+"name": "MICHAEL L. TESTA JR.",
+"party": "Republican",
+"total": 29186,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+1211
+],
+[
+"CAPE MAY",
+"REPUBLICAN",
+17368
+],
+[
+"CUMBERLAND",
+"REPUBLICAN",
+10607
+]
+]
+},
+{
+"name": "CHARLES R. LASPATA",
+"party": "Democratic",
+"total": 15972,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+520
+],
+[
+"CAPE MAY",
+"DEMOCRATIC",
+8211
+],
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+7241
+]
+]
+}
+]
+},
+{
+"district": 2,
+"counties": [
+"ATLANTIC (part)"
+],
+"total": 46976,
+"cands": [
+{
+"name": "VINCE POLISTINA",
+"party": "Republican",
+"total": 24516,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+24516
+]
+]
+},
+{
+"name": "CAREN FITZPATRICK",
+"party": "Democratic",
+"total": 21045,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+21045
+]
+]
+},
+{
+"name": "SHAWN PECK",
+"party": "Libertarian Party",
+"total": 1415,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"LIBERTARIAN PARTY",
+1415
+]
+]
+}
+]
+},
+{
+"district": 3,
+"counties": [
+"CUMBERLAND (part)",
+"GLOUCESTER (part)",
+"SALEM"
+],
+"total": 60400,
+"cands": [
+{
+"name": "JOHN J. BURZICHELLI",
+"party": "Democratic",
+"total": 32382,
+"w": true,
+"star": false,
+"lines": [
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+1691
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+23582
+],
+[
+"SALEM",
+"DEMOCRATIC",
+7109
+]
+]
+},
+{
+"name": "EDWARD DURR",
+"party": "Republican",
+"total": 28018,
+"w": false,
+"star": true,
+"lines": [
+[
+"CUMBERLAND",
+"REPUBLICAN",
+2715
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+17319
+],
+[
+"SALEM",
+"REPUBLICAN",
+7984
+]
+]
+}
+]
+},
+{
+"district": 4,
+"counties": [
+"ATLANTIC (part)",
+"CAMDEN (part)",
+"GLOUCESTER (part)"
+],
+"total": 57450,
+"cands": [
+{
+"name": "PAUL D. MORIARTY",
+"party": "Democratic",
+"total": 30728,
+"w": true,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+923
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+16738
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+13067
+]
+]
+},
+{
+"name": "CHRISTOPHER W. DEL BORRELLO",
+"party": "Republican",
+"total": 25010,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+1521
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+10759
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+12730
+]
+]
+},
+{
+"name": "GIUSEPPE COSTANZO",
+"party": "CONSERVATIVES SOUTH JERSEY",
+"total": 1712,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"CONSERVATIVES SOUTH JERSEY",
+76
+],
+[
+"CAMDEN",
+"CONSERVATIVES SOUTH JERSEY",
+724
+],
+[
+"GLOUCESTER",
+"CONSERVATIVES SOUTH JERSEY",
+912
+]
+]
+}
+]
+},
+{
+"district": 5,
+"counties": [
+"CAMDEN (part)",
+"GLOUCESTER (part)"
+],
+"total": 37574,
+"cands": [
+{
+"name": "NILSA CRUZ-PEREZ",
+"party": "Democratic",
+"total": 25799,
+"w": true,
+"star": true,
+"lines": [
+[
+"CAMDEN",
+"DEMOCRATIC",
+20092
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+5707
+]
+]
+},
+{
+"name": "CLYDE E. COOK",
+"party": "Republican",
+"total": 11245,
+"w": false,
+"star": false,
+"lines": [
+[
+"CAMDEN",
+"REPUBLICAN",
+7391
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+3854
+]
+]
+},
+{
+"name": "MOHAMMAD KABIR",
+"party": "RIGHTS TRANQUILITY PEACE",
+"total": 530,
+"w": false,
+"star": false,
+"lines": [
+[
+"CAMDEN",
+"RIGHTS TRANQUILITY PEACE",
+438
+],
+[
+"GLOUCESTER",
+"RIGHTS TRANQUILITY PEACE",
+92
+]
+]
+}
+]
+},
+{
+"district": 6,
+"counties": [
+"BURLINGTON (part)",
+"CAMDEN (part)"
+],
+"total": 49858,
+"cands": [
+{
+"name": "JAMES BEACH",
+"party": "Democratic",
+"total": 34911,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+1580
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+33331
+]
+]
+},
+{
+"name": "MARK DOOGAN",
+"party": "Republican",
+"total": 14947,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+1008
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+13939
+]
+]
+}
+]
+},
+{
+"district": 7,
+"counties": [
+"BURLINGTON (part)"
+],
+"total": 49771,
+"cands": [
+{
+"name": "TROY SINGLETON",
+"party": "Democratic",
+"total": 33711,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+33711
+]
+]
+},
+{
+"name": "JAMES A. FAZZONE",
+"party": "Republican",
+"total": 16060,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+16060
+]
+]
+}
+]
+},
+{
+"district": 8,
+"counties": [
+"ATLANTIC (part)",
+"BURLINGTON (part)"
+],
+"total": 55630,
+"cands": [
+{
+"name": "LATHAM TIVER",
+"party": "Republican",
+"total": 28394,
+"w": true,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+3838
+],
+[
+"BURLINGTON",
+"REPUBLICAN",
+24556
+]
+]
+},
+{
+"name": "GAYE BURTON",
+"party": "Democratic",
+"total": 27236,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+2050
+],
+[
+"BURLINGTON",
+"DEMOCRATIC",
+25186
+]
+]
+}
+]
+},
+{
+"district": 9,
+"counties": [
+"OCEAN (part)"
+],
+"total": 56110,
+"cands": [
+{
+"name": "CARMEN F. AMATO JR.",
+"party": "Republican",
+"total": 38124,
+"w": true,
+"star": false,
+"lines": [
+[
+"OCEAN",
+"REPUBLICAN",
+38124
+]
+]
+},
+{
+"name": "GABRIEL FRANCO",
+"party": "Democratic",
+"total": 17986,
+"w": false,
+"star": false,
+"lines": [
+[
+"OCEAN",
+"DEMOCRATIC",
+17986
+]
+]
+}
+]
+},
+{
+"district": 10,
+"counties": [
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 53769,
+"cands": [
+{
+"name": "JIM HOLZAPFEL",
+"party": "Republican",
+"total": 35788,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+4297
+],
+[
+"OCEAN",
+"REPUBLICAN",
+31491
+]
+]
+},
+{
+"name": "JEFF J. HORN",
+"party": "Democratic",
+"total": 17981,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+2232
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+15749
+]
+]
+}
+]
+},
+{
+"district": 11,
+"counties": [
+"MONMOUTH (part)"
+],
+"total": 56961,
+"cands": [
+{
+"name": "VIN GOPAL",
+"party": "Democratic",
+"total": 34350,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+34350
+]
+]
+},
+{
+"name": "STEPHEN DNISTRIAN",
+"party": "Republican",
+"total": 22172,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+22172
+]
+]
+},
+{
+"name": "KAREN ZALETEL",
+"party": "NJ PATRIOT PARTY",
+"total": 439,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"NJ PATRIOT PARTY",
+439
+]
+]
+}
+]
+},
+{
+"district": 12,
+"counties": [
+"BURLINGTON (part)",
+"MIDDLESEX (part)",
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 45109,
+"cands": [
+{
+"name": "OWEN HENRY",
+"party": "Republican",
+"total": 28038,
+"w": true,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+692
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+9588
+],
+[
+"MONMOUTH",
+"REPUBLICAN",
+9379
+],
+[
+"OCEAN",
+"REPUBLICAN",
+8379
+]
+]
+},
+{
+"name": "BRANDON A. ROSE",
+"party": "Democratic",
+"total": 16265,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+366
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+6275
+],
+[
+"MONMOUTH",
+"DEMOCRATIC",
+5911
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+3713
+]
+]
+},
+{
+"name": "NINA JOCHNOWITZ",
+"party": "RESULTS NOT POLITICS",
+"total": 806,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"RESULTS NOT POLITICS",
+18
+],
+[
+"MIDDLESEX",
+"RESULTS NOT POLITICS",
+323
+],
+[
+"MONMOUTH",
+"RESULTS NOT POLITICS",
+296
+],
+[
+"OCEAN",
+"RESULTS NOT POLITICS",
+169
+]
+]
+}
+]
+},
+{
+"district": 13,
+"counties": [
+"MONMOUTH (part)"
+],
+"total": 53986,
+"cands": [
+{
+"name": "DECLAN O'SCANLON",
+"party": "Republican",
+"total": 31750,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+31750
+]
+]
+},
+{
+"name": "LUCILLE LOSAPIO",
+"party": "Democratic",
+"total": 22236,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+22236
+]
+]
+}
+]
+},
+{
+"district": 14,
+"counties": [
+"MERCER (part)",
+"MIDDLESEX (part)"
+],
+"total": 55245,
+"cands": [
+{
+"name": "LINDA R. GREENSTEIN",
+"party": "Democratic",
+"total": 33020,
+"w": true,
+"star": true,
+"lines": [
+[
+"MERCER",
+"DEMOCRATIC",
+19270
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+13750
+]
+]
+},
+{
+"name": "PATRICIA \"PAT\" JOHNSON",
+"party": "Republican",
+"total": 22225,
+"w": false,
+"star": false,
+"lines": [
+[
+"MERCER",
+"REPUBLICAN",
+13164
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+9061
+]
+]
+}
+]
+},
+{
+"district": 15,
+"counties": [
+"HUNTERDON (part)",
+"MERCER (part)"
+],
+"total": 37933,
+"cands": [
+{
+"name": "SHIRLEY TURNER",
+"party": "Democratic",
+"total": 27760,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+4025
+],
+[
+"MERCER",
+"DEMOCRATIC",
+23735
+]
+]
+},
+{
+"name": "ROGER R. LOCANDRO",
+"party": "Republican",
+"total": 10173,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+3428
+],
+[
+"MERCER",
+"REPUBLICAN",
+6745
+]
+]
+}
+]
+},
+{
+"district": 16,
+"counties": [
+"HUNTERDON (part)",
+"MERCER (part)",
+"MIDDLESEX (part)",
+"SOMERSET (part)"
+],
+"total": 61454,
+"cands": [
+{
+"name": "ANDREW ZWICKER",
+"party": "Democratic",
+"total": 34693,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+9510
+],
+[
+"MERCER",
+"DEMOCRATIC",
+6017
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+6715
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+12451
+]
+]
+},
+{
+"name": "MICHAEL PAPPAS",
+"party": "Republican",
+"total": 25839,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+11040
+],
+[
+"MERCER",
+"REPUBLICAN",
+1229
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+3235
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+10335
+]
+]
+},
+{
+"name": "RICHARD J. BYRNE",
+"party": "Libertarian Party",
+"total": 922,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"LIBERTARIAN PARTY",
+314
+],
+[
+"MERCER",
+"LIBERTARIAN PARTY",
+103
+],
+[
+"MIDDLESEX",
+"LIBERTARIAN PARTY",
+168
+],
+[
+"SOMERSET",
+"LIBERTARIAN PARTY",
+337
+]
+]
+}
+]
+},
+{
+"district": 17,
+"counties": [
+"MIDDLESEX (part)",
+"SOMERSET (part)"
+],
+"total": 28361,
+"cands": [
+{
+"name": "BOB SMITH",
+"party": "Democratic",
+"total": 20643,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+10960
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+9683
+]
+]
+},
+{
+"name": "WILLIAM P. MIKITA JR.",
+"party": "Republican",
+"total": 7718,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+3856
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+3862
+]
+]
+}
+]
+},
+{
+"district": 18,
+"counties": [
+"MIDDLESEX (part)"
+],
+"total": 37955,
+"cands": [
+{
+"name": "PATRICK J. DIEGNAN JR.",
+"party": "Democratic",
+"total": 24294,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+24294
+]
+]
+},
+{
+"name": "NEAL SHAH",
+"party": "Republican",
+"total": 13661,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+13661
+]
+]
+}
+]
+},
+{
+"district": 19,
+"counties": [
+"MIDDLESEX (part)"
+],
+"total": 30963,
+"cands": [
+{
+"name": "JOSEPH F. VITALE",
+"party": "Democratic",
+"total": 19571,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+19571
+]
+]
+},
+{
+"name": "MARIA GARCIA",
+"party": "Republican",
+"total": 11392,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+11392
+]
+]
+}
+]
+},
+{
+"district": 20,
+"counties": [
+"UNION (part)"
+],
+"total": 16697,
+"cands": [
+{
+"name": "JOSEPH CRYAN",
+"party": "Democratic",
+"total": 12473,
+"w": true,
+"star": true,
+"lines": [
+[
+"UNION",
+"DEMOCRATIC",
+12473
+]
+]
+},
+{
+"name": "CARMEN BUCCO",
+"party": "Republican",
+"total": 4224,
+"w": false,
+"star": false,
+"lines": [
+[
+"UNION",
+"REPUBLICAN",
+4224
+]
+]
+}
+]
+},
+{
+"district": 21,
+"counties": [
+"MIDDLESEX (part)",
+"MORRIS (part)",
+"SOMERSET (part)",
+"UNION (part)"
+],
+"total": 64383,
+"cands": [
+{
+"name": "JON BRAMNICK",
+"party": "Republican",
+"total": 34435,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+2026
+],
+[
+"MORRIS",
+"REPUBLICAN",
+4193
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+10489
+],
+[
+"UNION",
+"REPUBLICAN",
+17727
+]
+]
+},
+{
+"name": "MATT MARINO",
+"party": "Democratic",
+"total": 29948,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+1647
+],
+[
+"MORRIS",
+"DEMOCRATIC",
+3952
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+8349
+],
+[
+"UNION",
+"DEMOCRATIC",
+16000
+]
+]
+}
+]
+},
+{
+"district": 22,
+"counties": [
+"SOMERSET (part)",
+"UNION (part)"
+],
+"total": 36065,
+"cands": [
+{
+"name": "NICHOLAS P. SCUTARI",
+"party": "Democratic",
+"total": 23876,
+"w": true,
+"star": true,
+"lines": [
+[
+"SOMERSET",
+"DEMOCRATIC",
+1671
+],
+[
+"UNION",
+"DEMOCRATIC",
+22205
+]
+]
+},
+{
+"name": "WILLIAM H. MICHELSON",
+"party": "Republican",
+"total": 12189,
+"w": false,
+"star": false,
+"lines": [
+[
+"SOMERSET",
+"REPUBLICAN",
+714
+],
+[
+"UNION",
+"REPUBLICAN",
+11475
+]
+]
+}
+]
+},
+{
+"district": 23,
+"counties": [
+"HUNTERDON (part)",
+"SOMERSET (part)",
+"WARREN (part)"
+],
+"total": 53856,
+"cands": [
+{
+"name": "DOUGLAS STEINHARDT",
+"party": "Republican",
+"total": 31066,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+6667
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+11676
+],
+[
+"WARREN",
+"REPUBLICAN",
+12723
+]
+]
+},
+{
+"name": "DENISE KING",
+"party": "Democratic",
+"total": 22790,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+4562
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+11202
+],
+[
+"WARREN",
+"DEMOCRATIC",
+7026
+]
+]
+}
+]
+},
+{
+"district": 24,
+"counties": [
+"MORRIS (part)",
+"SUSSEX",
+"WARREN (part)"
+],
+"total": 52425,
+"cands": [
+{
+"name": "F. PARKER SPACE",
+"party": "Republican",
+"total": 33604,
+"w": true,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+10487
+],
+[
+"SUSSEX",
+"REPUBLICAN",
+21815
+],
+[
+"WARREN",
+"REPUBLICAN",
+1302
+]
+]
+},
+{
+"name": "EDMUND KHANOO",
+"party": "Democratic",
+"total": 18821,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+7401
+],
+[
+"SUSSEX",
+"DEMOCRATIC",
+10567
+],
+[
+"WARREN",
+"DEMOCRATIC",
+853
+]
+]
+}
+]
+},
+{
+"district": 25,
+"counties": [
+"MORRIS (part)",
+"PASSAIC (part)"
+],
+"total": 51741,
+"cands": [
+{
+"name": "ANTHONY M. BUCCO",
+"party": "Republican",
+"total": 27250,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+23261
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+3989
+]
+]
+},
+{
+"name": "CHRISTINE CLARKE",
+"party": "Democratic",
+"total": 24491,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+22306
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+2185
+]
+]
+}
+]
+},
+{
+"district": 26,
+"counties": [
+"MORRIS (part)",
+"PASSAIC (part)"
+],
+"total": 49884,
+"cands": [
+{
+"name": "JOSEPH PENNACCHIO",
+"party": "Republican",
+"total": 28313,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+21913
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+6400
+]
+]
+},
+{
+"name": "JOAN WAKS",
+"party": "Democratic",
+"total": 21571,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+16610
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+4961
+]
+]
+}
+]
+},
+{
+"district": 27,
+"counties": [
+"ESSEX (part)",
+"PASSAIC (part)"
+],
+"total": 40065,
+"cands": [
+{
+"name": "JOHN F. MCKEON",
+"party": "Democratic",
+"total": 28499,
+"w": true,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+22528
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+5971
+]
+]
+},
+{
+"name": "MICHAEL D. BYRNE",
+"party": "Republican",
+"total": 11566,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+7206
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+4360
+]
+]
+}
+]
+},
+{
+"district": 28,
+"counties": [
+"ESSEX (part)",
+"UNION (part)"
+],
+"total": 19638,
+"cands": [
+{
+"name": "RENEE C. BURGESS",
+"party": "Democratic",
+"total": 19638,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+17128
+],
+[
+"UNION",
+"DEMOCRATIC",
+2510
+]
+]
+}
+]
+},
+{
+"district": 29,
+"counties": [
+"ESSEX (part)",
+"HUDSON (part)"
+],
+"total": 9298,
+"cands": [
+{
+"name": "M. TERESA RUIZ",
+"party": "Democratic",
+"total": 7766,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+6991
+],
+[
+"HUDSON",
+"DEMOCRATIC",
+775
+]
+]
+},
+{
+"name": "MARITZA MATHEWS",
+"party": "Republican",
+"total": 1351,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+1123
+],
+[
+"HUDSON",
+"REPUBLICAN",
+228
+]
+]
+},
+{
+"name": "PABLO OLIVERA",
+"party": "LABOUR PARTY",
+"total": 181,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"LABOUR PARTY",
+181
+],
+[
+"HUDSON",
+"LABOUR PARTY",
+null
+]
+]
+}
+]
+},
+{
+"district": 30,
+"counties": [
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 47121,
+"cands": [
+{
+"name": "ROBERT W. SINGER",
+"party": "Republican",
+"total": 37998,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+14413
+],
+[
+"OCEAN",
+"REPUBLICAN",
+23585
+]
+]
+},
+{
+"name": "STEPHEN DOBBINS",
+"party": "Democratic",
+"total": 9123,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+7196
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+1927
+]
+]
+}
+]
+},
+{
+"district": 31,
+"counties": [
+"HUDSON (part)"
+],
+"total": 19014,
+"cands": [
+{
+"name": "ANGELA V. MCKNIGHT",
+"party": "Democratic",
+"total": 14421,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+14421
+]
+]
+},
+{
+"name": "LUIS SOTO",
+"party": "Republican",
+"total": 4593,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+4593
+]
+]
+}
+]
+},
+{
+"district": 32,
+"counties": [
+"HUDSON (part)"
+],
+"total": 18258,
+"cands": [
+{
+"name": "RAJ MUKHERJI",
+"party": "Democratic",
+"total": 15175,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+15175
+]
+]
+},
+{
+"name": "ILYAS MOHAMMED",
+"party": "Republican",
+"total": 3083,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+3083
+]
+]
+}
+]
+},
+{
+"district": 33,
+"counties": [
+"HUDSON (part)"
+],
+"total": 28083,
+"cands": [
+{
+"name": "BRIAN P. STACK",
+"party": "Democratic",
+"total": 27262,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+27262
+]
+]
+},
+{
+"name": "JOANNE KUNIANSKY",
+"party": "Socialist Workers Party",
+"total": 821,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"SOCIALIST WORKERS PARTY",
+821
+]
+]
+}
+]
+},
+{
+"district": 34,
+"counties": [
+"ESSEX (part)"
+],
+"total": 24552,
+"cands": [
+{
+"name": "BRITNEE N. TIMBERLAKE",
+"party": "Democratic",
+"total": 18677,
+"w": true,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+18677
+]
+]
+},
+{
+"name": "JOSEPH BELNOME",
+"party": "Republican",
+"total": 5875,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+5875
+]
+]
+}
+]
+},
+{
+"district": 35,
+"counties": [
+"BERGEN (part)",
+"PASSAIC (part)"
+],
+"total": 17315,
+"cands": [
+{
+"name": "NELIDA POU",
+"party": "Democratic",
+"total": 11950,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+2859
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+9091
+]
+]
+},
+{
+"name": "CHRISTOPHER FAUSTINO",
+"party": "Republican",
+"total": 5365,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+2706
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+2659
+]
+]
+}
+]
+},
+{
+"district": 36,
+"counties": [
+"BERGEN (part)",
+"PASSAIC (part)"
+],
+"total": 30629,
+"cands": [
+{
+"name": "PAUL A. SARLO",
+"party": "Democratic",
+"total": 18885,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+15625
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+3260
+]
+]
+},
+{
+"name": "CHRIS AURIEMMA",
+"party": "Republican",
+"total": 11744,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+10828
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+916
+]
+]
+}
+]
+},
+{
+"district": 37,
+"counties": [
+"BERGEN (part)"
+],
+"total": 38076,
+"cands": [
+{
+"name": "GORDON M. JOHNSON",
+"party": "Democratic",
+"total": 27466,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+27466
+]
+]
+},
+{
+"name": "DIERDRE G. PAUL",
+"party": "Republican",
+"total": 10610,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+10610
+]
+]
+}
+]
+},
+{
+"district": 38,
+"counties": [
+"BERGEN (part)"
+],
+"total": 49808,
+"cands": [
+{
+"name": "JOSEPH A. LAGANA",
+"party": "Democratic",
+"total": 28447,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+28447
+]
+]
+},
+{
+"name": "MICHELINE B. ATTIEH",
+"party": "Republican",
+"total": 21361,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+21361
+]
+]
+}
+]
+},
+{
+"district": 39,
+"counties": [
+"BERGEN (part)"
+],
+"total": 62712,
+"cands": [
+{
+"name": "HOLLY SCHEPISI",
+"party": "Republican",
+"total": 34448,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+34448
+]
+]
+},
+{
+"name": "JODI A. MURPHY",
+"party": "Democratic",
+"total": 28264,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+28264
+]
+]
+}
+]
+},
+{
+"district": 40,
+"counties": [
+"BERGEN (part)",
+"ESSEX (part)",
+"PASSAIC (part)"
+],
+"total": 52170,
+"cands": [
+{
+"name": "KRISTIN M. CORRADO",
+"party": "Republican",
+"total": 29349,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+6960
+],
+[
+"ESSEX",
+"REPUBLICAN",
+7663
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+14726
+]
+]
+},
+{
+"name": "JENNIFER EHRENTRAUT",
+"party": "Democratic",
+"total": 22821,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+6718
+],
+[
+"ESSEX",
+"DEMOCRATIC",
+6862
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+9241
+]
+]
+}
+]
+}
+],
+"2025-state-lower": [
+{
+"district": 1,
+"counties": [
+"ATLANTIC (part)",
+"CAPE MAY",
+"CUMBERLAND (part)"
+],
+"total": 151535,
+"cands": [
+{
+"name": "ERIK K. SIMONSEN",
+"party": "Republican",
+"total": 41848,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+1530
+],
+[
+"CAPE MAY",
+"REPUBLICAN",
+25588
+],
+[
+"CUMBERLAND",
+"REPUBLICAN",
+14730
+]
+]
+},
+{
+"name": "ANTWAN L. MCCLELLAN",
+"party": "Republican",
+"total": 41572,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+1519
+],
+[
+"CAPE MAY",
+"REPUBLICAN",
+25347
+],
+[
+"CUMBERLAND",
+"REPUBLICAN",
+14706
+]
+]
+},
+{
+"name": "CAROLYN RUSH",
+"party": "Democratic",
+"total": 34237,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+853
+],
+[
+"CAPE MAY",
+"DEMOCRATIC",
+16078
+],
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+17306
+]
+]
+},
+{
+"name": "CAROL SABO",
+"party": "Democratic",
+"total": 33878,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+848
+],
+[
+"CAPE MAY",
+"DEMOCRATIC",
+16345
+],
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+16685
+]
+]
+}
+]
+},
+{
+"district": 2,
+"counties": [
+"ATLANTIC (part)"
+],
+"total": 157298,
+"cands": [
+{
+"name": "DON GUARDIAN",
+"party": "Republican",
+"total": 39913,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+39913
+]
+]
+},
+{
+"name": "CLAIRE SWIFT",
+"party": "Republican",
+"total": 38610,
+"w": false,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+38610
+]
+]
+},
+{
+"name": "MAUREEN ROWAN",
+"party": "Democratic",
+"total": 39484,
+"w": true,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+39484
+]
+]
+},
+{
+"name": "JOANNE FAMULARO",
+"party": "Democratic",
+"total": 39291,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+39291
+]
+]
+}
+]
+},
+{
+"district": 3,
+"counties": [
+"CUMBERLAND (part)",
+"GLOUCESTER (part)",
+"SALEM"
+],
+"total": 184712,
+"cands": [
+{
+"name": "HEATHER SIMMONS",
+"party": "Democratic",
+"total": 47878,
+"w": true,
+"star": true,
+"lines": [
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+2753
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+35025
+],
+[
+"SALEM",
+"DEMOCRATIC",
+10100
+]
+]
+},
+{
+"name": "DAVE BAILEY JR.",
+"party": "Democratic",
+"total": 47626,
+"w": true,
+"star": true,
+"lines": [
+[
+"CUMBERLAND",
+"DEMOCRATIC",
+2770
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+34204
+],
+[
+"SALEM",
+"DEMOCRATIC",
+10652
+]
+]
+},
+{
+"name": "CHRIS KONAWEL",
+"party": "Republican",
+"total": 44823,
+"w": false,
+"star": false,
+"lines": [
+[
+"CUMBERLAND",
+"REPUBLICAN",
+3991
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+28614
+],
+[
+"SALEM",
+"REPUBLICAN",
+12218
+]
+]
+},
+{
+"name": "LAWRENCE A. MOORE",
+"party": "Republican",
+"total": 44385,
+"w": false,
+"star": false,
+"lines": [
+[
+"CUMBERLAND",
+"REPUBLICAN",
+3957
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+28545
+],
+[
+"SALEM",
+"REPUBLICAN",
+11883
+]
+]
+}
+]
+},
+{
+"district": 4,
+"counties": [
+"ATLANTIC (part)",
+"CAMDEN (part)",
+"GLOUCESTER (part)"
+],
+"total": 188418,
+"cands": [
+{
+"name": "DAN HUTCHISON",
+"party": "Democratic",
+"total": 52286,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+1849
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+28328
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+22109
+]
+]
+},
+{
+"name": "CODY D. MILLER",
+"party": "Democratic",
+"total": 52065,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+1831
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+27917
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+22317
+]
+]
+},
+{
+"name": "AMANDA ESPOSITO",
+"party": "Republican",
+"total": 42488,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+2558
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+17043
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+22887
+]
+]
+},
+{
+"name": "GERARD \"JERRY\" MCMANUS",
+"party": "Republican",
+"total": 41579,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+2534
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+16677
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+22368
+]
+]
+}
+]
+},
+{
+"district": 5,
+"counties": [
+"CAMDEN (part)",
+"GLOUCESTER (part)"
+],
+"total": 140257,
+"cands": [
+{
+"name": "WILLIAM F. MOEN JR.",
+"party": "Democratic",
+"total": 49258,
+"w": true,
+"star": true,
+"lines": [
+[
+"CAMDEN",
+"DEMOCRATIC",
+38962
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+10296
+]
+]
+},
+{
+"name": "WILLIAM W. SPEARMAN",
+"party": "Democratic",
+"total": 49369,
+"w": true,
+"star": true,
+"lines": [
+[
+"CAMDEN",
+"DEMOCRATIC",
+38991
+],
+[
+"GLOUCESTER",
+"DEMOCRATIC",
+10378
+]
+]
+},
+{
+"name": "CONSTANCE DITZEL",
+"party": "Republican",
+"total": 20225,
+"w": false,
+"star": false,
+"lines": [
+[
+"CAMDEN",
+"REPUBLICAN",
+13469
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+6756
+]
+]
+},
+{
+"name": "NILSA GONZALEZ",
+"party": "Republican",
+"total": 20233,
+"w": false,
+"star": false,
+"lines": [
+[
+"CAMDEN",
+"REPUBLICAN",
+13532
+],
+[
+"GLOUCESTER",
+"REPUBLICAN",
+6701
+]
+]
+},
+{
+"name": "ROBIN BROWNFIELD",
+"party": "Green Party",
+"total": 1172,
+"w": false,
+"star": false,
+"lines": [
+[
+"CAMDEN",
+"GREEN PARTY",
+910
+],
+[
+"GLOUCESTER",
+"GREEN PARTY",
+262
+]
+]
+}
+]
+},
+{
+"district": 6,
+"counties": [
+"BURLINGTON (part)",
+"CAMDEN (part)"
+],
+"total": 181356,
+"cands": [
+{
+"name": "LOUIS D. GREENWALD",
+"party": "Democratic",
+"total": 62791,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+3701
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+59090
+]
+]
+},
+{
+"name": "MELINDA KANE",
+"party": "Democratic",
+"total": 62098,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+3710
+],
+[
+"CAMDEN",
+"DEMOCRATIC",
+58388
+]
+]
+},
+{
+"name": "JOHN M. \"JACK\" BRANGAN",
+"party": "Republican",
+"total": 28655,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+2290
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+26365
+]
+]
+},
+{
+"name": "PETER SYKES",
+"party": "Republican",
+"total": 27812,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+2219
+],
+[
+"CAMDEN",
+"REPUBLICAN",
+25593
+]
+]
+}
+]
+},
+{
+"district": 7,
+"counties": [
+"BURLINGTON (part)"
+],
+"total": 184117,
+"cands": [
+{
+"name": "CAROL MURPHY",
+"party": "Democratic",
+"total": 62681,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+62681
+]
+]
+},
+{
+"name": "BALVIR SINGH",
+"party": "Democratic",
+"total": 60758,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+60758
+]
+]
+},
+{
+"name": "DIONE JOHNSON",
+"party": "Republican",
+"total": 30122,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+30122
+]
+]
+},
+{
+"name": "DOUG DILLON",
+"party": "Republican",
+"total": 30556,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+30556
+]
+]
+}
+]
+},
+{
+"district": 8,
+"counties": [
+"ATLANTIC (part)",
+"BURLINGTON (part)"
+],
+"total": 190766,
+"cands": [
+{
+"name": "ANDREA KATZ",
+"party": "Democratic",
+"total": 50036,
+"w": true,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+4037
+],
+[
+"BURLINGTON",
+"DEMOCRATIC",
+45999
+]
+]
+},
+{
+"name": "ANTHONY ANGELOZZI",
+"party": "Democratic",
+"total": 50168,
+"w": true,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"DEMOCRATIC",
+4285
+],
+[
+"BURLINGTON",
+"DEMOCRATIC",
+45883
+]
+]
+},
+{
+"name": "MICHAEL TORRISSI JR.",
+"party": "Republican",
+"total": 46262,
+"w": false,
+"star": true,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+6467
+],
+[
+"BURLINGTON",
+"REPUBLICAN",
+39795
+]
+]
+},
+{
+"name": "BRANDON E. UMBA",
+"party": "Republican",
+"total": 44300,
+"w": false,
+"star": false,
+"lines": [
+[
+"ATLANTIC",
+"REPUBLICAN",
+5998
+],
+[
+"BURLINGTON",
+"REPUBLICAN",
+38302
+]
+]
+}
+]
+},
+{
+"district": 9,
+"counties": [
+"OCEAN (part)"
+],
+"total": 219038,
+"cands": [
+{
+"name": "BRIAN E. RUMPF",
+"party": "Republican",
+"total": 70501,
+"w": true,
+"star": true,
+"lines": [
+[
+"OCEAN",
+"REPUBLICAN",
+70501
+]
+]
+},
+{
+"name": "GREGORY E. MYHRE",
+"party": "Republican",
+"total": 69087,
+"w": true,
+"star": true,
+"lines": [
+[
+"OCEAN",
+"REPUBLICAN",
+69087
+]
+]
+},
+{
+"name": "LISA BENNETT",
+"party": "Democratic",
+"total": 40108,
+"w": false,
+"star": false,
+"lines": [
+[
+"OCEAN",
+"DEMOCRATIC",
+40108
+]
+]
+},
+{
+"name": "ROSALEE KEECH",
+"party": "Democratic",
+"total": 39342,
+"w": false,
+"star": false,
+"lines": [
+[
+"OCEAN",
+"DEMOCRATIC",
+39342
+]
+]
+}
+]
+},
+{
+"district": 10,
+"counties": [
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 195299,
+"cands": [
+{
+"name": "GREGORY P. MCGUCKIN",
+"party": "Republican",
+"total": 61890,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+7185
+],
+[
+"OCEAN",
+"REPUBLICAN",
+54705
+]
+]
+},
+{
+"name": "PAUL KANITRA",
+"party": "Republican",
+"total": 61316,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+7124
+],
+[
+"OCEAN",
+"REPUBLICAN",
+54192
+]
+]
+},
+{
+"name": "JANINE G. BAUER",
+"party": "Democratic",
+"total": 36355,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+4547
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+31808
+]
+]
+},
+{
+"name": "GIGI ESPARZA",
+"party": "Democratic",
+"total": 35738,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+4407
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+31331
+]
+]
+}
+]
+},
+{
+"district": 11,
+"counties": [
+"MONMOUTH (part)"
+],
+"total": 174797,
+"cands": [
+{
+"name": "MARGARET M. DONLON",
+"party": "Democratic",
+"total": 48477,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+48477
+]
+]
+},
+{
+"name": "LUANNE M. PETERPAUL",
+"party": "Democratic",
+"total": 48166,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+48166
+]
+]
+},
+{
+"name": "ANDREW C. WARDELL",
+"party": "Republican",
+"total": 38234,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+38234
+]
+]
+},
+{
+"name": "JESSICA FORD",
+"party": "Republican",
+"total": 37906,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+37906
+]
+]
+},
+{
+"name": "FELICIA SIMMONS",
+"party": "WE THE PEOPLE",
+"total": 2014,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"WE THE PEOPLE",
+2014
+]
+]
+}
+]
+},
+{
+"district": 12,
+"counties": [
+"BURLINGTON (part)",
+"MIDDLESEX (part)",
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 176536,
+"cands": [
+{
+"name": "ROBERT D. CLIFTON",
+"party": "Republican",
+"total": 54756,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+1229
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+15387
+],
+[
+"MONMOUTH",
+"REPUBLICAN",
+19726
+],
+[
+"OCEAN",
+"REPUBLICAN",
+18414
+]
+]
+},
+{
+"name": "ALEX SAUICKIE",
+"party": "Republican",
+"total": 53704,
+"w": true,
+"star": true,
+"lines": [
+[
+"BURLINGTON",
+"REPUBLICAN",
+1201
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+14935
+],
+[
+"MONMOUTH",
+"REPUBLICAN",
+19045
+],
+[
+"OCEAN",
+"REPUBLICAN",
+18523
+]
+]
+},
+{
+"name": "KYLER DINEEN",
+"party": "Democratic",
+"total": 34479,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+738
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+13407
+],
+[
+"MONMOUTH",
+"DEMOCRATIC",
+12315
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+8019
+]
+]
+},
+{
+"name": "FRESHTA TAEB",
+"party": "Democratic",
+"total": 33597,
+"w": false,
+"star": false,
+"lines": [
+[
+"BURLINGTON",
+"DEMOCRATIC",
+729
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+13033
+],
+[
+"MONMOUTH",
+"DEMOCRATIC",
+12061
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+7774
+]
+]
+}
+]
+},
+{
+"district": 13,
+"counties": [
+"MONMOUTH (part)"
+],
+"total": 203283,
+"cands": [
+{
+"name": "GERRY SCHARFENBERGER",
+"party": "Republican",
+"total": 58334,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+58334
+]
+]
+},
+{
+"name": "VICKY FLYNN",
+"party": "Republican",
+"total": 58840,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+58840
+]
+]
+},
+{
+"name": "JASON M. CORLEY SR.",
+"party": "Democratic",
+"total": 44078,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+44078
+]
+]
+},
+{
+"name": "VAIBHAV GORIGE",
+"party": "Democratic",
+"total": 42031,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+42031
+]
+]
+}
+]
+},
+{
+"district": 14,
+"counties": [
+"MERCER (part)",
+"MIDDLESEX (part)"
+],
+"total": 172575,
+"cands": [
+{
+"name": "WAYNE P. DEANGELO",
+"party": "Democratic",
+"total": 53636,
+"w": true,
+"star": true,
+"lines": [
+[
+"MERCER",
+"DEMOCRATIC",
+32903
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+20733
+]
+]
+},
+{
+"name": "TENNILLE R. MCCOY",
+"party": "Democratic",
+"total": 50850,
+"w": true,
+"star": true,
+"lines": [
+[
+"MERCER",
+"DEMOCRATIC",
+30730
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+20120
+]
+]
+},
+{
+"name": "MARTY FLYNN",
+"party": "Republican",
+"total": 33851,
+"w": false,
+"star": false,
+"lines": [
+[
+"MERCER",
+"REPUBLICAN",
+19763
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+14088
+]
+]
+},
+{
+"name": "JOSEPH A. STILLWELL",
+"party": "Republican",
+"total": 33260,
+"w": false,
+"star": false,
+"lines": [
+[
+"MERCER",
+"REPUBLICAN",
+19152
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+14108
+]
+]
+},
+{
+"name": "STEVEN WELZER",
+"party": "Green Party",
+"total": 978,
+"w": false,
+"star": false,
+"lines": [
+[
+"MERCER",
+"GREEN PARTY",
+671
+],
+[
+"MIDDLESEX",
+"GREEN PARTY",
+307
+]
+]
+}
+]
+},
+{
+"district": 15,
+"counties": [
+"HUNTERDON (part)",
+"MERCER (part)"
+],
+"total": 111239,
+"cands": [
+{
+"name": "VERLINA REYNOLDS-JACKSON",
+"party": "Democratic",
+"total": 56563,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+7132
+],
+[
+"MERCER",
+"DEMOCRATIC",
+49431
+]
+]
+},
+{
+"name": "ANTHONY S. VERRELLI",
+"party": "Democratic",
+"total": 54676,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+7070
+],
+[
+"MERCER",
+"DEMOCRATIC",
+47606
+]
+]
+}
+]
+},
+{
+"district": 16,
+"counties": [
+"HUNTERDON (part)",
+"MERCER (part)",
+"MIDDLESEX (part)",
+"SOMERSET (part)"
+],
+"total": 188721,
+"cands": [
+{
+"name": "ROY FREIMAN",
+"party": "Democratic",
+"total": 56476,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+15195
+],
+[
+"MERCER",
+"DEMOCRATIC",
+8435
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+11879
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+20967
+]
+]
+},
+{
+"name": "MITCHELLE DRULIS",
+"party": "Democratic",
+"total": 55773,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+15062
+],
+[
+"MERCER",
+"DEMOCRATIC",
+8357
+],
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+11718
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+20636
+]
+]
+},
+{
+"name": "SCOTT SIPOS",
+"party": "Republican",
+"total": 38128,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+16631
+],
+[
+"MERCER",
+"REPUBLICAN",
+1762
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+4660
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+15075
+]
+]
+},
+{
+"name": "CATHERINE PAYNE",
+"party": "Republican",
+"total": 38344,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+16534
+],
+[
+"MERCER",
+"REPUBLICAN",
+1825
+],
+[
+"MIDDLESEX",
+"REPUBLICAN",
+4794
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+15191
+]
+]
+}
+]
+},
+{
+"district": 17,
+"counties": [
+"MIDDLESEX (part)",
+"SOMERSET (part)"
+],
+"total": 122120,
+"cands": [
+{
+"name": "KEVIN EGAN",
+"party": "Democratic",
+"total": 46879,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+27214
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+19665
+]
+]
+},
+{
+"name": "JOE DANIELSEN",
+"party": "Democratic",
+"total": 46101,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+26478
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+19623
+]
+]
+},
+{
+"name": "PATRICIA BADOVINAC",
+"party": "Republican",
+"total": 14626,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+8167
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+6459
+]
+]
+},
+{
+"name": "SUSAN HUCKO",
+"party": "Republican",
+"total": 14514,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+8181
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+6333
+]
+]
+}
+]
+},
+{
+"district": 18,
+"counties": [
+"MIDDLESEX (part)"
+],
+"total": 150570,
+"cands": [
+{
+"name": "ROBERT KARABINCHAK",
+"party": "Democratic",
+"total": 49195,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+49195
+]
+]
+},
+{
+"name": "STERLEY STANLEY",
+"party": "Democratic",
+"total": 48638,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+48638
+]
+]
+},
+{
+"name": "EUGENE DEMARZO",
+"party": "Republican",
+"total": 26170,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+26170
+]
+]
+},
+{
+"name": "MELANIE MCCANN MOTT",
+"party": "Republican",
+"total": 26567,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+26567
+]
+]
+}
+]
+},
+{
+"district": 19,
+"counties": [
+"MIDDLESEX (part)"
+],
+"total": 123931,
+"cands": [
+{
+"name": "CRAIG J. COUGHLIN",
+"party": "Democratic",
+"total": 40047,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+40047
+]
+]
+},
+{
+"name": "YVONNE LOPEZ",
+"party": "Democratic",
+"total": 39692,
+"w": true,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+39692
+]
+]
+},
+{
+"name": "MARILYN COLON",
+"party": "Republican",
+"total": 22003,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+22003
+]
+]
+},
+{
+"name": "MARIA GARCIA",
+"party": "Republican",
+"total": 22189,
+"w": false,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+22189
+]
+]
+}
+]
+},
+{
+"district": 20,
+"counties": [
+"UNION (part)"
+],
+"total": 82550,
+"cands": [
+{
+"name": "ANNETTE QUIJANO",
+"party": "Democratic",
+"total": 35616,
+"w": true,
+"star": true,
+"lines": [
+[
+"UNION",
+"DEMOCRATIC",
+35616
+]
+]
+},
+{
+"name": "ED RODRIGUEZ",
+"party": "Democratic",
+"total": 35139,
+"w": true,
+"star": false,
+"lines": [
+[
+"UNION",
+"DEMOCRATIC",
+35139
+]
+]
+},
+{
+"name": "CARMEN BUCCO",
+"party": "Republican",
+"total": 11795,
+"w": false,
+"star": false,
+"lines": [
+[
+"UNION",
+"REPUBLICAN",
+11795
+]
+]
+}
+]
+},
+{
+"district": 21,
+"counties": [
+"MIDDLESEX (part)",
+"MORRIS (part)",
+"SOMERSET (part)",
+"UNION (part)"
+],
+"total": 201598,
+"cands": [
+{
+"name": "ANDREW MACURDY",
+"party": "Democratic",
+"total": 54965,
+"w": true,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+4002
+],
+[
+"MORRIS",
+"DEMOCRATIC",
+7354
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+14815
+],
+[
+"UNION",
+"DEMOCRATIC",
+28794
+]
+]
+},
+{
+"name": "VINCENT M. KEARNEY",
+"party": "Democratic",
+"total": 53881,
+"w": true,
+"star": false,
+"lines": [
+[
+"MIDDLESEX",
+"DEMOCRATIC",
+3958
+],
+[
+"MORRIS",
+"DEMOCRATIC",
+7164
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+14561
+],
+[
+"UNION",
+"DEMOCRATIC",
+28198
+]
+]
+},
+{
+"name": "NANCY MU\u00d1OZ",
+"party": "Republican",
+"total": 46367,
+"w": false,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+3411
+],
+[
+"MORRIS",
+"REPUBLICAN",
+6548
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+14804
+],
+[
+"UNION",
+"REPUBLICAN",
+21604
+]
+]
+},
+{
+"name": "MICHELE MATSIKOUDIS",
+"party": "Republican",
+"total": 46385,
+"w": false,
+"star": true,
+"lines": [
+[
+"MIDDLESEX",
+"REPUBLICAN",
+3384
+],
+[
+"MORRIS",
+"REPUBLICAN",
+6563
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+14820
+],
+[
+"UNION",
+"REPUBLICAN",
+21618
+]
+]
+}
+]
+},
+{
+"district": 22,
+"counties": [
+"SOMERSET (part)",
+"UNION (part)"
+],
+"total": 149689,
+"cands": [
+{
+"name": "JAMES J. KENNEDY",
+"party": "Democratic",
+"total": 50909,
+"w": true,
+"star": true,
+"lines": [
+[
+"SOMERSET",
+"DEMOCRATIC",
+4186
+],
+[
+"UNION",
+"DEMOCRATIC",
+46723
+]
+]
+},
+{
+"name": "LINDA S. CARTER",
+"party": "Democratic",
+"total": 51977,
+"w": true,
+"star": true,
+"lines": [
+[
+"SOMERSET",
+"DEMOCRATIC",
+4311
+],
+[
+"UNION",
+"DEMOCRATIC",
+47666
+]
+]
+},
+{
+"name": "LISA FABRIZIO",
+"party": "Republican",
+"total": 23884,
+"w": false,
+"star": false,
+"lines": [
+[
+"SOMERSET",
+"REPUBLICAN",
+1327
+],
+[
+"UNION",
+"REPUBLICAN",
+22557
+]
+]
+},
+{
+"name": "JERMAINE CAULDER",
+"party": "Republican",
+"total": 22919,
+"w": false,
+"star": false,
+"lines": [
+[
+"SOMERSET",
+"REPUBLICAN",
+1274
+],
+[
+"UNION",
+"REPUBLICAN",
+21645
+]
+]
+}
+]
+},
+{
+"district": 23,
+"counties": [
+"HUNTERDON (part)",
+"SOMERSET (part)",
+"WARREN (part)"
+],
+"total": 189159,
+"cands": [
+{
+"name": "JOHN DIMAIO",
+"party": "Republican",
+"total": 51383,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+11884
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+16566
+],
+[
+"WARREN",
+"REPUBLICAN",
+22933
+]
+]
+},
+{
+"name": "ERIK PETERSON",
+"party": "Republican",
+"total": 49438,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUNTERDON",
+"REPUBLICAN",
+11787
+],
+[
+"SOMERSET",
+"REPUBLICAN",
+16034
+],
+[
+"WARREN",
+"REPUBLICAN",
+21617
+]
+]
+},
+{
+"name": "TYLER POWELL",
+"party": "Democratic",
+"total": 44629,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+8411
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+20426
+],
+[
+"WARREN",
+"DEMOCRATIC",
+15792
+]
+]
+},
+{
+"name": "GUY CITRON",
+"party": "Democratic",
+"total": 43709,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUNTERDON",
+"DEMOCRATIC",
+8335
+],
+[
+"SOMERSET",
+"DEMOCRATIC",
+20124
+],
+[
+"WARREN",
+"DEMOCRATIC",
+15250
+]
+]
+}
+]
+},
+{
+"district": 24,
+"counties": [
+"MORRIS (part)",
+"SUSSEX",
+"WARREN (part)"
+],
+"total": 190673,
+"cands": [
+{
+"name": "DAWN FANTASIA",
+"party": "Republican",
+"total": 56003,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+18671
+],
+[
+"SUSSEX",
+"REPUBLICAN",
+34615
+],
+[
+"WARREN",
+"REPUBLICAN",
+2717
+]
+]
+},
+{
+"name": "MICHAEL INGANAMORT",
+"party": "Republican",
+"total": 54964,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+18838
+],
+[
+"SUSSEX",
+"REPUBLICAN",
+33430
+],
+[
+"WARREN",
+"REPUBLICAN",
+2696
+]
+]
+},
+{
+"name": "STEVE BARRATT",
+"party": "Democratic",
+"total": 40772,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+15642
+],
+[
+"SUSSEX",
+"DEMOCRATIC",
+23028
+],
+[
+"WARREN",
+"DEMOCRATIC",
+2102
+]
+]
+},
+{
+"name": "EUGENE GRINBERG",
+"party": "Democratic",
+"total": 36736,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+15455
+],
+[
+"SUSSEX",
+"DEMOCRATIC",
+19281
+],
+[
+"WARREN",
+"DEMOCRATIC",
+2000
+]
+]
+},
+{
+"name": "LANA LEGUIA",
+"party": "Libertarian Party",
+"total": 2198,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"LIBERTARIAN PARTY",
+309
+],
+[
+"SUSSEX",
+"LIBERTARIAN PARTY",
+1813
+],
+[
+"WARREN",
+"LIBERTARIAN PARTY",
+76
+]
+]
+}
+]
+},
+{
+"district": 25,
+"counties": [
+"MORRIS (part)",
+"PASSAIC (part)"
+],
+"total": 194854,
+"cands": [
+{
+"name": "AURA K. DUNN",
+"party": "Republican",
+"total": 49088,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+42539
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+6549
+]
+]
+},
+{
+"name": "CHRISTIAN E. BARRANCO",
+"party": "Republican",
+"total": 48125,
+"w": false,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+41614
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+6511
+]
+]
+},
+{
+"name": "STEVEN PYLYPCHUK",
+"party": "Democratic",
+"total": 47723,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+43555
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+4168
+]
+]
+},
+{
+"name": "MARISA SWEENEY",
+"party": "Democratic",
+"total": 49918,
+"w": true,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+45572
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+4346
+]
+]
+}
+]
+},
+{
+"district": 26,
+"counties": [
+"MORRIS (part)",
+"PASSAIC (part)"
+],
+"total": 191286,
+"cands": [
+{
+"name": "JAY WEBBER",
+"party": "Republican",
+"total": 51086,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+41478
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+9608
+]
+]
+},
+{
+"name": "BRIAN BERGEN",
+"party": "Republican",
+"total": 50050,
+"w": true,
+"star": true,
+"lines": [
+[
+"MORRIS",
+"REPUBLICAN",
+40480
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+9570
+]
+]
+},
+{
+"name": "WALTER MIELARCZYK",
+"party": "Democratic",
+"total": 44379,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+35873
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+8506
+]
+]
+},
+{
+"name": "MICHAEL P. MANCUSO",
+"party": "Democratic",
+"total": 45771,
+"w": false,
+"star": false,
+"lines": [
+[
+"MORRIS",
+"DEMOCRATIC",
+37116
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+8655
+]
+]
+}
+]
+},
+{
+"district": 27,
+"counties": [
+"ESSEX (part)",
+"PASSAIC (part)"
+],
+"total": 162347,
+"cands": [
+{
+"name": "ROSY BAGOLIE",
+"party": "Democratic",
+"total": 58598,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+43429
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+15169
+]
+]
+},
+{
+"name": "ALIXON COLLAZOS-GILL",
+"party": "Democratic",
+"total": 56902,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+41738
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+15164
+]
+]
+},
+{
+"name": "ROBERT M. IOMMAZZO",
+"party": "Republican",
+"total": 22834,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+13854
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+8980
+]
+]
+},
+{
+"name": "ADAM KRAEMER",
+"party": "Republican",
+"total": 24013,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+14824
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+9189
+]
+]
+}
+]
+},
+{
+"district": 28,
+"counties": [
+"ESSEX (part)",
+"UNION (part)"
+],
+"total": 95261,
+"cands": [
+{
+"name": "CLEOPATRA G. TUCKER",
+"party": "Democratic",
+"total": 47998,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+42876
+],
+[
+"UNION",
+"DEMOCRATIC",
+5122
+]
+]
+},
+{
+"name": "CHIGOZIE ONYEMA",
+"party": "Democratic",
+"total": 47263,
+"w": true,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+42228
+],
+[
+"UNION",
+"DEMOCRATIC",
+5035
+]
+]
+}
+]
+},
+{
+"district": 29,
+"counties": [
+"ESSEX (part)",
+"HUDSON (part)"
+],
+"total": 58405,
+"cands": [
+{
+"name": "ELIANA PINTOR MARIN",
+"party": "Democratic",
+"total": 24742,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+22312
+],
+[
+"HUDSON",
+"DEMOCRATIC",
+2430
+]
+]
+},
+{
+"name": "SHANIQUE SPEIGHT",
+"party": "Democratic",
+"total": 24584,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+22234
+],
+[
+"HUDSON",
+"DEMOCRATIC",
+2350
+]
+]
+},
+{
+"name": "NOBLE D. MILTON",
+"party": "Republican",
+"total": 4401,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+3620
+],
+[
+"HUDSON",
+"REPUBLICAN",
+781
+]
+]
+},
+{
+"name": "DANIELA FERREIRA ALMEIDA",
+"party": "Republican",
+"total": 4678,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+3849
+],
+[
+"HUDSON",
+"REPUBLICAN",
+829
+]
+]
+}
+]
+},
+{
+"district": 30,
+"counties": [
+"MONMOUTH (part)",
+"OCEAN (part)"
+],
+"total": 158545,
+"cands": [
+{
+"name": "SEAN T. KEAN",
+"party": "Republican",
+"total": 49860,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+26564
+],
+[
+"OCEAN",
+"REPUBLICAN",
+23296
+]
+]
+},
+{
+"name": "ALEXANDER \"AVI\" SCHNALL",
+"party": "Democratic",
+"total": 48094,
+"w": true,
+"star": true,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+15551
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+32543
+]
+]
+},
+{
+"name": "EDWARD H. THOMSON III",
+"party": "Republican",
+"total": 40919,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"REPUBLICAN",
+24871
+],
+[
+"OCEAN",
+"REPUBLICAN",
+16048
+]
+]
+},
+{
+"name": "JOANNE DEBENEDICTIS",
+"party": "Democratic",
+"total": 19672,
+"w": false,
+"star": false,
+"lines": [
+[
+"MONMOUTH",
+"DEMOCRATIC",
+15872
+],
+[
+"OCEAN",
+"DEMOCRATIC",
+3800
+]
+]
+}
+]
+},
+{
+"district": 31,
+"counties": [
+"HUDSON (part)"
+],
+"total": 90579,
+"cands": [
+{
+"name": "WILLIAM SAMPSON",
+"party": "Democratic",
+"total": 32516,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+32516
+]
+]
+},
+{
+"name": "JERRY WALKER",
+"party": "Democratic",
+"total": 33937,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+33937
+]
+]
+},
+{
+"name": "ANTHONY ACOSTA",
+"party": "Republican",
+"total": 12340,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+12340
+]
+]
+},
+{
+"name": "NEIL A. SCHULMAN",
+"party": "Republican",
+"total": 11786,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+11786
+]
+]
+}
+]
+},
+{
+"district": 32,
+"counties": [
+"HUDSON (part)"
+],
+"total": 97050,
+"cands": [
+{
+"name": "KATIE BRENNAN",
+"party": "Democratic",
+"total": 37932,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+37932
+]
+]
+},
+{
+"name": "RAVI BHALLA",
+"party": "Democratic",
+"total": 36306,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+36306
+]
+]
+},
+{
+"name": "STEPHEN BISHOP",
+"party": "Republican",
+"total": 11462,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+11462
+]
+]
+},
+{
+"name": "KAUSHAL PATEL",
+"party": "Republican",
+"total": 11350,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+11350
+]
+]
+}
+]
+},
+{
+"district": 33,
+"counties": [
+"HUDSON (part)"
+],
+"total": 104357,
+"cands": [
+{
+"name": "GABRIEL RODRIGUEZ",
+"party": "Democratic",
+"total": 39731,
+"w": true,
+"star": true,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+39731
+]
+]
+},
+{
+"name": "LARRY WAINSTEIN",
+"party": "Democratic",
+"total": 38926,
+"w": true,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"DEMOCRATIC",
+38926
+]
+]
+},
+{
+"name": "ANTHONY VALDES",
+"party": "Republican",
+"total": 12797,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+12797
+]
+]
+},
+{
+"name": "CYNTHIA DEPICE",
+"party": "Republican",
+"total": 12903,
+"w": false,
+"star": false,
+"lines": [
+[
+"HUDSON",
+"REPUBLICAN",
+12903
+]
+]
+}
+]
+},
+{
+"district": 34,
+"counties": [
+"ESSEX (part)"
+],
+"total": 124950,
+"cands": [
+{
+"name": "CARMEN T. MORALES",
+"party": "Democratic",
+"total": 49411,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+49411
+]
+]
+},
+{
+"name": "MICHAEL VENEZIA",
+"party": "Democratic",
+"total": 48161,
+"w": true,
+"star": true,
+"lines": [
+[
+"ESSEX",
+"DEMOCRATIC",
+48161
+]
+]
+},
+{
+"name": "DEMETRIUS ELEY",
+"party": "Republican",
+"total": 13315,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+13315
+]
+]
+},
+{
+"name": "LORENZO MARCHESE JR.",
+"party": "Republican",
+"total": 14063,
+"w": false,
+"star": false,
+"lines": [
+[
+"ESSEX",
+"REPUBLICAN",
+14063
+]
+]
+}
+]
+},
+{
+"district": 35,
+"counties": [
+"BERGEN (part)",
+"PASSAIC (part)"
+],
+"total": 85257,
+"cands": [
+{
+"name": "AL ABDELAZIZ",
+"party": "Democratic",
+"total": 30777,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+6857
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+23920
+]
+]
+},
+{
+"name": "KENYATTA STEWART",
+"party": "Democratic",
+"total": 31068,
+"w": true,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+6870
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+24198
+]
+]
+},
+{
+"name": "NELVIN MERCADO-DURAN",
+"party": "Republican",
+"total": 11831,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+4958
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+6873
+]
+]
+},
+{
+"name": "RAWELL S. PEREZ-MU\u00d1OZ",
+"party": "Republican",
+"total": 11581,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+4780
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+6801
+]
+]
+}
+]
+},
+{
+"district": 36,
+"counties": [
+"BERGEN (part)",
+"PASSAIC (part)"
+],
+"total": 111926,
+"cands": [
+{
+"name": "GARY S. SCHAER",
+"party": "Democratic",
+"total": 34434,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+25534
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+8900
+]
+]
+},
+{
+"name": "CLINTON CALABRESE",
+"party": "Democratic",
+"total": 33959,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+25921
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+8038
+]
+]
+},
+{
+"name": "CHRISTOPHER R. MUSTO",
+"party": "Republican",
+"total": 22328,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+19818
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+2510
+]
+]
+},
+{
+"name": "DIANE L. DEBIASE",
+"party": "Republican",
+"total": 21205,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+19146
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+2059
+]
+]
+}
+]
+},
+{
+"district": 37,
+"counties": [
+"BERGEN (part)"
+],
+"total": 127381,
+"cands": [
+{
+"name": "SHAMA A. HAIDER",
+"party": "Democratic",
+"total": 42781,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+42781
+]
+]
+},
+{
+"name": "ELLEN PARK",
+"party": "Democratic",
+"total": 43906,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+43906
+]
+]
+},
+{
+"name": "MARCO D. NAVARRO",
+"party": "Republican",
+"total": 20864,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+20864
+]
+]
+},
+{
+"name": "ANDREW J. MEEHAN",
+"party": "Republican",
+"total": 19830,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+19830
+]
+]
+}
+]
+},
+{
+"district": 38,
+"counties": [
+"BERGEN (part)"
+],
+"total": 156075,
+"cands": [
+{
+"name": "LISA SWAIN",
+"party": "Democratic",
+"total": 45688,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+45688
+]
+]
+},
+{
+"name": "CHRIS TULLY",
+"party": "Democratic",
+"total": 44769,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+44769
+]
+]
+},
+{
+"name": "ROBERT KAISER",
+"party": "Republican",
+"total": 33400,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+33400
+]
+]
+},
+{
+"name": "BARRY WILKES",
+"party": "Republican",
+"total": 32218,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+32218
+]
+]
+}
+]
+},
+{
+"district": 39,
+"counties": [
+"BERGEN (part)"
+],
+"total": 198190,
+"cands": [
+{
+"name": "ROBERT J. AUTH",
+"party": "Republican",
+"total": 51116,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+51116
+]
+]
+},
+{
+"name": "JOHN V. AZZARITI JR.",
+"party": "Republican",
+"total": 50362,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+50362
+]
+]
+},
+{
+"name": "DONNA ABENE",
+"party": "Democratic",
+"total": 48238,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+48238
+]
+]
+},
+{
+"name": "ANDREW LABRUNO",
+"party": "Democratic",
+"total": 48474,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+48474
+]
+]
+}
+]
+},
+{
+"district": 40,
+"counties": [
+"BERGEN (part)",
+"ESSEX (part)",
+"PASSAIC (part)"
+],
+"total": 192441,
+"cands": [
+{
+"name": "CHRISTOPHER P. DEPHILLIPS",
+"party": "Republican",
+"total": 52090,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+12678
+],
+[
+"ESSEX",
+"REPUBLICAN",
+15718
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+23694
+]
+]
+},
+{
+"name": "AL BARLAS",
+"party": "Republican",
+"total": 49682,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+11792
+],
+[
+"ESSEX",
+"REPUBLICAN",
+14904
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+22986
+]
+]
+},
+{
+"name": "RON ARNAU",
+"party": "Democratic",
+"total": 44799,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+11122
+],
+[
+"ESSEX",
+"DEMOCRATIC",
+13906
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+19771
+]
+]
+},
+{
+"name": "JEFFREY GATES",
+"party": "Democratic",
+"total": 45870,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+11425
+],
+[
+"ESSEX",
+"DEMOCRATIC",
+14282
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+20163
+]
+]
+}
+]
+}
+],
+"2025-state-upper": [
+{
+"district": 35,
+"counties": [
+"BERGEN (part)",
+"PASSAIC (part)"
+],
+"total": 43633,
+"cands": [
+{
+"name": "BENJIE E. WIMBERLY",
+"party": "Democratic",
+"total": 31676,
+"w": true,
+"star": true,
+"lines": [
+[
+"BERGEN",
+"DEMOCRATIC",
+7025
+],
+[
+"PASSAIC",
+"DEMOCRATIC",
+24651
+]
+]
+},
+{
+"name": "FRANK G. FILIPPELLI",
+"party": "Republican",
+"total": 11957,
+"w": false,
+"star": false,
+"lines": [
+[
+"BERGEN",
+"REPUBLICAN",
+5049
+],
+[
+"PASSAIC",
+"REPUBLICAN",
+6908
+]
+]
+}
+]
+}
+]
+}
+}
