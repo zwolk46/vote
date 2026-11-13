@@ -287,7 +287,12 @@ def norm_district(d):
     return "" if d in M.STATEWIDE_DISTRICTS else d
 
 
+def is_county(code):
+    return bool(re.match(r"^\d{5}$", code or "")) and not code.endswith("000")
+
+
 GOVERNOR_RE = re.compile(r"^GOVERNOR\b(?! *'S COUNCIL)")   # D2's level, not a local record (the lieutenant governor and a council stay)
+LEG_RE = re.compile(r"^(STATE HOUSE|STATE SENATE|STATE ASSEMBLY|STATE REPRESENTATIVE|STATE SENATOR|HOUSE OF DELEGATES|GENERAL ASSEMBLY|LEGISLAT)")   # the legislatures' level
 
 
 def my_over_ballot(year):
@@ -305,15 +310,20 @@ def my_over_ballot(year):
         s = M.ballots_summary(path, year)
         for sd in {k.split("|")[0] + "|" + k.split("|")[1] for k in s["contests"]}:
             st, date = sd.split("|")
-            day = s["counties_of_day"].get(sd, 0)
+            # the counties of the day: the county codes with a one-seat contest's lines, a code that is no county ('' or
+            # 'NAN', the file's statewide or unplaced lines) left out; a contest's counties recounted from its live
+            # precincts the same way
+            bounds = s["bounds"].get(sd, {})
+            day = len({pk.split("|")[0] for pk in bounds if is_county(pk.split("|")[0])})
             cs = {k: v for k, v in s["contests"].items() if k.startswith(sd + "|")}
+            for v in cs.values():
+                v["counties"] = len({pk.split("|")[0] for pk in v.get("live", {}) if is_county(pk.split("|")[0])})
             whole = {k: v for k, v in cs.items() if day and v["counties"] >= day}
             one = {k: v for k, v in whole.items() if k.split("|")[2] == "STATE" and not v["answers"]
-                   and v["magnitudes"] in (["1"], ["1.0"]) and not k.endswith(" SPECIAL")}
-            read = {k for k in one if not GOVERNOR_RE.match(k.split("|")[3])}   # the local files' level (D2 holds the governors)
+                   and v["magnitudes"] in (["1"], ["1.0"])}   # a special election is its own contest (' SPECIAL' in the key)
+            read = {k for k in one if not GOVERNOR_RE.match(k.split("|")[3]) and not LEG_RE.match(k.split("|")[3])}   # the local files' level (D2 holds the governors, the legislatures are their own level; Alaska's one county makes every district statewide by my span rule)
             asked = {k: v for k, v in whole.items() if v["answers"]}   # a question of any dataverse put to every county
             fed = {k: v for k, v in whole.items() if k.split("|")[2] in ("PRESIDENT", "SENATE") and not v["answers"]}
-            bounds = s["bounds"].get(sd, {})
             held = set()
             for _ in range(4):
                 res = {}
@@ -355,8 +365,8 @@ def my_over_ballot(year):
             # the one-seat STATE contests not whole, for the listing
             for k, v in cs.items():
                 if k not in whole and k.split("|")[2] == "STATE" and not v["answers"] and v["magnitudes"] in (["1"], ["1.0"]):
-                    out[k] = {"votes": sum(v["cands"].values()), "against": "not whole", "figure": None, "ratio": None, "verdict": "not whole",
-                              "counties": v["counties"], "day": day}
+                    out[k] = {"votes": sum(v["cands"].values()), "votes_all": sum(v["cands_all"].values()), "against": "not whole", "figure": None,
+                              "ratio": None, "verdict": "not whole", "counties": v["counties"], "day": day}
     return out
 
 
@@ -378,6 +388,9 @@ def section_3():
         for t in theirs:
             cands_ = [k for k in mine if k.split("|")[0] == t["state"] and k.split("|")[3] == t["office"].upper()
                       and norm_district(k.split("|")[4]) == norm_district(t["district"])]
+            if len(cands_) > 1:   # two district forms of one statewide name (Maryland's State Attorney): the one written as the check's
+                exact = [k for k in cands_ if k.split("|")[4] == (t["district"] or "").upper()]
+                cands_ = exact or cands_
             if len(cands_) != 1:   # a check row of a special election
                 cands_ = [k for k in mine if k.split("|")[0] == t["state"] and k.split("|")[3] == t["office"].upper()
                           and norm_district(k.split("|")[4].replace(" SPECIAL", "")) == norm_district(t["district"])]
@@ -519,7 +532,7 @@ def section_4():
                 continue
             mode = (r.get("mode") or "TOTAL").upper()
             dv = (r.get("dataverse") or "").upper()
-            wi = (r.get("writein") or "").strip().upper() in ("TRUE", "T", "1", "YES") or WRITEIN_RE.match(cand)
+            wi = (r.get("writein") or "").strip().upper() in ("TRUE", "T", "1", "YES")   # the file's own mark; a line named WRITE-IN without it is a candidate line to the build
             cell = cont[(office, district, dv)][pk].setdefault((cand, bool(wi)), {})
             cell[mode] = cell.get(mode, 0) + v
             cont_counties[(office, district, dv)].add(county)
@@ -534,7 +547,9 @@ def section_4():
             county, precinct, office, district = key
             # the contest the row falls in: the one of its office/district whose counties hold the row's county; its dataverse
             cks = [ck for ck in res if ck[0] == office and ck[1] == district and county in cont_counties[ck]]
-            local_office = any(ck[2] == "LOCAL" for ck in cks)   # a county office: its contest is the county's own rows
+            # the contest's span: the row's county alone where the check says the contest it falls in holds one county (a county
+            # office), else every county of the office and district (a multi-county superintendent or circuit)
+            local_office = ((r.get("falls_in") or {}).get("counties") == 1)
             pks = [pk for ck in cks for pk in res[ck] if pk[0] == county and pk[2] == precinct]
             if not pks:
                 notfound += 1
@@ -543,7 +558,8 @@ def section_4():
                 continue
             found += 1
             kinds_found[r["kind"]] += 1
-            rv = sum(v for ck in cks for pk in res[ck] if pk[0] == county and pk[2] == precinct for v in res[ck][pk].values() if v is not None)
+            # the row's votes as the check sums them: every line of the row (local_volume's row["votes"]), write-ins included
+            rv = sum(v for ck in cks for pk in res[ck] if pk[0] == county and pk[2] == precinct for (c_, wi), v in res[ck][pk].items() if v is not None)
             if rv != r["row_votes"] and len(examples) < 30:
                 examples.append((year, fname, key, "the row's lines: " + str([(ck[2], pk[1], c_, v) for ck in cks for pk in res[ck] if pk[0] == county and pk[2] == precinct for c_, v in res[ck][pk].items()])[:300]))
             if rv == r["row_votes"]:
@@ -553,8 +569,9 @@ def section_4():
                 if len(examples) < 30:
                     examples.append((year, fname, key, f"row votes {rv} vs the check's {r['row_votes']}"))
             if "difference_share" in r and r.get("total_with") is not None:
-                # the contest's total as the record counts it: the named candidates' lines (a write-in line is no candidate)
-                tw = sum(v for ck in cks for pk in res[ck] if not local_office or pk[0] == county for (c_, wi), v in res[ck][pk].items() if v is not None and not wi)
+                # the contest's total as the build sums it (local_medsl.listed_rows: the contest's candidates' votes): every
+                # candidate line over the contest's span, write-in lines included, since the build keeps them as candidates
+                tw = sum(v for ck in cks for pk in res[ck] if not local_office or pk[0] == county for (c_, wi), v in res[ck][pk].items() if v is not None)
                 share = rv / tw if tw else None
                 ok = tw == r["total_with"] and share is not None and abs(share - r["difference_share"]) < 1e-5
                 share_ok += ok
