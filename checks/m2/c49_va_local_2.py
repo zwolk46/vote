@@ -127,8 +127,9 @@ def reason_kind(r):
 
 # ------------------------------------------------------------------------------------------ 49.1 the moves file
 
-def my_diff():
+def my_diff(before=None, after=None):
     """Every record of D3's files that differs between the commits (p.commit alone aside): {id: (code, lv, yr, before, after, differs)}."""
+    BEFORE, AFTER = before or globals()["BEFORE"], after or globals()["AFTER"]
     files = subprocess.run(["git", "diff", "--name-only", BEFORE, AFTER, "--", "data/"], capture_output=True, text=True, cwd=L.ROOT).stdout.split()
     data_files = [f for f in files if re.match(r"^data/(local|primary|measure|state-lower|state-upper)/\d{4}/[A-Z]{2}\.json$", f)]
     d2_files = [f for f in files if re.match(r"^data/(governor|house|senate|president)/\d{4}\.json$", f)]
@@ -1009,8 +1010,12 @@ def first_last(name):   # D3's _first_last, copied
 
 
 def in_archive_senate():
-    """D3's in_archive, copied, on my copy of the State Senator file: {district: [(name, votes, write_in)]}."""
-    with open(os.path.join(IN2018, "OffCatC_2180_A.json"), encoding="utf-8-sig") as f:
+    return in_archive_file("OffCatC_2180_A.json")
+
+
+def in_archive_file(fname):
+    """D3's in_archive, copied, on my copy of an archive file (the State Senator's, the State Representative's): {district: [(name, votes, write_in)]}."""
+    with open(os.path.join(IN2018, fname), encoding="utf-8-sig") as f:
         d = json.load(f)
     out = {}
     root = d.get("Root", d)   # D3's in_archive, copied: Root -> StatewideSummary -> Race
@@ -1089,7 +1094,7 @@ def section_6():
     for dno in ("29", "31", "47"):
         r = by_d[dno]
         notes = r.get("notes") or []
-        m = next((re.search(r"\((https://enr\.indianavoters\.in\.gov/\S+), read (\S+), sha256 ([0-9a-f]{64}): (.*?)\), so Klarner's count stands", n) for n in notes if "OffCatC_2180" in n), None)
+        m = next((re.search(r"(https://enr\.indianavoters\.in\.gov/\S+), read (\S+), sha256 ([0-9a-f]{64}): (.*?)\), so Klarner's count stands", n) for n in notes if "OffCatC_2180" in n), None)
         print(f"  Senate {dno}: the note's url {m.group(1) if m else None}, read {m.group(2) if m else None}, sha256 {'mine' if m and m.group(3) == mine_sha else 'DIFFERS'}; pairs: {m.group(4)[:160] if m else None}; "
               f"certified words {'present' if any('bear a certified mark' in n for n in notes) else 'ABSENT'}; before: p {pval(recs_b.get(r['id'], {}))}, {str((recs_b.get(r['id'], {}).get('p') or {}).get('not_computed'))[:60]}; "
               f"notes before {len(recs_b.get(r['id'], {}).get('notes') or [])}, after {len(notes)}")
