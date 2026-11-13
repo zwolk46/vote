@@ -460,8 +460,8 @@ def source_block(year):
     g = gate(year)
     fx, fp = res["files"]["export"], res["files"]["election"]
     note = (f"the results site's page of '{res['name']}' ({fp['url']}, {fp['how']}, finished {fp['finished_utc']}, "
-            f"sha256 {fp['sha256'][:16]}; headed {res['official_text']!r}) and its 'Media Export' file ({fx['url']}, "
-            f"finished {fx['finished_utc']}, sha256 {fx['sha256'][:16]}, created {res['export_created_utc'][:19]}Z), "
+            f"sha256 {fp['sha256']}; headed {res['official_text']!r}) and its 'Media Export' file ({fx['url']}, "
+            f"finished {fx['finished_utc']}, sha256 {fx['sha256']}, created {res['export_created_utc'][:19]}Z), "
             f"read by pipeline/intake/va_elect.py before the Department refused us (2026-11-07 18:27:48 UTC; nothing "
             f"is requested from it again). Gate {GATE_BY[year]} (pipeline/local_va_leg.py; "
             f"data/local/check-va-legislature.json): the page headed 'OFFICIAL RESULTS' and linked from the "

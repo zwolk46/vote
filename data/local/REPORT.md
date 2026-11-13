@@ -2043,3 +2043,117 @@ Rows list each state with a flag, or with 10 or more districts untested.
 - The name-keyed options are read as write-ins on the evidence of two contests.
 - Virginia's local question thresholds are not read; the Code of Virginia at law.lis.virginia.gov would answer, with one request a section.
 - The 2025 file holds 556 more local contests of one locality and 8 shared, already cached; they are not taken in, since the build's odd years are 2023 only and 2025's page as read shows its first 50 contests.
+
+## 34. The district checks' second pass: the matcher fix, Michigan 2022, the states' and a county's results, Rutland; DC 2018's at-large seats; D2's governor totals; Virginia's notes
+
+*Added 2026-11-13 at 04:41 UTC.* The orchestrator's orders of 2026-11-13 00:17, 00:55, 00:56, 01:04, 01:15 and 01:20, on M2's eighth pass. Moves: `moves-district-checks-2.json` (against 510b089, the code alone, whose data are main's at 78a82f2; stamps aside). The records newly tested, and every outcome that changed: `check-districts-new.json`.
+
+**Requests made, one each** [measured: each file's `.meta.json` in the cache].
+- Utah's Lieutenant Governor: the 2016 statewide canvass PDF (vote.utah.gov), 01:12:29. It prints no "official" or "certified"; it is headed "2016 General Election Results".
+- Indiana's results archive of the 2016 general (enr.indianavoters.in.gov): its settings and the two legislative office files, 01:12 to 01:13. The settings print `Certified` empty.
+- Vermont's Secretary of State: one request, which answered 404. No second request (01:15 (3)).
+- The Census Bureau: the 2022 State Legislative Block Equivalency Files, `sldu_2022.zip` and `sldl_2022.zip`, 01:11 (the 01:04 ruling (4), one fetch).
+- Wayne County's Clerk: one request, at 01:25:44, which gave an empty reply. It is read as a refusal, so nothing more is asked of that office.
+- The DC Board of Elections: its certified 2018 general results PDF, 01:31:19 (00:17 (a)).
+- Arenac County's Clerk: its official results of the 2022 general, 02:22:25 (01:15 (1)).
+
+**The matcher** (00:56). Three changes, each read against the records it touches.
+- A write-in line of Klarner's under the write-in rule's strong line (10% of the last winner's votes) no longer blocks a match; where MEDSL names it, it is still paired (Utah 2016's Senate 19, Seguin, 1 vote; Indiana 2016's House 54, Embry, 29).
+- A compound or hyphenated surname matches on its part, the first initial agreeing ("mazzariellohooker" and "CHERYL HOOKER"). Beside a line with the whole surname, a part is taken only where it is the same name on two lines, its surnames among the whole one's, and the larger line is paired. Kentucky 2016's House 41 is the case: Klarner's "Woodson Scott", and MEDSL's "Attica Scott" with 13,257, Klarner's figure, beside "Attica Woodson SCOTT" with 434 on one row named "Cumulative:" [measured]. It was held on the 434 and now passes. A first build took any part beside a whole surname. Vermont 2016 files its whole House as one contest, so a part reached other districts' candidates there, and 101 of its districts could no longer be paired apart. The narrowed rule leaves them as they were: against the run before it, only House 41's outcome changes.
+- A MEDSL contest that several of Klarner's districts match goes to the one district whose number it bears, where the others' numbers differ: they matched it by a name alone [my reading]. Hawaii 2016's House 51, unopposed, had matched House 36's contest and was held on it (flag (b), House 36's Marilyn Lee with 3,274). It is now untested, so its p 0 returns. In all, 39 records are now "matched only to another district's contest" (11 in 2016, 11 in 2018, 17 in 2022): 37 were in a shared contest not paired apart before, Hawaii's House 51 was tested, and Texas 2016's House 42 was unmatched (it now finds House 117's contest by a name alone). None is tested.
+- **Newly tested: 284** (99 in 2016, 90 in 2018, 95 in 2022). Before, 229 were unmatched, 21 matched several contests and 34 were in a shared contest not paired apart. The 228 the orchestrator's 01:15 names were my first count; the first two changes give 250, and the third adds 34. Each is listed with its outcome in `check-districts-new.json`:
+  - 256 pass, with no flag;
+  - 16 go to the write-in rule: Vermont's House and Senate districts of 2018 and 2022, where both counts agree and MEDSL names write-ins;
+  - 5 are settled by the state: Indiana's House 25, 47 and 54 and Senate 28, and Utah's Senate 19, all of 2016;
+  - 3 are kept, MEDSL not covering the district: Kansas 2016's House 80, Maine 2016's Senate 11 and Indiana 2022's House 33;
+  - 2 are noted: Massachusetts 2016's First Suffolk and Middlesex Senate district (4.5% off) and Vermont 2022's Lamoille Senate district (flag (b));
+  - Vermont 2018's Franklin Senate district is held, and its Rutland district takes MEDSL's counts (below).
+- The same file lists the outcomes of records tested before that changed. In 2016, 37 are now settled by the state: 35 of Indiana's (23 held before, 7 kept, 5 noted) and Utah's Senate 20 and 23 (kept). Kentucky's House 41 passes (held before). In 2022, 13 are kept by the Census counties: 12 held before and Michigan's Senate 36, noted before. Michigan's Senate 3 and 10 pass, and its House 99 is settled by the county; all three were held. Michigan's House 10 is held for its new reason. Hawaii 2016's House 51 is no longer tested.
+- *M2's list* (`check-districts-m2.json`, rerun): 112 of M2's 249 districts are flagged here too, where 108 were. Of the others, 84 are within 3% here (80 before) and 25 unmatched (32); none now matches several contests (1).
+- *Found, not changed.* MEDSL spells one candidate two ways in some districts, a spelling to a county, and the pairing takes the larger line. New York 2016's Senate 58: "Leslie Burke" 35,115 and "Leslie Danks Burke" 17,371 add up to 52,486, against Klarner's 52,488 [measured]. Indiana 2016's House 55: "Cindy Ziemke" 9,487 and "Cindy Meyer Ziemke" 8,896; "Mimi Pruett" 2,681 and "Mary L. (Mimi) Pruett" 3,125. Adding the lines of one name where their precincts are apart would make New York's Senate 58 pass (it is kept, MEDSL not covering it) and leave Indiana's House 55 flagged (settled by the state). No outcome turns on it here; it is proposed for the next step.
+
+**The states' results** (01:15 (2): "Settling a flag needs only the state's own count agreeing with one source"; the notes say "the state's published results agree", never "certified").
+- Utah 2016's Senate 19: the canvass gives Froerer 16,381, Christensen 20,994 and Seguin (write-in) 1, Klarner's figures exactly; MEDSL is +10.7%. Klarner's count stands.
+- Indiana 2016: the archive agrees with Klarner, candidate by candidate within 3%, in **39 flagged districts**. These are the four the order names (House 25, 47 and 54, Senate 28) and 35 more. The rule's words cover every flag the state's count settles, so all are settled the same way. Of the 35, 23 were held and get p back; 7 were kept and 5 noted, and change only their notes. This is a large reach for one ruling, so it is listed for the orchestrator.
+- The canvass also settles Utah 2016's Senate 20 and 23, which were kept; only their notes change.
+
+**Vermont 2018** (01:15 (3)).
+- *Franklin* is held under 19:04, as ruled. Its p (1.89e-04) is no longer computed.
+- *Rutland*: the facts match. MEDSL's Senate rows for "RUT" are in 31 precincts, every town of Rutland County but Mount Holly, whose Senate rows carry Windsor's district (WDR) [measured]. The governor's rows hold 24,473 ballots in the county's 32 precincts and 23,875 in the district's 31. Klarner's six candidates add up to 103,751 votes, 4.35 a ballot for three seats, so 1.45 times its seats times the ballots. MEDSL's add up to 60,144 (60,206 with its write-ins), 0.84 times. All six pair one to one. So **MEDSL is taken**, marked "Klarner's count is over its seats times the ballots; MEDSL's counts", and p moves ×1.72 (1.73e-04 to 2.98e-04), listed.
+- The ballots are read only from statewide contests of one seat: the president, the US Senate, and state offices MEDSL marks STATEWIDE with one seat. A first reading took Vermont's assistant judges, two a county, which MEDSL files with one seat and an empty district, and gave Rutland 31,525 ballots.
+- *The rule reaches no other record.* Every other held flag has its ballots figure beside it (`over_seats`), and it stays held. A district's MEDSL precincts are its whole only where its counties are known. Before the 2022 lines, no source read gives them. Indiana 2018's Senate 47 shows the danger: Klarner's count is 1.23 times the US Senate's ballots in MEDSL's 113 precincts, and MEDSL's rows are in five counties. A county missing from the rows would explain that as well as an inflated Klarner count. So MEDSL is taken only in the record the ruling names (`OVER_SEATS_RULED`) [my reading; for the orchestrator].
+
+**Michigan 2022** (01:04).
+- *(1) Precinct names.* Before the gate's match, names are normalized: case, spacing and Excel's `_x000D_`. A name in no row of the county's top contest is joined to the one top-contest name with the same jurisdiction code and the same numbers, where their words are the same once words that name no place or unit are left out (THE, OF, CHARTER, PRECINCT and its misspellings, PCT, AND; TWP read as TOWNSHIP; Michigan's ", A MICHIGAN CITY"). Two names one word apart by one letter, both words of six letters or more, are joined too. CITY, VILLAGE, TOWNSHIP and WARD are kept, since a city and a township of one name are two places ("CITY OF MILAN" and "MILAN TOWNSHIP"). Every county of every state is recomputed. The joins are listed in `check-districts.json` (`precinct_equivalences`, by the year of MEDSL's file), 829 in all (89 in MEDSL's 2016 file, 467 in 2018's, 265 in 2022's, 8 in 2024's), 39 of them Wayne's. Wayne's "Charter Township of Brownston" is joined to "Brownstown", as M2 read it.
+  - *A first rule was too loose, and was narrowed before this PR* [measured: its list]. It also joined words two letters apart and a name whose words held the other's. So it joined "CITY OF DEARBORN" to "CITY OF DEARBORN HEIGHTS", Detroit's absent voter counting boards ("AVCB 100") to its precincts, "EAST" to "WEST", "PART A" to "PART B", and "LONE ELM CITY" to "LONE ELM TOWNSHIP": 1,930 joins in all, against 829 now.
+  - *The top contest, found wrong in #100's coverage and fixed here* [measured]. A contest was read as a question, and so never the top contest, wherever any of its lines bore an answer's name. MEDSL's 2022 Michigan file has "REJECTED" lines in Ottawa County's governor and Secretary of State rows. So in every Michigan county the top contest was a US House seat, and in Wayne it was the 13th district's 518 precincts, not the Secretary of State's 1,089 that M2 read. A contest is now a question only where its answer lines hold most of its votes. The top contest changed in 63 of Michigan's counties in 2022, 14 of Florida's and one of Arizona's in 2016, one of West Virginia's in 2022 and one of Indiana's in 2024.
+  - What it moves. Wayne's top contest is now the Secretary of State's 1,088 precincts. With Brownstown's joined, its US House rows miss 21 of them (1.9%), holding 0.3% of its votes, so it is not short; M2 counted 22 (2.02%) holding 2.12%, before the joins. No district check's outcome changes. One gap moves by a precinct: Indiana 2022's Senate 21, in Howard County (13 of 77 precincts missing, where it was 14). Michigan's 2022 Attorney General is now held by the statewide gate, as M2 read it: its rows miss 182 of Wayne's precincts, 5.2% of the state's votes. It was held already, its seat count unread (§31). Its record keeps both reasons: a statewide contest the gate holds now keeps the reason it was held for before. Maine 2018's governor and US Senate gain a statewide-short entry (Aroostook County, 0.1% of the state's votes, noted); neither is one of D3's records. Maine 2024's five questions keep their notes, at 0.08% of the state's votes where they said 0.09%.
+- *(2) Nameless party lines.* A line with a party and no name goes to the contest's one candidate of that party, other than a write-in. In 2022 these are in Michigan only. Senate 10 in Wayne: D 23,577 and R 1,228. Senate 3 in Wayne: D 38,498 and OTHER 2,685. Senate 34: OTHER 420 (Midland). With them, Senate 3 adds up to 71,490 and Senate 10 to 89,185, each equal to Klarner's. Both holds go, and p is back, with a note.
+- *(3) House 10.* All of MEDSL's lines add up to 41,033 against Klarner's 41,012. Corcoran has 428 on his named line and 12,541 on the WRITE-IN line, against Klarner's 12,948. The count is confirmed, but whether he was on the ballot is not read: the Secretary of State refused, and Wayne's Clerk gave an empty reply. So the record is held, and its reason says so: "whether the candidate was on the ballot is not read". Its p does not return (01:15 (1): "Until a clerk answers, HD10 keeps your reason").
+- *(4) A district's counties* are now its MEDSL rows plus the Census's 2022 block equivalency files, for 2022's lines. A listed county with no row of the district counts as missing, and the gap names the share of the district's blocks that lies in it, so that a part can be told from a sliver [measured: block counts; the files give no population]. Senate 35: Midland (17% of its blocks) has no row, so it is not covered, and Klarner's count is kept with a note. **Elsewhere this rule keeps 11 more records that were held**: Indiana's Senate 19, 26, 38, 39, 45, 47, 48 and 49 and House 60, Arkansas's Senate 9, and Michigan's Senate 12 (St. Clair, 10% of its blocks), each with a whole county that MEDSL's 2022 file lacks for the district (5% to 71% of the district's blocks). Michigan's Senate 36 moves from noted to kept. Their p return on Klarner's counts, per 22:26 (b).
+- *(5) House 27, Senate 12 and House 99* (01:15 (1)).
+  - Senate 12: the gap is in St. Clair County, by (4); it is kept, with no request needed.
+  - House 27 lies in Wayne alone, where Howey has 14,624 against Klarner's 20,724. Its clerk did not answer, so it stays held.
+  - House 99: MEDSL's lines are in six counties. In Arenac, its 2,160 (filed under Mike Hoadley) are 0.30 of the governor's votes in the same precincts, against 0.95 to 0.98 in the other five [measured], so the gap lies in Arenac. Arenac's Clerk's file is headed "Election Summary Report, General Election, Arenac County, Michigan, November 08, 2022 ... Official". It gives Kenneth A. Kish (DEM) 2,160, Mike Hoadley (REP) 4,847 and 15 unresolved write-ins [stated]. MEDSL files Kish's Arenac figure under Hoadley's name and lacks Hoadley's. With Arenac's figures in place of MEDSL's there, Kish has 13,449 and Hoadley 28,126, Klarner's figures exactly. So Klarner's count stands ("settled by the county"), with a note, and p is back.
+- *(6) Wayne's Attorney General rows.* They miss 182 of the county's 1,088 precincts by this step's count (M2's: 187 of 1,094 names, and 2.35 times the Secretary of State's votes in the county), and the contest's rows statewide add up to 1.39 times the governor's votes. They are MEDSL rows not used: the 2022 Attorney General record is held, with no p, by the over-ballot test since section 31 ("seat count unread"), and now by the statewide gate too (above).
+
+**DC 2018's at-large Council** (00:17).
+- The Board's certified results (headed "District of Columbia - Board of Elections / November, 6 2018 General Election - Certified Results") give "AT-LARGE MEMBER OF THE COUNCIL": 342,188 votes for its candidates and write-ins, 90 over votes and 120,686 under votes. That is 462,964 in all, twice the Mayor's 231,482 marks and blanks, and 2.0 times the 231,700 "Ballots Cast" [measured]. So each voter had two votes. The page prints no number to vote for.
+- The record now has two seats (`seats_note`; `local_medsl.SEATS_READ`), and Bonds and Silverman are marked won.
+- It stays not computed. The reason: "two seats, of which the majority party may hold only one (the orchestrator, 2026-11-13 00:17), so it is not a plain race for the top two and no route of the method fits". It is in no pool.
+- The over-ballot test reads it per seat: 1.477 times the 231,700 ballots, and 0.738 times its two seats times them. It is listed in `check-over-ballot.json` as a contest of two seats, explained by its seats.
+- It leaves the local partisan back-test, where it stood as a race between a Democrat and a Republican. The expected count within 100 votes falls from 51.8 to 51.7, and the deviance after calibration from 16.86 to 16.85. No local p moves by more than 1%.
+- *Found, for the orchestrator.* The volume test's part 4 reads a contest's votes plus over and under votes as one precinct's ballots where MEDSL gives one seat, so DC's citywide contests are bounded by the at-large's two votes a ballot (462,964 in `check-volume.json`). DC is one county, and the over-ballot test reads only states of more than one, so no verdict rests on it. A fix: divide by a seat count read (`SEATS_READ`), and read DC's citywide contests in the test.
+
+**D2's governor totals** (22:19 item 5; M2's seventh pass, section 14.1; `pipeline/d2_labels.py`, `data/congress/check-totals.json`).
+- Every governor record of 2018-2024 is set beside a second count: MEDSL's precinct file, North Carolina's State Board (2020) or Indiana's results archive (2024). 94 are read; New York 2018 has none, since MEDSL's file is held.
+- 13 differ by more than 0.5% and get `result.total_votes_of` and a note naming the other count's names, write-ins and total: Connecticut, New Hampshire, New York, Rhode Island and Wyoming 2018; North Carolina 2020; Alabama, New York and Wyoming 2022; Indiana, Missouri, New Hampshire and West Virginia 2024. Their candidates, `two_party` and p are unchanged: a governor's p rests on the two leaders' votes.
+- Maine's 2nd House district of 2024: the Clerk's "Continuing Ballots" (391,596) and "Exhausted Ballots" (11,340) lines are taken out of the candidates (`result.rcv_lines`). `total_votes` is now the two candidates' last-round votes, 391,596, and `two_party` pairs Golden and Theriault (it had paired the "Continuing Ballots" line). Its `ballot.others` counted those two lines; it is now null, with `others_not_read`, since the source prints the last round only. Its p stays not computed, with the reason restated.
+- North Carolina 2002's House 118 and North Dakota 2024's governor: nothing to fix, as `check-totals.json` says.
+
+**Virginia** (01:20). The three contests where a name-keyed option outpolls a ballot name now say, in their notes, that the page does not show them, so the option's being a write-in is not confirmed there:
+- Charlotte County's Cullen/Red House supervisor (Carwile 304 against Reeves 227);
+- Clifton's mayor (Peterson 67 against Hollaway 62);
+- Clifton's council (Hess 71).
+
+They stay not computed. The refuting count is not kept as a test. All 65 contests with a name-keyed option now carry a note that it is read as a write-in counted by name [inferred], with the two contests the page confirms it in. The source blocks of `local_va.py` and `local_va_leg.py` now print the full sha256.
+
+**Faults in this step's own runs, fixed before the PR** [measured: each run's output against the one before].
+- The Census counties: a first build counted every Census county of a district as missing (a name reused in the code), so Pennsylvania's House 186 and Michigan's House 99 showed whole counties as gaps.
+- The ballots behind the over-seats test: Vermont's assistant judges, as above.
+- The over-seats rule, first built for every held flag, took MEDSL's counts in Georgia 2016's House 65 and Indiana 2018's Senate 47. It is now Rutland's alone, as above.
+- The build twice paired a district's candidates apart from the check, each time over a weak write-in (Indiana 2016's House 54, Utah 2018's Senate 9). The build now pairs exactly the check's pairs, and stops where they differ.
+- The part-match in Vermont 2016 and the precinct joins not kept, both above.
+
+**What moves** [measured: against 510b089; stamps aside; `moves-district-checks-2.json`].
+- *p moved.*
+  - Local: 1,701 records, all within 1% (0.998 to 1.000 of before). The local fits gain or lose a few races: DC 2018's at-large leaves the partisan back-test.
+  - State lower chambers: 11,767 records. Of them, 11,683 moved within 1%, 74 between 1% and 10%, and 10 between 10% and 12%, all in Indiana's 2018 House (0.877 to 0.885 of before). Those are districts whose last race was unopposed (class B): they take the chamber's 2016 lean, which moves from −0.081 to −0.107 as Indiana's 2016 districts return to the fit.
+  - State upper chambers: 3,271 records. Of them, 3,255 moved within 1% and 15 between 1% and 10%. One moved more: Vermont 2018's Rutland, ×1.72 on MEDSL's counts.
+- *New p: 40.*
+  - Indiana 2016: 22 House districts and Senate 9, settled by the archive.
+  - Kentucky 2016's House 41 (p 0, unopposed).
+  - Hawaii 2016's House 51 (p 0), now untested.
+  - 2022, by the Census counties: Indiana's Senate 19, 26, 38, 39, 45, 47, 48 and 49 and House 60, Arkansas's Senate 9, and Michigan's Senate 12 and 35.
+  - Michigan 2022: Senate 3 and 10 (nameless lines) and House 99 (Arenac).
+- *p lost: 1*, Vermont 2018's Franklin (1.89e-04), held.
+- *Reasons changed: 3.*
+  - DC 2018's at-large: two seats, no route.
+  - Michigan 2022's House 10: the ballot not read.
+  - Michigan 2022's Attorney General: the statewide gate's reason is added to its earlier one, its seat count unread, and both are kept. The Secretary of State's note gives Wayne's share anew.
+- *Notes changed:* 156 records.
+  - 65 are Virginia 2023's contests with a name-keyed option. Each now says the option is read as a write-in [inferred], and why; the three above say also that it is not confirmed there.
+  - The others are the settled, kept and noted records above.
+- *Unchanged:* 347 records' p blocks changed with p the same (`f_half`, `like_races`), and 6 records changed in their forecasts alone.
+- *D2:* 13 governors and Maine's 2nd district. No p moved, and they are not in the moves file: `data/congress/check-totals.json` lists them.
+- Every record counted above is listed in `moves-district-checks-2.json`, apart from those whose p moved by 1% or less with nothing else, which are counted by level and year.
+
+**For the orchestrator.**
+- Indiana 2016: 39 districts are settled by the archive, not four; 23 of them were held.
+- The Census counties keep 12 held 2022 records, 9 of them Indiana's.
+- The over-seats rule is built for Rutland alone; Indiana 2018's Senate 47 is why.
+- House 99 is settled by Arenac's official file. House 27 and House 10 wait on Wayne, which gave no answer.
+- DC's volume bound, above.
+- Connecticut and New York 2018: the record gives each governor candidate one party's line. Summing every line would move n (Connecticut +1.4%, New York about +3.9%), so p would move.
+- Indiana 2024's governor: the state's archive, which says Certified: T, gives Braun 1,566,081 and McCormick 1,183,741, against the record's 1,561,279 and 1,179,967 (−0.3%). Under 15:16 the certified count would win, which moves p.
+- (b) the unopposed comparator and (c) the Code of Virginia's offices without party come next, with Virginia's 2025 local contests, as the order of 00:55 set: they are not in this step.

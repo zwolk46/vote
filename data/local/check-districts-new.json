@@ -1,0 +1,2979 @@
+{
+ "about": "the district check's records newly tested in this step (data/local/REPORT.md section 34): each with its status before (unmatched: no MEDSL contest named all its candidates; matched to several; shared, not paired apart) and its outcome now (passes: no flag); and every earlier-tested record whose outcome changed, before and after. Runs compared: before, the check at 78a82f2 (main, made 2026-11-13 00:58 UTC); after, this commit's check",
+ "years": {
+  "2016": {
+   "newly_tested": [
+    {
+     "id": "2016-AR-lower--61--",
+     "before": "shared, not paired apart",
+     "medsl_district": "61",
+     "klarner": 11022,
+     "medsl": 11022,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-AR-lower--85--",
+     "before": "shared, not paired apart",
+     "medsl_district": "85",
+     "klarner": 14077,
+     "medsl": 14077,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-AR-lower--96--",
+     "before": "shared, not paired apart",
+     "medsl_district": "96",
+     "klarner": 10218,
+     "medsl": 10218,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-AZ-lower--11--",
+     "before": "unmatched",
+     "medsl_district": "11",
+     "klarner": 144229,
+     "medsl": 144229,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-AZ-upper--22--",
+     "before": "unmatched",
+     "medsl_district": "",
+     "klarner": 110483,
+     "medsl": 110483,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-AZ-upper--9--",
+     "before": "unmatched",
+     "medsl_district": "9",
+     "klarner": 68109,
+     "medsl": 68109,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-CA-lower--14--",
+     "before": "unmatched",
+     "medsl_district": "14",
+     "klarner": 174953,
+     "medsl": 174953,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-CA-lower--80--",
+     "before": "unmatched",
+     "medsl_district": "80",
+     "klarner": 139572,
+     "medsl": 139572,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-CO-lower--47--",
+     "before": "unmatched",
+     "medsl_district": "47",
+     "klarner": 37605,
+     "medsl": 37605,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-CT-lower--1--",
+     "before": "unmatched",
+     "medsl_district": "1",
+     "klarner": 6151,
+     "medsl": 6151,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-CT-lower--41--",
+     "before": "unmatched",
+     "medsl_district": "41",
+     "klarner": 10282,
+     "medsl": 10282,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-CT-lower--77--",
+     "before": "unmatched",
+     "medsl_district": "77",
+     "klarner": 10951,
+     "medsl": 10951,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-CT-lower--93--",
+     "before": "unmatched",
+     "medsl_district": "93",
+     "klarner": 6510,
+     "medsl": 6510,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-CT-upper--1--",
+     "before": "unmatched",
+     "medsl_district": "1",
+     "klarner": 27318,
+     "medsl": 27318,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--106--",
+     "before": "unmatched",
+     "medsl_district": "106",
+     "klarner": 71002,
+     "medsl": 71002,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--11--",
+     "before": "unmatched",
+     "medsl_district": "11",
+     "klarner": 76502,
+     "medsl": 76502,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--12--",
+     "before": "unmatched",
+     "medsl_district": "12",
+     "klarner": 59165,
+     "medsl": 59165,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--15--",
+     "before": "unmatched",
+     "medsl_district": "15",
+     "klarner": 55707,
+     "medsl": 55707,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--16--",
+     "before": "unmatched",
+     "medsl_district": "16",
+     "klarner": 68855,
+     "medsl": 68855,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--19--",
+     "before": "unmatched",
+     "medsl_district": "19",
+     "klarner": 68326,
+     "medsl": 68326,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--21--",
+     "before": "unmatched",
+     "medsl_district": "21",
+     "klarner": 83759,
+     "medsl": 83759,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--4--",
+     "before": "unmatched",
+     "medsl_district": "4",
+     "klarner": 72010,
+     "medsl": 72010,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--43--",
+     "before": "unmatched",
+     "medsl_district": "43",
+     "klarner": 59890,
+     "medsl": 59890,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--46--",
+     "before": "unmatched",
+     "medsl_district": "46",
+     "klarner": 42698,
+     "medsl": 42698,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--54--",
+     "before": "unmatched",
+     "medsl_district": "54",
+     "klarner": 67876,
+     "medsl": 67876,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--6--",
+     "before": "unmatched",
+     "medsl_district": "6",
+     "klarner": 69118,
+     "medsl": 69118,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--8--",
+     "before": "unmatched",
+     "medsl_district": "8",
+     "klarner": 60929,
+     "medsl": 60929,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--80--",
+     "before": "unmatched",
+     "medsl_district": "80",
+     "klarner": 51031,
+     "medsl": 51031,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-lower--91--",
+     "before": "unmatched",
+     "medsl_district": "91",
+     "klarner": 66188,
+     "medsl": 66188,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--1--",
+     "before": "unmatched",
+     "medsl_district": "1",
+     "klarner": 199929,
+     "medsl": 199929,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--11--",
+     "before": "unmatched",
+     "medsl_district": "11",
+     "klarner": 151329,
+     "medsl": 151329,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--12--",
+     "before": "unmatched",
+     "medsl_district": "12",
+     "klarner": 216234,
+     "medsl": 216234,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--16--",
+     "before": "unmatched",
+     "medsl_district": "16",
+     "klarner": 189514,
+     "medsl": 189514,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--17--",
+     "before": "unmatched",
+     "medsl_district": "17",
+     "klarner": 264237,
+     "medsl": 264237,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--27--",
+     "before": "unmatched",
+     "medsl_district": "27",
+     "klarner": 181783,
+     "medsl": 181783,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--28--",
+     "before": "unmatched",
+     "medsl_district": "28",
+     "klarner": 179126,
+     "medsl": 179126,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--34--",
+     "before": "unmatched",
+     "medsl_district": "34",
+     "klarner": 204008,
+     "medsl": 204008,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-FL-upper--37--",
+     "before": "unmatched",
+     "medsl_district": "37",
+     "klarner": 179711,
+     "medsl": 179711,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-GA-lower--76--",
+     "before": "unmatched",
+     "medsl_district": "76",
+     "klarner": 19734,
+     "medsl": 19734,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-GA-lower--99--",
+     "before": "unmatched",
+     "medsl_district": "99",
+     "klarner": 8068,
+     "medsl": 8068,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-HI-lower--22--",
+     "before": "unmatched",
+     "medsl_district": "22",
+     "klarner": 6439,
+     "medsl": 6439,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-HI-lower--36--",
+     "before": "unmatched",
+     "medsl_district": "36",
+     "klarner": 10066,
+     "medsl": 10066,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IA-lower--2--",
+     "before": "unmatched",
+     "medsl_district": "2",
+     "klarner": 12756,
+     "medsl": 12756,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--10--",
+     "before": "unmatched",
+     "medsl_district": "10",
+     "klarner": 42769,
+     "medsl": 42769,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--116--",
+     "before": "unmatched",
+     "medsl_district": "116",
+     "klarner": 40599,
+     "medsl": 40599,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--43--",
+     "before": "unmatched",
+     "medsl_district": "43",
+     "klarner": 22274,
+     "medsl": 22274,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--46--",
+     "before": "unmatched",
+     "medsl_district": "46",
+     "klarner": 39626,
+     "medsl": 39626,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--52--",
+     "before": "unmatched",
+     "medsl_district": "52",
+     "klarner": 40392,
+     "medsl": 40392,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--70--",
+     "before": "unmatched",
+     "medsl_district": "70",
+     "klarner": 36601,
+     "medsl": 36601,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--75--",
+     "before": "unmatched",
+     "medsl_district": "75",
+     "klarner": 49863,
+     "medsl": 49863,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--94--",
+     "before": "unmatched",
+     "medsl_district": "94",
+     "klarner": 49772,
+     "medsl": 49772,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-lower--95--",
+     "before": "unmatched",
+     "medsl_district": "95",
+     "klarner": 48499,
+     "medsl": 48499,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-upper--10--",
+     "before": "unmatched",
+     "medsl_district": "10",
+     "klarner": 63145,
+     "medsl": 63145,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-upper--14--",
+     "before": "unmatched",
+     "medsl_district": "14",
+     "klarner": 79949,
+     "medsl": 79949,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IL-upper--47--",
+     "before": "unmatched",
+     "medsl_district": "47",
+     "klarner": 79854,
+     "medsl": 79854,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IN-lower--12--",
+     "before": "unmatched",
+     "medsl_district": "12",
+     "klarner": 29225,
+     "medsl": 29225,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IN-lower--2--",
+     "before": "unmatched",
+     "medsl_district": "2",
+     "klarner": 19096,
+     "medsl": 19096,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IN-lower--25--",
+     "before": "unmatched",
+     "medsl_district": "25",
+     "klarner": 27952,
+     "medsl": 15100,
+     "flags": [
+      "a"
+     ],
+     "outcome": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--4--",
+     "before": "unmatched",
+     "medsl_district": "4",
+     "klarner": 31583,
+     "medsl": 31552,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IN-lower--47--",
+     "before": "unmatched",
+     "medsl_district": "47",
+     "klarner": 30299,
+     "medsl": 23427,
+     "flags": [
+      "a"
+     ],
+     "outcome": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--53--",
+     "before": "unmatched",
+     "medsl_district": "53",
+     "klarner": 28723,
+     "medsl": 28715,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-IN-lower--54--",
+     "before": "unmatched",
+     "medsl_district": "54",
+     "klarner": 24331,
+     "medsl": 20086,
+     "flags": [
+      "a"
+     ],
+     "outcome": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-upper--28--",
+     "before": "unmatched",
+     "medsl_district": "28",
+     "klarner": 59570,
+     "medsl": 52264,
+     "flags": [
+      "a"
+     ],
+     "outcome": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-KS-lower--12--",
+     "before": "unmatched",
+     "medsl_district": "12",
+     "klarner": 8843,
+     "medsl": 8843,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-KS-lower--122--",
+     "before": "unmatched",
+     "medsl_district": "122",
+     "klarner": 6198,
+     "medsl": 6198,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-KS-lower--19--",
+     "before": "unmatched",
+     "medsl_district": "19",
+     "klarner": 13770,
+     "medsl": 13770,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-KS-lower--80--",
+     "before": "unmatched",
+     "medsl_district": "80",
+     "klarner": 7384,
+     "medsl": 4996,
+     "flags": [
+      "a"
+     ],
+     "outcome": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2016-KS-upper--39--",
+     "before": "unmatched",
+     "medsl_district": "39",
+     "klarner": 20652,
+     "medsl": 20652,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-KY-lower--4--",
+     "before": "unmatched",
+     "medsl_district": "4",
+     "klarner": 15065,
+     "medsl": 15065,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-KY-lower--54--",
+     "before": "unmatched",
+     "medsl_district": "54",
+     "klarner": 18852,
+     "medsl": 18852,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-MA-lower-franklin-2--",
+     "before": "unmatched",
+     "medsl_district": "2nd Franklin",
+     "klarner": 15490,
+     "medsl": 15490,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-MA-lower-middlesex-9--",
+     "before": "unmatched",
+     "medsl_district": "9th Middlesex",
+     "klarner": 19818,
+     "medsl": 19818,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-MA-upper-suffolkmiddlesex-1--",
+     "before": "unmatched",
+     "medsl_district": "1st Suffolk and Middlesex",
+     "klarner": 53407,
+     "medsl": 50978,
+     "flags": [
+      "a"
+     ],
+     "outcome": "noted"
+    },
+    {
+     "id": "2016-ME-upper--11--",
+     "before": "unmatched",
+     "medsl_district": "11",
+     "klarner": 23085,
+     "medsl": 3913,
+     "flags": [
+      "a"
+     ],
+     "outcome": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2016-MI-lower--76--",
+     "before": "unmatched",
+     "medsl_district": "76",
+     "klarner": 47680,
+     "medsl": 47680,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-NC-lower--1--",
+     "before": "shared, not paired apart",
+     "medsl_district": "1",
+     "klarner": 39603,
+     "medsl": 39603,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-NC-lower--57--",
+     "before": "unmatched",
+     "medsl_district": "57",
+     "klarner": 31518,
+     "medsl": 31518,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-NC-lower--78--",
+     "before": "unmatched",
+     "medsl_district": "78",
+     "klarner": 34619,
+     "medsl": 34619,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-NM-upper--12--",
+     "before": "unmatched",
+     "medsl_district": "12",
+     "klarner": 12922,
+     "medsl": 12922,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-NV-lower--24--",
+     "before": "unmatched",
+     "medsl_district": "24",
+     "klarner": 21628,
+     "medsl": 21627,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-NY-lower--141--",
+     "before": "unmatched",
+     "medsl_district": "141",
+     "klarner": 45555,
+     "medsl": 45555,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-NY-lower--143--",
+     "before": "unmatched",
+     "medsl_district": "143",
+     "klarner": 56130,
+     "medsl": 56130,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-NY-lower--72--",
+     "before": "unmatched",
+     "medsl_district": "72",
+     "klarner": 37032,
+     "medsl": 37032,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-OK-lower--8--",
+     "before": "shared, not paired apart",
+     "medsl_district": "8",
+     "klarner": 14774,
+     "medsl": 14774,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-PA-lower--190--",
+     "before": "unmatched",
+     "medsl_district": "190",
+     "klarner": 28620,
+     "medsl": 28620,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-SD-lower--30--",
+     "before": "unmatched",
+     "medsl_district": "30",
+     "klarner": 22608,
+     "medsl": 22631,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-SD-upper--19--",
+     "before": "unmatched",
+     "medsl_district": "19",
+     "klarner": 11044,
+     "medsl": 11044,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-TN-lower--56--",
+     "before": "unmatched",
+     "medsl_district": "56",
+     "klarner": 36293,
+     "medsl": 36293,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-TX-lower--100--",
+     "before": "shared, not paired apart",
+     "medsl_district": "100",
+     "klarner": 38163,
+     "medsl": 38163,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-TX-lower--134--",
+     "before": "shared, not paired apart",
+     "medsl_district": "134",
+     "klarner": 89981,
+     "medsl": 89981,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-TX-lower--147--",
+     "before": "shared, not paired apart",
+     "medsl_district": "147",
+     "klarner": 57561,
+     "medsl": 57561,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-TX-lower--51--",
+     "before": "shared, not paired apart",
+     "medsl_district": "51",
+     "klarner": 48244,
+     "medsl": 48244,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-UT-lower--37--",
+     "before": "unmatched",
+     "medsl_district": "37",
+     "klarner": 17823,
+     "medsl": 17823,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-UT-lower--74--",
+     "before": "unmatched",
+     "medsl_district": "74",
+     "klarner": 15363,
+     "medsl": 15363,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-UT-upper--14--",
+     "before": "unmatched",
+     "medsl_district": "14",
+     "klarner": 40189,
+     "medsl": 40189,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-UT-upper--19--",
+     "before": "unmatched",
+     "medsl_district": "19",
+     "klarner": 37375,
+     "medsl": 41390,
+     "flags": [
+      "a"
+     ],
+     "outcome": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-WA-upper--24--",
+     "before": "unmatched",
+     "medsl_district": "24",
+     "klarner": 72150,
+     "medsl": 72141,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-WI-lower--35--",
+     "before": "unmatched",
+     "medsl_district": "35",
+     "klarner": 28186,
+     "medsl": 28186,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2016-WI-lower--80--",
+     "before": "unmatched",
+     "medsl_district": "80",
+     "klarner": 26250,
+     "medsl": 26250,
+     "flags": [],
+     "outcome": "passes"
+    }
+   ],
+   "outcome_changed": [
+    {
+     "id": "2016-IN-lower--16--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--18--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--19--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--23--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--24--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--27--",
+     "before": "noted",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--28--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--30--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--31--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--32--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--33--",
+     "before": "noted",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--38--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--41--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--44--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--46--",
+     "before": "noted",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--50--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--52--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--55--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--62--",
+     "before": "noted",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--63--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--65--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--68--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--70--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--73--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--74--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--78--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--79--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--82--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--83--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--88--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--91--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-lower--93--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-upper--18--",
+     "before": "noted",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-upper--44--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-IN-upper--9--",
+     "before": "held",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-KY-lower--41--",
+     "before": "held",
+     "now": "passes"
+    },
+    {
+     "id": "2016-UT-upper--20--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    },
+    {
+     "id": "2016-UT-upper--23--",
+     "before": "kept: MEDSL does not cover the district",
+     "now": "settled by the state: Klarner's count stands"
+    }
+   ],
+   "no_longer_tested": [
+    {
+     "id": "2016-HI-lower--51--",
+     "before": [
+      "tested",
+      "36",
+      0,
+      0,
+      null
+     ],
+     "now": [
+      "matched only to another district's contest",
+      "36"
+     ]
+    }
+   ],
+   "counts": {
+    "newly_tested": {
+     "passes": 91,
+     "settled by the state: Klarner's count stands": 5,
+     "kept: MEDSL does not cover the district": 2,
+     "noted": 1
+    },
+    "newly_tested_by_before": {
+     "shared, not paired apart": 9,
+     "unmatched": 90
+    },
+    "outcome_changed": {
+     "held -> settled by the state: Klarner's count stands": 23,
+     "kept: MEDSL does not cover the district -> settled by the state: Klarner's count stands": 9,
+     "noted -> settled by the state: Klarner's count stands": 5,
+     "held -> passes": 1
+    }
+   }
+  },
+  "2018": {
+   "newly_tested": [
+    {
+     "id": "2018-AR-lower--47--",
+     "before": "shared, not paired apart",
+     "medsl_district": "047",
+     "klarner": 7198,
+     "medsl": 7198,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-AR-lower--49--",
+     "before": "shared, not paired apart",
+     "medsl_district": "049",
+     "klarner": 8377,
+     "medsl": 8377,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-AR-lower--80--",
+     "before": "shared, not paired apart",
+     "medsl_district": "080",
+     "klarner": 10016,
+     "medsl": 10016,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-AR-upper--33--",
+     "before": "unmatched",
+     "medsl_district": "033",
+     "klarner": 33671,
+     "medsl": 33671,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-AZ-lower--22--",
+     "before": "unmatched",
+     "medsl_district": "022",
+     "klarner": 206766,
+     "medsl": 206766,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-AZ-lower--24--",
+     "before": "unmatched",
+     "medsl_district": "024",
+     "klarner": 98736,
+     "medsl": 98736,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-AZ-lower--27--",
+     "before": "unmatched",
+     "medsl_district": "027",
+     "klarner": 59881,
+     "medsl": 59881,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-AZ-upper--29--",
+     "before": "unmatched",
+     "medsl_district": "029",
+     "klarner": 29003,
+     "medsl": 29003,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-AZ-upper--4--",
+     "before": "unmatched",
+     "medsl_district": "004",
+     "klarner": 33034,
+     "medsl": 33034,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-CA-lower--53--",
+     "before": "unmatched",
+     "medsl_district": "053",
+     "klarner": 80390,
+     "medsl": 80390,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-CO-lower--59--",
+     "before": "unmatched",
+     "medsl_district": "059",
+     "klarner": 41546,
+     "medsl": 41546,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-CT-lower--41--",
+     "before": "unmatched",
+     "medsl_district": "041",
+     "klarner": 8934,
+     "medsl": 8934,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-CT-lower--93--",
+     "before": "unmatched",
+     "medsl_district": "093",
+     "klarner": 5092,
+     "medsl": 5092,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-DE-lower--14--",
+     "before": "unmatched",
+     "medsl_district": "014",
+     "klarner": 13655,
+     "medsl": 13655,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-DE-lower--40--",
+     "before": "unmatched",
+     "medsl_district": "040",
+     "klarner": 5848,
+     "medsl": 5848,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-lower--30--",
+     "before": "shared, not paired apart",
+     "medsl_district": "030",
+     "klarner": 67359,
+     "medsl": 67365,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-lower--32--",
+     "before": "shared, not paired apart",
+     "medsl_district": "032",
+     "klarner": 82230,
+     "medsl": 82230,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-lower--6--",
+     "before": "unmatched",
+     "medsl_district": "006",
+     "klarner": 50543,
+     "medsl": 50543,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-lower--61--",
+     "before": "unmatched",
+     "medsl_district": "061",
+     "klarner": 43690,
+     "medsl": 43690,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-lower--64--",
+     "before": "shared, not paired apart",
+     "medsl_district": "064",
+     "klarner": 80129,
+     "medsl": 80129,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-upper--12--",
+     "before": "unmatched",
+     "medsl_district": "012",
+     "klarner": 264541,
+     "medsl": 264541,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-upper--2--",
+     "before": "shared, not paired apart",
+     "medsl_district": "002",
+     "klarner": 198136,
+     "medsl": 198136,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-upper--30--",
+     "before": "unmatched",
+     "medsl_district": "030",
+     "klarner": 132241,
+     "medsl": 132241,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-FL-upper--34--",
+     "before": "unmatched",
+     "medsl_district": "034",
+     "klarner": 124578,
+     "medsl": 124578,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-IA-lower--2--",
+     "before": "unmatched",
+     "medsl_district": "002",
+     "klarner": 12472,
+     "medsl": 12472,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-ID-lower--10--2",
+     "before": "unmatched",
+     "medsl_district": "010",
+     "klarner": 12134,
+     "medsl": 12134,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-IL-lower--116--",
+     "before": "unmatched",
+     "medsl_district": "116",
+     "klarner": 41909,
+     "medsl": 41909,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-IL-lower--46--",
+     "before": "unmatched",
+     "medsl_district": "046",
+     "klarner": 31834,
+     "medsl": 31834,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-IL-upper--14--",
+     "before": "unmatched",
+     "medsl_district": "014",
+     "klarner": 65275,
+     "medsl": 65275,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-IN-lower--12--",
+     "before": "unmatched",
+     "medsl_district": "012",
+     "klarner": 16935,
+     "medsl": 16935,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-IN-lower--2--",
+     "before": "unmatched",
+     "medsl_district": "002",
+     "klarner": 14841,
+     "medsl": 14841,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-IN-lower--37--",
+     "before": "unmatched",
+     "medsl_district": "037",
+     "klarner": 31054,
+     "medsl": 31052,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-IN-lower--53--",
+     "before": "unmatched",
+     "medsl_district": "053",
+     "klarner": 24045,
+     "medsl": 24045,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-KY-lower--26--",
+     "before": "unmatched",
+     "medsl_district": "026",
+     "klarner": 10330,
+     "medsl": 10330,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-KY-lower--40--",
+     "before": "unmatched",
+     "medsl_district": "040",
+     "klarner": 11623,
+     "medsl": 11623,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-KY-lower--49--",
+     "before": "unmatched",
+     "medsl_district": "049",
+     "klarner": 14610,
+     "medsl": 14610,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-KY-lower--66--",
+     "before": "unmatched",
+     "medsl_district": "066",
+     "klarner": 16745,
+     "medsl": 16745,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-KY-lower--77--",
+     "before": "unmatched",
+     "medsl_district": "077",
+     "klarner": 13589,
+     "medsl": 13589,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-KY-upper--16--",
+     "before": "unmatched",
+     "medsl_district": "016",
+     "klarner": 33447,
+     "medsl": 33447,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-KY-upper--38--",
+     "before": "unmatched",
+     "medsl_district": "038",
+     "klarner": 35669,
+     "medsl": 35669,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-MA-lower-franklin-2--",
+     "before": "unmatched",
+     "medsl_district": "2ND FRANKLIN",
+     "klarner": 15689,
+     "medsl": 15689,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-ME-lower--123--",
+     "before": "unmatched",
+     "medsl_district": "123",
+     "klarner": 3585,
+     "medsl": 3585,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-ME-upper--11--",
+     "before": "unmatched",
+     "medsl_district": "011",
+     "klarner": 19759,
+     "medsl": 19759,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-ME-upper--29--",
+     "before": "unmatched",
+     "medsl_district": "029",
+     "klarner": 20292,
+     "medsl": 20292,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-MN-lower--20-1-",
+     "before": "unmatched",
+     "medsl_district": "20A",
+     "klarner": 18840,
+     "medsl": 18840,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-MT-lower--93--",
+     "before": "unmatched",
+     "medsl_district": "093",
+     "klarner": 4333,
+     "medsl": 4333,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-NC-upper--3--",
+     "before": "unmatched",
+     "medsl_district": "003",
+     "klarner": 63024,
+     "medsl": 63024,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-NH-lower-hillsborough-11--",
+     "before": "unmatched",
+     "medsl_district": "011",
+     "klarner": 4189,
+     "medsl": 4189,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-NH-lower-hillsborough-43--",
+     "before": "unmatched",
+     "medsl_district": "043",
+     "klarner": 26552,
+     "medsl": 26552,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-NH-lower-merrimack-20--",
+     "before": "unmatched",
+     "medsl_district": "020",
+     "klarner": 11231,
+     "medsl": 11231,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-NH-lower-strafford-18--",
+     "before": "unmatched",
+     "medsl_district": "018",
+     "klarner": 11584,
+     "medsl": 11584,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-NY-lower--27--",
+     "before": "shared, not paired apart",
+     "medsl_district": "027",
+     "klarner": 21099,
+     "medsl": 21099,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-OH-lower--28--",
+     "before": "unmatched",
+     "medsl_district": "028",
+     "klarner": 55166,
+     "medsl": 55166,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-OH-lower--75--",
+     "before": "unmatched",
+     "medsl_district": "075",
+     "klarner": 41931,
+     "medsl": 41931,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-OK-lower--29--",
+     "before": "shared, not paired apart",
+     "medsl_district": "029",
+     "klarner": 12022,
+     "medsl": 12022,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-OK-upper--20--",
+     "before": "shared, not paired apart",
+     "medsl_district": "020",
+     "klarner": 27141,
+     "medsl": 27141,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-PA-lower--150--",
+     "before": "unmatched",
+     "medsl_district": "150",
+     "klarner": 27736,
+     "medsl": 27736,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-PA-lower--190--",
+     "before": "unmatched",
+     "medsl_district": "190",
+     "klarner": 22644,
+     "medsl": 22644,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-RI-upper--23--",
+     "before": "unmatched",
+     "medsl_district": "023",
+     "klarner": 11200,
+     "medsl": 11200,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-SD-lower--13--",
+     "before": "unmatched",
+     "medsl_district": "013",
+     "klarner": 16549,
+     "medsl": 16549,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-TN-lower--17--",
+     "before": "unmatched",
+     "medsl_district": "017",
+     "klarner": 18856,
+     "medsl": 18856,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-TX-lower--109--",
+     "before": "unmatched",
+     "medsl_district": "109",
+     "klarner": 51975,
+     "medsl": 51975,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-TX-lower--114--",
+     "before": "unmatched",
+     "medsl_district": "114",
+     "klarner": 66528,
+     "medsl": 66528,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-UT-lower--27--",
+     "before": "unmatched",
+     "medsl_district": "027",
+     "klarner": 15941,
+     "medsl": 15941,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-UT-lower--5--",
+     "before": "unmatched",
+     "medsl_district": "005",
+     "klarner": 14003,
+     "medsl": 14003,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-UT-lower--66--",
+     "before": "unmatched",
+     "medsl_district": "066",
+     "klarner": 12702,
+     "medsl": 12702,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-UT-lower--74--",
+     "before": "unmatched",
+     "medsl_district": "074",
+     "klarner": 17190,
+     "medsl": 17190,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-VT-lower-addison-5--",
+     "before": "matched to several",
+     "medsl_district": "ADD-5",
+     "klarner": 1505,
+     "medsl": 1505,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-VT-lower-addisonrutland---",
+     "before": "matched to several",
+     "medsl_district": "ADD-RUT",
+     "klarner": 1744,
+     "medsl": 1744,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-VT-lower-bennington-2-1-",
+     "before": "matched to several",
+     "medsl_district": "BEN-2-1",
+     "klarner": 4164,
+     "medsl": 4164,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-VT-lower-bennington-2-2-",
+     "before": "matched to several",
+     "medsl_district": "BEN-2-2",
+     "klarner": 3369,
+     "medsl": 3369,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-caledoniawashington---",
+     "before": "unmatched",
+     "medsl_district": "CAL-WAS",
+     "klarner": 1853,
+     "medsl": 1853,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-chittenden-5-1-",
+     "before": "matched to several",
+     "medsl_district": "CHI-5-1",
+     "klarner": 2012,
+     "medsl": 2012,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-chittenden-5-2-",
+     "before": "unmatched",
+     "medsl_district": "CHI-5-2",
+     "klarner": 1866,
+     "medsl": 1866,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-chittenden-6-2-",
+     "before": "matched to several",
+     "medsl_district": "CHI-6-2",
+     "klarner": 1854,
+     "medsl": 1854,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-chittenden-6-3-",
+     "before": "matched to several",
+     "medsl_district": "CHI-6-3",
+     "klarner": 5191,
+     "medsl": 5191,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-chittenden-7-1-",
+     "before": "matched to several",
+     "medsl_district": "CHI-7-1",
+     "klarner": 1925,
+     "medsl": 1925,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-chittenden-7-3-",
+     "before": "matched to several",
+     "medsl_district": "CHI-7-3",
+     "klarner": 2088,
+     "medsl": 2088,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-VT-lower-chittenden-7-4-",
+     "before": "matched to several",
+     "medsl_district": "CHI-7-4",
+     "klarner": 1710,
+     "medsl": 1710,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-chittenden-8-3-",
+     "before": "matched to several",
+     "medsl_district": "CHI-8-3",
+     "klarner": 1629,
+     "medsl": 1629,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-franklin-3-2-",
+     "before": "unmatched",
+     "medsl_district": "FRA-3-2",
+     "klarner": 1775,
+     "medsl": 1775,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-VT-lower-rutland-5-3-",
+     "before": "matched to several",
+     "medsl_district": "RUT-5-3",
+     "klarner": 707,
+     "medsl": 707,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-VT-lower-washingtonchittenden---",
+     "before": "unmatched",
+     "medsl_district": "WAS-CHI",
+     "klarner": 6634,
+     "medsl": 6634,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-windham-2-2-",
+     "before": "matched to several",
+     "medsl_district": "WDH-2-2",
+     "klarner": 1491,
+     "medsl": 1491,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-windhambennington---",
+     "before": "matched to several",
+     "medsl_district": "WDH-BEN",
+     "klarner": 1377,
+     "medsl": 1377,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-lower-windsor-3-1-",
+     "before": "matched to several",
+     "medsl_district": "WDR-3-1",
+     "klarner": 1351,
+     "medsl": 1351,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-upper-franklin---",
+     "before": "matched to several",
+     "medsl_district": "FRA",
+     "klarner": 34612,
+     "medsl": 29863,
+     "flags": [
+      "a"
+     ],
+     "outcome": "held"
+    },
+    {
+     "id": "2018-VT-upper-lamoille---",
+     "before": "matched to several",
+     "medsl_district": "LAM",
+     "klarner": 9099,
+     "medsl": 9099,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2018-VT-upper-orange---",
+     "before": "matched to several",
+     "medsl_district": "ORA",
+     "klarner": 9009,
+     "medsl": 9009,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2018-VT-upper-rutland---",
+     "before": "unmatched",
+     "medsl_district": "RUT",
+     "klarner": 103751,
+     "medsl": 60144,
+     "flags": [
+      "a"
+     ],
+     "outcome": "MEDSL taken"
+    }
+   ],
+   "outcome_changed": [],
+   "no_longer_tested": [],
+   "counts": {
+    "newly_tested": {
+     "passes": 74,
+     "write-in rule": 14,
+     "held": 1,
+     "MEDSL taken": 1
+    },
+    "newly_tested_by_before": {
+     "shared, not paired apart": 10,
+     "unmatched": 62,
+     "matched to several": 18
+    },
+    "outcome_changed": {}
+   }
+  },
+  "2022": {
+   "newly_tested": [
+    {
+     "id": "2022-AR-lower--96--",
+     "before": "unmatched",
+     "medsl_district": "096",
+     "klarner": 15466,
+     "medsl": 15466,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-AZ-lower--11--",
+     "before": "unmatched",
+     "medsl_district": "011",
+     "klarner": 74277,
+     "medsl": 74277,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-AZ-lower--7--",
+     "before": "unmatched",
+     "medsl_district": "007",
+     "klarner": 112867,
+     "medsl": 112822,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-AZ-upper--20--",
+     "before": "unmatched",
+     "medsl_district": "020",
+     "klarner": 49966,
+     "medsl": 49966,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-AZ-upper--4--",
+     "before": "unmatched",
+     "medsl_district": "004",
+     "klarner": 123221,
+     "medsl": 123221,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-AZ-upper--6--",
+     "before": "unmatched",
+     "medsl_district": "006",
+     "klarner": 58830,
+     "medsl": 58160,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-AZ-upper--7--",
+     "before": "unmatched",
+     "medsl_district": "007",
+     "klarner": 99049,
+     "medsl": 99049,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-CA-lower--60--",
+     "before": "unmatched",
+     "medsl_district": "60",
+     "klarner": 71834,
+     "medsl": 71834,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-CO-lower--59--",
+     "before": "unmatched",
+     "medsl_district": "059",
+     "klarner": 46575,
+     "medsl": 46575,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-CT-lower--93--",
+     "before": "unmatched",
+     "medsl_district": "093",
+     "klarner": 3281,
+     "medsl": 3281,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-DE-lower--40--",
+     "before": "unmatched",
+     "medsl_district": "040",
+     "klarner": 5506,
+     "medsl": 5506,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--120--",
+     "before": "unmatched",
+     "medsl_district": "120",
+     "klarner": 52450,
+     "medsl": 52450,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--15--",
+     "before": "unmatched",
+     "medsl_district": "015",
+     "klarner": 63594,
+     "medsl": 63594,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--16--",
+     "before": "unmatched",
+     "medsl_district": "016",
+     "klarner": 52145,
+     "medsl": 52145,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--17--",
+     "before": "shared, not paired apart",
+     "medsl_district": "017",
+     "klarner": 62292,
+     "medsl": 62292,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--3--",
+     "before": "unmatched",
+     "medsl_district": "003",
+     "klarner": 60263,
+     "medsl": 60263,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--30--",
+     "before": "unmatched",
+     "medsl_district": "030",
+     "klarner": 61612,
+     "medsl": 61612,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--41--",
+     "before": "shared, not paired apart",
+     "medsl_district": "041",
+     "klarner": 24808,
+     "medsl": 24808,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--46--",
+     "before": "unmatched",
+     "medsl_district": "046",
+     "klarner": 34565,
+     "medsl": 34565,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-lower--78--",
+     "before": "unmatched",
+     "medsl_district": "078",
+     "klarner": 62817,
+     "medsl": 62817,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-upper--33--",
+     "before": "unmatched",
+     "medsl_district": "033",
+     "klarner": 149922,
+     "medsl": 149922,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-FL-upper--5--",
+     "before": "unmatched",
+     "medsl_district": "005",
+     "klarner": 150812,
+     "medsl": 150812,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IA-lower--6--",
+     "before": "unmatched",
+     "medsl_district": "006",
+     "klarner": 9357,
+     "medsl": 9357,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-ID-upper--16--",
+     "before": "unmatched",
+     "medsl_district": "016",
+     "klarner": 17689,
+     "medsl": 17689,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-ID-upper--27--",
+     "before": "unmatched",
+     "medsl_district": "027",
+     "klarner": 11962,
+     "medsl": 11962,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IL-lower--28--",
+     "before": "unmatched",
+     "medsl_district": "028",
+     "klarner": 22195,
+     "medsl": 22195,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IL-upper--10--",
+     "before": "unmatched",
+     "medsl_district": "010",
+     "klarner": 44943,
+     "medsl": 44943,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IL-upper--14--",
+     "before": "unmatched",
+     "medsl_district": "014",
+     "klarner": 49237,
+     "medsl": 49237,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IL-upper--17--",
+     "before": "unmatched",
+     "medsl_district": "017",
+     "klarner": 51061,
+     "medsl": 51061,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IL-upper--23--",
+     "before": "unmatched",
+     "medsl_district": "023",
+     "klarner": 72263,
+     "medsl": 72263,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IL-upper--50--",
+     "before": "unmatched",
+     "medsl_district": "050",
+     "klarner": 73674,
+     "medsl": 73674,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IL-upper--57--",
+     "before": "unmatched",
+     "medsl_district": "057",
+     "klarner": 72626,
+     "medsl": 72626,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IL-upper--6--",
+     "before": "unmatched",
+     "medsl_district": "006",
+     "klarner": 82314,
+     "medsl": 82314,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IN-lower--2--",
+     "before": "unmatched",
+     "medsl_district": "002",
+     "klarner": 10116,
+     "medsl": 10116,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-IN-lower--33--",
+     "before": "shared, not paired apart",
+     "medsl_district": "033",
+     "klarner": 19861,
+     "medsl": 5316,
+     "flags": [
+      "a"
+     ],
+     "outcome": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-lower--36--",
+     "before": "shared, not paired apart",
+     "medsl_district": "036",
+     "klarner": 17485,
+     "medsl": 17485,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-KY-lower--29--",
+     "before": "unmatched",
+     "medsl_district": "029",
+     "klarner": 11389,
+     "medsl": 11388,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-KY-lower--31--",
+     "before": "unmatched",
+     "medsl_district": "031",
+     "klarner": 19408,
+     "medsl": 19401,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-KY-lower--54--",
+     "before": "unmatched",
+     "medsl_district": "054",
+     "klarner": 15346,
+     "medsl": 15346,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MA-lower-franklin-2--",
+     "before": "unmatched",
+     "medsl_district": "SECOND FRANKLIN DISTRICT",
+     "klarner": 15425,
+     "medsl": 15425,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MA-lower-middlesex-19--",
+     "before": "unmatched",
+     "medsl_district": "NINETEENTH MIDDLESEX DISTRICT",
+     "klarner": 18203,
+     "medsl": 18203,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MD-lower--7-2-",
+     "before": "unmatched",
+     "medsl_district": "07B",
+     "klarner": 19182,
+     "medsl": 19182,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MD-upper--23--",
+     "before": "unmatched",
+     "medsl_district": "023",
+     "klarner": 47229,
+     "medsl": 47229,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-ME-lower--149--",
+     "before": "unmatched",
+     "medsl_district": "149",
+     "klarner": 4599,
+     "medsl": 4593,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MI-lower--25--",
+     "before": "unmatched",
+     "medsl_district": "025",
+     "klarner": 33477,
+     "medsl": 33477,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MI-lower--3--",
+     "before": "unmatched",
+     "medsl_district": "003",
+     "klarner": 20903,
+     "medsl": 20903,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MI-lower--58--",
+     "before": "unmatched",
+     "medsl_district": "058",
+     "klarner": 35305,
+     "medsl": 35305,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MI-upper--2--",
+     "before": "unmatched",
+     "medsl_district": "002",
+     "klarner": 63616,
+     "medsl": 63616,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MN-lower--28-2-",
+     "before": "unmatched",
+     "medsl_district": "28B",
+     "klarner": 19731,
+     "medsl": 19731,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MN-lower--43-1-",
+     "before": "unmatched",
+     "medsl_district": "43A",
+     "klarner": 12266,
+     "medsl": 12266,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MN-upper--39--",
+     "before": "unmatched",
+     "medsl_district": "039",
+     "klarner": 30890,
+     "medsl": 30890,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-MT-lower--91--",
+     "before": "unmatched",
+     "medsl_district": "091",
+     "klarner": 5628,
+     "medsl": 5628,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NC-lower--31--",
+     "before": "unmatched",
+     "medsl_district": "031",
+     "klarner": 29472,
+     "medsl": 29472,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NC-lower--45--",
+     "before": "unmatched",
+     "medsl_district": "045",
+     "klarner": 20212,
+     "medsl": 20212,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NC-lower--66--",
+     "before": "unmatched",
+     "medsl_district": "066",
+     "klarner": 26531,
+     "medsl": 26531,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NC-lower--77--",
+     "before": "unmatched",
+     "medsl_district": "077",
+     "klarner": 30953,
+     "medsl": 30953,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NM-lower--12--",
+     "before": "unmatched",
+     "medsl_district": "012",
+     "klarner": 4361,
+     "medsl": 4361,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NM-lower--15--",
+     "before": "unmatched",
+     "medsl_district": "015",
+     "klarner": 12594,
+     "medsl": 12594,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NM-lower--52--",
+     "before": "unmatched",
+     "medsl_district": "052",
+     "klarner": 6912,
+     "medsl": 6912,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NV-lower--25--",
+     "before": "unmatched",
+     "medsl_district": "025",
+     "klarner": 32668,
+     "medsl": 32648,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NY-lower--141--",
+     "before": "unmatched",
+     "medsl_district": "141",
+     "klarner": 24906,
+     "medsl": 24906,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NY-lower--143--",
+     "before": "unmatched",
+     "medsl_district": "143",
+     "klarner": 42290,
+     "medsl": 42290,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NY-lower--69--",
+     "before": "unmatched",
+     "medsl_district": "069",
+     "klarner": 43458,
+     "medsl": 43458,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-NY-lower--72--",
+     "before": "unmatched",
+     "medsl_district": "072",
+     "klarner": 17260,
+     "medsl": 17260,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OH-upper--27--",
+     "before": "unmatched",
+     "medsl_district": "027",
+     "klarner": 144410,
+     "medsl": 144410,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OK-lower--26--",
+     "before": "shared, not paired apart",
+     "medsl_district": "026",
+     "klarner": 10378,
+     "medsl": 10378,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OK-lower--45--",
+     "before": "shared, not paired apart",
+     "medsl_district": "045",
+     "klarner": 12535,
+     "medsl": 12535,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OK-lower--63--",
+     "before": "shared, not paired apart",
+     "medsl_district": "063",
+     "klarner": 9037,
+     "medsl": 9037,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OK-lower--84--",
+     "before": "shared, not paired apart",
+     "medsl_district": "084",
+     "klarner": 9871,
+     "medsl": 9871,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OK-lower--97--",
+     "before": "shared, not paired apart",
+     "medsl_district": "097",
+     "klarner": 11553,
+     "medsl": 11553,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OK-upper--22--",
+     "before": "shared, not paired apart",
+     "medsl_district": "022",
+     "klarner": 31239,
+     "medsl": 31239,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OR-lower--52--",
+     "before": "unmatched",
+     "medsl_district": "052",
+     "klarner": 32354,
+     "medsl": 32354,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-OR-upper--8--",
+     "before": "unmatched",
+     "medsl_district": "008",
+     "klarner": 63190,
+     "medsl": 63190,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-PA-lower--161--",
+     "before": "unmatched",
+     "medsl_district": "161",
+     "klarner": 30418,
+     "medsl": 30418,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-PA-lower--40--",
+     "before": "unmatched",
+     "medsl_district": "040",
+     "klarner": 35795,
+     "medsl": 35795,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-RI-upper--23--",
+     "before": "unmatched",
+     "medsl_district": "023",
+     "klarner": 9213,
+     "medsl": 9213,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-SC-lower--11--",
+     "before": "unmatched",
+     "medsl_district": "011",
+     "klarner": 10545,
+     "medsl": 10559,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-SD-lower--13--",
+     "before": "unmatched",
+     "medsl_district": "013",
+     "klarner": 11758,
+     "medsl": 11758,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-SD-lower--25--",
+     "before": "unmatched",
+     "medsl_district": "025",
+     "klarner": 19892,
+     "medsl": 19892,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-SD-upper--21--",
+     "before": "unmatched",
+     "medsl_district": "021",
+     "klarner": 9747,
+     "medsl": 9747,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-TX-lower--100--",
+     "before": "shared, not paired apart",
+     "medsl_district": "100",
+     "klarner": 27698,
+     "medsl": 27698,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-TX-lower--4--",
+     "before": "shared, not paired apart",
+     "medsl_district": "004",
+     "klarner": 54415,
+     "medsl": 54372,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-TX-lower--61--",
+     "before": "shared, not paired apart",
+     "medsl_district": "061",
+     "klarner": 68782,
+     "medsl": 68782,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-TX-lower--75--",
+     "before": "shared, not paired apart",
+     "medsl_district": "075",
+     "klarner": 25519,
+     "medsl": 25519,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-TX-lower--9--",
+     "before": "shared, not paired apart",
+     "medsl_district": "009",
+     "klarner": 63349,
+     "medsl": 63349,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-UT-lower--1--",
+     "before": "unmatched",
+     "medsl_district": "001",
+     "klarner": 14160,
+     "medsl": 14160,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-UT-lower--5--",
+     "before": "unmatched",
+     "medsl_district": "005",
+     "klarner": 13049,
+     "medsl": 13027,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-VT-lower-chittenden-7--",
+     "before": "unmatched",
+     "medsl_district": "CHI 7",
+     "klarner": 1912,
+     "medsl": 1912,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2022-VT-lower-washingtonchittenden---",
+     "before": "unmatched",
+     "medsl_district": "WAS CHI",
+     "klarner": 8017,
+     "medsl": 8017,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-VT-lower-windhamwindsorbennington---",
+     "before": "matched to several",
+     "medsl_district": "WDH WDR BEN",
+     "klarner": 1746,
+     "medsl": 1746,
+     "flags": [
+      "b"
+     ],
+     "outcome": "write-in rule"
+    },
+    {
+     "id": "2022-VT-upper-chittendensoutheast---",
+     "before": "unmatched",
+     "medsl_district": "CHI SE 1",
+     "klarner": 89802,
+     "medsl": 89816,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-VT-upper-lamoille---",
+     "before": "matched to several",
+     "medsl_district": "LAM 1",
+     "klarner": 8003,
+     "medsl": 8003,
+     "flags": [
+      "b"
+     ],
+     "outcome": "noted"
+    },
+    {
+     "id": "2022-VT-upper-orleans---",
+     "before": "matched to several",
+     "medsl_district": "ORL 1",
+     "klarner": 9077,
+     "medsl": 9077,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-WA-lower--1--2",
+     "before": "unmatched",
+     "medsl_district": "001",
+     "klarner": 67641,
+     "medsl": 67641,
+     "flags": [],
+     "outcome": "passes"
+    },
+    {
+     "id": "2022-WY-upper--31--",
+     "before": "unmatched",
+     "medsl_district": "031",
+     "klarner": 3807,
+     "medsl": 3807,
+     "flags": [],
+     "outcome": "passes"
+    }
+   ],
+   "outcome_changed": [
+    {
+     "id": "2022-AR-upper--9--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-lower--60--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-upper--19--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-upper--26--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-upper--38--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-upper--39--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-upper--45--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-upper--47--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-upper--48--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-IN-upper--49--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-MI-lower--10--",
+     "before": "held",
+     "now": "held: whether a candidate was on the ballot is not read"
+    },
+    {
+     "id": "2022-MI-lower--99--",
+     "before": "held",
+     "now": "settled by the county: Klarner's count stands"
+    },
+    {
+     "id": "2022-MI-upper--10--",
+     "before": "held",
+     "now": "passes"
+    },
+    {
+     "id": "2022-MI-upper--12--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-MI-upper--3--",
+     "before": "held",
+     "now": "passes"
+    },
+    {
+     "id": "2022-MI-upper--35--",
+     "before": "held",
+     "now": "kept: MEDSL does not cover the district"
+    },
+    {
+     "id": "2022-MI-upper--36--",
+     "before": "noted",
+     "now": "kept: MEDSL does not cover the district"
+    }
+   ],
+   "no_longer_tested": [],
+   "counts": {
+    "newly_tested": {
+     "passes": 91,
+     "kept: MEDSL does not cover the district": 1,
+     "write-in rule": 2,
+     "noted": 1
+    },
+    "newly_tested_by_before": {
+     "unmatched": 77,
+     "shared, not paired apart": 15,
+     "matched to several": 3
+    },
+    "outcome_changed": {
+     "held -> kept: MEDSL does not cover the district": 12,
+     "held -> held: whether a candidate was on the ballot is not read": 1,
+     "held -> settled by the county: Klarner's count stands": 1,
+     "held -> passes": 2,
+     "noted -> kept: MEDSL does not cover the district": 1
+    }
+   }
+  }
+ }
+}
