@@ -6779,3 +6779,92 @@ C44 #101 (held one-name records, Virginia 2023 local); records at d680bd4 and 48
   records at 4831b16 carrying the words: 85; in the file: 84; not: ['2023-local-VA-MEMBER_TOWN_COUNCIL-Town_of_Brodnax_county_51025']
 
 ### done c44
+
+
+M2 checks (section 17, its own run): 2026-11-13T01:16Z, repository HEAD 3590326f, python3 3.13.18
+##### c45_va_gate
+C45 Virginia 2023's gate whole from the Department's files (D3's copies in /root/.cache/vote-m2/eighth/src/va-2023); records at 4831b16
+
+====================================================================================================
+45.1 The files; the page against the file's statewide list (gate (a))
+====================================================================================================
+  export-2023-Nov-Gen.json: sha256 95f9426e376766a0… equal to D3's SHA256SUMS: True; to its .meta.json: True; url https://enr.elections.virginia.gov/cdn/results/Virginia/export-2023-Nov-Gen.json; read 2026-11-07T18:23Z; how: curl, the page's 'Media Export' link
+  2023-Nov-Gen-page-rendered.html: sha256 d311fa7b55283070… equal to D3's SHA256SUMS: True; to its .meta.json: True; url https://enr.elections.virginia.gov/results/public/virginia/2023-Nov-Gen; read 2026-11-07T18:26Z; how: rendered in headless Chromium and scrolled to its end until its contests stopped growing (
+  the file: electionName '2023 November General and Special Elections', electionDate 2023-11-07, createdAt 2025-01-08T15:00:24.6233107Z; statewide contests 183; localities 133
+  the page: headed 'OFFICIAL RESULTS': True; contests parsed: 183; with a title 183; options parsed 499; Winner marks 188
+  page contests matched to the file's by title: 183 of 183; candidates and votes equal: 181; differing: 2 (page lines not in the file: 2; file lines not on the page: 0)
+    ('differ', 'Member Town Council (Town of Brodnax)', {'Adjudicated Write-Ins': 5}, {})
+    ('differ', 'Member Town Council - Special (Town of Scottsville)', {'Adjudicated Write-Ins': 57}, {})
+  Winner marks by kind: {'legislature': 140, 'local': 48}
+
+====================================================================================================
+45.2 The 43 shared local contests: locality lines against the statewide count; the page's 'Localities reporting'; the Adjudicated Write-Ins lines
+====================================================================================================
+  shared local contests in the file: 43 (D3: 43)
+    lines do not add up: Member Town Council - Special (Town of Scottsville): statewide [('Aileen Morse', 121), ('Alexander Bessette', 57), ('Write-In', 35)]; localities' sums [('Aileen Morse', 121), ('Alexander Bessette', 57), ('Write-In', 35), ('John Merritt Unsworth', 1)]
+  locality lines adding up to the statewide count, option by option, no option extra: 42; not: 1 (contests with a locality option the statewide count lacks: 1)
+  the page's 'Localities reporting n/n' with n the file's localities: 43; not: 0
+  page: Member Town Council (Town of Brodnax): 'Adjudicated Write-Ins' [('Adjudicated Write-Ins', 5)]; the file's name-keyed options [('Takera N. Walker', 5, 'TakeraN.Walker-3-')]; the page's lines [('James M. "Jimmy" Jones, Jr.', 48), ('Amy Toone Jackson', 44), ('Write-In', 15), ('Adjudicated Write-Ins', 5), ('Takera N. Walker', 5)]
+  page: Member Town Council - Special (Town of Scottsville): 'Adjudicated Write-Ins' [('Adjudicated Write-Ins', 57)]; the file's name-keyed options [('Alexander Bessette', 57, 'AlexanderBessette-2-')]; the page's lines [('Aileen Morse', 121), ('Write-In', 35), ('Adjudicated Write-Ins', 57), ('Alexander Bessette', 57)]
+
+====================================================================================================
+45.3 Every record at 4831b16 against the file: localities, office, district, seats, candidates, votes, write-in flags; reporting
+====================================================================================================
+    key repeated in the file: (('51019',), 'MEMBER TOWN COUNCIL - SPECIAL', 'Town of Bedford'): ['Member Town Council - Special (Town of Bedford)', 'Member Town Council - Special (Town of Bedford)'] (told apart by the option names)
+  the file's local contests: 1448 (offices 1439, questions 9); keys (localities, office, district) repeated: 1; records: offices 1439, questions 9
+  records matched to a file contest by key: 1448 of 1448; unmatched: 0; file contests no record claims: 0
+  equal in: {'names': 1448, 'votes': 1448, "write-in flags by the option's key": 1448, 'seats': 1448, 'total_votes': 1448, 'special': 1447}
+    ('2023-local-VA-MEMBER_TOWN_COUNCIL___SPECIAL-Town_of_Scottsville_county_51003', 'special differs', 'Member Town Council - Special (Town of Scottsville)', 'held by the gate: the page shows other candidates or votes than the file holds; ')
+    ('2023-local-VA-MEMBER_TOWN_COUNCIL___SPECIAL-Town_of_Scottsville_county_51003', {'names': True, 'votes': True, 'wi': True, 'seats': True, 'total': True, 'special': False}, [('AILEEN MORSE', 121, None), ('ALEXANDER BESSETTE', 57, 'write-in'), ('WRITE-IN', 35, 'write-in')], [('cs1667', 'Aileen Morse', 121, 'ballot'), ('AlexanderBessette-2-', 'Alexander Bessette', 57, 'write-in by name'), ('wi-cc1025', 'Write-In', 35, 'write-in line')])
+  one-locality contests: 1405; precincts all reporting and the locality's groups all 'Fully Reported': 1405; localities with every group 'Fully Reported': 133 of 133
+  the records' gate fields (shared, all_reporting, page_equal, parts_add_up, precincts_add_up): {(False, True, None, None, True): 1388, (True, True, True, True, True): 41, (False, True, None, None, False): 17, (True, True, False, False, True): 1, (True, True, False, True, True): 1}
+
+====================================================================================================
+45.4 The over-ballot test within the locality, from the file (gate (d)), against every record's gate
+====================================================================================================
+  records with a file contest: 1448; ratio equal to the record's (4 decimals): 1448; differing: 0 []
+  verdict equal to the record's: 1448; differing: 0
+  held by (d), mine: 3: Sheriff (Halifax County) 1.1106 in Halifax County against Treasurer (Halifax County) 8,505; Sheriff (Cumberland County) 1.1191 in Cumberland County against Treasurer (Cumberland County) 2,906; Clerk of Court (Norton City, Wise County) 1.1015 in Norton City against House of Delegates's lines in Norton City, summed 394
+  listed, mine: 28 (D3: 28): Treasurer (Scott County) 1.0944; Casino Gaming 1.0884; Treasurer (Fluvanna County) 1.0792; Clerk of Court (Pittsylvania County) 1.0582; Commonwealth's Attorney (Goochland County) 1.0472; Sheriff (Prince Edward County) 1.0381; Sheriff (Nottoway County) 1.0241; Sheriff (Giles County) 1.0196; Clerk of Court (Dickenson County) 1.0192; Sheriff (Lunenburg County) 1.0182 …
+    comparator Treasurer (Halifax County): options [('Ruth S. Oakes', 8428, 'ballot'), ('Write-In', 77, 'write-in line')]; ballot names 1 for 1 seat(s)
+    comparator Treasurer (Cumberland County): options [('L.O. "Lee" Pfeiffer, Jr.', 2869, 'ballot'), ('Write-In', 37, 'write-in line')]; ballot names 1 for 1 seat(s)
+    comparator House of Delegates's lines in Norton City, summed: a chamber's lines summed (no single contest)
+
+====================================================================================================
+45.5 The option keys: the name-keyed options, and the four records where a named write-in outpolls a ballot name
+====================================================================================================
+  option kinds in the file's local contests: {'ballot': 2269, 'write-in line': 1440, 'write-in by name': 78, 'question': 18}; contests with a name-keyed option: 65 (D3: 65)
+  name-keyed options: 78; ids e.g. ['MargaretElainePearson-1-', 'CharlesStevenson-0-', 'ZacharyTaylorCampbell-1-', 'JeffreyFloyd-2-', 'CARLE.ZIPPER-2-', 'LiamJ.Watson-3-']
+  2023-local-VA-MEMBER_BOARD_OF_SUPERVISORS-Cullen_red_House_District_county_51037: seats 1, precincts 1; options (id, name, votes, kind, party, ballotOrder): [('cs395', 'M. Anthony "Tony" Reeves', 227, 'ballot', None, 1), ('HenryW.Carwile,Jr.-2-', 'Write In', 4, 'write-in by name', None, 2), ('HenryW.Carwile,Jr.-3-', 'Henry W. Carwile, Jr.', 304, 'write-in by name', None, 3)]
+    a 'wi-' write-in line in the contest: False []; ballot ids: ['cs395']
+    ballot names 1 for 1 seat(s) (a full ballot: True); name-keyed options beating a ballot name: [('Henry W. Carwile, Jr.', 304)]; the inference (a name-keyed option is a write-in) FAILS the test here
+    Write In: precinct lines with votes 1 of 2: [('501 - CULLEN/RED HOUSE (0000)', 4)]
+    Henry W. Carwile, Jr.: precinct lines with votes 1 of 2: [('501 - CULLEN/RED HOUSE (0000)', 304)]
+  2023-local-VA-MAYOR-Town_of_Clifton_county_51059: seats 1, precincts 1; options (id, name, votes, kind, party, ballotOrder): [('cs67', 'William R. Hollaway', 62, 'ballot', None, 1), ('TomPeterson-2-', 'Thomas C. Peterson', 67, 'write-in by name', None, 2), ('wi-cc43', 'Write-In', 2, 'write-in line', None, 3)]
+    a 'wi-' write-in line in the contest: True [('Write-In', 2)]; ballot ids: ['cs67']
+    ballot names 1 for 1 seat(s) (a full ballot: True); name-keyed options beating a ballot name: [('Thomas C. Peterson', 67)]; the inference (a name-keyed option is a write-in) FAILS the test here
+    Thomas C. Peterson: precinct lines with votes 1 of 2: [('858 - CLIFTON TOWN (0000)', 67)]
+  2023-local-VA-MEMBER_TOWN_COUNCIL-Town_of_Clifton_county_51059: seats 5, precincts 1; options (id, name, votes, kind, party, ballotOrder): [('cs611', 'Darrell D. Poe', 48, 'ballot', None, 1), ('cs612', 'Stephen R. Effros', 65, 'ballot', None, 2), ('cs613', 'Regan P. McDonald', 98, 'ballot', None, 3), ('cs614', 'Lynn M. Screen', 97, 'ballot', None, 4), ('cs615', 'John L. "Jay" Davis, III', 77, 'ballot', None, 5), ('MaryHess-6-', 'Mary M. Hess', 71, 'write-in by name', None, 6), ('wi-cc371', 'Write-In', 15, 'write-in line', None, 7)]
+    a 'wi-' write-in line in the contest: True [('Write-In', 15)]; ballot ids: ['cs611', 'cs612', 'cs613', 'cs614', 'cs615']
+    ballot names 5 for 5 seat(s) (a full ballot: True); name-keyed options beating a ballot name: [('Mary M. Hess', 71)]; the inference (a name-keyed option is a write-in) FAILS the test here
+    Mary M. Hess: precinct lines with votes 1 of 2: [('858 - CLIFTON TOWN (0000)', 71)]
+  2023-local-VA-MEMBER_TOWN_COUNCIL-Dillwyn_county_51029: seats 6, precincts 1; options (id, name, votes, kind, party, ballotOrder): [('SandraF.Moss-3-', 'Sandra F. Moss', 75, 'write-in by name', None, 1), ('FayeW.Shumaker-2-', 'Faye W. Shumaker', 68, 'write-in by name', None, 2), ('wi-cc1541', 'Robert L. Pinelli', 63, 'write-in line', None, 3), ('cs2451', 'Gilbert W. Reams', 61, 'ballot', None, 4), ('cs2449', 'Sharon J. Baker', 60, 'ballot', None, 5), ('cs2450', 'Janel B. Venable', 53, 'ballot', None, 6), ('Write-in-7-', 'Write-In', 11, 'write-in by name', None, 7)]
+    a 'wi-' write-in line in the contest: True [('Robert L. Pinelli', 63)]; ballot ids: ['cs2451', 'cs2449', 'cs2450']
+    ballot names 3 for 6 seat(s) (a full ballot: False); name-keyed options beating a ballot name: [('Sandra F. Moss', 75), ('Faye W. Shumaker', 68)]; the inference (a name-keyed option is a write-in) holds (the ballot is not full)
+    Sandra F. Moss: precinct lines with votes 1 of 2: [('201 - WHITE HALL (0000,0750)', 75)]
+    Faye W. Shumaker: precinct lines with votes 1 of 2: [('201 - WHITE HALL (0000,0750)', 68)]
+    Write-In: precinct lines with votes 2 of 2: [('201 - WHITE HALL (0000,0750)', 10), ('BUCKINGHAM COUNTY PROVISIONALS', 1)]
+
+====================================================================================================
+45.6 Each option's precinct lines against its locality line (recorded beside the gate)
+====================================================================================================
+  option lines whose precinct lines do not add up: 32 in 17 contests (D3: 17 contests); by locality: {'Orange County': 1, 'Culpeper County': 15, 'Accomack County': 1}
+    ('Sheriff (Orange County)', 'Orange County', 'Stephen M. LaLuna', 4147, 4145)
+    ('Sheriff (Orange County)', 'Orange County', 'Jason C. Smith', 8638, 8631)
+    ('Clerk of Court (Culpeper County)', 'Culpeper County', 'Carson W. Beard', 14188, 14138)
+    ('Clerk of Court (Culpeper County)', 'Culpeper County', 'Write-In', 142, 140)
+    ("Commonwealth's Attorney (Culpeper County)", 'Culpeper County', 'Russell L. "Russ" Rabb III', 13809, 13760)
+    ("Commonwealth's Attorney (Culpeper County)", 'Culpeper County', 'Write-In', 175, 174)
+  records carrying the note: 17
+
+### done c45
