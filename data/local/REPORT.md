@@ -2157,3 +2157,104 @@ They stay not computed. The refuting count is not kept as a test. All 65 contest
 - Connecticut and New York 2018: the record gives each governor candidate one party's line. Summing every line would move n (Connecticut +1.4%, New York about +3.9%), so p would move.
 - Indiana 2024's governor: the state's archive, which says Certified: T, gives Braun 1,566,081 and McCormick 1,183,741, against the record's 1,561,279 and 1,179,967 (−0.3%). Under 15:16 the certified count would win, which moves p.
 - (b) the unopposed comparator and (c) the Code of Virginia's offices without party come next, with Virginia's 2025 local contests, as the order of 00:55 set: they are not in this step.
+
+## 35. Governors at the state's count and every party line; the fusion scan; the district checks' third pass (spellings, the settle test by candidate, two counts against one, the over-seats test for every record, zero-row counties); DC's ballots
+
+*Added 2026-11-13 at 06:49 UTC.* The orchestrator's orders of 2026-11-13 04:44, 05:15 (on M2's §18), 05:26 (on the fusion scan's count) and 05:38 (M2's §18, #108). Moves: `moves-governor-counts.json` (D2's files, against b285fbe, whose data are main's at 72d1d60) and `moves-district-checks-3.json` (D3's records, against 0094391, the code alone, whose data are main's). Stamps aside.
+
+**Requests made** [measured: each file's `.meta.json` in the cache].
+- Connecticut's Secretary of the State: two requests to its Election History, the search of 2018's general governor contests (04:49:27), which names the contest, and the contest's page (electionhistory.ct.gov/contest/3781, 04:49:53).
+- Missouri's Secretary of State: the official returns of 2008, 2012 and 2016, one PDF each, 05:29:14 to 05:29:43 (05:26: "one each to ... Missouri (2008, 2012, 2016)").
+- West Virginia's Secretary of State: the statewide results page of the 2012 general, 05:30:03.
+- Utah's Lieutenant Governor: three requests, where the order gave one. The 2008 workbook's address was not known; the first page (historical-election-records-and-documents, 05:30:21) links to the second (vote/historical-election-results, 05:30:35), which links the workbook (2008Gen.xls, 05:30:42). Said here, and to the orchestrator.
+- None to New York (its State Board refused, 2026-11-07 18:49) or Maine (its Secretary of State refused; 05:26: "Maine 2010: no request").
+
+**The governors** (`pipeline/governor_counts.py`, then D2's refit: `d2_labels.py`, `chambers.py odd`, `backtest`, `compute` and `history`). The record's source for every one of these is Cha, Kuriwaki and Snyder (v4.1) unless it says otherwise.
+
+| Record | The count taken | Its mark | n before → after | p's move |
+|---|---|---|---|---|
+| Connecticut 2018 | The Secretary of the State's Election History: Lamont 694,510 (Democratic 676,649, Working Families 17,861), Stefanowski 650,138 (Republican 624,750, Independent 25,388), and Whitnum, a write-in, 74 added | the page lists "Statement of Vote 2018" under "Official Sources" | 1,301,398 → 1,344,647 | ×0.968 |
+| New York 2018 | Algara and Amlani's county returns, all 62 counties: Cuomo 3,635,340, Molinaro 2,207,602, each over every line | none (the State Board refused); the authors' figures equal Connecticut's lines summed [inferred that they are every line] | 5,350,900 → 5,842,941 | ×0.916 |
+| Indiana 2024 | The results archive: Braun 1,566,081, McCormick 1,183,741, Rainwater 129,781 and Stried, a write-in, 52 added | "Certified": "T" in the archive's settings | 2,741,245 → 2,749,821 | ×0.997 |
+| West Virginia 2012 | The Secretary of State's page: Tomblin 335,468, Maloney 303,291, Johnson 16,787, Moran 8,909; "Official Total Votes" 664,455 | headed "★★★ Official Results ★★★" | 570,336 → 638,758 | ×0.893 |
+| Utah 2008 | The Lieutenant Governor's workbook, its Governor sheet's Total row: Huntsman 734,049, Springmeyer 186,503, Schanze 24,820 and Doughton, a write-in, 153 added | none; it stands with Algara and Amlani's, equal to it for both nominees (05:15 (3), two witnesses) | 875,865 → 920,551 | ×0.951 |
+| Hawaii 2018 | n at the two leaders' votes less one, as D2's build sets it (the refit of §30 had left it at their sum) | | 376,653 → 376,652 | ×1.000003 |
+
+- Cha's figures were under the state's by 2.6% and 3.9% (Connecticut's two nominees, one line each), 5.8% and 12.7% (New York's), 0.3% (Indiana's), 9.6% to 11.4% (West Virginia's four) and 4.6% to 6.0% (Utah's three) [measured].
+- West Virginia's page also says its pages "should not be relied on as official results until certified", that "Results do not include write-in candidate information", and "Number of Precincts 1892 Number of Precincts Reporting 1846" [stated]. Its heading is the mark under 15:16; the three sentences are quoted in the record's source note, for the orchestrator to weigh. Algara and Amlani's county returns equal its two nominees to the vote [measured], so the count would stand on two witnesses too.
+- *Missouri 2008, 2012 and 2016*: the official returns ("Official Election Returns ... As announced by the Board of State Canvassers", 2008 and 2012; "OFFICIAL RESULTS", 2016) equal the records' two nominees to the vote [measured]. No count moves; each record gains a note. Algara and Amlani's rows are the short count, by 7% for the Democrat and 2% for the Republican. In 2016 the shortfall is exactly Kansas City's own rows in the state's file (Koster 98,336, Greitens 25,284) [measured]; the 2008 and 2012 files give no rows by county. `chambers.AA_INCOMPLETE`'s words, which said the same as an inference, now say it as measured, in the Missouri records that carry them (1980-2004's reason p is not computed, and 2008's missing last race; `governor_counts.mo_text`).
+- *Maine 2010: not held, for the orchestrator.* 05:26: "Hold it if either leader's gap is 5% or more and unsettled; Mitchell's 5.5% is." Algara and Amlani give Mitchell 109,087 against the record's 103,387 (+5.5%) and LePage 217,862 against 218,065 (−0.1%), and name no other candidate. The deciding pair is LePage and Cutler: Mitchell ran third. So by the rule's words neither leader's gap is 5% (LePage's is 0.1%, and Cutler has no second count), and the record's p is not computed in any case, since its top two are not a Democrat and a Republican. Maine 2014's last governor race is 2006's, so no p reads 2010's figures. The record gains a note giving both counts. If the orchestrator wants the hold as well, it changes no p. Maine 2018 (−0.6%) keeps its note.
+- *What follows through the fits* (`moves-governor-counts.json`, 1,156 records and 46 file blocks): each later race whose last governor race is one of these reads the new count (Connecticut and New York 2022, West Virginia 2016 ×1.003, Utah's 2010 special ×1.002); every governor fit, calibration and back-test after them moves a little (183 of the 188 governor p that move are within 1%); the House's and Senate's near-tie factors, which share the governors' back-test, move by 0.002% at most. The five beyond 1% are Connecticut, New York, West Virginia and Utah above, and Wyoming 2022 (×1.011).
+
+**The fusion scan** (04:44: "scan every record whose source gives one candidate several party lines, at every level (NY and CT first). Send me the count before building beyond the governors"; `pipeline/check_fusion.py`, `data/local/check-fusion.json`). Run again on the refitted records:
+- House and Senate (the FEC's tables, summed over every line by the intake and checked against the FEC's printed combined totals): 434 House and 42 Senate records with a candidate on several lines, all summed.
+- State legislatures and local contests (MEDSL's lines, `result.candidates[].lines`): 213 lower-chamber, 86 upper-chamber and 353 local records, each candidate's votes the sum of their lines; none fails. Klarner's returns: 6,659 contests with 8,810 candidates on several lines, summed by candidate id in the intake.
+- President: the FEC's tables give each nominee's votes over every line.
+- Governors: the only one-line counts were Connecticut's and New York's 2018 (fixed above). Set beside Algara and Amlani's county returns, 198 governors of 2006-2020 are compared; five still differ by more than 0.5%: Missouri's three (the authors' count is the short one, above) and Maine's 2010 and 2018 (above). West Virginia 2012 and Utah 2008 were the two others before.
+
+**The district checks' third pass** (`pipeline/local_districts.py`, `data/local/check-districts.json`).
+- *Spellings* (04:44: "Two spellings of one name: agreed for the next step. Sum the lines where their precincts are apart and the names share a surname and a given name, and list each pair. A name split by county is one candidate's count."). MEDSL's lines of one contest whose names share a surname and a given name or nickname are summed into one candidate's count where no precinct gives both lines votes; a row named as a total is not counted a precinct (`local_districts.merge_spellings`). Each pair is listed in `spellings`, by year, with its lines' votes, precincts and counties, and what was decided:
+  - 2016: 97 pairs. 86 are summed (Kansas 36, Indiana 33, Kentucky 6, New York 6, West Virginia 3, Arizona 1, Georgia 1). 9 are not, since a line has votes only on a row named as a total, and 2 are not, since a precinct gives both lines votes.
+  - 2018: 5 pairs, all summed (Vermont 4; Indiana 1, House 32's "TONY COOK" 11,330 and "ANTHONY J "TONY" COOK" 6,665).
+  - 2022: 5 pairs. One is summed (Vermont). Two are not, since a precinct gives both lines votes, and two are not, since a line is not found in MEDSL's raw file.
+  - New York 2016's Senate 58 now passes (Burke 52,486 against Klarner's 52,488), as §34 foresaw. Indiana 2016's House 55 is still off (ratio 0.909) and stays settled by the state.
+- *What the spellings move* (against #106's outcomes):
+  - 2016: 44 flags now pass. They are 24 kept before (Kansas 17, New York 5, Kentucky 2), 17 settled by the state (Indiana), 2 held (Indiana's House 75 and West Virginia's Senate 5, seat 1, whose p return) and 1 noted (Kentucky's House 36).
+  - Kentucky 2016's House 33 goes from held to noted (ratio 0.900 to 1.033), and its p returns.
+  - 2018: Indiana's House 32 passes. It was held, and its p returns.
+- *The settle test, candidate by candidate* (05:15 (2): "Rerun every settlement candidate by candidate"). A settlement now compares each candidate within 3%, not the totals. #106 made 42 settlements: 39 of Indiana 2016's and Utah 2016's three. Of these, 25 hold candidate by candidate and 17 now pass with no flag (above). None fails. House 38 was the one settled on totals. With Vannatter's second spelling summed it is no longer flagged, and the two-counts rule below applies to it.
+- *Indiana 2016's Senate 36* (05:15 (1)) is "settled by the state: MEDSL's count stands".
+  - MEDSL gives Gorman 18,384 and Sandlin 26,710 (its two spellings of Sandlin summed). The archive gives 18,375 and 26,696, within 0.1% of MEDSL's. Klarner gives Gorman 23,384.
+  - The record takes MEDSL's counts, with a note giving all three counts.
+  - n goes from 50,093 to 45,093, Sandlin's share from 53.3% to 59.2%, and p from 5.15e-05 to 5.72e-05 (×1.111).
+- *Two counts against one* (05:15 (3)). Six records of Indiana 2016 fall under this rule: Klarner's and MEDSL's counts agree within 0.4% for every candidate, and the archive, which bears no mark, differs by more than 0.4% for at least one. They are listed in `two_against_state`, and each record has `state_differs` and a note giving the archive's figures. Klarner's count stands in each.
+  - House 38: the archive gives Vannatter 16,700 and Burns 8,225, against Klarner's 18,623 and 6,303 (MEDSL's 18,624 and 6,303). It keeps its p, and its reason is now this rule.
+  - House 39: the archive gives Torr 22,362, against 23,591 (−5.2%). The record gains the note.
+  - House 75: the archive gives Bacon 19,765, against 21,146 (−6.5%). The record was held, and no other test holds it, so its p returns (9.59e-06).
+  - House 4, 25 and 77 are new to the rule. The archive is under by 0.43% to 1.36% for one candidate: Soliday −0.43%, Fuller −0.49% and Hatfield −1.36%. Before, House 25 was settled by the state within 3%, and House 4 and 77 passed. Each gains the note and nothing else. Taking "differs" as more than 0.4%, the agreement's own line, is my reading.
+- *The over-seats test for every record* (05:15 (4)).
+  - *The ballots first.* They are summed over the district's own precincts, those with the district's rows in MEDSL's file, not over the county's [measured]. Grand Isle's district is Colchester's two precincts and four of Grand Isle County's five towns (Alburgh's Senate rows are Franklin's), with 9,676 ballots. Windham's is 24 of the county's precincts (Wilmington's rows are Bennington's), with 17,450 ballots.
+  - Klarner's counts are still over: 1.437 and 1.424 times their seats times the ballots. MEDSL's are within (0.853 and 0.833), every candidate is paired and no other name is on the ballot. So both are treated as Rutland, and MEDSL's counts are taken.
+    - Grand Isle: Mazza is unopposed, with 8,253 votes (Klarner's 13,903), so p is 0. The record was held.
+    - Windham: Balint 11,464, White 10,644 and four more, p 1.17e-04. The record was held.
+  - *Where it runs.* The test runs on every tested record in a district that MEDSL's file covers and no other district shares: 2,882 in 2016, 4,219 in 2018 and 3,907 in 2022. Over 1.10, it flags four records, all in 2018: Rutland, Grand Isle and Windham (MEDSL taken), and Indiana's Senate 47 (below). No record that passed before is over.
+  - *Indiana 2018, found and held* [measured].
+    - The figures: Senate 47's count is 1.23 times the US Senate's ballots in MEDSL's 113 precincts of the district, and MEDSL's own count 0.99 times. As first built, the test would have taken MEDSL's counts.
+    - What the file lacks: MEDSL's 2018 Indiana file gives Washington County (18175) 63 rows, all of them a "BALLOTS CAST" line (9,541 in its 21 precincts), and no contest's row. Klarner's count is over MEDSL's by 9,363 for the district (Siler 16,064 against 13,276; Houchin 31,853 against 25,278), within Washington's ballots. MEDSL's US House total for Indiana 2018 is 0.7% short of D2's (2,240,431 against 2,256,149; `check-volume.json`).
+    - Why the test cannot read it: a county missing from the file is missing from the ballots too, so the test cannot tell a missing county from an inflated count. Before 2022's lines, a district's counties are MEDSL's rows alone, so nothing shows that a district does not take in Washington.
+    - The rule: where the file has a county with no contest's votes and no Census list gives the district's counties, the test is not read. This touches Indiana 2018's 101 records (`over_seats.not_read`). Senate 47 stays held under 19:04, as in #106, and nothing else moves [my reading; for the orchestrator].
+- *Zero-row counties* (05:38 (1): "a county whose rows are all zero is missing, not covered"). Such a county is a gap of the district's coverage (`zero`), with the share of the district's blocks where the Census gives it.
+  - Indiana 2022: House 23 (Cass, 56% of its blocks) and House 66 (Scott, 24%) are now "kept: MEDSL does not cover the district", where both were held. Their p return on Klarner's counts: House 23 is Manning's, unopposed, so p is 0; House 66 is 2.51e-05.
+  - Six records kept before now name the zero county too: House 38 (Cass, 6%), 45 (Daviess, 7%), 63 (Daviess, 43%) and 69 (Scott, 14%), and Senate 39 (Daviess, 22%) and 43 (Scott, 17%).
+  - Monroe County (18105) is zero in the 2022 file as well. The one flagged record there, House 60, was kept already: Monroe holds 6% of its blocks and has no rows of the district.
+  - Kentucky 2016: MEDSL's file has Jefferson County (21111) at 0 votes in every row [measured]. House 28 (MEDSL 349, against Klarner's 16,807) moves from held to kept, and its p returns (2.98e-05).
+
+**DC 2018's ballots** (04:44: "Divide by the seats read and read DC in the test"; 05:38 (2): "Use the Board's figure, with its source named").
+- The volume test's part 4 reads a contest whose seats are read (`local_medsl.SEATS_READ`: the at-large Council, two seats) per seat. The precincts' bound for DC's citywide contests is now 231,700, where it was 462,964; the wards' are halved likewise (Ward 1's 61,188 to 30,636).
+- The citywide contests take the Board's "Ballots Cast", 231,700, with its source named (`ballots_cast_source`), the precincts' bound beside it (`ballots_cast_rows`). The two agree to the vote [measured]. No verdict moves: DC is one county, and the over-ballot test reads only states of more than one.
+
+**Moves** (`moves-district-checks-3.json`, against 0094391: 15,669 rows).
+- 14,525 p move. Of these, 14,323 move by under 0.1% and 188 by under 1%.
+- 13 move by 1% to 2.4%: Indiana's 2018 Senate districts (9) and 2020 House districts (3), which follow their chamber's 2016 lean (×0.976 to ×1.019), and West Virginia 2018's Senate 4, seat 2 (×1.019).
+- One moves by more: Indiana 2016's Senate 36 (×1.111).
+- 9 records gain a p:
+  - Indiana 2016's House 75;
+  - Kentucky 2016's House 28 and 33;
+  - West Virginia 2016's Senate 5, seat 1;
+  - Indiana 2018's House 32;
+  - Vermont 2018's Grand Isle and Windham;
+  - Indiana 2022's House 23 and 66.
+- No record loses its p.
+- Two held records' reasons change: New York 2018's Comptroller and Attorney General. Their reason now gives MEDSL's precincts as 84.53% of the record's count for governor, which is each nominee's every line; it said 95.97% of the one-line count before.
+- 71 records' notes change: the spellings', two counts', zero counties' and over-seats notes. 1,070 records change only in their p block.
+
+**For the orchestrator.**
+1. *Maine 2010 is not held*, as set out above: Mitchell ran third, and the record's p is not computed. Say if the hold is wanted anyway; it moves no p.
+2. *Requests beyond one*: Utah took three, to reach the workbook, and Connecticut two (its search page and the contest's), in the 04:44 step.
+3. *West Virginia 2012* is taken by its heading, "Official Results". The same page says it "should not be relied on as official results until certified", and that 1,846 of 1,892 precincts are reporting. Algara and Amlani's county returns equal it to the vote, so it would stand on two witnesses as well.
+4. *Indiana 2018's Washington County* has no contest's rows in MEDSL's file. The over-seats test is not read for Indiana 2018 (101 records), and Senate 47 stays held. Two ways to settle it:
+   - one request to Indiana's 2018 results archive, as was made for 2016, would settle Senate 47 and any district in Washington;
+   - the Census's block files for the 2011 lines would give each district's counties, as the 2022 files do.
+5. *Two counts against one*: "differs" is read as more than 0.4%. That brings in House 4, 25 and 77, which gain a note and nothing else.
+6. *The spellings* move 44 flags of 2016 to pass, 24 of them kept before.
+7. *Next*, in their own PR: (b), the unopposed comparator; (c), the Code of Virginia's offices put on the ballot without party; and Virginia 2025's local contests (the order of 00:55; 04:44: "(b) and (c) with 2025 local stand as ordered").

@@ -1,0 +1,256 @@
+{
+ "about": "the fusion scan (pipeline/check_fusion.py; the orchestrator, 2026-11-13 04:44): by level and source, the records with a candidate on several party lines, how many count the candidate over every line (summed) and which count one line (one_line); then a second count of every governor 2006-2020 that Algara and Amlani also hold, since a source that prints one line names one party and is found only by a second count (CT and NY 2018, now every line by pipeline/governor_counts.py)",
+ "levels": {
+  "house": {
+   "FEC": {
+    "records": 434,
+    "summed": 434,
+    "one_line": [],
+    "by_state": {
+     "NY": 262,
+     "CT": 42,
+     "OR": 31,
+     "AZ": 20,
+     "CA": 12,
+     "SC": 11,
+     "PA": 9,
+     "MI": 7,
+     "OH": 6,
+     "MD": 6,
+     "WI": 5,
+     "TN": 4,
+     "IL": 3,
+     "VT": 3,
+     "MN": 2,
+     "RI": 2,
+     "ID": 2,
+     "NJ": 2,
+     "IA": 1,
+     "WV": 1,
+     "KS": 1,
+     "NH": 1,
+     "AK": 1
+    }
+   }
+  },
+  "senate": {
+   "FEC": {
+    "records": 42,
+    "summed": 42,
+    "one_line": [],
+    "by_state": {
+     "NY": 8,
+     "CT": 7,
+     "OR": 5,
+     "TN": 3,
+     "VT": 3,
+     "AZ": 3,
+     "AK": 2,
+     "MD": 2,
+     "SC": 2,
+     "CA": 1,
+     "DE": 1,
+     "RI": 1,
+     "ID": 1,
+     "NV": 1,
+     "WI": 1,
+     "MI": 1
+    }
+   }
+  },
+  "governor": {
+   "Cha, Kuriwaki and Snyder (party_formal names the lines, votes summed)": {
+    "records": 4,
+    "summed": 4,
+    "one_line": [],
+    "by_state": {
+     "NY": 3,
+     "CT": 1
+    }
+   },
+   "the state's count by line (pipeline/governor_counts.py)": {
+    "records": 1,
+    "summed": 1,
+    "one_line": [],
+    "by_state": {
+     "CT": 1
+    }
+   }
+  },
+  "state-lower": {
+   "MEDSL": {
+    "records": 213,
+    "summed": 213,
+    "one_line": [],
+    "by_state": {
+     "NY": 122,
+     "CT": 85,
+     "OR": 4,
+     "AR": 1,
+     "TX": 1
+    }
+   }
+  },
+  "state-upper": {
+   "MEDSL": {
+    "records": 86,
+    "summed": 86,
+    "one_line": [],
+    "by_state": {
+     "NY": 54,
+     "CT": 27,
+     "OR": 3,
+     "AZ": 1,
+     "UT": 1
+    }
+   }
+  },
+  "local": {
+   "MEDSL": {
+    "records": 353,
+    "summed": 353,
+    "one_line": [],
+    "by_state": {
+     "NY": 303,
+     "CT": 24,
+     "SC": 8,
+     "AR": 6,
+     "OR": 5,
+     "MS": 2,
+     "KY": 1,
+     "ID": 1,
+     "MI": 1,
+     "FL": 1,
+     "UT": 1
+    }
+   }
+  }
+ },
+ "klarner": {
+  "source": "Klarner's state legislative returns (pipeline/intake/klarner_state_legislative.py)",
+  "how": "one row a candidate and line in the source; the intake adds a candidate's rows by candidate id (a['votes'] += v) and keeps the lines' names in lines, so every record built from them counts every line",
+  "contests": 6659,
+  "candidates": 8810,
+  "by_state": {
+   "NY": 5180,
+   "CT": 1216,
+   "NH": 151,
+   "SC": 55,
+   "GA": 18,
+   "DE": 11,
+   "TN": 9,
+   "OR": 5,
+   "RI": 4,
+   "AL": 3,
+   "ME": 2,
+   "ND": 2,
+   "IL": 1,
+   "VT": 1,
+   "AR": 1
+  }
+ },
+ "president": "the FEC's tables give each nominee's votes over every line (pipeline/intake/fec_federal_elections.py: 'summed over the party lines they ran on'); the 2024 check of MEDSL's precincts against them (local_medsl.quality) is within 0.01% in NY and exact in CT",
+ "lines_not_summing": [],
+ "governor_second_count": {
+  "compared": 198,
+  "line": 0.005,
+  "rule": "the record's two nominees against Algara and Amlani's county returns summed; listed where either differs by more than the line",
+  "listed": [
+   {
+    "id": "2016-governor-MO",
+    "source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:10.7910/DVN/DGDRDT, v4.1, released 2026-02-15T14:24:27Z",
+    "nominees": [
+     {
+      "party": "D",
+      "record": 1277360,
+      "algara_amlani": 1179024,
+      "off": -0.07698
+     },
+     {
+      "party": "R",
+      "record": 1433397,
+      "algara_amlani": 1408113,
+      "off": -0.01764
+     }
+    ],
+    "algara_amlani_counties_missing": 0
+   },
+   {
+    "id": "2012-governor-MO",
+    "source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:10.7910/DVN/DGDRDT, v4.1, released 2026-02-15T14:24:27Z",
+    "nominees": [
+     {
+      "party": "D",
+      "record": 1494056,
+      "algara_amlani": 1386582,
+      "off": -0.07193
+     },
+     {
+      "party": "R",
+      "record": 1160265,
+      "algara_amlani": 1136459,
+      "off": -0.02052
+     }
+    ],
+    "algara_amlani_counties_missing": 0
+   },
+   {
+    "id": "2008-governor-MO",
+    "source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:10.7910/DVN/DGDRDT, v4.1, released 2026-02-15T14:24:27Z",
+    "nominees": [
+     {
+      "party": "D",
+      "record": 1680611,
+      "algara_amlani": 1560588,
+      "off": -0.07142
+     },
+     {
+      "party": "R",
+      "record": 1136364,
+      "algara_amlani": 1110048,
+      "off": -0.02316
+     }
+    ],
+    "algara_amlani_counties_missing": 0
+   },
+   {
+    "id": "2010-governor-ME",
+    "source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:10.7910/DVN/DGDRDT, v4.1, released 2026-02-15T14:24:27Z",
+    "nominees": [
+     {
+      "party": "D",
+      "record": 103387,
+      "algara_amlani": 109087,
+      "off": 0.05513
+     },
+     {
+      "party": "R",
+      "record": 218065,
+      "algara_amlani": 217862,
+      "off": -0.00093
+     }
+    ],
+    "algara_amlani_counties_missing": 0
+   },
+   {
+    "id": "2018-governor-ME",
+    "source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:10.7910/DVN/DGDRDT, v4.1, released 2026-02-15T14:24:27Z",
+    "nominees": [
+     {
+      "party": "D",
+      "record": 320962,
+      "algara_amlani": 318984,
+      "off": -0.00616
+     },
+     {
+      "party": "R",
+      "record": 272311,
+      "algara_amlani": 272034,
+      "off": -0.00102
+     }
+    ],
+    "algara_amlani_counties_missing": 0
+   }
+  ]
+ }
+}

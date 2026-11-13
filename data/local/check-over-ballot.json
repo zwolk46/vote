@@ -508,6 +508,28 @@
   },
   {
    "against": "ballots cast",
+   "district": "STATEWIDE",
+   "figure": 231700,
+   "of": "the ballots cast in its precincts as MEDSL's file gives them",
+   "office": "ATTORNEY GENERAL",
+   "ratio": 0.9651,
+   "state": "DC",
+   "verdict": "passes",
+   "votes": 223625
+  },
+  {
+   "against": "ballots cast",
+   "district": "STATEWIDE",
+   "figure": 231700,
+   "of": "the ballots cast in its precincts as MEDSL's file gives them",
+   "office": "CHAIRMAN OF THE DC COUNCIL",
+   "ratio": 0.9619,
+   "state": "DC",
+   "verdict": "passes",
+   "votes": 222863
+  },
+  {
+   "against": "ballots cast",
    "district": "AT-LARGE",
    "figure": 231700,
    "of": "the ballots cast in its precincts as MEDSL's file gives them",
@@ -518,6 +540,17 @@
    "state": "DC",
    "verdict": "listed: a contest of 2 seats (SEATS_READ), explained by its seats",
    "votes": 342188
+  },
+  {
+   "against": "ballots cast",
+   "district": "STATEWIDE",
+   "figure": 231700,
+   "of": "the ballots cast in its precincts as MEDSL's file gives them",
+   "office": "MAYOR",
+   "ratio": 0.9696,
+   "state": "DC",
+   "verdict": "passes",
+   "votes": 224658
   },
   {
    "against": "top",
@@ -3954,6 +3987,17 @@
    "state": "CO",
    "verdict": "passes",
    "votes": 2930776
+  },
+  {
+   "against": "ballots cast",
+   "district": "STATEWIDE",
+   "figure": 328427,
+   "of": "the ballots cast in its precincts as MEDSL's file gives them",
+   "office": "AT-LARGE MEMBER OF THE STATE BOARD OF EDUCATION",
+   "ratio": 0.7176,
+   "state": "DC",
+   "verdict": "passes",
+   "votes": 235683
   },
   {
    "against": "top",
