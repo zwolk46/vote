@@ -451,9 +451,12 @@ def district_checks(contests):
                 DISTRICTS_COUNT[f"{year}: {o}"] += 1
                 continue
             c = by.get(fl["id"])
-            # the candidates the check pairs: a write-in under the strong line is not among them (LD._named)
-            named = LD._named(c) if c else []
-            if c is None or [[a["name"], a["votes"]] for a in named] != [p_[:2] for p_ in fl["pairs"]]:
+            # the candidates the check pairs (LD.pair): every one of LD._named, and a write-in under the strong line
+            # only where MEDSL's file names it
+            paired = {p_[0] for p_ in fl["pairs"]}
+            named = [a for a in c["cands"] if not a["scattering"] and a["name"] in paired] if c else []
+            if c is None or [[a["name"], a["votes"]] for a in named] != [p_[:2] for p_ in fl["pairs"]] or \
+                    not {id(a) for a in LD._named(c)} <= {id(a) for a in named}:
                 raise SystemExit(f"district_checks: {fl['id']} is not the contest the check read: run "
                                  f"pipeline/local_districts.py check again")
             n, s_ = len(named), "" if len(named) == 1 else "s"
