@@ -1,0 +1,8012 @@
+{
+"against": "510b089",
+"about": "Every record the second pass of the district checks moved (data/local/REPORT.md section 34: the matcher fix and the newly tested records, Michigan 2022, the states' and a county's results, Vermont 2018, DC 2018's at-large seats, Virginia's notes, D2's governor totals): the working tree after the rebuild against the branch before it (the commit named in 'against', the code alone; its data are main's at 78a82f2), stamps aside. Listed one by one: every record whose p was lost, gained or retyped, whose reason or note changed, or whose p moved by more than 1%. The records whose p moved by 1% or less, and nothing else but their forecasts, are counted by level and year in p_moved_within_1pct: the fits and the chambers' leans gain the districts whose p returns, so every p fitted on them moves a little. D2's governor and House records are not in this list: their p did not move (data/congress/check-totals.json lists them).",
+"summary": {
+"local B: p unchanged, its block changed": 124,
+"local O: other fields: forecasts": 4,
+"local P: p moved": 1701,
+"local Q: a note's words changed": 68,
+"local R: not computed before or after, the reason changed": 2,
+"state-lower B: p unchanged, its block changed": 146,
+"state-lower N: new p": 26,
+"state-lower O: other fields: forecasts": 2,
+"state-lower P: p moved": 11767,
+"state-lower Q: a note's words changed": 55,
+"state-lower R: not computed before or after, the reason changed": 1,
+"state-upper B: p unchanged, its block changed": 77,
+"state-upper L: p no longer computed": 1,
+"state-upper N: new p": 14,
+"state-upper P: p moved": 3271,
+"state-upper Q: a note's words changed": 33
+},
+"columns": [
+"id",
+"file",
+"title or office",
+"type before",
+"type after",
+"p before",
+"p after",
+"ratio",
+"codes"
+],
+"codes": {
+"A": "a new record",
+"G": "a record no longer written (joined into another, or replaced)",
+"I": "id changed",
+"T": "typed anew",
+"P": "p moved",
+"B": "p unchanged, its block changed",
+"N": "new p",
+"L": "p no longer computed",
+"R": "not computed before or after, the reason changed",
+"Q": "a note changed",
+"O": "other fields"
+},
+"p_moved_within_1pct": {
+"local": {
+"2020": {
+"records": 726,
+"ratio_min": 0.9999,
+"ratio_max": 1.0
+},
+"2024": {
+"records": 975,
+"ratio_min": 0.9983,
+"ratio_max": 1.0002
+}
+},
+"state-lower": {
+"2017": {
+"records": 67,
+"ratio_min": 0.9989,
+"ratio_max": 1.0002
+},
+"2018": {
+"records": 2845,
+"ratio_min": 0.9906,
+"ratio_max": 1.0089
+},
+"2019": {
+"records": 137,
+"ratio_min": 0.999,
+"ratio_max": 1.0006
+},
+"2020": {
+"records": 2839,
+"ratio_min": 0.9956,
+"ratio_max": 1.0012
+},
+"2021": {
+"records": 129,
+"ratio_min": 0.9989,
+"ratio_max": 1.0005
+},
+"2022": {
+"records": 2689,
+"ratio_min": 0.9969,
+"ratio_max": 1.0004
+},
+"2023": {
+"records": 100,
+"ratio_min": 0.9995,
+"ratio_max": 1.0002
+},
+"2024": {
+"records": 2755,
+"ratio_min": 0.9944,
+"ratio_max": 1.0083
+},
+"2025": {
+"records": 121,
+"ratio_min": 0.999,
+"ratio_max": 1.0002
+}
+},
+"state-upper": {
+"2017": {
+"records": 38,
+"ratio_min": 0.9984,
+"ratio_max": 1.0001
+},
+"2018": {
+"records": 794,
+"ratio_min": 0.9974,
+"ratio_max": 1.0006
+},
+"2019": {
+"records": 46,
+"ratio_min": 0.9985,
+"ratio_max": 1.0004
+},
+"2020": {
+"records": 806,
+"ratio_min": 0.998,
+"ratio_max": 1.0013
+},
+"2021": {
+"records": 38,
+"ratio_min": 0.9996,
+"ratio_max": 1.0008
+},
+"2022": {
+"records": 768,
+"ratio_min": 0.9986,
+"ratio_max": 1.0002
+},
+"2023": {
+"records": 74,
+"ratio_min": 0.9995,
+"ratio_max": 1.0002
+},
+"2024": {
+"records": 684,
+"ratio_min": 0.9967,
+"ratio_max": 1.0006
+}
+}
+},
+"records": [
+[
+"2018-local-DC-DC_COUNCILMEMBER-AT_LARGE",
+"data/local/2018/DC.json",
+"Dc Councilmember",
+"council, commission or board",
+"council, commission or board",
+"a race between a Democrat and a Republican: the model's forecast for these reads the place's lean from the US House vote by county at the previous general (2016), which the sources taken in do not hold",
+"two seats, of which the majority party may hold only one (the orchestrator, 2026-11-13 00:17), so it is not a plain race for the top two and no route of the method fits: p is not computed",
+null,
+[
+"R",
+"Q"
+]
+],
+[
+"2020-local-AL-COUNTY_BOARD_OF_EDUCATION_MEMBER-county_01113",
+"data/local/2020/AL.json",
+"County Board Of Education Member",
+"school board",
+"school board",
+0.000158132,
+0.000158132,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-COUNTY_COMMISSION_MEMBER-002_county_01035",
+"data/local/2020/AL.json",
+"County Commission Member",
+"council, commission or board",
+"council, commission or board",
+0.00132771,
+0.00132771,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-COUNTY_COMMISSION_MEMBER-002_county_01113",
+"data/local/2020/AL.json",
+"County Commission Member",
+"council, commission or board",
+"council, commission or board",
+0.000699017,
+0.000699017,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-COUNTY_COMMISSION_MEMBER-003_county_01113",
+"data/local/2020/AL.json",
+"County Commission Member",
+"council, commission or board",
+"council, commission or board",
+0.000589961,
+0.000589961,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-COUNTY_COMMISSION_MEMBER-005_county_01113",
+"data/local/2020/AL.json",
+"County Commission Member",
+"council, commission or board",
+"council, commission or board",
+0.000417313,
+0.000417313,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-COUNTY_COMMISSION_MEMBER-006_county_01113",
+"data/local/2020/AL.json",
+"County Commission Member",
+"council, commission or board",
+"council, commission or board",
+0.000533561,
+0.000533561,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-COUNTY_COMMISSION_MEMBER-007_county_01113",
+"data/local/2020/AL.json",
+"County Commission Member",
+"council, commission or board",
+"council, commission or board",
+0.000469823,
+0.000469823,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-COUNTY_CONSTABLE-045_county_01073",
+"data/local/2020/AL.json",
+"County Constable",
+"sheriff or constable",
+"sheriff or constable",
+0.000141476,
+0.000141476,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-DEPUTY_TREASURER_BESSEMER_DIVISION-county_01073",
+"data/local/2020/AL.json",
+"Deputy Treasurer Bessemer Division",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+2.06894e-05,
+2.06894e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-LICENSE_COMMISSIONER-county_01025",
+"data/local/2020/AL.json",
+"License Commissioner",
+"council, commission or board",
+"council, commission or board",
+0.000118968,
+0.000118968,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-AL-REVENUE_COMMISSIONER-county_01113",
+"data/local/2020/AL.json",
+"Revenue Commissioner",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+8.22848e-05,
+8.22848e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CO-DISTRICT_ATTORNEY-018_county_08005",
+"data/local/2020/CO.json",
+"District Attorney",
+"prosecutor",
+"prosecutor",
+3.00663e-06,
+3.00663e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09003",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000102329,
+0.000102329,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09003~3",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000136386,
+0.000136386,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09001~6",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000155231,
+0.000155231,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09005~4",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.00171082,
+0.00171082,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09015~5",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.00175565,
+0.00175565,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09001~11",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000159048,
+0.000159048,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09003~9",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000102303,
+0.000102303,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09005~6",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000343166,
+0.000343166,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09001~12",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000204168,
+0.000204168,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09001~13",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000138565,
+0.000138565,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09013~8",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000108954,
+0.000108954,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09003~15",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000106725,
+0.000106725,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09005~11",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.00116757,
+0.00116757,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09013~10",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.00018253,
+0.00018253,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09005~15",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.00189452,
+0.00189452,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09011~15",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000182459,
+0.000182459,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09005~17",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000144457,
+0.000144457,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09003~20",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.00013152,
+0.00013152,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-CT-REGISTRAR_OF_VOTERS-county_09001~18",
+"data/local/2020/CT.json",
+"Registrar Of Voters",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000146769,
+0.000146769,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-CLERK_OF_THE_CIRCUIT_COURT_AND_COMPTROLLER-county_12111",
+"data/local/2020/FL.json",
+"Clerk Of The Circuit Court And Comptroller",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+1.0416e-05,
+1.0416e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-001_county_12117",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+6.90254e-06,
+6.90254e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-001_county_12001",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.17793e-05,
+1.17793e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-001_county_12103",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+3.17701e-06,
+3.17701e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-001_county_12111",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.04407e-05,
+1.04407e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-003_county_12117",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+6.91178e-06,
+6.91178e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-003_county_12001",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.17669e-05,
+1.17669e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-003_county_12103",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+3.17761e-06,
+3.17761e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-003_county_12111",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.04651e-05,
+1.04651e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-003_county_12057",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.40836e-05,
+1.40836e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-005_county_12117",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+7.24576e-06,
+7.24576e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-005_county_12111",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.0487e-05,
+1.0487e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-COUNTY_COMMISSIONER-006_county_12057",
+"data/local/2020/FL.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+2.51663e-06,
+2.51663e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-SHERIFF-county_12117",
+"data/local/2020/FL.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+6.78254e-06,
+6.78254e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-SHERIFF-county_12057",
+"data/local/2020/FL.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+2.73188e-06,
+2.73188e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-SHERIFF-county_12103",
+"data/local/2020/FL.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+3.12049e-06,
+3.12049e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-SHERIFF-county_12111",
+"data/local/2020/FL.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+1.02401e-05,
+1.02401e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-SUPERINTENDENT_OF_SCHOOLS-county_12065",
+"data/local/2020/FL.json",
+"Superintendent Of Schools",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000255844,
+0.000255844,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-SUPERVISOR_OF_ELECTIONS-county_12117",
+"data/local/2020/FL.json",
+"Supervisor Of Elections",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+6.84119e-06,
+6.84119e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-SUPERVISOR_OF_ELECTIONS-county_12103",
+"data/local/2020/FL.json",
+"Supervisor Of Elections",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+3.15394e-06,
+3.15394e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-TAX_COLLECTOR-county_12103",
+"data/local/2020/FL.json",
+"Tax Collector",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+3.14886e-06,
+3.14886e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-FL-TAX_COLLECTOR-county_12057",
+"data/local/2020/FL.json",
+"Tax Collector",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+2.50162e-06,
+2.50162e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-MD-COUNTY_COUNCIL-002_county_24045",
+"data/local/2020/MD.json",
+"County Council",
+"council, commission or board",
+"council, commission or board",
+0.000154093,
+0.000154093,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-ME-COUNTY_COMMISSIONER-003_county_23023",
+"data/local/2020/ME.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+0.000209687,
+0.000209687,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-MT-COUNTY_CLERK_OF_THE_DISTRICT_COURT_PUBLIC_ADMINISTRATOR-county_30031",
+"data/local/2020/MT.json",
+"County Clerk Of The District Court/Public Administrator",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+2.50124e-05,
+2.50124e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-MT-COUNTY_COMMISSIONER-001_county_30041",
+"data/local/2020/MT.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+0.000253246,
+0.000253246,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-MT-PUBLIC_SERVICE_COMMISSIONER-003_county_30001",
+"data/local/2020/MT.json",
+"Public Service Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.23827e-05,
+1.23827e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-MT-PUBLIC_SERVICE_COMMISSIONER-004_county_30039",
+"data/local/2020/MT.json",
+"Public Service Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.38581e-05,
+1.38581e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-NEW_HANOVER_COUNTY_REGISTER_OF_DEEDS-county_37129",
+"data/local/2020/NC.json",
+"New Hanover County Register Of Deeds",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+1.43857e-05,
+1.43857e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-CITY_OF_WINSTON_SALEM_MAYOR-county_37067",
+"data/local/2020/NC.json",
+"City Of Winston-Salem Mayor",
+"mayor or executive",
+"mayor or executive",
+1.42578e-05,
+1.42578e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-BUNCOMBE_COUNTY_BOARD_OF_COMMISSIONERS_CHAIRMAN-county_37021",
+"data/local/2020/NC.json",
+"Buncombe County Board Of Commissioners Chairman",
+"council, commission or board",
+"council, commission or board",
+1.02696e-05,
+1.02696e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-NC_DISTRICT_COURT_JUDGE_DISTRICT_09_SEAT_04",
+"data/local/2020/NC.json",
+"Nc District Court Judge District 09 Seat 04",
+"judge",
+"judge",
+1.74029e-05,
+1.74029e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-NC_DISTRICT_COURT_JUDGE_DISTRICT_07_SEAT_03",
+"data/local/2020/NC.json",
+"Nc District Court Judge District 07 Seat 03",
+"judge",
+"judge",
+1.47713e-05,
+1.47713e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-NC_DISTRICT_COURT_JUDGE_DISTRICT_07_SEAT_04",
+"data/local/2020/NC.json",
+"Nc District Court Judge District 07 Seat 04",
+"judge",
+"judge",
+1.47538e-05,
+1.47538e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-MECKLENBURG_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_05-county_37119",
+"data/local/2020/NC.json",
+"Mecklenburg County Board Of Commissioners District 05",
+"council, commission or board",
+"council, commission or board",
+1.51734e-05,
+1.51734e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-SCOTLAND_COUNTY_BOARD_OF_COMMISSIONERS_AT_LARGE-county_37165",
+"data/local/2020/NC.json",
+"Scotland County Board Of Commissioners At-Large",
+"council, commission or board",
+"council, commission or board",
+0.000119292,
+0.000119292,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-NASH_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_04-county_37127",
+"data/local/2020/NC.json",
+"Nash County Board Of Commissioners District 04",
+"council, commission or board",
+"council, commission or board",
+0.000225122,
+0.000225122,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-ROBESON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_07-county_37155",
+"data/local/2020/NC.json",
+"Robeson County Board Of Commissioners District 07",
+"council, commission or board",
+"council, commission or board",
+0.000270497,
+0.000270497,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NC-WASHINGTON_COUNTY_BOARD_OF_COMMISSIONERS_DISTRICT_01-county_37187",
+"data/local/2020/NC.json",
+"Washington County Board Of Commissioners District 01",
+"council, commission or board",
+"council, commission or board",
+0.00107457,
+0.00107457,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_ATTORNEY-county_33013",
+"data/local/2020/NH.json",
+"County Attorney",
+"prosecutor",
+"prosecutor",
+2.03429e-05,
+2.03429e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_ATTORNEY-county_33015",
+"data/local/2020/NH.json",
+"County Attorney",
+"prosecutor",
+"prosecutor",
+9.47836e-06,
+9.47836e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_COMMISIONER-001_county_33019",
+"data/local/2020/NH.json",
+"County Commisioner",
+"council, commission or board",
+"council, commission or board",
+7.59839e-05,
+7.59839e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_COMMISIONER-001_county_33011",
+"data/local/2020/NH.json",
+"County Commisioner",
+"council, commission or board",
+"council, commission or board",
+2.65257e-05,
+2.65257e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_COMMISIONER-001_county_33015",
+"data/local/2020/NH.json",
+"County Commisioner",
+"council, commission or board",
+"council, commission or board",
+2.73449e-05,
+2.73449e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_COMMISIONER-002_county_33011",
+"data/local/2020/NH.json",
+"County Commisioner",
+"council, commission or board",
+"council, commission or board",
+2.55173e-05,
+2.55173e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_COMMISIONER-003_county_33015",
+"data/local/2020/NH.json",
+"County Commisioner",
+"council, commission or board",
+"council, commission or board",
+3.01544e-05,
+3.01544e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_REGISTER_OF_DEEDS-county_33007",
+"data/local/2020/NH.json",
+"County Register Of Deeds",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000111393,
+0.000111393,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_REGISTER_OF_PROBATE-county_33015",
+"data/local/2020/NH.json",
+"County Register Of Probate",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+9.6584e-06,
+9.6584e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_SHERIFF-county_33013",
+"data/local/2020/NH.json",
+"County Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+2.01409e-05,
+2.01409e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_SHERIFF-county_33015",
+"data/local/2020/NH.json",
+"County Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+9.40717e-06,
+9.40717e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NH-COUNTY_TREASURER-county_33013",
+"data/local/2020/NH.json",
+"County Treasurer",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+2.05664e-05,
+2.05664e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NV-COUNTY_COMMISSIONER-A_county_32003",
+"data/local/2020/NV.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.12101e-05,
+1.12101e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NV-COUNTY_COMMISSIONER-B_county_32003",
+"data/local/2020/NV.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.20664e-05,
+1.20664e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-NV-COUNTY_COMMISSIONER-C_county_32003",
+"data/local/2020/NV.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+1.08749e-05,
+1.08749e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_COMMISSIONER__TERM_COMMENCING_01_02_2021-county_39099",
+"data/local/2020/OH.json",
+"County Commissioner: Term Commencing 01/02/2021",
+"council, commission or board",
+"council, commission or board",
+1.47715e-05,
+1.47715e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_COMMISSIONER__TERM_COMMENCING_01_03_2021-county_39155",
+"data/local/2020/OH.json",
+"County Commissioner: Term Commencing 01/03/2021",
+"council, commission or board",
+"council, commission or board",
+1.76473e-05,
+1.76473e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_CORONER-county_39155",
+"data/local/2020/OH.json",
+"County Coroner",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+1.80135e-05,
+1.80135e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_CORONER-county_39099",
+"data/local/2020/OH.json",
+"County Coroner",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+1.51047e-05,
+1.51047e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_RECORDER-county_39093",
+"data/local/2020/OH.json",
+"County Recorder",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+1.14049e-05,
+1.14049e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_RECORDER-county_39133",
+"data/local/2020/OH.json",
+"County Recorder",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+2.22951e-05,
+2.22951e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_RECORDER-county_39099",
+"data/local/2020/OH.json",
+"County Recorder",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+1.52769e-05,
+1.52769e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_SHERIFF-county_39133",
+"data/local/2020/OH.json",
+"County Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+2.1879e-05,
+2.1879e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-COUNTY_TREASURER-county_39043",
+"data/local/2020/OH.json",
+"County Treasurer",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+4.44887e-05,
+4.44887e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-PROSECUTING_ATTORNEY-county_39093",
+"data/local/2020/OH.json",
+"Prosecuting Attorney",
+"prosecutor",
+"prosecutor",
+1.12931e-05,
+1.12931e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OH-PROSECUTING_ATTORNEY-county_39099",
+"data/local/2020/OH.json",
+"Prosecuting Attorney",
+"prosecutor",
+"prosecutor",
+1.47671e-05,
+1.47671e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OK-COUNTY_COMMISSIONER-002_county_40109",
+"data/local/2020/OK.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+2.53995e-05,
+2.53995e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-OK-COUNTY_COURT_CLERK-county_40109",
+"data/local/2020/OK.json",
+"County Court Clerk",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+5.9523e-06,
+5.9523e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-RI-FIRST_WARDEN___NEW_SHOREHAM-county_44009",
+"data/local/2020/RI.json",
+"First Warden - New Shoreham",
+"council, commission or board",
+"council, commission or board",
+0.00170071,
+0.00170071,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-CORONER-county_45011",
+"data/local/2020/SC.json",
+"Coroner",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000172996,
+0.000172996,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-COUNTY_COUNCIL-003_county_45085",
+"data/local/2020/SC.json",
+"County Council",
+"council, commission or board",
+"council, commission or board",
+0.000241753,
+0.000241753,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-COUNTY_COUNCIL-004_county_45005",
+"data/local/2020/SC.json",
+"County Council",
+"council, commission or board",
+"council, commission or board",
+0.00142375,
+0.00142375,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-COUNTY_COUNCIL-006_county_45069",
+"data/local/2020/SC.json",
+"County Council",
+"council, commission or board",
+"council, commission or board",
+0.00132204,
+0.00132204,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-COUNTY_COUNCIL-007_county_45013",
+"data/local/2020/SC.json",
+"County Council",
+"council, commission or board",
+"council, commission or board",
+0.000143994,
+0.000143994,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-COUNTY_COUNCIL-045_county_45029",
+"data/local/2020/SC.json",
+"County Council",
+"council, commission or board",
+"council, commission or board",
+0.000189323,
+0.000189323,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-COUNTY_COUNCIL_AT_LARGE-county_45053",
+"data/local/2020/SC.json",
+"County Council At Large",
+"council, commission or board",
+"council, commission or board",
+0.000121667,
+0.000121667,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-COUNTY_COUNCIL_CHAIR-county_45027",
+"data/local/2020/SC.json",
+"County Council Chair",
+"council, commission or board",
+"council, commission or board",
+0.000104347,
+0.000104347,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-SHERIFF-county_45035",
+"data/local/2020/SC.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+2.25856e-05,
+2.25856e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-SHERIFF-county_45023",
+"data/local/2020/SC.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+0.000111087,
+0.000111087,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-SC-SHERIFF-county_45033",
+"data/local/2020/SC.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+0.00013675,
+0.00013675,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-TX-CONSTABLE-001_county_48439",
+"data/local/2020/TX.json",
+"Constable",
+"sheriff or constable",
+"sheriff or constable",
+1.60277e-05,
+1.60277e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-TX-COUNTY_ATTORNEY-county_48355",
+"data/local/2020/TX.json",
+"County Attorney",
+"prosecutor",
+"prosecutor",
+1.41636e-05,
+1.41636e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-TX-SHERIFF-county_48245",
+"data/local/2020/TX.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+1.8947e-05,
+1.8947e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-TX-SHERIFF-county_48355",
+"data/local/2020/TX.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+1.40498e-05,
+1.40498e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-TX-SHERIFF-county_48491",
+"data/local/2020/TX.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+6.34303e-06,
+6.34303e-06,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-WV-COUNTY_CLERK-county_54019",
+"data/local/2020/WV.json",
+"County Clerk",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+0.000109549,
+0.000109549,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-WV-COUNTY_COMMISSIONER-county_54019",
+"data/local/2020/WV.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+0.000109302,
+0.000109302,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-WV-COUNTY_COMMISSIONER-county_54053",
+"data/local/2020/WV.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+0.000156885,
+0.000156885,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-WV-COUNTY_COMMISSIONER-county_54005",
+"data/local/2020/WV.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+0.000202112,
+0.000202112,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-WV-COUNTY_COMMISSIONER-county_54083",
+"data/local/2020/WV.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+0.000146977,
+0.000146977,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-WV-PROSECUTING_ATTORNEY-county_54005",
+"data/local/2020/WV.json",
+"Prosecuting Attorney",
+"prosecutor",
+"prosecutor",
+0.000207585,
+0.000207585,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-WV-SHERIFF-county_54019",
+"data/local/2020/WV.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+0.000105347,
+0.000105347,
+null,
+[
+"B"
+]
+],
+[
+"2020-local-WV-SHERIFF-county_54053",
+"data/local/2020/WV.json",
+"Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+0.000171036,
+0.000171036,
+null,
+[
+"B"
+]
+],
+[
+"2022-local-MI-SECRETARY_OF_STATE",
+"data/local/2022/MI.json",
+"Secretary Of State",
+"statewide officer",
+"statewide officer",
+"incomplete: MEDSL's lines for this contest miss 1 of the 83 counties the state's contests have votes in that day (26097), no other piece of it is in the file, and the state's own total was not read, so p is not computed and no winner is drawn from a partial count",
+"incomplete: MEDSL's lines for this contest miss 1 of the 83 counties the state's contests have votes in that day (26097), no other piece of it is in the file, and the state's own total was not read, so p is not computed and no winner is drawn from a partial count",
+null,
+[
+"Q"
+]
+],
+[
+"2022-local-MI-ATTORNEY_GENERAL",
+"data/local/2022/MI.json",
+"Attorney General",
+"statewide officer",
+"statewide officer",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 6,146,375 votes in MEDSL's file are 1.39 times the 4,424,918 of Governor, the day's highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the file gives no ballots cast for it) [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool",
+"seat count unread: MEDSL's file gives this contest one seat, but the contest's 6,146,375 votes in MEDSL's file are 1.39 times the 4,424,918 of Governor, the day's highest-vote statewide contest, more than the 1.1 times a contest of one seat can reach (the file gives no ballots cast for it) [measured]; so it either elected more than one seat or its lines are counted more than once, and neither is read here: p is not computed, no winner is marked, and it is kept out of every pool; also, MEDSL's 2022 rows of this statewide contest miss part of the precincts the county's other contests have, in county 26005 (1 of its 49 precincts, 3.2% of the votes of its top contest); county 26163 (182 of its 1,088 precincts, 35.6% of the votes of its top contest); 5.16% of the state's votes in all [measured: pipeline/local_districts.py coverage, data/local/check-districts.json statewide_short], so its count is incomplete, and the state's own count is not read (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed",
+null,
+[
+"R",
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_1_county_51053",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_COLONIAL_DISTRICT-county_51830",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Colonial District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_ROBERT_E__LEE_DISTRICT-county_51009",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Robert E. Lee District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_SKYLINE_DISTRICT-county_51121",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Skyline District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL-Blacksburg_county_51121",
+"data/local/2023/VA.json",
+"Member Town Council",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_HEADWATERS_DISTRICT-county_51790",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Headwaters District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_TRI_COUNTY_CITY_DISTRIC-county_51179",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Tri-County/City District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_SHENANDOAH_VALLEY_DISTR-county_51660",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Shenandoah Valley District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_HEADWATERS_DISTRICT-county_51820",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Headwaters District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL-Town_of_Boyce_county_51043",
+"data/local/2023/VA.json",
+"Member Town Council",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_BOARD_OF_SUPERVISORS-Cullen_red_House_District_county_51037",
+"data/local/2023/VA.json",
+"Member Board of Supervisors",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received 134% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 134% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-Bacon_Saxe_District_county_51037",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_ROBERT_E__LEE_DISTRICT-county_51680",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Robert E. Lee District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_TIDEWATER_DISTRICT-county_51115",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Tidewater District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL___SPECIAL-Town_of_Scottsville_county_51003",
+"data/local/2023/VA.json",
+"Member Town Council - Special",
+"council, commission or board",
+"council, commission or board",
+"held by the gate: the page shows other candidates or votes than the file holds; its locality lines count 1 votes for John Merritt Unsworth (in Fluvanna County), whom its statewide count does not hold",
+"held by the gate: the page shows other candidates or votes than the file holds; its locality lines count 1 votes for John Merritt Unsworth (in Fluvanna County), whom its statewide count does not hold",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MAYOR-Town_of_Clifton_county_51059",
+"data/local/2023/VA.json",
+"Mayor",
+"mayor or executive",
+"mayor or executive",
+"one name on the ballot for each seat, but write-ins received 108% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 108% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL-Town_of_Clifton_county_51059",
+"data/local/2023/VA.json",
+"Member Town Council",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received 148% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 148% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_2_county_51049",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_4_county_51049",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_LORD_FAIRFAX_DISTRICT-county_51187",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Lord Fairfax District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_4_county_51029",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_5_county_51029",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_6_county_51029",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL-Dillwyn_county_51029",
+"data/local/2023/VA.json",
+"Member Town Council",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_MOUNTAIN_CASTLES_DISTRI-county_51045",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Mountain Castles District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-Courthouse_District_county_51183",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-Providence_District_county_51077",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_TRI_COUNTY_CITY_DISTRIC-county_51630",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Tri-County/City District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_6_county_51197",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_TRI_COUNTY_CITY_DISTRIC-county_51099",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Tri-County/City District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_HEADWATERS_DISTRICT-county_51015",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Headwaters District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_THOMAS_JEFFERSON_DISTRI-county_51540",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Thomas Jefferson District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_BOARD_OF_SUPERVISORS-Third_District_county_51101",
+"data/local/2023/VA.json",
+"Member Board of Supervisors",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_LORD_FAIRFAX_DISTRICT-county_51069",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Lord Fairfax District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL-Town_of_Brodnax_county_51025",
+"data/local/2023/VA.json",
+"Member Town Council",
+"council, commission or board",
+"council, commission or board",
+"held by the gate: the page shows other candidates or votes than the file holds; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+"held by the gate: the page shows other candidates or votes than the file holds; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_One_county_51036",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_Three_county_51036",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_COLONIAL_DISTRICT-county_51036",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Colonial District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_BOARD_OF_SUPERVISORS-Monroe_District_county_51079",
+"data/local/2023/VA.json",
+"Member Board of Supervisors",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-Monroe_District_county_51079",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_CULPEPER_DISTRICT-county_51079",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Culpeper District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_NATURAL_BRIDGE_DISTRICT-county_51163",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Natural Bridge District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL-Town_of_Glasgow_county_51163",
+"data/local/2023/VA.json",
+"Member Town Council",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_CULPEPER_DISTRICT-county_51113",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Culpeper District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-Appomattox_River_District_county_51011",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_ROBERT_E__LEE_DISTRICT-county_51011",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Robert E. Lee District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_HANOVER_CAROLINE_DISTRI-county_51033",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Hanover-Caroline District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_TIDEWATER_DISTRICT-county_51073",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Tidewater District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_BOARD_OF_SUPERVISORS-Stevensville_District_county_51097",
+"data/local/2023/VA.json",
+"Member Board of Supervisors",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-Newtown_District_county_51097",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_MOUNTAIN_DISTRICT-county_51017",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Mountain District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_MOUNTAIN_DISTRICT-county_51005",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Mountain District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_2_county_51193",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_BOARD_OF_SUPERVISORS-Valley_District_county_51023",
+"data/local/2023/VA.json",
+"Member Board of Supervisors",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received 12% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 12% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_MOUNTAIN_CASTLES_DISTRI-county_51023",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Mountain Castles District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL__BUCHANAN-Town_of_Buchanan_county_51023",
+"data/local/2023/VA.json",
+"Member Town Council, Buchanan",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_TOWN_COUNCIL__TROUTVILLE-Town_of_Troutville_county_51023",
+"data/local/2023/VA.json",
+"Member Town Council, Troutville",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_BOARD_OF_SUPERVISORS-District_2_county_51111",
+"data/local/2023/VA.json",
+"Member Board of Supervisors",
+"council, commission or board",
+"council, commission or board",
+"one name on the ballot for each seat, but write-ins received 81% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received 81% of the last winner's votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_6_county_51111",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-TREASURER-county_51021",
+"data/local/2023/VA.json",
+"Treasurer",
+"clerk, treasurer or other county officer",
+"clerk, treasurer or other county officer",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_3_county_51021",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_LONESOME_PINE_DISTRICT-county_51195",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Lonesome Pine District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes (counted together, so whether one write-in candidate did is not reported): D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_ROBERT_E__LEE_DISTRICT-county_51031",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Robert E. Lee District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-MEMBER_SCHOOL_BOARD-District_8_county_51147",
+"data/local/2023/VA.json",
+"Member School Board",
+"school board",
+"school board",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2023-local-VA-SOIL_AND_WATER_CONSERVATION_DIRECTOR_PIEDMONT_DISTRICT-county_51147",
+"data/local/2023/VA.json",
+"Soil and Water Conservation Director Piedmont District",
+"special district",
+"special district",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+"one name on the ballot for each seat, but write-ins received votes: D3-v1.1 has no forecast route for write-in contests",
+null,
+[
+"Q"
+]
+],
+[
+"2024-local-AL-MEMBER__HALE_COUNTY_BOARD_OF_EDUCATION-004_county_01065",
+"data/local/2024/AL.json",
+"Member, Hale County Board Of Education",
+"school board",
+"school board",
+0.00101055,
+0.00101055,
+null,
+[
+"B"
+]
+],
+[
+"2024-local-GA-COOK_COUNTY_SHERIFF-county_13075",
+"data/local/2024/GA.json",
+"Cook County Sheriff",
+"sheriff or constable",
+"sheriff or constable",
+"the two leading lines were not the Democrat and the Republican, so the forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7)",
+"the two leading lines were not the Democrat and the Republican, so the forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7)",
+null,
+[
+"O"
+]
+],
+[
+"2024-local-GA-SCREVEN_COUNTY_COMMISSION-006_county_13251",
+"data/local/2024/GA.json",
+"Screven County Commission",
+"council, commission or board",
+"council, commission or board",
+"the two leading lines were not the Democrat and the Republican, so the forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7)",
+"the two leading lines were not the Democrat and the Republican, so the forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7)",
+null,
+[
+"O"
+]
+],
+[
+"2024-local-MT-COUNTY_COMMISSIONER-003_county_30053",
+"data/local/2024/MT.json",
+"County Commissioner",
+"council, commission or board",
+"council, commission or board",
+"the two leading lines were not the Democrat and the Republican, so the forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7)",
+"the two leading lines were not the Democrat and the Republican, so the forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7)",
+null,
+[
+"O"
+]
+],
+[
+"2024-local-OH-COUNTY_COMMISSIONER_TERM_COMMENCING_01_03_2025-county_39069",
+"data/local/2024/OH.json",
+"County Commissioner Term Commencing 01/03/2025",
+"council, commission or board",
+"council, commission or board",
+"the two leading lines were not the Democrat and the Republican, so the forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7)",
+"the two leading lines were not the Democrat and the Republican, so the forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7)",
+null,
+[
+"O"
+]
+],
+[
+"2016-state-lower-HI-51",
+"data/state-lower/2016/HI.json",
+"district 51",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names FUKUMOTO CHANG, Beth (6,792) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N"
+]
+],
+[
+"2016-state-lower-IN-16",
+"data/state-lower/2016/IN.json",
+"district 16",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 23,105 votes against Klarner's 25,624, -9.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.96174e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-18",
+"data/state-lower/2016/IN.json",
+"district 18",
+null,
+null,
+1.87469e-05,
+1.87469e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-19",
+"data/state-lower/2016/IN.json",
+"district 19",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 3 named candidates 17,426 votes against Klarner's 31,419, -44.5% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+7.52595e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-23",
+"data/state-lower/2016/IN.json",
+"district 23",
+null,
+null,
+2.19765e-05,
+2.19765e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-24",
+"data/state-lower/2016/IN.json",
+"district 24",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 33,060 votes against Klarner's 35,747, -7.5% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+4.55936e-06,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-25",
+"data/state-lower/2016/IN.json",
+"district 25",
+null,
+null,
+5.15194e-06,
+5.15194e-06,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-27",
+"data/state-lower/2016/IN.json",
+"district 27",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-28",
+"data/state-lower/2016/IN.json",
+"district 28",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 26,471 votes against Klarner's 27,982, -5.4% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-30",
+"data/state-lower/2016/IN.json",
+"district 30",
+null,
+null,
+4.8062e-05,
+4.8062e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-31",
+"data/state-lower/2016/IN.json",
+"district 31",
+null,
+null,
+2.12621e-05,
+2.12621e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-32",
+"data/state-lower/2016/IN.json",
+"district 32",
+null,
+null,
+4.28346e-05,
+4.28346e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-33",
+"data/state-lower/2016/IN.json",
+"district 33",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-38",
+"data/state-lower/2016/IN.json",
+"district 38",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 22,099 votes against Klarner's 24,926, -11.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+6.53878e-06,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-41",
+"data/state-lower/2016/IN.json",
+"district 41",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 3 named candidates 24,028 votes against Klarner's 26,781, -10.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+2.08034e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-44",
+"data/state-lower/2016/IN.json",
+"district 44",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 20,205 votes against Klarner's 26,000, -22.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.89935e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-46",
+"data/state-lower/2016/IN.json",
+"district 46",
+null,
+null,
+2.66199e-05,
+2.66199e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-47",
+"data/state-lower/2016/IN.json",
+"district 47",
+null,
+null,
+3.00714e-06,
+3.00714e-06,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-50",
+"data/state-lower/2016/IN.json",
+"district 50",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 24,438 votes against Klarner's 26,742, -8.6% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.84664e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-52",
+"data/state-lower/2016/IN.json",
+"district 52",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 15,796 votes against Klarner's 28,025, -43.6% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.66668e-06,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-54",
+"data/state-lower/2016/IN.json",
+"district 54",
+null,
+null,
+6.69869e-06,
+6.69869e-06,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-55",
+"data/state-lower/2016/IN.json",
+"district 55",
+null,
+null,
+5.31567e-06,
+5.31567e-06,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-62",
+"data/state-lower/2016/IN.json",
+"district 62",
+null,
+null,
+7.3508e-05,
+7.3508e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-IN-63",
+"data/state-lower/2016/IN.json",
+"district 63",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 24,833 votes against Klarner's 26,798, -7.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.84279e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-65",
+"data/state-lower/2016/IN.json",
+"district 65",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 23,872 votes against Klarner's 29,161, -18.1% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+3.41528e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-68",
+"data/state-lower/2016/IN.json",
+"district 68",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 25,364 votes against Klarner's 29,908, -15.2% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.62903e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-70",
+"data/state-lower/2016/IN.json",
+"district 70",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 30,189 votes against Klarner's 31,986, -5.6% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+5.95405e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-73",
+"data/state-lower/2016/IN.json",
+"district 73",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 23,918 votes against Klarner's 25,714, -7.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+6.37705e-06,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-74",
+"data/state-lower/2016/IN.json",
+"district 74",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 25,167 votes against Klarner's 27,694, -9.1% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+2.96049e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-78",
+"data/state-lower/2016/IN.json",
+"district 78",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 26,968 votes against Klarner's 28,912, -6.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.92626e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-79",
+"data/state-lower/2016/IN.json",
+"district 79",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 19,114 votes against Klarner's 23,005, -16.9% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-82",
+"data/state-lower/2016/IN.json",
+"district 82",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 21,443 votes against Klarner's 23,696, -9.5% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.3011e-06,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-83",
+"data/state-lower/2016/IN.json",
+"district 83",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 16,480 votes against Klarner's 27,367, -39.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-88",
+"data/state-lower/2016/IN.json",
+"district 88",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 29,584 votes against Klarner's 37,609, -21.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.22911e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-91",
+"data/state-lower/2016/IN.json",
+"district 91",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 10,994 votes against Klarner's 17,393, -36.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-IN-93",
+"data/state-lower/2016/IN.json",
+"district 93",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 2 named candidates 18,795 votes against Klarner's 27,330, -31.2% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+3.90832e-06,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-lower-KS-80",
+"data/state-lower/2016/KS.json",
+"district 80",
+null,
+null,
+0.000153143,
+0.000153143,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-lower-KY-41",
+"data/state-lower/2016/KY.json",
+"district 41",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 434 votes against Klarner's 13,257, -96.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Attica Scott (13,257) on the ballot beside Klarner's unopposed candidate, with 96.8% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N"
+]
+],
+[
+"2018-state-lower-AK-22",
+"data/state-lower/2018/AK.json",
+"district 22",
+null,
+null,
+"the two leading candidates were not the Democrat and the Republican, so the model's own forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7: p is between the top two)",
+"the two leading candidates were not the Democrat and the Republican, so the model's own forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7: p is between the top two)",
+null,
+[
+"O"
+]
+],
+[
+"2018-state-lower-AL-38",
+"data/state-lower/2018/AL.json",
+"district 38",
+null,
+null,
+0.000107334,
+0.000107334,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-AL-99",
+"data/state-lower/2018/AL.json",
+"district 99",
+null,
+null,
+0.000108293,
+0.000108293,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-AR-32",
+"data/state-lower/2018/AR.json",
+"district 32",
+null,
+null,
+0.000141025,
+0.000141025,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-CA-65",
+"data/state-lower/2018/CA.json",
+"district 65",
+null,
+null,
+1.00812e-05,
+1.00812e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-CO-44",
+"data/state-lower/2018/CO.json",
+"district 44",
+null,
+null,
+1.66492e-05,
+1.66492e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-IA-55",
+"data/state-lower/2018/IA.json",
+"district 55",
+null,
+null,
+0.000128956,
+0.000128956,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-IN-5",
+"data/state-lower/2018/IN.json",
+"district 5",
+null,
+null,
+2.85882e-05,
+2.52998e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-9",
+"data/state-lower/2018/IN.json",
+"district 9",
+null,
+null,
+5.18183e-05,
+5.61113e-05,
+1.0828,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-11",
+"data/state-lower/2018/IN.json",
+"district 11",
+null,
+null,
+5.1345e-05,
+5.0825e-05,
+0.9899,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-16",
+"data/state-lower/2018/IN.json",
+"district 16",
+null,
+null,
+1.82081e-05,
+1.78944e-05,
+0.9828,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-17",
+"data/state-lower/2018/IN.json",
+"district 17",
+null,
+null,
+2.51379e-05,
+2.47409e-05,
+0.9842,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-18",
+"data/state-lower/2018/IN.json",
+"district 18",
+null,
+null,
+3.59147e-06,
+3.50707e-06,
+0.9765,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-21",
+"data/state-lower/2018/IN.json",
+"district 21",
+null,
+null,
+4.25055e-05,
+4.19133e-05,
+0.9861,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-23",
+"data/state-lower/2018/IN.json",
+"district 23",
+null,
+null,
+3.93219e-05,
+3.87511e-05,
+0.9855,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-24",
+"data/state-lower/2018/IN.json",
+"district 24",
+null,
+null,
+1.74566e-05,
+1.53158e-05,
+0.8774,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-25",
+"data/state-lower/2018/IN.json",
+"district 25",
+null,
+null,
+6.3121e-06,
+6.17824e-06,
+0.9788,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-28",
+"data/state-lower/2018/IN.json",
+"district 28",
+null,
+null,
+2.3235e-05,
+2.05624e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-29",
+"data/state-lower/2018/IN.json",
+"district 29",
+null,
+null,
+4.0271e-05,
+3.71349e-05,
+0.9221,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-31",
+"data/state-lower/2018/IN.json",
+"district 31",
+null,
+null,
+3.46768e-05,
+3.4172e-05,
+0.9854,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-33",
+"data/state-lower/2018/IN.json",
+"district 33",
+null,
+null,
+5.9478e-05,
+5.48461e-05,
+0.9221,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-36",
+"data/state-lower/2018/IN.json",
+"district 36",
+null,
+null,
+3.5104e-05,
+3.55883e-05,
+1.0138,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-37",
+"data/state-lower/2018/IN.json",
+"district 37",
+null,
+null,
+2.51031e-05,
+2.47437e-05,
+0.9857,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-38",
+"data/state-lower/2018/IN.json",
+"district 38",
+null,
+null,
+2.98036e-05,
+2.63754e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-39",
+"data/state-lower/2018/IN.json",
+"district 39",
+null,
+null,
+1.97708e-05,
+1.94682e-05,
+0.9847,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-40",
+"data/state-lower/2018/IN.json",
+"district 40",
+null,
+null,
+2.29257e-05,
+2.02887e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-41",
+"data/state-lower/2018/IN.json",
+"district 41",
+null,
+null,
+2.28848e-06,
+2.23109e-06,
+0.9749,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-43",
+"data/state-lower/2018/IN.json",
+"district 43",
+null,
+null,
+6.59048e-05,
+7.13648e-05,
+1.0828,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-44",
+"data/state-lower/2018/IN.json",
+"district 44",
+null,
+null,
+3.93904e-05,
+3.88692e-05,
+0.9868,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-45",
+"data/state-lower/2018/IN.json",
+"district 45",
+null,
+null,
+3.10945e-05,
+2.75178e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-46",
+"data/state-lower/2018/IN.json",
+"district 46",
+null,
+null,
+3.25683e-05,
+3.21177e-05,
+0.9862,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-47",
+"data/state-lower/2018/IN.json",
+"district 47",
+null,
+null,
+6.2026e-06,
+6.0716e-06,
+0.9789,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-50",
+"data/state-lower/2018/IN.json",
+"district 50",
+null,
+null,
+7.13517e-06,
+6.98605e-06,
+0.9791,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-51",
+"data/state-lower/2018/IN.json",
+"district 51",
+null,
+null,
+3.81686e-05,
+3.37782e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-52",
+"data/state-lower/2018/IN.json",
+"district 52",
+null,
+null,
+4.32691e-06,
+4.22955e-06,
+0.9775,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-53",
+"data/state-lower/2018/IN.json",
+"district 53",
+null,
+null,
+4.75305e-06,
+4.64752e-06,
+0.9778,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-55",
+"data/state-lower/2018/IN.json",
+"district 55",
+null,
+null,
+3.5528e-06,
+3.46869e-06,
+0.9763,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-58",
+"data/state-lower/2018/IN.json",
+"district 58",
+null,
+null,
+2.57559e-05,
+2.53616e-05,
+0.9847,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-60",
+"data/state-lower/2018/IN.json",
+"district 60",
+null,
+null,
+3.46463e-05,
+3.421e-05,
+0.9874,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-63",
+"data/state-lower/2018/IN.json",
+"district 63",
+null,
+null,
+2.4013e-05,
+2.36372e-05,
+0.9844,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-65",
+"data/state-lower/2018/IN.json",
+"district 65",
+null,
+null,
+3.958e-05,
+3.91057e-05,
+0.988,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-66",
+"data/state-lower/2018/IN.json",
+"district 66",
+null,
+null,
+2.46894e-05,
+2.5062e-05,
+1.0151,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-67",
+"data/state-lower/2018/IN.json",
+"district 67",
+null,
+null,
+3.01757e-06,
+2.94422e-06,
+0.9757,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-68",
+"data/state-lower/2018/IN.json",
+"district 68",
+null,
+null,
+4.56668e-06,
+4.46361e-06,
+0.9774,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-69",
+"data/state-lower/2018/IN.json",
+"district 69",
+null,
+null,
+3.11225e-05,
+2.75426e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-70",
+"data/state-lower/2018/IN.json",
+"district 70",
+null,
+null,
+2.40874e-05,
+2.37411e-05,
+0.9856,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-71",
+"data/state-lower/2018/IN.json",
+"district 71",
+null,
+null,
+4.83955e-05,
+5.24049e-05,
+1.0828,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-75",
+"data/state-lower/2018/IN.json",
+"district 75",
+null,
+null,
+1.37124e-05,
+1.3473e-05,
+0.9825,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-76",
+"data/state-lower/2018/IN.json",
+"district 76",
+null,
+null,
+2.92275e-05,
+2.58655e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-81",
+"data/state-lower/2018/IN.json",
+"district 81",
+null,
+null,
+6.32437e-05,
+6.25824e-05,
+0.9895,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-82",
+"data/state-lower/2018/IN.json",
+"district 82",
+null,
+null,
+1.4886e-05,
+1.46076e-05,
+0.9813,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-84",
+"data/state-lower/2018/IN.json",
+"district 84",
+null,
+null,
+2.28363e-05,
+2.24973e-05,
+0.9852,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-85",
+"data/state-lower/2018/IN.json",
+"district 85",
+null,
+null,
+6.96934e-06,
+6.82299e-06,
+0.979,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-88",
+"data/state-lower/2018/IN.json",
+"district 88",
+null,
+null,
+1.87512e-05,
+1.84615e-05,
+0.9846,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-90",
+"data/state-lower/2018/IN.json",
+"district 90",
+null,
+null,
+2.1492e-05,
+2.11629e-05,
+0.9847,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-91",
+"data/state-lower/2018/IN.json",
+"district 91",
+null,
+null,
+3.49242e-05,
+3.0907e-05,
+0.885,
+[
+"P"
+]
+],
+[
+"2018-state-lower-IN-93",
+"data/state-lower/2018/IN.json",
+"district 93",
+null,
+null,
+2.17156e-05,
+2.13701e-05,
+0.9841,
+[
+"P"
+]
+],
+[
+"2018-state-lower-ME-118",
+"data/state-lower/2018/ME.json",
+"district 118",
+null,
+null,
+0.000349443,
+0.000349443,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-MI-107",
+"data/state-lower/2018/MI.json",
+"district 107",
+null,
+null,
+1.16148e-05,
+1.16148e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-MN-62__position_2",
+"data/state-lower/2018/MN.json",
+"district 62, position 2",
+null,
+null,
+4.40743e-05,
+4.40743e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-MO-46",
+"data/state-lower/2018/MO.json",
+"district 46",
+null,
+null,
+2.15553e-05,
+2.15553e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-MO-65",
+"data/state-lower/2018/MO.json",
+"district 65",
+null,
+null,
+0.000120116,
+0.000120116,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-MT-52",
+"data/state-lower/2018/MT.json",
+"district 52",
+null,
+null,
+0.000676651,
+0.000676651,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-NH-Cheshire_8",
+"data/state-lower/2018/NH.json",
+"district Cheshire 8",
+null,
+null,
+0.000223013,
+0.000223013,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-NH-Sullivan_11",
+"data/state-lower/2018/NH.json",
+"district Sullivan 11",
+null,
+null,
+0.00036092,
+0.00036092,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-NM-52",
+"data/state-lower/2018/NM.json",
+"district 52",
+null,
+null,
+6.65669e-05,
+6.65669e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-NM-63",
+"data/state-lower/2018/NM.json",
+"district 63",
+null,
+null,
+7.67605e-05,
+7.67605e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-NY-133",
+"data/state-lower/2018/NY.json",
+"district 133",
+null,
+null,
+4.86945e-05,
+4.86945e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-OH-59",
+"data/state-lower/2018/OH.json",
+"district 59",
+null,
+null,
+2.57959e-05,
+2.57959e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-OR-1",
+"data/state-lower/2018/OR.json",
+"district 1",
+null,
+null,
+1.63962e-05,
+1.63962e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-TX-26",
+"data/state-lower/2018/TX.json",
+"district 26",
+null,
+null,
+2.6088e-05,
+2.6088e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-TX-112",
+"data/state-lower/2018/TX.json",
+"district 112",
+null,
+null,
+3.423e-05,
+3.423e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-VT-Bennington_2__position_2",
+"data/state-lower/2018/VT.json",
+"district Bennington 2, position 2",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Caledoniawashington",
+"data/state-lower/2018/VT.json",
+"district Caledoniawashington",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Chittenden_5__position_1",
+"data/state-lower/2018/VT.json",
+"district Chittenden 5, position 1",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Chittenden_5__position_2",
+"data/state-lower/2018/VT.json",
+"district Chittenden 5, position 2",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Chittenden_6__position_2",
+"data/state-lower/2018/VT.json",
+"district Chittenden 6, position 2",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Chittenden_6__position_3",
+"data/state-lower/2018/VT.json",
+"district Chittenden 6, position 3",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Chittenden_7__position_1",
+"data/state-lower/2018/VT.json",
+"district Chittenden 7, position 1",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Chittenden_7__position_4",
+"data/state-lower/2018/VT.json",
+"district Chittenden 7, position 4",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Chittenden_8__position_3",
+"data/state-lower/2018/VT.json",
+"district Chittenden 8, position 3",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Washingtonchittenden",
+"data/state-lower/2018/VT.json",
+"district Washingtonchittenden",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Windham_2__position_2",
+"data/state-lower/2018/VT.json",
+"district Windham 2, position 2",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Windhambennington",
+"data/state-lower/2018/VT.json",
+"district Windhambennington",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Windsor_3__position_1",
+"data/state-lower/2018/VT.json",
+"district Windsor 3, position 1",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-lower-VT-Windsororange_1",
+"data/state-lower/2018/VT.json",
+"district Windsororange 1",
+null,
+null,
+0.00114996,
+0.00114996,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-lower-WA-9__seat_1",
+"data/state-lower/2018/WA.json",
+"district 9, seat 1",
+null,
+null,
+1.02556e-05,
+1.02556e-05,
+null,
+[
+"B"
+]
+],
+[
+"2019-state-lower-MS-10",
+"data/state-lower/2019/MS.json",
+"district 10",
+null,
+null,
+"the two leading candidates were not the Democrat and the Republican, so the model's own forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7: p is between the top two)",
+"the two leading candidates were not the Democrat and the Republican, so the model's own forecast of the Democrat against the Republican is not of the pair that decided this contest (model section 7: p is between the top two)",
+null,
+[
+"O"
+]
+],
+[
+"2019-state-lower-VA-80",
+"data/state-lower/2019/VA.json",
+"district 80",
+null,
+null,
+0.000107372,
+0.000107372,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-CT-29",
+"data/state-lower/2020/CT.json",
+"district 29",
+null,
+null,
+0.000115732,
+0.000115732,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-CT-85",
+"data/state-lower/2020/CT.json",
+"district 85",
+null,
+null,
+0.000131253,
+0.000131253,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-IL-41",
+"data/state-lower/2020/IL.json",
+"district 41",
+null,
+null,
+3.43142e-05,
+3.43142e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-IL-47",
+"data/state-lower/2020/IL.json",
+"district 47",
+null,
+null,
+3.37952e-05,
+3.37952e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-IL-54",
+"data/state-lower/2020/IL.json",
+"district 54",
+null,
+null,
+4.07711e-05,
+4.07711e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-IL-68",
+"data/state-lower/2020/IL.json",
+"district 68",
+null,
+null,
+4.13039e-05,
+4.13039e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-IL-93",
+"data/state-lower/2020/IL.json",
+"district 93",
+null,
+null,
+4.88767e-05,
+4.88767e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-IL-97",
+"data/state-lower/2020/IL.json",
+"district 97",
+null,
+null,
+3.69858e-05,
+3.69858e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-KY-27",
+"data/state-lower/2020/KY.json",
+"district 27",
+null,
+null,
+0.000117869,
+0.000117869,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-KY-81",
+"data/state-lower/2020/KY.json",
+"district 81",
+null,
+null,
+0.000106758,
+0.000106758,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-ME-12",
+"data/state-lower/2020/ME.json",
+"district 12",
+null,
+null,
+0.000249382,
+0.000249382,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-ME-47",
+"data/state-lower/2020/ME.json",
+"district 47",
+null,
+null,
+0.000143299,
+0.000143299,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-ME-81",
+"data/state-lower/2020/ME.json",
+"district 81",
+null,
+null,
+0.000172548,
+0.000172548,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-NC-9",
+"data/state-lower/2020/NC.json",
+"district 9",
+null,
+null,
+4.59518e-05,
+4.59518e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-NC-68",
+"data/state-lower/2020/NC.json",
+"district 68",
+null,
+null,
+2.98306e-05,
+2.98306e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-NC-72",
+"data/state-lower/2020/NC.json",
+"district 72",
+null,
+null,
+4.16609e-05,
+4.16609e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-NC-82",
+"data/state-lower/2020/NC.json",
+"district 82",
+null,
+null,
+3.53982e-05,
+3.53982e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-RI-21",
+"data/state-lower/2020/RI.json",
+"district 21",
+null,
+null,
+0.000188426,
+0.000188426,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-VT-Caledoniawashington",
+"data/state-lower/2020/VT.json",
+"district Caledoniawashington",
+null,
+null,
+0.000353981,
+0.000353981,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-lower-VT-Windsor_4__position_1",
+"data/state-lower/2020/VT.json",
+"district Windsor 4, position 1",
+null,
+null,
+0.000373115,
+0.000373115,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-5",
+"data/state-lower/2022/CA.json",
+"district 5",
+null,
+null,
+7.68543e-06,
+7.68543e-06,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-18",
+"data/state-lower/2022/CA.json",
+"district 18",
+null,
+null,
+1.28107e-05,
+1.28107e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-22",
+"data/state-lower/2022/CA.json",
+"district 22",
+null,
+null,
+1.65731e-05,
+1.65731e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-27",
+"data/state-lower/2022/CA.json",
+"district 27",
+null,
+null,
+1.93288e-05,
+1.93288e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-30",
+"data/state-lower/2022/CA.json",
+"district 30",
+null,
+null,
+8.92583e-06,
+8.92583e-06,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-37",
+"data/state-lower/2022/CA.json",
+"district 37",
+null,
+null,
+1.18465e-05,
+1.18465e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-39",
+"data/state-lower/2022/CA.json",
+"district 39",
+null,
+null,
+2.61517e-05,
+2.61517e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-47",
+"data/state-lower/2022/CA.json",
+"district 47",
+null,
+null,
+1.01602e-05,
+1.01602e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-49",
+"data/state-lower/2022/CA.json",
+"district 49",
+null,
+null,
+1.73893e-05,
+1.73893e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-55",
+"data/state-lower/2022/CA.json",
+"district 55",
+null,
+null,
+1.2594e-05,
+1.2594e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-60",
+"data/state-lower/2022/CA.json",
+"district 60",
+null,
+null,
+2.39629e-05,
+2.39629e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-63",
+"data/state-lower/2022/CA.json",
+"district 63",
+null,
+null,
+1.22116e-05,
+1.22116e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-64",
+"data/state-lower/2022/CA.json",
+"district 64",
+null,
+null,
+1.77457e-05,
+1.77457e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-68",
+"data/state-lower/2022/CA.json",
+"district 68",
+null,
+null,
+2.17082e-05,
+2.17082e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-70",
+"data/state-lower/2022/CA.json",
+"district 70",
+null,
+null,
+1.42838e-05,
+1.42838e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-72",
+"data/state-lower/2022/CA.json",
+"district 72",
+null,
+null,
+8.30288e-06,
+8.30288e-06,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-73",
+"data/state-lower/2022/CA.json",
+"district 73",
+null,
+null,
+1.26419e-05,
+1.26419e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CA-79",
+"data/state-lower/2022/CA.json",
+"district 79",
+null,
+null,
+1.62446e-05,
+1.62446e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-22",
+"data/state-lower/2022/CT.json",
+"district 22",
+null,
+null,
+0.000173886,
+0.000173886,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-42",
+"data/state-lower/2022/CT.json",
+"district 42",
+null,
+null,
+0.000165856,
+0.000165856,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-46",
+"data/state-lower/2022/CT.json",
+"district 46",
+null,
+null,
+0.000377175,
+0.000377175,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-48",
+"data/state-lower/2022/CT.json",
+"district 48",
+null,
+null,
+0.000154125,
+0.000154125,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-55",
+"data/state-lower/2022/CT.json",
+"district 55",
+null,
+null,
+0.000136835,
+0.000136835,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-56",
+"data/state-lower/2022/CT.json",
+"district 56",
+null,
+null,
+0.000245578,
+0.000245578,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-66",
+"data/state-lower/2022/CT.json",
+"district 66",
+null,
+null,
+0.000138573,
+0.000138573,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-81",
+"data/state-lower/2022/CT.json",
+"district 81",
+null,
+null,
+0.000164791,
+0.000164791,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-83",
+"data/state-lower/2022/CT.json",
+"district 83",
+null,
+null,
+0.000180303,
+0.000180303,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-98",
+"data/state-lower/2022/CT.json",
+"district 98",
+null,
+null,
+0.000138551,
+0.000138551,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-107",
+"data/state-lower/2022/CT.json",
+"district 107",
+null,
+null,
+0.000159433,
+0.000159433,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-CT-143",
+"data/state-lower/2022/CT.json",
+"district 143",
+null,
+null,
+0.000187989,
+0.000187989,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-DE-20",
+"data/state-lower/2022/DE.json",
+"district 20",
+null,
+null,
+0.000134969,
+0.000134969,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-6",
+"data/state-lower/2022/HI.json",
+"district 6",
+null,
+null,
+0.000215613,
+0.000215613,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-11",
+"data/state-lower/2022/HI.json",
+"district 11",
+null,
+null,
+0.000213204,
+0.000213204,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-13",
+"data/state-lower/2022/HI.json",
+"district 13",
+null,
+null,
+0.000219511,
+0.000219511,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-14",
+"data/state-lower/2022/HI.json",
+"district 14",
+null,
+null,
+0.000297929,
+0.000297929,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-22",
+"data/state-lower/2022/HI.json",
+"district 22",
+null,
+null,
+0.000194656,
+0.000194656,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-32",
+"data/state-lower/2022/HI.json",
+"district 32",
+null,
+null,
+0.000237431,
+0.000237431,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-35",
+"data/state-lower/2022/HI.json",
+"district 35",
+null,
+null,
+0.000265819,
+0.000265819,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-39",
+"data/state-lower/2022/HI.json",
+"district 39",
+null,
+null,
+0.000252337,
+0.000252337,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-44",
+"data/state-lower/2022/HI.json",
+"district 44",
+null,
+null,
+0.000324669,
+0.000324669,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-HI-50",
+"data/state-lower/2022/HI.json",
+"district 50",
+null,
+null,
+0.000153342,
+0.000153342,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-IN-33",
+"data/state-lower/2022/IN.json",
+"district 33",
+null,
+null,
+2.63628e-05,
+2.63618e-05,
+1.0,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-lower-IN-38",
+"data/state-lower/2022/IN.json",
+"district 38",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2022-state-lower-IN-60",
+"data/state-lower/2022/IN.json",
+"district 60",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 20,420 votes against Klarner's 22,048, -7.4% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+2.37468e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-lower-MI-10",
+"data/state-lower/2022/MI.json",
+"district 10",
+null,
+null,
+"MEDSL's precinct file (2022-mi-local-precinct-general.zip) gives this district's 2 named candidates 28,492 votes against Klarner's 41,012, -30.5% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+"MEDSL's precinct file (2022-mi-local-precinct-general.zip) gives Mark Corcoran 428 votes on the line with that name against Klarner's 12,948, and 12,541 on its WRITE-IN line; with that line, all of MEDSL's lines add up to 41,033 against Klarner's 41,012, so the count is confirmed [measured: pipeline/local_districts.py]. But whether the candidate was on the ballot is not read (Michigan's Secretary of State refused on 2026-11-07, and Wayne County's Clerk gave an empty reply on 2026-11-13), and the write-in rule would decide a write-in's contest (the orchestrator, 2026-11-13 01:04: \"Before p returns, read whether Corcoran was on the ballot; if he was a write-in, the write-in rule applies\"): p is not computed, and the contest is left out of the fits",
+null,
+[
+"R"
+]
+],
+[
+"2022-state-lower-MI-99",
+"data/state-lower/2022/MI.json",
+"district 99",
+null,
+null,
+"MEDSL's precinct file (2022-mi-local-precinct-general.zip) gives this district's 2 named candidates 36,728 votes against Klarner's 41,575, -11.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+4.09549e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-lower-MN-14__position_1",
+"data/state-lower/2022/MN.json",
+"district 14, position 1",
+null,
+null,
+0.000119814,
+0.000119814,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-MN-35__position_2",
+"data/state-lower/2022/MN.json",
+"district 35, position 2",
+null,
+null,
+0.000100504,
+0.000100504,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NH-Cheshire_1",
+"data/state-lower/2022/NH.json",
+"district Cheshire 1",
+null,
+null,
+0.0012424,
+0.0012424,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NH-Merrimack_1",
+"data/state-lower/2022/NH.json",
+"district Merrimack 1",
+null,
+null,
+0.00144169,
+0.00144169,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NH-Rockingham_40",
+"data/state-lower/2022/NH.json",
+"district Rockingham 40",
+null,
+null,
+0.000138373,
+0.000138373,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NM-7",
+"data/state-lower/2022/NM.json",
+"district 7",
+null,
+null,
+0.000221636,
+0.000221636,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NM-17",
+"data/state-lower/2022/NM.json",
+"district 17",
+null,
+null,
+0.00015009,
+0.00015009,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NM-28",
+"data/state-lower/2022/NM.json",
+"district 28",
+null,
+null,
+0.00012112,
+0.00012112,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NM-38",
+"data/state-lower/2022/NM.json",
+"district 38",
+null,
+null,
+0.000200561,
+0.000200561,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NM-51",
+"data/state-lower/2022/NM.json",
+"district 51",
+null,
+null,
+0.000191644,
+0.000191644,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NM-68",
+"data/state-lower/2022/NM.json",
+"district 68",
+null,
+null,
+0.00015522,
+0.00015522,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NV-14",
+"data/state-lower/2022/NV.json",
+"district 14",
+null,
+null,
+0.000139485,
+0.000139485,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-15",
+"data/state-lower/2022/NY.json",
+"district 15",
+null,
+null,
+3.33122e-05,
+3.33122e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-20",
+"data/state-lower/2022/NY.json",
+"district 20",
+null,
+null,
+3.53351e-05,
+3.53351e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-58",
+"data/state-lower/2022/NY.json",
+"district 58",
+null,
+null,
+7.34635e-05,
+7.34635e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-63",
+"data/state-lower/2022/NY.json",
+"district 63",
+null,
+null,
+4.81048e-05,
+4.81048e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-65",
+"data/state-lower/2022/NY.json",
+"district 65",
+null,
+null,
+6.48993e-05,
+6.48993e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-68",
+"data/state-lower/2022/NY.json",
+"district 68",
+null,
+null,
+6.82516e-05,
+6.82516e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-73",
+"data/state-lower/2022/NY.json",
+"district 73",
+null,
+null,
+3.85859e-05,
+3.85859e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-75",
+"data/state-lower/2022/NY.json",
+"district 75",
+null,
+null,
+4.72532e-05,
+4.72532e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-78",
+"data/state-lower/2022/NY.json",
+"district 78",
+null,
+null,
+0.000155757,
+0.000155757,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-92",
+"data/state-lower/2022/NY.json",
+"district 92",
+null,
+null,
+3.3198e-05,
+3.3198e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-94",
+"data/state-lower/2022/NY.json",
+"district 94",
+null,
+null,
+3.03301e-05,
+3.03301e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-97",
+"data/state-lower/2022/NY.json",
+"district 97",
+null,
+null,
+4.76252e-05,
+4.76252e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-99",
+"data/state-lower/2022/NY.json",
+"district 99",
+null,
+null,
+4.65126e-05,
+4.65126e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-NY-105",
+"data/state-lower/2022/NY.json",
+"district 105",
+null,
+null,
+3.15945e-05,
+3.15945e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-OR-22",
+"data/state-lower/2022/OR.json",
+"district 22",
+null,
+null,
+0.00010109,
+0.00010109,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-PA-49",
+"data/state-lower/2022/PA.json",
+"district 49",
+null,
+null,
+0.000101631,
+0.000101631,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-VT-Chittenden_7",
+"data/state-lower/2022/VT.json",
+"district Chittenden 7",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2022-state-lower-VT-Rutland_3",
+"data/state-lower/2022/VT.json",
+"district Rutland 3",
+null,
+null,
+0.00106011,
+0.00106011,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-lower-VT-Windhamwindsorbennington",
+"data/state-lower/2022/VT.json",
+"district Windhamwindsorbennington",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2022-state-lower-WA-22__seat_1",
+"data/state-lower/2022/WA.json",
+"district 22, seat 1",
+null,
+null,
+2.52479e-05,
+2.52479e-05,
+null,
+[
+"B"
+]
+],
+[
+"2023-state-lower-VA-9",
+"data/state-lower/2023/VA.json",
+"district 9",
+null,
+null,
+4.70053e-05,
+4.70053e-05,
+null,
+[
+"B"
+]
+],
+[
+"2023-state-lower-VA-28",
+"data/state-lower/2023/VA.json",
+"district 28",
+null,
+null,
+3.81132e-05,
+3.81132e-05,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-DE-32",
+"data/state-lower/2024/DE.json",
+"district 32",
+null,
+null,
+0.000147012,
+0.000147012,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-IN-4",
+"data/state-lower/2024/IN.json",
+"district 4",
+null,
+null,
+2.23034e-05,
+2.19976e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-5",
+"data/state-lower/2024/IN.json",
+"district 5",
+null,
+null,
+2.52411e-05,
+2.4895e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-15",
+"data/state-lower/2024/IN.json",
+"district 15",
+null,
+null,
+2.0953e-05,
+2.06657e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-16",
+"data/state-lower/2024/IN.json",
+"district 16",
+null,
+null,
+2.6586e-05,
+2.62237e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-23",
+"data/state-lower/2024/IN.json",
+"district 23",
+null,
+null,
+3.13473e-05,
+3.09201e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-25",
+"data/state-lower/2024/IN.json",
+"district 25",
+null,
+null,
+2.07503e-05,
+2.04657e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-28",
+"data/state-lower/2024/IN.json",
+"district 28",
+null,
+null,
+2.32908e-05,
+2.29715e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-30",
+"data/state-lower/2024/IN.json",
+"district 30",
+null,
+null,
+2.71696e-05,
+2.67993e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-35",
+"data/state-lower/2024/IN.json",
+"district 35",
+null,
+null,
+2.45371e-05,
+2.42007e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-36",
+"data/state-lower/2024/IN.json",
+"district 36",
+null,
+null,
+2.99765e-05,
+2.95679e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-38",
+"data/state-lower/2024/IN.json",
+"district 38",
+null,
+null,
+2.30871e-05,
+2.27705e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-40",
+"data/state-lower/2024/IN.json",
+"district 40",
+null,
+null,
+2.5941e-05,
+2.55875e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-41",
+"data/state-lower/2024/IN.json",
+"district 41",
+null,
+null,
+2.77268e-05,
+2.7349e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-47",
+"data/state-lower/2024/IN.json",
+"district 47",
+null,
+null,
+2.41138e-05,
+2.37832e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-50",
+"data/state-lower/2024/IN.json",
+"district 50",
+null,
+null,
+2.51815e-05,
+2.48362e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-52",
+"data/state-lower/2024/IN.json",
+"district 52",
+null,
+null,
+2.67793e-05,
+2.64144e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-55",
+"data/state-lower/2024/IN.json",
+"district 55",
+null,
+null,
+2.52509e-05,
+2.49047e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-58",
+"data/state-lower/2024/IN.json",
+"district 58",
+null,
+null,
+2.79813e-05,
+2.76e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-59",
+"data/state-lower/2024/IN.json",
+"district 59",
+null,
+null,
+2.89397e-05,
+2.85453e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-60",
+"data/state-lower/2024/IN.json",
+"district 60",
+null,
+null,
+2.28755e-05,
+2.25618e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-62",
+"data/state-lower/2024/IN.json",
+"district 62",
+null,
+null,
+2.16401e-05,
+2.13434e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-63",
+"data/state-lower/2024/IN.json",
+"district 63",
+null,
+null,
+2.7411e-05,
+2.70375e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-66",
+"data/state-lower/2024/IN.json",
+"district 66",
+null,
+null,
+2.40075e-05,
+2.36783e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-69",
+"data/state-lower/2024/IN.json",
+"district 69",
+null,
+null,
+2.89548e-05,
+2.85602e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-70",
+"data/state-lower/2024/IN.json",
+"district 70",
+null,
+null,
+2.21896e-05,
+2.18854e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-72",
+"data/state-lower/2024/IN.json",
+"district 72",
+null,
+null,
+2.28607e-05,
+2.25472e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-73",
+"data/state-lower/2024/IN.json",
+"district 73",
+null,
+null,
+2.85969e-05,
+2.82072e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-74",
+"data/state-lower/2024/IN.json",
+"district 74",
+null,
+null,
+2.46209e-05,
+2.42833e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-81",
+"data/state-lower/2024/IN.json",
+"district 81",
+null,
+null,
+2.41475e-05,
+2.38164e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-83",
+"data/state-lower/2024/IN.json",
+"district 83",
+null,
+null,
+2.25449e-05,
+2.22358e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-85",
+"data/state-lower/2024/IN.json",
+"district 85",
+null,
+null,
+2.50124e-05,
+2.46695e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-88",
+"data/state-lower/2024/IN.json",
+"district 88",
+null,
+null,
+1.95082e-05,
+1.92407e-05,
+0.9863,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-91",
+"data/state-lower/2024/IN.json",
+"district 91",
+null,
+null,
+3.40599e-05,
+3.35958e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-IN-93",
+"data/state-lower/2024/IN.json",
+"district 93",
+null,
+null,
+3.56272e-05,
+3.51417e-05,
+0.9864,
+[
+"P"
+]
+],
+[
+"2024-state-lower-MT-58",
+"data/state-lower/2024/MT.json",
+"district 58",
+null,
+null,
+0.000258166,
+0.000258166,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-79",
+"data/state-lower/2024/MT.json",
+"district 79",
+null,
+null,
+0.000258692,
+0.000258692,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-17",
+"data/state-lower/2024/MT.json",
+"district 17",
+null,
+null,
+0.00027847,
+0.00027847,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-37",
+"data/state-lower/2024/MT.json",
+"district 37",
+null,
+null,
+0.000282273,
+0.000282273,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-62",
+"data/state-lower/2024/MT.json",
+"district 62",
+null,
+null,
+0.000310259,
+0.000310259,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-63",
+"data/state-lower/2024/MT.json",
+"district 63",
+null,
+null,
+0.000291772,
+0.000291772,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-65",
+"data/state-lower/2024/MT.json",
+"district 65",
+null,
+null,
+0.000286643,
+0.000286643,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-4",
+"data/state-lower/2024/MT.json",
+"district 4",
+null,
+null,
+0.000291772,
+0.000291772,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-11",
+"data/state-lower/2024/MT.json",
+"district 11",
+null,
+null,
+0.000258429,
+0.000258429,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-50",
+"data/state-lower/2024/MT.json",
+"district 50",
+null,
+null,
+0.000292781,
+0.000292781,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-MT-85",
+"data/state-lower/2024/MT.json",
+"district 85",
+null,
+null,
+0.000239972,
+0.000239972,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-NY-119",
+"data/state-lower/2024/NY.json",
+"district 119",
+null,
+null,
+4.55619e-05,
+4.55619e-05,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-TN-3",
+"data/state-lower/2024/TN.json",
+"district 3",
+null,
+null,
+1.87349e-05,
+1.87349e-05,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-lower-TN-27",
+"data/state-lower/2024/TN.json",
+"district 27",
+null,
+null,
+1.50822e-05,
+1.50822e-05,
+null,
+[
+"B"
+]
+],
+[
+"2025-state-lower-VA-73",
+"data/state-lower/2025/VA.json",
+"district 73",
+null,
+null,
+3.86697e-05,
+3.86697e-05,
+null,
+[
+"B"
+]
+],
+[
+"2016-state-upper-IN-9",
+"data/state-upper/2016/IN.json",
+"district 9",
+null,
+null,
+"MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 22,284 votes against Klarner's 41,812, -46.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Ryan Mischler (19,528) on the ballot beside Klarner's unopposed candidate, with 46.7% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2016-state-upper-IN-18",
+"data/state-upper/2016/IN.json",
+"district 18",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-upper-IN-28",
+"data/state-upper/2016/IN.json",
+"district 28",
+null,
+null,
+1.19547e-05,
+1.19547e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-upper-IN-44",
+"data/state-upper/2016/IN.json",
+"district 44",
+null,
+null,
+1.72385e-05,
+1.72385e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-upper-MA-Suffolkmiddlesex_1",
+"data/state-upper/2016/MA.json",
+"district Suffolkmiddlesex 1",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-upper-ME-11",
+"data/state-upper/2016/ME.json",
+"district 11",
+null,
+null,
+9.93915e-05,
+9.93915e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-upper-NY-58",
+"data/state-upper/2016/NY.json",
+"district 58",
+null,
+null,
+6.77237e-06,
+6.77237e-06,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-upper-UT-19",
+"data/state-upper/2016/UT.json",
+"district 19",
+null,
+null,
+1.20192e-05,
+1.20192e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-upper-UT-20",
+"data/state-upper/2016/UT.json",
+"district 20",
+null,
+null,
+2.19721e-05,
+2.19721e-05,
+null,
+[
+"Q"
+]
+],
+[
+"2016-state-upper-UT-23",
+"data/state-upper/2016/UT.json",
+"district 23",
+null,
+null,
+9.86503e-06,
+9.86503e-06,
+null,
+[
+"Q"
+]
+],
+[
+"2018-state-upper-AK-A",
+"data/state-upper/2018/AK.json",
+"district A",
+null,
+null,
+0.000146959,
+0.000146959,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-AL-13",
+"data/state-upper/2018/AL.json",
+"district 13",
+null,
+null,
+3.82478e-05,
+3.82478e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-GA-56",
+"data/state-upper/2018/GA.json",
+"district 56",
+null,
+null,
+1.75428e-05,
+1.75428e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-ME-30",
+"data/state-upper/2018/ME.json",
+"district 30",
+null,
+null,
+6.67215e-05,
+6.67215e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-ME-31",
+"data/state-upper/2018/ME.json",
+"district 31",
+null,
+null,
+4.42897e-05,
+4.42897e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-NC-35",
+"data/state-upper/2018/NC.json",
+"district 35",
+null,
+null,
+1.80347e-05,
+1.80347e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-NC-36",
+"data/state-upper/2018/NC.json",
+"district 36",
+null,
+null,
+1.26251e-05,
+1.26251e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-NC-48",
+"data/state-upper/2018/NC.json",
+"district 48",
+null,
+null,
+1.23142e-05,
+1.23142e-05,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-NY-51",
+"data/state-upper/2018/NY.json",
+"district 51",
+null,
+null,
+1.4985e-06,
+1.4985e-06,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-TN-29",
+"data/state-upper/2018/TN.json",
+"district 29",
+null,
+null,
+1.35148e-07,
+1.35148e-07,
+null,
+[
+"B"
+]
+],
+[
+"2018-state-upper-VT-Franklin",
+"data/state-upper/2018/VT.json",
+"district Franklin",
+null,
+null,
+0.000188639,
+"MEDSL's precinct file (2018-vt-precinct-general.zip) gives this district's 4 named candidates 29,863 votes against Klarner's 34,612, -13.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+null,
+[
+"L"
+]
+],
+[
+"2018-state-upper-VT-Lamoille",
+"data/state-upper/2018/VT.json",
+"district Lamoille",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"B",
+"Q"
+]
+],
+[
+"2018-state-upper-VT-Rutland",
+"data/state-upper/2018/VT.json",
+"district Rutland",
+null,
+null,
+0.000172903,
+0.000297822,
+1.7225,
+[
+"P",
+"Q"
+]
+],
+[
+"2019-state-upper-MS-13",
+"data/state-upper/2019/MS.json",
+"district 13",
+null,
+null,
+0.000122089,
+0.000122089,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-upper-CT-22",
+"data/state-upper/2020/CT.json",
+"district 22",
+null,
+null,
+2.3987e-05,
+2.3987e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-upper-ME-25",
+"data/state-upper/2020/ME.json",
+"district 25",
+null,
+null,
+2.46331e-05,
+2.46331e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-upper-NC-11",
+"data/state-upper/2020/NC.json",
+"district 11",
+null,
+null,
+1.54692e-05,
+1.54692e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-upper-NC-18",
+"data/state-upper/2020/NC.json",
+"district 18",
+null,
+null,
+1.37081e-05,
+1.37081e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-upper-NC-26",
+"data/state-upper/2020/NC.json",
+"district 26",
+null,
+null,
+1.92283e-05,
+1.92283e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-upper-NC-39",
+"data/state-upper/2020/NC.json",
+"district 39",
+null,
+null,
+1.55958e-05,
+1.55958e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-upper-NC-49",
+"data/state-upper/2020/NC.json",
+"district 49",
+null,
+null,
+1.34931e-05,
+1.34931e-05,
+null,
+[
+"B"
+]
+],
+[
+"2020-state-upper-NY-50",
+"data/state-upper/2020/NY.json",
+"district 50",
+null,
+null,
+1.71031e-05,
+1.71031e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-AR-9",
+"data/state-upper/2022/AR.json",
+"district 9",
+null,
+null,
+"MEDSL's precinct file (2022-ar-local-precinct-general.zip) gives this district's 2 named candidates 14,649 votes against Klarner's 18,912, -22.5% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+8.05113e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-AZ-1",
+"data/state-upper/2022/AZ.json",
+"district 1",
+null,
+null,
+1.38635e-05,
+1.38635e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-AZ-12",
+"data/state-upper/2022/AZ.json",
+"district 12",
+null,
+null,
+1.68934e-05,
+1.68934e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-AZ-18",
+"data/state-upper/2022/AZ.json",
+"district 18",
+null,
+null,
+1.56632e-05,
+1.56632e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-AZ-28",
+"data/state-upper/2022/AZ.json",
+"district 28",
+null,
+null,
+1.43852e-05,
+1.43852e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-CA-38",
+"data/state-upper/2022/CA.json",
+"district 38",
+null,
+null,
+4.72331e-06,
+4.72331e-06,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-CO-3",
+"data/state-upper/2022/CO.json",
+"district 3",
+null,
+null,
+2.62141e-05,
+2.62141e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-CO-4",
+"data/state-upper/2022/CO.json",
+"district 4",
+null,
+null,
+1.88995e-05,
+1.88995e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-CO-8",
+"data/state-upper/2022/CO.json",
+"district 8",
+null,
+null,
+2.3597e-05,
+2.3597e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-CO-24",
+"data/state-upper/2022/CO.json",
+"district 24",
+null,
+null,
+3.18704e-05,
+3.18704e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-CO-35",
+"data/state-upper/2022/CO.json",
+"district 35",
+null,
+null,
+2.19433e-05,
+2.19433e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-CT-26",
+"data/state-upper/2022/CT.json",
+"district 26",
+null,
+null,
+3.84065e-05,
+3.84065e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-DE-14",
+"data/state-upper/2022/DE.json",
+"district 14",
+null,
+null,
+0.000107319,
+0.000107319,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-HI-6",
+"data/state-upper/2022/HI.json",
+"district 6",
+null,
+null,
+0.000124362,
+0.000124362,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-HI-11",
+"data/state-upper/2022/HI.json",
+"district 11",
+null,
+null,
+0.000102339,
+0.000102339,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-HI-16",
+"data/state-upper/2022/HI.json",
+"district 16",
+null,
+null,
+8.91066e-05,
+8.91066e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-IL-45",
+"data/state-upper/2022/IL.json",
+"district 45",
+null,
+null,
+2.03723e-05,
+2.03723e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-IN-6",
+"data/state-upper/2022/IN.json",
+"district 6",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2022-state-upper-IN-14",
+"data/state-upper/2022/IN.json",
+"district 14",
+null,
+null,
+4.85e-05,
+4.84991e-05,
+1.0,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-19",
+"data/state-upper/2022/IN.json",
+"district 19",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 14,966 votes against Klarner's 27,865, -46.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-21",
+"data/state-upper/2022/IN.json",
+"district 21",
+null,
+null,
+9.65799e-06,
+9.65756e-06,
+1.0,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-26",
+"data/state-upper/2022/IN.json",
+"district 26",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 30,118 votes against Klarner's 37,016, -18.6% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+3.77843e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-27",
+"data/state-upper/2022/IN.json",
+"district 27",
+null,
+null,
+1.18302e-05,
+1.18297e-05,
+1.0,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-29",
+"data/state-upper/2022/IN.json",
+"district 29",
+null,
+null,
+3.68987e-05,
+3.6899e-05,
+1.0,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-31",
+"data/state-upper/2022/IN.json",
+"district 31",
+null,
+null,
+2.7298e-05,
+2.72975e-05,
+1.0,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-38",
+"data/state-upper/2022/IN.json",
+"district 38",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 1,250 votes against Klarner's 27,510, -95.5% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-39",
+"data/state-upper/2022/IN.json",
+"district 39",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 14,939 votes against Klarner's 31,128, -52.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-43",
+"data/state-upper/2022/IN.json",
+"district 43",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2022-state-upper-IN-45",
+"data/state-upper/2022/IN.json",
+"district 45",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 36,136 votes against Klarner's 41,513, -13.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.04276e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-47",
+"data/state-upper/2022/IN.json",
+"district 47",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 13,894 votes against Klarner's 43,363, -68.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+3.22537e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-48",
+"data/state-upper/2022/IN.json",
+"district 48",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 2 named candidates 3,662 votes against Klarner's 45,020, -91.9% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+9.6153e-06,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-IN-49",
+"data/state-upper/2022/IN.json",
+"district 49",
+null,
+null,
+"MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 7,140 votes against Klarner's 26,320, -72.9% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+0.0,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-MD-1",
+"data/state-upper/2022/MD.json",
+"district 1",
+null,
+null,
+3.79624e-05,
+3.79624e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-2",
+"data/state-upper/2022/MD.json",
+"district 2",
+null,
+null,
+4.24073e-05,
+4.24073e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-3",
+"data/state-upper/2022/MD.json",
+"district 3",
+null,
+null,
+4.16768e-05,
+4.16768e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-4",
+"data/state-upper/2022/MD.json",
+"district 4",
+null,
+null,
+3.03941e-05,
+3.03941e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-10",
+"data/state-upper/2022/MD.json",
+"district 10",
+null,
+null,
+4.3128e-05,
+4.3128e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-11",
+"data/state-upper/2022/MD.json",
+"district 11",
+null,
+null,
+3.67712e-05,
+3.67712e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-23",
+"data/state-upper/2022/MD.json",
+"district 23",
+null,
+null,
+3.63741e-05,
+3.63741e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-26",
+"data/state-upper/2022/MD.json",
+"district 26",
+null,
+null,
+4.77745e-05,
+4.77745e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-27",
+"data/state-upper/2022/MD.json",
+"district 27",
+null,
+null,
+3.42131e-05,
+3.42131e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-34",
+"data/state-upper/2022/MD.json",
+"district 34",
+null,
+null,
+3.80701e-05,
+3.80701e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MD-37",
+"data/state-upper/2022/MD.json",
+"district 37",
+null,
+null,
+3.55219e-05,
+3.55219e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-ME-8",
+"data/state-upper/2022/ME.json",
+"district 8",
+null,
+null,
+0.000108178,
+0.000108178,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-ME-16",
+"data/state-upper/2022/ME.json",
+"district 16",
+null,
+null,
+0.000103995,
+0.000103995,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-ME-32",
+"data/state-upper/2022/ME.json",
+"district 32",
+null,
+null,
+0.000100829,
+0.000100829,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MI-3",
+"data/state-upper/2022/MI.json",
+"district 3",
+null,
+null,
+"MEDSL's precinct file (2022-mi-local-precinct-general.zip) gives this district's 2 named candidates 30,307 votes against Klarner's 71,490, -57.6% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+2.37934e-06,
+null,
+[
+"N"
+]
+],
+[
+"2022-state-upper-MI-4",
+"data/state-upper/2022/MI.json",
+"district 4",
+null,
+null,
+1.46896e-05,
+1.46896e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MI-9",
+"data/state-upper/2022/MI.json",
+"district 9",
+null,
+null,
+1.48476e-05,
+1.48476e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MI-10",
+"data/state-upper/2022/MI.json",
+"district 10",
+null,
+null,
+"MEDSL's precinct file (2022-mi-local-precinct-general.zip) gives this district's 2 named candidates 64,380 votes against Klarner's 89,185, -27.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.33582e-05,
+null,
+[
+"N"
+]
+],
+[
+"2022-state-upper-MI-12",
+"data/state-upper/2022/MI.json",
+"district 12",
+null,
+null,
+"MEDSL's precinct file (2022-mi-local-precinct-general.zip) gives this district's 2 named candidates 116,345 votes against Klarner's 125,140, -7.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.36576e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-MI-18",
+"data/state-upper/2022/MI.json",
+"district 18",
+null,
+null,
+1.47021e-05,
+1.47021e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MI-21",
+"data/state-upper/2022/MI.json",
+"district 21",
+null,
+null,
+1.50346e-05,
+1.50346e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MI-34",
+"data/state-upper/2022/MI.json",
+"district 34",
+null,
+null,
+1.58312e-05,
+1.58312e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MI-35",
+"data/state-upper/2022/MI.json",
+"district 35",
+null,
+null,
+"MEDSL's precinct file (2022-mi-local-precinct-general.zip) gives this district's 2 named candidates 86,195 votes against Klarner's 116,351, -25.9% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+1.46893e-05,
+null,
+[
+"N",
+"Q"
+]
+],
+[
+"2022-state-upper-MI-36",
+"data/state-upper/2022/MI.json",
+"district 36",
+null,
+null,
+1.29497e-05,
+1.29496e-05,
+1.0,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-upper-MI-37",
+"data/state-upper/2022/MI.json",
+"district 37",
+null,
+null,
+1.21911e-05,
+1.21911e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-MT-24",
+"data/state-upper/2022/MT.json",
+"district 24",
+null,
+null,
+0.00034091,
+0.00034091,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-3",
+"data/state-upper/2022/NY.json",
+"district 3",
+null,
+null,
+1.5811e-05,
+1.5811e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-4",
+"data/state-upper/2022/NY.json",
+"district 4",
+null,
+null,
+2.38906e-05,
+2.38906e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-9",
+"data/state-upper/2022/NY.json",
+"district 9",
+null,
+null,
+1.53701e-05,
+1.53701e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-23",
+"data/state-upper/2022/NY.json",
+"district 23",
+null,
+null,
+2.97738e-05,
+2.97738e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-34",
+"data/state-upper/2022/NY.json",
+"district 34",
+null,
+null,
+3.27889e-05,
+3.27889e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-39",
+"data/state-upper/2022/NY.json",
+"district 39",
+null,
+null,
+1.57806e-05,
+1.57806e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-41",
+"data/state-upper/2022/NY.json",
+"district 41",
+null,
+null,
+1.22486e-05,
+1.22486e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-43",
+"data/state-upper/2022/NY.json",
+"district 43",
+null,
+null,
+1.45604e-05,
+1.45604e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-52",
+"data/state-upper/2022/NY.json",
+"district 52",
+null,
+null,
+1.64131e-05,
+1.64131e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-NY-61",
+"data/state-upper/2022/NY.json",
+"district 61",
+null,
+null,
+1.53353e-05,
+1.53353e-05,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-RI-18",
+"data/state-upper/2022/RI.json",
+"district 18",
+null,
+null,
+0.000223247,
+0.000223247,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-RI-22",
+"data/state-upper/2022/RI.json",
+"district 22",
+null,
+null,
+0.000159652,
+0.000159652,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-RI-29",
+"data/state-upper/2022/RI.json",
+"district 29",
+null,
+null,
+0.000174315,
+0.000174315,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-RI-30",
+"data/state-upper/2022/RI.json",
+"district 30",
+null,
+null,
+0.000136661,
+0.000136661,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-RI-31",
+"data/state-upper/2022/RI.json",
+"district 31",
+null,
+null,
+0.000153215,
+0.000153215,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-RI-32",
+"data/state-upper/2022/RI.json",
+"district 32",
+null,
+null,
+0.000132086,
+0.000132086,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-VT-Chittendennorth",
+"data/state-upper/2022/VT.json",
+"district Chittendennorth",
+null,
+null,
+0.000173784,
+0.000173784,
+null,
+[
+"B"
+]
+],
+[
+"2022-state-upper-VT-Lamoille",
+"data/state-upper/2022/VT.json",
+"district Lamoille",
+null,
+null,
+0.0,
+0.0,
+null,
+[
+"Q"
+]
+],
+[
+"2022-state-upper-WA-8",
+"data/state-upper/2022/WA.json",
+"district 8",
+null,
+null,
+2.99743e-06,
+2.99641e-06,
+0.9997,
+[
+"P",
+"Q"
+]
+],
+[
+"2022-state-upper-WA-35",
+"data/state-upper/2022/WA.json",
+"district 35",
+null,
+null,
+2.29884e-05,
+2.29884e-05,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-upper-AR-25",
+"data/state-upper/2024/AR.json",
+"district 25",
+null,
+null,
+1.79302e-05,
+1.91744e-05,
+1.0694,
+[
+"P"
+]
+],
+[
+"2024-state-upper-AR-17",
+"data/state-upper/2024/AR.json",
+"district 17",
+null,
+null,
+1.54598e-05,
+1.65326e-05,
+1.0694,
+[
+"P"
+]
+],
+[
+"2024-state-upper-AR-34",
+"data/state-upper/2024/AR.json",
+"district 34",
+null,
+null,
+1.32871e-05,
+1.42091e-05,
+1.0694,
+[
+"P"
+]
+],
+[
+"2024-state-upper-AR-20",
+"data/state-upper/2024/AR.json",
+"district 20",
+null,
+null,
+2.09725e-05,
+2.2442e-05,
+1.0701,
+[
+"P"
+]
+],
+[
+"2024-state-upper-AR-22",
+"data/state-upper/2024/AR.json",
+"district 22",
+null,
+null,
+1.71013e-05,
+1.8288e-05,
+1.0694,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-2",
+"data/state-upper/2024/IN.json",
+"district 2",
+null,
+null,
+2.98716e-05,
+3.1082e-05,
+1.0405,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-3",
+"data/state-upper/2024/IN.json",
+"district 3",
+null,
+null,
+3.67698e-05,
+3.62718e-05,
+0.9865,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-5",
+"data/state-upper/2024/IN.json",
+"district 5",
+null,
+null,
+1.1907e-05,
+1.11289e-05,
+0.9347,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-8",
+"data/state-upper/2024/IN.json",
+"district 8",
+null,
+null,
+1.32279e-05,
+1.23635e-05,
+0.9347,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-20",
+"data/state-upper/2024/IN.json",
+"district 20",
+null,
+null,
+1.07112e-05,
+1.00113e-05,
+0.9347,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-24",
+"data/state-upper/2024/IN.json",
+"district 24",
+null,
+null,
+2.73013e-05,
+2.69316e-05,
+0.9865,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-32",
+"data/state-upper/2024/IN.json",
+"district 32",
+null,
+null,
+1.38625e-05,
+1.29566e-05,
+0.9347,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-35",
+"data/state-upper/2024/IN.json",
+"district 35",
+null,
+null,
+1.80841e-05,
+1.69023e-05,
+0.9346,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-36",
+"data/state-upper/2024/IN.json",
+"district 36",
+null,
+null,
+3.46482e-05,
+3.41789e-05,
+0.9865,
+[
+"P"
+]
+],
+[
+"2024-state-upper-IN-37",
+"data/state-upper/2024/IN.json",
+"district 37",
+null,
+null,
+1.18678e-05,
+1.10922e-05,
+0.9346,
+[
+"P"
+]
+],
+[
+"2024-state-upper-MT-20",
+"data/state-upper/2024/MT.json",
+"district 20",
+null,
+null,
+0.000184119,
+0.000184119,
+null,
+[
+"B"
+]
+],
+[
+"2024-state-upper-MT-24",
+"data/state-upper/2024/MT.json",
+"district 24",
+null,
+null,
+0.000223525,
+0.000223525,
+null,
+[
+"B"
+]
+]
+]
+}

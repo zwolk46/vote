@@ -378,6 +378,33 @@ D_DOUBLED = ("Klarner's figures for this district are doubled: every one of its 
              "votes, to within 2% [measured: pipeline/local_districts.py]; MEDSL's counts ({file}) (the orchestrator's "
              "rule of 2026-11-07 19:04 for a doubled count: \"Use MEDSL's counts where every candidate matches by name, "
              "marked 'Klarner's figures are doubled; MEDSL's counts'\"): {diff}")
+D_AGREE = ("MEDSL's precinct file ({file}) gives this district's {n} named candidate{s} {m:,} votes against Klarner's "
+           "{k:,}, {pct:+.1f}% [measured: pipeline/local_districts.py]; the state's published results agree with "
+           "Klarner's ({src}, {url}, read {read}, sha256 {sha}: {pairs}{wi}), so Klarner's count stands (the "
+           "orchestrator, 2026-11-13: \"Settling a flag needs only the state's own count agreeing with one source\")")
+D_BALLOT = ("MEDSL's precinct file ({file}) gives {who} {named:,} votes on the line with that name against Klarner's "
+            "{kv:,}, and {wi:,} on its WRITE-IN line; with that line, all of MEDSL's lines add up to {all:,} against "
+            "Klarner's {k:,}, so the count is confirmed [measured: pipeline/local_districts.py]. But whether the "
+            "candidate was on the ballot is not read (Michigan's Secretary of State refused on 2026-11-07, and Wayne "
+            "County's Clerk gave an empty reply on 2026-11-13), and the write-in rule would decide a write-in's "
+            "contest (the orchestrator, 2026-11-13 01:04: \"Before p returns, read whether Corcoran was on the "
+            "ballot; if he was a write-in, the write-in rule applies\"): p is not computed, and the contest is left "
+            "out of the fits")
+D_COUNTY = ("MEDSL's precinct file ({file}) gives this district's {n} named candidate{s} {m:,} votes against Klarner's "
+            "{k:,}, {pct:+.1f}%; the gap lies in {county} County (FIPS {fips}), where MEDSL's lines are short of the "
+            "other contests in the same precincts [measured: pipeline/local_districts.py]. That county's clerk's own "
+            "results ({title}; {url}, read {read}, sha256 {sha}) give {official}, and {wi} unresolved write-ins "
+            "[stated: the file]; with them in place of MEDSL's lines there, the district adds up to Klarner's count "
+            "candidate by candidate ({pairs}), so Klarner's count stands (the orchestrator, 2026-11-13: \"one request "
+            "each to the clerk of the county where the gap lies\"; \"Settling a flag needs only the state's own count "
+            "agreeing with one source\")")
+D_OVER = ("Klarner's figures for this district add up to {k:,} votes, {kpb:.2f} a ballot for {seats} seat{ss}: more than "
+          "its seats times the {b:,} ballots of the {np} precincts MEDSL's file ({file}) gives the district (their votes "
+          "for {by}), which cannot be; MEDSL's file covers the district, and its own counts add up to {m:,}, {mpb:.2f} "
+          "a ballot [measured: pipeline/local_districts.py]. MEDSL's counts (the orchestrator, 2026-11-13: \"A count "
+          "over seats times ballots, like Rutland's, cannot be right whatever the coverage\"; \"MEDSL taken where it "
+          "passes every test\", as for Chittenden in 2018), marked 'Klarner's count is over its seats times the "
+          "ballots; MEDSL's counts': {diff}")
 D_STATE = ("Idaho's canvass of the 2022 general (the Secretary of State's 'Canvass Files', its legislative workbook, the "
            "district's total row, column {col}) in place of Klarner's figures, which MEDSL's file contradicts "
            "[measured: pipeline/local_districts.py]; a write-in marked '(W/I)' is added as one (the orchestrator, "
@@ -395,6 +422,8 @@ D_UNCOVERED = ("MEDSL's precinct file ({file}) gives this district's {n} named c
 
 def _gap_words(cov):
     return "; ".join(f"county {c}: no row of the file at all" if miss is None else
+                     f"county {c}: in the district by the Census's 2022 block equivalency file ({100 * tot:.1f}% of "
+                     f"the district's blocks), with no row of the district in MEDSL's file" if miss == "census" else
                      f"county {c}: {miss:,} of the {tot:,} precincts of the county's top contest ({100 * miss / tot:.0f}%)"
                      for c, miss, tot in cov["gaps"])
 
@@ -422,8 +451,12 @@ def district_checks(contests):
                 DISTRICTS_COUNT[f"{year}: {o}"] += 1
                 continue
             c = by.get(fl["id"])
-            named = [a for a in c["cands"] if not a["scattering"]] if c else []
-            if c is None or [[a["name"], a["votes"]] for a in named] != [p_[:2] for p_ in fl["pairs"]]:
+            # the candidates the check pairs (LD.pair): every one of LD._named, and a write-in under the strong line
+            # only where MEDSL's file names it
+            paired = {p_[0] for p_ in fl["pairs"]}
+            named = [a for a in c["cands"] if not a["scattering"] and a["name"] in paired] if c else []
+            if c is None or [[a["name"], a["votes"]] for a in named] != [p_[:2] for p_ in fl["pairs"]] or \
+                    not {id(a) for a in LD._named(c)} <= {id(a) for a in named}:
                 raise SystemExit(f"district_checks: {fl['id']} is not the contest the check read: run "
                                  f"pipeline/local_districts.py check again")
             n, s_ = len(named), "" if len(named) == 1 else "s"
@@ -469,10 +502,45 @@ def district_checks(contests):
                         diff.append((a["name"] or "scattering", a["votes"], fl["medsl_write_ins"]))
                         a["votes"] = fl["medsl_write_ins"]
                 _sum_parties(c)
-                c["votes_source"] = {"source": "medsl", "file": fname, "klarner": {n_: v_ for n_, v_, _ in diff}}
-                _add_note(c, D_DOUBLED.format(file=fname, diff="; ".join(
-                    f"{n_}: {v_:,} in Klarner's, {w_:,} in MEDSL's" for n_, v_, w_ in diff)))
-                DISTRICTS_COUNT[f"{year}: MEDSL taken"] += 1
+                c["votes_source"] = {"source": "medsl", "file": fname, "klarner": {n_: v_ for n_, v_, _ in diff},
+                                     "mark": fl.get("mark") or "Klarner's figures are doubled; MEDSL's counts"}
+                dtext = "; ".join(f"{n_}: {v_:,} in Klarner's, {w_:,} in MEDSL's" for n_, v_, w_ in diff)
+                if fl.get("mark") == LD.OVER_MARK:
+                    ov = fl["over_seats"]
+                    _add_note(c, D_OVER.format(k=fl["klarner"], kpb=ov["klarner_per_ballot"], seats=ov["seats"],
+                                               ss="" if ov["seats"] == 1 else "s", b=ov["ballots"], np=ov["precincts"],
+                                               file=fname, by=" and ".join(x.title() for x in ov["by"]),
+                                               m=fl["medsl"], mpb=ov["medsl_per_ballot"], diff=dtext))
+                    DISTRICTS_COUNT[f"{year}: MEDSL taken, over seats times ballots"] += 1
+                else:
+                    _add_note(c, D_DOUBLED.format(file=fname, diff=dtext))
+                    DISTRICTS_COUNT[f"{year}: MEDSL taken"] += 1
+            elif o == "held: whether a candidate was on the ballot is not read":
+                c["held_reason"] = D_BALLOT.format(file=fname, who=fl["who"], named=fl["medsl_named"],
+                                                   kv=fl["klarner_votes"], wi=fl["write_in_line"], all=fl["all_lines"],
+                                                   k=fl["klarner"])
+                DISTRICTS_COUNT[f"{year}: held, whether a candidate was on the ballot is not read"] += 1
+            elif o == "settled by the county: Klarner's count stands":
+                cc = fl["county_count"]
+                _add_note(c, D_COUNTY.format(file=fname, n=n, s=s_, m=fl["medsl"], k=fl["klarner"],
+                                             pct=100 * (fl["ratio"] - 1), county=cc["clerk"].replace(" County Clerk", ""),
+                                             fips=cc["county"], title=cc["title"], url=cc["url"], read=cc["read_utc"],
+                                             sha=cc["sha256"], wi=cc["write_ins"],
+                                             official=", ".join(f"{k_.title()} {v_:,}" for k_, v_ in cc["official"].items()),
+                                             pairs="; ".join(f"{a}: Klarner {b:,}, MEDSL {d:,}, with the county's {e:,}"
+                                                             for a, b, d, e in fl["county_pairs"])))
+                c["county_agrees"] = {k_: cc[k_] for k_ in ("clerk", "url", "read_utc", "sha256")}
+                DISTRICTS_COUNT[f"{year}: settled by the county, Klarner's count stands"] += 1
+            elif o == "settled by the state: Klarner's count stands":
+                sc = fl["state_count"]
+                _add_note(c, D_AGREE.format(file=fname, n=n, s=s_, m=fl["medsl"], k=fl["klarner"],
+                                            pct=100 * (fl["ratio"] - 1), src=sc["source"], url=sc["url"],
+                                            read=sc["read_utc"], sha=sc["sha256"], pairs="; ".join(
+                                                f"{a}: {b:,} in Klarner's, {d:,} in the state's" for a, b, _, d in
+                                                sc["pairs"]),
+                                            wi="".join(f"; {w} (write-in) {v:,}" for w, v in sc["write_ins"])))
+                c["state_agrees"] = {k_: sc[k_] for k_ in ("source", "url", "read_utc", "sha256", "ratio")}
+                DISTRICTS_COUNT[f"{year}: settled by the state, Klarner's count stands"] += 1
             elif o == "settled by the state":
                 sc = fl["state_count"]
                 left, diff = list(sc["candidates"]), []

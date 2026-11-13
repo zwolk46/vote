@@ -137,6 +137,15 @@ def _title(name, localities):
     return office, "" if names <= {_key(x) for x in localities} else inner
 
 
+NAMED_NOTE = ("the file keys {who} by a name, not by a ballot number: read as a write-in counted by name [inferred], "
+              "as the page confirms in the two contests it shows with such options (Brodnax's and Scottsville's "
+              "councils, each beside an 'Adjudicated Write-Ins' line of the same votes)")
+NAMED_UNCONFIRMED = ("the page does not show this contest, and the name-keyed {who} outpolls a name on the ballot "
+                     "({ballot}) for a seat, so its being a write-in is not confirmed here; it stays not computed "
+                     "either way: as a write-in by the write-in rule, as a name on the ballot for having no party in "
+                     "the source (the orchestrator, 2026-11-13 01:20)")
+
+
 def _option(o):
     oid = o["id"]
     kind = "ballot" if BALLOT_ID.fullmatch(oid) else "write-in line" if WRITE_IN_ID.match(oid) else \
@@ -241,6 +250,23 @@ def _read(year):
                                      f"{s['locality_line']:,})" for s in short[:4])
                          + (f"; and {len(short) - 4} more" if len(short) > 4 else "")
                          + " [measured]; the locality line is the count (recorded beside the gate, not a part of it)")
+        # the write-in by name reading (the orchestrator, 2026-11-13 (d): "Each record it touches says so in its note
+        # and names the two contests the page confirms"; 01:20: where the page does not show the contest and the
+        # name-keyed option outpolls a ballot name, "its being a write-in is not confirmed there")
+        wn = [o for o in opts if o["kind"] == "write-in by name"]
+        if wn:
+            notes.append(NAMED_NOTE.format(who=", ".join(f"{o['name']} ({o['votes']:,})" for o in wn)))
+            ballot_ = [o for o in opts if o["kind"] == "ballot"]
+            k = c["seats"] or 1
+            lead = sorted(ballot_ + wn, key=lambda o: -o["votes"])[:k]
+            beat = [o for o in wn if o in lead and o["votes"] > 0]
+            if beat and len(ballot_) >= k:
+                last = min((o for o in ballot_ if o not in lead), key=lambda o: -o["votes"], default=None)
+                c["named_write_in_wins"] = [o["name"] for o in beat]
+                if not shared:
+                    notes.append(NAMED_UNCONFIRMED.format(who=", ".join(f"{o['name']} ({o['votes']:,})" for o in beat),
+                                                          ballot=f"{last['name']} ({last['votes']:,})" if last else "a "
+                                                          "name on the ballot"))
         c["precincts_short"] = short
         c["checks"] = ok
         c["held"] = "; ".join(why) or None
@@ -336,8 +362,8 @@ def source_block(year):
     res = VAL.load(year)
     fx, fp = res["files"]["export"], res["files"]["election"]
     note = (f"the results site's page of '{res['name']}' ({fp['url']}, {fp['how']}, finished {fp['finished_utc']}, "
-            f"sha256 {fp['sha256'][:16]}; headed {res['official_text']!r}) and its 'Media Export' file ({fx['url']}, "
-            f"finished {fx['finished_utc']}, sha256 {fx['sha256'][:16]}, created {res['export_created_utc'][:19]}Z), "
+            f"sha256 {fp['sha256']}; headed {res['official_text']!r}) and its 'Media Export' file ({fx['url']}, "
+            f"finished {fx['finished_utc']}, sha256 {fx['sha256']}, created {res['export_created_utc'][:19]}Z), "
             f"read by pipeline/intake/va_elect.py before the Department refused us (2026-11-07 18:27:48 UTC; nothing "
             f"is requested from it again). Gate {GATE_BY} (pipeline/local_va.py; data/local/check-va-local.json), "
             f"proposed: the page headed 'OFFICIAL RESULTS' and linked from the Department's results page, the figures "
