@@ -102,6 +102,11 @@ def _load(rel):
         # item 2: "Rerun its governor build so the 2020+ fits and HI 2022's input take 131,719"; D3)
         import governor_hi2018 as GH
         GH.fix_cha(d["contests"])
+        # Connecticut's and New York's 2018 nominees at every party line, Indiana 2024 at the state's certified count
+        # (the orchestrator, 2026-11-13 04:44: "A fusion candidate's votes are the sum of his lines in the official
+        # count" and "the certified count wins"; pipeline/governor_counts.py; D3)
+        import governor_counts as GC
+        GC.fix_cha(d["contests"])
     return d
 
 

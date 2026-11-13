@@ -191,9 +191,11 @@ def main():
     rec["result"]["source"] = src
     tp = rec["two_party"]
     tp["votes"] = [next(c["votes"] for c in cands if c["name"] == n) for n in tp["candidates"]]
-    n_old, n = tp["n_other_voters"], sum(tp["votes"])
+    # n is the two leaders' votes less one, as D2's build sets it (pipeline/intake/build_congress.py); this step set
+    # it to their sum until 2026-11-13 (data/local/REPORT.md section 35)
+    n_old, n = tp["n_other_voters"], sum(tp["votes"]) - 1
     tp["n_other_voters"] = n
-    tp["share_first"] = round(tp["votes"][0] / n, 6)
+    tp["share_first"] = round(tp["votes"][0] / sum(tp["votes"]), 6)
     moves = []
     p = rec["p"]
     if p.get("method") != "density" or p.get("n") not in (n_old, n):

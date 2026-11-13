@@ -34,8 +34,8 @@ president against D1's certified count, at the same 0.5%).
 Governors are matched by surname: D2's two leading candidates, against MEDSL's lines for that surname. A fusion
 candidate (Connecticut, New York) has several lines; both readings are tried, the lines summed (the ruling's rule) and
 the line of D2's party alone (where D2's source reports that line only: Connecticut's Lamont and Stefanowski, 2018,
-data/governor/2018.json). The lines summed are the miss; the own line is used only where it comes within part 1's
-bound, and otherwise is written beside the miss [the reading].
+until pipeline/governor_counts.py set the record to every line on 2026-11-13). The lines summed are the miss; the own
+line is used only where it comes within part 1's bound, and otherwise is written beside the miss [the reading].
 
 Settlements read from the states' own files (no request is made here; each was read once, between 19:07 and 19:12 UTC,
 and is kept in $VOTE_CACHE/volume/raw with its .meta.json):
@@ -98,8 +98,8 @@ VERDICTS = {
                    "against (D1's president or D2's House), and the state refused (19:12 UTC); an unsettled flag of "
                    "5% or more holds the state-year's MEDSL records"),
     (2018, "NY"): ("hold", "rulings 19:04 3 and 19:13 5",
-                   "MEDSL's 2018 New York precincts add up to {worst_pct} of D2's certified count for governor "
-                   "({reading}); its governor's votes lie in {medsl_counties} of the state's 62 counties, and the "
+                   "MEDSL's 2018 New York precincts add up to {worst_pct} of the record's count for governor (each "
+                   "nominee's every line, from Algara and Amlani's county returns) ({reading}); its governor's votes lie in {medsl_counties} of the state's 62 counties, and the "
                    "State Board refused (18:49 UTC); a missing county is a structural fault, so the state-year's MEDSL "
                    "records are held"),
     (2018, "NJ"): ("hold_counties", "ruling 19:13 4",
@@ -119,7 +119,9 @@ VERDICTS = {
                    "D2's count was the dataset's 137,719 for Tupola; the Office of Elections' certified summary has "
                    "131,719, equal to MEDSL's (pipeline/governor_hi2018.py)"),
     (2018, "CT"): ("settled", "ruling 19:04 3",
-                   "D2's source gives each governor candidate's own party line; MEDSL's lines equal them"),
+                   "D2's source gave each governor candidate's own party line, which MEDSL's lines equal; the record "
+                   "now holds every line, the Secretary of the State's count (pipeline/governor_counts.py; the "
+                   "orchestrator, 2026-11-13 04:44), and MEDSL's lines summed equal it within the bound"),
     (2022, "NY"): ("note", "rulings 19:04 3 and 19:13 5",
                    "MEDSL's 2022 New York precincts add up to {worst_pct} of D2's certified count for governor "
                    "({reading}); not settled, since the State Board refused (18:49 UTC); under 5%, "
