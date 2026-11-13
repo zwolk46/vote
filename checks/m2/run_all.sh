@@ -63,6 +63,9 @@
 # c51 (section 21, D3's #115, e3e9b921 -> f6434077): the recount zone beside p (pipeline/local_recount.py, recount-zone.json): the
 # 1,045 notes, the zone on every record with p above 0 by the rules copied, MATH 5.10 by my own quadrature, the two sources read apart
 # (fetch_eighth_pass.sh recount).
+# c52 (section 22, D3's #118, 30480c35 -> 4debd7e5): Singer's 2020 results as 2020's second count of the legislatures (pipeline/local_singer.py,
+# check-2020-singer.json, moves-39.json): the record and the 56 files (fetch_eighth_pass.sh singer_record, singer_files), the federal gate,
+# the district checks by the rules copied, Montana's canvass (mt_sos) and Maine's rows, every flag's outcome in the records, the moves.
 set -e
 cd "$(dirname "$0")/../.."
 OUT=checks/m2/OUTPUT.txt
@@ -75,7 +78,7 @@ OUT=checks/m2/OUTPUT.txt
            c16_notes c18_louisiana c19_deciding_rounds c20_sizebins c21_new_jersey c22_louisiana_2023 c23_nc_rounds_by_place c24_office_types c25_odd_governors c26_feed_2023 c27_local_thresholds c28_governor_codes c29_fixes_c24 c30_ballot_texts c31_statewide_filed_local c32_certified_count c33_one_county \
            c34_towns_counties c35_statewide_officers c36_courts_commissions c37_statewide_pieces c38_input_volume c39_volume_compare c40_pr_checks \
            c41_governor_refit c42_held_totals c43_district_checks c44_one_name_va c45_va_gate c46_district_checks_2 \
-           c47_governor_counts c48_district_checks_3 c49_va_local_2 c50_in_house_2018 c51_recount_zone; do
+           c47_governor_counts c48_district_checks_3 c49_va_local_2 c50_in_house_2018 c51_recount_zone c52_singer_2020; do
     echo "##### $s"
     python3 -I checks/m2/$s.py 2>&1 || echo "### $s exited with $?"
     echo
