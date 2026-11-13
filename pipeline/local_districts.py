@@ -1186,9 +1186,12 @@ IN_ARCHIVE = os.path.join(F.CACHE, "in_enr", "raw", "2016General")
 # Indiana's 2018 archive: one request (the orchestrator, 2026-11-13 06:52: "IN 2018 SD47: one request to Indiana's 2018
 # archive is allowed"), its State Senator file reached through two index pages (settings.json, statewideElectionsC_A
 # .json; "Index pages followed to reach the one file count as one request"), 2026-11-13 07:37:47 to 07:38:24 UTC. Its
-# settings print "Certified":"T" [stated], a certified mark (15:16). The State Representative file is not read.
+# settings print "Certified":"T" [stated], a certified mark (15:16). Its State Representative file: one more request
+# (the orchestrator, 2026-11-13 09:21: "Indiana 2018's House flags: one request to the archive's 2018 House file is
+# allowed, as for the Senate"), 2026-11-13 09:21:33 UTC, its address from the cached statewideElectionsC_A.json.
 IN_ARCHIVE_2018 = os.path.join(F.CACHE, "in_enr", "raw", "2018General")
 IN_2018_SENATE = "OffCatC_2180_A.json"   # office category 2180, "State Senator", in statewideElectionsC_A.json
+IN_2018_HOUSE = "OffCatC_2201_A.json"    # office category 2201, "State Representative", in statewideElectionsC_A.json
 
 
 def _cols(line, pat=r"\S+(?: \S+)*"):
@@ -1296,7 +1299,9 @@ STATE_FILES = {
     ("IN", 2016): ("Indiana's results archive of the 2016 general", "enr.indianavoters.in.gov", IN_ARCHIVE),
     ("IN", 2018): ("Indiana's results archive of the 2018 general (its State Senator file)", "enr.indianavoters.in.gov",
                    IN_ARCHIVE_2018)}
-STATE_META = {("IN", 2018): IN_2018_SENATE}   # the file whose meta the source names (else the settings, or the file)
+# the file whose meta the source names, by state, year and chamber (1 the upper; else the settings, or the file itself)
+STATE_META = {("IN", 2018, 1): IN_2018_SENATE, ("IN", 2018, 0): IN_2018_HOUSE}
+STATE_NAME = {("IN", 2018, 0): "Indiana's results archive of the 2018 general (its State Representative file)"}
 STATE_CACHE = {}
 
 
@@ -1317,7 +1322,7 @@ def state_district(kc):
         return None
     if key not in STATE_CACHE:
         STATE_CACHE[key] = ut_2016_senate() if key == ("UT", 2016) else in_2016() if key == ("IN", 2016) else \
-            in_archive(IN_ARCHIVE_2018, ((1, IN_2018_SENATE),))
+            in_archive(IN_ARCHIVE_2018, ((1, IN_2018_SENATE), (0, IN_2018_HOUSE)))
     d = STATE_CACHE[key]
     if not d:
         return None
@@ -1343,8 +1348,10 @@ def _state_pairs(kc, cs):
 
 def _state_meta(kc):
     name, host, path = STATE_FILES[(kc["state"], kc["year"])]
+    k3 = (kc["state"], kc["year"], int(kc["sen"]))
+    name = STATE_NAME.get(k3, name)
     meta_p = (path + ".meta.json") if os.path.isfile(path) else \
-        os.path.join(path, STATE_META.get((kc["state"], kc["year"]), "settings.json") + ".meta.json")
+        os.path.join(path, STATE_META.get(k3, "settings.json") + ".meta.json")
     with open(meta_p) as f:
         meta = json.load(f)
     return {"source": name, "host": host, "url": meta.get("url"), "read_utc": meta.get("finished_utc") or
