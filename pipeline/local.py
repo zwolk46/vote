@@ -451,7 +451,8 @@ def district_checks(contests):
                 DISTRICTS_COUNT[f"{year}: {o}"] += 1
                 continue
             c = by.get(fl["id"])
-            named = [a for a in c["cands"] if not a["scattering"]] if c else []
+            # the candidates the check pairs: a write-in under the strong line is not among them (LD._named)
+            named = LD._named(c) if c else []
             if c is None or [[a["name"], a["votes"]] for a in named] != [p_[:2] for p_ in fl["pairs"]]:
                 raise SystemExit(f"district_checks: {fl['id']} is not the contest the check read: run "
                                  f"pipeline/local_districts.py check again")
