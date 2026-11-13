@@ -2494,9 +2494,12 @@ OFFICE_TYPES = [
     ("council, commission or board", r"\bPOLICE JUR|\bEXECUTIVE COUNCIL\b|\bCITY DIRECTORS?\b|\bLEVY COURT\b|"
                                      r"\bTOWNSHIP COMMITTEE"),
     # a court's clerk or register is an officer, not a judge; Georgia's tax commissioner and Alabama's revenue
-    # commissioner are officers, not a commission
+    # commissioner are officers, not a commission; so is Virginia's commissioner of the revenue, one of the five
+    # officers "elected by the qualified voters of each county and city" (Constitution of Virginia, art. VII, sec. 4,
+    # https://law.lis.virginia.gov/constitution/article7/section4/, read 2026-11-13 00:37 UTC [stated])
     ("clerk, treasurer or other county officer", r"\bCLERK\b|\bREGISTER OF (PROBATE|WILLS|DEEDS)\b|"
-                                                r"\bTAX COMMISSION(ER)?\b|\bREVENUE COMMISSIONER\b"),
+                                                r"\bTAX COMMISSION(ER)?\b|\bREVENUE COMMISSIONER\b|"
+                                                r"\bCOMMISSIONER OF (THE )?REVENUE\b"),
     # Kentucky's county judge/executive heads the county and its fiscal court (Ky. Const. section 144)
     ("mayor or executive", r"\bJUDGE[ /-]*EXECUTIVE\b|\bPARISH PRESIDENT\b|\bVILLAGE PRESIDENT\b|"
                            r"\bBOROUGH PRESIDENT\b"),
@@ -2673,6 +2676,13 @@ def office_type(office, state=None, district=None):
     return "other local office"
 
 
+# A contest whose source names no candidate's party (Virginia's 2023 local contests, pipeline/local_va.py: the
+# Department's file and page give none) is a class of its own: not "nonpartisan", which is what a source says of a
+# ballot, and not any party mix, which is not read [measured: the file]. So it has no like races of earlier years
+# until a ruling pools it, and its contests are like races only of each other.
+PARTY_NOT_GIVEN = "party not given in the source"
+
+
 def local_structure(m):
     """(route, class key or reason) for a MEDSL local candidate contest; ex ante: who is on the ballot."""
     b = ballot(m["candidates"])
@@ -2698,12 +2708,14 @@ def local_structure(m):
     scope = "state" if m["dataverse"] == "STATE" else "local"
     ot = contest_type(m)
     if k > 1:
-        slate = ("both major parties on the ballot" if nd and nr else "one major party or none")
+        slate = (PARTY_NOT_GIVEN if m.get("party_not_given") else
+                 "both major parties on the ballot" if nd and nr else "one major party or none")
         return ("boundary", f"{scope} {ot}, {k if k < 4 else '4+'} seats at once, {slate}")
     if nd == 1 and nr == 1:
         return ("partisan", f"a {scope} race between a Democrat and a Republican")
     nonpartisan = all((x.get("party") or "NONPARTISAN") in ("NONPARTISAN", "") for x in b)
-    kind = ("nonpartisan" if nonpartisan else "one major party against others" if nd + nr == 1 else
+    kind = (PARTY_NOT_GIVEN if m.get("party_not_given") else "nonpartisan" if nonpartisan else
+            "one major party against others" if nd + nr == 1 else
             "two or more of one major party" if nd + nr >= 2 else "no Democrat or Republican")
     n = len(b)
     return ("class", f"{scope} {ot}, {kind}, {n if n < 4 else '4+'} candidates")
@@ -2820,8 +2832,9 @@ def build(out_dir, with_p=True):
     m = {y: load(y) for y in MEASURE_YEARS}
     chk = {y: checks(y) for y in MEASURE_YEARS}
     import local_la as LA
-    for y in ODD_YEARS:   # a state's own certified file alone (ODD_YEARS)
-        m[y], chk[y] = LA.medsl_shape(y) or [], {}
+    import local_va as VALOC
+    for y in ODD_YEARS:   # a state's own certified file alone (ODD_YEARS): Louisiana's, and Virginia's local contests
+        m[y], chk[y] = (LA.medsl_shape(y) or []) + (VALOC.medsl_shape(y) or []), {}
     files = collections.defaultdict(list)
     counts = collections.Counter()
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
@@ -3056,7 +3069,8 @@ def build(out_dir, with_p=True):
                    "year": year, "date": c["date"] or None, "level": "local",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "state" and c["district"] == "STATEWIDE" else c["counties"]},
-                   "office": c["office"].title(), "office_type": contest_type(c), "office_scope": scope,
+                   "office": c.get("office_title") or c["office"].title(), "office_type": contest_type(c),
+                   "office_scope": scope,
                    "election": c.get("election_words") or ((("general" if c["stage"] == "GEN" else
                                                                c["stage"].lower())
                                                               + (", special" if c["special"] else ""))
@@ -3179,7 +3193,8 @@ def build(out_dir, with_p=True):
                    "year": year, "date": c["date"] or None, "level": "measure",
                    "place": {"state": c["state"], "district": None if c["district"] in ("", "STATEWIDE") else c["district"],
                              "counties": None if scope == "statewide" else c["counties"]},
-                   "question": {"title": c["office"].title(), "subject": (c.get("subject") or "").title() or None,
+                   "question": {"title": c.get("office_title") or c["office"].title(),
+                                "subject": (c.get("subject") or "").title() or None,
                                 "kind": kind, "scope": scope, "type": MS.type_of(c) if kind == "measure" else None},
                    "result": {"candidates": [{"name": x["name"], "votes": x["votes"],
                                               "votes_incomplete": True if x.get("votes_missing_in_some_precincts")
@@ -3455,8 +3470,12 @@ def build(out_dir, with_p=True):
                 head["sources"]["fips"] = NS.fips_source()
         if "nj_sos" in used:   # New Jersey's Official Lists of its 2023 and 2025 legislatures
             head["sources"]["nj_sos"] = NJL.source_block(year)
-        if "va_elect" in used:   # Virginia's Department of Elections, its 2023 and 2025 legislatures
-            head["sources"]["va_elect"] = VAL.source_block(year)
+        if "va_elect" in used:   # Virginia's Department of Elections: its 2023 and 2025 legislatures, its 2023 local
+            import local_va as VALOC   # contests and questions (pipeline/local_va.py) and their localities' FIPS codes
+            head["sources"]["va_elect"] = (VAL.source_block(year) if level not in ("local", "measure") else
+                                           VALOC.source_block(year))
+            if level in ("local", "measure"):
+                head["sources"]["fips"] = VALOC.fips_source()
         if "la_sos" in used:   # Louisiana's own official results (certified_la), and its parishes' FIPS codes
             import local_la as LA
             head["sources"]["la_sos"] = LA.source_block(year)
