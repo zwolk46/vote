@@ -925,6 +925,15 @@ def district_cover(kc, m, year, cov, full_upper):
 
 
 OVER_SEATS = 1.10   # a count over its seats times the ballots, by more than the over-ballot test's line (10%)
+# (b) The orchestrator, 2026-11-13 00:55: "A refinement at every level. An unopposed comparator undercounts ballots by
+# roll-off, often 10 to 30%. Against one, list up to 1.5 and hold only above 1.5". The district's ballots are each
+# precinct's votes in the statewide contest of one seat with the most there; where every contest giving them has one
+# name on the ballot (write-ins aside), the line is OVER_SEATS_UNOPPOSED. In MEDSL's files of 2016 to 2022, ten
+# statewide contests have one name, all of 2018 (Alabama's agriculture commissioner and treasurer, Idaho's controller
+# and treasurer, Minnesota's chief justice, Nebraska's attorney general and treasurer, South Carolina's comptroller
+# and superintendent, Wyoming's superintendent), each in a state whose governor's contest has more than one
+# [measured: scratch scan of the files].
+OVER_SEATS_UNOPPOSED = 1.50
 STATEWIDE_SPREAD = 0.9   # a statewide contest: rows in 90% of the state's precincts with any row
 
 
@@ -963,6 +972,7 @@ def district_ballots(path, wants):
     states = {w[0] for w in wants}
     tot = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))   # st -> contest -> pk
     oth = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))
+    names = collections.defaultdict(lambda: collections.defaultdict(set))   # st -> contest -> names on the ballot
     dist = collections.defaultdict(set)
     seen, voted = collections.defaultdict(set), collections.defaultdict(set)   # st -> counties with a row; with votes
     for r in P._rows(path):
@@ -1001,6 +1011,8 @@ def district_ballots(path, wants):
             v = 0
         key = (office, r.get("district") or "")
         (tot if (r.get("mode") or "").strip().upper() == "TOTAL" else oth)[st][key][pk] += v
+        if (r.get("writein") or "").strip().upper() != "TRUE" and "WRITE" not in cand.upper():
+            names[st][key].add(cand.upper())
     out = {}
     for st in states:
         keys = set(tot[st]) | set(oth[st])
@@ -1014,7 +1026,10 @@ def district_ballots(path, wants):
                 continue
             b = [max(votes[c].get(q, 0) for c in wide) for q in ps]
             if all(b):
-                out[k] = [len(ps), sum(b), sorted({c[0] for c in wide if any(votes[c].get(q) for q in ps)})]
+                by = {c for c in wide if any(votes[c].get(q) for q in ps)}
+                # (b): the figure rests on unopposed contests alone where every contest giving it has one name
+                out[k] = [len(ps), sum(b), sorted({c[0] for c in by}),
+                          all(len(names[st][c]) <= 1 for c in by)]
     return out, {st: sorted(seen[st] - voted[st]) for st in states if seen[st] - voted[st]}
 
 
@@ -1087,12 +1102,14 @@ def over_seats_pass(year, flags, tallies, tested):
                 continue
             seats = f["eseats"] or 1
             xk, xm = f["klarner"] / (seats * b[1]), f["medsl"] / (seats * b[1])
-            os_ = {"read": True, "precincts": b[0], "ballots": b[1], "by": b[2], "seats": seats,
-                   "klarner_per_ballot": round(f["klarner"] / b[1], 3), "medsl_per_ballot": round(f["medsl"] / b[1], 3),
-                   "klarner_x": round(xk, 4), "medsl_x": round(xm, 4), "over": xk > OVER_SEATS}
+            line = OVER_SEATS_UNOPPOSED if b[3] else OVER_SEATS
+            os_ = {"read": True, "precincts": b[0], "ballots": b[1], "by": b[2], "by_unopposed": b[3], "line": line,
+                   "seats": seats, "klarner_per_ballot": round(f["klarner"] / b[1], 3),
+                   "medsl_per_ballot": round(f["medsl"] / b[1], 3), "klarner_x": round(xk, 4), "medsl_x": round(xm, 4),
+                   "over": xk > line}
             if fl is not None:
                 fl["over_seats"] = os_
-            if xk <= OVER_SEATS:
+            if xk <= line:
                 continue
             take = xm <= OVER_SEATS_MEDSL and not [x for x in f["others"] if not x["write_in"]] and \
                 all(p_[1] and p_[3] for p_ in f["pairs"])
@@ -1166,6 +1183,12 @@ def id_canvass():
 
 UT_CANVASS = os.path.join(F.CACHE, "ut_lg", "raw", "2016-General-Election-Statewide-Canvass-3.pdf")
 IN_ARCHIVE = os.path.join(F.CACHE, "in_enr", "raw", "2016General")
+# Indiana's 2018 archive: one request (the orchestrator, 2026-11-13 06:52: "IN 2018 SD47: one request to Indiana's 2018
+# archive is allowed"), its State Senator file reached through two index pages (settings.json, statewideElectionsC_A
+# .json; "Index pages followed to reach the one file count as one request"), 2026-11-13 07:37:47 to 07:38:24 UTC. Its
+# settings print "Certified":"T" [stated], a certified mark (15:16). The State Representative file is not read.
+IN_ARCHIVE_2018 = os.path.join(F.CACHE, "in_enr", "raw", "2018General")
+IN_2018_SENATE = "OffCatC_2180_A.json"   # office category 2180, "State Senator", in statewideElectionsC_A.json
 
 
 def _cols(line, pat=r"\S+(?: \S+)*"):
@@ -1236,9 +1259,22 @@ def in_2016():
     """Indiana's results archive of the 2016 general (enr.indianavoters.in.gov/archive/2016General, read by worker D3 on
     2026-11-13 through pipeline/intake/in_enr.py's reader: settings.json, the category list and the State Senator and
     State Representative files): {(sen, district): [{name, votes, write_in}]}; '(W/I)' marks a write-in."""
+    return in_archive(IN_ARCHIVE, ((1, "OffCatC_1766_A.json"), (0, "OffCatC_1787_A.json")))
+
+
+def _first_last(name):
+    """The archive writes a name first name first, a suffix after a comma ('James W. Merritt, Jr', 2018's Senate 31;
+    'Rudy M. Howard, Jr.', 2016) [measured]; the name readers take a comma for 'LAST, FIRST', so the suffix's comma
+    is dropped ('James W. Merritt Jr')."""
+    return re.sub(r",\s*(JR|SR|II|III|IV|V)\.?$", r" \1", name, flags=re.I)
+
+
+def in_archive(folder, files):
+    """An Indiana results archive's legislative office files as read: {(sen, district): [{name, votes, write_in}]};
+    None if a file is not in the cache."""
     out = {}
-    for sen, fn in ((1, "OffCatC_1766_A.json"), (0, "OffCatC_1787_A.json")):
-        p_ = os.path.join(IN_ARCHIVE, fn)
+    for sen, fn in files:
+        p_ = os.path.join(folder, fn)
         if not os.path.exists(p_):
             return None
         with open(p_, encoding="utf-8-sig") as f:
@@ -1249,7 +1285,7 @@ def in_2016():
             mt = re.search(r"District 0*(\d+)$", r["OFFICE_TITLE"].strip())
             cs = (r.get("Candidates") or {}).get("Candidate") or []
             if mt:
-                out[(sen, mt.group(1))] = [{"name": x["NAME_ON_BALLOT"].replace("(W/I)", "").strip(),
+                out[(sen, mt.group(1))] = [{"name": _first_last(x["NAME_ON_BALLOT"].replace("(W/I)", "").strip()),
                                             "votes": int(x.get("TOTAL") or 0), "write_in": "(W/I)" in x["NAME_ON_BALLOT"]}
                                            for x in (cs if isinstance(cs, list) else [cs])]
     return out
@@ -1257,14 +1293,17 @@ def in_2016():
 
 STATE_FILES = {
     ("UT", 2016): ("Utah's 2016 statewide canvass", "vote.utah.gov", UT_CANVASS),
-    ("IN", 2016): ("Indiana's results archive of the 2016 general", "enr.indianavoters.in.gov", IN_ARCHIVE)}
+    ("IN", 2016): ("Indiana's results archive of the 2016 general", "enr.indianavoters.in.gov", IN_ARCHIVE),
+    ("IN", 2018): ("Indiana's results archive of the 2018 general (its State Senator file)", "enr.indianavoters.in.gov",
+                   IN_ARCHIVE_2018)}
+STATE_META = {("IN", 2018): IN_2018_SENATE}   # the file whose meta the source names (else the settings, or the file)
 STATE_CACHE = {}
 
 
 # A state count that bears a certified mark wins (the orchestrator, 2026-11-07 15:16); these two bear none [measured:
 # Indiana's 2016 archive's settings.json has no 'Certified' field, where its 2024 archive says "Certified": "T"; Utah's
 # canvass, read by pdftotext, has no word 'certif', 'canvass' or 'official' in its text]
-STATE_MARKED = {("UT", 2016): False, ("IN", 2016): False}
+STATE_MARKED = {("UT", 2016): False, ("IN", 2016): False, ("IN", 2018): True}   # 2018: "Certified":"T" [measured]
 TWO_AGREE = 0.004   # the orchestrator, 2026-11-13 05:15 (3): "two independent counts that agree by candidate within
 #                     0.4% stand against one state count that bears no certified mark"
 TWO_OUTCOME = "two counts agree against the state's: Klarner's count stands"
@@ -1277,12 +1316,13 @@ def state_district(kc):
     if key not in STATE_FILES or not str(kc["dno"]).isdigit():
         return None
     if key not in STATE_CACHE:
-        STATE_CACHE[key] = ut_2016_senate() if key == ("UT", 2016) else in_2016()
+        STATE_CACHE[key] = ut_2016_senate() if key == ("UT", 2016) else in_2016() if key == ("IN", 2016) else \
+            in_archive(IN_ARCHIVE_2018, ((1, IN_2018_SENATE),))
     d = STATE_CACHE[key]
     if not d:
         return None
     return d.get(str(int(kc["dno"]))) if key == ("UT", 2016) and kc["sen"] else \
-        d.get((kc["sen"], str(int(kc["dno"])))) if key == ("IN", 2016) else None
+        d.get((kc["sen"], str(int(kc["dno"])))) if key[0] == "IN" else None
 
 
 def _state_pairs(kc, cs):
@@ -1303,7 +1343,8 @@ def _state_pairs(kc, cs):
 
 def _state_meta(kc):
     name, host, path = STATE_FILES[(kc["state"], kc["year"])]
-    meta_p = (path + ".meta.json") if os.path.isfile(path) else os.path.join(path, "settings.json.meta.json")
+    meta_p = (path + ".meta.json") if os.path.isfile(path) else \
+        os.path.join(path, STATE_META.get((kc["state"], kc["year"]), "settings.json") + ".meta.json")
     with open(meta_p) as f:
         meta = json.load(f)
     return {"source": name, "host": host, "url": meta.get("url"), "read_utc": meta.get("finished_utc") or

@@ -217,6 +217,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9977,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 889419
   },
@@ -228,6 +229,7 @@
    "office": "AUDITOR OF STATE",
    "ratio": 0.964,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 859374
   },
@@ -239,6 +241,7 @@
    "office": "COMMISSIONER OF STATE LANDS",
    "ratio": 0.9905,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 883035
   },
@@ -250,6 +253,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9969,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 888735
   },
@@ -261,6 +265,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9944,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 886545
   },
@@ -272,6 +277,7 @@
    "office": "STATE SUPREME COURT ASSOCIATE JUSTICE",
    "ratio": 0.9344,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 832983
   },
@@ -283,6 +289,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.967,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 862132
   },
@@ -349,6 +356,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9833,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 12256330
   },
@@ -360,6 +368,7 @@
    "office": "INSURANCE COMMISSIONER",
    "ratio": 0.9388,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 11701332
   },
@@ -371,6 +380,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.839,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10457931
   },
@@ -382,6 +392,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9846,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 12272066
   },
@@ -393,6 +404,7 @@
    "office": "STATE CONTROLLER",
    "ratio": 0.9822,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 12242547
   },
@@ -404,6 +416,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.979,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 12202403
   },
@@ -415,6 +428,7 @@
    "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.8492,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10584650
   },
@@ -426,6 +440,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9869,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2491954
   },
@@ -437,6 +452,7 @@
    "office": "REGENT OF THE UNIVERSITY OF COLORADO",
    "ratio": 0.9501,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2399025
   },
@@ -448,6 +464,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9872,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2492635
   },
@@ -459,6 +476,7 @@
    "office": "TREASURER",
    "ratio": 0.9799,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2474397
   },
@@ -470,6 +488,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9689,
    "state": "CT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1363054
   },
@@ -481,6 +500,7 @@
    "office": "COMPTROLLER",
    "ratio": 0.9638,
    "state": "CT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1355838
   },
@@ -492,6 +512,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9722,
    "state": "CT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1367668
   },
@@ -503,6 +524,7 @@
    "office": "TREASURER",
    "ratio": 0.9642,
    "state": "CT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1356435
   },
@@ -560,6 +582,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9822,
    "state": "DE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 356147
   },
@@ -571,6 +594,7 @@
    "office": "AUDITOR",
    "ratio": 0.9793,
    "state": "DE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 355105
   },
@@ -582,6 +606,7 @@
    "office": "TREASURER",
    "ratio": 0.986,
    "state": "DE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 357542
   },
@@ -626,6 +651,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9805,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3862370
   },
@@ -637,6 +663,7 @@
    "office": "COMMISSIONER OF AGRICULTURE",
    "ratio": 0.9757,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3843480
   },
@@ -648,6 +675,7 @@
    "office": "COMMISSIONER OF INSURANCE",
    "ratio": 0.9803,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3861625
   },
@@ -659,6 +687,7 @@
    "office": "COMMISSIONER OF LABOR",
    "ratio": 0.9772,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3849450
   },
@@ -670,6 +699,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9596,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3780304
   },
@@ -681,6 +711,7 @@
    "office": "PUBLIC SERVICE COMMISSION",
    "ratio": 0.9795,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3858554
   },
@@ -692,6 +723,7 @@
    "office": "PUBLIC SERVICE COMMISSION",
    "ratio": 0.9788,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3855670
   },
@@ -703,6 +735,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9859,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3883594
   },
@@ -714,6 +747,7 @@
    "office": "STATE SCHOOL SUPERINTENDENT",
    "ratio": 0.9805,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3862464
   },
@@ -725,6 +759,7 @@
    "office": "RESIDENT TRUSTEE - MAUI",
    "ratio": 0.5649,
    "state": "HI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 220775
   },
@@ -736,6 +771,7 @@
    "office": "RESIDENT TRUSTEE - OAHU",
    "ratio": 0.6836,
    "state": "HI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 267191
   },
@@ -747,6 +783,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.8669,
    "state": "IA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1150899
   },
@@ -758,6 +795,7 @@
    "office": "AUDITOR OF STATE",
    "ratio": 0.9757,
    "state": "IA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1295368
   },
@@ -769,6 +807,7 @@
    "office": "SECRETARY OF AGRICULTURE",
    "ratio": 0.9747,
    "state": "IA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1294030
   },
@@ -780,6 +819,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9799,
    "state": "IA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1300917
   },
@@ -791,6 +831,7 @@
    "office": "TREASURER OF STATE",
    "ratio": 0.9761,
    "state": "IA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1295850
   },
@@ -802,6 +843,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9718,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 588074
   },
@@ -813,6 +855,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9863,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 596862
   },
@@ -824,6 +867,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9794,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 592691
   },
@@ -835,6 +879,7 @@
    "office": "STATE CONTROLLER",
    "ratio": 0.7686,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 465105
   },
@@ -846,6 +891,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.7686,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 465109
   },
@@ -857,6 +903,7 @@
    "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.9824,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 594465
   },
@@ -868,6 +915,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9951,
    "state": "IL",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4548409
   },
@@ -879,6 +927,7 @@
    "office": "COMPTROLLER",
    "ratio": 0.9927,
    "state": "IL",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4537280
   },
@@ -890,6 +939,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 1.0024,
    "state": "IL",
+   "top_unopposed": false,
    "verdict": "listed",
    "votes": 4570842
   },
@@ -901,6 +951,7 @@
    "office": "TREASURER",
    "ratio": 0.9847,
    "state": "IL",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4501136
   },
@@ -912,6 +963,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9898,
    "state": "IN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2237455
   },
@@ -923,6 +975,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9801,
    "state": "IN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2215537
   },
@@ -934,6 +987,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9783,
    "state": "IN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2211563
   },
@@ -945,6 +999,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.987,
    "state": "KS",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1041266
   },
@@ -956,6 +1011,7 @@
    "office": "COMMISSIONER OF INSURANCE",
    "ratio": 0.9713,
    "state": "KS",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1024697
   },
@@ -967,6 +1023,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9894,
    "state": "KS",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1043843
   },
@@ -978,6 +1035,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9819,
    "state": "KS",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1035935
   },
@@ -989,6 +1047,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9975,
    "state": "LA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1456917
   },
@@ -1000,6 +1059,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9903,
    "state": "MA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2680899
   },
@@ -1011,6 +1071,7 @@
    "office": "SECRETARY OF THE COMMONWEALTH",
    "ratio": 0.9791,
    "state": "MA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2650524
   },
@@ -1022,6 +1083,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9554,
    "state": "MA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2586284
   },
@@ -1033,6 +1095,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9621,
    "state": "MA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2604558
   },
@@ -1044,6 +1107,7 @@
    "office": "COMPTROLLER",
    "ratio": 0.9756,
    "state": "MD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2248238
   },
@@ -1055,6 +1119,7 @@
    "office": "STATE ATTORNEY",
    "ratio": 0.9875,
    "state": "MD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2275788
   },
@@ -1066,6 +1131,7 @@
    "office": "JUSTICE OF THE SUPREME COURT",
    "ratio": 1.4733,
    "state": "MI",
+   "top_unopposed": false,
    "verdict": "held",
    "votes": 6262391
   },
@@ -1077,6 +1143,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9843,
    "state": "MI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4184026
   },
@@ -1088,6 +1155,7 @@
    "office": "ASSOCIATE JUSTICE - SUPREME COURT",
    "ratio": 0.6149,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1596715
   },
@@ -1099,6 +1167,7 @@
    "office": "ASSOCIATE JUSTICE - SUPREME COURT",
    "ratio": 0.7269,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1887698
   },
@@ -1110,6 +1179,7 @@
    "office": "ASSOCIATE JUSTICE - SUPREME COURT",
    "ratio": 0.61,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1583999
   },
@@ -1121,6 +1191,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9826,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2551772
   },
@@ -1132,6 +1203,7 @@
    "office": "CHIEF JUSTICE - SUPREME COURT",
    "ratio": 0.6361,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1651923
   },
@@ -1143,6 +1215,7 @@
    "office": "JUDGE - COURT OF APPEALS",
    "ratio": 0.6043,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1569258
   },
@@ -1154,6 +1227,7 @@
    "office": "JUDGE - COURT OF APPEALS",
    "ratio": 0.6013,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1561428
   },
@@ -1165,6 +1239,7 @@
    "office": "JUDGE - COURT OF APPEALS",
    "ratio": 0.5977,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1552279
   },
@@ -1176,6 +1251,7 @@
    "office": "JUDGE - COURT OF APPEALS",
    "ratio": 0.602,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1563346
   },
@@ -1187,6 +1263,7 @@
    "office": "JUDGE - COURT OF APPEALS",
    "ratio": 0.7117,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1848308
   },
@@ -1198,6 +1275,7 @@
    "office": "JUDGE - COURT OF APPEALS",
    "ratio": 0.6083,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1579782
   },
@@ -1209,6 +1287,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9791,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2542522
   },
@@ -1220,6 +1299,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9758,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2533940
   },
@@ -1231,6 +1311,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9827,
    "state": "MO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2399965
   },
@@ -1242,6 +1323,7 @@
    "office": "CLERK OF THE SUPREME COURT",
    "ratio": 0.9523,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 480301
   },
@@ -1253,6 +1335,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 1",
    "ratio": 0.9893,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3653657
   },
@@ -1264,6 +1347,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 2",
    "ratio": 0.9804,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3620583
   },
@@ -1275,6 +1359,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 3",
    "ratio": 0.9887,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3651322
   },
@@ -1286,6 +1371,7 @@
    "office": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 1",
    "ratio": 0.9904,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3657767
   },
@@ -1297,6 +1383,7 @@
    "office": "AGRICULTURE COMMISSIONER",
    "ratio": 0.9666,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 315259
   },
@@ -1308,6 +1395,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9788,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 319217
   },
@@ -1319,6 +1407,7 @@
    "office": "PUBLIC SERVICE COMMISSIONER",
    "ratio": 0.9492,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 309564
   },
@@ -1330,6 +1419,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9422,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 307277
   },
@@ -1341,6 +1431,7 @@
    "office": "SUPREME COURT JUSTICE",
    "ratio": 0.833,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 271670
   },
@@ -1352,6 +1443,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.7399,
    "state": "NE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 516777
   },
@@ -1363,6 +1455,7 @@
    "office": "AUDITOR OF PUBLIC ACCOUNTS",
    "ratio": 0.9469,
    "state": "NE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 661335
   },
@@ -1374,6 +1467,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9602,
    "state": "NE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 670614
   },
@@ -1385,6 +1479,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.7391,
    "state": "NE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 516210
   },
@@ -1396,6 +1491,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9925,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 691810
   },
@@ -1407,6 +1503,7 @@
    "office": "COMMISSIONER OF PUBLIC LANDS",
    "ratio": 0.9892,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 689505
   },
@@ -1418,6 +1515,7 @@
    "office": "JUDGE OF COURT OF APPEALS",
    "ratio": 0.9734,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 678460
   },
@@ -1429,6 +1527,7 @@
    "office": "JUDGE OF COURT OF APPEALS",
    "ratio": 0.9714,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 677110
   },
@@ -1440,6 +1539,7 @@
    "office": "JUDGE OF COURT OF APPEALS",
    "ratio": 0.9706,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 676525
   },
@@ -1451,6 +1551,7 @@
    "office": "JUDGE OF COURT OF APPEALS",
    "ratio": 0.9675,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 674336
   },
@@ -1462,6 +1563,7 @@
    "office": "JUDGE OF COURT OF APPEALS",
    "ratio": 0.6693,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 466482
   },
@@ -1473,6 +1575,7 @@
    "office": "JUSTICE OF SUPREME COURT",
    "ratio": 0.9786,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 682075
   },
@@ -1484,6 +1587,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9913,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 690967
   },
@@ -1495,6 +1599,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9862,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 687428
   },
@@ -1506,6 +1611,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9779,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 681602
   },
@@ -1517,6 +1623,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9826,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 940176
   },
@@ -1528,6 +1635,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9849,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 942406
   },
@@ -1539,6 +1647,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9714,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 929431
   },
@@ -1550,6 +1659,7 @@
    "office": "STATE CONTROLLER",
    "ratio": 0.9742,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 932167
   },
@@ -1561,6 +1671,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.979,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 936768
   },
@@ -1572,6 +1683,7 @@
    "office": "SUPREME COURT",
    "ratio": 0.7248,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 693515
   },
@@ -1583,6 +1695,7 @@
    "office": "SUPREME COURT",
    "ratio": 0.6421,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 614353
   },
@@ -1594,6 +1707,7 @@
    "office": "SUPREME COURT",
    "ratio": 0.7171,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 686123
   },
@@ -1605,6 +1719,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9837,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4363129
   },
@@ -1616,6 +1731,7 @@
    "office": "AUDITOR OF STATE",
    "ratio": 0.9787,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4340920
   },
@@ -1627,6 +1743,7 @@
    "office": "JUSTICE OF THE SUPREME COURT",
    "ratio": 1.5976,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "held",
    "votes": 7086019
   },
@@ -1638,6 +1755,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9852,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4369877
   },
@@ -1649,6 +1767,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9768,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4332619
   },
@@ -1660,6 +1779,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9883,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1172468
   },
@@ -1671,6 +1791,7 @@
    "office": "COMMISSIONER OF LABOR",
    "ratio": 0.9802,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1162837
   },
@@ -1682,6 +1803,7 @@
    "office": "CORPORATION COMMISSIONER",
    "ratio": 0.9847,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1168195
   },
@@ -1693,6 +1815,7 @@
    "office": "INSURANCE COMMISSIONER",
    "ratio": 0.9794,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1162002
   },
@@ -1704,6 +1827,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9931,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1178190
   },
@@ -1715,6 +1839,7 @@
    "office": "STATE AUDITOR AND INSPECTOR",
    "ratio": 0.9181,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1089164
   },
@@ -1726,6 +1851,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9181,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1089182
   },
@@ -1737,6 +1863,7 @@
    "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.9903,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1174879
   },
@@ -1748,6 +1875,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9123,
    "state": "RI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 343681
   },
@@ -1759,6 +1887,7 @@
    "office": "GENERAL TREASURER",
    "ratio": 0.9717,
    "state": "RI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 366058
   },
@@ -1770,6 +1899,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9719,
    "state": "RI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 366152
   },
@@ -1781,6 +1911,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9978,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1703834
   },
@@ -1792,6 +1923,7 @@
    "office": "COMMISSIONER OF AGRICULTURE",
    "ratio": 0.7855,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1341300
   },
@@ -1803,6 +1935,7 @@
    "office": "COMPTROLLER GENERAL",
    "ratio": 0.6811,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1162960
   },
@@ -1814,6 +1947,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9953,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1699496
   },
@@ -1825,6 +1959,7 @@
    "office": "STATE SUPERINTENDENT OF EDUCATION",
    "ratio": 0.5955,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1016923
   },
@@ -1836,6 +1971,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9967,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1701900
   },
@@ -1847,6 +1983,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.957,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 324160
   },
@@ -1858,6 +1995,7 @@
    "office": "COMMISSIONER OF SCHOOL AND PUBLIC LANDS",
    "ratio": 0.9146,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 309782
   },
@@ -1869,6 +2007,7 @@
    "office": "PUBLIC UTILITIES COMMISSIONER",
    "ratio": 0.9297,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 314915
   },
@@ -1880,6 +2019,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9548,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 323399
   },
@@ -1891,6 +2031,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9306,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 315224
   },
@@ -1902,6 +2043,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9221,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 312331
   },
@@ -1913,6 +2055,7 @@
    "office": "AGRICULTURE COMMISSIONER",
    "ratio": 0.9838,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8233491
   },
@@ -1924,6 +2067,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9904,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8289113
   },
@@ -1935,6 +2079,7 @@
    "office": "COMPTROLLER",
    "ratio": 0.983,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8226756
   },
@@ -1946,6 +2091,7 @@
    "office": "CRIMINAL COURT OF APPEALS",
    "ratio": 0.9771,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8177467
   },
@@ -1957,6 +2103,7 @@
    "office": "CRIMINAL COURT OF APPEALS",
    "ratio": 0.7631,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 6386457
   },
@@ -1968,6 +2115,7 @@
    "office": "CRIMINAL COURT OF APPEALS - PRESIDING JUDGE",
    "ratio": 0.9808,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8208619
   },
@@ -1979,6 +2127,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9922,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8303519
   },
@@ -1990,6 +2139,7 @@
    "office": "PUBLIC LANDS COMMISSIONER",
    "ratio": 0.9869,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8259773
   },
@@ -2001,6 +2151,7 @@
    "office": "RAILROAD COMMISSIONER",
    "ratio": 0.9828,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8225034
   },
@@ -2012,6 +2163,7 @@
    "office": "SUPREME COURT",
    "ratio": 0.9805,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8205787
   },
@@ -2023,6 +2175,7 @@
    "office": "SUPREME COURT",
    "ratio": 0.9786,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8190231
   },
@@ -2034,6 +2187,7 @@
    "office": "SUPREME COURT",
    "ratio": 0.9796,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8198794
   },
@@ -2045,6 +2199,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9742,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 267018
   },
@@ -2056,6 +2211,7 @@
    "office": "AUDITOR OF ACCOUNTS",
    "ratio": 0.9463,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 259372
   },
@@ -2067,6 +2223,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9898,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 271290
   },
@@ -2078,6 +2235,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9767,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 267710
   },
@@ -2089,6 +2247,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9684,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 265435
   },
@@ -2100,6 +2259,7 @@
    "office": "SUPREME COURT JUSTICE",
    "ratio": 0.6698,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2072858
   },
@@ -2111,6 +2271,7 @@
    "office": "SUPREME COURT JUSTICE",
    "ratio": 0.8073,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2498398
   },
@@ -2122,6 +2283,7 @@
    "office": "SUPREME COURT JUSTICE",
    "ratio": 0.6509,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2014478
   },
@@ -2133,6 +2295,7 @@
    "office": "SUPREME COURT OF APPEALS JUSTICE",
    "ratio": 0.8599,
    "state": "WV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 503940
   },
@@ -2144,6 +2307,7 @@
    "office": "SUPREME COURT OF APPEALS JUSTICE",
    "ratio": 0.8629,
    "state": "WV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 505716
   },
@@ -2256,6 +2420,7 @@
    "office": "AUDITOR OF STATE",
    "ratio": 0.9827,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 887014
   },
@@ -2267,6 +2432,7 @@
    "office": "COMMISSIONER OF STATE LANDS",
    "ratio": 0.9808,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 885360
   },
@@ -2278,6 +2444,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9914,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 894898
   },
@@ -2289,6 +2456,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.987,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 890946
   },
@@ -2300,6 +2468,7 @@
    "office": "STATE SUPREME COURT ASSOCIATE JUSTICE",
    "ratio": 0.8502,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 767474
   },
@@ -2311,6 +2480,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.986,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 890062
   },
@@ -2322,6 +2492,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9758,
    "state": "AZ",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2513510
   },
@@ -2333,6 +2504,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9796,
    "state": "AZ",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2523222
   },
@@ -2344,6 +2516,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9814,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10728939
   },
@@ -2355,6 +2528,7 @@
    "office": "INSURANCE COMMISSIONER",
    "ratio": 0.97,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10604380
   },
@@ -2366,6 +2540,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9833,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10749785
   },
@@ -2377,6 +2552,7 @@
    "office": "STATE CONTROLLER",
    "ratio": 0.9811,
    "state": "CA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10725275
   },
@@ -2388,6 +2564,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9831,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2466328
   },
@@ -2399,6 +2576,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9904,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2484758
   },
@@ -2410,6 +2588,7 @@
    "office": "STATE BOARD OF EDUCATION MEMBER (AT LARGE)",
    "ratio": 0.967,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2426129
   },
@@ -2421,6 +2600,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9749,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2445812
   },
@@ -2432,6 +2612,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9867,
    "state": "CT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1250886
   },
@@ -2443,6 +2624,7 @@
    "office": "COMPTROLLER",
    "ratio": 0.9753,
    "state": "CT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1236498
   },
@@ -2454,6 +2636,7 @@
    "office": "SECRETARY OF THE STATE",
    "ratio": 0.9823,
    "state": "CT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1245420
   },
@@ -2465,6 +2648,7 @@
    "office": "TREASURER",
    "ratio": 0.9815,
    "state": "CT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1244372
   },
@@ -2476,6 +2660,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 1.0046,
    "state": "DE",
+   "top_unopposed": false,
    "verdict": "listed",
    "votes": 319206
   },
@@ -2487,6 +2672,7 @@
    "office": "AUDITOR OF ACCOUNTS",
    "ratio": 0.9929,
    "state": "DE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 316925
   },
@@ -2498,6 +2684,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9954,
    "state": "DE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 317745
   },
@@ -2542,6 +2729,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9913,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3919044
   },
@@ -2553,6 +2741,7 @@
    "office": "COMMISSIONER OF AGRICULTURE",
    "ratio": 0.9879,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3905762
   },
@@ -2564,6 +2753,7 @@
    "office": "COMMISSIONER OF INSURANCE",
    "ratio": 0.9854,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3895524
   },
@@ -2575,6 +2765,7 @@
    "office": "COMMISSIONER OF LABOR",
    "ratio": 0.986,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3898024
   },
@@ -2586,6 +2777,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9891,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3910348
   },
@@ -2597,6 +2789,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.989,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3910047
   },
@@ -2608,6 +2801,7 @@
    "office": "STATE SCHOOL SUPERINTENDENT",
    "ratio": 0.9876,
    "state": "GA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3904399
   },
@@ -2619,6 +2813,7 @@
    "office": "AT-LARGE TRUSTEE",
    "ratio": 1.8093,
    "state": "HI",
+   "top_unopposed": false,
    "verdict": "held",
    "votes": 747716
   },
@@ -2630,6 +2825,7 @@
    "office": "HAWAII RESIDENT TRUSTEE VACANCY",
    "ratio": 0.688,
    "state": "HI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 284317
   },
@@ -2641,6 +2837,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9847,
    "state": "IA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1203123
   },
@@ -2652,6 +2849,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9857,
    "state": "IA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1204432
   },
@@ -2663,6 +2861,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 1.0044,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "listed",
    "votes": 586984
   },
@@ -2674,6 +2873,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9956,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 584405
   },
@@ -2685,6 +2885,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9897,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 580912
   },
@@ -2696,6 +2897,7 @@
    "office": "STATE CONTROLLER",
    "ratio": 0.9925,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 582605
   },
@@ -2707,6 +2909,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9883,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 580098
   },
@@ -2718,6 +2921,7 @@
    "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.9875,
    "state": "ID",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 579625
   },
@@ -2729,6 +2933,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9945,
    "state": "IL",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4083552
   },
@@ -2740,6 +2945,7 @@
    "office": "COMPTROLLER",
    "ratio": 0.995,
    "state": "IL",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4085642
   },
@@ -2751,6 +2957,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9964,
    "state": "IL",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4091478
   },
@@ -2762,6 +2969,7 @@
    "office": "TREASURER",
    "ratio": 0.99,
    "state": "IL",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4065082
   },
@@ -2773,6 +2981,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9922,
    "state": "IN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 759457
   },
@@ -2784,6 +2993,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.992,
    "state": "IN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 759285
   },
@@ -2795,6 +3005,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9895,
    "state": "IN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 757367
   },
@@ -2806,6 +3017,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9888,
    "state": "KS",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 997733
   },
@@ -2817,6 +3029,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9865,
    "state": "KS",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 995404
   },
@@ -2828,6 +3041,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9855,
    "state": "MA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2449782
   },
@@ -2839,6 +3053,7 @@
    "office": "AUDITOR",
    "ratio": 0.957,
    "state": "MA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2378792
   },
@@ -2850,6 +3065,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.99,
    "state": "MA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2460942
   },
@@ -2861,6 +3077,7 @@
    "office": "TREASURER",
    "ratio": 0.8993,
    "state": "MA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2235568
   },
@@ -2872,6 +3089,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 1.389,
    "state": "MI",
+   "top_unopposed": false,
    "verdict": "held",
    "votes": 6146375
   },
@@ -2883,6 +3101,7 @@
    "office": "ASSOCIATE JUSTICE - SUPREME COURT 3",
    "ratio": 0.5563,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1396768
   },
@@ -2894,6 +3113,7 @@
    "office": "ASSOCIATE JUSTICE - SUPREME COURT 6",
    "ratio": 0.5517,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1385092
   },
@@ -2905,6 +3125,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9919,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2490301
   },
@@ -2916,6 +3137,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9829,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2467729
   },
@@ -2927,6 +3149,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9802,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2460932
   },
@@ -2938,6 +3161,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9922,
    "state": "MO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2051781
   },
@@ -2949,6 +3173,7 @@
    "office": "SUPREME COURT JUSTICE #1",
    "ratio": 0.8828,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 396278
   },
@@ -2960,6 +3185,7 @@
    "office": "SUPREME COURT JUSTICE #2",
    "ratio": 0.981,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 440378
   },
@@ -2971,6 +3197,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 08",
    "ratio": 0.9891,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3732493
   },
@@ -2982,6 +3209,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 09",
    "ratio": 0.9884,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3729622
   },
@@ -2993,6 +3221,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 10",
    "ratio": 0.9885,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3729985
   },
@@ -3004,6 +3233,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 11",
    "ratio": 0.987,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3724499
   },
@@ -3015,6 +3245,7 @@
    "office": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 03",
    "ratio": 0.9944,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3752490
   },
@@ -3026,6 +3257,7 @@
    "office": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 05",
    "ratio": 0.9938,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3750313
   },
@@ -3037,6 +3269,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9774,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 234702
   },
@@ -3048,6 +3281,7 @@
    "office": "JUSTICE OF THE SUPREME COURT",
    "ratio": 0.7903,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 189789
   },
@@ -3059,6 +3293,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9737,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 233828
   },
@@ -3070,6 +3305,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9348,
    "state": "NE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 623320
   },
@@ -3081,6 +3317,7 @@
    "office": "AUDITOR OF PUBLIC ACCOUNTS",
    "ratio": 0.9394,
    "state": "NE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 626379
   },
@@ -3092,6 +3329,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.7504,
    "state": "NE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 500342
   },
@@ -3103,6 +3341,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.8955,
    "state": "NE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 597144
   },
@@ -3114,6 +3353,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9902,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 702541
   },
@@ -3125,6 +3365,7 @@
    "office": "COMMISSIONER OF PUBLIC LANDS",
    "ratio": 0.9764,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 692766
   },
@@ -3136,6 +3377,7 @@
    "office": "JUDGE OF THE COURT OF APPEALS POSITION 1",
    "ratio": 0.9764,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 692786
   },
@@ -3147,6 +3389,7 @@
    "office": "JUDGE OF THE COURT OF APPEALS POSITION 2",
    "ratio": 0.9731,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 690438
   },
@@ -3158,6 +3401,7 @@
    "office": "JUSTICE OF THE SUPREME COURT",
    "ratio": 0.9792,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 694774
   },
@@ -3169,6 +3413,7 @@
    "office": "JUSTICE OF THE SUPREME COURT POSITION 2",
    "ratio": 0.9781,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 693969
   },
@@ -3180,6 +3425,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9914,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 703412
   },
@@ -3191,6 +3437,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9097,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 645470
   },
@@ -3202,6 +3449,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9813,
    "state": "NM",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 696247
   },
@@ -3213,6 +3461,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9375,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 944997
   },
@@ -3224,6 +3473,7 @@
    "office": "COURT OF APPEALS JUDGE, DEPARTMENT 1",
    "ratio": 0.6767,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 682144
   },
@@ -3235,6 +3485,7 @@
    "office": "COURT OF APPEALS JUDGE, DEPARTMENT 2",
    "ratio": 0.6465,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 651714
   },
@@ -3246,6 +3497,7 @@
    "office": "COURT OF APPEALS JUDGE, DEPARTMENT 3",
    "ratio": 0.6341,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 639239
   },
@@ -3257,6 +3509,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9844,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 992307
   },
@@ -3268,6 +3521,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.988,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 995966
   },
@@ -3279,6 +3533,7 @@
    "office": "STATE CONTROLLER",
    "ratio": 0.975,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 982813
   },
@@ -3290,6 +3545,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9758,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 983620
   },
@@ -3301,6 +3557,7 @@
    "office": "SUPREME COURT JUSTICE, SEAT A",
    "ratio": 0.6609,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 666264
   },
@@ -3312,6 +3569,7 @@
    "office": "SUPREME COURT JUSTICE, SEAT E",
    "ratio": 0.646,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 651210
   },
@@ -3323,6 +3581,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9748,
    "state": "NY",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5844801
   },
@@ -3334,6 +3593,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9994,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4132397
   },
@@ -3345,6 +3605,7 @@
    "office": "AUDITOR OF STATE",
    "ratio": 0.9868,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4080423
   },
@@ -3356,6 +3617,7 @@
    "office": "CHIEF JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/01/2023",
    "ratio": 0.9951,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4114548
   },
@@ -3367,6 +3629,7 @@
    "office": "JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/01/2023",
    "ratio": 0.9905,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4095420
   },
@@ -3378,6 +3641,7 @@
    "office": "JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/02/2023",
    "ratio": 0.9906,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4095812
   },
@@ -3389,6 +3653,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9971,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4122959
   },
@@ -3400,6 +3665,7 @@
    "office": "TREASURER OF STATE",
    "ratio": 0.9874,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4082702
   },
@@ -3411,6 +3677,7 @@
    "office": "COMMISSIONER OF LABOR",
    "ratio": 0.9866,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1137784
   },
@@ -3422,6 +3689,7 @@
    "office": "CORPORATION COMMISSIONER",
    "ratio": 0.9861,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1137207
   },
@@ -3433,6 +3701,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9945,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1146992
   },
@@ -3444,6 +3713,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9887,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1140279
   },
@@ -3455,6 +3725,7 @@
    "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.9931,
    "state": "OK",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1145341
   },
@@ -3466,6 +3737,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9869,
    "state": "RI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 352997
   },
@@ -3477,6 +3749,7 @@
    "office": "GENERAL TREASURER",
    "ratio": 0.9818,
    "state": "RI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 351164
   },
@@ -3488,6 +3761,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9883,
    "state": "RI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 353482
   },
@@ -3499,6 +3773,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9813,
    "state": "RI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 350965
   },
@@ -3510,6 +3785,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.738,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1261374
   },
@@ -3521,6 +3797,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9934,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1697915
   },
@@ -3532,6 +3809,7 @@
    "office": "STATE SUPERINTENDENT OF EDUCATION",
    "ratio": 0.9915,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1694738
   },
@@ -3543,6 +3821,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.8328,
    "state": "SC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1423431
   },
@@ -3554,6 +3833,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.7351,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 257419
   },
@@ -3565,6 +3845,7 @@
    "office": "COMMISSIONER OF SCHOOL AND PUBLIC LANDS",
    "ratio": 0.9232,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 323260
   },
@@ -3576,6 +3857,7 @@
    "office": "PUBLIC UTILITIES COMMISSIONER",
    "ratio": 0.944,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 330551
   },
@@ -3587,6 +3869,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.949,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 332323
   },
@@ -3598,6 +3881,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9418,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 329797
   },
@@ -3609,6 +3893,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9346,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 327250
   },
@@ -3620,6 +3905,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9882,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8010903
   },
@@ -3631,6 +3917,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.991,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 8033629
   },
@@ -3642,6 +3929,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9103,
    "state": "UT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 982687
   },
@@ -3653,6 +3941,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9587,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 275217
   },
@@ -3664,6 +3953,7 @@
    "office": "AUDITOR OF ACCOUNTS",
    "ratio": 0.9531,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 273618
   },
@@ -3675,6 +3965,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9708,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 278686
   },
@@ -3686,6 +3977,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9592,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 275357
   },
@@ -3697,6 +3989,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9696,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 278342
   },
@@ -3708,6 +4001,7 @@
    "office": "SUPREME COURT - JUSTICE POSITION #01",
    "ratio": 0.6611,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2013599
   },
@@ -3719,6 +4013,7 @@
    "office": "SUPREME COURT - JUSTICE POSITION #05",
    "ratio": 0.6504,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1981087
   },
@@ -3730,6 +4025,7 @@
    "office": "SUPREME COURT - JUSTICE POSITION #06",
    "ratio": 0.6438,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1960820
   },
@@ -3741,6 +4037,7 @@
    "office": "WASHINGTON STATE - SECRETARY OF STATE",
    "ratio": 0.9671,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2945569
   },
@@ -3752,6 +4049,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9889,
    "state": "WI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2626943
   },
@@ -3763,6 +4061,7 @@
    "office": "STATE ATTORNEY GENERAL",
    "ratio": 0.9913,
    "state": "WI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2633277
   },
@@ -3774,6 +4073,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9814,
    "state": "WI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2607103
   },
@@ -3785,6 +4085,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.8298,
    "state": "WY",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 160975
   },
@@ -3796,6 +4097,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.8441,
    "state": "WY",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 163749
   },
@@ -3807,6 +4109,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.8394,
    "state": "WY",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 162843
   },
@@ -3818,6 +4121,7 @@
    "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.9792,
    "state": "WY",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 189960
   }
@@ -3963,6 +4267,7 @@
    "office": "STATE SUPREME COURT CHIEF JUSTICE",
    "ratio": 0.8776,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1037701
   },
@@ -3974,6 +4279,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9768,
    "state": "AR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1155029
   },
@@ -3985,6 +4291,7 @@
    "office": "REGENT OF THE UNIVERSITY OF COLORADO",
    "ratio": 0.9179,
    "state": "CO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2930776
   },
@@ -4007,6 +4314,7 @@
    "office": "INSURANCE COMMISSIONER",
    "ratio": 0.9649,
    "state": "DE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 493729
   },
@@ -4018,6 +4326,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9656,
    "state": "DE",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 494084
   },
@@ -4029,6 +4338,7 @@
    "office": "AT-LARGE TRUSTEE",
    "ratio": 0.6307,
    "state": "HI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 325858
   },
@@ -4040,6 +4350,7 @@
    "office": "KAUAI RESIDENT TRUSTEE",
    "ratio": 0.5507,
    "state": "HI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 284571
   },
@@ -4051,6 +4362,7 @@
    "office": "MOLOKAI RESIDENT TRUSTEE",
    "ratio": 0.5559,
    "state": "HI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 287216
   },
@@ -4062,6 +4374,7 @@
    "office": "ATTORNEY GENERAL - INDIANA",
    "ratio": 1.0944,
    "state": "IN",
+   "top_unopposed": false,
    "verdict": "listed",
    "votes": 2838098
   },
@@ -4073,6 +4386,7 @@
    "office": "JUSTICE OF THE SUPREME COURT",
    "ratio": 0.742,
    "state": "MI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4202553
   },
@@ -4084,6 +4398,7 @@
    "office": "JUSTICE OF THE SUPREME COURT",
    "ratio": 0.7452,
    "state": "MI",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 4221027
   },
@@ -4095,6 +4410,7 @@
    "office": "ASSOCIATE JUSTICE - SUPREME COURT",
    "ratio": 0.5879,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 1913038
   },
@@ -4106,6 +4422,7 @@
    "office": "ASSOCIATE JUSTICE - SUPREME COURT",
    "ratio": 0.7176,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2335066
   },
@@ -4117,6 +4434,7 @@
    "office": "CHIEF JUSTICE - SUPREME COURT",
    "ratio": 0.7409,
    "state": "MN",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2410806
   },
@@ -4128,6 +4446,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9715,
    "state": "MO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2909986
   },
@@ -4139,6 +4458,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9726,
    "state": "MO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2913370
   },
@@ -4150,6 +4470,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9716,
    "state": "MO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2910117
   },
@@ -4161,6 +4482,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9709,
    "state": "MO",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2908138
   },
@@ -4172,6 +4494,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9726,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 590494
   },
@@ -4183,6 +4506,7 @@
    "office": "CLERK OF THE SUPREME COURT",
    "ratio": 0.9572,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 581135
   },
@@ -4194,6 +4518,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9773,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 593359
   },
@@ -4205,6 +4530,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9615,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 583778
   },
@@ -4216,6 +4542,7 @@
    "office": "SUPREME COURT CHIEF JUSTICE",
    "ratio": 0.9076,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 551022
   },
@@ -4227,6 +4554,7 @@
    "office": "SUPREME COURT JUSTICE",
    "ratio": 0.9119,
    "state": "MT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 553659
   },
@@ -4238,6 +4566,7 @@
    "office": "NC ATTORNEY GENERAL",
    "ratio": 0.9811,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5590371
   },
@@ -4249,6 +4578,7 @@
    "office": "NC AUDITOR",
    "ratio": 0.9707,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5531088
   },
@@ -4260,6 +4590,7 @@
    "office": "NC COMMISSIONER OF AGRICULTURE",
    "ratio": 0.9748,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5554470
   },
@@ -4271,6 +4602,7 @@
    "office": "NC COMMISSIONER OF INSURANCE",
    "ratio": 0.9711,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5533349
   },
@@ -4282,6 +4614,7 @@
    "office": "NC COMMISSIONER OF LABOR",
    "ratio": 0.9662,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5505586
   },
@@ -4293,6 +4626,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 12",
    "ratio": 0.9688,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5520321
   },
@@ -4304,6 +4638,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 14",
    "ratio": 0.9666,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5507502
   },
@@ -4315,6 +4650,7 @@
    "office": "NC COURT OF APPEALS JUDGE SEAT 15",
    "ratio": 0.9651,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5499051
   },
@@ -4326,6 +4662,7 @@
    "office": "NC LIEUTENANT GOVERNOR",
    "ratio": 0.981,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5589852
   },
@@ -4337,6 +4674,7 @@
    "office": "NC SECRETARY OF STATE",
    "ratio": 0.9759,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5560788
   },
@@ -4348,6 +4686,7 @@
    "office": "NC SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.9731,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5544559
   },
@@ -4359,6 +4698,7 @@
    "office": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 06",
    "ratio": 0.9723,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5540090
   },
@@ -4370,6 +4710,7 @@
    "office": "NC TREASURER",
    "ratio": 0.9704,
    "state": "NC",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5529503
   },
@@ -4381,6 +4722,7 @@
    "office": "INSURANCE COMMISSIONER",
    "ratio": 0.8365,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 307946
   },
@@ -4392,6 +4734,7 @@
    "office": "PUBLIC SERVICE COMMISSIONER",
    "ratio": 0.9447,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 347800
   },
@@ -4403,6 +4746,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9534,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 350993
   },
@@ -4414,6 +4758,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.8412,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 309682
   },
@@ -4425,6 +4770,7 @@
    "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.8847,
    "state": "ND",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 325719
   },
@@ -4436,6 +4782,7 @@
    "office": "SUPREME COURT JUSTICE",
    "ratio": 0.5927,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 868236
   },
@@ -4447,6 +4794,7 @@
    "office": "SUPREME COURT JUSTICE",
    "ratio": 0.598,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 875963
   },
@@ -4458,6 +4806,7 @@
    "office": "SUPREME COURT JUSTICE",
    "ratio": 0.5969,
    "state": "NV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 874414
   },
@@ -4469,6 +4818,7 @@
    "office": "JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/01/2025",
    "ratio": 0.9439,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5441391
   },
@@ -4480,6 +4830,7 @@
    "office": "JUSTICE OF THE SUPREME COURT TERM COMMENCING 01/02/2025",
    "ratio": 0.9437,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5440210
   },
@@ -4491,6 +4842,7 @@
    "office": "JUSTICE OF THE SUPREME COURT UNEXPIRED TERM ENDING 12/31/2026",
    "ratio": 0.9462,
    "state": "OH",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 5455054
   },
@@ -4502,6 +4854,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9575,
    "state": "OR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2149706
   },
@@ -4513,6 +4866,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9541,
    "state": "OR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2142028
   },
@@ -4524,6 +4878,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9462,
    "state": "OR",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2124349
   },
@@ -4535,6 +4890,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9788,
    "state": "PA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 6882369
   },
@@ -4546,6 +4902,7 @@
    "office": "AUDITOR GENERAL",
    "ratio": 0.9707,
    "state": "PA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 6825662
   },
@@ -4557,6 +4914,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9705,
    "state": "PA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 6824596
   },
@@ -4568,6 +4926,7 @@
    "office": "PUBLIC UTILITIES COMMISSIONER",
    "ratio": 0.9356,
    "state": "SD",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 401304
   },
@@ -4579,6 +4938,7 @@
    "office": "COURT OF CRIMINAL APPEALS",
    "ratio": 0.9529,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10867730
   },
@@ -4590,6 +4950,7 @@
    "office": "COURT OF CRIMINAL APPEALS",
    "ratio": 0.9511,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10846460
   },
@@ -4601,6 +4962,7 @@
    "office": "COURT OF CRIMINAL APPEALS PRESIDING JUDGE",
    "ratio": 0.9548,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10889244
   },
@@ -4612,6 +4974,7 @@
    "office": "RAILROAD COMMISSIONER",
    "ratio": 0.9617,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 10967196
   },
@@ -4623,6 +4986,7 @@
    "office": "STATE SUPREME COURT JUSTICE",
    "ratio": 2.8746,
    "state": "TX",
+   "top_unopposed": false,
    "verdict": "held",
    "votes": 32783005
   },
@@ -4667,6 +5031,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9397,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 347158
   },
@@ -4678,6 +5043,7 @@
    "office": "AUDITOR",
    "ratio": 0.9252,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 341793
   },
@@ -4689,6 +5055,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.954,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 352414
   },
@@ -4700,6 +5067,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9326,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 344524
   },
@@ -4711,6 +5079,7 @@
    "office": "TREASURER",
    "ratio": 0.9401,
    "state": "VT",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 347312
   },
@@ -4722,6 +5091,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9603,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3763422
   },
@@ -4733,6 +5103,7 @@
    "office": "COMMISSIONER OF PUBLIC LANDS",
    "ratio": 0.9541,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3738877
   },
@@ -4744,6 +5115,7 @@
    "office": "INSURANCE COMMISSIONER",
    "ratio": 0.9419,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3691232
   },
@@ -4755,6 +5127,7 @@
    "office": "LIEUTENANT GOVERNOR",
    "ratio": 0.9658,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3784920
   },
@@ -4766,6 +5139,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9625,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3772160
   },
@@ -4777,6 +5151,7 @@
    "office": "STATE AUDITOR",
    "ratio": 0.9545,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3740476
   },
@@ -4788,6 +5163,7 @@
    "office": "STATE TREASURER",
    "ratio": 0.9562,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3747241
   },
@@ -4799,6 +5175,7 @@
    "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
    "ratio": 0.8434,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3305200
   },
@@ -4810,6 +5187,7 @@
    "office": "SUPREME COURT - JUSTICE POSITION #02",
    "ratio": 0.8368,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 3279291
   },
@@ -4821,6 +5199,7 @@
    "office": "SUPREME COURT - JUSTICE POSITION #08",
    "ratio": 0.6701,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2626238
   },
@@ -4832,6 +5211,7 @@
    "office": "SUPREME COURT - JUSTICE POSITION #09",
    "ratio": 0.6635,
    "state": "WA",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 2600262
   },
@@ -4843,6 +5223,7 @@
    "office": "ATTORNEY GENERAL",
    "ratio": 0.9393,
    "state": "WV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 716106
   },
@@ -4854,6 +5235,7 @@
    "office": "AUDITOR",
    "ratio": 0.9329,
    "state": "WV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 711228
   },
@@ -4865,6 +5247,7 @@
    "office": "COMMISSIONER OF AGRICULTURE",
    "ratio": 0.9314,
    "state": "WV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 710095
   },
@@ -4876,6 +5259,7 @@
    "office": "SECRETARY OF STATE",
    "ratio": 0.9421,
    "state": "WV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 718230
   },
@@ -4887,11 +5271,12 @@
    "office": "TREASURER",
    "ratio": 0.7906,
    "state": "WV",
+   "top_unopposed": false,
    "verdict": "passes",
    "votes": 602718
   }
  ],
- "about": "the over-ballot test (pipeline/local_medsl.py over_ballot; the orchestrator's order of 2026-11-07 17:44 (3)): every statewide contest of one seat in MEDSL's files the local files take, its votes against the ballots cast where the file gives them, else against the day's highest-vote statewide contest; held above 1, or above 1.1 against the top contest; listed between 1.0 and 1.1",
+ "about": "the over-ballot test (pipeline/local_medsl.py over_ballot; the orchestrator's order of 2026-11-07 17:44 (3)): every statewide contest of one seat in MEDSL's files the local files take, its votes against the ballots cast where the file gives them, else against the day's highest-vote statewide contest; held above 1, or above 1.1 against the top contest (1.5 where it is unopposed: the orchestrator, 2026-11-13 00:55 (b)); listed between 1.0 and that line",
  "untested_years": {
   "2016": "MEDSL's 2016 files are read for their questions only (no seat counts)",
   "2020": "MEDSL's 2020 file holds local offices only"
