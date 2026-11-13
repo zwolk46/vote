@@ -7797,3 +7797,428 @@ c48: section 19, second part; b350d5e -> b35fede; sections [1, 2, 3, 4, 5, 6, 7]
   2018-local-NY-ATTORNEY_GENERAL: before 'MEDSL's 2018 New York precincts add up to 95.97% of D2's certified count for governor (the party lines summed; on each candidate's...'; after 'MEDSL's 2018 New York precincts add up to 84.53% of the record's count for governor (each nominee's every line, from Algara and Amlani's county returns) (the party lines ...'
   (D3's 95.97% before and 84.53% / 73.51% after are the worst nominee's figures above: Cuomo's before, Molinaro's after, the record's count for governor having grown by his other lines)
 
+M2 checks (section 20, its own run): 2026-11-13T10:08Z, repository HEAD f45ab6e2, python3 3.13.18
+##### c49_va_local_2
+C49 (section 20): D3's #111, bddef1ae -> 11c852dc; f45ab6e2
+
+====================================================================================================
+49.1 moves-36.json against my own diff of every D3 record, bddef1ae -> 11c852dc
+====================================================================================================
+  the file: 15,009 rows, 15,009 ids, against 89a951e2 (the code alone, its data main's at b35fede, which equal bddef1ae's D3 files; my diff is main to main)
+  its summary: {"local A: new record": 559, "local B: p unchanged, its block changed": 1283, "local N: new p": 158, "local O: other fields: forecast_inputs": 73, "local O: other fields: gate": 690, "local P: p moved": 1823, "local Q: a note's words changed": 398, "local R: not computed before or after, the reason changed": 588, "measure A: new record": 7, "measure O: other fields: gate": 9, "state-lower B: p unchanged, its block changed": 1241, "state-lower O: other fields: forecast_inputs": 16, "state-lower O: other fields: forecasts": 1, "state-lower P: p moved": 6204, "state-upper B: p unchanged, its block changed": 438, "state-upper N: new p": 1, "state-upper O: other fields: forecast_inputs": 3, "state-upper P: p moved": 1686, "state-upper Q: a note's words changed": 3}
+  data files changed: 336; D3's record files: 328 {'local': 63, 'measure': 2, 'state-lower': 131, 'state-upper': 132}; D2's: 0; other: ['data/README.md', 'data/local/REPORT.md', 'data/local/backtest-local-classes.json', 'data/local/calibration-local.json', 'data/local/check-districts.json', 'data/local/check-over-ballot.json', 'data/local/check-va-local.json', 'data/local/moves-36.json']
+  my diff, by level and code: local A 559; local B 1283; local N 158; local O 990; local P 1823; local R 588; measure A 7; measure O 9; state-lower B 1241; state-lower O 17; state-lower P 6204; state-upper B 438; state-upper N 1; state-upper O 3; state-upper P 1686; state-upper Q 2
+  rows whose code I share: 15009 of 15009 ids in my diff; codes differing: 0; ids in my diff but not in the file: 0; ids in the file but not in my diff: 0 []
+  p before/after other than the record's: 0; ratios off by more than 1.5e-4: 0; records differing in p.commit alone: 104
+  gained (a p after, none before): 569 = 410 new records with p {('local', '2025'): 410} (p 0: 283, p > 0: 127) + 159 new p {('local', '2023'): 158, ('state-upper', '2018'): 1} (the orchestrator: 569 gained); lost: 0 [] (none)
+  new records in all: 566 {('local', '2025'): 559, ('measure', '2025'): 7} (D3: 559 local and 7 questions)
+  p moved (every P in my diff): 9,713 = local 1,823 + state-lower 6,204 + state-upper 1,686 (the orchestrator: 9,713; the file's P rows 9,713); over 2x either way: 0 []; extremes: min 0.8996 2024-local-IN-CLAY_COMMUNITY_SCHOOL_BOARD__DISTRICT_1__CLAY__PARKE-county_18021, max 1.0422 2024-local-NC-GASTON_COUNTY_BOARD_OF_EDUCATION_GASTONIA_TWP-county_37071
+  bands by level: local 1-10% 319; local beyond 10% 437; local within 0.002% 1,067; state-lower within 0.002% 3,498; state-lower within 0.15% 2,706; state-upper 0.15-1% 12; state-upper 1-10% 4; state-upper within 0.002% 959; state-upper within 0.15% 711
+  the school boards of 2024 moved: 812 (D3: 756): '?' 56 x1.000-1.000; 'ard, nonpartisan, 2 candidates' 540 x0.900-0.924; 'ard, nonpartisan, 3 candidates' 124 x0.929-0.950; 'rd, nonpartisan, 4+ candidates' 92 x1.020-1.042
+  other local p moved: 1011 (D3: 1,067 races between a Democrat and a Republican by route (a), within 0.002%): routes {'partisan': 1011}; largest move 1.34e-05; years {'2020': 418, '2024': 593}
+  legislature p moved: 7,890 (D3: 7,874 within 0.15% and Indiana 2020's 16 Senate races x0.969 to x0.998); beyond 0.15%: 16: 2020-state-upper-IN-24 x0.9687; 2020-state-upper-IN-9 x0.9687; 2020-state-upper-IN-37 x0.9687; 2020-state-upper-IN-18 x0.9772; 2020-state-upper-IN-44 x0.9941; 2020-state-upper-IN-12 x0.9942; 2020-state-upper-IN-20 x0.9949; 2020-state-upper-IN-7 x0.9951; 2020-state-upper-IN-28 x0.9954; 2020-state-upper-IN-16 x0.9962; 2020-state-upper-IN-32 x0.9962; 2020-state-upper-IN-5 x0.9965; 2020-state-upper-IN-35 x0.9966; 2020-state-upper-IN-8 x0.9968; 2020-state-upper-IN-36 x0.9979; 2020-state-upper-IN-30 x0.9981
+    2020-state-upper-IN-24: x0.9687; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class B
+    2020-state-upper-IN-9: x0.9687; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class B
+    2020-state-upper-IN-37: x0.9687; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class B
+    2020-state-upper-IN-18: x0.9772; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class B
+    2020-state-upper-IN-44: x0.9941; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-12: x0.9942; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-20: x0.9949; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-7: x0.9951; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-28: x0.9954; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-16: x0.9962; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-32: x0.9962; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-5: x0.9965; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-35: x0.9966; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-8: x0.9968; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-36: x0.9979; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+    2020-state-upper-IN-30: x0.9981; lean -0.0699 -> -0.0749 (lean_year 2018); swing -0.0022 -> -0.0023; class A
+
+====================================================================================================
+49.2 The unopposed comparator (the orchestrator, 00:55 (b)): D3's rules copied at every level
+====================================================================================================
+
+  Virginia 2023: the files' sha256 against D3's SHA256SUMS: {'export-2023-Nov-Gen.json': (True, '95f9426e3767'), '2023-Nov-Gen-page-rendered.html': (True, 'd311fa7b5528')}
+    contests beside the legislature's: 1448; top figures per locality 818, unopposed 464 (a figure is unopposed where its contest has no more names on the ballot than seats, write-in lines aside; a chamber's lines summed, where any of its contests there is)
+    the records' gate verdicts at bddef1ae: {'passes': 1417, 'listed': 28, 'held': 3}
+    the records' gate verdicts at 11c852dc: {'passes': 1417, 'listed': 31}
+    records with a file contest: 1448; ratio equal to the record's gate (4 decimals): 1448; differing: 0; verdict equal: 1448; differing: 0 []
+    held by the over-ballot test, mine: 0: 
+    listed, mine: 31 (D3: 31); against an unopposed comparator: 11; records whose note names an unopposed comparator: 10 (D3: 10)
+      Sheriff (Cumberland County): 3,252 for each seat in Cumberland County, 1.1191 times the 2,906 of Treasurer (Cumberland County) (line 1.5)
+      Sheriff (Halifax County): 9,446 for each seat in Halifax County, 1.1106 times the 8,505 of Treasurer (Halifax County) (line 1.5)
+      Clerk of Court (Norton City, Wise County): 434 for each seat in Norton City, 1.1015 times the 394 of the House of Delegates' lines in Norton City, summed (line 1.5)
+      Treasurer (Scott County): 5,586 for each seat in Scott County, 1.0944 times the 5,104 of Clerk of Court (Scott County) (line 1.5)
+      Casino Gaming: 67,244 for each seat in Richmond City, 1.0884 times the 61,785 of the Senate of Virginia's lines in Richmond City, summed (line 1.5)
+      Treasurer (Fluvanna County): 7,859 for each seat in Fluvanna County, 1.0792 times the 7,282 of Sheriff (Fluvanna County) (line 1.5)
+      Clerk of Court (Pittsylvania County): 16,299 for each seat in Pittsylvania County, 1.0582 times the 15,403 of Sheriff (Pittsylvania County) (line 1.5)
+      Commonwealth's Attorney (Goochland County): 12,412 for each seat in Goochland County, 1.0472 times the 11,853 of the House of Delegates' lines in Goochland County, summed (line 1.5)
+      Sheriff (Prince Edward County): 5,535 for each seat in Prince Edward County, 1.0381 times the 5,332 of the House of Delegates' lines in Prince Edward County, summed (line 1.5)
+      Clerk of Court (Buckingham County): 3,784 for each seat in Buckingham County, 1.0137 times the 3,733 of Sheriff (Buckingham County) (line 1.5)
+      Clerk of Court (Appomattox County): 4,106 for each seat in Appomattox County, 1.0002 times the 4,105 of Sheriff (Appomattox County) (line 1.5)
+      the comparator Treasurer (Halifax County): options [('Ruth S. Oakes', 8428, 'ballot'), ('Write-In', 77, 'write-in line')]; ballot names 1 for 1 seat(s)
+      the comparator Treasurer (Cumberland County): options [('L.O. "Lee" Pfeiffer, Jr.', 2869, 'ballot'), ('Write-In', 37, 'write-in line')]; ballot names 1 for 1 seat(s)
+      2023-local-VA-SHERIFF-county_51083: before {'not_computed': "held by the gate: its 9,446 votes for each seat in Halifax County are 1.; after {'not_computed': 'fewer than 100 like races in earlier years in the sources taken in (0) for the class \'local sheriff o
+      2023-local-VA-SHERIFF-county_51049: before {'not_computed': "held by the gate: its 3,252 votes for each seat in Cumberland County are; after {'not_computed': 'fewer than 100 like races in earlier years in the sources taken in (0) for the class \'local sheriff o
+    the highest ratio of any record, mine: 1.1191 (D3 2025: no contest over 1.0)
+
+  Virginia 2025: the files' sha256 against D3's SHA256SUMS: {'export-2025-November-General.json': (True, 'f04f13b12bab'), '2025-November-General-page-rendered.html': (True, '52ccac276f92')}
+    contests beside the legislature's and the Governor: 566; top figures per locality 689, unopposed 118 (a figure is unopposed where its contest has no more names on the ballot than seats, write-in lines aside; a chamber's lines summed, where any of its contests there is)
+    the records' gate verdicts at 11c852dc: {'passes': 566}
+    records with a file contest: 566; ratio equal to the record's gate (4 decimals): 566; differing: 0; verdict equal: 566; differing: 0 []
+    held by the over-ballot test, mine: 0: 
+    listed, mine: 0 (D3: 0); against an unopposed comparator: 0; records whose note names an unopposed comparator: 0 (D3: 0)
+    the highest ratio of any record, mine: 0.9988 (D3 2025: no contest over 1.0)
+
+  MEDSL's over-ballot test (check-over-ballot.json): about: the over-ballot test (pipeline/local_medsl.py over_ballot; the orchestrator's order of 2026-11-07 17:44 (3)): every statewide contest of one seat in MEDSL's fil...
+    2018: rows 199; against 'top' 164; top_unopposed true 0; verdicts {'passes': 195, 'listed': 2, 'held': 2}
+    2022: rows 148; against 'top' 140; top_unopposed true 0; verdicts {'passes': 144, 'listed': 2, 'held': 2}
+    2024: rows 97; against 'top' 81; top_unopposed true 0; verdicts {'passes': 95, 'listed': 1, 'held': 1}
+    2018 from the records (office_scope state, one seat, with D2's president and US Senate records as the federal lines): one-name statewide contests 785: [('AL', 'Circuit Court Judge', 4685, 1), ('AL', 'Circuit Court Judge', 6925, 1), ('AL', 'Circuit Court Judge', 7335, 1), ('AL', 'Circuit Court Judge', 8245, 1), ('AL', 'Circuit Court Judge', 8853, 1), ('AL', 'Circuit Court Judge', 9875, 1), ('AL', 'Circuit Court Judge', 11760, 1), ('AL', 'Circuit Court Judge', 11895, 1)]...; US Senate contests with one name: [] (D3: none); state-days whose top contest by votes has one name: [] (D3: none)
+    2022 from the records (office_scope state, one seat, with D2's president and US Senate records as the federal lines): one-name statewide contests 288: [('GA', 'Secretary Of State', 154, 0), ('KY', 'Judge Of The Court Of Appeals', 99131, 1), ('KY', 'Judge Of The Court Of Appeals', 100856, 1), ('KY', 'Judge Of The Court Of Appeals', 100963, 1), ('KY', 'Judge Of The Court Of Appeals', 109975, 1), ('KY', 'Judge Of The Court Of Appeals', 110512, 1), ('KY', 'Judge Of The Court Of Appeals', 111833, 1), ('KY', 'Judge Of The Court Of Appeals', 112597, 1)]...; US Senate contests with one name: [] (D3: none); state-days whose top contest by votes has one name: [] (D3: none)
+    2024 from the records (office_scope state, one seat, with D2's president and US Senate records as the federal lines): one-name statewide contests 499: [('AL', 'Associate Justice Of The Supreme Court', 1590269, 1), ('AL', 'Associate Justice Of The Supreme Court', 1593085, 1), ('AL', 'Associate Justice Of The Supreme Court', 1596455, 1), ('AL', 'Associate Justice Of The Supreme Court', 1602920, 1), ('AL', 'Court Of Civil Appeals Judge', 1583508, 1), ('AL', 'Court Of Civil Appeals Judge', 1584753, 1), ('AL', 'Court Of Civil Appeals Judge', 1589077, 1), ('AL', 'Court Of Criminal Appeals Judge', 1579489, 1)]...; US Senate contests with one name: [] (D3: none); state-days whose top contest by votes has one name: [] (D3: none)
+
+  the over-seats test (local_districts): a district's ballots rest on unopposed contests alone where every wide contest giving them has one name
+    2016: D3's flags with over_seats read 14: by_unopposed {'False': 14}, line {1.1: 14}; my raw-file pass: statewide one-seat contests with one name: 0: 
+      my by_unopposed on D3's read flags against his: {('mine', False, 'D3', False): 14}
+    2018: D3's flags with over_seats read 63: by_unopposed {'False': 63}, line {1.1: 63}; my raw-file pass: statewide one-seat contests with one name: 11: AL COMMISSIONER OF AGRICULTURE AND INDUSTRI ['RICK PATE']; AL STATE TREASURER ['JOHN MCMILLAN']; ID STATE CONTROLLER ['BRANDON D WOOLF']; ID STATE TREASURER ['JULIE A ELLSWORTH']; MN CHIEF JUSTICE - SUPREME COURT ['LORIE SKJERVEN GILDEA']; MS SUPREME COURT ['DAVID M ISHEE']; NE ATTORNEY GENERAL ['DOUG PETERSON']; NE STATE TREASURER ['JOHN MURANTE']; SC COMPTROLLER GENERAL ['RICHARD ECKSTROM']; SC STATE SUPERINTENDENT OF EDUCATION ['MOLLY MITCHELL SPEARMAN']; WY SUPERINTENDENT OF PUBLIC INSTRUCTION ['JILLIAN BALOW']
+      the governor's names in those states: AL 2; ID 4; MN 4; NE 2; SC 2; WY 4
+      my by_unopposed on D3's read flags against his: {('mine', False, 'D3', False): 58, 'no raw file': 5}
+    2022: D3's flags with over_seats read 61: by_unopposed {'False': 61}, line {1.1: 61}; my raw-file pass: statewide one-seat contests with one name: 0: 
+      my by_unopposed on D3's read flags against his: {('mine', False, 'D3', False): 59, 'no raw file': 2}
+
+====================================================================================================
+49.3 The Code of Virginia's pages read again, and the school boards' class (the orchestrator, 00:55 (c), 07:48, 08:07)
+====================================================================================================
+  my requests (fetch_eighth_pass.sh va_code, in_2018; index.txt): vacode:24.2-613 200 at 09:27:26 UTC, 35827 bytes; vacode:t22.1c5a7 200 at 09:27:32 UTC, 49203 bytes; vacode:t10.1c5a3 200 at 09:27:39 UTC, 80900 bytes; in2018:settings 200 at 09:27:42 UTC, 2098 bytes; in2018:categories 200 at 09:27:48 UTC, 22687 bytes; in2018:OffCatC_2180 200 at 09:27:55 UTC, 94188 bytes; in2018:OffCatC_2201 200 at 10:01:11 UTC, 295605 bytes
+  pages the 2023 records quote (url, read, sha256): ('https://law.lis.virginia.gov/vacode/title24.2/chapter6/section24.2-613/', '2026-11-13T07:42:41Z', '0c6e49738d2d87f7') in 359 records; ('https://law.lis.virginia.gov/vacodefull/title22.1/chapter5/article7/', '2026-11-13T07:50:46Z', '4d694a3950db307a') in 388 records
+  section24.2-613.html: my sha256 0c6e49738d2d87f7...; equal to the records quoted
+  title22.1-chapter5-article7.html: my sha256 4d694a3950db307a...; equal to the records quoted
+  title10.1-chapter5-article3.html: my sha256 542f002f2143b26d...; not quoted by the records (D3 recorded no sha for it)
+  section 24.2-613 B: the words quoted are in my copy of section24.2-613.html; the page has 9 section marks
+  section 22.1-57.3 E: the words quoted are in my copy of title22.1-chapter5-article7.html; the page has 31 section marks
+  section 22.1-57.3:3 B: the words quoted are in my copy of title22.1-chapter5-article7.html; the page has 31 section marks
+  section 10.1-523 A: the words quoted are in my copy of title10.1-chapter5-article3.html; the page has 131 section marks
+  section 22.1-57.3:3's head as my copy reads: Election of school board and chairman in certain counties. A. The provisions of this section shall be applicable in any county (i) that has the county executive form of government and that is contiguous to a county having the urban county executive form of government and (ii) in which the chairman of the board of supervisors is ...
+  section 22.1-57.3's heading: found; subsection E's words follow 'E. ': True
+  section 10.1-523 A as my copy reads: Beginning 30 days after the date of issuance by the Secretary of the Commonwealth of a certificate of organization of a district, but not later than the filing date specified in § 24.2-507 for the November 2003 general election and each fourth year thereafter, nominating petitions, statements of qua
+  section 24.2-613 B as my copy reads: For elections for federal, statewide, and General Assembly offices only, each candidate who has been nominated by a political party or in a primary election shall be identified by the name of his political party. Indepen
+
+  Virginia 2023: records 1439; office matching D3's SCHOOL BOARD regex: 388; with the nonpartisan note: 388 (equal sets: True); chairman: [('Chairman - School Board', ['51153'])], with the chairman's note: 1; reasons naming section 24.2-613 B: 359
+    school boards by office_type: {'school board': 388}; by p state: {'p > 0': 158, 'p 0': 188, 'strong write-ins (or fewer names than seats)': 33, 'too few like races': 5, 'special': 3, 'write-in in the pair': 1}
+    before: 'party not given' not computed for too few like races: 519 (D3: 519); school boards among them: 163 (D3: 163)
+    school boards with p now and none before: 158 (D3: 158): 'ard, nonpartisan, 2 candidates' N 588 k 70: 130; 'ard, nonpartisan, 3 candidates' N 179 k 31: 26; 'rd, nonpartisan, 4+ candidates' N 156 k 36: 2
+      their p: from 2.23e-05 to 0.00997, median 0.00119 (D3: 2.2 in 100,000 to 1.0 in 100, median 1.2 in 1,000)
+      school boards still too few like races: 5 (D3: 5, with 55 and 76): [('ocal-VA-MEMBER_SCHOOL_BOARD-county_51530', ('55', 'local school board, 3 seats at once, one major party or none')), ('BER_SCHOOL_BOARD___AT_LARGE-county_51115', ('55', 'local school board, 3 seats at once, one major party or none')), ('EMBER_SCHOOL_BOARD_AT_LARGE-county_51059', ('55', 'local school board, 3 seats at once, one major party or none')), ('BER_SCHOOL_BOARD___AT_LARGE-county_51630', ('76', 'local school board, 2 seats at once, one major party or none')), ('BER_SCHOOL_BOARD-District_2_county_51149', ('76', 'local school board, 2 seats at once, one major party or none'))]
+      the other school boards: 230 (D3: 225): {'p 0': 188, 'strong write-ins (or fewer names than seats)': 33, 'too few like races': 5, 'special': 3, 'write-in in the pair': 1}
+      other offices too few like races: 359 (D3: 364), naming section 24.2-613 B: 359
+      the nonpartisan notes' (read time, sha256) : {('2026-11-13T07:50:46Z', '4d694a3950db'): 388} (D3's meta: 2026-11-13T07:50:46Z)
+
+  Virginia 2025: records 559; office matching D3's SCHOOL BOARD regex: 179; with the nonpartisan note: 179 (equal sets: True); chairman: [('Chairman School Board', ['51139'])], with the chairman's note: 1; reasons naming section 24.2-613 B: 70
+    school boards by office_type: {'school board': 179}; by p state: {'p 0': 93, 'p > 0': 65, 'strong write-ins (or fewer names than seats)': 17, 'special': 3, 'too few like races': 1}
+    every other local office: 378 (D3: 378 'party not given in the source'), of which a class or reason naming it 132 (the rest p 0, special or strong write-ins: {'p 0': 190, 'special': 34, 'strong write-ins (or fewer names than seats)': 22}); statewide: [('Lieutenant Governor', [('Ghazala F. Hashmi', 'D'), ('John J. Reid, II', 'R'), ('Write-In', 'write-in')]), ('Attorney General', [('Jay C. Jones', 'D'), ('Jason S. Miyares', 'R'), ('Write-In', 'write-in')])]
+    the chairman's record: [('2025-local-VA-CHAIRMAN_SCHOOL_BOARD-county_51139', {'state': 'VA', 'counties': ['51139']}, None, "{'value': 0.0, 'event': 0.0, 'reason': 'one name on the ballot for each seat (un")]
+
+====================================================================================================
+49.4 The local like-race pools from the records at both commits (D3's local_structure and local_rows copied), every like-race p of 2023 to 2025
+====================================================================================================
+
+  bddef1ae: pool rows 11,949 in 171 classes; my class against the record's: {("my class = the record's", True): 11814, ('my class; the record has none', 'a write-in line is in the pair that deci'): 133, ("the State Board's own pool (local_ncsbe), mine no class", 'not computed'): 89, ('my class; the record has none', 'one name on the ballot for each seat, bu'): 2, ("my class = the record's", False): 1}; e.g. [('2024-local-NY-CITY_OF_POUGHKEEPSIE_LIBRARY_TRUSTEE-county_36027', 'local special district, nonpartisan, 2 candidates', 'local special district, no Democrat or Republican, 2 candidates')]
+    'local school board, nonpartisan, 2 candidates': by year {2018: 297, 2020: 248, 2022: 43, 2024: 542}
+    'local school board, nonpartisan, 3 candidates': by year {2018: 90, 2020: 67, 2022: 22, 2024: 125}
+    'local school board, nonpartisan, 4+ candidates': by year {2018: 106, 2020: 41, 2022: 9, 2024: 92}
+    'local council, commission or board, party not given in the source, 2 candidates': by year {2023: 173}
+    'local school board, 2 seats at once, one major party or none': by year {2018: 58, 2020: 11, 2022: 7, 2024: 86}
+    'local school board, 3 seats at once, one major party or none': by year {2018: 34, 2020: 8, 2022: 13, 2024: 121}
+
+  11c852dc: pool rows 12,150 in 168 classes; my class against the record's: {("my class = the record's", True): 12015, ('my class; the record has none', 'a write-in line is in the pair that deci'): 133, ("the State Board's own pool (local_ncsbe), mine no class", 'not computed'): 89, ('my class; the record has none', 'one name on the ballot for each seat, bu'): 2, ("my class = the record's", False): 1}; e.g. [('2024-local-NY-CITY_OF_POUGHKEEPSIE_LIBRARY_TRUSTEE-county_36027', 'local special district, nonpartisan, 2 candidates', 'local special district, no Democrat or Republican, 2 candidates')]
+    'local school board, nonpartisan, 2 candidates': by year {2018: 297, 2020: 248, 2022: 43, 2023: 131, 2024: 542, 2025: 52}
+    'local school board, nonpartisan, 3 candidates': by year {2018: 90, 2020: 67, 2022: 22, 2023: 26, 2024: 125, 2025: 9}
+    'local school board, nonpartisan, 4+ candidates': by year {2018: 106, 2020: 41, 2022: 9, 2023: 2, 2024: 92}
+    'local council, commission or board, party not given in the source, 2 candidates': by year {2023: 173, 2025: 62}
+    'local school board, 2 seats at once, one major party or none': by year {2018: 58, 2020: 11, 2022: 7, 2023: 2, 2024: 86, 2025: 2}
+    'local school board, 3 seats at once, one major party or none': by year {2018: 34, 2020: 8, 2022: 13, 2023: 3, 2024: 121, 2025: 2}
+
+  every like-race p of 2023-2025 at bddef1ae against my pool's: 
+    (2023, "the State Board's own pool (pipeline/local_ncsbe.py; c15 §10.4-10.6), not tested here") 421
+    (2023, 'LA', 'N,k,h equal', 'within 1e-4')                                                 18
+    (2024, "the State Board's own pool (pipeline/local_ncsbe.py; c15 §10.4-10.6), not tested here") 13
+    (2024, 'AL', 'N,k,h equal', 'within 1e-4')                                                 14
+    (2024, 'AR', 'N,k,h equal', 'within 1e-4')                                                 253
+    (2024, 'AZ', 'N,k,h equal', 'within 1e-4')                                                 107
+    (2024, 'CA', 'N,k,h equal', 'within 1e-4')                                                 17
+    (2024, 'CO', 'N,k,h equal', 'within 1e-4')                                                 5
+    (2024, 'DC', 'N,k,h equal', 'within 1e-4')                                                 47
+    (2024, 'FL', 'N,k,h equal', 'within 1e-4')                                                 248
+    (2024, 'GA', 'N,k,h equal', 'within 1e-4')                                                 26
+    (2024, 'HI', 'N,k,h equal', 'within 1e-4')                                                 11
+    (2024, 'IA', 'N,k,h equal', 'within 1e-4')                                                 13
+    (2024, 'ID', 'N,k,h equal', 'within 1e-4')                                                 14
+    (2024, 'IL', 'N,k,h equal', 'within 1e-4')                                                 2
+    (2024, 'IN', 'N,k,h equal', 'within 1e-4')                                                 208
+    (2024, 'KY', 'N,k,h equal', 'within 1e-4')                                                 134
+    (2024, 'LA', 'N,k,h equal', 'within 1e-4')                                                 28
+    (2024, 'MD', 'N,k,h equal', 'within 1e-4')                                                 37
+    (2024, 'ME', 'N,k,h equal', 'within 1e-4')                                                 3
+    (2024, 'MI', 'N,k,h equal', 'within 1e-4')                                                 33
+    (2024, 'MN', 'N,k,h equal', 'within 1e-4')                                                 122
+    (2024, 'MS', 'N,k,h equal', 'within 1e-4')                                                 82
+    (2024, 'MT', 'N,k,h equal', 'within 1e-4')                                                 38
+    (2024, 'NC', 'N,k,h equal', 'within 1e-4')                                                 119
+    (2024, 'NE', 'N,k,h equal', 'within 1e-4')                                                 51
+    (2024, 'NJ', 'N,k,h equal', 'within 1e-4')                                                 45
+    (2024, 'NY', 'N,k,h equal', 'within 1e-4')                                                 19
+    (2024, 'OH', 'N,k,h equal', 'within 1e-4')                                                 17
+    (2024, 'OK', 'N,k,h equal', 'within 1e-4')                                                 19
+    (2024, 'OR', 'N,k,h equal', 'within 1e-4')                                                 180
+    (2024, 'RI', 'N,k,h equal', 'within 1e-4')                                                 55
+    (2024, 'SC', 'N,k,h equal', 'within 1e-4')                                                 197
+    (2024, 'SD', 'N,k,h equal', 'within 1e-4')                                                 5
+    (2024, 'VA', 'N,k,h equal', 'within 1e-4')                                                 105
+    (2024, 'WA', 'N,k,h equal', 'within 1e-4')                                                 88
+    (2024, 'WV', 'N,k,h equal', 'within 1e-4')                                                 32
+    (2025, "the State Board's own pool (pipeline/local_ncsbe.py; c15 §10.4-10.6), not tested here") 471
+
+  every like-race p of 2023-2025 at 11c852dc against my pool's: 
+    (2023, "the State Board's own pool (pipeline/local_ncsbe.py; c15 §10.4-10.6), not tested here") 421
+    (2023, 'LA', 'N,k,h equal', 'within 1e-4')                                                 18
+    (2023, 'VA', 'N,k,h equal', 'within 1e-4')                                                 158
+    (2024, "the State Board's own pool (pipeline/local_ncsbe.py; c15 §10.4-10.6), not tested here") 13
+    (2024, 'AL', 'N,k,h equal', 'within 1e-4')                                                 14
+    (2024, 'AR', 'N,k,h equal', 'within 1e-4')                                                 253
+    (2024, 'AZ', 'N,k,h equal', 'within 1e-4')                                                 107
+    (2024, 'CA', 'N,k,h equal', 'within 1e-4')                                                 17
+    (2024, 'CO', 'N,k,h equal', 'within 1e-4')                                                 5
+    (2024, 'DC', 'N,k,h equal', 'within 1e-4')                                                 47
+    (2024, 'FL', 'N,k,h equal', 'within 1e-4')                                                 248
+    (2024, 'GA', 'N,k,h equal', 'within 1e-4')                                                 26
+    (2024, 'HI', 'N,k,h equal', 'within 1e-4')                                                 11
+    (2024, 'IA', 'N,k,h equal', 'within 1e-4')                                                 13
+    (2024, 'ID', 'N,k,h equal', 'within 1e-4')                                                 14
+    (2024, 'IL', 'N,k,h equal', 'within 1e-4')                                                 2
+    (2024, 'IN', 'N,k,h equal', 'within 1e-4')                                                 208
+    (2024, 'KY', 'N,k,h equal', 'within 1e-4')                                                 134
+    (2024, 'LA', 'N,k,h equal', 'within 1e-4')                                                 28
+    (2024, 'MD', 'N,k,h equal', 'within 1e-4')                                                 37
+    (2024, 'ME', 'N,k,h equal', 'within 1e-4')                                                 3
+    (2024, 'MI', 'N,k,h equal', 'within 1e-4')                                                 33
+    (2024, 'MN', 'N,k,h equal', 'within 1e-4')                                                 122
+    (2024, 'MS', 'N,k,h equal', 'within 1e-4')                                                 82
+    (2024, 'MT', 'N,k,h equal', 'within 1e-4')                                                 38
+    (2024, 'NC', 'N,k,h equal', 'within 1e-4')                                                 119
+    (2024, 'NE', 'N,k,h equal', 'within 1e-4')                                                 51
+    (2024, 'NJ', 'N,k,h equal', 'within 1e-4')                                                 45
+    (2024, 'NY', 'N,k,h equal', 'within 1e-4')                                                 19
+    (2024, 'OH', 'N,k,h equal', 'within 1e-4')                                                 17
+    (2024, 'OK', 'N,k,h equal', 'within 1e-4')                                                 19
+    (2024, 'OR', 'N,k,h equal', 'within 1e-4')                                                 180
+    (2024, 'RI', 'N,k,h equal', 'within 1e-4')                                                 55
+    (2024, 'SC', 'N,k,h equal', 'within 1e-4')                                                 197
+    (2024, 'SD', 'N,k,h equal', 'within 1e-4')                                                 5
+    (2024, 'VA', 'N,k,h equal', 'within 1e-4')                                                 105
+    (2024, 'WA', 'N,k,h equal', 'within 1e-4')                                                 88
+    (2024, 'WV', 'N,k,h equal', 'within 1e-4')                                                 32
+    (2025, "the State Board's own pool (pipeline/local_ncsbe.py; c15 §10.4-10.6), not tested here") 471
+    (2025, 'VA', 'N,k,h equal', 'within 1e-4')                                                 127
+
+  the file's local P rows with a like-race route: my ratio (pool after / pool before) against the file's: {('route', None): 1067, ('school board', 'within 5e-4'): 756}; e.g. []
+  Virginia 2023's like-race p (D3: 158): 158: ' board, nonpartisan, 4+ candidates' mine = record within 1e-4: 2; 'l board, nonpartisan, 2 candidates' mine = record within 1e-4: 130; 'l board, nonpartisan, 3 candidates' mine = record within 1e-4: 26
+  Virginia 2025's like-race p (D3: 127): 127: ' given in the source, 2 candidates' mine = record within 1e-4: 62; 'l board, nonpartisan, 2 candidates' mine = record within 1e-4: 52; 'l board, nonpartisan, 3 candidates' mine = record within 1e-4: 9; 's at once, one major party or none' mine = record within 1e-4: 4
+
+====================================================================================================
+49.5 Virginia 2025 from the Department's export (D3's copy; the 566 contests, the gate, every record against the file)
+====================================================================================================
+  the export: electionName '2025 November General', electionDate 2025-11-04, createdAt 2025-12-01T18:16:36.3192202Z; statewide items 111, localities 133
+  contests beside the legislature's and the Governor: 566 {'statewide': 2, 'one locality': 549, 'shared': 8, 'one locality, question': 7} (D3: 567 beside the legislature's: the Governor, LG, AG, 8 shared, 556 on one list (549 offices, 7 questions); 566 taken in)
+  the Governor: the file's statewide lines [('Abigail D. Spanberger', 1976857), ('Winsome Earle-Sears', 1449586), ('Write-In', 6897)]; D2's data/governor/2025.json [('Abigail D. Spanberger', 1976857), ('Winsome Earle-Sears', 1449586), ('Write-In', 6897)]; equal line by line: True (the year's gate, D3)
+  the page as rendered: 'OFFICIAL RESULTS' True; heading '42427="" class="col-sm-12 body-content"> Virginia 2025 November General November 4, 2025 OFFICIAL RESULTS Last Updated Monday, December 1, 2025 at 6:15:08 PM <br'; contests shown 50 (D3: its first 50); the shared contests the page shows: Lieutenant Governor; Attorney General
+    Lieutenant Governor: page [('Ghazala F. Hashmi', 1900104), ('John J. Reid, II', 1505395), ('Write-In', 8678)] winner marked ['Ghazala F. Hashmi']; file [('Ghazala F. Hashmi', 1900104), ('John J. Reid, II', 1505395), ('Write-In', 8678)]; equal: True
+    Attorney General: page [('Jay C. Jones', 1804940), ('Jason S. Miyares', 1577843), ('Write-In', 13716)] winner marked ['Jay C. Jones']; file [('Jay C. Jones', 1804940), ('Jason S. Miyares', 1577843), ('Write-In', 13716)]; equal: True
+    shared local contests the page shows: ['Lieutenant Governor', 'Attorney General'] (D3: none of the 8)
+  the shared contests (10): locality lines adding up to the statewide count, option by option: 10 of 10: Lieutenant Governor (133 localities); Attorney General (133 localities); Member Town Council - Special (Town of Saltville) (2 localities); Mayor (Town of St Paul) (2 localities); Member Town Council (Town of St Paul) (2 localities); Mayor (Town of Brodnax) (2 localities); Member Town Council (Town of Brodnax) (2 localities); Member Town Council - Special (Town of Kilmarnock) (2 localities); Member Town Council - Special (Town of Scottsville) (2 localities); Sheriff (Lexington City, Rockbridge County) (2 localities)
+  reporting statuses over the localities' groups: {'Fully Reported': 665}; contests with a locality line not all reporting: 0 []
+  the records (559 local + 7 questions) against the file: 
+    matched                                                                                                                  566
+    ("write-in flags equal (by the option's key)", True)                                                                     559
+    ('counties equal', True)                                                                                                 566
+    ('gate: shared', True, 'page_equal', None, 'parts_add_up', None, 'all_reporting', True, 'over_ballot', 'passes', 'precincts_add_up', True) 556
+    ('gate: shared', True, 'page_equal', None, 'parts_add_up', True, 'all_reporting', True, 'over_ballot', 'passes', 'precincts_add_up', True) 8
+    ('gate: shared', True, 'page_equal', True, 'parts_add_up', True, 'all_reporting', True, 'over_ballot', 'passes', 'precincts_add_up', True) 2
+    ('names and votes equal', True)                                                                                          566
+    ('seats equal', True)                                                                                                    566
+    ('special equal', True)                                                                                                  566
+    ('statewide parties', (('Ghazala F. Hashmi', 'D'), ('John J. Reid, II', 'R'), ('Write-In', 'write-in')))                 1
+    ('statewide parties', (('Jay C. Jones', 'D'), ('Jason S. Miyares', 'R'), ('Write-In', 'write-in')))                      1
+  contests with a name-keyed option (a write-in counted by name): 25 (D3: 25) {('ballot names', 0, 'seats', 1): 17, ('ballot names', 2, 'seats', 6): 1, ('ballot names', 2, 'seats', 1): 2, ('ballot names', 1, 'seats', 1): 2, ('ballot names', 3, 'seats', 4): 1, ('ballot names', 3, 'seats', 5): 1, ('ballot names', 1, 'seats', 2): 1}; where such an option outpolls a name on the ballot: 0 []; with no name on the ballot at all (write-ins alone): 17 [('Member School Board (District 5)', [('Pamela S. Blair', 572)], 1), ('Mayor (Town of Rich Creek)', [('Paul A. Morrison', 77)], 1), ('Member School Board (District 1)', [('Daniel D. "Dan" Bogdewic', 281)], 1)]
+  the records' p states: {'other: a race between a Democrat and a Republican: th': 2, 'p 0': 283, 'p > 0': 127, 'special': 37, 'too few like races': 71, 'strong write-ins (or fewer names than seats)': 39} (D3: p 0 283; by like races 127; too few 71; strong write-ins 39; special 37; D against R 2); questions: {"other: the thresholds of this state's local questi": 7}
+  my class (c44's rule: p 0 where one name a seat and write-ins under 10% of the last winner's; strong write-ins else) against the record's reason:
+    ('other: a race between a Democr', 'contested')                                            2
+    ('p 0', 'one name a seat, p 0')                                                            283
+    ('p > 0', 'contested')                                                                     127
+    ('special', 'contested')                                                                   16
+    ('special', 'fewer names than seats')                                                      2
+    ('special', 'one name a seat, p 0')                                                        15
+    ('special', 'one name a seat, strong write-ins')                                           4
+    ('strong write-ins (or fewer nam', 'fewer names than seats')                               19
+    ('strong write-ins (or fewer nam', 'one name a seat, strong write-ins')                    20
+    ('too few like races', 'contested')                                                        71
+  the odd-year route (a) reason on the two statewide offices: Lieutenant Governor: the sources taken in are Virginia's Lieutenant Governor and Attorney General alone (its local offices print no party, pipeline/local_va.py), too few for that back-test [inferred], so p is not computed; Attorney General: the sources taken in are Virginia's Lieutenant Governor and Attorney General alone (its local offices print no party, pipeline/local_va.py), too few for that back-test [inferred], so p is not computed
+
+====================================================================================================
+49.6 Indiana 2018's Senate from the state's archive, read again (fetch_eighth_pass.sh in_2018), against the records
+====================================================================================================
+  settings.json: Root.Certified = 'T' (D3: "Certified":"T", the mark 15:16 asks for); WriteTime 2019-02-13T11:22:27.87, CurrentElection 11/06/2018, ElectionType G; keys ['WriteTime', 'IntervalInMinutes', 'VersionCode', 'VersionType', 'CurrentElection', 'JSONContainer', 'StateFP', 'DefaultMapName', 'ElectionType', 'Certified']
+  the office list: entries naming 2180: [{'OFFICECATEGORYID': '2180', 'OFFICE_CATEGORY_NAME': 'State Senator', 'OFFICE_CATEGORY_DESCRIPTION': 'The Indiana Senate is the upper house of the Indiana General Assembly, and is composed of 50 members representing an equal number of constituent districts statewide. The Indiana Senate along with the Indiana House of Representatives is responsible for passing legislation that amends state law and for passing a two-year budget every odd numbered year. Indiana Senators serve four-year terms without term limits. Similar to US Senators, state senate seats are staggered, meaning only 25 of the 50 seats are on the ballot every two years.', 'BALLOT_ORDER': '110', 'ALLREPORTED': '0', 'MAPCODE': 'mapDataIndianaStateSenate2014'}] (D3: office category 2180, 'State Senator')
+  the State Senator file: 25 districts (D3: 25); my sha256 e02aab5b12cd275f... equal to the records' state_agrees.sha256 e02aab5b12cd275f...
+    district 29: archive [('J.d. Ford', 31974), ('Mike Delph', 24403)]; record [('ford, james d (jd)', 31974), ('delph, michael a', 24403)]; equal; p before 3.88231e-05 after 3.88231e-05
+    district 31: archive [('James W. Merritt Jr', 30221), ('Derek Camp', 28612)]; record [('merritt, james w, jr', 30221), ('camp, derek', 28612)]; equal; p before 7.35268e-06 after 7.35268e-06
+    district 47: archive [('Erin Houchin', 31853), ('Nicholas A. (Nick) Siler', 16064)]; record [('houchin, erin', 31853), ('siler, nicholas a (nick)', 16064)]; equal; p before None after 3.34676e-05
+  the archive's districts against the records' counts (Klarner's), candidate by candidate by surname and given name: {'every named candidate equal to the vote': 25, ('names on the ballot', 2, '=', 2): 16, ('names on the ballot', 1, '=', 1): 6, ('names on the ballot', 3, '=', 3): 3}
+  names with a suffix after first_last (D3's rule copied): ['Frank Mrvan Jr.', 'James W. Merritt Jr', 'Clyde A. "Chip" Perfect Jr.']; names holding a comma in the raw file: ['James W. Merritt, Jr']
+  Senate 29: the note's url https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2180_A.json, read 2026-11-13T07:38:24Z, sha256 mine; pairs: ford, james d (jd): 31,974 in Klarner's, 31,974 in the state's; delph, michael a: 24,403 in Klarner's, 24,403 in the state's; certified words present; before: p 3.88231e-05, None; notes before 1, after 1
+  Senate 31: the note's url https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2180_A.json, read 2026-11-13T07:38:24Z, sha256 mine; pairs: merritt, james w, jr: 30,221 in Klarner's, 30,221 in the state's; camp, derek: 28,612 in Klarner's, 28,612 in the state's; certified words present; before: p 7.35268e-06, None; notes before 1, after 1
+  Senate 47: the note's url https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2180_A.json, read 2026-11-13T07:38:24Z, sha256 mine; pairs: houchin, erin: 31,853 in Klarner's, 31,853 in the state's; siler, nicholas a (nick): 16,064 in Klarner's, 16,064 in the state's; certified words present; before: p None, MEDSL's precinct file (2018-in-precinct-general.zip) gives t; notes before 0, after 1
+  D3's Indiana 2018 flags: 9: outcomes {('lower', 'held'): 2, ('lower', 'noted'): 2, ('lower', 'kept: MEDSL does not cover the district'): 2, ('upper', "settled by the state: Klarner's count stands"): 3}
+  the House file (OffCatC for State Representative) is not read here: D3 did not read it (a second request), and the orchestrator's allowance named one file
+
+====================================================================================================
+49.7 Route (a) refitted at both commits (c40's rows and fits; Indiana 2018's rows from the records, so that Senate 47 joins as the records have it)
+====================================================================================================
+  fit rows before 94,275 (from the records: 3546), after 94,276 (from the records: 3547); rows that differ by (year, state, source): (2018, 'IN', 'klarner') +1
+  Indiana 2018's Senate rows from the records: before 18, after 19; added: [('2018-state-upper-IN-47', 0.33524636350355824)]
+    the chamber's lean from them (mean Democratic share - 0.5): before -0.0699 over 18 races (D3: Senate 9's lean -0.0699 -> -0.0749)
+    the chamber's lean from them (mean Democratic share - 0.5): after -0.0749 over 19 races (D3: Senate 9's lean -0.0699 -> -0.0749)
+    the Indiana 2020 Senate records' lean: before {None, -0.0699}, after {None, -0.0749}
+  fits for [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]; the fit's coefficients after against before: B +4.17e-06, C +2.59e-06, A_last -1.72e-05, A_inc +2.88e-06, A_lean +9.64e-05, B_unopposed -6.09e-07, B_inc +1.27e-07, B_lean -1.35e-05, C_inc -9.31e-09, C_lean -4.71e-07, lean_missing -7.74e-07
+    2018-state-upper-IN-47: no p before; mine after 3.35312303165376e-05 (('partisan', 0.424708539069732, 0.07443661750433465, 0.02546); the record's 3.34676e-05
+  the file's partisan P rows with a p of mine before and after: 8,957; my ratio against the file's:
+    ('local', '2020', 'within 5e-4', 'same direction')                                         425
+    ('local', '2024', 'within 5e-4', 'same direction')                                         642
+    ('local', 'not a P row', 'mine within 2e-5 of 1')                                          763
+    ('state-lower', '', 'within 5e-4', 'same direction')                                       6,204
+    ('state-lower', 'mine none')                                                               47,116
+    ('state-lower', 'not a P row', 'mine within 2e-5 of 1')                                    4,349
+    ('state-upper', '', 'within 5e-4', 'same direction')                                       1,686
+    ('state-upper', 'mine none')                                                               14,782
+    ('state-upper', 'not a P row', 'mine within 2e-5 of 1')                                    1,366
+    2020-state-upper-IN-12: lean -0.0699 -> -0.0749; mine x0.9942; the file x0.9942
+    2020-state-upper-IN-16: lean -0.0699 -> -0.0749; mine x0.9962; the file x0.9962
+    2020-state-upper-IN-18: lean -0.0699 -> -0.0749; mine x0.9771; the file x0.9772
+    2020-state-upper-IN-20: lean -0.0699 -> -0.0749; mine x0.9950; the file x0.9949
+    2020-state-upper-IN-24: lean -0.0699 -> -0.0749; mine x0.9685; the file x0.9687
+    2020-state-upper-IN-28: lean -0.0699 -> -0.0749; mine x0.9954; the file x0.9954
+    2020-state-upper-IN-30: lean -0.0699 -> -0.0749; mine x0.9981; the file x0.9981
+    2020-state-upper-IN-32: lean -0.0699 -> -0.0749; mine x0.9962; the file x0.9962
+    2020-state-upper-IN-35: lean -0.0699 -> -0.0749; mine x0.9966; the file x0.9966
+    2020-state-upper-IN-36: lean -0.0699 -> -0.0749; mine x0.9979; the file x0.9979
+    2020-state-upper-IN-37: lean -0.0699 -> -0.0749; mine x0.9685; the file x0.9687
+    2020-state-upper-IN-44: lean -0.0699 -> -0.0749; mine x0.9941; the file x0.9941
+    2020-state-upper-IN-5: lean -0.0699 -> -0.0749; mine x0.9965; the file x0.9965
+    2020-state-upper-IN-7: lean -0.0699 -> -0.0749; mine x0.9951; the file x0.9951
+    2020-state-upper-IN-8: lean -0.0699 -> -0.0749; mine x0.9968; the file x0.9968
+    2020-state-upper-IN-9: lean -0.0699 -> -0.0749; mine x0.9685; the file x0.9687
+
+====================================================================================================
+49.8 The reasons, notes and gates changed (R, Q, O rows), and D2's files
+====================================================================================================
+  D2's files (governor, house, senate, president) in the diff: [] (D3: no governor, House, Senate or president record moves)
+  records whose gate changed, by (level, year, fields): {('local', '2023', ('ruled',)): 1436, ('local', '2023', ('over_ballot', 'ruled')): 3, ('measure', '2023', ('ruled',)): 9} (D3: 690 Virginia 2023 local records and 9 questions, gate.ruled now 00:55 (a) and (b); every Virginia 2023 record carries the gate)
+  notes added, by kind: {('local', '2023', 'nonpartisan note (the Code quoted)'): 388, ('local', '2023', 'other: the chairman of the school board is a member of th'): 1, ('local', '2023', 'unopposed comparator named'): 10, ('state-upper', '2018', "Indiana 2018's archive"): 3} (D3: 388 nonpartisan, 10 unopposed comparators, Indiana's Senate 29, 31 and 47)
+  reasons changed (not computed before and after): {('local', '2023'): 381, ('local', '2024'): 207} (D3: 364 + 207 + 17 = 588)
+
+  R: 588 by (level, year, state): {('local', '2023', 'LA'): 17, ('local', '2023', 'VA'): 364, ('local', '2024', 'AZ'): 24, ('local', '2024', 'IN'): 41, ('local', '2024', 'KY'): 20, ('local', '2024', 'MD'): 4, ('local', '2024', 'NC'): 10, ('local', '2024', 'NJ'): 97, ('local', '2024', 'RI'): 3, ('local', '2024', 'VA'): 8}
+    ('2023', '2024 school boards: the like-race count changed'): 5
+    ('2023', "LA 2023: the odd-year note names Louisiana's alone and Virginia's no party"): 17
+    ('2023', 'VA 2023: section 24.2-613 B named'): 359
+    ('2024', '2024 school boards: the like-race count changed'): 207
+    e.g. 2024 school boards: [('2024-local-AZ-APACHE_JUNCTION_UNIFIED_SCHOOL_DISTRICT_BOARD_MEMBER_APA-county_04021', " earlier years in the sources taken in (55) for the class 'local school board, 3 seats at once, one major party or none'", "fewer than 100 like races in earlier years in the sources taken in (58) for the class 'local school board, 3 seats at once, one major party or none'"), ('2024-local-AZ-CASA_GRANDE_UNION_HIGH_SCHOOL_DISTRICT_BOARD_MEMBER_CASA-county_04021', " earlier years in the sources taken in (55) for the class 'local school board, 3 seats at once, one major party or none'", "fewer than 100 like races in earlier years in the sources taken in (58) for the class 'local school board, 3 seats at once, one major party or none'")]
+    e.g. Louisiana: [('2023-local-LA-ALDERMAN__WARD_3__CITY_OF_JEANERETTE-county_22045-2023-04-29', "in the sources taken in are Louisiana's alone (Virginia's local offices print no party, pipeline/local_va.py), too few for that back-test [inferred], so p is not computed")]
+
+  Q: 2 by (level, year, state): {('state-upper', '2018', 'IN'): 2}
+    kinds: {('2018', "Indiana 2018's archive"): 2}
+
+  O: 1,019 by (level, year, state): {('local', '2020', 'AL'): 5, ('local', '2020', 'CT'): 9, ('local', '2020', 'DC'): 1, ('local', '2020', 'FL'): 8, ('local', '2020', 'LA'): 1, ('local', '2020', 'MD'): 3, ('local', '2020', 'MT'): 1, ('local', '2020', 'NC'): 2, ('local', '2020', 'NH'): 3, ('local', '2020', 'NV'): 3, ('local', '2020', 'OH'): 5, ('local', '2020', 'OK'): 1, ('local', '2020', 'SC'): 10, ('local', '2020', 'TX'): 10, ('local', '2020', 'WV'): 11, ('local', '2023', 'VA'): 917, ('measure', '2023', 'VA'): 9, ('state-lower', '2020', 'CT'): 6, ('state-lower', '2020', 'DE'): 1, ('state-lower', '2020', 'HI'): 1, ('state-lower', '2020', 'ME'): 2, ('state-lower', '2020', 'MI'): 1, ('state-lower', '2020', 'MN'): 1, ('state-lower', '2020', 'NC'): 1, ('state-lower', '2020', 'NH'): 1, ('state-lower', '2020', 'RI'): 1, ('state-lower', '2020', 'VT'): 1, ('state-lower', '2022', 'FL'): 1, ('state-upper', '2020', 'AK'): 1, ('state-upper', '2020', 'NC'): 2}
+    fields: {('2020', ('forecast_inputs',)): 92, ('2023', ('gate',)): 699, ('2023', ('gate', 'notes')): 227, ('2022', ('forecasts',)): 1}
+    e.g. gate: [('2023-local-VA-BOARD_OF_SUPERVISORS___TIE_BREAKER-county_51083', ('gate.ruled',))]; before proposed by worker D3, 2026-11-13; for the orchestrator's ruling
+
+  B: 2,962 by (level, year, state): {('local', '2020', 'AL'): 25, ('local', '2020', 'CO'): 5, ('local', '2020', 'CT'): 34, ('local', '2020', 'FL'): 55, ('local', '2020', 'LA'): 14, ('local', '2020', 'ME'): 1, ('local', '2020', 'MT'): 5, ('local', '2020', 'NC'): 48, ('local', '2020', 'NH'): 11, ('local', '2020', 'NV'): 3, ('local', '2020', 'OH'): 61, ('local', '2020', 'OK'): 21, ('local', '2020', 'RI'): 2, ('local', '2020', 'SC'): 24, ('local', '2020', 'TX'): 10, ('local', '2020', 'WV'): 45, ('local', '2024', 'AL'): 11, ('local', '2024', 'AR'): 23, ('local', '2024', 'AZ'): 25, ('local', '2024', 'CA'): 11, ('local', '2024', 'CO'): 10, ('local', '2024', 'DE'): 3, ('local', '2024', 'FL'): 229, ('local', '2024', 'GA'): 55, ('local', '2024', 'HI'): 1, ('local', '2024', 'IA'): 10, ('local', '2024', 'ID'): 3, ('local', '2024', 'IL'): 6, ('local', '2024', 'KS'): 6, ('local', '2024', 'KY'): 13, ('local', '2024', 'MD'): 1, ('local', '2024', 'ME'): 9, ('local', '2024', 'MI'): 33, ('local', '2024', 'MN'): 27, ('local', '2024', 'MO'): 1, ('local', '2024', 'MT'): 17, ('local', '2024', 'NC'): 73, ('local', '2024', 'NE'): 37, ('local', '2024', 'NH'): 25, ('local', '2024', 'NJ'): 7, ('local', '2024', 'NY'): 6, ('local', '2024', 'OH'): 46, ('local', '2024', 'OK'): 8, ('local', '2024', 'OR'): 48, ('local', '2024', 'RI'): 12, ('local', '2024', 'SC'): 56, ('local', '2024', 'TX'): 4, ('local', '2024', 'UT'): 3, ('local', '2024', 'VA'): 41, ('local', '2024', 'WA'): 37, ('local', '2024', 'WI'): 1, ('local', '2024', 'WV'): 21, ('state-lower', '2019', 'VA'): 2, ('state-lower', '2020', 'CO'): 1, ('state-lower', '2020', 'CT'): 15, ('state-lower', '2020', 'DE'): 2, ('state-lower', '2020', 'FL'): 1, ('state-lower', '2020', 'MA'): 1, ('state-lower', '2020', 'ME'): 7, ('state-lower', '2020', 'MI'): 2, ('state-lower', '2020', 'MN'): 6, ('state-lower', '2020', 'MT'): 2, ('state-lower', '2020', 'NC'): 9, ('state-lower', '2020', 'NH'): 5, ('state-lower', '2020', 'NM'): 1, ('state-lower', '2020', 'NV'): 3, ('state-lower', '2020', 'OH'): 1, ('state-lower', '2020', 'OR'): 1, ('state-lower', '2020', 'RI'): 4, ('state-lower', '2020', 'TX'): 1, ('state-lower', '2020', 'VT'): 7, ('state-lower', '2020', 'WA'): 4, ('state-lower', '2021', 'VA'): 8, ('state-lower', '2022', 'AK'): 3, ('state-lower', '2022', 'AL'): 12, ('state-lower', '2022', 'AR'): 8, ('state-lower', '2022', 'CA'): 16, ('state-lower', '2022', 'CO'): 29, ('state-lower', '2022', 'CT'): 32, ('state-lower', '2022', 'DE'): 12, ('state-lower', '2022', 'FL'): 33, ('state-lower', '2022', 'GA'): 42, ('state-lower', '2022', 'HI'): 16, ('state-lower', '2022', 'IA'): 17, ('state-lower', '2022', 'ID'): 11, ('state-lower', '2022', 'IL'): 33, ('state-lower', '2022', 'IN'): 24, ('state-lower', '2022', 'KS'): 26, ('state-lower', '2022', 'KY'): 14, ('state-lower', '2022', 'MA'): 4, ('state-lower', '2022', 'MD'): 3, ('state-lower', '2022', 'ME'): 49, ('state-lower', '2022', 'MI'): 33, ('state-lower', '2022', 'MN'): 15, ('state-lower', '2022', 'MO'): 25, ('state-lower', '2022', 'NC'): 35, ('state-lower', '2022', 'ND'): 1, ('state-lower', '2022', 'NH'): 16, ('state-lower', '2022', 'NM'): 11, ('state-lower', '2022', 'NV'): 4, ('state-lower', '2022', 'NY'): 28, ('state-lower', '2022', 'OH'): 41, ('state-lower', '2022', 'OK'): 4, ('state-lower', '2022', 'OR'): 12, ('state-lower', '2022', 'PA'): 42, ('state-lower', '2022', 'RI'): 16, ('state-lower', '2022', 'SC'): 19, ('state-lower', '2022', 'SD'): 2, ('state-lower', '2022', 'TN'): 14, ('state-lower', '2022', 'TX'): 43, ('state-lower', '2022', 'UT'): 10, ('state-lower', '2022', 'VT'): 6, ('state-lower', '2022', 'WA'): 32, ('state-lower', '2022', 'WI'): 15, ('state-lower', '2022', 'WV'): 39, ('state-lower', '2022', 'WY'): 10, ('state-lower', '2023', 'VA'): 30, ('state-lower', '2024', 'AR'): 4, ('state-lower', '2024', 'CA'): 6, ('state-lower', '2024', 'CT'): 16, ('state-lower', '2024', 'FL'): 20, ('state-lower', '2024', 'GA'): 2, ('state-lower', '2024', 'HI'): 6, ('state-lower', '2024', 'IA'): 2, ('state-lower', '2024', 'ID'): 2, ('state-lower', '2024', 'IL'): 3, ('state-lower', '2024', 'KS'): 12, ('state-lower', '2024', 'MA'): 1, ('state-lower', '2024', 'ME'): 26, ('state-lower', '2024', 'MI'): 10, ('state-lower', '2024', 'MN'): 2, ('state-lower', '2024', 'MO'): 12, ('state-lower', '2024', 'MT'): 27, ('state-lower', '2024', 'NC'): 12, ('state-lower', '2024', 'NH'): 17, ('state-lower', '2024', 'NM'): 1, ('state-lower', '2024', 'NV'): 1, ('state-lower', '2024', 'NY'): 2, ('state-lower', '2024', 'OH'): 6, ('state-lower', '2024', 'OK'): 1, ('state-lower', '2024', 'OR'): 3, ('state-lower', '2024', 'RI'): 5, ('state-lower', '2024', 'SC'): 2, ('state-lower', '2024', 'TX'): 35, ('state-lower', '2024', 'VT'): 1, ('state-lower', '2024', 'WA'): 15, ('state-lower', '2024', 'WI'): 6, ('state-lower', '2024', 'WV'): 4, ('state-lower', '2025', 'VA'): 9, ('state-upper', '2020', 'AZ'): 3, ('state-upper', '2020', 'CO'): 1, ('state-upper', '2020', 'IA'): 2, ('state-upper', '2020', 'IL'): 1, ('state-upper', '2020', 'MA'): 1, ('state-upper', '2020', 'NC'): 6, ('state-upper', '2020', 'NH'): 1, ('state-upper', '2020', 'NM'): 1, ('state-upper', '2020', 'OR'): 1, ('state-upper', '2020', 'SC'): 1, ('state-upper', '2020', 'TX'): 1, ('state-upper', '2020', 'WA'): 1, ('state-upper', '2021', 'NJ'): 3, ('state-upper', '2022', 'AK'): 1, ('state-upper', '2022', 'AL'): 8, ('state-upper', '2022', 'AR'): 5, ('state-upper', '2022', 'AZ'): 10, ('state-upper', '2022', 'CA'): 2, ('state-upper', '2022', 'CO'): 13, ('state-upper', '2022', 'CT'): 6, ('state-upper', '2022', 'DE'): 2, ('state-upper', '2022', 'FL'): 4, ('state-upper', '2022', 'GA'): 11, ('state-upper', '2022', 'HI'): 3, ('state-upper', '2022', 'IA'): 10, ('state-upper', '2022', 'ID'): 3, ('state-upper', '2022', 'IL'): 9, ('state-upper', '2022', 'IN'): 9, ('state-upper', '2022', 'KY'): 3, ('state-upper', '2022', 'MA'): 12, ('state-upper', '2022', 'MD'): 12, ('state-upper', '2022', 'ME'): 1, ('state-upper', '2022', 'MI'): 7, ('state-upper', '2022', 'MN'): 19, ('state-upper', '2022', 'MO'): 10, ('state-upper', '2022', 'MT'): 1, ('state-upper', '2022', 'NC'): 23, ('state-upper', '2022', 'ND'): 2, ('state-upper', '2022', 'NH'): 4, ('state-upper', '2022', 'NV'): 2, ('state-upper', '2022', 'NY'): 13, ('state-upper', '2022', 'OH'): 5, ('state-upper', '2022', 'OK'): 2, ('state-upper', '2022', 'OR'): 10, ('state-upper', '2022', 'PA'): 8, ('state-upper', '2022', 'RI'): 10, ('state-upper', '2022', 'SD'): 3, ('state-upper', '2022', 'TN'): 2, ('state-upper', '2022', 'TX'): 4, ('state-upper', '2022', 'UT'): 4, ('state-upper', '2022', 'VT'): 2, ('state-upper', '2022', 'WA'): 8, ('state-upper', '2022', 'WI'): 7, ('state-upper', '2022', 'WV'): 5, ('state-upper', '2022', 'WY'): 1, ('state-upper', '2023', 'NJ'): 25, ('state-upper', '2023', 'VA'): 16, ('state-upper', '2024', 'AZ'): 7, ('state-upper', '2024', 'CA'): 6, ('state-upper', '2024', 'CO'): 3, ('state-upper', '2024', 'CT'): 1, ('state-upper', '2024', 'GA'): 4, ('state-upper', '2024', 'HI'): 1, ('state-upper', '2024', 'ID'): 1, ('state-upper', '2024', 'IL'): 1, ('state-upper', '2024', 'KS'): 1, ('state-upper', '2024', 'MA'): 3, ('state-upper', '2024', 'ME'): 6, ('state-upper', '2024', 'MO'): 6, ('state-upper', '2024', 'MT'): 11, ('state-upper', '2024', 'NC'): 7, ('state-upper', '2024', 'ND'): 1, ('state-upper', '2024', 'NH'): 1, ('state-upper', '2024', 'NV'): 5, ('state-upper', '2024', 'NY'): 2, ('state-upper', '2024', 'OH'): 3, ('state-upper', '2024', 'OR'): 5, ('state-upper', '2024', 'PA'): 2, ('state-upper', '2024', 'RI'): 3, ('state-upper', '2024', 'SC'): 2, ('state-upper', '2024', 'TN'): 2, ('state-upper', '2024', 'TX'): 2, ('state-upper', '2024', 'VT'): 1, ('state-upper', '2024', 'WA'): 8, ('state-upper', '2024', 'WI'): 2, ('state-upper', '2024', 'WY'): 1}
+    what differs: {('2020', ('forecast_inputs.swing', 'p.alongside', 'p.event')): 216, ('2020', ('forecast_inputs.swing', 'p.alongside')): 167, ('2020', ('forecast_inputs.swing', 'p.alongside', 'p.f_half')): 57, ('2020', ('forecast_inputs.swing', 'p.event')): 6, ('2020', ('forecast_inputs.swing', 'p.f_half')): 6, ('2020', ('forecast_inputs.swing', 'p.event', 'p.f_half')): 3, ('2020', ('forecast_inputs.swing', 'forecasts.share', 'p.alongside')): 2, ('2024', ('p.alongside', 'p.event', 'p.f_half')): 207}
+
+##### c50_in_house_2018
+C50 (section 20, D3's #113): 11c852dc -> 9ad2d3d5; f45ab6e2
+
+====================================================================================================
+50.1 moves-37.json against my own diff of every D3 record, 11c852dc -> 9ad2d3d5
+====================================================================================================
+  the file: 10,044 rows, 10,044 ids, against 802327a4 (the code alone, its data main's at 11c852d = 11c852dc's D3 files; my diff is main to main)
+  its summary: {"local B: p unchanged, its block changed": 849, "local P: p moved": 522, "state-lower B: p unchanged, its block changed": 1833, "state-lower N: new p": 2, "state-lower P: p moved": 4889, "state-lower Q: a note's words changed": 6, "state-upper B: p unchanged, its block changed": 541, "state-upper P: p moved": 1404}
+  data files changed: 316; D3's record files: 312 {'local': 49, 'state-lower': 132, 'state-upper': 131}; D2's: 0 (D3: no governor, House, Senate or president record moves); other: ['data/README.md', 'data/local/REPORT.md', 'data/local/check-districts.json', 'data/local/moves-37.json']
+  my diff, by level and code: local B 849; local P 522; state-lower B 1833; state-lower N 2; state-lower P 4889; state-lower Q 4; state-upper B 541; state-upper P 1404
+  rows whose code I share: 10044 of 10044 ids in my diff; codes differing: 0; ids in my diff but not in the file: 0; ids in the file but not in my diff: 0 []
+  p before/after other than the record's: 0; ratios off by more than 1.5e-4: 0; records differing in p.commit alone: 104
+  gained (a p after, none before): 2 [('2018-state-lower-IN-100', 'state-lower', '2018', 0.0), ('2018-state-lower-IN-13', 'state-lower', '2018', 1.54392e-05)] (the orchestrator: House 100 gains p 0 and House 13 gains 1.54e-05); lost: 0 []; new records: 0
+  p moved (every P in my diff): 6,815 = local 522 + state-lower 4,889 + state-upper 1,404 (the orchestrator: 6,815, none by more than 1%; the file's P rows 6,815); P rows with p 0 before: []; beyond 1% either way: 0 []; over 2x: 0; extremes: min 0.99098 2020-state-lower-IN-64, max 1.00540 2020-state-lower-IN-86
+  bands by level: local within 0.001% 522; state-lower 0.1-1% 41; state-lower within 0.001% 2,211; state-lower within 0.1% 2,637; state-upper within 0.001% 695; state-upper within 0.1% 709
+  beyond 0.1%: 41 (D3: Indiana 2020's House, 41 of its p by x0.991 to x1.0054, through the chamber's lean): {('2020', 'state-lower', 'IN'): 41}; x0.9910 (2020-state-lower-IN-64) to x1.0054 (2020-state-lower-IN-86)
+    their lean before -> after (lean_year): {(-0.1135, -0.1148, 2018): 41}
+  local p moved: 522 (D3: 522 by the transferred route (a), within 0.001%): largest move 9.77e-06; years {'2020': 159, '2024': 363}; routes {'partisan': 522}
+  the Q rows (a note's words changed): ['2018-state-lower-IN-58', '2018-state-lower-IN-68', '2018-state-lower-IN-73', '2018-state-lower-IN-75'] (D3: the six House flags' notes)
+
+====================================================================================================
+50.2 Indiana 2018's House from the state's archive, read apart (fetch_eighth_pass.sh in_2018_house), against the records and D3's six flags
+====================================================================================================
+  the State Representative file: 295,605 bytes (D3: 295,605), my sha256 d637b3a79c2c1247... equal to the one the records' notes and REPORT §37 quote (d637b3a79c2c1247...)
+  settings.json: Root.Certified = 'T' (the certified mark, 15:16); WriteTime 2019-02-13T11:22:27.87
+  the office list's entry for 2201: [{'OFFICECATEGORYID': '2201', 'OFFICE_CATEGORY_NAME': 'State Representative'}] (D3: office category 2201, 'State Representative')
+  districts in the file: 100 (D3: 100); OFFICE_TITLE every one 'State Representative, District NNN': True; NumofSeats {'1': 100}; write-in lines ('(W/I)'): 0 (D3: none a write-in)
+  names holding a comma in the raw file (D3's _first_last moves the suffix): ['Donald R. Westerhausen, Jr.'] -> ['Donald R. Westerhausen Jr']
+    district 2: archive [('Earl L. Harris Jr.', 14841)]; record [('harrisjr, earl l, jr 2', 14841)]; equal (by the surname's tail): ({'HARRISJR': 14841}, {'HARRIS': 14841})
+    district 12: archive [('Mara Candelaria Reardon', 16935)]; record [('candelariareardon, mara c', 16935)]; equal (by the surname's tail): ({'CANDELARIAREARDON': 16935}, {'REARDON': 16935})
+    district 25: archive [('Donald J. Lehe', 16668), ('Maurice Oakel Fuller', 6872)]; record [('lehe, donald j', 16668), ('oakelfuller, maurice o', 6872)]; equal (by the surname's tail): ({'LEHE': 16668, 'OAKELFULLER': 6872}, {'LEHE': 16668, 'FULLER': 6872})
+    district 37: archive [('Todd Huston', 16913), ('Aimee Rivera Cole', 14141)]; record [('huston, todd', 16913), ('riveracole, aimee', 14141)]; equal (by the surname's tail): ({'HUSTON': 16913, 'RIVERACOLE': 14141}, {'HUSTON': 16913, 'COLE': 14141})
+    district 53: archive [('Robert "Bob" Cherry', 17011), ('Nancy Tibbett', 7034)]; record [('cherry, robert w (bob)', 17011), ('webbtibbett, nancy l', 7034)]; equal (by the surname's tail): ({'CHERRY': 17011, 'WEBBTIBBETT': 7034}, {'CHERRY': 17011, 'TIBBETT': 7034})
+    district 55: archive [('Cindy Meyer Ziemke', 15474), ('Corinne Westerfield', 5951)]; record [('meyerziemke, cindy m', 15474), ('westerfield, corinne', 5951)]; equal (by the surname's tail): ({'MEYERZIEMKE': 15474, 'WESTERFIELD': 5951}, {'ZIEMKE': 15474, 'WESTERFIELD': 5951})
+  the archive's 100 districts against the records' counts (Klarner's), candidate by candidate (by surname; where Klarner joins a two-word surname or carries the suffix in it, by the surname's tail): {'every named candidate equal to the vote': 100, ('paired', 'by surname'): 94, ('names on the ballot', 2, '=', 2): 62, ('paired', "by the surname's tail"): 6, ('names on the ballot', 1, '=', 1): 31, ('names on the ballot', 3, '=', 3): 7} (D3: 100 of 100 equal to the vote)
+
+  the six House flags (D3's REPORT §37 table against the file, the records and check-districts.json):
+    House 100: archive {'FORESTAL': 14070} = D3's table {'forestal': 14070}: True; MEDSL's 16296 (D3: 16296); outcome before 'held' (D3: held (+15.8%)) -> after 'settled by the state: Klarner's count stands'; state_count: by 'its State Representative file)', read 2026-11-13T09:21:33Z, sha mine, marked True, ratio 1.0; p before None (MEDSL's precinct file (2018-in-precinct-general.zi) -> after 0.0 (one name on the ballot for each seat (unopposed): p is 0); the note: url the file, read 2026-11-13T09:21:33Z, sha mine, certified words present; notes before 0, after 1
+    House 13: archive {'NEGELE': 15270, 'BARNES': 6494} = D3's table {'negele': 15270, 'barnes': 6494}: True; MEDSL's 20524 (D3: 20524); outcome before 'held' (D3: held (-5.7%)) -> after 'settled by the state: Klarner's count stands'; state_count: by 'its State Representative file)', read 2026-11-13T09:21:33Z, sha mine, marked True, ratio 1.0; p before None (MEDSL's precinct file (2018-in-precinct-general.zi) -> after 1.54392e-05 (None); the note: url the file, read 2026-11-13T09:21:33Z, sha mine, certified words present; notes before 0, after 1
+    House 58: archive {'BURTON': 13784, 'REINERT': 7981} = D3's table {'burton': 13784, 'reinert': 7981}: True; MEDSL's 21072 (D3: 21072); outcome before 'noted' (D3: noted (-3.2%)) -> after 'settled by the state: Klarner's count stands'; state_count: by 'its State Representative file)', read 2026-11-13T09:21:33Z, sha mine, marked True, ratio 1.0; p before 2.53405e-05 (None) -> after 2.53405e-05 (None); the note: url the file, read 2026-11-13T09:21:33Z, sha mine, certified words present; notes before 1, after 1
+    House 68: archive {'LYNESS': 17841, 'GAUSTAD': 4834} = D3's table {'lyness': 17841, 'gaustad': 4834}: True; MEDSL's 23499 (D3: 23499); outcome before 'noted' (D3: noted (+3.6%)) -> after 'settled by the state: Klarner's count stands'; state_count: by 'its State Representative file)', read 2026-11-13T09:21:33Z, sha mine, marked True, ratio 1.0; p before 4.4582e-06 (None) -> after 4.4582e-06 (None); the note: url the file, read 2026-11-13T09:21:33Z, sha mine, certified words present; notes before 1, after 1
+    House 73: archive {'DAVISSON': 17824} = D3's table {'davisson': 17824}: True; MEDSL's 10044 (D3: 10044); outcome before 'kept: MEDSL does not cover the district' (D3: kept) -> after 'settled by the state: Klarner's count stands'; state_count: by 'its State Representative file)', read 2026-11-13T09:21:33Z, sha mine, marked True, ratio 1.0; p before 0.0 (None) -> after 0.0 (one name on the ballot for each seat (unopposed): p is 0); the note: url the file, read 2026-11-13T09:21:33Z, sha mine, certified words present; notes before 1, after 1
+    House 75: archive {'BACON': 16118, 'HURLEY': 10236} = D3's table {'bacon': 16118, 'hurley': 10236}: True; MEDSL's 19142 (D3: 19142); outcome before 'kept: MEDSL does not cover the district' (D3: kept) -> after 'settled by the state: Klarner's count stands'; state_count: by 'its State Representative file)', read 2026-11-13T09:21:33Z, sha mine, marked True, ratio 1.0; p before 1.34602e-05 (None) -> after 1.34602e-05 (None); the note: url the file, read 2026-11-13T09:21:33Z, sha mine, certified words present; notes before 1, after 1
+  2018's flags, every state, outcomes before: {'noted': 11, 'held': 17, 'write-in rule': 50, 'kept: MEDSL does not cover the district': 7, "settled by the state: Klarner's count st": 3, 'MEDSL taken': 3}
+  2018's flags, every state, outcomes after: {'noted': 9, 'held': 15, 'write-in rule': 50, "settled by the state: Klarner's count st": 9, 'kept: MEDSL does not cover the district': 5, 'MEDSL taken': 3}
+  (D3: held 17 to 15, noted 6 to 4, kept 7 to 5, settled by the state 3 to 9) noted flags before: ['2018-AL-lower--67--', '2018-CT-lower--7--', '2018-IL-lower--100--', '2018-IL-upper--47--', '2018-IN-lower--58--', '2018-IN-lower--68--', '2018-KY-lower--80--', '2018-MA-upper-suffolk-1--', '2018-NY-lower--132--', '2018-NY-upper--42--', '2018-UT-upper--9--']; after: ['2018-AL-lower--67--', '2018-CT-lower--7--', '2018-IL-lower--100--', '2018-IL-upper--47--', '2018-KY-lower--80--', '2018-MA-upper-suffolk-1--', '2018-NY-lower--132--', '2018-NY-upper--42--', '2018-UT-upper--9--']
+  Indiana's 2018 flags after: {('lower', "settled by the state: Klarner's count stands"): 6, ('upper', "settled by the state: Klarner's count stands"): 3} (D3: no Indiana 2018 legislative flag stands open)
+
+====================================================================================================
+50.3 Route (a) refitted at both commits (c49 §49.7's refit; Indiana 2018's rows from the records, so that House 13 joins as the records have it)
+====================================================================================================
+  fit rows before 94,276 (from the records: 3547), after 94,277 (from the records: 3548); rows that differ by (year, state, source): (2018, 'IN', 'klarner') +1
+  Indiana 2018's House rows from the records: before 66, after 67; added: [('2018-state-lower-IN-13', 0.29838265024811617)]
+    the chamber's lean from them (mean Democratic share - 0.5): before -0.1135 over 66 contested races
+    the chamber's lean from them (mean Democratic share - 0.5): after -0.1148 over 67 contested races
+    the Indiana 2020 House records' lean: before {None, -0.1135}, after {None, -0.1148}
+  fits for [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]; the fit's coefficients after against before: B +1.86e-06, C +1.05e-06, A_last +2.92e-06, A_inc +3.44e-07, A_lean +2.74e-05, B_unopposed -3.02e-07, B_inc +6.34e-08, B_lean -8.00e-06, C_inc -3.27e-09, C_lean -7.15e-07, lean_missing -3.40e-07
+    2018-state-lower-IN-13: no p before; mine after 1.5457521903957383e-05 (('partisan', 0.3423761613594124, 0.07834280237074627, 0.0254); the record's 1.54392e-05
+  the file's partisan P rows with a p of mine before and after: 6,815; my ratio against the file's:
+    ('local', 'not a P row', 'mine within 2e-5 of 1')                      1,308
+    ('local', 'within 5e-4', 'same direction')                             522
+    ('state-lower', 'mine none')                                           47,116
+    ('state-lower', 'not a P row', 'mine within 2e-5 of 1')                5,664
+    ('state-lower', 'within 5e-4', 'same direction')                       4,889
+    ('state-upper', 'mine none')                                           14,782
+    ('state-upper', 'not a P row', 'mine within 2e-5 of 1')                1,649
+    ('state-upper', 'within 5e-4', 'same direction')                       1,404
+  the Indiana 2020 House's partisan p, mine against the file: 68 with a p both sides; the file's rounded ratio beyond 0.1%: 42, the records' exact ratio beyond 0.1%: 41 (D3: 41, x0.991 to x1.0054); the largest difference between my ratio and the file's: 1.0e-04; e.g. [('2020-state-lower-IN-100', 1.0028, 1.0028), ('2020-state-lower-IN-11', 0.9986, 0.9986), ('2020-state-lower-IN-12', 1.003, 1.0031), ('2020-state-lower-IN-13', 0.9983, 0.9983)]
+
+====================================================================================================
+50.4 The notes, reasons and other files changed; D2's files
+====================================================================================================
+  D2's files changed: [] (D3: none); other files: ['data/README.md', 'data/local/REPORT.md', 'data/local/check-districts.json', 'data/local/moves-37.json']
+  Q rows: 4: 2018-state-lower-IN-58 notes 1 -> 1; 2018-state-lower-IN-68 notes 1 -> 1; 2018-state-lower-IN-73 notes 1 -> 1; 2018-state-lower-IN-75 notes 1 -> 1
+  N: 2018-state-lower-IN-100: before p None 'MEDSL's precinct file (2018-in-precinct-general.zip) gives this district's 1 named candidate 16,296 ' -> after p 0.0 'None'; notes 0 -> 1; fields differing: ('notes', 'p.event', 'p.not_computed', 'p.reason', 'p.value')
+  N: 2018-state-lower-IN-13: before p None 'MEDSL's precinct file (2018-in-precinct-general.zip) gives this district's 2 named candidates 20,524' -> after p 1.54392e-05 'None'; notes 0 -> 1; fields differing: ('forecast_inputs', 'forecasts.count', 'notes', 'p.alongside', 'p.event', 'p.f_half', 'p.forecast_scope', 'p.method')
+  B rows (p unchanged, its block changed), by level and the fields: {('local', ('p',)): 846, ('local', ('forecasts', 'p')): 3, ('state-lower', ('p',)): 1833, ('state-upper', ('p',)): 535, ('state-upper', ('forecasts', 'p')): 6}
+

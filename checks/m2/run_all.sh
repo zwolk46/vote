@@ -54,6 +54,12 @@
 # Louisiana's four 2024 workbooks and two statute pages, for c21 New Jersey's three Official Lists, MEDSL's 2024 New Jersey
 # precinct file and four county clerks' files, for c22 Louisiana's seven 2023 workbooks and the posted multi-parish results of each
 # date; each script says what it needs and skips what is absent).
+# c49 (section 20: D3's #111, bddef1ae -> 11c852dc) has its own run appended to OUTPUT.txt: the unopposed comparator at every level,
+# Virginia's school boards nonpartisan by the Code (the three law.lis pages read again by fetch_eighth_pass.sh va_code), Virginia 2025's
+# local contests from the Department's export (D3's copy under eighth/src/va-2025), Indiana 2018's Senate from the state's archive
+# (fetch_eighth_pass.sh in_2018), the local like-race pools from the records, route (a) refitted with c40's rows and fits.
+# c50 (section 20, D3's #113, 11c852dc -> 9ad2d3d5): moves-37.json against my diff, Indiana 2018's House from the archive's State
+# Representative file (fetch_eighth_pass.sh in_2018_house) against the records and the six flags, route (a) refitted, the notes.
 set -e
 cd "$(dirname "$0")/../.."
 OUT=checks/m2/OUTPUT.txt
@@ -66,7 +72,7 @@ OUT=checks/m2/OUTPUT.txt
            c16_notes c18_louisiana c19_deciding_rounds c20_sizebins c21_new_jersey c22_louisiana_2023 c23_nc_rounds_by_place c24_office_types c25_odd_governors c26_feed_2023 c27_local_thresholds c28_governor_codes c29_fixes_c24 c30_ballot_texts c31_statewide_filed_local c32_certified_count c33_one_county \
            c34_towns_counties c35_statewide_officers c36_courts_commissions c37_statewide_pieces c38_input_volume c39_volume_compare c40_pr_checks \
            c41_governor_refit c42_held_totals c43_district_checks c44_one_name_va c45_va_gate c46_district_checks_2 \
-           c47_governor_counts c48_district_checks_3; do
+           c47_governor_counts c48_district_checks_3 c49_va_local_2 c50_in_house_2018; do
     echo "##### $s"
     python3 -I checks/m2/$s.py 2>&1 || echo "### $s exited with $?"
     echo

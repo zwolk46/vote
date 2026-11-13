@@ -36,5 +36,19 @@ case "$1" in
     fetch aa:rdata "https://dataverse.harvard.edu/api/access/datafile/5028535" "$D/aa/dataverse_shareable_gubernatorial_county_returns_1865_2020.Rdata";;
   klarner)  # section 19: Klarner's candidate-level file (Harvard Dataverse doi:10.7910/DVN/FJOGJB, CC0 1.0, the dataset whose contest file I hold; one request; the intake sums a candidate's lines by candidate id, which the fusion scan counts)
     fetch klarner:candidates "https://dataverse.harvard.edu/api/access/datafile/10273085?format=original" "$D/klarner/127_slers_1967to2022_forsharing20230810.csv";;
+  va_code)  # section 20: the three Code of Virginia pages D3's #111 read (data/local/REPORT.md section 36), one request each, six seconds apart, to law.lis.virginia.gov (the General Assembly's site); Ballotpedia, FindLaw and vacode.org are not asked (D3's refusals, 08:07)
+    mkdir -p "$D/va_code"
+    fetch vacode:24.2-613 "https://law.lis.virginia.gov/vacode/title24.2/chapter6/section24.2-613/" "$D/va_code/section24.2-613.html" || exit 1; sleep 6
+    fetch vacode:t22.1c5a7 "https://law.lis.virginia.gov/vacodefull/title22.1/chapter5/article7/" "$D/va_code/title22.1-chapter5-article7.html" || exit 1; sleep 6
+    fetch vacode:t10.1c5a3 "https://law.lis.virginia.gov/vacodefull/title10.1/chapter5/article3/" "$D/va_code/title10.1-chapter5-article3.html";;
+  in_2018)  # section 20: Indiana's 2018 archive as D3's #111 read it (settings, the office list, the State Senator file), six seconds apart; the House file is the in_2018_house branch
+    mkdir -p "$D/in_enr_2018"
+    B=https://enr.indianavoters.in.gov/archive/2018General/data
+    fetch in2018:settings "$B/settings.json" "$D/in_enr_2018/settings.json" || exit 1; sleep 6
+    fetch in2018:categories "$B/statewideElectionsC_A.json" "$D/in_enr_2018/statewideElectionsC_A.json" || exit 1; sleep 6
+    fetch in2018:OffCatC_2180 "$B/OffCatC_2180_A.json" "$D/in_enr_2018/OffCatC_2180_A.json";;
+  in_2018_house)  # section 20, D3's #113: the archive's State Representative file (office category 2201 in the cached office list), one request, as D3 read it on the orchestrator's allowance of 09:21 ("one request to the archive's 2018 House file is allowed, as for the Senate")
+    B=https://enr.indianavoters.in.gov/archive/2018General/data
+    fetch in2018:OffCatC_2201 "$B/OffCatC_2201_A.json" "$D/in_enr_2018/OffCatC_2201_A.json";;
 esac
 echo "### done $1"
