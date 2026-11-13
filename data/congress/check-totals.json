@@ -1,0 +1,3037 @@
+{
+ "about": "D2's governor totals of 2018-2024 against a second count of each contest, and the two items with nothing to fix (pipeline/d2_labels.py; the orchestrator, 2026-11-07 22:19, item 5; M2's seventh pass, checks/M2-REPORT.md section 14.1). off: the second count's total over the record's, less 1; a record off by more than 0.5% says what its total adds up (result.total_votes_of) and carries a note",
+ "line": 0.005,
+ "governors": [
+  {
+   "id": "2018-governor-AK",
+   "total_votes": 282529,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-ak-precinct-general.zip)",
+   "second_total": 283134,
+   "off": 0.00214,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 605,
+   "pairs": [
+    [
+     "DUNLEAVY, MICHAEL J. (MIKE)",
+     145631,
+     145631
+    ],
+    [
+     "BEGICH, MARK",
+     125739,
+     125739
+    ],
+    [
+     "WALKER, WILLIAM M. (BILL)",
+     5757,
+     5757
+    ],
+    [
+     "TOIEN, WILLIAM S. (BILLY)",
+     5402,
+     5402
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-AL",
+   "total_votes": 1716952,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2018-al-precinct-general.zip)",
+   "second_total": 1717817,
+   "off": 0.0005,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 2530,
+   "pairs": [
+    [
+     "IVEY, KAY E.",
+     1022457,
+     1021276
+    ],
+    [
+     "MADDOX, WALTER (WALT)",
+     694495,
+     694011
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-AR",
+   "total_votes": 891509,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2018-ar-precinct-general.zip)",
+   "second_total": 891509,
+   "off": 0.0,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "HUTCHINSON, WILLIAM (ASA)",
+     582406,
+     582406
+    ],
+    [
+     "HENDERSON, JARED K.",
+     283218,
+     283218
+    ],
+    [
+     "WEST, MARK A.",
+     25885,
+     25885
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-AZ",
+   "total_votes": 2376166,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2018-az-precinct-general.zip)",
+   "second_total": 2379369,
+   "off": 0.00135,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 3203,
+   "pairs": [
+    [
+     "DUCEY, DOUG",
+     1330863,
+     1330863
+    ],
+    [
+     "GARCIA, DAVID",
+     994341,
+     994341
+    ],
+    [
+     "TORRES, ANGEL",
+     50962,
+     50962
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-CA",
+   "total_votes": 12464235,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2018-ca-precinct-general.zip)",
+   "second_total": 12464235,
+   "off": 0.0,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "NEWSOM, GAVIN",
+     7721410,
+     7721410
+    ],
+    [
+     "COX, JOHN H.",
+     4742825,
+     4742825
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-CO",
+   "total_votes": 2525062,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-co-precinct-general.zip)",
+   "second_total": 2525062,
+   "off": 0.0,
+   "ballot_names_second": 4,
+   "others_second": [
+    [
+     "JARED POLIS / DIANNE PRIMAVERA",
+     1348888
+    ],
+    [
+     "WALKER STAPLETON / LANG SIAS",
+     1080801
+    ],
+    [
+     "SCOTT HELKER / MICHELE POAGUE",
+     69519
+    ],
+    [
+     "BILL HAMMONS / ERIC BODENSTAB",
+     25854
+    ]
+   ],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "POLIS, JARED S.",
+     1348888,
+     null
+    ],
+    [
+     "STAPLETON, WALKER",
+     1080801,
+     null
+    ],
+    [
+     "HELKER, SCOTT",
+     69519,
+     null
+    ],
+    [
+     "HAMMONS, WILLIAM ROBERT (BILL)",
+     25854,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-CT",
+   "total_votes": 1363480,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (2018-ct-precinct-general.zip)",
+   "second_total": 1406774,
+   "off": 0.03175,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 69,
+   "pairs": [
+    [
+     "LAMONT, EDWARD M. (NED)",
+     676649,
+     694509
+    ],
+    [
+     "STEFANOWSKI, BOB",
+     624750,
+     650132
+    ],
+    [
+     "GRIEBEL, R. NELSON (OZ)",
+     54741,
+     54741
+    ],
+    [
+     "HANSCOMB, RODNEY",
+     6086,
+     6086
+    ],
+    [
+     "GREENSTEIN, MARK STEWART",
+     1254,
+     1237
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-FL",
+   "total_votes": 8220494,
+   "candidates": 6,
+   "second": "MEDSL's precinct file (2018-fl-precinct-general.zip)",
+   "second_total": 8228238,
+   "off": 0.00094,
+   "ballot_names_second": 6,
+   "others_second": [],
+   "write_ins_second": 7038,
+   "pairs": [
+    [
+     "DESANTIS, RONALD D. (RON)",
+     4076186,
+     4076521
+    ],
+    [
+     "GILLUM, ANDREW",
+     4043723,
+     4044092
+    ],
+    [
+     "RICHARDSON, DARCY G.",
+     47140,
+     47143
+    ],
+    [
+     "GIBSON, K.C.",
+     24310,
+     24400
+    ],
+    [
+     "FOLEY, RYAN CHRISTOPHER",
+     14630,
+     14538
+    ],
+    [
+     "STANLEY, BRUCE",
+     14505,
+     14506
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-GA",
+   "total_votes": 3939328,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2018-ga-precinct-general.zip)",
+   "second_total": 3939328,
+   "off": 0.0,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "KEMP, BRIAN P.",
+     1978408,
+     1978408
+    ],
+    [
+     "ABRAMS, STACEY",
+     1923685,
+     1923685
+    ],
+    [
+     "METZ, EDWARD T. (TED)",
+     37235,
+     37235
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-HI",
+   "total_votes": 390843,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-hi-precinct-general.zip)",
+   "second_total": 390843,
+   "off": 0.0,
+   "ballot_names_second": 4,
+   "others_second": [
+    [
+     "IGE / GREEN",
+     244934
+    ],
+    [
+     "TUPOLA / KERNS",
+     131719
+    ],
+    [
+     "BREWER / ING",
+     10123
+    ],
+    [
+     "TERUYA / ROBOTTI",
+     4067
+    ]
+   ],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "IGE, DAVID YUTAKA",
+     244934,
+     null
+    ],
+    [
+     "TUPOLA, ANDRIA",
+     131719,
+     null
+    ],
+    [
+     "BREWER, JIM",
+     10123,
+     null
+    ],
+    [
+     "TERUYA, TERRENCE",
+     4067,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-IA",
+   "total_votes": 1327150,
+   "candidates": 4,
+   "second": null
+  },
+  {
+   "id": "2018-governor-ID",
+   "total_votes": 605131,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (2018-id-precinct-general.zip)",
+   "second_total": 605131,
+   "off": 0.0,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 51,
+   "pairs": [
+    [
+     "LITTLE, BRAD",
+     361661,
+     361661
+    ],
+    [
+     "JORDAN, PAULETTE",
+     231081,
+     231081
+    ],
+    [
+     "BOECK, BEV (ANGEL)",
+     6551,
+     6551
+    ],
+    [
+     "BAYES, WALTER L. (WALT)",
+     5787,
+     5787
+    ],
+    [
+     "MARIE, LISA",
+     51,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-IL",
+   "total_votes": 4547442,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-il-precinct-general.zip)",
+   "second_total": 4560012,
+   "off": 0.00276,
+   "ballot_names_second": 7,
+   "others_second": [
+    [
+     "KEVIN D RYAN",
+     20
+    ],
+    [
+     "THOMAS \"JACOB\" J KUNA",
+     4
+    ],
+    [
+     "DAVID A THOLIN",
+     3
+    ]
+   ],
+   "write_ins_second": 12443,
+   "pairs": [
+    [
+     "PRITZKER, JAY (J.B.)",
+     2479746,
+     2479746
+    ],
+    [
+     " RAUNER, BRUCE V.",
+     1765651,
+     1765751
+    ],
+    [
+     "MCCANN, SAM",
+     192527,
+     192527
+    ],
+    [
+     "JACKSON, GRAYSON KASH",
+     109518,
+     109518
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-KS",
+   "total_votes": 1054630,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (2018-ks-precinct-general.zip)",
+   "second_total": 1055026,
+   "off": 0.00038,
+   "ballot_names_second": 5,
+   "others_second": [
+    [
+     "LAURA KELLY/LYNN ROGERS",
+     506509
+    ],
+    [
+     "KRIS KOBACH/WINK HARTMAN",
+     453030
+    ],
+    [
+     "GREG ORMAN/JOHN DOLL",
+     68498
+    ],
+    [
+     "JEFF CALDWELL/MARY GERLT",
+     20009
+    ]
+   ],
+   "write_ins_second": 404,
+   "pairs": [
+    [
+     "KELLY, LAURA",
+     506509,
+     null
+    ],
+    [
+     "KOBACH, KRIS W.",
+     453030,
+     null
+    ],
+    [
+     "ORMAN, GREGORY JOHN (GREG)",
+     68498,
+     null
+    ],
+    [
+     "CALDWELL, JEFF",
+     20009,
+     null
+    ],
+    [
+     "KLOOS, RICK",
+     6584,
+     6576
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-MA",
+   "total_votes": 2667111,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2018-ma-precinct-general.zip)",
+   "second_total": 2674615,
+   "off": 0.00281,
+   "ballot_names_second": 3,
+   "others_second": [
+    [
+     "ALL OTHERS",
+     7504
+    ]
+   ],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "BAKER, CHARLES D. (CHARLIE)",
+     1781341,
+     1781341
+    ],
+    [
+     "GONZALEZ, JAY M.",
+     885770,
+     885770
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-MD",
+   "total_votes": 2302699,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-md-precinct-general.zip)",
+   "second_total": 2304512,
+   "off": 0.00079,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 1813,
+   "pairs": [
+    [
+     "HOGAN, LAWRENCE JOSEPH (LARRY), JR.",
+     1275644,
+     1275644
+    ],
+    [
+     "JEALOUS, BEN",
+     1002639,
+     1002639
+    ],
+    [
+     "QUINN, SHAWN",
+     13241,
+     13241
+    ],
+    [
+     "SCHLAKMAN, IAN A.",
+     11175,
+     11175
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-ME",
+   "total_votes": 630541,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2018-me-precinct-general.zip)",
+   "second_total": 630667,
+   "off": 0.0002,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 126,
+   "pairs": [
+    [
+     "MILLS, JANET T.",
+     320962,
+     320962
+    ],
+    [
+     "MOODY, SHAWN H.",
+     272311,
+     272311
+    ],
+    [
+     "HAYES, TERESEA M.",
+     37268,
+     37268
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-MI",
+   "total_votes": 4250553,
+   "candidates": 6,
+   "second": "MEDSL's precinct file (2018-mi-precinct-general.zip)",
+   "second_total": 4250585,
+   "off": 1e-05,
+   "ballot_names_second": 19,
+   "others_second": [
+    [
+     "FRANCIS L ROWLEY",
+     11
+    ],
+    [
+     "EVAN SPACE",
+     8
+    ],
+    [
+     "LANCE HERMAN",
+     4
+    ],
+    [
+     "WILLIAM COBBS",
+     3
+    ],
+    [
+     "ROBIN LEE SANDERS",
+     2
+    ],
+    [
+     "CHANEIKA RANELL PENNY",
+     1
+    ],
+    [
+     "CLYDE LYNCH",
+     1
+    ],
+    [
+     "PATRICK O'NEAL BURNEY",
+     1
+    ],
+    [
+     "HENRY JOSEPH LESTER",
+     1
+    ]
+   ],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "WHITMER, GRETCHEN",
+     2266193,
+     2266193
+    ],
+    [
+     "SCHUETTE, WILLIAM (BILL)",
+     1859534,
+     1859534
+    ],
+    [
+     "GELINEAU, BILL",
+     56606,
+     56606
+    ],
+    [
+     "SCHLEIGER, TODD",
+     29219,
+     29219
+    ],
+    [
+     "KURLAND, JENNIFER",
+     28799,
+     28799
+    ],
+    [
+     "BUTKOVICH, KEITH",
+     10202,
+     10202
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-MN",
+   "total_votes": 2586203,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-mn-precinct-general.zip)",
+   "second_total": 2587287,
+   "off": 0.00042,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 1084,
+   "pairs": [
+    [
+     "WALZ, TIMOTHY J. (TIM)",
+     1393096,
+     1393096
+    ],
+    [
+     "JOHNSON, JEFF",
+     1097705,
+     1097705
+    ],
+    [
+     "WRIGHT, CHRIS",
+     68667,
+     68667
+    ],
+    [
+     "WELTER, JOSH",
+     26735,
+     26735
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-NE",
+   "total_votes": 697981,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2018-ne-precinct-general.zip)",
+   "second_total": 697981,
+   "off": 0.0,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "RICKETTS, PETE",
+     411812,
+     411812
+    ],
+    [
+     "KRIST, BOB",
+     286169,
+     286169
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-NH",
+   "total_votes": 565123,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2018-nh-precinct-general.zip)",
+   "second_total": 573602,
+   "off": 0.015,
+   "ballot_names_second": 3,
+   "others_second": [
+    [
+     "JILLETTA JARVIS",
+     8197
+    ]
+   ],
+   "write_ins_second": 282,
+   "pairs": [
+    [
+     "SUNUNU, CHRISTOPHER (CHRIS)",
+     302764,
+     302764
+    ],
+    [
+     "KELLY, MOLLY",
+     262359,
+     262359
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-NM",
+   "total_votes": 696459,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2018-nm-precinct-general.zip)",
+   "second_total": 696459,
+   "off": 0.0,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "GRISHAM, MICHELLE LUJAN",
+     398368,
+     398368
+    ],
+    [
+     "PEARCE, STEVAN E. (STEVE)",
+     298091,
+     298091
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-NV",
+   "total_votes": 952934,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (2018-nv-precinct-general.zip)",
+   "second_total": 952934,
+   "off": 0.0,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "SISOLAK, STEVE",
+     480007,
+     480007
+    ],
+    [
+     "LAXALT, ADAM PAUL",
+     440320,
+     440320
+    ],
+    [
+     "BUNDY, RYAN",
+     13891,
+     13891
+    ],
+    [
+     "BEST, RUSSELL (RUSS)",
+     10076,
+     10076
+    ],
+    [
+     "LORD, JARED",
+     8640,
+     8640
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-NY",
+   "total_votes": 5605321,
+   "candidates": 5,
+   "second": null,
+   "note": "the source's 3,424,416 for Cuomo is his Democratic line alone (M2's reading, checks/M2-REPORT.md section 14.1 item 10); MEDSL's 2018 New York file is held (data/local/check-volume.json) and New York's State Board refused us (2026-11-07 18:49), so his other lines are not read here"
+  },
+  {
+   "id": "2018-governor-OH",
+   "total_votes": 4435462,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-oh-precinct-general.zip)",
+   "second_total": 4435462,
+   "off": 0.0,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "DEWINE, MICHAEL (MIKE)",
+     2235825,
+     2235825
+    ],
+    [
+     "CORDRAY, RICHARD A.",
+     2070046,
+     2070046
+    ],
+    [
+     "IRVINE, TRAVIS M.",
+     80055,
+     80055
+    ],
+    [
+     "GADELL-NEWTON, CONSTANCE",
+     49536,
+     49536
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-OK",
+   "total_votes": 1186385,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2018-ok-precinct-general.zip)",
+   "second_total": 1186385,
+   "off": 0.0,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "STITT, KEVIN",
+     644579,
+     644579
+    ],
+    [
+     "EDMONDSON, DREW",
+     500973,
+     500973
+    ],
+    [
+     "POWELL, CHRIS",
+     40833,
+     40833
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-OR",
+   "total_votes": 1863963,
+   "candidates": 6,
+   "second": "MEDSL's precinct file (2018-or-precinct-general.zip)",
+   "second_total": 1866997,
+   "off": 0.00163,
+   "ballot_names_second": 6,
+   "others_second": [],
+   "write_ins_second": 3034,
+   "pairs": [
+    [
+     "BROWN, KATE",
+     934498,
+     934498
+    ],
+    [
+     "BUEHLER, KNUTE C.",
+     814988,
+     814988
+    ],
+    [
+     "STARNES, PATRICK E.",
+     53392,
+     53392
+    ],
+    [
+     "CHEN, NICK",
+     28927,
+     28927
+    ],
+    [
+     "AUER, AARON DONALD",
+     21145,
+     21145
+    ],
+    [
+     "HENRY, CHRIS",
+     11013,
+     11013
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-PA",
+   "total_votes": 5012625,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-pa-precinct-general.zip)",
+   "second_total": 5013046,
+   "off": 8e-05,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "WOLF, THOMAS W. (TOM)",
+     2895652,
+     2895848
+    ],
+    [
+     "WAGNER, SCOTT R.",
+     2039882,
+     2040169
+    ],
+    [
+     "KRAWCHUK, KENNETH V. (KEN)",
+     49299,
+     49232
+    ],
+    [
+     "GLOVER, PAUL",
+     27792,
+     27797
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-RI",
+   "total_votes": 338054,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2018-ri-precinct-general.zip)",
+   "second_total": 376401,
+   "off": 0.11343,
+   "ballot_names_second": 6,
+   "others_second": [
+    [
+     "JOSEPH A TRILLO",
+     16532
+    ],
+    [
+     "WILLIAM H GILBERT",
+     10155
+    ],
+    [
+     "LUIS DANIEL MUNOZ",
+     6223
+    ],
+    [
+     "ANNE ARMSTRONG",
+     4191
+    ]
+   ],
+   "write_ins_second": 1246,
+   "pairs": [
+    [
+     "RAIMONDO, GINA M.",
+     198122,
+     198122
+    ],
+    [
+     "FUNG, ALLAN W.",
+     139932,
+     139932
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-SC",
+   "total_votes": 1705524,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2018-sc-precinct-general.zip)",
+   "second_total": 1707569,
+   "off": 0.0012,
+   "ballot_names_second": 2,
+   "others_second": [
+    [
+     "HENRY MCMASTER / PAMELA EVETTE",
+     921342
+    ],
+    [
+     "JAMES SMITH / MANDY POWERS NORRELL",
+     784182
+    ]
+   ],
+   "write_ins_second": 2045,
+   "pairs": [
+    [
+     "MCMASTER, HENRY D.",
+     921342,
+     null
+    ],
+    [
+     "SMITH, JAMES E., JR.",
+     784182,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-SD",
+   "total_votes": 339214,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2018-sd-precinct-general.zip)",
+   "second_total": 338715,
+   "off": -0.00147,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "NOEM, KRISTI LYNN",
+     172912,
+     172706
+    ],
+    [
+     "SUTTON, BILLIE",
+     161454,
+     161171
+    ],
+    [
+     "EVANS, KURT",
+     4848,
+     4838
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-TN",
+   "total_votes": 2242283,
+   "candidates": 28,
+   "second": "MEDSL's precinct file (2018-tn-precinct-general.zip)",
+   "second_total": 2243294,
+   "off": 0.00045,
+   "ballot_names_second": 28,
+   "others_second": [],
+   "write_ins_second": 11,
+   "pairs": [
+    [
+     "LEE, BILL",
+     1336106,
+     1336106
+    ],
+    [
+     "DEAN, KARL",
+     864863,
+     864863
+    ],
+    [
+     "CLARK, SHERRY L.",
+     5198,
+     5198
+    ],
+    [
+     "WRIGHT, MARK",
+     4687,
+     4687
+    ],
+    [
+     "WHITLOCK, PATRICK",
+     3631,
+     3631
+    ],
+    [
+     "NEUBERT, YVONNE",
+     3070,
+     3070
+    ],
+    [
+     "SCOTT, HEATHER",
+     2969,
+     2969
+    ],
+    [
+     "BROWN, MARK (COONRIPPY)",
+     2841,
+     2841
+    ],
+    [
+     "WILMOTH, JOE B.",
+     2444,
+     2444
+    ],
+    [
+     "SMITH, GEORGE BLACKWELL, IV",
+     1550,
+     1550
+    ],
+    [
+     "KING, CORY",
+     1502,
+     1502
+    ],
+    [
+     "TISDALE, TRACY C. YASTE",
+     1396,
+     1396
+    ],
+    [
+     "RIDEN, CHAD",
+     1096,
+     1096
+    ],
+    [
+     "SAWYERS, ROBERT, SR.",
+     1059,
+     1059
+    ],
+    [
+     "VINEYARD, VINNIE",
+     1012,
+     1012
+    ],
+    [
+     "TYLER, RICK",
+     981,
+     981
+    ],
+    [
+     "FANCHER, GABRIEL",
+     869,
+     869
+    ],
+    [
+     "FLEMING, SEAN BRUCE",
+     814,
+     814
+    ],
+    [
+     "RAPOZA, ALFRED SHAWN",
+     800,
+     800
+    ],
+    [
+     "MCDONALD, JESSIE D.",
+     755,
+     755
+    ],
+    [
+     "MITCHELL, TONEY RANDALL",
+     739,
+     739
+    ],
+    [
+     "TOEWS, MIKE",
+     726,
+     726
+    ],
+    [
+     "KOCH, MATTHEW",
+     652,
+     652
+    ],
+    [
+     "STEPHENSON, JEREMY ALLEN",
+     613,
+     613
+    ],
+    [
+     "MCANALLY, TOMMY RAY",
+     609,
+     609
+    ],
+    [
+     "WEIDNER, JARON D.",
+     588,
+     588
+    ],
+    [
+     "HELMSTETTER, WILLIAM ANDREW",
+     496,
+     496
+    ],
+    [
+     "CORNETT, JUSTIN",
+     217,
+     1217
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-TX",
+   "total_votes": 8343443,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2018-tx-precinct-general.zip)",
+   "second_total": 8341613,
+   "off": -0.00022,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "ABBOTT, GREG",
+     4656196,
+     4655344
+    ],
+    [
+     "VALDEZ, LUPE",
+     3546615,
+     3545673
+    ],
+    [
+     "TIPPETTS, MARK",
+     140632,
+     140596
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-VT",
+   "total_votes": 272972,
+   "candidates": 7,
+   "second": "MEDSL's precinct file (2018-vt-precinct-general.zip)",
+   "second_total": 274084,
+   "off": 0.00407,
+   "ballot_names_second": 7,
+   "others_second": [],
+   "write_ins_second": 1124,
+   "pairs": [
+    [
+     "SCOTT, PHILLIP B. (PHIL)",
+     151261,
+     151249
+    ],
+    [
+     "HALLQUIST, CHRISTINE",
+     110335,
+     110335
+    ],
+    [
+     "BARLOW, TREVEOR",
+     3266,
+     3266
+    ],
+    [
+     "LARAMIE, CHARLES",
+     2287,
+     2287
+    ],
+    [
+     "ERICSON, CRIS",
+     2129,
+     2129
+    ],
+    [
+     "MARX, STEPHEN",
+     1855,
+     1855
+    ],
+    [
+     "PEYTON, EMILY (EM)",
+     1839,
+     1839
+    ]
+   ]
+  },
+  {
+   "id": "2018-governor-WI",
+   "total_votes": 2669613,
+   "candidates": 5,
+   "second": null
+  },
+  {
+   "id": "2018-governor-WY",
+   "total_votes": 202138,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (2018-wy-precinct-general.zip)",
+   "second_total": 203238,
+   "off": 0.00544,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 1100,
+   "pairs": [
+    [
+     "GORDON, MARK",
+     136412,
+     136412
+    ],
+    [
+     "THRONE, MARY A.",
+     55965,
+     55965
+    ],
+    [
+     "RAMMELL, REX (T-REX)",
+     6751,
+     6751
+    ],
+    [
+     "STRUEMPF, LAWRENCE GERARD (LARRY)",
+     3010,
+     3010
+    ]
+   ]
+  },
+  {
+   "id": "2020-governor-DE",
+   "total_votes": 492635,
+   "candidates": 4,
+   "second": null
+  },
+  {
+   "id": "2020-governor-IN",
+   "total_votes": 2709388,
+   "candidates": 3,
+   "second": null
+  },
+  {
+   "id": "2020-governor-MO",
+   "total_votes": 2945973,
+   "candidates": 2,
+   "second": null
+  },
+  {
+   "id": "2020-governor-MT",
+   "total_votes": 579408,
+   "candidates": 2,
+   "second": null
+  },
+  {
+   "id": "2020-governor-NC",
+   "total_votes": 5421395,
+   "candidates": 2,
+   "second": "North Carolina's State Board of Elections (results_pct_20201103.zip)",
+   "second_total": 5502777,
+   "off": 0.01501,
+   "ballot_names_second": 4,
+   "others_second": [
+    [
+     "Steven J. DiFiore",
+     60449
+    ],
+    [
+     "Al Pisano",
+     20934
+    ]
+   ],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "COOPER, ROY A., III",
+     2834790,
+     2834790
+    ],
+    [
+     "FOREST, DAN",
+     2586605,
+     2586604
+    ]
+   ]
+  },
+  {
+   "id": "2020-governor-ND",
+   "total_votes": 340450,
+   "candidates": 3,
+   "second": null
+  },
+  {
+   "id": "2020-governor-NH",
+   "total_votes": 781248,
+   "candidates": 2,
+   "second": null
+  },
+  {
+   "id": "2020-governor-UT",
+   "total_votes": 1361508,
+   "candidates": 2,
+   "second": null
+  },
+  {
+   "id": "2020-governor-VT",
+   "total_votes": 347627,
+   "candidates": 2,
+   "second": null
+  },
+  {
+   "id": "2020-governor-WA",
+   "total_votes": 4043309,
+   "candidates": 2,
+   "second": null
+  },
+  {
+   "id": "2020-governor-WV",
+   "total_votes": 734968,
+   "candidates": 2,
+   "second": null
+  },
+  {
+   "id": "2022-governor-AK",
+   "total_votes": 262968,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (ak22_cleaned.csv)",
+   "second_total": 263752,
+   "off": 0.00298,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 784,
+   "pairs": [
+    [
+     "DUNLEAVY, MICHAEL J. (MIKE)",
+     132632,
+     132632
+    ],
+    [
+     "GARA, LES S.",
+     63851,
+     63851
+    ],
+    [
+     "WALKER, WILLIAM M. (BILL)",
+     54668,
+     54668
+    ],
+    [
+     "PIERCE, CHARLIE",
+     11817,
+     11817
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-AL",
+   "total_votes": 1405851,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (al22_cleaned.csv)",
+   "second_total": 1415283,
+   "off": 0.00671,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 9432,
+   "pairs": [
+    [
+     "IVEY, KAY E.",
+     946932,
+     946932
+    ],
+    [
+     "FLOWERS, YOLANDA ROCHELLE",
+     412961,
+     412961
+    ],
+    [
+     "BLAKE, JAMES",
+     45958,
+     45958
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-AR",
+   "total_votes": 907037,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2022-ar-local-precinct-general.zip)",
+   "second_total": 902671,
+   "off": -0.00481,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "SANDERS, SARAH HUCKABEE",
+     571105,
+     569213
+    ],
+    [
+     "JONES, CHRIS",
+     319242,
+     316827
+    ],
+    [
+     "HARRINGTON, RICKY DALE, JR.",
+     16690,
+     16631
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-AZ",
+   "total_votes": 2558665,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2022-az-local-precinct-general.csv)",
+   "second_total": 2570916,
+   "off": 0.00479,
+   "ballot_names_second": 10,
+   "others_second": [
+    [
+     "MIKAELA SHONNIE \"MIKKI\" LUTES-BURTON",
+     144
+    ],
+    [
+     "LIANA WEST",
+     133
+    ],
+    [
+     "WILLIAM JOSUE POUNDS IV",
+     95
+    ],
+    [
+     "STEPH NOELLE \"STEPH\" DENNY",
+     43
+    ],
+    [
+     "ALICE NOVOA",
+     35
+    ],
+    [
+     "ANTHONY CAMBONI",
+     23
+    ],
+    [
+     "RAYSHAWN D'ANTHONY \"SHAWN\" MERRILL",
+     21
+    ],
+    [
+     "NONE",
+     6
+    ]
+   ],
+   "write_ins_second": 11807,
+   "pairs": [
+    [
+     "HOBBS, KATIE",
+     1287891,
+     1287891
+    ],
+    [
+     "LAKE, KARI",
+     1270774,
+     1270718
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-CA",
+   "total_votes": 10933009,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (CA_2022_final.csv)",
+   "second_total": 10932079,
+   "off": -9e-05,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "NEWSOM, GAVIN",
+     6470099,
+     6469743
+    ],
+    [
+     "DAHLE, BRIAN",
+     4462910,
+     4462336
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-CO",
+   "total_votes": 2508770,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (colorado_cleaned.csv)",
+   "second_total": 2508830,
+   "off": 2e-05,
+   "ballot_names_second": 7,
+   "others_second": [
+    [
+     "ZACHARY VARON",
+     52
+    ],
+    [
+     "PAUL WILLMON",
+     8
+    ]
+   ],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "POLIS, JARED S.",
+     1468481,
+     1468481
+    ],
+    [
+     "GANAHL, HEIDI",
+     983040,
+     983040
+    ],
+    [
+     "RUSKUSKY, KEVIN",
+     28939,
+     28939
+    ],
+    [
+     "NEUSCHWANGER, DANIELLE",
+     21623,
+     21623
+    ],
+    [
+     "FIORINO, PAUL NOEL",
+     6687,
+     6687
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-CT",
+   "total_votes": 1267756,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (ct22_cleaned.csv)",
+   "second_total": 1267810,
+   "off": 4e-05,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 98,
+   "pairs": [
+    [
+     "LAMONT, EDWARD M. (NED)",
+     709147,
+     709117
+    ],
+    [
+     "STEFANOWSKI, BOB",
+     546209,
+     546209
+    ],
+    [
+     "HOTALING, ROBERT",
+     12400,
+     12386
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-FL",
+   "total_votes": 7771399,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (fl22_cleaned.csv)",
+   "second_total": 7771398,
+   "off": -0.0,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "DESANTIS, RONALD D. (RON)",
+     4614210,
+     4614209
+    ],
+    [
+     "CRIST, CHARLES J. (CHARLIE), JR.",
+     3106313,
+     3106313
+    ],
+    [
+     "GIMENEZ, CARMEN JACKIE",
+     31577,
+     31577
+    ],
+    [
+     "ROOS, HECTOR",
+     19299,
+     19299
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-GA",
+   "total_votes": 3953408,
+   "candidates": 3,
+   "second": null
+  },
+  {
+   "id": "2022-governor-HI",
+   "total_votes": 413262,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (HI-cleaned.csv)",
+   "second_total": 413262,
+   "off": 0.0,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "GREEN, JOSH",
+     261025,
+     261025
+    ],
+    [
+     "AIONA, JAMES R. (DUKE), JR.",
+     152237,
+     152237
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-IA",
+   "total_votes": 1221146,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (IA_cleaned.csv)",
+   "second_total": 1221864,
+   "off": 0.00059,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 718,
+   "pairs": [
+    [
+     "REYNOLDS, KIM",
+     709198,
+     709198
+    ],
+    [
+     "DEJEAR, DEIDRE",
+     482950,
+     482950
+    ],
+    [
+     "STEWART, RICK W.",
+     28998,
+     28998
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-ID",
+   "total_votes": 592557,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (2022-id-local-precinct-general.csv)",
+   "second_total": 590652,
+   "off": -0.00321,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 67,
+   "pairs": [
+    [
+     "LITTLE, BRAD",
+     358598,
+     357187
+    ],
+    [
+     "HEIDT, STEPHEN",
+     120160,
+     119863
+    ],
+    [
+     "BUNDY, AMMON",
+     101835,
+     101625
+    ],
+    [
+     "SAND, PAUL",
+     6714,
+     6690
+    ],
+    [
+     "DAVISON, CHANTYROSE",
+     5250,
+     5220
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-IL",
+   "total_votes": 4104555,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (il22_cleaned.csv)",
+   "second_total": 4106208,
+   "off": 0.0004,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 1653,
+   "pairs": [
+    [
+     "PRITZKER, JAY (J.B.)",
+     2253748,
+     2253748
+    ],
+    [
+     "BAILEY, DARREN",
+     1739095,
+     1739095
+    ],
+    [
+     "SCHLUTER, SCOTT",
+     111712,
+     111712
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-KS",
+   "total_votes": 1008998,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (ks22_cleaned.csv)",
+   "second_total": 1008989,
+   "off": -1e-05,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "KELLY, LAURA",
+     499849,
+     499845
+    ],
+    [
+     "SCHMIDT, DEREK",
+     477591,
+     477586
+    ],
+    [
+     "PYLE, DENNIS D.",
+     20452,
+     20452
+    ],
+    [
+     "CORDELL, SETH",
+     11106,
+     11106
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-MA",
+   "total_votes": 2482990,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (ma22_cleaned.csv)",
+   "second_total": 2485796,
+   "off": 0.00113,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 2806,
+   "pairs": [
+    [
+     "HEALEY, MAURA",
+     1584403,
+     1584403
+    ],
+    [
+     "DIEHL, GEOFF",
+     859343,
+     859343
+    ],
+    [
+     "REED, KEVIN",
+     39244,
+     39244
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-MD",
+   "total_votes": 1999779,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (2022-md-local-precinct-general.csv)",
+   "second_total": 2005223,
+   "off": 0.00272,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 5444,
+   "pairs": [
+    [
+     "MOORE, WES",
+     1293944,
+     1293944
+    ],
+    [
+     "COX, DAN",
+     644000,
+     644000
+    ],
+    [
+     "LASHAR, DAVID",
+     30101,
+     30101
+    ],
+    [
+     "HARDING, DAVID",
+     17154,
+     17154
+    ],
+    [
+     "WALLACE, NANCY",
+     14580,
+     14580
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-ME",
+   "total_votes": 676819,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (me_final.csv)",
+   "second_total": 674981,
+   "off": -0.00272,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "MILLS, JANET T.",
+     376934,
+     375332
+    ],
+    [
+     "LEPAGE, PAUL R.",
+     287304,
+     287087
+    ],
+    [
+     "HUNKLER, SAM",
+     12581,
+     12562
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-MI",
+   "total_votes": 4461925,
+   "candidates": 6,
+   "second": null
+  },
+  {
+   "id": "2022-governor-MN",
+   "total_votes": 2509632,
+   "candidates": 6,
+   "second": "MEDSL's precinct file (mn22_cleaned.csv)",
+   "second_total": 2510661,
+   "off": 0.00041,
+   "ballot_names_second": 6,
+   "others_second": [],
+   "write_ins_second": 1029,
+   "pairs": [
+    [
+     "WALZ, TIMOTHY J. (TIM)",
+     1312349,
+     1312349
+    ],
+    [
+     "JENSEN, SCOTT",
+     1119941,
+     1119941
+    ],
+    [
+     "MCCASKEL, JAMES",
+     29346,
+     29346
+    ],
+    [
+     "PATTERSON, STEVE",
+     22599,
+     22599
+    ],
+    [
+     "MCTAVISH, HUGH",
+     18156,
+     18156
+    ],
+    [
+     "PROSSER, GABRIELLE M.",
+     7241,
+     7241
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-NE",
+   "total_votes": 666795,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (ne22_cleaned.csv)",
+   "second_total": 666795,
+   "off": 0.0,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "PILLEN, JIM",
+     398334,
+     398334
+    ],
+    [
+     "BLOOD, CAROL",
+     242006,
+     242006
+    ],
+    [
+     "ZIMMERMAN, SCOTT",
+     26455,
+     26455
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-NH",
+   "total_votes": 617422,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (nh22_cleaned.csv)",
+   "second_total": 619135,
+   "off": 0.00277,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 1713,
+   "pairs": [
+    [
+     "SUNUNU, CHRISTOPHER (CHRIS)",
+     352813,
+     352813
+    ],
+    [
+     "SHERMAN, TOM",
+     256766,
+     256766
+    ],
+    [
+     "HALLDORSON, KELLY",
+     5071,
+     5071
+    ],
+    [
+     "BORYSENKO, KARLYN",
+     2772,
+     2772
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-NM",
+   "total_votes": 712256,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (nm22_cleaned.csv)",
+   "second_total": 709514,
+   "off": -0.00385,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "GRISHAM, MICHELLE LUJAN",
+     370168,
+     370125
+    ],
+    [
+     "RONCHETTI, MARK V.",
+     324701,
+     324665
+    ],
+    [
+     "BEDONIE, KAREN EVETTE",
+     17387,
+     14724
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-NV",
+   "total_votes": 1004205,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (NV-cleaned-final.csv)",
+   "second_total": 1003842,
+   "off": -0.00036,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "LOMBARDO, JOE",
+     497377,
+     497147
+    ],
+    [
+     "SISOLAK, STEVE",
+     481991,
+     481872
+    ],
+    [
+     "DAVIS, BRANDON",
+     14919,
+     14913
+    ],
+    [
+     "BRIDGES, ED S., II",
+     9918,
+     9910
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-NY",
+   "total_votes": 5902996,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (ny22_cleaned.csv)",
+   "second_total": 5995941,
+   "off": 0.01575,
+   "ballot_names_second": 3,
+   "others_second": [
+    [
+     "LARRY SHARPE",
+     11
+    ]
+   ],
+   "write_ins_second": 51314,
+   "pairs": [
+    [
+     "HOCHUL, KATHLEEN COURTNEY (KATHY)",
+     3140415,
+     3156467
+    ],
+    [
+     "ZELDIN, LEE M.",
+     2762581,
+     2788149
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-OH",
+   "total_votes": 4125913,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (oh22_cleaned.csv)",
+   "second_total": 4134877,
+   "off": 0.00217,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 8964,
+   "pairs": [
+    [
+     "DEWINE, MICHAEL (MIKE)",
+     2580424,
+     2580424
+    ],
+    [
+     "WHALEY, NAN",
+     1545489,
+     1545489
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-OK",
+   "total_votes": 1153284,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (ok22_cleaned.csv)",
+   "second_total": 1153284,
+   "off": 0.0,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "STITT, KEVIN",
+     639484,
+     639484
+    ],
+    [
+     "HOFMEISTER, JOY",
+     481904,
+     481904
+    ],
+    [
+     "BRUNO, NATALIE",
+     16243,
+     16243
+    ],
+    [
+     "YEN, ERVIN STONE",
+     15653,
+     15653
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-OR",
+   "total_votes": 1950770,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (or22_clean.csv)",
+   "second_total": 1952842,
+   "off": 0.00106,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 2113,
+   "pairs": [
+    [
+     "KOTEK, TINA",
+     917074,
+     917034
+    ],
+    [
+     "DRAZAN, CHRISTINE",
+     850347,
+     850347
+    ],
+    [
+     "JOHNSON, BETSY",
+     168431,
+     168431
+    ],
+    [
+     "SMITH, DONICE NOELLE",
+     8051,
+     8050
+    ],
+    [
+     "NOBLE, R. LEON",
+     6867,
+     6867
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-PA",
+   "total_votes": 5366179,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (pa22_cleaned.csv)",
+   "second_total": 5365929,
+   "off": -5e-05,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "SHAPIRO, JOSHUA D. (JOSH)",
+     3031137,
+     3031032
+    ],
+    [
+     "MASTRIANO, DOUGLAS VINCENT",
+     2238477,
+     2238337
+    ],
+    [
+     "HACKENBURG, JONATHAN MATTHEW",
+     51611,
+     51607
+    ],
+    [
+     "DIGIULIO, CHRISTINA (PK)",
+     24436,
+     24436
+    ],
+    [
+     "SOLOSKI, JOSEPH P.",
+     20518,
+     20517
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-RI",
+   "total_votes": 356613,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (RI-cleaned.csv)",
+   "second_total": 357670,
+   "off": 0.00296,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 1057,
+   "pairs": [
+    [
+     "MCKEE, DANIEL J.",
+     207166,
+     207166
+    ],
+    [
+     "KALUS, ASHLEY MARIE",
+     139001,
+     139001
+    ],
+    [
+     "HURWITZ, ZACHARY BAKER",
+     4512,
+     4512
+    ],
+    [
+     "RIANNA, PAUL A., JR.",
+     3123,
+     3123
+    ],
+    [
+     "GIZZARELLI, ELIJAH J.",
+     2811,
+     2811
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-SC",
+   "total_votes": 1702018,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (south_carolina_cleaned.csv)",
+   "second_total": 1709269,
+   "off": 0.00426,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 1176,
+   "pairs": [
+    [
+     "MCMASTER, HENRY D.",
+     988501,
+     991882
+    ],
+    [
+     "CUNNINGHAM, JOE",
+     692691,
+     695280
+    ],
+    [
+     "REEVES, BRUCE",
+     20826,
+     20931
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-SD",
+   "total_votes": 350166,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (sd22_cleaned.csv)",
+   "second_total": 350166,
+   "off": 0.0,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "NOEM, KRISTI LYNN",
+     217035,
+     217035
+    ],
+    [
+     "SMITH, JAMIE",
+     123148,
+     123148
+    ],
+    [
+     "QUINT, TRACEY",
+     9983,
+     9983
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-TN",
+   "total_votes": 1739493,
+   "candidates": 10,
+   "second": null
+  },
+  {
+   "id": "2022-governor-TX",
+   "total_votes": 8101271,
+   "candidates": 4,
+   "second": "MEDSL's precinct file (TX-cleaned.csv)",
+   "second_total": 8106768,
+   "off": 0.00068,
+   "ballot_names_second": 4,
+   "others_second": [],
+   "write_ins_second": 4367,
+   "pairs": [
+    [
+     "ABBOTT, GREG",
+     4437099,
+     4437097
+    ],
+    [
+     "O'ROURKE, ROBERT (BETO)",
+     3553656,
+     3554772
+    ],
+    [
+     "TIPPETTS, MARK",
+     81932,
+     81942
+    ],
+    [
+     "BARRIOS, DELILAH",
+     28584,
+     28590
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-VT",
+   "total_votes": 283455,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (vt22_cleaned.csv)",
+   "second_total": 284787,
+   "off": 0.0047,
+   "ballot_names_second": 40,
+   "others_second": [
+    [
+     "JOHN KLAR",
+     71
+    ],
+    [
+     "DAVID ZUCKERMAN",
+     29
+    ],
+    [
+     "JOE BENNING",
+     15
+    ],
+    [
+     "GERALD MALLOY",
+     10
+    ],
+    [
+     "H. BROOKE PAIGE",
+     6
+    ],
+    [
+     "BRUCE BUSA",
+     5
+    ],
+    [
+     "LYNN KURALT",
+     3
+    ],
+    [
+     "CHRISTOPHER BRAY",
+     3
+    ],
+    [
+     "JOHN GRISMORE",
+     3
+    ],
+    [
+     "MIKE PIECIAK",
+     3
+    ],
+    [
+     "KESHA RAM HINSDALE",
+     2
+    ],
+    [
+     "BECCA BALINT",
+     2
+    ],
+    [
+     "SARA COFFEY",
+     2
+    ],
+    [
+     "DWAYNE TUCKER",
+     2
+    ],
+    [
+     "JANE KITCHEL",
+     1
+    ],
+    [
+     "CALEB ELDER",
+     1
+    ],
+    [
+     "MATT DRUZBA",
+     1
+    ],
+    [
+     "ANNETTE LORRAINE",
+     1
+    ],
+    [
+     "LELAND MORGAN",
+     1
+    ],
+    [
+     "RIKKI RISATTI",
+     1
+    ],
+    [
+     "RANDY BROCK",
+     1
+    ],
+    [
+     "REBECCA HOLCOMBE",
+     1
+    ],
+    [
+     "JOE GERVAIS",
+     1
+    ],
+    [
+     "LYNN DIKE",
+     1
+    ],
+    [
+     "KATE DONNALLY",
+     1
+    ],
+    [
+     "PETER WELCH",
+     1
+    ],
+    [
+     "BEN OLSEN",
+     1
+    ],
+    [
+     "LIAM MADDEN",
+     1
+    ],
+    [
+     "STEPHEN C. BELLOWS",
+     1
+    ],
+    [
+     "THOMAS OLIVER",
+     1
+    ],
+    [
+     "EMILY LONG",
+     1
+    ],
+    [
+     "ALISON DESPATHY",
+     1
+    ],
+    [
+     "LUKE TALBOT",
+     1
+    ],
+    [
+     "GENE LEON",
+     1
+    ],
+    [
+     "SETH ADAM MANLEY",
+     1
+    ]
+   ],
+   "write_ins_second": 1155,
+   "pairs": [
+    [
+     "SCOTT, PHILLIP B. (PHIL)",
+     202147,
+     202147
+    ],
+    [
+     "SIEGEL, BRENDA",
+     68248,
+     68248
+    ],
+    [
+     "HOYT, KEVIN",
+     6022,
+     6022
+    ],
+    [
+     "DUVAL, PETER",
+     4723,
+     4723
+    ],
+    [
+     "PETERS, BERNARD",
+     2315,
+     2315
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-WI",
+   "total_votes": 2654507,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (wi22_cleaned.csv)",
+   "second_total": 2656386,
+   "off": 0.00071,
+   "ballot_names_second": 3,
+   "others_second": [
+    [
+     "JOAN ELLIS BEGLINGER",
+     27198
+    ]
+   ],
+   "write_ins_second": 1879,
+   "pairs": [
+    [
+     "EVERS, ANTHONY STEVEN (TONY)",
+     1358774,
+     1358774
+    ],
+    [
+     "MICHELS, TIM",
+     1268535,
+     1268535
+    ],
+    [
+     "BELLINGER, JOAN ELLIS",
+     27198,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "2022-governor-WY",
+   "total_votes": 182549,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (WY-cleaned.csv)",
+   "second_total": 194000,
+   "off": 0.06273,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 11461,
+   "pairs": [
+    [
+     "GORDON, MARK",
+     143696,
+     143696
+    ],
+    [
+     "LIVINGSTON, THERESA A.",
+     30686,
+     30686
+    ],
+    [
+     "BALDES, JARED J.",
+     8167,
+     8157
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-DE",
+   "total_votes": 498635,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2024-de-precinct-general.csv)",
+   "second_total": 498635,
+   "off": 0.0,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "MEYER, MATTHEW (MATT) STEPHEN",
+     279585,
+     279585
+    ],
+    [
+     "RAMONE, MICHAEL (MIKE) J.",
+     219050,
+     219050
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-IN",
+   "total_votes": 2741246,
+   "candidates": 2,
+   "second": "Indiana's results archive of the 2024 general (its data says Certified: T)",
+   "second_total": 2879655,
+   "off": 0.05049,
+   "ballot_names_second": 3,
+   "others_second": [
+    [
+     "Donald Rainwater & Tonya  Hudson",
+     129781
+    ]
+   ],
+   "write_ins_second": 52,
+   "pairs": [
+    [
+     "BRAUN, MIKE",
+     1561279,
+     1566081
+    ],
+    [
+     "MCCORMICK, JENIFFER",
+     1179967,
+     1183741
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-MO",
+   "total_votes": 2887469,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2024-mo-precinct-general.csv)",
+   "second_total": 2960266,
+   "off": 0.02521,
+   "ballot_names_second": 4,
+   "others_second": [
+    [
+     "BILL SLANTZ",
+     40908
+    ],
+    [
+     "PAUL LEHMANN",
+     22359
+    ]
+   ],
+   "write_ins_second": 24,
+   "pairs": [
+    [
+     "KEHOE, MICHAEL LEO",
+     1746317,
+     1750802
+    ],
+    [
+     "QUADE, CRYSTAL",
+     1141152,
+     1146173
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-MT",
+   "total_votes": 602186,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2024-mt-precinct-general.csv)",
+   "second_total": 602283,
+   "off": 0.00016,
+   "ballot_names_second": 3,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "GIANFORTE, GREG",
+     354448,
+     354491
+    ],
+    [
+     "BUSSE, RYAN",
+     232547,
+     232604
+    ],
+    [
+     "LEIB, KAISER",
+     15191,
+     15188
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-NC",
+   "total_votes": 5591547,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (2024-nc-precinct-general.csv)",
+   "second_total": 5590371,
+   "off": -0.00021,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "STEIN, JOSHUA HAROLD",
+     3069496,
+     3068605
+    ],
+    [
+     "ROBINSON, MARK KEITH",
+     2241309,
+     2241136
+    ],
+    [
+     "ROSS, MIKE",
+     176392,
+     176332
+    ],
+    [
+     "SMITH, VINNY",
+     54738,
+     54715
+    ],
+    [
+     "TURNER, WAYNE",
+     49612,
+     49583
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-ND",
+   "total_votes": 361421,
+   "candidates": 3,
+   "second": null
+  },
+  {
+   "id": "2024-governor-NH",
+   "total_votes": 795468,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2024-nh-precinct-general.csv)",
+   "second_total": 813497,
+   "off": 0.02266,
+   "ballot_names_second": 3,
+   "others_second": [
+    [
+     "STEPHEN VILLEE",
+     16202
+    ]
+   ],
+   "write_ins_second": 1024,
+   "pairs": [
+    [
+     "AYOTTE, KELLY A.",
+     435400,
+     436122
+    ],
+    [
+     "CRAIG, JOYCE",
+     360068,
+     360149
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-UT",
+   "total_votes": 1471139,
+   "candidates": 5,
+   "second": "MEDSL's precinct file (2024-ut-precinct-general.csv)",
+   "second_total": 1476927,
+   "off": 0.00393,
+   "ballot_names_second": 7,
+   "others_second": [
+    [
+     "SPENCER J COX DEIDRE M HENDERSON",
+     781114
+    ],
+    [
+     "BRIAN SMITH KING REBEKAH CUMMINGS",
+     420403
+    ],
+    [
+     "PHIL LYMAN NATALIE CLAWSON",
+     200484
+    ],
+    [
+     "J ROBERT LATHAM BARRY EVAN SHORT",
+     41150
+    ],
+    [
+     "TOM TOMENY WILLIAM LANSING TAYLOR",
+     5782
+    ],
+    [
+     "CHARLIE TAUTUAA SYLVIA MIERA FISK",
+     523
+    ]
+   ],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "COX, SPENCER JAMES",
+     781431,
+     null
+    ],
+    [
+     "KING, BRIAN STEPHEN",
+     420513,
+     null
+    ],
+    [
+     "LYMAN, PHILLIP (PHIL) KAY",
+     200551,
+     null
+    ],
+    [
+     "LATHAM, J. ROBERT",
+     41164,
+     null
+    ],
+    [
+     "WILLIAMS, TOMMY",
+     27480,
+     27471
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-VT",
+   "total_votes": 362841,
+   "candidates": 6,
+   "second": "MEDSL's precinct file (2024-vt-precinct-general.csv)",
+   "second_total": 362841,
+   "off": 0.0,
+   "ballot_names_second": 5,
+   "others_second": [],
+   "write_ins_second": 891,
+   "pairs": [
+    [
+     "SCOTT, PHILLIP B. (PHIL)",
+     266439,
+     266439
+    ],
+    [
+     "CHARLESTIN, ESTHER",
+     79217,
+     79217
+    ],
+    [
+     "HOYT, KEVIN",
+     9368,
+     9368
+    ],
+    [
+     "GOODBAND, JUNE",
+     4512,
+     4512
+    ],
+    [
+     "MUTINO, ELI (POA)",
+     2414,
+     2414
+    ],
+    [
+     "W-I",
+     891,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-WA",
+   "total_votes": 3861388,
+   "candidates": 3,
+   "second": "MEDSL's precinct file (2024-wa-precinct-general.csv)",
+   "second_total": 3854672,
+   "off": -0.00174,
+   "ballot_names_second": 2,
+   "others_second": [],
+   "write_ins_second": 8189,
+   "pairs": [
+    [
+     "FERGUSON, ROBERT (BOB) W.",
+     2143368,
+     2140948
+    ],
+    [
+     "REICHERT, DAVID GEORGE (DAVE)",
+     1709818,
+     1705535
+    ],
+    [
+     "W-I",
+     8202,
+     null
+    ]
+   ]
+  },
+  {
+   "id": "2024-governor-WV",
+   "total_votes": 693276,
+   "candidates": 2,
+   "second": "MEDSL's precinct file (2024-wv-precinct-general.csv)",
+   "second_total": 740928,
+   "off": 0.06873,
+   "ballot_names_second": 5,
+   "others_second": [
+    [
+     "ERIKA KLIE KOLENICH",
+     21228
+    ],
+    [
+     "S MARSHALL WILSON",
+     16828
+    ],
+    [
+     "CHASE LINKO-LOOPER",
+     9596
+    ]
+   ],
+   "write_ins_second": 0,
+   "pairs": [
+    [
+     "MORRISEY, PATRICK J.",
+     459300,
+     459300
+    ],
+    [
+     "WILLIAMS, STEPHEN (STEVE) T.",
+     233976,
+     233976
+    ]
+   ]
+  }
+ ],
+ "relabelled": [
+  "2018-governor-CT",
+  "2018-governor-NH",
+  "2018-governor-NY",
+  "2018-governor-RI",
+  "2018-governor-WY",
+  "2020-governor-NC",
+  "2022-governor-AL",
+  "2022-governor-NY",
+  "2022-governor-WY",
+  "2024-governor-IN",
+  "2024-governor-MO",
+  "2024-governor-NH",
+  "2024-governor-WV"
+ ],
+ "me02": {
+  "id": "2024-house-ME-02",
+  "fixed": "the ranked-choice lines out of the candidates (result.rcv_lines)"
+ },
+ "nc_2002_house_118": {
+  "id": "2002-state-lower-NC-118",
+  "total_votes": 25718,
+  "candidates": [
+   [
+    "rapp, ray",
+    13717
+   ],
+   [
+    "carpenter, margaret m (marge)",
+    11476
+   ],
+   [
+    "williams, barry",
+    525
+   ]
+  ],
+  "reading": "nothing to fix: the record holds the State Board's certified counts (its note); Klarner's contest file total, 125,193, adds its candidate file's 113,717 for Rapp, whom the Board counts at 13,717 [measured]"
+ },
+ "nd_2024_governor": {
+  "reading": "nothing to fix: MEDSL's 2024 North Dakota file lacks the governor's rows in Burleigh and Divide Counties with the president whole (M2's seventh pass, item 7); the record's count is the dataset's, and no p of D3's rests on those rows (the legislature's rows are present)"
+ }
+}

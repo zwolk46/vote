@@ -91,7 +91,7 @@
     "seen": 54
    },
    "within_100_votes": {
-    "expected": 51.8,
+    "expected": 51.7,
     "seen": 43
    },
    "mean_forecast_minus_outcome": 0.0295,
