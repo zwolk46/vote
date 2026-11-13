@@ -1,0 +1,18 @@
+---
+name: m2-section-22-scope
+description: M2's section 22 (2026-11-13): D3's #118 (4debd7e5, REPORT §39, Singer's 2020 results, pipeline/local_singer.py) checked in c52, merged as PR #119 (370e8710, 11:27 UTC); result, readings, lessons
+metadata:
+  type: project
+---
+
+The orchestrator, 2026-11-13 11:05 UTC (verbatim): "D3's Singer 2020 PR #118 is merged as 4debd7e. Please check it in §22, ending at 4debd7e. It covers the following, all in REPORT §39 and pipeline/local_singer.py: Singer's RV80FW intake: CC0, 56 files against the record's md5. The gate against D1/D2's 2020 by candidate at 0.5%: 46 pass; KS, MO, OH, UT and WY fail and are untested, not held; Maine passes with its UOCAVA lines. The district checks of 3,880 Klarner 2020 contests (136 unmatched). The 25 flags. MT House 3, 19 and 84 take Singer's count, which Montana's canvass agrees with (sha256 3e6f8ba1…). Held: ME 15, NY House 3 and 5. Noted: ME House 144, Senate 17, NY House 1, AZ House 12, Senate 16. Maine's rows being counties only, so 22:26 (b) does not apply. The moves: 7,546 moved, 17 lost, 0 gained; my compare agrees. Your two readings: FairVote's text hash, and §38's 48 and 31. The rulings: §32's rules act on Singer's count as on MEDSL's, and an inferred error settles nothing."
+
+Result (c52 §52.1–52.6, REPORT §22; run of record 11:22 UTC at ef876338, OUTPUT.txt lines 8297–8430): everything as D3 recorded it. BEFORE 30480c35, AFTER 4debd7e5. Record CC0, no guestbook, 56 md5 equal (the zip's sha differs per request: bfe8b7c3 vs D3's e0f1dc5c); 431 central lines and Utah's 841 preliminary rows equal; gate 927 lines equal, 46 pass, KS/MO/OH/UT/WY fail; 5,496 Klarner 2020 records: 1,464 untested, 3,880 tested, 136 unmatched (123 unopposed, 13 contested), 15 shared, 1 not paired; 25 flags equal field by field (pairs as sets: D3's in Klarner's order); Montana's canvass (sha equal, my own parse, 218/218 sums) = Singer in all 125 districts, Klarner in 122 (HD 3/19/84: Klarner's +10,000 errors); Maine rows the state's line + 16 counties; records: 3 at Singer's count (p by the density formula x2.49/x2.98/x2.70; the partisan sd moves with the n band), 17 held (ME 111/149, one name, carry HELD_ONE_NAME after the held text, ruling 00:26), 5 noted; moves 7,684 ids equal, 7,546/17/0; FairVote text by D3's page_text differs by ONE character between reads (24,635 vs 24,636; my sha 6cc069ac vs the listing's 11757c41), so the text hash is no cross-read check either; the listing at 4debd7e equals my scan (48/31; 107,096 = 107,111 − 15 held with p>0).
+
+Fetch: fetch_eighth_pass.sh singer_record, singer_files (Dataverse's whole-dataset zip, format=original), mt_sos; cache ~/.cache/vote-m2/eighth/src/singer/ (unzipped/), mt_sos/; normalized contests at eighth/derived/singer-2020.json. Worktrees 30480c35, 4debd7e5.
+
+Lessons: Klarner's 2020 contests as D3's check reads them = the BEFORE records with election == "general" (4,349 + 1,147); c46's rec_cands/named_of/on_ballot and name_key/name_keys serve copies of local_districts' match/pair/test; the canvass PDF wraps long surnames over two lines, so compare by votes; a one-name record whose counts are held gets HELD_ONE_NAME appended (local.py ~line 940).
+
+Status: PR #119 (checks c7f6adb0, note commits a8da36ef, 1b0eaab5) merged by the orchestrator as 370e8710 at 11:27 UTC; main merged into the branch (cb741d7c), note current. No further data PR is coming (orchestrator 11:28 UTC); final report sent; M2 rests.
+
+**Why:** each section checks one merged PR at its own end. **How to apply:** see [[m2-eighth-pass]] and [[m2-section-21-scope]] for the pattern.

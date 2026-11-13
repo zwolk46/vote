@@ -21,6 +21,7 @@ X1 design thread (cmsg_01FHkmcV6WaeZh9r5PfgnMbuVvYhNiCZhk78N7b9DQjyTh), as of 20
   ruled out (LEAN_OUT in the build) until D2 removes them. A dot or figure with no population fades per person, without
   words (no "No figure yet", no "no population in the data yet": orchestrator 11:05, 12:01).
   Local races and measures wait for M2's last item.
+- Resume note: handoff/workers/X1.md on the options branch (b6e9660, 22:20). field.json built from main as of #71; rebuild before any PR.
 - Waiting on Zach's picks (A/B first screen; A/B explainer); then one PR to main per pick without the picker; then stop.
   Holding (orchestrator 11:40, again after 12:01). State legislative populations now read from data/population/ (#71).
   Explainer's first step made lighter (orchestrator 12:35): worlds scene copies its 4,000 ballots from cached grids

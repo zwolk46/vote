@@ -1,0 +1,22 @@
+---
+name: m2-eighth-pass
+description: M2's eighth pass (2026-11-12/13): §15 (PR #102), §16 (#104), §17 (#105), §18 (#108), §19 (#110, bddef1ae) merged; §20 (D3's #111 and #113, end 9ad2d3d5; c49, c50) merged as PR #114 (e3e9b921); §21 (D3's #115, end f6434077; c51) merged as PR #117 (30480c35); §22 (D3's #118 Singer 2020, end 4debd7e5; c52) merged as PR #119 (370e8710), see [[m2-section-22-scope]]; brief done 11:28 UTC; final report sent; the full run of record c1–c52 at 370e8710 (REPORT §23) open as PR #120 (28934a5b)
+metadata:
+  type: project
+---
+
+Brief (orchestrator, 2026-11-12 23:11 UTC): end fixed at 346273e, moved as D3's PRs landed (d680bd4 #100, 4831b16 #101, 72d1d60 #106, b350d5e #108, b35fede #109). "Send me two things at once if they come up: any p that moves more than 2x, and any record whose count fails a test." He gates and merges every PR ("do not merge it yourself"). Each section gets its own run appended to OUTPUT.txt, then a PR from the branch with main merged in; messages to him at most 2,000 characters.
+
+Merged: PR #102 (§15), #104 (§16: c43, c44), #105 (§17: c45), #108 (§18: c46, D3's #106; b350d5e). §19 (D3's #109, b350d5e -> b35fede): `c47_governor_counts.py` (moves-governor-counts.json 1,156 of 1,156; CT/NY 2018 fusion lines, IN 2024 certified, UT 2008 workbook, WV 2012 held, MO 403 (never ask again), ME 2010 +5.5%; refit equal to the blocks; fusion counts 213/86/353 equal; Klarner 6,659/8,810 exact), `c48_district_checks_3.py` (moves-district-checks-3.json 1,160 of 1,160, 14,525 P, 9 N, none over 2x; counts 14,997 = 14,525 + 126 + 346, 187 = 126 + 61; Indiana 2016 by candidate with spellings merged first: 23/23 flags, two-witness six = D3's; spellings 2016 97 = 97; over-seats ballots equal on 14/57/59 read flags, Grand Isle/Windham to the digit; zero rows; DC 12 rows = the Board's PDF; NY reasons = Molinaro's 84.53%/73.51%), `m2rdata.py` (RData reader), REPORT §19, own run in OUTPUT.txt, PR #110 (513a8541) merged as bddef1ae (2026-11-13 08:55 UTC).
+
+§20 (D3's #111 bddef1ae -> 11c852dc and #113 -> 9ad2d3d5): `c49_va_local_2.py` (8 sections) and `c50_in_house_2018.py` (4), REPORT §20, own run in OUTPUT.txt (lines 7800-8224), PR #114 (b4733cac) merged by the orchestrator as e3e9b921 (2026-11-13 10:31 UTC), the branch with main merged in at 58cc12fc; result and readings in [[m2-section-20-scope]].
+
+Method differences found (no p moves): 2018 spelling pairs differ by source (D3 reads MEDSL's GitHub `2018-github-2018-xx` zips, my caches the Dataverse zips); D3's over-seats pairs leave out write-ins under the strong line (my c46 d3_match pairs them: 1–4% of klarner_x); VT 2022 Paige write-in lines keyed differently. The 2016 state file has no president/US Senate rows, so 2016 ballots come from the governor alone.
+
+Lessons: copy D3's rules piece by piece and apply them in his order (the spelling merge before the match: Senate 36's Sandlin 22,034 + 4,676); D3's flag ids are kids ('2016-IN-lower--36--'), records' ids differ — map through c46.kid_norm/rec_norm; the raw-file pass is cached by size+mtime+wants under eighth/derived/ (one pass per file, ~10 min total; the 2016 file 2 min); Python stdout to a file is block-buffered, so a running section's log stays empty.
+
+Files: `fetch_eighth_pass.sh governors|aa|klarner|va_code|in_2018|in_2018_house`; worktrees `~/.cache/vote-m2/eighth/wt/<commit>`; logs in the scratchpad p8/.
+
+Brief's end (orchestrator 11:28 UTC on the 13th): D3's brief done, no further data PR; final report sent (checked, open readings in REPORT §14.3/§19.5/§22.7, how to resume). The orchestrator then asked (11:31) for the full run of c1–c52 at 370e8710 as the new run of record: made in a worktree of 370e8710 (11:33–12:21 UTC, 48 min), appended to OUTPUT.txt lines 8,432–17,293, c38's JSONs rewritten, REPORT §23 (what differs: the HEAD line; D3's #100–#118 since the 00:16 run; my older scripts' rules c4/c9/c10/c15/c19/c21/c24/c25/c28 predate the held-count, ranked-choice and pool rules); no check fails. PR #120 (28934a5b) for the orchestrator to merge; after the merge, merge main in and bring the note current. Lesson: compare a new run block by block against the last block of each script (scratchpad p8/compare23.py); the 'M2 checks (section N)' header lines fold into the previous block.
+
+**Why:** the pass's end moves as D3's PRs land, and each section is checked at its own end. **How to apply:** each section reads records from the worktrees and copies every rule it applies; findings go to the orchestrator in ≤2,000 characters, never to a state.

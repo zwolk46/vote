@@ -8,7 +8,7 @@
 - Zach's preference: wants to work autonomously, watching the tracker; law treated as ratified unless he says otherwise.
 - [[d2-congress-data]]: D2's Senate/House/governor data 2006-2024, 538 rule, open findings.
 - Presidential data (D1): PR #23 merged; 538 rules and file quirks in [[vote-president-data]] (vote-president-data.md).
-- [[d3-local-data]]: D3 state legislative, local and measure data: Klarner, MEDSL 2016-2024, district checks (#100, #106; third pass and governors' counts #109, REPORT §35), refusals, recount zone beside p (§38, #115 merged 2026-11-13); next Singer 2020 (CC0), then its final report.
+- [[d3-local-data]]: D3 state legislative, local and measure data: Klarner, MEDSL 2016-2024, district checks (#100, #106; third pass and governors' counts #109, REPORT §35), refusals, recount zone beside p (§38, #115), Singer 2020 (§39, #118; Montana settled by its canvass). Brief done; final report 2026-11-13 11:07 UTC in STATE; thread rests.
 - [[m2-check-computed-p]]: M2's independent check of every p at every level — report `checks/M2-REPORT.md` (§10–14 the third to seventh passes), scripts `checks/m2/c1-c40`, PRs #69, #89, #91, #94, #99 merged (eighth pass from 346273e); open readings for the orchestrator. Tools and caches: [[m2-fifth-pass-tools]]; the seventh pass's brief (NJ legislatures #92, volume check of the inputs): [[m2-seventh-pass-brief]].
 - [[d4-cost-and-law]]: D4 costs (data/cost) and state tie/recount law (data/law): PRs #40, #41, #43, #50, counts, tools, refusals (IL, PA, WI, NM, TN code site), NJ tree ruling.
 - [[sld-population]]: state legislative district populations 2024/2022 from Census CD119/CD118 (PR #71), matching rules and gaps.
