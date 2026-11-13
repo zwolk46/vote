@@ -57,9 +57,9 @@
    2021,
    2025
   ],
-  "mean_log_score": 1.0971420603627875,
-  "z_rms": 0.9466545028851213,
-  "z_mean": 0.09825613768817791,
+  "mean_log_score": 1.0968141291699494,
+  "z_rms": 0.9466385987297712,
+  "z_mean": 0.0993661977215825,
   "coverage": {
    "0.5": 0.525,
    "0.8": 0.8,
@@ -68,57 +68,57 @@
   "cells": {
    "all races": {
     "49-51%": {
-     "expected": 3.1735223824726435,
+     "expected": 3.1716852123708796,
      "seen": 6
     },
     "48-52%": {
-     "expected": 6.315301131594501,
+     "expected": 6.311678362737157,
      "seen": 11
     },
     "45-55%": {
-     "expected": 15.253125670901788,
+     "expected": 15.244920680779924,
      "seen": 18
     }
    },
    "|mean - 1/2| 0.00-0.05": {
     "49-51%": {
-     "expected": 2.299273134477079,
+     "expected": 2.2982269993949522,
      "seen": 3
     },
     "48-52%": {
-     "expected": 4.567973154077356,
+     "expected": 4.565925679829276,
      "seen": 5
     },
     "45-55%": {
-     "expected": 10.90989586614492,
+     "expected": 10.905496946704584,
      "seen": 11
     }
    },
    "|mean - 1/2| 0.05-0.10": {
     "49-51%": {
-     "expected": 0.7520156006485946,
+     "expected": 0.7518912122443169,
      "seen": 2
     },
     "48-52%": {
-     "expected": 1.501576371118083,
+     "expected": 1.5013294556380872,
      "seen": 4
     },
     "45-55%": {
-     "expected": 3.7086376581114515,
+     "expected": 3.7080533910035443,
      "seen": 5
     }
    },
    "|mean - 1/2| 0.10-0.20": {
     "49-51%": {
-     "expected": 0.12223364734696984,
+     "expected": 0.12156700073161131,
      "seen": 1
     },
     "48-52%": {
-     "expected": 0.2457516063990638,
+     "expected": 0.24442322726979449,
      "seen": 2
     },
     "45-55%": {
-     "expected": 0.6345921466454139,
+     "expected": 0.6313703430717925,
      "seen": 2
     }
    },
@@ -146,28 +146,28 @@
   "lean_tests_raw": {
    "s": {
     "within": "1 point",
-    "expected": 3.1735223824726435,
+    "expected": 3.1716852123708796,
     "seen": 6
    },
    "v": {
     "1000": {
-     "expected": 0.12428581549756895,
+     "expected": 0.12420656830372395,
      "seen": 0
     },
     "5000": {
-     "expected": 0.6213734466473191,
+     "expected": 0.6209773229346253,
      "seen": 0
     },
     "10000": {
-     "expected": 1.2423992385566676,
+     "expected": 1.2416076924075035,
      "seen": 3
     },
     "20000": {
-     "expected": 2.482018420485396,
+     "expected": 2.480440928463973,
      "seen": 3
     },
     "50000": {
-     "expected": 6.15654677827202,
+     "expected": 6.152699926959371,
      "seen": 9
     }
    }
@@ -260,38 +260,38 @@
    "2013": {
     "races": 2,
     "cycles": 18,
-    "k": 0.9723893090127894,
-    "mean_log_score": 1.4434133882949407
+    "k": 0.9731672185338207,
+    "mean_log_score": 1.4430661756816867
    },
    "2015": {
     "races": 2,
     "cycles": 19,
-    "k": 0.957852516668124,
-    "mean_log_score": 1.3829577662796888
+    "k": 0.9585156859937469,
+    "mean_log_score": 1.3859943808589128
    },
    "2017": {
     "races": 2,
     "cycles": 20,
-    "k": 0.9604112081993758,
-    "mean_log_score": 1.3962507025459407
+    "k": 0.961014903393895,
+    "mean_log_score": 1.3949697934696696
    },
    "2019": {
     "races": 2,
     "cycles": 21,
-    "k": 0.9350068393772308,
-    "mean_log_score": 0.985106236087813
+    "k": 0.9354015689957726,
+    "mean_log_score": 0.9782792228945715
    },
    "2021": {
     "races": 2,
     "cycles": 22,
-    "k": 0.9392664848721418,
-    "mean_log_score": 1.3303642121173962
+    "k": 0.9397531097488979,
+    "mean_log_score": 1.3311235060018887
    },
    "2025": {
     "races": 2,
     "cycles": 24,
-    "k": 0.9322557749789705,
-    "mean_log_score": 1.298218194000968
+    "k": 0.9325289145893156,
+    "mean_log_score": 1.2963187965632534
    }
   }
  },
@@ -320,9 +320,9 @@
    2021,
    2025
   ],
-  "mean_log_score": 1.153881499025109,
-  "z_rms": 0.8763209965092685,
-  "z_mean": 0.08866221319239889,
+  "mean_log_score": 1.1534092790415853,
+  "z_rms": 0.8764625670891348,
+  "z_mean": 0.08977955931456513,
   "coverage": {
    "0.5": 0.55,
    "0.8": 0.825,
@@ -331,57 +331,57 @@
   "cells": {
    "all races": {
     "49-51%": {
-     "expected": 3.0961238652444423,
+     "expected": 3.094286582895873,
      "seen": 6
     },
     "48-52%": {
-     "expected": 6.163679829122341,
+     "expected": 6.1600515138813,
      "seen": 11
     },
     "45-55%": {
-     "expected": 14.925129503413286,
+     "expected": 14.916832894985212,
      "seen": 18
     }
    },
    "|mean - 1/2| 0.00-0.05": {
     "49-51%": {
-     "expected": 2.195082952552087,
+     "expected": 2.194051753191478,
      "seen": 3
     },
     "48-52%": {
-     "expected": 4.363667011506994,
+     "expected": 4.3616445448305745,
      "seen": 5
     },
     "45-55%": {
-     "expected": 10.465022386685451,
+     "expected": 10.460613445515085,
      "seen": 11
     }
    },
    "|mean - 1/2| 0.05-0.10": {
     "49-51%": {
-     "expected": 0.7673020842736844,
+     "expected": 0.7671683748824076,
      "seen": 2
     },
     "48-52%": {
-     "expected": 1.5315378055517122,
+     "expected": 1.531269717434844,
      "seen": 4
     },
     "45-55%": {
-     "expected": 3.7735616363501747,
+     "expected": 3.772887056786387,
      "seen": 5
     }
    },
    "|mean - 1/2| 0.10-0.20": {
     "49-51%": {
-     "expected": 0.13373882841867124,
+     "expected": 0.13306645482198742,
      "seen": 1
     },
     "48-52%": {
-     "expected": 0.2684750120636335,
+     "expected": 0.2671372516158828,
      "seen": 2
     },
     "45-55%": {
-     "expected": 0.6865454803776606,
+     "expected": 0.6833323926837418,
      "seen": 2
     }
    },
@@ -409,28 +409,28 @@
   "lean_tests_raw": {
    "s": {
     "within": "1 point",
-    "expected": 3.0961238652444423,
+    "expected": 3.094286582895873,
     "seen": 6
    },
    "v": {
     "1000": {
-     "expected": 0.1215578539164095,
+     "expected": 0.12147835505231724,
      "seen": 0
     },
     "5000": {
-     "expected": 0.607732274533181,
+     "expected": 0.6073348718284783,
      "seen": 0
     },
     "10000": {
-     "expected": 1.215108482431811,
+     "expected": 1.2143142494797203,
      "seen": 3
     },
     "20000": {
-     "expected": 2.427373049761288,
+     "expected": 2.4257891592161402,
      "seen": 3
     },
     "50000": {
-     "expected": 6.01918048903509,
+     "expected": 6.015300335456978,
      "seen": 9
     }
    }
@@ -523,42 +523,42 @@
    "2013": {
     "races": 2,
     "cycles": 18,
-    "k": 0.9723893090127894,
-    "mean_log_score": 1.4712001177909988
+    "k": 0.9731672185338207,
+    "mean_log_score": 1.4698750326752088
    },
    "2015": {
     "races": 2,
     "cycles": 19,
-    "k": 0.957852516668124,
-    "mean_log_score": 1.4998354005166492
+    "k": 0.9585156859937469,
+    "mean_log_score": 1.5003583108821896
    },
    "2017": {
     "races": 2,
     "cycles": 20,
-    "k": 0.9604112081993758,
-    "mean_log_score": 1.5208718010515918
+    "k": 0.961014903393895,
+    "mean_log_score": 1.5195775865420618
    },
    "2019": {
     "races": 2,
     "cycles": 21,
-    "k": 0.9350068393772308,
-    "mean_log_score": 1.1991658472164397
+    "k": 0.9354015689957726,
+    "mean_log_score": 1.1936582176483426
    },
    "2021": {
     "races": 2,
     "cycles": 22,
-    "k": 0.9392664848721418,
-    "mean_log_score": 1.472747959517541
+    "k": 0.9397531097488979,
+    "mean_log_score": 1.472552300896262
    },
    "2025": {
     "races": 2,
     "cycles": 24,
-    "k": 0.9322557749789705,
-    "mean_log_score": 1.4879599775030765
+    "k": 0.9325289145893156,
+    "mean_log_score": 1.4863152552817485
    }
   },
   "raises_log_score": true,
-  "mean_log_score_gain": 0.05673943866232145,
+  "mean_log_score_gain": 0.05659514987163594,
   "cells_tested": [
    "all races, 49-51%",
    "all races, 48-52%",
@@ -578,7 +578,7 @@
   "leave_one_year_out": {
    "1985": {
     "improves": false,
-    "mean_log_score_gain": 0.0650775586195802,
+    "mean_log_score_gain": 0.06492567568201668,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -589,7 +589,7 @@
    },
    "1987": {
     "improves": false,
-    "mean_log_score_gain": 0.053255823358835386,
+    "mean_log_score_gain": 0.05310394042127142,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -600,7 +600,7 @@
    },
    "1989": {
     "improves": false,
-    "mean_log_score_gain": 0.05286637488502777,
+    "mean_log_score_gain": 0.052714491947463804,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -610,7 +610,7 @@
    },
    "1991": {
     "improves": false,
-    "mean_log_score_gain": 0.05826671690902585,
+    "mean_log_score_gain": 0.05811483397146233,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -621,7 +621,7 @@
    },
    "1993": {
     "improves": false,
-    "mean_log_score_gain": 0.05187367548199551,
+    "mean_log_score_gain": 0.051721792544431766,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -632,7 +632,7 @@
    },
    "1995": {
     "improves": false,
-    "mean_log_score_gain": 0.06380036949769319,
+    "mean_log_score_gain": 0.06364848656012945,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -641,7 +641,7 @@
    },
    "1997": {
     "improves": false,
-    "mean_log_score_gain": 0.061559294244800666,
+    "mean_log_score_gain": 0.06140741130723715,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -652,7 +652,7 @@
    },
    "1999": {
     "improves": false,
-    "mean_log_score_gain": 0.07472290536786153,
+    "mean_log_score_gain": 0.074571022430298,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -661,7 +661,7 @@
    },
    "2001": {
     "improves": false,
-    "mean_log_score_gain": 0.05550800905872344,
+    "mean_log_score_gain": 0.0553561261211597,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -672,7 +672,7 @@
    },
    "2003": {
     "improves": false,
-    "mean_log_score_gain": 0.0702949293639703,
+    "mean_log_score_gain": 0.07014304642640656,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -683,7 +683,7 @@
    },
    "2005": {
     "improves": false,
-    "mean_log_score_gain": 0.0570983997818717,
+    "mean_log_score_gain": 0.05694651684430774,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -694,7 +694,7 @@
    },
    "2007": {
     "improves": false,
-    "mean_log_score_gain": 0.048195572377434326,
+    "mean_log_score_gain": 0.04804368943987103,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -706,7 +706,7 @@
    },
    "2009": {
     "improves": false,
-    "mean_log_score_gain": 0.04758643259065276,
+    "mean_log_score_gain": 0.04743454965308924,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -717,7 +717,7 @@
    },
    "2011": {
     "improves": false,
-    "mean_log_score_gain": 0.05924786775058566,
+    "mean_log_score_gain": 0.05909598481302192,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -728,7 +728,7 @@
    },
    "2013": {
     "improves": false,
-    "mean_log_score_gain": 0.05826326546054572,
+    "mean_log_score_gain": 0.05816284949679984,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -737,7 +737,7 @@
    },
    "2015": {
     "improves": false,
-    "mean_log_score_gain": 0.053574270474182395,
+    "mean_log_score_gain": 0.05355468775839167,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -747,7 +747,7 @@
    },
    "2017": {
     "improves": false,
-    "mean_log_score_gain": 0.053166719723199085,
+    "mean_log_score_gain": 0.05301553707159612,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -758,7 +758,7 @@
    },
    "2019": {
     "improves": false,
-    "mean_log_score_gain": 0.048459429585147706,
+    "mean_log_score_gain": 0.04823810540415474,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -768,7 +768,7 @@
    },
    "2021": {
     "improves": false,
-    "mean_log_score_gain": 0.052231843465594174,
+    "mean_log_score_gain": 0.052130221186228676,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -777,7 +777,7 @@
    },
    "2025": {
     "improves": false,
-    "mean_log_score_gain": 0.04973931524970121,
+    "mean_log_score_gain": 0.049574028353380095,
     "fails": [
      "all races, 49-51%",
      "all races, 48-52%",
@@ -794,12 +794,12 @@
  "lean_note": {
   "s": {
    "within": "1 point",
-   "expected": 3.1735223824726435,
+   "expected": 3.1716852123708796,
    "seen": 6
   },
   "v": {
    "within_votes": 50000,
-   "expected": 6.15654677827202,
+   "expected": 6.152699926959371,
    "seen": 9
   },
   "counts": {

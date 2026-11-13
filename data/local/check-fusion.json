@@ -157,6 +157,25 @@
   "rule": "the record's two nominees against Algara and Amlani's county returns summed; listed where either differs by more than the line",
   "listed": [
    {
+    "id": "2012-governor-WV",
+    "source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:10.7910/DVN/DGDRDT, v4.1, released 2026-02-15T14:24:27Z",
+    "nominees": [
+     {
+      "party": "D",
+      "record": 297207,
+      "algara_amlani": 335468,
+      "off": 0.12874
+     },
+     {
+      "party": "R",
+      "record": 273130,
+      "algara_amlani": 303291,
+      "off": 0.11043
+     }
+    ],
+    "algara_amlani_counties_missing": 0
+   },
+   {
     "id": "2016-governor-MO",
     "source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Dataverse doi:10.7910/DVN/DGDRDT, v4.1, released 2026-02-15T14:24:27Z",
     "nominees": [
