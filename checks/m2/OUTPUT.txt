@@ -8294,3 +8294,137 @@ C51 (section 21): D3's #115, e3e9b921 -> f6434077; b2e445c0
   model/MATH.md: 'a third the size of the spread' on lines []
   model/MATH.md: '96% of its value' on lines []
 
+M2 checks (section 22, its own run): 2026-11-13T11:22Z, repository HEAD ef876338, python3 3.13.18
+##### c52_singer_2020
+c52_singer_2020.py: section 22 (D3's #118, 4debd7e5); run at ef876338; sections [1, 2, 3, 4, 5, 6]
+
+====================================================================================================
+52.1 Singer's dataset, read apart: the record, the 56 files against its md5s, the files as read (D3's counting rule copied) against D3's normalize_checks
+====================================================================================================
+  the record [measured: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/RV80FW, 11:10:03 UTC, HTTP 200, 49650 bytes]: 'US 2020 General Official Election Results in Tabular Format', ['Singer, Stephanie Frank'] (['Portland State University']); version 1.0 RELEASED, released 2021-08-27T16:51:07Z; licence CC0 1.0 (http://creativecommons.org/publicdomain/zero/1.0); termsOfUse None; guestbook keys []; fileAccessRequest False; files 56, any restricted False; the record's filesize sum 26,783,092 (Dataverse's ingested tabular sizes [inferred]); persistent https://doi.org/10.7910/DVN/RV80FW
+    description holds 'Official 2020 General Election results for all 56 major US jurisdictions': True
+    description holds 'by county (or other major subdivision)': True
+    description holds 'including all federal contests and most statewide and state legislative contests': True
+    description holds 'comes from, or is rolled up to the county level from, files or web pages published by the State, District or Territory Boards of Election': True
+  the files [measured: https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/RV80FW&format=original, 11:11:57 UTC, HTTP 200, 1532255 bytes, sha256 bfe8b7c368d6dddb…]: D3's zip 1,532,255 bytes, sha256 e0f1dc5c…: the bytes equal, the sha256 differs (Dataverse builds the zip at each request [inferred]; the files within are what the record names, by md5)
+  unzipped: 56 files, 23,671,970 bytes (D3: 23,671,970), md5 equal to the record's: 56 of 56; rows 222,223; vote types {'absentee': 8790, 'early': 17846, 'election-day': 28239, 'provisional': 20937, 'total': 125815, 'absentee-fwab': 12, 'absentee-mail': 14351, 'absentee-mail-2': 907, 'uocava': 364, 'not-uocava': 663, 'absentee-in-person': 1433, 'failsafe': 1433, 'failsafe-provisional': 1433}
+  lines where the jurisdiction's own line is not its units' sum (added): mine 431 (D3: 431; equal as lists: True); by jurisdiction {'AK': 8, 'ME': 361, 'MP': 48, 'RI': 14}; the own lines' votes 79,350 against the units' 6,517,739
+  roll-ups equal to their units' sum (not added): mine {} (D3: {}); preliminary rows: mine 841 in 7 contests, equal to D3's: True {'UT US House UT District 1': 58, 'UT US House UT District 2': 87, 'UT US House UT District 3': 116, 'UT US House UT District 4': 116, 'UT US President (UT)': 261, 'UT UT Attorney General': 87, 'UT UT Governor': 116}
+  contests by jurisdiction: 5,017 in 56 files; legislative contests 4,428
+  the check file's source: read_utc 2026-11-13T10:34:47Z, record_read_utc 2026-11-13T10:34:42Z, licence CC0 1.0, mark stated; rules {'gate_line': 0.005, 'ratio_off_over': 0.03, 'held_at_or_over': 0.05, 'doubled_within': 0.02} (copied here: 0.005, 0.03, 0.05, 0.02)
+  Montana's canvass [measured: https://sosmt.gov/wp-content/uploads/State_Canvass_Legislative.pdf, 11:12:03 UTC, HTTP 200, 129117 bytes]: sha256 3e6f8ba1…22c1947a = the note's 3e6f8ba1…22c1947a: True; 24 pages (D3: 24, 129,117 bytes)
+
+====================================================================================================
+52.2 Gate 1: Singer's Democrat and Republican for president, US Senate and each US House district against D1's and D2's certified 2020 counts (the rule copied), line by line against D3's
+====================================================================================================
+  comparisons: 927 (D3: 927, 927); pass 46 (D3 46; the same states: True); fail ['KS', 'MO', 'OH', 'UT', 'WY'] (D3 ['KS', 'MO', 'OH', 'UT', 'WY']); no certified count to test ['AS', 'GU', 'MP', 'PR', 'VI'] (D3's untested ['AS', 'GU', 'MP', 'PR', 'VI'])
+  states whose gate block (worst, tested, passes, every line) equals D3's: 56 of 56; differing: []
+  the passing states' worst misses: [('CT', 0.002673), ('NY', 0.00265), ('ND', 0.001217), ('NV', 0.000602)] (D3: Connecticut, New York at 0.27%); Maine: worst 0.0 on 7 lines (its central UOCAVA lines added, 52.1)
+    KS fails: worst 0.3183 on 10 lines; over the line: president  D 613,338 vs 570,323 (+7.5%, by name); president  R 811,849 vs 771,406 (+5.2%, by name); house 02 D 180,141 vs 136,650 (+31.8%, by party line (Michelle De La Isla)); house 02 R 224,648 vs 185,464 (+21.1%, by name)
+    MO fails: worst 0.2122 on 18 lines; over the line: house 07 D 118,926 vs 98,111 (+21.2%, by party line (Gena L. Ross)); house 07 R 258,709 vs 254,318 (+1.7%, by party line (Sam Graves))
+    OH fails: worst 0.0214 on 34 lines; over the line: house 14 R 238,864 vs 233,864 (+2.1%, by name)
+    UT fails: worst 0.0288 on 10 lines; over the line: president  D 554,028 vs 560,282 (+1.1%, by name); president  R 848,863 vs 865,140 (+1.9%, by name); house 01 D 102,874 vs 104,194 (+1.3%, by name); house 01 R 234,657 vs 237,988 (+1.4%, by name)
+    WY fails: worst 0.0136 on 6 lines; over the line: senate  D 72,766 vs 73,766 (+1.4%, by name)
+  lines not compared (no contest, or no one name): 3: {('senate', "not in Singer's file"): 2, ('house', "not in Singer's file"): 1}
+  how the pair was found: by name 910; by party line 17 (['by party line (Leo Valentín)', 'by party line (Betsy Dirksen Londrigan)', 'by party line (Michelle De La Isla)', 'by party line (Donald J. Trump and Michael R. Pence)', 'by party line (Joseph R. Biden Kamala D. Harris)', 'by party line (Donald J. Trump Michael R. Pence)']…)
+    Missouri's US House MO District 6: [('Gena L. Ross', 118926), ('Jim Higgins', 8144), ('Sam Graves', 258709)]
+    Missouri's US House MO District 7: [('Gena L. Ross', 118926), ('Jim Higgins', 8144), ('Sam Graves', 258709)]
+    D2's Missouri 06: [('Graves, Sam', 258709), ('Ross, Gena L.', 118926), ('Higgins, Jim', 8144)]
+    D2's Missouri 07: [('Long, Billy', 254318), ('Montseny, Teresa', 98111), ('Craig, Kevin', 15573)]
+
+====================================================================================================
+52.3 Gate 2: section 32's district checks (match, pair, test and the outcome rules copied) on every Klarner 2020 general record at BEFORE, against Singer's contests of the states that pass gate 1
+====================================================================================================
+  Klarner's 2020 general records at 30480c35: 5,496 (D3: 1,464 untested by state + 3,880 tested + 136 unmatched + 15 shared + 1 not paired = 5,496); Singer's legislative contests in the pool: 3,910 in 33 states
+  untested, their state not in the pool: 1,464 (D3: 1,464) {'DE': 52, 'ID': 105, 'KS': 165, 'MA': 200, 'MO': 180, 'NE': 25, 'NH': 228, 'NM': 112, 'OH': 115, 'UT': 90, 'VT': 117, 'WY': 75}; equal to D3's by state: True
+  my tallies: {'a Singer contest that several districts match, not paired apart': 15, 'candidates not paired': 1, 'flag a: held': 20, 'flag a: noted': 5, 'tested': 3880, 'unmatched': 136}
+  D3's tallies: {'a Singer contest that several districts match, not paired apart': 15, 'candidates not paired': 1, 'flag a: held': 17, 'flag a: noted': 5, "flag a: settled by the state: Singer's count stands": 3, 'tested': 3880, 'unmatched': 136}
+  equal (tested, unmatched, shared not paired apart, candidates not paired): True; unmatched by state mine {'AK': 1, 'AR': 3, 'AZ': 3, 'CA': 1, 'CT': 1, 'FL': 23, 'HI': 22, 'KY': 2, 'MI': 1, 'MN': 2, 'MT': 1, 'NV': 1, 'OK': 69, 'TX': 3, 'WA': 3} = D3's: True
+  the unmatched 136: with no more names on the ballot than seats (unopposed, which Singer's file leaves out [D3's inference]) 123; contested 13: ['2020-state-lower-AZ-27', '2020-state-lower-CT-146', '2020-state-lower-KY-19', '2020-state-lower-MI-79', '2020-state-lower-MN-9__position_1', '2020-state-lower-MT-75', '2020-state-lower-NV-16', '2020-state-lower-WA-13__seat_1', '2020-state-lower-WA-15__seat_1', '2020-state-lower-WA-15__seat_2', '2020-state-upper-AZ-2', '2020-state-upper-CA-19']
+
+  flags: mine 25, D3's 25; the same districts: True; mine only []; D3's only []
+  field by field over the 25 flags shared: {'pairs': 25, 'ratio': 25, 'klarner': 25, 'singer': 25, 'flags': 25, 'outcome by rule': 25, 'gap': 25, 'eseats': 25, 'unopposed': 25, 'write-ins': 25, 'contest': 25, 'b_tested': 25} (the pairs as sets: D3 lists them in Klarner's file order, I in the record's)
+  D3's outcomes by the rule (before the state's canvass): {('AZ', 'noted'): 2, ('ME', 'held'): 15, ('ME', 'noted'): 2, ('MT', 'held'): 3, ('NY', 'held'): 2, ('NY', 'noted'): 1}; after settle_mt: {'noted': 5, 'held': 17, "settled by the state: Singer's count stands": 3}
+    2020-state-lower-AZ-12: noted gap 0.03896, ratio 0.96104, Klarner 194,490 Singer 186,913; grantham, travis 93,972 / Grantham, Travis 93,972; hoffman, jake 92,941 / Hoffman, Jake 92,941; clark, kristin 7,577 / Clark, Kristin 0
+    2020-state-upper-AZ-16: noted gap 0.03187, ratio 0.96813, Klarner 98,037 Singer 94,913; townsend, kelly 94,913 / Townsend, Kelly 94,913; grayson, richard 1,544 / Grayson, Richard 0; fierro, nick 1,472 / Fierro, Nick 0; rosshart, john 108 / Hart, John Ross 0
+    2020-state-lower-ME-111: held gap 0.11292, ratio 0.88708, Klarner 3,941 Singer 3,496; ducharme, john e, iii 3,941 / John E. Ducharme III 3,496
+    2020-state-lower-ME-112: held gap 0.12562, ratio 0.87438, Klarner 5,079 Singer 4,441; skolfield, thomas h 3,287 / Thomas H. Skolfield 2,958; bourgelais, peter m 1,792 / Peter M. Bourgelais 1,483
+    2020-state-lower-ME-114: held gap 0.57072, ratio 0.42928, Klarner 4,857 Singer 2,085; hall, randall c 3,158 / Randall C. Hall 1,296; kimber, gregory m 1,699 / Gregory M. Kimber 789
+    2020-state-lower-ME-119: held gap 0.16215, ratio 0.83785, Klarner 4,977 Singer 4,170; stearns, paul a 3,509 / Paul A. Stearns 2,923; contreni, margarita l 1,468 / Margarita L. Contreni 1,247
+    2020-state-lower-ME-120: held gap 0.13746, ratio 0.86254, Klarner 4,605 Singer 3,972; evans, richard a 1,653 / Richard A. Evans 1,416; perkins, chad r 1,528 / Chad Richard Perkins 1,313; higgins, norman e 1,424 / Norman E. Higgins 1,243
+    2020-state-lower-ME-121: held gap 0.38059, ratio 0.61941, Klarner 4,359 Singer 2,700; drinkwater, gary a 2,989 / Gary A. Drinkwater 2,028; smith, megan l 1,370 / Megan L. Smith 672
+    2020-state-lower-ME-122: held gap 0.9294, ratio 0.0706, Klarner 4,306 Singer 304; dunphy, michelle a 2,720 / Michelle A. Dunphy 243; paradis, edward l 1,586 / Edward L. Paradis 61
+    2020-state-lower-ME-136: held gap 0.13729, ratio 0.86271, Klarner 5,033 Singer 4,342; faulkingham, william r 3,198 / William Robert Faulkingham 2,725; blasi, antonio 1,835 / Antonio Blasi 1,617
+    2020-state-lower-ME-137: held gap 0.10778, ratio 0.89222, Klarner 4,602 Singer 4,106; carmichael, meldon h 3,044 / Meldon H. Carmichael 2,692; coolidge, maxwell g 1,558 / Maxwell G. Coolidge 1,414
+    2020-state-lower-ME-138: held gap 0.2718, ratio 0.7282, Klarner 4,827 Singer 3,515; alley, robert w, sr 2,760 / Robert W. Alley Sr. 2,040; robinson, kimberley 2,067 / Kimberley Florence Robinson 1,475
+    2020-state-lower-ME-144: noted gap 0.04596, ratio 0.95404, Klarner 4,178 Singer 3,986; quint, tracy l 2,853 / Tracy L. Quint 2,715; harnish, kathryn b 1,325 / Kathryn Burke Harnish 1,271
+    2020-state-lower-ME-145: held gap 0.10238, ratio 0.89762, Klarner 4,542 Singer 4,077; johansen, chris a 3,484 / Chris A. Johansen 3,130; zabierek, robert a 1,058 / Robert Alvah Zabierek 947
+    2020-state-lower-ME-148: held gap 0.05032, ratio 0.94968, Klarner 4,114 Singer 3,907; mccrea, david h 2,335 / David Harold McCrea 2,231; redmond, brian j 1,779 / Brian J. Redmond 1,676
+    2020-state-lower-ME-149: held gap 0.90414, ratio 0.09586, Klarner 3,672 Singer 352; bernard, susan 3,672 / Susan Bernard 352
+    2020-state-lower-ME-151: held gap 0.56918, ratio 0.43082, Klarner 4,900 Singer 2,111; martin, john l 2,763 / John L. Martin 1,133; bushey, kevin a 2,137 / Kevin A. Bushey 978
+    2020-state-upper-ME-17: noted gap 0.03379, ratio 0.96621, Klarner 21,808 Singer 21,071; black, russell j 12,776 / Russell J. Black 12,305; collins, jan m 9,032 / Jan M. Collins 8,766
+    2020-state-upper-ME-5: held gap 0.11628, ratio 0.88372, Klarner 19,952 Singer 17,632; dill, james f 11,571 / James F. Dill 10,343; ireland, christian f 8,381 / Christian Forrest Ireland 7,289
+    2020-state-lower-MT-19: held gap 0.66445, ratio 0.33555, Klarner 15,050 Singer 5,050; mckamey, wendy 14,288 / Wendy Mckamey 4,288; schultz, george a 762 / George Anthony Schultz 762
+    2020-state-lower-MT-3: held gap 0.62582, ratio 0.37418, Klarner 15,979 Singer 5,979; powers, debo 12,393 / Debo Powers 2,393; mitchell, braxton 3,586 / Braxton Mitchell 3,586
+    2020-state-lower-MT-84: held gap 0.62208, ratio 0.37792, Klarner 16,075 Singer 6,075; hull, charlie 12,819 / Charlie Hull 2,819; dunwell, mary a 3,256 / Mary Ann Dunwell 3,256
+    2020-state-lower-NY-1: noted gap 0.03923, ratio 0.96077, Klarner 69,822 Singer 67,083; thiele, fred w, jr 40,689 / Fred W. Thiele Jr 38,648; collins, heather c 29,133 / Heather C. Collins 28,435
+    2020-state-lower-NY-3: held gap 0.1176, ratio 0.8824, Klarner 54,492 Singer 48,084; destefano, joseph p 2 30,806 / Joseph P. De Stefano 28,491; polgar, steven 23,266 / Steven Polgar 19,220; martin, adam 420 / Adam Martin 373
+    2020-state-lower-NY-5: held gap 0.10595, ratio 0.89405, Klarner 60,726 Singer 54,292; smith, douglas m 37,210 / Douglas M. Smith 34,815; ianacci, alfred 23,516 / Alfred Ianacci 19,477
+  the 3,880 tested ratios: {'equal': 3755, 'within 0.5%': 89, 'over 3%': 25, '0.5-3%': 11}
+
+====================================================================================================
+52.4 Montana's 2020 legislative canvass (my own reading) against Singer's and Klarner's counts; Maine's legislative rows by reporting unit
+====================================================================================================
+  the canvass: 100 House and 25 Senate districts (D3: 100 and 25), 218 candidate lines, counties adding up to the total in 218 of 218; parties {'Democrat': 89, 'Republican': 116, 'Libertarian': 13}; any nameless line: False
+  2020-MT-lower--19-- (MT House District 19): the canvass [('GEORGE ANTHONY SCHULTZ', 'Libertarian', 762), ('WENDY MCKAMEY', 'Republican', 4288)]; Klarner / Singer / the state: [('schultz, george a', 762, 762, 762), ('mckamey, wendy', 14288, 4288, 4288)]; the state agrees with Singer's on every candidate: True; with Klarner's: False; D3's state_count pairs equal mine: True; its sha256 3e6f8ba1… = the file's: True; read 2026-11-13T10:47:06Z; outcome settled by the state: Singer's count stands (by the rule: held)
+  2020-MT-lower--3-- (MT House District 3): the canvass [('DEBO POWERS', 'Democrat', 2393), ('BRAXTON MITCHELL', 'Republican', 3586)]; Klarner / Singer / the state: [('powers, debo', 12393, 2393, 2393), ('mitchell, braxton', 3586, 3586, 3586)]; the state agrees with Singer's on every candidate: True; with Klarner's: False; D3's state_count pairs equal mine: True; its sha256 3e6f8ba1… = the file's: True; read 2026-11-13T10:47:06Z; outcome settled by the state: Singer's count stands (by the rule: held)
+  2020-MT-lower--84-- (MT House District 84): the canvass [('MARY ANN DUNWELL', 'Democrat', 3256), ('CHARLIE HULL', 'Republican', 2819)]; Klarner / Singer / the state: [('dunwell, mary a', 3256, 3256, 3256), ('hull, charlie', 12819, 2819, 2819)]; the state agrees with Singer's on every candidate: True; with Klarner's: False; D3's state_count pairs equal mine: True; its sha256 3e6f8ba1… = the file's: True; read 2026-11-13T10:47:06Z; outcome settled by the state: Singer's count stands (by the rule: held)
+  all 125 districts, each candidate's votes: {"Singer's = the canvass, every candidate's votes": 125, "Klarner's = the canvass, every candidate's votes": 122, "Klarner's differs": 3}; districts whose surname keys differ from the canvass's while the votes agree (compound surnames joined or wrapped): {'Singer': 13, 'Klarner': 22}
+    Klarner differs at ('HD', 3): the canvass [('DEBO POWERS', 2393), ('BRAXTON MITCHELL', 3586)]; Klarner's [('powers, debo', 12393), ('mitchell, braxton', 3586)]
+    Klarner differs at ('HD', 19): the canvass [('GEORGE ANTHONY SCHULTZ', 762), ('WENDY MCKAMEY', 4288)]; Klarner's [('mckamey, wendy', 14288), ('schultz, george a', 762)]
+    Klarner differs at ('HD', 84): the canvass [('MARY ANN DUNWELL', 3256), ('CHARLIE HULL', 2819)]; Klarner's [('hull, charlie', 12819), ('dunwell, mary a', 3256)]
+
+  Maine's legislative rows (ME House and Senate contests, 'total' lines): reporting units 17: {"the state's own line": 1, 'a county': 16}; the counties ['Androscoggin County', 'Aroostook County', 'Cumberland County', 'Franklin County', 'Hancock County', 'Kennebec County', 'Knox County', 'Lincoln County', 'Oxford County', 'Penobscot County', 'Piscataquis County', 'Sagadahoc County', 'Somerset County', 'Waldo County', 'Washington County', 'York County']; rows on the state's own line 347, on counties 436 (D3: no row lies below the county, so 22:26 (b) has nothing to measure)
+  Maine's own-line (UOCAVA) additions: 361 lines, 27,606 votes over the counties' 3,946,750; in the legislature 344 lines, in the federal contests 17; House 122's lines: [('Edward L. Paradis', 61, 1), ('Michelle A. Dunphy', 243, 1)]
+
+====================================================================================================
+52.5 The records at AFTER: every flag's outcome as built; the moves file against my own diff of every D3 record
+====================================================================================================
+    2020-state-lower-MT-19: p 1.119e-05 -> 3.334e-05 (x2.981); class route: f_half 0.3367 (before 0.3367, the like races' device) n 5,049 (before 15,049): p 3.33432e-05 (record 3.33433e-05); state_agrees in the record: False; fields differing ('notes', 'p.event', 'p.n', 'p.value', 'result.candidates,total_votes,votes_source', 'two_party.n_other_voters,share_first,votes')
+    2020-state-lower-MT-3: p 0.0001607 -> 0.0003996 (x2.487); partisan: mean 0.4985 sd 0.0835 (before: sd 0.0777) n 5,978 (before 15,978): f 4.77698 (record 4.77759), p 0.000399547 (record 0.000399597); state_agrees in the record: False; fields differing ('forecasts.share', 'notes', 'p.alongside', 'p.event', 'p.f_half', 'p.n', 'p.value', 'result.candidates,total_votes,votes_source', 'two_party.n_other_voters,share_first,votes')
+    2020-state-lower-MT-84: p 5.148e-05 -> 0.000139 (x2.700); partisan: mean 0.6355 sd 0.1088 (before: sd 0.1052) n 6,074 (before 16,074): f 1.68841 (record 1.68851), p 0.000138987 (record 0.000138995); state_agrees in the record: False; fields differing ('forecasts.share', 'notes', 'p.alongside', 'p.event', 'p.f_half', 'p.n', 'p.value', 'result.candidates,total_votes,votes_source', 'two_party.n_other_voters,share_first,votes')
+  ("Singer's count", 'votes, total, votes_source, the note, two_party and p by the density formula all as the flag and the formats give'): 3
+  ('held', 'fields differing', ('forecast_inputs', 'forecasts.count', 'p.alongside', 'p.event', 'p.f_half', 'p.forecast_scope', 'p.method', 'p.n', 'p.not_computed', 'p.under', 'p.value', 'two_party')): 15
+  ('held', 'fields differing', ('p.event', 'p.not_computed', 'p.reason', 'p.value')): 2
+  ('held', 'p not computed, its reason the held text word for word then HELD_ONE_NAME (one name on the ballot: p was 0 before), no forecast, the counts unchanged'): 2
+  ('held', 'p not computed, its reason the held text word for word, no forecast, the counts unchanged'): 15
+  ('noted', "the note's words in the record, p and the counts unchanged, nothing else differs"): 5
+  Montana's 2020 House partisan records at AFTER, by class and the forecast's sd: class A sd 0.0835: 48 records, n 3,194 to 9,739; class B sd 0.1088: 16 records, n 4,093 to 7,548
+  files whose sources name Singer's dataset: [('state-lower/2020/MT.json', True, True)] (D3: the files with a record at Singer's count; the source block equal to the check file's)
+
+  the moves file against my own diff
+  moves-39.json: 7,684 rows, 7,684 ids, against bbfe532f (the code commit whose records are main's f6434077's, which equal 30480c35's D3 records: my diff is main to main); its summary: {"local B: p unchanged, its block changed": 21, "local O: other fields: forecasts": 2, "local P: p moved": 955, "state-lower B: p unchanged, its block changed": 70, "state-lower L: p no longer computed": 16, "state-lower P: p moved": 5107, "state-lower Q: a note's words changed": 6, "state-upper B: p unchanged, its block changed": 23, "state-upper L: p no longer computed": 1, "state-upper P: p moved": 1484, "state-upper Q: a note's words changed": 2}
+  files changed between 30480c35 and 4debd7e5 under data/: D3's record files 214 {'local': 33, 'state-lower': 92, 'state-upper': 89}; D2's []; other ['data/README.md', 'data/local/REPORT.md', 'data/local/check-2020-singer.json', 'data/local/moves-39.json', 'data/local/recount-zone.json']
+  my diff, by level and code: local B 21; local O 2; local P 955; state-lower B 70; state-lower L 16; state-lower P 5107; state-lower Q 3; state-upper B 23; state-upper L 1; state-upper P 1484; state-upper Q 2; records differing in p.commit alone: 52
+  ids whose code I share with the file: 7684 of 7684; differing or missing: {}; ids in the file but not in my diff: 0 []; p before/after other than the record's: 0; ratios off by more than 1.5e-4: 0
+  p moved: 7,546 (D3: 7,546; the file's P rows 7,546); p lost: 17 (D3: 17); p gained: 0 (D3: 0) []
+  lost: [('2020-state-lower-ME-111', '0', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-112', '9.28e-05', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-114', '0.000196', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-119', '0.000158', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-120', '0.000309', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-121', '0.000133', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-122', '5.17e-05', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-136', '0.000256', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-137', '0.000382', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-138', '0.000317', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-145', '8.47e-05', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-148', '0.0001', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-149', '0', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-ME-151', '0.000217', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da"), ('2020-state-lower-NY-3', '3.47e-05', "Singer's 2020 official results (NY_tabular.tsv of Harvard Da"), ('2020-state-lower-NY-5', '1.84e-05', "Singer's 2020 official results (NY_tabular.tsv of Harvard Da"), ('2020-state-upper-ME-5', '4.84e-05', "Singer's 2020 official results (ME_tabular.tsv of Harvard Da")]
+  over 2x either way: 3: [('2020-state-lower-MT-19', 2.981), ('2020-state-lower-MT-3', 2.487), ('2020-state-lower-MT-84', 2.7)]
+  by level and year (D3's table): local 2024: 955, x1.0000 to x1.0010; state-lower 2020: 3, x2.4873 to x2.9806; state-lower 2021: 91, x0.9975 to x1.0014; state-lower 2022: 2445, x0.9641 to x1.0495; state-lower 2023: 56, x0.9999 to x1.0001; state-lower 2024: 2429, x0.9909 to x1.0017; state-lower 2025: 83, x0.9969 to x1.0011; state-upper 2021: 38, x0.9985 to x1.0042; state-upper 2022: 769, x0.9901 to x1.0063; state-upper 2023: 67, x0.9999 to x1.0002; state-upper 2024: 610, x0.9939 to x1.0017
+  moved by more than 1% (short of 2x): 139 {('state-lower', '2022', 'ME'): 61, ('state-lower', '2022', 'NY'): 78} (D3: 139 in state-lower 2022, Maine 61, New York 78)
+  records whose notes changed, by level: {'state-lower': 6, 'state-upper': 2} (D3: 8, the 5 noted and Montana's 3)
+  NY 2022 lower: the lean in the records' forecast inputs [0.0968] -> [0.1008] (D3: New York's 0.0968 -> 0.1008)
+  ME 2022 lower: the lean in the records' forecast inputs [-0.0034] -> [0.0055] (D3: New York's 0.0968 -> 0.1008)
+
+====================================================================================================
+52.6 My two readings taken: FairVote's text sha256 from my own copy of the page; the recount listing at AFTER against my scan (c51's rules)
+====================================================================================================
+  FairVote: my copy (read 10:35:39, 215,159 bytes, sha256 3bffc3c9…; the listing's page sha256 2b5dbfcf…, 215,078 bytes) -> text by D3's page_text copied: 24,636 characters, sha256 6cc069acad2c5d22…; the listing's text_sha256 11757c4135d05164…: equal False (the method text names 24,635 characters)
+  the listing's rule.near_with_zone_under: True; counts.near_with_zone_under at 0.87%: {'2 votes': 48, '1.5 votes': 31} (my section 21: 48 under 2 votes, 31 under 1.5)
+  records with p above 0 and a spread: 107,096 at AFTER (the listing: 107,096), 107,111 at BEFORE (the listing then: 107,111); lost 15 ['2020-state-lower-ME-112', '2020-state-lower-ME-114', '2020-state-lower-ME-119']…; gained 0 []
+  0.87%: near 1,045 (the listing: 1,045); by level and route equal: True; gain over p 0.909 to 0.947 (the listing [0.909, 0.947]); zone under 2 votes 48, under 1.5 31 (the listing {'2 votes': 48, '1.5 votes': 31}); raised in the tails 1,838 with p at most 3.592e-06 (the listing {'races': 1838, 'p_at_most': 3.59186e-06})
+  1.06%: near 1,086 (the listing: 1,086); by level and route equal: True; gain over p 0.875 to 0.957 (the listing [0.875, 0.957]); zone under 2 votes 41, under 1.5 26 (the listing {'2 votes': 41, '1.5 votes': 26}); raised in the tails 3,729 with p at most 2.199e-05 (the listing {'races': 3729, 'p_at_most': 2.19891e-05})
+  2.49%: near 15,120 (the listing: 15,120); by level and route equal: True; gain over p 0.627 to 4.263 (the listing [0.627, 4.263]); zone under 2 votes 148, under 1.5 88 (the listing {'2 votes': 148, '1.5 votes': 88}); raised in the tails 17,050 with p at most 0.0006207 (the listing {'races': 17050, 'p_at_most': 0.000620677})
+  the 0.87% notes: records carrying one at AFTER 1,045, at BEFORE 1,045, the same records: True; equal to my near set at 0.87%: True
+  the listing's rows: 15,120 at AFTER (D3: 15,120; 15,122 before); the rows' ids equal my near-at-any-rate set: True (in both 15,120)
+
