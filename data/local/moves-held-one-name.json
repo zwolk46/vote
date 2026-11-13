@@ -1,0 +1,1128 @@
+{
+ "against": "6da2062",
+ "about": "Every record the ruling of 2026-11-13 00:26 UTC on held one-name records moved (data/local/REPORT.md section 33): \"A one-name record whose counts are held is not computed, at every level, with the reason that the write-in test cannot be read on held counts.\" The working tree after the rebuild against the branch before it (the commit named in 'against', the code change alone), stamps aside, record by record. The local records lose p 0; the legislative records were not computed before (their counts held), and their reason now adds the one-name words. No other p moved: a p of 0 is in no pool.",
+ "summary": {
+  "local L: p no longer computed": 23,
+  "state-lower R: not computed before or after, the reason changed": 45,
+  "state-upper R: not computed before or after, the reason changed": 16
+ },
+ "columns": [
+  "id",
+  "file",
+  "title or office",
+  "type before",
+  "type after",
+  "p before",
+  "p after",
+  "ratio",
+  "codes"
+ ],
+ "codes": {
+  "A": "a new record",
+  "G": "a record no longer written (joined into another, or replaced)",
+  "I": "id changed",
+  "T": "typed anew",
+  "P": "p moved",
+  "B": "p unchanged, its block changed",
+  "N": "new p",
+  "L": "p no longer computed",
+  "R": "not computed before or after, the reason changed",
+  "Q": "a note changed",
+  "O": "other fields"
+ },
+ "p_moved_within_1pct": {},
+ "records": [
+  [
+   "2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__06",
+   "data/local/2022/WA.json",
+   "Supreme Court - Justice Position #06",
+   "statewide judge",
+   "statewide judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_3__DISTRICT_2___JUDGE_POSITION_1-002",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division 3, District 2 - Judge Position 1",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__05",
+   "data/local/2022/WA.json",
+   "Supreme Court - Justice Position #05",
+   "statewide judge",
+   "statewide judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-SUPREME_COURT___JUSTICE_POSITION__01",
+   "data/local/2022/WA.json",
+   "Supreme Court - Justice Position #01",
+   "statewide judge",
+   "statewide judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_3__DISTRICT_2___JUDGE_POSITION_1",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division 3, District 2 - Judge Position 1",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_2__DISTRICT_2___JUDGE_POSITION_1-002",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division 2, District 2 - Judge Position 1",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_2__DISTRICT_3___JUDGE_POSITION_2-003",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division 2, District 3 - Judge Position 2",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_NO__1__DISTRICT_NO__1_JUDGE_POSIT-001",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division No. 1, District No. 1 Judge Position No. 7",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_NO__1__DISTRICT_NO__1_JUDGE_POSIT-001~2",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division No. 1, District No. 1 Judge Position No. 1",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_2__DISTRICT_2___JUDGE_POSITION_1",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division 2, District 2 - Judge Position 1",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_2__DISTRICT_1___JUDGE_POSITION_1-001",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division 2, District 1 - Judge Position 1",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_1__DISTRICT_2___JUDGE_POSITION_1-002",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division 1, District 2 - Judge Position 1",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WA-COURT_OF_APPEALS__DIVISION_2__DISTRICT_3___JUDGE_POSITION_2",
+   "data/local/2022/WA.json",
+   "Court Of Appeals, Division 2, District 3 - Judge Position 2",
+   "judge",
+   "judge",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 20% of its 25 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WY-SECRETARY_OF_STATE",
+   "data/local/2022/WY.json",
+   "Secretary Of State",
+   "statewide officer",
+   "statewide officer",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 45% of its 78 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WY-STATE_AUDITOR",
+   "data/local/2022/WY.json",
+   "State Auditor",
+   "statewide officer",
+   "statewide officer",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 45% of its 78 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2022-local-WY-STATE_TREASURER",
+   "data/local/2022/WY.json",
+   "State Treasurer",
+   "statewide officer",
+   "statewide officer",
+   0.0,
+   "the source's 2022 state legislative returns for this state differ from Klarner's in the two-party share by more than 1 point, or in which major parties ran, in 45% of its 78 districts compared (data/local/check-2022-medsl-klarner.json), so its counts are not relied on; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2024-local-NY-MONROE_COUNTY_CITY_COURT_JUDGE-county_36055",
+   "data/local/2024/NY.json",
+   "Monroe County City Court Judge",
+   "judge",
+   "judge",
+   0.0,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2024-local-NY-BRIGHTON_TOWN_JUSTICE-county_36055",
+   "data/local/2024/NY.json",
+   "Brighton Town Justice",
+   "judge",
+   "judge",
+   0.0,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2024-local-NY-HAMLIN_MEMBER_OF_TOWN_COUNCIL_1_YEAR_TERM-county_36055",
+   "data/local/2024/NY.json",
+   "Hamlin Member Of Town Council 1 Year Term",
+   "council, commission or board",
+   "council, commission or board",
+   0.0,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2024-local-NY-PARMA_MEMBER_OF_TOWN_COUNCIL_1_YEAR_TERM-county_36055",
+   "data/local/2024/NY.json",
+   "Parma Member Of Town Council 1 Year Term",
+   "council, commission or board",
+   "council, commission or board",
+   0.0,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2024-local-NY-RUSH_TOWN_JUSTICE-county_36055",
+   "data/local/2024/NY.json",
+   "Rush Town Justice",
+   "judge",
+   "judge",
+   0.0,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2024-local-NY-SWEDEN_MEMBER_OF_TOWN_COUNCIL_1_YEAR_TERM-county_36055",
+   "data/local/2024/NY.json",
+   "Sweden Member Of Town Council 1 Year Term",
+   "council, commission or board",
+   "council, commission or board",
+   0.0,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "2024-local-NY-WHEATLAND_SUPERINTENDENT_OF_HIGHWAYS_1_YEAR_TERM-county_36055",
+   "data/local/2024/NY.json",
+   "Wheatland Superintendent Of Highways 1 Year Term",
+   "clerk, treasurer or other county officer",
+   "clerk, treasurer or other county officer",
+   0.0,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "L"
+   ]
+  ],
+  [
+   "1984-state-lower-ID-8__seat_1",
+   "data/state-lower/1984/ID.json",
+   "district 8, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1984: one post of each district adds to 1.76 times the state's turnout that day (411,144 votes for president, data/president/1984.json), which posts do not explain; this district's 32,777 votes are 3.35 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1984: one post of each district adds to 1.76 times the state's turnout that day (411,144 votes for president, data/president/1984.json), which posts do not explain; this district's 32,777 votes are 3.35 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1984-state-lower-ID-33__seat_1",
+   "data/state-lower/1984/ID.json",
+   "district 33, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1984: one post of each district adds to 1.76 times the state's turnout that day (411,144 votes for president, data/president/1984.json), which posts do not explain; this district's 49,618 votes are 5.07 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1984: one post of each district adds to 1.76 times the state's turnout that day (411,144 votes for president, data/president/1984.json), which posts do not explain; this district's 49,618 votes are 5.07 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1986-state-lower-ID-4__seat_1",
+   "data/state-lower/1986/ID.json",
+   "district 4, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 32,522 votes are 3.53 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 32,522 votes are 3.53 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1986-state-lower-ID-4__seat_2",
+   "data/state-lower/1986/ID.json",
+   "district 4, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 32,522 votes are 3.53 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 32,522 votes are 3.53 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1986-state-lower-ID-8__seat_1",
+   "data/state-lower/1986/ID.json",
+   "district 8, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 25,988 votes are 2.82 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 25,988 votes are 2.82 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1986-state-lower-ID-8__seat_2",
+   "data/state-lower/1986/ID.json",
+   "district 8, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 25,988 votes are 2.82 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 25,988 votes are 2.82 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1986-state-lower-ID-21__seat_2",
+   "data/state-lower/1986/ID.json",
+   "district 21, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 75,734 votes are 8.21 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 75,734 votes are 8.21 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1986-state-lower-ID-33__seat_2",
+   "data/state-lower/1986/ID.json",
+   "district 33, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 50,589 votes are 5.48 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1986: one post of each district adds to 1.77 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 50,589 votes are 5.48 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-lower-ID-4__seat_2",
+   "data/state-lower/1988/ID.json",
+   "district 4, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 41,311 votes are 4.24 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 41,311 votes are 4.24 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-lower-ID-8__seat_2",
+   "data/state-lower/1988/ID.json",
+   "district 8, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 31,942 votes are 3.28 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 31,942 votes are 3.28 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-lower-ID-13__seat_1",
+   "data/state-lower/1988/ID.json",
+   "district 13, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 38,224 votes are 3.93 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 38,224 votes are 3.93 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-lower-ID-13__seat_2",
+   "data/state-lower/1988/ID.json",
+   "district 13, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 38,224 votes are 3.93 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 38,224 votes are 3.93 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-lower-ID-25__seat_1",
+   "data/state-lower/1988/ID.json",
+   "district 25, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 34,062 votes are 3.50 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 34,062 votes are 3.50 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-lower-ID-25__seat_2",
+   "data/state-lower/1988/ID.json",
+   "district 25, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 34,062 votes are 3.50 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 34,062 votes are 3.50 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-lower-ID-33__seat_1",
+   "data/state-lower/1988/ID.json",
+   "district 33, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 42,565 votes are 4.37 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1988: one post of each district adds to 1.65 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 42,565 votes are 4.37 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1990-state-lower-ID-4__seat_1",
+   "data/state-lower/1990/ID.json",
+   "district 4, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 35,717 votes are 4.68 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 35,717 votes are 4.68 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1990-state-lower-ID-8__seat_1",
+   "data/state-lower/1990/ID.json",
+   "district 8, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 21,208 votes are 2.78 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 21,208 votes are 2.78 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1990-state-lower-ID-8__seat_2",
+   "data/state-lower/1990/ID.json",
+   "district 8, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 21,208 votes are 2.78 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 21,208 votes are 2.78 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1990-state-lower-ID-13__seat_2",
+   "data/state-lower/1990/ID.json",
+   "district 13, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 43,382 votes are 5.68 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 43,382 votes are 5.68 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1990-state-lower-ID-21__seat_1",
+   "data/state-lower/1990/ID.json",
+   "district 21, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 66,379 votes are 8.70 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 66,379 votes are 8.70 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1990-state-lower-ID-33__seat_1",
+   "data/state-lower/1990/ID.json",
+   "district 33, seat 1",
+   null,
+   null,
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 34,485 votes are 4.52 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 34,485 votes are 4.52 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1990-state-lower-ID-33__seat_2",
+   "data/state-lower/1990/ID.json",
+   "district 33, seat 2",
+   null,
+   null,
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 34,485 votes are 4.52 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's House of ID 1990: one post of each district adds to 1.80 times the state's turnout that day (320,610 votes for governor, data/governor/1990.json), which posts do not explain; this district's 34,485 votes are 4.52 times its 2 of 84 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-AR-9",
+   "data/state-lower/2016/AR.json",
+   "district 9",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 15,327 votes against Klarner's 6,519, +135.1% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 15,327 votes against Klarner's 6,519, +135.1% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-AR-99",
+   "data/state-lower/2016/AR.json",
+   "district 99",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Richard Bernard (2,165) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Richard Bernard (2,165) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-FL-29",
+   "data/state-lower/2016/FL.json",
+   "district 29",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Fred Marra (192) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Fred Marra (192) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-HI-51",
+   "data/state-lower/2016/HI.json",
+   "district 51",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names FUKUMOTO CHANG, Beth (6,792) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names FUKUMOTO CHANG, Beth (6,792) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-IN-28",
+   "data/state-lower/2016/IN.json",
+   "district 28",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 26,471 votes against Klarner's 27,982, -5.4% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 26,471 votes against Klarner's 27,982, -5.4% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-IN-79",
+   "data/state-lower/2016/IN.json",
+   "district 79",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 19,114 votes against Klarner's 23,005, -16.9% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 19,114 votes against Klarner's 23,005, -16.9% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-IN-83",
+   "data/state-lower/2016/IN.json",
+   "district 83",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 16,480 votes against Klarner's 27,367, -39.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 16,480 votes against Klarner's 27,367, -39.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-IN-91",
+   "data/state-lower/2016/IN.json",
+   "district 91",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 10,994 votes against Klarner's 17,393, -36.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 10,994 votes against Klarner's 17,393, -36.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-KY-41",
+   "data/state-lower/2016/KY.json",
+   "district 41",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 434 votes against Klarner's 13,257, -96.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Attica Scott (13,257) on the ballot beside Klarner's unopposed candidate, with 96.8% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 434 votes against Klarner's 13,257, -96.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Attica Scott (13,257) on the ballot beside Klarner's unopposed candidate, with 96.8% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-KY-67",
+   "data/state-lower/2016/KY.json",
+   "district 67",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Matt TEAFORD (5,545) on the ballot beside Klarner's unopposed candidate, with 37.5% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Matt TEAFORD (5,545) on the ballot beside Klarner's unopposed candidate, with 37.5% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-NY-139",
+   "data/state-lower/2016/NY.json",
+   "district 139",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Special Votes (3,064) on the ballot beside Klarner's unopposed candidate, with 6.3% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Special Votes (3,064) on the ballot beside Klarner's unopposed candidate, with 6.3% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-SC-109",
+   "data/state-lower/2016/SC.json",
+   "district 109",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 9,265 votes against Klarner's 11,126, -16.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 9,265 votes against Klarner's 11,126, -16.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-lower-SC-113",
+   "data/state-lower/2016/SC.json",
+   "district 113",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 9,104 votes against Klarner's 10,617, -14.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 9,104 votes against Klarner's 10,617, -14.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2018-state-lower-CT-1",
+   "data/state-lower/2018/CT.json",
+   "district 1",
+   null,
+   null,
+   "MEDSL's precinct file (2018-ct-precinct-general.zip) gives this district's 1 named candidate 4,419 votes against Klarner's 441, +902.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2018-ct-precinct-general.zip) gives this district's 1 named candidate 4,419 votes against Klarner's 441, +902.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2018-state-lower-IN-100",
+   "data/state-lower/2018/IN.json",
+   "district 100",
+   null,
+   null,
+   "MEDSL's precinct file (2018-in-precinct-general.zip) gives this district's 1 named candidate 16,296 votes against Klarner's 14,070, +15.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2018-in-precinct-general.zip) gives this district's 1 named candidate 16,296 votes against Klarner's 14,070, +15.8% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2018-state-lower-KS-117",
+   "data/state-lower/2018/KS.json",
+   "district 117",
+   null,
+   null,
+   "MEDSL's precinct file (2018-ks-precinct-general.zip) gives this district's 1 named candidate 7,173 votes against Klarner's 7,974, -10.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2018-ks-precinct-general.zip) gives this district's 1 named candidate 7,173 votes against Klarner's 7,974, -10.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-lower-IN-23",
+   "data/state-lower/2022/IN.json",
+   "district 23",
+   null,
+   null,
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 6,549 votes against Klarner's 12,346, -47.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 6,549 votes against Klarner's 12,346, -47.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-lower-MO-129",
+   "data/state-lower/2022/MO.json",
+   "district 129",
+   null,
+   null,
+   "MEDSL's precinct file (mo22_cleaned.csv) gives this district's 1 named candidate 11,210 votes against Klarner's 12,106, -7.4% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (mo22_cleaned.csv) gives this district's 1 named candidate 11,210 votes against Klarner's 12,106, -7.4% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-lower-NH-Strafford_15",
+   "data/state-lower/2022/NH.json",
+   "district Strafford 15",
+   null,
+   null,
+   "Klarner's New Hampshire 2022 figures are doubled, in full in the Senate and in part in the House: its Senate votes add up to 1,186,810 over 24 one-seat districts, against 617,422 votes for Governor that day (D2's count), while MEDSL's add up to 593,347; every Klarner Senate figure is exactly twice MEDSL's [measured, data/local/REPORT.md section 29]; MEDSL's count for conlin, bill is neither Klarner's nor half of it (within 2%), so neither count is relied on (the ruling of 19:04: \"Hold the rest\"): p is not computed, and it is left out of the fits",
+   "Klarner's New Hampshire 2022 figures are doubled, in full in the Senate and in part in the House: its Senate votes add up to 1,186,810 over 24 one-seat districts, against 617,422 votes for Governor that day (D2's count), while MEDSL's add up to 593,347; every Klarner Senate figure is exactly twice MEDSL's [measured, data/local/REPORT.md section 29]; MEDSL's count for conlin, bill is neither Klarner's nor half of it (within 2%), so neither count is relied on (the ruling of 19:04: \"Hold the rest\"): p is not computed, and it is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-lower-NY-121",
+   "data/state-lower/2022/NY.json",
+   "district 121",
+   null,
+   null,
+   "MEDSL's precinct file (ny22_cleaned.csv) gives this district's 1 named candidate 55,351 votes against Klarner's 41,413, +33.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (ny22_cleaned.csv) gives this district's 1 named candidate 55,351 votes against Klarner's 41,413, +33.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-lower-TX-62",
+   "data/state-lower/2022/TX.json",
+   "district 62",
+   null,
+   null,
+   "MEDSL's precinct file (TX-cleaned.csv) names MORALES SHAW (20,456), TROJACEK (697) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (TX-cleaned.csv) names MORALES SHAW (20,456), TROJACEK (697) on the ballot beside Klarner's unopposed candidate, with 100.0% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2024-state-lower-NY-139",
+   "data/state-lower/2024/NY.json",
+   "district 139",
+   null,
+   null,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed",
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2024-state-lower-NY-134",
+   "data/state-lower/2024/NY.json",
+   "district 134",
+   null,
+   null,
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed",
+   "MEDSL's 2024 file is short in county 36055 (the US House's rows miss 196 of its 655 precincts (28.6% of its STATE SUPREME COURT JUSTICE 007 STATE votes)) [measured: pipeline/local_districts.py coverage, data/local/check-districts.json incomplete_counties]: there the US House's rows miss part of the precincts the county's other contests have, and this contest's own rows are in only part of the county's precincts, so the file cannot show that they are not missing in part of its district (in Monroe County, New York, 2024, the Assembly's rows miss the same towns' precincts as the US House's, M2's seventh pass); held as incomplete, and no certified count is read; Monroe County's Board of Elections answered the one request allowed, for its 2024 certification (monroecounty.gov, 22:30:04 UTC), with 'Page Not Found' (the orchestrator, 2026-11-07 22:19: \"Treat any contest whose rows are missing in part of its district as incomplete: held, no p, unless a certified count is read\"); p not computed; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1984-state-upper-ID-8",
+   "data/state-upper/1984/ID.json",
+   "district 8",
+   null,
+   null,
+   "Klarner's Senate of ID 1984: one post of each district adds to 1.77 times the state's turnout that day (411,144 votes for president, data/president/1984.json), which posts do not explain; this district's 24,093 votes are 2.46 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's Senate of ID 1984: one post of each district adds to 1.77 times the state's turnout that day (411,144 votes for president, data/president/1984.json), which posts do not explain; this district's 24,093 votes are 2.46 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1984-state-upper-ID-33",
+   "data/state-upper/1984/ID.json",
+   "district 33",
+   null,
+   null,
+   "Klarner's Senate of ID 1984: one post of each district adds to 1.77 times the state's turnout that day (411,144 votes for president, data/president/1984.json), which posts do not explain; this district's 44,436 votes are 4.54 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's Senate of ID 1984: one post of each district adds to 1.77 times the state's turnout that day (411,144 votes for president, data/president/1984.json), which posts do not explain; this district's 44,436 votes are 4.54 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1986-state-upper-ID-13",
+   "data/state-upper/1986/ID.json",
+   "district 13",
+   null,
+   null,
+   "Klarner's Senate of ID 1986: one post of each district adds to 1.80 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 44,341 votes are 4.81 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's Senate of ID 1986: one post of each district adds to 1.80 times the state's turnout that day (387,426 votes for governor, data/governor/1986.json), which posts do not explain; this district's 44,341 votes are 4.81 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-upper-ID-4",
+   "data/state-upper/1988/ID.json",
+   "district 4",
+   null,
+   null,
+   "Klarner's Senate of ID 1988: one post of each district adds to 1.69 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 34,163 votes are 3.51 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's Senate of ID 1988: one post of each district adds to 1.69 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 34,163 votes are 3.51 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-upper-ID-8",
+   "data/state-upper/1988/ID.json",
+   "district 8",
+   null,
+   null,
+   "Klarner's Senate of ID 1988: one post of each district adds to 1.69 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 26,892 votes are 2.76 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's Senate of ID 1988: one post of each district adds to 1.69 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 26,892 votes are 2.76 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-upper-ID-13",
+   "data/state-upper/1988/ID.json",
+   "district 13",
+   null,
+   null,
+   "Klarner's Senate of ID 1988: one post of each district adds to 1.69 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 40,124 votes are 4.12 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's Senate of ID 1988: one post of each district adds to 1.69 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 40,124 votes are 4.12 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "1988-state-upper-ID-33",
+   "data/state-upper/1988/ID.json",
+   "district 33",
+   null,
+   null,
+   "Klarner's Senate of ID 1988: one post of each district adds to 1.69 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 45,604 votes are 4.68 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits",
+   "Klarner's Senate of ID 1988: one post of each district adds to 1.69 times the state's turnout that day (408,968 votes for president, data/president/1988.json), which posts do not explain; this district's 45,604 votes are 4.68 times its 1 of 42 seats' share of that turnout, more than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot stand (the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to 7x\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-upper-IN-9",
+   "data/state-upper/2016/IN.json",
+   "district 9",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 22,284 votes against Klarner's 41,812, -46.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Ryan Mischler (19,528) on the ballot beside Klarner's unopposed candidate, with 46.7% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 22,284 votes against Klarner's 41,812, -46.7% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) names Ryan Mischler (19,528) on the ballot beside Klarner's unopposed candidate, with 46.7% of the district's votes [measured: pipeline/local_districts.py], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2016-state-upper-NY-53",
+   "data/state-upper/2016/NY.json",
+   "district 53",
+   null,
+   null,
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 168,609 votes against Klarner's 82,524, +104.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2016-3345337-2016-precinct-state.csv) gives this district's 1 named candidate 168,609 votes against Klarner's 82,524, +104.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2018-state-upper-VT-Grandisle",
+   "data/state-upper/2018/VT.json",
+   "district Grandisle",
+   null,
+   null,
+   "MEDSL's precinct file (2018-vt-precinct-general.zip) gives this district's 1 named candidate 8,253 votes against Klarner's 13,903, -40.6% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2018-vt-precinct-general.zip) gives this district's 1 named candidate 8,253 votes against Klarner's 13,903, -40.6% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-upper-IN-19",
+   "data/state-upper/2022/IN.json",
+   "district 19",
+   null,
+   null,
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 14,966 votes against Klarner's 27,865, -46.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 14,966 votes against Klarner's 27,865, -46.3% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-upper-IN-38",
+   "data/state-upper/2022/IN.json",
+   "district 38",
+   null,
+   null,
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 1,250 votes against Klarner's 27,510, -95.5% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 1,250 votes against Klarner's 27,510, -95.5% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-upper-IN-39",
+   "data/state-upper/2022/IN.json",
+   "district 39",
+   null,
+   null,
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 14,939 votes against Klarner's 31,128, -52.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 14,939 votes against Klarner's 31,128, -52.0% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-upper-IN-49",
+   "data/state-upper/2022/IN.json",
+   "district 49",
+   null,
+   null,
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 7,140 votes against Klarner's 26,320, -72.9% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (2022-in-local-precinct-general.csv) gives this district's 1 named candidate 7,140 votes against Klarner's 26,320, -72.9% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2022-state-upper-NY-53",
+   "data/state-upper/2022/NY.json",
+   "district 53",
+   null,
+   null,
+   "MEDSL's precinct file (ny22_cleaned.csv) gives this district's 1 named candidate 91,881 votes against Klarner's 86,372, +6.4% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits",
+   "MEDSL's precinct file (ny22_cleaned.csv) gives this district's 1 named candidate 91,881 votes against Klarner's 86,372, +6.4% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state count is read; so neither count is relied on (the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is held, and a gap under 5% is kept with a note\"): p is not computed, and the contest is left out of the fits; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ],
+  [
+   "2023-state-upper-VA-9",
+   "data/state-upper/2023/VA.json",
+   "district 9",
+   null,
+   null,
+   "held by the gate: its locality lines count 76 votes for Trudy Berry (in Lunenburg County), whom its statewide count does not hold",
+   "held by the gate: its locality lines count 76 votes for Trudy Berry (in Lunenburg County), whom its statewide count does not hold; one name on the ballot for each seat, but the write-in test (whether write-ins drew 10% of the last winner's votes) cannot be read on held counts, so p 0 is not given",
+   null,
+   [
+    "R"
+   ]
+  ]
+ ]
+}

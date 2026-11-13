@@ -1,0 +1,771 @@
+{
+ "about": "the gate within the certifying source of Virginia's 2023 local contests and questions (pipeline/local_va.py, docstring), proposed by worker D3 on 2026-11-13: (a) the election's page headed 'OFFICIAL RESULTS', linked from the Department's results page, its Media Export link the file read, and the figures it shows the file's; (b) a shared contest's locality lines adding up to its statewide count; (c) all reporting; (d) the over-ballot test within each locality. Held where a part fails. Beside it: precinct lines against locality lines. Built by pipeline/local_va.py check.",
+ "years": {
+  "2023": {
+   "year_gate": {
+    "passes": true,
+    "words": "the page is headed '2023 November General and Special Elections November 7, 2023 OFFICIAL RESULTS Last Updated Thursday, January 2, 2025 at 7:14:51 PM'; the Department's results page says results from the June 2023 primaries on are at its 'Election Results Directory', which lists it as 'November 7, 2023 2023 November General and Special Elections 11/07/2023'; its 'Media Export' link is the file read"
+   },
+   "tallies": {
+    "held": 5,
+    "kept": 1443,
+    "no write-in by name": 1383,
+    "one locality": 1396,
+    "one locality, question": 9,
+    "over-ballot: held": 3,
+    "over-ballot: listed": 28,
+    "over-ballot: passes": 1417,
+    "precinct lines short of the locality line (noted)": 17,
+    "shared": 43,
+    "write-in by name": 65
+   },
+   "held": [
+    {
+     "title": "Sheriff (Halifax County)",
+     "localities": [
+      "083"
+     ],
+     "why": "its 9,446 votes for each seat in Halifax County are 1.11 times the 8,505 of Treasurer (Halifax County), the highest-vote contest of that locality's whole ballot, more than the 1.1 times a count can reach [measured]"
+    },
+    {
+     "title": "Member Town Council - Special (Town of Scottsville)",
+     "localities": [
+      "003",
+      "065"
+     ],
+     "why": "the page shows other candidates or votes than the file holds; its locality lines count 1 votes for John Merritt Unsworth (in Fluvanna County), whom its statewide count does not hold"
+    },
+    {
+     "title": "Sheriff (Cumberland County)",
+     "localities": [
+      "049"
+     ],
+     "why": "its 3,252 votes for each seat in Cumberland County are 1.12 times the 2,906 of Treasurer (Cumberland County), the highest-vote contest of that locality's whole ballot, more than the 1.1 times a count can reach [measured]"
+    },
+    {
+     "title": "Member Town Council (Town of Brodnax)",
+     "localities": [
+      "025",
+      "117"
+     ],
+     "why": "the page shows other candidates or votes than the file holds"
+    },
+    {
+     "title": "Clerk of Court (Norton City, Wise County)",
+     "localities": [
+      "195",
+      "720"
+     ],
+     "why": "its 434 votes for each seat in Norton City are 1.10 times the 394 of the House of Delegates' lines in Norton City, summed, the highest-vote contest of that locality's whole ballot, more than the 1.1 times a count can reach [measured]"
+    }
+   ],
+   "listed": [
+    {
+     "title": "Commonwealth's Attorney (Goochland County)",
+     "locality": "Goochland County",
+     "votes_per_seat": 12412.0,
+     "top": 11853,
+     "top_name": "the House of Delegates' lines in Goochland County, summed",
+     "ratio": 1.0472
+    },
+    {
+     "title": "Sheriff (Russell County)",
+     "locality": "Russell County",
+     "votes_per_seat": 8060.0,
+     "top": 7999,
+     "top_name": "Clerk of Court (Russell County)",
+     "ratio": 1.0076
+    },
+    {
+     "title": "Sheriff. (Emporia City, Greensville County)",
+     "locality": "Greensville County",
+     "votes_per_seat": 3209.0,
+     "top": 3194,
+     "top_name": "the House of Delegates' lines in Greensville County, summed",
+     "ratio": 1.0047
+    },
+    {
+     "title": "Sheriff (Nottoway County)",
+     "locality": "Nottoway County",
+     "votes_per_seat": 4075.0,
+     "top": 3979,
+     "top_name": "the House of Delegates' lines in Nottoway County, summed",
+     "ratio": 1.0241
+    },
+    {
+     "title": "Clerk of Court (Pittsylvania County)",
+     "locality": "Pittsylvania County",
+     "votes_per_seat": 16299.0,
+     "top": 15403,
+     "top_name": "Sheriff (Pittsylvania County)",
+     "ratio": 1.0582
+    },
+    {
+     "title": "Sheriff (Amherst County)",
+     "locality": "Amherst County",
+     "votes_per_seat": 10493.0,
+     "top": 10483,
+     "top_name": "the Senate of Virginia's lines in Amherst County, summed",
+     "ratio": 1.001
+    },
+    {
+     "title": "Sheriff (Henry County)",
+     "locality": "Henry County",
+     "votes_per_seat": 13619.0,
+     "top": 13552,
+     "top_name": "the Senate of Virginia's lines in Henry County, summed",
+     "ratio": 1.0049
+    },
+    {
+     "title": "Sheriff (Franklin City, Southampton County)",
+     "locality": "Franklin City",
+     "votes_per_seat": 2571.0,
+     "top": 2557,
+     "top_name": "the House of Delegates' lines in Franklin City, summed",
+     "ratio": 1.0055
+    },
+    {
+     "title": "Clerk of Court (Dickenson County)",
+     "locality": "Dickenson County",
+     "votes_per_seat": 4514.0,
+     "top": 4429,
+     "top_name": "Commonwealth's Attorney (Dickenson County)",
+     "ratio": 1.0192
+    },
+    {
+     "title": "Casino Gaming",
+     "locality": "Richmond City",
+     "votes_per_seat": 67244,
+     "top": 61785,
+     "top_name": "the Senate of Virginia's lines in Richmond City, summed",
+     "ratio": 1.0884
+    },
+    {
+     "title": "Sheriff (Charlotte County)",
+     "locality": "Charlotte County",
+     "votes_per_seat": 3886.0,
+     "top": 3846,
+     "top_name": "Clerk of Court (Charlotte County)",
+     "ratio": 1.0104
+    },
+    {
+     "title": "Treasurer (Scott County)",
+     "locality": "Scott County",
+     "votes_per_seat": 5586.0,
+     "top": 5104,
+     "top_name": "Clerk of Court (Scott County)",
+     "ratio": 1.0944
+    },
+    {
+     "title": "Sheriff (Mathews County)",
+     "locality": "Mathews County",
+     "votes_per_seat": 4410.0,
+     "top": 4354,
+     "top_name": "the Senate of Virginia's lines in Mathews County, summed",
+     "ratio": 1.0129
+    },
+    {
+     "title": "Sheriff (Page County)",
+     "locality": "Page County",
+     "votes_per_seat": 8913.0,
+     "top": 8845,
+     "top_name": "the Senate of Virginia's lines in Page County, summed",
+     "ratio": 1.0077
+    },
+    {
+     "title": "Clerk of Court (Buckingham County)",
+     "locality": "Buckingham County",
+     "votes_per_seat": 3784.0,
+     "top": 3733,
+     "top_name": "Sheriff (Buckingham County)",
+     "ratio": 1.0137
+    },
+    {
+     "title": "Clerk of Court (Smyth County)",
+     "locality": "Smyth County",
+     "votes_per_seat": 7998.0,
+     "top": 7970,
+     "top_name": "Treasurer (Smyth County)",
+     "ratio": 1.0035
+    },
+    {
+     "title": "Sheriff (Giles County)",
+     "locality": "Giles County",
+     "votes_per_seat": 5991.0,
+     "top": 5876,
+     "top_name": "the Senate of Virginia's lines in Giles County, summed",
+     "ratio": 1.0196
+    },
+    {
+     "title": "Sheriff (Washington County)",
+     "locality": "Washington County",
+     "votes_per_seat": 16002.0,
+     "top": 15942,
+     "top_name": "Commissioner of Revenue (Washington County)",
+     "ratio": 1.0038
+    },
+    {
+     "title": "Sheriff (Charles City County)",
+     "locality": "Charles City County",
+     "votes_per_seat": 2800.0,
+     "top": 2781,
+     "top_name": "the Senate of Virginia's lines in Charles City County, summed",
+     "ratio": 1.0068
+    },
+    {
+     "title": "Sheriff (Surry County)",
+     "locality": "Surry County",
+     "votes_per_seat": 3392.0,
+     "top": 3388,
+     "top_name": "the House of Delegates' lines in Surry County, summed",
+     "ratio": 1.0012
+    },
+    {
+     "title": "Treasurer (Fluvanna County)",
+     "locality": "Fluvanna County",
+     "votes_per_seat": 7859.0,
+     "top": 7282,
+     "top_name": "Sheriff (Fluvanna County)",
+     "ratio": 1.0792
+    },
+    {
+     "title": "Sheriff (Alleghany County, Covington City)",
+     "locality": "Alleghany County",
+     "votes_per_seat": 5340.0,
+     "top": 5312,
+     "top_name": "the House of Delegates' lines in Alleghany County, summed",
+     "ratio": 1.0053
+    },
+    {
+     "title": "Clerk of Court (Appomattox County)",
+     "locality": "Appomattox County",
+     "votes_per_seat": 4106.0,
+     "top": 4105,
+     "top_name": "Sheriff (Appomattox County)",
+     "ratio": 1.0002
+    },
+    {
+     "title": "Sheriff (Highland County)",
+     "locality": "Highland County",
+     "votes_per_seat": 1262.0,
+     "top": 1258,
+     "top_name": "Commonwealth's Attorney (Highland County)",
+     "ratio": 1.0032
+    },
+    {
+     "title": "Sheriff (Buchanan County)",
+     "locality": "Buchanan County",
+     "votes_per_seat": 5814.0,
+     "top": 5772,
+     "top_name": "Clerk of Court (Buchanan County)",
+     "ratio": 1.0073
+    },
+    {
+     "title": "Sheriff (Lunenburg County)",
+     "locality": "Lunenburg County",
+     "votes_per_seat": 3802.0,
+     "top": 3734,
+     "top_name": "the House of Delegates' lines in Lunenburg County, summed",
+     "ratio": 1.0182
+    },
+    {
+     "title": "Sheriff (Bland County)",
+     "locality": "Bland County",
+     "votes_per_seat": 2336.0,
+     "top": 2329,
+     "top_name": "Clerk of Court (Bland County)",
+     "ratio": 1.003
+    },
+    {
+     "title": "Sheriff (Prince Edward County)",
+     "locality": "Prince Edward County",
+     "votes_per_seat": 5535.0,
+     "top": 5332,
+     "top_name": "the House of Delegates' lines in Prince Edward County, summed",
+     "ratio": 1.0381
+    }
+   ],
+   "precincts_short": [
+    {
+     "title": "Sheriff (Orange County)",
+     "lines": [
+      {
+       "locality": "Orange County",
+       "option": "Stephen M. LaLuna",
+       "locality_line": 4147,
+       "precincts": 4145
+      },
+      {
+       "locality": "Orange County",
+       "option": "Jason C. Smith",
+       "locality_line": 8638,
+       "precincts": 8631
+      }
+     ]
+    },
+    {
+     "title": "Clerk of Court (Culpeper County)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Carson W. Beard",
+       "locality_line": 14188,
+       "precincts": 14138
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Write-In",
+       "locality_line": 142,
+       "precincts": 140
+      }
+     ]
+    },
+    {
+     "title": "Commonwealth's Attorney (Culpeper County)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Russell L. \"Russ\" Rabb III",
+       "locality_line": 13809,
+       "precincts": 13760
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Write-In",
+       "locality_line": 175,
+       "precincts": 174
+      }
+     ]
+    },
+    {
+     "title": "Sheriff (Culpeper County)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Joseph A. Watson",
+       "locality_line": 3971,
+       "precincts": 3956
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Timothy W. Chilton",
+       "locality_line": 9088,
+       "precincts": 9054
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Scott H. Jenkins",
+       "locality_line": 3307,
+       "precincts": 3300
+      }
+     ]
+    },
+    {
+     "title": "Commissioner of Revenue (Culpeper County)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Terry Leigh Yowell",
+       "locality_line": 14111,
+       "precincts": 14065
+      }
+     ]
+    },
+    {
+     "title": "Treasurer (Culpeper County)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Missy Norris White",
+       "locality_line": 14187,
+       "precincts": 14160
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Write-In",
+       "locality_line": 153,
+       "precincts": 152
+      }
+     ]
+    },
+    {
+     "title": "Member Board of Supervisors (Catalpa District)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Paul W. Bates",
+       "locality_line": 1939,
+       "precincts": 1935
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Write-In",
+       "locality_line": 20,
+       "precincts": 19
+      }
+     ]
+    },
+    {
+     "title": "Member Board of Supervisors (East Fairfax District)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "David C. Lee",
+       "locality_line": 676,
+       "precincts": 672
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Kathy J. Campbell",
+       "locality_line": 538,
+       "precincts": 536
+      }
+     ]
+    },
+    {
+     "title": "Member Board of Supervisors (Salem District)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Tom S. Underwood V",
+       "locality_line": 2513,
+       "precincts": 2504
+      }
+     ]
+    },
+    {
+     "title": "Member Board of Supervisors (West Fairfax District)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Gary M. Deal",
+       "locality_line": 1609,
+       "precincts": 1602
+      }
+     ]
+    },
+    {
+     "title": "Member School Board (Catalpa District)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Barbara L. \"Barbee\" Brown",
+       "locality_line": 1843,
+       "precincts": 1838
+      }
+     ]
+    },
+    {
+     "title": "Member School Board (East Fairfax District)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Pat A. Baker",
+       "locality_line": 1067,
+       "precincts": 1061
+      }
+     ]
+    },
+    {
+     "title": "Member School Board (Salem District)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Kelley A. Pearson",
+       "locality_line": 1514,
+       "precincts": 1506
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "M. Terese Matricardi",
+       "locality_line": 1495,
+       "precincts": 1490
+      }
+     ]
+    },
+    {
+     "title": "Member School Board (West Fairfax District)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Matt R. Borja",
+       "locality_line": 856,
+       "precincts": 848
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Crissy H. Burnett",
+       "locality_line": 924,
+       "precincts": 923
+      }
+     ]
+    },
+    {
+     "title": "Soil and Water Conservation Director Culpeper District (Culpeper County)",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Tom A. O'Halloran Jr.",
+       "locality_line": 11424,
+       "precincts": 11388
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Dennis F. Verhoff",
+       "locality_line": 6938,
+       "precincts": 6912
+      }
+     ]
+    },
+    {
+     "title": "Member Town Council",
+     "lines": [
+      {
+       "locality": "Culpeper County",
+       "option": "Jon D. Russell",
+       "locality_line": 2338,
+       "precincts": 2330
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Pranas A. Rimeikis",
+       "locality_line": 2155,
+       "precincts": 2144
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Jamie M.D. Clancey",
+       "locality_line": 2189,
+       "precincts": 2178
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Meaghan E. Taylor",
+       "locality_line": 2318,
+       "precincts": 2307
+      },
+      {
+       "locality": "Culpeper County",
+       "option": "Write-In",
+       "locality_line": 219,
+       "precincts": 217
+      }
+     ]
+    },
+    {
+     "title": "Member Town Council - Special (Wachapreague)",
+     "lines": [
+      {
+       "locality": "Accomack County",
+       "option": "Write-In",
+       "locality_line": 2,
+       "precincts": 3
+      }
+     ]
+    }
+   ],
+   "over_ballot_highest": [
+    {
+     "title": "Sheriff (Cumberland County)",
+     "locality": "Cumberland County",
+     "votes_per_seat": 3252.0,
+     "top": 2906,
+     "top_name": "Treasurer (Cumberland County)",
+     "ratio": 1.1191
+    },
+    {
+     "title": "Sheriff (Halifax County)",
+     "locality": "Halifax County",
+     "votes_per_seat": 9446.0,
+     "top": 8505,
+     "top_name": "Treasurer (Halifax County)",
+     "ratio": 1.1106
+    },
+    {
+     "title": "Clerk of Court (Norton City, Wise County)",
+     "locality": "Norton City",
+     "votes_per_seat": 434.0,
+     "top": 394,
+     "top_name": "the House of Delegates' lines in Norton City, summed",
+     "ratio": 1.1015
+    },
+    {
+     "title": "Treasurer (Scott County)",
+     "locality": "Scott County",
+     "votes_per_seat": 5586.0,
+     "top": 5104,
+     "top_name": "Clerk of Court (Scott County)",
+     "ratio": 1.0944
+    },
+    {
+     "title": "Casino Gaming",
+     "locality": "Richmond City",
+     "votes_per_seat": 67244,
+     "top": 61785,
+     "top_name": "the Senate of Virginia's lines in Richmond City, summed",
+     "ratio": 1.0884
+    },
+    {
+     "title": "Treasurer (Fluvanna County)",
+     "locality": "Fluvanna County",
+     "votes_per_seat": 7859.0,
+     "top": 7282,
+     "top_name": "Sheriff (Fluvanna County)",
+     "ratio": 1.0792
+    },
+    {
+     "title": "Clerk of Court (Pittsylvania County)",
+     "locality": "Pittsylvania County",
+     "votes_per_seat": 16299.0,
+     "top": 15403,
+     "top_name": "Sheriff (Pittsylvania County)",
+     "ratio": 1.0582
+    },
+    {
+     "title": "Commonwealth's Attorney (Goochland County)",
+     "locality": "Goochland County",
+     "votes_per_seat": 12412.0,
+     "top": 11853,
+     "top_name": "the House of Delegates' lines in Goochland County, summed",
+     "ratio": 1.0472
+    },
+    {
+     "title": "Sheriff (Prince Edward County)",
+     "locality": "Prince Edward County",
+     "votes_per_seat": 5535.0,
+     "top": 5332,
+     "top_name": "the House of Delegates' lines in Prince Edward County, summed",
+     "ratio": 1.0381
+    },
+    {
+     "title": "Sheriff (Nottoway County)",
+     "locality": "Nottoway County",
+     "votes_per_seat": 4075.0,
+     "top": 3979,
+     "top_name": "the House of Delegates' lines in Nottoway County, summed",
+     "ratio": 1.0241
+    },
+    {
+     "title": "Sheriff (Giles County)",
+     "locality": "Giles County",
+     "votes_per_seat": 5991.0,
+     "top": 5876,
+     "top_name": "the Senate of Virginia's lines in Giles County, summed",
+     "ratio": 1.0196
+    },
+    {
+     "title": "Clerk of Court (Dickenson County)",
+     "locality": "Dickenson County",
+     "votes_per_seat": 4514.0,
+     "top": 4429,
+     "top_name": "Commonwealth's Attorney (Dickenson County)",
+     "ratio": 1.0192
+    },
+    {
+     "title": "Sheriff (Lunenburg County)",
+     "locality": "Lunenburg County",
+     "votes_per_seat": 3802.0,
+     "top": 3734,
+     "top_name": "the House of Delegates' lines in Lunenburg County, summed",
+     "ratio": 1.0182
+    },
+    {
+     "title": "Clerk of Court (Buckingham County)",
+     "locality": "Buckingham County",
+     "votes_per_seat": 3784.0,
+     "top": 3733,
+     "top_name": "Sheriff (Buckingham County)",
+     "ratio": 1.0137
+    },
+    {
+     "title": "Sheriff (Mathews County)",
+     "locality": "Mathews County",
+     "votes_per_seat": 4410.0,
+     "top": 4354,
+     "top_name": "the Senate of Virginia's lines in Mathews County, summed",
+     "ratio": 1.0129
+    },
+    {
+     "title": "Sheriff (Charlotte County)",
+     "locality": "Charlotte County",
+     "votes_per_seat": 3886.0,
+     "top": 3846,
+     "top_name": "Clerk of Court (Charlotte County)",
+     "ratio": 1.0104
+    },
+    {
+     "title": "Sheriff (Page County)",
+     "locality": "Page County",
+     "votes_per_seat": 8913.0,
+     "top": 8845,
+     "top_name": "the Senate of Virginia's lines in Page County, summed",
+     "ratio": 1.0077
+    },
+    {
+     "title": "Sheriff (Russell County)",
+     "locality": "Russell County",
+     "votes_per_seat": 8060.0,
+     "top": 7999,
+     "top_name": "Clerk of Court (Russell County)",
+     "ratio": 1.0076
+    },
+    {
+     "title": "Sheriff (Buchanan County)",
+     "locality": "Buchanan County",
+     "votes_per_seat": 5814.0,
+     "top": 5772,
+     "top_name": "Clerk of Court (Buchanan County)",
+     "ratio": 1.0073
+    },
+    {
+     "title": "Sheriff (Charles City County)",
+     "locality": "Charles City County",
+     "votes_per_seat": 2800.0,
+     "top": 2781,
+     "top_name": "the Senate of Virginia's lines in Charles City County, summed",
+     "ratio": 1.0068
+    },
+    {
+     "title": "Sheriff (Franklin City, Southampton County)",
+     "locality": "Franklin City",
+     "votes_per_seat": 2571.0,
+     "top": 2557,
+     "top_name": "the House of Delegates' lines in Franklin City, summed",
+     "ratio": 1.0055
+    },
+    {
+     "title": "Sheriff (Alleghany County, Covington City)",
+     "locality": "Alleghany County",
+     "votes_per_seat": 5340.0,
+     "top": 5312,
+     "top_name": "the House of Delegates' lines in Alleghany County, summed",
+     "ratio": 1.0053
+    },
+    {
+     "title": "Sheriff (Henry County)",
+     "locality": "Henry County",
+     "votes_per_seat": 13619.0,
+     "top": 13552,
+     "top_name": "the Senate of Virginia's lines in Henry County, summed",
+     "ratio": 1.0049
+    },
+    {
+     "title": "Sheriff. (Emporia City, Greensville County)",
+     "locality": "Greensville County",
+     "votes_per_seat": 3209.0,
+     "top": 3194,
+     "top_name": "the House of Delegates' lines in Greensville County, summed",
+     "ratio": 1.0047
+    },
+    {
+     "title": "Sheriff (Washington County)",
+     "locality": "Washington County",
+     "votes_per_seat": 16002.0,
+     "top": 15942,
+     "top_name": "Commissioner of Revenue (Washington County)",
+     "ratio": 1.0038
+    }
+   ]
+  }
+ }
+}

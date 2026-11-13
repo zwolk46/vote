@@ -707,6 +707,18 @@ def top_named(cands):
 
 
 WRITE_IN_STRONG = 0.10   # a write-in with at least this share of the last winner's votes makes an unopposed race a contest
+# A record with one name on the ballot for each seat whose counts are held is not computed, at every level (the
+# orchestrator's ruling of 2026-11-13 00:26 UTC: "A one-name record whose counts are held is not computed, at every
+# level, with the reason that the write-in test cannot be read on held counts". Reason, as ruled: p 0 says no other
+# name can win, and the write-in rule exists because a strong write-in can; the test needs whole counts.)
+HELD_ONE_NAME = ("one name on the ballot for each seat, but the write-in test (whether write-ins drew "
+                 f"{100 * WRITE_IN_STRONG:.0f}% of the last winner's votes) cannot be read on held counts, so p 0 is "
+                 "not given")
+
+
+def held_one_name(why):
+    """The not-computed reason of a held record with one name on the ballot for each seat (HELD_ONE_NAME)."""
+    return f"{why}; {HELD_ONE_NAME}"
 
 
 def size_bin(n):
@@ -962,11 +974,12 @@ PRIMARY_PLURALITY = ("dp", "rp", "indepp", "workp", "conservativep", "liberp", "
 
 def structure(c):
     """(route, class key or reason) for a normalized Klarner contest."""
-    if c.get("held_reason"):   # New Hampshire's 2022 contests whose counts are not relied on (nh_2022)
-        return ("not computed", c["held_reason"])
     et = c["etype"]
     kv = c.get("klarner") or {}
     named = on_ballot(c["cands"])
+    if c.get("held_reason"):   # held counts (nh_2022, the district checks, the coarse tier); one name: HELD_ONE_NAME
+        return ("not computed", held_one_name(c["held_reason"]) if len(named) <= (c["eseats"] or 1)
+                else c["held_reason"])
     if any(a["vote_missing"] for a in c["cands"] if not a["scattering"]) and len(named) > 1:
         return ("not computed", "the source does not report every candidate's votes")
     if len(named) <= (c["eseats"] or 1):
