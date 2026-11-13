@@ -313,7 +313,7 @@
    "year": 2016,
    "state": "AR",
    "reasons": [
-    "Klarner vs MEDSL state-lower +9.5%, 8 districts off >5%, worst 29: 7,922 vs 1,078 (+634.88%) by all (p {'klarner': 100})"
+    "Klarner vs MEDSL state-lower +9.5%, 8 districts off >5%, worst 29: 7,922 vs 1,078 (+634.88%) by all (p {'klarner': 98})"
    ]
   },
   {
@@ -328,23 +328,24 @@
    "year": 2016,
    "state": "CT",
    "reasons": [
-    "Klarner vs MEDSL state-lower -0.8%, 3 districts off >5%, worst 90: 11,911 vs 23,233 (-48.73%) by all (p {'klarner': 151})"
+    "Klarner vs MEDSL state-lower -0.8%, 3 districts off >5%, worst 90: 11,911 vs 23,233 (-48.73%) by all (p {'klarner': 150})"
    ]
   },
   {
    "year": 2016,
    "state": "IN",
    "reasons": [
+    "MEDSL file vs D1/D2 totals -0.7%, leaders -7.3%, 1 contests off, worst GOVERNOR  2,702,096 vs 2,719,965 (-0.66%) (p {'state-upper': 1})",
     "Klarner vs MEDSL state-lower +3.2%, 12 districts off >5%, worst 31: 23,226 vs 8,639 (+168.85%) by D+R (p {'klarner': 100})",
-    "Klarner vs MEDSL state-upper +0.4%, 1 districts off >5%, worst 36: 50,094 vs 45,094 (+11.09%) by D+R (p {'klarner': 25})"
+    "Klarner vs MEDSL state-upper +0.4%, 1 districts off >5%, worst 36: 50,094 vs 45,094 (+11.09%) by D+R (p {'klarner': 24, 'medsl': 1})"
    ]
   },
   {
    "year": 2016,
    "state": "KY",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.2%, 8 districts off >5%, worst 28: 16,807 vs 349 (+4715.76%) by all (p {'klarner': 100})",
-    "Klarner vs MEDSL state-upper -1.0%, 2 districts off >5%, worst 33: 41,020 vs 34,588 (+18.60%) by D+R (p {'klarner': 19})"
+    "Klarner vs MEDSL state-lower +0.2%, 8 districts off >5%, worst 28: 16,807 vs 349 (+4715.76%) by all (p {'klarner': 98})",
+    "Klarner vs MEDSL state-upper -1.0%, 2 districts off >5%, worst 33: 41,020 vs 34,588 (+18.60%) by D+R (p {'klarner': 18})"
    ]
   },
   {
@@ -358,14 +359,14 @@
    "year": 2016,
    "state": "MA",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.9%, 3 districts off >5%, worst ESSEX12: 28,262 vs 16,480 (+71.49%) by D+R (p {'klarner': 160})"
+    "Klarner vs MEDSL state-lower +0.9%, 3 districts off >5%, worst ESSEX12: 28,262 vs 16,480 (+71.49%) by D+R (p {'klarner': 159})"
    ]
   },
   {
    "year": 2016,
    "state": "ME",
    "reasons": [
-    "Klarner vs MEDSL state-lower +19.2%, 11 districts off >5%, worst 136: 4,631 vs 48 (+9547.92%) by D+R (p {'klarner': 150})",
+    "Klarner vs MEDSL state-lower +19.2%, 11 districts off >5%, worst 136: 4,631 vs 48 (+9547.92%) by D+R (p {'klarner': 149})",
     "Klarner vs MEDSL state-upper +110.7%, 10 districts off >5%, worst 25: 26,793 vs 2,653 (+909.91%) by D+R (p {'klarner': 34})"
    ]
   },
@@ -373,14 +374,14 @@
    "year": 2016,
    "state": "MI",
    "reasons": [
-    "Klarner vs MEDSL state-lower -2.0%, 2 districts off >5%, worst 11: 36,480 vs 94,923 (-61.57%) by D+R (p {'klarner': 110})"
+    "Klarner vs MEDSL state-lower -2.0%, 2 districts off >5%, worst 11: 36,480 vs 94,923 (-61.57%) by D+R (p {'klarner': 108})"
    ]
   },
   {
    "year": 2016,
    "state": "MT",
    "reasons": [
-    "Klarner vs MEDSL state-upper -2.4%, 1 districts off >5%, worst 26: 7,638 vs 13,461 (-43.26%) by D+R (p {'klarner': 25})"
+    "Klarner vs MEDSL state-upper -2.4%, 1 districts off >5%, worst 26: 7,638 vs 13,461 (-43.26%) by D+R (p {'klarner': 24})"
    ]
   },
   {
@@ -408,15 +409,15 @@
    "year": 2016,
    "state": "NY",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.3%, 21 districts off >5%, worst 117: 37,418 vs 39 (+95843.59%) by all (p {'klarner': 150})",
-    "Klarner vs MEDSL state-upper -3.2%, 9 districts off >5%, worst 53: 82,524 vs 168,609 (-51.06%) by D+R (p {'klarner': 62})"
+    "Klarner vs MEDSL state-lower +0.3%, 21 districts off >5%, worst 117: 37,418 vs 39 (+95843.59%) by all (p {'klarner': 148})",
+    "Klarner vs MEDSL state-upper -3.2%, 9 districts off >5%, worst 53: 82,524 vs 168,609 (-51.06%) by D+R (p {'klarner': 59})"
    ]
   },
   {
    "year": 2016,
    "state": "SC",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.3%, 2 districts off >5%, worst 109: 11,126 vs 9,265 (+20.09%) by D+R (p {'klarner': 124})"
+    "Klarner vs MEDSL state-lower +0.3%, 2 districts off >5%, worst 109: 11,126 vs 9,265 (+20.09%) by D+R (p {'klarner': 122})"
    ]
   },
   {
@@ -430,7 +431,7 @@
    "year": 2016,
    "state": "UT",
    "reasons": [
-    "Klarner vs MEDSL state-lower +1.0%, 4 districts off >5%, worst 3: 13,325 vs 4,855 (+174.46%) by D+R (p {'klarner': 75})",
+    "Klarner vs MEDSL state-lower +1.0%, 4 districts off >5%, worst 3: 13,325 vs 4,855 (+174.46%) by D+R (p {'klarner': 72})",
     "Klarner vs MEDSL state-upper -0.8%, 1 districts off >5%, worst 19: 37,375 vs 41,390 (-9.70%) by D+R (p {'klarner': 15})"
    ]
   },
@@ -461,8 +462,7 @@
    "year": 2018,
    "state": "CT",
    "reasons": [
-    "MEDSL file vs D1/D2 totals +1.0%, leaders +0.8%, 1 contests off, worst GOVERNOR  1,406,774 vs 1,363,480 (+3.18%) (p {'local': 45})",
-    "Klarner vs MEDSL state-lower -0.4%, 1 districts off >5%, worst 1: 441 vs 4,419 (-90.02%) by D+R (p {'klarner': 151})"
+    "Klarner vs MEDSL state-lower -0.4%, 1 districts off >5%, worst 1: 441 vs 4,419 (-90.02%) by D+R (p {'klarner': 150})"
    ]
   },
   {
@@ -482,9 +482,17 @@
   },
   {
    "year": 2018,
+   "state": "IN",
+   "reasons": [
+    "Klarner vs MEDSL state-lower +0.6%, 5 districts off >5%, worst 73: 17,824 vs 10,044 (+77.46%) by D+R (p {'klarner': 100})",
+    "Klarner vs MEDSL state-upper +8.0%, 4 districts off >5%, worst 31: 58,833 vs 26,335 (+123.40%) by D+R (p {'klarner': 25})"
+   ]
+  },
+  {
+   "year": 2018,
    "state": "KS",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.1%, 1 districts off >5%, worst 117: 7,974 vs 7,173 (+11.17%) by D+R (p {'klarner': 125})",
+    "Klarner vs MEDSL state-lower +0.1%, 1 districts off >5%, worst 117: 7,974 vs 7,173 (+11.17%) by D+R (p {'klarner': 124})",
     "Klarner vs MEDSL state-upper +0.0%, 0 districts off >5%, worst no district matched (p {'klarner': 1})"
    ]
   },
@@ -500,7 +508,7 @@
    "year": 2018,
    "state": "ME",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.2%, 6 districts off >5%, worst 101: 4,056 vs 1,542 (+163.04%) by D+R (p {'klarner': 150})",
+    "Klarner vs MEDSL state-lower +0.2%, 6 districts off >5%, worst 101: 4,056 vs 1,542 (+163.04%) by D+R (p {'klarner': 145})",
     "Klarner vs MEDSL state-upper -0.9%, 1 districts off >5%, worst 5: 14,644 vs 20,499 (-28.56%) by D+R (p {'klarner': 35})"
    ]
   },
@@ -552,14 +560,14 @@
    "state": "NY",
    "reasons": [
     "Klarner vs MEDSL state-lower +0.8%, 4 districts off >5%, worst 145: 31,884 vs 24,927 (+27.91%) by D+R (p {'klarner': 149})",
-    "Klarner vs MEDSL state-upper +0.1%, 1 districts off >5%, worst 9: 118,829 vs 110,580 (+7.46%) by D+R (p {'klarner': 62})"
+    "Klarner vs MEDSL state-upper +0.1%, 1 districts off >5%, worst 9: 118,829 vs 110,580 (+7.46%) by D+R (p {'klarner': 61})"
    ]
   },
   {
    "year": 2018,
    "state": "OH",
    "reasons": [
-    "Klarner vs MEDSL state-lower -0.1%, 1 districts off >5%, worst 80: 42,255 vs 48,429 (-12.75%) by D+R (p {'klarner': 99})"
+    "Klarner vs MEDSL state-lower -0.1%, 1 districts off >5%, worst 80: 42,255 vs 48,429 (-12.75%) by D+R (p {'klarner': 98})"
    ]
   },
   {
@@ -588,8 +596,8 @@
    "year": 2018,
    "state": "VT",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.4%, 1 districts off >5%, worst RUTLAND6: 5,469 vs 4,527 (+20.81%) by D+R (p {'klarner': 104})",
-    "Klarner vs MEDSL state-upper +151.1%, 6 districts off >5%, worst CHITTENDEN: 1,020,473 vs 256,558 (+297.76%) by D+R (p {'klarner': 12, 'medsl': 1})"
+    "Klarner vs MEDSL state-lower +0.4%, 1 districts off >5%, worst RUTLAND6: 5,469 vs 4,527 (+20.81%) by D+R (p {'klarner': 102})",
+    "Klarner vs MEDSL state-upper +151.1%, 6 districts off >5%, worst CHITTENDEN: 1,020,473 vs 256,558 (+297.76%) by D+R (p {'klarner': 6, 'medsl': 4})"
    ]
   },
   {
@@ -652,9 +660,16 @@
   },
   {
    "year": 2022,
+   "state": "IA",
+   "reasons": [
+    "Klarner vs MEDSL state-lower +0.2%, 1 districts off >5%, worst 23: 11,399 vs 8,647 (+31.83%) by D+R (p {'klarner': 100})"
+   ]
+  },
+  {
+   "year": 2022,
    "state": "ID",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.3%, 1 districts off >5%, MEDSL raw 2x in 18, worst 28: 26,072 vs 22,626 (+15.23%) by D+R (p {'klarner': 70})",
+    "Klarner vs MEDSL state-lower +0.3%, 1 districts off >5%, MEDSL raw 2x in 18, worst 28: 26,072 vs 22,626 (+15.23%) by D+R (p {'klarner': 68, 'id_sos canvass': 2})",
     "Klarner vs MEDSL state-upper -1.7%, 1 districts off >5%, MEDSL raw 2x in 18, worst 1: 13,064 vs 22,089 (-40.86%) by all (p {'klarner': 34})"
    ]
   },
@@ -667,9 +682,25 @@
   },
   {
    "year": 2022,
+   "state": "IN",
+   "reasons": [
+    "Klarner vs MEDSL state-lower +40.4%, 33 districts off >5%, worst 56: 16,821 vs 195 (+8526.15%) by D+R (p {'klarner': 100})",
+    "Klarner vs MEDSL state-upper +58.0%, 15 districts off >5%, worst 38: 27,510 vs 1,250 (+2100.80%) by D+R (p {'klarner': 25})"
+   ]
+  },
+  {
+   "year": 2022,
+   "state": "MA",
+   "reasons": [
+    "Klarner vs MEDSL state-lower -1.2%, 0 districts off >5%, worst no district matched (p {'klarner': 160})",
+    "Klarner vs MEDSL state-upper -0.9%, 0 districts off >5%, worst no district matched (p {'klarner': 41})"
+   ]
+  },
+  {
+   "year": 2022,
    "state": "MI",
    "reasons": [
-    "Klarner vs MEDSL state-lower +1.1%, 5 districts off >5%, worst 63: 43,648 vs 22,966 (+90.05%) by D+R (p {'klarner': 110})",
+    "Klarner vs MEDSL state-lower +1.1%, 5 districts off >5%, worst 63: 43,648 vs 22,966 (+90.05%) by D+R (p {'klarner': 108})",
     "Klarner vs MEDSL state-upper +2.5%, 4 districts off >5%, worst 3: 71,490 vs 30,412 (+135.07%) by all (p {'klarner': 38})"
    ]
   },
@@ -685,7 +716,7 @@
    "year": 2022,
    "state": "MO",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.0%, 1 districts off >5%, worst 129: 12,106 vs 11,210 (+7.99%) by D+R (p {'klarner': 163})"
+    "Klarner vs MEDSL state-lower +0.0%, 1 districts off >5%, worst 129: 12,106 vs 11,210 (+7.99%) by D+R (p {'klarner': 162})"
    ]
   },
   {
@@ -715,7 +746,7 @@
    "year": 2022,
    "state": "NM",
    "reasons": [
-    "Klarner vs MEDSL state-lower +0.6%, 2 districts off >5%, worst 53: 11,267 vs 6,341 (+77.68%) by D+R (p {'klarner': 70})"
+    "Klarner vs MEDSL state-lower +0.6%, 2 districts off >5%, worst 53: 11,267 vs 6,341 (+77.68%) by D+R (p {'klarner': 69})"
    ]
   },
   {
@@ -729,8 +760,8 @@
    "year": 2022,
    "state": "NY",
    "reasons": [
-    "Klarner vs MEDSL state-lower -1.6%, 7 districts off >5%, worst 113: 55,107 vs 94,861 (-41.91%) by D+R (p {'klarner': 150})",
-    "Klarner vs MEDSL state-upper -0.2%, 3 districts off >5%, worst 56: 95,390 vs 61,909 (+54.08%) by D+R (p {'klarner': 63})"
+    "Klarner vs MEDSL state-lower -1.6%, 7 districts off >5%, worst 113: 55,107 vs 94,861 (-41.91%) by D+R (p {'klarner': 145})",
+    "Klarner vs MEDSL state-upper -0.2%, 3 districts off >5%, worst 56: 95,390 vs 61,909 (+54.08%) by D+R (p {'klarner': 61})"
    ]
   },
   {
@@ -742,18 +773,38 @@
   },
   {
    "year": 2022,
+   "state": "UT",
+   "reasons": [
+    "Klarner vs MEDSL state-upper -0.7%, 1 districts off >5%, worst 7: 37,960 vs 41,099 (-7.64%) by all (p {'klarner': 15})"
+   ]
+  },
+  {
+   "year": 2022,
+   "state": "VT",
+   "reasons": [
+    "Klarner vs MEDSL state-lower +0.1%, 1 districts off >5%, worst LAMOILLEWASHINGTON: 7,396 vs 6,255 (+18.24%) by D+R (p {'klarner': 108})",
+    "Klarner vs MEDSL state-upper -0.6%, 0 districts off >5%, worst no district matched (p {'klarner': 14})"
+   ]
+  },
+  {
+   "year": 2022,
    "state": "WA",
    "reasons": [
-    "MEDSL file vs D1/D2 totals -0.5%, leaders -0.4%, 2 contests off, worst US HOUSE 08 308,009 vs 336,038 (-8.34%) (p {'local': 13})",
     "Klarner vs MEDSL state-lower +6.7%, 15 districts off >5%, worst 12: 98,286 vs 20,484 (+379.82%) by D+R (p {'klarner': 98})",
     "Klarner vs MEDSL state-upper +3.8%, 3 districts off >5%, worst 26: 75,168 vs 35,472 (+111.91%) by D+R (p {'klarner': 25})"
    ]
   },
   {
    "year": 2022,
+   "state": "WI",
+   "reasons": [
+    "Klarner vs MEDSL state-lower -0.2%, 1 districts off >5%, worst 6: 22,404 vs 26,454 (-15.31%) by D+R (p {'klarner': 98})"
+   ]
+  },
+  {
+   "year": 2022,
    "state": "WY",
    "reasons": [
-    "MEDSL file vs D1/D2 totals +6.3%, leaders +0.0%, 1 contests off, worst GOVERNOR  194,000 vs 182,549 (+6.27%) (p {'local': 3})",
     "Klarner vs MEDSL state-lower -1.5%, 4 districts off >5%, worst 19: 2,122 vs 3,050 (-30.43%) by all (p {'klarner': 60})",
     "Klarner vs MEDSL state-upper -3.8%, 4 districts off >5%, worst 1: 4,785 vs 6,365 (-24.82%) by all (p {'klarner': 16})"
    ]
@@ -795,13 +846,6 @@
   },
   {
    "year": 2024,
-   "state": "IN",
-   "reasons": [
-    "Indiana's files +5.0% vs D1/D2, worst GOVERNOR  2,879,655 vs 2,741,246 (+5.05%) (p {'state-upper': 25, 'state-lower': 100, 'local': 1176, 'measure': 1})"
-   ]
-  },
-  {
-   "year": 2024,
    "state": "MA",
    "reasons": [
     "MEDSL file vs D1/D2 totals -6.1%, leaders +0.0%, 10 contests off, worst US HOUSE 04 297,725 vs 411,578 (-27.66%) (p {'state-upper': 40, 'state-lower': 160, 'local': 1})"
@@ -811,7 +855,7 @@
    "year": 2024,
    "state": "ME",
    "reasons": [
-    "MEDSL file vs D1/D2 totals -15.7%, leaders -1.0%, 4 contests off, worst US HOUSE 02 388,229 vs 794,532 (-51.14%) (p {'state-upper': 35, 'state-lower': 151, 'local': 58, 'measure': 3})"
+    "MEDSL file vs D1/D2 totals -2.2%, leaders -1.1%, 4 contests off, worst US HOUSE 01 422,265 vs 439,567 (-3.94%) (p {'state-upper': 35, 'state-lower': 151, 'local': 58, 'measure': 3})"
    ]
   },
   {
@@ -867,7 +911,7 @@
    "year": 2024,
    "state": "NY",
    "reasons": [
-    "MEDSL file vs D1/D2 totals -3.5%, leaders -0.4%, 28 contests off, worst US HOUSE 25 258,614 vs 379,616 (-31.87%) (p {'state-upper': 59, 'state-lower': 138, 'local': 413, 'measure': 1})"
+    "MEDSL file vs D1/D2 totals -3.5%, leaders -0.4%, 28 contests off, worst US HOUSE 25 258,614 vs 379,616 (-31.87%) (p {'state-upper': 59, 'state-lower': 130, 'local': 406})"
    ]
   },
   {
