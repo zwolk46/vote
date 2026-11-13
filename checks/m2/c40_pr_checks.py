@@ -588,21 +588,7 @@ def section_2():
 
 
 # ------------------------------------------------------------------------------------------ rows and pools at a commit
-def row_from_record(r):
-    """A route-(a) fit row from a record's inputs and two-party votes (the odd-year and 2024 records, whose rows are not in
-    Klarner's file): y, N, class, last share, unopposed side, incumbency, lean."""
-    inp = r["inputs"] or {}
-    pr = (r["pair"] or {}).get("votes")
-    if not pr or len(pr) != 2 or not inp.get("class"):
-        return None
-    d, rr = pr
-    if d <= 0 or rr <= 0:
-        return None
-    cls = inp["class"]
-    return {"year": r["year"], "state": r["state"], "sen": 1 if r["level"] == "state-upper" else 0, "y": d / (d + rr), "N": d + rr,
-            "d": d, "r": rr, "cls": cls, "xl": (inp.get("last_D", 0.5) - 0.5) if cls == "A" else 0.0,
-            "ulag": ((1 if inp.get("last_unopposed") == "D" else -1) if cls == "B" else 0), "inc": inp.get("incumbency", 0) or 0,
-            "L": inp.get("lean", 0.0) or 0.0, "Lmiss": 0 if inp.get("lean_year") else 1, "id": r["id"]}
+row_from_record = C15.row_from_record   # the eighth pass: shared with c15
 
 
 _KROWS = None
@@ -616,23 +602,11 @@ def klarner_rows():
 
 
 def fit_rows_at(root, override=()):
-    """Route (a)'s rows at a commit: Klarner's from his file (c15), the records' where the source is not Klarner (the
-    odd-year legislatures, MEDSL's and Indiana's 2024), and, for the state-years in override, the records' Klarner-sourced
-    rows in place of the file's (for #95: New Hampshire and Idaho 2022, whose votes the PR changed)."""
+    """Route (a)'s rows at a commit (c15.fit_rows on the records at the commit's worktree): Klarner's from his file, the
+    records' where the source is not Klarner, and, for the state-years in override, the records' Klarner-sourced rows in
+    place of the file's (for #95: New Hampshire and Idaho 2022)."""
     base, _ = klarner_rows()
-    rows = [r_ for r_ in base if (r_["year"], r_["state"]) not in set(override)]
-    added = collections.Counter()
-    for level in ("state-upper", "state-lower"):
-        for r in rows_at(root, level):
-            if r["route"] != "partisan" or r["status"] != "value":
-                continue
-            if r["src"] == "klarner" and (r["year"], r["state"]) not in set(override):
-                continue
-            x = row_from_record(r)
-            if x:
-                rows.append(x)
-                added[(r["year"], r["state"], r["src"])] += 1
-    return rows, added
+    return C15.fit_rows(base, {lv: rows_at(root, lv) for lv in ("state-upper", "state-lower")}, override)
 
 
 def fits_for(rows, years):
@@ -651,47 +625,14 @@ def p_partisan(M, r_, n):
 
 
 _POOL = {}
-HELD_OUT = ("left out of the fits", "held by the gate", "a recount's count", "counted by ranked choice",
-            "a write-in line is in the pair", "the source splits this district's returns")
-
-
-def held_out(reason):
-    """A record that is no like race by the record's own reason: held (New Hampshire 2022's doubled House contests,
-    "left out of the fits"; Virginia 2023's 9th Senate district, held by the gate), a recount's count recorded beside
-    the general's (the same contest twice), a ranked-choice count (Alaska 2024: the count is of another kind), a
-    write-in line in the deciding pair (no pair of candidates), a district the source splits (no one contest). Without
-    the last three my 2025 pools held 11, 1 and 1 rows more than the records' like_races. [stated: the records' words]"""
-    r = reason or ""
-    return any(w in r for w in HELD_OUT)
+HELD_OUT = C15.HELD_OUT   # the eighth pass: shared with c15
+held_out = C15.held_out
 
 
 def pool_at(root):
-    """Like-race rows at a commit from every source's state legislative records: (year, class, leader's share of the
-    deciding pair), the class by my own reading of the ballot (m2d3.structure_state); runoffs by the recorded class;
-    the held records and the recounts' counts left out (held_out)."""
+    """Like-race rows at a commit (c15.like_pool on the records at the commit's worktree), by class key -> [(year, s)]."""
     if root not in _POOL:
-        pool = []
-        for level in ("state-upper", "state-lower"):
-            for r in rows_at(root, level):
-                if r["status"] == "not_computed" and held_out(r["reason"]):
-                    continue
-                el = r["election"] or ""
-                if "runoff" in el and el != "srunoff" and not el.startswith("lasrunoff"):
-                    key = r["cls"] if r["cls"] and r["cls"].startswith("runoff") else None
-                    if key is None:
-                        continue
-                    pr = D.deciding_pair(r, 1)
-                    if pr and pr[0] + pr[1] > 0:
-                        pool.append((r["year"], key, max(pr) / (pr[0] + pr[1])))
-                    continue
-                st = D.structure_state(r)
-                if st is None or st[0] not in ("class", "boundary"):
-                    continue
-                k = r["seats"] if st[0] == "boundary" else 1
-                pr = D.deciding_pair(r, k)
-                if pr is None or pr[0] + pr[1] <= 0:
-                    continue
-                pool.append((r["year"], st[1], max(pr) / (pr[0] + pr[1])))
+        pool, _, _ = C15.like_pool([r for level in ("state-upper", "state-lower") for r in rows_at(root, level)])
         by = collections.defaultdict(list)
         for y, key, s in pool:
             by[key].append((y, s))

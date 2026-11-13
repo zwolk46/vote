@@ -493,14 +493,230 @@ def volume_summary(path, year):
 def all_raw_files():
     """every raw MEDSL file in the caches, (year, path): fifth/medsl and fourth/medsl by name"""
     out = []
-    for d in (os.path.join(FIFTH, "medsl"), os.path.join(L.CACHE, "fourth", "medsl")):
+    dirs = [(os.path.join(FIFTH, "medsl"), None), (os.path.join(L.CACHE, "fourth", "medsl"), None),
+            (os.path.join(L.CACHE, "eighth", "src", "medsl18"), 2018), (os.path.join(L.CACHE, "eighth", "src", "medsl22"), 2022)]   # the eighth pass's fetches
+    for d, fixed in dirs:
         if not os.path.isdir(d):
             continue
         for n in sorted(os.listdir(d)):
             if not n.lower().endswith((".csv", ".zip", ".tab")):
                 continue
             m = re.match(r"^(20\d\d)", n)
-            year = int(m.group(1)) if m else (2022 if re.search(r"22|cleaned|final|colorado|louisiana|carolina", n) else None)
+            year = fixed or (int(m.group(1)) if m else (2022 if re.search(r"22|cleaned|final|colorado|louisiana|carolina", n) else None))
             if year:
                 out.append((year, os.path.join(d, n)))
+    return out
+
+
+# ------------------------------------------------------------------------------------------ the eighth pass
+BALLOT_LINE = re.compile(r"^(BALLOTS CAST( ?-? ?TOTAL)?|TOTAL BALLOTS( CAST)?|NUMBER OF BALLOTS CAST|BALLOTS)$")   # named as the ballots cast
+TOTAL_LINE = re.compile(r"^(CONTEST TOTAL|TOTAL VOTES CAST|VOTES CAST|CAST VOTES)$")   # a contest's own total line
+OVER_LINE = re.compile(r"^(OVER ?VOTES?|TIMES OVER VOTED)$")
+UNDER_LINE = re.compile(r"^(UNDER ?VOTES?|TIMES UNDER VOTED|BLANK VOTES?|BLANKS?|TIMES BLANK VOTED)$")
+STATEWIDE_DISTRICTS = {"", "STATEWIDE", "STATE", "AT LARGE", "AT-LARGE", "ATLARGE", "ALL", "0", "000", "NA", "N/A", "NONE", "STATE WIDE"}
+SPLIT_LINE = re.compile(r"^(.+?) - (YES|NO|OVER ?VOTES?|UNDER ?VOTES?|TIMES OVER VOTED|TIMES UNDER VOTED|TIMES BLANK VOTED|BLANK VOTES?|BLANKS?)$")
+
+
+def split_line(cand):
+    """A retention or other question filed as 'NAME - YES' / 'NAME - NO' lines under one office (Colorado's and Iowa's
+    courts, Arizona's retentions): (the name, the answer or line), else None. Each name is its own question."""
+    m = SPLIT_LINE.match(cand)
+    return (m.group(1).strip(), m.group(2)) if m else None
+
+
+def ballots_summary(path, year):
+    """the eighth pass's summary of one raw MEDSL file, made once into derived/<file>.ballots.json, for an over-ballot
+    test written apart from pipeline/local_medsl.py over_ballot: every statewide contest of the STATE, PRESIDENT and
+    SENATE dataverses (stage GEN or unmarked): a district in STATEWIDE_DISTRICTS, or an office and district whose rows
+    span at least half the counties those dataverses' rows span in the file (a seat-numbered statewide court, read in a
+    first pass over the file), "ST|date|dataverse|office|district" ->
+      cands        candidate -> votes (a precinct's TOTAL row where it has one, else its modes summed), with the rows
+                   that are subtotals of other rows left out (the seventh pass's rule, _subtotal_rows); cands_all the
+                   same with every row;
+      answers      True where every name is a ballot answer (a question);
+      magnitudes, precincts (keys with a row), rows;
+      ballots      the contest's own figure per precinct, summed over the precincts that have one (sum, with_figure,
+                   kinds): a line named as the ballots cast (BALLOT_LINE), else its total line (TOTAL_LINE), else the
+                   candidates' votes plus the overvote and undervote lines where the precinct has both;
+      live         "county|jurisdiction|precinct" -> the candidates' votes there (precincts with votes, subtotal rows
+                   left out), for the bound below;
+      counties     the counties with votes.
+    A retention or other question filed as 'NAME - YES' / 'NAME - NO' lines under one office is split by the name
+    (split_line): the district reads 'STATEWIDE~NAME', the lines YES / NO; the questions of any dataverse are
+    summarized (they stand in as the day's top contest).
+    And, for the whole file, bounds: "ST|date" -> "county|jurisdiction|precinct" -> [[figure, contest key] for the two
+    largest figures of the precinct's one-seat contests of any dataverse (votes + overvotes + undervotes where the
+    precinct has both, or the contest's total line), the largest line named as the ballots cast or null]; the
+    orchestrator's reading of 2026-11-07 11:16 and 17:44 (3), as D3's REPORT section 31 states it: a contest's ballots
+    cast in a precinct are another contest's votes with its over- and undervotes, or its contest total, or a line the
+    file names as the ballots cast, the largest of these, never its own lines; counties_of_day: "ST|date" -> the count
+    of counties with a one-seat contest's votes.
+    A row marked special goes under the district with ' SPECIAL' added, as in volume_summary."""
+    os.makedirs(DERIVED, exist_ok=True)
+    out_path = os.path.join(DERIVED, os.path.basename(path) + ".ballots.json")
+    if os.path.exists(out_path):
+        with open(out_path) as f:
+            return json.load(f)
+    sha = L.sha256(path)
+    # the first pass: the counties each (dataverse, office, district) spans
+    span = collections.defaultdict(set)
+    all_counties = set()
+    for r in rows(path):
+        dv = (r.get("dataverse") or "").strip().upper()
+        if (r.get("stage") or "GEN").upper() != "GEN":
+            continue
+        cand_ = (r.get("candidate") or "").strip().upper()
+        if dv not in ("STATE", "PRESIDENT", "SENATE") and not (answer_of(cand_) or split_line(cand_)):
+            continue   # the three statewide dataverses' contests, and the questions of any dataverse
+        county = fips5(r.get("county_fips", ""))
+        all_counties.add(county)
+        span[(dv, (r.get("office") or "").strip().upper(), (r.get("district") or "").strip().upper())].add(county)
+    wide = {k for k, cs in span.items() if k[2] in STATEWIDE_DISTRICTS or (all_counties and len(cs) >= 0.5 * len(all_counties))}
+    cells = {}       # key -> {pk: {cand: {mode: votes}}}  (candidates)
+    meta = {}        # key -> {pk: {kind: {mode: votes}}}   (ballot, total, over, under lines)
+    one = {}         # (st, date) -> pk -> contest key -> {part: {mode: votes}}  (every one-seat contest, for the bounds)
+    named = {}       # (st, date) -> pk -> {mode: votes} of the largest line named as the ballots cast
+    day_counties = collections.defaultdict(set)
+    mags = collections.defaultdict(set)
+    nrows = collections.Counter()
+    n = 0
+    for r in rows(path):
+        n += 1
+        stage = (r.get("stage") or "GEN").upper()
+        if stage != "GEN":
+            continue
+        dv = (r.get("dataverse") or "").strip().upper()
+        district = (r.get("district") or "").strip().upper()
+        office_ = (r.get("office") or "").strip().upper()
+        is_wide = (dv, office_, district) in wide
+        mag = (r.get("magnitude") or "").strip()
+        cand_ = (r.get("candidate") or "").strip().upper()
+        is_one = mag in ("1", "1.0")
+        if not is_wide and not is_one and not BALLOT_LINE.match(cand_):
+            continue
+        if year == 2016:
+            st = r.get("state_postal", "")
+            date = "2016-11-08"
+            pk = (fips5(r.get("county_fips", "")), r.get("jurisdiction", ""), r.get("precinct", ""))
+        else:
+            st = r.get("state_po", "")
+            date = r.get("date", "")
+            pk = (fips5(r.get("county_fips", "")), r.get("jurisdiction_fips", ""), r.get("precinct", ""))
+        office = (r.get("office") or "").strip().upper()
+        if not office:
+            continue
+        if (r.get("special") or "").strip().upper() in ("TRUE", "T", "1", "YES"):
+            district += " SPECIAL"
+        sp = split_line(cand_)
+        if sp:
+            district, cand_ = f"{district}~{sp[0]}", sp[1]   # each name its own question
+        key = (st, date, dv, office, district)
+        cand = cand_
+        try:
+            votes = int(float(r.get("votes") or ""))
+        except ValueError:
+            votes = None
+        mode = (r.get("mode") or "TOTAL").upper()
+        kind = None
+        if BALLOT_LINE.match(cand):
+            kind = "ballots"
+        elif TOTAL_LINE.match(cand):
+            kind = "total"
+        elif OVER_LINE.match(cand):
+            kind = "over"
+        elif UNDER_LINE.match(cand):
+            kind = "under"
+        elif is_meta(cand):
+            continue
+        if kind == "ballots":
+            cell = named.setdefault((st, date), {}).setdefault(pk, {}).setdefault((office, cand), {})
+            cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
+        if is_one:
+            pk_s = "|".join(pk)
+            cell = one.setdefault((st, date), {}).setdefault(pk_s, {}).setdefault("|".join(key), {}).setdefault(kind or "votes", {})
+            cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
+            if not kind and votes:
+                day_counties[(st, date)].add(pk[0])
+        if not is_wide:
+            continue
+        if kind:
+            cell = meta.setdefault(key, {}).setdefault(pk, {}).setdefault(kind, {})
+        else:
+            cell = cells.setdefault(key, {}).setdefault(pk, {}).setdefault(cand, {})
+        cell[mode] = None if votes is None or cell.get(mode, 0) is None else cell.get(mode, 0) + votes
+        mags[key].add(mag)
+        nrows[key] += 1
+    out_c = {}
+    for key, precincts in cells.items():
+        resolved = {}
+        for pk, cs in precincts.items():
+            rv = {}
+            for c, modes in cs.items():
+                v = _resolve(modes)
+                if v is not None:
+                    rv[c] = v
+            resolved[pk] = rv
+        subs = _subtotal_rows(resolved)
+        cands, cands_all = collections.Counter(), collections.Counter()
+        b_sum, with_fig, kinds = 0, 0, collections.Counter()
+        live, counties = {}, set()
+        for pk, rv in resolved.items():
+            for c, v in rv.items():
+                cands_all[c] += v
+                if pk not in subs:
+                    cands[c] += v
+            if pk in subs:
+                continue
+            v_ = sum(rv.values())
+            if v_:
+                live["|".join(pk)] = v_
+                counties.add(pk[0])
+            m = {k: _resolve(mm) for k, mm in meta.get(key, {}).get(pk, {}).items()}
+            fig = None
+            if m.get("ballots") is not None:
+                fig, k_ = m["ballots"], "ballots line"
+            elif m.get("total") is not None:
+                fig, k_ = m["total"], "total line"
+            elif m.get("over") is not None and m.get("under") is not None:
+                fig, k_ = v_ + m["over"] + m["under"], "votes + over + under"
+            if fig is not None:
+                b_sum += fig
+                with_fig += 1
+                kinds[k_] += 1
+        names = [c for c in cands_all if c]
+        out_c["|".join(key)] = {"cands": dict(cands), "cands_all": dict(cands_all), "answers": bool(names) and all(answer_of(c) for c in names),
+                                "magnitudes": sorted(mags[key]), "precincts": len(resolved), "subtotal_rows": len(subs), "rows": nrows[key],
+                                "ballots": {"sum": b_sum, "with_figure": with_fig, "kinds": dict(kinds)},
+                                "live": live, "counties": len(counties)}
+    bounds = {}
+    for sd, pks in one.items():
+        b_sd = {}
+        for pk_s, contests in pks.items():
+            figs = []
+            for ck, parts in contests.items():
+                pr = {k: _resolve(mm) for k, mm in parts.items()}
+                f_ = []
+                if pr.get("over") is not None and pr.get("under") is not None:
+                    f_.append((pr.get("votes") or 0) + pr["over"] + pr["under"])
+                if pr.get("total") is not None:
+                    f_.append(pr["total"])
+                if f_:
+                    figs.append([max(f_), ck])
+            figs.sort(key=lambda x: -x[0])
+            b_sd[pk_s] = figs[:2] + [None]
+        bounds["|".join(sd)] = b_sd
+    for sd, pks in named.items():
+        b_sd = bounds.setdefault("|".join(sd), {})
+        for pk, lines_ in pks.items():
+            vals = [v for v in (_resolve(mm) for mm in lines_.values()) if v is not None]
+            if not vals:
+                continue
+            pk_s = "|".join(pk)
+            b_sd.setdefault(pk_s, [None])
+            b_sd[pk_s][-1] = max(vals)
+    out = {"file": os.path.basename(path), "sha256": sha, "rows": n, "year": year, "counties_all": len(all_counties),
+           "contests": out_c, "spans": {"|".join(k): len(span[k]) for k in wide}, "bounds": bounds,
+           "counties_of_day": {"|".join(sd): len(cs) for sd, cs in day_counties.items()}}
+    with open(out_path, "w") as f:
+        json.dump(out, f)
     return out
