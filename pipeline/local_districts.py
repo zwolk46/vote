@@ -390,7 +390,7 @@ def test(kc, m, pr=None, b_test=True):
 
 
 COVER_GAP = 0.02      # the orchestrator, 22:26 (a): the chamber's rows missing beyond 2% of a county's precincts
-COVER_VERSION = 13
+COVER_VERSION = 15   # 14: the precinct names joined are kept; 15: joined more strictly, and a question by its votes
 COVER_YEARS = {2016: (2016, 2018), 2018: (2016, 2018), 2022: (2022, 2024), 2024: (2022, 2024)}   # MEDSL's files on the same lines
 
 
@@ -438,8 +438,12 @@ def _pnorm(prec):
     return " ".join(prec.upper().replace("_X000D_", " ").split())
 
 
-P_GENERIC = {"THE", "OF", "CITY", "VILLAGE", "TOWNSHIP", "TWP", "CHARTER", "PRECINCT", "PCT", "MICHIGAN",
-             "WARD", "AND"}
+# words that name no place and no unit, left out of a precinct name before names are matched: 'CITY', 'VILLAGE',
+# 'TOWNSHIP' and 'WARD' are kept, since a city and a township of one name are two places in Michigan and Kansas
+# ('CITY OF MILAN' and 'MILAN TOWNSHIP', 'LONE ELM CITY' and 'LONE ELM TOWNSHIP' [measured]); 'TWP' is read as
+# 'TOWNSHIP', and Michigan's ', A MICHIGAN CITY' after a village's name is left out
+P_GENERIC = {"THE", "OF", "CHARTER", "PRECINCT", "PCT", "AND"}
+P_SAME = {"TWP": "TOWNSHIP"}
 
 
 def _edits(a, b, cap=2):
@@ -458,20 +462,24 @@ def _edits(a, b, cap=2):
 
 
 def _pcore(name):
-    """A precinct name's place words and its numbers: the words that name no kind of place ('CITY OF', 'CHARTER
-    TOWNSHIP OF', 'PRECINCT', and a misspelling of it within two letters, 'PRECICNT') left out."""
+    """A precinct name's words, sorted, and its numbers: the words that name no place and no unit ('OF', 'CHARTER',
+    'PRECINCT', and a misspelling of it within two letters, 'PRECICNT') left out, and leading zeros dropped."""
+    name = re.sub(r",? A MICHIGAN CITY\b", "", name)
     toks = re.findall(r"[A-Z]+|\d+", name)
     nums = tuple(str(int(t)) for t in toks if t.isdigit())
-    words = tuple(t for t in toks if not t.isdigit() and t not in P_GENERIC and _edits(t, "PRECINCT") > 2)
+    words = tuple(sorted(P_SAME.get(t, t) for t in toks if not t.isdigit() and t not in P_GENERIC
+                         and not (len(t) >= 6 and _edits(t, "PRECINCT") <= 2)))
     return words, nums
 
 
 def precinct_equivalences(ps, names):
     """{a precinct key some contest gives: the top contest's key for it}, in one county: a name the top contest lacks
-    is joined to the one top-contest name with the same jurisdiction code and numbers whose place words are the same,
-    within two letters of them (from six letters: 'BROWNSTON' for 'BROWNSTOWN'), or a part of them ('GROSSE POINTE
-    SHORES A' beside 'GROSSE POINTE SHORES', MEDSL's 2022 Wayne County: 'THE VILLAGE OF GROSSE POINTE SHORES, A
-    MICHIGAN CITY, PRECINCT 1') [worker D3's rule]. A name with several such matches, or none, is left apart."""
+    is joined to the one top-contest name with the same jurisdiction code and numbers whose words (_pcore) are the
+    same, or one word apart by one letter, both words of six letters or more ('BROWNSTON' for 'BROWNSTOWN',
+    'FOODHILLS' for 'FOOTHILLS') [worker D3's rule]. A name with several such matches, or none, is left apart. A first
+    rule also joined words two letters apart and a name whose words held the other's: it joined 'CITY OF DEARBORN'
+    to 'CITY OF DEARBORN HEIGHTS', Detroit's absent voter counting boards ('AVCB 100') to its precincts, 'EAST' to
+    'WEST' and 'PART A' to 'PART B' [measured], so it was narrowed."""
     extra = {q for q in names if q not in ps}
     if not extra:
         return {}
@@ -482,12 +490,14 @@ def precinct_equivalences(ps, names):
     out = {}
     for q in sorted(extra):
         w, n = _pcore(q[1])
-        jw = "".join(w)
 
-        def near(cw):
-            jc = "".join(cw)
-            return cw == w or (min(len(jc), len(jw)) >= 6 and (_edits(jc, jw) <= 2 or set(w) <= set(cw) or
-                                                               set(cw) <= set(w)))
+        def near(cw):   # the same words, or one word apart by one letter, both of six letters or more
+            if cw == w:
+                return True
+            a, b = collections.Counter(cw), collections.Counter(w)
+            da, db = list((a - b).elements()), list((b - a).elements())
+            return (len(da) == len(db) == 1 and min(len(da[0]), len(db[0])) >= 6
+                    and _edits(da[0], db[0], 1) <= 1)
         hit = [c for c, cw in lone.get((q[0], n), []) if near(cw)]
         if len(hit) == 1:
             out[q] = hit[0]
@@ -504,7 +514,11 @@ def _coverage_file(path, year, out):
     per = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))   # (st, county) -> contest -> pk
     tot = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))   # the same, TOTAL mode only
     fam = collections.defaultdict(lambda: collections.defaultdict(set))   # (st, county) -> family -> precincts
-    questions = set()   # contests answered yes or no: a file can name their precincts apart (Virginia 2018)
+    # contests answered yes or no: a file can name their precincts apart (Virginia 2018); a question is a contest
+    # whose answer lines hold most of its votes, since a candidate contest can carry a line named like an answer
+    # (MEDSL's 2022 Michigan file: 'REJECTED' lines in Ottawa County's governor and Secretary of State rows, which
+    # made those contests questions for every county and Wayne's top contest a US House seat) [measured]
+    ans_v, all_v = collections.Counter(), collections.Counter()
     for r in P._rows(path):
         if (r.get("stage") or "").upper() != "GEN":
             continue
@@ -552,12 +566,14 @@ def _coverage_file(path, year, out):
             fam[(st, county)][f_].add(pk)
         k = (m["office"], r.get("district") or "", (r.get("dataverse") or "").upper())
         per[(st, county)][k][pk] += v
+        all_v[k] += max(v, 0)
         if cand.upper() in P.ANSWERS:
-            questions.add(k)
+            ans_v[k] += max(v, 0)
         if (r.get("mode") or "").strip().upper() == "TOTAL":
             tot[(st, county)][k][pk] += v
     if year not in out["years_counted"]:
         return
+    questions = {k for k in ans_v if ans_v[k] > 0.5 * all_v[k]}
     n_c = collections.Counter(st for st, _ in per)
     spread = collections.Counter((st, k) for (st, _), cs in per.items() for k, c in cs.items() if any(c.values()))
 
@@ -589,8 +605,8 @@ def _coverage_file(path, year, out):
         # precinct names before the gate's match, list each equivalence, and recompute every county")
         eq = precinct_equivalences(ps, set().union(*[set(v) for v in votes.values()], *fam[(st, county)].values()))
         if eq:
-            out.setdefault("equivalences", {})[f"{st}|{county}"] = sorted([" / ".join(a), " / ".join(b)]
-                                                                         for a, b in eq.items())
+            out.setdefault("equivalences", {}).setdefault(str(year), {})[f"{st}|{county}"] = sorted(
+                [" / ".join(a), " / ".join(b)] for a, b in eq.items())
             votes = {k: {eq.get(q, q): n for q, n in v.items()} for k, v in votes.items()}
             fam[(st, county)] = {f_: {eq.get(q, q) for q in v} for f_, v in fam[(st, county)].items()}
         fs = fam[(st, county)]
@@ -652,7 +668,8 @@ def coverage(year):
     for y, p_ in files:
         _coverage_file(p_, y, out)
     d = {"version": COVER_VERSION, "sha256s": shas, "files": [os.path.basename(p_) for _, p_ in files],
-         "districts": {k: sorted(v) for k, v in out["districts"].items()}, "counties": out["counties"]}
+         "districts": {k: sorted(v) for k, v in out["districts"].items()}, "counties": out["counties"],
+         "equivalences": out.get("equivalences", {})}
     with open(out_p, "w") as f:
         json.dump(d, f)
     return d
@@ -1232,6 +1249,16 @@ def check():
         out["incomplete_counties"][str(year)] = inc
         out["incomplete_counties"]["off_ballot_" + str(year)] = off_ballot
         out["statewide_short"][str(year)] = sw
+    # the precinct names joined to the top contest's before the gate's match (the orchestrator, 2026-11-13 01:04 (1):
+    # "Normalize precinct names before the gate's match, list each equivalence, and recompute every county")
+    out["precinct_equivalences"] = {
+        "about": ("by the year of MEDSL's file and state|county: [the name as a contest's rows give it, the top "
+                  "contest's name it is joined to], each 'jurisdiction / precinct'; a name in no row of the county's "
+                  "top contest joins the one top-contest name with the same jurisdiction code and the same numbers, "
+                  "where their words are equal or, both six letters or more, within two letters' edits or one's words "
+                  "among the other's, generic words aside (local_districts.precinct_equivalences)")}
+    for y in (2016, 2018, 2022, 2024):
+        out["precinct_equivalences"][str(y)] = coverage(y).get("equivalences", {}).get(str(y), {})
     out["incomplete_counties"]["about"] = (
         "counties where the US House's rows (by district, where the county has any) miss more than 2% of the precincts "
         "of the county's top contest (the most precincts with votes), holding more than 2% of its votes: [family, "
