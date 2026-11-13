@@ -17,3 +17,4 @@ D3 thread cmsg_01FHkmcV6WaeZh9r5PfgnMbuVThyXDPxVFHnA4YqgssTSs, branch `claude/pr
 
 **Why:** a later thread picking up D3 should not redo sources, tests or traps.
 **How to apply:** read REPORT §29-§35 and the resume note first. See [[d2-congress-data]], [[m2-check-computed-p]], [[d2-odd-governors]], [[m2-eighth-pass]].
+- **#106 (72d1d60), #109 (b35fede) merged 2026-11-13:** matcher fix; state count agreeing with one source settles; two counts agreeing by candidate within 0.4% beat one unmarked state count; over-seats test; zero-row counties missing; fusion summed; WV 2012 gov held (page unofficial).
