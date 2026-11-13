@@ -43,7 +43,7 @@ Added on the orchestrator's message of 05:26 UTC, on the fusion scan's second co
   it fits. Otherwise 19:04 applies." And: "Maine 2010: no request, since the SoS refused."
   West Virginia 2012  the Secretary of State's statewide results page of the 2012 general (apps.sos.wv.gov, read
                     2026-11-13 05:30 UTC), headed "Official Results" [stated]: Tomblin 335,468, Maloney 303,291,
-                    Johnson 16,787, Moran 8,909, "Official Total Votes" 664,455. Cha's figures are 11% to 13% under
+                    Johnson 16,787, Moran 8,909, "Official Total Votes" 664,455. Cha's figures are 9.6% to 11.4% under
                     them; Algara and Amlani's agree [measured]. The page also says its pages "should not be relied on
                     as official results until certified" and that 1,846 of 1,892 precincts report; both are quoted in
                     the source's note.
@@ -51,7 +51,7 @@ Added on the orchestrator's message of 05:26 UTC, on the fusion scan's second co
                     (read 2026-11-13 05:30 UTC), its Governor sheet's Total row: Huntsman 734,049, Springmeyer 186,503,
                     Schanze 24,820 and Doughton, a write-in, 153; total 945,525. The workbook bears no mark, so it
                     stands only as the second of two witnesses: Algara and Amlani's county returns agree with it within
-                    TWO_AGREE for both nominees (05:15 (3)); Cha's figures are 5% to 6% under it [measured].
+                    TWO_AGREE for both nominees (05:15 (3)); Cha's figures are 4.6% to 6.0% under it [measured].
   Missouri 2008, 2012, 2016
                     the Secretary of State's official returns (read 2026-11-13 05:29 UTC), headed "Official Election
                     Returns ... As announced by the Board of State Canvassers" (2008, 2012) and "OFFICIAL RESULTS"

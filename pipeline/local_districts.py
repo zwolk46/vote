@@ -954,7 +954,9 @@ def district_ballots(path, wants):
     contest reaches is left out. `wants`: the (state, sen, district key) to read. Read only where MEDSL's file covers
     the district (district_cover: no county missing the chamber's rows), so its precincts are the district's [worker
     D3's reading; M2 read Vermont 2018's Rutland so: "MEDSL's Rutland governor rows hold 24,483 ballots on all 32
-    precincts"]."""
+    precincts"]. Also returns, by state, the counties with rows in the file but no contest's votes (a ballots-cast
+    line alone, or zeros): MEDSL's 2018 Indiana file gives Washington County (18175) a "BALLOTS CAST" line of 9,541
+    in its 21 precincts and no contest's row [measured]."""
     import local_medsl as M
     import local_volume as V
     import medsl_precinct as P
@@ -962,11 +964,14 @@ def district_ballots(path, wants):
     tot = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))   # st -> contest -> pk
     oth = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))
     dist = collections.defaultdict(set)
+    seen, voted = collections.defaultdict(set), collections.defaultdict(set)   # st -> counties with a row; with votes
     for r in P._rows(path):
         st = r.get("state_po") or r.get("state_postal") or ""
         if st not in states or (r.get("stage") or "").upper() != "GEN" or \
                 (r.get("special") or "").strip().upper() == "TRUE":
             continue
+        county = P.fips5(r.get("county_fips") or "")
+        seen[st].add(county)
         cand = (r.get("candidate") or "").strip()
         prec = r.get("precinct") or ""
         if P.is_meta(cand) or V.AGG_NAME.search(prec) or P.COUNTY_TOTAL.search(prec.strip().upper()):
@@ -974,7 +979,12 @@ def district_ballots(path, wants):
         office = (r.get("office") or "").strip().upper()
         if NOT_A_CONTEST.search(office):
             continue
-        pk = (P.fips5(r.get("county_fips") or ""),
+        try:
+            if int(float(r.get("votes") or 0)) > 0:
+                voted[st].add(county)
+        except ValueError:
+            pass
+        pk = (county,
               " ".join((r.get("jurisdiction_fips") or r.get("jurisdiction") or "").upper().split()),
               " ".join(prec.upper().split()))
         m = M.relabel({"office": office, "district": r.get("district") or ""})
@@ -1005,7 +1015,7 @@ def district_ballots(path, wants):
             b = [max(votes[c].get(q, 0) for c in wide) for q in ps]
             if all(b):
                 out[k] = [len(ps), sum(b), sorted({c[0] for c in wide if any(votes[c].get(q) for q in ps)})]
-    return out
+    return out, {st: sorted(seen[st] - voted[st]) for st in states if seen[st] - voted[st]}
 
 
 OVER_MARK = "Klarner's count is over its seats times the ballots; MEDSL's counts"
@@ -1028,6 +1038,9 @@ def _raw_path(year, name):
 # Windham district is 24 of Windham County's precincts, Wilmington's Senate rows being Bennington's [measured]).
 OVER_SEATS_MEDSL = 1.0   # MEDSL's count taken only where it is within its seats times the ballots
 OVER_HELD = "held: Klarner's count is over its seats times the ballots"
+OVER_BLANK = ("MEDSL's file has rows but no contest's votes in count{s} {c} of the state, and the district's counties are "
+              "read from MEDSL's rows alone (no Census list for these lines), so its precincts, and the ballots read "
+              "from them, may lack a county of the district")
 
 
 def over_seats_pass(year, flags, tallies, tested):
@@ -1037,23 +1050,37 @@ def over_seats_pass(year, flags, tallies, tested):
     count over its seats times the ballots by more than OVER_SEATS: MEDSL's counts are taken (OVER_MARK) where MEDSL's
     are within OVER_SEATS_MEDSL of them, every candidate paired with votes and no other name on MEDSL's ballot; else
     the record is held (OVER_HELD). A flag's own outcome gives way only where it was held or noted, or kept for a gap
-    in MEDSL's file; a district settled by a state or a county keeps that outcome, the figures beside. Returns the
-    list of every record over (for check-districts.json)."""
+    in MEDSL's file; a district settled by a state or a county keeps that outcome, the figures beside. Not read where
+    the file has a county with no contest's votes and the district's counties are MEDSL's rows alone (OVER_BLANK): the
+    record keeps the outcome its other tests give. Returns the list of every record over, and those not read by
+    state (for check-districts.json)."""
     by_file = collections.defaultdict(list)
     for f in tested:
         if f.get("covered"):
             by_file[f["medsl_file"]].append(f)
-    over = []
+    over, unread = [], {}
     by_id = {f["id"]: f for f in flags}
     for name, fs in sorted(by_file.items()):
         path = _raw_path(year, name)
         if not path:
             continue
         wants = {(f["state"], 1 if f["chamber"] == "state-upper" else 0, _dkey(f["medsl_district"])) for f in fs}
-        got = district_ballots(path, wants)
+        got, blank = district_ballots(path, wants)
         for f in fs:
             b = got.get((f["state"], 1 if f["chamber"] == "state-upper" else 0, _dkey(f["medsl_district"])))
             fl = by_id.get(f["id"])
+            if blank.get(f["state"]) and year not in CENSUS_YEARS:
+                # a county of the file with no contest's votes, where the district's counties are MEDSL's rows alone:
+                # the district may take it in, unseen, so its precincts and their ballots may lack it (Indiana 2018's
+                # Senate 47: Klarner 47,917, MEDSL 38,554, Washington County's ballots cast 9,541 [measured])
+                if fl is not None:
+                    fl["over_seats"] = {"read": False, "why": OVER_BLANK.format(
+                        c=", ".join(blank[f["state"]]), s="y" if len(blank[f["state"]]) == 1 else "ies")}
+                u = unread.setdefault(f["state"], {"counties": blank[f["state"]], "records": 0, "flagged": []})
+                u["records"] += 1
+                if fl is not None:
+                    u["flagged"].append(f["id"])
+                continue
             if not b:
                 if fl is not None:
                     fl["over_seats"] = {"read": False, "why": "no statewide contest reaches the district's precincts"}
@@ -1096,7 +1123,7 @@ def over_seats_pass(year, flags, tallies, tested):
             over.append(row)
     for k in [k for k, v in tallies.items() if v == 0]:
         del tallies[k]
-    return sorted(over, key=lambda r: r["id"])
+    return sorted(over, key=lambda r: r["id"]), dict(sorted(unread.items()))
 
 
 def klarner_id(kc):
@@ -1469,10 +1496,12 @@ def check():
             f.update(outcome(kc, t, year, canv, district_cover(kc, m, year, cov, full_upper)))
             flags.append(f)
             tallies[f"flag {'+'.join(f['flags'])}: {f['outcome']}"] += 1
-        over = over_seats_pass(year, flags, tallies, tested)
+        over, unread = over_seats_pass(year, flags, tallies, tested)
         out["years"][str(year)] = {"tallies": dict(sorted(tallies.items())), "shared_by_state": dict(sorted(shared.items())),
                                    "flags": sorted(flags, key=lambda f: (f["state"], f["chamber"], f["id"])),
                                    "over_seats": {"tested": len([f for f in tested if f["covered"]]),
+                                                  "not_read": {"why": OVER_BLANK.format(c="(by state, below)", s="ies"),
+                                                               "by_state": unread},
                                                   "over": over},
                                    "two_against_state": two_agree}
         print(year, dict(sorted(tallies.items())))
