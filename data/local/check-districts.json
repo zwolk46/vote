@@ -7398,10 +7398,10 @@
     "flag a+b: MEDSL taken": 1,
     "flag a+b: noted": 1,
     "flag a: MEDSL taken": 2,
-    "flag a: held": 17,
-    "flag a: kept: MEDSL does not cover the district": 7,
-    "flag a: noted": 6,
-    "flag a: settled by the state: Klarner's count stands": 3,
+    "flag a: held": 15,
+    "flag a: kept: MEDSL does not cover the district": 5,
+    "flag a: noted": 4,
+    "flag a: settled by the state: Klarner's count stands": 9,
     "flag b: noted": 4,
     "flag b: write-in rule": 50,
     "matched only to another district's contest": 11,
@@ -7830,10 +7830,27 @@
      "b_tested": true,
      "medsl_ballot_unpaired": 0,
      "medsl_write_ins": 0,
-     "outcome": "held",
-     "gap": 0.15821,
-     "write_ins_added": false,
-     "covered": true,
+     "outcome": "settled by the state: Klarner's count stands",
+     "by": "Indiana's results archive of the 2018 general (its State Representative file)",
+     "state_count": {
+      "source": "Indiana's results archive of the 2018 general (its State Representative file)",
+      "host": "enr.indianavoters.in.gov",
+      "url": "https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2201_A.json",
+      "read_utc": "2026-11-13T09:21:33Z",
+      "sha256": "d637b3a79c2c12470bb5f7647db4b4fc641e4cc94c3031b533e29c5c6a9a1682",
+      "marked": true,
+      "write_ins": [],
+      "pairs": [
+       [
+        "forestal, dan",
+        14070,
+        "Dan Forestal",
+        14070
+       ]
+      ],
+      "ratio": 1.0,
+      "with": "klarner"
+     },
      "over_seats": {
       "read": false,
       "why": "MEDSL's file has rows but no contest's votes in county 18175 of the state, and the district's counties are read from MEDSL's rows alone (no Census list for these lines), so its precincts, and the ballots read from them, may lack a county of the district"
@@ -7877,10 +7894,33 @@
      "b_tested": true,
      "medsl_ballot_unpaired": 0,
      "medsl_write_ins": 0,
-     "outcome": "held",
-     "gap": 0.05697,
-     "write_ins_added": false,
-     "covered": true,
+     "outcome": "settled by the state: Klarner's count stands",
+     "by": "Indiana's results archive of the 2018 general (its State Representative file)",
+     "state_count": {
+      "source": "Indiana's results archive of the 2018 general (its State Representative file)",
+      "host": "enr.indianavoters.in.gov",
+      "url": "https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2201_A.json",
+      "read_utc": "2026-11-13T09:21:33Z",
+      "sha256": "d637b3a79c2c12470bb5f7647db4b4fc641e4cc94c3031b533e29c5c6a9a1682",
+      "marked": true,
+      "write_ins": [],
+      "pairs": [
+       [
+        "negele, sharon k",
+        15270,
+        "Sharon Negele",
+        15270
+       ],
+       [
+        "barnes, loretta",
+        6494,
+        "Loretta Barnes",
+        6494
+       ]
+      ],
+      "ratio": 1.0,
+      "with": "klarner"
+     },
      "over_seats": {
       "read": false,
       "why": "MEDSL's file has rows but no contest's votes in county 18175 of the state, and the district's counties are read from MEDSL's rows alone (no Census list for these lines), so its precincts, and the ballots read from them, may lack a county of the district"
@@ -7924,10 +7964,33 @@
      "b_tested": true,
      "medsl_ballot_unpaired": 0,
      "medsl_write_ins": 0,
-     "outcome": "noted",
-     "gap": 0.03184,
-     "write_ins_added": false,
-     "covered": true,
+     "outcome": "settled by the state: Klarner's count stands",
+     "by": "Indiana's results archive of the 2018 general (its State Representative file)",
+     "state_count": {
+      "source": "Indiana's results archive of the 2018 general (its State Representative file)",
+      "host": "enr.indianavoters.in.gov",
+      "url": "https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2201_A.json",
+      "read_utc": "2026-11-13T09:21:33Z",
+      "sha256": "d637b3a79c2c12470bb5f7647db4b4fc641e4cc94c3031b533e29c5c6a9a1682",
+      "marked": true,
+      "write_ins": [],
+      "pairs": [
+       [
+        "burton, c woody",
+        13784,
+        "Woody Burton",
+        13784
+       ],
+       [
+        "reinert, cynthia (cindy)",
+        7981,
+        "(Cindy) Cynthia Reinert",
+        7981
+       ]
+      ],
+      "ratio": 1.0,
+      "with": "klarner"
+     },
      "over_seats": {
       "read": false,
       "why": "MEDSL's file has rows but no contest's votes in county 18175 of the state, and the district's counties are read from MEDSL's rows alone (no Census list for these lines), so its precincts, and the ballots read from them, may lack a county of the district"
@@ -7971,10 +8034,33 @@
      "b_tested": true,
      "medsl_ballot_unpaired": 0,
      "medsl_write_ins": 0,
-     "outcome": "noted",
-     "gap": 0.03634,
-     "write_ins_added": false,
-     "covered": true,
+     "outcome": "settled by the state: Klarner's count stands",
+     "by": "Indiana's results archive of the 2018 general (its State Representative file)",
+     "state_count": {
+      "source": "Indiana's results archive of the 2018 general (its State Representative file)",
+      "host": "enr.indianavoters.in.gov",
+      "url": "https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2201_A.json",
+      "read_utc": "2026-11-13T09:21:33Z",
+      "sha256": "d637b3a79c2c12470bb5f7647db4b4fc641e4cc94c3031b533e29c5c6a9a1682",
+      "marked": true,
+      "write_ins": [],
+      "pairs": [
+       [
+        "lyness, randall j",
+        17841,
+        "Randy Lyness",
+        17841
+       ],
+       [
+        "gaustad, matt",
+        4834,
+        "Matt Gaustad",
+        4834
+       ]
+      ],
+      "ratio": 1.0,
+      "with": "klarner"
+     },
      "over_seats": {
       "read": false,
       "why": "MEDSL's file has rows but no contest's votes in county 18175 of the state, and the district's counties are read from MEDSL's rows alone (no Census list for these lines), so its precincts, and the ballots read from them, may lack a county of the district"
@@ -8012,26 +8098,26 @@
      "b_tested": true,
      "medsl_ballot_unpaired": 0,
      "medsl_write_ins": 0,
-     "outcome": "kept: MEDSL does not cover the district",
-     "coverage": {
-      "counties": [
-       "18019",
-       "18061",
-       "18071",
-       "18093",
-       "18117",
-       "18175"
-      ],
-      "gaps": [
+     "outcome": "settled by the state: Klarner's count stands",
+     "by": "Indiana's results archive of the 2018 general (its State Representative file)",
+     "state_count": {
+      "source": "Indiana's results archive of the 2018 general (its State Representative file)",
+      "host": "enr.indianavoters.in.gov",
+      "url": "https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2201_A.json",
+      "read_utc": "2026-11-13T09:21:33Z",
+      "sha256": "d637b3a79c2c12470bb5f7647db4b4fc641e4cc94c3031b533e29c5c6a9a1682",
+      "marked": true,
+      "write_ins": [],
+      "pairs": [
        [
-        "18175",
-        null,
-        null
+        "davisson, steven j",
+        17824,
+        "Steve Davisson",
+        17824
        ]
       ],
-      "by": "the lower chamber's rows",
-      "untested": false,
-      "census_counties": null
+      "ratio": 1.0,
+      "with": "klarner"
      }
     },
     {
@@ -8072,23 +8158,32 @@
      "b_tested": true,
      "medsl_ballot_unpaired": 0,
      "medsl_write_ins": 0,
-     "outcome": "kept: MEDSL does not cover the district",
-     "coverage": {
-      "counties": [
-       "18125",
-       "18147",
-       "18173"
-      ],
-      "gaps": [
+     "outcome": "settled by the state: Klarner's count stands",
+     "by": "Indiana's results archive of the 2018 general (its State Representative file)",
+     "state_count": {
+      "source": "Indiana's results archive of the 2018 general (its State Representative file)",
+      "host": "enr.indianavoters.in.gov",
+      "url": "https://enr.indianavoters.in.gov/archive/2018General/data/OffCatC_2201_A.json",
+      "read_utc": "2026-11-13T09:21:33Z",
+      "sha256": "d637b3a79c2c12470bb5f7647db4b4fc641e4cc94c3031b533e29c5c6a9a1682",
+      "marked": true,
+      "write_ins": [],
+      "pairs": [
        [
-        "18173",
-        20,
-        59
+        "bacon, ronald",
+        16118,
+        "Ron Bacon",
+        16118
+       ],
+       [
+        "hurley, john",
+        10236,
+        "John Hurley",
+        10236
        ]
       ],
-      "by": "the lower chamber's rows",
-      "untested": false,
-      "census_counties": null
+      "ratio": 1.0,
+      "with": "klarner"
      }
     },
     {

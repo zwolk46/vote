@@ -2321,3 +2321,29 @@ They stay not computed. The refuting count is not kept as a test. All 65 contest
 - 62 councils and boards of 2025 get p from like races of the class "party not given in the source", all 173 of them Virginia's own 2023 contests. That is the class as built (§33: "like races only of each other"), but it is the first year it gives p. If "party not given" should give no p until it is pooled otherwise, that is a ruling; it would take those 62 back to not computed.
 - Page County's chairman (2025) is classed with the school boards by subsection E, as a member of the elected board [inferred]; section 22.1-57.3:3, which 08:07 named, reaches Prince William's (2023), not Page's.
 - Indiana 2018's House flags are not read (one more request to the same archive would read them).
+
+## 37. Indiana 2018's House from the state's archive
+
+*Added 2026-11-13 at 09:55 UTC.* The orchestrator's ruling of 2026-11-13 09:21 on §36's third item: "Indiana 2018's House flags: one request to the archive's 2018 House file is allowed, as for the Senate." Moves: `moves-37.json` (every file, against 802327a, the code alone, whose data are main's at 11c852d). Stamps aside.
+
+**Request made** [measured: its `.meta.json` in the cache]: the archive's State Representative file (`OffCatC_2201_A.json`, office category 2201 in the cached `statewideElectionsC_A.json`), enr.indianavoters.in.gov/archive/2018General/data/, 2026-11-13 09:21:33 UTC, HTTP 200, 295,605 bytes, sha256 d637b3a7…a9a1682. No index page was read again.
+
+**What it holds** [measured]: 100 districts, each candidate's total and none a write-in. Every district's ballot counts equal the records' (Klarner's) to the vote, as the Senate's 25 do (§36). The archive's settings print "Certified":"T" [stated], so it is the certified count (15:16).
+
+**The six House flags of 2018**, each now "settled by the state: Klarner's count stands", the state's figures in its note and in `check-districts.json` (`state_count`, naming the House file):
+
+| District | Before | Klarner (= the archive) | MEDSL | p before → after |
+|---|---|---|---|---|
+| 100 | held (+15.8%) | Forestal 14,070, unopposed | 16,296 | not computed → 0 (one name on the ballot; the write-in test now reads whole counts: no write-in) |
+| 13 | held (−5.7%) | Negele 15,270, Barnes 6,494 | 20,524 | not computed → 1.54 in 100,000 |
+| 58 | noted (−3.2%) | Burton 13,784, Reinert 7,981 | 21,072 | 2.53 in 100,000, unchanged |
+| 68 | noted (+3.6%) | Lyness 17,841, Gaustad 4,834 | 23,499 | 4.46 in 1,000,000, unchanged |
+| 73 | kept: MEDSL does not cover the district | Davisson 17,824, unopposed | 10,044 | 0, unchanged |
+| 75 | kept: MEDSL does not cover the district | Bacon 16,118, Hurley 10,236 | 19,142 | 1.35 in 100,000, unchanged |
+
+So no Indiana 2018 legislative flag stands open: of 2018's flags, held 17 to 15, noted 6 to 4, kept 7 to 5, settled by the state 3 to 9.
+
+**What moves** (`moves-37.json`) [measured]:
+- New p: House 100 (0) and House 13. Notes changed: the six.
+- House 13 and 100 rejoin route (a)'s fit, as a held count is left out of every input (07:38) and a settled one is not. So 6,293 legislative p of 2019 to 2025 move within 0.1%, but for Indiana 2020's House: 41 of its p move by ×0.991 to ×1.0054, through the chamber's lean (the mean Democratic share of Indiana 2018's contested House races), which takes in House 13 again. 522 local p by the transferred route (a) move within 0.001%.
+- No governor, House, Senate or president record moves.
