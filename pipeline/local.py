@@ -382,6 +382,9 @@ D_AGREE = ("MEDSL's precinct file ({file}) gives this district's {n} named candi
            "{k:,}, {pct:+.1f}% [measured: pipeline/local_districts.py]; the state's published results agree with "
            "Klarner's ({src}, {url}, read {read}, sha256 {sha}: {pairs}{wi}), so Klarner's count stands (the "
            "orchestrator, 2026-11-13: \"Settling a flag needs only the state's own count agreeing with one source\")")
+D_AGREE_MARKED = ("the state's results bear a certified mark (the archive's settings print \"Certified\":\"T\" "
+                  "[stated]), so they are the certified count, which Klarner's agrees with candidate by candidate (the "
+                  "orchestrator, 2026-11-07 15:16: a certified count wins)")
 D_BALLOT = ("MEDSL's precinct file ({file}) gives {who} {named:,} votes on the line with that name against Klarner's "
             "{kv:,}, and {wi:,} on its WRITE-IN line; with that line, all of MEDSL's lines add up to {all:,} against "
             "Klarner's {k:,}, so the count is confirmed [measured: pipeline/local_districts.py]. But whether the "
@@ -594,7 +597,9 @@ def district_checks(contests):
                                                 f"{a}: {b:,} in Klarner's, {d:,} in the state's" for a, b, _, d in
                                                 sc["pairs"]),
                                             wi="".join(f"; {w} (write-in) {v:,}" for w, v in sc["write_ins"])))
-                c["state_agrees"] = {k_: sc[k_] for k_ in ("source", "url", "read_utc", "sha256", "ratio")}
+                if sc.get("marked"):   # a certified count (Indiana 2018's archive: "Certified":"T")
+                    _add_note(c, D_AGREE_MARKED)
+                c["state_agrees"] = {k_: sc[k_] for k_ in ("source", "url", "read_utc", "sha256", "ratio", "marked")}
                 DISTRICTS_COUNT[f"{year}: settled by the state, Klarner's count stands"] += 1
             elif o == "settled by the state":
                 sc = fl["state_count"]
