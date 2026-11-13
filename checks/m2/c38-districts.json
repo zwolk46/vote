@@ -2536,7 +2536,8 @@
    "klarner_rows": 1,
    "klarner_code": "bennington ",
    "p_rests_on": {
-    "klarner": 13
+    "klarner": 12,
+    "medsl": 1
    }
   },
   {
@@ -2554,7 +2555,8 @@
    "klarner_rows": 1,
    "klarner_code": "chittenden ",
    "p_rests_on": {
-    "klarner": 13
+    "klarner": 12,
+    "medsl": 1
    }
   },
   {
@@ -2572,7 +2574,8 @@
    "klarner_rows": 1,
    "klarner_code": "franklin ",
    "p_rests_on": {
-    "klarner": 13
+    "klarner": 12,
+    "medsl": 1
    }
   },
   {
@@ -2590,7 +2593,8 @@
    "klarner_rows": 1,
    "klarner_code": "grandisle ",
    "p_rests_on": {
-    "klarner": 13
+    "klarner": 12,
+    "medsl": 1
    }
   },
   {
@@ -2608,7 +2612,8 @@
    "klarner_rows": 1,
    "klarner_code": "rutland ",
    "p_rests_on": {
-    "klarner": 13
+    "klarner": 12,
+    "medsl": 1
    }
   },
   {
@@ -2626,7 +2631,8 @@
    "klarner_rows": 1,
    "klarner_code": "windham ",
    "p_rests_on": {
-    "klarner": 13
+    "klarner": 12,
+    "medsl": 1
    }
   },
   {
@@ -3005,7 +3011,7 @@
    "klarner_rows": 1,
    "klarner_code": "1",
    "p_rests_on": {
-    "klarner": 35
+    "klarner": 34
    }
   },
   {

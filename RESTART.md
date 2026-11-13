@@ -39,8 +39,8 @@ Nothing else is needed from you. The coordinator and the new orchestrator do the
 
 | Worker | Brief | Model, effort | Old branch | At the stop | On restart |
 |---|---|---|---|---|---|
-| D3, local, legislative and measure data | `briefs/D3-data-local.md` | Opus 5.5, xhigh | `claude/project-thread-sl6m2f` | #97 (held totals) merged 22:04. Building the district-checks PR under the rulings of 21:21, 21:26 and 21:55 (`STATE.md` log). VA 2023 local next. | **restart** |
-| M2, independent check of every p | `briefs/M2-check-computed-p.md` | Fable 5.1, xhigh | `claude/project-thread-pbr8zl` | Seventh pass (fixed end `46825da`): #92, #93, #95 and its own input-volume check (c38 to c40), report §14 drafted, PR not yet open. The eighth pass takes #96, #97 and D3's next PR. | **restart** |
+| D3, local, legislative and measure data | `briefs/D3-data-local.md` | Opus 5.5, xhigh | `claude/project-thread-sl6m2f` | #100 (district checks) and #101 (held one-name, VA 2023 local) merged 2026-11-13. Next: item 5 with DC 2018 at-large, the matcher fix and M2's four untested records (VT Rutland and Franklin 2018, UT-19 and IN-54 2016), then the rulings of 2026-11-13 ~01:00 (unopposed comparator, VA nonpartisan offices, write-in test) with 2025 local (`STATE.md` log). | **restart** |
+| M2, independent check of every p | `briefs/M2-check-computed-p.md` | Fable 5.1, xhigh | `claude/project-thread-pbr8zl` | Eighth pass's first part merged as #102 (f10dd8b, 2026-11-13: #96, #97, c15's pools). Its §16 (#100 and #101, end `4831b16`, c43) is under way for a new PR. | **restart** |
 | X1, design | `briefs/X1-design.md` | Opus 5.5, xhigh | `claude/project-thread-ozfwbq-options`, `claude/project-thread-ozfwbq-explainer` | Holding for Zach's two picks, with both options carrying real data. | **restart once he picks** |
 | T1, tracker | `briefs/T1-tracker.md` | Sonnet 5.5, xhigh | none | Kept the old tracker's rows. | **restart** after section 6, pointing the brief at the new tracker's link |
 | D1, D2, D4, R1 to R4, B1, B2, M1 | their briefs | as named | as in `handoff/memory/` | Done, merged and stopped. | no |

@@ -63,36 +63,99 @@ def cycle(t):
 
 
 # ------------------------------------------------------------------------------------------ like races, state levels
-def state_like_pool():
-    """Rows for routes (b), (c) and (d) from the state files' Klarner-sourced contests: (year, key, s). The class
-    from my own reading of the ballot (m2d3.structure_state); runoffs by the recorded class (their class needs the
-    first round, which the file names only in words)."""
+# The seventh pass's rules (c40, the eighth pass's brief of 2026-11-12 23:11: "c15's like-race pools brought to the seventh
+# pass's rules (NH 2022 on MEDSL's counts, held records left out), so that c15 and c40 agree; the reason is that a check
+# that pools differently from the records will keep reporting differences that are not errors"): the pool from every
+# source's state legislative records, the held records and the recounts' counts left out; route (a)'s rows from Klarner's
+# file with the records' own rows for the sources that are not Klarner and for the state-years whose counts the records
+# changed (#95: New Hampshire's and Idaho's 2022). c40 takes these functions for its worktrees.
+HELD_OUT = ("left out of the fits", "held by the gate", "a recount's count", "counted by ranked choice",
+            "a write-in line is in the pair", "the source splits this district's returns")
+OVERRIDE = ((2022, "NH"), (2022, "ID"))   # the records' rows in place of Klarner's file's (#95's counts)
+
+
+def held_out(reason):
+    """A record that is no like race by the record's own reason: held (New Hampshire 2022's doubled House contests,
+    "left out of the fits"; Virginia 2023's 9th Senate district, held by the gate), a recount's count recorded beside
+    the general's (the same contest twice), a ranked-choice count (Alaska 2024: the count is of another kind), a
+    write-in line in the deciding pair (no pair of candidates), a district the source splits (no one contest). Without
+    the last three c40's 2025 pools held 11, 1 and 1 rows more than the records' like_races. [stated: the records' words]"""
+    r = reason or ""
+    return any(w in r for w in HELD_OUT)
+
+
+def like_pool(rows):
+    """Rows for routes (b), (c) and (d) from slim rows of both chambers, every source: (year, key, s), the class from my
+    own reading of the ballot (m2d3.structure_state); runoffs by the recorded class (their class needs the first round,
+    which the file names only in words); the held records and the recounts' counts left out (held_out). Returns the
+    pool, the tally of my class and route against the record's, and the runoffs left out."""
     pool, mine_vs_rec, no_class = [], collections.Counter(), collections.Counter()
-    for level in ("state-upper", "state-lower"):
-        for r in D.rows(level):
-            if r["src"] != "klarner":
+    for r in rows:
+        if r["status"] == "not_computed" and held_out(r["reason"]):
+            continue
+        el = r["election"] or ""
+        if "runoff" in el and el != "srunoff" and not el.startswith("lasrunoff"):
+            key = r["cls"] if r["cls"] and r["cls"].startswith("runoff") else None
+            if key is None:
+                no_class[el] += 1
                 continue
-            el = r["election"] or ""
-            if "runoff" in el and el != "srunoff" and not el.startswith("lasrunoff"):
-                key = r["cls"] if r["cls"] and r["cls"].startswith("runoff") else None
-                if key is None:
-                    no_class[el] += 1
-                    continue
-                pr = D.deciding_pair(r, 1)
-                if pr and pr[0] + pr[1] > 0:
-                    pool.append((r["year"], key, max(pr) / (pr[0] + pr[1])))
-                continue
-            st = D.structure_state(r)
-            if st is None or st[0] not in ("class", "boundary"):
-                continue
-            k = r["seats"] if st[0] == "boundary" else 1
-            pr = D.deciding_pair(r, k)
-            if pr is None or pr[0] + pr[1] <= 0:
-                continue
-            pool.append((r["year"], st[1], max(pr) / (pr[0] + pr[1])))
-            if r["cls"] and r["route"] in ("class", "boundary"):
-                mine_vs_rec[(st[1] == r["cls"], st[0] == r["route"])] += 1
+            pr = D.deciding_pair(r, 1)
+            if pr and pr[0] + pr[1] > 0:
+                pool.append((r["year"], key, max(pr) / (pr[0] + pr[1])))
+            continue
+        st = D.structure_state(r)
+        if st is None or st[0] not in ("class", "boundary"):
+            continue
+        k = r["seats"] if st[0] == "boundary" else 1
+        pr = D.deciding_pair(r, k)
+        if pr is None or pr[0] + pr[1] <= 0:
+            continue
+        pool.append((r["year"], st[1], max(pr) / (pr[0] + pr[1])))
+        if r["cls"] and r["route"] in ("class", "boundary"):
+            mine_vs_rec[(st[1] == r["cls"], st[0] == r["route"])] += 1
     return pool, mine_vs_rec, no_class
+
+
+def state_like_pool():
+    """The pool at HEAD: every source's records of both chambers (like_pool)."""
+    return like_pool([r for level in ("state-upper", "state-lower") for r in D.rows(level)])
+
+
+def row_from_record(r):
+    """A route-(a) fit row from a record's inputs and two-party votes (the odd-year and 2024 records, whose rows are not in
+    Klarner's file, and the overridden state-years): y, N, class, last share, unopposed side, incumbency, lean."""
+    inp = r["inputs"] or {}
+    pr = (r["pair"] or {}).get("votes")
+    if not pr or len(pr) != 2 or not inp.get("class"):
+        return None
+    d, rr = pr
+    if d <= 0 or rr <= 0:
+        return None
+    cls = inp["class"]
+    return {"year": r["year"], "state": r["state"], "sen": 1 if r["level"] == "state-upper" else 0, "y": d / (d + rr), "N": d + rr,
+            "d": d, "r": rr, "cls": cls, "xl": (inp.get("last_D", 0.5) - 0.5) if cls == "A" else 0.0,
+            "ulag": ((1 if inp.get("last_unopposed") == "D" else -1) if cls == "B" else 0), "inc": inp.get("incumbency", 0) or 0,
+            "L": inp.get("lean", 0.0) or 0.0, "Lmiss": 0 if inp.get("lean_year") else 1, "id": r["id"], "from_record": True}
+
+
+def fit_rows(base, rows_by_level, override=OVERRIDE):
+    """Route (a)'s rows: Klarner's from his file (base), the records' where the source is not Klarner (the odd-year
+    legislatures, MEDSL's and Indiana's 2024), and, for the state-years in override, the records' Klarner-sourced rows
+    in place of the file's. rows_by_level: level -> slim rows. Returns the rows and a count of the added by
+    (year, state, source)."""
+    rows = [r_ for r_ in base if (r_["year"], r_["state"]) not in set(override)]
+    added = collections.Counter()
+    for level in ("state-upper", "state-lower"):
+        for r in rows_by_level.get(level, []):
+            if r["route"] != "partisan" or r["status"] != "value":
+                continue
+            if r["src"] == "klarner" and (r["year"], r["state"]) not in set(override):
+                continue
+            x = row_from_record(r)
+            if x:
+                rows.append(x)
+                added[(r["year"], r["state"], r["src"])] += 1
+    return rows, added
 
 
 def compare_like(contests, pool, label, by_year_src=None):
@@ -141,9 +204,9 @@ def compare_like(contests, pool, label, by_year_src=None):
 def like_state():
     h1("15.1 Like past races, state legislative levels: classes rebuilt and like races counted again [measured]")
     pool, mine_vs_rec, no_class = state_like_pool()
-    print(f"  pool: {len(pool):,} rows (year, class, the leading candidate's share of the deciding pair) from the Klarner-"
-          f"sourced contests of both chambers, {min(y for y, _, _ in pool)}-{max(y for y, _, _ in pool)}; "
-          f"runoffs without a recorded class (left out): {dict(no_class)}")
+    print(f"  pool: {len(pool):,} rows (year, class, the leading candidate's share of the deciding pair) from every source's "
+          f"contests of both chambers, {min(y for y, _, _ in pool)}-{max(y for y, _, _ in pool)}, the held records and the "
+          f"recounts' counts left out (the seventh pass's rules, held_out); runoffs without a recorded class (left out): {dict(no_class)}")
     print(f"  my class against the recorded class, contests with a (b)/(c) forecast: (class equal, route equal) -> "
           + ", ".join(f"{k} {v:,}" for k, v in sorted(mine_vs_rec.items(), key=str)))
     kc = collections.Counter(key for _, key, _ in pool)
@@ -152,8 +215,10 @@ def like_state():
                 if r["route"] in ("class", "boundary", "runoff") and r["N"] is not None]
     kl = [r for r in contests if r["src"] == "klarner"]
     md = [r for r in contests if r["src"] in ("medsl", "in_enr", "la_sos")]
+    od = [r for r in contests if r["src"] in ("nj_sos", "va_elect")]
     compare_like(kl, pool, "Klarner-built years (1968-2023), like races from earlier years of the same pool")
-    compare_like(md, pool, "2024 (MEDSL-built, with Indiana's own file), like races from Klarner's years before 2024")
+    compare_like(md, pool, "2024 (MEDSL-built, with Indiana's own file), like races from every source's years before 2024")
+    compare_like(od, pool, "the odd-year legislatures (NJ's and VA's 2023 and 2025), like races from every source's earlier years")
     # the window's widening as written: k < 10 at every narrower window
     return pool
 
@@ -578,12 +643,15 @@ def predict(Mfit, r_):
 
 
 def partisan():
-    h1("15.4 Route (a), partisan: rows from Klarner's contest file, the fit per year on earlier years only, every contest against the record [measured]")
-    rows, by = klarner_rows()
-    cc = collections.Counter(r_["cls"] for r_ in rows)
-    print(f"  Klarner file 10273086 ({KLARNER_FILE}, sha256 {KLARNER_SHA[:12]}...): {len(rows):,} route-(a) rows "
-          f"{min(r_['year'] for r_ in rows)}-{max(r_['year'] for r_ in rows)}; by class A {cc['A']:,} B {cc['B']:,} C {cc['C']:,} "
+    h1("15.4 Route (a), partisan: rows from Klarner's contest file and the records', the fit per year on earlier years only, every contest against the record [measured]")
+    krows, by = klarner_rows()
+    cc = collections.Counter(r_["cls"] for r_ in krows)
+    print(f"  Klarner file 10273086 ({KLARNER_FILE}, sha256 {KLARNER_SHA[:12]}...): {len(krows):,} route-(a) rows "
+          f"{min(r_['year'] for r_ in krows)}-{max(r_['year'] for r_ in krows)}; by class A {cc['A']:,} B {cc['B']:,} C {cc['C']:,} "
           f"(REPORT section 2: A 49,001, B 14,350, C 27,602)")
+    rows, added = fit_rows(krows, {lv: D.rows(lv) for lv in ("state-upper", "state-lower")})
+    print(f"  the fit's rows (the seventh pass's rules): {len(rows):,} = Klarner's file's less {len(krows) - len([r_ for r_ in krows if (r_['year'], r_['state']) not in set(OVERRIDE)]):,} "
+          f"rows of {OVERRIDE} plus {sum(added.values()):,} from the records: " + ", ".join(f"{y} {st} {src} {n}" for (y, st, src), n in sorted(added.items())))
     Mall = fit_partisan(rows)
     c = Mall["coef"]
     print(f"  the fit on all years: A last {c['A_last']:.3f}, inc {c['A_inc']:.3f}, lean {c['A_lean']:.3f}; B unopposed {c['B_unopposed']:.3f}, "
@@ -596,7 +664,7 @@ def partisan():
           f"(REPORT section 2: A 0.752/0.034/0.038, B 0.108/0.049/0.358, C 0.118/0.375; s_a 0.027, s_g 0.027)")
     # the fit per year, on earlier years only
     fits = {}
-    for t in range(1969, 2025):
+    for t in range(1969, 2027):
         train = [r_ for r_ in rows if r_["year"] < t]
         if not train or t not in PRES:
             continue
@@ -626,14 +694,20 @@ def partisan():
                 if fit is None or k < MIN_EARLIER:
                     tal["klarner: no fit for the year (mine)"] += 1
                     continue
-                same_in = (r_["cls"] == inp.get("class"), r_["inc"] == inp.get("incumbency"), abs(r_["L"] - inp.get("lean", 9)) <= 5.1e-5,
+                if r_.get("from_record"):
+                    tal[("klarner inputs", "the record's own row (the #95 override)")] += 1
+                else:
+                  same_in = (r_["cls"] == inp.get("class"), r_["inc"] == inp.get("incumbency"), abs(r_["L"] - inp.get("lean", 9)) <= 5.1e-5,
                            r_["L_year"] == inp.get("lean_year"),
                            (r_["cls"] != "A") or abs(r_["xl"] + 0.5 - inp.get("last_D", 9)) <= 5.1e-5,
                            (r_["cls"] == "C") or r_["last_year"] == inp.get("last_year"),
                            (r_["cls"] != "B") or inp.get("last_unopposed") == ("D" if r_["ulag"] > 0 else "R"))
-                tal[("klarner inputs", same_in)] += 1
+                  tal[("klarner inputs", same_in)] += 1
             else:
-                fit, k = fits.get(2024, (None, 0))
+                fit, k = fits.get(r["year"], (None, 0))
+                if fit is None:
+                    tal[f"{r['src']}: no fit for the year (mine)"] += 1
+                    continue
                 cls = inp.get("class")
                 r_ = {"year": r["year"], "cls": cls, "inc": inp.get("incumbency", 0), "L": inp.get("lean", 0.0),
                       "Lmiss": 0 if inp.get("lean_year") else 1, "N": v[0] + v[1],
@@ -978,7 +1052,7 @@ def route_tables():
 
 def size_bin_point(rows, Mall):
     h1("15.7 D3's point 1: the race's own sd by the size bin of the count itself [measured]")
-    have = [r_ for r_ in rows if r_["N_lag"]]
+    have = [r_ for r_ in rows if r_.get("N_lag")]   # the records' own rows (fit_rows) carry no last count
     same = sum(1 for r_ in have if D.size_bin(r_["N"]) == D.size_bin(r_["N_lag"]))
     print(f"  of {len(rows):,} route-(a) rows, {len(have):,} have the seat's last two-party count (Klarner's dvotelag + rvotelag); "
           f"the size bin of the count itself equals the last count's bin in {same:,} ({100 * same / len(have):.1f}%).")
