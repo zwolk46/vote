@@ -41,6 +41,7 @@ from downballot_pres_by_cd import LEAN_INPUT  # noqa: E402
 import chambers  # noqa: E402  (pipeline/chambers.py: the governors' last race, read the same way as the fit's)
 import governor_incumbency as GI  # noqa: E402  (pipeline/governor_incumbency.py: the governors' codes it fixes)
 import governor_hi2018 as GH  # noqa: E402  (pipeline/governor_hi2018.py: Hawaii 2018's certified count)
+import governor_counts as GC  # noqa: E402  (pipeline/governor_counts.py: CT and NY 2018's lines, IN 2024's count)
 
 COMMIT = chambers.git_head()   # the commit of the code that writes a p = 0 block (M2 1.5)
 GOV_INDEX = None
@@ -202,6 +203,7 @@ def cha_index():
         raise SystemExit("run pipeline/intake/candidates_american_general_elections.py first")
     GI.fix_cha(d["contests"])     # the governors' codes the record or a state's roster proves wrong
     GH.fix_cha(d["contests"])     # Hawaii 2018's governor at the certified count (pipeline/governor_hi2018.py; 19:49)
+    GC.fix_cha(d["contests"])     # CT and NY 2018 at every line, IN 2024 certified (pipeline/governor_counts.py; 11-13 04:44)
     idx = {}
     for c in d["contests"]:
         k = (c["year"], c["office"], c["state"], c["district"], c["special"])
@@ -541,6 +543,8 @@ def contest(year, office, c, cha_c, cha_src, P):
     if office == "governor" and GI.note(year, c["state"], special):
         fi["incumbency_check"] = GI.note(year, c["state"], special)
     rec["forecast_inputs"] = fi
+    if not kind and c.get("held"):   # a count held under 19:04 (pipeline/governor_counts.HELD: West Virginia 2012)
+        kind = (NOT_COMPUTED, c["held"])
     if kind:
         rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
                     "not_computed": kind[1], "reason": None}

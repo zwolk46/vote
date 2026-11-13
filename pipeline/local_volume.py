@@ -34,8 +34,8 @@ president against D1's certified count, at the same 0.5%).
 Governors are matched by surname: D2's two leading candidates, against MEDSL's lines for that surname. A fusion
 candidate (Connecticut, New York) has several lines; both readings are tried, the lines summed (the ruling's rule) and
 the line of D2's party alone (where D2's source reports that line only: Connecticut's Lamont and Stefanowski, 2018,
-data/governor/2018.json). The lines summed are the miss; the own line is used only where it comes within part 1's
-bound, and otherwise is written beside the miss [the reading].
+until pipeline/governor_counts.py set the record to every line on 2026-11-13). The lines summed are the miss; the own
+line is used only where it comes within part 1's bound, and otherwise is written beside the miss [the reading].
 
 Settlements read from the states' own files (no request is made here; each was read once, between 19:07 and 19:12 UTC,
 and is kept in $VOTE_CACHE/volume/raw with its .meta.json):
@@ -98,8 +98,8 @@ VERDICTS = {
                    "against (D1's president or D2's House), and the state refused (19:12 UTC); an unsettled flag of "
                    "5% or more holds the state-year's MEDSL records"),
     (2018, "NY"): ("hold", "rulings 19:04 3 and 19:13 5",
-                   "MEDSL's 2018 New York precincts add up to {worst_pct} of D2's certified count for governor "
-                   "({reading}); its governor's votes lie in {medsl_counties} of the state's 62 counties, and the "
+                   "MEDSL's 2018 New York precincts add up to {worst_pct} of the record's count for governor (each "
+                   "nominee's every line, from Algara and Amlani's county returns) ({reading}); its governor's votes lie in {medsl_counties} of the state's 62 counties, and the "
                    "State Board refused (18:49 UTC); a missing county is a structural fault, so the state-year's MEDSL "
                    "records are held"),
     (2018, "NJ"): ("hold_counties", "ruling 19:13 4",
@@ -119,7 +119,9 @@ VERDICTS = {
                    "D2's count was the dataset's 137,719 for Tupola; the Office of Elections' certified summary has "
                    "131,719, equal to MEDSL's (pipeline/governor_hi2018.py)"),
     (2018, "CT"): ("settled", "ruling 19:04 3",
-                   "D2's source gives each governor candidate's own party line; MEDSL's lines equal them"),
+                   "D2's source gave each governor candidate's own party line, which MEDSL's lines equal; the record "
+                   "now holds every line, the Secretary of the State's count (pipeline/governor_counts.py; the "
+                   "orchestrator, 2026-11-13 04:44), and MEDSL's lines summed equal it within the bound"),
     (2022, "NY"): ("note", "rulings 19:04 3 and 19:13 5",
                    "MEDSL's 2022 New York precincts add up to {worst_pct} of D2's certified count for governor "
                    "({reading}); not settled, since the State Board refused (18:49 UTC); under 5%, "
@@ -750,9 +752,16 @@ def ballots_file(path):
                        "total": max([_one(m) for (part, _), m in c.items() if part == "total"] or [None],
                                     key=lambda x: -1 if x is None else x)}
                   for pk, c in pp.items()}
-    # each precinct's two best figures from contests, and the named lines
+    # each precinct's two best figures from contests, and the named lines; a contest whose seat count is read from the
+    # state's results (local_medsl.SEATS_READ: DC 2018's council at large, two votes a ballot) gives its figure per
+    # seat (the orchestrator, 2026-11-13 04:44: "Divide by the seats read"), so that it bounds the others at the
+    # ballots cast and not at twice them (462,964 for DC's citywide contests before)
+    import local_medsl as M
+    seats = {(str(y_), st, office, dist): e["seats"] for y_, t in M.SEATS_READ.items()
+             for (st, office, dist), e in t.items()}
     best = collections.defaultdict(list)   # (st, date, pk) -> [(figure, contest key)]
     for k, pp in per.items():
+        n_seats = seats.get((k[1][:4], k[0], k[2], k[3]), 1)
         for pk, f in pp.items():
             fig = []
             if f["has_over"] and f["has_under"]:
@@ -760,7 +769,7 @@ def ballots_file(path):
             if f["total"] is not None:
                 fig.append(f["total"])
             if fig:
-                best[(k[0], k[1], pk)].append((max(fig), k))
+                best[(k[0], k[1], pk)].append((max(fig) / n_seats, k))
     for key in best:
         best[key] = sorted(best[key], key=lambda x: -x[0])[:2]
     namedmax = {(sd[0], sd[1], pk): max(_one(m) for m in ls.values()) for sd, pp in named.items() for pk, ls in pp.items()}
@@ -787,6 +796,7 @@ def ballots_file(path):
                 bound += b[0]
                 bounded += 1
                 used[b[1]] += 1
+        bound = round(bound)
         tested.append({"state": st, "date": date, "office": office, "district": district, "special": special,
                        "votes": votes, "precincts": len(live), "precincts_bounded": bounded,
                        "ballots_cast": bound if bounded == len(live) else None,
@@ -842,6 +852,19 @@ def ballots_summary():
                                   for t in tested)
         kept = [{k: t[k] for k in BALLOTS_KEPT} for t in tested if t["ballots_cast"] is not None
                 or key[(t["state"], t["date"], t["office"], t["district"], str(t["special"]).upper())] > 1]
+        # a state whose own certified results give the day's ballots cast (local_medsl.SEATS_READ: DC 2018's Board of
+        # Elections, "Ballots Cast" 231,700): that figure, its source named, for its citywide contests (a ward's are the
+        # ward's), in place of the precincts' bound (the
+        # orchestrator, 2026-11-13 05:38 (2): "Use the Board's figure, with its source named"); the bound is kept
+        import local_medsl as M
+        board = {st: e for (st, _, _), e in M.SEATS_READ.get(year, {}).items() if e.get("ballots_cast")}
+        for t in kept:
+            e = board.get(t["state"])
+            if e and t["ballots_cast"] is not None and (t["district"] or "") in ("", "STATEWIDE", "AT-LARGE"):
+                t["ballots_cast_rows"] = t["ballots_cast"]
+                t["ballots_cast"] = e["ballots_cast"]
+                t["ballots_cast_source"] = ("the DC Board of Elections' certified results (" + M.DC_BOE_2018 +
+                                            "), 'Ballots Cast'")
         out[str(year)] = {"rows_read": len(tested), "rows_kept": len(kept),
                           "tested": sorted(kept, key=lambda t: (t["state"], t["date"], t["office"], t["district"])),
                           "tops": {sd: sorted(t, key=lambda x: -x["votes"]) for sd, t in sorted(tops.items())}}

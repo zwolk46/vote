@@ -102,6 +102,11 @@ def _load(rel):
         # item 2: "Rerun its governor build so the 2020+ fits and HI 2022's input take 131,719"; D3)
         import governor_hi2018 as GH
         GH.fix_cha(d["contests"])
+        # Connecticut's and New York's 2018 nominees at every party line, Indiana 2024 at the state's certified count
+        # (the orchestrator, 2026-11-13 04:44: "A fusion candidate's votes are the sum of his lines in the official
+        # count" and "the certified count wins"; pipeline/governor_counts.py; D3)
+        import governor_counts as GC
+        GC.fix_cha(d["contests"])
     return d
 
 
@@ -164,13 +169,16 @@ def _top_two_DR(cands):
 
 
 # Algara and Amlani's Missouri rows fall short of Cha's totals by 7% for the Democrat and 2% for the Republican
-# in each of 2008, 2012 and 2016 (pipeline/intake/algara_amlani.py's check), as they would if Kansas City, which
-# reports apart from Jackson County, were missing from the county rows (inferred: the rows hold 115 jurisdictions,
-# the 114 counties and St. Louis City). A count known to be incomplete is not used: no p, no fit row, no lag.
-AA_INCOMPLETE = {"MO": "Algara and Amlani's Missouri rows fall short of Cha, Kuriwaki and Snyder's totals by 7% "
-                       "for the Democrat and 2% for the Republican in each of 2008, 2012 and 2016, as they would "
-                       "if Kansas City, which reports apart from Jackson County, were missing from the county rows "
-                       "(inferred); the count is taken as incomplete"}
+# in each of 2008, 2012 and 2016 (pipeline/intake/algara_amlani.py's check). Missouri's official returns of those years
+# equal Cha's two nominees, and in 2016 the shortfall is Kansas City's own rows in the state's returns to the vote
+# (Koster 98,336, Greitens 25,284): Kansas City reports apart from Jackson County, and the authors' 115 rows (the 114
+# counties and St. Louis City) lack it [measured: pipeline/governor_counts.py, worker D3, 2026-11-13]. A count known to
+# be incomplete is not used: no p, no fit row, no lag.
+AA_INCOMPLETE = {"MO": "Algara and Amlani's Missouri rows fall short of Missouri's official returns, which equal Cha, "
+                       "Kuriwaki and Snyder's totals, by 7% for the Democrat and 2% for the Republican in each of 2008, "
+                       "2012 and 2016; in 2016 the shortfall is Kansas City's own rows to the vote (Koster 98,336, "
+                       "Greitens 25,284), since Kansas City reports apart from Jackson County [measured: "
+                       "pipeline/governor_counts.py]; the count is taken as incomplete"}
 
 
 def aa_governors():
@@ -203,7 +211,7 @@ def last_governor_index():
         if c["office"] != "governor":
             continue
         in_cha.add((c["year"], c["state"]))
-        if c["runoff"]:
+        if c["runoff"] or c.get("held"):   # a count held under 19:04 is no later race's last race (governor_counts.HELD)
             continue
         dr = _top_two_DR([a for a in c["candidates"]])
         if dr:
@@ -388,6 +396,9 @@ def fit_rows(inc_codes=INC_CODES):
             continue
         if c["runoff"]:
             skip("runoff (the November round is not in this source)")
+            continue
+        if c.get("held"):
+            skip("a count held under 19:04 (pipeline/governor_counts.HELD: West Virginia 2012)")
             continue
         cands = [a for a in c["candidates"] if a["votes"]]
         D = [a for a in cands if a["party"] == "D"]
@@ -2023,6 +2034,9 @@ def odd_governor_rows(inc_codes=INC_CODES):
             continue
         if c["runoff"]:
             skip("runoff (the November round is not in this source)")
+            continue
+        if c.get("held"):
+            skip("a count held under 19:04 (pipeline/governor_counts.HELD: West Virginia 2012)")
             continue
         cands = [a for a in c["candidates"] if a["votes"]]
         D = [a for a in cands if a["party"] == "D"]
