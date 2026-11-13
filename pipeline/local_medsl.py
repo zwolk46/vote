@@ -2931,8 +2931,8 @@ def build(out_dir, with_p=True):
             route, key = leg_structure(c)
             label = f"{level} {year}"
             swi = strong_write_in(c["candidates"], k) if route == "zero" else None
-            if held(c, bad[year]):
-                p["not_computed"] = held(c, bad[year])
+            if held(c, bad[year]):   # one name on the ballot as well: L.HELD_ONE_NAME (ruling of 2026-11-13 00:26)
+                p["not_computed"] = (L.held_one_name(held(c, bad[year])) if route == "zero" else held(c, bad[year]))
                 counts[f"{label}: not computed, the state's counts do not add up"] += 1
             elif c["state"] in RANKED and route != "zero":
                 p["not_computed"] = RANKED[c["state"]]
@@ -3094,9 +3094,10 @@ def build(out_dir, with_p=True):
                 rec["result"]["tie"] = True
                 rec["result"]["tie_settled"] = c["tie"]
             p = {}
-            if held(c, bad[year]) and route != "zero":
-                p["not_computed"] = held(c, bad[year])
-                counts[f"local {year}: not computed, the state's counts do not add up"] += 1
+            if held(c, bad[year]):   # one name as well, since 2026-11-13 00:26 (L.HELD_ONE_NAME); before, it kept p 0
+                p["not_computed"] = (L.held_one_name(held(c, bad[year])) if route == "zero" else held(c, bad[year]))
+                counts[f"local {year}: not computed, the state's counts do not add up"
+                       + (" (one name on the ballot)" if route == "zero" else "")] += 1
             elif scope == "state" and c["state"] in RANKED and route != "zero":
                 p["not_computed"] = RANKED[c["state"]]
                 counts[f"local {year}: not computed, ranked choice"] += 1
