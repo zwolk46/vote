@@ -169,13 +169,16 @@ def _top_two_DR(cands):
 
 
 # Algara and Amlani's Missouri rows fall short of Cha's totals by 7% for the Democrat and 2% for the Republican
-# in each of 2008, 2012 and 2016 (pipeline/intake/algara_amlani.py's check), as they would if Kansas City, which
-# reports apart from Jackson County, were missing from the county rows (inferred: the rows hold 115 jurisdictions,
-# the 114 counties and St. Louis City). A count known to be incomplete is not used: no p, no fit row, no lag.
-AA_INCOMPLETE = {"MO": "Algara and Amlani's Missouri rows fall short of Cha, Kuriwaki and Snyder's totals by 7% "
-                       "for the Democrat and 2% for the Republican in each of 2008, 2012 and 2016, as they would "
-                       "if Kansas City, which reports apart from Jackson County, were missing from the county rows "
-                       "(inferred); the count is taken as incomplete"}
+# in each of 2008, 2012 and 2016 (pipeline/intake/algara_amlani.py's check). Missouri's official returns of those years
+# equal Cha's two nominees, and in 2016 the shortfall is Kansas City's own rows in the state's returns to the vote
+# (Koster 98,336, Greitens 25,284): Kansas City reports apart from Jackson County, and the authors' 115 rows (the 114
+# counties and St. Louis City) lack it [measured: pipeline/governor_counts.py, worker D3, 2026-11-13]. A count known to
+# be incomplete is not used: no p, no fit row, no lag.
+AA_INCOMPLETE = {"MO": "Algara and Amlani's Missouri rows fall short of Missouri's official returns, which equal Cha, "
+                       "Kuriwaki and Snyder's totals, by 7% for the Democrat and 2% for the Republican in each of 2008, "
+                       "2012 and 2016; in 2016 the shortfall is Kansas City's own rows to the vote (Koster 98,336, "
+                       "Greitens 25,284), since Kansas City reports apart from Jackson County [measured: "
+                       "pipeline/governor_counts.py]; the count is taken as incomplete"}
 
 
 def aa_governors():

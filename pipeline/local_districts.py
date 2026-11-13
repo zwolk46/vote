@@ -34,6 +34,11 @@ Idaho's 2022 canvass), MEDSL taken (Klarner's figures doubled to within 2%, ever
 other on the ballot: the 19:04 rule), write-in rule (a (b) flag whose other candidates are write-ins, added to the
 contest as write-ins, party w, for pipeline/local.py's rule to read), held (a gap of 5% or more: |ratio - 1|, or for a
 (b) flag the share of the district's votes MEDSL gives candidates Klarner lacks), noted (a gap under 5%).
+Since 2026-11-13 (data/local/REPORT.md sections 34 and 35): settled by the state, Klarner's or MEDSL's count standing
+(the state's count within 3% of one of them, candidate by candidate: settle_agree), settled by the county (COUNTY_READ),
+MEDSL taken or held over seats times the ballots (over_seats_pass, every tested record in a district MEDSL's file
+covers), held where the ballot is not read (BALLOT_UNREAD), and, beside the flags, two counts against the state's
+(two_against_state: Klarner's and MEDSL's within 0.4% of each other, the state's unmarked count off).
 
 Run:  VOTE_CACHE=/tmp/vote-cache python3 -I pipeline/local_districts.py check   (writes data/local/check-districts.json)
 The build (pipeline/local.py load_klarner, district_checks) reads that file.
@@ -93,7 +98,7 @@ def medsl_contests(year):
             out.append({"state": st, "sen": sen, "district": dist, "counties": [],
                         "candidates": _attach_nameless(_merge_lines(named), nameless),
                         "file": scan["file"], "stage": "GEN"})
-        return out
+        return merge_spellings(year, out)
     nl = nameless_lines(year)
     for p in sorted(glob.glob(os.path.join(NORM, str(year), "*.jsonl"))):
         with open(p) as f:
@@ -108,7 +113,7 @@ def medsl_contests(year):
                             "candidates": _attach_nameless(_merge_lines(m["candidates"]), lines),
                             "file": m["file"]["name"], "stage": m["stage"], "post": m.get("post"),
                             "magnitude": m.get("magnitude")})
-    return out
+    return merge_spellings(year, out)
 
 
 def _attach_nameless(cands, lines):
@@ -217,6 +222,153 @@ def _merge_lines(cands):
 
 def _is_write_in(x):
     return bool(x.get("writein")) or bool(WRITE_IN_MARK.search(x["name"]))
+
+
+# ------------------------------------------------------------------ one candidate under two spellings
+# The orchestrator, 2026-11-13 04:44: "Two spellings of one name: agreed for the next step. Sum the lines where their
+# precincts are apart and the names share a surname and a given name, and list each pair. A name split by county is
+# one candidate's count." Reason: MEDSL spells one candidate one way in one county's rows and another way in the next
+# (New York 2016's Senate 58: "Leslie Burke" 35,115 and "Leslie Danks Burke" 17,371, Klarner 52,488), and the pairing
+# took the larger line alone (data/local/REPORT.md sections 34 and 35).
+SPELL_VERSION = 1
+NOT_GIVEN = {"JR", "SR", "II", "III", "IV", "MR", "MRS", "MS", "DR"}
+NOT_PERSON = re.compile(r"\d|\bVOTES?\b|QUALIFIED", re.I)
+SPELLINGS = {}   # year -> every pair found, with what was decided (written into check-districts.json)
+
+
+def _given(name):
+    """A name's given names and nicknames, two letters or more: "Mary L. (Mimi) Pruett" gives MARY and MIMI,
+    "Alley, Larry W." gives LARRY; the surname and a suffix are left out."""
+    n = re.sub(r'"+', '"', name.upper())
+    toks = set()
+    for a, b, c in re.findall(r"\(([^)]*)\)|\"([^\"]*)\"|'([^']*)'", n):
+        toks |= set(re.findall(r"[A-Z]{2,}", a or b or c))
+    rest = re.sub(r"\([^)]*\)|\"[^\"]*\"|'[^']*'", " ", n)
+    rest = rest.split(",", 1)[1] if "," in rest else " ".join(rest.split()[:-1])
+    return (toks | set(re.findall(r"[A-Z]{2,}", rest))) - NOT_GIVEN
+
+
+def _spelled_alike(a, b):
+    """Two named lines that may be one candidate: their names differ as written, and share a surname (any of their
+    surname keys, local_medsl.name_keys) and a given name or nickname (_given)."""
+    if " ".join(a["name"].upper().split()) == " ".join(b["name"].upper().split()):
+        return False
+    if any(_generic(x) or NOT_PERSON.search(x["name"]) or not x["name"].strip() for x in (a, b)):
+        return False
+    return bool(_surs(a["name"]) & _surs(b["name"])) and bool(_given(a["name"]) & _given(b["name"]))
+
+
+def _spell_key(st, sen, district, name):
+    return f"{st}|{sen}|{_dkey(district or '')}|{' '.join(name.upper().split())}"
+
+
+def spelling_precincts(year, contests):
+    """{_spell_key: {precinct: votes}} for every line of a pair spelled alike in `year`'s legislative contests, read
+    from MEDSL's raw files (the 2016 state file; 2018's and 2022's state files): the precincts where the line has
+    votes. Cached in $VOTE_CACHE/volume/normalized/spellings-<year>.json, keyed by the raw files' sha256."""
+    import local_volume as V
+    import medsl_precinct as P
+    want = collections.defaultdict(set)
+    for m in contests:
+        cs = m["candidates"]
+        for i, a in enumerate(cs):
+            for b in cs[i + 1:]:
+                if _spelled_alike(a, b):
+                    want[m["state"]] |= {_spell_key(m["state"], m["sen"], m["district"], x["name"]) for x in (a, b)}
+    if not want:
+        return {}
+    paths = ({st: os.path.join(V.RAWDIR, V.STATE_2016) for st in want} if year == 2016 else
+             {st: V._raw_path(year, st) for st in want})
+    shas = {}
+    for st, p_ in sorted(paths.items()):
+        with open(p_ + ".meta.json") as f:
+            shas[st] = json.load(f).get("sha256")
+    wanted = {k: sorted(v) for k, v in sorted(want.items())}
+    cache = os.path.join(V.VNORM, f"spellings-{year}.json")
+    if os.path.exists(cache):
+        with open(cache) as f:
+            d = json.load(f)
+        if (d.get("version"), d.get("sha256"), d.get("want")) == (SPELL_VERSION, shas, wanted):
+            return d["precincts"]
+    out = collections.defaultdict(lambda: collections.defaultdict(dict))
+    for p_ in sorted(set(paths.values())):
+        for r in P._rows(p_):
+            st = r.get("state_po") or r.get("state_postal")
+            if st not in want or (r.get("stage") or "GEN").upper() != "GEN" or (r.get("special") or "").upper() == "TRUE":
+                continue
+            o = (r.get("office") or "").upper()
+            if not re.search(r"STATE (HOUSE|SENATE|REPRESENTATIVE|SENATOR|ASSEMBLY)|GENERAL ASSEMBLY", o):
+                continue
+            k = _spell_key(st, 1 if "SENAT" in o else 0, r.get("district"), r.get("candidate") or "")
+            if k not in want[st]:
+                continue
+            try:
+                v = int(float(r.get("votes") or 0))
+            except ValueError:
+                v = 0
+            pk = "|".join(str(x or "") for x in (r.get("county_fips"), r.get("jurisdiction_fips") or
+                                                 r.get("jurisdiction"), r.get("precinct")))
+            mode = (r.get("mode") or "TOTAL").upper()
+            out[k][pk][mode] = out[k][pk].get(mode, 0) + v
+    res = {k: {pk: P.resolve(m) for pk, m in pp.items()} for k, pp in out.items()}
+    os.makedirs(V.VNORM, exist_ok=True)
+    with open(cache, "w") as f:
+        json.dump({"version": SPELL_VERSION, "sha256": shas, "want": wanted, "precincts": res}, f)
+    return res
+
+
+def merge_spellings(year, contests):
+    """Each contest's lines spelled alike (_spelled_alike) summed into one where their precincts are apart: no precinct
+    gives both lines votes. A precinct is a row of MEDSL's raw file with votes for the line, its name not one that
+    reads as a total (local_volume.AGG_NAME: Kentucky 2016's Jefferson County files a row named "Cumulative:" that
+    repeats one walk-in row under the other spelling, Jason Michael NEMES 487 beside Jason Nemes's "WALK-IN 3RD F-G"
+    487 [measured]). A group of more than two spellings is summed only where every pair in it is apart. The summed
+    line keeps the larger line's name and party and lists its spellings (`spellings`). In place; every pair found is
+    listed in SPELLINGS[year] with what was decided."""
+    import local_volume as V
+    pre = spelling_precincts(year, contests)
+    found = []
+    for m in contests:
+        cs = m["candidates"]
+        pairs = [(a, b) for i, a in enumerate(cs) for b in cs[i + 1:] if _spelled_alike(a, b)]
+        if not pairs:
+            continue
+
+        def where(x):
+            pp = pre.get(_spell_key(m["state"], m["sen"], m["district"], x["name"])) or {}
+            return {pk for pk, v in pp.items() if v and not V.AGG_NAME.search(pk.split("|", 2)[2])}, pp
+        groups = []   # the lines the pairs connect
+        for a, b in pairs:
+            g = [x for x in groups if any(y is a or y is b for y in x)]
+            new = [a, b] + [y for x in g for y in x]
+            groups = [x for x in groups if not any(x is y for y in g)] + [list({id(y): y for y in new}.values())]
+        for g in groups:
+            sets = {id(x): where(x) for x in g}
+            why = None
+            if any(not sets[id(x)][0] for x in g):
+                why = ("a line has votes only on a row named as a total"
+                       if any(any(sets[id(x)][1].values()) for x in g if not sets[id(x)][0])
+                       else "a line is not found in MEDSL's raw file")
+            elif any(sets[id(a)][0] & sets[id(b)][0] for i, a in enumerate(g) for b in g[i + 1:]):
+                why = "a precinct gives both lines votes"
+            row = {"state": m["state"], "chamber": "state-upper" if m["sen"] else "state-lower",
+                   "district": m["district"],
+                   "lines": [[x["name"], x["votes"], len(sets[id(x)][0]),
+                              sorted({pk.split("|", 1)[0] for pk in sets[id(x)][0]})] for x in g],
+                   "summed": why is None}
+            if why:
+                row["why_not"] = why
+            else:
+                keep = max(g, key=lambda x: x["votes"] or 0)
+                keep["spellings"] = [[x["name"], x["votes"]] for x in sorted(g, key=lambda x: -(x["votes"] or 0))]
+                keep["votes"] = sum(x["votes"] or 0 for x in g)
+                keep["lines"] = sum(x.get("lines", 1) for x in g)
+                keep["writein"] = all(x.get("writein") for x in g)
+                m["candidates"] = [x for x in m["candidates"] if x is keep or all(x is not y for y in g)]
+                row["votes"] = keep["votes"]
+            found.append(row)
+    SPELLINGS[year] = sorted(found, key=lambda r: (r["state"], r["chamber"], r["district"], r["lines"][0][0]))
+    return contests
 
 
 def _named(kc):
@@ -679,13 +831,25 @@ CENSUS_BEF = os.path.join(F.CACHE, "census-sld", "raw")
 CENSUS_NORM = os.path.join(F.CACHE, "census-sld", "normalized", "counties-2022.json")
 CENSUS_YEARS = (2022,)   # the lines the Census's 2022 block equivalency files hold
 CENSUS_VERSION = 2   # the cache holds each county's block count
+CENSUS_URL = "https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/2022-state-legislative-bef/"
+CENSUS_PAGE = "https://www.census.gov/geographies/mapping-files/2023/dec/rdo/2022-state-legislative-bef.html"
+
+
+def _census_metas():
+    out = {}
+    for chamber in ("sldu", "sldl"):
+        p_ = os.path.join(CENSUS_BEF, f"{chamber}_2022.zip.meta.json")
+        if os.path.exists(p_):
+            with open(p_) as f:
+                out[f"{chamber}_2022.zip"] = json.load(f)
+    return out
 
 
 def census_counties():
     """The counties of each state legislative district on the 2022 lines, from the Census's 2022 State Legislative
     Block Equivalency Files (sldu_2022.zip and sldl_2022.zip: each block's GEOID, whose first five digits are its
-    county, and its district; fetched once, 2026-11-13, cached): {"ST|sen|district number": {county: the district's
-    blocks there}} (the orchestrator,
+    county, and its district; fetched once, 2026-11-13, cached, from CENSUS_URL, the files the Census's page
+    CENSUS_PAGE links): {"ST|sen|district number": {county: the district's blocks there}} (the orchestrator,
     2026-11-13: "a district's counties are its MEDSL rows plus the Census's 2020 SLD-to-county relationship for its
     lines, one fetch, cached"). Districts the Census codes with letters (not a number) are left out [worker D3's
     choice: MEDSL's names for them are not the Census's codes]."""
@@ -744,6 +908,12 @@ def district_cover(kc, m, year, cov, full_upper):
         rec = cov["counties"].get(f"{st}|{county}")
         if rec is None:   # the county has no row of this year's file at all
             gaps.append([county, None, None])
+            continue
+        if not rec["precincts"]:   # every row of the county, in every office, has 0 votes: a row of zeros carries no
+            # count, so it cannot show coverage (the orchestrator, 2026-11-13 05:38 (1): "a county whose rows are all
+            # zero is missing, not covered"; Indiana 2022's Cass, Daviess and Scott [measured])
+            share = round(blocks[county] / sum(blocks.values()), 4) if county in blocks else None
+            gaps.append([county, "zero", share])
             continue
         if ch != "top" and rec["precincts"] and rec[ch + "_missing"] / rec["precincts"] > COVER_GAP:
             gaps.append([county, rec[ch + "_missing"], rec["precincts"]])
@@ -849,29 +1019,32 @@ def _raw_path(year, name):
     return hit[0] if hit else None
 
 
-# The records the ruling names, which take MEDSL's counts when the facts match (the orchestrator, 2026-11-13 01:15
-# (3): "For Rutland ... Treat it as #97 treated Chittenden if the facts match: MEDSL taken where it passes every test,
-# and p on MEDSL's count, listed. If any fact differs, hold it and tell me which"). Every other held flag gets the
-# figures only, and stays held: a district's MEDSL precincts are its whole only where its counties are known, and
-# before 2022's lines no source read gives them (Indiana 2018's Senate 47: MEDSL's rows are in five counties, and
-# Klarner's count is 1.23 times their ballots, which a county missing from the rows would explain) [worker D3's
-# reading; for the orchestrator].
-OVER_SEATS_RULED = {"2018-VT-upper-rutland---"}
+# The over-seats test of every tested record whose district MEDSL's file covers (the orchestrator, 2026-11-13 05:15
+# (4): "Build the over-seats test for every record with ballots, not Rutland alone, and list what it flags"; "If
+# either is still over, treat it as Rutland: MEDSL taken where covered and passing every test, else held"; 01:15:
+# "A count over seats times ballots, like Rutland's, cannot be right whatever the coverage"). The ballots are the
+# district's own precincts' (those with the district's rows in MEDSL's file: Vermont 2018's Grand Isle district is
+# Colchester's two precincts and four of Grand Isle County's five towns, Alburgh's Senate rows being Franklin's; its
+# Windham district is 24 of Windham County's precincts, Wilmington's Senate rows being Bennington's [measured]).
+OVER_SEATS_MEDSL = 1.0   # MEDSL's count taken only where it is within its seats times the ballots
+OVER_HELD = "held: Klarner's count is over its seats times the ballots"
 
 
-def over_seats_pass(year, flags, tallies):
-    """The orchestrator, 2026-11-13: "A count over seats times ballots, like Rutland's, cannot be right whatever the
-    coverage"; Rutland is to be treated as #97 treated Chittenden "if the facts match: MEDSL taken where it passes
-    every test". A held flag whose Klarner count is above MEDSL's, in a district MEDSL's file covers (no county missing
-    the chamber's rows), is set against the district's ballots (district_ballots): Klarner's count over its seats times
-    the ballots by more than OVER_SEATS, with MEDSL's within them, every candidate paired and no other name on MEDSL's
-    ballot, takes MEDSL's counts, marked OVER_MARK, in the records the ruling names (OVER_SEATS_RULED); otherwise it
-    stays held, the figures beside ("over": Klarner's count over its seats times the ballots)."""
-    todo = [f for f in flags if f["outcome"] == "held" and "a" in f["flags"] and f["ratio"] is not None
-            and f["ratio"] < 1 and f.get("covered")]
+def over_seats_pass(year, flags, tallies, tested):
+    """Every tested record of the year (tested: [(flag or None, the record's test figures)], each with the district's
+    id, MEDSL file and district, seats and counts), in a district MEDSL's file covers (no county missing the chamber's
+    rows) and not shared with another district, set against the district's ballots (district_ballots). Klarner's
+    count over its seats times the ballots by more than OVER_SEATS: MEDSL's counts are taken (OVER_MARK) where MEDSL's
+    are within OVER_SEATS_MEDSL of them, every candidate paired with votes and no other name on MEDSL's ballot; else
+    the record is held (OVER_HELD). A flag's own outcome gives way only where it was held or noted, or kept for a gap
+    in MEDSL's file; a district settled by a state or a county keeps that outcome, the figures beside. Returns the
+    list of every record over (for check-districts.json)."""
     by_file = collections.defaultdict(list)
-    for f in todo:
-        by_file[f["medsl_file"]].append(f)
+    for f in tested:
+        if f.get("covered"):
+            by_file[f["medsl_file"]].append(f)
+    over = []
+    by_id = {f["id"]: f for f in flags}
     for name, fs in sorted(by_file.items()):
         path = _raw_path(year, name)
         if not path:
@@ -880,23 +1053,50 @@ def over_seats_pass(year, flags, tallies):
         got = district_ballots(path, wants)
         for f in fs:
             b = got.get((f["state"], 1 if f["chamber"] == "state-upper" else 0, _dkey(f["medsl_district"])))
+            fl = by_id.get(f["id"])
             if not b:
-                f["over_seats"] = {"read": False, "why": "no statewide contest reaches the district's precincts"}
+                if fl is not None:
+                    fl["over_seats"] = {"read": False, "why": "no statewide contest reaches the district's precincts"}
                 continue
             seats = f["eseats"] or 1
             xk, xm = f["klarner"] / (seats * b[1]), f["medsl"] / (seats * b[1])
-            f["over_seats"] = {"read": True, "precincts": b[0], "ballots": b[1], "by": b[2], "seats": seats,
-                               "klarner_per_ballot": round(f["klarner"] / b[1], 3),
-                               "medsl_per_ballot": round(f["medsl"] / b[1], 3),
-                               "klarner_x": round(xk, 4), "medsl_x": round(xm, 4)}
-            f["over_seats"]["over"] = xk > OVER_SEATS
-            if f["id"] in OVER_SEATS_RULED and xk > OVER_SEATS and xm <= 1 and \
-                    not [x for x in f["others"] if not x["write_in"]] and all(p_[1] and p_[3] for p_ in f["pairs"]):
-                tallies[f"flag {'+'.join(f['flags'])}: held"] -= 1
-                f["outcome"], f["mark"] = "MEDSL taken", OVER_MARK
-                tallies[f"flag {'+'.join(f['flags'])}: MEDSL taken (over seats times ballots)"] += 1
+            os_ = {"read": True, "precincts": b[0], "ballots": b[1], "by": b[2], "seats": seats,
+                   "klarner_per_ballot": round(f["klarner"] / b[1], 3), "medsl_per_ballot": round(f["medsl"] / b[1], 3),
+                   "klarner_x": round(xk, 4), "medsl_x": round(xm, 4), "over": xk > OVER_SEATS}
+            if fl is not None:
+                fl["over_seats"] = os_
+            if xk <= OVER_SEATS:
+                continue
+            take = xm <= OVER_SEATS_MEDSL and not [x for x in f["others"] if not x["write_in"]] and \
+                all(p_[1] and p_[3] for p_ in f["pairs"])
+            row = {"id": f["id"], "medsl_file": name, "flagged": fl is not None,
+                   "outcome_before": fl["outcome"] if fl is not None else "passed", **os_}
+            if fl is not None and (fl["outcome"].startswith("settled") or fl["outcome"] == "MEDSL taken"):
+                row["outcome"] = fl["outcome"]
+                over.append(row)
+                continue
+            if fl is None:   # a record no flag raised: listed with its figures as a flag of its own
+                fl = {k: f[k] for k in ("id", "state", "chamber", "dname", "dno", "post", "eseats", "medsl_district",
+                                         "medsl_file")}
+                fl.update({k: v for k, v in f.items() if k in ("matched", "pairs", "klarner", "medsl", "ratio", "flag_a",
+                                                               "unopposed", "others", "flag_b", "b_tested",
+                                                               "medsl_ballot_unpaired", "medsl_write_ins")})
+                fl.update({"flags": ["over seats"], "outcome": "passed", "covered": True, "over_seats": os_})
+                flags.append(fl)
+                by_id[fl["id"]] = fl
+            else:
+                tallies[f"flag {'+'.join(fl['flags'])}: {fl['outcome']}"] -= 1
+            if take:
+                fl["outcome"], fl["mark"] = "MEDSL taken", OVER_MARK
+                fl.pop("coverage", None)
+            else:
+                fl["outcome"] = OVER_HELD
+            tallies[f"flag {'+'.join(fl['flags'])}: {fl['outcome']}"] += 1
+            row["outcome"] = fl["outcome"]
+            over.append(row)
     for k in [k for k, v in tallies.items() if v == 0]:
         del tallies[k]
+    return sorted(over, key=lambda r: r["id"])
 
 
 def klarner_id(kc):
@@ -1034,13 +1234,18 @@ STATE_FILES = {
 STATE_CACHE = {}
 
 
-def settle_agree(kc, t):
-    """A flag settled by the state's published results agreeing with Klarner's (the orchestrator, 2026-11-13: "Settling
-    a flag needs only the state's own count agreeing with one source ... the notes say 'the state's published results
-    agree' and never 'certified'"): the state's district names each of Klarner's ballot candidates once by surname,
-    no other ballot name, and its ballot candidates add up to Klarner's within RATIO_OFF. Klarner's counts stand."""
-    import local as L
-    import local_medsl as M
+# A state count that bears a certified mark wins (the orchestrator, 2026-11-07 15:16); these two bear none [measured:
+# Indiana's 2016 archive's settings.json has no 'Certified' field, where its 2024 archive says "Certified": "T"; Utah's
+# canvass, read by pdftotext, has no word 'certif', 'canvass' or 'official' in its text]
+STATE_MARKED = {("UT", 2016): False, ("IN", 2016): False}
+TWO_AGREE = 0.004   # the orchestrator, 2026-11-13 05:15 (3): "two independent counts that agree by candidate within
+#                     0.4% stand against one state count that bears no certified mark"
+TWO_OUTCOME = "two counts agree against the state's: Klarner's count stands"
+
+
+def state_district(kc):
+    """The state's own count of Klarner's district from STATE_FILES, read once a state-year: [{name, votes,
+    write_in}], or None."""
     key = (kc["state"], kc["year"])
     if key not in STATE_FILES or not str(kc["dno"]).isdigit():
         return None
@@ -1049,10 +1254,15 @@ def settle_agree(kc, t):
     d = STATE_CACHE[key]
     if not d:
         return None
-    cs = d.get(str(int(kc["dno"]))) if key == ("UT", 2016) and kc["sen"] else \
+    return d.get(str(int(kc["dno"]))) if key == ("UT", 2016) and kc["sen"] else \
         d.get((kc["sen"], str(int(kc["dno"])))) if key == ("IN", 2016) else None
-    if not cs:
-        return None
+
+
+def _state_pairs(kc, cs):
+    """Klarner's ballot candidates paired with the state's by surname, each once, the state naming no other on the
+    ballot: [[Klarner's name, Klarner's votes, the state's name, the state's votes]], or None."""
+    import local as L
+    import local_medsl as M
     ballot = L.on_ballot(kc["cands"])
     sb = [x for x in cs if not x["write_in"]]
     pairs = []
@@ -1061,18 +1271,71 @@ def settle_agree(kc, t):
         if len(hit) != 1:
             return None
         pairs.append([a["name"], a["votes"], hit[0]["name"], hit[0]["votes"]])
-    if len(sb) != len(ballot):
-        return None
-    kv, sv = sum(p_[1] or 0 for p_ in pairs), sum(p_[3] for p_ in pairs)
-    if not kv or abs(sv / kv - 1) > RATIO_OFF:
-        return None
-    name, host, path = STATE_FILES[key]
+    return pairs if len(sb) == len(ballot) else None
+
+
+def _state_meta(kc):
+    name, host, path = STATE_FILES[(kc["state"], kc["year"])]
     meta_p = (path + ".meta.json") if os.path.isfile(path) else os.path.join(path, "settings.json.meta.json")
     with open(meta_p) as f:
         meta = json.load(f)
     return {"source": name, "host": host, "url": meta.get("url"), "read_utc": meta.get("finished_utc") or
-            meta.get("read_utc"), "sha256": meta.get("sha256"), "pairs": pairs, "ratio": round(sv / kv, 5),
-            "write_ins": [[x["name"], x["votes"]] for x in cs if x["write_in"]]}
+            meta.get("read_utc"), "sha256": meta.get("sha256"), "marked": STATE_MARKED[(kc["state"], kc["year"])]}
+
+
+def _within(a, b, tol):
+    """a within tol of b, as a share of b (both zero: within)"""
+    return (not a and not b) or (bool(b) and abs((a or 0) / b - 1) <= tol)
+
+
+def settle_agree(kc, t):
+    """A flag settled by the state's published results agreeing with one source (the orchestrator, 2026-11-13 01:15:
+    "Settling a flag needs only the state's own count agreeing with one source ... the notes say 'the state's published
+    results agree' and never 'certified'"; 05:15 (2): "The settle test compares candidates, not totals"): the state's
+    district names each of Klarner's ballot candidates once by surname, no other ballot name, and each candidate's
+    count is within RATIO_OFF of Klarner's (Klarner's count stands, "with": "klarner"), or else of MEDSL's, every
+    candidate paired with MEDSL's lines (MEDSL's count stands, "with": "medsl": 05:15 (1), Indiana 2016's Senate 36,
+    "the state agrees with MEDSL on both candidates, so MEDSL's count stands")."""
+    cs = state_district(kc)
+    if not cs:
+        return None
+    pairs = _state_pairs(kc, cs)
+    if not pairs:
+        return None
+    out = dict(_state_meta(kc), write_ins=[[x["name"], x["votes"]] for x in cs if x["write_in"]])
+    if all(_within(p_[3], p_[1], RATIO_OFF) for p_ in pairs):
+        kv, sv = sum(p_[1] or 0 for p_ in pairs), sum(p_[3] for p_ in pairs)
+        return dict(out, pairs=pairs, ratio=round(sv / kv, 5) if kv else None, **{"with": "klarner"})
+    med = {p_[0]: p_[3] for p_ in t["pairs"]}
+    if set(med) != {p_[0] for p_ in pairs} or not all(med[p_[0]] for p_ in pairs):
+        return None
+    if all(_within(p_[3], med[p_[0]], RATIO_OFF) for p_ in pairs):
+        mv, sv = sum(med[p_[0]] for p_ in pairs), sum(p_[3] for p_ in pairs)
+        return dict(out, pairs=[[p_[0], p_[1], med[p_[0]], p_[2], p_[3]] for p_ in pairs],
+                    ratio=round(sv / mv, 5), **{"with": "medsl"})
+    return None
+
+
+def two_against_state(kc, t):
+    """The orchestrator, 2026-11-13 05:15 (3): "two independent counts that agree by candidate within 0.4% stand
+    against one state count that bears no certified mark. The note gives the state's figures. A count with the mark
+    wins under 15:16": Klarner's and MEDSL's counts within TWO_AGREE of each other for every candidate, the state's
+    (unmarked) off Klarner's by more than TWO_AGREE for one or more. Returns the figures, or None."""
+    cs = state_district(kc)
+    if not cs or not t.get("matched") or STATE_MARKED.get((kc["state"], kc["year"])):
+        return None
+    pairs = _state_pairs(kc, cs)
+    if not pairs:
+        return None
+    med = {p_[0]: p_[3] for p_ in t["pairs"]}
+    if set(med) != {p_[0] for p_ in pairs}:
+        return None
+    if not all(_within(med[p_[0]], p_[1], TWO_AGREE) for p_ in pairs):
+        return None
+    if all(_within(p_[3], p_[1], TWO_AGREE) for p_ in pairs):
+        return None
+    return dict(_state_meta(kc), pairs=[[p_[0], p_[1], med[p_[0]], p_[2], p_[3]] for p_ in pairs],
+                write_ins=[[x["name"], x["votes"]] for x in cs if x["write_in"]])
 
 
 def settle_id(kc, t, canv):
@@ -1105,7 +1368,8 @@ def check():
     out = {"about": ("Klarner's legislative districts beside MEDSL's, one by one (pipeline/local_districts.py; the "
                      "orchestrator's orders of 2026-11-07 21:21 and 21:26; data/local/REPORT.md section 32)"),
            "rules": {"ratio_off_over": RATIO_OFF, "held_at_or_over": HOLD_GAP, "doubled_within": DOUBLE_TOL,
-                     "over_seats_held_over": OVER_SEATS, "compound_part_min": PART_MIN},
+                     "over_seats_held_over": OVER_SEATS, "over_seats_medsl_within": OVER_SEATS_MEDSL,
+                     "two_agree_within": TWO_AGREE, "compound_part_min": PART_MIN},
            "years": {}}
     ups = {sen: collections.Counter((st, y) for st, y, _, _ in {(c["state"], c["year"], c["dname"], c["dno"])
                                                                 for c in cs if c["etype"] == "g" and c["sen"] == sen})
@@ -1128,7 +1392,7 @@ def check():
             pool[(m["state"], m["sen"])].append(m)
         states = {k[0] for k in pool}
         tallies, flags = collections.Counter(), []
-        found = []
+        found, tested, two_agree = [], [], []
         for kc in cs:
             if kc["year"] != year or kc["etype"] != "g" or kc["state"] not in states:
                 continue
@@ -1183,6 +1447,19 @@ def check():
             tallies["tested"] += 1
             status[klarner_id(kc)] = ["tested", m["district"], t["klarner"], t["medsl"],
                                       (kc.get("votes_source") or {}).get("source")]
+            if not (kc.get("votes_source") or {}).get("source") and not kc.get("held_reason"):
+                two = two_against_state(kc, t)
+                if two:
+                    two_agree.append({"id": klarner_id(kc), "medsl_file": m["file"], "flagged": bool(
+                        t["flag_a"] or t["flag_b"]), "outcome": TWO_OUTCOME, "state_count": two})
+                if b_test:   # the over-seats test: a district of its own (a shared contest's precincts are several's)
+                    cv = district_cover(kc, m, year, cov, full_upper)
+                    tested.append({"id": klarner_id(kc), "state": kc["state"],
+                                   "chamber": "state-upper" if kc["sen"] else "state-lower",
+                                   "dname": kc["dname"] or None, "dno": kc["dno"] or None,
+                                   "post": kc["geopost"] or kc["mmdpost"] or None, "eseats": kc["eseats"],
+                                   "medsl_district": m["district"], "medsl_file": m["file"],
+                                   "covered": not cv["gaps"] and not cv.get("untested"), **t})
             if not (t["flag_a"] or t["flag_b"]):
                 continue
             f = {"id": klarner_id(kc), "state": kc["state"], "chamber": "state-upper" if kc["sen"] else "state-lower",
@@ -1192,9 +1469,12 @@ def check():
             f.update(outcome(kc, t, year, canv, district_cover(kc, m, year, cov, full_upper)))
             flags.append(f)
             tallies[f"flag {'+'.join(f['flags'])}: {f['outcome']}"] += 1
-        over_seats_pass(year, flags, tallies)
+        over = over_seats_pass(year, flags, tallies, tested)
         out["years"][str(year)] = {"tallies": dict(sorted(tallies.items())), "shared_by_state": dict(sorted(shared.items())),
-                                   "flags": sorted(flags, key=lambda f: (f["state"], f["chamber"], f["id"]))}
+                                   "flags": sorted(flags, key=lambda f: (f["state"], f["chamber"], f["id"])),
+                                   "over_seats": {"tested": len([f for f in tested if f["covered"]]),
+                                                  "over": over},
+                                   "two_against_state": two_agree}
         print(year, dict(sorted(tallies.items())))
         import local_volume as V
         with open(os.path.join(V.VNORM, f"districts-status-{year}.json"), "w") as f:
@@ -1259,6 +1539,19 @@ def check():
                   "among the other's, generic words aside (local_districts.precinct_equivalences)")}
     for y in (2016, 2018, 2022, 2024):
         out["precinct_equivalences"][str(y)] = coverage(y).get("equivalences", {}).get(str(y), {})
+    out["spellings"] = {
+        "about": ("MEDSL's lines of one contest spelled alike, their names sharing a surname and a given name or "
+                  "nickname: summed into one candidate's count where no precinct gives both lines votes, a row named "
+                  "as a total not counted a precinct (the orchestrator, 2026-11-13 04:44: \"Sum the lines where their "
+                  "precincts are apart and the names share a surname and a given name, and list each pair. A name "
+                  "split by county is one candidate's count\"); by year: lines [name, votes, precincts with votes, "
+                  "counties], summed, and why not where they are not (local_districts.merge_spellings)")}
+    for y in YEARS:
+        out["spellings"][str(y)] = SPELLINGS.get(y, [])
+    out["census_block_files"] = {"about": "the 2022 lines' counties of each district (census_counties)",
+                                 "url": CENSUS_URL, "linked_from": CENSUS_PAGE,
+                                 "files": {k: {x: m.get(x) for x in ("url", "finished_utc", "bytes", "sha256")}
+                                           for k, m in _census_metas().items()}}
     out["incomplete_counties"]["about"] = (
         "counties where the US House's rows (by district, where the county has any) miss more than 2% of the precincts "
         "of the county's top contest (the most precincts with votes), holding more than 2% of its votes: [family, "
@@ -1359,8 +1652,10 @@ def outcome(kc, t, year, canv, cover=None):
         if s:
             return {"outcome": "settled by the state", "by": "Idaho's 2022 canvass (cached)", "state_count": s}
     s_ = settle_agree(kc, t)
-    if s_:
+    if s_ and s_["with"] == "klarner":
         return {"outcome": "settled by the state: Klarner's count stands", "by": s_["source"], "state_count": s_}
+    if s_ and s_["with"] == "medsl" and not [x for x in t["others"] if not x["write_in"]]:
+        return {"outcome": "settled by the state: MEDSL's count stands", "by": s_["source"], "state_count": s_}
     if klarner_id(kc) in BALLOT_UNREAD:
         return ballot_unread(kc, t)
     if klarner_id(kc) in COUNTY_READ:

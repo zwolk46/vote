@@ -1048,12 +1048,17 @@ def over_ballot(contests, year, whole):
 
     def votes(m):
         return sum(x["votes"] for x in m["candidates"])
+
+    def citywide(m):
+        # the District of Columbia is one county, so `whole` (a state of more than one county) never reads it; its
+        # citywide contests are its statewide ones (the orchestrator, 2026-11-13 04:44: "read DC in the test")
+        return m["state"] == "DC" and (m.get("district") or "") in ("", "STATEWIDE", "AT-LARGE")
     one = [m for m in contests if not m["question"] and m.get("magnitude") == 1 and m.get("dataverse") == "STATE"
-           and whole(m) and m.get("stage") == "GEN" and "RECOUNT" not in (m.get("stage") or "")]
+           and (whole(m) or citywide(m)) and m.get("stage") == "GEN" and "RECOUNT" not in (m.get("stage") or "")]
     # every count shown, whatever its source (the orchestrator, 21:55 (2)); a state's own count that fails is re-read
     # (STATE_OVER_REREAD) and, where the re-read stands, kept with a note and listed
     read = [m for m in one if is_local_level(m)]
-    asked = [m for m in contests if m["question"] and m.get("dataverse") == "STATE" and whole(m)
+    asked = [m for m in contests if m["question"] and m.get("dataverse") == "STATE" and (whole(m) or citywide(m))
              and m.get("stage") == "GEN" and not m.get("held_reason")]
     federal = {sd: [t for t in tl if t["dataverse"] in ("PRESIDENT", "SENATE")] for sd, tl in yb["tops"].items()}
     over, rows_out = set(), []
