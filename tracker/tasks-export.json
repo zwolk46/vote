@@ -1,5 +1,5 @@
 {
- "exported_utc": "2026-11-07T22:20Z",
+ "exported_utc": "2026-11-12T23:20Z",
  "artifact": "https://claude.ai/artifact/DzVTr4wvWE92sNxxEx6wKH",
  "collection": "tasks",
  "note": "Every row of the Vote Work tracker at export time, keyed by doc id. To restore on a new account: publish tracker/vote-work.html as a new artifact with the db capability, then write each row with ArtifactData set (collection tasks, doc_id = key, data = the row without its version fields).",
@@ -25,8 +25,8 @@
   },
   "check-eighth-pass": {
    "o": 67,
-   "s": "todo",
-   "t": "Check: eighth pass over the chances on the Hawaii governor refit and the held-totals work"
+   "s": "doing",
+   "t": "Check: eighth pass over the chances on the Hawaii governor refit and the held-totals work, then the district-by-district vote-total checks once they land"
   },
   "check-fifth-pass": {
    "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
@@ -43,9 +43,11 @@
    "t": "Check: fourth pass over the chances on the statewide-questions work (joined from local, certified counts, one-county titles): all reproduce, and every list of moves equals the check's own"
   },
   "check-seventh-pass": {
+   "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
+   "linkLabel": "Read",
    "o": 66,
-   "s": "doing",
-   "t": "Check: seventh pass over the chances on the New Jersey and Virginia legislatures and the vote-total fixes, with a new check of each contest's vote total against a count from another file (running; it has already found two faults in the older legislature file, now being fixed)"
+   "s": "done",
+   "t": "Check: seventh pass over the chances on the New Jersey and Virginia legislatures and the vote-total fixes, with a new check of each contest's vote total against a count from another file: every change reproduces, and the faults it found in the older legislature file went to the local data work"
   },
   "check-sixth-pass": {
    "link": "https://github.com/zwolk46/vote/blob/main/checks/M2-REPORT.md",
