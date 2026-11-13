@@ -109,6 +109,13 @@ SOURCES = {
         "read_utc": "2026-11-13T10:00:09Z",
         "bytes": 215078,
         "sha256": "2b5dbfcfcccae32ce17da518a795b7d1c5b273696caca85716421bd1c15be7bc",
+        # the page carries per-request nonces in its scripts, so another read hashes differently; its text does not
+        # (M2's report section 21, the orchestrator's relay of 2026-11-13 10:46: "Add a sha256 of the page's extracted
+        # text beside the page's own, so a later read can check it")
+        "text_sha256": "11757c4135d05164fa0c99b77a5413d01c466a84aa239329ea17f8daaeaf45c3",
+        "text_method": "page_text: the page as UTF-8 with its script, style and noscript elements and HTML comments "
+                       "dropped, its tags replaced by spaces, entities unescaped, runs of white space made one space, "
+                       "the ends stripped; sha256 of that text as UTF-8 (24,635 characters)",
         "cache": "recount/raw/fairvote-election-recounts-2024.html",
         "licence": "none printed on the page [measured: no licence or copyright line in its source]; three figures "
                    "quoted, the page not kept",
@@ -229,6 +236,7 @@ def compute():
     rows, notes, counts, cache = [], {}, {}, {}
     for lab, _r, _w in RATES:
         counts[lab] = {"near": 0, "by_level_and_route": {}, "gain_over_p": None,
+                       "near_with_zone_under": {"2 votes": 0, "1.5 votes": 0},
                      "raised_in_the_tails": {"races": 0, "p_at_most": 0.0}}
     seen = 0
     for lev, path in files():
@@ -256,6 +264,8 @@ def compute():
                     cn["by_level_and_route"][key] = cn["by_level_and_route"].get(key, 0) + 1
                     lo_hi = cn["gain_over_p"] or [g, g]
                     cn["gain_over_p"] = [min(lo_hi[0], g), max(lo_hi[1], g)]
+                    for lim, key_ in ((2, "2 votes"), (1.5, "1.5 votes")):   # rate x n exactly, not the listing's
+                        cn["near_with_zone_under"][key_] += rate * n < lim        # rounding to a tenth of a vote
                 elif g >= 1.04:   # the 4% the line stands for, crossed upward away from 1/2 (10:12, 5)
                     cn["raised_in_the_tails"]["races"] += 1
                     cn["raised_in_the_tails"]["p_at_most"] = max(cn["raised_in_the_tails"]["p_at_most"],
@@ -287,6 +297,10 @@ def listing(rows, counts, seen):
                  "unchanged everywhere (the orchestrator, 2026-11-13 10:12). Built by pipeline/local_recount.py; "
                  "method in data/local/REPORT.md section 38.",
         "rule": {"zone_votes": "rate x n, n the count p is computed at (p.n) [inferred]", "gross": GROSS,
+                 "near_with_zone_under": "the near races whose zone, rate x n taken exactly (not the listing's "
+                                         "zone_votes, rounded to a tenth of a vote), is under 2 and under 1.5 votes, "
+                                         "where a count moves in whole votes and the continuous gain is a reading "
+                                         "[inferred]",
                  "near": "zone at or above a third of n x sd (model section 3: \"At a zone a third the size of the "
                          "spread, p is still 96% of its value\"; the orchestrator, 10:12, 2)",
                  "sd_from": {"own": "route (a): the forecast's own sd (forecasts[0].share.sd)",
@@ -332,6 +346,14 @@ def put_notes(notes, write):
     return changed, have
 
 
+def page_text(raw):
+    """An HTML page's text, as SOURCES' text_method says: the same on any read of a page whose words are the same."""
+    t = re.sub(r"(?is)<(script|style|noscript)\b.*?</\1\s*>", " ", raw.decode("utf-8", "replace"))
+    t = re.sub(r"(?s)<!--.*?-->", " ", t)
+    t = re.sub(r"<[^>]+>", " ", t)
+    return re.sub(r"\s+", " ", html.unescape(t)).strip()
+
+
 def check_sources():
     cache = os.environ.get("VOTE_CACHE")
     if not cache:
@@ -342,6 +364,8 @@ def check_sources():
             raw = f.read()
         if hashlib.sha256(raw).hexdigest() != s["sha256"] or len(raw) != s["bytes"]:
             raise SystemExit(f"{key}: the cached file is not the one read at {s['read_utc']}")
+        if s.get("text_sha256") and hashlib.sha256(page_text(raw).encode("utf-8")).hexdigest() != s["text_sha256"]:
+            raise SystemExit(f"{key}: the cached page's text is not the one read at {s['read_utc']}")
         if path.endswith(".pdf"):
             text = subprocess.run(["pdftotext", "-layout", path, "-"], capture_output=True, check=True).stdout
             text = text.decode("utf-8", "replace")
@@ -352,7 +376,7 @@ def check_sources():
             for q in fig["quote"]:
                 if re.sub(r"\s+", " ", q) not in text:
                     raise SystemExit(f"{key}: not found in the source: {q!r}")
-    return "both sources' sha256 and every quoted figure checked in the cache"
+    return "both sources' sha256 (and FairVote's text sha256) and every quoted figure checked in the cache"
 
 
 def main():
@@ -379,8 +403,8 @@ def main():
     print(f"records with p above 0: {seen}")
     for lab, _, _ in RATES:
         cn = counts[lab]
-        print(f"{lab}: near {cn['near']} {cn['by_level_and_route']}; gain/p {cn['gain_over_p']}; raised in the "
-              f"tails {cn['raised_in_the_tails']}")
+        print(f"{lab}: near {cn['near']} {cn['by_level_and_route']}; gain/p {cn['gain_over_p']}; zone under "
+              f"{cn['near_with_zone_under']}; raised in the tails {cn['raised_in_the_tails']}")
     print(f"notes: {len(notes)}; files {'rewritten' if write else 'to change'}: {len(changed)}")
 
 
