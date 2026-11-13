@@ -131,7 +131,7 @@ def load_klarner(raw=False):
     2022 counts from MEDSL's file where Klarner's are doubled (nh_2022), unless raw."""
     with open(os.path.join(KLARNER, "contests.jsonl")) as f:
         cs = [json.loads(line) for line in f]
-    return cs if raw else c38(nh_2022(certified_votes(cs)))
+    return cs if raw else coarse_tier(district_checks(c38(nh_2022(certified_votes(cs)))))
 
 
 NH_COUNTY = {"belknap": "33001", "carroll": "33003", "cheshire": "33005", "coos": "33007", "grafton": "33009",
@@ -358,6 +358,230 @@ def c38(contests):
     return contests
 
 
+
+DISTRICTS_CHECK = os.path.join(REPO, "data", "local", "check-districts.json")
+DISTRICTS_COUNT = collections.Counter()
+D_RULE = ("the orchestrator, 2026-11-07 21:26: \"apply the 19:04 rules district by district: a gap of 5% or more is "
+          "held, and a gap under 5% is kept with a note\"")
+D_RATIO = ("MEDSL's precinct file ({file}) gives this district's {n} named candidate{s} {m:,} votes against Klarner's "
+           "{k:,}, {pct:+.1f}% [measured: pipeline/local_districts.py, data/local/check-districts.json], and no state "
+           "count is read")
+D_OTHERS = ("MEDSL's precinct file ({file}) names {who} on the ballot beside Klarner's unopposed candidate{s}, with "
+            "{share:.1f}% of the district's votes [measured: pipeline/local_districts.py], and no state count is read")
+D_HELD = "{what}; so neither count is relied on ({rule}): p is not computed, and the contest is left out of the fits"
+D_NOTED = "{what}; under 5%, so Klarner's count is kept ({rule})"
+D_WRITE_IN = ("MEDSL's precinct file ({file}) lists {who}, marked as a write-in [stated: the file], beside Klarner's "
+              "unopposed candidate{s}: added here as a write-in (party w), and the write-in rule decides the route "
+              "(the orchestrator, 2026-11-07 21:26: \"A (b) flag where MEDSL's other candidate is a write-in ... is not "
+              "a ballot opponent. Apply the existing write-in rule to it\")")
+D_DOUBLED = ("Klarner's figures for this district are doubled: every one of its named candidates has twice MEDSL's "
+             "votes, to within 2% [measured: pipeline/local_districts.py]; MEDSL's counts ({file}) (the orchestrator's "
+             "rule of 2026-11-07 19:04 for a doubled count: \"Use MEDSL's counts where every candidate matches by name, "
+             "marked 'Klarner's figures are doubled; MEDSL's counts'\"): {diff}")
+D_STATE = ("Idaho's canvass of the 2022 general (the Secretary of State's 'Canvass Files', its legislative workbook, the "
+           "district's total row, column {col}) in place of Klarner's figures, which MEDSL's file contradicts "
+           "[measured: pipeline/local_districts.py]; a write-in marked '(W/I)' is added as one (the orchestrator, "
+           "2026-11-07 21:21: \"Settle each by the state where it answers\"; 21:26: settle \"only where its file is "
+           "already cached\"): {diff}")
+
+
+D_UNCOVERED = ("MEDSL's precinct file ({file}) gives this district's {n} named candidate{s} {m:,} votes against Klarner's "
+               "{k:,}, {pct:+.1f}%, but the file lacks {by} in part of the district: {gaps} [measured: pipeline/"
+               "local_districts.py coverage]. A gap in the file tested against is not Klarner's fault, so Klarner's "
+               "count is kept (the orchestrator, 2026-11-07 22:26: \"In such a district, a Klarner count above MEDSL's "
+               "is explained by the gap. Klarner's count stays, with a note naming the counties and the share "
+               "missing\")")
+
+
+def _gap_words(cov):
+    return "; ".join(f"county {c}: no row of the file at all" if miss is None else
+                     f"county {c}: {miss:,} of the {tot:,} precincts of the county's top contest ({100 * miss / tot:.0f}%)"
+                     for c, miss, tot in cov["gaps"])
+
+
+def _add_note(c, note):
+    c["certified_note"] = (c["certified_note"] + "; " + note) if c.get("certified_note") else note
+
+
+def district_checks(contests):
+    """The district checks of 21:21 and 21:26 (pipeline/local_districts.py, which writes check-districts.json from the
+    contests as this function receives them): each flagged district's outcome applied. Held: held_reason. Noted: a
+    note. Write-in rule: MEDSL's write-ins added as party w. MEDSL taken: MEDSL's counts. Settled by the state: Idaho's
+    canvass. A flag whose Klarner figures are not the ones the check read stops the build (run the check again)."""
+    DISTRICTS_COUNT.clear()
+    if not os.path.exists(DISTRICTS_CHECK):
+        raise SystemExit("data/local/check-districts.json is missing: run pipeline/local_districts.py check first")
+    with open(DISTRICTS_CHECK) as f:
+        chk = json.load(f)
+    import local_districts as LD
+    by = {LD.klarner_id(c): c for c in contests if c["etype"] == "g"}
+    for year, v in chk["years"].items():
+        for fl in v["flags"]:
+            o = fl["outcome"]
+            if o in ("settled earlier", "untested: MEDSL's file does not cover the district"):
+                DISTRICTS_COUNT[f"{year}: {o}"] += 1
+                continue
+            c = by.get(fl["id"])
+            named = [a for a in c["cands"] if not a["scattering"]] if c else []
+            if c is None or [[a["name"], a["votes"]] for a in named] != [p_[:2] for p_ in fl["pairs"]]:
+                raise SystemExit(f"district_checks: {fl['id']} is not the contest the check read: run "
+                                 f"pipeline/local_districts.py check again")
+            n, s_ = len(named), "" if len(named) == 1 else "s"
+            fname = fl["medsl_file"]
+            if o in ("held", "noted"):
+                parts = []
+                if "a" in fl["flags"]:
+                    parts.append(D_RATIO.format(file=fname, n=n, s=s_, m=fl["medsl"], k=fl["klarner"],
+                                                pct=100 * (fl["ratio"] - 1)))
+                ballot_others = [x for x in fl["others"] if not x["write_in"]]
+                if "b" in fl["flags"] and ballot_others:
+                    tot = fl["medsl"] + sum(x["votes"] for x in fl["others"])
+                    parts.append(D_OTHERS.format(file=fname, s=s_, who=", ".join(
+                        f"{x['name']} ({x['votes']:,})" for x in ballot_others),
+                        share=100 * sum(x["votes"] for x in ballot_others) / tot if tot else 100.0))
+                what = "; ".join(parts)
+                if o == "held":
+                    c["held_reason"] = D_HELD.format(what=what, rule=D_RULE)
+                else:
+                    _add_note(c, D_NOTED.format(what=what, rule=D_RULE))
+                DISTRICTS_COUNT[f"{year}: {o}"] += 1
+            elif o == "kept: MEDSL does not cover the district":
+                cv = fl["coverage"]
+                _add_note(c, D_UNCOVERED.format(file=fname, n=n, s=s_, m=fl["medsl"], k=fl["klarner"],
+                                                pct=100 * (fl["ratio"] - 1), by=cv["by"], gaps=_gap_words(cv)))
+                DISTRICTS_COUNT[f"{year}: kept, MEDSL does not cover the district"] += 1
+            elif o == "write-in rule":
+                wi = [x for x in fl["others"] if x["write_in"]]
+                for x in wi:
+                    c["cands"].append({"name": x["name"], "candid": None, "party": "w",
+                                       "lines": ["write-in (MEDSL's precinct file)"], "votes": x["votes"],
+                                       "vote_missing": False, "outcome": "l", "exper": "none", "scattering": False})
+                _add_note(c, D_WRITE_IN.format(file=fname, s=s_, who=", ".join(
+                    f"{x['name']} ({x['votes']:,})" for x in wi)))
+                DISTRICTS_COUNT[f"{year}: write-in rule"] += 1
+            elif o == "MEDSL taken":
+                diff = []
+                for a, p_ in zip(named, fl["pairs"]):
+                    diff.append((a["name"], a["votes"], p_[3]))
+                    a["votes"] = p_[3]
+                for a in c["cands"]:
+                    if a["scattering"]:
+                        diff.append((a["name"] or "scattering", a["votes"], fl["medsl_write_ins"]))
+                        a["votes"] = fl["medsl_write_ins"]
+                _sum_parties(c)
+                c["votes_source"] = {"source": "medsl", "file": fname, "klarner": {n_: v_ for n_, v_, _ in diff}}
+                _add_note(c, D_DOUBLED.format(file=fname, diff="; ".join(
+                    f"{n_}: {v_:,} in Klarner's, {w_:,} in MEDSL's" for n_, v_, w_ in diff)))
+                DISTRICTS_COUNT[f"{year}: MEDSL taken"] += 1
+            elif o == "settled by the state":
+                sc = fl["state_count"]
+                left, diff = list(sc["candidates"]), []
+                for a in named:
+                    hit = [x for x in left if not x["write_in"] and LD._sur(x["name"]) == LD._sur(a["name"])]
+                    if len(hit) != 1:
+                        raise SystemExit(f"district_checks: {fl['id']}: the canvass does not name {a['name']} once")
+                    left.remove(hit[0])
+                    diff.append((a["name"], a["votes"], hit[0]["votes"]))
+                    a["votes"] = hit[0]["votes"]
+                if any(not x["write_in"] for x in left):
+                    raise SystemExit(f"district_checks: {fl['id']}: the canvass names another candidate on the ballot")
+                for x in left:
+                    t_ = x["name"].lower().split()
+                    c["cands"].append({"name": f"{t_[-1]}, {' '.join(t_[:-1])}", "candid": None, "party": "w",
+                                       "lines": ["write-in (the state's canvass)"], "votes": x["votes"],
+                                       "vote_missing": False, "outcome": "l", "exper": "none", "scattering": False})
+                    diff.append((x["name"] + " (write-in, added)", None, x["votes"]))
+                _sum_parties(c)
+                c["votes_source"] = {"source": "id_sos canvass", "file": sc["file"], "url": sc["url"],
+                                     "read_utc": sc["read_utc"], "sha256": sc["sha256"],
+                                     "klarner": {n_: v_ for n_, v_, _ in diff if v_ is not None}}
+                _add_note(c, D_STATE.format(col=sc["column"], diff="; ".join(
+                    f"{n_}: {v_:,} in Klarner's, {w_:,} in the canvass" if v_ is not None else f"{n_}: {w_:,}"
+                    for n_, v_, w_ in diff)))
+                DISTRICTS_COUNT[f"{year}: settled by the state"] += 1
+            else:
+                raise SystemExit(f"district_checks: {fl['id']}: unknown outcome {o!r}")
+    return contests
+
+
+COARSE = {   # the coarse tier of M2's seventh pass (its report §14.1, item 16), read district by district
+    ("SC", 1976): ("president", (1,)), ("SC", 1980): ("president", (1,)),
+    ("ID", 1984): ("president", (0, 1)), ("ID", 1986): ("governor", (0, 1)), ("ID", 1988): ("president", (0, 1)),
+    ("ID", 1990): ("governor", (0, 1))}
+COARSE_LINE = 2.0   # the orchestrator, 22:42: held where a district's votes exceed 2x its seats' share of the turnout
+COARSE_COUNT = collections.Counter()
+COARSE_RULE = ("the orchestrator, 2026-11-07 22:42: \"hold every post of a district whose votes exceed 2x its seats' "
+               "share of the state's turnout ... Reason: equal-population districts vary in turnout, but not by 3x to "
+               "7x\"")
+COARSE_HELD = ("Klarner's {chamber} of {state} {year}: one post of each district adds to {x:.2f} times the state's "
+               "turnout that day ({turn:,} votes for {level}, data/{level}/{year}.json), which posts do not explain; "
+               "this district's {votes:,} votes are {r:.2f} times its {k} of {n} seats' share of that turnout, more "
+               "than 2 times [measured]. No Idaho count before 1994 was found (a web search found the Secretary of "
+               "State's canvass from 1994 and its pages from 1998), so no request was made, and the count cannot "
+               "stand ({rule}): p is not computed, and the contest is left out of the fits")
+COARSE_KEPT = ("Klarner's {chamber} of {state} {year} adds, one post per district, to {x:.2f} times the state's turnout "
+               "that day ({turn:,} votes for {level}); the {h} districts held for it ({held}) carry most of that, and "
+               "this district's own count is {r:.2f} times its seats' share of the turnout, within 2 times, so it is "
+               "kept [measured] ({rule})")
+COARSE_POSTS = ("each post is counted per voter: Klarner's {n} seats of the {state} {chamber} in {year} are {d} "
+                "districts' numbered posts, and each voter votes once in each post of the district, so the chamber's "
+                "votes add to {x_all:.2f} times the {turn:,} votes for president while one post per district adds to "
+                "{x:.2f} times [measured]; the posts explain the gap, so no district is held (the orchestrator, "
+                "2026-11-07 22:42)")
+
+
+def coarse_tier(contests):
+    """The orchestrator's ruling of 22:42 on M2's coarse tier (South Carolina's Senate of 1976 and 1980, Idaho's
+    chambers of 1984-1990), district by district: a district's votes (its post with the most) against its seats' share
+    of the state's turnout that day (D1's or D2's certified count). Over 2 times: every post held. Otherwise a note.
+    Where one post per district adds to no more than the turnout, the posts explain the chamber's total (a note)."""
+    COARSE_COUNT.clear()
+    for (st, year), (level, chambers) in COARSE.items():
+        with open(os.path.join(REPO, "data", level, f"{year}.json")) as f:
+            turn = next(sum(x["votes"] or 0 for x in c["result"]["candidates"]) for c in json.load(f)["contests"]
+                        if c["place"]["state"] == st and not c.get("special"))
+        for sen in chambers:
+            sel = [c for c in contests if c["state"] == st and c["year"] == year and c["sen"] == sen
+                   and c["etype"] == "g"]
+            chamber = "Senate" if sen else "House"
+            byd = collections.defaultdict(list)
+            for c in sel:
+                byd[(c["dname"], c["dno"])].append(c)
+            tot = lambda c: sum(a["votes"] or 0 for a in c["cands"])   # noqa: E731
+            one_post = sum(max(tot(c) for c in cs_) for cs_ in byd.values())
+            x = one_post / turn
+            if x <= 1:
+                for c in sel:
+                    _add_note(c, COARSE_POSTS.format(n=len(sel), state=st, chamber=chamber, year=year, d=len(byd),
+                                                     x_all=sum(tot(c_) for c_ in sel) / turn, turn=turn, x=x))
+                COARSE_COUNT[f"{st} {year} {chamber}: explained by posts"] += len(sel)
+                continue
+            ratio = {d: max(tot(c) for c in cs_) / (turn * len(cs_) / len(sel)) for d, cs_ in byd.items()}
+            held = sorted((d for d, r in ratio.items() if r > COARSE_LINE), key=lambda d: int(d[1]) if d[1].isdigit()
+                          else 0)
+            for d, cs_ in byd.items():
+                for c in cs_:
+                    if d in held:
+                        c["held_reason"] = COARSE_HELD.format(
+                            chamber=chamber, state=st, year=year, x=x, turn=turn, level=level,
+                            votes=max(tot(c_) for c_ in cs_), r=ratio[d], k=len(cs_), n=len(sel), rule=COARSE_RULE)
+                        COARSE_COUNT[f"{st} {year} {chamber}: held"] += 1
+                    else:
+                        _add_note(c, COARSE_KEPT.format(
+                            chamber=chamber, state=st, year=year, x=x, turn=turn, level=level, h=len(held),
+                            held=", ".join(d_[1] for d_ in held), r=ratio[d], rule=COARSE_RULE))
+                        COARSE_COUNT[f"{st} {year} {chamber}: kept with a note"] += 1
+    return contests
+
+
+def _sum_parties(c):
+    """Klarner's own D and R totals (dvote, rvote) kept in step with the candidates' votes."""
+    kv = c.get("klarner") or {}
+    for side, key in (("d", "dvote"), ("r", "rvote")):
+        got = [a["votes"] for a in c["cands"] if a["party"] == side and not a["scattering"]]
+        if got and key in kv:
+            kv[key] = sum(got)
+
 CERTIFIED_NOTE = ("votes: the North Carolina State Board of Elections' certified counts ({file}), in place of "
                   "Klarner's, which differ ({diff}); the certified one wins (brief D3, step 2; the orchestrator, "
                   "08:05, 08:08 and, for 2002, 08:32)")
@@ -483,6 +707,18 @@ def top_named(cands):
 
 
 WRITE_IN_STRONG = 0.10   # a write-in with at least this share of the last winner's votes makes an unopposed race a contest
+# A record with one name on the ballot for each seat whose counts are held is not computed, at every level (the
+# orchestrator's ruling of 2026-11-13 00:26 UTC: "A one-name record whose counts are held is not computed, at every
+# level, with the reason that the write-in test cannot be read on held counts". Reason, as ruled: p 0 says no other
+# name can win, and the write-in rule exists because a strong write-in can; the test needs whole counts.)
+HELD_ONE_NAME = ("one name on the ballot for each seat, but the write-in test (whether write-ins drew "
+                 f"{100 * WRITE_IN_STRONG:.0f}% of the last winner's votes) cannot be read on held counts, so p 0 is "
+                 "not given")
+
+
+def held_one_name(why):
+    """The not-computed reason of a held record with one name on the ballot for each seat (HELD_ONE_NAME)."""
+    return f"{why}; {HELD_ONE_NAME}"
 
 
 def size_bin(n):
@@ -738,11 +974,12 @@ PRIMARY_PLURALITY = ("dp", "rp", "indepp", "workp", "conservativep", "liberp", "
 
 def structure(c):
     """(route, class key or reason) for a normalized Klarner contest."""
-    if c.get("held_reason"):   # New Hampshire's 2022 contests whose counts are not relied on (nh_2022)
-        return ("not computed", c["held_reason"])
     et = c["etype"]
     kv = c.get("klarner") or {}
     named = on_ballot(c["cands"])
+    if c.get("held_reason"):   # held counts (nh_2022, the district checks, the coarse tier); one name: HELD_ONE_NAME
+        return ("not computed", held_one_name(c["held_reason"]) if len(named) <= (c["eseats"] or 1)
+                else c["held_reason"])
     if any(a["vote_missing"] for a in c["cands"] if not a["scattering"]) and len(named) > 1:
         return ("not computed", "the source does not report every candidate's votes")
     if len(named) <= (c["eseats"] or 1):

@@ -312,8 +312,8 @@ def records(year, prow, pres, ktrain, kdens, cid, commit, with_p, counts, LM):
         b = LM.ballot(cands)
         route, key = LM.leg_structure({"candidates": cands, "magnitude": k})
         held = _held(g, c, year)
-        if held:
-            p = {"not_computed": held}
+        if held:   # with one name on the ballot as well: L.HELD_ONE_NAME (ruling of 2026-11-13 00:26)
+            p = {"not_computed": L.held_one_name(held) if route == "zero" else held}
             counts[f"{label}: not computed, held by the gate"] += 1
         elif special:
             p = {"not_computed": "a special election: the model's own forecasts are fitted to regular elections"}

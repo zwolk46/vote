@@ -1202,6 +1202,50 @@
   {
    "against": "top",
    "district": "STATEWIDE",
+   "figure": 3693104,
+   "of": "Require Photo Id To Vote (a question)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 1",
+   "ratio": 0.9893,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3653657
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3693104,
+   "of": "Require Photo Id To Vote (a question)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 2",
+   "ratio": 0.9804,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3620583
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3693104,
+   "of": "Require Photo Id To Vote (a question)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 3",
+   "ratio": 0.9887,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3651322
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3693104,
+   "of": "Require Photo Id To Vote (a question)",
+   "office": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 1",
+   "ratio": 0.9904,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3657767
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
    "figure": 326138,
    "of": "Us Senate (MEDSL's senate lines)",
    "office": "AGRICULTURE COMMISSIONER",
@@ -2567,6 +2611,72 @@
   },
   {
    "against": "top",
+   "district": null,
+   "figure": 584405,
+   "of": "Lieutenant Governor",
+   "office": "ATTORNEY GENERAL",
+   "ratio": 1.0044,
+   "state": "ID",
+   "verdict": "listed",
+   "votes": 586984
+  },
+  {
+   "against": "top",
+   "district": null,
+   "figure": 586984,
+   "of": "Attorney General",
+   "office": "LIEUTENANT GOVERNOR",
+   "ratio": 0.9956,
+   "state": "ID",
+   "verdict": "passes",
+   "votes": 584405
+  },
+  {
+   "against": "top",
+   "district": null,
+   "figure": 586984,
+   "of": "Attorney General",
+   "office": "SECRETARY OF STATE",
+   "ratio": 0.9897,
+   "state": "ID",
+   "verdict": "passes",
+   "votes": 580912
+  },
+  {
+   "against": "top",
+   "district": null,
+   "figure": 586984,
+   "of": "Attorney General",
+   "office": "STATE CONTROLLER",
+   "ratio": 0.9925,
+   "state": "ID",
+   "verdict": "passes",
+   "votes": 582605
+  },
+  {
+   "against": "top",
+   "district": null,
+   "figure": 586984,
+   "of": "Attorney General",
+   "office": "STATE TREASURER",
+   "ratio": 0.9883,
+   "state": "ID",
+   "verdict": "passes",
+   "votes": 580098
+  },
+  {
+   "against": "top",
+   "district": null,
+   "figure": 586984,
+   "of": "Attorney General",
+   "office": "SUPERINTENDENT OF PUBLIC INSTRUCTION",
+   "ratio": 0.9875,
+   "state": "ID",
+   "verdict": "passes",
+   "votes": 579625
+  },
+  {
+   "against": "top",
    "district": "000",
    "figure": 4106208,
    "of": "Governor (000)",
@@ -2806,6 +2916,72 @@
    "state": "MT",
    "verdict": "passes",
    "votes": 440378
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3773555,
+   "of": "Us Senate (MEDSL's senate lines)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 08",
+   "ratio": 0.9891,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3732493
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3773555,
+   "of": "Us Senate (MEDSL's senate lines)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 09",
+   "ratio": 0.9884,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3729622
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3773555,
+   "of": "Us Senate (MEDSL's senate lines)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 10",
+   "ratio": 0.9885,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3729985
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3773555,
+   "of": "Us Senate (MEDSL's senate lines)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 11",
+   "ratio": 0.987,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3724499
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3773555,
+   "of": "Us Senate (MEDSL's senate lines)",
+   "office": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 03",
+   "ratio": 0.9944,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3752490
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 3773555,
+   "of": "Us Senate (MEDSL's senate lines)",
+   "office": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 05",
+   "ratio": 0.9938,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 3750313
   },
   {
    "against": "top",
@@ -3824,6 +4000,17 @@
   {
    "against": "top",
    "district": "STATEWIDE",
+   "figure": 2593388,
+   "of": "Public Question #1 (a question)",
+   "office": "ATTORNEY GENERAL - INDIANA",
+   "ratio": 1.0944,
+   "state": "IN",
+   "verdict": "listed",
+   "votes": 2838098
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
    "figure": 5664186,
    "of": "Us President (MEDSL's president lines)",
    "office": "JUSTICE OF THE SUPREME COURT",
@@ -3988,6 +4175,149 @@
   },
   {
    "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC ATTORNEY GENERAL",
+   "ratio": 0.9811,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5590371
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC AUDITOR",
+   "ratio": 0.9707,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5531088
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC COMMISSIONER OF AGRICULTURE",
+   "ratio": 0.9748,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5554470
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC COMMISSIONER OF INSURANCE",
+   "ratio": 0.9711,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5533349
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC COMMISSIONER OF LABOR",
+   "ratio": 0.9662,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5505586
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 12",
+   "ratio": 0.9688,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5520321
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 14",
+   "ratio": 0.9666,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5507502
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC COURT OF APPEALS JUDGE SEAT 15",
+   "ratio": 0.9651,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5499051
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC LIEUTENANT GOVERNOR",
+   "ratio": 0.981,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5589852
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC SECRETARY OF STATE",
+   "ratio": 0.9759,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5560788
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC SUPERINTENDENT OF PUBLIC INSTRUCTION",
+   "ratio": 0.9731,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5544559
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC SUPREME COURT ASSOCIATE JUSTICE SEAT 06",
+   "ratio": 0.9723,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5540090
+  },
+  {
+   "against": "top",
+   "district": "STATEWIDE",
+   "figure": 5697901,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "NC TREASURER",
+   "ratio": 0.9704,
+   "state": "NC",
+   "verdict": "passes",
+   "votes": 5529503
+  },
+  {
+   "against": "top",
    "district": null,
    "figure": 368155,
    "of": "Us President (MEDSL's president lines)",
@@ -4007,6 +4337,17 @@
    "state": "ND",
    "verdict": "passes",
    "votes": 347800
+  },
+  {
+   "against": "top",
+   "district": null,
+   "figure": 368155,
+   "of": "Us President (MEDSL's president lines)",
+   "office": "STATE AUDITOR",
+   "ratio": 0.9534,
+   "state": "ND",
+   "verdict": "passes",
+   "votes": 350993
   },
   {
    "against": "top",
