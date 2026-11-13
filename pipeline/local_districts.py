@@ -333,6 +333,15 @@ def pair(kc, m):
         hit = [x for x in left if s in _surs(x["name"])]
         if not hit:   # a compound surname's part
             hit = [x for x in left if _finds((s, i), M.name_keys(x["name"]))]
+        else:
+            # beside a whole one, a part only where it is the same name on two lines, its surnames among the whole
+            # one's (Kentucky 2016's House 41: Klarner's "Woodson Scott", MEDSL's "Attica Scott" with Klarner's
+            # 13,257 and "Attica Woodson SCOTT" with 434 on one row named "Cumulative:" [measured]), so the larger
+            # line below; a part of another name is not (Vermont 2016 files its House in one contest, where a part
+            # would reach other districts' candidates)
+            whole = set().union(*(_surs(x["name"]) for x in hit))
+            hit += [x for x in left if x not in hit and _finds((s, i), M.name_keys(x["name"]))
+                    and _surs(x["name"]) <= whole]
         if len(hit) > 1:
             hit = [x for x in hit if M.name_key(x["name"])[1] == i] or hit
         if len(hit) > 1:   # one name in several lines (fusion, or a recount's): the line with the most votes
