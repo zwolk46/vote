@@ -446,6 +446,36 @@ def set_special_lines(rows, mode):
     return n
 
 
+# #96 (D3, pipeline/governor_hi2018.py fix_cha): D2's build reads Hawaii 2018's governor from Cha at the Office of Elections'
+# certified summary, Tupola 131,719 and the total 390,843 [stated: data/local/REPORT.md section 30; the record's source], so
+# the 2020+ fits and Hawaii 2022's last-race input take it. The same rule is applied here on my rows (apply_certified),
+# as the record's p since 9118755 rest on it; c41 fits with and without it.
+CERTIFIED = {"2018-governor-HI": (244934, 131719)}   # (Democrat, Republican) of the deciding pair
+
+
+def apply_certified(rows, on=True):
+    """Sets (on) or undoes (off) the certified figures on the governor rows: the row's y and n2, and the last-race
+    input (lag) of the state's later rows that carried the row's old share. Returns what was changed."""
+    changed = []
+    for cid, (D, R) in CERTIFIED.items():
+        r0 = next((r for r in rows if r.get("id") == cid), None)
+        if r0 is None:
+            continue
+        if "cha_y" not in r0:
+            r0["cha_y"], r0["cha_n2"] = r0["y"], r0.get("n2")
+        y_new, y_old = (D / (D + R), D + R) if on else (r0["cha_y"], r0["cha_n2"]), (r0["cha_y"] if on else D / (D + R))
+        before = (r0["y"], r0.get("n2"))
+        r0["y"], r0["n2"] = y_new
+        changed.append((cid, "y, n2", before, y_new))
+        for r in rows:
+            if r is r0 or r["level"] != "governor" or r["state"] != r0["state"] or r["year"] <= r0["year"] or r.get("lag") is None:
+                continue
+            if abs(r["lag"] - y_old) < 1e-9:
+                changed.append((r.get("id") or (r["year"], r["state"]), "lag", r["lag"], y_new[0]))
+                r["lag"] = y_new[0]
+    return changed
+
+
 FIXED_CODES = os.path.join(L.DATA, "congress", "governor-incumbency.json")   # #78: 17 codes fixed against the record
 
 
@@ -482,6 +512,7 @@ def all_rows(refresh=False):
         if all("lean_own" in r or r["level"] != "house" for r in out["rows"]):
             set_special_lines(out["rows"], SPECIAL_LINES)
             out["fixed_codes_applied"] = apply_record_fixes(out["rows"])
+            out["certified_applied"] = apply_certified(out["rows"])
             return out
     ps = pres_shares()
     finputs = file_inputs()
@@ -499,6 +530,7 @@ def all_rows(refresh=False):
         json.dump(out, f)
     set_special_lines(out["rows"], SPECIAL_LINES)
     out["fixed_codes_applied"] = apply_record_fixes(out["rows"])
+    out["certified_applied"] = apply_certified(out["rows"])
     return out
 
 
