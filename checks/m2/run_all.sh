@@ -60,6 +60,9 @@
 # (fetch_eighth_pass.sh in_2018), the local like-race pools from the records, route (a) refitted with c40's rows and fits.
 # c50 (section 20, D3's #113, 11c852dc -> 9ad2d3d5): moves-37.json against my diff, Indiana 2018's House from the archive's State
 # Representative file (fetch_eighth_pass.sh in_2018_house) against the records and the six flags, route (a) refitted, the notes.
+# c51 (section 21, D3's #115, e3e9b921 -> f6434077): the recount zone beside p (pipeline/local_recount.py, recount-zone.json): the
+# 1,045 notes, the zone on every record with p above 0 by the rules copied, MATH 5.10 by my own quadrature, the two sources read apart
+# (fetch_eighth_pass.sh recount).
 set -e
 cd "$(dirname "$0")/../.."
 OUT=checks/m2/OUTPUT.txt
@@ -72,7 +75,7 @@ OUT=checks/m2/OUTPUT.txt
            c16_notes c18_louisiana c19_deciding_rounds c20_sizebins c21_new_jersey c22_louisiana_2023 c23_nc_rounds_by_place c24_office_types c25_odd_governors c26_feed_2023 c27_local_thresholds c28_governor_codes c29_fixes_c24 c30_ballot_texts c31_statewide_filed_local c32_certified_count c33_one_county \
            c34_towns_counties c35_statewide_officers c36_courts_commissions c37_statewide_pieces c38_input_volume c39_volume_compare c40_pr_checks \
            c41_governor_refit c42_held_totals c43_district_checks c44_one_name_va c45_va_gate c46_district_checks_2 \
-           c47_governor_counts c48_district_checks_3 c49_va_local_2 c50_in_house_2018; do
+           c47_governor_counts c48_district_checks_3 c49_va_local_2 c50_in_house_2018 c51_recount_zone; do
     echo "##### $s"
     python3 -I checks/m2/$s.py 2>&1 || echo "### $s exited with $?"
     echo

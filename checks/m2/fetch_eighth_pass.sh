@@ -50,5 +50,9 @@ case "$1" in
   in_2018_house)  # section 20, D3's #113: the archive's State Representative file (office category 2201 in the cached office list), one request, as D3 read it on the orchestrator's allowance of 09:21 ("one request to the archive's 2018 House file is allowed, as for the Senate")
     B=https://enr.indianavoters.in.gov/archive/2018General/data
     fetch in2018:OffCatC_2201 "$B/OffCatC_2201_A.json" "$D/in_enr_2018/OffCatC_2201_A.json";;
+  recount)  # section 21, D3's #115: the two recount sources D3 read once each (data/local/REPORT.md section 38), one request each, six seconds apart; neither file is kept in the repository
+    mkdir -p "$D/recount"
+    fetch recount:vtp_wp11 "https://vote.caltech.edu/documents/133/vtp_wp11.pdf" "$D/recount/vtp_wp11.pdf" || exit 1; sleep 6
+    fetch recount:fairvote "https://fairvote.org/report/election-recounts-2024/" "$D/recount/fairvote-election-recounts-2024.html";;
 esac
 echo "### done $1"
