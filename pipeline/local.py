@@ -131,7 +131,7 @@ def load_klarner(raw=False):
     2022 counts from MEDSL's file where Klarner's are doubled (nh_2022), unless raw."""
     with open(os.path.join(KLARNER, "contests.jsonl")) as f:
         cs = [json.loads(line) for line in f]
-    return cs if raw else coarse_tier(district_checks(c38(nh_2022(certified_votes(cs)))))
+    return cs if raw else coarse_tier(singer_checks(district_checks(c38(nh_2022(certified_votes(cs))))))
 
 
 NH_COUNTY = {"belknap": "33001", "carroll": "33003", "cheshire": "33005", "coos": "33007", "grafton": "33009",
@@ -646,6 +646,87 @@ def district_checks(contests):
                 wi="".join(f"; {w} (write-in) {v_:,}" for w, v_ in sc["write_ins"])))
             c["state_differs"] = {k_: sc[k_] for k_ in ("source", "url", "read_utc", "sha256")}
             DISTRICTS_COUNT[f"{year}: two counts agree against the state's, Klarner's count stands"] += 1
+    return contests
+
+
+SINGER_CHECK = os.path.join(REPO, "data", "local", "check-2020-singer.json")
+SINGER_COUNT = collections.Counter()
+S_SRC = ("Singer's 2020 official results ({file} of Harvard Dataverse doi:10.7910/DVN/RV80FW, CC0 1.0, a third party's "
+         "compilation of the states' files)")
+S_RULE = ("the orchestrator, 2026-11-13 10:44: \"§32's rules act on Singer's count exactly as on MEDSL's\"; 2026-11-07 "
+          "21:26: \"a gap of 5% or more is held, and a gap under 5% is kept with a note\"")
+S_RATIO = ("{src} give this district's {n} named candidate{s} {m:,} votes against Klarner's {k:,}, {pct:+.1f}% ({diff}) "
+           "[measured: pipeline/local_singer.py, data/local/check-2020-singer.json], and no state count is read; which "
+           "count errs is [inferred]: {why} (the orchestrator, 2026-11-13 10:44: \"an inference settles nothing\")")
+S_HELD = "{what}; so neither count is relied on ({rule}): p is not computed, and the contest is left out of the fits"
+S_NOTED = "{what}; under 5%, so Klarner's count is kept ({rule})"
+S_AGREE_SINGER = ("{src} give this district's {n} named candidate{s} {m:,} votes against Klarner's {k:,}, {pct:+.1f}% "
+                  "[measured: pipeline/local_singer.py]; the state's canvass agrees with Singer's, candidate by "
+                  "candidate, and not with Klarner's ({ssrc}, {url}, read {read}, sha256 {sha}: {pairs}), so Singer's "
+                  "count stands (the orchestrator, 2026-11-13 10:44: \"If it agrees with Singer on House 3, 19 and 84, "
+                  "they take that count with Klarner's figures in a note, as Indiana Senate 36 took MEDSL's\"): {diff}")
+
+
+def singer_checks(contests):
+    """The 2020 district checks against Singer's official results (pipeline/local_singer.py, which writes
+    check-2020-singer.json from the contests as district_checks receives them), each flag's outcome applied as the
+    orchestrator ruled at 2026-11-13 10:44: held, held_reason; noted, a note; each with both counts and D3's reason,
+    marked [inferred]; settled by the state for Singer's count, Singer's counts, with Klarner's in the note. A flag whose
+    Klarner figures are not the ones the check read stops the build (run the check again)."""
+    SINGER_COUNT.clear()
+    if not os.path.exists(SINGER_CHECK):
+        raise SystemExit("data/local/check-2020-singer.json is missing: run pipeline/local_singer.py check first")
+    with open(SINGER_CHECK) as f:
+        chk = json.load(f)
+    import local_districts as LD
+    by = {LD.klarner_id(c): c for c in contests if c["etype"] == "g" and c["year"] == 2020}
+    for fl in chk["flags"]:
+        o = fl["outcome"]
+        if o == "settled earlier":
+            SINGER_COUNT[o] += 1
+            continue
+        c = by.get(fl["id"])
+        paired = {p_[0] for p_ in fl["pairs"]}
+        named = [a for a in c["cands"] if not a["scattering"] and a["name"] in paired] if c else []
+        if c is None or c.get("votes_source") or c.get("held_reason") or \
+                [[a["name"], a["votes"]] for a in named] != [p_[:2] for p_ in fl["pairs"]] or \
+                not {id(a) for a in LD._named(c)} <= {id(a) for a in named}:
+            raise SystemExit(f"singer_checks: {fl['id']} is not the contest the check read: run "
+                             f"pipeline/local_singer.py check again")
+        n, s_ = len(named), "" if len(named) == 1 else "s"
+        src = S_SRC.format(file=fl["file"])
+        diff = "; ".join(f"{p_[0]}: {p_[1]:,} in Klarner's, {p_[3]:,} in Singer's" for p_ in fl["pairs"])
+        if o in ("held", "noted"):
+            what = S_RATIO.format(src=src, n=n, s=s_, m=fl["singer"], k=fl["klarner"], pct=100 * (fl["ratio"] - 1),
+                                  diff=diff, why=fl["why"])
+            if o == "held":
+                c["held_reason"] = S_HELD.format(what=what, rule=S_RULE)
+            else:
+                _add_note(c, S_NOTED.format(what=what, rule=S_RULE))
+            SINGER_COUNT[o] += 1
+        elif o == "settled by the state: Singer's count stands":
+            sc = fl["state_count"]
+            if any(a["scattering"] and a["votes"] for a in c["cands"]) or fl["singer_write_ins"]:
+                raise SystemExit(f"singer_checks: {fl['id']}: write-in lines, which the state's canvass does not give")
+            st = {p_[0]: p_[4] for p_ in sc["pairs"]}
+            kl = {}
+            for a, p_ in zip(named, fl["pairs"]):
+                if st[a["name"]] != p_[3]:
+                    raise SystemExit(f"singer_checks: {fl['id']}: the state's canvass differs from Singer's")
+                kl[a["name"]] = a["votes"]
+                a["votes"] = p_[3]
+            _sum_parties(c)
+            c["votes_source"] = {"source": "singer", "file": fl["file"], "klarner": kl,
+                                 "mark": "the state's canvass agrees with Singer's; Singer's counts"}
+            c["state_agrees"] = {k_: sc[k_] for k_ in ("source", "url", "read_utc", "sha256")}
+            _add_note(c, S_AGREE_SINGER.format(
+                src=src, n=n, s=s_, m=fl["singer"], k=fl["klarner"], pct=100 * (fl["ratio"] - 1), ssrc=sc["source"],
+                url=sc["url"], read=sc["read_utc"], sha=sc["sha256"],
+                pairs="; ".join(f"{d_}: {v_:,} in the state's, {s__:,} in Singer's, {k__:,} in Klarner's"
+                                for _, k__, s__, d_, v_ in sc["pairs"]), diff=diff))
+            SINGER_COUNT[o] += 1
+        else:
+            raise SystemExit(f"singer_checks: {fl['id']}: outcome {o!r} is not one the orchestrator ruled on")
     return contests
 
 
@@ -1695,6 +1776,9 @@ def build(out_dir, with_p=False, sample=False):
                                for a in x["result"]["candidates"] if a.get("party_code")})} or None,
                "sources": {"klarner": src_klarner, "nara": src_nara, "model": src_model},
                "contests": cs}
+        if any((x.get("result") or {}).get("votes_source") == "singer" for x in cs):   # singer_checks
+            with open(SINGER_CHECK) as f:
+                obj["sources"]["singer"] = json.load(f)["source"]
         vs = sorted({x["date"].replace("-", "_") for x in cs if (x.get("result") or {}).get("votes_source") == "ncsbe"})
         if vs:   # North Carolina's certified counts in place of Klarner's (certified_votes): the files they come from
             import local_ncsbe as NS
