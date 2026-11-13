@@ -1052,7 +1052,7 @@ def route_tables():
 
 def size_bin_point(rows, Mall):
     h1("15.7 D3's point 1: the race's own sd by the size bin of the count itself [measured]")
-    have = [r_ for r_ in rows if r_["N_lag"]]
+    have = [r_ for r_ in rows if r_.get("N_lag")]   # the records' own rows (fit_rows) carry no last count
     same = sum(1 for r_ in have if D.size_bin(r_["N"]) == D.size_bin(r_["N_lag"]))
     print(f"  of {len(rows):,} route-(a) rows, {len(have):,} have the seat's last two-party count (Klarner's dvotelag + rvotelag); "
           f"the size bin of the count itself equals the last count's bin in {same:,} ({100 * same / len(have):.1f}%).")

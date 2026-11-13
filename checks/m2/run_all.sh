@@ -27,6 +27,9 @@
 # c40 (the PR checks of the seventh pass: #92 New Jersey's legislatures, #93 Virginia's, #95 the volume fixes) reads the five
 # New Jersey Official Lists fetch_seventh_pass.sh fetches (pdftotext -layout), Klarner's contest file, and the records at the
 # four main commits around the PRs, checked out once as detached worktrees under ~/.cache/vote-m2/seventh/wt/ (git worktree).
+# The eighth pass (c41, c42): the records at 46825da, 9118755 and 2ea7c2e under ~/.cache/vote-m2/eighth/wt/, the sources in
+# ~/.cache/vote-m2/eighth/src/ (index.txt: Oregon's 2024 abstract, Idaho's 2022 canvass zip, MEDSL's nj22/vt22_cleaned.csv), and
+# m2medsl.ballots_summary over every 2018, 2022 and 2024 MEDSL file (derived/<file>.ballots.json, about nine minutes once).
 # Needs python3 with numpy, scipy and openpyxl, and the sources fetched outside the repository (m2lib.CACHE: the
 # Economist's economist_model_output.zip, 538's four checking-our-work CSVs, the Economist's us-potus-model
 # README.md, Cha's .dta, MEDSL's Senate CSV, The Downballot's lines sheets, Klarner's contest file, and for c18
@@ -43,7 +46,8 @@ OUT=checks/m2/OUTPUT.txt
            c17_first_pass_diff \
            c8_recompute2 c9_fit2 c10_backtest2 c11_k_reading c12_control2 c13_governors2 c14_d3_recompute c15_d3_refit \
            c16_notes c18_louisiana c19_deciding_rounds c20_sizebins c21_new_jersey c22_louisiana_2023 c23_nc_rounds_by_place c24_office_types c25_odd_governors c26_feed_2023 c27_local_thresholds c28_governor_codes c29_fixes_c24 c30_ballot_texts c31_statewide_filed_local c32_certified_count c33_one_county \
-           c34_towns_counties c35_statewide_officers c36_courts_commissions c37_statewide_pieces c38_input_volume c39_volume_compare c40_pr_checks; do
+           c34_towns_counties c35_statewide_officers c36_courts_commissions c37_statewide_pieces c38_input_volume c39_volume_compare c40_pr_checks \
+           c41_governor_refit c42_held_totals; do
     echo "##### $s"
     python3 -I checks/m2/$s.py 2>&1 || echo "### $s exited with $?"
     echo

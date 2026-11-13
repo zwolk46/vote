@@ -493,14 +493,16 @@ def volume_summary(path, year):
 def all_raw_files():
     """every raw MEDSL file in the caches, (year, path): fifth/medsl and fourth/medsl by name"""
     out = []
-    for d in (os.path.join(FIFTH, "medsl"), os.path.join(L.CACHE, "fourth", "medsl")):
+    dirs = [(os.path.join(FIFTH, "medsl"), None), (os.path.join(L.CACHE, "fourth", "medsl"), None),
+            (os.path.join(L.CACHE, "eighth", "src", "medsl18"), 2018), (os.path.join(L.CACHE, "eighth", "src", "medsl22"), 2022)]   # the eighth pass's fetches
+    for d, fixed in dirs:
         if not os.path.isdir(d):
             continue
         for n in sorted(os.listdir(d)):
             if not n.lower().endswith((".csv", ".zip", ".tab")):
                 continue
             m = re.match(r"^(20\d\d)", n)
-            year = int(m.group(1)) if m else (2022 if re.search(r"22|cleaned|final|colorado|louisiana|carolina", n) else None)
+            year = fixed or (int(m.group(1)) if m else (2022 if re.search(r"22|cleaned|final|colorado|louisiana|carolina", n) else None))
             if year:
                 out.append((year, os.path.join(d, n)))
     return out
@@ -512,6 +514,14 @@ TOTAL_LINE = re.compile(r"^(CONTEST TOTAL|TOTAL VOTES CAST|VOTES CAST|CAST VOTES
 OVER_LINE = re.compile(r"^(OVER ?VOTES?|TIMES OVER VOTED)$")
 UNDER_LINE = re.compile(r"^(UNDER ?VOTES?|TIMES UNDER VOTED|BLANK VOTES?|BLANKS?|TIMES BLANK VOTED)$")
 STATEWIDE_DISTRICTS = {"", "STATEWIDE", "STATE", "AT LARGE", "AT-LARGE", "ATLARGE", "ALL", "0", "000", "NA", "N/A", "NONE", "STATE WIDE"}
+SPLIT_LINE = re.compile(r"^(.+?) - (YES|NO|OVER ?VOTES?|UNDER ?VOTES?|TIMES OVER VOTED|TIMES UNDER VOTED|TIMES BLANK VOTED|BLANK VOTES?|BLANKS?)$")
+
+
+def split_line(cand):
+    """A retention or other question filed as 'NAME - YES' / 'NAME - NO' lines under one office (Colorado's and Iowa's
+    courts, Arizona's retentions): (the name, the answer or line), else None. Each name is its own question."""
+    m = SPLIT_LINE.match(cand)
+    return (m.group(1).strip(), m.group(2)) if m else None
 
 
 def ballots_summary(path, year):
@@ -531,6 +541,9 @@ def ballots_summary(path, year):
       live         "county|jurisdiction|precinct" -> the candidates' votes there (precincts with votes, subtotal rows
                    left out), for the bound below;
       counties     the counties with votes.
+    A retention or other question filed as 'NAME - YES' / 'NAME - NO' lines under one office is split by the name
+    (split_line): the district reads 'STATEWIDE~NAME', the lines YES / NO; the questions of any dataverse are
+    summarized (they stand in as the day's top contest).
     And, for the whole file, bounds: "ST|date" -> "county|jurisdiction|precinct" -> [[figure, contest key] for the two
     largest figures of the precinct's one-seat contests of any dataverse (votes + overvotes + undervotes where the
     precinct has both, or the contest's total line), the largest line named as the ballots cast or null]; the
@@ -550,8 +563,11 @@ def ballots_summary(path, year):
     all_counties = set()
     for r in rows(path):
         dv = (r.get("dataverse") or "").strip().upper()
-        if dv not in ("STATE", "PRESIDENT", "SENATE") or (r.get("stage") or "GEN").upper() != "GEN":
+        if (r.get("stage") or "GEN").upper() != "GEN":
             continue
+        cand_ = (r.get("candidate") or "").strip().upper()
+        if dv not in ("STATE", "PRESIDENT", "SENATE") and not (answer_of(cand_) or split_line(cand_)):
+            continue   # the three statewide dataverses' contests, and the questions of any dataverse
         county = fips5(r.get("county_fips", ""))
         all_counties.add(county)
         span[(dv, (r.get("office") or "").strip().upper(), (r.get("district") or "").strip().upper())].add(county)
@@ -591,6 +607,9 @@ def ballots_summary(path, year):
             continue
         if (r.get("special") or "").strip().upper() in ("TRUE", "T", "1", "YES"):
             district += " SPECIAL"
+        sp = split_line(cand_)
+        if sp:
+            district, cand_ = f"{district}~{sp[0]}", sp[1]   # each name its own question
         key = (st, date, dv, office, district)
         cand = cand_
         try:

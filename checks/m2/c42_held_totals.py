@@ -279,8 +279,15 @@ def section_2():
 
 # ------------------------------------------------------------------------------------------ 42.3 the over-ballot test
 
+WRITEIN_RE = re.compile(r"^(WRITE-?IN|WRITE IN|WRITE-INS|WRITEINS|SCATTERING|SCATTERED)\b")
+
+
 def norm_district(d):
-    return (d or "").strip().upper()
+    d = (d or "").strip().upper()
+    return "" if d in M.STATEWIDE_DISTRICTS else d
+
+
+GOVERNOR_RE = re.compile(r"^GOVERNOR\b(?! *'S COUNCIL)")   # D2's level, not a local record (the lieutenant governor and a council stay)
 
 
 def my_over_ballot(year):
@@ -303,7 +310,8 @@ def my_over_ballot(year):
             whole = {k: v for k, v in cs.items() if day and v["counties"] >= day}
             one = {k: v for k, v in whole.items() if k.split("|")[2] == "STATE" and not v["answers"]
                    and v["magnitudes"] in (["1"], ["1.0"]) and not k.endswith(" SPECIAL")}
-            asked = {k: v for k, v in whole.items() if k.split("|")[2] == "STATE" and v["answers"]}
+            read = {k for k in one if not GOVERNOR_RE.match(k.split("|")[3])}   # the local files' level (D2 holds the governors)
+            asked = {k: v for k, v in whole.items() if v["answers"]}   # a question of any dataverse put to every county
             fed = {k: v for k, v in whole.items() if k.split("|")[2] in ("PRESIDENT", "SENATE") and not v["answers"]}
             bounds = s["bounds"].get(sd, {})
             held = set()
@@ -338,9 +346,12 @@ def my_over_ballot(year):
                     break
                 held = new
             for k, r in res.items():
+                if k not in read:
+                    continue
                 verdict = "held" if k in held else ("listed" if r[0] == "top" and r[2] is not None and r[2] > 1 else ("untested" if r[0] == "untested" else "passes"))
-                out[k] = {"votes": sum(one[k]["cands"].values()), "against": r[0], "figure": r[1], "ratio": r[2], "bounded": r[3],
-                          "live": r[4], "verdict": verdict, "of": r[5] if len(r) > 5 else None, "counties": one[k]["counties"], "day": day}
+                out[k] = {"votes": sum(one[k]["cands"].values()), "votes_all": sum(one[k]["cands_all"].values()), "against": r[0], "figure": r[1],
+                          "ratio": r[2], "bounded": r[3], "live": r[4], "verdict": verdict, "of": r[5] if len(r) > 5 else None,
+                          "counties": one[k]["counties"], "day": day}
             # the one-seat STATE contests not whole, for the listing
             for k, v in cs.items():
                 if k not in whole and k.split("|")[2] == "STATE" and not v["answers"] and v["magnitudes"] in (["1"], ["1.0"]):
@@ -367,6 +378,9 @@ def section_3():
         for t in theirs:
             cands_ = [k for k in mine if k.split("|")[0] == t["state"] and k.split("|")[3] == t["office"].upper()
                       and norm_district(k.split("|")[4]) == norm_district(t["district"])]
+            if len(cands_) != 1:   # a check row of a special election
+                cands_ = [k for k in mine if k.split("|")[0] == t["state"] and k.split("|")[3] == t["office"].upper()
+                          and norm_district(k.split("|")[4].replace(" SPECIAL", "")) == norm_district(t["district"])]
             if len(cands_) != 1:
                 miss.append((t["state"], t["office"], t["district"], t["verdict"], len(cands_)))
                 continue
@@ -390,15 +404,32 @@ def section_3():
               f"(ballots cast / top) {agree_k}; the same figure {agree_fig}; the same verdict {agree_v}")
         if miss:
             print(f"    the check's rows I did not match: {miss[:12]}{' ...' if len(miss) > 12 else ''}")
+            allc = {}
+            for y_, path in M.all_raw_files():
+                if y_ == year:
+                    s_ = M.ballots_summary(path, year)
+                    for k, v in s_["contests"].items():
+                        allc[k] = (v["magnitudes"], v["counties"], s_["counties_of_day"].get("|".join(k.split("|")[:2])), v["answers"], sum(v["cands"].values()))
+            shown = set()
+            for st, office, district, verdict, n in miss:
+                if (st, office) in shown:
+                    continue
+                shown.add((st, office))
+                ks = [(k.split("|")[2], k.split("|")[4], allc[k]) for k in allc if k.split("|")[0] == st and office.upper() in k.split("|")[3]]
+                print(f"      {st} {office}: my summary holds {ks[:4]}")
         kinds = collections.Counter()
         for t, m, k in diffs:
             kinds[("votes" if m["votes"] != t["votes"] else "") + ("|test" if m["against"] != t["against"] else "") +
                   ("|figure" if m["against"] == t["against"] and m["figure"] != t["figure"] else "") +
                   ("|verdict" if m["verdict"] != t["verdict"] else "")] += 1
         print(f"    rows differing in something: {len(diffs)} {dict(kinds)}")
+        vd = [abs(m["votes"] / t["votes"] - 1) for t, m, k in diffs if m["votes"] != t["votes"] and t["votes"]]
+        va = sum(1 for t, m, k in diffs if m["votes"] != t["votes"] and m.get("votes_all") == t["votes"])
+        if vd:
+            print(f"    votes differing: {len(vd)}, by at most {max(vd):.2%} of the check's; equal to my sum with every row (the subtotal rule aside): {va}")
         for t, m, k in diffs[:40]:
             print(f"      {t['state']} {t['office']} {t['district'] or ''}: D3 votes {t['votes']:,} {t['against']} {t['figure']} ratio {t['ratio']} {t['verdict']} | "
-                  f"mine votes {m['votes']:,} {m['against']} {m['figure']} ratio {None if m['ratio'] is None else round(m['ratio'], 4)} {m['verdict']} "
+                  f"mine votes {m['votes']:,} (every row {m.get('votes_all', 0):,}) {m['against']} {m['figure']} ratio {None if m['ratio'] is None else round(m['ratio'], 4)} {m['verdict']} "
                   f"(bounded {m.get('bounded')}/{m.get('live')}; counties {m['counties']}/{m['day']}{'; top ' + str(m['of']) if m.get('of') else ''})")
         for verdict in ("held", "listed"):
             th = sorted((t["state"], t["office"], t["ratio"]) for t in theirs if t["verdict"] == verdict)
@@ -414,16 +445,20 @@ def section_3():
         reasons = collections.Counter()
         for k, m in sorted(extra):
             st, date, dv, office, district = k.split("|")
-            recs = [c for c in loc.get(st, []) if office.split(" - ")[0][:18].lower() in (c.get("title") or c.get("office") or "").lower()
-                    or (c.get("office") or "").upper() == office]
+            recs = [c for c in loc.get(st, []) if (c.get("office") or "").upper() == office
+                    and norm_district(c.get("district") or (c.get("place") or {}).get("district")) == norm_district(district)]
+            if not recs:
+                recs = [c for c in loc.get(st, []) if (c.get("office") or "").upper() == office]
             r0 = recs[0] if recs else None
-            why = "no local record found by title"
-            if r0:
-                vs = (r0.get("result") or {}).get("votes_source") or (r0.get("result") or {}).get("source")
-                why = f"record {r0['id']}: votes_source {vs}; held {bool(r0.get('held_reason') or (r0.get('p') or {}).get('held'))}; p {C40.pval(r0)}"
-            reasons[why.split(":")[0] if r0 is None else "record found"] += 1
-            if len(extra) <= 60:
-                print(f"      {k}: votes {m['votes']:,} {m['against']} ratio {None if m['ratio'] is None else round(m['ratio'], 3)} {m['verdict']}; {why[:160]}")
+            if r0 is None:
+                why = "no local record of the office"
+            else:
+                res_ = r0.get("result") or {}
+                why = (f"{len(recs)} record(s), e.g. {r0['id']}: votes_source {res_.get('votes_source')}, source {res_.get('source')}; total {res_.get('total_votes')}; "
+                       f"seats {r0.get('seats')}; question {r0.get('question')}; held {str(r0.get('held_reason'))[:60]!r}; p {json.dumps(r0.get('p'))[:80]}")
+            reasons["no local record" if r0 is None else ("the state's own count" if r0 and (r0.get("result") or {}).get("votes_source") not in (None, "medsl")
+                    else "held" if r0 and r0.get("held_reason") else "a record of MEDSL's count")] += 1
+            print(f"      {k}: votes {m['votes']:,} {m['against']} ratio {None if m['ratio'] is None else round(m['ratio'], 3)} {m['verdict']}; {why[:230]}")
         print(f"    {dict(reasons)}")
     print(f"  all years: rows {sum(v for (k, y), v in totals.items() if k == 'rows')}, the same verdict "
           f"{sum(v for (k, y), v in totals.items() if k == 'verdict')}")
@@ -448,6 +483,7 @@ def section_4():
     kinds_found = collections.Counter()
     for (year, fname), rs in sorted(by_file.items()):
         paths = [p for yy, p in M.all_raw_files() if os.path.basename(p) == fname]
+        paths += [p for p in glob.glob(os.path.join(SRC, "medsl22", fname))]   # MEDSL's 2022 New Jersey and Vermont files from its GitHub (index.txt)
         if not paths:
             notfound += len(rs)
             print(f"    raw file not cached: {fname} ({len(rs)} rows)")
@@ -483,7 +519,8 @@ def section_4():
                 continue
             mode = (r.get("mode") or "TOTAL").upper()
             dv = (r.get("dataverse") or "").upper()
-            cell = cont[(office, district, dv)][pk].setdefault(cand, {})
+            wi = (r.get("writein") or "").strip().upper() in ("TRUE", "T", "1", "YES") or WRITEIN_RE.match(cand)
+            cell = cont[(office, district, dv)][pk].setdefault((cand, bool(wi)), {})
             cell[mode] = cell.get(mode, 0) + v
             cont_counties[(office, district, dv)].add(county)
             key = (county, r.get("precinct", ""), office, district)
@@ -497,6 +534,7 @@ def section_4():
             county, precinct, office, district = key
             # the contest the row falls in: the one of its office/district whose counties hold the row's county; its dataverse
             cks = [ck for ck in res if ck[0] == office and ck[1] == district and county in cont_counties[ck]]
+            local_office = any(ck[2] == "LOCAL" for ck in cks)   # a county office: its contest is the county's own rows
             pks = [pk for ck in cks for pk in res[ck] if pk[0] == county and pk[2] == precinct]
             if not pks:
                 notfound += 1
@@ -506,6 +544,8 @@ def section_4():
             found += 1
             kinds_found[r["kind"]] += 1
             rv = sum(v for ck in cks for pk in res[ck] if pk[0] == county and pk[2] == precinct for v in res[ck][pk].values() if v is not None)
+            if rv != r["row_votes"] and len(examples) < 30:
+                examples.append((year, fname, key, "the row's lines: " + str([(ck[2], pk[1], c_, v) for ck in cks for pk in res[ck] if pk[0] == county and pk[2] == precinct for c_, v in res[ck][pk].items()])[:300]))
             if rv == r["row_votes"]:
                 votes_eq += 1
             else:
@@ -513,7 +553,8 @@ def section_4():
                 if len(examples) < 30:
                     examples.append((year, fname, key, f"row votes {rv} vs the check's {r['row_votes']}"))
             if "difference_share" in r and r.get("total_with") is not None:
-                tw = sum(v for ck in cks for pk in res[ck] for v in res[ck][pk].values() if v is not None)
+                # the contest's total as the record counts it: the named candidates' lines (a write-in line is no candidate)
+                tw = sum(v for ck in cks for pk in res[ck] if not local_office or pk[0] == county for (c_, wi), v in res[ck][pk].items() if v is not None and not wi)
                 share = rv / tw if tw else None
                 ok = tw == r["total_with"] and share is not None and abs(share - r["difference_share"]) < 1e-5
                 share_ok += ok
@@ -609,6 +650,7 @@ def section_6():
     by_county = collections.defaultdict(lambda: {"mags": set(), "districts": set(), "votes": 0, "over": 0, "under": 0, "has": set()})
     cells = {}   # (office kind, county, pk, cand) -> {mode: votes}
     pres_office = collections.Counter()
+    pres_meta_names = collections.Counter()
     for r in M.rows(az):
         office = (r.get("office") or "").upper()
         if (r.get("stage") or "GEN").upper() != "GEN":
@@ -623,9 +665,10 @@ def section_6():
         pk = (county, r.get("jurisdiction_fips", ""), r.get("precinct", ""))
         if "PRESIDENT" in office and (r.get("dataverse") or "").upper() == "PRESIDENT":
             pres_office[office] += 1
-            if not M.is_meta(cand):
-                cell = cells.setdefault(("pres", county, pk, cand), {})
-                cell[mode] = cell.get(mode, 0) + v
+            cell = cells.setdefault(("pres" if not M.is_meta(cand) else "pres_meta", county, pk, cand), {})
+            cell[mode] = cell.get(mode, 0) + v
+            if M.is_meta(cand):
+                pres_meta_names[cand] += v
         if "CORPORATION COMMISSION" not in office:
             continue
         e = by_county[county]
@@ -635,13 +678,15 @@ def section_6():
         if kind:
             cell = cells.setdefault(("cc", county, pk, (kind, cand)), {})
             cell[mode] = cell.get(mode, 0) + v
-    pres = collections.Counter()
+    pres, pres_meta = collections.Counter(), collections.Counter()
     for (what, county, pk, cand), modes in cells.items():
         v = M._resolve(modes)
         if v is None:
             continue
         if what == "pres":
             pres[county] += v
+        elif what == "pres_meta":
+            pres_meta[county] += v
         else:
             by_county[county][cand[0]] += v
             by_county[county]["has"].add(cand[0])
@@ -655,7 +700,8 @@ def section_6():
             continue
         tot = e["votes"] + e["over"] + e["under"]
         print(f"  {name}: magnitudes {sorted(e['mags'])}, districts {sorted(e['districts'])}, votes {e['votes']:,} over {e['over']:,} under {e['under']:,} "
-              f"= {tot:,}; president's votes {pres[county]:,}; ratio {tot / pres[county]:.2f} (D3: Maricopa 6,213,612 / 2,078,930, Pima 1,550,565 / 518,466, 2.99)")
+              f"= {tot:,}; president's candidate lines {pres[county]:,} (its other lines, {dict(pres_meta_names) if county == '04013' else '...'}: {pres_meta[county]:,}); "
+              f"ratio {tot / pres[county]:.2f}, or {tot / (pres[county] + pres_meta[county]):.2f} with them (D3: Maricopa 6,213,612 / 2,078,930, Pima 1,550,565 / 518,466, 2.99)")
     wa, wb = C41.worktree(AFTER), C41.worktree(BEFORE)
     recs = records_at(wa, "data/local/2024/AZ.json")
     for i, c in recs.items():
@@ -675,8 +721,9 @@ def section_6():
     for y, seat in ((2008, "Martin"), (2010, "Steelman")):
         rb_, ra_ = records_at(wb, f"data/local/{y}/NC.json"), records_at(wa, f"data/local/{y}/NC.json")
         for i in ra_:
-            if seat.upper() in i.upper():
-                print(f"    {i}: type {rb_[i].get('type')} -> {ra_[i].get('type')}; p {C40.pval(rb_[i])} -> {C40.pval(ra_[i])}; candidates {len(ra_[i]['result']['candidates'])}")
+            if seat.upper() in i.upper() and "COURT_OF_APPEALS" in i:
+                print(f"    {i}: office_type {rb_[i].get('office_type')} -> {ra_[i].get('office_type')}; p {C40.pval(rb_[i])} -> {C40.pval(ra_[i])}; "
+                      f"candidates {len(ra_[i]['result']['candidates'])}; title {ra_[i].get('title')!r}")
     h2("  (d) the 'Town of' guard: five 2024 questions of NY and RI now counted by county")
     for st in ("NY", "RI"):
         mb_, ma_ = records_at(wb, f"data/measure/2024/{st}.json"), records_at(wa, f"data/measure/2024/{st}.json")
