@@ -78,6 +78,7 @@ Then pipeline/d2_labels.py, and pipeline/chambers.py odd, backtest, compute and 
 
 Run:  VOTE_CACHE=/tmp/vote-cache python3 -I pipeline/governor_counts.py
 """
+import glob
 import json
 import os
 import re
@@ -637,6 +638,47 @@ def notes_only():
     return done
 
 
+MO_TEXT_OLD = ("Algara and Amlani's Missouri rows fall short of Cha, Kuriwaki and Snyder's totals by 7% for the Democrat "
+               "and 2% for the Republican in each of 2008, 2012 and 2016, as they would if Kansas City, which reports "
+               "apart from Jackson County, were missing from the county rows (inferred); the count is taken as "
+               "incomplete")
+
+
+def mo_text():
+    """Missouri's records that carry chambers.AA_INCOMPLETE's words (p not computed, before 2006, and the next race's
+    missing last race) take its words as now measured (Missouri's official returns: the shortfall is Kansas City's own
+    rows), in place of the inferred ones pipeline/intake/build_congress.py wrote; nothing else changes. Returns the
+    number of strings changed."""
+    import chambers
+    new = chambers.AA_INCOMPLETE["MO"]
+    n = 0
+
+    def sub(x):
+        nonlocal n
+        if isinstance(x, dict):
+            return {k: sub(v) for k, v in x.items()}
+        if isinstance(x, list):
+            return [sub(v) for v in x]
+        if isinstance(x, str) and MO_TEXT_OLD in x:
+            n += 1
+            return x.replace(MO_TEXT_OLD, new)
+        return x
+    for path in sorted(glob.glob(os.path.join(REPO, "data", "governor", "*.json"))):
+        with open(path) as f:
+            lines = f.read().split("\n")
+        hit = False
+        for i, l in enumerate(lines):
+            if l.startswith('  {"id":"') and "-governor-MO" in l[:40] and MO_TEXT_OLD in l:
+                comma = l.endswith(",")
+                rec = sub(json.loads(l.strip().rstrip(",")))
+                lines[i] = "  " + json.dumps(rec, separators=(",", ":"), ensure_ascii=False) + ("," if comma else "")
+                hit = True
+        if hit:
+            with open(path, "w") as f:
+                f.write("\n".join(lines))
+    return n
+
+
 def main():
     cs = counts()
     for year in sorted({FIX[r]["key"][0] for r in FIX}):
@@ -664,6 +706,7 @@ def main():
         print(f"{rid}: last governor race, the Democrat's two-party share {a:.6f} -> {b:.6f}")
     for rid, note in notes_only():
         print(f"{rid}: note: {note[:140]}...")
+    print("Missouri's records, chambers.AA_INCOMPLETE's words as measured:", mo_text(), "strings")
 
 
 if __name__ == "__main__":
