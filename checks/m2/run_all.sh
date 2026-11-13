@@ -27,6 +27,13 @@
 # c40 (the PR checks of the seventh pass: #92 New Jersey's legislatures, #93 Virginia's, #95 the volume fixes) reads the five
 # New Jersey Official Lists fetch_seventh_pass.sh fetches (pdftotext -layout), Klarner's contest file, and the records at the
 # four main commits around the PRs, checked out once as detached worktrees under ~/.cache/vote-m2/seventh/wt/ (git worktree).
+# c47 and c48 (section 19: D3's #109, b350d5e -> b35fede) have their own run appended to OUTPUT.txt. c47 (the governors: the
+# moves file and the count reconciliation, CT and NY 2018's fusion lines, IN 2024's certified count, UT 2008's state figures and
+# MO's from Algara and Amlani's county returns (read by checks/m2/m2rdata.py, an RData reader of my own), WV 2012 held, the refit,
+# the fusion scan with D3's rules copied, Klarner's lines) reads what fetch_eighth_pass.sh governors|aa|klarner fetches. c48 (the
+# district checks' third pass: the moves file, Indiana 2016 by candidate and the 0.4% two-witness rule, the spelling pairs, the
+# over-seats test on every record of 2016, 2018 and 2022, the zero-row counties, DC's ballots, New York 2018's reasons) passes
+# once over every MEDSL raw file of those years (eighth/derived/p19-<file>.json, about 10 minutes the first time).
 # c46 (section 18: D3's #106, the district checks' second pass, 78a82f2 -> 72d1d60: the moves file, the 284 newly tested
 # records with D3's matcher copied, Indiana's 2016 archive and Utah's 2016 canvass, the Census's 2022 block equivalency files
 # (D3's copies at /mnt/project-files/d3/census-sld/, copied to ~/.cache/vote-m2/eighth/src/census_sld/), Michigan's precinct
@@ -58,7 +65,8 @@ OUT=checks/m2/OUTPUT.txt
            c8_recompute2 c9_fit2 c10_backtest2 c11_k_reading c12_control2 c13_governors2 c14_d3_recompute c15_d3_refit \
            c16_notes c18_louisiana c19_deciding_rounds c20_sizebins c21_new_jersey c22_louisiana_2023 c23_nc_rounds_by_place c24_office_types c25_odd_governors c26_feed_2023 c27_local_thresholds c28_governor_codes c29_fixes_c24 c30_ballot_texts c31_statewide_filed_local c32_certified_count c33_one_county \
            c34_towns_counties c35_statewide_officers c36_courts_commissions c37_statewide_pieces c38_input_volume c39_volume_compare c40_pr_checks \
-           c41_governor_refit c42_held_totals c43_district_checks c44_one_name_va c45_va_gate c46_district_checks_2; do
+           c41_governor_refit c42_held_totals c43_district_checks c44_one_name_va c45_va_gate c46_district_checks_2 \
+           c47_governor_counts c48_district_checks_3; do
     echo "##### $s"
     python3 -I checks/m2/$s.py 2>&1 || echo "### $s exited with $?"
     echo
