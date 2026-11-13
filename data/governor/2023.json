@@ -65,14 +65,14 @@
    2022
   ],
   "cycles": 23,
-  "races": 530,
-  "b_lean": 0.30137358870969977,
-  "b_inc": 0.0731352149877278,
-  "b_lag": 0.11562294749030352,
-  "s_e_fitted": 0.07918450467552343,
-  "k": 0.9293281353554124,
+  "races": 529,
+  "b_lean": 0.3023507198518074,
+  "b_inc": 0.07316588173300727,
+  "b_lag": 0.11459053360553244,
+  "s_e_fitted": 0.079206153954469,
+  "k": 0.9297961880040551,
   "calibration": {
-   "k": 0.9293281353554124,
+   "k": 0.9297961880040551,
    "years": [
     1986,
     1988,
@@ -94,15 +94,15 @@
     2020,
     2022
    ],
-   "races": 437,
+   "races": 436,
    "note": "k = the root mean square of z = (y - mean) / sd over these earlier years' races, each year forecast from its own earlier cycles"
   },
-  "s_e": 0.07358838807914612,
-  "s_a": 0.024705749818751233,
+  "s_e": 0.07364558001332759,
+  "s_a": 0.02480331303689009,
   "c": [
-   0.0009571253701044976,
-   -0.021811646941621268,
-   -0.007460510677274321
+   0.0006860972205875631,
+   -0.02174876309326256,
+   -0.008059892439260183
   ],
   "ZtZ_inv": [
    [
@@ -121,11 +121,11 @@
     0.09126984126984126
    ]
   ],
-  "national_forecast": 0.0009571253701044976,
-  "national_sd": 0.023455501807780985,
-  "sd": 0.07723607593049917,
-  "rho": 0.09222508320819406,
-  "commit": "d94468b",
+  "national_forecast": 0.0006860972205875631,
+  "national_sd": 0.023559987712507155,
+  "sd": 0.07732234138017889,
+  "rho": 0.09284106775160793,
+  "commit": "4648fdb",
   "mean_is": "1/2 + national_forecast + b_lean * lean + b_inc * incumbency + b_lag * (last governor race's Democratic share - 1/2)",
   "sd_is": "sqrt(national_sd^2 + s_e^2); national_sd = k s_a sqrt(1 + z (Z'Z)^-1 z'), s_e = k s_e_fitted, z = (1, midterm * P, (1 - midterm) * P), P = +1 Democratic president, -1 Republican; k the calibration factor; in an odd year z = (1, w P, 0), w = 1 under the midterm term and 0 under the plain route (odd_year below)",
   "odd_year": {
@@ -140,7 +140,7 @@
    "midterm_term": {
     "improves": false,
     "robust": false,
-    "mean_log_score_gain": 0.05680542002995437
+    "mean_log_score_gain": 0.05659514987163594
    },
    "lean_note_stands": true
   },

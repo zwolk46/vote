@@ -189,23 +189,23 @@
   },
   {
    "id": "2018-governor-CT",
-   "total_votes": 1363480,
-   "candidates": 5,
+   "total_votes": 1406803,
+   "candidates": 6,
    "second": "MEDSL's precinct file (2018-ct-precinct-general.zip)",
    "second_total": 1406774,
-   "off": 0.03175,
+   "off": -2e-05,
    "ballot_names_second": 5,
    "others_second": [],
    "write_ins_second": 69,
    "pairs": [
     [
      "LAMONT, EDWARD M. (NED)",
-     676649,
+     694510,
      694509
     ],
     [
      "STEFANOWSKI, BOB",
-     624750,
+     650138,
      650132
     ],
     [
@@ -222,6 +222,11 @@
      "GREENSTEIN, MARK STEWART",
      1254,
      1237
+    ],
+    [
+     "WHITNUM, LEE",
+     74,
+     null
     ]
    ]
   },
@@ -807,10 +812,10 @@
   },
   {
    "id": "2018-governor-NY",
-   "total_votes": 5605321,
+   "total_votes": 6097362,
    "candidates": 5,
    "second": null,
-   "note": "the source's 3,424,416 for Cuomo is his Democratic line alone (M2's reading, checks/M2-REPORT.md section 14.1 item 10); MEDSL's 2018 New York file is held (data/local/check-volume.json) and New York's State Board refused us (2026-11-07 18:49), so his other lines are not read here"
+   "note": "no second count: MEDSL's 2018 New York file is held (data/local/check-volume.json) and New York's State Board refused us (2026-11-07 18:49); the record's nominees are each at every party line, from Algara and Amlani's county returns (pipeline/governor_counts.py; the orchestrator, 2026-11-13 04:44), where Cha, Kuriwaki and Snyder give the party's line alone (M2's reading, checks/M2-REPORT.md section 14.1 item 10)"
   },
   {
    "id": "2018-governor-OH",
@@ -2664,29 +2669,34 @@
   },
   {
    "id": "2024-governor-IN",
-   "total_votes": 2741246,
-   "candidates": 2,
+   "total_votes": 2879655,
+   "candidates": 4,
    "second": "Indiana's results archive of the 2024 general (its data says Certified: T)",
    "second_total": 2879655,
-   "off": 0.05049,
+   "off": 0.0,
    "ballot_names_second": 3,
-   "others_second": [
-    [
-     "Donald Rainwater & Tonya  Hudson",
-     129781
-    ]
-   ],
+   "others_second": [],
    "write_ins_second": 52,
    "pairs": [
     [
      "BRAUN, MIKE",
-     1561279,
+     1566081,
      1566081
     ],
     [
      "MCCORMICK, JENIFFER",
-     1179967,
+     1183741,
      1183741
+    ],
+    [
+     "RAINWATER, DONALD",
+     129781,
+     129781
+    ],
+    [
+     "STRIED, CHRISTOPHER RYAN",
+     52,
+     null
     ]
    ]
   },
@@ -2994,16 +3004,13 @@
   }
  ],
  "relabelled": [
-  "2018-governor-CT",
   "2018-governor-NH",
-  "2018-governor-NY",
   "2018-governor-RI",
   "2018-governor-WY",
   "2020-governor-NC",
   "2022-governor-AL",
   "2022-governor-NY",
   "2022-governor-WY",
-  "2024-governor-IN",
   "2024-governor-MO",
   "2024-governor-NH",
   "2024-governor-WV"

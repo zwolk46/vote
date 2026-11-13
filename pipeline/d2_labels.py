@@ -22,6 +22,9 @@ What it does (run again, it changes nothing):
               (the two candidates' votes added up) and "Exhausted Ballots" as lines; they are taken out of the
               candidates into result.rcv_lines, total_votes is the two candidates' last-round votes, and two_party pairs
               Golden with Theriault. p stays not computed (ranked choice, model section 7).
+  Since pipeline/governor_counts.py (the orchestrator, 2026-11-13 04:44), Connecticut's and New York's 2018 nominees
+  are at every party line and Indiana 2024 at its archive's certified count; a label a record no longer needs (its
+  total within the line, or no second count) is taken off with its note.
   The two items with nothing to fix are listed in data/congress/check-totals.json: North Carolina 2002's House 118
   (the record already holds the State Board's certified counts; Klarner's contest file total, 125,193, carries its
   candidate file's 113,717 for Rapp, whom the Board counts at 13,717) and North Dakota 2024's governor (MEDSL's file
@@ -50,9 +53,10 @@ MEDSL = os.path.join(F.CACHE, "medsl", "normalized")
 NCSBE = os.path.join(F.CACHE, "ncsbe", "normalized", "2020_11_03.jsonl")
 IN_ENR = os.path.join(F.CACHE, "in_enr", "normalized", "2024General.jsonl")
 NOT_NAMES = re.compile(r"^(STATE BALLOTS|ELIGIBLE|OVER ?VOTES?|UNDER ?VOTES?|BLANKS?|VOID)$", re.I)
-NY_2018 = ("the source's 3,424,416 for Cuomo is his Democratic line alone (M2's reading, checks/M2-REPORT.md section "
-           "14.1 item 10); MEDSL's 2018 New York file is held (data/local/check-volume.json) and New York's State "
-           "Board refused us (2026-11-07 18:49), so his other lines are not read here")
+NY_2018 = ("no second count: MEDSL's 2018 New York file is held (data/local/check-volume.json) and New York's State "
+           "Board refused us (2026-11-07 18:49); the record's nominees are each at every party line, from Algara and "
+           "Amlani's county returns (pipeline/governor_counts.py; the orchestrator, 2026-11-13 04:44), where Cha, "
+           "Kuriwaki and Snyder give the party's line alone (M2's reading, checks/M2-REPORT.md section 14.1 item 10)")
 
 
 def _surname(name):
@@ -117,7 +121,6 @@ def governors(out):
                 row["second"] = None
                 if (year, st) == (2018, "NY"):
                     row["note"] = NY_2018
-                    edits[r["id"]] = ("the source's figures, Cuomo's his Democratic line alone", NY_2018)
                 out.append(row)
                 continue
             src, cs = s
@@ -149,9 +152,7 @@ def governors(out):
                 what.append(f"{src} counts {wi:,} write-in votes, which the source leaves out")
             diff = [f"{n}: {a:,} in the source, {b:,} there" for n, a, b in pairs if b is not None and a != b]
             if diff:
-                what.append("the candidates' own figures differ: " + "; ".join(diff) +
-                            (" (the source gives each candidate's own party line, the other gives every line)"
-                             if (year, st) == (2018, "CT") else ""))
+                what.append("the candidates' own figures differ: " + "; ".join(diff))
             note = (TAG + "; ".join(what) + f"; there the contest's votes add up to {tot:,}, {100 * x:+.1f}% "
                     "[measured]. The candidates' figures, the two-party votes and n are the source's; a governor's p "
                     "rests on the two leaders' votes, not on total_votes (the orchestrator, 2026-11-07 22:19, item 5; "
@@ -237,7 +238,18 @@ def main():
                     note if note.startswith(TAG) else TAG + note]
                 return rec
             return fn
-        changed += rewrite(path, {rid: fixer(of, note) for rid, (of, note) in mine.items()})
+
+        def unlabel(rec):
+            # a record labelled before whose total now agrees with the second count, or that has none (Connecticut
+            # and New York 2018, Indiana 2024 since pipeline/governor_counts.py): the label and its note are taken off
+            rec["result"].pop("total_votes_of", None)
+            rec["notes"] = [x for x in rec["notes"] if not x.startswith(TAG)]
+            return rec
+        with open(path) as f:
+            stale = [c["id"] for c in json.load(f)["contests"]
+                     if c["id"] not in mine and any(x.startswith(TAG) for x in c.get("notes") or [])]
+        changed += rewrite(path, {**{rid: fixer(of, note) for rid, (of, note) in mine.items()},
+                                  **{rid: unlabel for rid in stale}})
     rid, fn = me02()
     changed += rewrite(os.path.join(REPO, "data", "house", "2024.json"), {rid: fn})
     with open(os.path.join(REPO, "data", "state-lower", "2002", "NC.json")) as f:

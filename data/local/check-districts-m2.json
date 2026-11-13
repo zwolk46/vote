@@ -8,11 +8,11 @@
   "both": 112
  },
  "flags_not_on_m2s_list": {
-  "2016: (a) off 3% to 5%, under M2's line": 15,
-  "2016: (a) off 5% or more on the named candidates; M2's by D+R or every vote, or matched by code": 65,
+  "2016: (a) off 3% to 5%, under M2's line": 13,
+  "2016: (a) off 5% or more on the named candidates; M2's by D+R or every vote, or matched by code": 23,
   "2016: (b) only: M2 does not test an uncontested record": 10,
   "2018: (a) off 3% to 5%, under M2's line": 6,
-  "2018: (a) off 5% or more on the named candidates; M2's by D+R or every vote, or matched by code": 13,
+  "2018: (a) off 5% or more on the named candidates; M2's by D+R or every vote, or matched by code": 12,
   "2018: (b) only: M2 does not test an uncontested record": 54,
   "2022: (a) off 3% to 5%, under M2's line": 5,
   "2022: (a) off 5% or more on the named candidates; M2's by D+R or every vote, or matched by code": 53,
@@ -544,7 +544,7 @@
     "2016-IN-lower--42--"
    ],
    "here": "M2 only: within 3% here",
-   "reason": "tested here on the named candidates matched by surname: Klarner 26,335, MEDSL 25,684 (district '42'); M2 reads MEDSL's rows of the district's code (D+R): 27,821 against Klarner's 26,335"
+   "reason": "tested here on the named candidates matched by surname: Klarner 26,335, MEDSL 26,335 (district '42'); M2 reads MEDSL's rows of the district's code (D+R): 27,821 against Klarner's 26,335"
   },
   {
    "year": 2016,
@@ -663,7 +663,7 @@
     "2016-IN-upper--36--"
    ],
    "here": "both",
-   "reason": "flagged here too: 2016-IN-upper--36-- (a, kept: MEDSL does not cover the district)"
+   "reason": "flagged here too: 2016-IN-upper--36-- (a, settled by the state: MEDSL's count stands)"
   },
   {
    "year": 2016,
@@ -714,7 +714,7 @@
     "2016-KY-lower--28--"
    ],
    "here": "both",
-   "reason": "flagged here too: 2016-KY-lower--28-- (a, held)"
+   "reason": "flagged here too: 2016-KY-lower--28-- (a, kept: MEDSL does not cover the district)"
   },
   {
    "year": 2016,
@@ -2466,7 +2466,7 @@
     "2018-VT-upper-grandisle---"
    ],
    "here": "both",
-   "reason": "flagged here too: 2018-VT-upper-grandisle--- (a+b, held)"
+   "reason": "flagged here too: 2018-VT-upper-grandisle--- (a+b, MEDSL taken)"
   },
   {
    "year": 2018,
@@ -2500,7 +2500,7 @@
     "2018-VT-upper-windham---"
    ],
    "here": "both",
-   "reason": "flagged here too: 2018-VT-upper-windham--- (a, held)"
+   "reason": "flagged here too: 2018-VT-upper-windham--- (a, MEDSL taken)"
   },
   {
    "year": 2022,
