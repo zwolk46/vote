@@ -543,6 +543,8 @@ def contest(year, office, c, cha_c, cha_src, P):
     if office == "governor" and GI.note(year, c["state"], special):
         fi["incumbency_check"] = GI.note(year, c["state"], special)
     rec["forecast_inputs"] = fi
+    if not kind and c.get("held"):   # a count held under 19:04 (pipeline/governor_counts.HELD: West Virginia 2012)
+        kind = (NOT_COMPUTED, c["held"])
     if kind:
         rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
                     "not_computed": kind[1], "reason": None}

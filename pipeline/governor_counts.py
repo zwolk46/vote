@@ -42,11 +42,12 @@ Added on the orchestrator's message of 05:26 UTC, on the fusion scan's second co
   refuses or answers without the mark settles nothing on its own. Then the two-witness rule of 05:15 applies wherever
   it fits. Otherwise 19:04 applies." And: "Maine 2010: no request, since the SoS refused."
   West Virginia 2012  the Secretary of State's statewide results page of the 2012 general (apps.sos.wv.gov, read
-                    2026-11-13 05:30 UTC), headed "Official Results" [stated]: Tomblin 335,468, Maloney 303,291,
-                    Johnson 16,787, Moran 8,909, "Official Total Votes" 664,455. Cha's figures are 9.6% to 11.4% under
-                    them; Algara and Amlani's agree [measured]. The page also says its pages "should not be relied on
-                    as official results until certified" and that 1,846 of 1,892 precincts report; both are quoted in
-                    the source's note.
+                    2026-11-13 05:30 UTC): Tomblin 335,468, Maloney 303,291, Johnson 16,787, Moran 8,909, "Official
+                    Total Votes" 664,455; Cha's figures are 9.6% to 11.4% under them, and Algara and Amlani's equal
+                    them [measured]. Taken at first by its heading, "Official Results"; then held (HELD; the
+                    orchestrator, 06:52): the page says its results "should not be relied on as official results
+                    until certified" and that 1,846 of 1,892 precincts report, so the heading is not the mark, and
+                    Algara and Amlani are its copy. The record keeps Cha's count, with no p, and leaves the fits.
   Utah 2008         the Lieutenant Governor's 2008 general workbook, which the historical election results page links
                     (read 2026-11-13 05:30 UTC), its Governor sheet's Total row: Huntsman 734,049, Springmeyer 186,503,
                     Schanze 24,820 and Doughton, a write-in, 153; total 945,525. The workbook bears no mark, so it
@@ -71,8 +72,10 @@ What it does (run again, it changes nothing):
                       write-in), total_votes, the source, two_party, n (the two leaders' votes less one, as D2's build
                       sets it) and each p scaled to the new n (method "density": event = f_half / n), a note; and the
                       file's sources block. Then the last-race input of each later record whose last race is one of
-                      these (Connecticut and New York 2022, West Virginia 2016, Utah's 2010 special), read again from
-                      chambers.last_governor_index(); and the notes of Missouri's three and Maine 2010 (notes_only).
+                      these (Connecticut and New York 2022, Utah's 2010 special), read again from
+                      chambers.last_governor_index(); the notes of Missouri's three and Maine 2010 (notes_only);
+                      Missouri's words (mo_text); and the held count (hold: West Virginia 2012, and West Virginia
+                      2016's last race, now the 2011 special).
 Then pipeline/d2_labels.py, and pipeline/chambers.py odd, backtest, compute and history, as for Hawaii 2018
 (pipeline/governor_hi2018.py; data/local/REPORT.md section 30).
 
@@ -96,6 +99,7 @@ AA_FILE = os.path.join(F.CACHE, "algara_amlani", "dataverse_shareable_gubernator
 IN_ENR = os.path.join(F.CACHE, "in_enr", "normalized", "2024General.jsonl")
 IN_CHECKS = os.path.join(F.CACHE, "in_enr", "normalized", "checks-2024General.json")
 WV_PAGE = os.path.join(F.CACHE, "wv_sos", "raw", "results-2012-eid13-statewide.html")
+CHA_FILE = os.path.join(F.CACHE, "cha", "normalized", "contests.json")   # the dataset as the intake wrote it
 UT_FILE = os.path.join(F.CACHE, "ut_lg", "raw", "2008Gen.xls")
 MO_FILES = {2008: os.path.join(F.CACHE, "mo_sos", "raw", "AllRacesGeneralNovember2008.pdf"),
             2012: os.path.join(F.CACHE, "mo_sos", "raw", "2012GeneralElection.pdf"),
@@ -132,16 +136,6 @@ FIX = {
         "now": {"CUOMO, ANDREW M.": 3635340, "MOLINARO, MARCUS J. (MARC)": 2207602},
         "add": [],
     },
-    "2012-governor-WV": {
-        "key": (2012, "WV"), "source_key": "wv_sos",
-        "was": {"TOMBLIN, EARL RAY": 297207, "MALONEY, WILLIAM (BILL)": 273130, "JOHNSON, JESSE CLARENCE, JR.": 15179,
-                "MORAN, DAVID D. (DAVE)": 7934},
-        "names": {"TOMBLIN, EARL RAY": "EARL RAY TOMBLIN", "MALONEY, WILLIAM (BILL)": "BILL MALONEY",
-                  "JOHNSON, JESSE CLARENCE, JR.": "JESSE JOHNSON", "MORAN, DAVID D. (DAVE)": "DAVID MORAN"},
-        "add": [],
-        "expect": {"EARL RAY TOMBLIN": 335468, "BILL MALONEY": 303291, "JESSE JOHNSON": 16787, "DAVID MORAN": 8909},
-        "total": 664455,
-    },
     "2008-governor-UT": {
         "key": (2008, "UT"), "source_key": "ut_lg",
         "was": {"HUNTSMAN, JON M., JR.": 700565, "SPRINGMEYER, BOB": 175301, "SCHANZE, DELL (SUPERDELL)": 23449},
@@ -163,6 +157,38 @@ FIX = {
     },
 }
 
+
+# A count the orchestrator holds under 19:04 (2026-11-13 06:52, on West Virginia 2012): "hold it; do not take the page's
+# count. The page says itself that its results "should not be relied on as official results until certified", and it
+# reports 1,846 of 1,892 precincts. So its heading is not the 15:16 mark: the agency's own words deny it. Algara and
+# Amlani equal that page exactly, so they are a copy of it, not a second witness. That leaves the record against one
+# partial, unofficial count, about 12% apart. That gap is unsettled and 5% or more, so 19:04 holds it." The record keeps
+# the dataset's count; p is not computed; the contest is marked held in Cha's contests as D2 reads them (fix_cha), so
+# that it is left out of the fits (chambers.fit_rows) and of the last-race index (chambers.last_governor_index), as a
+# held record is left out of the fits at 19:04 and an incomplete count is at chambers.AA_INCOMPLETE [worker D3's
+# reading]. West Virginia 2016's last governor race is then the 2011 special.
+HELD = {
+    "2012-governor-WV": {
+        "key": (2012, "WV"),
+        "was": {"TOMBLIN, EARL RAY": 297207, "MALONEY, WILLIAM (BILL)": 273130, "JOHNSON, JESSE CLARENCE, JR.": 15179,
+                "MORAN, DAVID D. (DAVE)": 7934},
+        "names": {"TOMBLIN, EARL RAY": "EARL RAY TOMBLIN", "MALONEY, WILLIAM (BILL)": "BILL MALONEY",
+                  "JOHNSON, JESSE CLARENCE, JR.": "JESSE JOHNSON", "MORAN, DAVID D. (DAVE)": "DAVID MORAN"},
+        "add": [],
+        "expect": {"EARL RAY TOMBLIN": 335468, "BILL MALONEY": 303291, "JESSE JOHNSON": 16787, "DAVID MORAN": 8909},
+        "total": 664455,
+    },
+}
+HELD_WHY = ("held (the orchestrator, 2026-11-13 06:52, under 19:04): the record's count, Cha, Kuriwaki and Snyder's, "
+            "stands against one other count, the West Virginia Secretary of State's results page, which says its "
+            "results \"should not be relied on as official results until certified\" and reports 1,846 of 1,892 "
+            "precincts; Algara and Amlani's county returns equal that page to the vote, so they are a copy of it, not a "
+            "second witness. The two counts are 9.6% to 11.4% apart for every candidate, unsettled, so p is not "
+            "computed, and the contest is left out of the fits and of West Virginia 2016's last governor race")
+NOTE_HELD_LAST = ("the last governor race is {state}'s: the later one, {held}, is held (pipeline/governor_counts.HELD; "
+                  "the orchestrator, 2026-11-13 06:52), so it is not read as a last race (data/local/REPORT.md section "
+                  "35)")
+
 NOTES = {
     "2018-governor-CT": (
         "the candidates' votes are the Connecticut Secretary of the State's count (its Election History, which lists "
@@ -183,14 +209,17 @@ NOTES = {
         "later years and New York 2022's last-governor-race input (the orchestrator, 2026-11-13 04:44; "
         "data/local/REPORT.md section 35)"),
     "2012-governor-WV": (
-        "the candidates' votes are the West Virginia Secretary of State's count, its results page for the general of "
-        "2012-11-06 headed '★★★ Official Results ★★★': Tomblin 335,468, Maloney 303,291, Johnson 16,787 and Moran "
-        "8,909, 'Official Total Votes: 664,455' (the page adds that its results 'do not include write-in candidate "
-        "information'). Cha, Kuriwaki and Snyder give 297,207, 273,130, 15,179 and 7,934, each 9.6% to 12.9% under it; "
-        "Algara and Amlani's county returns give Tomblin 335,468 and Maloney 303,291, the state's figures to the vote "
-        "[measured]. The count with the mark wins (the orchestrator, 2026-11-07 15:16; 2026-11-13 05:26: \"a count "
-        "bearing the mark wins, so take it and list the move\"); n and each p follow it, and so do D2's fits of later "
-        "years and West Virginia 2016's last-governor-race input (data/local/REPORT.md section 35)"),
+        "the count is not taken, and the contest is held. The West Virginia Secretary of State's results page for the "
+        "general of 2012-11-06 ({url}, read {read}, sha256 {sha}) gives Tomblin 335,468, Maloney 303,291, Johnson "
+        "16,787 and Moran 8,909, 'Official Total Votes: 664,455', against this record's 297,207, 273,130, 15,179 and "
+        "7,934 (Cha, Kuriwaki and Snyder), each 9.6% to 11.4% under it [measured]. The page is headed '★★★ Official "
+        "Results ★★★' but says that its results 'should not be relied on as official results until certified', that "
+        "they 'do not include write-in candidate information', and 'Number of Precincts 1892 Number of Precincts "
+        "Reporting 1846' [stated]; Algara and Amlani's county returns give Tomblin 335,468 and Maloney 303,291, the "
+        "page's figures to the vote [measured], so they are its copy. The orchestrator, 2026-11-13 06:52: \"hold it; "
+        "do not take the page's count ... its heading is not the 15:16 mark: the agency's own words deny it ... That "
+        "gap is unsettled and 5% or more, so 19:04 holds it\". p is not computed, and the contest is left out of D2's "
+        "fits and of West Virginia 2016's last-governor-race input (data/local/REPORT.md section 35)"),
     "2008-governor-UT": (
         "the candidates' votes are the Utah Lieutenant Governor's results of the 2008 general (the workbook its "
         "historical results page links as '2008 General', its Governor sheet's Total row): Huntsman 734,049, "
@@ -336,7 +365,7 @@ def wv_2012():
                                          r"([\d,]+) [\d.]+% [\d,]+", m.group(1)):
         got[name.strip()] = int(votes.replace(",", ""))
     total = int(m.group(2).replace(",", ""))
-    fx = FIX["2012-governor-WV"]
+    fx = HELD["2012-governor-WV"]
     if got != fx["expect"] or total != fx["total"]:
         raise SystemExit(f"governor_counts: West Virginia's page reads {got}, total {total}")
     src = {"name": "West Virginia Secretary of State, Election Results Center: Statewide Results, General Election - "
@@ -449,7 +478,7 @@ def counts():
                                [(n, p, got[s][0]) for n, p, s in fx["add"]], src, src)
     got, src, file_src = ny_2018()
     out["2018-governor-NY"] = ({**FIX["2018-governor-NY"]["was"], **got}, {}, [], src, file_src)
-    for rid, reader in (("2012-governor-WV", wv_2012), ("2008-governor-UT", ut_2008)):
+    for rid, reader in (("2008-governor-UT", ut_2008),):
         got, total, src = reader()
         fx = FIX[rid]
         out[rid] = ({n: got[s_] for n, s_ in fx["names"].items()}, {},
@@ -479,6 +508,13 @@ def fix_cha(contests):
             a["votes"] = now.get(a["name"], a["votes"])
         c["totalvotes"] = sum(now.get(n, v) for n, v in old.items()) + sum(v for _, _, v in added)
         c["count_fixed"] = f"pipeline/governor_counts.py: {rid}"
+    for rid, h in HELD.items():
+        year, st = h["key"]
+        hit = [c for c in contests if c["year"] == year and c["office"] == "governor" and c["state"] == st
+               and not c["special"]]
+        if len(hit) != 1 or {a["name"]: a["votes"] for a in hit[0]["candidates"]} != h["was"]:
+            raise SystemExit(f"governor_counts.fix_cha: the held {rid} is not the dataset's contest as expected")
+        hit[0]["held"] = HELD_WHY
     return contests
 
 
@@ -638,6 +674,110 @@ def notes_only():
     return done
 
 
+def _drop_source_block(lines, key):
+    """The file's top-level sources block without `key` (a block _sources_block added); unchanged where it is absent."""
+    k = lines.index(' "model": {')
+    at = [i for i in range(k) if lines[i] == f'  "{key}": {{']
+    if not at:
+        return lines
+    i = at[0]
+    j = next(x for x in range(i, k) if lines[x] in ("  }", "  },"))
+    if lines[j] == "  }":   # the last block: the one before it loses its comma
+        if not lines[i - 1].endswith("},"):
+            raise SystemExit(f"governor_counts: the sources block before {key} does not end where expected")
+        lines[i - 1] = lines[i - 1][:-1]
+    del lines[i:j + 1]
+    return lines
+
+
+def hold():
+    """Each held record (HELD): the dataset's count (restored where an earlier run of this script took the page's),
+    with its result's source, total, two_party and the dataset's note as the other records of its file carry them; p
+    not computed (HELD_WHY), no forecast of the model's own; the note (NOTES); the file's source block of the page
+    dropped. Then each later record whose last governor race was the held one reads the index again (the held contest
+    left out) with NOTE_HELD_LAST. Returns [(id, what)]."""
+    import chambers as CH
+    done = []
+    for rid, h in HELD.items():
+        year, st = h["key"]
+        path = os.path.join(REPO, "data", "governor", f"{year}.json")
+        with open(path) as f:
+            lines = f.read().split("\n")
+        at = [i for i, l in enumerate(lines) if l.startswith('  {"id":"' + rid + '"')]
+        if len(at) != 1:
+            raise SystemExit(f"governor_counts: {rid} is found {len(at)} times in {path}")
+        comma = lines[at[0]].endswith(",")
+        rec = json.loads(lines[at[0]].strip().rstrip(","))
+        others = [json.loads(l.strip().rstrip(",")) for i, l in enumerate(lines)
+                  if l.startswith('  {"id":"') and i != at[0]]
+        cha_like = next(o for o in others if (o["result"].get("source") or {}).get("name", "").startswith("Cha, Kuriwaki"))
+        cands = rec["result"]["candidates"]
+        now = {c["name"]: c["votes"] for c in cands}
+        if now != h["was"] and now != {n: h["expect"][h["names"][n]] for n in h["was"]}:
+            raise SystemExit(f"governor_counts: {rid}'s votes are neither the dataset's nor the page's: {now}")
+        for c in cands:
+            c["votes"] = h["was"][c["name"]]
+        cands.sort(key=lambda c: -c["votes"])
+        with open(CHA_FILE) as f:
+            raw = [c for c in json.load(f)["contests"] if c["year"] == year and c["office"] == "governor"
+                   and c["state"] == st and not c["special"]]
+        rec["result"]["total_votes"] = raw[0]["totalvotes"]
+        rec["result"]["source"] = cha_like["result"]["source"]
+        tp = rec["two_party"]
+        tp["votes"] = [next(c["votes"] for c in cands if c["name"] == n) for n in tp["candidates"]]
+        tp["n_other_voters"] = sum(tp["votes"]) - 1
+        tp["share_first"] = round(tp["votes"][0] / sum(tp["votes"]), 6)
+        rec["p"] = {"value": None, "event": None, "under": None, "computed_by": None, "commit": None,
+                    "not_computed": HELD_WHY, "reason": None}
+        rec["forecasts"] = [f for f in rec["forecasts"] if f.get("by") != "the model's own"]
+        cha_note = next(x for x in cha_like["notes"] if x.startswith(CHA_NOTE))
+        meta = _meta(WV_PAGE)
+        note = TAG + NOTES[rid].format(url=meta["url"], read=meta["finished_utc"], sha=meta["sha256"][:16])
+        rec["notes"] = [cha_note] + [x for x in rec["notes"] if not x.startswith(TAG) and not x.startswith(CHA_NOTE)] \
+            + [note]
+        lines[at[0]] = "  " + json.dumps(rec, separators=(",", ":"), ensure_ascii=False) + ("," if comma else "")
+        lines = _drop_source_block(lines, "wv_sos")
+        with open(path, "w") as f:
+            f.write("\n".join(lines))
+        done.append((rid, "held"))
+        # the later records whose last race was the held one
+        idx = CH.last_governor_index()
+        for y in range(year + 1, 2026):
+            path = os.path.join(REPO, "data", "governor", f"{y}.json")
+            if not os.path.exists(path):
+                continue
+            with open(path) as f:
+                lines = f.read().split("\n")
+            hit = False
+            for i, l in enumerate(lines):
+                if not l.startswith('  {"id":"') or f"-governor-{st}" not in l[:40]:
+                    continue
+                r = json.loads(l.strip().rstrip(","))
+                if r["place"]["state"] != st:
+                    continue
+                lg = (r.get("forecast_inputs") or {}).get("last_governor_race")
+                if lg and lg["year"] == year:
+                    nw = CH.last_governor_race(idx, st, y)
+                    if nw is None or nw[0] == year:
+                        raise SystemExit(f"governor_counts.hold: {r['id']}'s last race now reads {nw}")
+                    r["forecast_inputs"]["last_governor_race"] = {"year": nw[0], "share_D": nw[1],
+                                                                  "special": nw[2], "source": nw[3]}
+                    done.append((r["id"], f"last race {year} {lg['share_D']:.6f} -> {nw[0]} {nw[1]:.6f}"))
+                    note = NOTE_HELD_LAST.format(state=f"{r['place']['name']} {nw[0]}" + (" (a special)" if nw[2] else ""),
+                                                 held=f"{year}'s")
+                else:
+                    continue
+                r["notes"] = [x for x in r["notes"] if not x.startswith(NOTE_LAST.split("(")[0] + "(")
+                              and not x.startswith(NOTE_HELD_LAST.split("{")[0])] + [note]
+                lines[i] = "  " + json.dumps(r, separators=(",", ":"), ensure_ascii=False) + \
+                    ("," if l.endswith(",") else "")
+                hit = True
+            if hit:
+                with open(path, "w") as f:
+                    f.write("\n".join(lines))
+    return done
+
+
 MO_TEXT_OLD = ("Algara and Amlani's Missouri rows fall short of Cha, Kuriwaki and Snyder's totals by 7% for the Democrat "
                "and 2% for the Republican in each of 2008, 2012 and 2016, as they would if Kansas City, which reports "
                "apart from Jackson County, were missing from the county rows (inferred); the count is taken as "
@@ -707,6 +847,8 @@ def main():
     for rid, note in notes_only():
         print(f"{rid}: note: {note[:140]}...")
     print("Missouri's records, chambers.AA_INCOMPLETE's words as measured:", mo_text(), "strings")
+    for rid, what in hold():
+        print(f"{rid}: {what}")
 
 
 if __name__ == "__main__":

@@ -211,7 +211,7 @@ def last_governor_index():
         if c["office"] != "governor":
             continue
         in_cha.add((c["year"], c["state"]))
-        if c["runoff"]:
+        if c["runoff"] or c.get("held"):   # a count held under 19:04 is no later race's last race (governor_counts.HELD)
             continue
         dr = _top_two_DR([a for a in c["candidates"]])
         if dr:
@@ -396,6 +396,9 @@ def fit_rows(inc_codes=INC_CODES):
             continue
         if c["runoff"]:
             skip("runoff (the November round is not in this source)")
+            continue
+        if c.get("held"):
+            skip("a count held under 19:04 (pipeline/governor_counts.HELD: West Virginia 2012)")
             continue
         cands = [a for a in c["candidates"] if a["votes"]]
         D = [a for a in cands if a["party"] == "D"]
@@ -2031,6 +2034,9 @@ def odd_governor_rows(inc_codes=INC_CODES):
             continue
         if c["runoff"]:
             skip("runoff (the November round is not in this source)")
+            continue
+        if c.get("held"):
+            skip("a count held under 19:04 (pipeline/governor_counts.HELD: West Virginia 2012)")
             continue
         cands = [a for a in c["candidates"] if a["votes"]]
         D = [a for a in cands if a["party"] == "D"]
