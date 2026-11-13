@@ -679,32 +679,28 @@
     },
     "CT": {
      "top": "governor",
-     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "d2_source": "Connecticut Secretary of the State, Election History: 2018 Nov 6, General Electi",
      "rows": [
       {
        "candidate": "LAMONT, EDWARD M. (NED)",
        "party": "D",
-       "d2": 676649,
+       "d2": 694510,
        "medsl_lines_summed": 694509,
-       "miss_lines_summed": 0.02639,
-       "medsl_own_line": 676649,
-       "miss_own_line": 0.0
+       "miss_lines_summed": -0.0
       },
       {
        "candidate": "STEFANOWSKI, BOB",
        "party": "R",
-       "d2": 624750,
+       "d2": 650138,
        "medsl_lines_summed": 650132,
-       "miss_lines_summed": 0.04063,
-       "medsl_own_line": 624750,
-       "miss_own_line": 0.0
+       "miss_lines_summed": -1e-05
       }
      ],
-     "worst": 0.0,
-     "reading": "each candidate's own party line, as D2's source reports it",
+     "worst": -1e-05,
+     "reading": "the party lines summed",
      "medsl_contests": 1,
      "medsl_counties": 8,
-     "raw_file_read": "2018-github-2018-ct-precinct-general.zip",
+     "raw_file_read": null,
      "flag": false
     },
     "DC": {
@@ -1254,29 +1250,29 @@
     },
     "NY": {
      "top": "governor",
-     "d2_source": "Cha, Kuriwaki and Snyder, Candidates in American General Elections, Harvard Data",
+     "d2_source": "Algara and Amlani, Replication Data for: Partisanship & Nationalization in Ameri",
      "rows": [
       {
        "candidate": "CUOMO, ANDREW M.",
        "party": "D",
-       "d2": 3424416,
+       "d2": 3635340,
        "medsl_lines_summed": 3286344,
-       "miss_lines_summed": -0.04032,
+       "miss_lines_summed": -0.096,
        "medsl_own_line": 3098235,
-       "miss_own_line": -0.09525
+       "miss_own_line": -0.14775
       },
       {
        "candidate": "MOLINARO, MARCUS J. (MARC)",
        "party": "R",
-       "d2": 1926485,
+       "d2": 2207602,
        "medsl_lines_summed": 1866153,
-       "miss_lines_summed": -0.03132,
+       "miss_lines_summed": -0.15467,
        "medsl_own_line": 1622796,
-       "miss_own_line": -0.15764
+       "miss_own_line": -0.26491
       }
      ],
-     "worst": -0.04032,
-     "reading": "the party lines summed; on each candidate's own party line, 84.24%",
+     "worst": -0.15467,
+     "reading": "the party lines summed; on each candidate's own party line, 73.51%",
      "medsl_contests": 1,
      "medsl_counties": 57,
      "raw_file_read": "2018-github-2018-ny-precinct-general.zip",
@@ -2068,7 +2064,7 @@
    "cleared": {
     "2018-OR": "MEDSL's 2018 Oregon file filed some counties' sums as precincts named TOTAL beside their precincts; the county-total rule drops them (medsl_precinct.drop_county_totals), and its governor then equals D2's certified count to the vote",
     "2018-HI": "D2's count was the dataset's 137,719 for Tupola; the Office of Elections' certified summary has 131,719, equal to MEDSL's (pipeline/governor_hi2018.py)",
-    "2018-CT": "D2's source gives each governor candidate's own party line; MEDSL's lines equal them"
+    "2018-CT": "D2's source gave each governor candidate's own party line, which MEDSL's lines equal; the record now holds every line, the Secretary of the State's count (pipeline/governor_counts.py; the orchestrator, 2026-11-13 04:44), and MEDSL's lines summed equal it within the bound"
    }
   },
   "2022": {
@@ -12734,7 +12730,9 @@
      "votes": 223625,
      "precincts": 143,
      "precincts_bounded": 143,
-     "ballots_cast": 462964
+     "ballots_cast": 231700,
+     "ballots_cast_rows": 231700,
+     "ballots_cast_source": "the DC Board of Elections' certified results (https://electionresults.dcboe.org/Downloads/Reports/November_6_2018_General_Election_Certified_Results.pdf), 'Ballots Cast'"
     },
     {
      "state": "DC",
@@ -12745,7 +12743,9 @@
      "votes": 222863,
      "precincts": 143,
      "precincts_bounded": 143,
-     "ballots_cast": 462964
+     "ballots_cast": 231700,
+     "ballots_cast_rows": 231700,
+     "ballots_cast_source": "the DC Board of Elections' certified results (https://electionresults.dcboe.org/Downloads/Reports/November_6_2018_General_Election_Certified_Results.pdf), 'Ballots Cast'"
     },
     {
      "state": "DC",
@@ -12756,7 +12756,7 @@
      "votes": 29761,
      "precincts": 15,
      "precincts_bounded": 15,
-     "ballots_cast": 61188
+     "ballots_cast": 30636
     },
     {
      "state": "DC",
@@ -12767,7 +12767,7 @@
      "votes": 31604,
      "precincts": 18,
      "precincts_bounded": 18,
-     "ballots_cast": 64500
+     "ballots_cast": 32312
     },
     {
      "state": "DC",
@@ -12778,7 +12778,7 @@
      "votes": 29951,
      "precincts": 18,
      "precincts_bounded": 18,
-     "ballots_cast": 61522
+     "ballots_cast": 30770
     },
     {
      "state": "DC",
@@ -12789,7 +12789,7 @@
      "votes": 40520,
      "precincts": 19,
      "precincts_bounded": 19,
-     "ballots_cast": 82446
+     "ballots_cast": 41256
     },
     {
      "state": "DC",
@@ -12800,7 +12800,9 @@
      "votes": 342188,
      "precincts": 143,
      "precincts_bounded": 143,
-     "ballots_cast": 231700
+     "ballots_cast": 231700,
+     "ballots_cast_rows": 231700,
+     "ballots_cast_source": "the DC Board of Elections' certified results (https://electionresults.dcboe.org/Downloads/Reports/November_6_2018_General_Election_Certified_Results.pdf), 'Ballots Cast'"
     },
     {
      "state": "DC",
@@ -12811,7 +12813,9 @@
      "votes": 224658,
      "precincts": 143,
      "precincts_bounded": 143,
-     "ballots_cast": 462964
+     "ballots_cast": 231700,
+     "ballots_cast_rows": 231700,
+     "ballots_cast_source": "the DC Board of Elections' certified results (https://electionresults.dcboe.org/Downloads/Reports/November_6_2018_General_Election_Certified_Results.pdf), 'Ballots Cast'"
     },
     {
      "state": "DC",
@@ -12822,7 +12826,7 @@
      "votes": 27423,
      "precincts": 15,
      "precincts_bounded": 15,
-     "ballots_cast": 61188
+     "ballots_cast": 30636
     },
     {
      "state": "DC",
@@ -12833,7 +12837,7 @@
      "votes": 27751,
      "precincts": 18,
      "precincts_bounded": 18,
-     "ballots_cast": 64500
+     "ballots_cast": 32312
     },
     {
      "state": "DC",
@@ -12844,7 +12848,7 @@
      "votes": 27827,
      "precincts": 18,
      "precincts_bounded": 18,
-     "ballots_cast": 61522
+     "ballots_cast": 30770
     },
     {
      "state": "DC",
@@ -12855,7 +12859,7 @@
      "votes": 36907,
      "precincts": 19,
      "precincts_bounded": 19,
-     "ballots_cast": 82446
+     "ballots_cast": 41256
     },
     {
      "state": "FL",
