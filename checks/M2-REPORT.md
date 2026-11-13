@@ -901,3 +901,49 @@ Section 20's own run, appended to `checks/m2/OUTPUT.txt` after section 19's: sta
 ### 20.12 Files
 
 `checks/m2/c49_va_local_2.py` (sections 1–8), `checks/m2/c50_in_house_2018.py` (sections 1–4), `checks/m2/fetch_eighth_pass.sh` (`va_code`, `in_2018` and `in_2018_house` branches: the three Code pages, Indiana's three archive files and its House file, into `~/.cache/vote-m2/eighth/src/`, `index.txt` with each hash; the 2025 Virginia files are D3's copies under `eighth/src/va-2025/`), `run_all.sh` to c50.
+
+## 21. D3's #115: the recount zone beside p (`c51_recount_zone.py`)
+
+The orchestrator (10:34 UTC on the 13th): "D3's #115 is merged as f643407 (REPORT §38, the recount zone). Check it in section 21, with its end at f643407. It covers pipeline/local_recount.py; the zone at 0.87% gross against n × sd (like-race spreads from _p_like's normal device); the 1,045 notes near at 0.87%, each line equal to the old one with its note taken out; and recount-zone.json's 15,122 near at any rate. Check also the counts at 1.06% and 2.49% (2.49% floor 0.627), the 1,838 tail races, and the figures quoted from Ansolabehere and Reeves (VTP WP11, Table 2, p. 5) and FairVote, against their sha256. No p moves by my compare. D3 next takes Singer's 2020 results in its own PR." Section 21 is BEFORE e3e9b921 (main after #114) against AFTER f6434077, both read from worktrees. D3's rules are copied into `c51` and say so: the spread (route (a)'s own `share.sd`; the like-race routes' device sd = 1/(√(2π) f) with f the record's `p.f_half` or `p.f_t`, centred at ½ or the measure's threshold), the zone w = rate × n, near where w ≥ (n × sd)/3, the three rates, the note's words. MATH §5.10's gain over p is computed by my own quadrature (scipy's adaptive rule for the table and a sample; a trapezoid over ±50 scales on 8,001 points for every record), not D3's Simpson rule on 401 points; nothing from `pipeline/` is imported.
+
+**The sources, read apart** [measured: `fetch_eighth_pass.sh recount`, `~/.cache/vote-m2/eighth/src/index.txt`]: Ansolabehere and Reeves's VTP working paper 11 (vote.caltech.edu, 10:35:33 UTC, 200, 134,241 bytes, sha256 2b62face…, equal to the one the listing states) and FairVote's recounts page (10:35:39 UTC, 200, 215,159 bytes, sha256 3bffc3c9…, which differs from the listing's 2b5dbfcf… of 215,078 bytes read at 10:00:09); one request each, six seconds apart; neither file is kept in the repository.
+
+### 21.1 The records between the commits (`c51` §51.1)
+
+162 files changed: 156 of D3's record files (state-lower 102, state-upper 28, local 26), none of D2's, and `README.md`, D3's REPORT, `recount-zone.json`, D3's two notes and `pipeline/local_recount.py` [measured]. Of the 268,354 records in D3's five levels, 267,309 are unchanged and 1,045 carry one zone note each; every one of the 1,045, with its note taken out, equals its record before, field for field (1,045 of 1,045); no record changed without a note; no file held a zone note before; no p moved (0 records whose value differs or whose p appears or disappears) [measured]. The 1,045 are state-lower 611, state-upper 30 and local 404, in 156 files, as D3 says.
+
+### 21.2 MATH §5.10's gain over p (`c51` §51.2)
+
+My own quadrature of §5.10's continuous form (the forecast's normal density of the share, averaged over a logistic of scale rate ÷ 2 centred where p is taken, over the density there) reproduces MATH's table at n 100,000 and sd 0.03 within 0.0009 by both rules [measured]: at a mean of ½, w 10 → 1.0000, 100 → 0.9995, 1,000 → 0.9582, 3,000 → 0.7591, 10,000 → 0.3471 (MATH: 1.000, 1.000, 0.958, 0.760, 0.347); at 0.52: 1.0000, 0.9997, 0.9754, 0.8300, 0.4199 (MATH: 1.000, 1.000, 0.975, 0.830, 0.420). On every 97th row of the listing (156 rows × 3 rates) scipy's rule on the row's rounded centre and sd gives the listing's gain over p within 1 in 10³ in all 468, the worst 1.0 × 10⁻⁴.
+
+### 21.3 The zone on every record (`c51` §51.3)
+
+Of the records at f6434077, 107,111 have p above 0 and a spread (the listing's `records_with_p_above_0`): state-lower 71,816, state-upper 20,511, local 8,313, primary 5,539, measure 932; 77,335 on the forecast's own sd (route (a)) and 29,776 on the device's [measured]. By the rules copied and my own gain over p:
+
+| Rate | Near, mine (the listing) | By level and route | gain ÷ p of those near | Raised in the tails, p at most |
+|---|---|---|---|---|
+| 0.87% | 1,045 (1,045) | state-lower boundary 611, state-upper boundary 30, local class 404: equal | 0.909 to 0.947 (equal) | 1,838, 3.59 × 10⁻⁶ (Wyoming 2008 House 32): equal |
+| 1.06% | 1,086 (1,086) | the same with local class 445: equal | 0.875 to 0.957 (equal) | 3,729, 2.20 × 10⁻⁵ (Kentucky 1975 House 40): equal |
+| 2.49% | 15,122 (15,122) | twelve level-route cells, every count equal | 0.627 to 4.263 (equal) | 17,055, 6.21 × 10⁻⁴: equal |
+
+**The listing's 15,122 rows** are exactly the records I find near at any rate (15,122 in both, none in either alone), and field by field each row's level, route, n, centre, sd, where the sd is from and p equal the record's (15,122 of 15,122); at each of the three rates every row's zone in votes, zone over spread and near flag equal mine and its gain over p is within 1 in 10³ (45,366 of 45,366) [measured]. The floor at 2.49% is 0.6269 (Alaska's 1978 House 20, p 8.7 × 10⁻⁴) and the top 4.2630 (New York's 2020 House 55, p 3.5 × 10⁻¹¹), as D3 says.
+
+**The 1,045 notes**: the records near at 0.87% by my scan are the 1,045 that carry a note (the two sets equal), and my note text, D3's `note_text` copied with my own gain over p, equals the record's note word for word in 1,045 of 1,045 [measured]. The near races are of two classes: 641 state legislative boundaries of "general, 4+ seats at once, both major parties running a full slate" (611 House, 30 Senate; f 19.75 to 23.75, sd 0.0168 to 0.0202; 1971 to 2024; New Hampshire 355, West Virginia 101, Wyoming 38, North Carolina 35, North Dakota 24, South Dakota 23, Alaska, Vermont and Virginia 14 each, Montana 8, South Carolina 6, Maine 3, Hawaii, Nevada and New Jersey 2 each) and 404 local races of "local council, commission or board, nonpartisan, 4+ candidates" (f 17.46 to 17.50, sd 0.0228; 2020 to 2024; Kentucky 2020 232, Virginia 2020 51, Oregon 2024 17, Arkansas 2020 12, South Carolina 2020 11, and 81 more over 21 other state-years); their n runs from 3 to 279,070, median 5,771 [measured], as D3 says. D3's "46 races whose zone is under 2 votes" are the 46 whose zone rounds below 2.0 at the listing's tenth of a vote; by the exact zone 48 are under 2 votes (the two more at 1.96 and 1.98) and 31 under 1.5, where the note's whole vote reads 1 or 0 [measured].
+
+### 21.4 The sources (`c51` §51.4)
+
+**Ansolabehere and Reeves** [measured]: my copy's bytes and sha256 equal the listing's; `pdfinfo` gives 10 pages; all 13 quoted strings are in `pdftotext`'s text, the Table 2 rows among them ("Hand-Counted 92 2.49 (1.44, 3.55) 21.88", "Hand-Counted 79 0.87 (0.69, 1.06) 4.08", "(without Bradford)", "Machine Counted 217 0.56 (0.42, 0.70) 8.27", with the Optech and Accuvote rows beside them), the p. 3 counts on PDF page 5 and the p. 4 rate on PDF page 6 (the printed page is the PDF's less two, as D3 says), and the p. 5 and p. 8 sentences; no licence, copyright, ©, "all rights" or Creative Commons words in the text. **FairVote** [measured]: the page's text holds the three quoted sentences (390 votes of 2,746,593; 239 votes, 0.11 points; the 440-vote swing) and the averages D3 leaves out (551 votes, 0.03%); no licence or copyright words; the page carries three `nonce` attributes and six references to Flourish, so its bytes differ between requests [inferred from the two reads' 81-byte difference and the nonces], which is why my sha256 is not D3's while every figure is. The model's words the notes rest on are where D3 says: MODEL-DRAFT-3 §3's drivers row ("a third the size of the spread", "96% of its value", Minnesota's 2,170 gross against 48,000 to 73,000) and §4's 2,170 gross and 264 net.
+
+### 21.5 Readings
+
+- Everything the orchestrator named is as D3 recorded it: the 1,045 notes each one line on an otherwise unchanged record, no p moved; the zone against n × sd with the device's sd for the like-race routes; the counts 1,045 / 1,086 / 15,122 by level and route, the gain ranges, the tails 1,838 / 3,729 / 17,055 with their p ceilings; the 15,122 rows field by field; the floor 0.627; the paper's figures in the file read apart, against its sha256.
+- Two readings, neither moving anything: (1) FairVote's page hashes differently on each request (nonces), so its sha256 cannot be checked across reads; its text can, and was. (2) the count of zones "under 2 votes" is 46 at the listing's rounding and 48 by the exact zone; it names which notes rest on the continuous form of §5.10 where a count moves in whole votes, and no figure in a note or the listing turns on it.
+- No count fails a test and no p moves; nothing to send at once.
+
+### 21.6 The run
+
+Section 21's own run, appended to `checks/m2/OUTPUT.txt` after section 20's: started 2026-11-13 10:41 UTC at b2e445c0 (the branch with main's f6434077 merged in; the records from the e3e9b921 and f6434077 worktrees), `c51_recount_zone.py` sections 1–4, lines 8225–8296, no traceback [measured]. `run_all.sh` runs c51 after c50.
+
+### 21.7 Files
+
+`checks/m2/c51_recount_zone.py` (sections 1–4), `checks/m2/fetch_eighth_pass.sh` (`recount` branch: the paper and the page, into `~/.cache/vote-m2/eighth/src/recount/`, `index.txt` with each hash), `run_all.sh` to c51.

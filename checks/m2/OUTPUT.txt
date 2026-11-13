@@ -8222,3 +8222,75 @@ C50 (section 20, D3's #113): 11c852dc -> 9ad2d3d5; f45ab6e2
   N: 2018-state-lower-IN-13: before p None 'MEDSL's precinct file (2018-in-precinct-general.zip) gives this district's 2 named candidates 20,524' -> after p 1.54392e-05 'None'; notes 0 -> 1; fields differing: ('forecast_inputs', 'forecasts.count', 'notes', 'p.alongside', 'p.event', 'p.f_half', 'p.forecast_scope', 'p.method')
   B rows (p unchanged, its block changed), by level and the fields: {('local', ('p',)): 846, ('local', ('forecasts', 'p')): 3, ('state-lower', ('p',)): 1833, ('state-upper', ('p',)): 535, ('state-upper', ('forecasts', 'p')): 6}
 
+M2 checks (section 21, its own run): 2026-11-13T10:41Z, repository HEAD b2e445c0, python3 3.13.18
+##### c51_recount_zone
+C51 (section 21): D3's #115, e3e9b921 -> f6434077; b2e445c0
+
+====================================================================================================
+51.1 The records between the commits, e3e9b921 -> f6434077: what changed, each line against the old one with its note taken out, p
+====================================================================================================
+  files changed: 162: D3's record files 156 {'local': 26, 'state-lower': 102, 'state-upper': 28} (D3: 156); D2's [] (none); other: ['data/README.md', 'data/local/REPORT.md', 'data/local/recount-zone.json', 'handoff/memory/d3-local-data.md', 'handoff/workers/D3.md', 'pipeline/local_recount.py']
+  records: {'unchanged': 267309, ('zone notes in the record', 1): 1045, 'equal with the note taken out': 1045}; e.g. []
+  records with a zone note: 1,045 (D3: 1,045) by level {'state-lower': 611, 'state-upper': 30, 'local': 404}; files holding one: 156 (D3: 156)
+  p moved (value before != after, or one side None): 0 [] (the orchestrator: no p moves)
+
+====================================================================================================
+51.2 MATH 5.10's gain over p by my own quadrature: MATH's table (n 100,000, sd 0.03), and the listing's gain over p on a sample
+====================================================================================================
+  mu 0.5 w 10: quad 1.0000, trapezoid 1.0000, MATH 1.0; mu 0.5 w 100: quad 0.9995, trapezoid 0.9995, MATH 1.0; mu 0.5 w 1,000: quad 0.9582, trapezoid 0.9582, MATH 0.958; mu 0.5 w 3,000: quad 0.7591, trapezoid 0.7591, MATH 0.76; mu 0.5 w 10,000: quad 0.3471, trapezoid 0.3471, MATH 0.347; mu 0.52 w 10: quad 1.0000, trapezoid 1.0000, MATH 1.0; mu 0.52 w 100: quad 0.9997, trapezoid 0.9997, MATH 1.0; mu 0.52 w 1,000: quad 0.9754, trapezoid 0.9754, MATH 0.975; mu 0.52 w 3,000: quad 0.8300, trapezoid 0.8300, MATH 0.83; mu 0.52 w 10,000: quad 0.4199, trapezoid 0.4199, MATH 0.42
+  the largest difference from MATH 5.10's table: 0.0009 (D3's check: within 0.002)
+  the listing's gain over p on every 97th row (156 rows x 3 rates; the row's rounded centre and sd, at 1/2) against scipy's quad: {'within 1e-3': 468}; worst (0.00010137943800492266, ('2024-local-AZ-COUNCIL_MEMBER_CITY_OF_FOUNTAIN_HILLS-county_04013', '2.49%', 0.732198620561995, 0.7323))
+  (the listing rounds the centre to 4 and the sd to 5 decimals, so a difference of a few 1e-4 is the rounding; section 3 uses each record's own inputs)
+
+====================================================================================================
+51.3 The zone on every record with p above 0 (the spread, the zone and the near line copied; gain over p by my own trapezoid): the counts, the tails, the listing, the 1,045 notes
+====================================================================================================
+  records with p above 0 and a spread: 107,111 (the listing's records_with_p_above_0: 107,111); by level {'state-lower': 71816, 'state-upper': 20511, 'local': 8313, 'primary': 5539, 'measure': 932}; sd from {'device': 29776, 'own': 77335}
+  0.87%: near 1,045 (the listing: 1,045); by level and route mine {'state-lower, boundary': 611, 'state-upper, boundary': 30, 'local, class': 404} = the listing's: True; gain over p of those near 0.909 to 0.947 (the listing: [0.909, 0.947]); raised in the tails (not near, gain over p 1.04 or more) 1,838 with p at most 3.592e-06 ['2008-state-lower-WY-32'] (the listing: {'races': 1838, 'p_at_most': 3.59186e-06})
+  1.06%: near 1,086 (the listing: 1,086); by level and route mine {'state-lower, boundary': 611, 'state-upper, boundary': 30, 'local, class': 445} = the listing's: True; gain over p of those near 0.875 to 0.957 (the listing: [0.875, 0.957]); raised in the tails (not near, gain over p 1.04 or more) 3,729 with p at most 2.199e-05 ['1975-state-lower-KY-40'] (the listing: {'races': 3729, 'p_at_most': 2.19891e-05})
+  2.49%: near 15,122 (the listing: 15,122); by level and route mine {'state-lower, boundary': 6353, 'state-lower, class': 218, 'state-lower, runoff': 101, 'state-lower, partisan': 2314, 'state-upper, boundary': 334, 'state-upper, class': 170, 'state-upper, runoff': 24, 'state-upper, partisan': 1191, 'local, boundary': 742, 'local, class': 3152, 'primary, runoff': 475, 'primary, class': 48} = the listing's: True; gain over p of those near 0.627 to 4.263 (the listing: [0.627, 4.263]); raised in the tails (not near, gain over p 1.04 or more) 17,055 with p at most 0.0006207 ['1980-state-lower-NH-Strafford_1'] (the listing: {'races': 17055, 'p_at_most': 0.000620677})
+
+  the listing's rows: 15,122 ids (D3: 15,122); mine near at any rate: 15,122; in both: 15,122; the listing's only: []; mine only: []
+  the listing's 15,122 rows against mine, field by field: id, level, route, n, centre, sd, sd_from, p equal: 15,122; ('0.87%', 'zone, ratio, near equal', 'gain within 1e-3'): 15,122; ('1.06%', 'zone, ratio, near equal', 'gain within 1e-3'): 15,122; ('2.49%', 'zone, ratio, near equal', 'gain within 1e-3'): 15,122
+
+  near at 0.87%, mine: 1,045 (D3: 1,045); records carrying a zone note: 1,045; the two sets equal: True
+  my note text (D3's note_text copied, my gain over p) against the record's: {"my note = the record's, word for word": 1045}; e.g. []
+    state-lower boundary 'general, 4+ seats at once, both major parties running a full slate': 611; f 19.75 to 23.75 (sd 0.0168 to 0.0202); years 1971-2024; by state: {'NH': 355, 'WV': 101, 'WY': 38, 'NC': 34, 'ND': 21, 'SD': 18, 'VA': 14, 'AK': 13}... (11 keys)
+    local class 'local council, commission or board, nonpartisan, 4+ candidates': 404; f 17.46 to 17.50 (sd 0.0228 to 0.0228); years 2020-2024; by state and year: {'KY 2020': 232, 'VA 2020': 51, 'OR 2024': 17, 'AR 2020': 12, 'SC 2020': 11, 'RI 2024': 8, 'SC 2024': 8, 'WV 2024': 8}... (26 keys)
+    state-upper boundary 'general, 4+ seats at once, both major parties running a full slate': 30; f 19.75 to 23.75 (sd 0.0168 to 0.0202); years 1971-2020; by state: {'VT': 14, 'SD': 5, 'ND': 3, 'NJ': 2, 'NV': 2, 'HI': 2, 'AK': 1, 'NC': 1}... (8 keys)
+  n of the near races: 3 to 279,070, median 5,771 (D3: 3 to 279,070, median 5,771); zone at 0.87% under 2 votes: 48, under 1.95 (the listing's tenth rounds below 2): 46, under 1.5 (the note's whole vote reads 1 or 0): 31 (D3: 46 'under 2 votes'); the largest of them [(1.89, '2020-local-KY-MANOR_CREEK_COMMISSIONER_MANOR_CREEK-county_21111'), (1.96, '2020-local-KY-CITY_COUNCIL_CITY_OF_WAVERLY-county_21225'), (1.97, '2020-local-KY-CITY_COUNCIL_CITY_OF_HAZEL-county_21035')]
+  at 2.49%: the floor (0.6269170792271741, '1978-state-lower-AK-20', 0.000873077) (D3: 0.627, Alaska's 1978 House 20); the top (4.262994589841414, '2020-state-lower-NY-55', 3.46783e-11) (D3: 4.263, New York's 2020 House 55, p 3.5e-11)
+
+====================================================================================================
+51.4 The sources read apart (fetch_eighth_pass.sh recount, one request each): hashes, the quoted figures, the licence words, the model's Minnesota figures
+====================================================================================================
+  ansolabehere_reeves: my copy 134,241 bytes, sha256 2b62faced09d... EQUAL to the listing's (134,241 bytes, 2b62faced09d...)
+    pdfinfo pages: 10 (D3: a 10-page PDF); title line: ['CALTECH/MIT', 'VOTING TECHNOLOGY PROJECT']
+    quoted words found: 13 of 13; missing: []
+    licence words in the text: {'licen': 0, 'copyright': 0, '©': 0, 'all rights': 0, 'creative commons': 0} (D3: none printed)
+    Table 2's words: Table 2 Tabulation Error Rates of Hand-Counted and Scan Ballots New Hampshire 2002 General Election N Weighted 95 % Con¯dence Maximum¤ Average Interval Hand-Counted 92 2.49 (1.44, 3.55) 21.88 Hand-Counted 79 0.87 (0.69, 1.06) 4.08 (without Bradford) Machine Counted 217 0.56 (0.42, 0.70) 8.27 OPTECH 21 0.55 (0.40, 0.70) 1.36 ACCUVOTE 196 0.56 (0.41, 0.71) 8.27 ¤ The minimum value is 0 in all cases. The re
+      '108 races' on PDF page(s) [5]
+      '(69)' on PDF page(s) [5]
+      '415 cases' on PDF page(s) [5]
+      '0.83 percentage' on PDF page(s) [6]
+      '0.61 to 1.05' on PDF page(s) [6]
+  fairvote: my copy 215,159 bytes, sha256 3bffc3c98f60... DIFFERS from the listing's (215,078 bytes, 2b5dbfcfccca...)
+    the page: 'nonce' attributes 3 (a value set per request [inferred]), 'flourish' 6, title 'An analysis of statewide election recounts, 2000-2023 - FairVote'
+    quoted words found: 4 of 4; missing: []
+    licence words in the text: {'licen': 0, 'copyright': 0, '©': 0, 'all rights': 0, 'creative commons': 0} (D3: none printed)
+      '390 votes': votes out of 2,746,593 votes cast, or 0.005%. The recount shifted the margin by 390 votes, a change of 0.01 percentage points. Vermont’s state auditor race in 2006 initi
+      '239 votes': gin of 102 votes, or 0.05%. The recount changed the margin in Salmon’s favor by 239 votes, a change of 0.11 percentage points. Most of the changes occurred in localities
+      '440-vote': ots, Franken finished with 225 more votes than Coleman. The recount delivered a 440-vote swing to Franken, just 0.02% of the total votes between the two candidates. Clo
+      '551': all number of votes : Statewide recounts resulted in an average margin shift of 551 votes between the frontrunners, representing 0.03% of the vote. Recounts typica
+      '0.03%':  in an average margin shift of 551 votes between the frontrunners, representing 0.03% of the vote. Recounts typically widen the gap between the top two candidates in
+  model/MODEL-DRAFT-3.md: '2,170' on lines [65, 90]
+  model/MODEL-DRAFT-3.md: '264' on lines [90, 175]
+  model/MODEL-DRAFT-3.md: '48,000 to 73,000' on lines [65]
+  model/MODEL-DRAFT-3.md: 'a third the size of the spread' on lines [65]
+  model/MODEL-DRAFT-3.md: '96% of its value' on lines [65]
+  model/MATH.md: '2,170' on lines []
+  model/MATH.md: '264' on lines [51]
+  model/MATH.md: '48,000 to 73,000' on lines []
+  model/MATH.md: 'a third the size of the spread' on lines []
+  model/MATH.md: '96% of its value' on lines []
+
