@@ -1,0 +1,4277 @@
+{
+ "about": "M2's list of Klarner districts 5% or more off MEDSL (checks/m2/c38-districts.json) beside data/local/check-districts.json (the orchestrator, 2026-11-07 22:19, item 2)",
+ "tally": {
+  "M2 only: candidates not paired": 2,
+  "M2 only: matched to several": 1,
+  "M2 only: settled before this check": 26,
+  "M2 only: unmatched": 32,
+  "M2 only: within 3% here": 80,
+  "both": 108
+ },
+ "flags_not_on_m2s_list": {
+  "2016: (a) off 3% to 5%, under M2's line": 14,
+  "2016: (a) off 5% or more on the named candidates; M2's by D+R or every vote, or matched by code": 63,
+  "2016: (b) only: M2 does not test an uncontested record": 11,
+  "2018: (a) off 3% to 5%, under M2's line": 6,
+  "2018: (a) off 5% or more on the named candidates; M2's by D+R or every vote, or matched by code": 13,
+  "2018: (b) only: M2 does not test an uncontested record": 40,
+  "2022: (a) off 3% to 5%, under M2's line": 5,
+  "2022: (a) off 5% or more on the named candidates; M2's by D+R or every vote, or matched by code": 52,
+  "2022: (b) only: M2 does not test an uncontested record": 48
+ },
+ "m2": [
+  {
+   "year": 2016,
+   "state": "AK",
+   "chamber": "state-lower",
+   "district": "40",
+   "m2": {
+    "klarner": 2984,
+    "medsl": 3816,
+    "off": -0.218,
+    "by": "all"
+   },
+   "ids": [
+    "2016-AK-lower--40--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 2,984, MEDSL 2,984 (district '40'); M2 reads MEDSL's rows of the district's code (all): 3,816 against Klarner's 2,984"
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "14",
+   "m2": {
+    "klarner": 11258,
+    "medsl": 5867,
+    "off": 0.9189,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AR-lower--14--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "18",
+   "m2": {
+    "klarner": 11587,
+    "medsl": 6499,
+    "off": 0.7829,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AR-lower--18--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "29",
+   "m2": {
+    "klarner": 7922,
+    "medsl": 1078,
+    "off": 6.3488,
+    "by": "all"
+   },
+   "ids": [
+    "2016-AR-lower--29--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "33",
+   "m2": {
+    "klarner": 12155,
+    "medsl": 2683,
+    "off": 3.5304,
+    "by": "all"
+   },
+   "ids": [
+    "2016-AR-lower--33--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "42",
+   "m2": {
+    "klarner": 8722,
+    "medsl": 3622,
+    "off": 1.4081,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AR-lower--42--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "49",
+   "m2": {
+    "klarner": 9950,
+    "medsl": 5539,
+    "off": 0.7964,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AR-lower--49--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "77",
+   "m2": {
+    "klarner": 10184,
+    "medsl": 7133,
+    "off": 0.4277,
+    "by": "all"
+   },
+   "ids": [
+    "2016-AR-lower--77--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "9",
+   "m2": {
+    "klarner": 6519,
+    "medsl": 15327,
+    "off": -0.5747,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AR-lower--9--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AR-lower--9-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "1",
+   "m2": {
+    "klarner": 169801,
+    "medsl": 119237,
+    "off": 0.4241,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-lower--1--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-lower--1-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "12",
+   "m2": {
+    "klarner": 133278,
+    "medsl": 1179,
+    "off": 112.0433,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-lower--12--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-lower--12-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "13",
+   "m2": {
+    "klarner": 121947,
+    "medsl": 37901,
+    "off": 2.2175,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-lower--13--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-lower--13-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "16",
+   "m2": {
+    "klarner": 153271,
+    "medsl": 55959,
+    "off": 1.739,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-lower--16--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-lower--16-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "4",
+   "m2": {
+    "klarner": 57549,
+    "medsl": 38247,
+    "off": 0.5047,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-lower--4--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-lower--4-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "5",
+   "m2": {
+    "klarner": 117492,
+    "medsl": 109693,
+    "off": 0.0711,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-lower--5--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-lower--5-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "6",
+   "m2": {
+    "klarner": 140859,
+    "medsl": 82301,
+    "off": 0.7115,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-lower--6--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-lower--6-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "7",
+   "m2": {
+    "klarner": 78659,
+    "medsl": 62982,
+    "off": 0.2489,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-lower--7--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-lower--7-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "1",
+   "m2": {
+    "klarner": 87011,
+    "medsl": 60665,
+    "off": 0.4343,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-upper--1--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-upper--1-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "12",
+   "m2": {
+    "klarner": 106534,
+    "medsl": 987,
+    "off": 106.9372,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-upper--12--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-upper--12-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "13",
+   "m2": {
+    "klarner": 62124,
+    "medsl": 18888,
+    "off": 2.2891,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-upper--13--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-upper--13-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "16",
+   "m2": {
+    "klarner": 86276,
+    "medsl": 31925,
+    "off": 1.7025,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-upper--16--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-upper--16-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "4",
+   "m2": {
+    "klarner": 37668,
+    "medsl": 25163,
+    "off": 0.497,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-AZ-upper--4--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-AZ-upper--4-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "145",
+   "m2": {
+    "klarner": 6423,
+    "medsl": 5203,
+    "off": 0.2345,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-CT-lower--145--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 6,423, MEDSL 6,423 (district '145'); M2 reads MEDSL's rows of the district's code (D+R): 5,203 against Klarner's 6,423"
+  },
+  {
+   "year": 2016,
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "52",
+   "m2": {
+    "klarner": 10837,
+    "medsl": 11424,
+    "off": -0.0514,
+    "by": "all"
+   },
+   "ids": [
+    "2016-CT-lower--52--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 11,424, MEDSL 11,424 (district '52'); M2 reads MEDSL's rows of the district's code (all): 11,424 against Klarner's 10,837"
+  },
+  {
+   "year": 2016,
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "90",
+   "m2": {
+    "klarner": 11911,
+    "medsl": 23233,
+    "off": -0.4873,
+    "by": "all"
+   },
+   "ids": [
+    "2016-CT-lower--90--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-CT-lower--90-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "18",
+   "m2": {
+    "klarner": 26342,
+    "medsl": 10911,
+    "off": 1.4143,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--18--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-IN-lower--18-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "23",
+   "m2": {
+    "klarner": 22471,
+    "medsl": 10524,
+    "off": 1.1352,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--23--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-IN-lower--23-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "30",
+   "m2": {
+    "klarner": 26548,
+    "medsl": 23608,
+    "off": 0.1245,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--30--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-IN-lower--30-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "31",
+   "m2": {
+    "klarner": 23226,
+    "medsl": 8639,
+    "off": 1.6885,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--31--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-IN-lower--31-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "32",
+   "m2": {
+    "klarner": 29529,
+    "medsl": 24049,
+    "off": 0.2279,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--32--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-IN-lower--32-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "42",
+   "m2": {
+    "klarner": 26335,
+    "medsl": 27821,
+    "off": -0.0534,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--42--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 26,335, MEDSL 25,684 (district '42'); M2 reads MEDSL's rows of the district's code (D+R): 27,821 against Klarner's 26,335"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "47",
+   "m2": {
+    "klarner": 30299,
+    "medsl": 23427,
+    "off": 0.2933,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--47--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "54",
+   "m2": {
+    "klarner": 24331,
+    "medsl": 20086,
+    "off": 0.2113,
+    "by": "all"
+   },
+   "ids": [
+    "2016-IN-lower--54--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "55",
+   "m2": {
+    "klarner": 26597,
+    "medsl": 24189,
+    "off": 0.0995,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--55--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-IN-lower--55-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "58",
+   "m2": {
+    "klarner": 28829,
+    "medsl": 19213,
+    "off": 0.5005,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--58--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "61",
+   "m2": {
+    "klarner": 19816,
+    "medsl": 21444,
+    "off": -0.0759,
+    "by": "all"
+   },
+   "ids": [
+    "2016-IN-lower--61--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 19,816, MEDSL 19,837 (district '61'); M2 reads MEDSL's rows of the district's code (all): 21,444 against Klarner's 19,816"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-lower",
+   "district": "93",
+   "m2": {
+    "klarner": 27330,
+    "medsl": 25159,
+    "off": 0.0863,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-lower--93--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-IN-lower--93-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "IN",
+   "chamber": "state-upper",
+   "district": "36",
+   "m2": {
+    "klarner": 50094,
+    "medsl": 45094,
+    "off": 0.1109,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-IN-upper--36--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-IN-upper--36-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "19",
+   "m2": {
+    "klarner": 18069,
+    "medsl": 19438,
+    "off": -0.0704,
+    "by": "all"
+   },
+   "ids": [
+    "2016-KY-lower--19--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-KY-lower--19-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "20",
+   "m2": {
+    "klarner": 14701,
+    "medsl": 13332,
+    "off": 0.1027,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-KY-lower--20--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-KY-lower--20-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "28",
+   "m2": {
+    "klarner": 16807,
+    "medsl": 349,
+    "off": 47.1576,
+    "by": "all"
+   },
+   "ids": [
+    "2016-KY-lower--28--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-KY-lower--28-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "32",
+   "m2": {
+    "klarner": 15243,
+    "medsl": 16398,
+    "off": -0.0704,
+    "by": "all"
+   },
+   "ids": [
+    "2016-KY-lower--32--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-KY-lower--32-- (a, noted)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "34",
+   "m2": {
+    "klarner": 19596,
+    "medsl": 21078,
+    "off": -0.0703,
+    "by": "all"
+   },
+   "ids": [
+    "2016-KY-lower--34--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-KY-lower--34-- (a, noted)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "35",
+   "m2": {
+    "klarner": 13913,
+    "medsl": 14664,
+    "off": -0.0512,
+    "by": "all"
+   },
+   "ids": [
+    "2016-KY-lower--35--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 13,913, MEDSL 14,290 (district '35'); M2 reads MEDSL's rows of the district's code (all): 14,664 against Klarner's 13,913"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "67",
+   "m2": {
+    "klarner": 9232,
+    "medsl": 14777,
+    "off": -0.3752,
+    "by": "all"
+   },
+   "ids": [
+    "2016-KY-lower--67--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-KY-lower--67-- (b, held)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "99",
+   "m2": {
+    "klarner": 16884,
+    "medsl": 14179,
+    "off": 0.1908,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-KY-lower--99--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-KY-lower--99-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "19",
+   "m2": {
+    "klarner": 63240,
+    "medsl": 76586,
+    "off": -0.1743,
+    "by": "all"
+   },
+   "ids": [
+    "2016-KY-upper--19--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-KY-upper--19-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "33",
+   "m2": {
+    "klarner": 41020,
+    "medsl": 34588,
+    "off": 0.186,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-KY-upper--33--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 41,020, MEDSL 41,030 (district '33'); M2 reads MEDSL's rows of the district's code (D+R): 34,588 against Klarner's 41,020"
+  },
+  {
+   "year": 2016,
+   "state": "MA",
+   "chamber": "state-lower",
+   "district": "essex 12",
+   "m2": {
+    "klarner": 28262,
+    "medsl": 16480,
+    "off": 0.7149,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-MA-lower-essex-12--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "MA",
+   "chamber": "state-lower",
+   "district": "plymouth 9",
+   "m2": {
+    "klarner": 16627,
+    "medsl": 12091,
+    "off": 0.3752,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-MA-lower-plymouth-9--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-MA-lower-plymouth-9-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "MA",
+   "chamber": "state-lower",
+   "district": "worcester 3",
+   "m2": {
+    "klarner": 22599,
+    "medsl": 13498,
+    "off": 0.6742,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-MA-lower-worcester-3--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "132",
+   "m2": {
+    "klarner": 5121,
+    "medsl": 4242,
+    "off": 0.2072,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--132--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--132-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "136",
+   "m2": {
+    "klarner": 4631,
+    "medsl": 48,
+    "off": 95.4792,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--136--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--136-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "16",
+   "m2": {
+    "klarner": 5501,
+    "medsl": 178,
+    "off": 29.9045,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--16--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--16-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "27",
+   "m2": {
+    "klarner": 5702,
+    "medsl": 4966,
+    "off": 0.1482,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--27--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--27-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "32",
+   "m2": {
+    "klarner": 4184,
+    "medsl": 3906,
+    "off": 0.0712,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--32--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--32-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "4",
+   "m2": {
+    "klarner": 5649,
+    "medsl": 1613,
+    "off": 2.5022,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--4--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--4-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "42",
+   "m2": {
+    "klarner": 4735,
+    "medsl": 5714,
+    "off": -0.1713,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--42--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--42-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "51",
+   "m2": {
+    "klarner": 4636,
+    "medsl": 2755,
+    "off": 0.6828,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--51--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--51-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "64",
+   "m2": {
+    "klarner": 5129,
+    "medsl": 3487,
+    "off": 0.4709,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--64--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--64-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "80",
+   "m2": {
+    "klarner": 4857,
+    "medsl": 767,
+    "off": 5.3325,
+    "by": "all"
+   },
+   "ids": [
+    "2016-ME-lower--80--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--80-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "97",
+   "m2": {
+    "klarner": 5349,
+    "medsl": 3844,
+    "off": 0.3915,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-lower--97--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-lower--97-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "11",
+   "m2": {
+    "klarner": 23085,
+    "medsl": 3913,
+    "off": 4.8996,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-upper--11--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "15",
+   "m2": {
+    "klarner": 19670,
+    "medsl": 8864,
+    "off": 1.2191,
+    "by": "all"
+   },
+   "ids": [
+    "2016-ME-upper--15--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--15-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "20",
+   "m2": {
+    "klarner": 21261,
+    "medsl": 11610,
+    "off": 0.8313,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-upper--20--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--20-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "24",
+   "m2": {
+    "klarner": 24889,
+    "medsl": 3387,
+    "off": 6.3484,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-upper--24--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--24-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "25",
+   "m2": {
+    "klarner": 26793,
+    "medsl": 2653,
+    "off": 9.0991,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-upper--25--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--25-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "29",
+   "m2": {
+    "klarner": 21880,
+    "medsl": 13884,
+    "off": 0.5759,
+    "by": "all"
+   },
+   "ids": [
+    "2016-ME-upper--29--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--29-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "30",
+   "m2": {
+    "klarner": 24581,
+    "medsl": 9586,
+    "off": 1.5643,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-upper--30--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--30-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "31",
+   "m2": {
+    "klarner": 21375,
+    "medsl": 10705,
+    "off": 0.9967,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-upper--31--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--31-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "33",
+   "m2": {
+    "klarner": 19594,
+    "medsl": 9883,
+    "off": 0.9826,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-upper--33--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--33-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "7",
+   "m2": {
+    "klarner": 23694,
+    "medsl": 4309,
+    "off": 4.4987,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ME-upper--7--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-ME-upper--7-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "11",
+   "m2": {
+    "klarner": 36480,
+    "medsl": 94923,
+    "off": -0.6157,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-MI-lower--11--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-MI-lower--11-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "28",
+   "m2": {
+    "klarner": 34194,
+    "medsl": 67519,
+    "off": -0.4936,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-MI-lower--28--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-MI-lower--28-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "MT",
+   "chamber": "state-upper",
+   "district": "26",
+   "m2": {
+    "klarner": 7638,
+    "medsl": 13461,
+    "off": -0.4326,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-MT-upper--26--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-MT-upper--26-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "8",
+   "m2": {
+    "klarner": 14747,
+    "medsl": 13153,
+    "off": 0.1212,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-ND-lower--8--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 14,747, MEDSL 14,747 (district '8'); M2 reads MEDSL's rows of the district's code (D+R): 13,153 against Klarner's 14,747"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "107",
+   "m2": {
+    "klarner": 54504,
+    "medsl": 48163,
+    "off": 0.1317,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--107--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-NY-lower--107-- (a+b, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "117",
+   "m2": {
+    "klarner": 37418,
+    "medsl": 39,
+    "off": 958.4359,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--117--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "125",
+   "m2": {
+    "klarner": 50680,
+    "medsl": 58220,
+    "off": -0.1295,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--125--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-NY-lower--125-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "17",
+   "m2": {
+    "klarner": 57728,
+    "medsl": 81295,
+    "off": -0.2899,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--17--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-NY-lower--17-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "18",
+   "m2": {
+    "klarner": 42041,
+    "medsl": 37011,
+    "off": 0.1359,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--18--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "33",
+   "m2": {
+    "klarner": 44662,
+    "medsl": 40212,
+    "off": 0.1107,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--33--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 45,576, MEDSL 45,576 (district '33'); M2 reads MEDSL's rows of the district's code (D+R): 40,212 against Klarner's 44,662"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "42",
+   "m2": {
+    "klarner": 37941,
+    "medsl": 34379,
+    "off": 0.1036,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--42--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 37,941, MEDSL 37,941 (district '42'); M2 reads MEDSL's rows of the district's code (D+R): 34,379 against Klarner's 37,941"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "44",
+   "m2": {
+    "klarner": 40700,
+    "medsl": 34779,
+    "off": 0.1702,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--44--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 40,700, MEDSL 40,700 (district '44'); M2 reads MEDSL's rows of the district's code (D+R): 34,779 against Klarner's 40,700"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "51",
+   "m2": {
+    "klarner": 27469,
+    "medsl": 24181,
+    "off": 0.136,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--51--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 27,469, MEDSL 27,469 (district '51'); M2 reads MEDSL's rows of the district's code (D+R): 24,181 against Klarner's 27,469"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "52",
+   "m2": {
+    "klarner": 62724,
+    "medsl": 57578,
+    "off": 0.0894,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--52--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 62,724, MEDSL 62,724 (district '52'); M2 reads MEDSL's rows of the district's code (D+R): 57,578 against Klarner's 62,724"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "62",
+   "m2": {
+    "klarner": 44451,
+    "medsl": 47155,
+    "off": -0.0573,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--62--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 44,451, MEDSL 44,451 (district '62'); M2 reads MEDSL's rows of the district's code (all): 47,155 against Klarner's 44,451"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "63",
+   "m2": {
+    "klarner": 34559,
+    "medsl": 36970,
+    "off": -0.0652,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--63--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 34,559, MEDSL 34,559 (district '63'); M2 reads MEDSL's rows of the district's code (all): 36,970 against Klarner's 34,559"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "64",
+   "m2": {
+    "klarner": 34533,
+    "medsl": 36884,
+    "off": -0.0637,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--64--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 34,533, MEDSL 34,533 (district '64'); M2 reads MEDSL's rows of the district's code (all): 36,884 against Klarner's 34,533"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "67",
+   "m2": {
+    "klarner": 60992,
+    "medsl": 52482,
+    "off": 0.1622,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--67--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 60,992, MEDSL 60,992 (district '67'); M2 reads MEDSL's rows of the district's code (D+R): 52,482 against Klarner's 60,992"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "68",
+   "m2": {
+    "klarner": 42679,
+    "medsl": 38759,
+    "off": 0.1011,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--68--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 42,679, MEDSL 42,679 (district '68'); M2 reads MEDSL's rows of the district's code (D+R): 38,759 against Klarner's 42,679"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "70",
+   "m2": {
+    "klarner": 48497,
+    "medsl": 45048,
+    "off": 0.0766,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--70--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 48,497, MEDSL 48,497 (district '70'); M2 reads MEDSL's rows of the district's code (D+R): 45,048 against Klarner's 48,497"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "71",
+   "m2": {
+    "klarner": 46699,
+    "medsl": 43183,
+    "off": 0.0814,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-lower--71--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 46,699, MEDSL 46,699 (district '71'); M2 reads MEDSL's rows of the district's code (D+R): 43,183 against Klarner's 46,699"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "73",
+   "m2": {
+    "klarner": 56073,
+    "medsl": 61182,
+    "off": -0.0835,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--73--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 56,657, MEDSL 56,657 (district '73'); M2 reads MEDSL's rows of the district's code (all): 61,182 against Klarner's 56,073"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "74",
+   "m2": {
+    "klarner": 47241,
+    "medsl": 51559,
+    "off": -0.0837,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--74--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 48,810, MEDSL 48,810 (district '74'); M2 reads MEDSL's rows of the district's code (all): 51,559 against Klarner's 47,241"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "75",
+   "m2": {
+    "klarner": 54648,
+    "medsl": 58545,
+    "off": -0.0666,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--75--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 54,648, MEDSL 54,648 (district '75'); M2 reads MEDSL's rows of the district's code (all): 58,545 against Klarner's 54,648"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "76",
+   "m2": {
+    "klarner": 55160,
+    "medsl": 58574,
+    "off": -0.0583,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-lower--76--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 55,160, MEDSL 55,160 (district '76'); M2 reads MEDSL's rows of the district's code (all): 58,574 against Klarner's 55,160"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "12",
+   "m2": {
+    "klarner": 95737,
+    "medsl": 82328,
+    "off": 0.1629,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-upper--12--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 95,737, MEDSL 95,737 (district '12'); M2 reads MEDSL's rows of the district's code (D+R): 82,328 against Klarner's 95,737"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "13",
+   "m2": {
+    "klarner": 69058,
+    "medsl": 59896,
+    "off": 0.153,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-upper--13--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 69,058, MEDSL 69,058 (district '13'); M2 reads MEDSL's rows of the district's code (D+R): 59,896 against Klarner's 69,058"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "20",
+   "m2": {
+    "klarner": 95978,
+    "medsl": 90272,
+    "off": 0.0632,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-upper--20--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 95,978, MEDSL 95,978 (district '20'); M2 reads MEDSL's rows of the district's code (D+R): 90,272 against Klarner's 95,978"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "22",
+   "m2": {
+    "klarner": 62033,
+    "medsl": 65589,
+    "off": -0.0542,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-upper--22--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 62,033, MEDSL 62,033 (district '22'); M2 reads MEDSL's rows of the district's code (all): 65,589 against Klarner's 62,033"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "24",
+   "m2": {
+    "klarner": 107357,
+    "medsl": 114350,
+    "off": -0.0612,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-upper--24--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 107,357, MEDSL 107,357 (district '24'); M2 reads MEDSL's rows of the district's code (all): 114,350 against Klarner's 107,357"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "28",
+   "m2": {
+    "klarner": 134905,
+    "medsl": 144528,
+    "off": -0.0666,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-upper--28--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 134,905, MEDSL 134,905 (district '28'); M2 reads MEDSL's rows of the district's code (all): 144,528 against Klarner's 134,905"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "29",
+   "m2": {
+    "klarner": 62352,
+    "medsl": 87974,
+    "off": -0.2912,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-upper--29--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-NY-upper--29-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "5",
+   "m2": {
+    "klarner": 146291,
+    "medsl": 235646,
+    "off": -0.3792,
+    "by": "all"
+   },
+   "ids": [
+    "2016-NY-upper--5--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-NY-upper--5-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "53",
+   "m2": {
+    "klarner": 82524,
+    "medsl": 168609,
+    "off": -0.5106,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-NY-upper--53--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-NY-upper--53-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "SC",
+   "chamber": "state-lower",
+   "district": "109",
+   "m2": {
+    "klarner": 11126,
+    "medsl": 9265,
+    "off": 0.2009,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-SC-lower--109--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-SC-lower--109-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "SC",
+   "chamber": "state-lower",
+   "district": "113",
+   "m2": {
+    "klarner": 10617,
+    "medsl": 9104,
+    "off": 0.1662,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-SC-lower--113--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-SC-lower--113-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "SD",
+   "chamber": "state-lower",
+   "district": "19",
+   "m2": {
+    "klarner": 17297,
+    "medsl": 14519,
+    "off": 0.1913,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-SD-lower--19--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "SD",
+   "chamber": "state-lower",
+   "district": "27",
+   "m2": {
+    "klarner": 10835,
+    "medsl": 8216,
+    "off": 0.3188,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-SD-lower--27--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "SD",
+   "chamber": "state-lower",
+   "district": "35",
+   "m2": {
+    "klarner": 13758,
+    "medsl": 9478,
+    "off": 0.4516,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-SD-lower--35--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "1",
+   "m2": {
+    "klarner": 13601,
+    "medsl": 14457,
+    "off": -0.0592,
+    "by": "all"
+   },
+   "ids": [
+    "2016-UT-lower--1--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-UT-lower--1-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "29",
+   "m2": {
+    "klarner": 16066,
+    "medsl": 15106,
+    "off": 0.0636,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-UT-lower--29--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-UT-lower--29-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "3",
+   "m2": {
+    "klarner": 13325,
+    "medsl": 4855,
+    "off": 1.7446,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-UT-lower--3--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-UT-lower--3-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-lower",
+   "district": "34",
+   "m2": {
+    "klarner": 12043,
+    "medsl": 11342,
+    "off": 0.0618,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-UT-lower--34--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2016-UT-lower--34-- (a, held)"
+  },
+  {
+   "year": 2016,
+   "state": "UT",
+   "chamber": "state-upper",
+   "district": "19",
+   "m2": {
+    "klarner": 37375,
+    "medsl": 41390,
+    "off": -0.097,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-UT-upper--19--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2016,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "39",
+   "m2": {
+    "klarner": 121913,
+    "medsl": 98581,
+    "off": 0.2367,
+    "by": "D+R"
+   },
+   "ids": [
+    "2016-WA-lower--39--1",
+    "2016-WA-lower--39--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 60,809, MEDSL 60,792 (district '39'); M2 reads MEDSL's rows of the district's code (D+R): 98,581 against Klarner's 121,913"
+  },
+  {
+   "year": 2018,
+   "state": "AZ",
+   "chamber": "state-lower",
+   "district": "18",
+   "m2": {
+    "klarner": 142823,
+    "medsl": 187092,
+    "off": -0.2366,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-AZ-lower--18--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 142,823, MEDSL 142,823 (district '018'); M2 reads MEDSL's rows of the district's code (D+R): 187,092 against Klarner's 142,823"
+  },
+  {
+   "year": 2018,
+   "state": "CT",
+   "chamber": "state-lower",
+   "district": "1",
+   "m2": {
+    "klarner": 441,
+    "medsl": 4419,
+    "off": -0.9002,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-CT-lower--1--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-CT-lower--1-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "36",
+   "m2": {
+    "klarner": 57841,
+    "medsl": 180597,
+    "off": -0.6797,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-FL-lower--36--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 57,841, MEDSL 57,841 (district '036'); M2 reads MEDSL's rows of the district's code (D+R): 180,597 against Klarner's 57,841"
+  },
+  {
+   "year": 2018,
+   "state": "FL",
+   "chamber": "state-lower",
+   "district": "40",
+   "m2": {
+    "klarner": 58557,
+    "medsl": 228549,
+    "off": -0.7438,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-FL-lower--40--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 58,557, MEDSL 58,557 (district '040'); M2 reads MEDSL's rows of the district's code (D+R): 228,549 against Klarner's 58,557"
+  },
+  {
+   "year": 2018,
+   "state": "KS",
+   "chamber": "state-lower",
+   "district": "117",
+   "m2": {
+    "klarner": 7974,
+    "medsl": 7173,
+    "off": 0.1117,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-KS-lower--117--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-KS-lower--117-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "KY",
+   "chamber": "state-lower",
+   "district": "54",
+   "m2": {
+    "klarner": 13401,
+    "medsl": 10360,
+    "off": 0.2935,
+    "by": "all"
+   },
+   "ids": [
+    "2018-KY-lower--54--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2018,
+   "state": "KY",
+   "chamber": "state-upper",
+   "district": "38",
+   "m2": {
+    "klarner": 37998,
+    "medsl": 35669,
+    "off": 0.0653,
+    "by": "all"
+   },
+   "ids": [
+    "2018-KY-upper--38--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "101",
+   "m2": {
+    "klarner": 4056,
+    "medsl": 1542,
+    "off": 1.6304,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-ME-lower--101--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "114",
+   "m2": {
+    "klarner": 4029,
+    "medsl": 5058,
+    "off": -0.2034,
+    "by": "all"
+   },
+   "ids": [
+    "2018-ME-lower--114--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-ME-lower--114-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "119",
+   "m2": {
+    "klarner": 3950,
+    "medsl": 1753,
+    "off": 1.2533,
+    "by": "all"
+   },
+   "ids": [
+    "2018-ME-lower--119--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-ME-lower--119-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "121",
+   "m2": {
+    "klarner": 3351,
+    "medsl": 5494,
+    "off": -0.3901,
+    "by": "all"
+   },
+   "ids": [
+    "2018-ME-lower--121--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-ME-lower--121-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "125",
+   "m2": {
+    "klarner": 3164,
+    "medsl": 2372,
+    "off": 0.3339,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-ME-lower--125--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-ME-lower--125-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-lower",
+   "district": "61",
+   "m2": {
+    "klarner": 2578,
+    "medsl": 3511,
+    "off": -0.2657,
+    "by": "all"
+   },
+   "ids": [
+    "2018-ME-lower--61--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-ME-lower--61-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "ME",
+   "chamber": "state-upper",
+   "district": "5",
+   "m2": {
+    "klarner": 14644,
+    "medsl": 20499,
+    "off": -0.2856,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-ME-upper--5--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "102",
+   "m2": {
+    "klarner": 53561,
+    "medsl": 48441,
+    "off": 0.1057,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-NY-lower--102--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-NY-lower--102-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "126",
+   "m2": {
+    "klarner": 53822,
+    "medsl": 47194,
+    "off": 0.1404,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-NY-lower--126--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-NY-lower--126-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "132",
+   "m2": {
+    "klarner": 38269,
+    "medsl": 35271,
+    "off": 0.085,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-NY-lower--132--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-NY-lower--132-- (a+b, noted)"
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "145",
+   "m2": {
+    "klarner": 31884,
+    "medsl": 24927,
+    "off": 0.2791,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-NY-lower--145--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-NY-lower--145-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2018,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "9",
+   "m2": {
+    "klarner": 118829,
+    "medsl": 110580,
+    "off": 0.0746,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-NY-upper--9--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-NY-upper--9-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "OH",
+   "chamber": "state-lower",
+   "district": "80",
+   "m2": {
+    "klarner": 42255,
+    "medsl": 48429,
+    "off": -0.1275,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-OH-lower--80--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-OH-lower--80-- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "RI",
+   "chamber": "state-lower",
+   "district": "73",
+   "m2": {
+    "klarner": 4058,
+    "medsl": 3852,
+    "off": 0.0535,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-RI-lower--73--"
+   ],
+   "here": "M2 only: candidates not paired",
+   "reason": "its candidates do not pair one to one; untested here"
+  },
+  {
+   "year": 2018,
+   "state": "SC",
+   "chamber": "state-lower",
+   "district": "80",
+   "m2": {
+    "klarner": 9722,
+    "medsl": 2794,
+    "off": 2.4796,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-SC-lower--80--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-SC-lower--80-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-lower",
+   "district": "rutland 6",
+   "m2": {
+    "klarner": 5469,
+    "medsl": 4527,
+    "off": 0.2081,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-VT-lower-rutland-6--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 5,469, MEDSL 5,469 (district 'RUT-6'); M2 reads MEDSL's rows of the district's code (D+R): 4,527 against Klarner's 5,469"
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "bennington ",
+   "m2": {
+    "klarner": 27845,
+    "medsl": 20259,
+    "off": 0.3745,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-VT-upper-bennington---"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-VT-upper-bennington--- (a, held)"
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "chittenden ",
+   "m2": {
+    "klarner": 1020473,
+    "medsl": 256558,
+    "off": 2.9776,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-VT-upper-chittenden---"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "franklin ",
+   "m2": {
+    "klarner": 34612,
+    "medsl": 29863,
+    "off": 0.159,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-VT-upper-franklin---"
+   ],
+   "here": "M2 only: matched to several",
+   "reason": "several MEDSL contests name all its candidates; untested here"
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "grandisle ",
+   "m2": {
+    "klarner": 13903,
+    "medsl": 8253,
+    "off": 0.6846,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-VT-upper-grandisle---"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-VT-upper-grandisle--- (a+b, held)"
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "rutland ",
+   "m2": {
+    "klarner": 103751,
+    "medsl": 60144,
+    "off": 0.725,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-VT-upper-rutland---"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2018,
+   "state": "VT",
+   "chamber": "state-upper",
+   "district": "windham ",
+   "m2": {
+    "klarner": 44395,
+    "medsl": 25970,
+    "off": 0.7095,
+    "by": "D+R"
+   },
+   "ids": [
+    "2018-VT-upper-windham---"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2018-VT-upper-windham--- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "22",
+   "m2": {
+    "klarner": 8634,
+    "medsl": 4534,
+    "off": 0.9043,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--22--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "35",
+   "m2": {
+    "klarner": 5782,
+    "medsl": 13663,
+    "off": -0.5768,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--35--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 5,782, MEDSL 5,782 (district '035'); M2 reads MEDSL's rows of the district's code (D+R): 13,663 against Klarner's 5,782"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "39",
+   "m2": {
+    "klarner": 7686,
+    "medsl": 1345,
+    "off": 4.7145,
+    "by": "all"
+   },
+   "ids": [
+    "2022-AR-lower--39--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "5",
+   "m2": {
+    "klarner": 8388,
+    "medsl": 12471,
+    "off": -0.3274,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--5--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 10,185, MEDSL 10,185 (district '005'); M2 reads MEDSL's rows of the district's code (D+R): 12,471 against Klarner's 8,388"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "6",
+   "m2": {
+    "klarner": 9551,
+    "medsl": 19447,
+    "off": -0.5089,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--6--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 10,158, MEDSL 10,158 (district '006'); M2 reads MEDSL's rows of the district's code (D+R): 19,447 against Klarner's 9,551"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "62",
+   "m2": {
+    "klarner": 7741,
+    "medsl": 3419,
+    "off": 1.2641,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--62--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-AR-lower--62-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "69",
+   "m2": {
+    "klarner": 9168,
+    "medsl": 10903,
+    "off": -0.1591,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--69--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 9,168, MEDSL 9,168 (district '069'); M2 reads MEDSL's rows of the district's code (D+R): 10,903 against Klarner's 9,168"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "73",
+   "m2": {
+    "klarner": 13147,
+    "medsl": 5266,
+    "off": 1.4966,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--73--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "85",
+   "m2": {
+    "klarner": 8564,
+    "medsl": 12664,
+    "off": -0.3238,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--85--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 8,564, MEDSL 8,564 (district '085'); M2 reads MEDSL's rows of the district's code (D+R): 12,664 against Klarner's 8,564"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "94",
+   "m2": {
+    "klarner": 8190,
+    "medsl": 14531,
+    "off": -0.4364,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--94--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 8,190, MEDSL 8,190 (district '094'); M2 reads MEDSL's rows of the district's code (D+R): 14,531 against Klarner's 8,190"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "95",
+   "m2": {
+    "klarner": 7267,
+    "medsl": 15736,
+    "off": -0.5382,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--95--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 7,267, MEDSL 7,267 (district '095'); M2 reads MEDSL's rows of the district's code (D+R): 15,736 against Klarner's 7,267"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-lower",
+   "district": "98",
+   "m2": {
+    "klarner": 8962,
+    "medsl": 4879,
+    "off": 0.8369,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-lower--98--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "18",
+   "m2": {
+    "klarner": 26015,
+    "medsl": 4383,
+    "off": 4.9354,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-upper--18--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "2",
+   "m2": {
+    "klarner": 26257,
+    "medsl": 17791,
+    "off": 0.4759,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-upper--2--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "27",
+   "m2": {
+    "klarner": 18506,
+    "medsl": 26972,
+    "off": -0.3139,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-upper--27--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 18,506, MEDSL 18,506 (district '027'); M2 reads MEDSL's rows of the district's code (D+R): 26,972 against Klarner's 18,506"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "28",
+   "m2": {
+    "klarner": 28656,
+    "medsl": 50288,
+    "off": -0.4302,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-upper--28--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 28,656, MEDSL 28,656 (district '028'); M2 reads MEDSL's rows of the district's code (D+R): 50,288 against Klarner's 28,656"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "6",
+   "m2": {
+    "klarner": 30760,
+    "medsl": 21453,
+    "off": 0.4338,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-upper--6--"
+   ],
+   "here": "M2 only: candidates not paired",
+   "reason": "its candidates do not pair one to one; untested here"
+  },
+  {
+   "year": 2022,
+   "state": "AR",
+   "chamber": "state-upper",
+   "district": "9",
+   "m2": {
+    "klarner": 18912,
+    "medsl": 14649,
+    "off": 0.291,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-AR-upper--9--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-AR-upper--9-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "AZ",
+   "chamber": "state-upper",
+   "district": "22",
+   "m2": {
+    "klarner": 10896,
+    "medsl": 24898,
+    "off": -0.5624,
+    "by": "all"
+   },
+   "ids": [
+    "2022-AZ-upper--22--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-AZ-upper--22-- (b, write-in rule)"
+  },
+  {
+   "year": 2022,
+   "state": "ID",
+   "chamber": "state-lower",
+   "district": "28",
+   "m2": {
+    "klarner": 26072,
+    "medsl": 22626,
+    "off": 0.1523,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-ID-lower--28--1",
+    "2022-ID-lower--28--2"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-ID-lower--28--1 (a, settled by the state); 2022-ID-lower--28--2 (a, settled by the state)"
+  },
+  {
+   "year": 2022,
+   "state": "ID",
+   "chamber": "state-upper",
+   "district": "1",
+   "m2": {
+    "klarner": 13064,
+    "medsl": 22089,
+    "off": -0.4086,
+    "by": "all"
+   },
+   "ids": [
+    "2022-ID-upper--1--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (id_sos canvass); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "IL",
+   "chamber": "state-lower",
+   "district": "2",
+   "m2": {
+    "klarner": 16412,
+    "medsl": 55598,
+    "off": -0.7048,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-IL-lower--2--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 16,412, MEDSL 16,412 (district '002'); M2 reads MEDSL's rows of the district's code (D+R): 55,598 against Klarner's 16,412"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "27",
+   "m2": {
+    "klarner": 42108,
+    "medsl": 36008,
+    "off": 0.1694,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MI-lower--27--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-lower--27-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "38",
+   "m2": {
+    "klarner": 42009,
+    "medsl": 37608,
+    "off": 0.117,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MI-lower--38--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-lower--38-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "43",
+   "m2": {
+    "klarner": 43691,
+    "medsl": 32153,
+    "off": 0.3588,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MI-lower--43--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-lower--43-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "63",
+   "m2": {
+    "klarner": 43648,
+    "medsl": 22966,
+    "off": 0.9005,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MI-lower--63--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-lower--63-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-lower",
+   "district": "99",
+   "m2": {
+    "klarner": 41575,
+    "medsl": 36728,
+    "off": 0.132,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MI-lower--99--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-lower--99-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "10",
+   "m2": {
+    "klarner": 89185,
+    "medsl": 64380,
+    "off": 0.3853,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MI-upper--10--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-upper--10-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "12",
+   "m2": {
+    "klarner": 125140,
+    "medsl": 116345,
+    "off": 0.0756,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MI-upper--12--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-upper--12-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "3",
+   "m2": {
+    "klarner": 71490,
+    "medsl": 30412,
+    "off": 1.3507,
+    "by": "all"
+   },
+   "ids": [
+    "2022-MI-upper--3--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-upper--3-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "MI",
+   "chamber": "state-upper",
+   "district": "35",
+   "m2": {
+    "klarner": 116351,
+    "medsl": 92482,
+    "off": 0.2581,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MI-upper--35--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MI-upper--35-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "MN",
+   "chamber": "state-lower",
+   "district": "10",
+   "m2": {
+    "klarner": 35118,
+    "medsl": 31029,
+    "off": 0.1318,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MN-lower--10-1-",
+    "2022-MN-lower--10-2-"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 15,947, MEDSL 15,947 (district '10A'); M2 reads MEDSL's rows of the district's code (D+R): 31,029 against Klarner's 35,118"
+  },
+  {
+   "year": 2022,
+   "state": "MN",
+   "chamber": "state-lower",
+   "district": "17",
+   "m2": {
+    "klarner": 35042,
+    "medsl": 29383,
+    "off": 0.1926,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MN-lower--17-1-",
+    "2022-MN-lower--17-2-"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 19,090, MEDSL 19,090 (district '17A'); M2 reads MEDSL's rows of the district's code (D+R): 29,383 against Klarner's 35,042"
+  },
+  {
+   "year": 2022,
+   "state": "MN",
+   "chamber": "state-lower",
+   "district": "29",
+   "m2": {
+    "klarner": 34578,
+    "medsl": 28463,
+    "off": 0.2148,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MN-lower--29-1-",
+    "2022-MN-lower--29-2-"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 20,913, MEDSL 20,913 (district '29A'); M2 reads MEDSL's rows of the district's code (D+R): 28,463 against Klarner's 34,578"
+  },
+  {
+   "year": 2022,
+   "state": "MN",
+   "chamber": "state-upper",
+   "district": "9",
+   "m2": {
+    "klarner": 36932,
+    "medsl": 40439,
+    "off": -0.0867,
+    "by": "all"
+   },
+   "ids": [
+    "2022-MN-upper--9--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 36,932, MEDSL 36,932 (district '009'); M2 reads MEDSL's rows of the district's code (all): 40,439 against Klarner's 36,932"
+  },
+  {
+   "year": 2022,
+   "state": "MO",
+   "chamber": "state-lower",
+   "district": "129",
+   "m2": {
+    "klarner": 12106,
+    "medsl": 11210,
+    "off": 0.0799,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-MO-lower--129--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-MO-lower--129-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "15",
+   "m2": {
+    "klarner": 8180,
+    "medsl": 6565,
+    "off": 0.246,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-ND-lower--15--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 8,180, MEDSL 8,180 (district '015'); M2 reads MEDSL's rows of the district's code (D+R): 6,565 against Klarner's 8,180"
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "29",
+   "m2": {
+    "klarner": 10536,
+    "medsl": 8804,
+    "off": 0.1967,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-ND-lower--29--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 10,536, MEDSL 10,536 (district '029'); M2 reads MEDSL's rows of the district's code (D+R): 8,804 against Klarner's 10,536"
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "3",
+   "m2": {
+    "klarner": 5590,
+    "medsl": 4563,
+    "off": 0.2251,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-ND-lower--3--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 5,590, MEDSL 5,590 (district '003'); M2 reads MEDSL's rows of the district's code (D+R): 4,563 against Klarner's 5,590"
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-lower",
+   "district": "31",
+   "m2": {
+    "klarner": 7998,
+    "medsl": 6638,
+    "off": 0.2049,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-ND-lower--31--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 7,998, MEDSL 7,998 (district '031'); M2 reads MEDSL's rows of the district's code (D+R): 6,638 against Klarner's 7,998"
+  },
+  {
+   "year": 2022,
+   "state": "ND",
+   "chamber": "state-upper",
+   "district": "11",
+   "m2": {
+    "klarner": 3627,
+    "medsl": 3879,
+    "off": -0.065,
+    "by": "all"
+   },
+   "ids": [
+    "2022-ND-upper--11--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 3,627, MEDSL 3,627 (district '011'); M2 reads MEDSL's rows of the district's code (all): 3,879 against Klarner's 3,627"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "1",
+   "m2": {
+    "klarner": 47934,
+    "medsl": 23967,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--1--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "10",
+   "m2": {
+    "klarner": 52330,
+    "medsl": 26165,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--10--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "11",
+   "m2": {
+    "klarner": 55822,
+    "medsl": 27911,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--11--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "12",
+   "m2": {
+    "klarner": 55880,
+    "medsl": 27940,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--12--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "13",
+   "m2": {
+    "klarner": 35528,
+    "medsl": 17764,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--13--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "14",
+   "m2": {
+    "klarner": 49528,
+    "medsl": 24764,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--14--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "15",
+   "m2": {
+    "klarner": 51392,
+    "medsl": 25696,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--15--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "16",
+   "m2": {
+    "klarner": 50554,
+    "medsl": 25277,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--16--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "17",
+   "m2": {
+    "klarner": 52378,
+    "medsl": 26189,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--17--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "18",
+   "m2": {
+    "klarner": 37870,
+    "medsl": 18935,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--18--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "19",
+   "m2": {
+    "klarner": 30286,
+    "medsl": 15143,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--19--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "2",
+   "m2": {
+    "klarner": 54718,
+    "medsl": 27359,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--2--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "20",
+   "m2": {
+    "klarner": 34062,
+    "medsl": 17031,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--20--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "21",
+   "m2": {
+    "klarner": 40168,
+    "medsl": 20084,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--21--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "22",
+   "m2": {
+    "klarner": 53098,
+    "medsl": 26549,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--22--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "23",
+   "m2": {
+    "klarner": 55932,
+    "medsl": 27966,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--23--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "24",
+   "m2": {
+    "klarner": 64656,
+    "medsl": 32255,
+    "off": 1.0045,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--24--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "3",
+   "m2": {
+    "klarner": 59290,
+    "medsl": 29645,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--3--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "4",
+   "m2": {
+    "klarner": 50172,
+    "medsl": 25086,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--4--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "5",
+   "m2": {
+    "klarner": 55850,
+    "medsl": 27925,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--5--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "6",
+   "m2": {
+    "klarner": 47202,
+    "medsl": 23601,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--6--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "7",
+   "m2": {
+    "klarner": 49118,
+    "medsl": 24559,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--7--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "8",
+   "m2": {
+    "klarner": 49200,
+    "medsl": 24600,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--8--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NH",
+   "chamber": "state-upper",
+   "district": "9",
+   "m2": {
+    "klarner": 52394,
+    "medsl": 26197,
+    "off": 1.0,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NH-upper--9--"
+   ],
+   "here": "M2 only: settled before this check",
+   "reason": "a fix the build makes already, before this check reads the contest (medsl); M2 reads Klarner's raw file"
+  },
+  {
+   "year": 2022,
+   "state": "NM",
+   "chamber": "state-lower",
+   "district": "15",
+   "m2": {
+    "klarner": 11960,
+    "medsl": 12594,
+    "off": -0.0503,
+    "by": "all"
+   },
+   "ids": [
+    "2022-NM-lower--15--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2022,
+   "state": "NM",
+   "chamber": "state-lower",
+   "district": "53",
+   "m2": {
+    "klarner": 11267,
+    "medsl": 6341,
+    "off": 0.7768,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NM-lower--53--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NM-lower--53-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "101",
+   "m2": {
+    "klarner": 48701,
+    "medsl": 53175,
+    "off": -0.0841,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-lower--101--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NY-lower--101-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "102",
+   "m2": {
+    "klarner": 58014,
+    "medsl": 63534,
+    "off": -0.0869,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-lower--102--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NY-lower--102-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "103",
+   "m2": {
+    "klarner": 60159,
+    "medsl": 65073,
+    "off": -0.0755,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-lower--103--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NY-lower--103-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "113",
+   "m2": {
+    "klarner": 55107,
+    "medsl": 94861,
+    "off": -0.4191,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-lower--113--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 55,107, MEDSL 55,107 (district '113'); M2 reads MEDSL's rows of the district's code (D+R): 94,861 against Klarner's 55,107"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "121",
+   "m2": {
+    "klarner": 41413,
+    "medsl": 55351,
+    "off": -0.2518,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-lower--121--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NY-lower--121-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "122",
+   "m2": {
+    "klarner": 49258,
+    "medsl": 57542,
+    "off": -0.144,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-lower--122--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NY-lower--122-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-lower",
+   "district": "129",
+   "m2": {
+    "klarner": 24143,
+    "medsl": 33533,
+    "off": -0.28,
+    "by": "all"
+   },
+   "ids": [
+    "2022-NY-lower--129--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 24,143, MEDSL 24,143 (district '129'); M2 reads MEDSL's rows of the district's code (all): 33,533 against Klarner's 24,143"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "51",
+   "m2": {
+    "klarner": 119446,
+    "medsl": 148973,
+    "off": -0.1982,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-upper--51--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NY-upper--51-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "53",
+   "m2": {
+    "klarner": 86372,
+    "medsl": 91881,
+    "off": -0.06,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-upper--53--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NY-upper--53-- (a, held)"
+  },
+  {
+   "year": 2022,
+   "state": "NY",
+   "chamber": "state-upper",
+   "district": "56",
+   "m2": {
+    "klarner": 95390,
+    "medsl": 61909,
+    "off": 0.5408,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-NY-upper--56--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-NY-upper--56-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "1",
+   "m2": {
+    "klarner": 135424,
+    "medsl": 83279,
+    "off": 0.6261,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WA-lower--1--1",
+    "2022-WA-lower--1--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 67,783, MEDSL 67,783 (district '001'); M2 reads MEDSL's rows of the district's code (all): 83,279 against Klarner's 135,424"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "10",
+   "m2": {
+    "klarner": 149161,
+    "medsl": 85347,
+    "off": 0.7477,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--10--1",
+    "2022-WA-lower--10--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 74,539, MEDSL 74,281 (district '010'); M2 reads MEDSL's rows of the district's code (D+R): 85,347 against Klarner's 149,161"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "12",
+   "m2": {
+    "klarner": 98286,
+    "medsl": 20484,
+    "off": 3.7982,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--12--1",
+    "2022-WA-lower--12--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 45,819, MEDSL 45,819 (district '012'); M2 reads MEDSL's rows of the district's code (D+R): 20,484 against Klarner's 98,286"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "15",
+   "m2": {
+    "klarner": 35240,
+    "medsl": 12996,
+    "off": 1.7116,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--15--1",
+    "2022-WA-lower--15--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 17,856, MEDSL 17,856 (district '015'); M2 reads MEDSL's rows of the district's code (D+R): 12,996 against Klarner's 35,240"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "16",
+   "m2": {
+    "klarner": 109652,
+    "medsl": 61289,
+    "off": 0.7891,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--16--1",
+    "2022-WA-lower--16--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 54,920, MEDSL 54,065 (district '016'); M2 reads MEDSL's rows of the district's code (D+R): 61,289 against Klarner's 109,652"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "17",
+   "m2": {
+    "klarner": 138591,
+    "medsl": 126337,
+    "off": 0.097,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--17--1",
+    "2022-WA-lower--17--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 69,324, MEDSL 69,324 (district '017'); M2 reads MEDSL's rows of the district's code (D+R): 126,337 against Klarner's 138,591"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "19",
+   "m2": {
+    "klarner": 128172,
+    "medsl": 118721,
+    "off": 0.0796,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--19--1",
+    "2022-WA-lower--19--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 64,172, MEDSL 63,890 (district '019'); M2 reads MEDSL's rows of the district's code (D+R): 118,721 against Klarner's 128,172"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "2",
+   "m2": {
+    "klarner": 79826,
+    "medsl": 168378,
+    "off": -0.5259,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--2--1",
+    "2022-WA-lower--2--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 41,291, MEDSL 41,291 (district '002'); M2 reads MEDSL's rows of the district's code (D+R): 168,378 against Klarner's 79,826"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "20",
+   "m2": {
+    "klarner": 101457,
+    "medsl": 91249,
+    "off": 0.1119,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--20--1",
+    "2022-WA-lower--20--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 50,693, MEDSL 50,693 (district '020'); M2 reads MEDSL's rows of the district's code (D+R): 91,249 against Klarner's 101,457"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "24",
+   "m2": {
+    "klarner": 162516,
+    "medsl": 303979,
+    "off": -0.4654,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--24--1",
+    "2022-WA-lower--24--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 81,404, MEDSL 81,295 (district '024'); M2 reads MEDSL's rows of the district's code (D+R): 303,979 against Klarner's 162,516"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "27",
+   "m2": {
+    "klarner": 116109,
+    "medsl": 208059,
+    "off": -0.4419,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--27--1",
+    "2022-WA-lower--27--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 58,010, MEDSL 58,010 (district '027'); M2 reads MEDSL's rows of the district's code (D+R): 208,059 against Klarner's 116,109"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "32",
+   "m2": {
+    "klarner": 114442,
+    "medsl": 57677,
+    "off": 0.9842,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--32--1",
+    "2022-WA-lower--32--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 62,193, MEDSL 62,102 (district '032'); M2 reads MEDSL's rows of the district's code (D+R): 57,677 against Klarner's 114,442"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "35",
+   "m2": {
+    "klarner": 148604,
+    "medsl": 31118,
+    "off": 3.7755,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--35--1",
+    "2022-WA-lower--35--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 74,397, MEDSL 74,397 (district '035'); M2 reads MEDSL's rows of the district's code (D+R): 31,118 against Klarner's 148,604"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "7",
+   "m2": {
+    "klarner": 108456,
+    "medsl": 62511,
+    "off": 0.735,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--7--1",
+    "2022-WA-lower--7--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 57,382, MEDSL 57,382 (district '007'); M2 reads MEDSL's rows of the district's code (D+R): 62,511 against Klarner's 108,456"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-lower",
+   "district": "9",
+   "m2": {
+    "klarner": 92031,
+    "medsl": 34490,
+    "off": 1.6683,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-lower--9--1",
+    "2022-WA-lower--9--2"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 46,711, MEDSL 46,711 (district '009'); M2 reads MEDSL's rows of the district's code (D+R): 34,490 against Klarner's 92,031"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "15",
+   "m2": {
+    "klarner": 23123,
+    "medsl": 28445,
+    "off": -0.1871,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-upper--15--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 23,123, MEDSL 22,952 (district '015'); M2 reads MEDSL's rows of the district's code (D+R): 28,445 against Klarner's 23,123"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "26",
+   "m2": {
+    "klarner": 75168,
+    "medsl": 35472,
+    "off": 1.1191,
+    "by": "D+R"
+   },
+   "ids": [
+    "2022-WA-upper--26--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 75,168, MEDSL 75,163 (district '026'); M2 reads MEDSL's rows of the district's code (D+R): 35,472 against Klarner's 75,168"
+  },
+  {
+   "year": 2022,
+   "state": "WA",
+   "chamber": "state-upper",
+   "district": "8",
+   "m2": {
+    "klarner": 56768,
+    "medsl": 41617,
+    "off": 0.3641,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WA-upper--8--"
+   ],
+   "here": "both",
+   "reason": "flagged here too: 2022-WA-upper--8-- (a, kept: MEDSL does not cover the district)"
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "19",
+   "m2": {
+    "klarner": 2122,
+    "medsl": 3050,
+    "off": -0.3043,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WY-lower--19--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 2,122, MEDSL 2,122 (district '019'); M2 reads MEDSL's rows of the district's code (all): 3,050 against Klarner's 2,122"
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "25",
+   "m2": {
+    "klarner": 2585,
+    "medsl": 2925,
+    "off": -0.1162,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WY-lower--25--"
+   ],
+   "here": "M2 only: unmatched",
+   "reason": "no MEDSL contest of its chamber names all its candidates by surname, so it is untested here (22:26 (e)); M2 matches by the district's code"
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "35",
+   "m2": {
+    "klarner": 2465,
+    "medsl": 2595,
+    "off": -0.0501,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WY-lower--35--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 2,465, MEDSL 2,465 (district '035'); M2 reads MEDSL's rows of the district's code (all): 2,595 against Klarner's 2,465"
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-lower",
+   "district": "51",
+   "m2": {
+    "klarner": 3631,
+    "medsl": 3900,
+    "off": -0.069,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WY-lower--51--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 3,631, MEDSL 3,631 (district '051'); M2 reads MEDSL's rows of the district's code (all): 3,900 against Klarner's 3,631"
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-upper",
+   "district": "1",
+   "m2": {
+    "klarner": 4785,
+    "medsl": 6365,
+    "off": -0.2482,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WY-upper--1--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 4,785, MEDSL 4,785 (district '001'); M2 reads MEDSL's rows of the district's code (all): 6,365 against Klarner's 4,785"
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-upper",
+   "district": "19",
+   "m2": {
+    "klarner": 5538,
+    "medsl": 5901,
+    "off": -0.0615,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WY-upper--19--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 5,538, MEDSL 5,538 (district '019'); M2 reads MEDSL's rows of the district's code (all): 5,901 against Klarner's 5,538"
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-upper",
+   "district": "25",
+   "m2": {
+    "klarner": 4365,
+    "medsl": 4904,
+    "off": -0.1099,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WY-upper--25--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 4,365, MEDSL 4,365 (district '025'); M2 reads MEDSL's rows of the district's code (all): 4,904 against Klarner's 4,365"
+  },
+  {
+   "year": 2022,
+   "state": "WY",
+   "chamber": "state-upper",
+   "district": "29",
+   "m2": {
+    "klarner": 4402,
+    "medsl": 4814,
+    "off": -0.0856,
+    "by": "all"
+   },
+   "ids": [
+    "2022-WY-upper--29--"
+   ],
+   "here": "M2 only: within 3% here",
+   "reason": "tested here on the named candidates matched by surname: Klarner 4,402, MEDSL 4,402 (district '029'); M2 reads MEDSL's rows of the district's code (all): 4,814 against Klarner's 4,402"
+  }
+ ]
+}
