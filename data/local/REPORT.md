@@ -1863,7 +1863,7 @@ The record is the locality lines, which add up to the statewide count the page s
 
 ## 32. District checks: Klarner's legislatures beside MEDSL's, MEDSL's own coverage, the coarse tier, and the 21:55 items
 
-*Added 2026-11-13 at 00:30 UTC, at the orchestrator's orders of 2026-11-07 21:21, 21:26, 21:55, 22:19, 22:26 and 22:42. The thread stopped at 23:31 that night on a usage limit and resumed on 2026-11-12 at 23:07; nothing was fetched in between.* The checks are in `data/local/check-districts.json` and `data/local/check-districts-m2.json` (`pipeline/local_districts.py`); every record that changed is in `data/local/moves-district-checks.json`.
+*Added 2026-11-13 at 00:20 UTC, at the orchestrator's orders of 2026-11-07 21:21, 21:26, 21:55, 22:19, 22:26 and 22:42. The thread stopped at 23:31 that night on a usage limit and resumed on 2026-11-12 at 23:07; nothing was fetched in between.* The checks are in `data/local/check-districts.json` and `data/local/check-districts-m2.json` (`pipeline/local_districts.py`); every record that changed is in `data/local/moves-district-checks.json`.
 
 **Why.** The orchestrator, 21:21: "(a) flag any district whose ratio is off 1 by more than 3%; (b) flag any Klarner record coded uncontested where MEDSL shows another candidate with votes beyond scattered write-ins. Settle each by the state where it answers. Where it doesn't, use the 19:04 rules." 21:26: a write-in opponent is not a ballot opponent (the write-in rule); settle from the state only where its file is cached or it answers one request; "List every flag with its outcome, and count the p moved, lost and gained by level and year"; run every overlap year.
 
