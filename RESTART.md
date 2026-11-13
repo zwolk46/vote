@@ -39,8 +39,8 @@ Nothing else is needed from you. The coordinator and the new orchestrator do the
 
 | Worker | Brief | Model, effort | Old branch | At the stop | On restart |
 |---|---|---|---|---|---|
-| D3, local, legislative and measure data | `briefs/D3-data-local.md` | Opus 5.5, xhigh | `claude/project-thread-sl6m2f` | #100, #101, #106, #109 and #111 (district checks, held one-name, VA 2023 and 2025 local, governor counts) merged 2026-11-13. Next: Indiana 2018 House flags, then items it proposes from its brief (`STATE.md` log). | **restart** |
-| M2, independent check of every p | `briefs/M2-check-computed-p.md` | Fable 5.1, xhigh | `claude/project-thread-pbr8zl` | Eighth pass merged as #102, #104, #105, #108 and #110 (2026-11-13: #96 to #109 checked). Next: §20 on #111. | **restart** |
+| D3, local, legislative and measure data | `briefs/D3-data-local.md` | Opus 5.5, xhigh | `claude/project-thread-sl6m2f` | #100 to #115 merged by 2026-11-13 (#115: the recount zone beside p). Next: Singer's 2020 results (CC0), its own PR, then its final report. | **restart** |
+| M2, independent check of every p | `briefs/M2-check-computed-p.md` | Fable 5.1, xhigh | `claude/project-thread-pbr8zl` | Eighth pass merged as #102, #104, #105, #108, #110 and #114 (2026-11-13: #96 to #113 checked). Next: §21 on #115. | **restart** |
 | X1, design | `briefs/X1-design.md` | Opus 5.5, xhigh | `claude/project-thread-ozfwbq-options`, `claude/project-thread-ozfwbq-explainer` | Holding for Zach's two picks, with both options carrying real data. | **restart once he picks** |
 | T1, tracker | `briefs/T1-tracker.md` | Sonnet 5.5, xhigh | none | Kept the old tracker's rows. | **restart** after section 6, pointing the brief at the new tracker's link |
 | D1, D2, D4, R1 to R4, B1, B2, M1 | their briefs | as named | as in `handoff/memory/` | Done, merged and stopped. | no |
@@ -56,6 +56,8 @@ The exact questions, options and recommendations are in `handoff/MAKER-WORDS.md`
 3. **Design workers at max effort, or xhigh like everything else** (max for design only, recommended). Until he answers, design runs at xhigh.
 
 One older ask also stands, and a Full-network environment settles it: web.archive.org, for 538's past forecasts (`plan/PLAN.md` §5).
+
+Two source questions wait for him, to be put together when he next writes, not as urgent cards (2026-11-13): MEDSL's 2018 and 2020 Dataverse sets sit behind a guestbook form, an outsider's ask that only he can answer; and Jones's Virginia Election Data 1969–2026 (Dataverse BAQ69D) is CC BY-SA, whose share-alike term would bind the site's licence. *Reason:* both bind the site to an outsider's terms (CLAUDE.md, "Money and outsiders only on the maker's word").
 
 ## 6. The tracker
 
